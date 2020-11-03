@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628192"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496073"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procédure : Déployer une application web de comptage de personnes
 
@@ -63,14 +63,14 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Déployer le conteneur sur Azure IoT Edge sur l’ordinateur hôte
 
-Déployez le conteneur d’analyse spatiale comme un module IoT sur l’ordinateur hôte, à l’aide de l’interface de ligne de commande Azure. Le processus de déploiement requiert un fichier manifeste de déploiement qui présente les conteneurs, les variables et les configurations nécessaires pour votre déploiement. Vous trouverez un exemple de [manifeste de déploiement](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) sur GitHub, qui comprend une configuration de déploiement de base pour le conteneur *d’analyse spatiale*. 
+Déployez le conteneur d’analyse spatiale comme un module IoT sur l’ordinateur hôte, à l’aide de l’interface de ligne de commande Azure. Le processus de déploiement requiert un fichier manifeste de déploiement qui présente les conteneurs, les variables et les configurations nécessaires pour votre déploiement. Vous pouvez trouver un exemple de [manifeste de déploiement spécifique à Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/), ainsi qu’un [manifeste de déploiement non spécifique à Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) sur GitHub, qui incluent une configuration de déploiement de base pour le conteneur *spatial-analysis*. 
 
 > [!NOTE] 
-> Les conteneurs *spatial-analysis-telegraf* et *spatial-analysis-diagnostics* sont facultatifs. Vous pouvez choisir de les supprimer du fichier *DeploymentManifest.json*. Pour plus d’informations, consultez l’[article relatif à la télémétrie et au dépannage](./spatial-analysis-logging.md). Vous trouverez un exemple de fichier *DeploymentManifest.json* sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2142179). 
+> Les conteneurs *spatial-analysis-telegraf* et *spatial-analysis-diagnostics* sont facultatifs. Vous pouvez choisir de les supprimer du fichier *DeploymentManifest.json*. Pour plus d’informations, consultez l’[article relatif à la télémétrie et au dépannage](./spatial-analysis-logging.md). Vous trouverez deux exemples de fichiers *DeploymentManifest.json* sur GitHub, soit pour des [appareils Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), soit pour un autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json).
 
 ### <a name="set-environment-variables"></a>Définir des variables d’environnement
 
-La plupart des **variables d’environnement** du module IoT Edge sont déjà définies dans l’exemple de fichier *DeploymentManifest.json* dont le lien figure ci-dessus. Dans le fichier, recherchez les variables d’environnement `BILLING_ENDPOINT` et `API_KEY`, comme indiqué ci-dessous. Remplacez les valeurs par l’URI de point de terminaison et la clé API que vous avez créées précédemment. Assurez-vous que la valeur CLUF est définie sur « accepter ». 
+La plupart des **variables d’environnement** du module IoT Edge sont déjà définies dans les fichiers *DeploymentManifest.json* d’exemple dont les liens se trouvent ci-dessus. Dans le fichier, recherchez les variables d’environnement `BILLING_ENDPOINT` et `API_KEY`, comme indiqué ci-dessous. Remplacez les valeurs par l’URI de point de terminaison et la clé API que vous avez créées précédemment. Assurez-vous que la valeur CLUF est définie sur « accepter ». 
 
 ```json
 "EULA": { 
@@ -89,7 +89,7 @@ La plupart des **variables d’environnement** du module IoT Edge sont déjà d�
 
 Maintenant que la configuration initiale du conteneur *spatial-analysis* est terminée, l’étape suivante consiste à configurer les paramètres d’opération et à les ajouter au déploiement. 
 
-La première étape consiste à mettre à jour l’exemple de [manifeste de déploiement](https://go.microsoft.com/fwlink/?linkid=2142179) et à configurer operationId pour `cognitiveservices.vision.spatialanalysis-personcount` comme indiqué ci-dessous :
+La première étape consiste à mettre à jour l’exemple de manifeste de déploiement en lien ci-dessus et à configurer l’operationId pour `cognitiveservices.vision.spatialanalysis-personcount` comme indiqué ci-dessous :
 
 
 ```json
@@ -107,7 +107,7 @@ La première étape consiste à mettre à jour l’exemple de [manifeste de dép
 },
 ```
 
-Une fois le [manifeste de déploiement](https://go.microsoft.com/fwlink/?linkid=2142179) mis à jour, suivez les instructions du fabricant de la caméra pour installer la caméra, configurer l’URL de la caméra et configurer le nom d’utilisateur et le mot de passe. 
+Une fois le manifeste de déploiement mis à jour, suivez les instructions du fabricant de la caméra pour installer la caméra, configurer l’URL de la caméra et configurer le nom d’utilisateur et le mot de passe. 
 
 Ensuite, définissez `VIDEO_URL` sur l’URL RTSP de la caméra et les informations d’identification vous permettant de vous connecter à la caméra.
 
@@ -122,7 +122,7 @@ Vous pouvez également sélectionner un seuil de confiance pour le comptage des 
 
 ### <a name="execute-the-deployment"></a>Exécuter le déploiement
 
-Maintenant que le [manifeste de déploiement](https://go.microsoft.com/fwlink/?linkid=2142179) est terminé, utilisez cette commande dans l’interface de ligne de commande Azure pour déployer le conteneur sur l’ordinateur hôte en tant que module IoT Edge.
+Maintenant que le manifeste de déploiement est terminé, utilisez cette commande dans l’interface de ligne de commande Azure pour déployer le conteneur sur l’ordinateur hôte en tant que module IoT Edge.
 
 ```azurecli
 az login
@@ -145,7 +145,7 @@ Localisez la section *État du runtime* dans les paramètres du module IoT Edge 
 
 ![Exemple de vérification du déploiement](./media/spatial-analysis/deployment-verification.png)
 
-À ce stade, le conteneur d’analyse spatiale exécute l’opération. Il émet des Insights IA pour l’opération `cognitiveservices.vision.spatialanalysis-personcount` et achemine ces informations en tant que données de télémétrie à votre instance Azure IoT Hub. Pour configurer d’autres caméras, vous pouvez mettre à jour le fichier de [manifeste de déploiement](https://go.microsoft.com/fwlink/?linkid=2142179) et exécuter à nouveau le déploiement.
+À ce stade, le conteneur d’analyse spatiale exécute l’opération. Il émet des Insights IA pour l’opération `cognitiveservices.vision.spatialanalysis-personcount` et achemine ces informations en tant que données de télémétrie à votre instance Azure IoT Hub. Pour configurer d’autres caméras, vous pouvez mettre à jour le fichier de manifeste de déploiement et exécuter à nouveau le déploiement.
 
 ## <a name="person-counting-web-application"></a>Application web de comptage de personnes
 
@@ -156,7 +156,7 @@ Cette application web de comptage de personnes vous permet de configurer rapidem
 Un formulaire conteneur pour cette application est disponible sur Azure Container Registry. Utilisez le docker pull suivant pour le télécharger. Contactez Microsoft à l’adresse projectarchon@microsoft.com pour obtenir le jeton d’accès.
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 
@@ -170,7 +170,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Pour installer le conteneur, créez une nouvelle Web App pour conteneurs Azure et renseignez les paramètres requis. Accédez ensuite à l’onglet **Docker** et sélectionnez **Conteneur unique**, puis **Azure Container Registry**. Utilisez l’instance Azure Container Registry à laquelle vous avez envoyé l’image ci-dessus.
+Pour installer le conteneur, créez une nouvelle Web App pour conteneurs Azure et renseignez les paramètres requis. Accédez ensuite à l’onglet **Docker** et sélectionnez **Conteneur unique** , puis **Azure Container Registry**. Utilisez l’instance Azure Container Registry à laquelle vous avez envoyé l’image ci-dessus.
 
 ![Entrer les détails de l’image](./media/spatial-analysis/solution-app-create-screen.png)
 

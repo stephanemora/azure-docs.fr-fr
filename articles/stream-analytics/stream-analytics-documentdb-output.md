@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596573"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424783"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Sortie Azure Stream Analytics dans Azure Cosmos DB  
-Azure Stream Analytics peut cibler [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Ce document traite certaines meilleures pratiques recommandées pour l’implémentation de cette configuration.
+Azure Stream Analytics peut cibler [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Ce document traite certaines meilleures pratiques recommandées pour l’implémentation de cette configuration. Nous vous recommandons de définir votre travail sur le niveau de compatibilité 1.2 lorsque vous utilisez Azure Cosmos DB comme sortie.
 
 Si vous n’êtes pas familiarisé avec Azure Cosmos DB, consultez la [documentation Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) pour commencer. 
 
@@ -58,7 +58,7 @@ Si le document JSON entrant contient un champ ID existant, ce champ est automati
 - Des ID dupliqués et **ID du document** défini sur **ID** aboutissent à une opération upsert.
 - Des ID dupliqués et **ID du document** non défini aboutissent à une erreur après le premier document.
 
-Si vous souhaitez enregistrer *tous* les documents, notamment ceux dont l’ID est dupliqué, renommez le champ ID dans votre requête (à l’aide du mot clé **AS**). Laissez Azure Cosmos DB créer le champ ID ou remplacer l’ID par la valeur d’une autre colonne (en utilisant le mot clé **AS** ou en utilisant le paramètre **ID de document**).
+Si vous souhaitez enregistrer *tous* les documents, notamment ceux dont l’ID est dupliqué, renommez le champ ID dans votre requête (à l’aide du mot clé **AS** ). Laissez Azure Cosmos DB créer le champ ID ou remplacer l’ID par la valeur d’une autre colonne (en utilisant le mot clé **AS** ou en utilisant le paramètre **ID de document** ).
 
 ## <a name="data-partitioning-in-azure-cosmos-db"></a>Partitionnement des données dans Azure Cosmos DB
 Azure Cosmos DB ajuste automatiquement les partitions en fonction de votre charge de travail. Nous vous recommandons donc d’utiliser des conteneurs [illimités](../cosmos-db/partition-data.md) comme approche pour partitionner vos données. Pendant une opération d’écriture dans des conteneurs illimités, Stream Analytics utilise autant d’enregistreurs parallèles que l’étape de requête précédente ou le schéma de partitionnement d’entrée.
@@ -66,7 +66,7 @@ Azure Cosmos DB ajuste automatiquement les partitions en fonction de votre charg
 > [!NOTE]
 > Azure Stream Analytics prend uniquement en charge un nombre illimité de conteneurs avec des clés de partition au niveau supérieur. Par exemple, la clé de partition `/region` est prise en charge. Les clés de partition imbriquées (par exemple, `/region/name`) ne sont pas prises en charge. 
 
-Selon votre choix de clé de partition, vous pourrez recevoir cet _avertissement_ :
+Selon votre choix de clé de partition, vous pourrez recevoir cet _avertissement_  :
 
 `CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key.`
 
@@ -74,7 +74,7 @@ Il est important de choisir une propriété de clé de partition présentant un 
 
 La taille de stockage des documents appartenant à la même valeur de clé de partition est limitée à 20 Go (la [limite de taille de partition physique](../cosmos-db/partition-data.md) est de 50 Go). Une [clé de partition idéale](../cosmos-db/partitioning-overview.md#choose-partitionkey) apparaît fréquemment sous forme de filtre dans vos requêtes efficaces et possède une cardinalité suffisante pour garantir la scalabilité de votre solution.
 
-Les clés de partition utilisées pour les requêtes Stream Analytics et Cosmos DB n’ont pas besoin d’être identiques. Les topologies entièrement parallèles recommandent l’utilisation d’une *clé de partition d’entrée*, `PartitionId`, comme clé de partition de la requête Stream Analytics, mais ce n’est peut-être pas le choix recommandé pour la clé de partition d’un conteneur Cosmos DB.
+Les clés de partition utilisées pour les requêtes Stream Analytics et Cosmos DB n’ont pas besoin d’être identiques. Les topologies entièrement parallèles recommandent l’utilisation d’une *clé de partition d’entrée* , `PartitionId`, comme clé de partition de la requête Stream Analytics, mais ce n’est peut-être pas le choix recommandé pour la clé de partition d’un conteneur Cosmos DB.
 
 Une clé de partition sert également de limite pour les transactions dans les procédures stockées et les déclencheurs d’Azure Cosmos DB. Vous devez choisir la clé de partition de sorte que les documents impliqués dans les mêmes transactions partagent la même valeur de clé de partition. L’article [Partitionnement des données dans Azure Cosmos DB](../cosmos-db/partitioning-overview.md) fournit des détails supplémentaires sur le choix d’une clé de partition.
 
@@ -137,3 +137,17 @@ En cas de panne transitoire, d’indisponibilité du service ou de limitation de
 - NotFound (code d’erreur HTTP 404)
 - Forbidden (code d’erreur HTTP 403)
 - BadRequest (code d’erreur HTTP 400)
+
+## <a name="common-issues"></a>Problèmes courants
+
+1. Une contrainte d’index unique est ajoutée à la collection et les données de sortie de Stream Analytics enfreignent cette contrainte. Assurez-vous que les données de sortie de Stream Analytics ne violent pas de contraintes uniques ou supprimez les contraintes. Pour plus d’informations, consultez [Contraintes de clé unique dans Azure Cosmos DB](../cosmos-db/unique-keys.md).
+
+2. La colonne `PartitionKey` n’existe pas.
+
+3. La colonne `Id` n’existe pas.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Comprendre les sorties d’Azure Stream Analytics](stream-analytics-define-outputs.md) 
+* [Sortie Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md)
+* [Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md)

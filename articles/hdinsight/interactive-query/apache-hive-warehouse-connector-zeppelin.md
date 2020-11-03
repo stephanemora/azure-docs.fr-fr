@@ -7,16 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 6ee1c70ec02af2a24f7867a6e6b06593361612b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bccf2b9a3dfe42ca439a45eb1e35cfaff58d0208
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083115"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426953"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Intégrer Apache Zeppelin avec Hive Warehouse Connector dans Azure HDInsight
 
 Les clusters HDInsight Spark incluent des blocs-notes Apache Zeppelin avec différents interpréteurs. Cet article se concentre uniquement sur l’interpréteur livy pour accéder aux tables Hive à partir de Spark à l’aide de Hive Warehouse Connector.
+
+> [!NOTE]
+> Cet article contient des références au terme *liste blanche* , un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="prerequisite"></a>Configuration requise
 

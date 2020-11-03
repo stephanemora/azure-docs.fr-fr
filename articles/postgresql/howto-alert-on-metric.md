@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: fba5c868a146529a981e23cd88b413f2eb441896
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708932"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546617"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Utiliser le portail Azure pour configurer des alertes de métriques pour Azure Database pour PostgreSQL - Serveur unique
 
@@ -27,12 +27,12 @@ Vous pouvez configurer une alerte pour effectuer les actions suivantes lors de s
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte à l’aide des ressources suivantes :
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Créer une règle d’alerte sur une métrique à partir du portail Azure
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur Azure Database pour PostgreSQL à surveiller.
 
-2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes**, comme illustré :
+2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes** , comme illustré :
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Sélectionner des règles d’alerte":::
 
@@ -40,21 +40,21 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
 4. La page **Créer une règle** s’ouvre, comme illustré ci-dessous. Entrez les informations obligatoires :
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formulaire Ajouter une alerte Métrique":::
 
-5. Dans la section **Condition**, sélectionnez **Ajouter une condition**.
+5. Dans la section **Condition** , sélectionnez **Ajouter une condition**.
 
 6. Sélectionnez une métrique dans la liste des signaux d'alerte. Dans cet exemple, sélectionnez « Storage percent ».
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Sélectionner la métrique":::
 
-7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency**.
+7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps** , **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency**.
    
    Sélectionnez **Terminé** lorsque vous avez terminé.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Capture d’écran mettant en évidence la section Logique d’alerte et le bouton Terminé.":::
 
-8. Dans la section **Groupes d’actions**, sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
+8. Dans la section **Groupes d’actions** , sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
 
 9. Renseignez le formulaire « Ajouter un groupe d'actions » avec un nom, un nom court, un abonnement et un groupe de ressources.
 
@@ -66,11 +66,11 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
     Sélectionnez **OK** lorsque vous avez terminé.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Sélectionner des règles d’alerte":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Capture d’écran montrant comment ajouter un groupe d’actions.":::
 
 11. Spécifiez un nom de règle d’alerte, une description et une gravité.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Sélectionner des règles d’alerte"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Groupe d’actions"::: 
 
 12. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 
@@ -85,4 +85,4 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et exécu
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez plus en détail la [configuration des webhooks dans les alertes](../azure-monitor/platform/alerts-webhooks.md).
-* Consultez une [vue d’ensemble de la collecte des métriques](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
+* Consultez une [vue d’ensemble de la collecte des métriques](../azure-monitor/platform/data-platform.md) pour vous assurer que votre service est disponible et réactif.

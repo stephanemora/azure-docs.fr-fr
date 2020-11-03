@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816818"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891500"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
 
@@ -44,11 +44,13 @@ Il existe plusieurs conditions préalables à prendre en compte avant d’essaye
 - Les machines virtuelles concernées doivent être exclusivement Windows Server.
 - Les machines virtuelles doivent être en cours d’exécution.
 - Les machines virtuelles doivent se trouver dans une région prise en charge.
-- L’utilisateur doit disposer des autorisations appropriées.
-- Les machines virtuelles ne doivent pas être liées à un espace de travail d’analytique des journaux d’activité dans un autre abonnement.
+- L’utilisateur doit disposer des autorisations appropriées (voir paragraphe ci-dessous).
 - Automanage ne prend pas en charge les abonnements sandbox à ce stade
 
-Vous devez disposer du rôle de **Contributeur** pour activer Automanage à l'aide d'un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage sur ces dernières à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes sur votre abonnement : Rôles **Propriétaire** ou **Contributeur** , ainsi que **Administrateur de l’accès utilisateur**. 
+
+> [!NOTE]
+> Si vous souhaitez utiliser Automanage sur une machine virtuelle qui est connectée à un espace de travail dans un autre abonnement, vous devez disposer des autorisations décrites ci-dessus pour chaque abonnement.
 
 Il est également important de noter que le service Automanage ne prend en charge que des machines virtuelles Windows situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest.
 
@@ -58,7 +60,7 @@ Il est également important de noter que le service Automanage ne prend en charg
 
 Pour obtenir la liste complète des services Azure participant, ainsi que leurs profils de configuration pris en charge, consultez [Meilleures pratiques d’Azure Automanage pour machines virtuelles](virtual-machines-best-practices.md).
 
- Nous vous intégrerons automatiquement à ces services participant. Ils sont essentiels pour notre livre blanc sur les meilleures pratiques, que vous pouvez trouver dans notre [Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management).
+ Nous vous intégrerons automatiquement à ces services participant. Ils sont essentiels pour notre livre blanc sur les meilleures pratiques, que vous pouvez trouver dans notre [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 Pour tous ces services, nous les intégrons automatiquement, les configurons, surveillons leur dérive et corrigeons toute dérive détectée.
 
@@ -67,7 +69,7 @@ Pour tous ces services, nous les intégrons automatiquement, les configurons, su
 
 Dans le portail Azure, vous pouvez activer le service Automanage sur une machine virtuelle existante ou lorsque vous créez une machine virtuelle. Pour les étapes concises de ce processus, consultez le [Démarrage rapide du service Automanage pour machines virtuelles](quick-create-virtual-machines-portal.md).
 
-Si c’est la première fois que vous activez le service Automanage pour votre machine virtuelle, vous pouvez rechercher dans le portail Azure **Automanage – Meilleures pratiques pour les machines virtuelles Azure**. Cliquez sur **Activer sur une machine virtuelle existante**, sélectionnez les machines virtuelles que vous souhaitez intégrer, puis cliquez sur **Sélectionner** et **Activer**.
+Si c’est la première fois que vous activez le service Automanage pour votre machine virtuelle, vous pouvez rechercher dans le portail Azure **Automanage – Meilleures pratiques pour les machines virtuelles Azure**. Cliquez sur **Activer sur une machine virtuelle existante** , sélectionnez les machines virtuelles que vous souhaitez intégrer, puis cliquez sur **Sélectionner** et **Activer**.
 
 La seule situation dans laquelle vous pourriez être amené à interagir avec cette machine virtuelle pour gérer ces services serait si nous tentions de corriger votre machine virtuelle sans succès. Quand nous parvenons à corriger correctement votre machine virtuelle, nous rétablissons sa conformité sans même vous en informer.
 
@@ -105,23 +107,23 @@ Le Compte Automanage est le contexte de sécurité ou l’identité sous laquell
 Dans l’interface du portail Azure, lorsque vous activez le service Automanage sur vos machines virtuelles, le panneau **Activer la meilleure pratique de machine virtuelle Azure** contient une liste déroulante Avancées, qui vous permet d’attribuer ou de créer manuellement le Compte Automanage.
 
 > [!NOTE]
-> Vous devez disposer du rôle de **Contributeur** pour activer Automanage à l'aide d'un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+> Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage sur ces dernières à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes sur votre abonnement : Rôles **Propriétaire** ou **Contributeur** , ainsi que **Administrateur de l’accès utilisateur**.
 
 
 ## <a name="status-of-vms"></a>État des machines virtuelles
 
-Dans le portail Azure, accédez à la page **Automanage – Meilleurs pratiques pour les machines virtuelles Azure**, qui répertorie toutes vos machines virtuelles gérées automatiquement. Vous verrez ici l’état global de chaque machine virtuelle.
+Dans le portail Azure, accédez à la page **Automanage – Meilleurs pratiques pour les machines virtuelles Azure** , qui répertorie toutes vos machines virtuelles gérées automatiquement. Vous verrez ici l’état global de chaque machine virtuelle.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Services intégrés de manière intelligente.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Liste des machines virtuelles configurées.":::
 
 Pour chaque machine virtuelle répertoriée, les informations suivantes s’affichent : Nom, Profil de configuration, Préférence de configuration, État, Compte, Abonnement et Groupe de ressources.
 
 La colonne **État** peut afficher les états suivants :
-- *En cours* : la machine virtuelle vient d’être activée et est en cours de configuration.
-- *Configurée* : la machine virtuelle est configurée et aucune dérive n’est détectée.
+- *En cours*  : la machine virtuelle vient d’être activée et est en cours de configuration.
+- *Configurée*  : la machine virtuelle est configurée et aucune dérive n’est détectée.
 - *Échec*  : la machine virtuelle a dérivé et nous n’avons pas pu la corriger.
 
-Si vous voyez l’**État** *Échec*, vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources**, sélectionnez votre groupe de ressources, cliquez sur **Déploiements**, puis consultez l’état *Échec* contenant tous les détails de l’erreur.
+Si vous voyez l’ **État** *Échec* , vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources** , sélectionnez votre groupe de ressources, cliquez sur **Déploiements** , puis consultez l’état *Échec* contenant tous les détails de l’erreur.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Désactivation du service Automanage pour machines virtuelles
@@ -130,7 +132,7 @@ Vous pouvez décider un jour de désactiver le service Automanage sur certaines 
 
 Pour ce faire, dans le portail Azure, accédez à la page **Automanage – Meilleures pratiques pour les machines virtuelles Azure** qui répertorie toutes vos machines virtuelles gérées automatiquement. Activez la case à cocher en regard de la machine virtuelle que vous souhaitez désactiver dans le service Automanage, puis cliquez sur le bouton **Désactiver la gestion automatique**.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Services intégrés de manière intelligente.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Désactivation du service Automanage sur une machine virtuelle.":::
 
 Lisez attentivement le message dans la fenêtre contextuelle qui s’affiche avant d’accepter de **Désactiver**.
 

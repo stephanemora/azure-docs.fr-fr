@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448192"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893401"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
@@ -39,6 +39,9 @@ Cette extension fonctionne avec les deux modèles de déploiement d’Azure.
 ## <a name="installing-the-extension-in-your-vm"></a>Installation de l’extension dans votre machine virtuelle
 
 Vous pouvez activer cette extension à l’aide des applets de commande Azure PowerShell, de scripts Azure CLI, de modèles ARM ou du portail Azure. Pour plus d’informations, consultez [Fonctionnalités des extensions](features-linux.md).
+
+>[!NOTE]
+>Certains composants de l’extension de machine virtuelle de diagnostic sont également fournis avec l’[extension de machine virtuelle Log Analytics](./oms-linux.md). En raison de cette architecture, des conflits peuvent survenir si les deux extensions sont instanciées dans le même modèle Resource Manager. Pour éviter ces conflits au moment de l’installation, utilisez la [directive `dependsOn`](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) pour vous assurer que les extensions sont installées de manière séquentielle. Les extensions peuvent être installées dans n’importe quel ordre.
 
 Ces instructions d’installation et un [exemple de configuration téléchargeable](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configurent l’extension de diagnostic Linux 3.0 pour :
 
@@ -578,7 +581,7 @@ TransfersPerSecond | Opérations de lecture ou d’écriture par seconde
 
 Les valeurs agrégées pour tous les systèmes de fichiers peuvent être obtenues en définissant `"condition": "IsAggregate=True"`. Les valeurs pour un système de fichiers monté spécifique, comme « / mnt », peuvent être obtenues en définissant `"condition": 'Name="/mnt"'`. 
 
-**REMARQUE** : Si vous utilisez le portail Azure au lieu de JSON, la forme de champ de condition correcte est Nom='/mnt'
+**REMARQUE**  : Si vous utilisez le portail Azure au lieu de JSON, la forme de champ de condition correcte est Nom='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métriques intégrées pour la classe Disque
 

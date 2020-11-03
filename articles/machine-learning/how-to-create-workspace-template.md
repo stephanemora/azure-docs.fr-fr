@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057839"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631040"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -53,13 +53,13 @@ Ce modèle crée les services Azure suivants :
 
 Le groupe de ressources est le conteneur des services. Les différents services sont requis par l’espace de travail Azure Machine Learning.
 
-L’exemple de modèle comprend deux paramètres **obligatoires** :
+L’exemple de modèle comprend deux paramètres **obligatoires**  :
 
-* L’emplacement (**location**) de création des ressources.
+* L’emplacement ( **location** ) de création des ressources.
 
     Le modèle utilise l’emplacement que vous sélectionnez pour la plupart des ressources. L’exception est le service Application Insights, qui n’est pas disponible dans tous les emplacements où les autres services le sont. Si vous sélectionnez un emplacement où il n’est pas disponible, le service est créé à l’emplacement USA Centre Sud.
 
-* Le nom de l’espace de travail (**workspaceName**), qui est le nom convivial de l’espace de travail Azure Machine Learning.
+* Le nom de l’espace de travail ( **workspaceName** ), qui est le nom convivial de l’espace de travail Azure Machine Learning.
 
     > [!NOTE]
     > Le nom de l’espace de travail n’est pas sensible à la casse.
@@ -124,7 +124,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-Par défaut, toutes les ressources créées dans le cadre du modèle sont nouvelles. Toutefois, vous avez également la possibilité d’utiliser des ressources existantes. En fournissant des paramètres supplémentaires au modèle, vous pouvez utiliser des ressources existantes. Par exemple, si vous voulez utiliser un compte de stockage existant, définissez la valeur **storageAccountOption** sur **existing**, puis indiquez le nom de votre compte de stockage dans le paramètre **storageAccountName**.
+Par défaut, toutes les ressources créées dans le cadre du modèle sont nouvelles. Toutefois, vous avez également la possibilité d’utiliser des ressources existantes. En fournissant des paramètres supplémentaires au modèle, vous pouvez utiliser des ressources existantes. Par exemple, si vous voulez utiliser un compte de stockage existant, définissez la valeur **storageAccountOption** sur **existing** , puis indiquez le nom de votre compte de stockage dans le paramètre **storageAccountName**.
 
 > [!IMPORTANT]
 > Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni l’espace de noms hiérarchique ne sont pris en charge par le compte de stockage par défaut de l’espace de travail. Ni le stockage Premium ni les espaces de noms hiérarchiques ne sont pris en charge par le compte de stockage _par défaut_ de l'espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
@@ -161,9 +161,11 @@ New-AzResourceGroupDeployment `
 
 L’exemple de modèle suivant montre comment créer un espace de travail avec trois paramètres :
 
-* Activer les paramètres de confidentialité élevée pour l’espace de travail
-* Activer le chiffrement pour l’espace de travail
-* Utiliser une instance Azure Key Vault existante pour récupérer les clés gérées par le client
+* Activer les paramètres de confidentialité élevée pour l’espace de travail. Cela crée une instance Cosmos DB.
+* Activer le chiffrement pour l’espace de travail.
+* Utiliser une instance Azure Key Vault existante pour récupérer les clés gérées par le client. Les clés gérées par le client sont utilisées pour créer une instance Cosmos DB pour l’espace de travail.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Une fois l'espace de travail créé, vous ne pouvez pas modifier les paramètres des données confidentielles, du chiffrement, de l’ID du coffre de clés ou des identificateurs de clés. Pour modifier ces valeurs, vous devez créer un espace de travail à l’aide des nouvelles valeurs.
@@ -539,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
-1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__, choisissez le modèle **201-machine-learning-advanced** dans la liste déroulante.
+1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__ , choisissez le modèle **201-machine-learning-advanced** dans la liste déroulante.
 1. Sélectionnez __Sélectionner un modèle__ pour utiliser le modèle. Fournissez les informations nécessaires suivantes et tous les autres paramètres en fonction de votre scénario de déploiement.
 
    * Abonnement : Sélectionnez l’abonnement Azure à utiliser pour ces ressources.
@@ -548,7 +550,7 @@ New-AzResourceGroupDeployment `
    * Nom de l’espace de travail : Nom à utiliser pour l’espace de travail Azure Machine Learning qui va être créé. Le nom de l'espace de travail doit contenir entre 3 et 33 caractères. Il ne peut contenir que des caractères alphanumériques et « - ».
    * Localisation : Sélectionnez l’emplacement de création des ressources.
 1. Sélectionnez __Revoir + créer__.
-1. Dans l’écran __Vérifier + créer__, acceptez les conditions générales mentionnées, puis sélectionnez __Créer__.
+1. Dans l’écran __Vérifier + créer__ , acceptez les conditions générales mentionnées, puis sélectionnez __Créer__.
 
 Pour plus d’informations, consultez [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 

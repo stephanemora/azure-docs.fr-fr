@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: 6d62c9aa7be1511cdac6404ac7c42200677e56fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62351f341d03873afc59ff7748fa03da0a202d35
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651616"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495585"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
@@ -99,6 +99,8 @@ Découvrez plus d’informations sur la [dernière architecture d’Azure Machin
 Pour avoir une vue d’ensemble du service, consultez [Qu’est-ce qu’Azure Machine Learning ?](overview-what-is-azure-ml.md).
 
 Créez votre première expérience avec la méthode de votre choix :
+
+  + [Utiliser votre propre environnement](tutorial-1st-experiment-sdk-setup-local.md)
   + [Utiliser des notebooks Python](tutorial-1st-experiment-sdk-setup.md)
   + [Utiliser R Markdown](tutorial-1st-r-experiment.md) 
   + [Utiliser le Machine learning automatisé](tutorial-designer-automobile-price-train-score.md) 

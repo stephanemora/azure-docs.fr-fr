@@ -9,15 +9,15 @@ ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9faca55f8440a28a845e892ee38df2de3489f97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b4fff4a58685873e99332b00864ee95f569416
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259490"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628590"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemples JavaScript pour une utilisation dans Active Directory B2C
 
@@ -42,7 +42,7 @@ Cet article explique comment vous pouvez modifier votre stratégie personnalisé
 
 * Sélectionnez une [mise en page](contentdefinitions.md#select-a-page-layout) pour les éléments d’interface utilisateur de votre application.
 
-    Si vous prévoyez d’utiliser JavaScript, vous devez [définir une version de mise en page](contentdefinitions.md#migrating-to-page-layout) avec la version de page `contract` pour *toutes* les définitions de contenu de votre stratégie personnalisée.
+    Si vous prévoyez d’utiliser JavaScript, vous devez [définir une version de mise en page](contentdefinitions.md#migrating-to-page-layout) avec la version de page `contract` pour *toutes* les définitions de contenu de votre stratégie personnalisée. Découvrez comment [migrer vers la mise en page](contentdefinitions.md#migrating-to-page-layout) avec la version de la page. 
 
 ## <a name="add-the-scriptexecution-element"></a>Ajouter l’élément ScriptExecution
 
@@ -68,7 +68,7 @@ Pour activer l’exécution des scripts, ajoutez l’élément **ScriptExecution
 
 ### <a name="show-or-hide-a-password"></a>Afficher ou masquer un mot de passe
 
-Une méthode courante pour aider vos clients à réussir leur inscription est de leur permettre d’afficher le mot de passe saisi. Cette option aide les utilisateurs à s’inscrire en leur permettant d’afficher facilement leur mot de passe et à y apporter des corrections si nécessaire. Tous les champs de saisie de mot de passe présentent une case à cocher proposant d’**Afficher le mot de passe**.  Cela permet à l’utilisateur d’afficher le mot de passe en texte brut. Intégrez cet extrait de code dans votre modèle d’inscription ou de connexion pour une page autodéclarée :
+Une méthode courante pour aider vos clients à réussir leur inscription est de leur permettre d’afficher le mot de passe saisi. Cette option aide les utilisateurs à s’inscrire en leur permettant d’afficher facilement leur mot de passe et à y apporter des corrections si nécessaire. Tous les champs de saisie de mot de passe présentent une case à cocher proposant d’ **Afficher le mot de passe**.  Cela permet à l’utilisateur d’afficher le mot de passe en texte brut. Intégrez cet extrait de code dans votre modèle d’inscription ou de connexion pour une page autodéclarée :
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -139,7 +139,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-Dans le code, remplacez `termsOfUseUrl` par le lien pointant vers vos conditions d’utilisation. Pour votre répertoire, créez un nouvel attribut utilisateur nommé **termsOfUse**, puis incluez **termsOfUse** comme attribut utilisateur.
+Dans le code, remplacez `termsOfUseUrl` par le lien pointant vers vos conditions d’utilisation. Pour votre répertoire, créez un nouvel attribut utilisateur nommé **termsOfUse** , puis incluez **termsOfUse** comme attribut utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

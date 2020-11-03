@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142233"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535788"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Fonctionnalités de demande de données client pour les appareils Azure IoT Hub
 
@@ -30,7 +30,7 @@ Si vous utilisez la fonctionnalité de routage du service Azure IoT Hub pour tra
 
 Si vous utilisez la fonctionnalité d’intégration à Azure Event Grid du service Azure IoT Hub, les demandes de données doivent être effectuées par l’administrateur client pour chaque abonné à ces événements. Pour plus d’informations, consultez l’article [Réagir aux événements IoT Hub en utilisant Event Grid](iot-hub-event-grid.md).
 
-Si vous utilisez la fonctionnalité d’intégration à Azure Monitor du service Azure IoT Hub pour créer des journaux de diagnostic, l’administrateur client doit exécuter les demandes de données sur les journaux d’activité stockés. Pour plus d’informations, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub](iot-hub-monitor-resource-health.md).
+Si vous utilisez la fonctionnalité d’intégration à Azure Monitor du service Azure IoT Hub pour créer des journaux de ressources, l’administrateur client doit exécuter les demandes de données sur les journaux d’activité stockés. Pour plus d’informations, consultez [Surveiller IoT Hub](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 

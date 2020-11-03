@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973306"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790608"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ SQL Managed Instance ne pouvant pas accéder à des partages de fichiers et à d
 
 Consultez [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) et [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solution de contournement** : Au lieu de créer une sauvegarde du certificat et de restaurer la sauvegarde, [obtenez le contenu binaire du certificat et la clé privée, stockez-les en tant que fichier .sql et créez à partir du binaire](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database) :
+**Solution de contournement**  : Au lieu de créer une sauvegarde du certificat et de restaurer la sauvegarde, [obtenez le contenu binaire du certificat et la clé privée, stockez-les en tant que fichier .sql et créez à partir du binaire](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database) :
 
 ```sql
 CREATE CERTIFICATE  
@@ -220,7 +220,7 @@ Pour plus d’informations, consultez [ALTER DATABASE SET PARTNER AND SET WITNES
 
 - Les fichiers journaux multiples ne sont pas pris en charge.
 - Les objets en mémoire ne sont pas pris en charge dans le niveau de service Usage général. 
-- Il existe une limite de 280 fichiers par instance Usage général, ce qui implique un maximum de 280 fichiers par base de données. Les fichiers de données et de journaux du niveau Usage général sont tous les deux comptabilisés dans cette limite. [Le niveau Critique pour l’entreprise prend en charge 32 767 fichiers par base de données](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Il existe une limite de 280 fichiers par instance Usage général, ce qui implique un maximum de 280 fichiers par base de données. Les fichiers de données et de journaux du niveau Usage général sont tous les deux comptabilisés dans cette limite. [Le niveau Critique pour l’entreprise prend en charge 32 767 fichiers par base de données](./resource-limits.md#service-tier-characteristics).
 - La base de données ne peut pas contenir de groupes de fichiers qui contiennent des données flux de fichier. La restauration échoue si le fichier.bak contient des données `FILESTREAM`. 
 - Chaque fichier est placé dans Stockage Blob Azure. L’E/S et le débit par fichier dépendent de la taille de chaque fichier.
 
@@ -354,7 +354,7 @@ Les instructions DBCC non documentées qui sont activées dans SQL Server ne son
 ### <a name="distributed-transactions"></a>Transactions distribuées
 
 La prise en charge partielle des [transactions distribuées](../database/elastic-transactions-overview.md) est actuellement en préversion publique. Les scénarios pris en charge sont les suivants :
-* Transactions où les participants sont uniquement des instances Azure SQL Managed Instance qui font partie du [groupe d’approbations de serveurs](https://aka.ms/mitrusted-groups).
+* Transactions où les participants sont uniquement des instances Azure SQL Managed Instance qui font partie du [groupe d’approbations de serveurs](./server-trust-group-overview.md).
 * Transactions lancées à partir de .NET (classe TransactionScope) et de Transact-SQL.
 
 Actuellement, Azure SQL Managed Instance ne prend pas en charge d’autres scénarios qui sont régulièrement pris en charge par MSDTC, localement ou dans des machines virtuelles Azure.
@@ -482,7 +482,7 @@ Le Service Broker entre instances n’est pas pris en charge :
   - `remote proc trans`
 - `sp_execute_external_scripts` n’est pas pris en charge. Consultez [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` n’est pas pris en charge. Consultez [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` ne sont pas pris en charge, ce qui inclut `sp_addextendedproc` et `sp_dropextendedproc`. Consultez [Procédures stockées étendues](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` ne sont pas pris en charge, ce qui inclut `sp_addextendedproc` et `sp_dropextendedproc`. Consultez [Procédures stockées étendues](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Fonctions et variables système
@@ -527,13 +527,13 @@ Les schémas MSDB suivants dans SQL Managed Instance doivent être détenus par 
 
 - Rôles généraux
   - TargetServersRole
-- [Rôles de base de données fixes](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Rôles de base de données fixes](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Rôles DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile) :
+- [Rôles DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile) :
   - DatabaseMailUserRole
-- [Rôles de service d'intégration](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15) :
+- [Rôles de service d'intégration](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15) :
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ Les schémas MSDB suivants dans SQL Managed Instance doivent être détenus par 
 
 ### <a name="error-logs"></a>Journaux des erreurs
 
-SQL Managed Instance ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [SQL Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [Extension SQL Managed Instance (préversion)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) pour Azure Data Studio.
+SQL Managed Instance ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [SQL Managed Instance – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) ou [Extension SQL Managed Instance (préversion)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) pour Azure Data Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

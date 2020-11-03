@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537716"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675802"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Types et composition de requête dans Recherche cognitive Azure
 
@@ -33,7 +33,7 @@ L’exemple suivant est une requête représentative construite dans l’[API RE
 }
 ```
 
-+ **`queryType`** définit l’analyseur qui peut être l’[analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou l’[analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques et bien d’autres encore.
++ **`queryType`** définit l’analyseur qui peut être l’ [analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou l’ [analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques et bien d’autres encore.
 
 + **`search`** fournit le critère de correspondance, généralement des termes ou expressions, qui est néanmoins souvent accompagné d’opérateurs booléens. Les termes autonomes uniques constituent des requêtes de *terme*. Les requêtes en plusieurs parties entre guillemets sont des requêtes *d’expression*. La recherche peut être non définie, comme dans **`search=*`** , mais sans critère de correspondance, le jeu de résultats est composé de documents sélectionnés de manière arbitraire.
 
@@ -59,9 +59,9 @@ Si vous avez suivi ce [démarrage rapide pour créer l’index de démonstration
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Comment les opérations de requête sont activées par l’index
 
-La conception des index et la conception des requêtes sont étroitement liées dans Recherche cognitive Azure. Il est important de savoir que le *schéma d’index*, qui comporte des attributs pour chaque champ, détermine le type de requête que vous pouvez créer. 
+La conception des index et la conception des requêtes sont étroitement liées dans Recherche cognitive Azure. Il est important de savoir que le *schéma d’index* , qui comporte des attributs pour chaque champ, détermine le type de requête que vous pouvez créer. 
 
-Les attributs d’index d’un champ définissent les opérations autorisées, par exemple si un champ *peut faire l’objet de recherches* dans l’index, s’il peut être *affiché* dans les résultats, s’il peut être *trié* ou *filtré*, etc. Dans l’exemple de chaîne de requête, `"$orderby": "Rating"` fonctionne uniquement parce que le champ Évaluation est marqué comme *triable* dans le schéma d’index. 
+Les attributs d’index d’un champ définissent les opérations autorisées, par exemple si un champ *peut faire l’objet de recherches* dans l’index, s’il peut être *affiché* dans les résultats, s’il peut être *trié* ou *filtré* , etc. Dans l’exemple de chaîne de requête, `"$orderby": "Rating"` fonctionne uniquement parce que le champ Évaluation est marqué comme *triable* dans le schéma d’index. 
 
 ![Définition d’index pour l’exemple des hôtels](./media/search-query-overview/hotel-sample-index-definition.png "Définition d’index pour l’exemple Hôtel")
 
@@ -92,7 +92,7 @@ Le tableau suivant liste les API et les approches basées sur des outils pour en
 |-------------|-------------|
 | [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. Il est recommandé pour l’exploration, le test et la validation. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
 | [Postman ou autres outils REST](search-get-started-postman.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche cognitive Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche cognitive Azure.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Client que vous pouvez utiliser pour interroger un index Recherche cognitive Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client que vous pouvez utiliser pour interroger un index Recherche cognitive Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md)  |
 | [Rechercher des documents (API REST)](/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Choisir un analyseur : simple | full
@@ -159,7 +159,7 @@ Pour plus d’informations sur la pagination des résultats de recherche, consul
 ### <a name="ordering-results"></a>Classement des résultats
 Lors de la réception des résultats d’une requête de recherche, vous pouvez demander que Recherche cognitive Azure produise les résultats classés par valeurs dans un champ spécifique. Par défaut, Recherche cognitive Azure classe les résultats en fonction du rang du résultat de la recherche de chaque document, qui est dérivé de la méthode [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Si vous souhaitez que Recherche cognitive Azure retourne les résultats en les classant avec une valeur autre que le résultat de la recherche, vous pouvez utiliser le paramètre de recherche **`orderby`** . Vous pouvez spécifier la valeur du paramètre **`orderby`** pour inclure les noms de champ et les appels à la fonction [ **`geo.distance()`** ](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales. Chaque expression peut être suivie par `asc` pour indiquer que les résultats sont demandés dans l’ordre croissant, et par **`desc`** pour indiquer que les résultats sont demandés dans l’ordre décroissant. Le classement par défaut est l’ordre croissant.
+Si vous souhaitez que Recherche cognitive Azure retourne les résultats en les classant avec une valeur autre que le résultat de la recherche, vous pouvez utiliser le paramètre de recherche **`orderby`** . Vous pouvez spécifier la valeur du paramètre **`orderby`** pour inclure les noms de champ et les appels à la fonction [ **`geo.distance()`**](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales. Chaque expression peut être suivie par `asc` pour indiquer que les résultats sont demandés dans l’ordre croissant, et par **`desc`** pour indiquer que les résultats sont demandés dans l’ordre décroissant. Le classement par défaut est l’ordre croissant.
 
 
 ### <a name="hit-highlighting"></a>Mise en surbrillance des correspondances

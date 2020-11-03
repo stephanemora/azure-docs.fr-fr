@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1ab2be598a24a2448fed44742733633a8e0fc8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021151"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787599"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Mesures Azure Storage Analytics (classique)
 
@@ -23,11 +23,11 @@ Le Stockage Azure utilise Storage Analytics pour stocker des mesures qui compren
 - diagnostiquer les problèmes liés aux requêtes envoyées au service de stockage ;
 - améliorer les performances des applications qui utilisent un service.
 
- Les métriques de Storage Analytics sont activées par défaut pour les nouveaux comptes de stockage. Vous pouvez configurer les mesures dans le [Portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez [Surveiller un compte de stockage dans le portail Azure](/azure/storage/storage-monitor-storage-account). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations Set Service Properties pour activer Storage Analytics pour chaque service.  
+ Les métriques de Storage Analytics sont activées par défaut pour les nouveaux comptes de stockage. Vous pouvez configurer les mesures dans le [Portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez [Surveiller un compte de stockage dans le portail Azure](./storage-monitor-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations Set Service Properties pour activer Storage Analytics pour chaque service.  
 
 > [!NOTE]
 > Les mesures Storage Analytics sont disponibles pour le stockage d’objets blob Azure, Azure Files, le stockage File d’attente Azure et le stockage de tables Azure.
-> Les mesures Storage Analytics sont maintenant des mesures classiques. Nous vous recommandons d’utiliser les [mesures de stockage dans Azure Monitor](monitor-storage.md) au lieu des mesures Storage Analytics.
+> Les mesures Storage Analytics sont maintenant des mesures classiques. Nous vous recommandons d’utiliser les [mesures de stockage dans Azure Monitor](../blobs/monitor-blob-storage.md) au lieu des mesures Storage Analytics.
 
 ## <a name="transaction-metrics"></a>Métriques de transaction  
  Un ensemble fiable de données est enregistré toutes les heures ou chaque minute pour chaque service de stockage et opération d’API demandée, notamment les entrées et sorties, la disponibilité, les erreurs et les pourcentages de requête triés par catégorie. La liste complète des détails de transaction est disponible dans la rubrique [Schéma de table de mesures Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
@@ -45,9 +45,9 @@ Le Stockage Azure utilise Storage Analytics pour stocker des mesures qui compren
 
  Les données de capacité sont enregistrées quotidiennement pour le service BLOB d’un compte de stockage, et deux entités de table sont écrites. Une entité fournit des statistiques sur les données utilisateur et l'autre, sur le conteneur d'objets blob `$logs` utilisé par Storage Analytics. La table *$MetricsCapacityBlob* inclut les statistiques suivantes :  
 
-- **Capacity** : Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.  
-- **ContainerCount** : Nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage.  
-- **ObjectCount** : Nombre d’objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.  
+- **Capacity**  : Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.  
+- **ContainerCount**  : Nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage.  
+- **ObjectCount**  : Nombre d’objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.  
 
   Pour plus d’informations sur les mesures de capacité, voir [Schéma de table de mesures Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
@@ -83,11 +83,11 @@ Vous pouvez utiliser PowerShell sur votre ordinateur local pour configurer des m
 
 Les cmdlets qui contrôlent les mesures de stockage utilisent les paramètres suivants :  
 
-* **ServiceType** : les valeurs possibles sont **Blob**, **File d’attente**, **Table** et **Fichier**.
+* **ServiceType** : les valeurs possibles sont **Blob** , **File d’attente** , **Table** et **Fichier**.
 * **MetricsType** : peut avoir la valeur **Heure** ou **Minute**.  
 * **MetricsLevel** : Les valeurs possibles sont les suivantes :
-   * **Aucun** : Désactive la surveillance.
-   * **Service** : Collecte des mesures telles que l’entrée et la sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, File d’attente, Table et Fichier.
+   * **Aucun**  : Désactive la surveillance.
+   * **Service**  : Collecte des mesures telles que l’entrée et la sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, File d’attente, Table et Fichier.
    * **ServiceAndApi** : Outre les mesures de service, collecte le même ensemble de mesures pour chaque opération de stockage de l’API du service Stockage Azure.
 
 Par exemple, la commande suivante active les métriques par minute pour le service BLOB dans votre compte de stockage avec une période de rétention de cinq jours : 
@@ -112,12 +112,12 @@ La commande suivante récupère le niveau actuel des métriques par heure et la 
 Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
-Pour plus d’informations sur la configuration des cmdlets Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, voir [Installation et configuration d’Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+Pour plus d’informations sur la configuration des cmdlets Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, voir [Installation et configuration d’Azure PowerShell](/powershell/azure/).  
 
 ## <a name="enable-storage-metrics-programmatically"></a>Activer les mesures de stockage de manière programmatique  
 Outre l’utilisation du Portail Azure ou des cmdlets Azure PowerShell pour contrôler les mesures de stockage, vous pouvez également utiliser l’une des API Stockage Azure. Par exemple, si vous exploitez un langage .NET, vous pouvez utiliser la bibliothèque cliente du Stockage Azure.  
 
-Les classes **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient** et **CloudFileClient** ont toutes des méthodes comme **SetServiceProperties** et **SetServicePropertiesAsync** qui utilisent un objet **ServiceProperties** en tant que paramètre. Vous pouvez utiliser l’objet **ServiceProperties** pour configurer les mesures de stockage. Ainsi, l’extrait de code C# suivant montre comment modifier les jours de rétention et le niveau de métrique pour la métrique de file d’attente horaire :  
+Les classes **CloudBlobClient** , **CloudQueueClient** , **CloudTableClient** et **CloudFileClient** ont toutes des méthodes comme **SetServiceProperties** et **SetServicePropertiesAsync** qui utilisent un objet **ServiceProperties** en tant que paramètre. Vous pouvez utiliser l’objet **ServiceProperties** pour configurer les mesures de stockage. Ainsi, l’extrait de code C# suivant montre comment modifier les jours de rétention et le niveau de métrique pour la métrique de file d’attente horaire :  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -130,7 +130,7 @@ serviceProperties.HourMetrics.RetentionDays = 10;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
-Pour plus d’informations sur l’utilisation d’un langage .NET afin de configurer les mesures de stockage, consultez les [bibliothèques clientes de Stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
+Pour plus d’informations sur l’utilisation d’un langage .NET afin de configurer les mesures de stockage, consultez les [bibliothèques clientes de Stockage Azure pour .NET](/dotnet/api/overview/azure/storage).  
 
 Pour obtenir des informations générales sur la configuration des mesures de stockage avec l’API REST, voir [Activation et configuration de Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
@@ -140,11 +140,11 @@ Après que vous avez configuré les métriques d’analyse du stockage pour surv
 1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
 1. Sélectionnez **Métriques (classique)** dans le panneau de menu du service dont vous souhaitez afficher les mesures.
 1. Sélectionnez le graphique que vous souhaitez configurer.
-1. Dans le volet **Modifier le graphique**, sélectionnez l’**Intervalle de temps**, le **Type de graphique** et les mesures que vous souhaitez afficher dans le graphique.
+1. Dans le volet **Modifier le graphique** , sélectionnez l’ **Intervalle de temps** , le **Type de graphique** et les mesures que vous souhaitez afficher dans le graphique.
 
 Dans la section **Supervision (classique)** du volet de menu du compte de stockage dans le Portail Azure, vous pouvez configurer le champ [Règles d’alerte](#metrics-alerts). Par exemple, vous pouvez envoyer des alertes par e-mail qui vous indiquent quand une mesure spécifique atteint une certaine valeur.
 
-Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez utiliser un outil ou écrire du code pour lire les tables. Vous devez télécharger les métriques par minute pour analyse. Les tables ne sont pas visibles si vous répertoriez toutes les tables dans votre compte de stockage, mais vous pouvez y accéder directement par nom. De nombreux outils de consultation du stockage prennent en charge ces tables et vous permettent de les afficher directement. Pour obtenir la liste des outils disponibles, consultez la rubrique relative aux [outils clients du Stockage Azure](/azure/storage/storage-explorers).
+Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez utiliser un outil ou écrire du code pour lire les tables. Vous devez télécharger les métriques par minute pour analyse. Les tables ne sont pas visibles si vous répertoriez toutes les tables dans votre compte de stockage, mais vous pouvez y accéder directement par nom. De nombreux outils de consultation du stockage prennent en charge ces tables et vous permettent de les afficher directement. Pour obtenir la liste des outils disponibles, consultez la rubrique relative aux [outils clients du Stockage Azure](./storage-explorers.md).
 
 |Mesures|Noms de tables|Notes| 
 |-|-|-|  
@@ -163,20 +163,23 @@ Vous trouverez des informations complètes sur les schémas de ces tables dans l
 
 Dans cet exemple de données de mesures par minute, la clé de partition utilise une résolution d’une minute. La clé de ligne identifie le type d’informations stockées dans la ligne. Les informations incluent le type d’accès et de requête :  
 
--   Le type d’accès a la valeur **user** ou **system**, **user** correspondant à toutes les requêtes de l’utilisateur au service de stockage et **system**, à toutes les demandes formulées par Storage Analytics.  
--   Le type de requête peut avoir la valeur **all**, auquel cas il s’agit d’une ligne de résumé, ou identifie l’API spécifique comme **QueryEntity** ou **UpdateEntity**.  
+-   Le type d’accès a la valeur **user** ou **system** , **user** correspondant à toutes les requêtes de l’utilisateur au service de stockage et **system** , à toutes les demandes formulées par Storage Analytics.  
+-   Le type de requête peut avoir la valeur **all** , auquel cas il s’agit d’une ligne de résumé, ou identifie l’API spécifique comme **QueryEntity** ou **UpdateEntity**.  
 
-Les exemples de données ci-dessus montrent tous les enregistrements pour une seule minute (à partir de 11h00). Ainsi, la somme des requêtes **QueryEntities**, plus le nombre de requêtes **QueryEntity** et **UpdateEntity** donne un résultat de sept, ce qui correspond au total indiqué sur la ligne **user:All**. De même, vous pouvez déduire la latence de bout en bout moyenne (104,4286) sur la ligne **user:All** en effectuant le calcul suivant : ((143,8 * 5) + 3 + 9)/7.  
+Les exemples de données ci-dessus montrent tous les enregistrements pour une seule minute (à partir de 11h00). Ainsi, la somme des requêtes **QueryEntities** , plus le nombre de requêtes **QueryEntity** et **UpdateEntity** donne un résultat de sept, ce qui correspond au total indiqué sur la ligne **user:All**. De même, vous pouvez déduire la latence de bout en bout moyenne (104,4286) sur la ligne **user:All** en effectuant le calcul suivant : ((143,8 * 5) + 3 + 9)/7.  
 
 ## <a name="metrics-alerts"></a>Alertes liées aux métriques
-Il peut être intéressant de définir des alertes dans le [Portail Azure](https://portal.azure.com), afin d’être averti automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un outil Explorateur Stockage pour télécharger ces données de mesures dans un format délimité, vous pouvez utiliser Microsoft Excel pour les analyser. Pour obtenir la liste des outils Explorateur Stockage disponibles, consultez la rubrique relative aux [outils clients du Stockage Azure](/azure/storage/storage-explorers). Vous pouvez configurer des alertes dans le panneau **Alerte (classique)** , accessible sous **Surveillance (classique)** dans le volet du menu du compte de stockage.
+Il peut être intéressant de définir des alertes dans le [Portail Azure](https://portal.azure.com), afin d’être averti automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un outil Explorateur Stockage pour télécharger ces données de mesures dans un format délimité, vous pouvez utiliser Microsoft Excel pour les analyser. Pour obtenir la liste des outils Explorateur Stockage disponibles, consultez la rubrique relative aux [outils clients du Stockage Azure](./storage-explorers.md). Vous pouvez configurer des alertes dans le panneau **Alerte (classique)** , accessible sous **Surveillance (classique)** dans le volet du menu du compte de stockage.
 
 > [!IMPORTANT]
 > Il peut y avoir un décalage entre un événement de stockage et l’enregistrement des données de mesures par heure ou par minute correspondantes. Dans le cas des mesures par minute, plusieurs minutes de données peuvent être écrites à la fois. Cela peut entraîner l’agrégation des transactions des minutes précédentes dans la transaction pour la minute actuelle. Dans ce cas, le service d’alerte peut ne pas disposer de toutes les données de mesures disponibles pour l’intervalle d’alerte configuré, et cela peut entraîner des déclenchements d’alerte inattendus.
 >
 
 ## <a name="access-metrics-data-programmatically"></a>Accès aux données de mesures par programmation  
-L’exemple de code suivant en C# accède aux mesures par minute pour une plage de minutes et affiche les résultats dans une fenêtre de console. L’exemple de code utilise la version 4.x ou une version ultérieure de la bibliothèque cliente de stockage Azure. Celle-ci comprend la classe **CloudAnalyticsClient**, qui simplifie l’accès aux tables de mesures de stockage.  
+L’exemple de code suivant en C# accède aux mesures par minute pour une plage de minutes et affiche les résultats dans une fenêtre de console. L’exemple de code utilise la version 4.x ou une version ultérieure de la bibliothèque cliente de stockage Azure. Celle-ci comprend la classe **CloudAnalyticsClient** , qui simplifie l’accès aux tables de mesures de stockage. 
+
+> [!NOTE]
+> La classe **CloudAnalyticsClient** n’est pas incluse dans la bibliothèque de client Stockage Blob Azure v12 pour .NET. Au **31 août 2023** , les métriques Storage Analytics, également appelées *métriques classiques* seront retirées. Pour plus d’informations, consultez l’[annonce officielle](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si vous utilisez des métriques classiques, nous vous recommandons de passer aux métriques dans Azure Monitor avant cette date. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

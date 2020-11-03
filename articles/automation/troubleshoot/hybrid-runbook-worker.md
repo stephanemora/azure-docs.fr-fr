@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400415"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428404"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
 
@@ -46,7 +46,7 @@ Les causes possibles sont les suivantes :
 
 #### <a name="resolution"></a>Résolution
 
-Vérifiez que l’ordinateur dispose d’un accès sortant à * **.azure-automation.net** sur le port 443.
+Vérifiez que l’ordinateur dispose d’un accès sortant à **\*.azure-automation.net** sur le port 443.
 
 Les ordinateurs qui exécutent les Runbooks Worker hybrides doivent respecter la configuration matérielle minimale requise pour pouvoir héberger cette fonctionnalité. Les runbooks et le processus d’arrière-plan qu’ils utilisent peuvent entraîner la sur-utilisation du système et des retards ou expirations de travaux de runbooks.
 
@@ -186,15 +186,15 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 La liste suivante présente les processus démarrés pour un Runbook Worker hybride Linux. Ils se trouvent tous dans le répertoire /var/opt/Microsoft/omsagent/State/automationworker/.
 
-* **oms.conf** : processus du gestionnaire de Workers. Vous pouvez le démarrer directement à partir de DSC.
-* **worker.conf** : processus Worker hybride automatiquement inscrit. Il est démarré par le gestionnaire de Worker. Ce processus est utilisé par Update Management et il est transparent pour l’utilisateur. Ce processus n’est pas présent si Update Management n’est pas activé sur la machine.
-* **diy/worker.conf** : processus Worker hybride personnalisé. Le processus Worker hybride personnalisé est utilisé pour exécuter des runbooks utilisateur sur le Runbook Worker hybride. Il diffère uniquement du processus Worker hybride automatiquement inscrit par le fait qu’il utilise une configuration différente. Ce processus n’est pas présent si Azure Automation est désactivé et si le Worker hybride Linux personnalisé n’est pas inscrit.
+* **oms.conf**  : processus du gestionnaire de Workers. Vous pouvez le démarrer directement à partir de DSC.
+* **worker.conf**  : processus Worker hybride automatiquement inscrit. Il est démarré par le gestionnaire de Worker. Ce processus est utilisé par Update Management et il est transparent pour l’utilisateur. Ce processus n’est pas présent si Update Management n’est pas activé sur la machine.
+* **diy/worker.conf**  : processus Worker hybride personnalisé. Le processus Worker hybride personnalisé est utilisé pour exécuter des runbooks utilisateur sur le Runbook Worker hybride. Il diffère uniquement du processus Worker hybride automatiquement inscrit par le fait qu’il utilise une configuration différente. Ce processus n’est pas présent si Azure Automation est désactivé et si le Worker hybride Linux personnalisé n’est pas inscrit.
 
 Si l’agent n’est pas en cours d’exécution, exécutez la commande suivante pour démarrer le service : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas.
 
-Si vous voyez le message d’erreur `The specified class does not exist..` dans **/var/opt/Microsoft/omsconfig/omsconfig.log**, l’agent Log Analytics pour Linux doit être mis à jour. Exécutez la commande suivante pour réinstaller l’agent.
+Si vous voyez le message d’erreur `The specified class does not exist..` dans **/var/opt/Microsoft/omsconfig/omsconfig.log** , l’agent Log Analytics pour Linux doit être mis à jour. Exécutez la commande suivante pour réinstaller l’agent.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -222,11 +222,11 @@ Vérifiez que l’agent est en cours d’exécution en entrant la commande suiva
 
 #### <a name="issue"></a>Problème
 
-Dans le journal des événements **Journaux des applications et des services\Operations Manager**, vous voyez l’événement 4502 et un message d’événement contenant `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` avec la description suivante :<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
+Dans le journal des événements **Journaux des applications et des services\Operations Manager** , vous voyez l’événement 4502 et un message d’événement contenant `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` avec la description suivante :<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
 
 #### <a name="cause"></a>Cause
 
-Une cause possible de ce problème est que votre proxy ou votre pare-feu réseau bloque les communications vers Microsoft Azure. Vérifiez que l’ordinateur dispose d’un accès sortant à * **.azure-automation.net** sur le port 443.
+Une cause possible de ce problème est que votre proxy ou votre pare-feu réseau bloque les communications vers Microsoft Azure. Vérifiez que l’ordinateur dispose d’un accès sortant à **\*.azure-automation.net** sur le port 443.
 
 #### <a name="resolution"></a>Résolution
 
@@ -293,7 +293,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Scénario : Vous ne pouvez pas ajouter un Runbook Worker hybride
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Scénario : Vous ne pouvez pas ajouter de Runbook Worker hybride Windows
 
 #### <a name="issue"></a>Problème
 
@@ -312,6 +312,46 @@ Ce problème peut venir du fait que l’ordinateur est déjà inscrit avec un au
 Pour résoudre ce problème, supprimez la clé de Registre suivante, puis redémarrez `HealthService` et réessayez la cmdlet `Add-HybridRunbookWorker`.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Scénario : Vous ne pouvez pas ajouter de Runbook Worker hybride Linux
+
+#### <a name="issue"></a>Problème
+
+Le message suivant s’affiche lorsque vous tentez d’ajouter un Runbook Worker hybride à l’aide du script python `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` :
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+En outre, si vous tentez de désinscrire un Runbook Worker hybride à l’aide du script Python `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` :
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>Cause :
+
+Ce problème peut se produire si l’ordinateur est déjà inscrit avec un autre compte Automation en cas de suppression du groupe Worker hybride Azure, ou si vous essayez de rajouter le Runbook Worker hybride après l’avoir supprimé d’un ordinateur.
+
+#### <a name="resolution"></a>Résolution
+
+Pour résoudre ce problème :
+
+1. supprimez l’agent `sudo sh onboard_agent.sh --purge`.
+
+1. Exécutez ces commandes :
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Réintégrez l’agent `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com`.
+
+1. Attendez que le dossier `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` se renseigne.
+
+1. Réessayez le script Python `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

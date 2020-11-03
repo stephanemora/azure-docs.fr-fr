@@ -6,21 +6,21 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 59f1231e2edf3277898ff57d8e6f8da42ee057ca
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276986"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784675"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modèle de tirage (pull) du flux de modification dans Azure Cosmos DB
 
 Avec le modèle de tirage du flux de modification, vous pouvez consommer le flux de modification Azure Cosmos DB à votre rythme. Comme le [processeur de flux de modification](change-feed-processor.md) vous le permet déjà, vous pouvez utiliser le modèle de tirage du flux de modification pour paralléliser le traitement des modifications sur plusieurs consommateurs de flux de modification.
 
 > [!NOTE]
-> Le modèle de tirage du flux de modification n’est actuellement disponible qu’en [préversion dans le SDK .NET Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview). La préversion n’est pas encore disponible pour d’autres versions du kit SDK.
+> Le modèle de tirage du flux de modification n’est actuellement disponible qu’en [préversion dans le SDK .NET Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview). La préversion n’est pas encore disponible pour d’autres versions du kit SDK.
 
 ## <a name="comparing-with-change-feed-processor"></a>Comparaison avec le processeur de flux de modification
 
@@ -44,9 +44,13 @@ Voici quelques différences capitales entre le processeur de flux de modificatio
 | Suivi du point actuel dans le traitement du flux de modification | Bail (stocké dans un conteneur Azure Cosmos DB) | Jeton de continuation (stocké en mémoire ou rendu persistant manuellement) |
 | Possibilité de relire les modifications passées | Oui, avec le modèle d’envoi (push) | Oui, avec le modèle de tirage (pull)|
 | Interrogation des modifications à venir | Recherche automatiquement les modifications en fonction de `WithPollInterval` spécifié par l’utilisateur | Manuel |
+| Comportement dans lequel aucune nouvelle modification n’est apportée | Attente automatique `WithPollInterval` et nouvelle vérification | Interception de l’exception et nouvelle vérification manuelle |
 | Traitement des modifications depuis l’ensemble du conteneur | Oui, et automatiquement mis en parallèle sur plusieurs threads/machines consommant à partir du même conteneur| Oui, et mis en parallèle manuellement à l’aide de FeedTokens |
 | Traitement des modifications à partir d’une seule clé de partition | Non pris en charge | Oui|
 | Niveau de support | Mise à la disposition générale | PRÉVERSION |
+
+> [!NOTE]
+> Contrairement à la lecture à l’aide du processeur de flux de modification, vous devez gérer explicitement les cas où aucune nouvelle modification n’est apportée. 
 
 ## <a name="consuming-an-entire-containers-changes"></a>Consommation des modifications d’un conteneur entier
 
@@ -75,14 +79,22 @@ FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterat
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
+
+Le flux de modification constituant effectivement une liste infinie d’éléments englobant toutes les écritures et mises à jour ultérieures, la valeur de `HasMoreResults` est toujours true. Lorsque vous essayez de lire le flux de modification et qu’aucune nouvelle modification n’est disponible, vous recevez une exception. Dans l’exemple ci-dessus, l’exception est gérée en attendant 5 secondes avant de revérifier les modifications.
 
 ## <a name="consuming-a-partition-keys-changes"></a>Consommation des modifications d’une clé de partition
 
@@ -93,11 +105,17 @@ FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<Use
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -129,11 +147,17 @@ Machine 1 :
 FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
 while (iteratorA.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -144,11 +168,17 @@ Machine 2 :
 FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]));
 while (iteratorB.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorB.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -164,13 +194,19 @@ string continuation = null;
 
 while (iterator.HasMoreResults)
 {
-   FeedResponse<User> users = await iterator.ReadNextAsync();
-   continuation = users.ContinuationToken;
+   try { 
+        FeedResponse<User> users = await iterator.ReadNextAsync();
+        continuation = users.ContinuationToken;
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
-    }
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+   }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
+    }   
 }
 
 // Some time later

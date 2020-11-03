@@ -2,13 +2,13 @@
 title: Effectuer la suppression du mode
 description: Montre comment les types de ressources gèrent la suppression du mode complet dans les modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/06/2020
-ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766717"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370122"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 
@@ -24,7 +24,6 @@ Les ressources sont listées par espace de noms de fournisseur de ressources. Po
 
 > [!NOTE]
 > Effectuez toujours l’[opération de simulation](template-deploy-what-if.md) avant de déployer un modèle en mode complet. La simulation vous indique les ressources qui seront créées, supprimées ou modifiées. Effectuez une simulation pour éviter la suppression accidentelle de ressources.
-
 Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -47,6 +46,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -176,6 +176,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.Singularity](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.SQL](#microsoftsql)
@@ -364,6 +365,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | Clouds privés | Oui |
+> | Clouds privés / modules complémentaires | Non |
 > | Clouds privés / autorisations | Non |
 > | Clouds privés / clusters | Non |
 > | privateClouds / globalReachConnections | Non |
@@ -426,12 +428,21 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | clusters | Oui |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft.BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Effectuer la suppression du mode |
+> | ------------- | ----------- |
+> | bareMetalInstances | Oui |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | batchAccounts | Oui |
+> | batchAccounts / certificates | Non |
+> | batchAccounts / pools | Non |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -833,7 +844,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ReservationRecommendations | Non |
 > | ReservationSummaries | Non |
 > | ReservationTransactions | Non |
-> | Étiquettes | Non |
+> | Balises | Non |
 > | tenants | Non |
 > | Termes | Non |
 > | UsageDetails | Non |
@@ -973,7 +984,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | workspaces | Oui |
 > | workspaces / dbWorkspaces | Non |
-> | workspaces / storageEncryption | Non |
 > | workspaces / virtualNetworkPeerings | Non |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1129,6 +1139,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | applicationgroups / desktops | Non |
 > | applicationgroups / startmenuitems | Non |
 > | hostpools | Oui |
+> | hostpools / msixpackages | Non |
 > | hostpools / sessionhosts | Non |
 > | hostpools / sessionhosts / usersessions | Non |
 > | hostpools / usersessions | Non |
@@ -1381,12 +1392,14 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | périphériques | Oui |
+> | networkFunctions | Oui |
+> | networkFunctionVendors | Non |
 > | registeredSubscriptions | Non |
 > | vendors | Non |
-> | vendors / vendorskus | Non |
-> | vendors / vendorskus / previewSubscriptions | Non |
-> | virtualnetworkfunctions | Oui |
-> | virtualnetworkfunctionvendors | Non |
+> | vendors / vendorSkus | Non |
+> | vendors / vendorSkus / previewSubscriptions | Non |
+> | virtualNetworkFunctions | Oui |
+> | virtualNetworkFunctionVendors | Non |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1507,9 +1520,20 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | workspaces | Oui |
+> | workspaces / batchEndpoints | Oui |
+> | workspaces / batchEndpoints / deployments | Oui |
+> | workspaces / codes | Non |
+> | workspaces / codes / versions | Non |
 > | workspaces / computes | Non |
+> | workspaces / datastores | Non |
 > | workspaces / eventGridFilters | Non |
+> | workspaces / jobs | Non |
+> | workspaces / labelingJobs | Non |
 > | workspaces / linkedServices | Non |
+> | workspaces / models | Non |
+> | workspaces / models / versions | Non |
+> | workspaces / onlineEndpoints | Oui |
+> | workspaces / onlineEndpoints / deployments | Oui |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2157,6 +2181,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | SignalR | Oui |
 > | SignalR / eventGridFilters | Non |
 
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Effectuer la suppression du mode |
+> | ------------- | ----------- |
+> | accounts | Oui |
+> | accounts / accountQuotaPolicies | Non |
+> | accounts / groupPolicies | Non |
+> | accounts / jobs | Non |
+> | accounts / storageContainers | Non |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2289,6 +2324,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | clusters | Oui |
+> | clusters / privateEndpoints | Non |
 > | streamingjobs | Oui |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
@@ -2423,6 +2459,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | runtimes | Non |
 > | serverFarms | Oui |
 > | serverFarms / eventGridFilters | Non |
+> | serverFarms / firstPartyApps | Non |
+> | serverFarms / firstPartyApps / keyVaultSettings | Non |
 > | sites | Oui |
 > | sites/config  | Non |
 > | sites / eventGridFilters | Non |

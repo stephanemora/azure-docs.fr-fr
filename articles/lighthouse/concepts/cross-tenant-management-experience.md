@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460663"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -42,7 +42,7 @@ Dans l’API REST Azure, les commandes [Abonnements – Get](/rest/api/resources
 > [!NOTE]
 > En plus des informations sur les locataires liées à Azure Lighthouse, les locataires indiqués par ces API peuvent également refléter les locataires partenaires des applications managées Azure ou Azure Databricks.
 
-Nous fournissons également des API spécifiques pour l'exécution de tâches Azure Lighthouse. Pour plus d’informations, voir la section **Référence** .
+Nous fournissons également des API spécifiques pour l'exécution de tâches Azure Lighthouse. Pour plus d’informations, voir la section **Référence**.
 
 ## <a name="enhanced-services-and-scenarios"></a>Services et scénarios améliorés
 
@@ -81,6 +81,10 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 [Azure Kubernetes Service (AKS)](../../aks/index.yml) :
 
 - Gérer des environnements Kubernetes hébergés, ainsi que déployer et gérer des applications en conteneur au sein des locataires du client
+
+[Azure Migrate](../../migrate/index.yml) :
+
+- Créer des projets de migration dans le locataire client et migrer des machines virtuelles
 
 [Azure Monitor](../../azure-monitor/index.yml) :
 
@@ -160,7 +164,7 @@ Demandes de support :
 Dans tous les scénarios, gardez à l’esprit les limitations actuelles suivantes :
 
 - Les demandes traitées par Azure Resource Manager peuvent être effectuées à l’aide d’Azure Lighthouse. Les URI d’opération pour ces demandes commencent par `https://management.azure.com`. Toutefois, les demandes qui sont gérées par une instance d’un type de ressource (par exemple, accès aux secrets du coffre de clés ou accès aux données de stockage) ne sont pas prises en charge avec Azure Lighthouse. Les URI d’opération pour ces demandes commencent généralement par une adresse propre à votre instance, telle que `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. Ces dernières sont également des opérations sur les données plutôt que des opérations de gestion.
-- Les attributions de rôles doivent utiliser des [rôles intégrés](../../role-based-access-control/built-in-roles.md) de contrôle d’accès en fonction du rôle (RBAC). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). Le rôle Administrateur de l’accès utilisateur est pris en charge uniquement pour une utilisation limitée dans [l’affectation de rôles à des identités gérées](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
+- Les attributions de rôles doivent utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). Le rôle Administrateur de l’accès utilisateur est pris en charge uniquement pour une utilisation limitée dans [l’affectation de rôles à des identités gérées](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
 - S’il vous est possible d’intégrer des abonnements utilisant Azure Databricks, les utilisateurs du locataire gestionnaire ne peuvent pas lancer d’espaces de travail Azure Databricks sur un abonnement délégué pour le moment.
 - Bien que vous puissiez intégrer des abonnements et des groupes de ressources qui ont des verrous de ressources, ces verrous n’empêchent pas les actions d’être effectuées par les utilisateurs dans le locataire gestionnaire. Les [affectations de refus](../../role-based-access-control/deny-assignments.md), qui protègent les ressources managées par le système, telles que celles créées par les applications managées Azure ou Azure Blueprints (affectations de refus émises par le système), empêchent les utilisateurs du locataire gestionnaire d’agir sur ces ressources. Toutefois, à ce moment-là, les utilisateurs du locataire client ne peuvent pas créer leurs propres affectations de refus (affectations de refus émises par l’utilisateur).
 

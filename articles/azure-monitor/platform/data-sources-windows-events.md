@@ -1,25 +1,28 @@
 ---
-title: Collecter et analyser les journaux des événements Windows dans Azure Monitor | Microsoft Docs
+title: Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics dans Azure Monitor
 description: Décrit comment configurer la collecte des journaux d’événements Windows et par Azure Monitor et les détails des enregistrements créés.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075259"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440601"
 ---
-# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Sources de données de journal d’événements Windows dans Azure Monitor
-Les journaux d’événements Windows sont les [sources de données](agent-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux d’activité standard tels que Système et Application, ou spécifier des journaux d’activité personnalisés créés par les applications que vous souhaitez surveiller.
+# <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics
+Les journaux d’événements Windows sont les [sources de données](agent-data-sources.md) les plus courantes pour les agents Log Analytics sur Windows puisque de nombreuses applications écrivent dans le journal des événements Windows.  Vous pouvez collecter des événements à partir de journaux d’activité standard tels que Système et Application, ou spécifier des journaux d’activité personnalisés créés par les applications que vous souhaitez surveiller.
+
+> [!IMPORTANT]
+> Cet article traite de la collecte d’événements Windows avec l’[agent Log Analytics](log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](agents-overview.md).
 
 ![Événements Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configuration des journaux d’événements Windows
-Configurez les journaux des événements Windows dans le [menu Données, dans Paramètres avancés](agent-data-sources.md#configuring-data-sources).
+Configurez les journaux d’événements Windows à partir du [menu Données dans les paramètres avancés](agent-data-sources.md#configuring-data-sources) de l’espace de travail Log Analytics.
 
 Azure Monitor collecte uniquement les événements des journaux d’événements Windows spécifiés dans les paramètres.  Vous pouvez ajouter un journal d’événements en tapant le nom du journal puis en cliquant sur **+** .  Pour chaque journal, seuls les événements avec les niveaux de gravité sélectionnés sont collectés.  Vérifiez les niveaux de gravité du journal que vous souhaitez collecter.  Vous ne pouvez pas fournir d’autres critères supplémentaires pour filtrer les événements.
 

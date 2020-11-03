@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267480"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461462"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scénario : Router vers des réseaux virtuels de services partagés
 
@@ -24,15 +24,17 @@ Pour plus d’informations sur le routage de hub virtuel, consultez [À propos d
 
 ## <a name="design"></a><a name="design"></a>Conception
 
-Nous pouvons utiliser une matrice de connectivité pour résumer les exigences de ce scénario. Dans la matrice, chaque cellule indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique. Un « X » signifie que la connectivité est assurée par Virtual WAN :
+Nous pouvons utiliser une matrice de connectivité pour résumer les exigences de ce scénario :
 
 **Matrice de connectivité**
 
 | Du             | Par :   |*Réseaux virtuels isolés*|*Réseau virtuel partagé*|*Branches*|
 |---|---|---|---|---|
-|**Réseaux virtuels isolés**|&#8594;|                |        X        |       X      |
-|**Réseaux virtuels partagé**  |&#8594;|       X        |        X        |       X      |
-|**Branches**      |&#8594;|       X        |        X        |       X      |
+|**Réseaux virtuels isolés**|&#8594;|        | Direct | Direct |
+|**Réseaux virtuels partagé**  |&#8594;| Direct | Direct | Direct |
+|**Branches**      |&#8594;| Direct | Direct | Direct |
+
+Chacune des cellules du tableau précédent indique si une connexion Virtual WAN (côté « De » du flux, les en-têtes de lignes) communique avec une destination (côté « À » du flux, en-têtes de colonne en italique). Dans ce scénario, il n’y a pas de pare-feu ou d’appliances virtuelles réseau, ainsi la communication circule directement sur Virtual WAN (d’où le mot « Direct » dans le tableau).
 
 À l’instar du [scénario de réseau virtuel isolé](scenario-isolate-vnets.md), cette matrice de connectivité nous offre deux modèles de ligne différents, qui sont convertis en deux tables de routage (les réseaux virtuels de services partagés et les branches ont les mêmes exigences de connectivité). Virtual WAN possède déjà une table de routage par défaut. Nous aurons donc besoin d’une autre table de routage personnalisée, que nous appellerons **RT_SHARED** dans cet exemple.
 
@@ -63,11 +65,11 @@ Pour configurer le scénario, effectuez les étapes suivantes :
 2. Créez une table de routage personnalisée. Dans l’exemple, la table de routage est nommée **RT_SHARED**. Pour connaître la procédure de création d’une table de routage, consultez le [Guide pratique pour configurer le routage de hub virtuel](how-to-virtual-hub-routing.md). Utilisez les valeurs suivantes comme repère :
 
    * **Association**
-     * Pour les **réseaux virtuels, *à l’exception* du réseau virtuel de services partagés**, sélectionnez les réseaux virtuels à isoler. Cela implique que tous ces réseaux virtuels (à l’exception du réseau virtuel de services partagés) sont en mesure d’atteindre la destination en fonction des routes de la table de routage RT_SHARED.
+     * Pour les **réseaux virtuels, *à l’exception* du réseau virtuel de services partagés** , sélectionnez les réseaux virtuels à isoler. Cela implique que tous ces réseaux virtuels (à l’exception du réseau virtuel de services partagés) sont en mesure d’atteindre la destination en fonction des routes de la table de routage RT_SHARED.
 
    * **Propagation**
-      * Pour les **branches**, propagez les routes vers cette table de routage, en plus des autres tables de routage que vous avez déjà sélectionnées. En raison de cette étape, la table de routage RT_SHARED apprend les routes de toutes les connexions de branche (VPN/ER/VPN utilisateur).
-      * Pour les **réseaux virtuels**, sélectionnez le **réseau virtuel des services partagés**. Grâce à cette étape, la table de routage RT_SHARED apprend les routes de la connexion au réseau virtuel de services partagés.
+      * Pour les **branches** , propagez les routes vers cette table de routage, en plus des autres tables de routage que vous avez déjà sélectionnées. En raison de cette étape, la table de routage RT_SHARED apprend les routes de toutes les connexions de branche (VPN/ER/VPN utilisateur).
+      * Pour les **réseaux virtuels** , sélectionnez le **réseau virtuel des services partagés**. Grâce à cette étape, la table de routage RT_SHARED apprend les routes de la connexion au réseau virtuel de services partagés.
 
 Cela entraîne la configuration de routage indiquée dans la figure suivante :
 

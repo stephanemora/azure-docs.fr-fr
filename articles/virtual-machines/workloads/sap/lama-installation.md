@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361362"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890477"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -181,7 +181,7 @@ Créez une machine virtuelle avec l’un des systèmes d’exploitation pris en 
 
 La base de données Oracle doit disposer de disques pour /oracle, /home/oraod1 et /home/oracle.
 
-![Base de données Oracle sur Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagramme montrant une base de données Oracle sur Linux et les disques dont elle a besoin.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Déploiement manuel pour Microsoft SQL Server
 
@@ -447,7 +447,7 @@ Vous devez ajouter l’adresse IP du nom d’hôte virtuel de la base de donnée
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Exécutez l’installation de l’instance de base de données de SWPM sur la machine virtuelle SQL Server. Utilisez SAPINST_USE_HOSTNAME=*as1-db* afin de remplacer le nom d’hôte utilisé pour la connexion à SQL Server. Si vous avez déployé la machine virtuelle à l’aide du modèle Azure Resource Manager, veillez à définir le répertoire utilisé pour les fichiers de données de base de données sur *C:\sql\data*, et le répertoire du fichier journal de base de données sur *C:\sql\log*.
+Exécutez l’installation de l’instance de base de données de SWPM sur la machine virtuelle SQL Server. Utilisez SAPINST_USE_HOSTNAME= *as1-db* afin de remplacer le nom d’hôte utilisé pour la connexion à SQL Server. Si vous avez déployé la machine virtuelle à l’aide du modèle Azure Resource Manager, veillez à définir le répertoire utilisé pour les fichiers de données de base de données sur *C:\sql\data* , et le répertoire du fichier journal de base de données sur *C:\sql\log*.
 
 Assurez-vous que l’utilisateur *NT AUTHORITY\SYSTEM* a accès à SQL Server et dispose du rôle serveur *sysadmin*. Pour plus d’informations, consultez les notes SAP [1877727] et [2562184].
 

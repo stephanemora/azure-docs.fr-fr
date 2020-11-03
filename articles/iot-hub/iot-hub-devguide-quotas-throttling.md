@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797800"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547688"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -59,7 +59,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 | Nombre maximal de flux d’appareils connectés simultanément<sup>1</sup> | 50 | 50 | 50 |
 | Transfert de données de flux d’appareil maximal<sup>1</sup> (volume agrégé par jour) | 300 Mo | 300 Mo | 300 Mo |
 
-<sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>La taille du compteur de limitation est de 4 Ko.
+<sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>La taille du compteur de limitation est de 4 Ko. La limitation de requêtes est basée uniquement sur la taille de charge utile de la requête.
 
 ### <a name="throttling-details"></a>Détails de la limitation
 
@@ -81,7 +81,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 
 Pour prendre en charge le trafic en rafale, IoT Hub accepte les requêtes dépassant la limitation sur une durée limitée. Les quelques premières requêtes sont traitées immédiatement. Toutefois, si le nombre de requêtes continue à enfreindre la limitation, IoT Hub commence à placer les requêtes dans une file d’attente. Elles sont alors traitées selon le taux limite. Cet effet est appelé la *régulation de flux*. En outre, la taille de cette file d’attente est limitée. Si la violation de limitation continue, la file d’attente finit par se remplir, et IoT Hub commence à rejeter les requêtes avec `429 ThrottlingException`.
 
-Par exemple, vous utilisez un appareil simulé pour envoyer 200 messages appareil-à-cloud par seconde à votre IoT Hub S1 (dont les envois appareil-à-cloud sont limités à 100/s). Pendant la première ou les deux premières minutes, les messages sont traités immédiatement. Toutefois, étant donné que l’appareil continue à envoyer plus de messages que ne l’autorise la limitation, IoT Hub commence à traiter uniquement 100 messages par seconde et place le reste dans une file d’attente. Vous commencez alors à remarquer une latence plus élevée. Finalement, la file d’attente se remplit et vous obtenez une exception `429 ThrottlingException`. La valeur « number of throttle errors » (nombre d’erreurs de limitation) dans les [métriques IoT Hub](iot-hub-metrics.md) commence à augmenter.
+Par exemple, vous utilisez un appareil simulé pour envoyer 200 messages appareil-à-cloud par seconde à votre IoT Hub S1 (dont les envois appareil-à-cloud sont limités à 100/s). Pendant la première ou les deux premières minutes, les messages sont traités immédiatement. Toutefois, étant donné que l’appareil continue à envoyer plus de messages que ne l’autorise la limitation, IoT Hub commence à traiter uniquement 100 messages par seconde et place le reste dans une file d’attente. Vous commencez alors à remarquer une latence plus élevée. Finalement, la file d’attente se remplit et vous obtenez une exception `429 ThrottlingException`, et la valeur [« number of throttle errors » (nombre d’erreurs de limitation) dans les métriques IoT Hub](monitor-iot-hub-reference.md#device-telemetry-metrics) commence à augmenter. Pour savoir comment créer des alertes et des graphiques basés sur des métriques, consultez [Surveiller IoT Hub](monitor-iot-hub.md).
 
 ### <a name="identity-registry-operations-throttle"></a>Limitation des opérations du registre des identités
 
@@ -139,3 +139,4 @@ Le billet de blog [IoT Hub throttling and you](https://azure.microsoft.com/blog/
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 
 * [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md)
+* [Superviser avec IoT Hub](monitor-iot-hub.md)

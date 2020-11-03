@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c183c906644d5d672b97642b1b072a2a08a70973
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 45cad20a2e32640cabf4c57ce6411fcd5ab67da3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203753"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748222"
 ---
 # <a name="azure-tls-certificate-changes"></a>Modification des certificats Azure TLS  
 
@@ -27,7 +27,7 @@ Microsoft met à jour les services Azure pour qu’ils utilisent des certificats
 - Les points de terminaison Azure existants feront l’objet d’une transition par phases à partir du 13 août 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) et [DPS](/azure/iot-dps/) resteront dans l’autorité de certification racine Baltimore CyberTrust, mais leurs autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Stockage Azure](/azure/storage) restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-
+- [Azure Cache pour Redis](/azure/azure-cache-for-redis) restera dans l’autorité de certification racine Baltimore CyberTrust, mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Les clients devront peut-être mettre à jour leurs applications après cette modification pour éviter les échecs de connectivité quand ils tentent de se connecter aux services Azure.
 
@@ -48,7 +48,7 @@ Les certificats TLS utilisés par les services Azure seront liés à l’une des
 | [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20EV%20ECC%20Root%20Certificate%20Authority%202017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
+| [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5 |
 
 ## <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>Quand pourrai-je supprimer l’ancienne empreinte intermédiaire ?
 
@@ -58,7 +58,7 @@ Si cette date change, vous serez informé de la nouvelle date de révocation.
 
 ## <a name="will-this-change-affect-me"></a>Ce changement m’affecte-t-il ? 
 
-Nous pensons que **la plupart des clients Azure ne seront pas impactés** .  Toutefois, votre application peut être impactée si elle spécifie explicitement une liste d’autorités de certification acceptables. Cette pratique est appelée « épinglage de certificat ».
+Nous pensons que **la plupart des clients Azure ne seront pas impactés**.  Toutefois, votre application peut être impactée si elle spécifie explicitement une liste d’autorités de certification acceptables. Cette pratique est appelée « épinglage de certificat ».
 
 Voici quelques méthodes permettant de déterminer si votre application est impactée :
 

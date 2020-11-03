@@ -7,22 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102929"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539715"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Services de haute disponibilité pris en charge par Azure HDInsight
 
 Afin de vous fournir des niveaux optimaux de disponibilité pour vos composants analytiques, HDInsight a été développé avec une architecture unique pour assurer une haute disponibilité (HA) des services critiques. Certains composants de cette architecture ont été développés par Microsoft pour fournir un basculement automatique. Les autres composants sont des composants Apache standard déployés pour prendre en charge des services spécifiques. Cet article décrit en détail l’architecture du modèle de service de haute disponibilité dans HDInsight, la façon dont HDInsight prend en charge le basculement pour les services haute disponibilité et les meilleures pratiques pour effectuer une reprise à partir d’autres interruptions de service.
- 
+
 > [!NOTE]
-> Communication sans stéréotype
->
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_ . Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
->
+> Cet article contient des références au terme *esclave* , un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="high-availability-infrastructure"></a>Infrastructure de haute disponibilité
 
@@ -52,7 +49,7 @@ Les sections suivantes décrivent en détail la façon dont ces services fonctio
 
 ## <a name="hdinsight-high-availability-services"></a>Services de haute disponibilité HDInsight
 
-Microsoft assure la prise en charge des quatre services Apache dans le tableau suivant des clusters HDInsight. Pour les distinguer des services de haute disponibilité pris en charge par les composants d’Apache, ceux-ci sont appelés *services HDInsight HA* .
+Microsoft assure la prise en charge des quatre services Apache dans le tableau suivant des clusters HDInsight. Pour les distinguer des services de haute disponibilité pris en charge par les composants d’Apache, ceux-ci sont appelés *services HDInsight HA*.
 
 | Service | Nœuds de cluster | Types de cluster | Objectif |
 |---|---|---|---|
@@ -68,7 +65,7 @@ Microsoft assure la prise en charge des quatre services Apache dans le tableau s
 
 Chaque cluster HDInsight a deux nœuds principaux en mode actif et en mode veille, respectivement. Les services de haute disponibilité HDInsight s’exécutent uniquement sur nœuds principaux. Ces services doivent toujours s’exécuter sur le nœud principal actif, puis être arrêtés et mis en mode maintenance sur le nœud principal de secours.
 
-Pour conserver les états corrects des services de haute disponibilité et fournir un basculement rapide, HDInsight utilise Apache ZooKeeper, qui est un service de coordination pour les applications distribuées afin d’effectuer l’élection du nœud principal actif. HDInsight provisionne également quelques processus Java en arrière-plan, qui coordonnent la procédure de basculement pour les services haute disponibilité HDInsight. Ces services sont les suivants : le contrôleur de basculement maître, le contrôleur de basculement esclave, *master-ha-service* et *slave-ha-service* .
+Pour conserver les états corrects des services de haute disponibilité et fournir un basculement rapide, HDInsight utilise Apache ZooKeeper, qui est un service de coordination pour les applications distribuées afin d’effectuer l’élection du nœud principal actif. HDInsight provisionne également quelques processus Java en arrière-plan, qui coordonnent la procédure de basculement pour les services haute disponibilité HDInsight. Ces services sont les suivants : le contrôleur de basculement maître, le contrôleur de basculement esclave, *master-ha-service* et *slave-ha-service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
@@ -139,5 +136,5 @@ Les clusters HDInsight HBase prennent en charge la haute disponibilité du maît
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) (Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight)
+- [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md) (Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight)
 - [Architecture de réseau virtuel Azure HDInsight](hdinsight-virtual-network-architecture.md)

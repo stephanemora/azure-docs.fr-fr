@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: a9ff0219a9b811cae15f9b34ec85240d303ab841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42f6badabd27ceaa302f635a7a33b0161b870dc5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450274"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782856"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Les sections suivantes vous montrent comment utiliser le portail Azure pour conf
 
 Vous pouvez configurer SQL Database pour [conserver des sauvegardes automatisées](long-term-retention-overview.md) sur une période plus longue que la période de rétention associée à votre niveau de service.
 
-1. Dans le portail Azure, sélectionnez votre instance SQL Server, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Configurer les stratégies**, cochez la case pour la base de données sur laquelle vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme. Si la case à cocher située en regard de la base de données n’est pas sélectionnée, les modifications de la stratégie ne s’appliqueront pas à cette base de données.  
+1. Dans le portail Azure, sélectionnez votre instance SQL Server, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Configurer les stratégies** , cochez la case pour la base de données sur laquelle vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme. Si la case à cocher située en regard de la base de données n’est pas sélectionnée, les modifications de la stratégie ne s’appliqueront pas à cette base de données.  
 
    ![lien gérer les sauvegardes](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -48,11 +48,11 @@ Vous pouvez configurer SQL Database pour [conserver des sauvegardes automatisée
 
 Affichez les sauvegardes qui sont conservées pour une base de données spécifique avec une stratégie de conservation à long terme et restaurez à partir de ces sauvegardes.
 
-1. Sur le portail Azure, sélectionnez votre serveur, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Sauvegardes disponibles**, sélectionnez la base de données pour laquelle vous souhaitez afficher les sauvegardes disponibles.
+1. Sur le portail Azure, sélectionnez votre serveur, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Sauvegardes disponibles** , sélectionnez la base de données pour laquelle vous souhaitez afficher les sauvegardes disponibles.
 
    ![sélectionner la base de données](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
-1. Dans le volet **Sauvegardes disponibles**, passez en revue les sauvegardes disponibles.
+1. Dans le volet **Sauvegardes disponibles** , passez en revue les sauvegardes disponibles.
 
    ![afficher les sauvegardes](./media/long-term-backup-retention-configure/ltr-available-backups.png)
 
@@ -76,13 +76,13 @@ Affichez les sauvegardes qui sont conservées pour une base de données spécifi
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage Azure et restaurer à partir d’une sauvegarde dans le stockage Azure.
 
 ### <a name="azure-roles-to-manage-long-term-retention"></a>Rôles Azure pour gérer la conservation à long terme
 
-Pour **Get-AzSqlDatabaseLongTermRetentionBackup** et **Restore-AzSqlDatabase**, vous devez avoir l’un des rôles suivants :
+Pour **Get-AzSqlDatabaseLongTermRetentionBackup** et **Restore-AzSqlDatabase** , vous devez avoir l’un des rôles suivants :
 
 - Rôle Propriétaire de l’abonnement
 - Rôle Contributeur de SQL Server
@@ -90,7 +90,7 @@ Pour **Get-AzSqlDatabaseLongTermRetentionBackup** et **Restore-AzSqlDatabase**, 
 
    Microsoft.Sql/locations/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
 
-Pour **Remove-AzSqlDatabaseLongTermRetentionBackup**, vous devez avoir l’un des rôles suivants :
+Pour **Remove-AzSqlDatabaseLongTermRetentionBackup** , vous devez avoir l’un des rôles suivants :
 
 - Rôle Propriétaire de l’abonnement
 - Rôle personnalisé avec l’autorisation suivante :
@@ -100,7 +100,7 @@ Pour **Remove-AzSqlDatabaseLongTermRetentionBackup**, vous devez avoir l’un de
 > [!NOTE]
 > Le rôle Contributeur de SQL Server n’a pas l’autorisation de supprimer les sauvegardes LTR.
 
-Les autorisations RBAC peuvent être accordées dans l’étendue de l’*abonnement* ou du *groupe de ressources*. Toutefois, pour accéder aux sauvegardes LTR appartenant à un serveur abandonné, l’autorisation doit être accordée dans l’étendue de l’*abonnement* de ce serveur.
+Les autorisations RBAC peuvent être accordées dans l’étendue de l’ *abonnement* ou du *groupe de ressources*. Toutefois, pour accéder aux sauvegardes LTR appartenant à un serveur abandonné, l’autorisation doit être accordée dans l’étendue de l’ *abonnement* de ce serveur.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -200,6 +200,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > À ce stade, vous pouvez vous connecter à la base de données restaurée à l’aide de SQL Server Management Studio pour exécuter les tâches nécessaires, notamment pour extraire un bit de données de la base de données restaurée à copier dans la base de données existante ou pour supprimer la base de données existante et renommer la base de données restaurée avec le nom de la base de données existante. Consultez [Restauration dans le temps](recovery-using-backups.md#point-in-time-restore).
+
+## <a name="limitations"></a>Limites
+- Lors de la restauration à partir d’une sauvegarde LTR, la propriété d’échelle lecture est désactivée. Pour activer la propriété échelle lecture sur la base de données restaurée, mettez à jour la base de données après sa création.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279074"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737851"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Utiliser des procédures stockées dans Synapse SQL
 
@@ -24,6 +24,9 @@ Conseils sur l’implémentation des procédures stockées dans un pool Synapse 
 ## <a name="what-to-expect"></a>À quoi s’attendre
 
 Synapse SQL prend en charge plusieurs fonctionnalités T-SQL qui sont utilisées dans SQL Server. Plus important encore, il existe différentes fonctions, propres à l’augmentation de la taille des instances, que nous voulons exploiter pour optimiser les performances de notre solution.
+
+> [!NOTE]
+> Dans le corps de la procédure, vous pouvez uniquement utiliser les fonctionnalités qui sont prises en charge dans la surface d’exposition de Synapse SQL. Consultez [cet article](overview-features.md) pour identifier les objets et les instructions qui peuvent être utilisés dans les procédures stockées. Dans les exemples de ces articles sont utilisées des fonctionnalités génériques qui sont disponibles dans les surfaces d’exposition serverless et approvisionnée.
 
 Pour assurer la mise à l’échelle et les performances du pool SQL, il existe divers mécanismes et fonctions dont le comportement présente des différences, ainsi que d’autres qui ne sont pas pris en charge.
 

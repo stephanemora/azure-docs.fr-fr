@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119787"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673506"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utiliser la bibliothèque d’authentification Microsoft pour JavaScript pour travailler avec Azure AD B2C
 
@@ -56,16 +56,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>Étape 3 : configurer l’authentification ;
 
-1. Ouvrez le fichier `config.js` dans l’exemple.
+1. Ouvrez le fichier *config.json* de l’exemple.
 
-2. Configurez l’exemple avec les informations d’identification de l’application que vous avez obtenues précédemment lors de l’inscription de votre application. Modifiez les lignes de code suivantes en remplaçant les valeurs par les noms de vos paramètres clientID, host, tenantId et policyName.
+2. Configurez l’exemple avec les informations d’identification de l’application que vous avez obtenues précédemment lors de l’inscription de votre application. Modifiez les lignes de code suivantes en remplaçant les valeurs par le nom de votre locataire, l’ID client et le nom de la stratégie.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 Pour plus d’informations, consultez cet [exemple d’API web Node.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
@@ -163,7 +169,7 @@ Les étapes suivantes supposent que vous avez déjà suivi les étapes de la sec
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Étape 2 : Intercepter et gérer les erreurs d’authentification dans votre méthode de connexion
 
-Lorsqu’un utilisateur sélectionne **Mot de passe oublié**, votre application génère une erreur que vous devez intercepter dans votre code, puis gérer en présentant le flux d’utilisateur approprié. Dans ce cas, le flux réinitialisation du mot de passe `b2c_1_reset`.
+Lorsqu’un utilisateur sélectionne **Mot de passe oublié** , votre application génère une erreur que vous devez intercepter dans votre code, puis gérer en présentant le flux d’utilisateur approprié. Dans ce cas, le flux réinitialisation du mot de passe `b2c_1_reset`.
 
 1. Étendez votre méthode de connexion comme suit :
 
@@ -201,7 +207,7 @@ Lorsqu’un utilisateur sélectionne **Mot de passe oublié**, votre application
 
     Après réinitialisation de son mot de passe, l’utilisateur est renvoyé à l’application afin de se reconnecter.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Écran de connexion affiché par Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Écrans du flux de réinitialisation du mot de passe affichés par Azure AD B2C" border="false":::
 
     Pour plus d’informations sur les codes d’erreur et la gestion des exceptions, consultez [Codes d’erreur et d’exception MSAL](msal-handling-exceptions.md).
 

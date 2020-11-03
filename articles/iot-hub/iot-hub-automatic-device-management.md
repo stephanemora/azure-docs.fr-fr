@@ -10,18 +10,18 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e30daa3f81ed5dcae1323e721bf85cfed8fa9614
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147820"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545393"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gestion automatique des Modules et des appareils IoT avec le portail Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble d’appareils en fonction de leurs propriétés, définir la configuration souhaitée et laisser IoT Hub mettre à jour les appareils quand ils se trouvent dans l’étendue. Cette opération est effectuée à l’aide d’une _configuration d’appareil automatique_ou d’une _configuration de Module automatique_, qui vous permet de récapituler les données d’achèvement et de conformité, de gérer la fusion et les conflits, et de déployer les configurations de façon progressive.
+La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble d’appareils en fonction de leurs propriétés, définir la configuration souhaitée et laisser IoT Hub mettre à jour les appareils quand ils se trouvent dans l’étendue. Cette opération est effectuée à l’aide d’une _configuration d’appareil automatique_ ou d’une _configuration de Module automatique_ , qui vous permet de récapituler les données d’achèvement et de conformité, de gérer la fusion et les conflits, et de déployer les configurations de façon progressive.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -31,7 +31,7 @@ La gestion automatique des appareils fonctionne en mettant à jour un ensemble d
 
 * Le **contenu cible** définit les propriétés souhaitées à ajouter ou à mettre à jour dans les jumeaux d’appareil ou de Module ciblés. Le contenu inclut un chemin de la section des propriétés souhaitées à changer.
 
-* Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite**, **En cours** et **Erreur**. Les indicateurs de performance personnalisés sont spécifiés en tant que requêtes sur les propriétés signalées du jumeau.  Les indicateurs de performance système sont des indicateurs de performance par défaut qui mesurent l’état de la mise à jour des jumeaux, comme le nombre de jumeaux qui sont ciblés et le nombre de jumeaux qui ont été correctement mis à jour.
+* Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite** , **En cours** et **Erreur**. Les indicateurs de performance personnalisés sont spécifiés en tant que requêtes sur les propriétés signalées du jumeau.  Les indicateurs de performance système sont des indicateurs de performance par défaut qui mesurent l’état de la mise à jour des jumeaux, comme le nombre de jumeaux qui sont ciblés et le nombre de jumeaux qui ont été correctement mis à jour.
 
 Les configurations automatiques s’exécutent pour la première fois peu de temps après la création de la configuration, puis à cinq minutes d’intervalle. Les requêtes relatives aux indicateurs de performance s’exécutent à chaque exécution de la configuration automatique.
 
@@ -70,7 +70,7 @@ La création d’une configuration nécessite cinq étapes. Les sections suivant
 
 1. Donnez à votre configuration un nom unique comportant au plus 128 lettres minuscules. Évitez les espaces et les caractères non valides suivants : `& ^ [ ] { } \ | " < > /`.
 
-2. Ajoutez des étiquettes pour faciliter le suivi de vos configurations. Les étiquettes sont des paires **Nom**, **Valeur** qui décrivent votre configuration. Par exemple, `HostPlatform, Linux` ou `Version, 3.0.1`.
+2. Ajoutez des étiquettes pour faciliter le suivi de vos configurations. Les étiquettes sont des paires **Nom** , **Valeur** qui décrivent votre configuration. Par exemple, `HostPlatform, Linux` ou `Version, 3.0.1`.
 
 3. Cliquez sur **Suivant** pour passer à l’étape suivante. 
 
@@ -236,8 +236,7 @@ Quand vous supprimez une configuration, tous les jumeaux d’appareil prennent l
 Dans cet article, vous avez découvert comment configurer et superviser des appareils IoT à grande échelle. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Gestion de vos identités d’appareil IoT Hub en bloc](iot-hub-bulk-identity-mgmt.md)
-* [Métriques d’IoT Hub](iot-hub-metrics.md)
-* [Surveillance des opérations](iot-hub-operations-monitoring.md)
+* [Surveiller votre hub IoT](monitor-iot-hub.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 

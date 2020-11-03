@@ -2,13 +2,13 @@
 title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371539"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370285"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -37,6 +37,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -167,6 +168,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.Singularity](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.SQL](#microsoftsql)
@@ -361,6 +363,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Oui | Oui |
+> | privateClouds / addons | Non | Non |
 > | Clouds privés / autorisations | Non | Non |
 > | Clouds privés / clusters | Non | Non |
 > | privateClouds / globalReachConnections | Non | Non |
@@ -423,12 +426,21 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | clusters | Oui | Oui |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft.BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | bareMetalInstances | Oui | Oui |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | Oui | Oui |
+> | batchAccounts / certificates | Non | Non |
+> | batchAccounts / pools | Non | Non |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -737,7 +749,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
-> | plans | Oui | Oui |
+> | plans | Oui | Non |
 > | registeredSubscriptions | Non | Non |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
@@ -833,7 +845,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ReservationRecommendations | Non | Non |
 > | ReservationSummaries | Non | Non |
 > | ReservationTransactions | Non | Non |
-> | Étiquettes | Non | Non |
+> | Balises | Non | Non |
 > | tenants | Non | Non |
 > | Termes | Non | Non |
 > | UsageDetails | Non | Non |
@@ -973,7 +985,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | workspaces | Oui | Oui |
 > | workspaces / dbWorkspaces | Non | Non |
-> | workspaces / storageEncryption | Non | Non |
 > | workspaces / virtualNetworkPeerings | Non | Non |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1132,6 +1143,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | applicationgroups / desktops | Non | Non |
 > | applicationgroups / startmenuitems | Non | Non |
 > | hostpools | Oui | Oui |
+> | hostpools / msixpackages | Non | Non |
 > | hostpools / sessionhosts | Non | Non |
 > | hostpools / sessionhosts / usersessions | Non | Non |
 > | hostpools / usersessions | Non | Non |
@@ -1384,12 +1396,14 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | périphériques | Oui | Oui |
+> | networkFunctions | Oui | Oui |
+> | networkFunctionVendors | Non | Non |
 > | registeredSubscriptions | Non | Non |
 > | vendors | Non | Non |
-> | vendors / vendorskus | Non | Non |
-> | vendors / vendorskus / previewSubscriptions | Non | Non |
-> | virtualnetworkfunctions | Oui | Oui |
-> | virtualnetworkfunctionvendors | Non | Non |
+> | vendors / vendorSkus | Non | Non |
+> | vendors / vendorSkus / previewSubscriptions | Non | Non |
+> | virtualNetworkFunctions | Oui | Oui |
+> | virtualNetworkFunctionVendors | Non | Non |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1537,9 +1551,20 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Oui | Oui |
+> | workspaces / batchEndpoints | Oui | Oui |
+> | workspaces / batchEndpoints / deployments | Oui | Oui |
+> | workspaces / codes | Non | Non |
+> | workspaces / codes / versions | Non | Non |
 > | workspaces / computes | Non | Non |
+> | workspaces / datastores | Non | Non |
 > | workspaces / eventGridFilters | Non | Non |
+> | workspaces / jobs | Non | Non |
+> | workspaces / labelingJobs | Non | Non |
 > | workspaces / linkedServices | Non | Non |
+> | workspaces / models | Non | Non |
+> | workspaces / models / versions | Non | Non |
+> | workspaces / onlineEndpoints | Oui | Oui |
+> | workspaces / onlineEndpoints / deployments | Oui | Oui |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2194,6 +2219,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | SignalR | Oui | Oui |
 > | SignalR / eventGridFilters | Non | Non |
 
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | Oui | Oui |
+> | accounts / accountQuotaPolicies | Non | Non |
+> | accounts / groupPolicies | Non | Non |
+> | accounts / jobs | Non | Non |
+> | accounts / storageContainers | Non | Non |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2332,6 +2368,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | clusters | Oui | Oui |
+> | clusters / privateEndpoints | Non | Non |
 > | streamingjobs | Oui (voir la remarque ci-dessous) | Oui |
 
 > [!NOTE]
@@ -2433,8 +2470,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
-> | accounts | Oui | Oui |
-> | plans | Oui | Oui |
+> | accounts | Oui | Non |
+> | plans | Oui | Non |
 > | registeredSubscriptions | Non | Non |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2469,6 +2506,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | runtimes | Non | Non |
 > | serverFarms | Oui | Oui |
 > | serverFarms / eventGridFilters | Non | Non |
+> | serverFarms / firstPartyApps | Non | Non |
+> | serverFarms / firstPartyApps / keyVaultSettings | Non | Non |
 > | sites | Oui | Oui |
 > | sites / config  | Non | Non |
 > | sites / eventGridFilters | Non | Non |

@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204980"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742465"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacité Azure Synapse Analytics (anciennement SQL DW)
 
@@ -61,8 +61,8 @@ Valeurs maximales autorisées pour les différents composants d’Azure Synapse.
 
 | Category | Description | Maximale |
 |:--- |:--- |:--- |
-| Charges Polybase |60 Mo par ligne |1<br/><br/>Polybase charge les lignes qui sont inférieures à 1 Mo. Le chargement de types de données LOB dans les tables avec un index columnstore en cluster n’est pas pris en charge.<br/><br/> |
-||||
+| Charges Polybase |60 Mo par ligne |1<br/><br/>Polybase charge les lignes qui sont inférieures à 1 Mo. Le chargement de types de données LOB dans les tables avec un index columnstore en cluster n’est pas pris en charge.<br/> |
+|Charges Polybase|Nombre total de fichiers|1 000 000<br/><br/>Les charges Polybase ne peuvent pas dépasser plus d’un million de fichiers. Vous pouvez rencontrer l’erreur suivante : **L’opération a échoué, car le nombre de fractionnements dépasse la limite supérieure de 1 000 000**.|
 
 ## <a name="queries"></a>Requêtes
 

@@ -2,15 +2,15 @@
 title: Utiliser des zones de disponibilité dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer un cluster qui distribue les nœuds entre les zones de disponibilité dans Azure Kubernetes Service (AKS)
 services: container-service
-ms.custom: fasttrack-edit, references_regions
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165806"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745815"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -22,7 +22,7 @@ Cet article vous explique comment créer un cluster AKS et répartir les composa
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Limitations et disponibilité de la région
 
@@ -56,7 +56,7 @@ Si vous devez exécuter des charges de travail avec état, utilisez les teintes 
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Vue d’ensemble des zones de disponibilité pour les clusters AKS
 
-Les zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données des pannes des centres de données. Les zones sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées pour la zone. La séparation physique des zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données.
+Les zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données des pannes des centres de données. Les zones sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe toujours plus d’une zone dans toutes les régions activées. La séparation physique des zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données.
 
 Pour plus d’informations, consultez [Que sont les zones de disponibilité dans Azure ?][az-overview].
 
@@ -68,11 +68,11 @@ Si une zone devient indisponible, vos applications continuent à s’exécuter s
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Créer un cluster AKS sur plusieurs zones de disponibilité
 
-Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle, tels que etcd, sont répartis sur trois zones si vous définissez le paramètre `--zones` au moment de la création du cluster. Les zones spécifiques sur lesquelles sont répartis les composants du plan de contrôle sont indépendantes des zones explicites sélectionnées pour le pool de nœuds initial.
+Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle, tels que etcd ou l’API, sont répartis sur les zones disponibles dans la région si vous définissez le paramètre `--zones` au moment de la création du cluster. Les zones spécifiques sur lesquelles sont répartis les composants du plan de contrôle sont indépendantes des zones explicites sélectionnées pour le pool de nœuds initial.
 
 Si vous ne définissez aucune zone pour le pool d’agents par défaut lorsque vous créez un cluster AKS, la répartition des composants du plan de contrôle entre les zones de disponibilité n’est pas garantie. Vous pouvez ajouter des pools de nœuds supplémentaires à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add] et spécifier `--zones` pour les nouveaux nœuds, mais cela ne changera pas la manière dont le plan de contrôle a été réparti entre les zones. Les paramètres de la zone de disponibilité peuvent être définis uniquement au moment de la création du cluster ou du pool de nœuds.
 
-L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1*, un dans la zone *2*, puis un dans la zone *3*.
+L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1* , un dans la zone *2* , puis un dans la zone *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2

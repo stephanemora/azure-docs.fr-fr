@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.date: 10/23/2020
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341309"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735477"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -42,12 +42,12 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 
 + Un réseau virtuel et un sous-réseau existants à utiliser avec vos ressources de calcul.
 
-+ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau virtuel, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans les contrôles d’accès en fonction du rôle Azure (RBAC) :
++ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans le contrôle d’accès en fonction du rôle Azure (Azure RBAC) :
 
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
-    Pour plus d’informations sur RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
 
 <a id="aksvnet"></a>
 
@@ -68,7 +68,7 @@ Pour ajouter AKS sur un réseau virtuel à votre espace de travail, effectuez le
 
 1. Sélectionnez __Clusters d'inférence__ à partir du centre, puis sélectionnez __+__ .
 
-1. Dans la boîte de dialogue __Nouveau cluster d'inférence__ , sélectionnez __Avancé__ sous __Configuration réseau__ .
+1. Dans la boîte de dialogue __Nouveau cluster d'inférence__ , sélectionnez __Avancé__ sous __Configuration réseau__.
 
 1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, procédez comme suit :
 
@@ -123,7 +123,7 @@ Il existe deux approches pour isoler le trafic vers et depuis le cluster AKS en 
 * __Équilibreur de charge AKS interne__  : Cette approche configure le point de terminaison de vos déploiements sur AKS pour utiliser une adresse IP privée dans le réseau virtuel.
 
 > [!WARNING]
-> **Utilisez une instance AKS privée ou un équilibreur de charge interne, mais pas les deux** .
+> L’équilibreur de charge interne ne fonctionne pas avec un cluster AKS qui utilise kubenet. Si vous souhaitez utiliser un équilibreur de charge interne et un cluster AKS privé en même temps, configurez votre cluster AKS privé avec Azure Container Networking Interface (CNI). Pour plus d’informations, consultez [Configurer la mise en réseau d’Azure CNI dans Azure Kubernetes Service](../aks/configure-azure-cni.md).
 
 ### <a name="private-aks-cluster"></a>Cluster AKS privé
 
@@ -134,11 +134,11 @@ Après avoir créé le cluster AKS privé, [attachez le cluster au réseau virtu
 > [!IMPORTANT]
 > Avant d’utiliser un cluster AKS accessible par liaison privée avec Azure Machine Learning, vous devez ouvrir un incident de support pour activer cette fonctionnalité. Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## <a name="internal-aks-load-balancer"></a>Équilibreur de charge AKS interne
+### <a name="internal-aks-load-balancer"></a>Équilibreur de charge AKS interne
 
 Par défaut, les déploiements AKS utilisent un [équilibreur de charge public](../aks/load-balancer-standard.md). Dans cette section, vous allez apprendre à configurer AKS pour utiliser un équilibreur de charge interne. Un équilibreur de charge interne (ou privé) est utilisé lorsque des adresses IP privées sont autorisées uniquement au niveau du serveur front-end. Les équilibreurs de charge internes sont utilisés pour équilibrer la charge du trafic au sein d’un réseau virtuel
 
-Un équilibreur de charge privé est activé en configurant AKS pour utiliser un _équilibreur de charge interne_ . 
+Un équilibreur de charge privé est activé en configurant AKS pour utiliser un _équilibreur de charge interne_. 
 
 #### <a name="network-contributor-role"></a>Rôle du contributeur de réseau
 
@@ -256,7 +256,7 @@ Pour utiliser ACI sur un réseau virtuel à votre espace de travail, effectuez l
 1. Pour activer la délégation de sous-réseau sur votre réseau virtuel, utilisez les informations de l’article [Ajouter ou supprimer une délégation de sous-réseau](../virtual-network/manage-subnet-delegation.md). Vous pouvez activer la délégation lors de la création d’un réseau virtuel ou l’ajouter à un réseau existant.
 
     > [!IMPORTANT]
-    > Lorsque vous activez la délégation, utilisez `Microsoft.ContainerInstance/containerGroups` comme valeur __Déléguer le sous-réseau à un service__ .
+    > Lorsque vous activez la délégation, utilisez `Microsoft.ContainerInstance/containerGroups` comme valeur __Déléguer le sous-réseau à un service__.
 
 2. Déployez le modèle à l’aide de [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), en utilisant les paramètres `vnet_name` et `subnet_name`. Appliquez ces paramètres au nom du réseau virtuel et au sous-réseau où vous avez activé la délégation.
 

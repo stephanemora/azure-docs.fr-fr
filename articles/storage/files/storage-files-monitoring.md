@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfc554a57e99fa4ccd66b1bbeec0be46e463988f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772666"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738648"
 ---
 # <a name="monitoring-azure-files"></a>Supervision d’Azure Files
 
@@ -51,20 +51,9 @@ Les métriques et les journaux d’Azure Monitor ne prennent en charge que les c
 
 ## <a name="collection-and-routing"></a>Collecte et routage
 
-Les métriques de plateforme et le journal d’activité sont collectés automatiquement, mais ils peuvent être routés vers d’autres emplacements à l’aide d’un paramètre de diagnostic. Vous devez créer un paramètre de diagnostic pour collecter des journaux de ressources. 
+Les métriques de plateforme et le journal d'activité sont collectés automatiquement, mais ils peuvent être acheminés vers d'autres emplacements à l'aide d'un paramètre de diagnostic. 
 
-> [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Pour vous inscrire dans la préversion, consultez [cette page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
-
-Pour créer un paramètre de diagnostic à l’aide du portail Azure, de l’interface Azure CLI ou de PowerShell, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/platform/diagnostic-settings.md). 
-
-Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagnostic, consultez [Paramètre de diagnostic pour le Stockage Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
-Lorsque vous créez un paramètre de diagnostic, choisissez le type de stockage pour lequel vous souhaitez activer les journaux (tel que : objet blob, file d’attente, table ou fichier). Pour Azure Files, choisissez **Fichier**. 
-
-Si vous créez le paramètre de diagnostic dans le Portail Azure, vous pouvez sélectionner la ressource dans une liste. Si vous utilisez PowerShell ou l’interface Azure CLI, vous devez utiliser l’ID de ressource du point de terminaison du service Azure Files. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
-
-Vous devez également choisir, parmi les suivantes, la catégorie pour laquelle vous souhaitez collecter les journaux. 
+Pour collecter des journaux de ressources, vous devez créer un paramètre de diagnostic. Lorsque vous créez le paramètre, choisissez **Fichier** comme type de stockage pour lequel vous souhaitez activer les journaux. Ensuite, spécifiez l’une des catégories d’opérations suivantes pour laquelle vous souhaitez collecter les journaux. 
 
 | Category | Description |
 |:---|:---|
@@ -73,6 +62,191 @@ Vous devez également choisir, parmi les suivantes, la catégorie pour laquelle 
 | StorageDelete | Opérations de suppression sur des objets. |
 
 Pour obtenir la liste des opérations SMB et REST journalisées, consultez [Opérations et messages d’état journalisés Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Informations de référence sur les données de supervision d’Azure Files](storage-files-monitoring-reference.md).
+
+## <a name="creating-a-diagnostic-setting"></a>Création d’un paramètre de diagnostic
+
+Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager. 
+
+Pour obtenir des instructions générales, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
+
+### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
+
+1. Connectez-vous au portail Azure.
+
+2. Accédez à votre compte de stockage.
+
+3. Dans la section **Supervision** , cliquez sur **Paramètres de diagnostic (préversion)** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portail - Journaux de diagnostics](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
+
+4. Choisissez **Fichier** comme type de stockage pour lequel vous souhaitez activer les journaux.
+
+5. Cliquez sur **Ajouter le paramètre de diagnostic**.
+
+   > [!div class="mx-imgBorder"]
+   > ![portail – Journaux de ressources – ajouter un paramètre de diagnostic](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
+
+   La page **Paramètres de diagnostic** s’affiche.
+
+   > [!div class="mx-imgBorder"]
+   > ![Page Journaux de ressources](media/storage-files-monitoring/diagnostic-logs-page.png)
+
+6. Dans le champ **Nom** de la page, entrez un nom pour ce paramètre de journal des ressources. Sélectionnez ensuite les opérations que vous souhaitez consigner (opérations de lecture, d’écriture et de suppression), ainsi que l’emplacement où vous souhaitez que les journaux soient envoyés.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
+
+1. Cochez la case **Archiver dans un compte de stockage** , puis cliquez sur le bouton **Configurer**.
+
+   > [!div class="mx-imgBorder"]   
+   > ![Page Paramètres de diagnostic – Stockage d’archive](media/storage-files-monitoring/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. Dans la liste déroulante **Compte de stockage** , sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK** , puis cliquez sur le bouton **Enregistrer**.
+
+   > [!NOTE]
+   > Avant de choisir un compte de stockage comme destination d’exportation, consultez [Archiver les journaux de ressources Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) pour comprendre les conditions préalables relatives au compte de stockage.
+
+#### <a name="stream-logs-to-azure-event-hubs"></a>Diffuser les journaux en continu vers Azure Event Hubs
+
+1. Cochez la case **Diffuser sur un Event Hub** , puis cliquez sur le bouton **Configurer**.
+
+2. Dans le volet **Sélectionner un Event Hub** , choisissez l’espace de noms, le nom et le nom de la stratégie de l’Event Hub vers lequel vous souhaitez diffuser vos journaux en continu. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Page Paramètres de diagnostic – Event Hub](media/storage-files-monitoring/diagnostic-logs-settings-pane-event-hub.png)
+
+3. Cliquez sur le bouton **OK** , puis cliquez sur le bouton **Enregistrer**.
+
+#### <a name="send-logs-to-azure-log-analytics"></a>Envoyer des journaux à Azure Log Analytics
+
+1. Cochez la case **Envoyer à Log Analytics** , sélectionnez un espace de travail Log Analytics, puis cliquez sur le bouton **Enregistrer**.
+
+   > [!div class="mx-imgBorder"]   
+   > ![Page Paramètres de diagnostic – Log Analytics](media/storage-files-monitoring/diagnostic-logs-settings-pane-log-analytics.png)
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Ouvrez une fenêtre de commande Windows PowerShell, puis connectez-vous à votre abonnement Azure à l’aide de la commande `Connect-AzAccount`. Ensuite, suivez les instructions à l’écran.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Définissez votre abonnement actif sur abonnement du compte de stockage pour lequel vous souhaitez activer la journalisation.
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
+
+Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `StorageAccountId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource du service Azure Files. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+
+Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
+
+Voici un exemple :
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources Azure via Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
+
+Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `EventHubAuthorizationRuleId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Voici un exemple :
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+Pour obtenir une description de chaque paramètre, consultez [Diffuser des données en continu vers Event Hubs via des cmdlets PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+
+#### <a name="send-logs-to-log-analytics"></a>Envoyer des journaux d’activité à Log Analytics
+
+Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `WorkspaceId`.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Voici un exemple :
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure en continu vers l’espace de travail Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. Commencez par ouvrir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) ou, si vous avez [installé](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
+
+2. Si votre identité est associée à plusieurs abonnements, définissez l’abonnement du compte de stockage pour lequel vous souhaitez activer les journaux comme abonnement actif.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
+
+Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Remplacez l’espace réservé `<storage-service-resource--id>` dans cet extrait de code par le service Stockage Blob de l’ID de ressource. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+
+Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
+
+Voici un exemple :
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources via l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
+
+Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Voici un exemple :
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+Pour obtenir une description de chaque paramètre, consultez [Diffuser des données en continu vers Event Hubs via l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+
+#### <a name="send-logs-to-log-analytics"></a>Envoyer des journaux d’activité à Log Analytics
+
+Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+Voici un exemple :
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure en continu vers l’espace de travail Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="template"></a>[Modèle](#tab/template)
+
+Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagnostic, consultez [Paramètre de diagnostic pour Stockage Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+
+---
 
 ## <a name="analyzing-metrics"></a>Analyse des métriques
 
@@ -132,7 +306,7 @@ Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du se
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/azure-portal)
 
 Azure Monitor fournit des [kits de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou une version ultérieure pour les mesures de stockage.
  
@@ -272,6 +446,10 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
 
 ```
 
+# <a name="template"></a>[Modèle](#tab/template)
+
+N/A.
+
 ---
 
 ## <a name="analyzing-logs"></a>Analyse des journaux d’activité
@@ -283,7 +461,7 @@ Pour obtenir la liste des opérations SMB et REST journalisées, consultez [Opé
 > [!NOTE]
 > Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Pour vous inscrire dans la préversion, consultez [cette page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
 
-Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison de fichier, mais pas dans ses points de terminaison de table ou de file d’attente, seuls les journaux qui appartiennent au service de fichiers sont créés. Les journaux de stockage Azure contiennent des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
+Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison de fichier, mais pas dans ses points de terminaison de table ou de file d’attente, seuls les journaux relatifs au service Azure Files sont créés. Les journaux de stockage Azure contiennent des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 
 ### <a name="log-authenticated-requests"></a>Journaliser des requêtes authentifiées
 
@@ -292,7 +470,7 @@ Les entrées de journal sont créées uniquement si des demandes sont effectuée
 - Demandes ayant réussi
 - Demandes ayant échoué, y compris les erreurs de délai d’expiration, limitation, réseau, autorisation et autres erreurs
 - Demandes utilisant une signature d’accès partagé (SAS) ou OAuth, y compris les demandes ayant réussi et ayant échoué
-- Demandes de données d’analyse (données de journal classique dans le conteneur **$logs** et données de métriques de classe dans les tables **$metric**)
+- Demandes de données d’analyse (données de journal classique dans le conteneur **$logs** et données de métriques de classe dans les tables **$metric** )
 
 Les demandes effectuées par le service Azure Files lui-même, comme la création ou la suppression d’un journal, ne sont pas journalisées. Pour obtenir la liste complète des demandes SMB et REST journalisées, consultez [Opérations et messages d’état journalisés Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Informations de référence sur les données de supervision d’Azure Files](storage-files-monitoring-reference.md).
 
@@ -395,9 +573,9 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 
 1. Accédez à votre **compte de stockage** dans le **portail Azure**. 
 
-2. Cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
+2. Cliquez sur **Alertes** , puis sur **+ Nouvelle règle d’alerte**.
 
-3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier**, puis cliquez sur **Terminé**. 
+3. Cliquez sur **Modifier une ressource** , sélectionnez le **type de ressource fichier** , puis cliquez sur **Terminé**. 
 
 4. Cliquez sur **Sélectionnez une condition** et fournissez les informations suivantes pour l’alerte : 
 
@@ -405,9 +583,9 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
     - **Nom de la dimension**
     - **Logique d'alerte**
 
-5. Cliquez sur **Sélectionner un groupe d’actions**, puis ajoutez un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+5. Cliquez sur **Sélectionner un groupe d’actions** , puis ajoutez un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 
-6. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
+6. Renseignez les **Détails de l’alerte** , par exemple le **Nom de la règle d’alerte** , la **Description** et la **Gravité**.
 
 7. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
@@ -417,18 +595,18 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Comment créer une alerte en cas de limitation d’un partage de fichiers
 
 1. Accédez à votre **compte de stockage** dans le **portail Azure**.
-2. Dans la section **Supervision**, cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
-3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
+2. Dans la section **Supervision** , cliquez sur **Alertes** , puis sur **+ Nouvelle règle d’alerte**.
+3. Cliquez sur **Modifier une ressource** , sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
 4. Cliquez sur **Sélectionner une condition** pour ajouter une condition.
 5. Vous verrez une liste de signaux pris en charge pour le compte de stockage ; sélectionnez la métrique **Transactions**.
-6. Dans le panneau **Configurer la logique de signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Type de réponse**.
-7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez **SuccessWithThrottling** (pour SMB) ou **ClientThrottlingError** (pour REST).
+6. Dans le panneau **Configurer la logique de signal** , cliquez sur la liste déroulante **Nom de la dimension** , puis sélectionnez **Type de réponse**.
+7. Cliquez sur la liste déroulante **Valeurs de dimension** , puis sélectionnez **SuccessWithThrottling** (pour SMB) ou **ClientThrottlingError** (pour REST).
 
    > [!NOTE]
-   > Si la valeur de dimension SuccessWithThrottling ou ClientThrottlingError ne figure pas dans la liste, cela signifie que la ressource n’a pas été limitée. Pour ajouter la valeur de dimension, cliquez sur **Ajouter une valeur personnalisée** à côté de la liste déroulante **Valeurs de dimension**, tapez **SuccessWithThrottling** ou **ClientThrottlingError**, cliquez sur **OK**, puis répétez l’étape 7.
+   > Si la valeur de dimension SuccessWithThrottling ou ClientThrottlingError ne figure pas dans la liste, cela signifie que la ressource n’a pas été limitée. Pour ajouter la valeur de dimension, cliquez sur **Ajouter une valeur personnalisée** à côté de la liste déroulante **Valeurs de dimension** , tapez **SuccessWithThrottling** ou **ClientThrottlingError** , cliquez sur **OK** , puis répétez l’étape 7.
 
 8. Cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**.
-9. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+9. Cliquez sur la liste déroulante **Valeurs de dimension** , puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 
    > [!NOTE]
    > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité et l’alerte n’identifiera pas quel partage de fichiers a été limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
@@ -439,46 +617,46 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
     > Si vous utilisez un seuil statique, le graphique des métriques peut vous aider à déterminer une valeur seuil raisonnable si le partage de fichiers est actuellement limité. Si vous utilisez un seuil dynamique, le graphique des métriques affiche les seuils calculés en fonction des données récentes.
 
 11. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
-12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description et la **Gravité**.
+12. Renseignez les **Détails de l’alerte** , par exemple le **Nom de la règle d’alerte** , la **Description et la **Gravité**.
 13. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Comment créer une alerte si la taille du partage de fichiers Azure est de 80 % de la capacité
 
 1. Accédez à votre **compte de stockage** dans le **portail Azure**.
-2. Dans la section **Supervision**, cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
-3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
+2. Dans la section **Supervision** , cliquez sur **Alertes** , puis sur **+ Nouvelle règle d’alerte**.
+3. Cliquez sur **Modifier une ressource** , sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
 4. Cliquez sur **Sélectionner une condition** pour ajouter une condition.
 5. Une liste de signaux pris en charge pour le compte de stockage s’affiche. Sélectionnez la métrique **Capacité de fichiers**.
-6. Dans le panneau **Configurer la logique du signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Partage de fichiers**.
-7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+6. Dans le panneau **Configurer la logique du signal** , cliquez sur la liste déroulante **Nom de la dimension** , puis sélectionnez **Partage de fichiers**.
+7. Cliquez sur la liste déroulante **Valeurs de dimension** , puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 
    > [!NOTE]
    > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes pour les partages de fichiers standard sont basées sur tous les partages de fichiers dans le compte de stockage. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
 
-8. Entrez la **Valeur du seuil**, en octets. Par exemple, si la taille du partage de fichiers est de 100 Tio et que vous voulez recevoir une alerte quand sa taille est de 80 % de la capacité, la valeur du seuil, en octets, est de 87960930222080.
+8. Entrez la **Valeur du seuil** , en octets. Par exemple, si la taille du partage de fichiers est de 100 Tio et que vous voulez recevoir une alerte quand sa taille est de 80 % de la capacité, la valeur du seuil, en octets, est de 87960930222080.
 9. Définissez le reste des **paramètres d’alerte** (précision d’agrégation et fréquence d’évaluation), puis cliquez sur **Terminé**.
 10. Cliquez sur Sélectionner un groupe d’actions pour ajouter un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
-11. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description et la **Gravité**.
+11. Renseignez les **Détails de l’alerte** , par exemple le **Nom de la règle d’alerte** , la **Description et la **Gravité**.
 12. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Comment créer une alerte si la sortie du partage de fichiers Azure a dépassé 500 Gio en un jour
 
 1. Accédez à votre **compte de stockage** dans le **portail Azure**.
-2. Dans la section Surveillance, cliquez sur **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
-3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est contoso, sélectionnez la ressource contoso/file.
+2. Dans la section Surveillance, cliquez sur **Alertes** , puis cliquez sur **+ Nouvelle règle d’alerte**.
+3. Cliquez sur **Modifier une ressource** , sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est contoso, sélectionnez la ressource contoso/file.
 4. Cliquez sur **Sélectionner une condition** pour ajouter une condition.
 5. Vous verrez une liste de signaux pris en charge pour le compte de stockage ; sélectionnez la métrique **Egress**.
-6. Dans le panneau **Configurer la logique du signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Partage de fichiers**.
-7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+6. Dans le panneau **Configurer la logique du signal** , cliquez sur la liste déroulante **Nom de la dimension** , puis sélectionnez **Partage de fichiers**.
+7. Cliquez sur la liste déroulante **Valeurs de dimension** , puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 
    > [!NOTE]
    > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes pour les partages de fichiers standard sont basées sur tous les partages de fichiers dans le compte de stockage. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
 
 8. Entrez **536870912000** octets pour la Valeur du seuil. 
-9. Cliquez sur la liste déroulante **Précision d’agrégation**, puis sélectionnez **24 heures**.
-10. Sélectionnez la **Fréquence d’évaluation**, puis cliquez sur **Terminé**.
+9. Cliquez sur la liste déroulante **Précision d’agrégation** , puis sélectionnez **24 heures**.
+10. Sélectionnez la **Fréquence d’évaluation** , puis cliquez sur **Terminé**.
 11. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
-12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description et la **Gravité**.
+12. Renseignez les **Détails de l’alerte** , par exemple le **Nom de la règle d’alerte** , la **Description et la **Gravité**.
 13. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
 ## <a name="next-steps"></a>Étapes suivantes

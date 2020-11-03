@@ -6,22 +6,23 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: a4f578ca2e9fc448fb85b803cce46974a8c2e4dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325922"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674742"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Surveiller l’intégrité d’un espace de travail Log Analytics dans Azure Monitor
-Pour maintenir les performances et la disponibilité de votre espace de travail Log Analytics dans Azure Monitor, vous devez être en mesure de détecter de façon proactive les problèmes qui surviennent. Cet article décrit comment surveiller l’intégrité de votre espace de travail Log Analytics à l’aide des données du tableau [Opération](/azure-monitor/reference/tables/operation). Ce tableau, qui figure dans tous les espaces de travail Log Analytics, présente les erreurs et les avertissements qui surviennent dans votre espace de travail. Nous vous conseillons de consulter ces données régulièrement et de créer des alertes pour être informé en amont des incidents importants survenus dans votre espace de travail.
+Pour maintenir les performances et la disponibilité de votre espace de travail Log Analytics dans Azure Monitor, vous devez être en mesure de détecter de façon proactive les problèmes qui surviennent. Cet article décrit comment surveiller l’intégrité de votre espace de travail Log Analytics à l’aide des données du tableau [Opération](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation). Ce tableau, qui figure dans tous les espaces de travail Log Analytics, présente les erreurs et les avertissements qui surviennent dans votre espace de travail. Nous vous conseillons de consulter ces données régulièrement et de créer des alertes pour être informé en amont des incidents importants survenus dans votre espace de travail.
 
-## <a name="_logsoperation-function"></a>Fonction _LogsOperation
-Azure Monitor Logs envoie des informations relatives aux problèmes au tableau [Opération](/azure-monitor/reference/tables/operation) de l’espace de travail concerné. La fonction système **_LogsOperation** est basée sur le tableau **Opération** et fournit un jeu d’informations simplifié pour l’analyse et la création d’alertes.
+## <a name="_logoperation-function"></a>Fonction _LogOperation
+
+Azure Monitor Logs envoie des informations relatives aux problèmes au tableau [Opération](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) de l’espace de travail concerné. La fonction système **_LogOperation** est basée sur le tableau **Opération** et fournit un jeu d’informations simplifié pour l’analyse et la création d’alertes.
 
 ## <a name="columns"></a>Colonnes
 
-La fonction **_LogsOperation** renvoie les colonnes du tableau suivant.
+La fonction **_LogOperation** renvoie les colonnes du tableau suivant.
 
 | Colonne | Description |
 |:---|:---|
@@ -36,7 +37,8 @@ La fonction **_LogsOperation** renvoie les colonnes du tableau suivant.
 
 
 ## <a name="categories"></a>Catégories
-Le tableau suivant décrit les catégories de la fonction _LogsOperations. 
+
+Le tableau suivant décrit les catégories de la fonction _LogOperation. 
 
 | Category | Description |
 |:---|:---|
@@ -55,19 +57,19 @@ Les opérations d’ingestion sont les problèmes qui sont survenus pendant l’
 |:---|:---|:---|:---|
 | Journal personnalisé | Erreur   | Limite de la colonne Champs personnalisés atteinte. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Journal personnalisé | Erreur   | Échec de l’ingestion des journaux personnalisés. | |
-| Journal personnalisé | Erreur   | Métadonnées. | |
-| Données | Erreur   | Les données ont été supprimées, car la demande a été créée avant le nombre de jours défini. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Métadonnées. | Erreur | Erreur de configuration détectée. | |
+| Collecte de données | Erreur   | Les données ont été supprimées, car la demande a été créée avant le nombre de jours défini. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Collecte de données | Informations    | Une configuration de l’ordinateur de collecte est détectée.| |
 | Collecte de données | Informations    | La collecte de données a commencé en raison du changement de jour. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Collecte de données | Avertissement | La collecte de données s’est arrêtée, car la limite quotidienne a été atteinte.| [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Traitement des données | Erreur   | Format JSON non valide. | [Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)](data-collector-api.md#request-body) | 
+| Traitement des données | Avertissement | La valeur a été tronquée à la taille maximale autorisée. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Traitement des données | Avertissement | Valeur de champ tronquée en raison de la limite de taille. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Taux d’ingestion | Informations | Limite du taux d’ingestion proche de 70 %. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Taux d’ingestion | Avertissement | Le taux d’ingestion est proche de la limite. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Taux d’ingestion | Erreur   | Limite du taux atteinte. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Analyse JSON | Erreur   | Format JSON non valide. | [Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)](data-collector-api.md#request-body) | 
-| Analyse JSON | Avertissement | La valeur a été tronquée à la taille maximale autorisée. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Taille maximale de colonne atteinte | Avertissement | Valeur de champ tronquée en raison de la limite de taille. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Stockage | Erreur   | Impossible d’accéder au compte de stockage, car les informations d’identification utilisées ne sont pas valides.  |
-| Table de charge de travail   | Erreur   | La limite de champ personnalisé est atteinte. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces)|
+
 
 
    
@@ -82,30 +84,41 @@ Utilisez le processus décrit dans [Créer, afficher et gérer des alertes de jo
 
 | Requête | Valeur du seuil | Période | Fréquence |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 Ces règles d’alerte répondent de la même manière à toutes les opérations indiquant Erreur ou Avertissement. Une fois familiarisé avec les opérations qui génèrent des alertes, vous pouvez répondre différemment à certaines opérations. Par exemple, vous pouvez envoyer des notifications à différentes personnes pour des opérations spécifiques. 
 
-Pour créer une règle d’alerte pour une opération spécifique, utilisez une requête comportant les colonnes **Catégorie** et **Opération** . 
+Pour créer une règle d’alerte pour une opération spécifique, utilisez une requête comportant les colonnes **Catégorie** et **Opération**. 
 
 L’exemple suivant crée une alerte Avertissement lorsque le taux de volume d’ingestion atteint 80 % de la limite.
 
-```kusto
-_LogsOperation
-| where Category == "Ingestion"
-| where Operation == "Ingestion rate"
-| where Level == "Warning"
-```
+- Cible : Sélectionnez votre espace de travail Log Analytics.
+- Critères :
+  - Nom du signal : Recherche personnalisée dans les journaux
+  - Requête de recherche : `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+  - Basé sur : Nombre de résultats
+  - Condition : Supérieur à
+  - Seuil : 0
+  - Période : 5 (minutes)
+  - Fréquence : 5 (minutes)
+- Nom de la règle d'alerte : limite de données quotidienne atteinte
+- Gravité : avertissement (Sev 1)
+
 
 L’exemple suivant crée une alerte Avertissement lorsque la collecte de données atteint la limite quotidienne. 
-```kusto
-Operation 
-| where OperationCategory == "Ingestion" 
-|where OperationKey == "Data Collection" 
-| where OperationStatus == "Warning"
-```
 
+- Cible : Sélectionnez votre espace de travail Log Analytics.
+- Critères :
+  - Nom du signal : Recherche personnalisée dans les journaux
+  - Requête de recherche : `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Basé sur : Nombre de résultats
+  - Condition : Supérieur à
+  - Seuil : 0
+  - Période : 5 (minutes)
+  - Fréquence : 5 (minutes)
+- Nom de la règle d'alerte : limite de données quotidienne atteinte
+- Gravité : avertissement (Sev 1)
 
 
 

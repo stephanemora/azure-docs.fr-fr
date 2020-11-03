@@ -2,13 +2,13 @@
 title: Vue d’ensemble d’Event Hubs Dedicated - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Dedicated, qui offre des déploiements de concentrateurs d’événements à locataire unique.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: 20b153c9093c96e7357a8e439b6655f1db80bd46
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322443"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516991"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -25,13 +25,13 @@ Event Hubs Dedicated offre trois avantages convaincants pour les clients qui ont
 
 #### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>L’architecture monolocation garantit la capacité pour de meilleures performances
 
-Un cluster dédié garantit une capacité à pleine échelle et peut gérer jusqu'à plusieurs gigaoctets de données en continu avec un stockage durable et une latence inférieure à la seconde pour s'adapter à un pic de trafic. 
+Un cluster Dedicated garantit une capacité à pleine échelle et peut gérer jusqu’à plusieurs gigaoctets de données en continu avec un stockage durable et une latence inférieure à la seconde pour s’adapter à un pic de trafic. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Accès inclusif et exclusif aux fonctionnalités 
-L’offre dédiée comprend des fonctionnalités gratuites telles que Capture et fournit un accès exclusif à de futures fonctionnalités comme BYOK (Bring Your Own Key). Le service gère également l'équilibrage de charge, les mises à jour du système d'exploitation, les correctifs de sécurité et le partitionnement pour le client, afin que vous puissiez consacrer moins de temps à la maintenance de l'infrastructure et plus de temps à la création de fonctionnalités côté client.  
+L’offre Dedicated comprend des fonctionnalités gratuites telles que Capture et fournit un accès exclusif à de futures fonctionnalités comme BYOK (Bring Your Own Key). Le service gère également l’équilibrage de charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement pour le client, afin que vous puissiez consacrer moins de temps à la maintenance de l’infrastructure et plus de temps à la création de fonctionnalités côté client.  
 
 #### <a name="cost-savings"></a>Réduction des coûts
-À des volumes d'entrée élevés (>100 unités de débit), un cluster coûte nettement moins cher par heure que l'achat d'une quantité comparable d'unités de débit avec l'offre Standard.
+À des volumes d’entrée élevés (>100 unités de débit), un cluster coûte nettement moins cher par heure que l’achat d’une quantité comparable d’unités de débit avec l’offre Standard.
 
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Quotas et limites de l’offre Event Hubs Dedicated
@@ -53,38 +53,11 @@ L’offre Event Hubs Dedicated est facturée à un tarif mensuel fixe, avec un m
 
 ## <a name="how-to-onboard"></a>Intégration : mode d’emploi
 
-L’expérience en libre-service permettant de [créer un cluster Event Hubs](event-hubs-dedicated-cluster-create-portal.md) via le [Portail Azure](https://aka.ms/eventhubsclusterquickstart) est désormais en préversion. Si vous avez des questions ou si vous avez besoin d'aide pour l'intégration à Event Hubs Dedicated, veuillez contacter l'[équipe Event Hubs](mailto:askeventhubs@microsoft.com).
+L’expérience en libre-service permettant de [créer un cluster Event Hubs](event-hubs-dedicated-cluster-create-portal.md) via le [portail Azure](https://aka.ms/eventhubsclusterquickstart) est désormais disponible en préversion. Si vous avez des questions ou si vous avez besoin d’aide pour l’intégration à Event Hubs Dedicated, contactez l’[équipe Event Hubs](mailto:askeventhubs@microsoft.com).
 
 ## <a name="faqs"></a>FAQ
 
-#### <a name="what-can-i-achieve-with-a-cluster"></a>Que puis-je faire avec un cluster ?
-
-Pour un cluster Event Hubs, la quantité que vous pouvez ingérer et diffuser dépend de divers facteurs tels que vos producteurs, les consommateurs, la vitesse à laquelle vous ingérez et transformez, et bien plus encore. 
-
-Le tableau suivant présente les résultats de référence que nous avons obtenus au cours de nos tests :
-
-| Forme de la charge utile | Récepteurs | Bande passante en entrée| Messages en entrée | Bande passante en sortie | Messages en sortie | Nombre total d’unités de débit | Unités de débit par unité de capacité |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lots de 100x1 Ko | 2 | 400 Mo/s | 400 000 messages par seconde | 800 Mo/s | 800 000 messages par seconde | 400 unités de débit | 100 unités de débit | 
-| Lots de 10x10 Ko | 2 | 666 Mo/s | 66 600 messages par seconde | 1,33 Go/s | 133 000 messages par seconde | 666 unités de débit | 166 unités de débit |
-| Lots de 6x32 Ko | 1 | 1,05 Go/s | 34 000 messages par seconde | 1,05 Go/s | 34 000 messages par seconde | 1 000 unités de débit | 250 unités de débit |
-
-Lors des tests, les critères suivants ont été utilisés :
-
-- Un cluster Event Hubs dédié avec quatre unités de capacité (UC) a été utilisé. 
-- Le hub d’événements utilisé pour l’ingestion possédait 200 partitions. 
-- Les données ingérées ont été reçues par deux applications réceptrices provenant de toutes les partitions.
-
-#### <a name="can-i-scale-updown-my-cluster"></a>Puis-je augmenter/réduire (scale-up/scale-down) la taille de mon cluster ?
-
-Une fois créés, vos clusters sont facturés pour un minimum de 4 heures d’utilisation. Dans la préversion de l'expérience en libre-service, vous pouvez soumettre une [demande de support](https://ms.portal.azure.com/#create/Microsoft.Support) à l'équipe Event Hubs sous *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster* pour augmenter ou réduire la taille de votre cluster. La demande de réduction de la taille de votre cluster peut prendre jusqu’à 7 jours. 
-
-#### <a name="how-will-geo-dr-work-with-my-cluster"></a>Comment la géo-reprise fonctionnera-t-elle avec mon cluster ?
-
-Vous pouvez former une géopaire en combinant un espace de noms sous un cluster dédié avec un autre espace de noms sous un cluster dédié. Nous déconseillons l’association d'un espace de noms dédié avec un espace de noms dans notre offre Standard, car la limite de débit sera incompatible, ce qui entraînerait des erreurs. 
-
-#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Puis-je migrer mes espaces de noms Standard vers un cluster dédié ?
-Nous n’offrons actuellement aucun processus de migration automatisé pour la migration des données de vos hubs d'événements d'un espace de noms Standard vers un espace dédié. 
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

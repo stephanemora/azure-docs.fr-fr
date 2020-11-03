@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325162"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782652"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Qu’est-ce qu’un pool Azure SQL Managed Instance (préversion) ?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,16 +52,16 @@ Chaque pool a une allocation fixe d’adresses IP de neuf adresses IP seulement 
 
 La liste suivante répertorie les principaux cas d’utilisation où les pools d’instances doivent être envisagés :
 
-- La migration simultanée d’*un groupe d’instances SQL Server* dont la plupart sont de petite taille (par exemple deux ou quatre vCores).
+- La migration simultanée d’ *un groupe d’instances SQL Server* dont la plupart sont de petite taille (par exemple deux ou quatre vCores).
 - Les scénarios dans lesquels la *création ou la mise à l’échelle d’instances de façon prévisible et rapide* est importante. Par exemple, il peut s’agir du déploiement d’un nouveau locataire dans un environnement d’application SaaS mutualisée qui requiert des fonctionnalités au niveau de l’instance.
 - Les scénarios où un *coût fixe* ou une *limite de dépense* sont importants. Par exemple, si vous exécutez des environnements de développement-test ou de démonstration partagés d’une taille fixe (ou rarement modifiée), où vous déployez régulièrement des instances gérées quand cela est nécessaire.
 - Scénarios où *une allocation minimale d’adresses IP* dans un sous-réseau de réseau virtuel est importante. Toutes les instances d’un pool partagent une machine virtuelle ; ainsi, le nombre d’adresses IP allouées est inférieur dans le cas d’instances uniques.
 
 ## <a name="architecture"></a>Architecture
 
-Les pools d’instances ont une architecture similaire aux instances managées ordinaires (*uniques*). Pour prendre en charge les  [déploiements sur des réseaux virtuels Azure](../../virtual-network/virtual-network-for-azure-services.md) et assurer l’isolation et la sécurité des clients, les pools d’instances s’appuient sur des  [clusters virtuels](connectivity-architecture-overview.md#high-level-connectivity-architecture). Les clusters virtuels représentent un ensemble dédié de machines virtuelles isolées déployées dans le sous-réseau du réseau virtuel du client.
+Les pools d’instances ont une architecture similaire aux instances managées ordinaires ( *uniques* ). Pour prendre en charge les [déploiements dans les réseaux virtuels Azure](../../virtual-network/virtual-network-for-azure-services.md) et assurer l’isolation et la sécurité des clients, les pools d’instances s’appuient sur des [clusters virtuels](connectivity-architecture-overview.md#high-level-connectivity-architecture). Les clusters virtuels représentent un ensemble dédié de machines virtuelles isolées déployées dans le sous-réseau du réseau virtuel du client.
 
-La principale différence entre les deux modèles de déploiement est que les pools d’instances permettent plusieurs déploiements de processus SQL Server sur le même nœud de machine virtuelle, qui sont des ressources régies par des [objets de traitement Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), alors que les instances uniques sont toujours seules sur un nœud de machine virtuelle.
+La principale différence entre les deux modèles de déploiement est que les pools d’instances permettent plusieurs déploiements de processus SQL Server sur le même nœud de machine virtuelle, qui sont des ressources régies par des [objets de traitement Windows](/windows/desktop/ProcThread/job-objects), alors que les instances uniques sont toujours seules sur un nœud de machine virtuelle.
 
 Le diagramme suivant montre un pool d’instances et deux instances individuelles déployées dans le même sous-réseau, et illustre les principaux détails de l’architecture pour les deux modèles de déploiement :
 
@@ -76,7 +76,7 @@ Il existe plusieurs limitations de ressources concernant les pools d’instances
 - Les pools d’instances sont disponibles uniquement sur le matériel Gen5.
 - Les instances managées d’un pool disposent d’un processeur et d’une RAM dédiés. Ainsi, le nombre agrégé de vCores sur toutes les instances doit être inférieur ou égal au nombre de vCores alloués au pool.
 - Toutes les [limites au niveau de l’instance](resource-limits.md#service-tier-characteristics) s’appliquent aux instances créées au sein d’un pool.
-- Outre les limites au niveau de l’instance, il existe également deux limites imposées *au niveau du pool d’instances* :
+- Outre les limites au niveau de l’instance, il existe également deux limites imposées *au niveau du pool d’instances*  :
   - Taille de stockage totale par pool (8 To).
   - Nombre total de bases de données par pool (100).
 - Vous ne pouvez pas définir l’administrateur AAD pour les instances déployées à l’intérieur du pool d’instances. Vous ne pouvez donc pas utiliser l’authentification AAD.
@@ -137,8 +137,8 @@ Le prix des vCores pour un pool est facturé quel que soit le nombre d’instanc
 
 Pour le prix du calcul (mesuré en vCores), deux options de tarifs sont disponibles :
 
-  1. *Licence incluse* : Le prix des licences SQL Server est inclus. Cette option est destinée aux clients qui décident de ne pas appliquer de licences SQL Server existantes avec Software Assurance.
-  2. *Azure Hybrid Benefit* : Un prix réduit incluant Azure Hybrid Benefit pour SQL Server. Les clients peuvent choisir cette tarification en utilisant leurs licences SQL Server existantes avec Software Assurance. Pour obtenir des informations sur l’éligibilité et d’autres informations, consultez [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licence incluse*  : Le prix des licences SQL Server est inclus. Cette option est destinée aux clients qui décident de ne pas appliquer de licences SQL Server existantes avec Software Assurance.
+  2. *Azure Hybrid Benefit*  : Un prix réduit incluant Azure Hybrid Benefit pour SQL Server. Les clients peuvent choisir cette tarification en utilisant leurs licences SQL Server existantes avec Software Assurance. Pour obtenir des informations sur l’éligibilité et d’autres informations, consultez [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 La définition d’options de tarification différentes n’est pas possible pour les instances individuelles d’un pool. Toutes les instances du pool parent doivent être au prix de la licence incluse ou au prix d’Azure Hybrid Benefit. Le modèle de licence du pool peut être modifié après la création du pool.
 

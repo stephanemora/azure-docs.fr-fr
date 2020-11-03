@@ -1,23 +1,23 @@
 ---
 title: Installer des conteneurs Docker OCR Read à partir de Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Utilisez les conteneurs Docker OCR Read de Vision par ordinateur pour extraire du texte à partir d'images et de documents, en local.
+description: Utilisez les conteneurs Docker OCR Read de Vision par ordinateur pour extraire du texte d’images et de documents localement.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, conteneur
-ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07440b99d887ee6cb4b6d505ed7fb79f4c12c784
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536373"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677211"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installer des conteneurs Docker OCR Read (préversion) 
 
@@ -27,10 +27,12 @@ Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans 
 
 Le conteneur *Read* OCR vous permet d'extraire du texte imprimé et manuscrit à partir d'images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](concept-recognizing-text.md#read-api).
 
-## <a name="read-3x-containers"></a>Lire des conteneurs 3.x
-Deux versions de conteneurs 3.x sont disponibles en préversion. Les deux versions offrent une précision et des fonctionnalités supplémentaires par rapport au conteneur précédent.
+## <a name="read-31-container"></a>Conteneur Read 3.1
 
-Le conteneur Read 3.0-preview offre ce qui suit :
+> [!NOTE]
+> Le conteneur Read 3.0-preview est déconseillé. 
+
+Le conteneur Read 3.1-preview offre ce qui suit :
 * Nouveaux modèles pour une précision accrue.
 * Prise en charge de plusieurs langues dans le même document
 * Prise en charge des langues suivantes : néerlandais, anglais, français, allemand, italien, portugais et espagnol.
@@ -38,14 +40,11 @@ Le conteneur Read 3.0-preview offre ce qui suit :
 * Prise en charge des documents et des images de grande taille.
 * Scores de confiance compris entre 0 et 1.
 * Prise en charge des documents contenant à la fois du texte imprimé et du texte manuscrit
-
-Le conteneur Read 3.1-preview offre les mêmes avantages que la version 3.0-preview, avec des fonctionnalités supplémentaires :
-
 * Prise en charge du chinois simplifié et du japonais.
 * Scores de confiance et étiquettes pour texte imprimé et texte manuscrit. 
 * Possibilité d'extraire le texte de la page ou des pages sélectionnées dans un document.
 
-Lors du choix de la version du conteneur, notez que la version 3.1-preview correspond à un état antérieur de la préversion. Si vous utilisez actuellement des conteneurs Read 2.0, consultez le [guide de migration](read-container-migration-guide.md) pour en savoir plus sur les modifications apportées aux nouvelles versions.
+Si vous utilisez actuellement des conteneurs Read 2.0, consultez le [guide de migration](read-container-migration-guide.md) pour en savoir plus sur les modifications apportées aux nouvelles versions.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,9 +52,9 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs 
 
 |Obligatoire|Objectif|
 |--|--|
-|Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
+|Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows** , vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**|
+|Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
@@ -93,7 +92,6 @@ Des images conteneurs sont disponibles pour le conteneur Lire.
 | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |-----------|------------|
 | Read 2.0 (préversion) | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
 | Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
@@ -104,12 +102,6 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
-```
-
-# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
-
-```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
 ```
 
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
@@ -152,24 +144,6 @@ Cette commande :
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-
-```
-
-Cette commande :
-
-* Exécute un conteneur Lire à partir de l’image conteneur.
-* Alloue 8 cœurs de processeur et 18 gigaoctets (Go) de mémoire.
-* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
-* Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
-
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
 
 ```bash
@@ -195,7 +169,7 @@ D’autres [exemples](./computer-vision-resource-container-config.md#example-doc
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
 
-Si vous avez besoin d’un débit plus élevé (par exemple, pour le traitement de fichiers multipages), vous pouvez envisagez de déployer plusieurs conteneurs v3.0 ou v3.1 [sur un cluster Kubernetes](deploy-computer-vision-on-premises.md), en utilisant le [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create) et la [File d’attente Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+Si vous avez besoin d’un débit plus élevé (par exemple, pour le traitement de fichiers multipages), vous pouvez envisagez de déployer plusieurs conteneurs [sur un cluster Kubernetes](deploy-computer-vision-on-premises.md) en utilisant [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create) et [File d’attente Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
 
 Si vous utilisez le stockage Azure pour stocker des images à traiter, vous pouvez créer une [chaîne de connexion](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) que vous utiliserez lors de l’appel du conteneur.
 
@@ -218,10 +192,6 @@ Le conteneur fournit des API de point de terminaison de prédiction de requête 
 # <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
 
 Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
-
-# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
-
-Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json`.
 
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
 
@@ -295,75 +265,6 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
               "style": "print",
               "styleConfidence": 0.603
             },
-            "words": [
-              {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
-                "text": "paces",
-                "confidence": 0.918
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
-
-Vous pouvez utiliser conjointement les opérations `POST /vision/v3.0/read/analyze` et `GET /vision/v3.0/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
-
-À partir de l’interface utilisateur Swagger, sélectionnez le `asyncBatchAnalyze` pour le développer dans le navigateur. Ensuite, sélectionnez **Faites un essai** > **Choisir un fichier**. Dans cet exemple, nous allons utiliser l’image suivante :
-
-![Tabulations et espaces](media/tabs-vs-spaces.png)
-
-Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d’état **HTTP 202**. Dans la réponse, un en-tête `operation-location` contient le point de terminaison de résultat de la requête.
-
-```http
- content-length: 0
- date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
- server: Kestrel
-```
-
-`operation-location` est l’URL complète qui est accessible via HTTP GET. Voici la réponse JSON à l’exécution de l’URL `operation-location` à partir de l’image précédente :
-
-```json
-{
-  "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:24:49Z",
-  "lastUpdatedDateTime": "2020-09-02T10:24:50Z",
-  "analyzeResult": {
-    "version": "3.0.0",
-    "readResults": [
-      {
-        "page": 1,
-        "angle": 2.12,
-        "width": 502,
-        "height": 252,
-        "unit": "pixel",
-        "language": "",
-        "lines": [
-          {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
-            "text": "Tabs vs",
-            "words": [
-              {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
-                "text": "Tabs",
-                "confidence": 0.981
-              },
-              {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
-                "text": "vs",
-                "confidence": 0.958
-              }
-            ]
-          },
-          {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
-            "text": "paces",
             "words": [
               {
                 "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
@@ -453,10 +354,6 @@ Vous pouvez utiliser l’opération suivante pour lire une image en mode synchro
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
-# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
-
-`POST /vision/v3.0/read/syncAnalyze`
-
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
 
 `POST /vision/v2.0/read/core/Analyze`
@@ -473,7 +370,7 @@ C’est uniquement lorsque l’image est lue dans son intégralité que l’API 
 
 L’objet de réponse JSON contient le même graphe d’objets que la version asynchrone. Si vous êtes un utilisateur JavaScript et visez la cohérence des types, vous pouvez envisager d’utiliser TypeScript pour caster la réponse JSON.
 
-Pour obtenir un exemple de cas d’utilisation, consultez <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">ce bac à sable TypeScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>, puis sélectionnez **Exécuter** pour vous rendre compte de sa facilité d’utilisation.
+Pour obtenir un exemple de cas d’utilisation, consultez <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">ce bac à sable TypeScript <span class="docon docon-navigate-external x-hidden-focus"></span></a>, puis sélectionnez **Exécuter** pour vous rendre compte de sa facilité d’utilisation.
 
 ## <a name="stop-the-container"></a>Arrêter le conteneur
 

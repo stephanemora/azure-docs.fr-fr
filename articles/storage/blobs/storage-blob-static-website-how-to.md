@@ -7,13 +7,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 5c9d7faebe7fefdddbf194e3a9ad36b4644115e0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289869"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746458"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -38,11 +38,11 @@ L’hébergement de site web statique est une fonctionnalité que vous devez act
 
 4. Sélectionnez **Activé** pour activer l’hébergement de site web statique pour le compte de stockage.
 
-5. Dans le champ **Nom du document d’index**, spécifiez une page d’index par défaut (par exemple, *index.html*). 
+5. Dans le champ **Nom du document d’index** , spécifiez une page d’index par défaut (par exemple, *index.html* ). 
 
    La page d’index par défaut s’affiche quand un utilisateur accède à la racine de votre site web statique.  
 
-6. Dans le champ **Chemin du document d’erreur**, spécifiez une page d’erreur par défaut (par exemple, *404.html*). 
+6. Dans le champ **Chemin du document d’erreur** , spécifiez une page d’erreur par défaut (par exemple, *404.html* ). 
 
    La page d’erreur par défaut s’affiche quand un utilisateur tente d’accéder à une page qui n’existe pas dans votre site web statique.
 
@@ -140,7 +140,7 @@ Ces instructions vous indiquent comment charger des fichiers à l’aide de la v
 
 1. Sélectionnez **Explorateur Stockage (préversion)** .
 
-2. Développez le nœud **Conteneurs d’objets blob**, puis sélectionnez le conteneur **$web**.
+2. Développez le nœud **Conteneurs d’objets blob** , puis sélectionnez le conteneur **$web**.
 
 3. Choisissez le bouton **Charger** pour charger des fichiers.
 
@@ -259,13 +259,13 @@ Une fois les métriques activées, les statistiques de trafic relatives aux fich
 
 4. Ensuite, sélectionnez la métrique **Sortie**.
 
-   ![Métrique des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Capture d'écran illustrant la métrique Sortie des sites web statiques Stockage Azure.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. Dans le sélecteur **Agrégation**, sélectionnez *Somme*.
+5. Dans le sélecteur **Agrégation** , sélectionnez *Somme*.
 
    ![Agrégation des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Cliquez sur le bouton **Ajouter un filtre**, puis choisissez **Nom API** dans le sélecteur *Propriété*.
+6. Cliquez sur le bouton **Ajouter un filtre** , puis choisissez **Nom API** dans le sélecteur *Propriété*.
 
    ![Nom d’API des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 

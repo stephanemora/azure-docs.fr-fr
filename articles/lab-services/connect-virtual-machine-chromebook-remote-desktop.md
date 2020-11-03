@@ -6,12 +6,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: d2a936a6acb6491c57cb1460c83ec0253561b102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445659"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892228"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Se connecter à une machine virtuelle à l’aide du Protocole Bureau à distance sur un Chromebook
 Cette section montre comment un étudiant peut se connecter à une machine virtuelle de labo de classe à partir d’un Chromebook en utilisant le protocole RDP.
@@ -28,7 +28,7 @@ Cette section montre comment un étudiant peut se connecter à une machine virtu
     ![Se connecter à une machine virtuelle](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. Entrez votre mot de passe lorsque vous y êtes invité.
-    ![Se connecter à une machine virtuelle](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![Capture d’écran montrant l’écran d’ouverture de session dans lequel vous entrez votre nom d’utilisateur et votre mot de passe.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 
 1. Sélectionnez **Continuer** si vous recevez l’avertissement suivant. 

@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074853"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737085"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Sauvegarder automatiquement des magasins App Configuration
 
@@ -62,7 +62,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Créer des magasins App Configuration
 
 Créez vos magasins App Configuration principal et secondaire dans des régions différentes.
-Remplacez  `<primary_appconfig_name>` et `<secondary_appconfig_name>` par des noms uniques pour vos magasins de configuration. Chaque nom de magasin doit être unique, car il est utilisé comme nom DNS.
+Remplacez `<primary_appconfig_name>` et `<secondary_appconfig_name>` par des noms uniques pour vos magasins de configuration. Chaque nom de magasin doit être unique, car il est utilisé comme nom DNS.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -213,7 +213,7 @@ Pour vérifier que tout fonctionne, vous pouvez créer, mettre à jour ou suppri
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Vous avez déclenché l’événement. Dans quelques instants, Event Grid enverra la notification d’événement à votre file d’attente. *Après la prochaine exécution planifiée de votre fonction*, affichez les paramètres de configuration dans votre magasin secondaire pour voir s’il contient la paire clé-valeur mise à jour du magasin principal.
+Vous avez déclenché l’événement. Dans quelques instants, Event Grid enverra la notification d’événement à votre file d’attente. *Après la prochaine exécution planifiée de votre fonction* , affichez les paramètres de configuration dans votre magasin secondaire pour voir s’il contient la paire clé-valeur mise à jour du magasin principal.
 
 > [!NOTE]
 > Vous pouvez [déclencher votre fonction manuellement](../azure-functions/functions-manually-run-non-http.md) pendant le test et la résolution des problèmes sans attendre le déclenchement du minuteur planifié.

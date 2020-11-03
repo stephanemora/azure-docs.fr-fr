@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 266ad613a4966b26fc4a6ddffbb7b4196aa937b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2274a551542b06996941b49e7d047baf3e8b3ca
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372100"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894030"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gérer des ressources Azure à l’aide du portail Azure
 
@@ -34,17 +34,17 @@ Les ressources Azure sont organisées par les services Azure et groupes de resso
 Pour ouvrir une ressource par le type de service :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le volet gauche, sélectionnez le service Azure. Dans ce cas, **Comptes de stockage**.  Si vous ne voyez pas le service répertorié, sélectionnez **Tous les services**, puis le type de service.
+2. Dans le volet gauche, sélectionnez le service Azure. Dans ce cas, **Comptes de stockage**.  Si vous ne voyez pas le service répertorié, sélectionnez **Tous les services** , puis le type de service.
 
     ![ouvrir une ressource azure dans le portail](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
 
 3. Sélectionnez la ressource à ouvrir.
 
-    ![ouvrir une ressource azure dans le portail](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![Capture d’écran mettant en évidence la ressource sélectionnée.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
     Un compte de stockage ressemble à ceci :
 
-    ![ouvrir une ressource azure dans le portail](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![Capture montrant à quoi ressemble un compte de stockage.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
 Pour ouvrir une ressource par groupe de ressources :
 
@@ -88,7 +88,7 @@ Le verrouillage empêche d’autres utilisateurs de votre organisation de suppri
 2. Sélectionnez **Verrouiller**. La capture d’écran suivante montre les options de gestion pour un compte de stockage.
 
     ![verrouiller une ressource azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
-3. Sélectionnez **Ajouter**, puis spécifiez les propriétés de verrou.
+3. Sélectionnez **Ajouter** , puis spécifiez les propriétés de verrou.
 
 Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](lock-resources.md).
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 8669330a8cfccea0dcc10c318c2be4acbcb7788c
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169351"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540718"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -41,14 +41,14 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Durée d’exécution et limites de rétention
+## <a name="run-duration-and-retention-history-limits"></a>Durée d’exécution et limites de conservation de l’historique
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Durée d’exécution | 90 jours | 366 jours | La durée d’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée *à l’heure de début* par le paramètre de workflow, [**Conservation de l’historique des exécutions en jours**](#change-duration). <p><p>Pour modifier la limite par défaut de 90 jours, voir [Modifier la durée d’exécution](#change-duration). |
-| Conservation de l’exécution dans le stockage | 90 jours | 366 jours | La conservation de l’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée *à l’heure en cours* par le paramètre de workflow [**Conservation de l’historique des exécutions en jours**](#change-retention). Qu’une exécution aboutisse ou expire, le calcul de la rétention utilise toujours l’heure de début de l’exécution. Quand la durée d’une exécution dépasse la limite de conservation *actuelle* , l’exécution est supprimée de l’historique des exécutions. <p><p>Si vous modifiez ce paramètre, la limite actuelle est toujours utilisée pour le calcul de la rétention, quelle que soit la limite précédente. Par exemple, si vous réduisez la limite de conservation de 90 jours à 30 jours, une exécution datant de 60 jours est supprimée de l’historique des exécutions. Si vous augmentez la période de rétention de 30 jours à 60 jours, une exécution datant de 20 jours reste dans l’historique des exécutions pendant 40 jours supplémentaires. <p><p>Pour modifier la limite par défaut de 90 jours, voir [Modifier la conservation de l’exécution dans le stockage](#change-retention). |
+| Durée d’exécution | 90 jours | 366 jours | La durée d’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée par le paramètre de workflow, [**Conservation de l’historique des exécutions en jours**](#change-duration) à l’heure de début. <p><p>Pour modifier la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de l’historique dans le stockage](#change-duration). |
+| Conservation de l’historique des exécutions dans le stockage | 90 jours | 366 jours | Si la durée d’une exécution dépasse la limite de conservation actuelle, l’exécution est supprimée de l’historique des exécutions dans le stockage. Que l’exécution se termine ou expire, la rétention de l’historique des exécutions est toujours calculée en utilisant l’heure de début de l’exécution et la limite actuelle spécifiée dans le paramètre du workflow, [**Conservation de l’historique des exécutions en jours**](#change-retention). Quelle que soit la limite précédente, la limite actuelle est toujours utilisée pour le calcul de la rétention. <p><p>Pour modifier la limite par défaut et pour plus d’informations, consultez [Modifier l’exécution et la conservation de l’historique des exécutions dans le stockage](#change-retention). Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour qu’elle réponde à vos besoins. |
 | Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
 | Intervalle de périodicité maximal | 500 jours | 500 jours ||
 |||||
@@ -56,25 +56,51 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>Modifier la durée d’exécution et la conservation de l’exécution dans le stockage
+### <a name="change-run-duration-and-history-retention-in-storage"></a>Modifier la durée d’exécution et la conservation de l’historique dans le stockage
 
-Pour modifier la limite par défaut pour la durée d’exécution et la conservation de l’exécution dans le stockage, procédez comme suit. Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour qu’elle réponde à vos besoins.
+Le même paramètre contrôle le nombre maximal de jours pendant lesquels un workflow peut s’exécuter, ainsi que la conservation de l’historique des exécutions dans le stockage. Pour modifier la limite par défaut ou actuelle de ces propriétés, procédez comme suit.
 
-> [!NOTE]
-> Pour les applications logiques dans Azure multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
-> Pour les applications logiques dans un environnement de service d’intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
+* Pour les applications logiques dans Azure multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
 
-1. Accédez au [portail Azure](https://portal.azure.com). Dans la zone de recherche du Portail, recherchez et sélectionnez **Logic Apps** .
+* Pour les applications logiques dans un environnement de service d’intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
 
-1. Sélectionnez, puis ouvrez votre application logique dans le Concepteur d’applications logiques.
+Par exemple, supposons que vous réduisiez la limite de conservation de 90 à 30 jours. Une exécution datant de 60 jours est supprimée de l’historique des exécutions. Si vous augmentez la période de conservation de 30 à 60 jours, une exécution datant de 20 jours reste dans l’historique des exécutions pendant 40 jours supplémentaires.
 
-1. Dans le menu de l’application logique, sélectionnez **Paramètres de flux de travail** .
+> [!IMPORTANT]
+> Si la durée d’une exécution dépasse la limite de conservation actuelle, l’exécution est supprimée de l’historique des exécutions dans le stockage. Pour éviter de perdre l’historique des exécutions, assurez-vous que la limite de conservation est *toujours* plus que la durée la plus longue de l’exécution.
 
-1. Sous **Options de runtime** , dans la liste **Conservation de l’historique des exécutions en jours** , choisissez **Personnalisée** .
+1. Dans la zone de recherche du [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Logic Apps**.
+
+1. Recherchez et sélectionnez votre application logique. Ouvrez votre application logique dans le Concepteur d’applications logiques.
+
+1. Dans le menu de l’application logique, sélectionnez **Paramètres de flux de travail**.
+
+1. Sous **Options de runtime** , dans la liste **Conservation de l’historique des exécutions en jours** , choisissez **Personnalisée**.
 
 1. Faites glisser le curseur pour modifier le nombre de jours souhaité.
 
-1. Lorsque vous avez terminé, dans la barre d’outils **Paramètres du workflow** , sélectionnez **Enregistrer** .
+1. Lorsque vous avez terminé, dans la barre d’outils **Paramètres du workflow** , sélectionnez **Enregistrer**.
+
+Si vous générez un modèle de Azure Resource Manager pour votre application logique, ce paramètre apparaît en tant que propriété dans la définition de ressource de votre workflow, qui est décrite dans la [référence du modèle de workflow Microsoft. Logic](/templates/microsoft.logic/workflows) :
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
 
 <a name="looping-debatching-limits"></a>
 
@@ -144,7 +170,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Requête sortante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par les déclencheurs HTTP sont des exemples de requêtes sortantes. <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Pour contourner les limites de délai d’attente lorsque vous appelez une autre application logique qui a un [point de terminaison appelable](logic-apps-http-endpoint.md), vous pouvez utiliser l’action Azure Logic Apps intégrée à la place, que vous pouvez trouver dans le sélecteur de connecteur sous **Élément intégré** . |
+| Requête sortante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par les déclencheurs HTTP sont des exemples de requêtes sortantes. <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Pour contourner les limites de délai d’attente lorsque vous appelez une autre application logique qui a un [point de terminaison appelable](logic-apps-http-endpoint.md), vous pouvez utiliser l’action Azure Logic Apps intégrée à la place, que vous pouvez trouver dans le sélecteur de connecteur sous **Élément intégré**. |
 | Requête entrante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels reçus par les déclencheurs de requête et les déclencheurs webhook sont des exemples de requêtes entrantes. <p><p>**Remarque**  : Pour que l’appelant d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
@@ -241,7 +267,7 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
-| Artefact | Gratuit | De base | standard |
+| Artefact | Gratuit | De base | Standard |
 |----------|------|-------|----------|
 | Contrats commerciaux EDI | 10 | 1 | 1 000 |
 | Partenaires commerciaux EDI | 25 | 2 | 1 000 |
@@ -267,7 +293,7 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
+| Point de terminaison du runtime | Gratuit | De base | Standard | Notes |
 |------------------|------|-------|----------|-------|
 | appels de lecture toutes les cinq minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | appels d’invocation toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |

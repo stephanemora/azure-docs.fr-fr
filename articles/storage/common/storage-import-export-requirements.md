@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d17b9cdebf06e7d754a23a7224bbe3dba1a2832c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276395"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783604"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensem
 Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-account-create.md).
 
 > [!IMPORTANT]
-> Pour les comptes de stockage sur lesquels la fonctionnalité [Points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md) a été activée, utilisez le paramètre **Autoriser les services Microsoft approuvés…** pour [activer le service Import/Export](/azure/storage/common/storage-network-security) afin d’importer/exporter des données vers ou depuis Azure.
+> Pour les comptes de stockage sur lesquels la fonctionnalité [Points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md) a été activée, utilisez le paramètre **Autoriser les services Microsoft approuvés…** pour [activer le service Import/Export](./storage-network-security.md) afin d’importer/exporter des données vers ou depuis Azure.
 
 ## <a name="supported-storage-types"></a>Types de stockage pris en charge
 
@@ -94,4 +94,4 @@ Au moment de préparer les disques durs et de copier les données avec l’outil
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+* [Transfert de données avec l’utilitaire de ligne de commande AzCopy](./storage-use-azcopy-v10.md)

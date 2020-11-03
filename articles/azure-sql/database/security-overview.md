@@ -11,24 +11,24 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 09/21/2020
-ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/26/2020
+ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321422"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780357"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Vue d’ensemble des capacités de sécurité d’Azure SQL Database et SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Cet article décrit les principes de la sécurisation de la couche Données d’une application avec [Azure SQL Database](sql-database-paas-overview.md) et [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). La stratégie de sécurité décrite suit une approche en couches de défense en profondeur comme illustré ci-après, et se déplace de l’extérieur vers :
+Cet article décrit les bases de la sécurisation de la couche Données d'une application à l'aide d'[Azure SQL Database](sql-database-paas-overview.md), d'[Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) et d'[Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). La stratégie de sécurité décrite suit une approche en couches de défense en profondeur comme illustré ci-après, et se déplace de l’extérieur vers :
 
 ![Diagramme de défense en profondeur par couches. Les données client sont encapsulées dans des couches de sécurité réseau, de gestion des accès et de protection des informations et contre les menaces.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Sécurité du réseau
 
-Microsoft Azure SQL Database et SQL Managed Instance fournissent un service de base de données relationnelle pour les applications cloud et d’entreprise. Pour protéger les données client, les pare-feu empêchent tout accès réseau au serveur, sauf octroi d’accès explicite en fonction de l’adresse IP ou de l’origine du trafic de réseau virtuel Azure.
+Microsoft Azure SQL Database, SQL Managed Instance et Azure Synapse Analytics fournissent un service de base de données relationnelle pour les applications cloud et d'entreprise. Pour protéger les données client, les pare-feu empêchent tout accès réseau au serveur, sauf octroi d’accès explicite en fonction de l’adresse IP ou de l’origine du trafic de réseau virtuel Azure.
 
 ### <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 
@@ -36,7 +36,7 @@ Les règles de pare-feu IP octroient l’accès à la base de données en foncti
 
 ### <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
 
-Les [points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md) étendent la connectivité de votre réseau virtuel sur la dorsale principale d’Azure et permettent à Azure SQL Database d’identifier le sous-réseau de réseau virtuel d’où provient le trafic. Pour permettre au trafic d'atteindre Azure SQL Database, utilisez les [balises de service](../../virtual-network/security-overview.md) SQL et autorisez le trafic sortant via les groupes de sécurité réseau.
+Les [points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md) étendent la connectivité de votre réseau virtuel sur la dorsale principale d’Azure et permettent à Azure SQL Database d’identifier le sous-réseau de réseau virtuel d’où provient le trafic. Pour permettre au trafic d'atteindre Azure SQL Database, utilisez les [balises de service](../../virtual-network/network-security-groups-overview.md) SQL et autorisez le trafic sortant via les groupes de sécurité réseau.
 
 Les [règles de réseau virtuel](vnet-service-endpoint-rule-overview.md) permettent à Azure SQL Database de n’accepter que les communications provenant de sous-réseaux sélectionnés à l’intérieur d’un réseau virtuel.
 
@@ -52,11 +52,11 @@ Les [règles de réseau virtuel](vnet-service-endpoint-rule-overview.md) permett
 
 L’authentification est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Azure SQL Database et SQL Managed Instance prennent en charge deux types d’authentification :
 
-- **Authentification SQL** :
+- **Authentification SQL**  :
 
-    L’authentification SQL fait référence à l’authentification d’un utilisateur qui se connecte à Azure SQL Database ou Azure SQL Managed Instance à l’aide d’un nom d’utilisateur et d’un mot de passe. Un identifiant d’**administrateur de serveur** avec un nom d’utilisateur et un mot de passe doivent être spécifiés lors de la création du serveur. À l’aide de ces informations d’identification, un **administrateur de serveur** peut s’authentifier auprès de n’importe quelle base de données sur ce serveur ou cette instance en tant que propriétaire de la base de données. Ensuite, des connexions SQL et utilisateurs supplémentaires peuvent être créés par l'administrateur de serveur, ce qui permet aux utilisateurs de se connecter à l'aide d'un nom d'utilisateur et d'un mot de passe.
+    L’authentification SQL fait référence à l’authentification d’un utilisateur qui se connecte à Azure SQL Database ou Azure SQL Managed Instance à l’aide d’un nom d’utilisateur et d’un mot de passe. Un identifiant d’ **administrateur de serveur** avec un nom d’utilisateur et un mot de passe doivent être spécifiés lors de la création du serveur. À l’aide de ces informations d’identification, un **administrateur de serveur** peut s’authentifier auprès de n’importe quelle base de données sur ce serveur ou cette instance en tant que propriétaire de la base de données. Ensuite, des connexions SQL et utilisateurs supplémentaires peuvent être créés par l'administrateur de serveur, ce qui permet aux utilisateurs de se connecter à l'aide d'un nom d'utilisateur et d'un mot de passe.
 
-- **Authentification Azure Active Directory** :
+- **Authentification Azure Active Directory**  :
 
     L’authentification Azure Active Directory est un mécanisme qui sert à se connecter à [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) et [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités se trouvant dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités et les autorisations des utilisateurs de base de données et d’autres services Azure dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
 
@@ -97,9 +97,9 @@ Advanced Threat Protection analyse vos journaux afin de détecter les éventuels
 
 ### <a name="transport-layer-security-encryption-in-transit"></a>Transport Layer Security (Chiffrement en transit)
 
-SQL Database et SQL Managed Instance sécurisent les données des clients en utilisant le protocole [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) pour chiffrer les données en mouvement.
+SQL Database, SQL Managed Instance et Azure Synapse Analytics sécurisent les données des clients en utilisant le protocole [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) pour chiffrer les données en mouvement.
 
-SQL Database et SQL Managed Instance appliquent en permanence le chiffrement (SSL/TLS) aux connexions. De cette façon, toutes les données sont chiffrées « en transit » entre le client et le serveur, quel que soit le paramètre **Encrypt** ou **TrustServerCertificate** de la chaîne de connexion.
+SQL Database, SQL Managed Instance et Azure Synapse Analytics appliquent en permanence le chiffrement (SSL/TLS) aux connexions. De cette façon, toutes les données sont chiffrées « en transit » entre le client et le serveur, quel que soit le paramètre **Encrypt** ou **TrustServerCertificate** de la chaîne de connexion.
 
 Dans la chaîne de connexion utilisée par l’application, nous vous recommandons de spécifier une connexion chiffrée et de ne _**pas**_ approuver le certificat de serveur. L’application étant contrainte de vérifier le certificat de serveur, elle n’est donc pas vulnérable aux attaques de type intercepteur.
 
@@ -112,7 +112,7 @@ Par exemple, lorsque vous utilisez le pilote ADO.NET, cette opération s’effec
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (chiffrement des données au repos)
 
-[Transparent Data Encryption (TDE) pour Azure SQL Database et SQL Managed Instance](transparent-data-encryption-tde-overview.md) ajoute une couche de sécurité pour protéger les données au repos contre tout accès non autorisé ou hors connexion aux fichiers bruts ou aux sauvegardes. Parmi les scénarios courants, citons le vol de centre de données ou l’élimination non sécurisée de matériel ou de supports tels que les lecteurs de disque et les bandes de sauvegarde. La fonctionnalité TDE chiffre l’intégralité de la base de données à l’aide d’un algorithme de chiffrement AES, sans que les développeurs d’applications aient besoin de modifier les applications existantes.
+[Transparent Data Encryption (TDE) pour SQL Database, SQL Managed Instance et Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) ajoute une couche de sécurité pour protéger les données au repos contre tout accès non autorisé ou hors connexion aux fichiers bruts ou aux sauvegardes. Parmi les scénarios courants, citons le vol de centre de données ou l’élimination non sécurisée de matériel ou de supports tels que les lecteurs de disque et les bandes de sauvegarde. La fonctionnalité TDE chiffre l’intégralité de la base de données à l’aide d’un algorithme de chiffrement AES, sans que les développeurs d’applications aient besoin de modifier les applications existantes.
 
 Dans Azure, toutes les bases de données créées sont chiffrées par défaut, et la clé de chiffrement de ces bases de données est protégée par un certificat de serveur intégré.  La maintenance et la rotation des certificats sont gérées par le service, sans intervention de l’utilisateur. Les clients peuvent également gérer eux-mêmes les clés de chiffrement dans [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 
@@ -124,7 +124,7 @@ Dans Azure, toutes les bases de données créées sont chiffrées par défaut, e
 
 ![Diagramme montrant les concepts de base de la fonctionnalité Always Encrypted. Une base de données SQL avec un verrou est accessible uniquement par une application contenant une clé.](./media/security-overview/azure-database-ae.png)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) est une fonctionnalité conçue pour protéger les données sensibles stockées dans des colonnes de base de données spécifiques (numéros de cartes de crédit, de carte d'identité ou autres données _sensibles_). Les administrateurs de base de données ou autres utilisateurs disposant de privilèges autorisés peuvent accéder à la base de données afin d'y effectuer des tâches de gestion, sans devoir accéder aux données contenues dans les colonnes chiffrées. Les données sont systématiquement chiffrées, ce qui signifie qu'elles sont uniquement déchiffrées à des fins de traitement par les applications clientes ayant accès à la clé de chiffrement. La clé de chiffrement n’est jamais exposée dans SQL Database ou SQL Managed Instance, et peut être stockée dans le [magasin de certificats Windows](always-encrypted-certificate-store-configure.md) ou dans [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) est une fonctionnalité conçue pour protéger les données sensibles stockées dans des colonnes de base de données spécifiques (numéros de cartes de crédit, de carte d'identité ou autres données _sensibles_ ). Les administrateurs de base de données ou autres utilisateurs disposant de privilèges autorisés peuvent accéder à la base de données afin d'y effectuer des tâches de gestion, sans devoir accéder aux données contenues dans les colonnes chiffrées. Les données sont systématiquement chiffrées, ce qui signifie qu'elles sont uniquement déchiffrées à des fins de traitement par les applications clientes ayant accès à la clé de chiffrement. La clé de chiffrement n’est jamais exposée dans SQL Database ou SQL Managed Instance, et peut être stockée dans le [magasin de certificats Windows](always-encrypted-certificate-store-configure.md) ou dans [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Masquage dynamique des données
 

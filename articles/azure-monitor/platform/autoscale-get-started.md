@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743520"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369265"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -34,7 +34,7 @@ Pour chaque ressource, vous trouverez le nombre d’instances en cours ainsi que
 
 - **Non configuré** : vous n’avez pas encore activé la mise à l’échelle automatique pour cette ressource.
 - **Enabled** : vous avez activé la mise à l’échelle automatique pour cette ressource.
-- **Disabled** : vous avez désactivé la mise à l’échelle automatique pour cette ressource.
+- **Disabled**  : vous avez désactivé la mise à l’échelle automatique pour cette ressource.
 
 ## <a name="create-your-first-autoscale-setting"></a>Créez votre premier paramètre de mise à l’échelle automatique
 
@@ -121,7 +121,7 @@ Pour activer la fonctionnalité avec les modèles ARM, définissez la propriét�
 
 ### <a name="health-check-path"></a>Chemin de contrôle d'intégrité
 
-Le chemin d’accès doit répondre dans un délai de deux minutes avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans les deux minutes ou retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si HTTP**S** uniquement est activé sur le site, la requête Healthcheck sera envoyée via HTTP**S**.
+Le chemin d’accès doit répondre dans un délai d’une minute avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans la minute ou s’il retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». App Service ne suit pas les redirections 302 sur le chemin de contrôle d’intégrité. Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si HTTP **S** uniquement est activé sur le site, la requête Healthcheck sera envoyée via HTTP **S**.
 
 Le chemin du contrôle d'intégrité doit vérifier les composants critiques de votre application. Par exemple, si votre application dépend d’une base de données et d’un système de messagerie, le point de terminaison de contrôle d’intégrité doit se connecter à ces composants. Si l’application ne peut pas se connecter à un composant critique, le chemin d’accès doit retourner un code de réponse de niveau 500 pour indiquer que l’application n’est pas saine.
 
@@ -133,7 +133,7 @@ Les équipes de développement des grandes entreprises doivent souvent adhérer 
 
 Lorsque le chemin du contrôle d’intégrité est fourni, App Service effectue un test ping du chemin toutes les instances. Si un code de réponse correct n’est pas reçu après 5 tests ping, cette instance est considérée comme « non saine ». La ou les instances non saines seront exclues de la rotation de l’équilibreur de charge. En outre, lorsque vous effectuez un scaling up ou un scaling out, App Service effectue un test ping du chemin du contrôle d’intégrité pour s’assurer que les nouvelles instances sont prêtes à recevoir des requêtes.
 
-Les instances saines restantes peuvent subir une augmentation de charge. Pour éviter de submerger les instances restantes, jusqu’à la moitié de vos instances sera exclue. Par exemple, si un scale-out du plan d’App Service vers 4 instances dont 3 qui ne sont pas saines est effectué, au moins 2 instances seront exclues de la rotation exclu de la rotation de LoadBalancer. Les 2 autres instances (1 saine et 1 non saine) continueront de recevoir des requêtes. Dans le pire des cas, où aucune instance n’est saine, aucune ne sera exclue.
+Les instances saines restantes peuvent subir une augmentation de charge. Pour éviter de submerger les instances restantes, jusqu’à la moitié de vos instances sera exclue. Par exemple, si un scale-out du plan d’App Service vers 4 instances dont 3 qui ne sont pas saines est effectué, au moins 2 instances seront exclues de la rotation exclu de la rotation de LoadBalancer. Les 2 autres instances (1 saine et 1 non saine) continueront de recevoir des requêtes. Dans le pire des cas où toutes les instances sont non saines, aucune ne sera exclue. Si vous souhaitez remplacer ce comportement, vous pouvez définir le paramètre d’application `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` sur une valeur comprise entre `0` et `100`. Si vous attribuez une valeur plus élevée, vous supprimez les instances non saines (la valeur par défaut est 50).
 
 Si une instance n’est pas saine pendant une heure, elle sera remplacée par une nouvelle instance. Une instance au plus sera remplacée chaque heure, avec un maximum de trois instances par jour et par plan App Service.
 

@@ -1,29 +1,25 @@
 ---
-title: Authentification unique avec le proxy d’application | Microsoft Docs
-description: Explique comment fournir l’authentification unique à l’aide du proxy d’application Azure AD.
+title: Authentification unique (SSO) basée sur Kerberos dans Azure Active Directory avec Proxy d’application
+description: Explique comment fournir l’authentification unique à l’aide de Proxy d’application Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq2
+ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299746"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426497"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application
+# <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique (SSO) à vos applications avec Proxy d’application
 
 Vous pouvez fournir l’authentification unique pour les applications locales publiées via le proxy d’application et sécurisées avec l’authentification Windows intégrée. L’accès à ces applications nécessitent un ticket Kerberos. Le proxy d’application utilise la délégation Kerberos contrainte(KCD) pour prendre en charge ces applications. 
 
@@ -60,7 +56,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 3. Cliquez avec le bouton droit, puis sélectionnez **Properties** > **Délégation**.
 4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés**. 
 5. Sélectionnez **Utiliser tout protocole d’authentification**.
-6. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
+6. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées** , ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
    ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
@@ -93,7 +89,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 2. Dès que votre application apparaît dans la liste des applications d’entreprise, sélectionnez-la, puis cliquez sur **Authentification unique**.
 3. Définissez le mode d’authentification unique sur **Authentification Windows intégrée**.  
 4. Entrez le **SPN d’application interne** du serveur d’applications. Dans cet exemple, le nom de principal du service pour notre application publiée est http/www.contoso.com. Ce SPN doit se trouver dans la liste des services auxquels le connecteur peut présenter des informations d’identification déléguées. 
-5. Choisissez l’**Identité de connexion déléguée** pour le connecteur à utiliser pour le compte de vos utilisateurs. Pour plus d’informations, consultez [Utilisation d’identités cloud et locales différentes](#working-with-different-on-premises-and-cloud-identities)
+5. Choisissez l’ **Identité de connexion déléguée** pour le connecteur à utiliser pour le compte de vos utilisateurs. Pour plus d’informations, consultez [Utilisation d’identités cloud et locales différentes](#working-with-different-on-premises-and-cloud-identities)
 
    ![Configuration avancée des applications](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

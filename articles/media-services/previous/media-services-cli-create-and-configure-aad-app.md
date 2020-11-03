@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: ceb01c97ec50f4e2a7aa146448c3da662d4314ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d6beac446f8a15a41daf0dfe8ca1783c95c775
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258348"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427235"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Utiliser l'interface de ligne de commande Azure pour créer une application Azure AD et configurer celle-ci pour accéder à l'API Media Services
 
@@ -57,17 +57,17 @@ Par exemple :
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash
 ```
 
-Dans cet exemple, l’**étendue** est le chemin d’accès complet de la ressource pour le compte de services multimédia. Toutefois, l’**étendue** peut être à n’importe quel niveau.
+Dans cet exemple, l’ **étendue** est le chemin d’accès complet de la ressource pour le compte de services multimédia. Toutefois, l’ **étendue** peut être à n’importe quel niveau.
 
 Par exemple, il peut s’agir d’un des niveaux suivants :
  
-* Niveau d'**abonnement**.
+* Niveau d' **abonnement**.
 * Niveau de **groupe de ressources**.
 * Niveau de **ressource** (par exemple, compte multimédia).
 
 Pour plus d’informations, consultez [Créez un principal du service avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-Voir aussi [Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure](../../role-based-access-control/role-assignments-cli.md). 
+Consultez également [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

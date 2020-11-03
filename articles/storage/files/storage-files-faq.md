@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563690"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746836"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -22,7 +22,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 1. La section Commentaires de cet article
 2. [Page de questions Microsoft Q&R sur le Stockage Azure](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
-4. Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
+4. Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide** , sélectionnez le bouton **Aide et support** , puis **Nouvelle demande de support**.
 
 ## <a name="general"></a>Général
 * <a id="why-files-useful"></a>
@@ -257,7 +257,25 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="ad-multiple-forest"></a>
 **L’authentification AD DS en local pour les partages de fichiers Azure prend-elle en charge l’intégration à un environnement AD DS utilisant plusieurs forêts ?**    
 
-    L’authentification AD DS en local d’Azure Files s’intègre uniquement à la forêt du service de domaine sur lequel le compte de stockage est inscrit. Pour prendre en charge l’authentification à partir d’une autre forêt, votre environnement doit disposer d’une approbation de forêt correctement configurée. La façon dont Azure Files s’inscrit dans AD DS est essentiellement la même que celle d’un serveur de fichiers ordinaire, où il crée une identité (compte d’ouverture de session d’ordinateur ou de service) dans AD DS pour l’authentification. La seule différence est que le nom de principal du service qui est inscrit pour le compte de stockage se termine par « file.core.windows.net », ce qui ne correspond pas au suffixe de domaine. Consultez votre administrateur de domaine pour savoir si une mise à jour de votre stratégie de routage DNS est nécessaire pour activer l’authentification de plusieurs forêts en raison du suffixe de domaine différent.
+    L’authentification AD DS en local d’Azure Files s’intègre uniquement à la forêt du service de domaine sur lequel le compte de stockage est inscrit. Pour prendre en charge l’authentification à partir d’une autre forêt, votre environnement doit disposer d’une approbation de forêt correctement configurée. La façon dont Azure Files s’inscrit dans AD DS est essentiellement la même que celle d’un serveur de fichiers ordinaire, où il crée une identité (compte d’ouverture de session d’ordinateur ou de service) dans AD DS pour l’authentification. La seule différence est que le nom de principal du service qui est inscrit pour le compte de stockage se termine par « file.core.windows.net », ce qui ne correspond pas au suffixe de domaine. Consultez votre administrateur de domaine pour savoir si une mise à jour de votre stratégie de routage des suffixes est nécessaire pour activer l’authentification de plusieurs forêts en raison du suffixe de domaine différent. Vous trouverez ci-dessous un exemple de configuration de la stratégie de routage des suffixes.
+    
+    Exemple : Lorsque les utilisateurs du domaine de la forêt A souhaitent accéder à un partage de fichiers avec le compte de stockage inscrit auprès d’un domaine de la forêt B, cela ne fonctionne pas automatiquement car le principal du service du compte de stockage ne présente pas le suffixe correspondant au suffixe d’un domaine de la forêt A. Nous pouvons résoudre ce problème en configurant manuellement une règle de routage des suffixes de la forêt A vers la forêt B pour un suffixe personnalisé « file.core.windows.net ».
+    Pour commencer, vous devez ajouter un nouveau suffixe personnalisé à la forêt B. Vérifiez que vous disposez des autorisations d’administration qui conviennent pour modifier la configuration, puis procédez comme suit :   
+    1. Connectez-vous à un domaine de machines joint à la forêt B.
+    2.  Ouvrez la console « Domaines et approbations Active Directory ».
+    3.  Cliquez avec le bouton droit sur « Domaines et approbations Active Directory ».
+    4.  Cliquer sur « Propriétés ».
+    5.  Cliquez sur « Ajouter ».
+    6.  Ajoutez « file.core.windows.net » en tant que suffixes UPN.
+    7.  Cliquez sur « Appliquer », puis sur « OK » pour fermer l’Assistant.
+    
+    Ajoutez ensuite la règle de routage des suffixes à la forêt A à des fins de redirection vers la forêt B.
+    1.  Connectez-vous à un domaine de machines joint à la forêt A.
+    2.  Ouvrez la console « Domaines et approbations Active Directory ».
+    3.  Cliquez avec le bouton droit sur le domaine pour lequel vous souhaitez accéder au partage de fichiers, puis cliquez sur l’onglet « Approbations » et sélectionnez le domaine de la forêt B dans les approbations sortantes. Si vous n’avez pas configuré d’approbation entre les deux forêts, vous devez commencer par le faire.
+    4.  Cliquez sur « Propriétés... », puis « Routage des suffixes de noms ».
+    5.  Vérifiez si le suffixe « *.file.core.windows.net » s’affiche. Si ce n’est pas le cas, cliquez sur « Actualiser ».
+    6.  Sélectionnez « *.file.core.windows.net » et cliquez sur « Activer », puis sur « Appliquer ».
 
 * <a id=""></a>
 **Quelles sont les régions disponibles pour l’authentification AD DS Azure Files ?**
@@ -318,7 +336,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     Vous pouvez monter le partage de fichiers à l’aide du protocole SMB si le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (par exemple si vous utilisez Windows 10 ou Windows Server 2016). Si le port 445 est bloqué par la stratégie de votre organisation ou par votre fournisseur de services Internet, vous pouvez utiliser Azure File Sync pour accéder à votre partage de fichiers Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 * <a id="backup-share"></a>
 **Comment faire pour sauvegarder mon partage de fichiers Azure ?**  
     Vous pouvez utiliser des [instantanés de partage](storage-snapshots-files.md) périodiques pour la protection contre les suppressions accidentelles. Vous pouvez aussi utiliser AzCopy, RoboCopy ou un outil de sauvegarde tiers capable de sauvegarder un partage de fichiers monté. Le service Sauvegarde Azure propose une sauvegarde d’Azure Files. En savoir plus sur la [sauvegarder de partages de fichiers Azure par le service Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).

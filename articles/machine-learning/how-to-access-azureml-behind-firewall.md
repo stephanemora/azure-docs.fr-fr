@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604408"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629457"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
@@ -63,6 +63,8 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | **mcr.microsoft.com** | Registre de conteneurs Microsoft Container Registry pour les images Docker de base |
 | **your-acr-server-name.azurecr.io** | Nécessaire uniquement si votre Azure Container Registry se trouve derrière le réseau virtuel. Dans cette configuration, un lien privé est créé à partir de l’environnement Microsoft vers l’instance ACR dans votre abonnement. Utilisez le nom du serveur ACR pour votre espace de travail Azure Machine Learning. |
 | **\*.notebooks.azure.net** | Requis par les notebooks dans Azure Machine Learning Studio. |
+| **\*.file.core.windows.net** | Requis par l’explorateur de fichiers dans Azure Machine Learning Studio. |
+| **\*.dfs.core.windows.net** | Requis par l’explorateur de fichiers dans Azure Machine Learning Studio. |
 | **graph.windows.net** | Nécessaire pour les notebooks |
 
 > [!TIP]

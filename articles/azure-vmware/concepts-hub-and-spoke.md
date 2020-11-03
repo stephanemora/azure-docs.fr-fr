@@ -1,18 +1,18 @@
 ---
 title: 'Concept : intégrer un déploiement Azure VMware Solution dans une architecture hub and spoke'
-description: Apprenez-en plus sur les recommandations relatives à l’intégration d’un déploiement Azure VMware Solution dans une architecture hub and spoke existante ou nouvelle sur Azure.
+description: En savoir plus sur l’intégration d’un déploiement Azure VMware Solution dans une architecture hub and spoke sur Azure.
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/26/2020
+ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058469"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674716"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Intégrer Azure VMware Solution dans une architecture hub and spoke
 
-Dans cet article, nous fournissons des recommandations relatives à l’intégration d’un déploiement Azure VMware Solution dans une [architecture hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/shared-services) existante ou nouvelle sur Azure. 
+Cet article fournit des recommandations relatives à l’intégration d’un déploiement Azure VMware Solution dans une [architecture hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/shared-services) existante ou nouvelle sur Azure. 
 
 
 Le scénario Hub and Spoke suppose un environnement de cloud hybride avec des charges de travail sur :
@@ -46,7 +46,7 @@ L’architecture possède les composants majeurs suivants :
 
 
   > [!NOTE]
-  > **Considérations S2S VPN :** Pour les déploiements de production Azure VMware Solution, Azure S2S VPN n’est pas pris en charge en raison de la configuration réseau requise pour VMware HCX. Il peut cependant être utilisé pour un déploiement PoC.
+  > **Considérations S2S VPN :** Pour les déploiements de production Azure VMware Solution, Azure S2S VPN n’est pas pris en charge en raison de la configuration réseau requise pour VMware HCX. Toutefois, vous pouvez l’utiliser pour un déploiement POC.
 
 
 -   **Réseau virtuel Hub :** Joue le rôle de point central de la connectivité pour votre réseau local cloud privé Azure VMware Solution.
@@ -69,31 +69,31 @@ Comme une passerelle ExpressRoute ne fournit pas de routage transitif entre ses 
 
 * **Flux de trafic local vers Azure VMware Solution**
 
-  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Déploiement de l’intégration hub and spoke Azure VMware Solution" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Flux de trafic local vers Azure VMware Solution" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Flux de trafic Azure VMware Solution vers le réseau virtuel hub**
 
-  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Déploiement de l’intégration hub and spoke Azure VMware Solution" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Flux de trafic Azure VMware Solution vers le réseau virtuel hub" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Pour plus d’informations sur les réseaux Azure VMware Solution et les concepts de connectivité, consultez la [Documentation produit d’Azure VMware Solution](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentation du trafic
 
-Le [Pare-feu Azure](../firewall/index.yml) est la partie centrale de la topologie Hub and Spoke, déployée sur le réseau virtuel Hub. Utilisez le Pare-feu Azure ou une autre appliance virtuelle réseau prise en charge par Azure pour établir des règles de trafic et segmenter la communication entre les différents spokes et les charges de travail Azure VMware Solution.
+[Pare-feu Azure](../firewall/index.yml) est la partie centrale de la topologie hub and spoke, déployée sur le réseau virtuel hub. Utilisez le Pare-feu Azure ou une autre appliance virtuelle réseau prise en charge par Azure pour établir des règles de trafic et segmenter la communication entre les différents spokes et les charges de travail Azure VMware Solution.
 
-Créez des tables de routage pour diriger le trafic vers le Pare-feu Azure.  Pour les réseaux virtuels Spoke, créez un itinéraire qui définit l’itinéraire par défaut vers l’interface interne du Pare-feu Azure. Ainsi, lorsqu’une charge de travail dans le réseau virtuel doit atteindre l’espace d’adressage Azure VMware Solution, le pare-feu peut l’évaluer et appliquer la règle de trafic correspondante pour l’autoriser ou la refuser.  
+Créez des tables de routage pour diriger le trafic vers le Pare-feu Azure.  Pour les réseaux virtuels spoke, créez un itinéraire qui définit l’itinéraire par défaut vers l’interface interne de Pare-feu Azure. Ainsi, lorsqu’une charge de travail dans le réseau virtuel doit atteindre l’espace d’adressage Azure VMware Solution, le pare-feu peut l’évaluer et appliquer la règle de trafic correspondante pour l’autoriser ou la refuser.  
 
-:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Déploiement de l’intégration hub and spoke Azure VMware Solution" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
+:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Créer des tables de routage pour diriger le trafic vers le Pare-feu Azure" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
 
 > [!IMPORTANT]
 > Un itinéraire avec le préfixe d’adresse 0.0.0.0/0 sur le paramètre **GatewaySubnet** n’est pas pris en charge.
 
-Définissez des itinéraires pour des réseaux spécifiques sur la table de routage correspondante. Par exemple, des routes pour atteindre les préfixes d’adresses IP des charges de travail et de gestion Azure VMware Solution depuis des charges de travail de spoke et inversement.
+Définissez des itinéraires pour des réseaux spécifiques sur la table de routage correspondante. Par exemple, des itinéraires pour atteindre les préfixes d’adresses IP des charges de travail et de gestion Azure VMware Solution depuis des charges de travail de spoke et inversement.
 
-:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Déploiement de l’intégration hub and spoke Azure VMware Solution" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
+:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Définir des itinéraires pour des réseaux spécifiques sur la table de routage correspondante" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 Un deuxième niveau de segmentation du trafic utilisant les groupes de sécurité réseau dans les Spokes et le Hub pour créer une stratégie de trafic plus granulaire.
 
@@ -104,9 +104,9 @@ Un deuxième niveau de segmentation du trafic utilisant les groupes de sécurit�
 
 L’Application Gateway Azure V1 et V2 ont été testées avec des applications web qui s’exécutent sur des machines virtuelles Azure VMware Solution en tant que pool principal. L’Application Gateway est actuellement la seule méthode prise en charge pour exposer des applications web s’exécutant sur des machines virtuelles Azure VMware Solution à Internet. Elle peut également exposer les applications aux utilisateurs internes en toute sécurité.
 
-Pour plus d’informations et les spécifications, consultez l’article spécifique à Azure VMware Solution sur [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) .
+Pour plus d’informations et pour connaître les conditions requises, consultez l’article spécifique à Azure VMware Solution sur [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md).
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Déploiement de l’intégration hub and spoke Azure VMware Solution" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Deuxième niveau de segmentation du trafic à l’aide des groupes de sécurité réseau" border="false":::
 
 
 ### <a name="jump-box-and-azure-bastion"></a>Serveur jump et Azure Bastion
@@ -114,7 +114,7 @@ Pour plus d’informations et les spécifications, consultez l’article spécif
 Accédez à l’environnement Azure VMware Solution à l’aide d’un serveur jump, qui est une machine virtuelle Windows 10 ou Windows Server déployée dans le sous-réseau de service partagé au sein du réseau virtuel hub.
 
 >[!IMPORTANT]
->Azure Bastion est le service recommandé pour se connecter au serveur jump afin d’empêcher l’exposition d’Azure VMware Solution à Internet. Vous ne pouvez pas utiliser Azure Bastion pour vous connecter à des machines virtuelles Azure VMware Solution, car il ne s’agit pas d’objets IaaS Azure.  
+>Azure Bastion est le service recommandé pour se connecter au serveur de rebond afin d’empêcher l’exposition à Internet d’Azure VMware Solution. Vous ne pouvez pas utiliser Azure Bastion pour vous connecter à des machines virtuelles Azure VMware Solution, car il ne s’agit pas d’objets IaaS Azure.  
 
 Pour des raisons de sécurité, il est recommandé de déployer le service [Microsoft Azure Bastion](../bastion/index.yml) au sein du réseau virtuel Hub. Azure Bastion fournit un accès RDP et SSH transparent aux machines virtuelles déployées sur Azure sans avoir à approvisionner des adresses IP publiques pour ces ressources. Une fois que vous avez configuré le service Azure Bastion, vous pouvez accéder à la machine virtuelle sélectionnée à partir du Portail Azure. Après avoir établi la connexion, un nouvel onglet s’ouvre et affiche le bureau du serveur jump et, à partir de ce bureau, vous pouvez accéder au plan de gestion du cloud privé Azure VMware Solution.
 
@@ -122,7 +122,7 @@ Pour des raisons de sécurité, il est recommandé de déployer le service [Micr
 > N’attribuez pas d’IP publique à la machine virtuelle du serveur jump ni n’exposez le port 3389/TCP à l’Internet public. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Déploiement de l’intégration hub and spoke Azure VMware Solution" border="false":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Réseau virtuel Hub Azure Bastion" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Considérations relatives à la résolution Azure DNS
@@ -137,11 +137,11 @@ La meilleure approche consiste à combiner les deux pour fournir une résolution
 
 En guise de suggestion générale, utilisez l’infrastructure Azure DNS existante (dans ce cas, le DNS intégré à Active Directory) déployée sur au moins deux machines virtuelles Azure déployées dans le réseau virtuel Hub et configurées dans les réseaux virtuels Spoke pour utiliser ces serveurs Azure DNS dans les paramètres DNS.
 
-Vous pouvez toujours utiliser un Azure DNS privé lorsque la zone privée Azure DNS est liée aux réseaux virtuels, et que des serveurs DNS sont utilisés en tant que solutions de résolution hybrides avec un transfert conditionnel vers des noms DNS locaux/Azure VMware Solution tirant profit l’infrastructure client d’Azure DNS privé.
+Vous pouvez utiliser Azure DNS privé, où la zone Azure DNS privé est liée au réseau virtuel.  Les serveurs DNS sont utilisés en tant que solutions de résolution hybrides avec un transfert conditionnel vers des DNS locaux ou Azure VMware Solution tirant parti de l’infrastructure client d’Azure DNS privé. 
 
 Il y a plusieurs considérations à prendre en compte pour les zones privées Azure DNS :
 
-* L’inscription automatique doit être activée pour qu’Azure DNS gère automatiquement le cycle de vie des enregistrements DNS pour les machines virtuelles déployées au sein de réseaux virtuels Spoke.
+* L’inscription automatique doit être activée pour qu’Azure DNS gère automatiquement le cycle de vie des enregistrements DNS pour les machines virtuelles déployées au sein de réseaux virtuels spoke.
 * Le nombre maximal de zones DNS privées auxquelles un réseau virtuel peut être lié avec l’inscription automatique activée est limité à une.
 * Le nombre maximal de zones DNS privées pouvant être liées à un réseau virtuel est de 1 000 sans l’activation de l’inscription automatique.
 
@@ -149,7 +149,7 @@ Vous pouvez configurer des serveurs locaux et Azure VMware Solution avec des red
 
 ## <a name="identity-considerations"></a>Identité - Éléments à prendre en compte
 
-À des fins d’identité, la meilleure approche consiste à déployer au moins un contrôleur de domaine AD sur le Hub, à l’aide du sous-réseau de service partagé, idéalement deux d’entre eux dans le mode distribué dans une zone ou un groupe à haute disponibilité de machines virtuelles. Consultez [Centre des architectures Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) pour étendre votre domaine AD local à Azure.
+À des fins d’identité, la meilleure approche consiste à déployer au moins un contrôleur de domaine AD sur le hub. Utilisez deux sous-réseaux de service partagés dans le mode distribué par zone ou dans un groupe à haute disponibilité de machines virtuelles. Consultez [Centre des architectures Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) pour étendre votre domaine AD local à Azure.
 
 En outre, déployez un autre contrôleur de domaine sur le côté Azure VMware Solution pour agir en tant qu’identité et source DNS au sein de l’environnement vSphere.
 

@@ -3,52 +3,53 @@ title: Économiser grâce à l’instance réservée de Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bac2497c637a301c7ce8cbc44fc6945c3ef43b06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951415"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370676"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
-Lorsque vous validez une instance réservée d’Azure VMware Solution, vous pouvez économiser de l’argent. La remise de réservation est appliquée automatiquement au nombre d’hôtes Azure VMware Solution en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à un hôte dédié pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles. Consultez la  [vue d’ensemble d’Azure VMware Solution](introduction.md).
+Lorsque vous validez une instance réservée d’[Azure VMware Solution](introduction.md), vous économisez de l’argent. La remise de réservation est appliquée automatiquement aux hôtes Azure VMware Solution en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à un hôte dédié pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles. 
+
 
 ## <a name="purchase-restriction-considerations"></a>Considérations en matière de restriction d’achat
 
 Les instances réservées sont disponibles avec quelques exceptions près :
 
--   **Clouds** : les réservations sont disponibles uniquement dans les régions répertoriées sur la page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
+-   **Clouds**  : les réservations sont disponibles uniquement dans les régions répertoriées sur la page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
 
--   **Quota insuffisant** : une réservation qui est limitée à un abonnement unique/partagé doit avoir un quota d’hôtes disponible dans l’abonnement pour la nouvelle instance réservée. Pour résoudre ce problème, vous pouvez  [créer une demande d’augmentation de quota](enable-azure-vmware-solution.md).
+-   **Quota insuffisant**  : une réservation étendue à un abonnement unique/partagé doit avoir un quota d’hôtes disponible dans l’abonnement pour la nouvelle instance réservée. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](enable-azure-vmware-solution.md).
 
--   **Éligibilité de l’offre** : vous aurez besoin d’un  [Contrat Entreprise (EA) Azure](../cost-management-billing/manage/ea-portal-agreements.md) avec Microsoft.
+-   **Éligibilité de l’offre**  : vous aurez besoin d’un [Contrat Entreprise (EA) Azure](../cost-management-billing/manage/ea-portal-agreements.md) avec Microsoft.
 
--   **Restrictions de capacité** : dans de rares cas, Azure limite l’achat de nouvelles réservations pour les SKU d’hôtes Azure VMware Solution, en raison d’une faible capacité dans une région donnée.
+-   **Restrictions de capacité**  : dans de rares cas, Azure limite l’achat de nouvelles réservations pour les SKU d’hôtes Azure VMware Solution en raison d’une faible capacité dans une région donnée.
 
 ## <a name="buy-a-reservation"></a>Acheter une réservation
 
-Vous pouvez acheter une instance réservée pour une instance d’hôte Azure VMware Solution dans le  [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+Vous pouvez acheter une instance réservée pour une instance d’hôte Azure VMware Solution dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Payez la réservation  [comptant ou par paiements mensuels](../cost-management-billing/reservations/prepare-buy-reservation.md).
+Payez la réservation [à l’avance ou par paiements mensuels](../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 Ces conditions s’appliquent à l’achat d’une instance réservée d’hôte dédié :
 
 -   Vous devez avoir le rôle Propriétaire pour au moins un abonnement EA ou un abonnement assorti d’un paiement à l’utilisation.
 
--   Pour les abonnements EA, l’option  **Ajouter des instances réservées** doit être activée dans le  [portail EA](https://ea.azure.com/). Ou, si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
+-   Pour les abonnements EA, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Ou, si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 
 Pour acheter une instance :
 
-1. Connectez-vous au  [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez  **Tous les services** > **Réservations**.
+2. Sélectionnez **Tous les services** > **Réservations**.
 
-3. Sélectionnez  **Ajouter** pour acheter une nouvelle réservation, puis sélectionnez **Azure VMware Solution**.
+3. Sélectionnez **Ajouter** pour acheter une nouvelle réservation, puis sélectionnez **Azure VMware Solution**.
 
-4. Complétez les champs obligatoires. Les hôtes Azure VMware Solution en cours d’exécution qui correspondent aux attributs que vous avez sélectionnés peuvent bénéficier de la remise de réservation. Le nombre réel d’hôtes Azure VMware Solution qui obtiendront la remise dépend de l’étendue et de la quantité sélectionnées.
+4. Renseignez les champs obligatoires. Les hôtes Azure VMware Solution en cours d’exécution qui correspondent aux attributs que vous avez sélectionnés peuvent bénéficier de la remise de réservation. Nombre réel d’hôtes Azure VMware Solution qui obtiendront la remise en fonction de l’étendue et de la quantité sélectionnées.
 
-   Si vous avez un Accord Entreprise, vous pouvez utiliser l’option  **Ajouter** pour ajouter rapidement des instances supplémentaires. L’option n’est pas disponible pour les autres types d’abonnements.
+   Si vous avez un contrat EA, vous pouvez utiliser l’option **Ajouter** pour ajouter rapidement des instances supplémentaires. L’option n’est pas disponible pour les autres types d’abonnements.
 
    | Champ        |  Description |
    | ------------ | ------------ |
@@ -59,11 +60,14 @@ Pour acheter une instance :
    | Terme         | Une année ou trois ans.  |
    | Quantité     | Nombre d’instances achetées au sein de la réservation. La quantité correspond au nombre d’hôtes Azure VMware Solution en cours d’exécution pouvant bénéficier de la remise.    |
 
-## <a name="usage-data-and-reservation-utilization"></a>Données d’utilisation et utilisation de la réservation
+## <a name="usage-data-and-reservation-usage"></a>Données d’utilisation et utilisation de la réservation
 
-Vos données d’utilisation ont un prix effectif de zéro pour l’utilisation qui bénéficie d’une remise de réservation. Vous pouvez voir quelle instance Azure VMware Solution a reçu la remise de réservation pour chaque réservation.
+Votre utilisation qui bénéficie d’une remise de réservation a un prix effectif de zéro. Vous pouvez voir quelle instance Azure VMware Solution a reçu la remise de réservation pour chaque réservation.
 
-Pour plus d’informations sur l’affichage des remises de réservation dans les données d’utilisation, et si vous êtes un client EA, consultez  [Comprendre l’utilisation de la réservation Azure pour l’inscription de votre entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md). Si vous avez un abonnement individuel, consultez  [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+Pour plus d’informations sur l’affichage des remises de réservation dans les données d’utilisation :
+
+- Pour les clients EA, consultez [Comprendre l’utilisation d’une réservation Azure pour votre accord de mise en œuvre Entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md).
+- Pour les abonnements individuels, consultez [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Modifier une réservation après achat
 
@@ -85,8 +89,8 @@ Vous pouvez également fractionner une réservation en blocs plus petits ou fusi
 > - Quantité
 > - Duration
 >
->Toutefois, vous pouvez  *échanger* une réservation si vous souhaitez y apporter des modifications.
+>Toutefois, vous pouvez *échanger* une réservation si vous souhaitez y apporter des modifications.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez  [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).

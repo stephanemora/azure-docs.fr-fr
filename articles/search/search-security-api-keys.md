@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740630"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675586"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Créer et gérer des clés API pour un service Recherche cognitive Azure
 
-Toutes les demandes adressées à un service de recherche ont besoin d’une clé API en lecture seule générée spécialement pour votre service. Cette clé API constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche et doit être incluse dans chaque demande. Dans les [solutions REST](search-get-started-postman.md), la clé API est généralement spécifiée dans un en-tête de demande. Dans les [solutions .NET](search-howto-dotnet-sdk.md#core-scenarios), une clé est souvent spécifiée sous forme de paramètre de configuration, puis transmise en tant que [Credentials](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clé d’administration) ou de [SearchCredentials](/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clé de requête) sur [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient).
+Toutes les demandes adressées à un service de recherche ont besoin d’une `api-key` en lecture seule générée spécialement pour votre service. Cette `api-key` constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche et doit être incluse dans chaque requête. 
+
++ Dans les [solutions REST](search-get-started-postman.md), la clé API est généralement spécifiée dans un en-tête de requête
+
++ Dans les [solutions .NET](search-howto-dotnet-sdk.md), une clé est souvent spécifiée comme paramètre de configuration, puis transmise en tant que [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
 Lors du provisionnement du service, les clés sont créées avec votre service de recherche. Vous pouvez afficher et obtenir des valeurs de clés dans le [portail Azure](https://portal.azure.com).
 
@@ -47,7 +51,7 @@ Vous pouvez obtenir les clés d’accès dans le portail ou via l’[API REST de
 2. Répertoriez les [services de recherche](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) pour votre abonnement.
 3. Sélectionnez le service, puis sur la page de présentation, cliquez sur **Paramètres** >**Clés** pour afficher les clés d'administration et de requête.
 
-   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="page du portail, récupérer les paramètres, section clés" border="false":::
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="page du portail, afficher les paramètres, section clés" border="false":::
 
 ## <a name="create-query-keys"></a>Créer des clés de requête
 
@@ -61,7 +65,7 @@ Il est essentiel de restreindre l'accès et les opérations dans les application
 4. Cliquez sur **Gérer les clés de requête**.
 5. Utilisez la clé de requête déjà générée pour votre service, ou créez jusqu'à 50 nouvelles clés de requête. La clé de requête par défaut n'est pas nommée, mais des clés de requête supplémentaires peuvent être nommées pour faciliter la gestion.
 
-   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="page du portail, récupérer les paramètres, section clés" border="false":::
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Créer ou utiliser une clé de requête" border="false":::
 
 > [!Note]
 > Vous trouverez un exemple de code illustrant l'utilisation de la clé de requête dans [Interroger un index Recherche cognitive Azure en C#](./search-get-started-dotnet.md).
@@ -72,7 +76,7 @@ Il est essentiel de restreindre l'accès et les opérations dans les application
 
 Deux clés d'administration sont créées pour chaque service. Vous pouvez ainsi remplacer la clé primaire par la clé secondaire pour assurer la continuité de vos activités.
 
-1. Dans la page **Paramètres** >**Clés**, copiez la clé secondaire.
+1. Dans la page **Paramètres** >**Clés** , copiez la clé secondaire.
 2. Pour toutes les applications, mettez à jour les paramètres de la clé API afin d’utiliser la clé secondaire.
 3. Régénérez la clé principale.
 4. Mettez à jour toutes les applications pour qu’elles utilisent la nouvelle clé principale.

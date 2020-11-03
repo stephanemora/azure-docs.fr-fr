@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716067"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486387"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Vue d’ensemble des options d’authentification basée sur l’identité Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ Pour l’authentification AD DS locale, vous devez configurer vos contrôleurs d
 
 Le diagramme suivant illustre l’authentification AD DS locale pour l’accès aux partages de fichiers Azure sur SMB. L’environnement AD DS local doit être synchronisé avec Azure AD à l’aide de la solution Azure AD Connect Sync. Seuls les utilisateurs hybrides, qui existent à la fois dans AD DS local et Azure AD, peuvent être authentifiés et autorisés à accéder aux partages de fichiers Azure. Cela est dû au fait que l’autorisation au niveau du partage est configurée par rapport à l’identité représentée dans Azure AD, alors que l’autorisation au niveau du répertoire/fichier est appliquée avec elle dans AD DS. Veillez à configurer correctement les autorisations pour le même utilisateur hybride.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagramme":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagramme illustrant l’authentification AD DS locale sur des partages de fichiers Azure via SMB.":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 

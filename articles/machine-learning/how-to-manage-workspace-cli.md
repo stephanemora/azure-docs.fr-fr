@@ -9,13 +9,13 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: cb6c49ce779fe8b1e764471c31b392e31d6572ce
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 42f47ad61c0d90752928a8273872b734574e02c3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631203"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740790"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Créer un espace de travail pour Azure Machine Learning avec Azure CLI
 
@@ -26,7 +26,7 @@ Dans cet article, vous allez découvrir comment créer un espace de travail Azur
 
 * Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Pour utiliser les commandes CLI dans ce document à partir de votre **environnement local**, vous avez besoin [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Pour utiliser les commandes CLI dans ce document à partir de votre **environnement local** , vous avez besoin [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
     Si vous utilisez [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), l’interface CLI est accessible via le navigateur et réside dans le cloud.
 
@@ -78,7 +78,7 @@ L’espace de travail d’Azure Machine Learning s’appuie sur les entités ou 
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-L’espace de travail Azure Machine Learning doit être créé à l’intérieur d’un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Pour __créer un groupe de ressources__, utilisez la commande suivante. Remplacez `<resource-group-name>` par le nom à utiliser pour ce groupe de ressources. Remplacez `<location>` par la région Azure à utiliser pour ce groupe de ressources :
+L’espace de travail Azure Machine Learning doit être créé à l’intérieur d’un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Pour __créer un groupe de ressources__ , utilisez la commande suivante. Remplacez `<resource-group-name>` par le nom à utiliser pour ce groupe de ressources. Remplacez `<location>` par la région Azure à utiliser pour ce groupe de ressources :
 
 > [!TIP]
 > Vous devez sélectionner une région où Azure Machine Learning est disponible. Pour plus d’informations, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -107,7 +107,7 @@ Pour plus d’informations sur l’utilisation des groupes de ressources, consul
 
 ### <a name="automatically-create-required-resources"></a>Créer automatiquement les ressources nécessaires
 
-Pour créer un nouvel espace de travail dans lequel les __services sont créés automatiquement__, utilisez la commande suivante :
+Pour créer un nouvel espace de travail dans lequel les __services sont créés automatiquement__ , utilisez la commande suivante :
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -160,18 +160,17 @@ Par défaut, les métriques et les métadonnées de l’espace de travail sont s
 
 Au lieu d’utiliser la clé gérée par Microsoft, vous pouvez utiliser la clé de votre choix. Cela crée l’instance d’Azure Cosmos DB qui stocke les métriques et les métadonnées dans votre abonnement Azure. Utilisez le paramètre `--cmk-keyvault` pour spécifier le coffre Azure Key Vault qui contient la clé, et `--resource-cmk-uri` pour spécifier l’URL de la clé dans le coffre.
 
-> [!IMPORTANT]
-> Avant d’utiliser les paramètres `--cmk-keyvault` et `--resource-cmk-uri`, vous devez d’abord effectuer les actions suivantes :
->
-> 1. Autorisez l’__application Azure Machine Learning__ (dans la gestion des identités et des accès) avec des autorisations de contributeur pour votre abonnement.
-> 1. Suivez les étapes décrites dans [Configurer les clés gérées par le client](/azure/cosmos-db/how-to-setup-cmk) pour :
->     * Inscrire le fournisseur Azure Cosmos DB
->     * Créer et configurer un coffre Azure Key Vault
->     * Générer une clé
->
->     Vous n’avez pas besoin de créer manuellement l’instance d’Azure Cosmos DB, l’une sera créée pour vous lors de la création de l’espace de travail. Cette instance de Azure Cosmos DB sera créée dans un groupe de ressources distinct à l’aide d’un nom basé sur ce modèle : `<your-resource-group-name>_<GUID>`.
->
-> Vous ne pouvez pas modifier ce paramètre une fois l’espace de travail créé. Si vous supprimez l’Azure Cosmos DB utilisé par votre espace de travail, vous devez également supprimer l’espace de travail qui l’utilise.
+Avant d’utiliser les paramètres `--cmk-keyvault` et `--resource-cmk-uri`, vous devez d’abord effectuer les actions suivantes :
+
+1. Autorisez l’ __application Azure Machine Learning__ (dans la gestion des identités et des accès) avec des autorisations de contributeur pour votre abonnement.
+1. Suivez les étapes décrites dans [Configurer les clés gérées par le client](/azure/cosmos-db/how-to-setup-cmk) pour :
+    * Inscrire le fournisseur Azure Cosmos DB
+    * Créer et configurer un coffre Azure Key Vault
+    * Générer une clé
+
+Vous n’avez pas besoin de créer manuellement l’instance d’Azure Cosmos DB, l’une sera créée pour vous lors de la création de l’espace de travail. Cette instance de Azure Cosmos DB sera créée dans un groupe de ressources distinct à l’aide d’un nom basé sur ce modèle : `<your-resource-group-name>_<GUID>`.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Pour limiter les données collectées par Microsoft sur votre espace de travail, utilisez le paramètre `--hbi-workspace`. 
 
@@ -196,7 +195,7 @@ Pour créer un espace de travail qui utilise des ressources existantes, vous dev
     > [!IMPORTANT]
     > Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni l’espace de noms hiérarchique ne sont pris en charge avec le compte de stockage _par défaut_ de l’espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
 
-+ **Azure Application Insights** :
++ **Azure Application Insights**  :
 
     1. Installez l’extension Application Insights :
 
@@ -214,7 +213,7 @@ Pour créer un espace de travail qui utilise des ressources existantes, vous dev
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**  : `az keyvault show --name <key-vault-name> --query "ID"`
 
     La réponse de cette commande est similaire au texte suivant et correspond à l’ID de votre coffre de clés :
 
@@ -359,7 +358,7 @@ Pour partager un espace de travail avec un autre utilisateur de votre abonnement
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC) avec Azure Machine Learning, consultez [Gérer les utilisateurs et les rôles](how-to-assign-roles.md).
+Pour plus d’informations sur le contrôle d’accès en fonction du rôle Azure (RBAC Azure) avec Azure Machine Learning, consultez [Gérer les utilisateurs et les rôles](how-to-assign-roles.md).
 
 Pour plus d’informations, consultez la documentation [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share).
 

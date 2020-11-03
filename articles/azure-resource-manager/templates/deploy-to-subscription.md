@@ -2,15 +2,15 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729115"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668882"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
+# <a name="subscription-deployments-with-arm-templates"></a>Déploiements d’abonnements avec des modèles ARM
 
 Pour simplifier la gestion des ressources, vous pouvez utiliser un modèle Resource Manager pour déployer des ressources au niveau de votre abonnement Azure. Par exemple, vous pouvez déployer des [stratégies](../../governance/policy/overview.md) et un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) sur votre abonnement, ce qui les applique à l’ensemble de votre abonnement. Vous pouvez également créer des groupes de ressources au sein de l’abonnement et déployer des ressources sur ces groupes de ressources dans l’abonnement.
 
@@ -71,32 +71,26 @@ Le schéma que vous utilisez pour les déploiements au niveau de l’abonnement 
 Pour les modèles, utilisez :
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Le schéma d’un fichier de paramètres est le même pour toutes les étendues de déploiement. Fichiers de fichiers de paramètres, utilisez :
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Étendues de déploiement
-
-Lors du déploiement sur un abonnement, vous pouvez cibler un abonnement et des groupes de ressources au sein de l’abonnement. Vous ne pouvez déployer sur un abonnement différent de l’abonnement cible. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
-
-Les ressources définies dans la section Ressources du modèle sont appliquées à l’abonnement.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-Pour cibler un groupe de ressources au sein de l’abonnement, ajoutez un déploiement imbriqué et incluez la propriété `resourceGroup`. Dans l’exemple suivant, le déploiement imbriqué cible un groupe de ressources nommé `rg2`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-Dans cet article, vous trouverez des modèles qui montrent comment déployer des ressources sur différentes étendues. Pour un modèle qui crée un groupe de ressources et y déploie un compte de stockage, consultez [Créer un groupe de ressources et des ressources](#create-resource-group-and-resources). Pour un modèle qui crée un groupe de ressources, lui applique un verrou et lui affecte un rôle, consultez [Contrôle d’accès](#access-control).
 
 ## <a name="deployment-commands"></a>Commandes de déploiement
 
-Les commandes utilisées pour les déploiements au niveau de l’abonnement sont différentes de celles utilisées pour les déploiements de groupes de ressources.
+Pour déployer sur un abonnement, utilisez les commandes de déploiement au niveau de l’abonnement.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour l’interface de ligne de commande Azure, utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
@@ -107,6 +101,8 @@ az deployment sub create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour la commande de déploiement PowerShell, utilisez [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **New-AzSubscriptionDeployment**. L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
@@ -119,7 +115,44 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-Pour l’API REST, utilisez [Déploiements - Créer au niveau de l’abonnement](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+---
+
+Pour plus d’informations sur les commandes et options de déploiement de modèles ARM, consultez :
+
+* [Déployer des ressources avec des modèles ARM et le Portail Azure](deploy-portal.md)
+* [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](deploy-cli.md)
+* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](deploy-powershell.md)
+* [Déployer des ressources avec des modèles ARM et l’API REST Azure Resource Manager](deploy-rest.md)
+* [Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub](deploy-to-azure-button.md)
+* [Déployer des modèles ARM à partir de Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Étendues de déploiement
+
+Lors du déploiement dans un abonnement, vous pouvez déployer des ressources vers :
+
+* l’abonnement cible de l’opération
+* des groupes de ressources dans l’abonnement
+* les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
+
+Vous ne pouvez déployer sur un abonnement différent de l’abonnement cible. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+
+Cette section montre comment spécifier des étendues différentes. Vous pouvez combiner ces différentes étendues dans un seul modèle.
+
+### <a name="scope-to-subscription"></a>Étendue à l’abonnement
+
+Pour déployer des ressources dans l’abonnement cible, ajoutez ces ressources à la section des ressources du modèle.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Pour obtenir des exemples de déploiement sur l’abonnement, consultez [Créer des groupes de ressources](#create-resource-groups) et [Affecter une définition de stratégie](#assign-policy-definition).
+
+### <a name="scope-to-resource-group"></a>Étendue au groupe de ressources
+
+Pour déployer des ressources dans un groupe de ressources au sein de l’abonnement, ajoutez un déploiement imbriqué et incluez la propriété `resourceGroup`. Dans l’exemple suivant, le déploiement imbriqué cible un groupe de ressources nommé `demoResourceGroup`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Pour obtenir un exemple de déploiement dans un groupe de ressources, consultez [Créer un groupe de ressources et des ressources](#create-resource-group-and-resources).
 
 ## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
 
@@ -128,26 +161,6 @@ Pour les déploiements au niveau de l’abonnement, vous devez fournir un emplac
 Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
 
 Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
-
-## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
-
-Pour les déploiements au niveau de l’abonnement, il existe quelques considérations importantes liées à l’utilisation des fonctions de modèle :
-
-* La fonction [resourceGroup()](template-functions-resource.md#resourcegroup)**n’est pas** prise en charge.
-* Les fonctions [reference()](template-functions-resource.md#reference) et [list()](template-functions-resource.md#list) sont prises en charge.
-* N’utilisez pas [resourceId()](template-functions-resource.md#resourceid) pour obtenir l’ID des ressources déployées au niveau de l’abonnement. À la place, utilisez la fonction [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid).
-
-  Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie déployée sur un abonnement, utilisez :
-
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
-
-  L’ID de ressource retourné possède le format suivant :
-
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="resource-groups"></a>Groupes de ressources
 

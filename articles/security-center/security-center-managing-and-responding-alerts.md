@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e17c7d6618d67d66c89875696c5c529af3a85ea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440563"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785916"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gérer et résoudre les alertes de sécurité dans Azure Security Center
 
@@ -46,13 +46,13 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
 
    ![Panneau Alertes de sécurité dans Security Center](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-1. Pour filtrer les alertes affichées, cliquez sur **Filtrer**, puis dans le panneau **Filtre** qui s’ouvre, sélectionnez les options de filtre que vous souhaitez appliquer. La liste est mise à jour en fonction du filtre sélectionné. Le filtrage peut être très utile. Supposons que vous souhaitiez vérifier les alertes de sécurité qui se sont produites au cours des dernières 24 heures, car vous recherchez une violation de sécurité potentielle du système.
+1. Pour filtrer les alertes affichées, cliquez sur **Filtrer** , puis dans le panneau **Filtre** qui s’ouvre, sélectionnez les options de filtre que vous souhaitez appliquer. La liste est mise à jour en fonction du filtre sélectionné. Le filtrage peut être très utile. Supposons que vous souhaitiez vérifier les alertes de sécurité qui se sont produites au cours des dernières 24 heures, car vous recherchez une violation de sécurité potentielle du système.
 
     ![Filtrage des alertes dans le Centre de sécurité](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
 
 ## <a name="respond-to-security-alerts"></a>Répondre à des alertes de sécurité
 
-1. Dans la liste **Alertes de sécurité**, cliquez sur une alerte de sécurité. Les ressources impliquées et les étapes à suivre pour résoudre une attaque sont affichées.
+1. Dans la liste **Alertes de sécurité** , cliquez sur une alerte de sécurité. Les ressources impliquées et les étapes à suivre pour résoudre une attaque sont affichées.
 
     ![Répondre à des alertes de sécurité](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
 
@@ -65,10 +65,10 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
     ![Suggestions sur la façon de traiter les alertes de sécurité](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
     Dans le volet droit figure aussi l’onglet **Entreprendre une action**. Utilisez cet onglet pour prendre d’autres mesures concernant l’alerte de sécurité. Actions telles que :
-    - *Atténuer la menace* : fournit des étapes de correction manuelle pour cette alerte de sécurité
-    - *Empêcher les attaques futures* : fournit des recommandations de sécurité pour aider à réduire la surface d’attaque, améliorer la posture de sécurité et ainsi empêcher les attaques futures
-    - *Déclencher une réponse automatisée* : permet de déclencher une application logique en guide de réponse à cette alerte de sécurité.
-    - *Supprimer les alertes similaires* : permet de supprimer les alertes futures ayant des caractéristiques similaires si l’alerte n’est pas pertinente pour votre organisation.
+    - *Atténuer la menace*  : fournit des étapes de correction manuelle pour cette alerte de sécurité
+    - *Empêcher les attaques futures*  : fournit des recommandations de sécurité pour aider à réduire la surface d’attaque, améliorer la posture de sécurité et ainsi empêcher les attaques futures
+    - *Déclencher une réponse automatisée*  : permet de déclencher une application logique en guide de réponse à cette alerte de sécurité.
+    - *Supprimer les alertes similaires*  : permet de supprimer les alertes futures ayant des caractéristiques similaires si l’alerte n’est pas pertinente pour votre organisation.
 
     ![Onglet Entreprendre une action](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
@@ -80,4 +80,4 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
 Dans ce document, vous avez découvert comment afficher les alertes de sécurité. Pour d’autres informations connexes, consultez les pages suivantes :
 
 - [Configurer des règles de suppression d’alerte](alerts-suppression-rules.md)
-- [Automatiser les réponses aux alertes et aux recommandations avec l’automatisation de workflow](workflow-automation.md)
+- [Automatiser les réponses aux déclencheurs Security Center](workflow-automation.md)

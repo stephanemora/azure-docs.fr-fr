@@ -10,13 +10,13 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: a6612f3df5fba834dff8fc60e90c359ceff4cbe1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203090"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743104"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -43,7 +43,7 @@ Cet article fournit également des conseils d’utilisation supplémentaires pou
 
 ### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> (Local et DSVM uniquement) Créer un fichier de configuration d’espace de travail
 
-Le fichier de configuration d’espace de travail est un fichier JSON qui indique au SDK comment communiquer avec votre espace de travail Azure Machine Learning. Le fichier est nommé *config.json*, et il a le format suivant :
+Le fichier de configuration d’espace de travail est un fichier JSON qui indique au SDK comment communiquer avec votre espace de travail Azure Machine Learning. Le fichier est nommé *config.json* , et il a le format suivant :
 
 ```json
 {
@@ -122,6 +122,9 @@ Lorsque vous exécutez un serveur Jupyter Notebook local, nous vous recommandons
 
 Pour en savoir plus sur Azure Machine Learning et Jupyter Notebooks, consultez le [référentiel de notebooks Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks).
 
+> [!NOTE]
+> Vous trouverez un dépôt d’exemples alimenté par la communauté à l’adresse https://github.com/Azure/azureml-examples.
+
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
 Pour utiliser Visual Studio Code dans le cadre du développement :
@@ -139,10 +142,10 @@ Vous n’avez rien à installer ou à configurer pour une instance de calcul.
 
 créez à tout moment depuis votre espace de travail Azure Machine Learning. Indiquez juste un nom et spécifiez un type de machine virtuelle Azure. Essayez dès maintenant avec ce [Didacticiel : Configurer l'environnement et l'espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
-Pour en savoir plus sur les instances de calcul, notamment comment installer des paquets, consultez [instances de calcul](concept-compute-instance.md).
+Pour en savoir plus sur les instances de calcul, notamment sur la manière d’installer des packages, consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> Pour éviter les frais associés à une instance de calcul inutilisée, [arrêtez l’instance de calcul](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> Pour éviter les frais associés à une instance de calcul inutilisée, [arrêtez l’instance de calcul](how-to-create-manage-compute-instance.md#manage).
 
 En plus d’un serveur Jupyter Notebook et d’un JupyterLab, vous pouvez utiliser des instances de calcul dans la [fonctionnalité de notebook intégrée à Azure Machine Learning Studio](how-to-run-jupyter-notebooks.md).
 
@@ -254,12 +257,12 @@ Une fois que le cluster est en cours d’exécution, [créez une bibliothèque](
    * Ne sélectionnez pas **Attacher automatiquement à tous les clusters**.
    * Sélectionnez **Attacher** en regard du nom de votre cluster.
 
-1. Surveillez les erreurs jusqu’à ce que l’état soit défini sur **Attaché**, ce qui peut prendre plusieurs minutes.  Si cette étape échoue :
+1. Surveillez les erreurs jusqu’à ce que l’état soit défini sur **Attaché** , ce qui peut prendre plusieurs minutes.  Si cette étape échoue :
 
    Essayez de redémarrer votre cluster en procédant comme suit :
    1. Dans le volet gauche, sélectionnez **Clusters**.
    1. Sélectionnez le nom de votre cluster dans le tableau.
-   1. Sous l’onglet **Bibliothèques**, sélectionnez **Redémarrer**.
+   1. Sous l’onglet **Bibliothèques** , sélectionnez **Redémarrer**.
 
    Tenez également compte des aspects ci-dessous :
    + Dans la configuration d'AutoML, lorsque vous utilisez Azure Databricks, ajoutez les paramètres suivants :
@@ -284,7 +287,7 @@ Pour le runtime non-ML 7.0 de Databricks et les versions inférieures, installe
 ### <a name="start-exploring"></a>Commencez à explorer
 
 Lancez-vous :
-+ Bien que de nombreux exemples de notebooks soient disponibles, **seuls[ ces exemples ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) fonctionnent avec Azure Databricks.**
++ Bien que de nombreux exemples de notebooks soient disponibles, **seuls [ ces exemples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) fonctionnent avec Azure Databricks.**
 
 + Importez ces exemples directement à partir de votre espace de travail. Voir ci-dessous : ![Sélectionner Importer](./media/how-to-configure-environment/azure-db-screenshot.png)
 ![Panneau Importer](./media/how-to-configure-environment/azure-db-import.png)

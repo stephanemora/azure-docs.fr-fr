@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961338"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734942"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gestion de la disponibilité des machines virtuelles Linux
 
@@ -34,7 +34,7 @@ Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : 
 
 Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ces événements, nous vous recommandons les meilleures pratiques suivantes pour la haute disponibilité de vos machines virtuelles :
 
-* Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données
+* Utiliser Zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données
 * Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance
 * Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité
 * Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles

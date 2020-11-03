@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209072"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740151"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez
 
@@ -47,7 +47,7 @@ Si vous utilisez actuellement la [bibliothèque ADAL](../azuread-dev/active-dire
 
 Pour les applications iOS, nous disposons d’un [démarrage rapide](quickstart-v2-ios.md) qui vous montre comment configurer des connexions à l’aide de MSAL, ainsi que des [conseils pour la configuration de MSAL pour différents scénarios d’authentification unique](single-sign-on-macos-ios.md).
 
-Pour les applications Android, nous disposons d’un [démarrage rapide](quickstart-v2-android.md) qui vous montre comment configurer des connexions à l’aide de MSAL, ainsi que des conseils sur l’utilisation de [l’authentification répartie](brokered-auth.md) ou [les agents d’autorisation](authorization-agents.md).
+Pour les applications Android, nous disposons d’un [démarrage rapide](quickstart-v2-android.md) qui vous montre comment configurer des connexions à l’aide de MSAL, ainsi que des conseils pour [activer l’authentification unique entre applications sur Android à l’aide de MSAL](msal-android-single-sign-on.md).
 
 ### <a name="use-the-system-web-browser"></a>Utiliser le navigateur Web système
 

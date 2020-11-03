@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4ba35d91d286cb43a763887d104e21ae0d537c8e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123525"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424136"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Questions fréquentes (FAQ) sur Azure Network Watcher
 Le service [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre une suite d’outils permettant de superviser, diagnostiquer, consulter des métriques, ainsi qu’activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure. Cet article répond aux questions courantes sur le service.
@@ -55,7 +55,7 @@ Visitez la page [Tarification](https://azure.microsoft.com/pricing/details/netwo
 Vous pouvez consulter la disponibilité régionale la plus récente sur la [page de disponibilité des services Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Quelles sont les autorisations nécessaires pour utiliser Network Watcher ?
-Consultez la liste des [autorisations RBAC nécessaires pour utiliser Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Pour déployer des ressources, vous devez disposer d’autorisations de contributeur sur NetworkWatcherRG (voir ci-dessous).
+Consultez la liste des [Autorisations Azure RBAC requises pour utiliser Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Pour déployer des ressources, vous devez disposer d’autorisations de contributeur sur NetworkWatcherRG (voir ci-dessous).
 
 ### <a name="how-do-i-enable-network-watcher"></a>Comment faire pour activer Network Watcher ?
 Le service Network Watcher est [activé automatiquement](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) pour chaque abonnement.
@@ -99,8 +99,8 @@ Les ressources réseau Azure peuvent être combinées et gérées via les [group
 Pour utiliser un compte de stockage derrière un pare-feu, vous devez fournir une exception aux services Microsoft approuvés pour accéder à votre compte de stockage :
 
 * Accédez au compte de stockage en tapant son nom dans la recherche globale sur le portail ou à partir de la [page Comptes de stockage](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-* Dans la section **PARAMÈTRES** , sélectionnez **Pare-feu et réseaux virtuels** .
-* Dans « Autoriser l’accès depuis », sélectionnez **Réseaux sélectionnés** . Ensuite, sous **Exceptions** , cochez la case en regard de **« Autoriser les services Microsoft approuvés à accéder à ce compte de stockage »** 
+* Dans la section **PARAMÈTRES** , sélectionnez **Pare-feu et réseaux virtuels**.
+* Dans « Autoriser l’accès depuis », sélectionnez **Réseaux sélectionnés**. Ensuite, sous **Exceptions** , cochez la case en regard de **« Autoriser les services Microsoft approuvés à accéder à ce compte de stockage »** 
 * Si cette option est déjà sélectionnée, aucune modification n’est nécessaire.  
 * Localisez votre groupe de sécurité réseau cible dans la [page de vue d’ensemble des journaux de flux NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) et activez les journaux de flux NSG avec le compte de stockage ci-dessus sélectionné.
 

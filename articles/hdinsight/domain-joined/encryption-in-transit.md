@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89668776"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628981"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Chiffrement IPSec en transit pour Azure HDInsight
 
 Cet article traite de l’implémentation du chiffrement en transit pour les communications entre les nœuds de cluster Azure HDInsight.
 
 > [!Note]
-> Le chiffrement en transit est actuellement activé pour les régions suivantes : USA Est, USA Centre Sud, USA Ouest 2. 
+> Le chiffrement en transit est actuellement activé pour les régions suivantes : USA Est, USA Centre Sud, USA Ouest 2.
 
 ## <a name="background"></a>Arrière-plan
 
@@ -27,7 +27,7 @@ Azure HDInsight offre un large éventail de fonctionnalités de sécurité pour 
 
 Le chiffrement au repos est couvert par le chiffrement côté serveur sur les comptes de stockage Azure, ainsi que par le chiffrement de disque sur les machines virtuelles Azure qui font partie de votre cluster HDInsight.
 
-Le chiffrement des données en transit sur HDInsight est obtenu avec le protocole [TLS (Transport Layer Security)](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) pour accéder aux passerelles de cluster et le protocole [IPSec (Internet Protocol Security)](https://en.wikipedia.org/wiki/IPsec) entre les nœuds de cluster. Le protocole IPSec peut éventuellement être activé entre tous les nœuds principaux, nœuds Worker, nœuds de périphérie et nœuds Zookeeper. Il n’est pas activé pour le trafic entre les nœuds de passerelle ou de [broker d’ID](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker), qui sont des machines virtuelles Windows et d’autres nœuds Linux dans le cluster.
+Le chiffrement des données en transit sur HDInsight est obtenu avec le protocole [TLS (Transport Layer Security)](../transport-layer-security.md) pour accéder aux passerelles de cluster et le protocole [IPSec (Internet Protocol Security)](https://wikipedia.org/wiki/IPsec) entre les nœuds de cluster. Le protocole IPSec peut éventuellement être activé entre tous les nœuds principaux, nœuds Worker, nœuds de périphérie et nœuds Zookeeper. Il n’est pas activé pour le trafic entre les nœuds de passerelle ou de [broker d’ID](./identity-broker.md), qui sont des machines virtuelles Windows et d’autres nœuds Linux dans le cluster.
 
 ## <a name="enable-encryption-in-transit"></a>Activer le chiffrement en transit
 
@@ -40,9 +40,9 @@ Pour créer un nouveau cluster avec le chiffrement en transit activé à l’aid
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Créer un cluster – Onglet sécurité et mise en réseau.":::
 
-1. Sous l’onglet **Sécurité + mise en réseau**, cochez la case **Activer le chiffrement en transit**.
+1. Sous l’onglet **Sécurité + mise en réseau** , cochez la case **Activer le chiffrement en transit**.
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Créer un cluster – Onglet sécurité et mise en réseau.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Créer un cluster – Activer le chiffrement en transit.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Créer un cluster avec chiffrement en transit activé à l’aide de l’interface de ligne de commande Azure
 

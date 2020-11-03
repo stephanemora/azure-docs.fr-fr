@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/26/2019
+ms.date: 10/26/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5879d745de85fe702267dce109e26ebcb07195ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62956000e143f5504d32dae26953bcf877ce96a6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628573"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C
 
@@ -27,19 +27,22 @@ Pour utiliser un compte Facebook en tant que [fournisseur d’identité](authori
 
 1. Connectez-vous à [Facebook pour les développeurs](https://developers.facebook.com/) avec les informations d’identification de votre compte Facebook.
 1. Si ce n’est pas déjà fait, vous devez vous inscrire en tant que développeur Facebook. Pour cela, sélectionnez **Prise en main** dans le coin supérieur droit de la page, acceptez les politiques de Facebook et suivez les étapes d’inscription.
-1. Sélectionnez **Mes applications**, puis **Créer une application**.
+1. Sélectionnez **Mes applications** , puis **Créer une application**.
+1. Sélectionnez **Créer des expériences connectées**.
 1. Entrez un **nom d’affichage** et une **adresse e-mail de contact** valide.
 1. Sélectionnez **Créer un ID d'application**. Vous devrez peut-être accepter les politiques de la plateforme Facebook et effectuer une vérification de sécurité en ligne.
 1. Sélectionnez **Paramètres** > **Base**.
-1. Choisissez une **Catégorie**, par exemple `Business and Pages`. Cette valeur est requise par Facebook, mais elle n’est pas utilisée pour Azure AD B2C.
-1. Au bas de la page, sélectionnez **Ajouter une plateforme**, puis sélectionnez **Site web**.
-1. Dans **URL du site**, entrez l’adresse de votre site web, par exemple `https://contoso.com`. Entrez une URL pour l’**URL de stratégie de confidentialité**, par exemple `http://www.contoso.com/privacy`. L’URL de stratégie est une page que vous tenez à jour pour fournir des informations de confidentialité pour votre application.
+    1. Choisissez une **Catégorie** , par exemple `Business and Pages`. Cette valeur est requise par Facebook, mais elle n’est pas utilisée pour Azure AD B2C.
+    1. Entrez une URL pour l’ **URL des conditions d’utilisation du service** , par exemple `http://www.contoso.com/tos`. L’URL de stratégie est une page que vous tenez à jour pour fournir les conditions générales de votre application.
+    1. Entrez une URL pour l’ **URL de stratégie de confidentialité** , par exemple `http://www.contoso.com/privacy`. L’URL de stratégie est une page que vous tenez à jour pour fournir des informations de confidentialité pour votre application.
+1. Au bas de la page, sélectionnez **Ajouter une plateforme** , puis sélectionnez **Site web**.
+1. Dans **URL du site** , entrez l’adresse de votre site web, par exemple `https://contoso.com`. 
 1. Sélectionnez **Enregistrer les modifications**.
-1. En haut de la page, copiez la valeur de l’**ID de l’application**.
-1. Sélectionnez **Afficher**, puis copiez la valeur **Clé secrète de l’application**. Vous avez besoin de ces deux valeurs pour configurer Facebook en tant que fournisseur d’identité dans votre client. **App Secret** est une information d’identification de sécurité importante.
-1. Cliquez sur le signe plus en regard de la zone **PRODUITS**, puis sélectionnez **Configurer** sous **Connexion Facebook**.
-1. Sous **Connexion Facebook**, sélectionnez **Paramètres**.
-1. Dans **URI de redirection OAuth valides**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire. Sélectionnez **Enregistrer les modifications** en bas de la page.
+1. En haut de la page, copiez la valeur de l’ **ID de l’application**.
+1. Sélectionnez **Afficher** , puis copiez la valeur **Clé secrète de l’application**. Vous avez besoin de ces deux valeurs pour configurer Facebook en tant que fournisseur d’identité dans votre client. **App Secret** est une information d’identification de sécurité importante.
+1. Dans le menu, sélectionnez le signe **plus** à côté de **PRODUITS**. Sous l’option **Ajouter des produits à votre application** , sélectionnez **Configurer** sous **Connexion Facebook**.
+1. Dans le menu, sélectionnez **Connexion Facebook** , puis **Paramètres**.
+1. Dans **URI de redirection OAuth valides** , entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire. Sélectionnez **Enregistrer les modifications** en bas de la page.
 1. Pour rendre votre application Facebook disponible sur Azure AD B2C, sélectionnez le sélecteur État dans la partie supérieure droite de la page et **activez-le** pour rendre l’application publique, puis sélectionnez **Changer de mode**.  À ce stade, l’état doit passer de **Développement** à **Production**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configuration d’un compte Facebook en tant que fournisseur d’identité
@@ -47,8 +50,8 @@ Pour utiliser un compte Facebook en tant que [fournisseur d’identité](authori
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
-1. Sélectionnez **Fournisseurs d’identité**, puis **Facebook**.
+1. Sélectionnez **Fournisseurs d’identité** , puis **Facebook**.
 1. Saisissez un **Nom**. Par exemple, *Facebook*.
-1. Dans **ID client**, entrez l’ID de l’application Facebook que vous avez créée précédemment.
-1. Dans **Clé secrète client**, entrez la clé secrète d’application que vous avez consignée.
+1. Dans **ID client** , entrez l’ID de l’application Facebook que vous avez créée précédemment.
+1. Dans **Clé secrète client** , entrez la clé secrète d’application que vous avez consignée.
 1. Sélectionnez **Enregistrer**.

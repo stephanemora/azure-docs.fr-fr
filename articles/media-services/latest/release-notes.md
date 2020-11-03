@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015700"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791594"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -37,6 +37,25 @@ Pour vous informer des développements les plus récents, cet article détaille 
 > Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [actifs multimédias](assets-concept.md) et des travaux v3, obtenir des informations sur l’accès aux API, et chiffrer du contenu. Pour toutes les autres tâches de gestion (par exemple gérer les transformations et les travaux), utilisez l’[API REST](/rest/api/media/accountfilters), l’[interface CLI](/cli/azure/ams) ou l’un des [kits SDK](media-services-apis-overview.md#sdks) pris en charge.
 >
 > Pour plus d’informations, consultez [les limitations du portail Azure pour Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+
+## <a name="october-2020"></a>Octobre 2020
+
+### <a name="basic-audio-analysis"></a>Analyse audio De base
+La présélection de l’analyse audio comprend désormais un niveau de tarification en mode De base. Le nouveau mode De base de l’analyseur audio offre une option plus économique pour extraire la transcription vocale et mettre en forme les légendes et les sous-titres de sortie. Ce mode effectue une transcription de la parole en texte et la génération d’un fichier de sous-titres/CC au format VTT. La sortie de ce mode comprend un fichier JSON Insights incluant uniquement les mots clés, la transcription et les informations relatives au minutage. La détection automatique de la langue et la diarisation de l’orateur ne sont pas incluses dans ce mode. Consultez la [liste des langues prises en charge](analyzing-video-audio-files-concept.md#built-in-presets).
+
+Les clients utilisant Indexer v1 et Indexer v2 doivent migrer vers la présélection de l’analyse audio De base.
+
+Pour plus d’informations sur le mode De base de l’analyseur audio, consultez [Analyse des fichiers vidéo et audio](analyzing-video-audio-files-concept.md).  Pour savoir comment utiliser le mode De base de l’analyseur audio avec l’API REST, consultez [Créer une transformation audio De base](how-to-create-basic-audio-transform.md).
+
+## <a name="live-events"></a>Événements en direct
+
+Les mises à jour de la plupart des propriétés sont désormais autorisées lorsque les événements en direct sont arrêtés. En outre, les utilisateurs sont autorisés à spécifier un préfixe pour le nom d’hôte statique des URL d’entrée et d’aperçu de l’événement en direct. VanityUrl est désormais appelé `useStaticHostName` pour mieux refléter l’objectif de la propriété.
+
+Les événements en direct disposent désormais d’un état En attente.  Consultez [Événements en direct et sorties en direct dans Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+
+Un événement en direct prend en charge la réception de différentes proportions d’entrée. Le mode Extension permet aux clients de spécifier le comportement d’extension de la sortie.
+
+L’encodage en direct permet désormais de générer des fragments de fréquence d’images clés fixes entre 0,5 à 20 secondes.
 
 ## <a name="august-2020"></a>Août 2020
 
@@ -154,7 +173,7 @@ Media Services v3 annonce la préversion de 24 heures x 365 jours d’encodage
 
 #### <a name="deprecation-of-media-processors"></a>Dépréciation des processeurs multimédias
 
-Nous annonçons la dépréciation d’*Azure Media Indexer* et d’*Azure Media Indexer 2 Preview*. Pour connaître les dates de mise hors service, consultez l’article consacré aux [composants hérités](../previous/legacy-components.md). [Azure Media Services Video Indexer](../video-indexer/index.yml) remplace ces processeurs multimédias hérités.
+Nous annonçons la dépréciation d’ *Azure Media Indexer* et d’ *Azure Media Indexer 2 Preview*. Pour connaître les dates de mise hors service, consultez l’article consacré aux [composants hérités](../previous/legacy-components.md). [Azure Media Services Video Indexer](../video-indexer/index.yml) remplace ces processeurs multimédias hérités.
 
 Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -335,9 +354,9 @@ Voici les améliorations qui ont été apportées :
 
 Le nouvel objet **Transform** simplifie le modèle d’encodage. Le nouvel objet facilite la création et le partage de modèles et de préréglages Resource Manager d’encodage. 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Authentification et RBAC Azure Active Directory
+#### <a name="azure-active-directory-authentication-and-azure-rbac"></a>Authentification Azure Active Directory et Azure RBAC
 
-L’authentification et le contrôle d’accès en fonction du rôle (RBAC) Azure AD autorise les transformations sécurisées, les événements en direct, les stratégies de clé de contenu ou les éléments multimédias par rôle ou utilisateurs dans Azure AD.
+Azure AD Authentication et le contrôle d’accès en fonction du rôle (Azure RBAC) permettent les transformations sécurisées, les événements en direct, les stratégies de clé de contenu ou les éléments multimédias par rôle ou utilisateurs dans Azure AD.
 
 #### <a name="client-sdks"></a>Kits de développement logiciel (SDK) client  
 

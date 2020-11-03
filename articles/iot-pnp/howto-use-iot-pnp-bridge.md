@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042794"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793056"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Exemple de connexion d’un pont IoT Plug-and-Play s’exécutant sur Linux ou Windows à IoT Hub
 
@@ -30,7 +30,7 @@ Ce guide de démarrage rapide suppose que vous utilisez Ubuntu Linux. Les étape
 
 Pour suivre ce guide de démarrage rapide sur Linux, vous devez installer les logiciels suivants sur votre environnement Linux :
 
-Installez **GCC**, **Git**, **cmake** et toutes les dépendances nécessaires à l’aide de la commande `apt-get` :
+Installez **GCC** , **Git** , **cmake** et toutes les dépendances nécessaires à l’aide de la commande `apt-get` :
 
 ```sh
 sudo apt-get update
@@ -75,7 +75,7 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 
 ## <a name="view-the-model"></a>Afficher le modèle
 
-Vous utiliserez l’Explorateur Azure IoT dans les étapes suivantes pour afficher l’appareil quand celui-ci se connecte à votre hub IoT. L’Explorateur Azure IoT aura besoin d’une copie locale du fichier de modèle qui correspond à l’**ID de modèle** que votre appareil envoie. Le fichier de modèle permet à l’Explorateur IoT d’afficher les données de télémétrie, les propriétés et les commandes que votre appareil implémente.
+Vous utiliserez l’Explorateur Azure IoT dans les étapes suivantes pour afficher l’appareil quand celui-ci se connecte à votre hub IoT. L’Explorateur Azure IoT aura besoin d’une copie locale du fichier de modèle qui correspond à l’ **ID de modèle** que votre appareil envoie. Le fichier de modèle permet à l’Explorateur IoT d’afficher les données de télémétrie, les propriétés et les commandes que votre appareil implémente.
 
 Lorsque vous téléchargez le code à l’étape ci-dessous, il comprend les exemples de fichiers de modèle dans le dossier `pnpbridge/docs/schema`. Pour préparer l’Explorateur Azure IoT :
 
@@ -107,9 +107,13 @@ Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
 Après le clonage du référentiel Pont IoT Plug-and-Play sur votre ordinateur, accédez au répertoire `pnpbridge/docs/schema` du référentiel cloné où vous pouvez trouver le [JSON de configuration](https://aka.ms/iot-pnp-bridge-env-config) ou `config.json` pour l’exemple de capteur environnemental du pont. Apprenez-en davantage sur les fichiers de configuration dans le document [Concepts de pont IoT Plug-and-Play](concepts-iot-pnp-bridge.md).
 
-Pour le champ `root-_interface_model_id`, vous devez copier l’ID de modèle IoT Plug-and-Play qui identifie le modèle de votre appareil. Dans cet exemple, il s’agit de `dtmi:com:example:SampleDevice;1`. Modifiez les paramètres suivants sous le nœud **pnp_bridge_parameters** dans le fichier `config.json` dans :
+Pour le champ `root-_interface_model_id`, vous devez copier l’ID de modèle IoT Plug-and-Play qui identifie le modèle de votre appareil. Dans cet exemple, il s’agit de `dtmi:com:example:SampleDevice;1`. Modifiez les paramètres suivants sous le nœud **pnp_bridge_parameters** dans le fichier `config.json` dans :
 
-  Utilisation de la chaîne de connexion (remarque : symmetric_key doit correspondre à la clé SAS dans la chaîne de connexion) :
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> symmetric_key doit correspondre à la clé SAS dans la chaîne de connexion.
 
   ```JSON
     {
@@ -126,7 +130,7 @@ Pour le champ `root-_interface_model_id`, vous devez copier l’ID de modèle Io
   }
   ```
 
- Une fois que vous avez rempli, le fichier `config.json` doit ressembler à ce qui suit :
+ Une fois rempli, le fichier `config.json` doit ressembler à ce qui suit :
 
    ```JSON
     {

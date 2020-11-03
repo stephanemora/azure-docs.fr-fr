@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019781"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790574"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Développer avec les API Media Services v3
 
@@ -35,7 +35,7 @@ Pour être autorisé à accéder aux ressources Media Services et à l’API Med
 * **Authentification d’un principal de service** : Utilisée pour authentifier un service (applications web, applications de fonction, applications logiques, API et microservices, par exemple). Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, Par exemple, pour les applications web, un niveau intermédiaire devrait toujours se connecter à Media Services avec un principal de service.
 * **Authentification utilisateur** : Utilisée pour authentifier une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct.
 
-L’API Media Services implique que l’utilisateur ou l'application à l'origine des requêtes API REST ait accès à la ressource de compte Media Services et utilise un rôle **Contributeur** ou **Propriétaire**. L’API est accessible avec le rôle **Lecteur**, mais seules les opérations **Get** ou **List** sont disponibles. Pour plus d'informations, consultez [Contrôle d’accès en fonction du rôle pour les comptes Media Services](rbac-overview.md).
+L’API Media Services implique que l’utilisateur ou l'application à l'origine des requêtes API REST ait accès à la ressource de compte Media Services et utilise un rôle **Contributeur** ou **Propriétaire**. L’API est accessible avec le rôle **Lecteur** , mais seules les opérations **Get** ou **List** sont disponibles. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour les comptes Media Services](rbac-overview.md).
 
 Au lieu de créer un principal de service, envisagez d’utiliser des identités gérées pour permettre aux ressources Azure d'accéder à l’API Media Services via Azure Resource Manager. Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -109,11 +109,11 @@ Media Services propose les opérations de longue durée suivantes :
 * [Arrêter un StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Mettre à l’échelle un StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-En cas de soumission réussie d’une longue opération, vous recevez un message « 202 accepté » et devez interroger la fin de l’opération à l’aide de l’ID d’opération retourné.
+En cas de soumission réussie d’une longue opération, vous recevez un message « 201 créé » et devez interroger la fin de l’opération à l’aide de l’ID d’opération retourné.
 
 L’article [Suivre les opérations asynchrones Azure](../../azure-resource-manager/management/async-operations.md) explique en détail comment suivre l’état des opérations asynchrones Azure à l’aide des valeurs retournées dans la réponse.
 
-Une seule opération de longue durée est prise en charge pour un événement en direct donné ou l’une de ses sorties en temps réel associées. Une fois démarrée, une opération de longue durée doit se terminer avant de commencer une opération de longue durée ultérieure sur le même LiveEvent ou sur les sorties en temps réel associées. Pour les événements en direct avec plusieurs sorties en temps réel, vous devez attendre la fin de l’exécution d’une opération de longue durée sur une sortie en temps réel avant de déclencher une opération de longue durée sur une autre sortie en temps réel. 
+Une seule opération de longue durée est prise en charge pour un événement en direct donné ou l’une de ses sorties en temps réel associées. Une fois démarrée, une opération de longue durée doit se terminer avant de commencer une opération de longue durée ultérieure sur le même LiveEvent ou sur les sorties en temps réel associées. Pour les événements en direct avec plusieurs sorties en temps réel, vous devez attendre la fin de l’exécution d’une opération de longue durée sur une sortie en temps réel avant de déclencher une opération de longue durée sur une autre sortie en temps réel.
 
 ## <a name="sdks"></a>Kits SDK
 

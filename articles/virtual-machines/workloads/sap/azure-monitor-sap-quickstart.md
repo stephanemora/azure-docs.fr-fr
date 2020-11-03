@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 6deb7b535c3876ae8a8e83174b97a75582e82e58
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996425"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739891"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Déployer Azure Monitor pour les solutions SAP avec le portail Azure
 
@@ -28,9 +28,9 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
-2. Sous l’onglet **De base**, indiquez les valeurs requises. Le cas échéant, vous pouvez utiliser un espace de travail Log Analytics existant.
+2. Sous l’onglet **De base** , indiquez les valeurs requises. Le cas échéant, vous pouvez utiliser un espace de travail Log Analytics existant.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Affichage des options de configuration du portail Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
 3. Lorsque vous sélectionnez un réseau virtuel, assurez-vous que les systèmes que vous souhaitez surveiller sont accessibles à partir de ce réseau virtuel. 
 
@@ -43,21 +43,24 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
 1. Sélectionnez l’onglet **Fournisseur** pour ajouter les fournisseurs que vous souhaitez configurer. Vous pouvez ajouter plusieurs fournisseurs l’un après l’autre ou les ajouter après avoir déployé la ressource de surveillance. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Affiche l’onglet Fournisseur pour ajouter des fournisseurs supplémentaires à votre Azure Monitor pour solutions SAP." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
 2. Sélectionnez **Ajouter un fournisseur** et choisissez **SAP HANA** dans la liste déroulante. 
 
+   > [!IMPORTANT]
+   > Assurez-vous qu’un fournisseur SAP HANA est configuré pour le nœud « master » SAP HANA.
+
 3. Entrez l’adresse IP privée du serveur HANA.
 
-4. Entrez le nom du locataire de la base de données que vous voulez utiliser. Vous pouvez choisir n’importe quel locataire. Toutefois, nous vous recommandons d’utiliser **SYSTEMDB**, qui offre un ensemble plus vaste de zones de surveillance. 
+4. Entrez le nom du locataire de la base de données que vous voulez utiliser. Vous pouvez choisir n’importe quel locataire. Toutefois, nous vous recommandons d’utiliser **SYSTEMDB** , qui offre un ensemble plus vaste de zones de surveillance. 
 
-5. Entrez le numéro de port SQL associé à votre base de données HANA. Le numéro de port doit être au format **[3]**  +  **[instance #]**  +  **[13]** ou **[3]**  +  **[instance #]**  +  **[15]** . Par exemple, 30013 ou 30015. 
+5. Entrez le numéro de port SQL associé à votre base de données HANA. Le numéro de port doit être au format **[3]**  +  **[instance#]**  +  **[13]** . Par exemple, 30013. 
 
 6. Entrez le nom d'utilisateur de la base de données à utiliser. Assurez-vous que les rôles de **surveillance** et de **lecture de catalogue** sont attribués à l’utilisateur de la base de données. 
 
 7. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Passer en revue + créer** pour terminer le déploiement.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image des options de configuration lors de l’ajout d’informations sur le fournisseur." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
 ### <a name="high-availability-cluster-pacemaker-provider"></a>Fournisseur de cluster à haute disponibilité (Pacemaker)
 
@@ -72,7 +75,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
 4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Passer en revue + créer** pour terminer le déploiement.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="L’image montre les options relatives au fournisseur de stimulateur de cluster à haute disponibilité Pacemaker." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
 ### <a name="microsoft-sql-server-provider"></a>Fournisseur Microsoft SQL Server
@@ -110,7 +113,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
 4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Passer en revue + créer** pour terminer le déploiement.
 
-     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="L’image montre des informations relatives à l’ajout du fournisseur Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

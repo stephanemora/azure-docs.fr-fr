@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945911"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521303"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Matrice de prise en charge pour le déplacement des machines virtuelles Azure entre différentes régions Azure
 
@@ -107,7 +107,7 @@ Images de la galerie Azure (publiées par Microsoft) | Prise en charge | Prises 
 Images de la galerie Azure (publiées par un tiers)  | Prise en charge | Prises en charge si la machine virtuelle s’exécute sur un système d’exploitation pris en charge.
 Images personnalisées (publiées par un tiers)| Prise en charge | Prises en charge si la machine virtuelle s’exécute sur un système d’exploitation pris en charge.
 Machines virtuelles utilisant Site Recovery | Non pris en charge | Déplacez des ressources d'une région à l'autre pour les machines virtuelles, à l'aide de Site Recovery sur le back-end. Si vous utilisez déjà Site Recovery, désactivez la réplication, puis lancez le processus de préparation.
-Stratégies RBAC | Non pris en charge | Les stratégies de contrôle d'accès en fonction du rôle (RBAC) associées aux machines virtuelles ne sont pas copiées sur la machine virtuelle de la région cible.
+Stratégies Azure RBAC | Non pris en charge | Les stratégies de contrôle d’accès en fonction du rôle Azure (Azure RBAC) associées aux machines virtuelles ne sont pas copiées sur la machine virtuelle de la région cible.
 Extensions | Non pris en charge | Les extensions ne sont pas copiées sur la machine virtuelle de la région cible. Installez-les manuellement une fois le déplacement terminé.
 
 

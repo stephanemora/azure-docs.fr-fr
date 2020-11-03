@@ -2,15 +2,15 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372389"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668702"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Créer des ressources au niveau du locataire
+# <a name="tenant-deployments-with-arm-templates"></a>Déploiements de locataires avec des modèles Resource Manager
 
 À mesure que votre organisation évolue, vous pouvez être amené à définir et attribuer des [stratégies](../../governance/policy/overview.md) ou des [contrôles d’accès basés sur les rôles Azure (Azure RBAC)](../../role-based-access-control/overview.md) dans votre locataire Azure AD. Avec les modèles au niveau du locataire, vous pouvez appliquer de façon déclarative des stratégies et attribuer des rôles à un niveau global.
 
@@ -49,13 +49,19 @@ Le schéma que vous utilisez pour les déploiements au niveau du locataire est d
 Pour les modèles, utilisez :
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Le schéma d’un fichier de paramètres est le même pour toutes les étendues de déploiement. Fichiers de fichiers de paramètres, utilisez :
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Accès requis
@@ -78,21 +84,11 @@ L’administrateur général d'Azure Active Directory n'est pas automatiquement 
 
 Le principal dispose désormais des autorisations requises pour déployer le modèle.
 
-## <a name="deployment-scopes"></a>Étendues de déploiement
-
-Lors du déploiement sur un locataire, vous pouvez cibler le locataire ou les groupes d’administration, les abonnements et les groupes de ressources dans le locataire. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
-
-Les ressources définies dans la section Ressources du modèle sont appliquées au locataire.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-Pour cibler un groupe d’administration au sein du locataire, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>Commandes de déploiement
 
 Les commandes utilisées pour les déploiements de locataires sont différentes de celles utilisées pour les déploiements de groupes de ressources.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour Azure CLI, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Pour Azure PowerShell, utilisez [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -112,7 +110,50 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Pour l’API REST, utilisez [Déploiements - Créer ou mettre à jour au niveau du locataire](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+Pour plus d’informations sur les commandes et options de déploiement de modèles Resource Manager, consultez :
+
+* [Déployer des ressources avec des modèles ARM et le Portail Azure](deploy-portal.md)
+* [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](deploy-cli.md)
+* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](deploy-powershell.md)
+* [Déployer des ressources avec des modèles Resource Manager et l’API REST Azure Resource Manager](deploy-rest.md)
+* [Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub](deploy-to-azure-button.md)
+* [Déployer des modèles Resource Manager à partir de Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Étendues de déploiement
+
+Lors du déploiement sur un groupe d’administration, vous pouvez déployer des ressources vers :
+
+* le locataire
+* des groupes d’administration dans le locataire
+* subscriptions
+* des groupes de ressources (par le biais de deux déploiements imbriqués)
+* les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
+
+L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+
+Cette section montre comment spécifier des étendues différentes. Vous pouvez combiner ces différentes étendues dans un seul modèle.
+
+### <a name="scope-to-tenant"></a>Étendue au locataire
+
+Les ressources définies dans la section Ressources du modèle sont appliquées au locataire.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Étendue au groupe d’administration
+
+Pour cibler un groupe d’administration au sein du locataire, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Étendue à l’abonnement
+
+Vous pouvez également cibler des abonnements dans le locataire. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+
+Pour cibler un abonnement au sein du locataire, utilisez un déploiement imbriqué et la propriété `subscriptionId`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
 
@@ -121,29 +162,6 @@ Pour les déploiements au niveau du locataire, vous devez fournir un emplacement
 Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
 
 Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
-
-## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
-
-Pour les déploiements au niveau du locataire, il existe quelques considérations importantes liées à l’utilisation des fonctions de modèle :
-
-* La fonction [resourceGroup()](template-functions-resource.md#resourcegroup)**n’est pas** prise en charge.
-* La fonction [subscription()](template-functions-resource.md#subscription) n’est **pas** prise en charge.
-* Les fonctions [reference()](template-functions-resource.md#reference) et [list()](template-functions-resource.md#list) sont prises en charge.
-* N'utilisez pas [resourceId()](template-functions-resource.md#resourceid) pour obtenir l'ID des ressources déployées au niveau du locataire.
-
-  Utilisez plutôt la fonction [tenantResourceId()](template-functions-resource.md#tenantresourceid).
-
-  Par exemple, pour obtenir l'ID de ressource d'une définition de stratégie intégrée, utilisez :
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  L’ID de ressource retourné possède le format suivant :
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>Créer un groupe d’administration
 

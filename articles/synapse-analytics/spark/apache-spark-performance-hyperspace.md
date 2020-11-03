@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: f25aae64e117452cd689b68c5478e7431d1a21bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1833a606f3dbbc9826858bac4f3ba056b5b7ad8a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249363"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369860"
 ---
 # <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hyperspace : sous-système d’indexation pour Apache Spark
 
@@ -410,7 +410,7 @@ FROM T
 WHERE Y = 2
 ```
 
-X peut être une colonne d’index et Y une colonne incluse.
+Y peut être une colonne d’index et X une colonne incluse.
 
 :::zone pivot = "programming-language-scala"
 
@@ -726,8 +726,8 @@ Retourne comme résultat :
 
 Hyperspace fournit des API pour activer ou désactiver l’utilisation d’index avec Spark.
 
-* Avec la commande **enableHyperspace**, les règles d’optimisation d’Hyperspace deviennent visibles par l’optimiseur Spark et exploitent les index Hyperspace existants pour optimiser les requêtes des utilisateurs.
-* Avec la commande **disableHyperspace**, les règles d’Hyperspace ne s’appliquent plus lors de l’optimisation des requêtes. La désactivation d’Hyperspace n’a aucun impact sur les index créés, car ceux-ci restent intacts.
+* Avec la commande **enableHyperspace** , les règles d’optimisation d’Hyperspace deviennent visibles par l’optimiseur Spark et exploitent les index Hyperspace existants pour optimiser les requêtes des utilisateurs.
+* Avec la commande **disableHyperspace** , les règles d’Hyperspace ne s’appliquent plus lors de l’optimisation des requêtes. La désactivation d’Hyperspace n’a aucun impact sur les index créés, car ceux-ci restent intacts.
 
 La cellule ci-dessous montre comment utiliser ces commandes pour activer ou désactiver Hyperspace. La sortie montre une référence à la session Spark existante dont la configuration est mise à jour.
 

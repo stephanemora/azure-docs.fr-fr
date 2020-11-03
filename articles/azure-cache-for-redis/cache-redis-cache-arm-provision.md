@@ -1,22 +1,22 @@
 ---
 title: Déployez Azure Cache pour Redis en utilisant un modèle Resource Manager
-description: Découvrez comment utiliser un modèle Azure Resource Manager pour déployer une ressource Azure Cache for Redis. Des modèles sont fournis pour les scénarios les plus courants.
+description: Découvrez comment utiliser un modèle Azure Resource Manager (modèle ARM) pour déployer une ressource Azure Cache pour Redis. Des modèles sont fournis pour les scénarios les plus courants.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461236"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735967"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Créer une instance Azure Cache pour Redis à l’aide d’un modèle Resource Manager
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Démarrage rapide : Créer un répartiteur Azure Cache pour Redis à l’aide d’un modèle ARM
 
-Apprenez à créer un modèle Resource Manager qui déploie une instance Azure Cache pour Redis. Le cache peut être utilisé avec un compte de stockage existant pour conserver les données de diagnostic. Vous allez également apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins. Actuellement, les paramètres de diagnostic sont partagés entre tous les caches de la même région d’un abonnement. La mise à jour d’un cache dans la région affecte tous les autres caches dans la région.
+Apprenez à créer un modèle Azure Resource Manager (modèle ARM) qui déploie un répartiteur Azure Cache pour Redis. Le cache peut être utilisé avec un compte de stockage existant pour conserver les données de diagnostic. Vous allez également apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins. Actuellement, les paramètres de diagnostic sont partagés entre tous les caches de la même région d’un abonnement. La mise à jour d’un cache dans la région affecte tous les autres caches dans la région.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte de stockage** : pour en créer un, consultez [Créer un compte de stockage Azure](/azure/storage/common/storage-account-create?tabs=azure-portal). Le compte de stockage est utilisé pour les données de diagnostic.
+* **Compte de stockage**  : pour en créer un, consultez [Créer un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal). Le compte de stockage est utilisé pour les données de diagnostic.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
@@ -46,7 +46,7 @@ Des modèles Resource Manager pour le nouveau [niveau Premium](cache-overview.md
 * [Créer un cache Azure Premium pour Redis avec persistance des données](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Créer un Cache Redis Premium déployé dans un réseau virtuel](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Pour connaître les derniers modèles, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et recherchez `Azure Cache for Redis`.
+Pour connaître les derniers modèles, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et recherchez _Azure Cache pour Redis_.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -55,14 +55,14 @@ Pour connaître les derniers modèles, consultez [Modèles de démarrage rapide 
     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 1. Sélectionnez ou entrez les valeurs suivantes :
 
-    * **Abonnement** : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.
-    * **Groupe de ressources** : sélectionnez **Créer** pour créer un groupe de ressources ou sélectionnez un groupe de ressources existant.
+    * **Abonnement**  : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.
+    * **Groupe de ressources**  : sélectionnez **Créer** pour créer un groupe de ressources ou sélectionnez un groupe de ressources existant.
     * **Emplacement** : sélectionnez un emplacement pour le groupe de ressources. Le compte de stockage et le cache Redis doivent se trouver dans la même région. Par défaut, le cache Redis utilise le même emplacement que le groupe de ressources. Spécifiez donc le même emplacement que le compte de stockage.
-    * **Nom du cache Redis** : entrez un nom pour le cache Redis.
-    * **Compte de stockage de diagnostics existant** : entrez l’ID de ressource d’un compte de stockage. La syntaxe est **/subscriptions/&lt;ID D’ABONNEMENT>/resourceGroups/&lt;NOM DU GROUPE DE RESSOURCES>/providers/Microsoft.Storage/storageAccounts/&lt;NOM DU COMPTE DE STOCKAGE>** .
+    * **Nom du cache Redis**  : entrez un nom pour le cache Redis.
+    * **Compte de stockage de diagnostics existant**  : entrez l’ID de ressource d’un compte de stockage. La syntaxe est `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Utilisez la valeur par défaut pour les autres paramètres.
-1. Sélectionnez **J'accepte les conditions générales mentionnées ci-dessus**, puis **Acheter**.
+1. Sélectionnez **J'accepte les conditions générales mentionnées ci-dessus** , puis **Acheter**.
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 

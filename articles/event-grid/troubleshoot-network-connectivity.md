@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119002"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892313"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Résoudre les problèmes de connectivité - Azure Event Grid
 
@@ -22,7 +22,7 @@ Cet article fournit des conseils sur la résolution des problèmes de connectivi
 
 Si l’application n’est pas du tout en mesure de se connecter à Event Grid, suivez les étapes de cette section pour résoudre le problème.
 
-### <a name="check-if-there-is-a-service-outage"></a>Vérifier s’il y a une panne de service
+### <a name="check-if-theres-a-service-outage"></a>Vérifier s’il y a une panne de service
 
 Vérifiez s’il y a une panne du service Azure Event Grid sur le [Site d’état du service Azure](https://azure.microsoft.com/status/).
 
@@ -50,12 +50,14 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Lorsque vous utilisez Azure, vous devez parfois autoriser des plages d’adresses IP ou des URL spécifiques dans votre pare-feu ou proxy d’entreprise pour accéder à tous les services Azure que vous utilisez ou essayez d’utiliser. Vérifiez que le trafic est autorisé sur les adresses IP utilisées par Event Grid. Pour les adresses IP utilisées par Azure Event Grid : consultez [Plages d’adresses IP Azure et balises de service - Cloud public](https://www.microsoft.com/download/details.aspx?id=56519) et [Balise de service - AzureEventGrid](network-security.md#service-tags).
 
+Le document [Plages d’adresses IP Azure et balises de service](https://www.microsoft.com/download/details.aspx?id=56519) répertorie également les adresses IP **par région**. Vous pouvez autoriser des plages d’adresses pour la **région de la rubrique** et la **région jumelée** dans votre pare-feu ou votre proxy d’entreprise. Pour la région jumelée d’une région, consultez [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](/azure/best-practices-availability-paired-regions). 
+
 > [!NOTE]
 > De nouvelles adresses IP peuvent être ajoutées à la balise de service AzureEventGrid, bien qu’il ne s’agisse pas d’une habitude. Il est donc préférable d’effectuer une vérification hebdomadaire sur les balises de service.
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Vérifier que la balise de service AzureEventGrid est autorisée dans vos groupes de sécurité réseau
 
-Si votre application s’exécute à l’intérieur d’un sous-réseau et s’il existe un groupe de sécurité réseau associé, vérifiez si l’un des services sortants Internet est autorisé ou si la balise de service AzureEventGrid est autorisée. Veuillez consulter [Balises de service](../virtual-network/service-tags-overview.md)
+Si votre application s’exécute à l’intérieur d’un sous-réseau et en présence d’un groupe de sécurité réseau associé, vérifiez si l’un des services sortants Internet est autorisé ou si la balise de service AzureEventGrid est autorisée. Voir [Étiquettes de service](../virtual-network/service-tags-overview.md)
 
 ### <a name="check-the-ip-firewall-settings-for-your-topicdomain"></a>Vérifier les paramètres de pare-feu IP pour votre Rubrique/Domaine
 
@@ -83,7 +85,7 @@ Activez les journaux de diagnostic pour la rubrique/le domaine Event Grid [Activ
 
 ### <a name="check-if-the-eventgrid-topicdomain-can-be-accessed-using-only-a-private-endpoint"></a>Vérifier si la rubrique/le domaine EventGrid est accessible uniquement à l’aide d’un point de terminaison privé
 
-Si la rubrique/le domaine Event Grid est configuré pour être accessible uniquement par le biais d’un point de terminaison privé, vérifiez que l’application cliente accède à la rubrique/le domaine sur le point de terminaison privé. Pour confirmer cela, vérifiez si l’application cliente s’exécute à l’intérieur d’un sous-réseau et qu’il existe un point de terminaison privé pour la rubrique/le domaine Event Grid dans ce sous-réseau.
+Si la rubrique/le domaine Event Grid est configuré pour être accessible uniquement par le biais d’un point de terminaison privé, vérifiez que l’application cliente accède à la rubrique/le domaine sur le point de terminaison privé. Pour ce faire, vérifiez si l’application cliente s’exécute à l’intérieur d’un sous-réseau et qu’il existe un point de terminaison privé pour la rubrique/le domaine Event Grid dans ce sous-réseau.
 
 [Le service Azure Private Link](../private-link/private-link-overview.md) vous permet d’accéder à Azure Event Grid sur un **point de terminaison privé** de votre réseau virtuel. Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
 
@@ -93,7 +95,7 @@ Pour plus d’informations, consultez [Configurer des points de terminaison priv
 
 Si vous rencontrez des problèmes de connectivité intermittents, consultez les sections suivantes pour obtenir des conseils de dépannage.
 
-### <a name="run-the-command-to-check-dropped-packets"></a>Exécutez la commande pour vérifier les paquets supprimés
+### <a name="run-the-command-to-check-dropped-packets"></a>Exécutez la commande pour vérifier les paquets ignorés
 
 Si vous constatez des problèmes de connectivité intermittents, exécutez la commande suivante pour détecter les paquets supprimés. Cette commande essaiera d’établir 25 connexions TCP différentes toutes les 1 seconde avec le service. Ensuite, vous pouvez vérifier le nombre d’entre elles ayant réussi ou échoué, ainsi que la latence de connexion TCP. Vous pouvez télécharger l’outil `psping` à partir d’[ici](/sysinternals/downloads/psping).
 

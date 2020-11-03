@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 1b9603e43541ec1a364e4653caeeafc751f7e4f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 444fbb08dfa535980c4012858b675e700ffa29d8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012090"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745093"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Se connecter avec Managed Identity auprès d’Azure Database pour PostgreSQL
 
@@ -27,20 +27,20 @@ Vous allez apprendre à effectuer les actions suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’êtes pas familiarisé de la fonctionnalité identités managées pour ressources Azure, consultez cette [Vue d’ensemble](../../articles/active-directory/managed-identities-azure-resources/overview.md). Si vous n’avez pas encore de compte Azure, [Inscrivez-vous sur un compte gratuit](https://azure.microsoft.com/free/) avant de continuer.
-- Pour effectuer les opérations nécessaires de création de ressources et de gestion de rôles, votre compte doit disposer des autorisations « Propriétaire » au niveau de l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Pour effectuer les opérations nécessaires de création de ressources et de gestion de rôles, votre compte doit disposer des autorisations « Propriétaire » au niveau de l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour gérer l’accès aux ressources d’un abonnement Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - Vous avez besoin d’une machine virtuelle Azure (exécutant par exemple Ubuntu Linux) que vous souhaitez utiliser pour accéder à votre base de données à l’aide de Managed Identity
 - Vous avez besoin d’un serveur de base de données Azure Database pour PostgreSQL sur lequel [Azure AD Authentication](howto-configure-sign-in-aad-authentication.md) est configurée
 - Pour suivre cet exemple C#, vous devez d’abord suivre le guide pratique [Se connecter avec C#](connect-csharp.md)
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Création d’une identité managée affectée par l’utilisateur pour votre machine virtuelle
 
-Créez une identité dans votre abonnement avec la commande [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create). Vous pouvez utiliser le même groupe de ressources que celui dans lequel votre machine virtuelle s’exécute ou un groupe différent.
+Créez une identité dans votre abonnement avec la commande [az identity create](/cli/azure/identity#az-identity-create). Vous pouvez utiliser le même groupe de ressources que celui dans lequel votre machine virtuelle s’exécute ou un groupe différent.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-Pour configurer l’identité aux étapes suivantes, utilisez la commande [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) afin de stocker l’ID de ressource et l’ID client de l’identité dans des variables.
+Pour configurer l’identité aux étapes suivantes, utilisez la commande [az identity show](/cli/azure/identity#az-identity-show) afin de stocker l’ID de ressource et l’ID client de l’identité dans des variables.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-Nous pouvons maintenant attribuer l’identité affectée par l’utilisateur à la machine virtuelle à l’aide de la commande [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
+Nous pouvons maintenant attribuer l’identité affectée par l’utilisateur à la machine virtuelle à l’aide de la commande [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) :
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

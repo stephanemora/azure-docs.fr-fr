@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767347"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547705"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -23,7 +23,7 @@ Le routage de messages permet aux utilisateurs d’acheminer différents types d
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Si le corps du message n’est pas un fichier JSON, le routage de messages peut toujours acheminer le message, mais les requêtes ne sont pas applicables à ce corps de message.  Les requêtes sont décrites comme des expressions booléennes, où une valeur booléenne True fait réussir la requête qui achemine toutes les données entrantes, et où une valeur booléenne False fait échouer la requête qui n’achemine aucune donnée. Si l’expression prend la valeur Null ou Undefined, elle est considérée comme False et une erreur est générée dans les journaux de diagnostic en cas d’échec. La syntaxe des requêtes doit être correcte pour que l’itinéraire soit enregistré et évalué.  
+Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Si le corps du message n’est pas un fichier JSON, le routage de messages peut toujours acheminer le message, mais les requêtes ne sont pas applicables à ce corps de message.  Les requêtes sont décrites comme des expressions booléennes, où une valeur booléenne True fait réussir la requête qui achemine toutes les données entrantes, et où une valeur booléenne False fait échouer la requête qui n’achemine aucune donnée. Si l’expression prend la valeur Null ou Undefined, elle est considérée comme False et une erreur est générée dans les [journaux de ressources des routes](monitor-iot-hub-reference.md#routes) d’IoT Hub en cas d’échec. La syntaxe des requêtes doit être correcte pour que l’itinéraire soit enregistré et évalué.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Requête de routage de messages en fonction des propriétés de message 
 

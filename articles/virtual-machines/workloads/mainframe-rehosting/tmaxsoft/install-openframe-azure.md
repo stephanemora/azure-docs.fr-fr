@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987477"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677743"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installer TmaxSoft OpenFrame sur Azure
 
@@ -126,7 +126,7 @@ Vous pouvez configurer l’environnement OpenFrame à l’aide de divers modèle
 
     ![Option Ajouter dans le Portail Azure](media/vm-02.png)
 
-4. À droite de la section **Systèmes d’exploitation**, cliquez sur **Plus**.
+4. À droite de la section **Systèmes d’exploitation** , cliquez sur **Plus**.
 
      ![Option Plus dans le Portail Azure](media/vm-03.png)
 
@@ -134,12 +134,12 @@ Vous pouvez configurer l’environnement OpenFrame à l’aide de divers modèle
 
      ![Option Systèmes d’exploitation dans le Portail Azure](media/vm-04.png)
 
-6. Dans les paramètres **De base**, renseignez les champs **Nom**, **Nom d’utilisateur**, **Type d’authentification**, **Abonnement** (le type de paiement pour AWS est Paiement à l’utilisation) et **Groupe de ressources** (utilisez un groupe existant ou créez un groupe TmaxSoft).
+6. Dans les paramètres **De base** , renseignez les champs **Nom** , **Nom d’utilisateur** , **Type d’authentification** , **Abonnement** (le type de paiement pour AWS est Paiement à l’utilisation) et **Groupe de ressources** (utilisez un groupe existant ou créez un groupe TmaxSoft).
 
-7. Lorsque vous avez terminé (et notamment indiqué la paire de clés publique/privée pour **Type d’authentification**), cliquez sur **Envoyer**.
+7. Lorsque vous avez terminé (et notamment indiqué la paire de clés publique/privée pour **Type d’authentification** ), cliquez sur **Envoyer**.
 
 > [!NOTE]
-> Si vous utilisez une clé publique SSH pour **Type d’authentification**, consultez les étapes décrites dans la section suivante pour générer la paire de clés publique/privée, puis reprenez la procédure ici.
+> Si vous utilisez une clé publique SSH pour **Type d’authentification** , consultez les étapes décrites dans la section suivante pour générer la paire de clés publique/privée, puis reprenez la procédure ici.
 
 ### <a name="generate-a-publicprivate-key-pair"></a>Générer une paire de clés publique/privée
 
@@ -164,7 +164,7 @@ Lors de l’octroi de l’accès à la machine virtuelle à de nouveaux utilisat
 
 3.  Cliquez sur **Générer**.
 
-    ![Boîte de dialogue du générateur de clé PuTTY](media/puttygen-02.png)
+    ![Capture d’écran montrant la boîte de dialogue Générateur de clé PuTTY, avec le bouton Générer en évidence.](media/puttygen-02.png)
 
 4.  Après la génération, enregistrez la clé publique et la clé privée. Collez le contenu de la clé publique dans la section **Clé publique SSH** du volet **Créer une machine virtuelle \> De base** (illustré dans les étapes 6 et 7 de la section précédente).
 
@@ -172,7 +172,7 @@ Lors de l’octroi de l’accès à la machine virtuelle à de nouveaux utilisat
 
 ### <a name="configure-vm-features"></a>Configurer les fonctionnalités de la machine virtuelle
 
-1. Dans le Portail Azure, dans le panneau **Choisir une taille**, choisissez les paramètres matériels de machine Linux souhaités. La *configuration minimale requise* pour l’installation de Tibero et d’OpenFrame implique 2 processeurs et 4 Go de RAM, comme indiqué dans cet exemple d’installation :
+1. Dans le Portail Azure, dans le panneau **Choisir une taille** , choisissez les paramètres matériels de machine Linux souhaités. La *configuration minimale requise* pour l’installation de Tibero et d’OpenFrame implique 2 processeurs et 4 Go de RAM, comme indiqué dans cet exemple d’installation :
 
     ![Créer une machine virtuelle - De base](media/create-vm-01.png)
 
@@ -191,7 +191,7 @@ Lors de l’octroi de l’accès à la machine virtuelle à de nouveaux utilisat
 
 7. Sous **Host Name** (Nom d’hôte), tapez votre nom d’utilisateur et l’adresse IP publique que vous avez copiée. Par exemple, **nomutilisateur\@adresseIPpublique**.
 
-    ![Boîte de dialogue de configuration de PuTTY](media/putty-01.png)
+    ![Capture d’écran montrant la boîte de dialogue Configuration PuTTy, avec le champ Nom d’hôte (ou Adresse IP) en surbrillance.](media/putty-01.png)
 
 8. Dans la zone **Category** (Catégorie), cliquez sur **Connection (Connexion) \> SSH \> Auth**. Indiquez le chemin d’accès à votre fichier de **clé privée**.
 

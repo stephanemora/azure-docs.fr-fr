@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279171"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892751"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale
 
@@ -39,8 +39,8 @@ Quand il s’agit de définir l’offre avec ses modèles de tarification, il es
 - Chaque offre SaaS, configurée pour être vendue via Microsoft, peut avoir un ou plusieurs plans.  Un utilisateur s’abonne à l’offre SaaS, mais elle est achetée auprès de Microsoft dans le contexte d’un plan.
 - Chaque plan a un modèle de tarification associé : **forfaitaire** ou **par utilisateur**. Tous les plans d’une offre doivent être associés au même modèle de tarification. Par exemple, il ne peut pas y avoir une offre incluant des plans pour un modèle de tarification forfaitaire, et une autre suivant un modèle de tarification par utilisateur.
 - Dans chaque plan configuré pour un modèle de facturation forfaitaire, au moins un coût récurrent (qui peut être de 0 dollar) est inclus :
-    - Coût récurrent **mensuel** : coût récurrent mensuel forfaitaire qui est prépayé tous les mois quand l’utilisateur achète le plan.
-    - Coût récurrent **annuel** : coût récurrent annuel forfaitaire qui est prépayé tous les ans quand l’utilisateur achète le plan.
+    - Coût récurrent **mensuel**  : coût récurrent mensuel forfaitaire qui est prépayé tous les mois quand l’utilisateur achète le plan.
+    - Coût récurrent **annuel**  : coût récurrent annuel forfaitaire qui est prépayé tous les ans quand l’utilisateur achète le plan.
 - Outre les coûts récurrents, un plan forfaitaire peut également inclure des dimensions personnalisées facultatives utilisées pour facturer les clients pour le dépassement d’utilisation non compris dans le forfait.  Chaque dimension représente une unité facturable que votre service communiquera à Microsoft en utilisant l’[API du service de mesure de la consommation de la Place de marché commerciale](./marketplace-metering-service-apis.md).
 
 ## <a name="sample-offer"></a>Exemple d’offre
@@ -73,12 +73,12 @@ En fonction du plan sélectionné, un client Azure achetant un abonnement à une
 
 Chaque dimension de facturation définit une unité personnalisée par laquelle l’ISV peut émettre des événements d’utilisation.  Les dimensions de facturation sont également utilisées pour indiquer au client comment il sera facturé pour l’utilisation du logiciel.  Elles sont définies comme suit :
 
-- **ID** : identificateur immuable référencé lors de l’émission d’événements d’utilisation.
-- **Nom d’affichage** : nom d’affichage associé à la dimension, par exemple, « messages SMS envoyés ».
-- **Unité de mesure** : description de l’unité de facturation, par exemple, « par SMS » ou « par 100 e-mails ».
-- **Prix unitaire en USD** : prix pour une unité de la dimension.  Il peut être égal à 0. 
-- **Quantité mensuelle incluse de base** : quantité de la dimension incluse par mois pour les clients qui paient la redevance mensuelle récurrente ; il doit s’agir d’un entier. Il peut être égal à 0 ou illimité.
-- **Quantité annuelle incluse de base** : quantité de la dimension incluse par année pour les clients qui paient la redevance annuelle récurrente ; il doit s’agir d’un entier. Il peut être égal à 0 ou illimité.
+- **ID**  : identificateur immuable référencé lors de l’émission d’événements d’utilisation.
+- **Nom d’affichage**  : nom d’affichage associé à la dimension, par exemple, « messages SMS envoyés ».
+- **Unité de mesure**  : description de l’unité de facturation, par exemple, « par SMS » ou « par 100 e-mails ».
+- **Prix unitaire en USD**  : prix pour une unité de la dimension.  Il peut être égal à 0. 
+- **Quantité mensuelle incluse de base**  : quantité de la dimension incluse par mois pour les clients qui paient la redevance mensuelle récurrente ; il doit s’agir d’un entier. Il peut être égal à 0 ou illimité.
+- **Quantité annuelle incluse de base**  : quantité de la dimension incluse par année pour les clients qui paient la redevance annuelle récurrente ; il doit s’agir d’un entier. Il peut être égal à 0 ou illimité.
 
 Les dimensions de facturation sont partagées entre tous les plans d’une offre.  Certains attributs s’appliquent à la dimension dans tous les plans, et les autres attributs sont spécifiques à un plan.
 
@@ -97,7 +97,7 @@ Les autres attributs d’une dimension sont spécifiques à chaque plan et peuve
 Les dimensions ont également deux concepts spéciaux, « Activé » et « Infini » :
 
 - **Activé** indique que ce plan participe à cette dimension.  Si vous créez un plan qui n’envoie pas d’événements d’utilisation basés sur cette dimension, vous pouvez ne pas activer cette option .  En outre, toutes les nouvelles dimensions ajoutées après la publication initiale d’un plan apparaissent comme « Non activées » sur le plan déjà publié.  Une dimension désactivée ne s’affiche dans aucune des listes de dimensions pour un plan visualisé par des clients.
-- **Infini**, représenté par le symbole de l’infini « ∞ », indique que ce plan participe à cette dimension, mais n’émet pas l’utilisation pour cette dimension.  Si vous voulez indiquer à vos clients que les fonctionnalités représentées par cette dimension sont incluses dans le plan, mais sans limite d’utilisation.  Une dimension dont l’utilisation est infinie apparaît dans les listes de dimensions d’un plan montrées aux clients, avec une indication établissant qu’elle n’engendrera jamais de coûts pour ce plan.
+- **Infini** , représenté par le symbole de l’infini « ∞ », indique que ce plan participe à cette dimension, mais n’émet pas l’utilisation pour cette dimension.  Si vous voulez indiquer à vos clients que les fonctionnalités représentées par cette dimension sont incluses dans le plan, mais sans limite d’utilisation.  Une dimension dont l’utilisation est infinie apparaît dans les listes de dimensions d’un plan montrées aux clients, avec une indication établissant qu’elle n’engendrera jamais de coûts pour ce plan.
 
 >[!Note] 
 >Les scénarios suivants sont explicitement pris en charge : <br> - Vous pouvez ajouter une nouvelle dimension à un nouveau plan.  La nouvelle dimension ne sera pas activée pour les plans déjà publiés. <br> - Vous pouvez publier un plan **forfaitaire** sans aucune dimension, puis ajouter un nouveau plan et configurer une nouvelle dimension pour ce plan. La nouvelle dimension ne sera pas activée pour les plans déjà publiés.
@@ -143,7 +143,7 @@ Une fois qu’un plan est publié, les détails au niveau du plan ne peuvent plu
 
 ### <a name="upper-limits"></a>Limites supérieures
 
-Le nombre maximal de dimensions pouvant être configurées pour une même offre est de 18 dimensions uniques.
+Le nombre maximal de dimensions pouvant être configurées pour une même offre est de 30 dimensions uniques.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

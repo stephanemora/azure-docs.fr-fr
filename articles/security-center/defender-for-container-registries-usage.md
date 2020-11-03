@@ -1,18 +1,18 @@
 ---
 title: Guide pratique d’utilisation d’Azure Defender pour les registres de conteneurs
-description: Découvrez comment analyser les images de vos registres avec Azure Defender pour les registres de conteneurs.
+description: Découvrez comment analyser les images Linux de vos registres hébergés par Linux avec Azure Defender pour les registres de conteneurs
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342074"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370540"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs
 
@@ -28,7 +28,8 @@ Lorsque le scanner signale des vulnérabilités à Security Center, ce dernier p
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour les registres de conteneurs** est facturé conformément aux indications de la [page des tarifs](security-center-pricing.md).|
-|Registres et images pris en charge :|![Oui](./media/icons/yes-icon.png) Registres Azure Container Registry hébergés sur Linux qui sont accessibles à partir de l’Internet public et qui fournissent un accès à l’interpréteur de commandes.<br>![Non](./media/icons/no-icon.png) Registres Azure Container Registry hébergés sur Windows.<br>![No](./media/icons/no-icon.png) Registres « privés » : Security Center exige que vos registres soient accessibles à partir de l’Internet public. Security Center ne peut actuellement pas se connecter à des registres dont l’accès est limité par un pare-feu, à un point de terminaison de service ou à des points de terminaison privés tels qu’Azure Private Link, ni les analyser.<br>![Non](./media/icons/no-icon.png) Images super-minimalistes, telles que les images [de base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation.|
+|Registres et images pris en charge :|Images Linux dans des registres ACR accessibles depuis l’Internet public grâce à l’accès shell|
+|Registres et images pris en charge :|Images Windows<br>Registres « privés »<br>Registres dont l’accès est limité par un pare-feu, à un point de terminaison de service ou à des points de terminaison privés tels qu’Azure Private Link<br>Images super-minimalistes, telles que les images de [base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation|
 |Rôles et autorisations obligatoires :|**Lecteur de sécurité** et [rôle de lecteur Azure Container Registry](../container-registry/container-registry-roles.md)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
@@ -36,14 +37,12 @@ Lorsque le scanner signale des vulnérabilités à Security Center, ce dernier p
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identification des vulnérabilités dans les images des registres de conteneurs Azure Container Registry 
 
-1. Pour activer l’analyse de vulnérabilité des images stockées dans un registre de conteneurs Azure Container Registry basé sur Azure Resource Manager :
+Pour activer l’analyse de vulnérabilité des images stockées dans un registre de conteneurs Azure Container Registry basé sur Azure Resource Manager :
 
-    1. Activez **Azure Defender pour les registres de conteneurs** dans votre abonnement.
+1. Activez **Azure Defender pour les registres de conteneurs** dans votre abonnement. Security Center est maintenant prêt à analyser les images dans les registres.
 
-        Security Center est maintenant prêt à analyser les images dans les registres.
-
-        >[!NOTE]
-        > Cette fonctionnalité est facturée par image.
+    >[!NOTE]
+    > Cette fonctionnalité est facturée par image.
 
 1. Les analyses d’images sont déclenchées à chaque envoi ou importation, et si l’image a été extraite au cours des 30 derniers jours. 
 
@@ -140,7 +139,7 @@ Les critères suivants peuvent être utilisés :
 
 Pour créer une règle :
 
-1. Sur à la page de détail de la recommandation **Les vulnérabilités des images Azure Container Registry doivent être corrigées**, sélectionnez **Désactivez la règle**.
+1. Sur à la page de détail de la recommandation **Les vulnérabilités des images Azure Container Registry doivent être corrigées** , sélectionnez **Désactivez la règle**.
 1. Sélectionnez l’étendue nécessaire.
 1. Définissez vos critères.
 1. Sélectionnez **Appliquer la règle**.
@@ -150,7 +149,7 @@ Pour créer une règle :
 1. Pour afficher, remplacer ou supprimer une règle : 
     1. Sélectionnez **Désactiver une règle**.
     1. Dans la liste des étendues, les abonnements présentant des règles actives apparaissent avec la mention **Règle appliquée**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Création d’une règle de désactivation des résultats de VA sur le registre":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modification ou suppression d’une alerte":::
     1. Pour afficher ou supprimer la règle, sélectionnez le menu de points de suspension (« … »).
 
 

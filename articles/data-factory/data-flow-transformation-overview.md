@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606280"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892925"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Vue d’ensemble de la transformation de flux de données de mappage
 
@@ -33,6 +33,7 @@ Vous trouverez ci-dessous la liste des transformations actuellement prises en ch
 | [Lookup](data-flow-lookup.md) | Entrées/sorties multiples | Référencez des données à partir d’une autre source. |
 | [Nouvelle branche](data-flow-new-branch.md) | Entrées/sorties multiples | Appliquez plusieurs ensembles d’opérations et de transformations au même flux de données. |
 | [Tableau croisé dynamique](data-flow-pivot.md) | Modificateur de schéma | Agrégation où une ou plusieurs colonnes de regroupement voient leurs valeurs de lignes distinctes transformées en colonnes individuelles. |
+| [Rank](data-flow-rank.md) | Modificateur de schéma | Générez un classement ordonné en fonction des conditions de tri |
 | [Select](data-flow-select.md) | Modificateur de schéma | Créez des alias pour les colonnes et les noms de flux, et supprimez ou réorganisez les colonnes |
 | [Section sink](data-flow-sink.md) | - | Destination finale pour vos données |
 | [Sort](data-flow-sort.md) | Modificateur de ligne | Triez les lignes entrantes sur le flux de données actuel. |
@@ -40,4 +41,4 @@ Vous trouverez ci-dessous la liste des transformations actuellement prises en ch
 | [Clé de substitution](data-flow-surrogate-key.md) | Modificateur de schéma | Ajoutez une valeur de clé arbitraire non professionnelle d’incrémentation. |
 | [Union](data-flow-union.md) | Entrées/sorties multiples | Combinez plusieurs flux de données verticalement. |
 | [Supprimer le tableau croisé dynamique](data-flow-unpivot.md) | Modificateur de schéma | Créer un tableau croisé dynamique pour convertir des colonnes en valeurs de ligne |
-| [Fenêtre](data-flow-window.md) | Modificateur de schéma |  Définissez des agrégations de colonnes basées sur des fenêtres dans vos flux de données. |
+| [Window](data-flow-window.md) | Modificateur de schéma |  Définissez des agrégations de colonnes basées sur des fenêtres dans vos flux de données. |

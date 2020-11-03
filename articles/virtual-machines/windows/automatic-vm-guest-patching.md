@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842867"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744718"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Aperçu : Mise à jour corrective automatique de l’invité de machine virtuelle pour les machines virtuelles Windows dans Azure
 
@@ -80,17 +80,20 @@ Les machines virtuelles Windows sur Azure prennent désormais en charge les mode
 
 **AutomaticByPlatform :**
 - Ce mode active la mise à jour corrective automatique de l’invité de machine virtuelle pour la machine virtuelle Windows et l’installation ultérieure des patchs est orchestrée par Azure.
+- Ce mode est obligatoire pour la mise à jour corrective selon la première disponibilité.
 - La réglage de ce mode désactive également les mises à jour automatiques natives sur la machine virtuelle Windows pour éviter les doublons.
 - Ce mode est pris en charge uniquement pour les machines virtuelles créées à l’aide des images de plateforme de système d’exploitation prises en charge ci-dessus.
 - Pour utiliser ce mode, définissez la propriété `osProfile.windowsConfiguration.enableAutomaticUpdates=true` et la propriété `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` dans le modèle de machine virtuelle.
 
 **AutomaticByOS :**
 - Ce mode active les mises à jour automatiques sur la machine virtuelle Windows, et les patchs sont installés sur la machine virtuelle par le biais des mises à jour automatiques.
+- Ce mode ne prend pas en charge la mise à jour corrective selon la première disponibilité.
 - Ce mode est défini par défaut si aucun autre mode correctif n’est spécifié.
 - Pour utiliser ce mode, définissez la propriété `osProfile.windowsConfiguration.enableAutomaticUpdates=true` et la propriété `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` dans le modèle de machine virtuelle.
 
 **Manuel :**
 - Ce mode désactive les mises à jour automatiques sur la machine virtuelle Windows.
+- Ce mode ne prend pas en charge la mise à jour corrective selon la première disponibilité.
 - Ce mode doit être défini lors de l’utilisation de solutions personnalisées de mise à jour corrective.
 - Pour utiliser ce mode, définissez la propriété `osProfile.windowsConfiguration.enableAutomaticUpdates=false` et la propriété `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` dans le modèle de machine virtuelle.
 
@@ -196,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez [az vm create](/cli/azure/vm#az-vm-create) pour activer la mise à jour corrective automatique de l’invité de machine virtuelle lors de la création d’une machine virtuelle. L’exemple suivant configure la mise à jour corrective automatique de l’invité de machine virtuelle pour la machine virtuelle nommée *myVM* dans le groupe de ressources appelé *myResourceGroup* :
+Utilisez [az vm create](/cli/azure/vm#az-vm-create) pour activer la mise à jour corrective automatique de l’invité de machine virtuelle lors de la création d’une machine virtuelle. L’exemple suivant configure la mise à jour corrective automatique de l’invité de machine virtuelle pour la machine virtuelle nommée *myVM* dans le groupe de ressources appelé *myResourceGroup*  :
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform

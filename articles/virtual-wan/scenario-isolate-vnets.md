@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267633"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424749"
 ---
 # <a name="scenario-isolating-vnets"></a>Scénario : Isolation des réseaux virtuels
 
@@ -26,10 +26,10 @@ Dans ce scénario, la charge de travail au sein d’un réseau virtuel donné re
 
 | À partir |   À |  *Réseaux virtuels* | *Branches* |
 | -------------- | -------- | ---------- | ---|
-| Réseaux virtuels     | &#8594;|           |     X    |
-| Branches   | &#8594;|    X     |     X    |
+| Réseaux virtuels     | &#8594;| Direct |   Direct    |
+| Branches   | &#8594;|  Direct  |   Direct    |
 
-Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique) pour un flux de trafic spécifique, où un « X » signifie que la connectivité est fournie par Virtual WAN.
+Chacune des cellules du tableau précédent indique si une connexion Virtual WAN (côté « De » du flux, les en-têtes de lignes) communique avec un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique). Dans ce scénario, il n’y a pas de pare-feu ni d’appliances virtuelles réseau, de sorte que les communications circulent directement sur Virtual WAN (d’où le mot « Direct » dans le tableau).
 
 Cette matrice de connectivité nous donne deux modèles de ligne différents, qui traduisent en deux tables de routage. Le Virtual WAN possédant déjà une table de routage par défaut, nous aurons besoin d’une autre table de routage. Pour cet exemple, nous allons nommer la table de routage **RT_VNET**.
 
@@ -42,7 +42,7 @@ Des réseaux virtuels seront associés à cette table de routage **RT_VNET**. É
   * Table de routage associée : **Par défaut**
   * Propagation aux tables de routage : **RT_VNET** et **Par défaut**
 
-Notez que, dans la mesure où seules les branches se propagent à la table de routage **RT_VNET**, il s’agit des seuls préfixes que les réseaux virtuels apprendront, et non de ceux d’autres réseaux virtuels.
+Notez que, dans la mesure où seules les branches se propagent à la table de routage **RT_VNET** , il s’agit des seuls préfixes que les réseaux virtuels apprendront, et non de ceux d’autres réseaux virtuels.
 
 Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
@@ -51,10 +51,10 @@ Pour plus d’informations sur le routage de hub virtuel, consultez [À propos d
 Pour configurer ce scénario, prenez en compte les étapes suivantes :
 
 1. Créez une table de routage personnalisée dans chaque Hub. Dans l’exemple, la table de routage est **RT_VNet**. Pour créer une table de routage, consultez le [Guide pratique pour configurer le routage de hub virtuel](how-to-virtual-hub-routing.md). Pour plus d’informations sur les tables de routage, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
-2. Lorsque vous créez la table de routage **RT_VNet**, configurez les paramètres suivants :
+2. Lorsque vous créez la table de routage **RT_VNet** , configurez les paramètres suivants :
 
-   * **Association** : Sélectionnez les réseaux virtuels que vous souhaitez isoler.
-   * **Propagation** : Sélectionnez l’option pour les branches, ce qui implique que les connexions de branche (VPN/ER/P2S) propageront les itinéraires vers cette table de routage.
+   * **Association**  : Sélectionnez les réseaux virtuels que vous souhaitez isoler.
+   * **Propagation**  : Sélectionnez l’option pour les branches, ce qui implique que les connexions de branche (VPN/ER/P2S) propageront les itinéraires vers cette table de routage.
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="Réseaux virtuels isolés":::
 

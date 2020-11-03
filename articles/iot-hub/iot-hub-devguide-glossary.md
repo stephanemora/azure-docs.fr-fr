@@ -11,12 +11,13 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 3a75b3622ebc2085dac898e2a06e09f16466cbf5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147781"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746613"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 
@@ -218,7 +219,7 @@ IoT Hub est un service Azure entièrement géré qui permet des communications b
 
 ## <a name="iot-hub-metrics"></a>Métriques IoT Hub
 
-Les [métriques IoT Hub](iot-hub-metrics.md) fournissent des données sur l’état des hubs IoT dans votre [abonnement Azure](#subscription). Grâce aux métriques IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les métriques IoT Hub peuvent vous aider à voir l’état de votre hub IoT et à examiner des problèmes constituant des causes premières sans devoir contacter le support Azure.
+Les [métriques IoT Hub](monitor-iot-hub-reference.md#metrics) fournissent des données sur l’état des hubs IoT dans votre [abonnement Azure](#subscription). Grâce aux métriques IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les métriques IoT Hub peuvent vous aider à voir l’état de votre hub IoT et à examiner des problèmes constituant des causes premières sans devoir contacter le support Azure. Pour plus d’informations, consultez [Surveiller IoT Hub](monitor-iot-hub.md).
 
 ## <a name="iot-hub-query-language"></a>Langage de requête IoT Hub
 

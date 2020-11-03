@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: caaf8e25cdf43602fda8fc72caf7d16b7b56c06a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc9da659e7e55e8b15071f957d6a51e3b4673244
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361889"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427562"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio (classique)
 
@@ -44,7 +44,7 @@ Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux re
 
 Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning Studio (classique)](create-workspace.md).
 
-Pour plus d’informations sur la définition des autorisations d’accès, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Pour plus d’informations sur le paramétrage des autorisations d’accès, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## <a name="manage-new-web-services"></a>Gérer de nouveaux services web

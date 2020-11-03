@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 9781369e862c74afe5a8a94cafafff7ef35e68e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 775e2fad573832dd29fc45985c6d6bd0a50fdf3c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078348"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546090"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight
 
 Découvrez comment activer les journaux Azure Monitor pour superviser les opérations de cluster Hadoop dans HDInsight et comment ajouter une solution de supervision HDInsight.
 
-Les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md) sont un service Azure Monitor qui supervise vos environnements Cloud et locaux. La supervision consiste à maintenir leur disponibilité et leurs performances. Elle collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils de supervision. Les données sont utilisées pour fournir une analyse englobant plusieurs sources.
+Les [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) sont un service Azure Monitor qui supervise vos environnements Cloud et locaux. La supervision consiste à maintenir leur disponibilité et leurs performances. Elle collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils de supervision. Les données sont utilisées pour fournir une analyse englobant plusieurs sources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -40,9 +40,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
   Pour savoir comment créer un cluster HDInsight, consultez [Bien démarrer avec Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Si vous utilisez PowerShell, vous aurez besoin du [module Az](https://docs.microsoft.com/powershell/azure/). Vérifiez que vous avez la version la plus récente. Si nécessaire, exécutez `Update-Module -Name Az`.
+* Si vous utilisez PowerShell, vous aurez besoin du [module Az](/powershell/azure/). Vérifiez que vous avez la version la plus récente. Si nécessaire, exécutez `Update-Module -Name Az`.
 
-* Si vous voulez utiliser Azure CLI et que vous ne l’avez pas encore installé, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Si vous voulez utiliser Azure CLI et que vous ne l’avez pas encore installé, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]  
 > Il est recommandé de placer le cluster HDInsight et l’espace de travail Log Analytics dans la même région pour obtenir de meilleures performances. Notez que les journaux d’activité Azure Monitor ne sont pas disponibles dans toutes les régions Azure.
@@ -53,11 +53,11 @@ Cette section vous explique comment configurer un cluster Hadoop HDInsight exist
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre cluster. Le cluster est ouvert dans une nouvelle page du portail.
 
-1. À gauche, sous **Supervision**, sélectionnez **Azure Monitor**.
+1. À gauche, sous **Supervision** , sélectionnez **Azure Monitor**.
 
-1. Dans la vue principale, sous **Intégration à Azure Monitor**, sélectionnez **Activer**.
+1. Dans la vue principale, sous **Intégration à Azure Monitor** , sélectionnez **Activer**.
 
-1. Dans la liste déroulante **Sélectionner un espace de travail**, sélectionnez un espace de travail Log Analytics existant.
+1. Dans la liste déroulante **Sélectionner un espace de travail** , sélectionnez un espace de travail Log Analytics existant.
 
 1. Sélectionnez **Enregistrer**.  L’enregistrement du paramètre prend quelques instants.
 
@@ -65,7 +65,7 @@ Cette section vous explique comment configurer un cluster Hadoop HDInsight exist
 
 ## <a name="enable-azure-monitor-using-azure-powershell"></a>Activer Azure Monitor à l’aide d’Azure PowerShell
 
-Vous pouvez activer les journaux Azure Monitor à l’aide de l’applet de commande [Enable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) du module Az Azure PowerShell.
+Vous pouvez activer les journaux Azure Monitor à l’aide de l’applet de commande [Enable-AzHDInsightMonitoring](/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) du module Az Azure PowerShell.
 
 ```powershell
 # Enter user information
@@ -97,7 +97,7 @@ Get-AzHDInsightMonitoring `
     -Name $cluster
 ```
 
-Pour désactiver, utilisez l’applet de commande [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) :
+Pour désactiver, utilisez l’applet de commande [Disable-AzHDInsightMonitoring](/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) :
 
 ```powershell
 Disable-AzHDInsightMonitoring -Name "<your-cluster>"
@@ -105,7 +105,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## <a name="enable-azure-monitor-using-azure-cli"></a>Activer Azure Monitor à l’aide d’Azure CLI
 
-Vous pouvez activer les journaux d’activité d’Azure Monitor à l’aide de la commande Azure CLI `[az hdinsight monitor enable`] (https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-enable).
+Vous pouvez activer les journaux d’activité d’Azure Monitor à l’aide de la commande Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-enable).
 
 ```azurecli
 # set variables
@@ -120,7 +120,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-Pour les désactiver, utilisez la commande [`az hdinsight monitor disable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-disable).
+Pour les désactiver, utilisez la commande [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable).
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
@@ -128,7 +128,7 @@ az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installer des solutions de gestion de clusters HDInsight
 
-HDInsight fournit des solutions de gestion de clusters que vous pouvez ajouter pour les journaux d’activité Azure Monitor. Les [solutions de gestion](../log-analytics/log-analytics-add-solutions.md) ajoutent des fonctionnalités aux journaux d’activité Azure Monitor en fournissant des données et des outils d’analyse supplémentaires. Ces solutions collectent des métriques de performance importantes de vos clusters HDInsight et fournissent les outils permettant d’explorer les métriques. Elles fournissent également des visualisations et des tableaux de bord pour la plupart des types de cluster pris en charge dans HDInsight. En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes personnalisées de surveillance.
+HDInsight fournit des solutions de gestion de clusters que vous pouvez ajouter pour les journaux d’activité Azure Monitor. Les [solutions de gestion](../azure-monitor/insights/solutions.md) ajoutent des fonctionnalités aux journaux d’activité Azure Monitor en fournissant des données et des outils d’analyse supplémentaires. Ces solutions collectent des métriques de performance importantes de vos clusters HDInsight et fournissent les outils permettant d’explorer les métriques. Elles fournissent également des visualisations et des tableaux de bord pour la plupart des types de cluster pris en charge dans HDInsight. En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes personnalisées de surveillance.
 
 Solutions HDInsight disponibles :
 
@@ -147,7 +147,7 @@ Pour obtenir des instructions sur les solutions de gestion, consultez [Solutions
 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
 
-Azure Monitor prend en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations, consultez [Sources de données de performances Linux dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+Azure Monitor prend en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations, consultez [Sources de données de performances Linux dans Azure Monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Audit de cluster
 

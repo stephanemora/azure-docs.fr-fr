@@ -3,12 +3,12 @@ title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424093"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -39,7 +39,7 @@ Ce modèle centralisé de déploiement présente les avantages suivants :
 > [!NOTE]
 > Vous pouvez gérer des ressources déléguées situées dans différentes [régions](../../availability-zones/az-overview.md#regions). Toutefois, la délégation d’abonnements sur un [cloud national](../../active-directory/develop/authentication-national-cloud.md) et le cloud public Azure, ou sur deux clouds nationaux distincts, n’est pas prise en charge.
 
-## <a name="granular-role-based-access-control-rbac"></a>Contrôle d’accès granulaire en fonction du rôle (RBAC)
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC) granulaire
 
 Chaque abonnement client géré par un MSSP doit être [intégré à Azure Lighthouse](onboard-customer.md). Cela permet aux utilisateurs désignés du locataire gérant d’accéder aux opérations de gestion et de les effectuer sur les espaces de travail Azure Sentinel déployés chez les locataires clients.
 

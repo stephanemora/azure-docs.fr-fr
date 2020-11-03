@@ -2,14 +2,14 @@
 title: Choisir des tailles de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107502"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517053"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -31,17 +31,19 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | De base A | Toutes les tailles *sauf* Basic_A0 (A0) |
 | Un | Toutes les tailles *sauf* Standard_A0 |
 | Av2 | Toutes les tailles |
-| B | None |
-| DC | None |
+| B | Non pris en charge |
+| DC | Non pris en charge |
 | Dv2, DSv2 | Toutes les tailles |
 | Dv3, Dsv3 | Toutes les tailles |
 | Dav4<sup>1</sup> | Toutes les tailles |
 | Dasv4<sup>1</sup> | Toutes les tailles |
 | Ddv4, Ddsv4 |  Toutes les tailles |
+| Dv4, Dsv4 | Non pris en charge |
 | Ev3, Esv3 | Toutes les tailles, à l’exception de E64is_v3 |
 | Eav4<sup>1</sup> | Toutes les tailles |
 | Easv4<sup>1</sup> | Toutes les tailles |
 | Edv4, Edsv4 |  Toutes les tailles |
+| Ev4, Esv4 | Non pris en charge |
 | F, Fs | Toutes les tailles |
 | Fsv2 | Toutes les tailles |
 | G, Gs | Toutes les tailles |
@@ -56,12 +58,13 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | NC | Toutes les tailles |
 | NCv2<sup>1</sup> | Toutes les tailles |
 | NCv3<sup>1</sup> | Toutes les tailles |
+| NCasT4_v3 | Aucune – pas encore disponible |
 | ND<sup>1</sup> | Toutes les tailles |
 | NDv2<sup>1</sup> | Aucune – pas encore disponible |
 | NV | Toutes les tailles |
 | NVv3<sup>1</sup> | Toutes les tailles |
-| NVv4 | Aucune – pas encore disponible |
-| SAP HANA | None |
+| NVv4<sup>1</sup> | Toutes les tailles |
+| SAP HANA | Non pris en charge |
 
 <sup>1</sup> Ces séries de machines virtuelles peuvent être allouées dans des pools Batch dans la configuration de la machine virtuelle, mais vous devez créer un compte Batch et demander une [augmentation de quota](batch-quota-limit.md#increase-a-quota) spécifique. Cette limitation sera supprimée une fois que le quota de processeurs virtuels par série de machines virtuelles sera entièrement pris en charge pour les comptes Batch.
 

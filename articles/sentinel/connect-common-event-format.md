@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630506"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747909"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
 
@@ -44,7 +44,7 @@ Cette configuration convient également si vous utilisez une machine virtuelle d
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 
-Veillez à configurer la sécurité de la machine en fonction de la stratégie de sécurité de votre organisation. Par exemple, vous pouvez configurer votre réseau de sorte qu’il s’accorde à la stratégie de sécurité de votre réseau d’entreprise, et modifier les ports et les protocoles dans le démon pour les adapter à vos besoins. Vous pouvez utiliser les instructions suivantes pour améliorer la configuration de la sécurité de votre machine :  [Sécurisation de la machine virtuelle dans Azure](../virtual-machines/security-policy.md), [Bonnes pratiques pour la sécurité réseau](../security/fundamentals/network-best-practices.md).
+Veillez à configurer la sécurité de la machine en fonction de la stratégie de sécurité de votre organisation. Par exemple, vous pouvez configurer votre réseau de sorte qu’il s’accorde à la stratégie de sécurité de votre réseau d’entreprise, et modifier les ports et les protocoles dans le démon pour les adapter à vos besoins. Vous pouvez utiliser les instructions suivantes pour améliorer la configuration de la sécurité de votre machine :  [Sécurisation de la machine virtuelle dans Azure](../virtual-machines/security-policy.md), [Bonnes pratiques pour la sécurité réseau](../security/fundamentals/network-best-practices.md).
 
 Pour utiliser la communication TLS entre la source Syslog et le redirecteur Syslog, vous devez configurer le démon Syslog (rsyslog or syslog-ng) pour qu’il communique dans TLS : [Chiffrement du trafic Syslog avec TLS –rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Chiffrement des messages du journal avec TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
@@ -55,14 +55,14 @@ Assurez-vous que la machine Linux que vous utilisez en tant que proxy exécute l
 - 64 bits
   - CentOS 7 et les sous-versions, et les versions ultérieures (pas la version 6)
   - Amazon Linux 2017.09
-  - Oracle Linux 6 et 7
+  - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 et les sous-versions, et les versions ultérieures (pas la version 6)
   - Debian GNU/Linux 8 et 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
   - SUSE Linux Enterprise Server 12
 - 32 bits
    - CentOS 7
-   - Oracle Linux 6
+   - Oracle Linux 7
    - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 et 9
    - Ubuntu Linux 14.04 LTS et 16.04 LTS
@@ -79,7 +79,7 @@ Assurez-vous que votre machine répond également aux exigences suivantes :
 - Autorisations
     - Vous devez disposer d’autorisations élevées (sudo) sur votre machine. 
 - Configuration logicielle requise
-    - Vérifiez que Python (2.7 ou version ultérieure) est en cours d’exécution sur votre machine
+    - Vérifiez que Python 2.7 est en cours d’exécution sur votre machine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

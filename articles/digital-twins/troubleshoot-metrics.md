@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044633"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787191"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Dépannage d’Azure Digital Twins : Mesures
 
@@ -32,14 +32,14 @@ Les métriques sont activées par défaut. Vous pouvez afficher les métriques A
 
     Cette page affiche les métriques de votre instance Azure Digital Twins. Vous pouvez également créer des vues personnalisées de vos métriques en sélectionnant dans la liste celles que vous souhaitez afficher.
     
-3. Vous pouvez choisir d’envoyer vos données de métriques à un point de terminaison Event Hubs ou à un compte Stockage Azure en sélectionnant **Paramètres de diagnostic**dans le menu, puis **Ajouter un paramètre de diagnostic**.
+3. Vous pouvez choisir d’envoyer vos données de métriques à un point de terminaison Event Hubs ou à un compte Stockage Azure en sélectionnant **Paramètres de diagnostic** dans le menu, puis **Ajouter un paramètre de diagnostic**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des métriques pour Azure Digital Twins":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter":::
 
     Pour plus d’informations sur ce processus, consultez [*Résolution des problèmes : Configurer les diagnostics*](troubleshoot-diagnostics.md).
 
 4. Vous pouvez choisir de configurer des alertes pour vos données de métriques en sélectionnant **Alertes** dans le menu, puis **+ Nouvelle règle d’alerte**.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Capture d’écran montrant la page des métriques pour Azure Digital Twins":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Capture d’écran montrant la page Alertes et le bouton à ajouter.":::
 
     Pour plus d’informations sur ce processus, consultez [*Résolution des problèmes : Configurer des alertes*](troubleshoot-alerts.md).
 
@@ -55,9 +55,9 @@ Métriques en rapport avec des demandes d’API :
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | Demandes d’API (préversion) | Count | Total | Nombre de demandes d’API effectuées pour des opérations de lecture, d’écriture, de suppression et de requête de Digital Twins. |  Authentification, <br>Opération, <br>Protocole, <br>Code d’état, <br>Classe de code d’état, <br>Texte d’état |
-| ApiRequestsFailureRate | Taux d’échec des demandes d’API (préversion) | Pourcentage | Average | Pourcentage de demandes d’API que le service reçoit pour votre instance, qui génèrent un code de réponse d’erreur interne (500) pour une opération de lecture, d’écriture, de suppression ou de requête de Digital Twins. | Authentification, <br>Opération, <br>Protocole, <br>Code d’état, <br>Classe de code d’état, <br>Texte d’état
-| ApiRequestsLatency | Latence des demandes d’API (préversion) | Millisecondes | Average | Temps de réponse aux demandes d’API. Il s’agit du temps qui s’écoule entre le moment où Azure Digital Twins reçoit la demande et le moment où le service envoie un résultat de réussite ou d’échec d’une opération de lecture, d’écriture, de suppression ou de requête de Digital Twins. | Authentification, <br>Opération, <br>Protocol |
+| ApiRequests | Requêtes d’API | Count | Total | Nombre de demandes d’API effectuées pour des opérations de lecture, d’écriture, de suppression et de requête de Digital Twins. |  Authentification, <br>Opération, <br>Protocole, <br>Code d’état, <br>Classe de code d’état, <br>Texte d’état |
+| ApiRequestsFailureRate | Taux d’échec des demandes d’API | Pourcentage | Average | Pourcentage de demandes d’API que le service reçoit pour votre instance, qui génèrent un code de réponse d’erreur interne (500) pour une opération de lecture, d’écriture, de suppression ou de requête de Digital Twins. | Authentification, <br>Opération, <br>Protocole, <br>Code d’état, <br>Classe de code d’état, <br>Texte d’état
+| ApiRequestsLatency | Latence des demandes d’API | Millisecondes | Average | Temps de réponse aux demandes d’API. Il s’agit du temps qui s’écoule entre le moment où Azure Digital Twins reçoit la demande et le moment où le service envoie un résultat de réussite ou d’échec d’une opération de lecture, d’écriture, de suppression ou de requête de Digital Twins. | Authentification, <br>Opération, <br>Protocol |
 
 #### <a name="billing-metrics"></a>Métriques de facturation
 
@@ -68,9 +68,9 @@ Métriques en rapport avec la facturation :
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Opérations de l’API de facturation (préversion) | Count | Total | Métrique de facturation pour le nombre total des demandes d’API adressées au service Azure Digital Twins. | ID du compteur |
-| BillingMessagesProcessed | Messages de facturation traités (préversion) | Count | Total | Métrique de facturation pour le nombre de messages envoyés à partir d’Azure Digital Twins vers des points de terminaison externes.<br><br>Pour être considérée comme un message unique à des fins de facturation, une charge utile ne doit pas dépasser 1 Ko. Les charges utiles supérieures à cette taille sont comptabilisées en tant que messages supplémentaires par incréments de 1 Ko (par conséquent, un message d’une taille comprise entre 1 et 2 Ko sera comptabilisé comme 2 messages, d’une taille comprise entre 2 et 3 Ko comme 3 messages, et ainsi de suite).<br>Cette restriction s’applique également aux réponses. Par exemple, un appel retournant 1,5 Ko dans le corps de la réponse est facturé comme s’il s’agissait de 2 opérations. | ID du compteur |
-| BillingQueryUnits | Unités de requête de facturation (préversion) | Count | Total | Nombre d’unités de requête, mesure calculée en interne de l’utilisation des ressources des services, consommées pour exécuter des requêtes. Une API d’assistance est également disponible pour mesurer les unités de requête : [Classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID du compteur |
+| BillingApiOperations | Opérations de l’API de facturation | Count | Total | Métrique de facturation pour le nombre total des demandes d’API adressées au service Azure Digital Twins. | ID du compteur |
+| BillingMessagesProcessed | Messages de facturation traités | Count | Total | Métrique de facturation pour le nombre de messages envoyés à partir d’Azure Digital Twins vers des points de terminaison externes.<br><br>Pour être considérée comme un message unique à des fins de facturation, une charge utile ne doit pas dépasser 1 Ko. Les charges utiles supérieures à cette taille sont comptabilisées en tant que messages supplémentaires par incréments de 1 Ko (par conséquent, un message d’une taille comprise entre 1 et 2 Ko sera comptabilisé comme 2 messages, d’une taille comprise entre 2 et 3 Ko comme 3 messages, et ainsi de suite).<br>Cette restriction s’applique également aux réponses. Par exemple, un appel retournant 1,5 Ko dans le corps de la réponse est facturé comme s’il s’agissait de 2 opérations. | ID du compteur |
+| BillingQueryUnits | Unités de requête de facturation | Count | Total | Nombre d’unités de requête, mesure calculée en interne de l’utilisation des ressources des services, consommées pour exécuter des requêtes. Une API d’assistance est également disponible pour mesurer les unités de requête : [Classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID du compteur |
 
 #### <a name="ingress-metrics"></a>Métriques d’entrée
 
@@ -78,9 +78,9 @@ Métriques en rapport avec l’entrée de données :
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | Événements d’entrée (préversion) | Count | Total | Nombre d’événements de télémétrie entrants dans Azure Digital Twins. | Résultats |
-| IngressEventsFailureRate | Taux d’échec des demandes des événement d'entrée (préversion) | Pourcentage | Average | Pourcentage d’événements de télémétrie entrants pour lesquels le service retourne un code de réponse d’erreur interne (500). | Résultats |
-| IngressEventsLatency | Latence des événement d'entrée (préversion) | Millisecondes | Average | Heure à laquelle un événement arrive lorsqu’il est prêt à être sortie par Azure Digital Twins, auquel cas le service envoie un résultat de réussite/échec. | Résultats |
+| IngressEvents | Événements d’entrée | Count | Total | Nombre d’événements de télémétrie entrants dans Azure Digital Twins. | Résultats |
+| IngressEventsFailureRate | Taux d’échec des demandes des événement d’entrée | Pourcentage | Average | Pourcentage d’événements de télémétrie entrants pour lesquels le service retourne un code de réponse d’erreur interne (500). | Résultats |
+| IngressEventsLatency | Latence des événement d’entrée | Millisecondes | Average | Heure à laquelle un événement arrive lorsqu’il est prêt à être sortie par Azure Digital Twins, auquel cas le service envoie un résultat de réussite/échec. | Résultats |
 
 #### <a name="routing-metrics"></a>Métriques de routage
 
@@ -88,9 +88,9 @@ Métriques en rapport avec le routage :
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Messages routés (préversion) | Count | Total | Nombre de messages routés vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
-| RoutingFailureRate | Taux d’échec de routage (préversion) | Pourcentage | Average | Pourcentage d’événements qui génèrent une erreur lors de leur routage à partir d’Azure Digital Twins vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
-| RoutingLatency | Latence du routage (préversion) | Millisecondes | Average | Temps écoulé entre le routage d’un événement à partir d’Azure Digital Twins et sa publication sur le service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
+| MessagesRouted | Messages routés | Count | Total | Nombre de messages routés vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
+| RoutingFailureRate | Taux d’échec du routage | Pourcentage | Average | Pourcentage d’événements qui génèrent une erreur lors de leur routage à partir d’Azure Digital Twins vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
+| RoutingLatency | Latence du routage | Millisecondes | Average | Temps écoulé entre le routage d’un événement à partir d’Azure Digital Twins et sa publication sur le service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
 
 ## <a name="dimensions"></a>Dimensions
 

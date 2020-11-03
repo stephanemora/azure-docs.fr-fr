@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70101256"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424245"
 ---
 # <a name="disaster-recovery-principles"></a>Principes de la récupération d’urgence
 
@@ -68,7 +68,7 @@ L’étape suivante consiste à installer la deuxième instance SAP HANA sur l�
 - Arrêtez l’instance SAP HANA nouvellement installée sur l’unité de grande instance HANA dans la région Azure de récupération d’urgence.
 - Démonter ces volumes PRD et contacter l’équipe de gestion des services SAP HANA sur Azure. Les volumes ne peuvent pas rester montés sur l’unité, car ils ne sont pas accessibles tant qu’ils fonctionnent en tant que cible de réplication de stockage.  
 
-![Étape de configuration de la récupération d’urgence avant d’établir la réplication](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Diagramme illustrant la relation de réplication entre les volumes PRD dans la région Azure de production et les volumes PRD dans la région Azure de récupération d’urgence.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 L’équipe des opérations établit la relation de réplication entre les volumes PRD dans la région Azure de production et les volumes PRD dans la région Azure de récupération d’urgence.
 
@@ -76,7 +76,7 @@ L’équipe des opérations établit la relation de réplication entre les volum
 >Le volume /hana/log n’est pas répliqué, car il n’est pas nécessaire pour restaurer la base de données SAP HANA répliquée dans un état cohérent sur le site de récupération d’urgence.
 
 Ensuite, définissez ou ajustez la planification des sauvegardes de capture instantanée de stockage pour atteindre vos RTO et RPO en cas d’urgence. Pour réduire l’objectif de point de récupération, définissez les intervalles de réplication suivants dans le service de grande instance HANA :
-- Pour les volumes couverts par la capture instantanée combinée (type **hana**), configurez la réplication toutes les 15 minutes vers les cibles de volume de stockage équivalents sur le site de récupération d’urgence.
+- Pour les volumes couverts par la capture instantanée combinée (type **hana** ), configurez la réplication toutes les 15 minutes vers les cibles de volume de stockage équivalents sur le site de récupération d’urgence.
 - Pour le volume de sauvegarde de fichier journal (type **logs** de capture instantanée), configurez la réplication toutes les 3 minutes vers les cibles de volume de stockage équivalents sur le site de récupération d’urgence.
 
 Pour réduire l’objectif de point de récupération, effectuez le paramétrage suivant :

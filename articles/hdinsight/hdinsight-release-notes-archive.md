@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: c1d43da3a0be65b2351a4b6dbeeb2772062356bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d8b36676c9b95992bdcf382c1f474b56e30ad3fb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974632"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535550"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -39,10 +39,10 @@ Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans 
 Les clients peuvent activer le chiffrement en transit entre des nœuds de cluster en utilisant le chiffrement IPSec avec des clés gérées par la plateforme. Cette option peut être activée au moment de créer le cluster. Découvrez de façon plus détaillée [comment activer le chiffrement en transit](./domain-joined/encryption-in-transit.md).
 
 #### <a name="encryption-at-host"></a>Chiffrement sur l’hôte
-Quand vous activez le chiffrement au niveau de l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et cheminent chiffrées jusqu’au service de stockage. À compter de cette version, vous pouvez **activer le chiffrement au niveau de l’hôte sur le disque de données temporaire** au moment de créer le cluster. Le chiffrement au niveau de l’hôte est uniquement pris en charge par [certaines références SKU de machines virtuelles dans des régions limitées](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal). HDInsight prend en charge les [configurations de nœud et les références SKU suivantes](./hdinsight-supported-node-configuration.md). Découvrez de façon plus détaillée [comment activer le chiffrement au niveau de l’hôte](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys).
+Quand vous activez le chiffrement au niveau de l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et cheminent chiffrées jusqu’au service de stockage. À compter de cette version, vous pouvez **activer le chiffrement au niveau de l’hôte sur le disque de données temporaire** au moment de créer le cluster. Le chiffrement au niveau de l’hôte est uniquement pris en charge par [certaines références SKU de machines virtuelles dans des régions limitées](../virtual-machines/disks-enable-host-based-encryption-portal.md). HDInsight prend en charge les [configurations de nœud et les références SKU suivantes](./hdinsight-supported-node-configuration.md). Découvrez de façon plus détaillée [comment activer le chiffrement au niveau de l’hôte](./disk-encryption.md#encryption-at-host-using-platform-managed-keys).
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
-HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À compter de cette version, le service migrera progressivement vers des [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). L’ensemble du processus peut prendre plusieurs mois. Une fois les régions et les abonnements migrés, les clusters HDInsight nouvellement créés s’exécuteront sur des groupes de machines virtuelles identiques sans l’intervention du client. Aucun changement cassant n’est prévu.
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À compter de cette version, le service migrera progressivement vers des [groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/overview.md). L’ensemble du processus peut prendre plusieurs mois. Une fois les régions et les abonnements migrés, les clusters HDInsight nouvellement créés s’exécuteront sur des groupes de machines virtuelles identiques sans l’intervention du client. Aucun changement cassant n’est prévu.
 
 ### <a name="deprecation"></a>Dépréciation
 Cette version ne fait l’objet d’aucune dépréciation.
@@ -60,7 +60,7 @@ HDInsight ne prend actuellement pas en charge la modification de la référence 
 HDInsight continue à améliorer la fiabilité et les performances des clusters. 
 
 ### <a name="component-version-change"></a>Changement de la version des composants
-Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](./hdinsight-component-versioning.md).
 
 ## <a name="release-date-08092020"></a>Date de publication : 09/08/2020
 
@@ -110,11 +110,11 @@ Les JIRA ci-dessous sont portés pour HBase :
 * [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
 
 ### <a name="component-version-change"></a>Changement de la version des composants
-Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](./hdinsight-component-versioning.md).
 
 ### <a name="known-issues"></a>Problèmes connus
 
-Un problème a été résolu dans le portail Azure, en raison duquel les utilisateurs rencontraient une erreur en créant un cluster Azure HDInsight à l’aide d’un type d’authentification SSH de clé publique. Quand un utilisateur cliquait sur **Vérifier + créer**, il recevait l’erreur « Ne doit pas avoir trois caractères consécutifs du nom d’utilisateur SSH ». Ce problème a été résolu, mais vous devrez peut-être actualiser le cache de votre navigateur en appuyant sur Ctrl+F5 pour charger la vue corrigée. La solution de contournement à ce problème a consisté à créer un cluster avec un modèle ARM. 
+Un problème a été résolu dans le portail Azure, en raison duquel les utilisateurs rencontraient une erreur en créant un cluster Azure HDInsight à l’aide d’un type d’authentification SSH de clé publique. Quand un utilisateur cliquait sur **Vérifier + créer** , il recevait l’erreur « Ne doit pas avoir trois caractères consécutifs du nom d’utilisateur SSH ». Ce problème a été résolu, mais vous devrez peut-être actualiser le cache de votre navigateur en appuyant sur Ctrl+F5 pour charger la vue corrigée. La solution de contournement à ce problème a consisté à créer un cluster avec un modèle ARM. 
 
 ## <a name="release-date-07132020"></a>Date de publication : 13/07/2020
 
@@ -122,10 +122,10 @@ Cette version s’applique à la fois à HDInsight 3.6 et 4.0. La version HDIn
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 #### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Support pour Customer Lockbox pour Microsoft Azure
-Azure HDInsight prend maintenant en charge Azure Customer Lockbox. Il offre une interface permettant aux clients de passer en revue et d'approuver ou de rejeter les demandes d'accès aux données des clients. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support. Pour plus d’informations, consultez [Customer Lockbox pour Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+Azure HDInsight prend maintenant en charge Azure Customer Lockbox. Il offre une interface permettant aux clients de passer en revue et d'approuver ou de rejeter les demandes d'accès aux données des clients. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support. Pour plus d’informations, consultez [Customer Lockbox pour Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview).
 
 #### <a name="service-endpoint-policies-for-storage"></a>Stratégies de points de terminaison de service pour le stockage
-Les clients peuvent maintenant utiliser des stratégies de point de terminaison de service sur le sous-réseau de cluster HDInsight. En savoir plus sur la [stratégie de point de terminaison de service Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+Les clients peuvent maintenant utiliser des stratégies de point de terminaison de service sur le sous-réseau de cluster HDInsight. En savoir plus sur la [stratégie de point de terminaison de service Azure](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
 
 ### <a name="deprecation"></a>Dépréciation
 #### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Dépréciation de Spark 2.1 et 2.2 dans le cluster Spark HDInsight 3.6
@@ -155,7 +155,7 @@ Un problème de convivialité du connecteur Hive Warehouse se posait dans la ver
 Zeppelin tronquait de manière incorrecte les zéros non significatifs dans la sortie de tableau pour le format de chaîne. Nou savons résolu ce problème dans cette version.
 
 ### <a name="component-version-change"></a>Changement de la version des composants
-Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](./hdinsight-component-versioning.md).
 
 ## <a name="release-date-06112020"></a>Date de publication : 06/11/2020
 
@@ -163,7 +163,7 @@ Cette version s’applique à la fois à HDInsight 3.6 et 4.0. La version HDIn
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
-HDInsight utilise des machines virtuelles Azure pour provisionner le cluster maintenant. À partir de cette version release, les clusters HDInsight nouvellement créés commencent à utiliser le groupe de machines virtuelles identiques Azure. Le changement est déployé progressivement. Vous ne devez pas vous attendre à des changements cassants. En savoir plus sur les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+HDInsight utilise des machines virtuelles Azure pour provisionner le cluster maintenant. À partir de cette version release, les clusters HDInsight nouvellement créés commencent à utiliser le groupe de machines virtuelles identiques Azure. Le changement est déployé progressivement. Vous ne devez pas vous attendre à des changements cassants. En savoir plus sur les [groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/overview.md).
  
 #### <a name="reboot-vms-in-hdinsight-cluster"></a>Redémarrer des machines virtuelles dans le cluster HDInsight
 Dans cette version release, nous prenons en charge le redémarrage des machines virtuelles dans le cluster HDInsight pour redémarrer les nœuds qui ne répondent pas. Actuellement, vous ne pouvez le faire que par le biais de l’API. La prise en charge de PowerShell et de l’interface CLI est en cours. Pour plus d’informations sur l’API, consultez [ce document](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json).
@@ -188,13 +188,13 @@ Une machine virtuelle à au moins 4 cœurs est nécessaire pour le nœud princi
 #### <a name="cluster-worker-node-provisioning-change"></a>Changement du provisionnement du nœud Worker du cluster
 Quand 80 % des nœuds Worker sont prêts, le cluster entre dans la phase **opérationnelle**. Dans cette phase, les clients peuvent effectuer toutes les opérations de plan de données, comme l’exécution de scripts et de travaux. Toutefois, les clients ne peuvent effectuer aucune opération de plan de contrôle comme un scale-up/scale-down. Seule la suppression est prise en charge.
  
-Après la phase **opérationnelle**, le cluster attend encore 60 minutes pour les 20 % de nœuds Worker restants. À la fin de ces 60 minutes, le cluster passe à la phase **en cours d’exécution**, même si tous les nœuds Worker ne sont toujours pas disponibles. Une fois qu’un cluster entre dans la phase **en cours d’exécution**, vous pouvez l’utiliser normalement. Les opérations de plan de contrôle comme un scale-up/scale-down aussi bien que les opérations de plan de données comme l’exécution de scripts et de travaux sont acceptées. Si certains des nœuds Worker demandés ne sont pas disponibles, le cluster est marqué comme ayant partiellement réussi. Les nœuds qui ont été correctement déployés vous sont facturés. 
+Après la phase **opérationnelle** , le cluster attend encore 60 minutes pour les 20 % de nœuds Worker restants. À la fin de ces 60 minutes, le cluster passe à la phase **en cours d’exécution** , même si tous les nœuds Worker ne sont toujours pas disponibles. Une fois qu’un cluster entre dans la phase **en cours d’exécution** , vous pouvez l’utiliser normalement. Les opérations de plan de contrôle comme un scale-up/scale-down aussi bien que les opérations de plan de données comme l’exécution de scripts et de travaux sont acceptées. Si certains des nœuds Worker demandés ne sont pas disponibles, le cluster est marqué comme ayant partiellement réussi. Les nœuds qui ont été correctement déployés vous sont facturés. 
  
 #### <a name="create-new-service-principal-through-hdinsight"></a>Créer un principal du service avec HDInsight
-Auparavant, avec la création de cluster, les clients pouvaient créer un principal de service pour accéder au compte ADLS Gen 1 connecté dans le portail Azure. À compter du 15 juin 2020, les clients ne peuvent pas créer de principal de service dans le workflow de création de HDInsight, seul un principal de service existant est pris en charge. Consultez [Créer un principal de service et des certificats à l’aide d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Auparavant, avec la création de cluster, les clients pouvaient créer un principal de service pour accéder au compte ADLS Gen 1 connecté dans le portail Azure. À compter du 15 juin 2020, les clients ne peuvent pas créer de principal de service dans le workflow de création de HDInsight, seul un principal de service existant est pris en charge. Consultez [Créer un principal de service et des certificats à l’aide d’Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="time-out-for-script-actions-with-cluster-creation"></a>Délai d’attente pour les actions de script avec création de cluster
-HDInsight prend en charge l’exécution d’actions de script avec création de cluster. À partir de cette version release, toutes les actions de script avec création de cluster doivent se terminer dans un délai de **60 minutes**, faute de quoi elles expirent. Les actions de script soumises à des clusters en cours d’exécution ne sont pas impactées. Vous trouverez plus de détails [ici](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process).
+HDInsight prend en charge l’exécution d’actions de script avec création de cluster. À partir de cette version release, toutes les actions de script avec création de cluster doivent se terminer dans un délai de **60 minutes** , faute de quoi elles expirent. Les actions de script soumises à des clusters en cours d’exécution ne sont pas impactées. Vous trouverez plus de détails [ici](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
  
 ### <a name="upcoming-changes"></a>Changements à venir
 Aucun changement cassant à venir auquel vous devez prêter attention.
@@ -212,7 +212,7 @@ La version de Spark est mise à niveau de la version 2.4.0 vers la version 2.4
 #### <a name="kafka-210-to-211"></a>Kafka 2.1.0 vers 2.1.1
 La version de Kafka est mise à niveau de la version 2.1.0 vers la version 2.1.1.
  
-Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](./hdinsight-component-versioning.md).
 
 ### <a name="known-issues"></a>Problèmes connus
 
@@ -230,7 +230,7 @@ TLS (Transport Layer Security) et SSL (Secure Sockets Layer) sont des protocoles
 Avec cette version, les clients peuvent choisir TLS 1.2 uniquement pour toutes les connexions qui passent par le point de terminaison de cluster public. Pour prendre cela en charge, vous pouvez spécifier la nouvelle propriété **minSupportedTlsVersion** lors de la création du cluster. Si cette propriété n’est pas définie, le cluster prend toujours en charge TLS 1.0, 1.1 et 1.2, ce qui est identique au comportement actuel. Les clients peuvent affecter la valeur « 1.2 » à cette propriété, ce qui signifie que le cluster ne prend en charge que TLS 1.2 et versions ultérieures. Pour plus d’informations, consultez [TLS](./transport-layer-security.md).
 
 #### <a name="bring-your-own-key-for-disk-encryption"></a>BYOK (Bring Your Own Key) pour le chiffrement de disque
-Tous les disques managés dans HDInsight sont protégés par Azure Storage Service Encryption (SSE). Par défaut, les données stockées sur ces disques sont chiffrées à l’aide de clés managées par Microsoft. À compter de cette version, vous pouvez utiliser votre propre clé (BYOK, Bring Your Own Key) pour le chiffrement de disque et effectuer la gestion à l’aide d’Azure Key Vault. Le chiffrement BYOK est une configuration en une étape qui a lieu lors de la création d’un cluster, sans coût supplémentaire. Il vous suffit d’inscrire HDInsight comme identité managée auprès d’Azure Key Vault et d’ajouter la clé de chiffrement pendant la création du cluster. Pour plus d’informations, consultez [Chiffrement de disque avec clé gérée par le client](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
+Tous les disques managés dans HDInsight sont protégés par Azure Storage Service Encryption (SSE). Par défaut, les données stockées sur ces disques sont chiffrées à l’aide de clés managées par Microsoft. À compter de cette version, vous pouvez utiliser votre propre clé (BYOK, Bring Your Own Key) pour le chiffrement de disque et effectuer la gestion à l’aide d’Azure Key Vault. Le chiffrement BYOK est une configuration en une étape qui a lieu lors de la création d’un cluster, sans coût supplémentaire. Il vous suffit d’inscrire HDInsight comme identité managée auprès d’Azure Key Vault et d’ajouter la clé de chiffrement pendant la création du cluster. Pour plus d’informations, consultez [Chiffrement de disque avec clé gérée par le client](./disk-encryption.md).
 
 ### <a name="deprecation"></a>Dépréciation
 Cette version ne fait pas l’objet d’une dépréciation. Pour vous préparer aux dépréciations à venir, consultez [Modifications à venir](#upcoming-changes).
@@ -281,7 +281,7 @@ Cette version s’applique à la fois à HDInsight 3.6 et 4.0.
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 
 #### <a name="service-tags"></a>Balises de service
-Les balises de service simplifient la sécurité des machines virtuelles Azure et des réseaux virtuels Azure en vous permettant de limiter facilement l’accès réseau aux services Azure. Vous pouvez utiliser des balises de service dans vos règles de groupe de sécurité réseau pour autoriser ou refuser le trafic vers un service Azure spécifique à l’échelle mondiale ou par région Azure. Azure fournit la maintenance des adresses IP sous-tendant chaque balise. Les balises de service HDInsight pour les groupes de sécurité réseau sont des groupes d’adresses IP pour les services d’intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les clients HDInsight peuvent activer l’étiquette de service via le portail Azure, PowerShell et l’API REST. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+Les balises de service simplifient la sécurité des machines virtuelles Azure et des réseaux virtuels Azure en vous permettant de limiter facilement l’accès réseau aux services Azure. Vous pouvez utiliser des balises de service dans vos règles de groupe de sécurité réseau pour autoriser ou refuser le trafic vers un service Azure spécifique à l’échelle mondiale ou par région Azure. Azure fournit la maintenance des adresses IP sous-tendant chaque balise. Les balises de service HDInsight pour les groupes de sécurité réseau sont des groupes d’adresses IP pour les services d’intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les clients HDInsight peuvent activer l’étiquette de service via le portail Azure, PowerShell et l’API REST. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](./hdinsight-service-tags.md).
 
 #### <a name="custom-ambari-db"></a>Base de données Ambari personnalisée
 HDInsight vous permet à présent d’utiliser votre propre base de données SQL pour Apache Ambari. Vous pouvez configurer cette instance Ambari DB personnalisée à partir du portail Azure ou par le biais du modèle Resource Manager.  Cette fonctionnalité vous permet de choisir la base de données SQL adaptée à vos besoins en matière de traitement et de capacité. Vous pouvez également effectuer une mise à niveau facilement pour répondre aux besoins de croissance de l’entreprise. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](hdinsight-custom-ambari-db.md).
@@ -305,7 +305,7 @@ TLS (Transport Layer Security) et SSL (Secure Sockets Layer) sont des protocoles
 Plus tard dans l’année, à compter du 30/06/2020, Azure HDInsight appliquera TLS 1.2 ou versions ultérieures pour toutes les connexions HTTPS. Nous vous recommandons de vous assurer que tous vos clients sont prêts à gérer TLS 1.2 ou versions ultérieures.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
-HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de février 2020 (la date sera précisée ultérieurement), HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de février 2020 (la date sera précisée ultérieurement), HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/overview.md).
 
 #### <a name="esp-spark-cluster-node-size-change"></a>Modification de la taille du nœud de cluster ESP Spark 
 Dans la prochaine version :
@@ -325,7 +325,7 @@ Il n’y a aucune modification de la version des composants pour HDInsight 4.0.
 
 Apache Zeppelin sur HDInsight 3.6 : 0.7.0-->0.7.3. 
 
-Vous pouvez trouver les versions les plus récentes des composants dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Vous pouvez trouver les versions les plus récentes des composants dans [ce document](./hdinsight-component-versioning.md).
 
 ### <a name="new-regions"></a>Nouvelles régions
 
@@ -353,19 +353,19 @@ La mise à l’échelle automatique pour Azure HDInsight est désormais généra
 
 Selon vos besoins, vous pouvez choisir entre une mise à l’échelle automatique basée sur la charge et une mise à l’échelle automatique basée sur la planification. La mise à l’échelle automatique basée sur la charge permet d’augmenter ou de réduire la taille du cluster en fonction des besoins actuels en ressources, tandis que la mise à l’échelle automatique basée sur la planification permet de modifier la taille du cluster en fonction d’une planification prédéfinie. 
 
-La prise en charge de la mise à l’échelle automatique pour charge de travail HBase et LLAP est également disponible en préversion publique. Pour plus d’informations, consultez [Mettre à l’échelle automatiquement les clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
+La prise en charge de la mise à l’échelle automatique pour charge de travail HBase et LLAP est également disponible en préversion publique. Pour plus d’informations, consultez [Mettre à l’échelle automatiquement les clusters Azure HDInsight](./hdinsight-autoscale-clusters.md).
 
 #### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans HDInsight 
 
-La fonctionnalité Écritures accélérées utilise des disques managés SSD Premium Azure pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour plus d’informations, consultez [Écritures accélérées pour Apache HBase dans Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
+La fonctionnalité Écritures accélérées utilise des disques managés SSD Premium Azure pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour plus d’informations, consultez [Écritures accélérées pour Apache HBase dans Azure HDInsight](./hbase/apache-hbase-accelerated-writes.md).
 
 #### <a name="custom-ambari-db"></a>Base de données Ambari personnalisée
 
-HDInsight offre désormais une nouvelle capacité pour permettre aux clients d’utiliser leur propre base de données SQL pour Ambari. À présent, les clients peuvent choisir la base de données SQL appropriée pour Ambari et facilement la mettre à niveau en fonction de leurs propres besoins en croissance commerciale. Le déploiement est effectué avec un modèle Azure Resource Manager. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+HDInsight offre désormais une nouvelle capacité pour permettre aux clients d’utiliser leur propre base de données SQL pour Ambari. À présent, les clients peuvent choisir la base de données SQL appropriée pour Ambari et facilement la mettre à niveau en fonction de leurs propres besoins en croissance commerciale. Le déploiement est effectué avec un modèle Azure Resource Manager. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](./hdinsight-custom-ambari-db.md).
 
 #### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>Les machines virtuelles de la série F sont désormais disponibles avec HDInsight
 
-Les machines virtuelles de la série F peuvent être un bon choix pour prendre en main HDInsight avec des exigences de traitement légères. Affichant le coût le plus bas par heure, la série F offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par processeur virtuel. Pour plus d’informations, consultez [Sélection de la taille de machine virtuelle adaptée à votre cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size).
+Les machines virtuelles de la série F peuvent être un bon choix pour prendre en main HDInsight avec des exigences de traitement légères. Affichant le coût le plus bas par heure, la série F offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par processeur virtuel. Pour plus d’informations, consultez [Sélection de la taille de machine virtuelle adaptée à votre cluster Azure HDInsight](./hdinsight-selecting-vm-size.md).
 
 ### <a name="deprecation"></a>Dépréciation
 
@@ -384,7 +384,7 @@ HDInsight fournit un espace disque managé avec le cluster. À partir de cette v
 Les changements suivants se produiront dans les prochaines versions. 
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
-HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de décembre, HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de décembre, HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/overview.md).
 
 #### <a name="hbase-20-to-21"></a>HBase 2.0 à 2.1
 Dans la prochaine version de HDInsight 4.0, la version de HBase sera mise à niveau de la version 2.0 à 2.1.
@@ -396,7 +396,7 @@ Les machines virtuelles de la série A peuvent provoquer des problèmes liés a
 HDInsight continue à améliorer la fiabilité et les performances des clusters. 
 
 ### <a name="component-version-change"></a>Changement de la version des composants
-Il n’y a aucune modification de la version des composants pour cette version. Vous pouvez trouver les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 [ici](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Il n’y a aucune modification de la version des composants pour cette version. Vous pouvez trouver les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 [ici](./hdinsight-component-versioning.md).
 
 
 ## <a name="release-date-08072019"></a>Date de publication : 07/08/2019
@@ -518,17 +518,17 @@ Apache Storm et les services ML ne sont pas disponibles dans HDInsight 4.0.
 
 Les nouvelles mises à jour et fonctionnalités appartiennent aux catégories suivantes :
 
-*  ***Mise à jour de Hadoop et d’autres projets open source*** : en plus des correctifs de bogues, qui se dénombrent à plus de 1 000 dans plus 20 projets open source, cette mise à jour contient une nouvelle version de **Spark (2.3)** et **Kafka (1.0)** .
+*  ***Mise à jour de Hadoop et d’autres projets open source** _ : en plus des correctifs de bogues, qui se dénombrent à plus de 1000 dans plus 20 projets open source, cette mise à jour contient une nouvelle version de _ *Spark (2.3)* et **Kafka (1.0)** .
 
     a.  [**Nouvelles fonctionnalités dans Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
     b.  [**Nouvelles fonctionnalités dans Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***Mise à jour de R Server 9.1 vers Machine Learning Services 9.3*** : avec cette version, nous offrons aux scientifiques des données et aux ingénieurs le meilleur de l’open source qui bénéficie d’innovations algorithmiques et d’une grande facilité d’opérationnisme, le tout disponible dans leur langage préféré avec la vitesse d’Apache Spark. Cette version étend les fonctionnalités offertes par R Server avec l’ajout de la prise en charge de Python, entraînant le remplacement du nom du cluster R Server par ML Services. 
+*  ***Mise à jour de R Server 9.1 vers Machine Learning Services 9.3** _ : avec cette version, nous offrons aux scientifiques des données et aux ingénieurs le meilleur de l’open source qui bénéficie d’innovations algorithmiques et d’une grande facilité d’opérationnalisation, le tout disponible dans leur langage préféré avec la vitesse d’Apache Spark. Cette version étend les fonctionnalités offertes par R Server avec l’ajout de la prise en charge de Python, entraînant le remplacement du nom du cluster R Server par ML Services. 
 
-***Prise en charge d’Azure Data Lake Storage Gen2*** : HDInsight prendra en charge la préversion d’Azure Data Lake Storage Gen2. Dans les régions disponibles, les clients pourront choisir un compte ADLS Gen2 comme magasin principal ou secondaire pour leurs clusters HDInsight.
+_  * **Prise en charge d’Azure Data Lake Storage Gen2** _ : HDInsight prendra en charge la préversion d’Azure Data Lake Storage Gen2. Dans les régions disponibles, les clients pourront choisir un compte ADLS Gen2 comme magasin principal ou secondaire pour leurs clusters HDInsight.
 
-***Mises à jour du Pack Sécurité Entreprise HDInsight (préversion)*** : (préversion) [Les points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) prennent en charge Stockage Blob Azure, ADLS Gen1, Cosmos DB et Azure DB.
+_  * **Mises à jour du Pack Sécurité Entreprise HDInsight (préversion)** _ : (préversion) [Les points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) prennent en charge Stockage Blob Azure, ADLS Gen1, Cosmos DB et Azure DB.
 
 ### <a name="component-versions"></a>Versions des composants
 
@@ -726,7 +726,7 @@ Cette version fournit HBase 1.1.2 et les correctifs Apache suivants.
 
 Cette version fournit Hive 1.2.1 et Hive 2.1.0 en plus des correctifs suivants :
 
-**Correctifs Apache Hive 1.2.1 :**
+_ *Correctifs Apache Hive 1.2.1 :* *
 
 -   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697) : ObjectInspectorConvertors\#UnionConvertor effectue une conversion défectueuse.
 
@@ -1796,7 +1796,7 @@ Les problèmes résolus représentent des problèmes sélectionnés qui ont ét�
 
 ### <a name="known-issues"></a>Problèmes connus
 
-- **Intégration de HDInsight avec ADLS Gen 2** : il existe deux problèmes sur les clusters HDInsight ESP utilisant Azure Data Lake Storage Gen 2 avec les autorisations et répertoires d’utilisateurs :
+- **Intégration de HDInsight avec ADLS Gen 2**  : il existe deux problèmes sur les clusters HDInsight ESP utilisant Azure Data Lake Storage Gen 2 avec les autorisations et répertoires d’utilisateurs :
    
   1. Les répertoires de base pour les utilisateurs ne sont pas créés sur le nœud principal 1. Pour résoudre ce problème, créez les répertoires manuellement et affectez comme propriétaire le nom UPN de l’utilisateur correspondant.
    
@@ -1925,6 +1925,6 @@ Les problèmes résolus représentent des problèmes sélectionnés qui ont ét�
 
 ### <a name="upgrading"></a>Mise à niveau
 
-Toutes ces fonctionnalités sont disponibles dans HDInsight 3.6. Pour obtenir la dernière version de Spark, Kafka et R Server (Machine Learning Services), choisissez la version Spark, Kafka, ML Services quand vous [créez un cluster HDInsight 3.6](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Pour obtenir de l’aide pour ADLS, vous pouvez choisir le type de stockage ADLS comme option. Les clusters existants ne sont pas automatiquement mis à niveau vers ces versions.
+Toutes ces fonctionnalités sont disponibles dans HDInsight 3.6. Pour obtenir la dernière version de Spark, Kafka et R Server (Machine Learning Services), choisissez la version Spark, Kafka, ML Services quand vous [créez un cluster HDInsight 3.6](./hdinsight-hadoop-provision-linux-clusters.md). Pour obtenir de l’aide pour ADLS, vous pouvez choisir le type de stockage ADLS comme option. Les clusters existants ne sont pas automatiquement mis à niveau vers ces versions.
 
-Tous les nouveaux clusters créés après juin 2018 bénéficient automatiquement de plus de 1 000 correctifs de bogues sur tous les projets open source. Suivez [ce](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster) guide pour connaître les bonnes pratiques concernant la mise à niveau vers une version plus récente de HDInsight.
+Tous les nouveaux clusters créés après juin 2018 bénéficient automatiquement de plus de 1 000 correctifs de bogues sur tous les projets open source. Suivez [ce](./hdinsight-upgrade-cluster.md) guide pour connaître les bonnes pratiques concernant la mise à niveau vers une version plus récente de HDInsight.

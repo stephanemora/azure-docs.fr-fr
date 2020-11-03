@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578221"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782227"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
 
@@ -65,7 +65,7 @@ Pour savoir comment configurer le chiffrement du service Stockage Azure avec des
 > [!IMPORTANT]
 > Les clés gérées par le client s’appuient sur des identités managées pour les ressources Azure, une fonctionnalité d’Azure AD. Les identités managées ne prennent actuellement pas en charge les scénarios entre répertoires. Quand vous configurez des clés managées par le client dans le portail Azure, une identité managée est affectée automatiquement à votre compte de stockage dans les coulisses. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le compte de stockage d’un annuaire Azure AD vers un autre, l’identité managée associée au compte de stockage n’est pas transférée vers le nouveau locataire ; les clés managées par le client risquent donc de ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
-Le chiffrement du stockage Azure prend en charge les clés RSA et RSA-HSM dans les tailles 2048, 3072 et 4096. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Le chiffrement du stockage Azure prend en charge les clés RSA et RSA-HSM dans les tailles 2048, 3072 et 4096. Pour plus d’informations sur les clés, consultez [À propos des clés](../../key-vault/keys/about-keys.md).
 
 L’utilisation d’un coffre de clés ou d’un module HSM managé occasionne des coûts. Pour plus d’informations, consultez [Tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -109,7 +109,7 @@ Pour rappeler ces opérations, restaurez l’accès à la clé gérée par le cl
 
 Toutes les opérations de données qui ne sont pas mentionnées dans cette section peuvent se poursuivre après la révocation des clés gérées par le client ou après la suppression ou la désactivation d’une clé.
 
-Pour révoquer l’accès aux clés gérées par le client, utilisez [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) ou [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
+Pour révoquer l’accès aux clés gérées par le client, utilisez [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) ou [Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Clés gérées par le client pour les disques managés Azure
 

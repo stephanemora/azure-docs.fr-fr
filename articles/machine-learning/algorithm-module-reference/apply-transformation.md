@@ -8,25 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898874"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739231"
 ---
 # <a name="apply-transformation-module"></a>Appliquer le module de transformation
 
 Cet article décrit un module dans le concepteur Azure Machine Learning.
 
-Utilisez ce module pour modifier un jeu de données d’entrée en fonction d’une transformation précédemment calculée.
+Utilisez ce module pour modifier un jeu de données d’entrée en fonction d’une transformation précédemment calculée. Ce module est nécessaire si vous devez mettre à jour des transformations dans des pipelines d’inférence.
 
-Par exemple, si vous avez utilisé des scores z pour normaliser vos données de formation à l’aide du module **Normaliser les données**, vous pouvez utiliser la valeur de score z qui a été calculée pour la formation pendant la phase de calcul de score également. Dans Azure Machine Learning, vous pouvez enregistrer la méthode de normalisation en tant que transformation, puis utiliser le module **Appliquer une transformation** pour appliquer le score z aux données d’entrée avant le calcul de score.
+Par exemple, si vous avez utilisé des scores z pour normaliser vos données de formation à l’aide du module **Normaliser les données** , vous pouvez utiliser la valeur de score z qui a été calculée pour la formation pendant la phase de calcul de score également. Dans Azure Machine Learning, vous pouvez enregistrer la méthode de normalisation en tant que transformation, puis utiliser le module **Appliquer une transformation** pour appliquer le score z aux données d’entrée avant le calcul de score.
 
 ## <a name="how-to-save-transformations"></a>Enregistrer des transformations
 
-Le concepteur vous permet d’enregistrer des transformations de données, comme des **jeux de données**, pour vous permettre de les utiliser dans d'autres pipelines.
+Le concepteur vous permet d’enregistrer des transformations de données, comme des **jeux de données** , pour vous permettre de les utiliser dans d'autres pipelines.
 
 1. Sélectionnez un module de transformation de données qui s’est correctement exécuté.
 
@@ -46,7 +46,14 @@ Le concepteur vous permet d’enregistrer des transformations de données, comme
   
 1. Connectez la sortie du jeu de données du module souhaité au port d’entrée droit du module **Appliquer une transformation**.
   
-1. Pour appliquer une transformation au nouveau jeu de données, exécutez le pipeline.  
+1. Pour appliquer une transformation au nouveau jeu de données, envoyez le pipeline.  
+
+> [!IMPORTANT]
+> Pour vous assurer que la transformation mise à jour dans les pipelines d’apprentissage est également réalisable dans les pipelines d’inférence, vous devez suivre les étapes ci-dessous chaque fois qu’une transformation est mise à jour dans le pipeline d’apprentissage :
+> 1. Dans le pipeline d’apprentissage, inscrivez la sortie de la [Transformation de sélection de colonnes](select-columns-transform.md) en tant que jeu de données.
+> ![Inscrire un jeu de données d’une sortie de module](media/module/select-columns-transform-register-dataset.png)
+> 1. Dans le pipeline d’inférence, supprimez le module **TD-** et remplacez-le par le jeu de données inscrit à l’étape précédente.
+> ![Remplacer un module TD](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

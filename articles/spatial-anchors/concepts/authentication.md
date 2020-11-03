@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328536"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516917"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autorisation et authentification auprès d’Azure Spatial Anchors
 
-Dans cet article, vous allez découvrir les différentes façons dont vous pouvez vous authentifier auprès des Azure Spatial Anchors à partir de votre application ou service web. Vous allez également découvrir comment utiliser le contrôle d’accès en fonction du rôle dans Azure Active Directory (Azure AD) pour contrôler l’accès à vos comptes Spatial Anchors.
+Dans cet article, vous allez découvrir les différentes façons dont vous pouvez vous authentifier auprès des Azure Spatial Anchors à partir de votre application ou service web. Vous allez également découvrir comment utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) dans Azure Active Directory (Azure AD) pour contrôler l’accès à vos comptes Spatial Anchors.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -96,28 +96,28 @@ Pour les applications qui ciblent des utilisateurs d’Azure Active Directory, n
 
 **Dans le portail Azure**
 1.    Inscrivez votre application dans Azure AD en tant qu’application native. Dans le cadre de l’inscription, vous devez déterminer si votre application doit être multi-locataire. Vous devez également fournir les URL de redirection autorisées pour votre application.
-1.  Accéder à l’onglet **Autorisations de l’API** .
-2.  Sélectionnez **Ajouter une autorisation** .
-    1.  Sélectionner **Fournisseur de ressources Azure Mixed Reality** dans l’onglet **API utilisées par mon organisation** .
-    2.  Sélectionnez **Autorisations déléguées** .
-    3.  Sélectionnez **mixedreality.signin** sous **mixedreality** .
-    4.  Sélectionnez **Ajouter des autorisations** .
-3.  Sélectionner **Accorder le consentement administrateur** .
+1.  Accéder à l’onglet **Autorisations de l’API**.
+2.  Sélectionnez **Ajouter une autorisation**.
+    1.  Sélectionner **Fournisseur de ressources Azure Mixed Reality** dans l’onglet **API utilisées par mon organisation**.
+    2.  Sélectionnez **Autorisations déléguées**.
+    3.  Sélectionnez **mixedreality.signin** sous **mixedreality**.
+    4.  Sélectionnez **Ajouter des autorisations**.
+3.  Sélectionner **Accorder le consentement administrateur**.
     
 2. Accordez à votre application ou aux utilisateurs l’accès à votre ressource :
    1.    Accédez à votre ressource Spatial Anchors dans le portail Azure.
    2.    Accédez à l’onglet **Contrôle d’accès (IAM)** .
-   3.    Sélectionnez **Ajouter une attribution de rôle** .
-   1.    [Sélectionnez un rôle](#role-based-access-control).
+   3.    Sélectionnez **Ajouter une attribution de rôle**.
+   1.    [Sélectionnez un rôle](#azure-role-based-access-control).
    2.    Dans la zone **Sélectionner** , entrez le nom des utilisateurs, groupes et/ou applications auxquels vous souhaitez accorder l’accès.
-   3.    Sélectionnez **Enregistrer** .
+   3.    Sélectionnez **Enregistrer**.
 
 **Dans votre code**
 1.    Veillez à utiliser l’ID d’application et l’URI de redirection de votre propre application Azure AD comme paramètres d’ **ID client** et d’ **Uri de redirection** dans la bibliothèque MSAL.
 2.    Définissez les informations sur le locataire :
-        1.    Si votre application prend en charge **Mon organisation uniquement** , remplacez cette valeur par l’ **ID de locataire** ou le **Nom du locataire** . Par exemple « contoso.microsoft.com ».
-        2.    Si votre application prend en charge les **comptes dans un annuaire organisationnel** , remplacez cette valeur par **Organizations** .
-        3.    Si votre application prend en charge **Tous les utilisateurs de compte Microsoft** , remplacez cette valeur par **Common** .
+        1.    Si votre application prend en charge **Mon organisation uniquement** , remplacez cette valeur par l’ **ID de locataire** ou le **Nom du locataire**. Par exemple « contoso.microsoft.com ».
+        2.    Si votre application prend en charge les **comptes dans un annuaire organisationnel** , remplacez cette valeur par **Organizations**.
+        3.    Si votre application prend en charge **Tous les utilisateurs de compte Microsoft** , remplacez cette valeur par **Common**.
 3.    Sur votre demande de jeton, définissez l’ **étendue** sur **https://sts.mixedreality.azure.com//.default** . Cette étendue indique à Azure AD que votre application demande un jeton pour le service d’émission de jeton de sécurité (STS) Mixed Reality.
 
 Une fois ces étapes effectuées, votre application devrait être en mesure d’obtenir un jeton Azure AD à partir de MSAL. Vous pouvez définir cette jeton Azure AD comme `authenticationToken` sur votre objet de configuration de session cloud :
@@ -174,21 +174,21 @@ Le jeton d’accès Azure AD est récupéré à l’aide de [MSAL](../../active-
 
 **Dans le portail Azure**
 1.    Inscrivez votre application dans Azure AD :
-        1.    Dans le portail Azure, sélectionnez **Azure Active Directory** , puis **Inscriptions d’applications** .
-        2.    Sélectionnez **Nouvelle inscription** .
+        1.    Dans le portail Azure, sélectionnez **Azure Active Directory** , puis **Inscriptions d’applications**.
+        2.    Sélectionnez **Nouvelle inscription**.
         3.    Entrez le nom de votre application, sélectionnez **Application/API web** comme type d’application, puis entrez l’URL d’authentification pour votre service. Sélectionnez **Create** (Créer).
-4.    Dans cette application, sélectionnez **Paramètres** , puis l’onglet **Certificats et secrets** . Créez une clé secrète client, sélectionnez une durée, puis **Ajouter** . Veillez à enregistrer la valeur secrète. Vous devez l’inclure dans le code de votre service web.
+4.    Dans cette application, sélectionnez **Paramètres** , puis l’onglet **Certificats et secrets**. Créez une clé secrète client, sélectionnez une durée, puis **Ajouter**. Veillez à enregistrer la valeur secrète. Vous devez l’inclure dans le code de votre service web.
 2.    Accordez à votre application et/ou aux utilisateurs l’accès à votre ressource :
         1.    Accédez à votre ressource Spatial Anchors dans le portail Azure.
         2.    Accédez à l’onglet **Contrôle d’accès (IAM)** .
-        3.    Sélectionnez **Ajouter une attribution de rôle** .
-        1.    [Sélectionnez un rôle](#role-based-access-control).
+        3.    Sélectionnez **Ajouter une attribution de rôle**.
+        1.    [Sélectionnez un rôle](#azure-role-based-access-control).
         2.    Dans la zone **Sélectionner** , entrez les noms des applications auxquelles vous souhaitez affecter l’accès. Si vous voulez que les utilisateurs de votre application aient différents rôles sur le compte Spatial Anchors, inscrivez plusieurs applications dans Azure AD et attribuez à chacune un rôle distinct. Ensuite, implémentez votre logique d’autorisation afin d’utiliser le rôle approprié pour vos utilisateurs.
         
               > [!NOTE] 
-              > Dans le volet **Ajouter une attribution de rôle** , dans **Attribuer l’accès à** , sélectionnez **Utilisateur, groupe ou principal de service Azure AD** .
+              > Dans le volet **Ajouter une attribution de rôle** , dans **Attribuer l’accès à** , sélectionnez **Utilisateur, groupe ou principal de service Azure AD**.
     
-      3.    Sélectionnez **Enregistrer** .
+      3.    Sélectionnez **Enregistrer**.
     
 **Dans votre code** 
 
@@ -262,13 +262,13 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
 Pour vous aider à contrôler le niveau d’accès accordé aux applications, services ou utilisateurs Azure AD de votre service, les rôles suivants ont été créés. Vous pouvez affecter ces rôles préexistants en fonction des besoins sur vos comptes Azure Spatial Anchors :
 
-- **Propriétaire de compte Spatial Anchors** . Les applications ou utilisateurs qui détiennent ce rôle peuvent créer des points d’ancrage spatial, les interroger et les supprimer. Quand vous vous authentifiez auprès de votre compte à l’aide de clés de compte, le rôle Propriétaire de compte Points d’ancrage Spatial est attribué au principal authentifié.
-- **Contributeur de compte Spatial Anchors** . Les applications ou utilisateurs qui détiennent ce rôle peuvent créer des points d’ancrage spatial et les interroger, mais ils ne peuvent pas les supprimer.
-- **Lecteur de compte Spatial Anchors** . Les applications ou utilisateurs qui détiennent ce rôle peuvent uniquement interroger les points d’ancrage spatial. Ils ne peuvent pas en créer de nouveaux, en supprimer ou mettre à jour leurs métadonnées. Ce rôle est utilisé généralement pour les applications où certains utilisateurs gèrent l’environnement, mais d’autres peuvent uniquement rappeler les points d’ancrage précédemment placés dans l’environnement.
+- **Propriétaire de compte Spatial Anchors**. Les applications ou utilisateurs qui détiennent ce rôle peuvent créer des points d’ancrage spatial, les interroger et les supprimer. Quand vous vous authentifiez auprès de votre compte à l’aide de clés de compte, le rôle Propriétaire de compte Points d’ancrage Spatial est attribué au principal authentifié.
+- **Contributeur de compte Spatial Anchors**. Les applications ou utilisateurs qui détiennent ce rôle peuvent créer des points d’ancrage spatial et les interroger, mais ils ne peuvent pas les supprimer.
+- **Lecteur de compte Spatial Anchors**. Les applications ou utilisateurs qui détiennent ce rôle peuvent uniquement interroger les points d’ancrage spatial. Ils ne peuvent pas en créer de nouveaux, en supprimer ou mettre à jour leurs métadonnées. Ce rôle est utilisé généralement pour les applications où certains utilisateurs gèrent l’environnement, mais d’autres peuvent uniquement rappeler les points d’ancrage précédemment placés dans l’environnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

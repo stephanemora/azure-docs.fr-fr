@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 4249e7df61c7f1f090b6377114bcab6ce1d40b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619081"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503434"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gérer la conservation des sauvegardes à long terme Azure SQL Managed Instance (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Dans Azure SQL Managed Instance, vous pouvez configurer une stratégie de [conservation des sauvegardes à long terme](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) grâce à une fonctionnalité en préversion publique limitée. Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs de Stockage Blob Azure distincts pendant 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
+Dans Azure SQL Managed Instance, vous pouvez configurer une stratégie de [conservation des sauvegardes à long terme](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) grâce à une fonctionnalité en préversion publique limitée. Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs Stockage Blob Azure distincts pendant 10 ans maximum. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
 
    > [!IMPORTANT]
    > La conservation LTR des instances gérées, actuellement en préversion limitée, est disponible pour les abonnements EA et CSP selon les cas. Pour demander une inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/). Pour le type de problème, sélectionnez « Problème technique », pour le service, choisissez « SQL Database Managed Instance » et pour le type de problème, sélectionnez **Sauvegarde, restauration et continuité d’activité/conservation de sauvegarde à long terme**. Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour Managed Instance.
@@ -30,7 +30,7 @@ Les sections suivantes vous montrent comment utiliser PowerShell pour configurer
 
 ## <a name="azure-roles-to-manage-long-term-retention"></a>Rôles Azure pour gérer la conservation à long terme
 
-Pour **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** et **Restore-AzSqlInstanceDatabase**, vous devez avoir l’un des rôles suivants :
+Pour **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** et **Restore-AzSqlInstanceDatabase** , vous devez avoir l’un des rôles suivants :
 
 - Rôle Propriétaire de l’abonnement
 - Rôle Collaborateur Managed Instance
@@ -39,7 +39,7 @@ Pour **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** et **Restore-AzSqlInst
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-Pour **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, vous devez avoir l’un des rôles suivants :
+Pour **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup** , vous devez avoir l’un des rôles suivants :
 
 - Rôle Propriétaire de l’abonnement
 - Rôle personnalisé avec l’autorisation suivante :
@@ -48,7 +48,7 @@ Pour **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, vous devez avoir l
 > [!NOTE]
 > Le rôle Collaborateur Managed Instance n’a pas l’autorisation de supprimer les sauvegardes LTR.
 
-Les autorisations RBAC peuvent être accordées dans l’étendue de l’*abonnement* ou du *groupe de ressources*. Toutefois, pour accéder aux sauvegardes LTR appartenant à une instance supprimée, il faut accorder l’autorisation dans l’étendue de *l’abonnement* de cette instance.
+Les autorisations RBAC peuvent être accordées dans l’étendue de l’ *abonnement* ou du *groupe de ressources*. Toutefois, pour accéder aux sauvegardes LTR appartenant à une instance supprimée, il faut accorder l’autorisation dans l’étendue de *l’abonnement* de cette instance.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147438"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635896"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -26,9 +26,9 @@ ms.locfileid: "92147438"
 
 L’intégration continue consiste à tester automatiquement et, dès que possible, chaque modification apportée à votre code base.  La livraison continue fait suite au test effectué pendant l’intégration continue, et envoie (push) les modifications à un système de préproduction ou de production.
 
-Dans Azure Data Factory, l’intégration et la livraison continues (CI/CD) impliquent de déplacer des pipelines Data Factory d’un environnement (développement, test, production) vers un autre. Azure Data Factory utilise des [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) pour stocker la configuration de vos diverses entités ADF (pipelines, jeux de données, flux de données, etc.). Deux méthodes sont recommandées pour promouvoir une fabrique de données dans un autre environnement :
+Dans Azure Data Factory, l’intégration et la livraison continues (CI/CD) impliquent de déplacer des pipelines Data Factory d’un environnement (développement, test, production) vers un autre. Azure Data Factory utilise des [modèles Azure Resource Manager](../azure-resource-manager/templates/overview.md) pour stocker la configuration de vos diverses entités ADF (pipelines, jeux de données, flux de données, etc.). Deux méthodes sont recommandées pour promouvoir une fabrique de données dans un autre environnement :
 
--    Déploiement automatisé grâce à l’intégration de Data Factory avec [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
+-    Déploiement automatisé grâce à l’intégration de Data Factory avec [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
 -    Chargement manuel d’un modèle Resource Manager en tirant parti de l’intégration de l’expérience utilisateur de Data Factory avec Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -62,60 +62,60 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
 
 ### <a name="requirements"></a>Spécifications
 
--   Un abonnement Azure lié à Visual Studio Team Foundation Server ou Azure Repos qui utilise le [point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+-   Un abonnement Azure lié à Visual Studio Team Foundation Server ou Azure Repos qui utilise le [point de terminaison de service Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   Une fabrique de données configurée avec l’intégration d’Azure Repos Git.
 
--   Un [coffre de clés Azure](https://azure.microsoft.com/services/key-vault/) contenant les secrets pour chaque environnement.
+-   Un [coffre de clés Azure](https://azure.microsoft.com/services/key-vault/) contenant les secrets pour chaque environnement.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Configurer une version d’Azure Pipelines
 
 1.  Dans [Azure DevOps](https://dev.azure.com/), ouvrez le projet configuré avec votre fabrique de données.
 
-1.  Sur le côté gauche de la page, sélectionnez **Pipelines** , puis sélectionnez **Versions** .
+1.  Sur le côté gauche de la page, sélectionnez **Pipelines** , puis sélectionnez **Versions**.
 
     ![Sélectionner Pipelines, Versions](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Sélectionnez **Nouveau pipeline** ou, si vous avez des pipelines existants, sélectionnez **Nouveau** puis **Nouveau pipeline de mise en production** .
+1.  Sélectionnez **Nouveau pipeline** ou, si vous avez des pipelines existants, sélectionnez **Nouveau** puis **Nouveau pipeline de mise en production**.
 
-1.  Sélectionnez le modèle **Tâche vide** .
+1.  Sélectionnez le modèle **Tâche vide**.
 
     ![Sélectionner Projet vide](media/continuous-integration-deployment/continuous-integration-image13.png)
 
 1.  Dans la zone **Nom de la phase** , entrez le nom de votre environnement.
 
-1.  Sélectionnez **Ajouter un artefact** , puis choisissez le dépôt Git configuré avec votre fabrique de données de développement. Sélectionnez la [branche de publication](source-control.md#configure-publishing-settings) du dépôt comme **branche par défaut** . Par défaut, cette branche de publication est `adf_publish`. Pour **Version par défaut** , sélectionnez **La dernière de la branche par défaut** .
+1.  Sélectionnez **Ajouter un artefact** , puis choisissez le dépôt Git configuré avec votre fabrique de données de développement. Sélectionnez la [branche de publication](source-control.md#configure-publishing-settings) du dépôt comme **branche par défaut**. Par défaut, cette branche de publication est `adf_publish`. Pour **Version par défaut** , sélectionnez **La dernière de la branche par défaut**.
 
     ![Ajouter un artefact](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Ajoutez une tâche de déploiement Azure Resource Manager :
 
-    a.  Dans la vue des phases, sélectionnez **Afficher les tâches de phase** .
+    a.  Dans la vue des phases, sélectionnez **Afficher les tâches de phase**.
 
     ![Vue des phases](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Créer une tâche. Recherchez **Déploiement de modèles ARM** , puis sélectionnez **Ajouter** .
+    b.  Créer une tâche. Recherchez **Déploiement de modèles ARM** , puis sélectionnez **Ajouter**.
 
     c.  Dans la tâche Déploiement, sélectionnez l’abonnement, le groupe de ressources et l’emplacement de la fabrique de données cible. Fournissez les informations d’identification si nécessaire.
 
-    d.  Dans la liste **Actions** , sélectionnez **Créer ou mettre à jour un groupe de ressources** .
+    d.  Dans la liste **Actions** , sélectionnez **Créer ou mettre à jour un groupe de ressources**.
 
-    e.  Sélectionnez le bouton de sélection ( **…** ) en regard de la zone **Modèle** . Recherchez le modèle Azure Resource Manager généré dans votre branche de publication du dépôt Git configuré. Recherchez le fichier `ARMTemplateForFactory.json` dans le dossier <FactoryName> de la branche adf_publish.
+    e.  Sélectionnez le bouton de sélection ( **…** ) en regard de la zone **Modèle**. Recherchez le modèle Azure Resource Manager généré dans votre branche de publication du dépôt Git configuré. Recherchez le fichier `ARMTemplateForFactory.json` dans le dossier <FactoryName> de la branche adf_publish.
 
     f.  Sélectionnez **…** en regard de la zone **Paramètres du modèle** pour choisir le fichier de paramètres. Recherchez le fichier `ARMTemplateParametersForFactory.json` dans le dossier <FactoryName> de la branche adf_publish.
 
     g.  Sélectionnez **…** en regard de la zone **Remplacer les paramètres du modèle** et entrez les valeurs de paramètre souhaitées pour la fabrique de données cible. Pour les informations d’identification provenant d’Azure Key Vault, entrez le nom du secret entre guillemets doubles. Par exemple, si le nom du secret est cred1, entrez **"$(cred1)"** pour cette valeur.
 
-    h. Sélectionnez **Incrémentiel** comme **Mode de déploiement** .
+    h. Sélectionnez **Incrémentiel** comme **Mode de déploiement**.
 
     > [!WARNING]
-    > En mode de déploiement complet, les ressources présentes dans le groupe de ressources mais pas spécifiées dans le modèle Resource Manager sont **supprimées** . Pour plus d’informations, consultez [Modes de déploiement Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
+    > En mode de déploiement complet, les ressources présentes dans le groupe de ressources mais pas spécifiées dans le modèle Resource Manager sont **supprimées**. Pour plus d’informations, consultez [Modes de déploiement Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
 
     ![Déploiement en production de Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Enregistrez le pipeline de mise en production.
 
-1. Pour déclencher une mise en production, sélectionnez **Créer une mise en production** . Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops).
+1. Pour déclencher une mise en production, sélectionnez **Créer une mise en production**. Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops).
 
    ![Sélectionner Créer une mise en production](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -151,7 +151,7 @@ Il existe deux moyens de gérer les secrets :
 
     Le fichier de paramètres doit également être dans la branche de publication.
 
-1. Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) avant la tâche de déploiement d’Azure Resource Manager décrite dans la section précédente :
+1. Ajoutez une [tâche Azure Key Vault](/azure/devops/pipelines/tasks/deploy/azure-key-vault) avant la tâche de déploiement d’Azure Resource Manager décrite dans la section précédente :
 
     1.  Dans l’onglet **Tâches** , créez une nouvelle tâche. Recherchez **Azure Key Vault** et ajoutez-le.
 
@@ -167,7 +167,7 @@ La tâche Azure Key Vault peut échouer avec une erreur d’accès refusé si le
 
 Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs actifs. Pour mettre à jour les déclencheurs actifs, vous devez les arrêter manuellement puis les redémarrer après le déploiement. Vous pouvez le faire à l’aide d’une tâche Azure PowerShell :
 
-1.  Dans l’onglet **Tâches** de la version, ajoutez une tâche **Azure Powershell** . Choisissez une tâche de version 4.*. 
+1.  Dans l’onglet **Tâches** de la version, ajoutez une tâche **Azure Powershell**. Choisissez une tâche de version 4.*. 
 
 1.  Sélectionnez l’abonnement dans lequel se trouve votre fabrique.
 
@@ -189,7 +189,7 @@ L’équipe Data Factory a fourni un [exemple de script de pré-déploiement et 
 
    ![Exporter un modèle Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. Dans vos fabriques de données de test et de production, sélectionnez **Importer un modèle ARM** . Cette action ouvre le portail Azure, dans lequel vous pouvez importer le modèle exporté. Sélectionnez **Créer votre propre modèle dans l’éditeur** pour ouvrir l’éditeur de modèle Resource Manager.
+1. Dans vos fabriques de données de test et de production, sélectionnez **Importer un modèle ARM**. Cette action ouvre le portail Azure, dans lequel vous pouvez importer le modèle exporté. Sélectionnez **Créer votre propre modèle dans l’éditeur** pour ouvrir l’éditeur de modèle Resource Manager.
 
    ![Créer votre propre modèle](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
@@ -225,17 +225,17 @@ Lors de l’exportation d’un modèle Resource Manager, Data Factory lit ce fic
 
 ### <a name="custom-parameter-syntax"></a>Syntaxe de paramètre personnalisé
 
-Vous trouverez ci-dessous quelques recommandations à suivre lorsque vous créez le fichier de paramètres personnalisés **arm-template-parameters-definition.json** . Le fichier comprend une section pour chaque type d’entité : déclencheur, pipeline, service lié, jeu de données, runtime d’intégration et flux de données.
+Vous trouverez ci-dessous quelques recommandations à suivre lorsque vous créez le fichier de paramètres personnalisés **arm-template-parameters-definition.json**. Le fichier comprend une section pour chaque type d’entité : déclencheur, pipeline, service lié, jeu de données, runtime d’intégration et flux de données.
 
 * Entrez le chemin d’accès de propriété sous le type d’entité correspondant.
-* Définir un nom de propriété sur `*` indique que vous souhaitez paramétrer toutes les propriétés dans celle-ci (uniquement jusqu’au premier niveau, pas de manière récursive). Vous pouvez également fournir des exceptions à cette configuration.
-* Définir la valeur d’une propriété sous forme de chaîne indique que vous souhaitez paramétrer la propriété. Utilisez le format  `<action>:<name>:<stype>`.
-   *  `<action>` peut être l’un des caractères suivants :
-      * `=` permet de conserver la valeur actuelle en tant que valeur par défaut pour le paramètre.
-      * `-` permet de ne pas conserver la valeur par défaut pour le paramètre.
-      * `|` est un cas particulier pour les secrets Azure Key Vault pour les chaînes de connexion ou les clés.
-   * `<name>` correspond au nom du paramètre. S’il est vide, il prend le nom du Si la valeur commence par un caractère `-`, le nom est abrégé. Par exemple, `AzureStorage1_properties_typeProperties_connectionString` serait abrégé en `AzureStorage1_connectionString`.
-   * `<stype>` correspond au type de paramètre. Si  `<stype>`  est vide, le type par défaut est `string`. Valeurs prises en charge : `string`, `bool`, `number`, `object` et `securestring`.
+* Définir un nom de propriété sur `*` indique que vous souhaitez paramétrer toutes les propriétés dans celle-ci (uniquement jusqu’au premier niveau, pas de manière récursive). Vous pouvez également fournir des exceptions à cette configuration.
+* Définir la valeur d’une propriété sous forme de chaîne indique que vous souhaitez paramétrer la propriété. Utilisez le format `<action>:<name>:<stype>`.
+   *  `<action>` peut être l’un des caractères suivants :
+      * `=` permet de conserver la valeur actuelle en tant que valeur par défaut pour le paramètre.
+      * `-` permet de ne pas conserver la valeur par défaut pour le paramètre.
+      * `|` est un cas particulier pour les secrets Azure Key Vault pour les chaînes de connexion ou les clés.
+   * `<name>` correspond au nom du paramètre. S’il est vide, il prend le nom du Si la valeur commence par un caractère `-`, le nom est abrégé. Par exemple, `AzureStorage1_properties_typeProperties_connectionString` serait abrégé en `AzureStorage1_connectionString`.
+   * `<stype>` correspond au type de paramètre. Si `<stype>` est vide, le type par défaut est `string`. Valeurs prises en charge : `string`, `bool`, `number`, `object` et `securestring`.
 * La spécification d’un tableau dans le fichier de définition indique que la propriété correspondante dans le modèle est un tableau. Data Factory effectue une itération sur tous les objets du tableau en utilisant la définition spécifiée dans l’objet de runtime d’intégration du tableau. Le second objet, une chaîne, correspond alors au nom de la propriété et sert de nom au paramètre pour chaque itération.
 * Une définition ne peut pas être spécifique à une instance de ressource. Toute définition s’applique à toutes les ressources de ce type.
 * Par défaut, toutes les chaînes sécurisées, telles que les secrets Key Vault, et les chaînes sécurisées, telles que les chaînes de connexion, les clés et les jetons, sont paramétrables.
@@ -603,11 +603,11 @@ Si vous avez configuré Git, les modèles liés sont générés et enregistrés 
 
 Les modèles Resource Manager liés sont généralement composés d’un modèle maître et d’un ensemble de modèles enfants liés au maître. Le modèle parent est appelé ArmTemplate_master.json et les modèles enfants sont nommés selon le modèle ArmTemplate_0.json, ArmTemplate_1.json, etc. 
 
-Pour utiliser des modèles liés à la place du modèle Resource Manager complet, mettez à jour votre tâche CI/CD de manière à pointer vers ArmTemplate_master.json plutôt que vers ArmTemplateForFactory.json (modèle Resource Manager complet). Resource Manager exige également que vous chargiez les modèles liés dans un compte de stockage pour qu’Azure puisse y accéder pendant le déploiement. Pour plus d’informations, consultez [Deploying linked Resource Manager templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (Déploiement de modèles Resource Manager liés avec VSTS).
+Pour utiliser des modèles liés à la place du modèle Resource Manager complet, mettez à jour votre tâche CI/CD de manière à pointer vers ArmTemplate_master.json plutôt que vers ArmTemplateForFactory.json (modèle Resource Manager complet). Resource Manager exige également que vous chargiez les modèles liés dans un compte de stockage pour qu’Azure puisse y accéder pendant le déploiement. Pour plus d’informations, consultez [Deploying linked Resource Manager templates with VSTS](/archive/blogs/najib/deploying-linked-arm-templates-with-vsts) (Déploiement de modèles Resource Manager liés avec VSTS).
 
 N’oubliez pas d’ajouter les scripts Data Factory dans votre pipeline CI/CD avant et après la tâche de déploiement.
 
-Si vous n’avez pas configuré Git, vous pouvez accéder aux modèles liés via **Exporter le modèle ARM** dans la liste **Modèle ARM** .
+Si vous n’avez pas configuré Git, vous pouvez accéder aux modèles liés via **Exporter le modèle ARM** dans la liste **Modèle ARM**.
 
 ## <a name="hotfix-production-environment"></a>Environnement de production de correctif logiciel
 
@@ -637,15 +637,15 @@ Si vous déployez une fabrique en production et détectez un bogue qui doit êtr
 
 Si vous utilisez une intégration Git avec votre fabrique de données, et disposez d’un pipeline CI/CD qui déplace vos modifications du développement aux tests, puis en production, nous vous recommandons les bonnes pratiques suivantes :
 
--   **Intégration Git** . Configurez uniquement votre fabrique de données de développement avec l’intégration Git. Les modifications au niveau des tests et de la production sont déployées via CI/CD et ne nécessitent pas d’intégration Git.
+-   **Intégration Git**. Configurez uniquement votre fabrique de données de développement avec l’intégration Git. Les modifications au niveau des tests et de la production sont déployées via CI/CD et ne nécessitent pas d’intégration Git.
 
--   **Script de pré-déploiement et de post-déploiement** . Avant l’étape de déploiement Resource Manager dans CI/CD, vous devez effectuer certaines tâches, telles que l’arrêt et le redémarrage des déclencheurs, et le nettoyage. Nous vous recommandons d’utiliser des scripts PowerShell avant et après la tâche de déploiement. Pour plus d’informations, consultez [Mettre à jour des déclencheurs actifs](#updating-active-triggers). L’équipe Data Factory a [fourni un script](#script) à utiliser, qui se trouve en bas de cette page.
+-   **Script de pré-déploiement et de post-déploiement**. Avant l’étape de déploiement Resource Manager dans CI/CD, vous devez effectuer certaines tâches, telles que l’arrêt et le redémarrage des déclencheurs, et le nettoyage. Nous vous recommandons d’utiliser des scripts PowerShell avant et après la tâche de déploiement. Pour plus d’informations, consultez [Mettre à jour des déclencheurs actifs](#updating-active-triggers). L’équipe Data Factory a [fourni un script](#script) à utiliser, qui se trouve en bas de cette page.
 
--   **Runtimes d’intégration et partage** . Les runtimes d’intégration ne changent pas souvent et sont similaires dans toutes les phases de CI/CD. Ainsi, Data Factory s’attend à ce que vous ayez le même nom et le même type de runtime d’intégration dans toutes les phases de CI/CD. Si vous voulez partager les runtimes d’intégration dans toutes les phases, envisagez d’utiliser une fabrique ternaire qui contiendra uniquement les runtimes d’intégration partagés. Vous pouvez utiliser cette fabrique partagée dans tous vos environnements en tant que type de runtime d’intégration lié.
+-   **Runtimes d’intégration et partage**. Les runtimes d’intégration ne changent pas souvent et sont similaires dans toutes les phases de CI/CD. Ainsi, Data Factory s’attend à ce que vous ayez le même nom et le même type de runtime d’intégration dans toutes les phases de CI/CD. Si vous voulez partager les runtimes d’intégration dans toutes les phases, envisagez d’utiliser une fabrique ternaire qui contiendra uniquement les runtimes d’intégration partagés. Vous pouvez utiliser cette fabrique partagée dans tous vos environnements en tant que type de runtime d’intégration lié.
 
--   **Déploiement du point de terminaison privé managé** . Si un point de terminaison privé existe déjà dans une fabrique et que vous essayez de déployer un modèle ARM qui contient un point de terminaison privé portant le même nom mais dont les propriétés sont modifiées, le déploiement échoue. En d’autres termes, vous pouvez déployer avec succès un point de terminaison privé, à condition qu’il ait les mêmes propriétés que celui qui existe déjà dans la fabrique. Si une propriété est différente d’un environnement à un autre, vous pouvez la remplacer en paramétrant cette propriété et en fournissant la valeur correspondante pendant le déploiement.
+-   **Déploiement du point de terminaison privé managé**. Si un point de terminaison privé existe déjà dans une fabrique et que vous essayez de déployer un modèle ARM qui contient un point de terminaison privé portant le même nom mais dont les propriétés sont modifiées, le déploiement échoue. En d’autres termes, vous pouvez déployer avec succès un point de terminaison privé, à condition qu’il ait les mêmes propriétés que celui qui existe déjà dans la fabrique. Si une propriété est différente d’un environnement à un autre, vous pouvez la remplacer en paramétrant cette propriété et en fournissant la valeur correspondante pendant le déploiement.
 
--   **Key Vault** . Lorsque vous utilisez des services liés dont les informations de connexion sont stockées dans Azure Key Vault, il est recommandé de conserver des coffres de clés distincts pour les différents environnements. Vous pouvez également configurer des niveaux d’autorisation distincts pour chaque coffre de clés. Par exemple, vous ne souhaitez peut-être pas que les membres de votre équipe disposent d’autorisations sur les secrets de production. Si vous suivez cette approche, nous vous recommandons de conserver les mêmes noms de secrets dans toutes les phases. Si vous conservez les mêmes noms secrets, vous n’avez pas besoin de paramétrer chaque chaîne de connexion dans les environnements d’intégration et de livraison continues, car la seule chose qui change est le nom du coffre de clés, qui est un paramètre distinct.
+-   **Key Vault**. Lorsque vous utilisez des services liés dont les informations de connexion sont stockées dans Azure Key Vault, il est recommandé de conserver des coffres de clés distincts pour les différents environnements. Vous pouvez également configurer des niveaux d’autorisation distincts pour chaque coffre de clés. Par exemple, vous ne souhaitez peut-être pas que les membres de votre équipe disposent d’autorisations sur les secrets de production. Si vous suivez cette approche, nous vous recommandons de conserver les mêmes noms de secrets dans toutes les phases. Si vous conservez les mêmes noms secrets, vous n’avez pas besoin de paramétrer chaque chaîne de connexion dans les environnements d’intégration et de livraison continues, car la seule chose qui change est le nom du coffre de clés, qui est un paramètre distinct.
 
 -  **Nommage des ressources** En raison de contraintes liées au modèle ARM, des problèmes de déploiement peuvent survenir si le nom de vos ressources contient des espaces. L’équipe Azure Data Factory recommande d’utiliser des caractères « _ » ou « - » au lieu d’espaces dans les noms de ressources. Par exemple, le nom « Pipeline_1 » est préférable à « Pipeline 1 ».
 
@@ -666,12 +666,12 @@ Si vous utilisez une intégration Git avec votre fabrique de données, et dispos
 
 L’exemple de script suivant peut être utilisé pour arrêter les déclencheurs avant le déploiement, et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées. Enregistrez le script dans un dépôt git Azure DevOps et référencez-le par le biais d’une tâche Azure PowerShell à l’aide de la version 4.*.
 
-Lors de l’exécution d’un script de prédéploiement, vous devez spécifier une variation des paramètres suivants dans le champ **Arguments de script** .
+Lors de l’exécution d’un script de prédéploiement, vous devez spécifier une variation des paramètres suivants dans le champ **Arguments de script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-Lors de l’exécution d’un script de post-déploiement, vous devez spécifier une variation des paramètres suivants dans le champ **Arguments de script** .
+Lors de l’exécution d’un script de post-déploiement, vous devez spécifier une variation des paramètres suivants dans le champ **Arguments de script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 

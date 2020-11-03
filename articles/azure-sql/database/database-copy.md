@@ -4,19 +4,19 @@ description: Créez une copie cohérente au niveau transactionnel d’une base d
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7a80f6ef918ac42f43eee2ccc8acae09c5008129
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124393"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748884"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -43,7 +43,7 @@ Si vous utilisez des connexions au niveau du serveur pour l'accès aux données 
 
 ## <a name="copy-using-the-azure-portal"></a>Copier à l’aide du Portail Azure
 
-Pour copier une base de données à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Copier** .
+Pour copier une base de données à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Copier**.
 
    ![Copie de base de données](./media/database-copy/database-copy.png)
 
@@ -82,7 +82,7 @@ La copie de la base de données est une opération asynchrone, mais la base de d
 
 Connectez-vous à la base de données master à l’aide de la connexion de l’administrateur du serveur ou la connexion qui a créé la base de données que vous souhaitez copier. Pour que la copie de la base de données réussisse, les connexions autres que celle de l’administrateur du serveur doivent être membres du rôle `dbmanager`. Pour plus d’informations sur les connexions et la connexion au serveur, consultez la page [Gérer les connexions](logins-create-manage.md).
 
-Démarrez la copie de la base de données source avec l’instruction [CREATE DATABASE ... AS COPY OF](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database). L’instruction T-SQL continue de fonctionner jusqu'à ce que l'opération de copie de la base de données soit terminée.
+Démarrez la copie de la base de données source avec l’instruction [CREATE DATABASE ... AS COPY OF](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database). L’instruction T-SQL continue de fonctionner jusqu'à ce que l'opération de copie de la base de données soit terminée.
 
 > [!NOTE]
 > L’arrêt de l’instruction T-SQL ne met pas fin à l'opération de copie de la base de données. Pour mettre fin à l'opération, supprimez la base de données cible.
@@ -100,6 +100,21 @@ Cette commande copie Database1 dans une nouvelle base de données nommée Databa
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
+
+### <a name="copy-to-an-elastic-pool"></a>Copier dans un pool élastique
+
+Connectez-vous à la base de données master à l’aide de la connexion de l’administrateur du serveur ou la connexion qui a créé la base de données que vous souhaitez copier. Pour que la copie de la base de données réussisse, les connexions autres que celle de l’administrateur du serveur doivent être membres du rôle `dbmanager`.
+
+Cette commande copie Database1 dans une nouvelle base de données nommée Database2 dans un pool élastique nommé pool1. Selon la taille de votre base de données, l'opération de copie peut prendre plus ou moins longtemps.
+
+Database1 peut être une base de données unique ou mise en pool. La copie entre différents pools de niveaux est prise en charge, mais certaines copies interniveaux échoueront. Par exemple, vous pouvez copier une base de donnée Standard unique ou élastique dans un pool à usage général, mais vous ne pouvez pas copier une base de donnée élastique Standard dans un pool Premium. 
+
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE "Database2"
+   AS COPY OF "Database1"
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
    ```
 
 ### <a name="copy-to-a-different-server"></a>Copier sur un autre serveur
@@ -128,13 +143,13 @@ Vous pouvez utiliser les étapes décrites dans la section [Copier SQL Database 
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 
-Contrôlez le processus de copie en interrogeant les vues [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) et [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Pendant que la copie est en cours, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **COPYING** .
+Contrôlez le processus de copie en interrogeant les vues [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) et [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Pendant que la copie est en cours, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **COPYING**.
 
-* Si la copie échoue, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **SUSPECT** . Exécutez l'instruction DROP sur la nouvelle base de données et réessayez ultérieurement.
-* Si la copie réussit, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **ONLINE** . La copie est terminée et la nouvelle base de données est une base de données normale, qui peut être modifiée indépendamment de la base de données source.
+* Si la copie échoue, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **SUSPECT**. Exécutez l'instruction DROP sur la nouvelle base de données et réessayez ultérieurement.
+* Si la copie réussit, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **ONLINE**. La copie est terminée et la nouvelle base de données est une base de données normale, qui peut être modifiée indépendamment de la base de données source.
 
 > [!NOTE]
-> Si vous décidez d’annuler la copie pendant qu’elle est en cours, exécutez l’instruction [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) sur la nouvelle base de données.
+> Si vous décidez d’annuler la copie pendant qu’elle est en cours, exécutez l’instruction [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) sur la nouvelle base de données.
 
 > [!IMPORTANT]
 > Si vous devez créer une copie avec un objectif de service beaucoup plus petit que la source, la base de données cible peut ne pas disposer de ressources suffisantes pour terminer le processus d’amorçage et peut entraîner l’échec de l’opération de copie. Dans ce scénario, utilisez une requête de géorestauration pour créer une copie sur un autre serveur et/ou dans une autre région. Consultez [Récupérer Azure SQL Database à l’aide de sauvegardes de bases de connées](recovery-using-backups.md#geo-restore) pour en savoir plus.
@@ -167,7 +182,7 @@ Si vous voulez voir les opérations en cours de déploiement dans le groupe de r
 
 ## <a name="resolve-logins"></a>Résolution des connexions
 
-Une fois que la nouvelle base de données est en ligne sur le serveur cible, utilisez l'instruction [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) pour remapper les utilisateurs de la nouvelle base de données avec des connexions sur le serveur cible. Pour résoudre les problèmes d’utilisateurs orphelins, consultez [Dépannage des utilisateurs orphelins](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Vous pouvez également consulter [Comment gérer la sécurité d’Azure SQL Database après une récupération d'urgence](active-geo-replication-security-configure.md).
+Une fois que la nouvelle base de données est en ligne sur le serveur cible, utilisez l'instruction [ALTER USER](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) pour remapper les utilisateurs de la nouvelle base de données avec des connexions sur le serveur cible. Pour résoudre les problèmes d’utilisateurs orphelins, consultez [Dépannage des utilisateurs orphelins](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Vous pouvez également consulter [Comment gérer la sécurité d’Azure SQL Database après une récupération d'urgence](active-geo-replication-security-configure.md).
 
 Tous les utilisateurs de la nouvelle base de données conservent les autorisations qu’ils avaient dans la base de données source. L'utilisateur qui a initié la copie de la base de données devient le propriétaire de celle-ci. Une fois la copie réussie et avant que les autres utilisateurs ne soient remappés, seul le propriétaire de la base de données peut se connecter à la nouvelle base de données.
 

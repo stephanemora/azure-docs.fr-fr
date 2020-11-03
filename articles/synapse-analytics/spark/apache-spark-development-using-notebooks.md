@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893082"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738741"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio (préversion) dans Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Cet article explique comment utiliser des blocs-notes dans Azure Synapse Studio.
 
 ## <a name="create-a-notebook"></a>Créer un notebook
 
-Il existe deux façons de créer un bloc-notes. Vous pouvez créer un bloc-notes ou en importer un dans un espace de travail Azure Synapse à partir de l’**Explorateur d’objets**. Les blocs-notes Azure Synapse Studio peuvent reconnaître des fichiers IPYNB de bloc-notes Jupyter standard.
+Il existe deux façons de créer un bloc-notes. Vous pouvez créer un bloc-notes ou en importer un dans un espace de travail Azure Synapse à partir de l’ **Explorateur d’objets**. Les blocs-notes Azure Synapse Studio peuvent reconnaître des fichiers IPYNB de bloc-notes Jupyter standard.
 
 ![créer un notebook d’importation](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
@@ -44,7 +44,7 @@ Les blocs-notes sont constitués de cellules qui sont des blocs individuels de c
 
 Il existe plusieurs façons d’ajouter une cellule à un bloc-notes.
 
-1. Développez le bouton supérieur gauche **+ Cellule**, puis sélectionnez **Ajouter une cellule de code** ou **Ajouter une cellule de texte**.
+1. Développez le bouton supérieur gauche **+ Cellule** , puis sélectionnez **Ajouter une cellule de code** ou **Ajouter une cellule de texte**.
 
     ![ajouter-cellule-avec-bouton-cellule](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
@@ -78,7 +78,7 @@ Vous pouvez utiliser plusieurs langages dans un même bloc-notes en spécifiant 
 |%%sql| SparkSQL | Exécuter une requête **SparkSQL** sur du contexte Spark.  |
 |%%csharp | .NET pour Spark C# | Exécutez une requête **.NET pour Spark C#** sur du contexte Spark. |
 
-L’image suivante illustre la façon d’écrire une requête PySpark avec la commande magic **%%PySpark**, ou une requête SparkSQL avec la commande magic **%%sql** dans un bloc-notes **Spark(Scala)** . Notez que le langage principal du notebook est défini sur pySpark.
+L’image suivante illustre la façon d’écrire une requête PySpark avec la commande magic **%%PySpark** , ou une requête SparkSQL avec la commande magic **%%sql** dans un bloc-notes **Spark(Scala)** . Notez que le langage principal du notebook est défini sur pySpark.
 
    ![Synapse Commandes magic Spark](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
@@ -283,7 +283,7 @@ La sortie des commandes magic **%%sql** s’affiche par défaut dans l’afficha
 
 ### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualiser les graphiques intégrés d’un jeu de données à grande échelle 
 
-Par défaut, la fonction <code>display(df)</code> prend uniquement les 1 000 premières lignes de données pour afficher les graphiques. Vérifiez l’**agrégation par rapport à tous les résultats** et sélectionnez le bouton **Appliquer**, vous allez appliquer la génération de graphique depuis le jeu de données complet. Un travail Spark est déclenché lorsque le paramètre de graphique change, le calcul et l’affichage du graphique prennent un certain temps. 
+Par défaut, la fonction <code>display(df)</code> prend uniquement les 1 000 premières lignes de données pour afficher les graphiques. Vérifiez l’ **agrégation par rapport à tous les résultats** et sélectionnez le bouton **Appliquer** , vous allez appliquer la génération de graphique depuis le jeu de données complet. Un travail Spark est déclenché lorsque le paramètre de graphique change, le calcul et l’affichage du graphique prennent un certain temps. 
     [![builtin-charts-aggregation-all](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
@@ -294,7 +294,7 @@ Vous pouvez utiliser <code>display(df, summary = True)</code> pour vérifier le 
 
 ### <a name="render-html-or-interactive-libraries"></a>Afficher des bibliothèques HTML ou interactives
 
-Vous pouvez restituer du code HTML, notamment, des bibliothèques JavaScript, CSS, D3 ou interactives telles que **bokeh**, en utilisant la commande **displayHTML()** .
+Vous pouvez restituer du code HTML, notamment, des bibliothèques JavaScript, CSS, D3 ou interactives telles que **bokeh** , en utilisant la commande **displayHTML()** .
 
 L’image suivante est un exemple de traçage de glyphes sur une carte en utilisant **bokeh**.
 
@@ -357,7 +357,7 @@ Commandes magic de ligne disponibles : [%lsmagic](https://ipython.readthedocs.i
 Commandes magic de cellule disponibles : [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>Orchestrer le notebook
+## <a name="integrate-a-notebook"></a>Intégrer un notebook
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Ajouter un notebook à un pipeline
 

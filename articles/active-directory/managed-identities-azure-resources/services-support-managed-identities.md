@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072167"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426438"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -41,6 +41,16 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 - [Modèle Azure Resource Manager](../../api-management/api-management-howto-use-managed-service-identity.md)
 
+### <a name="azure-app-configuration"></a>Azure App Configuration
+
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check]  | Non disponible  | Non disponible |
+
+Reportez-vous à la liste suivante pour configurer l’identité managée d’Azure App Configuration (dans les régions où il est disponible) :
+
+- [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
 
 ### <a name="azure-app-service"></a>Azure App Service
 

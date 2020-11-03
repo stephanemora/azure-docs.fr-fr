@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802394"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496082"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostiquer et résoudre les problèmes liés à des exceptions introuvables Azure Cosmos DB
 Le code d’état HTTP 404 indique que la ressource n’existe plus.
@@ -28,7 +28,7 @@ Il existe plusieurs instances de client SDK et la lecture a eu lieu avant l’é
 
 #### <a name="solution"></a>Solution :
 1. La cohérence de compte par défaut pour Azure Cosmos DB est la cohérence de session. Lorsqu’un élément est créé ou mis à jour, la réponse retourne un jeton de session qui peut être transmis entre les instances de SDK pour garantir que la demande de lecture lit à partir d’un réplica avec cette modification.
-1. Affectez au [niveau de cohérence](consistency-levels-choosing.md) un [niveau plus fort](consistency-levels-tradeoffs.md).
+1. Affectez au [niveau de cohérence](./consistency-levels.md) un [niveau plus fort](./consistency-levels.md).
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Combinaison de la clé de partition et de l’ID non valide
 La combinaison de la clé de partition et de l’ID n’est pas valide.
@@ -37,7 +37,7 @@ La combinaison de la clé de partition et de l’ID n’est pas valide.
 Corrigez la logique d’application qui provoque la combinaison incorrecte. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Caractère non valide dans un ID d’élément
-Un élément est inséré dans Azure Cosmos DB avec un [caractère non valide](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) dans l’ID d’élément.
+Un élément est inséré dans Azure Cosmos DB avec un [caractère non valide](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) dans l’ID d’élément.
 
 #### <a name="solution"></a>Solution :
 Remplacez l’ID par une valeur différente qui ne contient pas les caractères spéciaux. S’il n’est pas possible de modifier l’ID, vous pouvez l’encoder au format Base64 pour placer les caractères spéciaux dans une séquence d’échappement.
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Suppression définitive de la durée de vie
-La propriété [Durée de vie](https://docs.microsoft.com/azure/cosmos-db/time-to-live) a été définie pour l’élément. L’élément a été supprimé définitivement, car la propriété Durée de vie a expiré.
+La propriété [Durée de vie](./time-to-live.md) a été définie pour l’élément. L’élément a été supprimé définitivement, car la propriété Durée de vie a expiré.
 
 #### <a name="solution"></a>Solution :
 Modifiez la propriété Durée de vie pour empêcher la suppression définitive de l’élément.
@@ -94,11 +94,11 @@ Attendez que l’indexation soit à jour ou modifiez la stratégie d’indexatio
 La base de données ou le conteneur dans lequel se trouve l’élément a été supprimé.
 
 #### <a name="solution"></a>Solution :
-1. [Restaurez](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) la ressource parente ou recréez les ressources.
+1. [Restaurez](./online-backup-and-restore.md#request-data-restore-from-a-backup) la ressource parente ou recréez les ressources.
 1. Créez une ressource pour remplacer la ressource supprimée.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. Les noms de conteneur/collection sont sensibles à la casse
-Les noms de conteneur/collection sont sensibles à la casse dans Cosmos DB.
+Les noms de conteneur/collection respectent la casse dans Cosmos DB.
 
 #### <a name="solution"></a>Solution :
 Veillez à utiliser le nom exact lors de la connexion à Cosmos DB.

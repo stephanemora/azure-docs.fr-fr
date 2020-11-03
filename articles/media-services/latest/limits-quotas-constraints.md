@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ca7a444f2a3d4babe220548edb10bd37784be7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265488"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678114"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quotas et limites d'Azure Media Services
@@ -32,7 +32,7 @@ Cet article répertorie quelques-unes des limites les plus courantes de Microsof
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| [Comptes Media Services](media-services-account-concept.md) dans le cadre d'un même abonnement | 25 (fixe) |
+| [Comptes Media Services](media-services-account-concept.md) dans le cadre d'un même abonnement | 100 (fixe) |
 
 ## <a name="asset-limits"></a>Limites relatives aux ressources
 
@@ -90,7 +90,7 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| [Points de terminaison de streaming](streaming-endpoint-concept.md) (arrêtés ou en cours d'exécution) par compte Media Services|2 |
+| [Points de terminaison de streaming](streaming-endpoint-concept.md) (arrêtés ou en cours d'exécution) par compte Media Services | 2 |
 | Unités de streaming Premium | 10 |
 | [Filtres de manifeste dynamique](filters-dynamic-manifest-overview.md)|100|
 | [Stratégies de diffusion en continu](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
@@ -102,9 +102,9 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 
 ## <a name="protection-limits"></a>Limites relatives à la protection
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
-| Options par [stratégie de clé de contenu](content-key-policy-concept.md) |30 | 
+| Ressource | Limite par défaut |
+| --- | --- |
+| Options par [stratégie de clé de contenu](content-key-policy-concept.md) |30 |
 | Licences par mois pour chacun des types de DRM sur le service de remise de clé Media Services par compte|1 000 000|
 
 ## <a name="support-ticket"></a>Ticket de support

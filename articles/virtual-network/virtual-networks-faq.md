@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d676d891683cc11dd8c1999c26464373d17e97be
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932020"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518005"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -267,11 +267,11 @@ Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion e
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer le peering de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
 Oui. Il est possible d’établir un peering de réseau virtuel (local ou global) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via le portail, PowerShell ou Azure CLI.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion de peering de réseau est à l’état *initié*, pourquoi ne puis-je pas me connecter ?
-Si votre connexion de peering est dans un état *Initiée*, cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion réussie. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté*.
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion de peering de réseau est à l’état *initié* , pourquoi ne puis-je pas me connecter ?
+Si votre connexion de peering est dans un état *Initiée* , cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion réussie. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté*.
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Ma connexion de peering VNet se trouve dans l’état *Déconnecté*, pourquoi ne puis-je pas créer une connexion de peering ?
-Si votre connexion de peering VNet se trouve dans un état *Déconnecté*, cela signifie qu’un des liens créés a été supprimé. Pour rétablir une connexion de peering, vous devrez supprimer le lien et le créer de nouveau.
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Ma connexion de peering VNet se trouve dans l’état *Déconnecté* , pourquoi ne puis-je pas créer une connexion de peering ?
+Si votre connexion de peering VNet se trouve dans un état *Déconnecté* , cela signifie qu’un des liens créés a été supprimé. Pour rétablir une connexion de peering, vous devrez supprimer le lien et le créer de nouveau.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Puis-je homologuer mon réseau virtuel avec un réseau virtuel dans un autre abonnement ?
 Oui. Vous pouvez homologuer des réseaux virtuels entre des abonnements et régions.
@@ -283,9 +283,9 @@ Non. Les espaces d’adresses ne doivent pas se chevaucher pour pouvoir activer 
 Il n’existe aucun frais pour créer une connexion de peering de réseau virtuel. Le transfert de données entre des connexions de peering est facturé. [Voir ici](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Le trafic de peering de réseau virtuel est-il chiffré ?
-Non. Le trafic entre des ressources des réseaux virtuels homologués est privé et isolé. Il reste entièrement sur le Microsoft Backbone.
+Lorsque le trafic Azure se déplace entre des centres de données (hors limites physiques non contrôlées par Microsoft ou pour le compte de Microsoft), [le chiffrement de la couche de liaison de données MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) est utilisé sur le matériel réseau sous-jacent.  Cela s’applique au trafic de peering de réseaux virtuels.
 
-### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Pourquoi ma connexion de peering est-elle dans un état *Déconnecté* ?
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Pourquoi ma connexion de peering est-elle dans un état *Déconnecté*  ?
 Les connexions de peering de réseau virtuel passent à l’état *Déconnecté* lorsqu’un lien de peering de réseau virtuel est supprimé. Vous devez supprimer les deux liens pour pouvoir rétablir une connexion de peering.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si j’effectue une homologation entre VNetA et VNetB, et que je dois également le faire entre VNetB et VNetC, cela signifie-il que VNetA et VNetC sont homologués ?
@@ -326,12 +326,12 @@ La sécurisation d’une ressource de service Azure avec des points de terminais
 1. Activez les points de terminaison du service Azure.
 2. Configurez les ACL de réseau virtuel sur le service Azure.
 
-La première étape est une opération qui s’effectue côté réseau et la deuxième côté ressources de service. Ces deux étapes peuvent être effectuées par le même administrateur ou par des administrateurs différents en fonction des autorisations RBAC accordées au rôle d’administrateur. Nous vous recommandons d’activer les points de terminaison de service pour votre réseau virtuel avant de configurer les ACL du réseau virtuel côté service Azure. Ces étapes doivent donc être effectuées dans l’ordre indiqué ci-dessus pour configurer les points de terminaison de service de réseau virtuel.
+La première étape est une opération qui s’effectue côté réseau et la deuxième côté ressources de service. Ces deux étapes peuvent être effectuées par le même administrateur ou par des administrateurs différents en fonction des autorisations Azure RBAC accordées au rôle d’administrateur. Nous vous recommandons d’activer les points de terminaison de service pour votre réseau virtuel avant de configurer les ACL du réseau virtuel côté service Azure. Ces étapes doivent donc être effectuées dans l’ordre indiqué ci-dessus pour configurer les points de terminaison de service de réseau virtuel.
 
 >[!NOTE]
 > Vous ne pouvez pas limiter l’accès au service Azure au réseau virtuel et sous-réseau autorisés avant d’avoir effectué les deux opérations ci-dessus. La simple activation des points de terminaison du service Azure côté réseau ne vous permet pas de définir un accès limité. En outre, vous devez également configurer les ACL du réseau virtuel côté service Azure.
 
-Certains services (comme SQL et CosmosDB) autorisent des exceptions à la séquence ci-dessus avec l’indicateur **IgnoreMissingVnetServiceEndpoint**. Une fois l’indicateur défini sur **True**, les ACL du réseau virtuel peuvent être définies côté service Azure avant la configuration des points de terminaison de service côté réseau. Les services Azure fournissent cet indicateur pour aider les clients lorsque des pare-feu IP spécifiques sont configurés sur les services Azure et que l’activation des points de terminaison de service côté réseau peut entraîner une baisse de connectivité, car l’adresse IP source passe d’une adresse IPv4 publique à une adresse privée. La configuration des ACL du réseau virtuel sur le service Azure avant la définition des points de terminaison de service côté réseau peut éviter une baisse de connectivité.
+Certains services (comme SQL et CosmosDB) autorisent des exceptions à la séquence ci-dessus avec l’indicateur **IgnoreMissingVnetServiceEndpoint**. Une fois l’indicateur défini sur **True** , les ACL du réseau virtuel peuvent être définies côté service Azure avant la configuration des points de terminaison de service côté réseau. Les services Azure fournissent cet indicateur pour aider les clients lorsque des pare-feu IP spécifiques sont configurés sur les services Azure et que l’activation des points de terminaison de service côté réseau peut entraîner une baisse de connectivité, car l’adresse IP source passe d’une adresse IPv4 publique à une adresse privée. La configuration des ACL du réseau virtuel sur le service Azure avant la définition des points de terminaison de service côté réseau peut éviter une baisse de connectivité.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Tous les services Azure résident-ils sur le réseau virtuel Azure fourni par le client ? Comment le point de terminaison de service du réseau virtuel fonctionne-t-il avec les services Azure ?
 

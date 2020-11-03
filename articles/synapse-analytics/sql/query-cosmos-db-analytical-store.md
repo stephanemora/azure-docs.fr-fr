@@ -9,20 +9,23 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122719"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737835"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Interroger des données d’Azure Cosmos DB avec un pool SQL serverless dans Azure Synapse Link (préversion)
 
-Un pool Synapse SQL serverless (précédemment SQL serverless) vous permet d’analyser les données de vos conteneurs Azure Cosmos DB activés avec [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) en quasi-temps réel sans affecter les performances de vos charges de travail transactionnelles. Il offre une syntaxe T-SQL familière pour interroger les données du [magasin analytique](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), et une connectivité intégrée à un vaste éventail d’outils décisionnels et d’interrogation ad hoc via l’interface T-SQL.
+Un pool Synapse SQL serverless vous permet d’analyser les données figurant dans vos conteneurs Azure Cosmos DB activés avec [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) en quasi-temps réel, sans que cela affecte les performances de vos charges de travail transactionnelles. Il offre une syntaxe T-SQL familière pour interroger les données du [magasin analytique](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), et une connectivité intégrée à un vaste éventail d’outils décisionnels et d’interrogation ad hoc via l’interface T-SQL.
 
 Pour l’interrogation d’Azure Cosmos DB, tout la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) est prise en charge via la fonction [OPENROWSET](develop-openrowset.md), y compris la majorité des [fonctions et opérateurs SQL](overview-features.md). Vous pouvez également stocker les résultats de la requête qui lit des données d’Azure Cosmos DB ainsi que des données du Stockage Blob Azure ou d’Azure Data Lake Storage à l’aide de la commande [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). Actuellement, vous ne pouvez pas stocker les résultats d’une requête de pool SQL serverless dans Azure Cosmos DB à l’aide de [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless, qui interrogera les données de conteneurs Azure Cosmos DB pour lesquels la fonctionnalité Synapse Link est activée. [Ce tutoriel](./tutorial-data-analyst.md) fournit également des informations supplémentaires sur la création de vues de pool SQL serverless sur des conteneurs Azure Cosmos DB, et leur connexion à des modèles Power BI. 
+
+> [!IMPORTANT]
+> Ce tutoriel utilise un conteneur avec un [schéma bien défini Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). L’expérience de requête qu’offre un pool SQL serverless pour un [schéma de fidélité optimale Azure Cosmos DB](#full-fidelity-schema) est un comportement temporaire qui sera modifié en fonction des commentaires sur la préversion. Ne vous fiez pas au schéma du jeu de résultats de la fonction `OPENROWSET` sans la clause `WITH` qui lit les données d’un conteneur avec un schéma de fidélité optimale, car l’expérience de requête pourrait être modifiée et alignée avec un schéma bien défini. Publiez vos commentaires sur le [Forum des commentaires Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics), ou contactez l’[équipe produit Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) pour leur en faire part.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -73,7 +76,15 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-Dans l’exemple ci-dessus, nous donnons pour instruction à un pool SQL serverless de se connecter à la base de données `covid` dans un compte Azure Cosmos DB `MyCosmosDbAccount` authentifié à l’aide de la clé Azure Cosmos DB (factice dans l’exemple ci-dessus). Nous accédons ensuite au magasin analytique `EcdcCases` du conteneur dans la région `West US 2`. Étant donné qu’il n’y a aucune projection de propriétés spécifiques, la fonction `OPENROWSET` retourne toutes les propriétés des éléments d’Azure Cosmos DB.
+Dans l’exemple ci-dessus, nous donnons pour instruction à un pool SQL serverless de se connecter à la base de données `covid` dans un compte Azure Cosmos DB `MyCosmosDbAccount` authentifié à l’aide de la clé Azure Cosmos DB (factice dans l’exemple ci-dessus). Nous accédons ensuite au magasin analytique `EcdcCases` du conteneur dans la région `West US 2`. Étant donné qu’il n’y a aucune projection de propriétés spécifiques, la fonction `OPENROWSET` retourne toutes les propriétés des éléments d’Azure Cosmos DB. 
+
+En supposant que les éléments se trouvant dans le conteneur Cosmos DB aient les propriétés `date_rep`, `cases` et `geo_id`, les résultats de cette requête figurent dans le tableau suivant :
+
+| date_rep | cas | geo_id |
+| --- | --- | --- |
+| 2020-08-13 | 254 | RS |
+| 2020-08-12 | 235 | RS |
+| 2020-08-11 | 163 | RS |
 
 Si vous devez explorer les données de l’autre conteneur dans la même base de données Azure Cosmos DB, vous pouvez utiliser la même chaîne de connexion et le conteneur de référence requis comme troisième paramètre :
 
@@ -178,7 +189,6 @@ Apprenez-en davantage sur l’analyse des [types de données complexes dans Syna
 > Si vous voyez des caractères inattendus dans votre texte, par exemple `MÃƒÂ©lade` au lieu de `Mélade`, cela signifie que votre classement de base de données n’est pas défini sur le classement [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8). 
 > [Remplacez le classement de la base de données](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) par un classement UTF8 à l’aide d’une instruction SQL telle que `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
-
 ## <a name="flattening-nested-arrays"></a>Aplatissement de tableaux imbriqués
 
 Il se peut que les données Azure Cosmos DB comprennent des sous-tableaux imbriqués tels que le tableau d’auteurs du jeu de données [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
@@ -253,12 +263,83 @@ Les comptes Azure Cosmos DB de l’API SQL (Core) prennent en charge les types d
 | Null | `any SQL type` 
 | Objet ou tableau imbriqués | varchar(max) (classement de base de données UTF8), sérialisé en tant que texte JSON |
 
+## <a name="full-fidelity-schema"></a>Schéma de fidélité optimale
+
+Le schéma de fidélité optimale Azure Cosmos DB enregistre les valeurs et leurs meilleurs types de correspondance pour chaque propriété au sein d’un conteneur.
+La fonction `OPENROWSET` sur un conteneur avec un schéma de fidélité optimale fournit le type et la valeur réelle dans chaque cellule. Supposons que la requête suivante lit les éléments d’un conteneur avec un schéma de fidélité optimale :
+
+```sql
+SELECT *
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) as rows
+```
+
+Le résultat de cette requête renvoie des types et des valeurs au format de texte JSON : 
+
+| date_rep | cas | geo_id |
+| --- | --- | --- |
+| {"date":"2020-08-13"} | {"int32":"254"} | {"string":"RS"} |
+| {"date":"2020-08-12"} | {"int32":"235"}| {"string":"RS"} |
+| {"date":"2020-08-11"} | {"int32":"316"} | {"string":"RS"} |
+| {"date":"2020-08-10"} | {"int32":"281"} | {"string":"RS"} |
+| {"date":"2020-08-09"} | {"int32":"295"} | {"string":"RS"} |
+| {"string":"2020/08/08"} | {"int32":"312"} | {"string":"RS"} |
+| {"date":"2020-08-07"} | {"float64":"339.0"} | {"string":"RS"} |
+
+Pour chaque valeur, vous pouvez voir le type identifié dans l’élément de conteneur Cosmos DB. La plupart des valeurs pour la propriété `date_rep` sont des valeurs `date`, mais certaines sont stockées de manière incorrecte en tant que chaînes (string) dans Cosmos DB. Le schéma de fidélité optimale retourne les valeurs `date` correctement typées et les valeurs `string` mises en forme de manière incorrecte.
+Le nombre de cas est une information stockée en tant que valeur `int32`, mais il existe une valeur entrée sous la forme d’un nombre décimal. Cette valeur a le type `float64`. Si certaines valeurs dépassent le plus grand nombre `int32`, elles sont stockées en tant que type `int64`. Toutes les valeurs `geo_id` de cet exemple sont stockées en tant que types `string`.
+
+> [!IMPORTANT]
+> La fonction `OPENROWSET` sans la clause `WITH` expose les valeurs avec les types attendus et les valeurs dont les types sont incorrectement entrés. Cette fonction est conçue pour l’exploration de données, non pour la création de rapports. N’analysez pas les valeurs JSON retournées par cette fonction pour créer des rapports, et utilisez une [clause WITH](#querying-items-with-full-fidelity-schema) explicite pour créer vos rapports.
+> Vous devez nettoyer les valeurs dont les types sont incorrects dans un conteneur Azure Cosmos DB pour appliquer une correction dans un magasin analytique de fidélité optimale. 
+
 Pour interroger des comptes Azure Cosmos DB du type d’API Mongo DB, apprenez-en davantage sur la représentation du schéma de fidélité optimale dans le magasin analytique, et sur les noms de propriétés étendues à utiliser [ici](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+### <a name="querying-items-with-full-fidelity-schema"></a>Interrogation d’éléments avec un schéma de fidélité optimale
+
+Lors de l’interrogation du schéma de fidélité optimale, vous devez spécifier explicitement le type SQL et le type de propriété Cosmos DB attendu dans une clause `WITH`. N’utilisez pas la fonction `OPENROWSET` sans clause `WITH` dans les rapports, car le format du jeu de résultats pourrait être modifié dans la préversion résultant des commentaires.
+
+Dans l’exemple suivant, nous supposons que le type `string` est correct pour la propriété `geo_id`, et que le type `int32` est correct pour la propriété `cases`:
+
+```sql
+SELECT geo_id, cases = SUM(cases)
+FROM OPENROWSET(
+      'CosmosDB'
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
+             cases INT '$.cases.int32'
+    ) as rows
+GROUP BY geo_id
+```
+
+Des valeurs `geo_id` et `cases` d’autres types sont retournées en tant que valeurs de `NULL`. Cette requête fait référence uniquement aux `cases` avec le type spécifié dans l’expression (`cases.int32`).
+
+Si vous avez des valeurs avec d’autres types (`cases.int64`, `cases.float64`) qui ne peuvent pas être nettoyées dans le conteneur Cosmos DB, vous devez les référencer explicitement dans une clause `WITH` et combiner les résultats. La requête suivante agrège les valeurs `int32`, `int64` et `float64` stockées dans la colonne `cases`:
+
+```sql
+SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
+             cases_int INT '$.cases.int32',
+             cases_bigint BIGINT '$.cases.int64',
+             cases_float FLOAT '$.cases.float64'
+    ) as rows
+GROUP BY geo_id
+```
+
+Dans cet exemple, le nombre de cas est stocké sous la forme de valeurs `int32`, `int64` ou `float64` qui doivent toutes être extraites pour calculer le nombre de cas par pays. 
 
 ## <a name="known-issues"></a>Problèmes connus
 
 - L’alias **DOIT** être spécifié après la fonction `OPENROWSET` (par exemple, `OPENROWSET (...) AS function_alias`). L’omission de l’alias peut entraîner un problème de connexion, et le point de terminaison Synapse serverless SQL risque d’être temporairement indisponible. Ce problème sera résolu en novembre 2020.
-- Le pool Synapse serverless SQL ne prend actuellement pas en charge le [schéma de fidélité complète Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). Utilisez un pool serverless SQL uniquement pour accéder à un schéma bien défini Cosmos DB.
+- L’expérience de requête qu’offre un pool SQL serverless pour un [schéma de fidélité optimale Azure Cosmos DB](#full-fidelity-schema) est un comportement temporaire qui sera modifié en fonction des commentaires sur la préversion. Ne vous fiez pas au schéma que la fonction `OPENROWSET` sans clause `WITH` fournit pendant la période de préversion publique, car l’expérience de requête pourrait être alignée avec un schéma bien défini en fonction des commentaires des clients. Contactez l’[équipe produit Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) pour lui faire part de vos commentaires.
 
 Les erreurs possibles et les actions de résolution des problèmes sont répertoriées dans le tableau suivant :
 
@@ -277,5 +358,6 @@ Vous pouvez nous faire part de vos suggestions et signaler des problèmes dans l
 
 Pour plus d’informations, consultez les articles suivants :
 
+- [Utiliser Power BI et un pool Synapse SQL serverless avec Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [Comment créer et utiliser des vues dans SQL à la demande](create-use-views.md) 
 - [Tutoriel sur la création de vues SQL à la demande sur Azure Cosmos DB et leur connexion à des modèles Power BI via DirectQuery](./tutorial-data-analyst.md)

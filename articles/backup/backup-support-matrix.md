@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332710"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743120"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -151,7 +151,7 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Oui.   Prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Ensemble des régions publiques Azure et des clouds souverains.  |
-| SQL /SAP HANA | Oui                                                          | USA Ouest 2 (WUS2), USA Centre-Ouest (WCUS), Canada Centre (CNC), Canada Est (CNE), USA Est (EUS), USA Ouest (WUS), Japon Est (JPE) |
+| SQL /SAP HANA | Oui                                                          | Toutes les régions publiques, sauf la France |
 | Agent MARS/En local  | Non                                                           | N/A               |
 | AFS (partages de fichiers Azure)                 | Non                                                           | N/A               |
 

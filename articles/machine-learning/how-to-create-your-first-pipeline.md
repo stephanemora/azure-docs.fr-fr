@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 8/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 9bfec8c1da0581fa7f17dd671358218f22c877c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6cbda4067e98c16ea26f3436b5f65e696549462
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708473"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370302"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
@@ -110,7 +110,7 @@ output_data1 = PipelineData(
 ## <a name="set-up-a-compute-target"></a>Configurer une cible de calcul
 
 
-Dans Azure Machine Learning, le __calcul__ (ou la __cible de calcul__) fait référence aux machines ou aux clusters qui effectuent les étapes de calculs de votre pipeline Machine Learning.   Consultez [Cibles de calcul pour effectuer l’entraînement des modèles](concept-compute-target.md#train) pour obtenir la liste complète des cibles de calcul et [Créer des cibles de calcul](how-to-create-attach-compute-studio.md) pour savoir comment les créer et les joindre à votre espace de travail.   Le processus de création et/ou d’attachement d’une cible de calcul est le même, qu’il s’agisse d’effectuer l’apprentissage d’un modèle ou d’exécuter une étape de pipeline. Une fois que vous avez créé et joint votre cible de calcul, utilisez l’objet `ComputeTarget` dans votre [étape de pipeline](#steps).
+Dans Azure Machine Learning, le __calcul__ (ou la __cible de calcul__ ) fait référence aux machines ou aux clusters qui effectuent les étapes de calculs de votre pipeline Machine Learning.   Consultez [Cibles de calcul pour effectuer l’entraînement des modèles](concept-compute-target.md#train) pour obtenir la liste complète des cibles de calcul et [Créer des cibles de calcul](how-to-create-attach-compute-studio.md) pour savoir comment les créer et les joindre à votre espace de travail.   Le processus de création et/ou d’attachement d’une cible de calcul est le même, qu’il s’agisse d’effectuer l’apprentissage d’un modèle ou d’exécuter une étape de pipeline. Une fois que vous avez créé et joint votre cible de calcul, utilisez l’objet `ComputeTarget` dans votre [étape de pipeline](#steps).
 
 > [!IMPORTANT]
 > L’exécution d’opérations de gestion sur les cibles de calcul n’est pas prise en charge au sein des travaux distants. Les pipelines de Machine Learning étant envoyés sous forme de travail distant, n’effectuez pas d’opérations de gestion sur les cibles de calcul au sein du pipeline.
@@ -251,6 +251,18 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Fonctionnement des environnements Python avec les paramètres de pipeline
+
+Comme indiqué précédemment dans [Configurer l’environnement d’exécution de la formation](#configure-the-training-runs-environment), l’état de l’environnement et les dépendances de la bibliothèque Python sont spécifiés à l’aide d’un objet `Environment`. En règle générale, vous pouvez spécifier un(e) `Environment` existant(e) en faisant référence à son nom et, éventuellement, à une version :
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+Toutefois, si vous choisissez d’utiliser des objets `PipelineParameter` pour définir dynamiquement des variables au moment de l’exécution pour vos étapes de pipeline, vous ne pouvez pas utiliser cette technique pour faire référence à un(e) `Environment`existant(e). Au lieu de cela, si vous souhaitez utiliser des objets `PipelineParameter`, vous devez définir le champ `environment` du/de la `RunConfiguration` sur un objet `Environment`. Il vous incombe de vous assurer que ce/cette `Environment` a ses dépendances sur les packages Python externes correctement définis.
+
 ### <a name="use-a-dataset"></a>Utiliser un jeu de données 
 
 Les jeux de données créés depuis Stockage Blob Azure, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database et Azure Database pour PostgreSQL peuvent être utilisés comme entrée pour n'importe quelle étape de pipeline. Vous pouvez écrire la sortie dans un objet [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true) ou [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true), ou si vous souhaitez écrire les données dans un magasin de données spécifique, utilisez [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true). 
@@ -337,6 +349,8 @@ Lorsque vous exécutez un pipeline pour la première fois, Azure Machine Learnin
 ![Diagramme d’exécution d’une expérience en tant que pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 Pour plus d’informations, consultez la référence [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) (Classe Experiment).
+
+## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Utiliser les paramètres de pipeline pour les arguments qui changent au temps de l’inférence
 
 ## <a name="view-results-of-a-pipeline"></a>Afficher les résultats d’un pipeline
 

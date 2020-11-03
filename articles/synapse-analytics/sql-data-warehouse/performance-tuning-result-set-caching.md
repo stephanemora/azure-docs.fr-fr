@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362263"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541279"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Optimisation des performances avec la mise en cache des jeux de résultats
 
@@ -36,11 +36,15 @@ Quand la mise en cache du jeu de résultats est activée, Synapse SQL met automa
 
 Une fois la mise en cache du jeu de résultats activée pour une base de données, les résultats sont mis en cache pour toutes les requêtes jusqu’à ce que le cache soit plein, à l’exception des requêtes suivantes :
 
-- Requêtes utilisant des fonctions non déterministes telles que DateTime.Now()
+- Requêtes avec fonctions intégrées ou expressions de runtime qui ne sont pas déterministes même en l’absence de modification des données ou de la requête des tables de base. Par exemple, DateTime.Now(), GetDate()
 - Requêtes utilisant des fonctions définies par l’utilisateur
 - Requêtes utilisant des tables avec une sécurité au niveau des lignes ou une sécurité au niveau des colonnes activée
 - Requêtes qui retournent des données avec une taille de ligne supérieure à 64 Ko
 - Les requêtes retournent des données volumineuses (>10 Go) 
+>[!NOTE]
+> - Certaines fonctions non déterministes et expressions de runtime peuvent être déterministes pour les requêtes répétitives sur les mêmes données. Par exemple, ROW_NUMBER ().  
+> - Utilisez ORDER BY dans votre requête si l’ordre/la séquence de lignes dans le jeu de résultats de la requête sont importants pour votre logique d’application.
+> - Si les données dans les colonnes ORDER BY ne sont pas uniques, il n’y a pas d’ordre garanti pour les lignes ayant les mêmes valeurs dans les colonnes ORDER BY, que la mise en cache du jeu de résultats soit activée ou non.
 
 > [!IMPORTANT]
 > Les opérations de création d’un cache de jeu de résultats et de récupération des données à partir du cache ont lieu sur le nœud de contrôle d’une instance de pool SQL Synapse.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570375"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670109"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Vue d’ensemble des clés de stratégie dans Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C) stocke les secrets et les certificats 
 > [!NOTE]
 > Actuellement, la configuration des clés de stratégie est limitée aux [stratégies personnalisées](active-directory-b2c-get-started-custom.md) uniquement.
 
-Vous pouvez configurer des secrets et des certificats pour établir la confiance entre les services dans le portail Azure, sous le menu **Clés de stratégie**. Les clés peuvent être symétriques ou asymétriques. Le chiffrement *symétrique*, ou chiffrement à clé privée, consiste à utiliser un secret partagé est utilisé pour chiffrer et déchiffrer les données. Le chiffrement *asymétrique*, ou chiffrement à clé publique, est un système de chiffrement qui utilise des paires de clés, composées de clés publiques partagées avec l’application par partie de confiance et des clés privées connues uniquement d’Azure AD B2C.
+Vous pouvez configurer des secrets et des certificats pour établir la confiance entre les services dans le portail Azure, sous le menu **Clés de stratégie**. Les clés peuvent être symétriques ou asymétriques. Le chiffrement *symétrique* , ou chiffrement à clé privée, consiste à utiliser un secret partagé est utilisé pour chiffrer et déchiffrer les données. Le chiffrement *asymétrique* , ou chiffrement à clé publique, est un système de chiffrement qui utilise des paires de clés, composées de clés publiques partagées avec l’application par partie de confiance et des clés privées connues uniquement d’Azure AD B2C.
 
 ## <a name="policy-keyset-and-keys"></a>Clés et jeu de clés de stratégie
 
@@ -46,11 +46,11 @@ Nous vous recommandons de définir les valeurs d’activation et d’expiration 
 
 Pour créer une clé, vous pouvez choisir l’une des méthodes suivantes :
 
-- **Manuelle** : crée un secret avec une chaîne que vous définissez. Le secret est une clé symétrique. Vous pouvez définir les dates d’activation et d’expiration.
-- **Générée** : génère automatiquement une clé. Vous pouvez définir les dates d’activation et d’expiration. Nous avons deux options :
-  - **Secret** : génère une clé symétrique.
-  - **RSA** : génère une paire de clés (clés asymétriques).
-- **Charger** : charge un certificat ou une clé PKCS12. Le certificat doit contenir les clés privées et publiques (clés asymétriques).
+- **Manuelle**  : crée un secret avec une chaîne que vous définissez. Le secret est une clé symétrique. Vous pouvez définir les dates d’activation et d’expiration.
+- **Générée**  : génère automatiquement une clé. Vous pouvez définir les dates d’activation et d’expiration. Nous avons deux options :
+  - **Secret**  : génère une clé symétrique.
+  - **RSA**  : génère une paire de clés (clés asymétriques).
+- **Charger**  : charge un certificat ou une clé PKCS12. Le certificat doit contenir les clés privées et publiques (clés asymétriques).
 
 ## <a name="key-rollover"></a>Substitution de clé
 
@@ -74,10 +74,17 @@ Pour ajouter ou supprimer des clés de signature et de chiffrement :
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-1. Dans la page de vue d’ensemble, sous **Stratégies**, sélectionnez **Identity Experience Framework**.
+1. Dans la page de vue d’ensemble, sous **Stratégies** , sélectionnez **Identity Experience Framework**.
 1. Sélectionner **Clés de stratégie** 
     1. Pour ajouter une nouvelle clé, sélectionnez **Ajouter**.
     1. Pour supprimer une nouvelle clé, sélectionnez la clé, puis sélectionnez **Supprimer**. Pour supprimer la clé, saisissez le nom du conteneur de clés à supprimer. Azure AD B2C supprimera la clé et créera une copie de la clé avec le suffixe .bak.
+
+### <a name="replace-a-key"></a>Remplacer une clé
+
+Les clés d’un jeu de clés ne sont pas remplaçables ni amovibles. Si vous avez besoin de modifier une clé existante :
+
+- Nous vous recommandons d’ajouter une nouvelle clé avec la **date d’activation** définie sur la date et l’heure actuelles. Azure AD B2C activera la nouvelle clé et cessera d’utiliser la clé active précédente.
+- Vous pouvez également créer un nouveau jeu de clés avec les clés appropriées. Mettez à jour votre stratégie pour utiliser le nouveau jeu de clés, puis supprimez l’ancien jeu de clés. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: ef53fc3de87eeaa41d3859fd8b10dd3cc942afc7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057533"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547212"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
 
@@ -29,44 +29,53 @@ Le type et la fréquence de sauvegarde dépendent du stockage back-end pour les 
 
 #### <a name="basic-storage-servers"></a>Serveurs de stockage de base
 
-Le stockage De base est le stockage back-end qui prend en charge les [serveurs de niveau De base](concepts-pricing-tiers.md). Les sauvegardes sur les serveurs de stockage de base sont basées sur des captures instantanées. Une capture instantanée de base de données complète est effectuée quotidiennement. Aucune sauvegarde différentielle n’est effectuée pour les serveurs de stockage de base, et toutes les sauvegardes de captures instantanées sont uniquement des sauvegardes complètes de base de données. 
+Le stockage De base est le stockage back-end qui prend en charge les [serveurs de niveau De base](concepts-pricing-tiers.md). Les sauvegardes sur les serveurs de stockage de base sont basées sur des captures instantanées. Une capture instantanée de base de données complète est effectuée quotidiennement. Aucune sauvegarde différentielle n’est effectuée pour les serveurs de stockage de base, et toutes les sauvegardes de captures instantanées sont uniquement des sauvegardes complètes de base de données.
 
-Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. 
+Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes.
 
 #### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Serveurs de stockage à usage général jusqu’à 4 To de stockage
 
-Le stockage à usage général est le stockage back-end qui prend en charge les serveurs de niveau [Usage général](concepts-pricing-tiers.md) et [Mémoire optimisée](concepts-pricing-tiers.md). Pour les serveurs avec un stockage à usage général jusqu’à 4 To, les sauvegardes complètes se produisent une fois par semaine. Les sauvegardes différentielles se produisent deux fois par jour. Les sauvegardes de fichier journal se produisent toutes les cinq minutes. Les sauvegardes sur un stockage à usage général jusqu’à 4 To ne sont pas basées sur des captures instantanées et consomment de la bande passante en E/S. Pour les grandes bases de données (> 1 To) sur un stockage de 4 To, nous vous recommandons d’envisager : 
+Le stockage à usage général est le stockage back-end qui prend en charge les serveurs de niveau [Usage général](concepts-pricing-tiers.md) et [Mémoire optimisée](concepts-pricing-tiers.md). Pour les serveurs avec un stockage à usage général jusqu’à 4 To, les sauvegardes complètes se produisent une fois par semaine. Les sauvegardes différentielles se produisent deux fois par jour. Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. Les sauvegardes sur un stockage à usage général jusqu’à 4 To ne sont pas basées sur des captures instantanées et consomment de la bande passante en E/S. Pour les grandes bases de données (>1 To) sur un stockage de 4 To, nous vous recommandons d’envisager :
 
 - Le provisionnement de plus d’IOPS pour prendre en compte les E/S des sauvegardes OU
-- Une migration vers un stockage à usage général qui prend en charge jusqu’à 16 To de stockage si l’infrastructure de stockage sous-jacente est disponible dans vos [régions Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) favorites. Il n’existe aucun coût supplémentaire pour le stockage à usage général qui prend en charge jusqu’à 16 To de stockage. Pour obtenir de l’aide sur la migration vers un stockage de 16 To, veuillez ouvrir un ticket de support à partir du portail Azure. 
+- Une migration vers un stockage à usage général qui prend en charge jusqu’à 16 To de stockage si l’infrastructure de stockage sous-jacente est disponible dans vos [régions Azure](./concepts-pricing-tiers.md#storage) favorites. Il n’existe aucun coût supplémentaire pour le stockage à usage général qui prend en charge jusqu’à 16 To de stockage. Pour obtenir de l’aide sur la migration vers un stockage de 16 To, veuillez ouvrir un ticket de support à partir du portail Azure.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serveurs de stockage à usage général avec un stockage jusqu’à 16 To
-Dans un sous-ensemble de [régions Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), tous les serveurs nouvellement provisionnés peuvent prendre en charge jusqu’à 16 To de stockage à usage général. En d’autres termes, le stockage jusqu’à 16 To est le stockage à usage général par défaut pour toutes les [régions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) où il est pris en charge. Les sauvegardes sur ces serveurs de stockage de 16 To sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement. 
 
-Les sauvegardes de captures instantanées différentielles se produisent au moins une fois par jour. Les sauvegardes de captures instantanées différentielles ne se produisent pas selon une planification fixe. Les sauvegardes de captures instantanées différentielles ont lieu toutes les 24 heures, à moins que le journal des transactions (binlog dans MySQL) dépasse 50 Go depuis la dernière sauvegarde différentielle. Au cours d’une journée, six captures instantanées différentielles maximum sont autorisées. 
+Dans un sous-ensemble de [régions Azure](./concepts-pricing-tiers.md#storage), tous les serveurs nouvellement provisionnés peuvent prendre en charge jusqu’à 16 To de stockage à usage général. En d’autres termes, le stockage jusqu’à 16 To est le stockage à usage général par défaut pour toutes les [régions](./concepts-pricing-tiers.md#storage) où il est pris en charge. Les sauvegardes sur ces serveurs de stockage de 16 To sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement.
 
-Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. 
+Dans un sous-ensemble de [régions Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), tous les serveurs nouvellement provisionnés peuvent prendre en charge jusqu’à 16 To de stockage à usage général. En d’autres termes, le stockage jusqu’à 16 To est le stockage à usage général par défaut pour toutes les [régions](/concepts-pricing-tiers.md#storage) où il est pris en charge. Les sauvegardes sur ces serveurs de stockage de 16 To sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement.
+
+Les sauvegardes de captures instantanées différentielles se produisent au moins une fois par jour. Les sauvegardes de captures instantanées différentielles ne se produisent pas selon une planification fixe. Les sauvegardes de captures instantanées différentielles ont lieu toutes les 24 heures, à moins que le journal des transactions (binlog dans MySQL) dépasse 50 Go depuis la dernière sauvegarde différentielle. Au cours d’une journée, six captures instantanées différentielles maximum sont autorisées.
+
+Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes.
 
 ### <a name="backup-retention"></a>Rétention des sauvegardes
 
-Les sauvegardes sont conservées en fonction du paramètre de période de rétention de sauvegarde sur le serveur. Vous pouvez sélectionner une période de rétention comprise entre 7 et 35 jours. La période de conservation par défaut est 7 jours. Vous pouvez définir la période de rétention lors de la création du serveur ou ultérieurement en mettant à jour la configuration de la sauvegarde à l’aide du [portail Azure](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) ou d’[Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration). 
+Les sauvegardes sont conservées en fonction du paramètre de période de rétention de sauvegarde sur le serveur. Vous pouvez sélectionner une période de rétention comprise entre 7 et 35 jours. La période de conservation par défaut est 7 jours. Vous pouvez définir la période de rétention lors de la création du serveur ou ultérieurement en mettant à jour la configuration de la sauvegarde à l’aide du [portail Azure](./howto-restore-server-portal.md#set-backup-configuration) ou d’[Azure CLI](./howto-restore-server-cli.md#set-backup-configuration).
 
 La période de rétention de sauvegarde détermine jusqu’à quelle date une restauration à un point dans le temps peut être récupérée, dans la mesure où elle est basée sur les sauvegardes disponibles. La période de rétention de sauvegarde peut également être traitée comme une fenêtre de récupération du point de vue de la restauration. Toutes les sauvegardes requises pour effectuer une restauration à un instant dans le passé au cours de la période de rétention de sauvegarde sont conservées dans le stockage de sauvegarde. Par exemple, si la période de conservation des sauvegardes est définie sur 7 jours, la fenêtre de récupération est considérée comme les 7 derniers jours. Dans ce scénario, toutes les sauvegardes nécessaires à la restauration du serveur au cours des 7 derniers jours sont conservées. Avec une fenêtre de rétention de sauvegarde de sept jours :
+
 - Les serveurs avec un stockage jusqu’à 4 To peuvent conserver jusqu’à 2 sauvegardes complètes de base de données, toutes les sauvegardes différentielles et les sauvegardes du journal des transactions effectuées depuis la première sauvegarde complète de la base de données.
--   Les serveurs avec un stockage jusqu’à 16 To conservent la capture instantanée complète de base de données, toutes les captures instantanées différentielles et les sauvegardes du journal des transactions au cours des 8 derniers jours.
+- Les serveurs avec un stockage jusqu’à 16 To conservent la capture instantanée complète de base de données, toutes les captures instantanées différentielles et les sauvegardes du journal des transactions au cours des 8 derniers jours.
+
+#### <a name="long-term-retention"></a>Rétention à long terme
+
+La conservation à long terme des sauvegardes au-delà de 35 jours n’est pas encore prise en charge de manière native par le service. Vous avez la possibilité d’utiliser mysqldump pour effectuer des sauvegardes et les stocker pour une conservation à long terme. Notre équipe de support technique a publié un [article pas à pas](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) pour vous permettre de savoir comment y parvenir.
 
 ### <a name="backup-redundancy-options"></a>Options de redondance de sauvegarde
 
-Azure Database pour MySQL offre la possibilité de choisir entre le stockage de sauvegarde géoredondant ou redondant localement dans les niveaux Usage général et À mémoire optimisée. Lorsque les sauvegardes sont conservées dans le stockage de sauvegarde géoredondant, elles ne sont pas uniquement conservées dans la région d’hébergement de votre serveur, mais sont également répliquées dans un [centre de données jumelé](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Cela permet de bénéficier d’une meilleure protection et de la possibilité de restaurer votre serveur dans une région différente en cas de sinistre. Le niveau De base propose uniquement un stockage de sauvegarde redondant localement.
+Azure Database pour MySQL offre la possibilité de choisir entre le stockage de sauvegarde géoredondant ou redondant localement dans les niveaux Usage général et À mémoire optimisée. Lorsque les sauvegardes sont conservées dans le stockage de sauvegarde géoredondant, elles ne sont pas uniquement conservées dans la région d’hébergement de votre serveur, mais sont également répliquées dans un [centre de données jumelé](../best-practices-availability-paired-regions.md). Cette redondance géographique permet de bénéficier d’une meilleure protection et de restaurer votre serveur dans une région différente en cas de sinistre. Le niveau De base propose uniquement un stockage de sauvegarde redondant localement.
 
-> [!IMPORTANT]
-> La configuration du stockage géoredondant ou redondant localement pour la sauvegarde est uniquement possible lors de la création du serveur. Une fois que le serveur est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Passage du stockage localement redondant au stockage géoredondant
+
+La configuration du stockage géoredondant ou redondant localement pour la sauvegarde est uniquement possible lors de la création du serveur. Une fois que le serveur est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour déplacer votre stockage de sauvegarde d’un stockage localement redondant vers un stockage géo-redondant, la création d’un nouveau serveur et la migration des données à l’aide du [vidage et de la restauration](concepts-migrate-dump-restore.md) est la seule option prise en charge.
 
 ### <a name="backup-storage-cost"></a>Coût du stockage de sauvegarde
 
-Azure Database pour MySQL fournit jusqu’à 100 % du stockage de votre serveur approvisionné en stockage de sauvegarde sans coût supplémentaire. Tous les stockages de sauvegarde supplémentaires utilisés sont facturés en Go par mois. Par exemple, si vous avez configuré un serveur avec 250 Go de stockage, vous disposez de 250 Go de stockage supplémentaire pour les sauvegardes de serveur sans frais supplémentaires. Le stockage utilisé pour les sauvegardes de plus de 250 Go est facturé conformément au [modèle de tarification](https://azure.microsoft.com/pricing/details/mysql/). 
+Azure Database pour MySQL fournit jusqu’à 100 % du stockage de votre serveur approvisionné en stockage de sauvegarde sans coût supplémentaire. Tous les stockages de sauvegarde supplémentaires utilisés sont facturés en Go par mois. Par exemple, si vous avez configuré un serveur avec 250 Go de stockage, vous disposez de 250 Go de stockage supplémentaire pour les sauvegardes de serveur sans frais supplémentaires. Le stockage utilisé pour les sauvegardes de plus de 250 Go est facturé conformément au [modèle de tarification](https://azure.microsoft.com/pricing/details/mysql/).
 
-Vous pouvez utiliser la métrique [Stockage de sauvegarde utilisé](concepts-monitoring.md) dans Azure Monitor, disponible via le portail Azure, pour superviser le stockage de sauvegarde consommé par un serveur. La métrique Stockage de sauvegarde utilisé représente le total du stockage consommé par l’ensemble des sauvegardes de base de données complètes, sauvegardes différentielles et sauvegardes de journaux conservées en fonction de la période de rétention de sauvegarde définie pour le serveur. La fréquence des sauvegardes est gérée par le service et expliquée plus haut. Une activité transactionnelle importante sur le serveur peut entraîner une augmentation de l’utilisation du stockage de sauvegarde, quelle que soit la taille totale de la base de données. Pour le stockage géo-redondant, l’utilisation du stockage de sauvegarde est le double de celle du stockage localement redondant. 
+Vous pouvez utiliser la métrique [Stockage de sauvegarde utilisé](concepts-monitoring.md) dans Azure Monitor, disponible via le portail Azure, pour superviser le stockage de sauvegarde consommé par un serveur. La métrique Stockage de sauvegarde utilisé représente le total du stockage consommé par l’ensemble des sauvegardes de base de données complètes, sauvegardes différentielles et sauvegardes de journaux conservées en fonction de la période de rétention de sauvegarde définie pour le serveur. La fréquence des sauvegardes est gérée par le service et expliquée plus haut. Une activité transactionnelle importante sur le serveur peut entraîner une augmentation de l’utilisation du stockage de sauvegarde, quelle que soit la taille totale de la base de données. Pour le stockage géo-redondant, l’utilisation du stockage de sauvegarde est le double de celle du stockage localement redondant.
 
 Le principal moyen de contrôler le coût fu stockage de sauvegarde consiste à définir la période de rétention de sauvegarde appropriée et à choisir les options de redondance de sauvegarde appropriées pour atteindre les objectifs de récupération souhaités. Vous pouvez sélectionner une période de conservation comprise entre 7 et 35 jours. Les serveurs à usage général et à mémoire optimisée peuvent disposer d’un stockage géoredondant pour les sauvegardes.
 
@@ -82,7 +91,7 @@ Deux types de restauration sont disponibles :
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
 > [!IMPORTANT]
-> Une fois supprimés, les serveurs ne peuvent être restaurés que dans un délai de **cinq jours**, au terme duquel les sauvegardes sont supprimées. La sauvegarde de base de données est accessible et peut être restaurée uniquement à partir de l’abonnement Azure qui héberge le serveur. Pour restaurer un serveur supprimé, reportez-vous aux [étapes documentées](howto-restore-dropped-server.md). À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Une fois supprimés, les serveurs ne peuvent être restaurés que dans un délai de **cinq jours** , au terme duquel les sauvegardes sont supprimées. La sauvegarde de base de données est accessible et peut être restaurée uniquement à partir de l’abonnement Azure qui héberge le serveur. Pour restaurer un serveur supprimé, reportez-vous aux [étapes documentées](howto-restore-dropped-server.md). À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 
@@ -90,8 +99,9 @@ Quelle que soit l’option de redondance de sauvegarde, vous pouvez effectuer un
 
 > [!NOTE]
 > Deux paramètres de serveur sont réinitialisés aux valeurs par défaut (et ne sont pas copiés à partir du serveur principal) après l’opération de restauration
-> * time_zone : valeur à affecter à la valeur par défaut **SYSTEM**
-> * event_scheduler : valeur définie sur **OFF** sur le serveur restauré
+>
+> - time_zone : valeur à affecter à la valeur par défaut **SYSTEM**
+> - event_scheduler : valeur définie sur **OFF** sur le serveur restauré
 >
 > Vous devrez définir ces paramètres de serveur en reconfigurant le [paramètre de serveur](howto-server-parameters.md)
 

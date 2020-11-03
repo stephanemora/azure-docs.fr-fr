@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168220"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790948"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service
 
@@ -24,13 +24,17 @@ Lorsqu’une demande est envoyée à votre application, l’adresse dont provien
 
 La fonctionnalité de restriction des accès est implémentée dans les rôles frontend App Service, qui sont en amont des hôtes de travail où votre code s’exécute. C’est pourquoi les restrictions d’accès sont comparables à des listes de contrôle d’accès (ACL) réseau.
 
-La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Les points de terminaison de service vous permettent de restreindre l’accès à un service multilocataire à partir de sous-réseaux sélectionnés. Le point de terminaison de service doit être activé côté réseau et côté service avec lequel il est activé. Il n’est pas destiné à limiter le trafic vers les applications hébergées dans un environnement App Service Environment. Si vous êtes dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’adresses IP.
+La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Les points de terminaison de service vous permettent de restreindre l’accès à un service multilocataire à partir de sous-réseaux sélectionnés. Il n’est pas destiné à limiter le trafic vers les applications hébergées dans un environnement App Service Environment. Si vous êtes dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’adresses IP.
+
+> [!NOTE]
+> Les points de terminaison de service doivent être activés côté mise en réseau et pour le service Azure avec lequel il sont activés. Pour obtenir la liste des services Azure qui prennent en charge les points de terminaison de service, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
+>
 
 ![flux de restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Ajout et modification des règles de restriction d’accès dans le portail ##
 
-Pour ajouter une règle de restriction d’accès à votre application, dans le menu, ouvrez **Réseau**>**Restrictions d’accès** , puis cliquez sur **Configurer des restrictions d’accès** .
+Pour ajouter une règle de restriction d’accès à votre application, dans le menu, ouvrez **Réseau**>**Restrictions d’accès** , puis cliquez sur **Configurer des restrictions d’accès**.
 
 ![Options réseau d’App Service](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -61,7 +65,8 @@ Les points de terminaison de service ne peuvent pas être utilisés pour restrei
 Avec les points de terminaison de service, vous pouvez configurer votre application avec les passerelles d’application ou d’autres appareils WAF. Vous pouvez également configurer des applications à plusieurs niveaux avec des serveurs principaux sécurisés. Pour plus d’informations sur certaines des possibilités, consultez [Fonctionnalités de mise en réseau et App Service](networking-features.md) et [Intégration d’Application Gateway avec les points de terminaison de service](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> Les points de terminaison de service ne sont actuellement pas pris en charge pour les applications web qui utilisent une adresse IP virtuelle IP SSL. 
+> - Les points de terminaison de service ne sont actuellement pas pris en charge pour les applications web qui utilisent une adresse IP virtuelle IP SSL.
+> - Il existe une limite de 512 lignes de restrictions d’adresse IP ou de point de terminaison de service. Si vous avez besoin de plus de 512 lignes de restrictions, nous vous suggérons de vous tourner vers un produit de sécurité autonome tel qu’Azure Front Door, Azure App Gateway ou Web Application Firewall (WAF).
 >
 
 ## <a name="managing-access-restriction-rules"></a>Gestion des règles de restriction d’accès
@@ -74,15 +79,15 @@ Lorsque vous modifiez une règle, vous ne pouvez pas modifier le type entre une 
 
 ![Capture d’écran de la boîte de dialogue Modifier la restriction d’adresses IP dans le portail Azure montrant les paramètres d’une règle de réseau virtuel.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre règle, puis cliquez sur **Supprimer** .
+Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre règle, puis cliquez sur **Supprimer**.
 
 ![supprimer une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ## <a name="blocking-a-single-ip-address"></a>Blocage d’une adresse IP unique ##
 
-Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **Tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser** .
+Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **Tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser**.
 
-Lorsque les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter une règle explicite **Tout autoriser** .
+Lorsque les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter une règle explicite **Tout autoriser**.
 
 ![bloquer une adresse IP unique](media/app-service-ip-restrictions/block-single-address.png)
 

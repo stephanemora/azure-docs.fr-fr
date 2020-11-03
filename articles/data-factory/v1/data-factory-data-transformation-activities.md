@@ -1,6 +1,6 @@
 ---
 title: 'Transformation des données : Traiter et transformer des données '
-description: Découvrez comment transformer des données ou traiter les données dans Azure Data Factory à l’aide de Hadoop, Machine Learning ou Azure Data Lake Analytics.
+description: Découvrez comment transformer ou traiter des données dans Azure Data Factory à l’aide de Hadoop, d’Azure Machine Learning Studio (classique) ou d’Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: eb320cb71de43c40522bf93213fd98247a0d5b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91755dd1b5eea9f72978e09a605fc47d41ff3dee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436295"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371713"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformer des données dans Azure Data Factory version 1
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "89436295"
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Azure Machine Learning Studio (classique)](data-factory-azure-ml-batch-execution-activity.md) 
 > * [Procédure stockée](data-factory-stored-proc-activity.md)
 > * [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md)
 > * [.NET personnalisé](data-factory-use-custom-activities.md)
@@ -57,12 +57,12 @@ L’activité de diffusion en continu HDInsight dans un pipeline Data Factory ex
 ## <a name="hdinsight-spark-activity"></a>Activité Spark HDInsight
 L’activité Spark HDInsight d’un pipeline Data Factory exécute des programmes Spark sur votre propre cluster HDInsight. Pour plus d’informations, consultez la page [Appeler des programmes Spark à partir de Data Factory](data-factory-spark.md). 
 
-## <a name="machine-learning-activities"></a>Activités Machine Learning
-Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web Azure Machine Learning publié pour l’analyse prédictive. À l’aide de l’ [activité d’exécution par lots](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) dans un pipeline Azure Data Factory, vous pouvez appeler un service web Machine Learning pour effectuer des prédictions sur les données par lots.
+## <a name="azure-machine-learning-studio-classic-activities"></a>Activités Azure Machine Learning Studio (classique)
+Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web Azure Machine Learning Studio (classique) publié pour l’analyse prédictive. À l’aide de l’[activité d’exécution par lot](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) dans un pipeline Azure Data Factory, vous pouvez appeler un service web Studio (classique) pour effectuer des prédictions sur les données par lot.
 
-Au fil du temps, les modèles prédictifs dans les expériences de notation Machine Learning doivent être reformés à l’aide de nouveaux jeux de données d’entrée. Une fois que vous avez fini la reformation, vous souhaitez mettre à jour le service web de notation avec le modèle Machine Learning reformé. Vous pouvez utiliser [l’activité des ressources de mise à jour](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) pour mettre à jour le service web avec le modèle qui vient d’être formé.  
+Au fil du temps, les modèles prédictifs dans les expériences de notation Studio (classique) doivent être reformés à l’aide de nouveaux jeux de données d’entrée. Une fois que vous avez fini la reformation, vous souhaitez mettre à jour le service Web de notation avec le modèle Machine Learning reformé. Vous pouvez utiliser [l’activité des ressources de mise à jour](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) pour mettre à jour le service web avec le modèle qui vient d’être formé.  
 
-Consultez la page [Utiliser les activités Machine Learning](data-factory-azure-ml-batch-execution-activity.md) pour plus d’informations sur ces activités Machine Learning. 
+Pour plus d’informations sur ces activités Studio (classique), consultez [Utiliser des activités Azure Machine Learning Studio (classique)](data-factory-azure-ml-batch-execution-activity.md). 
 
 ## <a name="stored-procedure-activity"></a>Activité de procédure stockée
 Vous pouvez utiliser l’activité Procédure stockée SQL Server dans un pipeline Data Factory pour appeler une procédure stockée dans un des magasins de données suivants : Azure SQL Database, Azure Synapse Analytics (anciennement SQL Data Warehouse), SQL Server Database dans votre entreprise ou une machine virtuelle Azure. Consultez l’article [Activité de procédure stockée](data-factory-stored-proc-activity.md) pour plus de détails.  
@@ -78,7 +78,7 @@ Vous pouvez créer une activité personnalisée pour exécuter des scripts R sur
 ## <a name="compute-environments"></a>Environnements de calcul
 Vous créez un service lié à l’environnement de calcul puis l’utilisez lorsque vous définissez une activité de transformation. Il existe deux types d'environnements de calcul pris en charge par Data Factory. 
 
-1. **À la demande** :  Dans ce cas, l’environnement de calcul est entièrement géré par Data Factory. Il est automatiquement créé par le service Azure Data Factory avant qu'une tâche de traitement des données ne soit soumise et il est supprimé lorsque la tâche est terminée. Vous pouvez configurer et contrôler les paramètres granulaires de l’environnement de calcul à la demande pour l'exécution de la tâche, la gestion du cluster et les actions d’amorçage. 
+1. **À la demande**  :  Dans ce cas, l’environnement de calcul est entièrement géré par Data Factory. Il est automatiquement créé par le service Azure Data Factory avant qu'une tâche de traitement des données ne soit soumise et il est supprimé lorsque la tâche est terminée. Vous pouvez configurer et contrôler les paramètres granulaires de l’environnement de calcul à la demande pour l'exécution de la tâche, la gestion du cluster et les actions d’amorçage. 
 2. **Apport de votre propre environnement** (Bring Your Own) : Dans ce cas, vous pouvez inscrire votre propre environnement de calcul (par exemple un cluster HDInsight) comme service lié dans Data Factory. C’est vous qui gérez l'environnement de calcul et le service Data Factory l'utilise pour exécuter les activités. 
 
 Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul pris en charge par Data Factory. 
@@ -92,7 +92,7 @@ Azure Data Factory prend en charge les activités suivantes de transformation de
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Activités Machine Learning : exécution par lot et ressource de mise à jour](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Activités Azure Machine Learning Studio (classique) : exécution par lot et ressource de mise à jour](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Procédure stockée](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics ou SQL Server |
 | [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) |Service Analytique Azure Data Lake |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] ou Azure Batch |

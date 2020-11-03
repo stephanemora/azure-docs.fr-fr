@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/27/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387317"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746388"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Utiliser Synapse Studio pour surveiller les exécutions du pipeline de votre espace de travail
 
-Azure Synapse Analytics vous permet de créer des pipelines complexes capables d’automatiser et d’orchestrer le déplacement et la transformation des données, ainsi que les activités de calcul au sein de votre solution. Vous pouvez créer et surveiller ces pipelines à l’aide de Synapse Studio (préversion).
+Azure Synapse Analytics vous permet de créer des pipelines complexes capables d'automatiser et d'intégrer le déplacement et la transformation des données, ainsi que des activités de calcul au sein de votre solution. Vous pouvez créer et surveiller ces pipelines à l’aide de Synapse Studio (préversion).
 
 Cet article explique comment surveiller les exécutions de vos pipelines, et ainsi garder un œil sur leur état, leurs problèmes et leur progression.
 

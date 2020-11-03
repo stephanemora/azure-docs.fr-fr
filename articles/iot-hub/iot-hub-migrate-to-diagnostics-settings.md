@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: ab07da38c01b052a4220274fb059683a22950a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c90142330b0530f1127beae1624ff27d7eb6ca
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75750699"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541483"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrer votre IoT Hub de la surveillance des opérations vers les paramètres de diagnostic
 
@@ -52,7 +52,7 @@ De plus, les paramètres de diagnostic offrent cinq nouvelles catégories de sui
 * Opérations de travaux
 * Méthodes directes
 
-Pour plus de détails sur les structures de schéma spécifiques, consultez [Présentation du schéma pour les paramètres de diagnostic](iot-hub-monitor-resource-health.md#understand-the-logs).
+Pour connaître les structures de schéma spécifiques, consultez [Journaux de ressources](monitor-iot-hub-reference.md#resource-logs).
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>Supervision des événements de connexion et de déconnexion des appareils avec une faible latence
 
@@ -60,4 +60,4 @@ Pour surveiller les événements de connexion et de déconnexion des appareils d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes](iot-hub-monitor-resource-health.md)
+[Superviser avec IoT Hub](monitor-iot-hub.md)

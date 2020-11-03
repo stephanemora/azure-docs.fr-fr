@@ -2,17 +2,17 @@
 title: Résoudre les problèmes du runtime d’intégration auto-hébergé dans Azure Data Factory
 description: Découvrez comment résoudre les problèmes liés au runtime d’intégration auto-hébergé dans Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/16/2020
-ms.author: abnarain
-ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/26/2020
+ms.author: lle
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131302"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637188"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -24,7 +24,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 Azure Data Factory prend en charge l’affichage et le chargement des journaux d’erreurs pour les activités qui n’ont pas été exécutées sur l’IR auto-hébergé ou partagé. Vous pouvez suivre les étapes ci-dessous pour obtenir l’ID du rapport d’erreur, puis saisir l’ID du rapport pour localiser les problèmes connexes connus.
 
-1. Accédez à la page **Exécutions d’activités** .
+1. Accédez à la page **Exécutions d’activités**.
 
 1. Sous la colonne **ERREUR** , cliquez sur le bouton ci-dessous.
 
@@ -72,7 +72,7 @@ Le certificat générique est pris en charge dans le runtime d’intégration Az
 
 #### <a name="symptoms"></a>Symptômes
 
-Lorsque vous essayez d’augmenter la limite des tâches simultanées à partir de l’interface utilisateur Azure Data Factory, elle reste bloquée au stade *mise à jour* .
+Lorsque vous essayez d’augmenter la limite des tâches simultanées à partir de l’interface utilisateur Azure Data Factory, elle reste bloquée au stade *mise à jour*.
 La valeur maximale des tâches simultanées a été définie sur 24 et vous souhaitez augmenter le nombre afin que les tâches puissent s’exécuter plus rapidement. La valeur minimale que vous puissiez entrer est 3 et la valeur maximale que vous puissiez entrer est 32. Vous avez augmenté la valeur de 24 à 32 et cliqué sur le bouton *Mettre à jour* , dans l’interface utilisateur elle reste bloquée sur *Mise à jour* comme vous pouvez le voir ci-dessous. Après rafraîchissement, la valeur était toujours de 24 et n'a jamais été actualisée à 32.
 
 ![Mise à jour de l'état](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
@@ -102,7 +102,7 @@ Lorsque nous traitons des cas liés à la liaison SSL/TLS, nous pouvons rencontr
 
 - Voici un moyen rapide et intuitif de résoudre les échecs de génération de chaîne de certificats X. 509.
  
-    1. Exportez le certificat, qui doit être vérifié. Accédez à Gérer le certificat de l’ordinateur et recherchez le certificat que vous souhaitez vérifier, puis cliquez avec le bouton droit sur **Toutes les tâches** -> **Exporter** .
+    1. Exportez le certificat, qui doit être vérifié. Accédez à Gérer le certificat de l’ordinateur et recherchez le certificat que vous souhaitez vérifier, puis cliquez avec le bouton droit sur **Toutes les tâches** -> **Exporter**.
     
         ![Exporter des tâches](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +138,7 @@ Lorsque nous traitons des cas liés à la liaison SSL/TLS, nous pouvons rencontr
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. **L’outil de récupération d’URL** s’ouvre alors. Vous pouvez vérifier des certificats depuis AIA, CDP et OCSP en cliquant sur le bouton **Récupérer** .
+    1. **L’outil de récupération d’URL** s’ouvre alors. Vous pouvez vérifier des certificats depuis AIA, CDP et OCSP en cliquant sur le bouton **Récupérer**.
 
         ![Bouton de récupération](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,14 +164,14 @@ Si vous prenez Process Monitor, vous pouvez voir le résultat suivant :
 
 > [!TIP] 
 > Vous pouvez définir le filtre comme indiqué dans la capture d’écran ci-dessous.
-> Il indique que la dll **System.ValueTuple** ne se trouve pas dans le dossier associé GAC ou dans *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* , ou dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
-> En fait, cela chargera d’abord la dll à partir du dossier *GAC* , puis du dossier *Partagé* et enfin du dossier de la *Passerelle* . Par conséquent, vous pouvez placer la dll dans n’importe quel chemin d’accès, ce qui peut être utile.
+> Il indique que la dll **System.ValueTuple** ne se trouve pas dans le dossier associé GAC ou dans *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* , ou dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Shared*.
+> En fait, cela chargera d’abord la dll à partir du dossier *GAC* , puis du dossier *Partagé* et enfin du dossier de la *Passerelle*. Par conséquent, vous pouvez placer la dll dans n’importe quel chemin d’accès, ce qui peut être utile.
 
 ![Configurer des filtres](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
 #### <a name="resolution"></a>Résolution
 
-Il peut arriver que **System. ValueTuple. dll** se trouve dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan* . Copiez **System. ValueTuple. dll** dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* pour résoudre le problème.
+Il peut arriver que **System. ValueTuple. dll** se trouve dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan*. Copiez **System. ValueTuple. dll** dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* pour résoudre le problème.
 
 Vous pouvez utiliser la même méthode pour résoudre d’autres problèmes de fichier ou d’assembly manquant.
 
@@ -179,11 +179,11 @@ Vous pouvez utiliser la même méthode pour résoudre d’autres problèmes de f
 
 La raison pour laquelle vous voyez le fichier System. ValueTuple. dll sous *%windir%\Microsoft.NET\assembly* et *%windir%\assembly* est qu’il s’agit d’un comportement .NET. 
 
-À partir de l’erreur ci-dessous, vous pouvez voir clairement que l’assembly *System. ValueTuple* n’est pas là. Ce problème se produit lorsque l’application tente de vérifier l’assembly *System. ValueTuple. dll* .
+À partir de l’erreur ci-dessous, vous pouvez voir clairement que l’assembly *System. ValueTuple* n’est pas là. Ce problème se produit lorsque l’application tente de vérifier l’assembly *System. ValueTuple. dll*.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-Pour plus d'informations sur le GAC, consultez [cet article](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Pour plus d'informations sur le GAC, consultez [cet article](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Procédure d’audit de la clé IR auto-hébergée manquante
@@ -210,7 +210,7 @@ Si aucune des causes ci-dessus ne s’applique, vous pouvez accéder au dossier�
 
 #### <a name="symptoms"></a>Symptômes
 
-Après avoir créé l’IR auto-hébergé pour les magasins de données source et de destination, vous souhaitez connecter les deux IR ensemble pour terminer une copie. Si les banques de données sont configurées dans différents réseaux virtuels ou si elles ne peuvent pas comprendre le mécanisme de passerelle, vous allez atteindre des erreurs telles que : *le pilote de source est introuvable dans l’IR de destination*  ; *la source n’est pas accessible par l’IR de destination* .
+Après avoir créé l’IR auto-hébergé pour les magasins de données source et de destination, vous souhaitez connecter les deux IR ensemble pour terminer une copie. Si les banques de données sont configurées dans différents réseaux virtuels ou si elles ne peuvent pas comprendre le mécanisme de passerelle, vous allez atteindre des erreurs telles que : *le pilote de source est introuvable dans l’IR de destination*  ; *la source n’est pas accessible par l’IR de destination*.
  
 #### <a name="cause"></a>Cause
 
@@ -295,7 +295,7 @@ Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException* , suivez
 
     ![Compte de service d’ouverture de session](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation R/W sur le dossier : *%programdata%\Microsoft\DataTransfer\DataManagementGateway* .
+2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation R/W sur le dossier : *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
 
     - Par défaut, si le compte d’ouverture de session du service n’a pas été modifié, il doit avoir l’autorisation de lecture/écriture.
 
@@ -305,7 +305,7 @@ Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException* , suivez
         1. Désinstallez correctement le runtime d’intégration IR auto-hébergé actuel.
         1. Installez le runtime d’intégration IR auto-hébergé bits.
         1. Suivez les instructions ci-dessous pour modifier le compte de service : 
-            1. Accédez au dossier d’installation de l’IR auto-hébergé et basculez vers le dossier : *Microsoft Integration Runtime\4.0\Shared* .
+            1. Accédez au dossier d’installation de l’IR auto-hébergé et basculez vers le dossier : *Microsoft Integration Runtime\4.0\Shared*.
             1. Démarrez une ligne de commande avec des privilèges élevés. Remplacez *\<user>* et *\<password>* par vos propres nom d’utilisateur et mot de passe, puis exécutez la commande suivante :
                        
                 ```
@@ -431,7 +431,7 @@ Le runtime d’intégration auto-hébergé ne peut pas se connecter au service D
     ```
         
    > [!NOTE]     
-   > L’URL du service peut varier en fonction de votre emplacement Data Factory. L’URL du service se trouve sous **UI ADF** > **Connexions** > **Runtimes d’intégration** >  **Modifier l’IR auto-hébergé** > **Nœuds** > **Afficher les URL du service** .
+   > L’URL du service peut varier en fonction de votre emplacement Data Factory. L’URL du service se trouve sous **UI ADF** > **Connexions** > **Runtimes d’intégration** >  **Modifier l’IR auto-hébergé** > **Nœuds** > **Afficher les URL du service**.
             
     Voici la réponse attendue :
             
@@ -468,7 +468,7 @@ Voici la réponse attendue :
 
 > [!NOTE] 
 > Considérations liées au proxy :
-> *    Vérifiez si le serveur proxy doit être placé dans la liste des destinataires approuvés. Dans ce cas, assurez-vous que [ces domaines](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) figurent dans la liste des destinataires approuvés.
+> *    Vérifiez si le serveur proxy doit être placé dans la liste des destinataires approuvés. Dans ce cas, assurez-vous que [ces domaines](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) figurent dans la liste des destinataires approuvés.
 > *    Vérifiez si le certificat TLS/SSL « wu2.frontend.clouddatahub.net/ » est approuvé sur le serveur proxy.
 > *    Si vous utilisez l’authentification Active Directory sur le proxy, remplacez le compte de service par le compte d’utilisateur qui peut accéder au proxy en tant que « Service Integration Runtime ».
 
@@ -587,11 +587,11 @@ Lorsque vous essayez d’établir une connexion Telnet à **8.8.8.8 888** avec l
 ![trace netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Cela signifie que vous n’avez pas pu établir la connexion TCP côté serveur **8.8.8.8** sur la base du port **888** , de sorte que vous y voyez deux packages supplémentaires **SynReTransmit** . Étant donné que la source **SELF-HOST2** n’a pas pu établir de connexion à **8.8.8.8** au niveau du premier package, elle continue à établir la connexion.
+Cela signifie que vous n’avez pas pu établir la connexion TCP côté serveur **8.8.8.8** sur la base du port **888** , de sorte que vous y voyez deux packages supplémentaires **SynReTransmit**. Étant donné que la source **SELF-HOST2** n’a pas pu établir de connexion à **8.8.8.8** au niveau du premier package, elle continue à établir la connexion.
 
 > [!TIP]
-> - Vous pouvez cliquer sur **Charger le filtre** -> **Filtre standard** -> **Adresses** -> **Adresses IPv4** .
-> - Entrez **IPv4.Address == 8.8.8.8** comme filtre, puis cliquez sur **Appliquer** . Après cela, vous verrez uniquement la communication de l’ordinateur local à la destination **8.8.8.8** .
+> - Vous pouvez cliquer sur **Charger le filtre** -> **Filtre standard** -> **Adresses** -> **Adresses IPv4**.
+> - Entrez **IPv4.Address == 8.8.8.8** comme filtre, puis cliquez sur **Appliquer**. Après cela, vous verrez uniquement la communication de l’ordinateur local à la destination **8.8.8.8**.
 
 ![filtre d’adresses 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -618,34 +618,76 @@ L’exemple ci-dessous montre à quoi ressemblerait un scénario approprié.
 
 ### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Réception d’un e-mail visant à mettre à jour la configuration du réseau pour permettre la communication avec les nouvelles adresses IP
 
-#### <a name="symptoms"></a>Symptômes
+#### <a name="email-notification-from-microsoft"></a>Notification par e-mail de Microsoft
 
 Vous pouvez recevoir la notification par e-mail ci-dessous, qui vous recommande de mettre à jour la configuration du réseau afin de permettre la communication avec les nouvelles adresses IP pour Azure Data Factory d’ici le 8 novembre 2020 :
 
    ![E-mail de notification](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
-#### <a name="resolution"></a>Résolution
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>Comment déterminer si vous êtes concerné par cette notification
 
-Cette notification concerne les **communications sortantes** de votre **runtime d’intégration** (IR) exécuté **localement** ou à l’intérieur d’un **réseau privé virtuel Azure** vers le service ADF. Par exemple, si vous avez un IR auto-hébergé ou un IR Azure SQL Server Integration Services (SSIS) dans un réseau virtuel Azure qui doit accéder au service ADF, vous devez vérifier si vous devez ajouter cette nouvelle plage d’adresses IP dans vos règles de **groupe de sécurité réseau (NSG)** . Si votre règle NSG sortante utilise une étiquette de service, il n’y aura aucun impact.
+Cette notification a un impact sur les scénarios suivants :
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Scénario 1 : Communications sortantes à partir du runtime d’intégration auto-hébergé exécuté localement derrière le pare-feu d’entreprise
+Comment déterminer si vous êtes concerné :
+- Vous n’êtes pas concerné si vous définissez des règles de pare-feu basées sur des noms de domaine complets à l’aide de l’approche décrite dans ce document : [Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- Vous êtes néanmoins concerné si vous activez explicitement la liste d’autorisation pour les adresses IP sortantes sur votre pare-feu d’entreprise.
 
-#### <a name="more-details"></a>Détails supplémentaires
+Action à prendre si vous êtes concerné : demandez à votre équipe d’infrastructure réseau de mettre à jour votre configuration réseau pour utiliser les adresses IP les plus récentes de Data Factory d’ici le 8 novembre 2020.  Pour télécharger les adresses IP les plus récentes, accédez au [lien de téléchargement de la plage d’adresses IP des étiquettes de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-Ces nouvelles plages d’adresses IP **n’ont d’incidence que sur les règles de communications sortantes** entre votre **pare-feu local** ou **réseau privé virtuel Azure** et le service ADF (voir [Configuration du pare-feu et de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) à titre de référence) dans les scénarios où vous avez un IR auto-hébergé ou un IR SSIS dans un réseau local ou un réseau virtuel Azure qui doit communiquer avec le service ADF.
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Scénario 2 : Communications sortantes à partir du runtime d’intégration auto-hébergé exécuté sur une machine virtuelle Azure au sein d’un réseau virtuel Azure géré par le client
+Comment déterminer si vous êtes concerné :
+- Vérifiez si vous avez des règles de groupe de sécurité réseau sortantes dans votre réseau privé qui contient le runtime d’intégration auto-hébergé. En l’absence de restrictions sur les communications sortantes, il n’y a aucun impact.
+- Si vous avez des restrictions sur les règles de trafic sortant, vérifiez si vous utilisez ou non une étiquette de service. Si vous utilisez une étiquette de service, vous n’avez pas besoin de modifier ou d’ajouter quoi que ce soit, car les nouvelles plages d’adresses IP se trouvent sous l’étiquette de service actuelle. 
+ ![Vérification de la destination](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- Vous êtes néanmoins concerné si vous activez explicitement la liste d’autorisation pour les adresses IP sortantes sur votre paramètre de règles NSG sur le réseau virtuel Azure.
 
-Pour les utilisateurs actuels qui utilisent **VPN Azure**  :
+Action à prendre si vous êtes concerné : demandez à votre équipe d’infrastructure réseau de mettre à jour les règles de groupe de sécurité réseau sur votre configuration de réseau virtuel Azure pour utiliser les adresses IP les plus récentes de Data Factory d’ici le 8 novembre 2020.  Pour télécharger les adresses IP les plus récentes, accédez au [lien de téléchargement de la plage d’adresses IP des étiquettes de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-1. Vérifiez toutes les règles NSG sortantes dans votre réseau privé où SSIS ou Azure SSIS est configuré. S’il n’existe aucune restriction sur les communications sortantes, alors il n’y a pas d’impact sur celles-ci.
-1. Si vous avez des restrictions sur les règles de trafic sortant, vérifiez si vous utilisez ou non une étiquette de service. Si vous utilisez une étiquette de service, vous n’avez pas besoin de modifier ou d’ajouter quoi que ce soit, car les nouvelles plages d’adresses IP se trouvent sous l’étiquette de service actuelle. 
-  
-    ![Vérification de la destination](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scénario 3 : Communications sortantes à partir d’Azure-SSIS Integration Runtime dans le réseau virtuel Azure géré par le client
+- Vérifiez si vous avez des règles de groupe de sécurité réseau sortantes dans votre réseau privé qui contient Azure-SSIS Integration Runtime. En l’absence de restrictions sur les communications sortantes, il n’y a aucun impact.
+- Si vous avez des restrictions sur les règles de trafic sortant, vérifiez si vous utilisez ou non une étiquette de service. Si vous utilisez une étiquette de service, vous n’avez pas besoin de modifier ou d’ajouter quoi que ce soit, car les nouvelles plages d’adresses IP se trouvent sous l’étiquette de service actuelle.
+- Vous êtes néanmoins concerné si vous activez explicitement la liste d’autorisation pour les adresses IP sortantes sur votre paramètre de règles NSG sur le réseau virtuel Azure.
 
-1. Si vous utilisez des adresses IP directement dans vos règles, vérifiez si vous ajoutez toutes les plages d’adresses IP dans [le lien de téléchargement des plages d’adresses IP des étiquettes de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Nous avons déjà placé les nouvelles plages d’adresses IP dans ce fichier. Pour les nouveaux utilisateurs : Il vous suffit de suivre la configuration pertinente de l’IR auto-hébergé ou SSIS dans notre document pour configurer les règles NSG.
+Action à prendre si vous êtes concerné : demandez à votre équipe d’infrastructure réseau de mettre à jour les règles de groupe de sécurité réseau sur votre configuration de réseau virtuel Azure pour utiliser les adresses IP les plus récentes de Data Factory d’ici le 8 novembre 2020.  Pour télécharger les adresses IP les plus récentes, accédez au [lien de téléchargement de la plage d’adresses IP des étiquettes de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-Pour les utilisateurs actuels qui dispose d’un IR SSIS ou auto-hébergé **local**  :
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Impossible d’établir une relation de confiance pour le canal sécurisé SSL/TLS 
 
-- Vérifiez auprès de votre équipe d’infrastructure réseau si les nouvelles plages d’adresses IP doivent être incluses pour les règles de trafic sortant.
-- Pour les règles de pare-feu basées sur des noms de domaine complets, aucune mise à jour n’est requise lorsque vous utilisez les paramètres documentés dans [Configuration du pare-feu et de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
-- Certains pare-feu locaux prennent en charge les étiquettes de service. Si vous utilisez le fichier config mis à jour relatif aux étiquettes de service Azure, aucune autre modification n’est nécessaire.
+#### <a name="symptoms"></a>Symptômes
+
+Le runtime d’intégration auto-hébergé n’a pas pu se connecter au service ADF.
+
+En consultant le journal des événements du runtime d’intégration auto-hébergé ou les journaux de notification du client dans la table CustomLogEvent, vous trouvez le message d’erreur suivant :
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+Comment vérifier le certificat de serveur du service ADF :
+
+La méthode la plus simple consiste à ouvrir l’URL du service ADF dans un navigateur (par exemple, ouvrez https://eu.frontend.clouddatahub.net/ sur l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé), puis consultez les informations du certificat de serveur :
+
+  ![Vérifier le certificat de serveur du service ADF](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![Vérifier le chemin d’accès du certificat de serveur](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>Cause :
+
+Deux raisons possibles à ce problème :
+
+- L’autorité de certification racine du certificat de serveur de service ADF n’est pas approuvée sur l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé. 
+- Vous utilisez un proxy dans votre environnement et le certificat de serveur du service ADF est remplacé par le proxy, tandis que le certificat de serveur remplacé n’est pas approuvé par l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé.
+
+#### <a name="solution"></a>Solution
+
+- Pour la raison 1, assurez-vous que le certificat de serveur ADF et sa chaîne de certificats sont approuvés par l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé.
+- Pour la raison 2, approuvez l’autorité de certification racine remplacée sur l’ordinateur du runtime d’intégration auto-hébergé ou configurez le proxy pour qu’il ne remplace pas le certificat de serveur ADF.
+
+Pour plus d’informations sur l’approbation d’un certificat sur Windows, consultez [cet article](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+
+#### <a name="additional-info"></a>Informations supplémentaires
+Nous déployons un nouveau certificat SSL, qui est signé par DigiCert. Vérifiez si DigiCert Global Root G2 figure parmi les autorités de certification racine approuvées.
+
+  ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+Si ce n’est pas le cas, téléchargez-le [ici](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
 ## <a name="self-hosted-ir-sharing"></a>Partage du runtime d’intégration auto-hébergé
 
@@ -667,7 +709,7 @@ Pour plus d’informations sur la résolution des problèmes, essayez les ressou
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Page de questions Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Guide de performances des flux de données de mappage](concepts-data-flow-performance.md)

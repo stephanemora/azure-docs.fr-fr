@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287319"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746809"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure Files et AD DS
 
@@ -39,12 +39,12 @@ Pour installer un compte de stockage :
 
     - Créez un groupe de ressources.
     - Entrez un nom unique pour votre compte de stockage.
-    - Pour **Emplacement**, nous vous recommandons de choisir le même emplacement que le pool d’hôtes Windows Virtual Desktop.
-    - Pour **Performances**, sélectionnez **Standard**. (En fonction de vos besoins en E/S par seconde. Pour davantage d’informations, consultez [Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).)
-    - Pour **Type de compte**, sélectionnez **StorageV2** ou **FileStorage** (disponible uniquement si le niveau de performance est Premium).
-    - Pour **Réplication**, sélectionnez **Stockage localement redondant (LRS)** .
+    - Pour **Emplacement** , nous vous recommandons de choisir le même emplacement que le pool d’hôtes Windows Virtual Desktop.
+    - Pour **Performances** , sélectionnez **Standard**. (En fonction de vos besoins en E/S par seconde. Pour davantage d’informations, consultez [Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).)
+    - Pour **Type de compte** , sélectionnez **StorageV2** ou **FileStorage** (disponible uniquement si le niveau de performance est Premium).
+    - Pour **Réplication** , sélectionnez **Stockage localement redondant (LRS)** .
 
-5. Lorsque vous avez terminé, sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
+5. Lorsque vous avez terminé, sélectionnez **Vérifier + créer** , puis sélectionnez **Créer**.
 
 Si vous avez besoin d’instructions de configuration plus détaillées, consultez [Disponibilité régionale](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
@@ -58,7 +58,7 @@ Pour créer un partage de fichiers :
 
 2. Sur la page Vue d’ensemble, sélectionnez **Partages de fichiers**.
 
-3. Sélectionnez **+Partages de fichiers**, créez un nouveau partage de fichiers nommé **Profils**, puis entrez un quota approprié ou laissez le champ vide si vous préférez ne pas mettre de quota.
+3. Sélectionnez **+Partages de fichiers** , créez un nouveau partage de fichiers nommé **Profils** , puis entrez un quota approprié ou laissez le champ vide si vous préférez ne pas mettre de quota.
 
 4. Sélectionnez **Create** (Créer).
 
@@ -68,9 +68,9 @@ Ensuite, vous devez activer l’authentification Active Directory (AD). Pour act
 
 1. Protocole RDP (Remote Desktop Protocol) à la machine virtuelle jointe au domaine.
 
-2. Suivez les instructions de [Activer l’authentification Azure AD DS pour vos partages de fichiers Azure](../storage/files/storage-files-identity-ad-ds-enable.md) pour installer le module AzFilesHybrid et activer l’authentification.
+2. Suivez les instructions dans [Activer l’authentification AD DS pour vos partages de fichiers Azure](../storage/files/storage-files-identity-ad-ds-enable.md) pour installer le module AzFilesHybrid et activer l’authentification.
 
-3.  Ouvrez le Portail Azure, ouvrez votre compte de stockage, sélectionnez **Configuration**, puis confirmez qu’**Active Directory (AD)** est défini sur **Activé**.
+3.  Ouvrez le Portail Azure, ouvrez votre compte de stockage, sélectionnez **Configuration** , puis confirmez qu’ **Active Directory (AD)** est défini sur **Activé**.
 
      > [!div class="mx-imgBorder"]
      > ![Une capture d’écran de la page Configuration avec Azure Active Directory (AD) activé.](media/active-directory-enabled.png)
@@ -86,19 +86,19 @@ Pour configurer les autorisations au niveau du partage, attribuez à chaque util
 >[!NOTE]
 >Les comptes ou groupes auxquels vous affectez des autorisations doivent avoir été créés dans le domaine et synchronisés avec Azure AD. Les comptes créés dans Azure AD ne fonctionnent pas.
 
-Pour attribuer des autorisations de contrôle d’accès en fonction des permissions (RBAC) :
+Pour attribuer des autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) :
 
 1. Ouvrez le portail Azure.
 
 2. Ouvrez le compte de stockage que vous avez créé dans [Installer un compte de stockage](#set-up-a-storage-account).
 
-3. Sélectionnez **Partages de fichiers**, puis sélectionnez le nom du partage de fichiers que vous prévoyez d’utiliser.
+3. Sélectionnez **Partages de fichiers** , puis sélectionnez le nom du partage de fichiers que vous prévoyez d’utiliser.
 
 4. Sélectionnez **Contrôle d’accès (IAM)** .
 
 5. Sélectionnez **Ajouter une attribution de rôle**.
 
-6. Dans l’onglet **Ajouter une attribution de rôle**, sélectionnez **Contributeur élevé de partage SMB de données de fichier de stockage** pour le compte administrateur.
+6. Dans l’onglet **Ajouter une attribution de rôle** , sélectionnez **Contributeur élevé de partage SMB de données de fichier de stockage** pour le compte administrateur.
 
      Pour attribuer des autorisations aux utilisateurs pour leurs profils FSLogix, suivez les mêmes instructions. Toutefois, lorsque vous accédez à l’étape 5, sélectionnez **Contributeur de partage SMB de données de fichier de stockage** à la place.
 
@@ -106,7 +106,7 @@ Pour attribuer des autorisations de contrôle d’accès en fonction des permiss
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Attribuer des autorisations aux utilisateurs sur le partage de fichiers Azure
 
-Une fois que vous avez attribué des autorisations RBAC à vos utilisateurs, vous devez ensuite configurer les autorisations NTFS.
+Une fois que vous avez attribué des autorisations Azure RBAC à vos utilisateurs, vous devez configurer les autorisations NTFS.
 
 Vous devez connaître deux choses concernant le Portail Azure avant commencer :
 
@@ -121,7 +121,7 @@ Voici comment procéder :
 
 2. Ouvrez le compte de stockage que vous avez créé dans [Installer un compte de stockage](#set-up-a-storage-account).
 
-3. Sélectionnez **Paramètres**, puis **Propriétés**.
+3. Sélectionnez **Paramètres** , puis **Propriétés**.
 
 4. Copiez le **point de terminaison de service de fichier principal** URI dans l’éditeur de texte de votre choix.
 
@@ -141,7 +141,7 @@ Pour obtenir la clé du compte de stockage :
 
 2. Ouvrez le compte de stockage que vous avez créé dans [Installer un compte de stockage](#set-up-a-storage-account).
 
-3. Sous l’onglet du **Compte de stockage**, sélectionnez **Clés d’accès**.
+3. Sous l’onglet du **Compte de stockage** , sélectionnez **Clés d’accès**.
 
 4. Copiez **key1** ou **key2** dans un fichier sur votre ordinateur local.
 

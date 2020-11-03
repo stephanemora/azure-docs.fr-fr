@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780434"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790914"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La création du cluster échoue avec InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -60,7 +60,7 @@ Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autor
 
 * Si votre cluster utilise un [groupe de sécurité réseau (NSG](../../virtual-network/virtual-network-vnet-plan-design-arm.md)).
 
-    Accédez au Portail Microsoft Azure et identifiez le groupe de sécurité réseau associé au sous-réseau dans lequel le cluster est en cours de déploiement. Dans la section **Règles de sécurité de trafic sortant**, autoriser l’accès sortant à Internet sans limitation (notez qu' il s’agit d’un numéro de **priorité** plus faible ici signifie une priorité plus élevée). En outre, dans la section **Sous-réseaux**, vérifiez si ce groupe de sécurité réseau est appliqué au sous-réseau du cluster.
+    Accédez au Portail Microsoft Azure et identifiez le groupe de sécurité réseau associé au sous-réseau dans lequel le cluster est en cours de déploiement. Dans la section **Règles de sécurité de trafic sortant** , autoriser l’accès sortant à Internet sans limitation (notez qu' il s’agit d’un numéro de **priorité** plus faible ici signifie une priorité plus élevée). En outre, dans la section **Sous-réseaux** , vérifiez si ce groupe de sécurité réseau est appliqué au sous-réseau du cluster.
 
 * Si votre cluster utilise des [itinéraires définis par l’utilisateur (UDR)](../../virtual-network/virtual-networks-udr-overview.md).
 
@@ -68,6 +68,19 @@ Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autor
 
     Si des itinéraires sont définis, assurez-vous qu’il existe des itinéraires pour les adresses IP de la région où le cluster a été déployé et que le **NextHopType** de chaque itinéraire est **Internet**. Un itinéraire doit être défini pour chaque adresse IP requise décrite dans l’article ci-dessus.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>« Échec de l’établissement d’une connexion sortante à partir du cluster pour la communication avec le fournisseur de ressources HDInsight. Vérifiez que la connectivité sortante est autorisée. »
+
+### <a name="issue"></a>Problème
+
+La description de l’erreur est « Échec de l’établissement d’une connexion sortante à partir du cluster pour la communication avec le fournisseur de ressources HDInsight. Vérifiez que la connectivité sortante est autorisée. »
+
+### <a name="cause"></a>Cause :
+
+Lorsque vous utilisez des clusters HDInsight liés privés, l’accès sortant à partir du cluster doit être configuré pour autoriser l’établissement de connexions au fournisseur de ressources HDInsight.
+
+### <a name="resolution"></a>Résolution
+
+* Pour résoudre ce problème, consultez les étapes de configuration de la liaison privée HDInsight dans la [configuration de liaison privée.](../hdinsight-private-link.md)
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>« La configuration du réseau virtuel n’est pas compatible avec les spécifications HDInsight. »
@@ -101,7 +114,7 @@ Vérifiez que l’adresse 168.63.129.16 se trouve dans la chaîne DNS personnali
     cat /etc/resolv.conf | grep nameserver*
     ```
 
-    Le résultat suivant devrait s'afficher :
+    Un résultat semblable à celui-ci doit s’afficher :
 
     ```output
     nameserver 168.63.129.16
@@ -145,4 +158,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

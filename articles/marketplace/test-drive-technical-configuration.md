@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409474"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892619"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -22,19 +22,19 @@ Si vous ne souhaitez plus fournir une version d’évaluation pour votre offre, 
 
 ## <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
-Il s’agit de la seule option de version d’évaluation pour les machines virtuelles ou Azure App et elle nécessite également une configuration assez détaillée. Lisez les sections ci-dessous pour consulter plus de [détails sur l’abonnement au déploiement](#deployment-subscription-details) et [les listes des versions d'évaluation](#test-drive-listings), puis passez à la rubrique consacrée à la [configuration de la version d'évaluation d’Azure Resource Manager](azure-resource-manager-test-drive.md).
+Il s’agit de la seule option de version d’évaluation pour les machines virtuelles ou Azure App et elle nécessite une configuration assez détaillée. Lisez les sections ci-dessous pour consulter plus de [détails sur l’abonnement au déploiement](#deployment-subscription-details) et [les listes des versions d'évaluation](#test-drive-listings), puis passez à la rubrique consacrée à la [configuration de la version d'évaluation d’Azure Resource Manager](azure-resource-manager-test-drive.md).
 
 ## <a name="hosted-test-drive"></a>Version d’évaluation hébergée
 
-Microsoft peut retirer la complexité de la configuration d’une version d’évaluation en hébergeant et en conservant l’approvisionnement et le déploiement du service à l’aide de ce type de version d’évaluation. La configuration de ce type de version d’évaluation hébergé est la même, peu importe si la version d’évaluation cible un public Dynamics 365 Business Central, Dynamics 365 Customer Engagement ou Dynamics 365 Operations.
+Microsoft peut supprimer la complexité de la configuration d’une version d’évaluation en hébergeant et en assurant l’approvisionnement et le déprovisionnement du service. La configuration de ce type de version d’évaluation est la même, que la version d’évaluation cible un public Dynamics 365 Customer Engagement ou Dynamics 365 Operations.
 
 - **Nombre maximal de versions d’évaluation simultanées** (obligatoire) : définissez le nombre maximum de clients pouvant utiliser votre version d’évaluation simultanément. Chaque utilisateur simultané consommera une licence Dynamics 365 tant que la version d’évaluation est active. Vérifiez donc que vous avez assez de licences pour prendre en charge la limite maximale définie. La valeur recommandée se situe entre 3 et 5.
 
-- **Durée de la version d’évaluation** (obligatoire) : entrez le nombre d’heures durant lesquelles la version d’évaluation restera active (au moins une heure). Passée cette durée, la session prendra fin et ne consommera plus aucune de vos licences. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Cette durée ne peut être définie qu’en heures pleines (par exemple, « 2 » heures convient, mais pas « 1,5 »). L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
+- **Durée de la version d’évaluation** (obligatoire) : entrez le nombre d’heures durant lesquelles la version d’évaluation restera active pour chaque client. Passée cette période, la session prendra fin et ne consommera plus aucune de vos licences. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Cette durée ne peut être définie qu’en heures pleines (par exemple, « 2 heures » est valide, mais pas « 1,5 heure »). L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
 
 - **URL de l’instance** (obligatoire) : URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 exécutant votre application et où les exemples de données sont installés (par exemple `https://testdrive.crm.dynamics.com`).
 
-- **URL de l’API web de l’instance**(obligatoire) – Récupérez l’URL de l’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en accédant à **Paramètres** > **Personnalisation** > **Ressources développeur** > **API web de l’instance (URL racine du service)**, puis copiez l’URL trouvée ici (par exemple `https://testdrive.crm.dynamics.com/api/data/v9.0`).
+- **URL de l’API web de l’instance** (obligatoire) – Récupérez l’URL de l’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en accédant à **Paramètres** > **Personnalisation** > **Ressources développeur** > **API web de l’instance (URL racine du service)** , puis copiez l’URL trouvée ici (par exemple `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Nom de rôle** (obligatoire) : renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365, qui sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
 
@@ -48,7 +48,7 @@ Ce type de version d'évaluation n’est pas hébergé par Microsoft. Utilisez-l
 
 - **Nombre maximal de versions d’évaluation simultanées** (obligatoire) : définissez le nombre maximum de clients pouvant utiliser votre version d’évaluation simultanément. Ces versions d’évaluation sont déjà déployées, permettant ainsi aux clients d’y accéder instantanément sans attendre un déploiement.
 
-- **Durée de la version d’évaluation** (obligatoire) : entrez le nombre d’heures durant lesquelles la version d’évaluation restera active (au moins une heure). La version d’évaluation se termine automatiquement à la fin de cette période.
+- **Durée de la version d’évaluation** (obligatoire) : entrez la durée d’activité de la version d’évaluation, en nombre d’heures. La version d’évaluation se termine automatiquement à la fin de cette période.
 
 - **Nom du groupe de ressources Azure** (obligatoire) : entrez le nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md#resource-groups) dans lequel votre version d’évaluation d’application logique est enregistrée.
 
@@ -68,13 +68,13 @@ Pour permettre à Microsoft de déployer la version d’évaluation en votre nom
 
 - **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et les applications logiques) – Entrez l’ID d’abonnement pour accorder l’accès aux services de votre compte Azure pour les rapports d’utilisation des ressources et la facturation. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](../cost-management-billing/manage/create-subscription.md) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
 
-- **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Propriétés**, puis cherchez l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi chercher l’ID de locataire de votre organisation à partir de l’adresse de votre nom de domaine à l’adresse [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Propriétés** , puis cherchez l’ **ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi chercher l’ID de locataire de votre organisation à partir de l’adresse de votre nom de domaine à l’adresse [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Nom de locataire Azure AD** (obligatoire pour Dynamic 365) : entrez votre nom Azure Active Directory (AD). Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
 
-- **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Inscriptions d’applications**, puis cherchez l’**ID d’application** (comme `50c464d3-4930-494c-963c-1e951d15360e`).
+- **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Inscriptions d’applications** , puis cherchez l’ **ID d’application** (comme `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Clé secrète client Azure AD** (obligatoire) : entrez la [clé secrète client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation gauche, sélectionnez l’onglet **Azure Active Directory**,puis **Inscriptions d’applications**, et enfin votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur. Ne quittez pas la page avant de copier la valeur.
+- **Clé secrète client Azure AD** (obligatoire) : entrez la [clé secrète client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le menu de gauche, sélectionnez l’onglet **Azure Active Directory** , puis **Inscriptions d’applications** , et enfin la version d’évaluation de votre application. Ensuite, sélectionnez **Certificats et secrets** et **Nouvelle clé secrète client**. Entrez une description, sélectionnez **Jamais** sous **Expiration** et choisissez **Ajouter**. Veillez à copier la valeur. Ne quittez pas la page avant de copier la valeur.
 
 ## <a name="test-drive-listings"></a>Listes des versions d’évaluation
 
@@ -93,6 +93,14 @@ L’option **Liste des versions d’évaluation** disponible sous l’onglet **V
 
 Si vous êtes en train de créer votre version d'évaluation dans l’Espace partenaires, sélectionnez **Enregistrer le brouillon** avant de continuer.
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
+- [Test drive des meilleures pratiques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Vue d’ensemble](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF ; veillez à désactiver votre bloqueur de fenêtres publicitaires)
 - [Mettre à jour une offre existante dans la Place de marché commerciale](partner-center-portal/update-existing-offer.md)
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+## <a name="feedback"></a>Commentaires
+
+Envoyer et afficher des commentaires pour [ce produit](https://feedback.azure.com/forums/216369-azure-marketplace)

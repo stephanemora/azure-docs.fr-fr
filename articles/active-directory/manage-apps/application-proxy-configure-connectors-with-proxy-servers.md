@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208003"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792750"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -110,18 +111,19 @@ Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
 
 Autorisez l'accès aux URL suivantes :
 
-| URL | Utilisation |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication entre le connecteur et le service cloud Proxy d'application |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | Le connecteur utilise ces URL pour vérifier les certificats. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Le connecteur utilise ces URL lors du processus d'inscription. |
+| URL | Port |  Utilisation |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication entre le connecteur et le service cloud Proxy d'application |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | Le connecteur utilise ces URL pour vérifier les certificats. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | Le connecteur utilise ces URL lors du processus d'inscription. |
+| ctldl.windowsupdate.com | 80/HTTP | Le connecteur utilise cette URL lors du processus d'inscription. |
 
 Si votre pare-feu ou proxy vous permet de configurer la mise en liste verte de DN, vous pouvez autoriser les connexions à \*.msappproxy.net et \*.servicebus.windows.net.
 
 Si vous ne pouvez pas autoriser la connectivité par le nom de domaine complet et devez spécifier des plages d’adresses IP à la place, utilisez ces options :
 
 * Autoriser l’accès sortant du connecteur vers toutes les destinations.
-* Autorisez l’accès sortant du connecteur à toutes les plages d’adresses IP de centre de données Azure. Le problème lié à l’utilisation de la liste de plages d’adresses IP de centre de données Azure est qu’elle est mise à jour chaque semaine. Vous devez mettre un processus en place pour garantir que vos règles d’accès sont mises à jour en conséquence. La seule utilisation d’un sous-ensemble des adresses IP peut entraîner une rupture de votre configuration. Pour télécharger les dernières plages d’adresses IP du centre de données Azure, accédez à [https://download.microsoft.com](https://download.microsoft.com) et recherchez « Balises de service et plages d’adresses IP Azure ». Veillez à sélectionner le cloud approprié. Par exemple, pour connaître les plages d’adresses IP du cloud public, recherchez « Balises de service et plages d’adresses IP Azure – Cloud public ». Vous pouvez trouver le cloud US Government en recherchant « Balises de service et plages d’adresses IP Azure – Cloud US Goverment ».
+* Autorisez l’accès sortant du connecteur à toutes les plages d’adresses IP de centre de données Azure. Le problème lié à l’utilisation de la liste de plages d’adresses IP de centre de données Azure est qu’elle est mise à jour chaque semaine. Vous devez mettre un processus en place pour garantir que vos règles d’accès sont mises à jour en conséquence. La seule utilisation d’un sous-ensemble des adresses IP peut entraîner une rupture de votre configuration. Pour télécharger les dernières plages d’adresses IP du centre de données Azure, accédez à [https://download.microsoft.com](https://download.microsoft.com) et recherchez « Balises de service et plages d’adresses IP Azure ». Veillez à sélectionner le cloud approprié. Par exemple, pour connaître les plages d’adresses IP du cloud public, recherchez « Balises de service et plages d’adresses IP Azure – Cloud public ». Vous trouverez le cloud US Government en recherchant « Balises de service et plages d’adresses IP Azure – Cloud US Goverment ».
 
 #### <a name="proxy-authentication"></a>Authentification du proxy
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556138"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674945"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossaire Attachement d’application MSIX
 
@@ -25,7 +25,7 @@ Un conteneur MSIX est l’emplacement où les applications MSIX sont exécutées
 
 ## <a name="msix-application"></a>Application MSIX 
 
-Une application stockée dans un fichier MSIX.
+Une application stockée dans un fichier .MSIX.
 
 ## <a name="msix-package"></a>Package MSIX 
 
@@ -35,13 +35,17 @@ Un package MSIX est un fichier ou une application MSIX.
 
 Un partage MSIX est un partage réseau qui contient des packages MSIX étendus. Les partages MSIX prennent en charge SMB 3 ou version ultérieure. Les applications sont transférées à partir de ce partage MSIX sans avoir à déplacer les fichiers d’application sur le lecteur système.
 
+## <a name="msix-image"></a>Image MSIX
+
+Une image MSIX est un fichier VHD, VHDx ou CIM qui contient une ou plusieurs applications MSIX empaquetées. Chaque application est fournie dans l’image MSIX à l’aide de l’outil MSIXMGR.
+
 ## <a name="repackage"></a>Repackager
 
 Le repackaging prend une application non-MSIX et la convertit en MSIX à l’aide de l’outil MSIX Packaging Tool (MPT). Pour plus d’informations, consultez [Vue d’ensemble de l’outil MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview).
 
-## <a name="expand"></a>Développez
+## <a name="expand-an-msix-package"></a>Étendre un package MSIX
 
-L’extension du package MSIX est un processus en plusieurs étapes. Elle prend le fichier MSIX et place son contenu dans un fichier VHD(x) ou CIM. 
+L’extension d’un package MSIX est un processus en plusieurs étapes. Elle prend le fichier MSIX et place son contenu dans un fichier VHD(x) ou CIM. 
 
 Pour étendre un package MSIX :
 
@@ -63,11 +67,11 @@ Le chargement d’un package MSIX implique le chargement du fichier VHD(x) ou [C
 
 Dans Windows Virtual Desktop, les chargements se produisent une fois par partage MSIX. Une fois que vous avez chargé un package, tous les pools d’hôtes dans le même abonnement peuvent y faire référence.
 
-## <a name="publish-an-msix-package"></a>Publier un package MSIX
+## <a name="add-an-msix-package"></a>Ajouter un package MSIX
 
-Dans Windows Virtual Desktop, la publication d’un package MSIX le lie à une application ou à un bureau distant.
+Dans Windows Virtual Desktop, l’ajout d’un package MSIX le lie à un pool d’hôtes.
 
-## <a name="assign-an-msix-package"></a>Attribuer un package MSIX 
+## <a name="publish-an-msix-package"></a>Publier un package MSIX 
 
 Dans Windows Virtual Desktop, un package MSIX publié doit être attribué à un utilisateur ou groupe d’utilisateurs Active Directory Domain Services (AD DS) ou Azure Active Directory (Azure AD).
 
@@ -118,4 +122,3 @@ Le tableau suivant est une comparaison des performances entre VHD et CimFS. Ces 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous souhaitez en savoir plus sur l’attachement d’application MSIX, consultez notre [page de présentation](what-is-app-attach.md) et notre [FAQ](app-attach-faq.md). Sinon, commencez avec [Configurer l’attachement d’application](app-attach.md).
-

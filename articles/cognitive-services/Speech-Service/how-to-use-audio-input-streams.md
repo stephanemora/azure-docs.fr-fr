@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3baedd49843c7721b6dba464054d5535b4c4f1cd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934121"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785338"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>À propos de l’API de flux d’entrée audio du SDK Speech
 
@@ -26,7 +26,7 @@ Les étapes suivantes sont nécessaires à l’utilisation des flux d’entrée 
 
 - Identifiez le format du flux audio. Le format doit être pris en charge par le SDK et le service Speech. Seule la configuration suivante est prise en charge :
 
-  Échantillons audio au format PCM, un canal, 16 bits par échantillon, 8 000 ou 16 000 échantillons par seconde (16 000 ou 32 000 octets par seconde), alignement de deux blocs (16 bits incluant le remplissage d’un échantillon).
+  Les échantillons audio sont au format PCM, un canal, 16 bits par échantillon, 8 000 ou 16 000 échantillons par seconde (16 000 ou 32 000 octets par seconde), alignement de 2 blocs (16 bits incluant le remplissage d’un échantillon).
 
   Dans le SDK, le code correspondant permettant de créer le format audio se présente ainsi :
 
@@ -37,7 +37,7 @@ Les étapes suivantes sont nécessaires à l’utilisation des flux d’entrée 
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Vérifiez que votre code peut fournir les données audio RAW respectant ces spécifications. Si vos données sources audio ne correspondent pas aux formats pris en charge, le fichier audio doit être converti au format requis.
+- Vérifiez que votre code fournit les données audio RAW respectant ces spécifications. Assurez-vous également que les exemples 16 bits arrivent au format little-endian. Les exemples signés sont également pris en charge. Si vos données sources audio ne correspondent pas aux formats pris en charge, le fichier audio doit être converti au format requis.
 
 - Créez votre propre classe de flux d’entrée audio dérivée de `PullAudioInputStreamCallback`. Implémentez les membres `Read()` et `Close()`. La signature de fonction exacte dépend de la langue, mais le code doit ressembler à cet exemple :
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613762"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745720"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -54,18 +54,18 @@ Avant de pouvoir créer une connexion, vous devez ajouter la solution de connect
 
    ![Ajouter la solution ITSMC](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Dans la section **Espace de travail OMS**, sélectionnez l’espace de travail Azure Log Analytics où vous souhaitez installer la solution.
+3. Dans la section **Espace de travail OMS** , sélectionnez l’espace de travail Azure Log Analytics où vous souhaitez installer la solution.
    >[!NOTE]
    > * Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, les espaces de travail OMS sont maintenant appelé espaces de travail Log Analytics.
    > * Le connecteur ITSM peut uniquement être installé dans les espaces de travail Log Analytics des régions suivantes : USA Est, USA Ouest 2, USA Centre Sud, USA Centre-Ouest, Fairfax, Canada Centre, Europe Ouest, Royaume-Uni Sud, Asie Sud-Est, Japon Est, Inde Centre, Australie Sud-Est.
 
-4. Dans la section **Paramètres de l’espace de travail OMS**, sélectionnez le groupe de ressources où vous souhaitez créer la ressource de la solution.
+4. Dans la section **Paramètres de l’espace de travail OMS** , sélectionnez le groupe de ressources où vous souhaitez créer la ressource de la solution.
 
    ![Espace de travail ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
    >Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, les espaces de travail OMS sont maintenant appelé espaces de travail Log Analytics.
 
-5. Cliquez sur **Créer**.
+5. Cliquez sur **OK**.
 
 Quand la ressource de la solution est déployée, une notification s’affiche en haut à droite de la fenêtre.
 
@@ -106,6 +106,10 @@ Une fois que vous avez préparé votre outils ITSM, suivez les étapes ci-dessou
 ## <a name="using-the-solution"></a>Utilisation de la solution
    Grâce au connecteur ITSM, vous pouvez créer des éléments de travail à partir d’alertes Azure, d’alertes Log Analytics et d’enregistrements de journal Log Analytics.
 
+## <a name="template-definitions"></a>Définitions des modèles
+   Certains types d’éléments de travail peuvent utiliser des modèles définis par l’outil ITSM.
+L’utilisation de modèles permet au client de définir les champs qui seront automatiquement renseignés en fonction des valeurs fixes définies comme faisant partie du groupe d’actions. La définition des modèles s’effectue dans l’outil ITSM.
+      
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Créer des éléments de travail ITSM à partir d’alertes Azure
 
 Une fois votre connexion ITSM créée, vous pouvez créer dans votre outil ITSM des éléments de travail basés sur des alertes Azure, à l’aide de **l’Action ITSM** dans **Groupes d’actions**.
@@ -118,23 +122,29 @@ Les groupes d’actions offrent une méthode modulaire et réutilisable pour dé
 
 Procédez comme suit :
 
-1. Dans le portail Azure, cliquez sur **Moniteur**.
-2. Dans le volet gauche, cliquez sur **Groupes d’actions**. La fenêtre **Ajouter un groupe d’actions** s’affiche.
+1. Dans le portail Azure, cliquez sur **Alertes**.
+2. Dans le volet supérieur, cliquez sur **Gérer les actions**. La fenêtre **Ajouter un groupe d’actions** s’affiche.
 
-    ![Groupes d’actions](media/itsmc-overview/action-groups.png)
+    [![Groupes d’actions](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
-3. Attribuez un **Nom** et un **Nom court** à votre groupe d’actions. Sélectionnez le **Groupe de ressources** et l’**Abonnement** pour lesquels vous voulez créer votre groupe d’actions.
+3. Sélectionnez l’ **Abonnement** et le **Groupe de ressources** pour lesquels vous souhaitez créer votre groupe d’actions. Indiquez le **Nom du groupe d’actions** et le **Nom d’affichage** de votre groupe d’actions. Cliquez sur **Suivant : Notifications**.
 
     ![Détails du groupe d’actions](media/itsmc-overview/action-groups-details.png)
 
-4. Dans la liste d’actions, sélectionnez **ITSM** dans le menu déroulant **Type d’action**. Entrez un **Nom** pour l’action et cliquez sur **Modifier les détails**.
-5. Sélectionnez l’**Abonnement** dans lequel se trouve votre espace de travail Log Analytics. Sélectionnez le nom de **Connexion** (le nom de votre connecteur ITSM) suivi du nom de votre espace de travail. Par exemple, « MaSolutionTSMMConnector(MonEspaceDeTravail) ».
+4. Dans la liste des notifications, cliquez sur **Imbriquer : Actions**.
+5. Dans la liste d’actions, sélectionnez **ITSM** dans le menu déroulant **Type d’action**. Indiquez un **Nom** pour l’action et cliquez sur le stylet correspondant à **Modifier les détails**.
+6. Sélectionnez l’ **Abonnement** dans lequel se trouve votre espace de travail Log Analytics. Sélectionnez le nom de **Connexion** (le nom de votre connecteur ITSM) suivi du nom de votre espace de travail. Par exemple, « MaSolutionTSMMConnector(MonEspaceDeTravail) ».
 
-    ![Détails de l’action ITSM](media/itsmc-overview/itsm-action-details.png)
+    ![Détails de l’action ITSM](media/itsmc-overview/itsm-action-configuration.png)
 
-6. Sélectionnez le type d’**Élément de travail** dans le menu déroulant.
-   Choisissez d’utiliser un modèle existant ou renseignez les champs requis par votre produit ITSM.
-7. Cliquez sur **OK**.
+7. Sélectionnez le type d’ **Élément de travail** dans le menu déroulant.
+
+8. Pour renseigner les champs avec des valeurs fixes, cochez la case « Utiliser un modèle personnalisé », sinon choisissez un [modèle](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existant dans la liste déroulante et renseignez les champs du modèle avec des valeurs fixes.
+
+9. Si vous cochez la case **Créer des éléments de travail individuels pour chaque élément de configuration** , chaque élément de configuration dispose de son propre élément de travail. Cela signifie qu’il y aura un élément de travail par élément de configuration et il sera mis à jour en fonction des alertes créées.
+Si vous décochez la case **Créer des éléments de travail individuels pour chaque élément de configuration** , chaque alerte crée un nouvel élément de travail et il peut dès lors y avoir plusieurs alertes par élément de configuration.
+
+10. Cliquez sur **OK**.
 
 Lorsque vous créez/modifiez une règle d’alerte Azure, utilisez un groupe d’actions qui contient une action ITSM. Quand l’alerte se déclenche, l’élément de travail est créé/mis à jour dans l’outil ITSM.
 
@@ -153,7 +163,7 @@ En fonction de la configuration choisie lors de l’établissement d’une conne
 
 Vous pouvez visualiser les données d’incidents et de demande de modification à l’aide du tableau de bord Connecteur ITSM dans la solution.
 
-![Écran Log Analytics](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Capture d'écran montrant le tableau de bord du connecteur ITSM.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Le tableau de bord fournit également des informations sur l’état du connecteur, que vous pouvez utiliser comme point de départ pour analyser les problèmes au niveau de vos connexions.
 
@@ -288,7 +298,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM
-1. Si la connexion échoue à partir de l’interface utilisateur de la source connectée avec un message **Erreur lors de l’enregistrement de la connexion**, procédez comme suit :
+1. Si la connexion échoue à partir de l’interface utilisateur de la source connectée avec un message **Erreur lors de l’enregistrement de la connexion** , procédez comme suit :
    - Pour les connexions ServiceNow, Cherwell et Provance,  
    - vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.  
    - Vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.  
@@ -298,7 +308,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2. Si les données de ServiceNow ne sont pas synchronisées dans Log Analytics, vérifiez que l’instance ServiceNow n’est pas en état de veille. Parfois, les instances de développement ServiceNow entrent en veille quand elles restent longtemps inactives. Autrement, signalez le problème.
 3. Si des alertes Log Analytics se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM ou qu’aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations génériques, examinez les emplacements suivants :
    -  ITSMC : la solution affiche un résumé des connexions, éléments de travail, ordinateurs, etc. Cliquez sur la vignette indiquant **État du connecteur**. Vous accédez alors à **Recherche dans les journaux** avec la requête appropriée. Pour plus d’informations, consultez les enregistrements de journal pour lesquels LogType_S a la valeur ERROR.
-   - Page **Recherche dans les journaux** : examinez les erreurs/informations connexes directement en utilisant la requête `*`ServiceDeskLog_CL`*`.
+   - Page **Recherche dans les journaux**  : examinez les erreurs/informations connexes directement en utilisant la requête `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Résoudre les problèmes de déploiement de l’application web Service Manager
 1.  En cas de problèmes de déploiement d’application web, vérifiez que vous disposez des autorisations suffisantes dans l’abonnement mentionné pour créer/déployer des ressources.

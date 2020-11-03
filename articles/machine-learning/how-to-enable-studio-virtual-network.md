@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131817"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792019"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -36,7 +36,7 @@ Consultez les autres articles de cette série :
 
 
 > [!IMPORTANT]
-> Alors que le studio fonctionne principalement avec les données stockées dans un réseau virtuel, ce n’est __pas__ le cas des notebooks intégrés. Les notebooks intégrés ne prennent pas en charge l’utilisation du stockage qui se trouve dans un réseau virtuel. Cela étant, vous pouvez utiliser des notebooks Jupyter à partir d’une instance de calcul. Pour plus d’informations, consultez la section [Accéder aux données d’un notebook d’instance de capacité de calcul]().
+> Si votre espace de travail se trouve dans un __cloud souverain__ , comme Azure Government ou Azure China 21Vianet, les notebooks intégrés _ne prennent pas_ en charge l’utilisation du stockage qui se trouve dans un réseau virtuel. Cela étant, vous pouvez utiliser des notebooks Jupyter à partir d’une instance de calcul. Pour plus d’informations, consultez la section [Accéder aux données d’un notebook d’instance de capacité de calcul](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook).
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -53,7 +53,7 @@ Consultez les autres articles de cette série :
 
 Si vous accédez à Studio à partir d’une ressource au sein d’un réseau virtuel (par exemple une instance de calcul ou une machine virtuelle), vous devez autoriser le trafic sortant du réseau virtuel vers Studio. 
 
-Par exemple, si vous utilisez des groupes de sécurité réseau pour limiter le trafic sortant, ajoutez une règle à une destination d’__étiquette de service__ __AzureFrontDoor.Frontend__.
+Par exemple, si vous utilisez des groupes de sécurité réseau pour limiter le trafic sortant, ajoutez une règle à une destination d’ __étiquette de service__ __AzureFrontDoor.Frontend__.
 
 ## <a name="access-data-using-the-studio"></a>Accéder aux données à l’aide du studio
 
@@ -66,9 +66,6 @@ Si vous n’activez pas l’identité managée, cette erreur s’affichera : `E
 * Envoi d’une expérience AutoML
 * Démarrage d’un projet d’étiquetage
 
-> [!NOTE]
-> L'[étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un réseau virtuel. Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 
-
 Studio prend en charge la lecture de données à partir des types de magasins de données suivants sur un réseau virtuel :
 
 * Objets blob Azure
@@ -76,7 +73,11 @@ Studio prend en charge la lecture de données à partir des types de magasins de
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### <a name="configure-datastores-to-use-managed-identity"></a>Configurer des magasins de données pour utiliser l’identité managée
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Accorder à l’identité managée de l’espace de travail un accès __Lecteur__ à la liaison privée de stockage
+
+Cette étape est requise uniquement si vous avez ajouté le compte de stockage Azure à votre réseau virtuel avec un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). Pour plus d’informations, voir le rôle intégré [Lecteur](../role-based-access-control/built-in-roles.md#reader).
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurer des magasins de données pour utiliser l’identité managée de l’espace de travail
 
 Azure Machine Learning utilise des [magasins de données](concept-data.md#datastores) pour se connecter aux comptes de stockage. Procédez comme suit pour configurer vos magasins de données afin d’utiliser l’identité managée. 
 
@@ -89,7 +90,7 @@ Azure Machine Learning utilise des [magasins de données](concept-data.md#datast
 1. Dans les paramètres du magasin de données, sélectionnez __Oui__ pour __Autoriser le service Azure Machine Learning à accéder au stockage en utilisant l’identité managée de l’espace de travail__.
 
 
-Ces étapes ajoutent l’identité managée de l’espace de travail en tant que __Lecteur__ au service de stockage à l’aide du contrôle d’accès en fonction du rôle Azure (RBAC). L’accès __Lecteur__ permet à l’espace de travail de récupérer les paramètres du pare-feu et de s’assurer que les données ne quittent pas le réseau virtuel.
+Ces étapes ajoutent l’identité managée de l’espace de travail en tant que __Lecteur__ au service de stockage à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’accès __Lecteur__ permet à l’espace de travail de récupérer les paramètres du pare-feu et de s’assurer que les données ne quittent pas le réseau virtuel.
 
 > [!NOTE]
 > La prise en compte de ces modifications peut prendre jusqu’à 10 minutes.
@@ -100,13 +101,13 @@ L’utilisation de l’identité managée pour accéder aux services de stockage
 
 ### <a name="azure-blob-storage"></a>Stockage Blob Azure
 
-Pour __Stockage Blob Azure__, l’identité managée de l’espace de travail est également ajoutée en tant que [Lecteur des données Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) afin qu’elle puisse lire les données à partir du stockage d’objets Blob.
+Pour __Stockage Blob Azure__ , l’identité managée de l’espace de travail est également ajoutée en tant que [Lecteur des données Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) afin qu’elle puisse lire les données à partir du stockage d’objets Blob.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Contrôle d’accès Azure Data Lake Storage Gen2
 
-Vous pouvez utiliser à la fois des listes de contrôle d’accès (ACL) de style POSIX et le contrôle RBAC pour contrôler l’accès aux données au sein d’un réseau virtuel.
+Vous pouvez utiliser à la fois des listes de contrôle d’accès (ACL, access-control list) de style POSIX et le contrôle Azure RBAC pour contrôler l’accès aux données au sein d’un réseau virtuel.
 
-Pour utiliser le contrôle RBAC, ajoutez l’identité managée de l’espace de travail au rôle [Lecteur des données Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Pour plus d'informations, consultez [Contrôle d'accès en fonction du rôle Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Pour utiliser Azure RBAC, ajoutez l’identité managée de l’espace de travail au rôle [Lecteur de données Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Pour plus d'informations, consultez [Contrôle d'accès en fonction du rôle Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Pour utiliser des listes de contrôle d’accès, vous pouvez accorder l’accès à l’identité managée de l’espace de travail comme tout autre principal de sécurité. Pour plus d’informations, consultez [Listes de contrôle d’accès sur les fichiers et répertoires](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -126,8 +127,8 @@ Le concepteur utilise le compte de stockage attaché à votre espace de travail 
 
 Pour définir un nouveau stockage par défaut pour un pipeline :
 
-1. Dans un brouillon de pipeline, sélectionnez l’**icône d’engrenage des Paramètres** située près du titre de votre pipeline.
-1. Sélectionnez **Sélectionner le magasin de données par défaut**.
+1. Dans un brouillon de pipeline, sélectionnez l’ **icône d’engrenage des Paramètres** située près du titre de votre pipeline.
+1. Sélectionnez l’option **Sélectionner le magasin de données par défaut**.
 1. Spécifiez un nouveau magasin de données.
 
 Vous pouvez également écraser le magasin de données par défaut sur une base par module. Cela vous donne le contrôle sur l’emplacement de stockage pour chaque module individuel.

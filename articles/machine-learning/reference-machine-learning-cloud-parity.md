@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892978"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426519"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parité du cloud souverain Azure Machine Learning
 
@@ -122,7 +122,7 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
 | Accès à la racine et au protocole SSH pour les ressources de calcul.                                          | YES | YES |  |
 | Maintenir la sécurité des systèmes déployés (instances, points de terminaison, etc.), y compris la protection des points de terminaison, la mise à jour corrective et la journalisation |  PARTIAL|  PARTIAL |ACR derrière réseau virtuel et point de terminaison privé actuellement non disponibles |                                  
 | Contrôler (désactiver/limiter/restreindre) l’utilisation de l’intégration ACI/AKS                    | PARTIAL| PARTIAL |ACR derrière réseau virtuel et point de terminaison privé actuellement non disponibles|
-| Contrôle d’accès en fonction du rôle (RBAC) - Créations de rôles personnalisées                           | YES | YES |  |
+| Contrôle d’accès en fonction du rôle Azure (Azure RBAC) – Création de rôles personnalisés                           | YES | YES |  |
 | Contrôler l’accès aux images ACR utilisées par le service Machine Learning (fourni par Azure et gérée ou personnalisée)  |PARTIAL|  PARTIAL | ACR derrière point de terminaison privé et réseau virtuel non pris en charge dans Azure Government |
 | **Utilisation générale du service Machine Learning** |  | | |
 | Possibilité de disposer d’un environnement de développement pour générer un modèle, effectuer l’apprentissage de ce modèle, l’héberger en tant que point de terminaison et l’utiliser via une application web     | YES | YES |  |

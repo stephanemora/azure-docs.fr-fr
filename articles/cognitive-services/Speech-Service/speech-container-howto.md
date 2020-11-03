@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/23/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 6f04e40b0b2baa496faf8001684304c5df78ec20
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930439"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496146"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
@@ -56,9 +56,9 @@ L’utilisation des conteneurs Speech est soumise aux prérequis suivants :
 
 | Obligatoire | Objectif |
 |--|--|
-| Moteur Docker | Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br> |
+| Moteur Docker | Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows** , vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br> |
 | Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base. |
-| Ressource Speech | Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Une ressource _Speech_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs sont disponibles sur les pages Vue d’ensemble et Clés de la ressource **Speech** du portail Azure. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble** |
+| Ressource Speech | Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Une ressource _Speech_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs sont disponibles sur les pages Vue d’ensemble et Clés de la ressource **Speech** du portail Azure. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble** |
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -68,7 +68,7 @@ L’utilisation des conteneurs Speech est soumise aux prérequis suivants :
 
 ### <a name="advanced-vector-extension-support"></a>Prise en charge d’Advanced Vector Extension
 
-L’**hôte** est l’ordinateur qui exécute le conteneur docker. L’hôte *doit prendre en charge* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Vous pouvez vérifier cette prise en charge AVX2 sur les hôtes Linux avec la commande suivante :
+L’ **hôte** est l’ordinateur qui exécute le conteneur docker. L’hôte *doit prendre en charge* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Vous pouvez vérifier cette prise en charge AVX2 sur les hôtes Linux avec la commande suivante :
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -179,7 +179,7 @@ La balise suivante illustre le format :
 2.5.0-amd64-en-us-preview
 ```
 
-Pour tous les paramètres régionaux pris en charge du conteneur de **reconnaissance vocale**, consultez les [étiquettes d’images de reconnaissance vocale](../containers/container-image-tags.md#speech-to-text).
+Pour tous les paramètres régionaux pris en charge du conteneur de **reconnaissance vocale** , consultez les [étiquettes d’images de reconnaissance vocale](../containers/container-image-tags.md#speech-to-text).
 
 # <a name="custom-speech-to-text"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
@@ -221,10 +221,10 @@ La balise suivante illustre le format :
 1.6.0-amd64-en-us-ariarus-preview
 ```
 
-Pour tous les paramètres régionaux et voix correspondantes pris en charge du conteneur de **synthèse vocale**, consultez les [étiquettes d’images de synthèse vocale](../containers/container-image-tags.md#text-to-speech).
+Pour tous les paramètres régionaux et voix correspondantes pris en charge du conteneur de **synthèse vocale** , consultez les [étiquettes d’images de synthèse vocale](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Lors de la construction d’une requête HTTP POST de *synthèse vocale*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#standard-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-AriaRUS`.
+> Lors de la construction d’une requête HTTP POST de *synthèse vocale* , le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#standard-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-AriaRUS`.
 
 # <a name="neural-text-to-speech"></a>[Synthèse vocale neuronale](#tab/ntts)
 
@@ -253,10 +253,10 @@ La balise suivante illustre le format :
 1.2.0-amd64-en-us-arianeural-preview
 ```
 
-Pour tous les paramètres régionaux et les voix correspondantes pris en charge du conteneur de **synthèse vocale neuronale**, consultez les [étiquettes d’images de synthèse vocale neuronale](../containers/container-image-tags.md#neural-text-to-speech).
+Pour tous les paramètres régionaux et les voix correspondantes pris en charge du conteneur de **synthèse vocale neuronale** , consultez les [étiquettes d’images de synthèse vocale neuronale](../containers/container-image-tags.md#neural-text-to-speech).
 
 > [!IMPORTANT]
-> Lors de la construction d’une requête HTTP POST de *synthèse vocale neuronale*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#neural-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-AriaNeural`.
+> Lors de la construction d’une requête HTTP POST de *synthèse vocale neuronale* , le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#neural-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-AriaNeural`.
 
 # <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
 
@@ -351,12 +351,12 @@ Le conteneur *Reconnaissance vocale personnalisée* s’appuie sur un modèle Sp
 > * **20190701 (v4.17 unifiée)**<br>
 > ![Modèle de conteneur formé à Custom Speech](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
-L’**ID du modèle** Custom Speech est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Speech. À partir du portail Custom Speech, accédez à la page **Entraînement** et sélectionnez le modèle.
+L’ **ID du modèle** Custom Speech est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Speech. À partir du portail Custom Speech, accédez à la page **Entraînement** et sélectionnez le modèle.
 <br>
 
 ![Page Entraînement de Custom Speech](media/custom-speech/custom-speech-model-training.png)
 
-Obtenez l’**ID du modèle** pour l’utiliser comme argument du paramètre `ModelId` de la commande `docker run`.
+Obtenez l’ **ID du modèle** pour l’utiliser comme argument du paramètre `ModelId` de la commande `docker run`.
 <br>
 
 ![Détails du modèle Custom Speech](media/custom-speech/custom-speech-model-details.png)
@@ -370,7 +370,7 @@ Le tableau suivant présente les différents paramètres `docker run` et leurs d
 | `{ENDPOINT_URI}` | Le point de terminaison est nécessaire pour le comptage et la facturation. Pour plus d’informations, consultez [Collecte des paramètres requis](#gathering-required-parameters). |
 | `{API_KEY}` | La clé API est obligatoire. Pour plus d’informations, consultez [Collecte des paramètres requis](#gathering-required-parameters). |
 
-Pour exécuter le conteneur *Reconnaissance vocale personnalisée*, exécutez la commande `docker run` suivante :
+Pour exécuter le conteneur *Reconnaissance vocale personnalisée* , exécutez la commande `docker run` suivante :
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -413,7 +413,7 @@ Cette commande :
 
 # <a name="neural-text-to-speech"></a>[Synthèse vocale neuronale](#tab/ntts)
 
-Pour exécuter le conteneur *Synthèse vocale neuronale*, exécutez la commande `docker run` suivante.
+Pour exécuter le conteneur *Synthèse vocale neuronale* , exécutez la commande `docker run` suivante.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -432,12 +432,12 @@ Cette commande :
 
 # <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
 
-Le conteneur *Synthèse vocale personnalisée* s’appuie sur un modèle vocal personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-voice-create-voice.md) à l’aide du [portail Custom Voice](https://aka.ms/custom-voice-portal). L’**ID du modèle** Custom Voice est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Voice. À partir du portail Custom Voice, accédez à la page **Entraînement** et sélectionnez le modèle.
+Le conteneur *Synthèse vocale personnalisée* s’appuie sur un modèle vocal personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-voice-create-voice.md) à l’aide du [portail Custom Voice](https://aka.ms/custom-voice-portal). L’ **ID du modèle** Custom Voice est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Voice. À partir du portail Custom Voice, accédez à la page **Entraînement** et sélectionnez le modèle.
 <br>
 
 ![Page Entraînement de Custom Voice](media/custom-voice/custom-voice-model-training.png)
 
-Obtenez l’**ID du modèle** pour l’utiliser comme argument du paramètre `ModelId` de la commande docker run.
+Obtenez l’ **ID du modèle** pour l’utiliser comme argument du paramètre `ModelId` de la commande docker run.
 <br>
 
 ![Détails du modèle Custom Voice](media/custom-voice/custom-voice-model-details.png)
@@ -451,7 +451,7 @@ Le tableau suivant présente les différents paramètres `docker run` et leurs d
 | `{ENDPOINT_URI}` | Le point de terminaison est nécessaire pour le comptage et la facturation. Pour plus d’informations, consultez [Collecte des paramètres requis](#gathering-required-parameters). |
 | `{API_KEY}` | La clé API est obligatoire. Pour plus d’informations, consultez [Collecte des paramètres requis](#gathering-required-parameters). |
 
-Pour exécuter le conteneur *Synthèse vocale personnalisée*, exécutez la commande `docker run` suivante :
+Pour exécuter le conteneur *Synthèse vocale personnalisée* , exécutez la commande `docker run` suivante :
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -475,7 +475,7 @@ Cette commande :
 
 # <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
 
-Pour exécuter le conteneur*Détection de langue vocale*, exécutez la commande `docker run` suivante.
+Pour exécuter le conteneur *Détection de langue vocale* , exécutez la commande `docker run` suivante.
 
 ```bash
 docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
@@ -491,6 +491,16 @@ Cette commande :
 * Alloue 1 cœur de processeur et 1 gigaoctet (Go) de mémoire.
 * Expose le port TCP 5003 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
+
+Si vous envoyez uniquement des requêtes Détection de langue Speech, vous devrez définir la valeur `phraseDetection` du client Speech sur `None`.  
+
+```python
+speech_config.set_service_property(
+      name='speechcontext-phraseDetection.Mode',
+      value='None',
+      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+   )
+```
 
 Si vous souhaitez exécuter ce conteneur avec le conteneur de reconnaissance vocale, vous pouvez utiliser cette [image Docker](https://hub.docker.com/r/antsu/on-prem-client). Après le démarrage des deux conteneurs, utilisez cette commande Docker Run pour exécuter `speech-to-text-with-languagedetection-client`.
 

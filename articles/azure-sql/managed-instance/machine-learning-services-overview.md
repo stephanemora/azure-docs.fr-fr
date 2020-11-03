@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: d7a3c86f3d9cf083a8746f753b8c5287c774a93e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263265"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782414"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services dans Azure SQL Managed Instance (préversion)
 
@@ -38,13 +38,13 @@ Machine Learning Services dans Azure SQL Managed Instance vous permet d’exécu
 
 Utilisez Machine Learning Services avec le support R/Python dans Azure SQL Managed Instance pour :
 
-- **Exécuter des scripts R et Python pour la préparation des données et le traitement des données à usage général** : vous pouvez maintenant intégrer vos scripts R/Python à Azure SQL Managed Instance où résident vos données, au lieu de déplacer les données vers un autre serveur pour exécuter des scripts R et Python. Vous pouvez éliminer le besoin de déplacement des données et les problèmes associés à la latence, à la sécurité et à la conformité.
+- **Exécuter des scripts R et Python pour la préparation des données et le traitement des données à usage général**  : vous pouvez maintenant intégrer vos scripts R/Python à Azure SQL Managed Instance où résident vos données, au lieu de déplacer les données vers un autre serveur pour exécuter des scripts R et Python. Vous pouvez éliminer le besoin de déplacement des données et les problèmes associés à la latence, à la sécurité et à la conformité.
 
-- **Effectuer l'apprentissage des modèles de Machine Learning dans la base de données** : vous pouvez effectuer l'apprentissage des modèles à l’aide de n’importe quel algorithme Open source. Vous pouvez facilement mettre à l'échelle votre formation sur l’ensemble du jeu de données plutôt qu’en vous fiant à des échantillons de jeux de données tirés hors de la base de données.
+- **Effectuer l'apprentissage des modèles de Machine Learning dans la base de données**  : vous pouvez effectuer l'apprentissage des modèles à l’aide de n’importe quel algorithme Open source. Vous pouvez facilement mettre à l'échelle votre formation sur l’ensemble du jeu de données plutôt qu’en vous fiant à des échantillons de jeux de données tirés hors de la base de données.
 
-- **Déployez vos modèles et scripts en production dans des procédures stockées** : les scripts et les modèles formés peuvent être mis en œuvre simplement en les incorporant dans des procédures stockées T-SQL. Les applications se connectant à Azure SQL Managed Instance peuvent tirer parti des prédictions et de l’intelligence de ces modèles en appelant simplement une procédure stockée. Vous pouvez également utiliser la fonction PREDICT T-SQL native pour mettre en œuvre des modèles en vue d’un scoring rapide dans des scénarios de scoring en temps réel hautement simultanés.
+- **Déployez vos modèles et scripts en production dans des procédures stockées**  : les scripts et les modèles formés peuvent être mis en œuvre simplement en les incorporant dans des procédures stockées T-SQL. Les applications se connectant à Azure SQL Managed Instance peuvent tirer parti des prédictions et de l’intelligence de ces modèles en appelant simplement une procédure stockée. Vous pouvez également utiliser la fonction PREDICT T-SQL native pour mettre en œuvre des modèles en vue d’un scoring rapide dans des scénarios de scoring en temps réel hautement simultanés.
 
-Les distributions de base de Python et de R sont incluses dans Machine Learning Services. Vous pouvez installer et utiliser des frameworks et des packages open source comme PyTorch, TensorFlow et scikit-learn, en plus des packages Microsoft [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) et [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml) pour Python, et [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr) et [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) pour R.
+Les distributions de base de Python et de R sont incluses dans Machine Learning Services. Vous pouvez installer et utiliser des frameworks et des packages open source comme PyTorch, TensorFlow et scikit-learn, en plus des packages Microsoft [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) et [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) pour Python, et [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](/sql/advanced-analytics/r/ref-r-olapr) et [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) pour R.
 
 <a name="signup"></a>
 
@@ -52,23 +52,31 @@ Les distributions de base de Python et de R sont incluses dans Machine Learning 
 
 Cette préversion publique limitée est soumise aux [conditions des préversions d'Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Si vous souhaitez rejoindre le programme en préversion et accepter ces conditions, vous pouvez demander une inscription en créant un ticket de support Azure sur [ **https://azure.microsoft.com/support/create-ticket/** ](https://azure.microsoft.com/support/create-ticket/). 
+Si vous souhaitez rejoindre le programme en préversion et accepter ces conditions, vous pouvez demander une inscription en créant un ticket de support Azure sur [ **https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
+
+1. Dans la page **Créer un ticket de support** , cliquez sur **Créer un incident**.
+
+1. Sur la page **Aide + support** , cliquez sur **Nouvelle demande de support** pour créer un ticket.
 
 1. Sélectionnez les options suivantes :
    - Type de problème : **technique**
    - Abonnement : *sélectionnez votre abonnement*
-   - Service : **SQL Database Managed Instance**
+   - Service – **SQL Managed Instance**
+   - Resource – *sélectionnez votre instance gérée*
    - Récapitulatif : *fournissez une brève description de votre demande*
    - Type de problème : **Machine Learning Services pour SQL Managed Instance (préversion)**
    - Sous-type de problème : **Autre problème ou questions pratiques**
 
 1. Cliquez sur **Suivant : Solutions**.
 
-1. Lisez les informations sur la préversion, puis cliquez sur **Détails**.
+1. Lisez les informations sur la préversion, puis cliquez sur **Suivant : Détails**.
 
-1. Dans **Description**, entrez les détails de votre demande, notamment le nom du serveur logique, la région et l’ID d’abonnement que vous souhaitez inscrire dans la préversion. Entrez d’autres détails, le cas échéant.
+1. Sur cette page :
+   - En réponse à la question **Essayez-vous de vous inscrire à la préversion ?** , sélectionnez **Oui**. 
+   - Dans **Description** , entrez les détails de votre demande, à savoir le nom, la région et l’ID d’abonnement du serveur logique que vous souhaitez inscrire dans la préversion. Entrez d’autres détails, le cas échéant.
+   - Sélectionnez votre méthode de contact préférée. 
 
-1. Lorsque vous avez fini, cliquez sur **Suivant : Vérifier + créer**, puis cliquez sur **Créer**.
+1. Lorsque vous avez fini, cliquez sur **Suivant : Vérifier + créer** , puis sur **Créer**.
 
 Une fois inscrit dans le programme, Microsoft vous intègre à la préversion publique et active Machine Learning Services sur votre base de données existante ou nouvelle.
 
@@ -77,6 +85,6 @@ L’utilisation de Machine Learning Services dans SQL Managed Instance n’est p
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Prenez connaissance des [différences principales de Machine Learning SQL Services dans SQL Server](machine-learning-services-differences.md).
-- Pour apprendre à utiliser Python dans Machine Learning Services, consultez [Exécuter des scripts Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Pour apprendre à utiliser R dans Machine Learning Services, consultez [Exécuter des scripts R](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Pour plus d’informations sur le machine learning sur d’autres plateformes SQL, consultez la [documentation sur le machine learning SQL](https://docs.microsoft.com/sql/machine-learning/).
+- Pour apprendre à utiliser Python dans Machine Learning Services, consultez [Exécuter des scripts Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Pour apprendre à utiliser R dans Machine Learning Services, consultez [Exécuter des scripts R](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Pour plus d’informations sur le machine learning sur d’autres plateformes SQL, consultez la [documentation sur le machine learning SQL](/sql/machine-learning/).

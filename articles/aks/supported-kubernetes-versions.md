@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335532"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735072"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -93,9 +93,9 @@ New Supported Version List
 
 ### <a name="supported-kubectl-versions"></a>Versions de `kubectl` prises en charge
 
-Vous pouvez utiliser une version mineure de `kubectl` plus ancienne ou plus récente que votre version de *kube-apiserver*, conforme à la [stratégie de prise en charge de Kubernetes pour kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+Vous pouvez utiliser une version mineure de `kubectl` plus ancienne ou plus récente que votre version de *kube-apiserver* , conforme à la [stratégie de prise en charge de Kubernetes pour kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Par exemple, si vous avez la version *1.17* de *kube-apiserver*, vous pouvez utiliser les versions *1.16* à *1.18* de `kubectl`.
+Par exemple, si vous avez la version  *1.17* de *kube-apiserver* , vous pouvez utiliser les versions  *1.16* à *1.18* de `kubectl`.
 
 Pour installer ou mettre à jour votre version de `kubectl`, exécutez `az aks install-cli`.
 
@@ -121,9 +121,9 @@ Certaines versions de correctifs spécifiques peuvent être ignorées, ou le dé
 
 ## <a name="azure-portal-and-cli-versions"></a>Versions du Portail Azure et de l’interface CLI
 
-Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini par défaut sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* et *1.15.f*, la version sélectionnée par défaut est *1.16.c*.
+Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini par défaut sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.17.a* , *1.17.b* , *1.16.c* , *1.16.d* , *1.15.e* et *1.15.f* , la version sélectionnée par défaut est *1.16.c*.
 
-Pour savoir quelles sont les versions disponibles pour vos abonnement et région, utilisez la commande [az aks get-versions][az-aks-get-versions]. L’exemple suivant répertorie les versions Kubernetes disponibles pour la région *EastUS* :
+Pour savoir quelles sont les versions disponibles pour vos abonnement et région, utilisez la commande [az aks get-versions][az-aks-get-versions]. L’exemple suivant répertorie les versions Kubernetes disponibles pour la région *EastUS*  :
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
@@ -135,11 +135,12 @@ Pour connaître l’historique des versions antérieures, cliquez [ici](https://
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 19 septembre 2019  | janvier 2019   | Mars 2020  | 1.19 GA | 
+| 1.16  | 19 septembre 2019  | janvier 2019   | Mars 2020  | Jan. 2021* | 
 | 1.17  | 9 déc. 19  | janvier 2019   | Juil. 2020  | 1.20 GA | 
 | 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | 1.21 GA | 
 | 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA | 
 | 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA | 
+\* En raison des fêtes de fin d’année, AKS reporte la fin de vie de la version 1.16 de novembre 2020 à janvier 2021. En savoir plus [ici](https://github.com/Azure/AKS/releases/tag/2020-10-12)
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
@@ -176,9 +177,9 @@ Le plan de contrôle doit se trouver dans une fenêtre de versions pour tous les
 
 Quand vous mettez à niveau un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x*.
 
-Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
+Pour opérer une mise à niveau *1.12.x* -> *1.14.x* , commencez par une mise à niveau *1.12.x* -> *1.13.x* , puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
 
-Vous pouvez ignorer plusieurs versions uniquement pour une mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge vers une version *1.15.x* prise en charge peut être effectuée.
+Vous pouvez ignorer plusieurs versions uniquement pour une mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version  *1.10.x* non prise en charge vers une version  *1.15.x* prise en charge peut être effectuée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

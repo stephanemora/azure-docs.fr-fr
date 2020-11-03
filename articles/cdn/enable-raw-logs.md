@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321147"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778023"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Métriques de suivi et journaux bruts pour Azure CDN de Microsoft
 Grâce à Azure CDN de Microsoft, vous pouvez surveiller les ressources des manières suivantes pour vous aider à résoudre, suivre et déboguer les problèmes : 
@@ -40,7 +40,7 @@ Pour configurer les journaux bruts de votre instance Azure CDN à partir du prof
 
 1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** >>  **\<your-CDN-profile>** .
 
-2. Sous **Supervision**, sélectionnez **Paramètres de diagnostic**.
+2. Sous **Supervision** , sélectionnez **Paramètres de diagnostic**.
 
 3. Sélectionnez **+ Ajouter le paramètre de diagnostic**.
 
@@ -49,25 +49,25 @@ Pour configurer les journaux bruts de votre instance Azure CDN à partir du prof
     > [!IMPORTANT]
     > Les journaux bruts sont disponibles uniquement au niveau du profil, tandis que les journaux agrégés des codes d’état http sont disponibles au niveau du point de terminaison.
 
-4. Sous **Paramètres de diagnostic**, entrez un nom pour le paramètre de diagnostic sous **Nom des paramètres de diagnostic**.
+4. Sous **Paramètres de diagnostic** , entrez un nom pour le paramètre de diagnostic sous **Nom des paramètres de diagnostic**.
 
 5. Sélectionnez le journal **AzureCdnAccessLog** et définissez la rétention en jours.
 
 6. Sélectionnez les **Détails de la destination**. Les options de destination sont les suivantes :
     * **Envoyer à Log Analytics**
-        * Sélectionnez l’**Abonnement** et l’**Espace de travail Log Analytics**.
+        * Sélectionnez l’ **Abonnement** et l’ **Espace de travail Log Analytics**.
     * **Archiver dans un compte de stockage**
-        * Sélectionnez l’**Abonnement** et le **Compte de stockage**.
+        * Sélectionnez l’ **Abonnement** et le **Compte de stockage**.
     * **Diffuser vers un hub d’événements**
-        * Sélectionnez l’**Abonnement**, l’**Espace de noms du hub d’événements**, le **Nom du hub d’événements (facultatif)** et le **Nom de la stratégie du hub d’événements**.
+        * Sélectionnez l’ **Abonnement** , l’ **Espace de noms du hub d’événements** , le **Nom du hub d’événements (facultatif)** et le **Nom de la stratégie du hub d’événements**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configurer la destination pour les paramètres du journal." border="true":::
 
 7. Sélectionnez **Enregistrer**.
 
 ## <a name="configuration---azure-powershell"></a>Configuration – Azure PowerShell
 
-Utilisez [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) pour configurer le paramètre de diagnostic des journaux bruts.
+Utilisez [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) pour configurer le paramètre de diagnostic des journaux bruts.
 
 Les données conservées sont définies par l’option **-RetentionInDays** dans la commande.
 
@@ -211,7 +211,7 @@ Les métriques sont affichées dans des graphiques et sont accessibles via Power
 
 Azure CDN de Microsoft mesure et envoie ses métriques par intervalles de 60 secondes. Les métriques peuvent prendre jusqu’à 3 minutes pour s’afficher dans le portail. 
 
-Pour plus d’informations, voir [Mesures Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Pour plus d’informations, voir [Mesures Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
 **Métriques prises en charge par Azure CDN de Microsoft**
 
@@ -222,7 +222,7 @@ Pour plus d’informations, voir [Mesures Azure Monitor](https://docs.microsoft.
 | ResponseSize    | Nombre d’octets envoyés en tant que réponses de la périphérie de CDN aux clients.                                                  |Point de terminaison </br> Pays du client. </br> Région du client. </br> État HTTP </br> Groupe d’états HTTP.                                                                                          |
 | TotalLatency    | Durée totale de la requête du client reçue par CDN **jusqu’au dernier octet de réponse envoyé de CDN au client**. |Point de terminaison </br> Pays du client. </br> Région du client. </br> État HTTP </br> Groupe d’états HTTP.                                                                                             |
 
-***Taux d’accès par octet = (sortie de la périphérie - la sortie de l’origine)/sortie de la périphérie**
+**_Taux d'accès par octet = (sortie de la périphérie - la sortie de l'origine)/sortie de la périphérie_*
 
 Scénarios exclus du calcul du taux d’accès par octet :
 
@@ -233,25 +233,25 @@ Scénarios exclus du calcul du taux d’accès par octet :
 
 1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** >>  **\<your-CDN-profile>** .
 
-2. Sous **Supervision**, sélectionnez **Métriques** :
+2. Sous **Supervision** , sélectionnez **Métriques**  :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Métriques pour le profil CDN." border="true":::
 
-3. Sélectionnez **Ajouter une métrique**, puis sélectionnez la métrique à ajouter :
+3. Sélectionnez **Ajouter une métrique** , puis sélectionnez la métrique à ajouter :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Ajouter et sélectionner une métrique pour le profil CDN." border="true":::
 
 4. Sélectionnez **Ajouter un filtre** pour ajouter un filtre :
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Appliquer le filtre à la métrique." border="true":::
 
 5. Sélectionnez **Appliquer le fractionnement** pour afficher la tendance selon différentes dimensions :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Appliquer le fractionnement à la métrique." border="true":::
 
 6. Sélectionnez **Nouveau graphique** pour ajouter un nouveau graphique :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Ajouter un nouveau graphique à l’affichage des métriques." border="true":::
 
 ### <a name="alerts"></a>Alertes
 
@@ -259,9 +259,9 @@ Vous pouvez configurer des alertes sur Microsoft CDN en sélectionnant **Supervi
 
 Sélectionnez **Nouvelle règle d’alerte** pour les métriques répertoriées dans la section Métriques :
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configurer des alertes pour le point de terminaison CDN." border="true":::
 
-L’alerte sera facturée conformément à Azure Monitor. Pour plus d’informations sur les alertes, consultez [Alertes Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+L’alerte sera facturée conformément à Azure Monitor. Pour plus d’informations sur les alertes, consultez [Alertes Azure Monitor](../azure-monitor/platform/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métriques supplémentaires
 Vous pouvez activer des métriques supplémentaires à l’aide d’Azure Log Analytics et des journaux bruts pour un coût supplémentaire.
@@ -270,21 +270,21 @@ Vous pouvez activer des métriques supplémentaires à l’aide d’Azure Log An
 
 2. Sélectionnez l’espace de travail Log Analytics que vous avez créé :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Sélectionner l’espace de travail Log Analytics." border="true":::   
 
 3. Sous **Général** dans l’espace de travail Log Analytics, sélectionnez **Journaux**.  Sélectionnez ensuite **Prise en main**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Espace de travail des ressources Log Analytics." border="true":::   
  
 4. Sélectionnez **Profils CDN**.  Sélectionnez un exemple de requête à exécuter ou fermez l’écran d’exemple pour entrer une requête personnalisée :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Exemple d’écran de requête." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Exécution d’une requête." border="true":::   
 
 4. Pour afficher les données par graphique, sélectionnez **Graphique**.  Sélectionnez **Épingler au tableau de bord** pour épingler le graphique au tableau de bord Azure :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Épinglez un graphique au tableau de bord." border="true"::: 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez activé les journaux bruts HTTP pour le service CDN Microsoft.
@@ -293,6 +293,6 @@ Pour plus d’informations sur Azure CDN et les autres services Azure mentionné
 
 * [Analyser](cdn-log-analysis.md) des modèles d’utilisation Azure CDN.
 
-* En savoir plus sur [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+* En savoir plus sur [Azure Monitor](../azure-monitor/overview.md).
 
-* Configurer [Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+* Configurer [Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md).

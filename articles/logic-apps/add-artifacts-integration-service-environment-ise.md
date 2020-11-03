@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269741"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675203"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajouter des ressources à votre environnement de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -34,7 +34,7 @@ Après avoir créé un [environnement de service d’intégration](../logic-apps
 
 Pour créer des applications logiques qui s’exécutent dans votre environnement ISE, effectuez les étapes suivantes :
 
-1. Recherchez et ouvrez votre environnement ISE, s’il n’est pas encore ouvert. Dans le menu de l’environnement ISE, sous **Paramètres**, sélectionnez **Applications logiques** > **Ajouter**.
+1. Recherchez et ouvrez votre environnement ISE, s’il n’est pas encore ouvert. Dans le menu de l’environnement ISE, sous **Paramètres** , sélectionnez **Applications logiques** > **Ajouter**.
 
    ![Ajouter une nouvelle application logique à l’environnement ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -47,7 +47,7 @@ Pour créer des applications logiques qui s’exécutent dans votre environnemen
    | **Nom** | Oui | Nom de l’application logique à créer |
    | **Abonnement** | Oui | Nom de l’abonnement Azure à utiliser. |
    | **Groupe de ressources** | Oui | Nom du groupe de ressources Azure (nouveau ou existant) à utiliser |
-   | **Lieu** | Oui | Sous **Environnements de service d’intégration**, sélectionnez l’ISE à utiliser, s’il n’est pas déjà sélectionné. <p><p> **Important !** Pour utiliser vos applications logiques avec un compte d’intégration, tous doivent utiliser le même ISE. |
+   | **Lieu** | Oui | Sous **Environnements de service d’intégration** , sélectionnez l’ISE à utiliser, s’il n’est pas déjà sélectionné. <p><p> **Important !** Pour utiliser vos applications logiques avec un compte d’intégration, tous doivent utiliser le même ISE. |
    ||||
 
 1. Sélectionnez **Créer** lorsque vous avez terminé.
@@ -66,7 +66,7 @@ En fonction de la [référence SKU d’environnement ISE](../logic-apps/connect-
 
 Pour créer un compte d’intégration qui utilise un environnement ISE, effectuez les étapes suivantes :
 
-1. Recherchez et ouvrez votre environnement ISE, s’il n’est pas encore ouvert. Dans le menu de l’environnement ISE, sous **Paramètres**, sélectionnez **Comptes d’intégration** > **Ajouter**.
+1. Recherchez et ouvrez votre environnement ISE, s’il n’est pas encore ouvert. Dans le menu de l’environnement ISE, sous **Paramètres** , sélectionnez **Comptes d’intégration** > **Ajouter**.
 
    ![Ajouter un nouveau compte d’intégration à un environnement ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -80,7 +80,7 @@ Pour créer un compte d’intégration qui utilise un environnement ISE, effectu
    | **Abonnement** | Oui | Nom de l’abonnement Azure que vous souhaitez utiliser |
    | **Groupe de ressources** | Oui | Nom du groupe de ressources Azure (nouveau ou existant) à utiliser |
    | **Niveau tarifaire** | Oui | Niveau tarifaire à utiliser pour le compte d’intégration |
-   | **Lieu** | Oui | Sous **Environnements de service d’intégration**, sélectionnez le même ISE que celui utilisé par vos applications logiques, s’il n’est pas déjà sélectionné. <p><p> **Important !** Pour utiliser votre compte d’intégration avec des applications logiques, tous doivent utiliser le même ISE. |
+   | **Lieu** | Oui | Sous **Environnements de service d’intégration** , sélectionnez le même ISE que celui utilisé par vos applications logiques, s’il n’est pas déjà sélectionné. <p><p> **Important !** Pour utiliser votre compte d’intégration avec des applications logiques, tous doivent utiliser le même ISE. |
    ||||
 
 1. Sélectionnez **Créer** lorsque vous avez terminé.
@@ -95,13 +95,27 @@ Pour créer un compte d’intégration qui utilise un environnement ISE, effectu
 
 ## <a name="add-ise-connectors"></a>Ajouter des connecteurs ISE
 
-Les connecteurs gérés par Microsoft qui deviennent disponibles une fois que vous avez créé votre ISE n’apparaissent pas automatiquement dans le sélecteur de connecteur du concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement ajouter et déployer ces connecteurs dans votre ISE afin qu’ils apparaissent dans le concepteur d’applications logiques.
+Une fois que vous avez créé votre ISE, les connecteurs ISE managés n’apparaissent pas automatiquement dans le sélecteur de connecteur du concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement ajouter et déployer ces connecteurs dans votre ISE afin qu’ils apparaissent dans le concepteur d’applications logiques.
 
-1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Connecteurs managés**. Dans la barre d’outils, sélectionnez **Ajouter**.
+> [!IMPORTANT]
+> Pour le moment, les connecteurs ISE managés ne prennent pas en charge les [balises](../azure-resource-manager/management/tag-support.md). Si vous configurez une stratégie qui applique le balisage, la tentative d’ajout de connecteurs ISE peut échouer avec une erreur semblable à l’exemple suivant :
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> Ainsi, pour ajouter des connecteurs ISE, vous devez désactiver ou supprimer votre stratégie. 
+
+1. Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **Connecteurs managés**. Dans la barre d’outils, sélectionnez **Ajouter**.
 
    ![Voir les connecteurs managés](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. Dans le volet **Ajouter un nouveau connecteur managé**, ouvrez la liste **Rechercher un connecteur**. Sélectionnez le connecteur ISE que vous souhaitez utiliser, mais qui n’est pas encore déployé dans votre ISE. Sélectionnez **Create** (Créer).
+1. Dans le volet **Ajouter un nouveau connecteur managé** , ouvrez la liste **Rechercher un connecteur**. Sélectionnez le connecteur ISE que vous souhaitez utiliser, mais qui n’est pas encore déployé dans votre ISE. Sélectionnez **Create** (Créer).
 
    ![Sélectionnez le connecteur ISE que vous souhaitez déployer dans votre ISE.](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
@@ -113,17 +127,17 @@ Les connecteurs gérés par Microsoft qui deviennent disponibles une fois que vo
 
 Pour utiliser des connecteurs personnalisés dans votre environnement ISE, créez-les directement dans l’environnement.
 
-1. Recherchez et ouvrez votre environnement ISE, s’il n’est pas encore ouvert. Dans le menu de l’environnement ISE, sous **Paramètres**, sélectionnez **Connecteurs personnalisés** > **Ajouter**.
+1. Recherchez et ouvrez votre environnement ISE, s’il n’est pas encore ouvert. Dans le menu de l’environnement ISE, sous **Paramètres** , sélectionnez **Connecteurs personnalisés** > **Ajouter**.
 
    ![Créer un connecteur personnalisé](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
 1. Indiquez le nom, l’abonnement Azure et le groupe de ressources Azure (nouveau ou existant) à utiliser pour votre connecteur personnalisé.
 
-1. Dans la liste **Emplacement**, sous la section **Environnements de service d’intégration**, sélectionnez le même environnement ISE que celui utilisé par vos applications logiques et sélectionnez **Créer**, par exemple :
+1. Dans la liste **Emplacement** , sous la section **Environnements de service d’intégration** , sélectionnez le même environnement ISE que celui utilisé par vos applications logiques et sélectionnez **Créer** , par exemple :
 
    ![Capture d’écran montrant la fenêtre « Créer un connecteur personnalisé Logic Apps » avec des exemples d’informations sélectionnés](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
-1. Sélectionnez votre nouveau connecteur personnalisé, puis sélectionnez **Modifier**, par exemple :
+1. Sélectionnez votre nouveau connecteur personnalisé, puis sélectionnez **Modifier** , par exemple :
 
    ![Sélectionner et modifier un connecteur personnalisé](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 

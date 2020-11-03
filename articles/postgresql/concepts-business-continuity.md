@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939866"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629338"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL - Serveur unique
 
@@ -29,9 +29,9 @@ Le tableau suivant compare le RTO et le RPO dans un scénario classique :
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Limite de restauration dans le temps à partir de la sauvegarde | N’importe quel point de restauration dans la période de rétention | N’importe quel point de restauration dans la période de rétention | N’importe quel point de restauration dans la période de rétention |
 | Géo-restauration à partir de sauvegardes répliquées géographiquement | Non pris en charge | RTO – Variable <br/>RPO < 1 h | RTO – Variable <br/>RPO < 1 h |
-| Réplicas en lecture | RTO – Quelques minutes <br/>RPO < 5 min* | RTO – Quelques minutes <br/>RPO < 5 min*| RTO – Quelques minutes <br/>RPO < 5 min*|
+| Réplicas en lecture | RTO – Quelques minutes* <br/>RPO < 5 min* | RTO – Quelques minutes* <br/>RPO < 5 min*| RTO – Quelques minutes* <br/>RPO < 5 min*|
 
-\* Le RPO peut être plus élevé dans certains cas, en fonction de différents facteurs, dont la charge de travail de la base de données primaire et la latence entre les régions. 
+\* Le RTO et le RPO peuvent être beaucoup plus élevés dans certains cas, en fonction de différents facteurs, dont la charge de travail de la base de données primaire et la latence entre les régions. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Récupérer un serveur après une erreur d’utilisateur ou d’application
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278632"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791543"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -434,9 +434,9 @@ Non, le module complémentaire AGIC est un service géré, ce qui signifie que M
 
 Application Gateway fournit trois types de journaux : 
 
-* **ApplicationGatewayAccessLog** : le journal d’accès contient toutes les requêtes envoyées au serveur frontal de la passerelle d’application. Les données incluent l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, et les octets d’entrée et de sortie. Il contient un enregistrement par instance Application Gateway.
-* **ApplicationGatewayPerformanceLog** : Le journal des performances capture les informations de performances de chaque instance d'Application Gateway. Parmi les informations consignées figurent notamment le débit en octets, le nombre total de requêtes traitées, le nombre de requêtes ayant échoué, ainsi que le nombre d'instances de serveur principal saines ou non saines.
-* **ApplicationGatewayFirewallLog** : Pour les passerelles d’application que vous configurez avec le pare-feu d'applications web, le journal du pare-feu contient les requêtes consignées via le mode de détection ou le mode de prévention.
+* **ApplicationGatewayAccessLog**  : le journal d’accès contient toutes les requêtes envoyées au serveur frontal de la passerelle d’application. Les données incluent l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, et les octets d’entrée et de sortie. Il contient un enregistrement par instance Application Gateway.
+* **ApplicationGatewayPerformanceLog**  : Le journal des performances capture les informations de performances de chaque instance d'Application Gateway. Parmi les informations consignées figurent notamment le débit en octets, le nombre total de requêtes traitées, le nombre de requêtes ayant échoué, ainsi que le nombre d'instances de serveur principal saines ou non saines.
+* **ApplicationGatewayFirewallLog**  : Pour les passerelles d’application que vous configurez avec le pare-feu d'applications web, le journal du pare-feu contient les requêtes consignées via le mode de détection ou le mode de prévention.
 
 Tous les journaux sont collectés toutes les 60 secondes. Pour plus d’informations, consultez [Intégrité du serveur principal, journaux de diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
 
@@ -472,6 +472,10 @@ Oui. Si votre configuration correspond au scénario suivant, vous ne verrez pas 
 - Vous avez déployé Application Gateway v2
 - Vous avez un NSG sur le sous-réseau Application Gateway
 - Vous avez activé les journaux de flux NSG sur ce groupe de sécurité réseau
+
+### <a name="does-application-gateway-store-customer-data"></a>Application Gateway stocke-t-il des données client ?
+
+Non, Application Gateway ne stocke pas de données client.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

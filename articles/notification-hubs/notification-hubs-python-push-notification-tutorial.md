@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852325"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424840"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Utilisation de Notification Hubs à partir de Python
 
@@ -414,7 +414,7 @@ Notez l'en-tête HTTP de balises qui est ajouté à la requête HTTP (dans l'exe
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Capture d’écran d’une console avec les détails de la requête HTTP et le format de notification Service Bus, les balises de notification Service Bus et les valeurs de type X W N S entourées en rouge.][3]
+![Capture d’écran d’une console avec les détails de la requête HTTP et le format de notification Service Bus, une balise de notification Service Bus et les valeurs de type XWNS entourées en rouge.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Envoyer une notification spécifiant plusieurs balises
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Capture d’écran d’une console avec les détails de la requête HTTP et le format de notification Service Bus, les balises de notification Service Bus et les valeurs de type X W N S entourées en rouge.][4]
+![Capture d’écran d’une console avec les détails de la requête HTTP et le format de notification Service Bus, plusieurs balises de notification Service Bus et les valeurs de type XWNS entourées en rouge.][4]
 
 ### <a name="templated-notification"></a>Notification avec modèle
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 10/26/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258519"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740172"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -31,8 +31,9 @@ Si votre application est une ressource (API Web) à laquelle les clients peuvent
 Consultez les sections suivantes pour savoir comment une ressource peut valider et utiliser les revendications dans un jeton d’accès.
 
 > [!IMPORTANT]
-> Les jetons d’accès sont créés en fonction de l’*audience* du jeton, autrement dit l’application qui possède les étendues dans le jeton.  C’est ainsi qu’une ressource qui définit `accessTokenAcceptedVersion` dans le [manifeste de l’application](reference-app-manifest.md#manifest-reference) sur `2` autorise un client qui appelle le point de terminaison v1.0 pour recevoir un jeton d’accès v2.0.  De même, c’est pourquoi changer les [revendications facultatives](active-directory-optional-claims.md) de jeton d’accès pour le client ne permet pas de changer le jeton d’accès reçu lorsqu’un jeton est demandé pour `user.read`, possédé par la ressource.
-> Pour cette même raison, lorsque vous testez votre application client avec un compte personnel (par exemple hotmail.com ou outlook.com), vous pouvez constater que le jeton d’accès reçu par votre client est une chaîne opaque. En effet, la ressource consultée a demandé des anciens tickets MSA (compte Microsoft) qui sont chiffrés et ne sont pas compris par le client.
+> Les jetons d’accès sont créés en fonction de l’ *audience* du jeton, autrement dit l’application qui possède les étendues dans le jeton.  C’est ainsi qu’une ressource qui définit `accessTokenAcceptedVersion` dans le [manifeste de l’application](reference-app-manifest.md#manifest-reference) sur `2` autorise un client qui appelle le point de terminaison v1.0 pour recevoir un jeton d’accès v2.0.  De même, c’est pourquoi changer les [revendications facultatives](active-directory-optional-claims.md) de jeton d’accès pour le client ne permet pas de changer le jeton d’accès reçu lorsqu’un jeton est demandé pour `user.read`, possédé par la ressource.
+>
+> Pour cette même raison, lorsque vous testez votre application client avec une API Microsoft qui prend en charge un compte personnel (par exemple hotmail.com ou outlook.com), vous pouvez constater que le jeton d’accès reçu par votre client est une chaîne opaque. Cela est dû au fait que la ressource consultée utilise des jetons chiffrés et qu’elle ne peut pas être comprise par le client.  Cela est normal et ne doit pas être considéré comme un problème pour votre application. Les applications clientes ne doivent jamais avoir de dépendance sur le format du jeton d’accès. 
 
 ## <a name="sample-tokens"></a>Exemples de jeton
 
@@ -100,7 +101,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `name` | String | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | `scp` | Chaîne, liste d’étendues séparées par des espaces | Ensemble des étendues exposées par votre application pour lesquelles l’application client a requis (et reçu) un consentement. Votre application doit vérifier la validité de ces étendues et prendre des décisions d’autorisation en fonction de leur valeur. Uniquement inclus pour les [jetons utilisateur](#user-and-application-tokens). |
 | `roles` | Tableau de chaînes, une liste d’autorisations | Ensemble des autorisations exposées par votre application que l’application ou l’utilisateur requérant est autorisé à appeler. Pour les [jetons d’applications](#user-and-application-tokens), cela est utilisé durant le flux d’informations client ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) à la place des étendues utilisateur.  Pour les [jetons d’utilisateurs](#user-and-application-tokens), cela est renseigné avec les rôles de l’utilisateur sur l’application cible. |
-| `wids` | Tableau de GUID [RoleTemplateID](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids) | Indique les rôles au niveau du locataire attribués à cet utilisateur, à partir de la section des rôles présents sur la [page des rôles d’administrateur](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids).  Cette revendication est définie pour chaque application, via la propriété `groupMembershipClaims` du [manifeste d’application](reference-app-manifest.md).  Il est nécessaire de la définir sur « All » ou « DirectoryRole ».  Peut ne pas être présent dans les jetons obtenus via le flux implicite en raison des problèmes de longueur de jeton. |
+| `wids` | Tableau de GUID [RoleTemplateID](../roles/permissions-reference.md#role-template-ids) | Indique les rôles au niveau du locataire attribués à cet utilisateur, à partir de la section des rôles présents sur la [page des rôles d’administrateur](../roles/permissions-reference.md#role-template-ids).  Cette revendication est définie pour chaque application, via la propriété `groupMembershipClaims` du [manifeste d’application](reference-app-manifest.md).  Il est nécessaire de la définir sur « All » ou « DirectoryRole ».  Peut ne pas être présent dans les jetons obtenus via le flux implicite en raison des problèmes de longueur de jeton. |
 | `groups` | Tableau de GUID JSON | Fournit les ID d’objet qui représentent les appartenances aux groupes du sujet. Ces valeurs sont uniques (voir l'ID objet) et peuvent être utilisées en toute sécurité pour la gestion des accès, telle que l'autorisation d'accéder à une ressource. Les groupes inclus dans la revendication des groupes sont configurés pour chaque application, via la propriété `groupMembershipClaims` du [manifeste d’application](reference-app-manifest.md). Une valeur Null exclut tous les groupes, une valeur « SecurityGroup » inclut uniquement les appartenances aux groupes de sécurité Active Directory et une valeur « All » inclut les groupes de sécurité et les listes de distribution Microsoft 365. <br><br>Consultez la revendication `hasgroups` ci-dessous pour plus d’informations sur l’utilisation de la revendication `groups` avec l’octroi implicite. <br>Pour les autres flux, si le nombre de groupes auxquels l’utilisateur appartient dépasse une limite (150 pour SAML, 200 pour JWT), alors une revendication de dépassement sera ajoutée aux sources de revendication qui pointent sur le point de terminaison Microsoft Graph contenant la liste des groupes de l’utilisateur. |
 | `hasgroups` | Boolean | Le cas échéant, toujours `true`, ce qui indique que l’utilisateur appartient à au moins un groupe. Utilisé à la place de la revendication `groups` pour JWT dans les flux d’octroi implicites si la revendication des groupes complets étend le fragment URI au-delà des limites de longueur d’URL (actuellement, 6 groupes ou plus). Indique que le client doit utiliser l’API Microsoft Graph pour déterminer les groupes de l’utilisateur (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objet JSON | Pour les requêtes de jetons dont la longueur n’est pas limitée (voir `hasgroups` ci-dessus) mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour les jetons JWT en tant que revendication distribuée, pour SAML en tant que nouvelle revendication à la place de la revendication `groups`. <br><br>**Exemple de valeur JWT** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
@@ -177,7 +178,7 @@ Nous fournissons des bibliothèques et des exemples de code qui montrent comment
 
 ### <a name="validating-the-signature"></a>Validation de la signature
 
-Un jeton JWT contient trois segments séparés par le caractère `.` . Le premier segment est appelé **l’en-tête**, le second le **corps** et le troisième la **signature**. Le segment de signature peut être utilisé pour valider l’authenticité du jeton afin qu’il soit approuvé par votre application.
+Un jeton JWT contient trois segments séparés par le caractère `.` . Le premier segment est appelé **l’en-tête** , le second le **corps** et le troisième la **signature**. Le segment de signature peut être utilisé pour valider l’authenticité du jeton afin qu’il soit approuvé par votre application.
 
 Les jetons émis par Azure AD sont signés à l’aide d’algorithmes de chiffrement asymétrique standard, tels que RS256. L’en-tête du JWT contient des informations sur la clé et la méthode de chiffrement utilisées pour signer le jeton :
 

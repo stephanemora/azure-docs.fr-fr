@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992535"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782380"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault
 
@@ -35,15 +35,15 @@ L’utilisation de clés gérées par le client avec le chiffrement Azure Storag
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Pour en savoir plus sur la création d’un coffre de clés via le portail Azure, consultez [Démarrage rapide : Créer un coffre de clés avec le portail Azure](../../key-vault/general/quick-create-portal.md). Lorsque vous créez le coffre de clés, sélectionnez **Activer la protection contre le vidage**, comme illustré dans l’image suivante.
+Pour en savoir plus sur la création d’un coffre de clés via le portail Azure, consultez [Démarrage rapide : Créer un coffre de clés avec le portail Azure](../../key-vault/general/quick-create-portal.md). Lorsque vous créez le coffre de clés, sélectionnez **Activer la protection contre le vidage** , comme illustré dans l’image suivante.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Capture d’écran montrant comment activer la protection contre le vidage lors de la création d’un coffre de clés":::
 
 Pour activer la protection contre le vidage sur un coffre de clés existant, procédez comme suit :
 
 1. Accédez à votre coffre de clés dans le portail Azure.
-1. Sous **Paramètres**, choisissez **Propriétés**.
-1. Dans la section **Protection contre le vidage**, choisissez **Activer la protection contre le vidage**.
+1. Sous **Paramètres** , choisissez **Propriétés**.
+1. Dans la section **Protection contre le vidage** , choisissez **Activer la protection contre le vidage**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Pour savoir comment activer la protection contre le vidage sur un coffre de clés existant avec PowerShell, consultez [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/soft-delete-powershell.md).
+Pour savoir comment activer la protection contre le vidage sur un coffre de clés existant avec PowerShell, consultez [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/key-vault-recovery.md).
 
 Ensuite, affectez une identité managée affectée par le système à votre compte de stockage. Cette identité managée vous sera utile pour autoriser le compte de stockage à accéder au coffre de clés. Pour en savoir plus sur les identités managées affectées par le système, consultez la section [Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Pour savoir comment activer la protection contre le vidage sur un coffre de clés existant avec Azure CLI, consultez [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/soft-delete-cli.md).
+Pour savoir comment activer la protection contre le vidage sur un coffre de clés existant avec Azure CLI, consultez [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/key-vault-recovery.md).
 
 Ensuite, attribuez une identité managée affectée par le système au compte de stockage. Cette identité managée vous sera utile pour autoriser le compte de stockage à accéder au coffre de clés. Pour en savoir plus sur les identités managées affectées par le système, consultez la section [Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -129,7 +129,7 @@ az keyvault set-policy \
 
 Ensuite, ajoutez une clé au coffre de clés.
 
-Le chiffrement du service Stockage Azure prend en charge les clés RSA et RSA-HSM dans les tailles 2048, 3072 et 4096. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Le chiffrement du service Stockage Azure prend en charge les clés RSA et RSA-HSM dans les tailles 2048, 3072 et 4096. Pour plus d’informations sur les clés, consultez [À propos des clés](../../key-vault/keys/about-keys.md).
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -175,7 +175,7 @@ Le stockage Azure peut automatiquement mettre à jour la clé gérée par le cli
 Pour configurer les clés gérées par le client avec une mise à jour automatique de la version de la clé dans le Portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage.
-1. Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Sélectionnez l’option **Clés gérées par le client**, comme illustré dans l’image suivante.
+1. Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Sélectionnez l’option **Clés gérées par le client** , comme illustré dans l’image suivante.
 
     ![Capture d’écran du portail affichant l’option de chiffrement](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
@@ -190,7 +190,7 @@ Pour configurer les clés gérées par le client avec une mise à jour automatiq
 
 Une fois que vous avez spécifié la clé, le portail Azure indique que la mise à jour automatique de la version de la clé est activée, et affiche la version de clé en cours d’utilisation pour le chiffrement.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Capture d’écran montrant comment activer la protection contre le vidage lors de la création d’un coffre de clés":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Capture d’écran dans laquelle la mise à jour automatique de la version de la clé est activée":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -241,7 +241,7 @@ Si vous préférez mettre à jour manuellement la version de la clé, spécifiez
 Pour configurer les clés gérées par le client avec la mise à jour manuelle de la version de la clé dans le portail Azure, spécifiez l’URI de la clé, en incluant la version. Pour spécifier une clé en tant qu’URI, procédez comme suit :
 
 1. Pour localiser l’URI de la clé dans le portail Azure, naviguez jusqu'à votre coffre de clés, puis sélectionnez le paramètre **Clés**. Sélectionnez la clé souhaitée, puis cliquez dessus pour afficher ses versions. Sélectionnez une version de clé pour afficher les paramètres de cette version.
-1. Copiez la valeur du champ **Identificateur de clé**, qui fournit l’URI.
+1. Copiez la valeur du champ **Identificateur de clé** , qui fournit l’URI.
 
     ![Capture d’écran montrant l’URI de la clé du coffre de clés](media/customer-managed-keys-configure-key-vault/portal-copy-key-identifier.png)
 

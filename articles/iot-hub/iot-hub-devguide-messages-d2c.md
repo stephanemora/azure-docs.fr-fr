@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: b762b77788c3df05fbd0db349457abadcbe39b51
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 64821819530e142eb207c001d3e3ccfe349cf917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147732"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547773"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -24,7 +24,7 @@ ms.locfileid: "92147732"
 
 Le routage des messages vous permet d’envoyer des messages de vos appareils vers des services cloud de façon automatisée, évolutive et fiable. Le routage des messages peut être utilisé pour : 
 
-* **L'envoi des événements et des messages relatifs aux données de télémétrie des appareils**, c'est-à-dire les événements de cycle de vie des appareils et les événements de modification des jumeaux d'appareil aux points de terminaison intégrés et aux de points de terminaison personnalisés. Découvrez plus d’informations sur les [points de terminaison de routage](#routing-endpoints).
+* **L'envoi des événements et des messages relatifs aux données de télémétrie des appareils** , c'est-à-dire les événements de cycle de vie des appareils et les événements de modification des jumeaux d'appareil aux points de terminaison intégrés et aux de points de terminaison personnalisés. Découvrez plus d’informations sur les [points de terminaison de routage](#routing-endpoints).
 
 * **Le filtrage des données avant leur routage vers différents points de terminaison** en appliquant des requêtes avancées. Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Découvrez plus d’informations sur l’utilisation de [requêtes dans le routage des messages](iot-hub-devguide-routing-query-syntax.md).
 
@@ -34,7 +34,7 @@ IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour
 
 ## <a name="routing-endpoints"></a>Points de terminaison de routage
 
-Un hub IoT a un point de terminaison intégré par défaut (**messages/événements**) qui est compatible avec Event Hubs. Vous pouvez créer des [points de terminaison personnalisés](iot-hub-devguide-endpoints.md#custom-endpoints) pour y router les messages en liant d’autres services de votre abonnement au hub IoT. 
+Un hub IoT a un point de terminaison intégré par défaut ( **messages/événements** ) qui est compatible avec Event Hubs. Vous pouvez créer des [points de terminaison personnalisés](iot-hub-devguide-endpoints.md#custom-endpoints) pour y router les messages en liant d’autres services de votre abonnement au hub IoT. 
 
 Chaque message est routé vers tous les points de terminaison dont il correspond aux requêtes de routage. En d’autres termes, un message peut être routé vers plusieurs points de terminaison.
 
@@ -49,7 +49,7 @@ IoT Hub prend actuellement en charge les points de terminaison suivants :
 
 ## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Point de terminaison intégré en tant que point de terminaison de routage
 
-Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-devguide-messages-read-builtin.md) pour recevoir des messages appareil-à-cloud du point de terminaison intégré (**messages/événements**). Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison.
+Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-devguide-messages-read-builtin.md) pour recevoir des messages appareil-à-cloud du point de terminaison intégré ( **messages/événements** ). Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison.
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>Stockage Azure en tant que point de terminaison de routage
 
@@ -59,7 +59,7 @@ IoT Hub prend en charge l’écriture de données sur Stockage Azure au format [
 
 Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage de blobs ; il ne peut pas être modifié pour un point de terminaison existant. Pour changer les formats d’encodage d’un point de terminaison existant, vous devez supprimer et recréer le point de terminaison personnalisé avec le format souhaité. Une stratégie utile peut consister à créer un nouveau point de terminaison personnalisé avec le format d’encodage souhaité et à ajouter un itinéraire parallèle à ce point de terminaison. De cette façon, vous pouvez vérifier vos données avant de supprimer le point de terminaison existant.
 
-Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). L’image suivante illustre la façon de sélectionner le format d’encodage dans le portail Azure.
+Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](/cli/azure/iot/hub/routing-endpoint) ou [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). L’image suivante illustre la façon de sélectionner le format d’encodage dans le portail Azure.
 
 ![Encodage du point de terminaison de stockage Blob](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -89,7 +89,7 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-Pour créer un compte de stockage compatible Azure Data Lake Gen2, créez un nouveau compte de stockage v2 et sélectionnez *activé* dans le champ *Espace de noms hiérarchique* de l’onglet **Avancé**, comme indiqué dans l’image suivante :
+Pour créer un compte de stockage compatible Azure Data Lake Gen2, créez un nouveau compte de stockage v2 et sélectionnez *activé* dans le champ *Espace de noms hiérarchique* de l’onglet **Avancé** , comme indiqué dans l’image suivante :
 
 ![Sélectionner le stockage Azure Data Lake Gen2](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
@@ -120,13 +120,13 @@ Utilisez les tutoriels suivants pour découvrir comment lire un message à parti
 
 ## <a name="fallback-route"></a>Itinéraire de secours
 
-La route de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux hubs d’événements existants (**messages/événements**), compatible avec [Event Hubs](../event-hubs/index.yml). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré.
+La route de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux hubs d’événements existants ( **messages/événements** ), compatible avec [Event Hubs](../event-hubs/index.yml). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré.
 
 Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Panneau Routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
 
 ## <a name="non-telemetry-events"></a>Événements autres que les événements de télémétrie
 
-En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils et des événements de modification du jumeau numérique. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Enfin, dans le cadre d’[IOT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), un développeur peut créer des itinéraires avec une source de données définie sur les **événements de modification du jumeau numérique** et IOT Hub envoie des messages chaque fois qu’une [propriété](../iot-pnp/iot-plug-and-play-glossary.md) de jumeau numérique est définie ou modifiée, qu’un [jumeau numérique](../iot-pnp/iot-plug-and-play-glossary.md) est remplacé ou lorsqu’un événement de modification se produit pour le jumeau d'appareil sous-jacent.
+En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils et des événements de modification du jumeau numérique. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil** , IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil** , IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Enfin, dans le cadre d’ [IOT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), un développeur peut créer des itinéraires avec une source de données définie sur les **événements de modification du jumeau numérique** et IOT Hub envoie des messages chaque fois qu’une [propriété](../iot-pnp/iot-plug-and-play-glossary.md) de jumeau numérique est définie ou modifiée, qu’un [jumeau numérique](../iot-pnp/iot-plug-and-play-glossary.md) est remplacé ou lorsqu’un événement de modification se produit pour le jumeau d'appareil sous-jacent.
 
 [IoT Hub s’intègre également à Azure Event Grid](iot-hub-event-grid.md) pour publier des événements d’appareils et prendre en charge les intégrations en temps réel ainsi que l’automatisation des workflows basés sur ces événements. Pour découvrir ce qui convient le mieux à votre scénario, consultez les [différences principales entre le routage des messages et Event Grid](iot-hub-event-grid-routing-comparison.md).
 
@@ -148,7 +148,9 @@ Dans la plupart des cas, l’augmentation moyenne de la latence est inférieure 
 
 ## <a name="monitoring-and-troubleshooting"></a>Surveillance et dépannage
 
-IoT Hub fournit plusieurs métriques liées aux routages et aux point de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et des messages envoyés. [Métriques IoT Hub](iot-hub-metrics.md) liste toutes les métriques activées par défaut pour votre hub IoT. Grâce aux journaux de diagnostic des **routes** dans les [paramètres de diagnostic](../iot-hub/iot-hub-monitor-resource-health.md) d’Azure Monitor, vous pouvez suivre les erreurs qui se produisent lors de l’évaluation d’une requête de routage et de l’intégrité du point de terminaison par IoT Hub. Vous pouvez utiliser l’API REST [Obtenir l’intégrité du point de terminaison](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour récupérer l’[état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. 
+IoT Hub fournit plusieurs métriques liées aux routages et aux point de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et des messages envoyés. Pour obtenir la liste de toutes les métriques IoT Hub décomposées par catégorie fonctionnelle, consultez [Informations de référence sur les données de supervision – Métriques](monitor-iot-hub-reference.md#metrics). Vous pouvez suivre les erreurs qui se produisent lors de l’évaluation d’une requête de routage et de l’intégrité du point de terminaison telles que perçues par IoT Hub grâce à la [catégorie **Itinéraires** dans les journaux de diagnostic d’IoT Hub](monitor-iot-hub-reference.md#routes). Pour en savoir plus sur l’utilisation des métriques et des journaux de ressources avec IoT Hub, consultez [Superviser avec IoT Hub](monitor-iot-hub.md).
+
+Vous pouvez utiliser l’API REST [Obtenir l’intégrité du point de terminaison](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour récupérer l’[état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison.
 
 Pour obtenir plus d’informations et de l’aide sur le résolution des problèmes liés au routage, utilisez le [Guide de résolution des problèmes concernant le routage](troubleshoot-message-routing.md).
 
