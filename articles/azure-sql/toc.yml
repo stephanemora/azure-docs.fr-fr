@@ -263,7 +263,7 @@
               href: database/firewall-create-server-level-portal-quickstart.md
         - name: GitHub Actions
           href: database/connect-github-actions-sql-db.md
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: Concevoir une base de données
           items:
@@ -993,6 +993,8 @@
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Gestion
               items:
+                - name: Extension Agent IaaS SQL
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                 - name: Hôte dédié
                   href: virtual-machines/windows/dedicated-host.md
                 - name: "Étendre la prise en charge pour SQL\_2008 et R2"
@@ -1021,12 +1023,14 @@
                   href: virtual-machines/windows/change-sql-server-version.md
                 - name: Stockage
                   href: virtual-machines/windows/storage-configuration.md
+                - name: Mise à jour corrective automatisée
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Intégration d’Azure Key Vault
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migrer le stockage vers le stockage SSD Ultra
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: S’inscrire auprès de SQL VM RP
-                  displayName: 'resource provider, registration'
+                - name: Installer l’extension Agent IaaS SQL
+                  displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: Inscription automatique
                       href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1034,12 +1038,6 @@
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Inscrire en bloc plusieurs machines virtuelles
                       href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-                - name: Automatiser les tâches de gestion
-                  items:
-                    - name: "Utiliser l’extension SQL\_Server IaaS Agent"
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: Mise à jour corrective automatisée
-                      href: virtual-machines/windows/automated-patching.md
             - name: Migrer
               items:
                 - name: Base de données SQL Server vers machine virtuelle

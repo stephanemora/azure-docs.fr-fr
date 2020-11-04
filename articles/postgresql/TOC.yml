@@ -23,6 +23,9 @@
         - name: Migration avec temps d’arrêt minimal avec DMS
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+    - name: Stratégie de version
+      href: concepts-version-policy.md
+      displayName: 'version, postgresql'
 - name: Serveur unique
   expanded: true
   items:
@@ -81,7 +84,7 @@
             - name: Go
               href: connect-go.md
               displayName: connect with go
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: Concevoir une base de données
           items:
@@ -382,6 +385,8 @@
           items:
             - name: Portail Azure
               href: howto-move-regions-portal.md
+        - name: Mises à niveau des versions principales
+          href: how-to-upgrade-using-dump-and-restore.md
 - name: Serveur flexible (préversion)
   expanded: true
   items:

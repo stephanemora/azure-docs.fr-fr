@@ -39,6 +39,8 @@
           href: tutorial-private-endpoint-sql-portal.md
         - name: Se connecter à un serveur SQL - PowerShell
           href: tutorial-private-endpoint-sql-powershell.md
+        - name: Se connecter à un serveur SQL - Azure CLI
+          href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
     - name: Point de terminaison privé

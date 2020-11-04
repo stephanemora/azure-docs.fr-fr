@@ -86,7 +86,7 @@
       href: concepts/logging-and-diagnostics.md
     - name: Mesures
       href: concepts/metrics.md
-    - name: Dépannage
+    - name: Résolution des problèmes
       href: concepts/troubleshooting-info.md
 - name: Exemples
   items:
@@ -98,14 +98,50 @@
       href: samples/web-calling-sample.md
 - name: Références
   items:
+    - name: Vue d’ensemble de la documentation sur les références
+      href: concepts/reference.md
     - name: Documentation des API REST
       href: 'https://docs.microsoft.com/rest/api/communication/'
-    - name: Bibliothèque d’appel (Android/Java)
-      href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
-    - name: Bibliothèque d’appel (JS)
-      href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
-    - name: Bibliothèque d’appels (iOS)
-      href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+    - name: Bibliothèques d’appel
+      items:
+        - name: Appel (JavaScript)
+          href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+        - name: Appel (Android/Java)
+          href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+        - name: Appel (iOS)
+          href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+    - name: Bibliothèques de conversation
+      items:
+        - name: Conversation (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat'
+        - name: Conversation (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
+        - name: Conversation (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
+    - name: Bibliothèques de SMS
+      items:
+        - name: SMS (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms'
+        - name: SMS (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
+        - name: SMS (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
+    - name: Bibliothèques d’administration
+      items:
+        - name: Administration (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration'
+        - name: Administration (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration'
+        - name: Administration (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration'
+    - name: Bibliothèques communes
+      items:
+        - name: Commun (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common'
+        - name: Commun (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
+        - name: Commun (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
 - name: Ressources
   items:
     - name: Notes de publication
