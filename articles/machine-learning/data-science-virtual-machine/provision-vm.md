@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3b5f96e60e088f94561bf3398469ec913a71bba6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322446"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Démarrage rapide : Configurer Data Science Virtual Machine pour Windows
 
@@ -35,15 +35,15 @@ Pour créer une instance de DSVM
 
 1. Vous devez être redirigé vers le panneau « Créer une machine virtuelle ».
 
-1. Remplissez l’onglet **Informations de base** :
-      * **Abonnement**: Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine. Vous devez disposer des privilèges de création de ressources pour cet abonnement.
-      * **Groupe de ressources** : Créez un groupe ou sélectionnez-en un.
+1. Remplissez l’onglet **Informations de base**  :
+      * **Abonnement** : Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine. Vous devez disposer des privilèges de création de ressources pour cet abonnement.
+      * **Groupe de ressources**  : Créez un groupe ou sélectionnez-en un.
       * **Nom de la machine virtuelle** : Entrez le nom de la machine virtuelle. Voici comment il s’affichera dans votre portail Azure.
       * **Emplacement** : Sélectionnez le centre de données qui convient le mieux. Pour un accès réseau plus rapide, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique. Apprenez-en davantage sur les [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Image** : Conservez la valeur par défaut.
-      * **Size** : Cette valeur doit être renseignée automatiquement avec une taille appropriée pour les charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Windows dans Azure](../../virtual-machines/windows/sizes.md).
+      * **Image**  : Conservez la valeur par défaut.
+      * **Size** : Cette valeur doit être renseignée automatiquement avec une taille appropriée pour les charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Windows dans Azure](../../virtual-machines/sizes.md).
       * **Nom d’utilisateur** : Entrez le nom d’utilisateur de l’administrateur. Il s’agit du nom d’utilisateur que vous utiliserez pour vous connecter à votre machine virtuelle. Il ne doit pas nécessairement être identique à votre nom d’utilisateur Azure.
-      * **Mot de passe** : Entrez le mot de passe que vous utiliserez pour vous connecter à votre machine virtuelle.    
+      * **Mot de passe**  : Entrez le mot de passe que vous utiliserez pour vous connecter à votre machine virtuelle.    
 1. Sélectionnez **Revoir + créer**.
 1. **Vérifier+créer**
    * Vérifiez que toutes les informations que vous avez saisies sont correctes. 
@@ -56,7 +56,7 @@ Pour créer une instance de DSVM
 
 ## <a name="access-the-dsvm"></a>Accéder à la DSVM
 
-Une fois la machine virtuelle créée et provisionnée, suivez les étapes indiquées pour [vous connecter à votre machine virtuelle Azure](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Utilisez les informations d’identification du compte administrateur que vous avez configurées à l’étape **de base** de la création d’une machine virtuelle. 
+Une fois la machine virtuelle créée et provisionnée, suivez les étapes indiquées pour [vous connecter à votre machine virtuelle Azure](../../marketplace/azure-vm-create-using-approved-base.md). Utilisez les informations d’identification du compte administrateur que vous avez configurées à l’étape **de base** de la création d’une machine virtuelle. 
 
 Vous êtes maintenant prêt à utiliser les outils qui sont installés et configurés sur la machine virtuelle. La plupart des outils sont accessibles par le biais des icônes du Bureau et des vignettes du menu **Démarrer**.
 
@@ -70,4 +70,3 @@ Vous pouvez également attacher une DSVM à Azure Notebooks pour exécuter des n
 * Explorez les outils sur la DSVM en ouvrant le menu **Démarrer**.
 * Apprenez-en plus sur Azure Machine Learning en lisant [Qu’est-ce qu’Azure Machine Learning ?](../overview-what-is-azure-ml.md) et en suivant ces [tutoriels](../index.yml).
 * Lisez l’article [Science des données avec une image Data Science Virtual Machine Windows dans Azure](./vm-do-ten-things.md)
-

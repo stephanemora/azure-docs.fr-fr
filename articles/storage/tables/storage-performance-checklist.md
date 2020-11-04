@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458330"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316186"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check-list des performances et de la scalabilité pour le stockage Table
 
@@ -153,7 +153,7 @@ Définissez la limite de connexions avant d’ouvrir une connexion.
 
 Pour les autres langages de programmation, voir la documentation correspondante pour savoir comment définir la limite de connexions.  
 
-Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Augmenter le nombre minimal de threads
 
@@ -171,7 +171,7 @@ Même si le parallélisme peut être très utile pour les performances, soyez pr
 
 ## <a name="client-libraries-and-tools"></a>Outils et bibliothèques clientes
 
-Pour des performances optimales, utilisez toujours les bibliothèques clientes et les outils fournis par Microsoft les plus récents. Les bibliothèques clientes du stockage Azure sont disponibles pour plusieurs langages. Le stockage Azure prend également en charge PowerShell et Azure CLI. Microsoft s’attelle au développement de ces outils et de ces bibliothèques clientes dans une optique de performances. Il veille à leur mise à jour continue avec les versions de service les plus récentes et s’assure qu’ils répondent, en interne, à la plupart des pratiques validées concernant les performances. Pour plus d’informations, consultez la [documentation de référence du stockage Azure](/azure/storage/#reference).
+Pour des performances optimales, utilisez toujours les bibliothèques clientes et les outils fournis par Microsoft les plus récents. Les bibliothèques clientes du stockage Azure sont disponibles pour plusieurs langages. Le stockage Azure prend également en charge PowerShell et Azure CLI. Microsoft s’attelle au développement de ces outils et de ces bibliothèques clientes dans une optique de performances. Il veille à leur mise à jour continue avec les versions de service les plus récentes et s’assure qu’ils répondent, en interne, à la plupart des pratiques validées concernant les performances.
 
 ## <a name="handle-service-errors"></a>Gérer les erreurs de service
 
@@ -197,7 +197,7 @@ Cette section décrit les paramètres de configuration rapide que vous pouvez ut
 
 Depuis la version 2013-08-15 du service de stockage, le service de Table prend en charge l’utilisation de JSON plutôt que le format AtomPub XML pour transférer des données de table. L’utilisation du format JSON permet de réduire la taille de la charge utile de quelque 75 % et d’améliorer sensiblement les performances de votre application.
 
-Pour plus d’informations, consultez [Tables Microsoft Azure : présentation de JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) et [Format de charge utile pour les opérations du service de Table](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Pour plus d’informations, consultez [Tables Microsoft Azure : présentation de JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) et [Format de charge utile pour les opérations du service de Table](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### <a name="disable-nagle"></a>Désactiver Nagle
 
@@ -273,7 +273,7 @@ Les transactions par lots sont appelées transactions de groupe d’entités dan
 
 #### <a name="upsert"></a>Upsert
 
-Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de table **Upsert** . Il existe deux types d’opération **Upsert** ; tous deux peuvent se révéler plus efficaces que les opérations **Insert** et **Update** classiques :  
+Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de table **Upsert** . Il existe deux types d’opération **Upsert**  ; tous deux peuvent se révéler plus efficaces que les opérations **Insert** et **Update** classiques :  
 
 - **InsertOrMerge** : Utilisez cette opération lorsque vous souhaitez charger un sous-ensemble des propriétés de l’entité, mais ne savez pas si cette dernière existe déjà. Si elle existe, cet appel met à jour les propriétés incluses dans l’opération **Upsert** et laisse toutes les propriétés existantes en l’état. Si elle n’existe pas, cet appel insère la nouvelle entité. Cela revient à utiliser la projection dans une requête, en ce sens que vous devez simplement télécharger les propriétés qui sont modifiées.
 - **InsertOrReplace** : Utilisez cette opération lorsque vous souhaitez charger une toute nouvelle entité, mais ne savez pas si cette dernière existe déjà. Utilisez cette opération lorsque vous n’avez aucun doute quant à la qualité de la nouvelle entité chargée, car celle-ci écrase complètement l’ancienne entité. Vous souhaitez, par exemple, mettre à jour l’entité qui stocke l’emplacement actuel d’un utilisateur et ce, que l’application ait déjà stocké ou non des données d’emplacement pour cet utilisateur ; la nouvelle entité d’emplacement est complète et vous n’avez besoin d’aucune information d’une entité précédente.

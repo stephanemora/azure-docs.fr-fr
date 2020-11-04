@@ -78,7 +78,7 @@ Les paramètres de normalisation de l’énoncé sont désactivés par défaut. 
 * Diacritiques
 * Ponctuation
 
-Si vous activez le paramètre de normalisation, les scores dans le volet **Test**, les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés pour ce paramètre de normalisation.
+Si vous activez le paramètre de normalisation, les scores dans le volet **Test** , les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés pour ce paramètre de normalisation.
 
 Lorsque vous clonez une version dans le portail LUIS, les paramètres de version sont toujours appliqués à la nouvelle version clonée.
 

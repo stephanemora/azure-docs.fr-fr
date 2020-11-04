@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816335"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322495"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Qu’est-ce qu’Azure Data Science Virtual Machine pour Linux et Windows ?
 
@@ -28,7 +28,7 @@ La Data Science Virtual Machine est disponible sur :
 
 ## <a name="comparison-with-azure-machine-learning"></a>Comparaison avec Azure Machine Learning
 
-DSVM est une image de machine virtuelle personnalisée pour la science des données, mais [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AzureML) est une plateforme de bout en bout qui comprend :
+DSVM est une image de machine virtuelle personnalisée pour la science des données, mais [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) est une plateforme de bout en bout qui comprend :
 
 + Capacité de calcul managée
   + Compute Instances (Instances de calcul)
@@ -44,7 +44,7 @@ DSVM est une image de machine virtuelle personnalisée pour la science des donn�
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Comparaison avec les instances de calcul AzureML
 
-Les [instances de calcul Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) sont des images de machine virtuelle entièrement configurées et __managées__, tandis que DSVM est une machine virtuelle __non managée__.
+Les [instances de calcul Azure Machine Learning](../concept-compute-instance.md) sont des images de machine virtuelle entièrement configurées et __managées__ , tandis que DSVM est une machine virtuelle __non managée__.
 
 Les principales différences entre ces deux offres de produit sont détaillées ci-dessous :
 

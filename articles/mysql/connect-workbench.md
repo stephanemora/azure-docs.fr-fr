@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332038"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utilisation de MySQL Workbench pour vous connecter et interroger des données dans Azure Database pour MySQL
 
@@ -35,7 +35,7 @@ Obtenez les informations requises pour vous connecter à la base de données Azu
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
+2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources** , puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
 
 3. Cliquez sur le nom du serveur.
 
@@ -47,9 +47,9 @@ Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interfac
 
 1.    Lancez l’application MySQL Workbench sur votre ordinateur. 
 
-2.    Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
+2.    Dans la boîte de dialogue **Configurer une nouvelle connexion** , entrez les informations suivantes dans l’onglet **Paramètres** :
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Nom du serveur de base de données Azure pour MySQL":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurer une nouvelle connexion":::
 
 | **Paramètre** | **Valeur suggérée** | **Description du champ** |
 |---|---|---|
@@ -64,7 +64,7 @@ Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interfac
 
 4.   Cliquez sur **OK** pour enregistrer la connexion. 
 
-5.   Dans la liste de **connexions MySQL**, cliquez sur le nom correspondant à votre serveur puis patientez jusqu’à ce que la connexion soit établie.
+5.   Dans la liste de **connexions MySQL** , cliquez sur le nom correspondant à votre serveur puis patientez jusqu’à ce que la connexion soit établie.
 
         Un nouvel onglet SQL s’ouvre avec un éditeur vide où vous pouvez saisir vos requêtes.
     
@@ -103,13 +103,23 @@ Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interfac
 
     La capture d’écran montre un exemple de code SQL dans SQL Workbench et la sortie obtenue après son exécution.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Nom du serveur de base de données Azure pour MySQL":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Onglet Workbench MySQL de SQL pour exécuter l’exemple de code SQL":::
 
-2. Pour exécuter l’exemple de Code SQL, cliquez sur l’icône d’éclair dans la barre d’outils de l’onglet**Fichier SQL**.
+2. Pour exécuter l’exemple de Code SQL, cliquez sur l’icône d’éclair dans la barre d’outils de l’onglet **Fichier SQL**.
 3. Vous observerez trois onglets de résultats dans la section **Grille de résultats** au milieu de la page. 
 4. La liste **Sortie** apparaît en bas de la page. L’état de chaque commande s’affiche. 
 
 Vous êtes à présent connecté à la base de données Azure pour MySQL à l’aide de MySQL Workbench et avez interrogé des données à l’aide du langage SQL.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Pour nettoyer toutes les ressources utilisées dans le cadre de ce guide de démarrage rapide, supprimez le groupe de ressources à l’aide de la commande suivante :
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

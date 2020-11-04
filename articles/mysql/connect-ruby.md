@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896282"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337297"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utiliser Ruby pour vous connecter et interroger des données dans Azure Database pour MySQL
 
@@ -39,7 +39,7 @@ Installez Ruby, Gem et la bibliothèque MySQL2 sur votre propre ordinateur.
 5. Testez l’installation de Gem en exécutant la commande `gem -v` pour voir la version installée.
 6. Compilez le module Mysql2 pour Ruby à l’aide de Gem, en exécutant la commande `gem install mysql2`.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 1. Installez Ruby à l’aide de Homebrew, en exécutant la commande `brew install ruby`. Pour accéder à d’autres options d’installation, consultez la [documentation d’installation](https://www.ruby-lang.org/en/documentation/installation/#homebrew) de Ruby.
 2. Testez l’installation de Ruby en exécutant la commande `ruby -v` pour voir la version installée.
 3. Testez l’installation de Gem en exécutant la commande `gem -v` pour voir la version installée.
@@ -58,7 +58,7 @@ Installez Ruby, Gem et la bibliothèque MySQL2 sur votre propre ordinateur.
 Obtenez les informations requises pour vous connecter à la base de données Azure pour MySQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
+2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources** , puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
 3. Cliquez sur le nom du serveur.
 4. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
  :::image type="content" source="./media/connect-ruby/1_server-overview-name-login.png" alt-text="Nom du serveur de base de données Azure pour MySQL":::
@@ -70,7 +70,7 @@ Obtenez les informations requises pour vous connecter à la base de données Azu
 4. Avec le système d’exploitation Windows, si l’application Ruby n’est pas dans votre variable d’environnement de chemin d’accès, vous devrez peut-être utiliser le chemin d’accès complet pour lancer l’application de nœud, tel que `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Se connecter et créer une table
-Utilisez le code suivant pour vous connecter et créer une table à l’aide de l’instruction **CREATE TABLE**, suivie des instructions SQL **INSERT INTO** pour ajouter des lignes à la table.
+Utilisez le code suivant pour vous connecter et créer une table à l’aide de l’instruction **CREATE TABLE** , suivie des instructions SQL **INSERT INTO** pour ajouter des lignes à la table.
 
 Le code utilise une classe [mysql2 :: client](https://www.rubydoc.info/gems/mysql2) pour se connecter au serveur MySQL. Ensuite, il appelle la méthode ```query()``` pour exécuter les commandes DROP, CREATE TABLE et INSERT INTO. Enfin, appelez ```close()``` pour fermer la connexion, avant de terminer.
 
@@ -224,6 +224,16 @@ ensure
     client.close if client
     puts 'Done.'
 end
+```
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Pour nettoyer toutes les ressources utilisées dans le cadre de ce guide de démarrage rapide, supprimez le groupe de ressources à l’aide de la commande suivante :
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
