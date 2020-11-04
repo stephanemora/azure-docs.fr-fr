@@ -8,16 +8,16 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 66c331a79a4da7b8fb397e7d0209b24e00645783
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20b2f74b33ae57016188ee66af29570f7ec1b529
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741712"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289276"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI – Restreindre l’accès en importation/exportation pour des disques managés avec des liaisons privées
 
-La prise en charge des liaisons privées avec des disques managés est actuellement en préversion. Vous pouvez utiliser des [points de terminaison privés](../../private-link/private-endpoint-overview.md) pour restreindre l’exportation et l’importation de disques managés, et accéder de manière sécurisée aux données via une [liaison privée](../../private-link/private-link-overview.md) à partir de clients sur votre réseau virtuel Azure. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre service de disques managés. Le trafic réseau entre clients sur leurs réseau virtuel et disques managés transite uniquement sur le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, éliminant ainsi toute exposition à partir de l’Internet public.
+Vous pouvez utiliser des [points de terminaison privés](../../private-link/private-endpoint-overview.md) pour restreindre l’exportation et l’importation de disques managés, et accéder de manière sécurisée aux données via une [liaison privée](../../private-link/private-link-overview.md) à partir de clients sur votre réseau virtuel Azure. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre service de disques managés. Le trafic réseau entre clients sur leurs réseau virtuel et disques managés transite uniquement sur le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, éliminant ainsi toute exposition à partir de l’Internet public.
 
 Pour utiliser des liaisons privées pour exporter/importer des disques managés, commencez par créer une ressource d’accès au disque et par la lier à un réseau virtuel dans le même abonnement en créant un point de terminaison privé. Associez ensuite un disque ou un instantané à une instance d’accès au disque. Enfin, définissez la propriété NetworkAccessPolicy du disque ou de l’instantané avec `AllowPrivate`. De cette façon, l’accès est limité au réseau virtuel. 
 

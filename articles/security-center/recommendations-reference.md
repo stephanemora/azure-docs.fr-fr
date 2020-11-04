@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: edee1948780b827eed5047c6c9c919b66eb619d0
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 553f83151289adf6f0f4420d106af7ae37047bda
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900231"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148318"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -217,6 +217,5 @@ Votre niveau de sécurité est basé sur le nombre de recommandations Security C
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les recommandations, consultez les articles suivants :
 
-* [Le module Microsoft Learn sur la façon d’analyser les recommandations formulées par Security Center](/learn/modules/identify-threats-with-azure-security-center/)
 * [Recommandations de sécurité dans Azure Security Center](security-center-recommendations.md)
 * [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)

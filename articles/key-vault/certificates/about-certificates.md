@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126771"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289785"
 ---
 # <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -44,7 +44,7 @@ Lorsqu’un certificat Key Vault est créé, il peut être récupéré dans le s
 
 La clé adressable est plus pertinente avec des certificats KV non exportables. Les opérations de la clé KV adressable sont mappées à partir du champ *keyusage* de la stratégie de certificat KV utilisée pour créer le certificat KV.  
 
- - Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, oct (listés [ici](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) : « Exportable » est autorisé seulement avec RSA et EC. Les clés HSM sont non exportables.
+ - Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, oct (listés [ici](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) : « Exportable » est autorisé seulement avec RSA et EC. Les clés HSM sont non exportables.
 
 
 ## <a name="certificate-attributes-and-tags"></a>Attributs et balises de certificat
@@ -57,7 +57,7 @@ Les attributs de certificat sont reproduits dans des attributs de la clé et du 
 
 Un certificat Key Vault comprend les attributs suivants :  
 
--   *enabled* : booléen, facultatif, **true** par défaut. Peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Également utilisé avec *nbf* et *exp* . Quand une opération se produit entre *nbf* et *exp* , elle est autorisée seulement si enabled a la valeur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
+-   *enabled* : booléen, facultatif, **true** par défaut. Peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Également utilisé avec *nbf* et *exp*. Quand une opération se produit entre *nbf* et *exp* , elle est autorisée seulement si enabled a la valeur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
 
 Des attributs supplémentaires en lecture seule sont inclus dans la réponse :
 
@@ -82,11 +82,11 @@ Une stratégie de certificat contient des informations sur la création et la ge
 
 Quand un certificat Key Vault est créé de zéro, une stratégie doit être fournie. La stratégie spécifie comment créer cette version du certificat Key Vault ou la prochaine version. Lorsqu’une stratégie a été définie, des opérations de création successives ne sont pas nécessaires pour les prochaines versions. Il n’existe qu’une seule instance d’une stratégie pour toutes les versions d’un certificat Key Vault.  
 
-Globalement, une stratégie de certificat contient les informations suivantes (les définitions correspondantes se trouvent [ici](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)) :  
+Globalement, une stratégie de certificat contient les informations suivantes (les définitions correspondantes se trouvent [ici](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)) :  
 
 -   Propriétés du certificat X.509 : contient le nom du sujet, les autres noms du sujet et d’autres propriétés utilisées pour créer une demande de certificat X.509.  
 -   Propriétés des clés : contient les champs type de clé, longueur de clé, exportable et ReuseKeyOnRenewal. Ces champs indiquent au coffre de clés comment générer une clé. 
-     - Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, Oct (répertorié [ici](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, Oct (répertorié [ici](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Propriétés du secret : propriétés du secret comme le type de contenu de secret adressable pour générer la valeur du secret, pour récupérer le certificat en tant que secret.  
 -   Actions de la durée de vie : actions de la durée de vie du certificat KV. Chaque action de la durée de vie contient :  
 
@@ -133,7 +133,7 @@ Avant de pouvoir créer un émetteur de certificat dans un coffre de clés, les 
 
     -   Fournit la configuration à utiliser pour créer un objet émetteur du fournisseur dans le coffre de clés  
 
-Pour plus d’informations sur la création d’objets Émetteur à partir du portail Certificats, consultez le [blog de certificats Key Vault](https://aka.ms/kvcertsblog)  
+Pour plus d’informations sur la création d’objets Émetteur à partir du portail Certificats, consultez le [blog de certificats Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 Key Vault permet de créer plusieurs objets émetteurs avec une configuration de fournisseur de l’émetteur différente. Lorsqu’un objet émetteur est créé, son nom peut être référencé dans une ou plusieurs stratégies de certificat. Le référencement de l’objet émetteur indique à Key Vault d’utiliser la configuration telle que spécifiée dans l’objet émetteur lors de la demande du certificat x509 à partir du fournisseur d’autorité de certification lors de la création ou du renouvellement du certificat.  
 

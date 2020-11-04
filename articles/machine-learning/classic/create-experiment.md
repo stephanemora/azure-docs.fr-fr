@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: d23702a71bababec2e172181c8e75c26241d0460
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347930"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307983"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Démarrage rapide : Créer votre première expérience de science des données dans Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -78,7 +78,7 @@ Dans ce jeu de données, chaque ligne représente un véhicule automobile et cha
 
 ![Affichez les données automobiles dans la fenêtre de visualisation des données](./media/create-experiment/visualize-auto-data.png)
 
-Fermez la fenêtre de visualisation en cliquant sur le symbole «**x**» dans le coin supérieur droit.
+Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
 
 ## <a name="prepare-the-data"></a>Préparer les données
 
@@ -98,8 +98,8 @@ Nous commençons par ajouter un module qui supprime toute la colonne **normalize
 1. Cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns], puis cliquez sur **Lancer le sélecteur de colonne** dans le volet **Propriétés**.
 
    - Sur la gauche, cliquez sur **With rules**
-   - Sous **Commencer par**, cliquez sur **Toutes les colonnes**. Ces règles indiquent au module [Sélectionner des colonnes dans le jeu de données][select-columns] de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
-   - Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses**, qui est alors ajoutée à la zone de texte.
+   - Sous **Commencer par** , cliquez sur **Toutes les colonnes**. Ces règles indiquent au module [Sélectionner des colonnes dans le jeu de données][select-columns] de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
+   - Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes** , puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses** , qui est alors ajoutée à la zone de texte.
    - Cliquez sur le bouton en forme de coche (OK) pour fermer le sélecteur de colonne (en bas à droite).
 
      ![Lancez le sélecteur de colonne et excluez la colonne « normalized-losses »](./media/create-experiment/launch-column-selector.png)
@@ -113,7 +113,7 @@ Nous commençons par ajouter un module qui supprime toute la colonne **normalize
 
      ![Double-cliquez sur un module pour ajouter un commentaire](./media/create-experiment/add-comment.png)
 
-1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] jusqu’à la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Clean Missing Data][clean-missing-data] de nettoyer les données en supprimant les lignes dans lesquelles il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
+1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] jusqu’à la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés** , sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Clean Missing Data][clean-missing-data] de nettoyer les données en supprimant les lignes dans lesquelles il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
     ![Définissez le mode de nettoyage du module « Nettoyage des données manquantes » sur « Supprimer toute la ligne »](./media/create-experiment/set-remove-entire-row.png)
 
@@ -148,9 +148,9 @@ Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnal
 
 1. Cliquez sur l’option **Lancer le sélecteur de colonne** figurant dans le volet **Propriétés**.
 
-1. Cliquez sur **With rules**(à l’aide de règles).
+1. Cliquez sur **With rules** (à l’aide de règles).
 
-1. Sous **Commencer par**, cliquez sur **Aucune colonne**. Dans la ligne de filtre, sélectionnez **Inclure** et **Noms des colonnes**, puis sélectionnez notre liste de noms de colonnes dans la zone de texte. Ce filtre indique au module de transmettre uniquement les colonnes (fonctionnalités) sélectionnées.
+1. Sous **Commencer par** , cliquez sur **Aucune colonne**. Dans la ligne de filtre, sélectionnez **Inclure** et **Noms des colonnes** , puis sélectionnez notre liste de noms de colonnes dans la zone de texte. Ce filtre indique au module de transmettre uniquement les colonnes (fonctionnalités) sélectionnées.
 
 1. Cliquez sur le bouton en forme de coche (OK) pour continuer.
 
@@ -183,13 +183,13 @@ Nous allons utiliser nos données pour la formation et le test en les divisant e
 
 1. Exécutez l’expérience. Lors de l’expérience, les modules [Sélectionner des colonnes dans le jeu de données][select-columns] et [Fractionner les données][split] transmettent des définitions de colonne aux modules que nous allons ajouter par la suite.  
 
-1. Pour sélectionner l’algorithme d’apprentissage, développez la catégorie **Machine Learning** dans la palette des modules, à gauche de la zone de dessin, puis développez **Initialiser le modèle**. Différentes catégories de modules s'affichent, permettant d'initialiser des algorithmes d'apprentissage automatique. Pour les besoins de cet exemple, sélectionnez le module [Régression linéaire][linear-regression] sous la catégorie **Régression**, puis faites-le glisser vers le canevas de l’expérience. Vous pouvez également rechercher le module en tapant « régression linéaire » dans la zone de recherche de la palette.
+1. Pour sélectionner l’algorithme d’apprentissage, développez la catégorie **Machine Learning** dans la palette des modules, à gauche de la zone de dessin, puis développez **Initialiser le modèle**. Différentes catégories de modules s'affichent, permettant d'initialiser des algorithmes d'apprentissage automatique. Pour les besoins de cet exemple, sélectionnez le module [Régression linéaire][linear-regression] sous la catégorie **Régression** , puis faites-le glisser vers le canevas de l’expérience. Vous pouvez également rechercher le module en tapant « régression linéaire » dans la zone de recherche de la palette.
 
 1. Recherchez et faites glisser le module [Entraîner le modèle][train-model] jusqu’à la zone de dessin. Connectez la sortie du module [Régression linéaire][linear-regression] à l’entrée de gauche du module [Entraîner votre modèle][train-model], puis connectez la sortie des données d’entraînement (port gauche) du module [Fractionner les données][split] à l’entrée de droite du module [Entraîner votre modèle][train-model].
 
     ![Connectez le module « Former le modèle » aux modules « Régression linéaire » et « Fractionner les données »](./media/create-experiment/connect-train-model.png)
 
-1. Cliquez sur le module [Entraîner votre modèle][train-model], cliquez sur l’option **Lancer le sélecteur de colonne** dans le volet **Propriétés**, puis sélectionnez la colonne **Price**. **Price** est la valeur à prédire par notre modèle.
+1. Cliquez sur le module [Entraîner votre modèle][train-model], cliquez sur l’option **Lancer le sélecteur de colonne** dans le volet **Propriétés** , puis sélectionnez la colonne **Price**. **Price** est la valeur à prédire par notre modèle.
 
     Vous pouvez sélectionner la colonne **price** dans le sélecteur de colonne en la faisant passer de la liste **Colonnes disponibles** à la liste **Colonnes sélectionnées**.
 
@@ -227,11 +227,11 @@ Les statistiques suivantes s’affichent pour notre modèle :
 
 - **Erreur Absolue Moyenne** (EAM) la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
 - **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-- **Erreur absolue relative**: la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
 - **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Coefficient de détermination** : aussi nommé **valeur R au carré**, il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
+- **Coefficient de détermination** : aussi nommé **valeur R au carré** , il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
-Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination**, est proche de un (1.0), plus la prévision est correcte.
+Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination** , est proche de un (1.0), plus la prévision est correcte.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -245,10 +245,10 @@ Dans ce guide de démarrage rapide, vous avez créé une expérience simple à p
 > [Tutoriel : Développer une solution prédictive dans Studio (classique)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model

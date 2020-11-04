@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 5ba47522f483b6c9b2a03e99f3608c58e916e010
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f53ff85dd118774b86a0ec25c89f912798a6418d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944931"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125850"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code (préversion)
 
@@ -33,9 +33,9 @@ Ce démarrage rapide vous montre comment créer et exécuter une tâche Azure St
 
 1. Ouvrez Visual Studio Code.
 
-2. Sous **Extensions** dans le volet gauche, recherchez **Stream Analytics**, puis sélectionnez **Installer** sur l’extension **Azure Stream Analytics Tools**.
+2. Sous **Extensions** dans le volet gauche, recherchez **Stream Analytics** , puis sélectionnez **Installer** sur l’extension **Azure Stream Analytics Tools**.
 
-3. Une fois l’extension installée, vérifiez qu’**Azure Stream Analytics Tools** est visible dans **Extensions activées**.
+3. Une fois l’extension installée, vérifiez qu’ **Azure Stream Analytics Tools** est visible dans **Extensions activées**.
 
    ![Azure Stream Analytics Tools sous les extensions activées dans Visual Studio Code](./media/quick-create-visual-studio-code/enabled-extensions.png)
 
@@ -59,7 +59,7 @@ Avant de définir la tâche Stream Analytics, vous devez préparer les données 
 
 2. Sélectionnez **Créer une ressource** > **Internet des objets** > **IoT Hub**.
 
-3. Dans le volet **IoT Hub**, entrez les informations suivantes :
+3. Dans le volet **IoT Hub** , entrez les informations suivantes :
 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
@@ -78,7 +78,7 @@ Avant de définir la tâche Stream Analytics, vous devez préparer les données 
 
 6. Sélectionnez **Revoir + créer**. Passez en revue les informations de votre hub IoT et sélectionnez **Créer**. La création de votre IoT Hub peut prendre plusieurs minutes. Vous pouvez superviser la progression dans le volet **Notifications**.
 
-7. Dans le menu de navigation de votre hub IoT, sélectionnez **Ajouter** sous **Appareils IoT**. Ajoutez un ID pour **ID d’appareil**, puis sélectionnez **Enregistrer**.
+7. Dans le menu de navigation de votre hub IoT, sélectionnez **Ajouter** sous **Appareils IoT**. Ajoutez un ID pour **ID d’appareil** , puis sélectionnez **Enregistrer**.
 
    ![Ajouter un appareil à votre hub IoT](./media/quick-create-visual-studio-code/add-device-iot-hub.png)
 
@@ -100,7 +100,7 @@ Avant de définir la tâche Stream Analytics, vous devez préparer les données 
 
 1. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**.
 
-2. Dans le volet **Créer un compte de stockage**, entrez un nom, un emplacement et un groupe de ressources de compte de stockage. Choisissez les mêmes emplacement et groupe de ressources que pour le hub IoT que vous avez créé. Ensuite, sélectionnez **Vérifier + créer** pour créer le compte.
+2. Dans le volet **Créer un compte de stockage** , entrez un nom, un emplacement et un groupe de ressources de compte de stockage. Choisissez les mêmes emplacement et groupe de ressources que pour le hub IoT que vous avez créé. Ensuite, sélectionnez **Vérifier + créer** pour créer le compte.
 
    ![Créer un compte de stockage](./media/quick-create-visual-studio-code/create-storage-account.png)
 
@@ -108,7 +108,7 @@ Avant de définir la tâche Stream Analytics, vous devez préparer les données 
 
    ![Vue d’ensemble du compte de stockage](./media/quick-create-visual-studio-code/blob-storage.png)
 
-4. Dans la page **Service Blob**, sélectionnez **Conteneur** et donnez un nom à votre conteneur, tel que **conteneur1**. Pour **Niveau d’accès public** laissez la valeur **Privé (aucun accès anonyme)** et sélectionnez **OK**.
+4. Dans la page **Service Blob** , sélectionnez **Conteneur** et donnez un nom à votre conteneur, tel que **conteneur1**. Pour **Niveau d’accès public** laissez la valeur **Privé (aucun accès anonyme)** et sélectionnez **OK**.
 
    ![Création d’un conteneur d’objets blob](./media/quick-create-visual-studio-code/create-blob-container.png)
 
@@ -118,11 +118,11 @@ Avant de définir la tâche Stream Analytics, vous devez préparer les données 
 
    ![Création d'un projet](./media/quick-create-visual-studio-code/create-new-project.png)
 
-2. Entrez le nom de votre projet, par exemple **myASAproj**, puis sélectionnez un dossier pour votre projet.
+2. Entrez le nom de votre projet, par exemple **myASAproj** , puis sélectionnez un dossier pour votre projet.
 
     ![Créer un nom de projet](./media/quick-create-visual-studio-code/create-project-name.png)
 
-3. Le nouveau projet est ajouté à votre espace de travail. Un projet Stream Analytics se compose de trois dossiers : **Entrées**, **Sorties** et **Fonctions**. Il comprend aussi le script de requête **(*.asaql)** , un fichier **JobConfig.json** et un fichier de configuration **asaproj.json**.
+3. Le nouveau projet est ajouté à votre espace de travail. Un projet Stream Analytics se compose de trois dossiers : **Entrées** , **Sorties** et **Fonctions**. Il comprend aussi le script de requête **(*.asaql)** , un fichier **JobConfig.json** et un fichier de configuration **asaproj.json**.
 
     Le fichier de configuration **asaproj.json** contient les entrées, les sorties et les informations du fichier de configuration de tâche nécessaires pour soumettre la tâche Stream Analytics à Azure.
 
@@ -241,7 +241,7 @@ Une fois la compilation terminée, vous pouvez trouver les deux modèles Azure R
 
 5. Sélectionnez **Envoyer sur Azure**. Vous pouvez trouver les journaux dans la fenêtre Sortie. 
 
-6. Une fois que vous avez créé votre tâche, vous pouvez la voir dans l’**Explorateur Stream Analytics**.
+6. Une fois que vous avez créé votre tâche, vous pouvez la voir dans l’ **Explorateur Stream Analytics**.
 
     ![Tâche listée dans l’Explorateur Stream Analytics](./media/quick-create-visual-studio-code/list-job.png)
 
@@ -265,7 +265,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la tâc
 
 Si vous envisagez d’utiliser la tâche à l’avenir, vous pouvez l’arrêter et la redémarrer plus tard. Si vous n’allez pas réutiliser cette tâche, procédez comme suit pour supprimer toutes les ressources que vous avez créées dans ce guide de démarrage rapide :
 
-1. Dans le menu de gauche du portail Azure, sélectionnez **Groupes de ressources**, puis le nom de la ressource que vous avez créée.  
+1. Dans le menu de gauche du portail Azure, sélectionnez **Groupes de ressources** , puis le nom de la ressource que vous avez créée.  
 
 2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Entrez le nom de la ressource à supprimer dans la zone de texte, puis sélectionnez **Supprimer**.
 
@@ -281,4 +281,4 @@ Pour en savoir plus sur Azure Stream Analytics Tools pour Visual Studio Code, co
 
 * [Utiliser Visual Studio Code pour afficher les tâches Azure Stream Analytics](visual-studio-code-explore-jobs.md)
 
-* [Configurer des pipelines CI/CD à l’aide du package npm](setup-cicd-vs-code.md)
+* [Configurer des pipelines CI/CD à l’aide du package npm](./cicd-overview.md)

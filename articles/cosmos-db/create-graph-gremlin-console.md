@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409389"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099706"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -52,24 +53,24 @@ Vous devez également installer la [console Gremlin](https://tinkerpop.apache.or
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Connexion à votre service d’application/graphe
 
 1. Avant de démarrer la console Gremlin, créez ou modifiez le fichier config remote-secure.yaml dans le répertoire `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Renseignez vos configurations *host*, *port*, *username*, *password*, *connectionPool* et *serializer* telles que définies dans le tableau suivant :
+2. Renseignez vos configurations *host* , *port* , *username* , *password* , *connectionPool* et *serializer* telles que définies dans le tableau suivant :
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    hôtes|[*account-name*.**gremlin**.cosmos.azure.com]|Voir la capture d’écran suivante. Il s’agit de la valeur **URI Gremlin** sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée. Remarque : Veillez à utiliser la valeur Gremlin, et **non** l’URI qui se termine par [*account-name*.documents.azure.com], afin d’éviter que l’exécution ultérieure de requêtes Gremlin se solde par une exception indiquant que l’hôte n’a pas répondu à temps. 
+    hôtes|[ *account-name*. **gremlin**.cosmos.azure.com]|Voir la capture d’écran suivante. Il s’agit de la valeur **URI Gremlin** sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée. Remarque : Veillez à utiliser la valeur Gremlin, et **non** l’URI qui se termine par [ *account-name*.documents.azure.com], afin d’éviter que l’exécution ultérieure de requêtes Gremlin se solde par une exception indiquant que l’hôte n’a pas répondu à temps. 
     port|443|Définissez la valeur sur 443.
     username|*Votre nom d’utilisateur*|Ressource sous la forme `/dbs/<db>/colls/<coll>`, où `<db>` est le nom de votre base de données et `<coll>` le nom de votre collection.
     mot de passe|*Votre clé primaire*| Reportez-vous à la deuxième capture d’écran ci-dessous. Il s’agit de votre clé primaire, que vous pouvez récupérer à partir de la page Clés du portail Azure, dans la zone Clé primaire. Utilisez le bouton Copier sur le côté gauche de la zone pour copier la valeur.
     connectionPool|{enableSsl: true}|Votre paramètre de pool de connexions pour TLS.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: {serializeResultToString: true }}|Définissez le paramètre sur cette valeur et supprimez tous les sauts de ligne `\n` quand vous collez la valeur.
 
-   Pour la valeur de Hôtes, copiez la valeur de l’**URI Gremlin** depuis la page **Vue d’ensemble** :
+   Pour la valeur de Hôtes, copiez la valeur de l’ **URI Gremlin** depuis la page **Vue d’ensemble**  :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB à partir de la console Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Afficher et copier la valeur d’URI Gremlin sur la page Vue d’ensemble du portail Azure":::
 
-   Pour la valeur du mot de passe, copiez la **Clé principale** depuis la page **Clés** :
+   Pour la valeur du mot de passe, copiez la **Clé principale** depuis la page **Clés**  :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB à partir de la console Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Afficher et copier votre clé principale dans le portail Azure, page Clés":::
 
    Votre fichier remote-secure.yaml doit ressembler à ceci :
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Création de vertex et de bords
 
-Commençons par ajouter des vertex pour cinq personnes : *Thomas*, *Mary Kay*, *Robin*, *Ben* et *Jack*.
+Commençons par ajouter des vertex pour cinq personnes : *Thomas* , *Mary Kay* , *Robin* , *Ben* et *Jack*.
 
 Entrée (Thomas) :
 

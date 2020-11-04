@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 127b491da3e01e88c90e689e7dbcc9052ae4392f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486648"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099742"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Démarrage rapide : Créer un compte, une base de données, un conteneur et des éléments Azure Cosmos à partir du portail Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure portal](create-cosmosdb-resources-portal.md)
@@ -40,11 +41,11 @@ Un abonnement Azure ou un compte d’essai gratuit Azure Cosmos DB
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
-Accédez au [portail Azure](https://portal.azure.com/) pour créer un compte Azure Cosmos DB. Recherchez et sélectionnez **Azure Cosmos DB** .
+Accédez au [portail Azure](https://portal.azure.com/) pour créer un compte Azure Cosmos DB. Recherchez et sélectionnez **Azure Cosmos DB**.
 
    :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="Volet Bases de données du portail Azure":::
 
-1. Sélectionnez **Ajouter** .
+1. Sélectionnez **Ajouter**.
 1. Dans la page **Créer un compte Azure Cosmos DB** , entrez les paramètres de base du nouveau compte Azure Cosmos. 
 
     |Paramètre|Valeur|Description |
@@ -70,28 +71,28 @@ Accédez au [portail Azure](https://portal.azure.com/) pour créer un compte Azu
 > - Géo-redondance
 > - Écritures multirégions
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Volet Bases de données du portail Azure":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Page de nouveau compte pour Azure Cosmos DB":::
 
-1. Sélectionnez **Revoir + créer** . Vous pouvez ignorer les sections **Réseau** et **Balises** .
+1. Sélectionnez **Revoir + créer**. Vous pouvez ignorer les sections **Réseau** et **Balises**.
 
-1. Passez en revue les paramètres du compte, puis sélectionnez **Créer** . La création du compte prend quelques minutes. Attendez que la page du portail affiche **Votre déploiement est terminé** . 
+1. Passez en revue les paramètres du compte, puis sélectionnez **Créer**. La création du compte prend quelques minutes. Attendez que la page du portail affiche **Votre déploiement est terminé**. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Volet Bases de données du portail Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Volet Notifications du portail Azure":::
 
 1. Sélectionnez **Accéder à la ressource** pour accéder à la page du compte Azure Cosmos DB. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Volet Bases de données du portail Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Page du compte Azure Cosmos DB":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Ajouter une base de données et un conteneur 
 
 Vous pouvez utiliser l’Explorateur de données du portail Azure pour créer une base de données et un conteneur. 
 
-1.  Dans la page de votre compte Azure Cosmos DB, sur la gauche, sélectionnez **Explorateur de données** , puis **Nouveau conteneur** . 
+1.  Dans la page de votre compte Azure Cosmos DB, sur la gauche, sélectionnez **Explorateur de données** , puis **Nouveau conteneur**. 
     
-    Vous devrez peut-être faire défiler vers la droite pour voir la fenêtre **Ajouter un conteneur** .
+    Vous devrez peut-être faire défiler vers la droite pour voir la fenêtre **Ajouter un conteneur**.
     
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Volet Bases de données du portail Azure":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Explorateur de données du portail Azure, volet Ajouter un conteneur":::
     
 1.  Dans le volet **Ajouter un conteneur** , entrez les paramètres du nouveau conteneur.
     
@@ -103,17 +104,17 @@ Vous pouvez utiliser l’Explorateur de données du portail Azure pour créer un
     |**Clé de partition**| /category| L’exemple décrit dans cet article utilise */category* comme clé de partition.|
 
     
-    Pour cet exemple, n’ajoutez pas de **Clés uniques** . Les clés uniques vous permettent d’ajouter une couche d’intégrité des données à la base de données en garantissant que chaque clé de partition contient des valeurs uniques. Pour plus d’informations, consultez [Clés uniques dans Azure Cosmos DB](unique-keys.md).
+    Pour cet exemple, n’ajoutez pas de **Clés uniques**. Les clés uniques vous permettent d’ajouter une couche d’intégrité des données à la base de données en garantissant que chaque clé de partition contient des valeurs uniques. Pour plus d’informations, consultez [Clés uniques dans Azure Cosmos DB](unique-keys.md).
     
-1.  Sélectionnez **OK** . L’Explorateur de données présente la nouvelle base de données et le conteneur que vous avez créé.
+1.  Sélectionnez **OK**. L’Explorateur de données présente la nouvelle base de données et le conteneur que vous avez créé.
 
 ## <a name="add-data-to-your-database"></a>Ajouter des données à votre base de données
 
 Ajoutez des données à votre nouvelle base de données à l’aide de l’Explorateur de données.
 
-1. Dans l’ **Explorateur de données** , développez la base de données **ToDoList** , puis développez le conteneur **Éléments** . Ensuite, sélectionnez **Éléments** , puis sélectionnez **Nouvel élément** . 
+1. Dans l’ **Explorateur de données** , développez la base de données **ToDoList** , puis développez le conteneur **Éléments**. Ensuite, sélectionnez **Éléments** , puis sélectionnez **Nouvel élément**. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Volet Bases de données du portail Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Créer des documents dans l’Explorateur de données du portail Azure":::
    
 1. Ajoutez la structure suivante au document, sur la droite du volet **Documents**  :
 
@@ -127,9 +128,9 @@ Ajoutez des données à votre nouvelle base de données à l’aide de l’Explo
      }
      ```
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Volet Bases de données du portail Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Copie des données json et sélection de l’option Enregistrer dans l’Explorateur de données du portail Azure":::
    
 1. Sélectionnez à nouveau **Nouveau document** puis créez et enregistrez un autre document avec un `id` unique, ainsi que les propriétés et valeurs souhaitées. Vos documents peuvent avoir la structure de votre choix, car Azure Cosmos DB n’impose aucun schéma à vos données.
 
@@ -144,7 +145,7 @@ Ajoutez des données à votre nouvelle base de données à l’aide de l’Explo
 Si vous souhaitez supprimer uniquement la base de données et utiliser le compte Azure Cosmos à l’avenir, vous pouvez supprimer la base de données en effectuant les étapes suivantes :
 
 * Accédez à votre compte Azure Cosmos.
-* Ouvrez l’ **Explorateur de données** , cliquez avec le bouton droit sur la base de données que vous souhaitez supprimer et sélectionnez **Supprimer la de base de données** .
+* Ouvrez l’ **Explorateur de données** , cliquez avec le bouton droit sur la base de données que vous souhaitez supprimer et sélectionnez **Supprimer la de base de données**.
 * Entrez l’ID et le nom de la base de données pour confirmer l’opération de suppression. 
 
 ## <a name="next-steps"></a>Étapes suivantes
