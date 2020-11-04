@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b1f53226b82a5342efda8665b6a366a3a7fd310
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461411"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279481"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -22,7 +22,7 @@ Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événeme
 
 Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires à l’aide du [portail Azure](https://portal.azure.com).
 
-Vous pouvez également gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[SDK .NET [C#]](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)*](how-to-manage-routes-apis-cli.md).
+Vous pouvez également gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[SDK .NET [C#]](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +37,7 @@ Vous trouverez ces informations dans le [portail Azure](https://portal.azure.com
 
 Sélectionnez votre instance parmi les résultats pour afficher la page de détails la concernant :
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Capture d’écran de la barre de recherche du portail Azure." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Capture d’écran des détails de l’instance ADT." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Créer un point de terminaison pour Azure Digital Twins
 
@@ -56,71 +56,71 @@ Pour lier un point de terminaison à Azure Digital Twins, l’Event Hub, une rub
 
 Une fois que vous avez créé la rubrique, vous pouvez la lier à Azure Digital Twins à partir de la page de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez trouver l’instance en entrant son nom dans la barre de recherche du portail).
 
-Dans le menu de l’instance, sélectionnez _Points de terminaison_ . Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison* . 
+Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
 
 Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Grid_ en sélectionnant la case d’option correspondante. Renseignez les autres détails : entrez un nom pour votre point de terminaison dans le champ _Nom_ , choisissez votre _abonnement_ dans la liste déroulante, puis choisissez votre _rubrique Event Grid_ précréée dans la troisième liste déroulante.
 
-Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_ .
+Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Grid.":::
 
 Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure : 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Capture d’écran de la barre de recherche du portail Azure." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Capture d’écran de la notification pour vérifier la création du point de terminaison." border="false":::
 
 Vous pouvez également afficher le point de terminaison qui a été créé dans la page *Points de terminaison* de votre instance Azure Digital Twins.
 
 Si la création du point de terminaison échoue, observez le message d’erreur et réessayez après quelques minutes.
 
-La rubrique Event Grid est alors disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_ . Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
+La rubrique Event Grid est alors disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Créer un point de terminaison Event Hubs
 
 **Prérequis** : 
-* Vous avez besoin d’un _espace de noms Event Hubs_ et d’un _Event Hub_ . Pour créer ces deux éléments, suivez les étapes du démarrage rapide [*Créer un Event Hub*](../event-hubs/event-hubs-create.md) d’Event Hubs.
-* Vous aurez besoin d’une _règle d’autorisation_ . Pour ce faire, reportez-vous à l’article [*Autorisation de l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé*](../event-hubs/authorize-access-shared-access-signature.md) d’Event Hubs.
+* Vous avez besoin d’un _espace de noms Event Hubs_ et d’un _Event Hub_. Pour créer ces deux éléments, suivez les étapes du démarrage rapide [*Créer un Event Hub*](../event-hubs/event-hubs-create.md) d’Event Hubs.
+* Vous aurez besoin d’une _règle d’autorisation_. Pour ce faire, reportez-vous à l’article [*Autorisation de l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé*](../event-hubs/authorize-access-shared-access-signature.md) d’Event Hubs.
 
 Accédez à la page de détails de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez la trouver en entrant son nom dans la barre de recherche du portail).
 
-Dans le menu de l’instance, sélectionnez _Points de terminaison_ . Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison* . 
+Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
 
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Hub_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_ . Sélectionnez ensuite votre _abonnement_ , ainsi que l’ _espace de noms Event Hub_ , l’ _Event Hub_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
+Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Hub_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_ , ainsi que l’ _espace de noms Event Hub_ , l’ _Event Hub_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
 
-Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_ .
+Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Hubs.":::
 
 Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure. 
 
 Si la création du point de terminaison échoue, observez le message d’erreur et réessayez après quelques minutes.
 
-L’Event Hub est alors disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_ . Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
+L’Event Hub est alors disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Créer un point de terminaison Service Bus
 
 **Prérequis** : 
-* Vous avez besoin d’un _espace de noms Service Bus_ et d’une _rubrique Service Bus_ . Pour créer ces deux éléments, suivez les étapes décrites dans le démarrage rapide [*Créer des rubriques et des abonnements*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) de Service Bus. Vous n’avez pas besoin de terminer la section [*Créer des abonnements à la rubrique*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic).
-* Vous aurez besoin d’une _règle d’autorisation_ . Pour ce faire, reportez-vous à l’article [*Authentification et autorisation*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) de Service Bus.
+* Vous avez besoin d’un _espace de noms Service Bus_ et d’une _rubrique Service Bus_. Pour créer ces deux éléments, suivez les étapes décrites dans le démarrage rapide [*Créer des rubriques et des abonnements*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) de Service Bus. Vous n’avez pas besoin de terminer la section [*Créer des abonnements à la rubrique*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic).
+* Vous aurez besoin d’une _règle d’autorisation_. Pour ce faire, reportez-vous à l’article [*Authentification et autorisation*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) de Service Bus.
 
 Accédez à la page de détails de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez la trouver en entrant son nom dans la barre de recherche du portail).
 
-Dans le menu de l’instance, sélectionnez _Points de terminaison_ . Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison* . 
+Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
 
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Service Bus_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_ . Sélectionnez ensuite votre _abonnement_ , ainsi que l’ _espace de noms Service Bus_ , la _rubrique Service Bus_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
+Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Service Bus_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_ , ainsi que l’ _espace de noms Service Bus_ , la _rubrique Service Bus_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
 
-Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_ .
+Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Service Bus.":::
 
 Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure. 
 
 Si la création du point de terminaison échoue, observez le message d’erreur et réessayez après quelques minutes.
 
-La rubrique Service Bus est ensuite disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_ . Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
+La rubrique Service Bus est ensuite disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Créer un point de terminaison avec mise en file d’attente de lettres mortes
 
-Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes** .
+Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes**.
 
 Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, il est préférable d’utiliser les [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison, plutôt que le portail Azure.
 
@@ -128,7 +128,7 @@ Pour obtenir des instructions sur la façon de procéder avec les API, consultez
 
 ## <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
 
-Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement** . Ces itinéraires permettent aux développeurs d’associer le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
+Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement**. Ces itinéraires permettent aux développeurs d’associer le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
 
 **Condition préalable**  : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
@@ -149,21 +149,21 @@ Un seul itinéraire peut permettre la sélection de plusieurs notifications et t
 
 Pour créer un itinéraire d’événement, accédez à la page de détails de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez rechercher l’instance en entrant son nom dans la barre de recherche du portail).
 
-Dans le menu de l’instance, sélectionnez _Itinéraires d’événements_ . Ensuite, à partir de la page *Itinéraires d’événements* qui suit, sélectionnez *+ Créer un itinéraire d’événements* . 
+Dans le menu de l’instance, sélectionnez _Itinéraires d’événements_. Ensuite, à partir de la page *Itinéraires d’événements* qui suit, sélectionnez *+ Créer un itinéraire d’événements*. 
 
 Dans la page *Créer un itinéraire d’événement* qui s’ouvre, choisissez au minimum :
 * Un nom pour votre itinéraire dans le champ _Nom_
 * Le _point de terminaison_ que vous souhaitez utiliser pour créer l’itinéraire 
 
-Pour que l’itinéraire soit activé, vous devez également **ajouter un filtre d’itinéraires d’événements** `true` au minimum. (Laisser la valeur `false` par défaut créera l’itinéraire, mais aucun événement ne lui sera envoyé.) Pour ce faire, appuyez sur le bouton bascule de l’ _éditeur avancé_ pour l’activer, puis écrivez `true` dans la zone *Filtre* .
+Pour que l’itinéraire soit activé, vous devez également **ajouter un filtre d’itinéraires d’événements** `true` au minimum. (Laisser la valeur `false` par défaut créera l’itinéraire, mais aucun événement ne lui sera envoyé.) Pour ce faire, appuyez sur le bouton bascule de l’ _éditeur avancé_ pour l’activer, puis écrivez `true` dans la zone *Filtre*.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Capture d’écran de la barre de recherche du portail Azure." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Capture d’écran de la création de l’itinéraire d’événement pour votre instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Lorsque vous avez terminé, cliquez sur le bouton _Enregistrer_ pour créer votre itinéraire d’événement.
 
 ## <a name="filter-events"></a>Filtrer les événements
 
-Comme décrit ci-dessus, les itinéraires ont un champ **Filtre** . Si la valeur de filtre sur votre itinéraire est `false`, aucun événement n’est envoyé à votre point de terminaison. 
+Comme décrit ci-dessus, les itinéraires ont un champ **Filtre**. Si la valeur de filtre sur votre itinéraire est `false`, aucun événement n’est envoyé à votre point de terminaison. 
 
 Après avoir activé le filtre minimal `true`, les points de terminaison recevront une variété d’événements d’Azure Digital Twins :
 * télémétrie déclenchée par des [jumeaux numériques](concepts-twins-graph.md) à l’aide de l’API de service d’Azure Digital Twins ;
@@ -172,7 +172,7 @@ Après avoir activé le filtre minimal `true`, les points de terminaison recevro
 
 Vous pouvez restreindre les types d’événements envoyés en définissant un filtre plus spécifique.
 
-Pour ajouter un filtre d’événements lors de la création d’un itinéraire d’événement, utilisez la section _Ajouter un filtre d’itinéraires d’événements_ de la page *Créer un itinéraire d’événement* . 
+Pour ajouter un filtre d’événements lors de la création d’un itinéraire d’événement, utilisez la section _Ajouter un filtre d’itinéraires d’événements_ de la page *Créer un itinéraire d’événement*. 
 
 Vous pouvez sélectionner l’une des options de filtre courantes de base ou utiliser les options de filtre avancées pour écrire vos propres filtres personnalisés.
 
@@ -182,7 +182,7 @@ Pour utiliser les filtres de base, développez l’option _Types d’événement
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Capture d’écran de la création d’un itinéraire d’événement avec un filtre de base. Sélection des cases à cocher correspondant aux événements.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -192,7 +192,7 @@ Cette opération remplit automatiquement la zone de texte de filtre avec le text
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Capture d’écran de la création d’un itinéraire d’événement avec un filtre de base. Indication du texte de filtre rempli automatiquement après la sélection des événements.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -206,7 +206,7 @@ Pour créer un itinéraire d’événement avec des options de filtre avancées,
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Capture d’écran de la création d’un itinéraire d’événement avec un filtre avancé.":::
     :::column-end:::
     :::column:::
     :::column-end:::

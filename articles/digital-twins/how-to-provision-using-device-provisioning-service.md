@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0a18e6cef568afa8a0092fc06d8f6bb526739b2a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494739"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145801"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gérer automatiquement les appareils dans Azure Digital représentations à l’aide du service Device Provisioning (DPS)
 
@@ -52,7 +52,7 @@ Pour obtenir des explications plus détaillées sur chaque étape de l’archite
 
 Dans cette section, vous allez attacher le service Device Provisioning à Azure Digital Twins pour approvisionner automatiquement des appareils via le chemin d’accès ci-dessous. Il s’agit d’un extrait de l’architecture complète présentée [plus tôt](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Vue d’un appareil et de plusieurs services Azure dans un scénario de bout en bout. Les données transitent entre un appareil à thermostat et un DPS. Les données passent également du DPS à IoT Hub et à Azure Digital Twins par le biais d’une fonction Azure appelée « allocation ». Les données d’une action manuelle « Supprimer l’appareil » passent par IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Flux d’approvisionnement : un extrait du diagramme de l’architecture de la solution, avec des numéros pour étiqueter les sections du flux. Les données transitent entre un appareil à thermostat et un DPS (1 pour appareil > DPS et 5 pour DPS > appareil). Les données passent également du DPS à IoT Hub (4) et à Azure Digital Twins (3) par le biais d’une fonction Azure appelée « allocation » (2).":::
 
 Voici une description du processus :
 1. L’appareil contacte le point de terminaison DPS, en transmettant les informations d’identification pour prouver son identité.
@@ -189,7 +189,7 @@ namespace Samples.AdtIothub
             string dtId;
             string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
             AsyncPageable<string> twins = client.QueryAsync(query);
-            
+
             await foreach (string twinJson in twins)
             {
                 // Get DT ID from the Twin
@@ -214,7 +214,8 @@ namespace Samples.AdtIothub
                 { "$metadata", meta }
             };
             twinProps.Add("Temperature", 0.0);
-            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
             log.LogInformation($"Twin '{dtId}' created in DT");
 
             return dtId;
@@ -243,24 +244,17 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Assurez-vous que les autorisations et l’attribution de rôle d’identité gérée sont correctement configurées pour l’application de fonction, comme décrit dans la section [*Affecter des autorisations à l’application de fonction*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) dans le didacticiel de bout en bout.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Créer une inscription Device Provisioning
 
-Ensuite, vous devez créer une inscription dans le service Device Provisioning à l’aide d’une **fonction d’allocation personnalisée** . Suivez les instructions pour effectuer cette opération dans les sections [*Créer l’inscription*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) et [*Dériver les clés d’appareil uniques*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) de l’article Services Device Provisioning sur les stratégies d’allocation personnalisées.
+Ensuite, vous devez créer une inscription dans le service Device Provisioning à l’aide d’une **fonction d’allocation personnalisée**. Suivez les instructions pour effectuer cette opération dans les sections [*Créer l’inscription*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) et [*Dériver les clés d’appareil uniques*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) de l’article Services Device Provisioning sur les stratégies d’allocation personnalisées.
 
-Lorsque vous parcourez ce processus, vous liez l’inscription à la fonction que vous venez de créer en sélectionnant votre fonction au cours de l’étape pour **Sélectionner le mode d’attribution des appareils aux hubs** . Une fois l’inscription créée, le nom d’inscription et la clé SAS principale ou secondaire seront utilisés ultérieurement pour configurer le simulateur d’appareil pour cet article.
+Lorsque vous parcourez ce processus, vous liez l’inscription à la fonction que vous venez de créer en sélectionnant votre fonction au cours de l’étape pour **Sélectionner le mode d’attribution des appareils aux hubs**. Une fois l’inscription créée, le nom d’inscription et la clé SAS principale ou secondaire seront utilisés ultérieurement pour configurer le simulateur d’appareil pour cet article.
 
 ### <a name="set-up-the-device-simulator"></a>Configurer le simulateur d’appareil
 
 Cet exemple utilise un simulateur d’appareil qui comprend l’approvisionnement à l’aide du service Device Provisioning. Le simulateur d’appareil se trouve ici : [Exemple d’intégration d’Azure Digital Twins et d’IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Si vous n’avez pas encore téléchargé l’exemple, récupérez-le maintenant en suivant le lien de l’exemple, puis en sélectionnant le bouton *Télécharger le zip* sous le titre. Décompressez le dossier téléchargé.
 
-Ouvrez une fenêtre de commande et accédez au dossier téléchargé, puis au répertoire *device-simulator* . Installez les dépendances pour le projet à l’aide de la commande suivante :
+Ouvrez une fenêtre de commande et accédez au dossier téléchargé, puis au répertoire *device-simulator*. Installez les dépendances pour le projet à l’aide de la commande suivante :
 
 ```cmd
 npm install
@@ -287,7 +281,7 @@ node .\adt_custom_register.js
 ```
 
 Vous devriez voir que l’appareil est enregistré et connecté à IoT Hub, puis qu’il commence à envoyer des messages.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Vue d’un appareil et de plusieurs services Azure dans un scénario de bout en bout. Les données transitent entre un appareil à thermostat et un DPS. Les données passent également du DPS à IoT Hub et à Azure Digital Twins par le biais d’une fonction Azure appelée « allocation ». Les données d’une action manuelle « Supprimer l’appareil » passent par IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Fenêtre de commande affichant de l’inscription et de l’envoi de messages":::
 
 ### <a name="validate"></a>Valider
 
@@ -298,13 +292,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 La représentation de l’appareil doit se trouver dans l’instance Azure Digital Twins.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Vue d’un appareil et de plusieurs services Azure dans un scénario de bout en bout. Les données transitent entre un appareil à thermostat et un DPS. Les données passent également du DPS à IoT Hub et à Azure Digital Twins par le biais d’une fonction Azure appelée « allocation ». Les données d’une action manuelle « Supprimer l’appareil » passent par IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Fenêtre de commande affichant la représentation nouvellement créée":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Mettre hors service automatiquement un appareil à l’aide d’événements de cycle de vie IoT Hub
 
 Dans cette section, vous allez attacher des événements de cycle de vie IoT Hub à Azure Digital Twins pour mettre hors service automatiquement les appareils en suivant le procédé ci-dessous. Il s’agit d’un extrait de l’architecture complète présentée [plus tôt](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Vue d’un appareil et de plusieurs services Azure dans un scénario de bout en bout. Les données transitent entre un appareil à thermostat et un DPS. Les données passent également du DPS à IoT Hub et à Azure Digital Twins par le biais d’une fonction Azure appelée « allocation ». Les données d’une action manuelle « Supprimer l’appareil » passent par IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Flux de mise hors service d’appareil : un extrait du diagramme de l’architecture de la solution, avec des numéros pour étiqueter les sections du flux. L’appareil à thermostat est affiché sans connexion aux services Azure dans le diagramme. Les données d’une action « Supprimer l’appareil » manuelle passent par IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital Twins (3).":::
 
 Voici une description du processus :
 1. Un processus externe ou manuel déclenche la suppression d’un appareil dans IoT Hub.
@@ -469,8 +463,8 @@ Les instructions de création d’un itinéraire IoT Hub sont décrites dans cet
 
 Les étapes à suivre pour effectuer cette configuration sont les suivantes :
 1. Créez un point de terminaison Event Hub IoT Hub personnalisé. Ce point de terminaison doit cibler l’instance Event Hub que vous avez créée dans la section [*Créer un Event Hub*](#create-an-event-hub).
-2. Ajoutez un itinéraire *Événements de cycle de vie d’appareil* . Utilisez le point de terminaison créé à l’étape précédente. Vous pouvez limiter les événements de cycle de vie des appareils pour qu’ils envoient uniquement les événements de suppression en ajoutant la requête de routage `opType='deleteDeviceIdentity'`.
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Vue d’un appareil et de plusieurs services Azure dans un scénario de bout en bout. Les données transitent entre un appareil à thermostat et un DPS. Les données passent également du DPS à IoT Hub et à Azure Digital Twins par le biais d’une fonction Azure appelée « allocation ». Les données d’une action manuelle « Supprimer l’appareil » passent par IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+2. Ajoutez un itinéraire *Événements de cycle de vie d’appareil*. Utilisez le point de terminaison créé à l’étape précédente. Vous pouvez limiter les événements de cycle de vie des appareils pour qu’ils envoient uniquement les événements de suppression en ajoutant la requête de routage `opType='deleteDeviceIdentity'`.
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Ajouter un itinéraire":::
 
 Une fois que vous avez parcouru ce processus, tout est configuré pour mettre les appareils hors service de bout en bout.
 
@@ -491,7 +485,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Vous devez voir que la représentation de l’appareil est introuvable dans l’instance Azure Digital Twins.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Vue d’un appareil et de plusieurs services Azure dans un scénario de bout en bout. Les données transitent entre un appareil à thermostat et un DPS. Les données passent également du DPS à IoT Hub et à Azure Digital Twins par le biais d’une fonction Azure appelée « allocation ». Les données d’une action manuelle « Supprimer l’appareil » passent par IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Fenêtre de commande signalant que la représentation est introuvable":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

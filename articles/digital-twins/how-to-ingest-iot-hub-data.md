@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1fa14c4341c449c32fd6a5f6b3274b057478c01c
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d2606f793c7ab2e3ac29b1eb869e60a2c8e634ad
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495819"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145920"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingérer des données de télémétrie IoT Hub dans Azure Digital Twins
 
@@ -25,7 +25,7 @@ Ce document explique le processus d’écriture d’une fonction Azure pouvant i
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de poursuivre avec cet exemple, vous devez mettre en place les ressources suivantes en guise de conditions préalables :
-* **Un hub IoT** . Pour obtenir des instructions, consultez la section *Créer un hub IoT* de [ce démarrage rapide d’IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Un hub IoT**. Pour obtenir des instructions, consultez la section *Créer un hub IoT* de [ce démarrage rapide d’IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
 * **Une fonction Azure** avec les autorisations appropriées pour appeler votre instance de jumeau numérique. Pour obtenir des instructions, consultez [*Procédure : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md). 
 * **Une instance Azure Digital Twins** qui recevra la télémétrie de votre appareil. Pour obtenir des instructions, consultez [*Procédure : Configurer une instance Azure Digital Twins et l’authentification*](./how-to-set-up-instance-portal.md).
 
@@ -68,7 +68,7 @@ Pour **télécharger ce modèle sur votre instance de jumeaux** , ouvrez Azure C
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-Vous devez ensuite **créer un jumeau à l’aide de ce modèle** . Utilisez la commande suivante pour créer un jumeau et définissez 0,0 comme valeur initiale de température.
+Vous devez ensuite **créer un jumeau à l’aide de ce modèle**. Utilisez la commande suivante pour créer un jumeau et définissez 0,0 comme valeur initiale de température.
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -117,9 +117,9 @@ L’exemple de code suivant prend la valeur d’ID et de température et les uti
 
 ```csharp
 //Update twin using device temperature
-var uou = new UpdateOperationsUtility();
-uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
@@ -176,9 +176,9 @@ namespace IotHubtoTwins
                     log.LogInformation($"Device:{deviceId} Temperature is:{temperature}");
 
                     //Update twin using device temperature
-                    var uou = new UpdateOperationsUtility();
-                    uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-                    await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+                    var updateTwinData = new JsonPatchDocument();
+                    updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+                    await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
                 }
             }
             catch (Exception e)
@@ -205,23 +205,23 @@ Après une publication réussie, vous verrez la sortie dans la fenêtre de comma
 ```
 Vous pouvez également vérifier l’état du processus de publication dans le [Portail Azure](https://portal.azure.com/). Recherchez votre _groupe de ressources_ et accédez à _Journal d’activité_ , puis recherchez _Obtenir le profil de publication de l’application web_ dans la liste et vérifiez que l’état indique une réussite.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Diagramme montrant un organigramme. Dans le graphique, un appareil IoT Hub envoie des données de télémétrie de température via IoT Hub à une fonction Azure, qui met à jour une propriété de température pour un jumeau dans Azure Digital Twins.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Capture d’écran du Portail Azure montrant l’état du processus de publication.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Connecter votre fonction à IoT Hub
 
 Configurez une destination d’événement pour les données de concentrateur.
 Dans le [Portail Azure](https://portal.azure.com/), accédez à l’instance IoT Hub que vous avez créée dans la section [*Prérequis*](#prerequisites). Sous **Événements** , créez un abonnement pour votre fonction Azure.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagramme montrant un organigramme. Dans le graphique, un appareil IoT Hub envoie des données de télémétrie de température via IoT Hub à une fonction Azure, qui met à jour une propriété de température pour un jumeau dans Azure Digital Twins.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Capture d’écran du Portail Azure qui montre l’ajout d’un abonnement aux événements.":::
 
 Dans la page **Créer un abonnement aux événements** , renseignez les champs de la façon suivante :
   1. Sous **Nom** , nommez l’abonnement que vous souhaitez.
-  2. Sous **Schéma d’événement** , choisissez _Schéma Event Grid_ .
+  2. Sous **Schéma d’événement** , choisissez _Schéma Event Grid_.
   3. Sous **Types d’événements** , choisissez la case à cocher _Télémétrie d’appareil_ et décochez les autres types d’événements.
-  4. Sous **Type de point de terminaison** , sélectionnez _Fonction Azure_ .
+  4. Sous **Type de point de terminaison** , sélectionnez _Fonction Azure_.
   5. Sous **Point de terminaison** , sélectionnez le lien _Sélectionner un point de terminaison_ pour créer un point de terminaison.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagramme montrant un organigramme. Dans le graphique, un appareil IoT Hub envoie des données de télémétrie de température via IoT Hub à une fonction Azure, qui met à jour une propriété de température pour un jumeau dans Azure Digital Twins.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Capture d’écran du Portail Azure pour créer les détails de l’abonnement aux événements":::
 
 Dans la page _Sélectionner une fonction Azure_ qui s’ouvre, vérifiez les détails ci-dessous.
  1. **Abonnement** : Votre abonnement Azure
@@ -230,9 +230,9 @@ Dans la page _Sélectionner une fonction Azure_ qui s’ouvre, vérifiez les dé
  4. **Emplacement**  : _Production_
  5. **Fonction**  : Sélectionnez votre fonction Azure dans la liste déroulante.
 
-Enregistrez vos détails en sélectionnant le bouton _Confirmer la sélection_ .            
+Enregistrez vos détails en sélectionnant le bouton _Confirmer la sélection_.            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Diagramme montrant un organigramme. Dans le graphique, un appareil IoT Hub envoie des données de télémétrie de température via IoT Hub à une fonction Azure, qui met à jour une propriété de température pour un jumeau dans Azure Digital Twins.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Capture d’écran du Portail Azure pour sélectionner la fonction Azure":::
 
 Sélectionnez le bouton _Créer_ pour créer un abonnement aux événements.
 
