@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131681"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893575"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Forum Aux Questions sur Metrics Advisor
 
 ### <a name="what-is-the-cost-of-my-instance"></a>Quel est le coût de mon instance ?
 
 Il n’y a actuellement pas de coût d’utilisation de votre instance au cours de la préversion.
-
-### <a name="why-is-the-demo-website-readonly"></a>Pourquoi le site Web de la version de démonstration est-il en lecture seule ?
-
-Le [site Web de la version de démonstration](https://anomaly-detector.azurewebsites.net/) est disponible publiquement. Cette instance est mise en lecture seule pour empêcher le téléchargement accidentel de données.
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>Pourquoi ne puis-je pas créer la ressource ? Le « Niveau tarifaire » n’est pas disponible et il indique « Vous avez déjà créé 1 S0 pour cet abonnement » ?
 
@@ -92,7 +88,7 @@ Veillez à utiliser la précision appropriée pour votre série chronologique. P
 
 Notez que ces requêtes retournent uniquement des données à un horodatage unique et contiennent toutes les combinaisons de dimensions à ingérer par Metrics Advisor. 
 
-:::image type="content" source="media/query-result.png" alt-text="Message lorsqu’une ressource F0 existe déjà" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="Résultat d’une requête avec un horodatage" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Comment détecter des mines et pixels indépendants du périphérique comme des anomalies ?
@@ -131,7 +127,7 @@ Une métrique peut être fractionnée en plusieurs séries chronologiques par di
 
 Dans Metric Advisor, les utilisateurs peuvent spécifier n’importe quel chemin d’accès qu’ils veulent explorer au niveau du détail ou dont ils veulent remonter à partir d’un nœud de la topologie hiérarchique. Plus précisément, la topologie hiérarchique est un graphe orienté acyclique plutôt qu’une arborescence. Il existe une topologie hiérarchique complète qui se compose de toutes les combinaisons de dimensions potentielles, comme celle-ci : 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="Message lorsqu’une ressource F0 existe déjà" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="Diagramme de topologie hiérarchique constitué de plusieurs sommets et arêtes interconnectés à dimensions multiples étiquetées S, DC et M avec des numéros correspondants allant de 1 à 6" lightbox="media/dimension-combinations-view.png":::
 
 En théorie, si la dimension `Service` a `Ls` valeurs distinctes, que la dimension `Data center` a `Ldc` valeurs distinctes et que la dimension `Machine` a `Lm` valeurs distinctes, alors il peut y avoir `(Ls + 1) * (Ldc + 1) * (Lm + 1)` combinaisons de dimensions dans la topologie hiérarchique. 
 
@@ -145,5 +141,4 @@ Par exemple, lorsqu’une anomalie se produit sur `Service = S2 | Data Center = 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Présentation de Metrics Advisor](overview.md)
-- [Essayer le site de la version de démonstration](quickstarts/explore-demo.md)
 - [Utiliser le Portail web](quickstarts/web-portal.md)

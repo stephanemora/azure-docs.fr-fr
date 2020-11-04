@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003367"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912325"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutoriel : Créer une application de traitement de formulaires avec AI Builder
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) est une fonctionnalité de Power Platform qui vous permet d’automatiser les processus et de prédire des résultats pour améliorer les performances de l’entreprise. Vous pouvez utiliser le traitement de formulaires d’AI Builder pour créer des modèles IA qui identifient et extraient des paires clé-valeur et des données de table à partir de documents de formulaire.
+[AI Builder](/ai-builder/overview) est une fonctionnalité de Power Platform qui vous permet d’automatiser les processus et de prédire des résultats pour améliorer les performances de l’entreprise. Vous pouvez utiliser le traitement de formulaires d’AI Builder pour créer des modèles IA qui identifient et extraient des paires clé-valeur et des données de table à partir de documents de formulaire.
 
 > [!NOTE]
-> Ce projet est également disponible sous la forme de [module Microsoft Learn](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
+> Ce projet est également disponible sous la forme de [module Microsoft Learn](/learn/modules/get-started-with-form-processing/).
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -32,8 +32,8 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un ensemble d’au moins cinq formulaires de même type à utiliser pour les données d’entraînement/de test. Consultez [Créer un jeu de données d’entraînement](./build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2128080).
-* Une licence Power Apps ou Power Automate - consultez le [guide de gestion des licences](https://go.microsoft.com/fwlink/?linkid=2085130). La licence doit inclure [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/).
+* Un ensemble d’au moins cinq formulaires de même type à utiliser pour les données d’entraînement/de test. Consultez [Créer un jeu de données d’entraînement](./build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’ [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2128080).
+* Une licence Power Apps ou Power Automate - consultez le [guide de gestion des licences](https://go.microsoft.com/fwlink/?linkid=2085130). La licence doit inclure [Common Data Service](https://powerplatform.microsoft.com/common-data-service/).
 * Un [module complémentaire ou une version d’essai gratuit](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409) d’AI Builder.
 
 
@@ -47,7 +47,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="upload-and-analyze-documents"></a>Charger et analyser des documents
 
-Dans la page **Ajouter des documents**, vous devez ajouter des exemples de documents afin d’entraîner votre modèle pour le type de formulaire à partir duquel vous souhaitez extraire des informations. AI Builder analyse les documents chargés pour vérifier qu’ils sont suffisants pour entraîner le modèle.
+Dans la page **Ajouter des documents** , vous devez ajouter des exemples de documents afin d’entraîner votre modèle pour le type de formulaire à partir duquel vous souhaitez extraire des informations. AI Builder analyse les documents chargés pour vérifier qu’ils sont suffisants pour entraîner le modèle.
 
 > [!NOTE]
 > Actuellement, AI Builder ne prend pas en charge les types de données d’entrée suivants pour le traitement de formulaires :
@@ -61,7 +61,7 @@ Dans la page **Ajouter des documents**, vous devez ajouter des exemples de docum
 
 ### <a name="upload-your-documents"></a>Charger les documents
 
-1. Sélectionnez **Ajouter des documents**, sélectionnez au moins cinq documents, puis sélectionnez **Charger**.
+1. Sélectionnez **Ajouter des documents** , sélectionnez au moins cinq documents, puis sélectionnez **Charger**.
 1. Quand le chargement est terminé, sélectionnez **Fermer**.
 1. Sélectionnez ensuite **Analyser**.
 
@@ -69,7 +69,7 @@ Dans la page **Ajouter des documents**, vous devez ajouter des exemples de docum
 > Après avoir chargé ces documents, vous pourrez toujours en charger d’autres ou en supprimer.
 
 > [!div class="mx-imgBorder"]
-> ![Page Ajouter des documents](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Capture d’écran mettant en évidence le bouton Ajouter des documents.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### <a name="analyze-your-documents"></a>Analyser les documents
 
@@ -89,11 +89,11 @@ Sur la page de sélection des champs, choisissez les champs qui vous intéressen
 
     Quand vous cliquez sur un champ détecté, les informations suivantes s’affichent :
 
-    - **Nom du champ** : nom de l’étiquette du champ détecté
-    - **Valeur de champ** : valeur du champ détecté
+    - **Nom du champ**  : nom de l’étiquette du champ détecté
+    - **Valeur de champ**  : valeur du champ détecté
 
 > [!div class="mx-imgBorder"]
-> ![Page Ajouter des documents](./media/tutorial-ai-builder/select-fields-page.png)
+> ![Page d’étiquetage](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>Étiqueter les champs non détectés
 
@@ -104,7 +104,7 @@ Si le champ que vous souhaitez étiqueter n’a pas été détecté automatiquem
 1. Sélectionnez **Suivant** pour vérifier les champs de formulaire sélectionnés. Si tout semble correct, sélectionnez **Entraîner** pour entraîner le modèle.
 
     > [!div class="mx-imgBorder"]
-    > ![Page Ajouter des documents](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![Page d’entraînement](./media/tutorial-ai-builder/summary-train-page.png)
 1. Quand l’entraînement est terminé, sélectionnez **Aller à la page Détails** dans l’écran **Entraînement effectué**.
 ## <a name="quick-test-your-model"></a>Effectuer un test rapide du modèle
 
@@ -127,13 +127,13 @@ Si vous obtenez de mauvais résultats ou des scores de confiance faibles pour ce
 Si vous êtes satisfait de votre modèle, sélectionnez **Publier** pour le publier. Quand la publication est effectuée, votre modèle est promu comme **Publié** et est prêt à être utilisé.
 
 > [!div class="mx-imgBorder"]
-> ![Page Ajouter des documents](./media/tutorial-ai-builder/model-page.png)
+> ![Page de publication du modèle](./media/tutorial-ai-builder/model-page.png)
 
-Après avoir publié votre modèle de traitement de formulaires, vous pouvez l’utiliser dans une [application de canevas dans Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) ou dans [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+Après avoir publié votre modèle de traitement de formulaires, vous pouvez l’utiliser dans une [application de canevas dans Power Apps](/ai-builder/form-processor-component-in-powerapps) ou dans [Power Automate](/ai-builder/form-processing-model-in-flow).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Reportez-vous à la documentation d’AI Builder pour utiliser un modèle de traitement de formulaires.
 
-* [Utiliser le composant de processeur de formulaire dans Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Utiliser un modèle de traitement de formulaires dans Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Utiliser le composant de processeur de formulaire dans Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Utiliser un modèle de traitement de formulaires dans Power Automate](/ai-builder/form-processing-model-in-flow)
