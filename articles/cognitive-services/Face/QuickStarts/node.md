@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f87bc13a75355306f7d2d15b22ff9cdfaa53794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77282502a0032a5b1811e32d9aa47d9b4ede569
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858220"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912818"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de Node.js
 
@@ -42,7 +42,7 @@ npm install axios --save
 
 ## <a name="write-the-nodejs-script"></a>Écrire le script Node.js
 
-Collez le code suivant dans *facedetection.js*. Ces champs spécifient comment se connecter au service Visage et où obtenir les données d’entrée. [Créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) et ajoutez-y la clé et le point de terminaison de votre abonnement Visage. Vous pouvez changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée.
+Collez le code suivant dans *facedetection.js*. Ces champs spécifient comment se connecter au service Visage et où obtenir les données d’entrée. [Créez des variables d’environnement](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication) et ajoutez-y la clé et le point de terminaison de votre abonnement Visage. Vous pouvez changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0fae0172467bb4499c2710c49553d9134a32fa9b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169062"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136101"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Windows pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](../conversation-transcription-service.md). Pour la transcription de conversation, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge. Pour les autres utilisations des fonctions vocales, les réseaux de microphones linéaires fournissant une géométrie de réseau de microphones sont pris en charge.
 
@@ -50,11 +50,11 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
 1. Dans la barre de menus Eclipse, créez un projet en choisissant **File (Fichier)**  > **New (Nouveau)**  > **Java Project (Projet Java)** . Si ce n’est pas disponible, choisissez **Project** (Projet), puis **Java Project** (Projet Java).
 
-1. L’Assistant **New Java Project** (Nouveau projet Java) démarre. **Accédez**  à l’emplacement de l’exemple de projet. Sélectionnez **Terminer** .
+1. L’Assistant **New Java Project** (Nouveau projet Java) démarre. **Accédez**  à l’emplacement de l’exemple de projet. Sélectionnez **Terminer**.
 
    ![Capture d’écran montrant l’Assistant New Java Project (Nouveau projet Java).](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Configure (Configurer)**  > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel. Sélectionnez **Terminer** .
+1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Configure (Configurer)**  > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel. Sélectionnez **Terminer**.
 
    ![Capture d’écran de l’explorateur de package](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -74,7 +74,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.13.0</version>
+             <version>1.14.0</version>
         </dependency>
     </dependencies>
    ```
@@ -112,7 +112,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
     Pour utiliser un nouveau mot clé, mettez à jour la ligne suivante dans `FunctionsList.java`, puis copiez le mot clé dans votre application. Par exemple, pour utiliser le mot clé « Machine » du package de mots clés `machine.zip` :
 
-   * Copiez le fichier `kws.table` du package zip dans le dossier projet **target/classes** .
+   * Copiez le fichier `kws.table` du package zip dans le dossier projet **target/classes**.
    * Mettez à jour le `FunctionsList.java` avec le nom du mot clé :
 
      ```java
@@ -121,7 +121,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Exécuter l’exemple d’application à partir d’Eclipse
 
-1. Dans la barre de menu Eclipse, sélectionnez **Run (Exécuter)**  > **Run As (Exécuter en tant que)**  > **Java Application (Application Java)** . Sélectionnez ensuite **FunctionsList** , puis **OK** .
+1. Dans la barre de menu Eclipse, sélectionnez **Run (Exécuter)**  > **Run As (Exécuter en tant que)**  > **Java Application (Application Java)** . Sélectionnez ensuite **FunctionsList** , puis **OK**.
 
    ![Capture d’écran de la sélection de Application Java](../media/speech-devices-sdk/eclipse-run-sample.png)
 
@@ -129,7 +129,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
    ![Capture d’écran montrant un exemple d’application et d’options du SDK Speech Devices.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Essayez la nouvelle démonstration de **Transcription de conversation** . Démarrez la transcription avec **Session** > **Démarrer** . Par défaut, tout le monde est invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans un fichier `participants.properties` dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Essayez la nouvelle démonstration de **Transcription de conversation**. Démarrez la transcription avec **Session** > **Démarrer**. Par défaut, tout le monde est invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans un fichier `participants.properties` dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Capture d’écran d’une application de démonstration de la transcription de conversation.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
@@ -137,7 +137,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
 1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Export** (Exporter).
 
-1. La fenêtre **Export** (Exporter) apparaît. Développez **Java** , sélectionnez **Runnable JAR file** (Fichier JAR exécutable), puis sélectionnez **Suivant** .
+1. La fenêtre **Export** (Exporter) apparaît. Développez **Java** , sélectionnez **Runnable JAR file** (Fichier JAR exécutable), puis sélectionnez **Suivant**.
 
    ![Capture d’écran montrant la fenêtre d’exportation dans laquelle vous sélectionnez un fichier JAR exécutable.](../media/speech-devices-sdk/eclipse-export-windows.png)
 

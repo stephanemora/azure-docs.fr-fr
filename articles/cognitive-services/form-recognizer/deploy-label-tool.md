@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717895"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913107"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -95,14 +95,14 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
    > [!div class="mx-imgBorder"]
    > ![Configurer Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. Vous avez terminé. Ensuite, sélectionnez **Vérifier + créer**, puis **Créer** pour déployer votre application web. Lorsque vous avez terminé, vous pouvez accéder à votre application web à l’URL fournie dans la **Vue d’ensemble** de votre ressource.
+7. Vous avez terminé. Ensuite, sélectionnez **Vérifier + créer** , puis **Créer** pour déployer votre application web. Lorsque vous avez terminé, vous pouvez accéder à votre application web à l’URL fournie dans la **Vue d’ensemble** de votre ressource.
 
 > [!NOTE]
 > Lorsque vous créez votre application web, vous pouvez également configurer l’autorisation/l’authentification. Cela n’est pas nécessaire au départ. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-En guise d’alternative à l’utilisation du portail Azure, vous pouvez créer une ressource à l’aide d’Azure CLI. Avant de continuer, vous devez installer [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Vous pouvez ignorer cette étape si vous utilisez déjà Azure CLI. 
+En guise d’alternative à l’utilisation du portail Azure, vous pouvez créer une ressource à l’aide d’Azure CLI. Avant de continuer, vous devez installer [Azure CLI](/cli/azure/install-azure-cli). Vous pouvez ignorer cette étape si vous utilisez déjà Azure CLI. 
 
 Voici quelques éléments que vous devez savoir à propos de cette commande :
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Se connecter à Azure AD pour l’autorisation
 
-Nous vous recommandons de connecter votre application web à Azure Active Directory. Cela permet de s’assurer que seuls les utilisateurs disposant d’informations d’identification valides peuvent se connecter à et utiliser votre application web. Suivez les instructions qui figurent dans [Configurer votre application App Service ](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) pour vous connecter à Azure Active Directory.
+Nous vous recommandons de connecter votre application web à Azure Active Directory. Cela permet de s’assurer que seuls les utilisateurs disposant d’informations d’identification valides peuvent se connecter à et utiliser votre application web. Suivez les instructions qui figurent dans [Configurer votre application App Service ](../../app-service/configure-authentication-provider-aad.md) pour vous connecter à Azure Active Directory.
 
 ## <a name="open-source-on-github"></a>Open source sur GitHub
 

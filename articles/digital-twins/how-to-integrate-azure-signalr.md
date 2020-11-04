@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4b0e0bd38c8bb9ea1d2331a65fc891e157971eef
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 3a11cd9f3208c97748ab16c636aedd9a443c5b9f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495846"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093161"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Intégrer Azure Digital Twins avec le service Azure SignalR
 
@@ -40,9 +40,9 @@ Vous allez attacher Azure SignalR Service à Azure Digital Twins via le chemin d
 
 Tout d’abord, téléchargez les exemples d’applications requis. Vous aurez besoin des deux éléments suivants :
 * [**Exemples Azure Digital Twins de bout en bout**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) : Cet exemple contient une *AdtSampleApp* contenant deux fonctions Azure pour déplacer des données dans une instance Azure Digital Twins (vous pouvez en savoir plus sur ce scénario dans [*Tutoriel : Connecter une solution de bout en bout*](tutorial-end-to-end.md)). Il contient également un exemple d’application *DeviceSimulator* qui simule un appareil IoT générant une nouvelle valeur de température chaque seconde. 
-    - Accédez à l’exemple de lien, puis cliquez sur le bouton *Télécharger le zip* pour télécharger une copie de l’exemple sur votre ordinateur, comme _**Azure_Digital_Twins_end_to_end_samples.zip**_ . Décompressez le dossier.
+    - Accédez à l’exemple de lien, puis cliquez sur le bouton *Télécharger le zip* pour télécharger une copie de l’exemple sur votre ordinateur, comme _**Azure_Digital_Twins_end_to_end_samples.zip**_. Décompressez le dossier.
 * [**Exemple d’application web d’intégration SignalR**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/) : Il s’agit d’un exemple d’application web React qui consomme des données de télémétrie Azure Digital Twins à partir d’un service Azure SignalR.
-    -  Accédez à l’exemple de lien, puis cliquez sur le bouton *Télécharger le zip* pour télécharger une copie de l’exemple sur votre ordinateur, comme _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_ . Décompressez le dossier.
+    -  Accédez à l’exemple de lien, puis cliquez sur le bouton *Télécharger le zip* pour télécharger une copie de l’exemple sur votre ordinateur, comme _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Décompressez le dossier.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -61,11 +61,11 @@ Tout d’abord, accédez au navigateur dans lequel le Portail Azure est ouvert, 
 
 1. Sélectionnez l’icône pour copier la chaîne de connexion principale.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Capture d’écran du Portail Azure montrant la page Clés pour l’instance SignalR. L’icône « Copier dans le Presse-papiers » en regard de la CHAÎNE DE CONNEXION PRINCIPALE est mise en surbrillance." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-Ensuite, démarrez Visual Studio (ou un autre éditeur de code de votre choix), puis ouvrez la solution de code dans le dossier *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* . Puis procédez comme suit pour créer les fonctions :
+Ensuite, démarrez Visual Studio (ou un autre éditeur de code de votre choix), puis ouvrez la solution de code dans le dossier *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp*. Puis procédez comme suit pour créer les fonctions :
 
-1. Créez une nouvelle C# appelée **SignalRFunctions.cs** dans le projet *SampleFunctionsApp* .
+1. Créez une nouvelle C# appelée **SignalRFunctions.cs** dans le projet *SampleFunctionsApp*.
 
 1. Remplacez le contenu du fichier de classe par le code suivant :
 
@@ -136,14 +136,14 @@ Ensuite, démarrez Visual Studio (ou un autre éditeur de code de votre choix), 
 
     Cela devrait résoudre tous les problèmes de dépendance dans la classe.
 
-Ensuite, publiez votre fonction dans Azure, en suivant les étapes décrites dans la [section *Publier l’application*](tutorial-end-to-end.md#publish-the-app) du tutoriel *Connecter une solution de bout en bout* . Vous pouvez la publier dans la même application de fonction/App Service que celle utilisée dans le tutoriel de bout en bout prérequis ou en créer une nouvelle, mais vous préférerez peut-être utiliser le même pour réduire la duplication. Par ailleurs, terminez la publication de l’application en procédant comme suit :
-1. Collectez l’ **URL de point de terminaison HTTP** de la fonction *negotiate* . Pour ce faire, accédez à la page [Function Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) du Portail Azure et sélectionnez votre application de fonction dans la liste. Dans le menu de l’application, sélectionnez *Fonctions* et choisissez la fonction *negotiate* .
+Ensuite, publiez votre fonction dans Azure, en suivant les étapes décrites dans la [section *Publier l’application*](tutorial-end-to-end.md#publish-the-app) du tutoriel *Connecter une solution de bout en bout*. Vous pouvez la publier dans la même application de fonction/App Service que celle utilisée dans le tutoriel de bout en bout prérequis ou en créer une nouvelle, mais vous préférerez peut-être utiliser le même pour réduire la duplication. Par ailleurs, terminez la publication de l’application en procédant comme suit :
+1. Collectez l’ **URL de point de terminaison HTTP** de la fonction *negotiate*. Pour ce faire, accédez à la page [Function Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) du Portail Azure et sélectionnez votre application de fonction dans la liste. Dans le menu de l’application, sélectionnez *Fonctions* et choisissez la fonction *negotiate*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Vue du Portail Azure de l’application de fonction, avec « Fonctions » mis en surbrillance dans le menu. La liste des fonctions s’affiche sur la page et la fonction « negotiate » est également mise en surbrillance.":::
 
     Appuyez sur *Obtenir l’URL de la fonction* et copiez la valeur **jusqu’à _/api_ (n’incluez pas la partie _/negotiate?_ à la fin)** . Vous l’utiliserez ultérieurement.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Vue de la fonction « negotiate » dans le Portail Azure. Le bouton « Obtenir l’URL de la fonction » est mis en surbrillance, avec la partie de l’URL du début jusqu’à « /api »":::
 
 1. Enfin, ajoutez votre **chaîne de connexion** Azure SignalR de plus tôt aux paramètres de l’application de fonction, à l’aide de la commande Azure CLI suivante. La commande peut être exécutée dans [Azure Cloud Shell](https://shell.azure.com) ou localement si Azure CLI est [installée sur votre ordinateur](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) :
  
@@ -153,7 +153,7 @@ Ensuite, publiez votre fonction dans Azure, en suivant les étapes décrites dan
 
     La sortie de cette commande imprime tous les paramètres d’application configurés pour votre fonction Azure. Recherchez `AzureSignalRConnectionString` en bas de la liste pour vérifier qu’elle a été ajoutée.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Extrait de sortie dans une fenêtre de commande, avec affichage d’un élément de liste appelé « AzureSignalRConnectionString »":::
 
 #### <a name="connect-the-function-to-event-grid"></a>Connecter la fonction à Event Grid
 
@@ -161,20 +161,20 @@ Inscrivez ensuite la fonction Azure *broadcast* dans la **rubrique Event Grid**
 
 Pour ce faire, vous allez créer un **abonnement Event Grid** à partir de votre rubrique Event Grid vers votre fonction Azure *broadcast* en tant que point de terminaison.
 
-Dans le [portail Azure](https://portal.azure.com/), accédez à votre rubrique Event Grid en recherchant son nom dans la barre de recherche supérieure. Sélectionnez *+ Abonnement aux événements* .
+Dans le [portail Azure](https://portal.azure.com/), accédez à votre rubrique Event Grid en recherchant son nom dans la barre de recherche supérieure. Sélectionnez *+ Abonnement aux événements*.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Portail Azure : abonnement aux événements Event Grid":::
 
 Dans la page *Créer un abonnement aux événements* , renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
 * *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom**  : Donnez un nom à votre abonnement aux événements.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison**  : Sélectionnez *Fonction Azure* dans les options de menu.
-* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison**  : Cliquez sur le lien *Sélectionner un point de terminaison* . Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
+* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison**  : Cliquez sur le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
     - Renseignez vos **Abonnement** , **Groupe de ressources** , **Application de fonction** et **Fonction** ( *broadcast* ). Il est possible que certaines de ces informations soient automatiquement renseignées une fois que vous avez sélectionné l’abonnement.
-    - Cliquez sur **Confirmer la sélection** .
+    - Cliquez sur **Confirmer la sélection**.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Vue du Portail Azure de la création d’un abonnement aux événements. Les champs ci-dessus sont renseignés et les boutons « Confirmer la sélection » et « Créer » sont mis en surbrillance.":::
 
-Dans la page *Créer un abonnement aux événements* , cliquez sur **Créer** .
+Dans la page *Créer un abonnement aux événements* , cliquez sur **Créer**.
 
 ## <a name="configure-and-run-the-web-app"></a>Configurer et exécuter l’application web
 
@@ -184,9 +184,9 @@ Dans cette section, vous verrez le résultat en action. Tout d’abord, vous all
 
 Au cours du tutoriel de bout en bout prérequis, vous avez [configuré le simulateur d’appareil](tutorial-end-to-end.md#configure-and-run-the-simulation) pour envoyer des données via IoT Hub et à votre instance Azure Digital Twins.
 
-Maintenant, il vous suffit de démarrer le projet de simulateur, situé dans *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator.sln* . Si vous utilisez Visual Studio, vous pouvez ouvrir le projet, puis l’exécuter avec ce bouton dans la barre d’outils :
+Maintenant, il vous suffit de démarrer le projet de simulateur, situé dans *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator.sln*. Si vous utilisez Visual Studio, vous pouvez ouvrir le projet, puis l’exécuter avec ce bouton dans la barre d’outils :
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Bouton de démarrage dans Visual Studio (projet DeviceSimulator)":::
 
 Une fenêtre de console s’ouvre, affichant les messages de télémétrie de température simulée. Ils sont envoyés par le biais de votre instance Azure Digital Twins, où ils sont ensuite récupérés par les fonctions Azure et SignalR.
 
@@ -204,7 +204,7 @@ Ensuite, configurez **l’exemple d’application web d’intégration SignalR**
             .withUrl('<URL>')
             .build();
     ```
-1. Dans l’ *invite de commandes développeur* de Visual Studio ou dans toute fenêtre de commande sur votre ordinateur, accédez au dossier *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* . Exécutez la commande suivante pour installer les packages des nœuds dépendants :
+1. Dans l’ *invite de commandes développeur* de Visual Studio ou dans toute fenêtre de commande sur votre ordinateur, accédez au dossier *Azure_Digital_Twins_SignalR_integration_web_app_sample\src*. Exécutez la commande suivante pour installer les packages des nœuds dépendants :
 
     ```cmd
     npm install
@@ -212,13 +212,13 @@ Ensuite, configurez **l’exemple d’application web d’intégration SignalR**
 
 Ensuite, définissez les autorisations dans votre application de fonction dans le Portail Azure :
 1. Dans la page [Applications de fonction](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) du Portail Azure, sélectionnez l’instance de votre application de fonction.
-1. Faites défiler le menu de l’instance et sélectionnez *CORS* . Sur la page CORS, ajoutez `http://localhost:3000` comme origine autorisée en l’entrant dans la zone vide. Cochez la case *Activer Access-Control-Allow-Credentials* et appuyez sur *Enregistrer* .
+1. Faites défiler le menu de l’instance et sélectionnez *CORS*. Sur la page CORS, ajoutez `http://localhost:3000` comme origine autorisée en l’entrant dans la zone vide. Cochez la case *Activer Access-Control-Allow-Credentials* et appuyez sur *Enregistrer*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Paramètre CORS dans la fonction Azure":::
 
 ### <a name="see-the-results"></a>Afficher les résultats
 
-Pour voir les résultats en action, démarrez l’ **exemple d’application web d’intégration SignalR** . Vous pouvez effectuer cette opération à partir de n’importe quelle fenêtre de console située à l’emplacement *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* en exécutant la commande suivante :
+Pour voir les résultats en action, démarrez l’ **exemple d’application web d’intégration SignalR**. Vous pouvez effectuer cette opération à partir de n’importe quelle fenêtre de console située à l’emplacement *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* en exécutant la commande suivante :
 
 ```cmd
 npm start
@@ -226,7 +226,7 @@ npm start
 
 Cela ouvre une fenêtre de navigateur exécutant l’exemple d’application, qui affiche une jauge de température visuelle. Une fois que l’application est en cours d’exécution, vous devriez commencer à voir les valeurs de télémétrie de température du simulateur d’appareil qui se propagent via Azure Digital Twins reflétées par l’application web en temps réel.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Extrait de l’exemple d’application web cliente, présentant une jauge de température visuelle. La température reflétée est 67,52":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7a8b331c1295ed19afa64e95318bfa14414e6d9f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326794"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913056"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Chiffrement Form Recognizer des données au repos
 
@@ -30,4 +30,4 @@ Azure Form Recognizer chiffre automatiquement vos données lors de leur conserva
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Formulaire de demande de clé gérée par le client du service Form Recognizer](https://aka.ms/cogsvc-cmk)
-* [En savoir plus sur Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [En savoir plus sur Azure Key Vault](../../key-vault/general/overview.md)

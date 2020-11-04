@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 72420019ead1ae47054ae62197d8cc310063a6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5ea5e352084e379632b88194fd13011879041fd3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969770"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899436"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire du texte et des informations de disposition à l’aide de l’API REST Form Recognizer avec Python
 
@@ -27,7 +27,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
-- Un document de formulaire. Pour ce guide de démarrage rapide, vous pouvez télécharger une image à partir de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip*).
+- Un document de formulaire. Pour ce guide de démarrage rapide, vous pouvez télécharger une image à partir de l’ [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip* ).
 
 > [!NOTE]
 > Ce guide de démarrage rapide utilise un document stocké localement. Pour savoir comment utiliser les fichiers distants accessibles par URL, consultez la [documentation de référence](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
@@ -61,7 +61,8 @@ Pour commencer à analyser la disposition, vous appelez l’API **[Analyze Layou
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -94,7 +95,8 @@ Pour commencer à analyser la disposition, vous appelez l’API **[Analyze Layou
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -172,7 +174,7 @@ while n_try < n_tries:
 
 ### <a name="examine-the-response"></a>Examiner la réponse
 
-Le script affiche des réponses sur la console jusqu’à la fin de l’opération d’**analyse de la disposition**. Ensuite, il imprime les données extraites au format JSON. Le nœud `"readResults"` contient chaque ligne de texte avec sa position de cadre englobant respectif dans la page. Le nœud `"selectionMarks"` (dans la préversion v2.1) affiche chaque marque de sélection (case à cocher, case d’option) et indique si son état est « sélectionné » ou « non sélectionné ». Le champ `"pageResults"` affiche chaque morceau de texte dans les tableaux, chacun avec ses coordonnées de colonne et de ligne.
+Le script affiche des réponses sur la console jusqu’à la fin de l’opération d’ **analyse de la disposition**. Ensuite, il imprime les données extraites au format JSON. Le nœud `"readResults"` contient chaque ligne de texte avec sa position de cadre englobant respectif dans la page. Le nœud `"selectionMarks"` (dans la préversion v2.1) affiche chaque marque de sélection (case à cocher, case d’option) et indique si son état est « sélectionné » ou « non sélectionné ». Le champ `"pageResults"` affiche chaque morceau de texte dans les tableaux, chacun avec ses coordonnées de colonne et de ligne.
 
 Regardez l’image de facture suivante et sa sortie JSON correspondante. La sortie a été raccourcie à des fins de simplicité.
 

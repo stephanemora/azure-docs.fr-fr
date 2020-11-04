@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893684"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913192"
 ---
 # <a name="receipt-concepts"></a>Concepts relatifs aux reçus
 
@@ -86,7 +86,7 @@ L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Opération obtenir le résultat de l’analyse du ticket de caisse
 
-La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded** . Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
+La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -449,7 +449,7 @@ La sortie de Receipt est également utile pour la gestion générale des livres 
 
 Les tickets de caisse contiennent des données utiles vous permettant d’analyser le comportement des consommateurs et les tendances d’achat.
 
-L’API Receipt alimente également la [fonctionnalité de traitement de tickets de caisse AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+L’API Receipt alimente également la [fonctionnalité de traitement de tickets de caisse AIBuilder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -459,4 +459,4 @@ L’API Receipt alimente également la [fonctionnalité de traitement de tickets
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que Form Recognizer ?](./overview.md)
-* [Documentation de référence sur l’API REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [Documentation de référence sur l’API REST](./index.yml)

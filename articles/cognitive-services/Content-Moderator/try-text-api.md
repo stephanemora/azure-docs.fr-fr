@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272591"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912869"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Modérer du texte à partir de la console d’API
 
@@ -23,7 +23,7 @@ Utilisez l’[API Modération de texte](https://westus.dev.cognitive.microsoft.c
 
 ## <a name="get-your-api-key"></a>Obtenir votre clé API
 
-Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
+Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres** , dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
 
 ## <a name="navigate-to-the-api-reference"></a>Accéder aux informations de référence sur l’API
 
@@ -46,17 +46,17 @@ Pour l’option **Open API testing console** (Ouvrir la console de test d’API)
 Sélectionnez les paramètres de requête que vous voulez utiliser dans le passage au crible de votre texte. Pour cet exemple, utilisez la valeur par défaut pour le paramètre **language**. Vous pouvez également le laisser vide, car l’opération détecte automatiquement la langue probable dans le cadre de son exécution.
 
 > [!NOTE]
-> Pour le paramètre **langue**, attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
+> Pour le paramètre **langue** , attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
 >
-> Pour la détection des **termes injurieux**, utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
+> Pour la détection des **termes injurieux** , utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
 
-Pour les paramètres **autocorrect**, **PII** et **classify** (préversion), sélectionnez **true**. Laissez le champ **ListId** vide.
+Pour les paramètres **autocorrect** , **PII** et **classify** (préversion), sélectionnez **true**. Laissez le champ **ListId** vide.
 
   ![Paramètres de requête de la console Text - Screen (Texte - Passer au crible)](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Type de contenu
 
-Pour **Content-Type**, sélectionnez le type de contenu à passer au crible. Pour cet exemple, utilisez le type de contenu **text/plain** par défaut. Dans la zone **Ocp-Apim-abonnement-Key**, entrez votre clé d’abonnement.
+Pour **Content-Type** , sélectionnez le type de contenu à passer au crible. Pour cet exemple, utilisez le type de contenu **text/plain** par défaut. Dans la zone **Ocp-Apim-abonnement-Key** , entrez votre clé d’abonnement.
 
 ### <a name="sample-text-to-scan"></a>Exemple de texte à analyser
 
@@ -137,4 +137,4 @@ Pour obtenir une explication détaillée de toutes les sections de la réponse J
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez l’API REST dans votre code ou suivez le [Démarrage rapide du kit SDK .NET](dotnet-sdk-quickstart.md) pour l’intégrer à votre application.
+Utilisez l’API REST dans votre code ou suivez le [Démarrage rapide du kit SDK .NET](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) pour l’intégrer à votre application.

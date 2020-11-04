@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2d0ddae8a9bd8054c740402b8beb3bb0bccfa9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3f7b877818056fc73f10d54b94a6b6c26c605e8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919214"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911271"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
 
@@ -205,7 +205,7 @@ Vous ajoutez une transcription à une révision vidéo avec **ContentModeratorCl
 La transcription doit être au format WebVTT. Pour plus d’informations, consultez [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (WebVTT : le format Web Video Text Tracks).
 
 > [!NOTE]
-> Le programme utilise un exemple de transcription au format VTT. Dans une solution réelle, vous utilisez le service Azure Media Indexer pour [générer une transcription](https://docs.microsoft.com/azure/media-services/media-services-index-content) à partir d’une vidéo.
+> Le programme utilise un exemple de transcription au format VTT. Dans une solution réelle, vous utilisez le service Azure Media Indexer pour [générer une transcription](../../media-services/previous/media-services-index-content.md) à partir d’une vidéo.
 
 Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscriptReview de la classe Program.
 
@@ -318,7 +318,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 Ajoutez la définition de méthode **Main** à l’espace de noms VideoTranscriptReviews de la classe Program. Pour finir, fermez la classe Program et l’espace de noms VideoTranscriptReviews.
 
 > [!NOTE]
-> Le programme utilise un exemple de transcription au format VTT. Dans une solution réelle, vous utilisez le service Azure Media Indexer pour [générer une transcription](https://docs.microsoft.com/azure/media-services/media-services-index-content) à partir d’une vidéo.
+> Le programme utilise un exemple de transcription au format VTT. Dans une solution réelle, vous utilisez le service Azure Media Indexer pour [générer une transcription](../../media-services/previous/media-services-index-content.md) à partir d’une vidéo.
 
 ```csharp
 static void Main(string[] args)

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886554"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918687"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Go. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -34,7 +34,7 @@ Vous pouvez effectuer les tâches suivantes à l’aide de la bibliothèque de c
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="créez une ressource Visage"  target="_blank">créer une ressource Visage <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Visage. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-* Une fois que vous avez obtenu une clé et un point de terminaison, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour ces derniers, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
+* Une fois que vous avez obtenu une clé et un point de terminaison, [créez des variables d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour ces derniers, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -112,7 +112,7 @@ Ces exemples de code vous montrent comment effectuer des tâches de base à l’
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
 > [!NOTE] 
-> Ce guide de démarrage rapide suppose que vous avez [créé des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour votre clé et votre point de terminaison du service Visage, nommées `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT` respectivement.
+> Ce guide de démarrage rapide suppose que vous avez [créé des variables d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour votre clé et votre point de terminaison du service Visage, nommées `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT` respectivement.
 
 Créez une fonction **main** et ajoutez-lui le code suivant pour instancier un client avec votre point de terminaison et votre clé. Créez un objet **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** avec votre clé et utilisez-le avec votre point de terminaison pour créer un objet **[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** . Ce code instancie également un objet de contexte, qui est nécessaire pour la création d’objets clients. Il définit aussi un emplacement distant où se trouvent certains des exemples d’images utilisés dans ce guide de démarrage rapide.
 

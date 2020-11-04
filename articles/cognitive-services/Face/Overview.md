@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262482"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911441"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
@@ -34,7 +34,7 @@ Le service Visage fournit plusieurs fonctions d’analyse faciale différentes, 
 Le service Visage détecte les visages humains dans une image et retourne les coordonnées du rectangle de leur emplacement. La détection des visages peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la posture de la tête, le sexe, l’âge, l’émotion, la pilosité du visage et les lunettes.
 
 > [!NOTE]
-> La fonctionnalité de détection des visages est également disponible par le biais du [service Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). En revanche, si vous voulez effectuer d’autres opérations avec des données faciales, préférez plutôt utiliser ce service.
+> La fonctionnalité de détection des visages est également disponible par le biais du [service Vision par ordinateur](../computer-vision/overview.md). En revanche, si vous voulez effectuer d’autres opérations avec des données faciales, préférez plutôt utiliser ce service.
 
 ![Une image d’une femme et d’un homme, avec des rectangles dessinés autour de leur visage, et un âge et un sexe affichés](./Images/Face.detection.jpg)
 
@@ -48,7 +48,7 @@ L’API de vérification effectue une authentification en comparant deux visages
 
 L’API de recherche de visages semblables permet de mettre en correspondance un visage cible avec un ensemble de visages candidats, en cherchant à obtenir un plus petit ensemble de visages ressemblant au visage cible. Cette API s’avère utile pour effectuer une recherche de visage par image. 
 
-Deux modes de travail, **matchPerson** et **matchFace**, sont pris en charge. Le mode **matchPerson** renvoie des visages semblables après avoir filtré les résultats pour la même personne à l’aide de l’[API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Le mode **matchFace** ignore le filtre de correspondance de personne. Il renvoie la liste des visages candidats semblables susceptibles ou non d’appartenir à la même personne.
+Deux modes de travail, **matchPerson** et **matchFace** , sont pris en charge. Le mode **matchPerson** renvoie des visages semblables après avoir filtré les résultats pour la même personne à l’aide de l’ [API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Le mode **matchFace** ignore le filtre de correspondance de personne. Il renvoie la liste des visages candidats semblables susceptibles ou non d’appartenir à la même personne.
 
 L’exemple suivant montre le visage cible :
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 9a8e0dde8b24c39180a584c26af725ab82ea0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e77b5ea2bbd5bae79295a5680fa6e143efa5e99
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907097"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131528"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Utiliser le conteneur Vision par ordinateur avec Kubernetes et Helm
 
@@ -30,7 +30,7 @@ L’utilisation locale des conteneurs Vision par ordinateur est soumise aux pré
 | Compte Azure. | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][free-azure-account] avant de commencer. |
 | Kubernetes CLI | L’interface [Kubernetes CLI][kubernetes-cli] est requise pour gérer les informations d’identification partagées à partir du registre de conteneurs. Kubernetes est également nécessaire avant Helm, qui est le gestionnaire de package de Kubernetes. |
 | Helm CLI | Installez l’[interface de ligne de commande Helm][helm-install], utilisée pour installer un graphique Helm (définition de package de conteneur). |
-| Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**|
+| Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -46,47 +46,6 @@ L’utilisation locale des conteneurs Vision par ordinateur est soumise aux pré
 
 L’ordinateur hôte doit avoir un cluster Kubernetes disponible. Consultez ce didacticiel sur [le déploiement d’un cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) pour des informations conceptuelles sur la façon de déployer un cluster Kubernetes sur un ordinateur hôte. Pour plus d’informations sur les déploiements, consultez la [documentation Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partage des informations d’identification au docker avec le cluster Kubernetes
-
-Pour permettre au cluster Kubernetes d’effectuer `docker pull` pour la ou les images configurées sur le registre de conteneurs `containerpreview.azurecr.io`, vous devez transférer les informations d’identification du docker dans le cluster. Exécutez la commande [`kubectl create`][kubectl-create] ci-dessous pour créer un *secret docker-registry* selon les informations d’identification fournies par les prérequis d’accès au registre de conteneurs.
-
-À partir de l’interface de ligne de commande de votre choix, exécutez la commande suivante. Veillez à remplacer `<username>`, `<password>` et `<email-address>` par les informations d’identification du registre de conteneurs.
-
-```console
-kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> Si vous avez déjà accès au registre de conteneurs `containerpreview.azurecr.io`, vous pouvez créer un secret Kubernetes avec l’indicateur générique à la place. Envisagez la commande suivante qui s’exécute sur le JSON de configuration de votre docker.
-> ```console
->  kubectl create secret generic containerpreview \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-La sortie suivante s’affiche sur la console lorsque le secret a été créé avec succès.
-
-```console
-secret "containerpreview" created
-```
-
-Pour vérifier que le secret a été créé, exécutez [`kubectl get`][kubectl-get] avec l’indicateur `secrets`.
-
-```console
-kubectl get secrets
-```
-
-L’exécution de `kubectl get secrets` affiche tous les secrets configurés.
-
-```console
-NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
-```
-
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurer les valeurs du graphique Helm pour le déploiement
 
 Commencez par créer un dossier nommé *lecture*. Collez ensuite le contenu YAML suivant dans un nouveau fichier nommé `chart.yaml` :
@@ -95,7 +54,7 @@ Commencez par créer un dossier nommé *lecture*. Collez ensuite le contenu YAML
 apiVersion: v2
 name: read
 version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+description: A Helm chart to deploy the Read OCR container to a Kubernetes cluster
 dependencies:
 - name: rabbitmq
   condition: read.image.args.rabbitmq.enabled
@@ -111,15 +70,13 @@ Pour configurer les valeurs par défaut du graphique Helm, copiez et collez le Y
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry:  containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-read
-    tag: latest
-    pullSecret: containerpreview # Or an existing secret
+    registry:  mcr.microsoft.com/
+    repository: azure-cognitive-services/vision/read
+    tag: 3.1-preview
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -208,7 +165,7 @@ spec:
     app: read-app
 ```
 
-Dans le même dossier de *modèles*, copiez et collez les fonctions d’assistance suivantes dans `helpers.tpl`. `helpers.tpl` définit des fonctions utiles pour générer le modèle Helm.
+Dans le même dossier de *modèles* , copiez et collez les fonctions d’assistance suivantes dans `helpers.tpl`. `helpers.tpl` définit des fonctions utiles pour générer le modèle Helm.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}
@@ -227,15 +184,15 @@ Le modèle spécifie un service d’équilibrage de charge et le déploiement de
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Le package Kubernetes (graphique Helm)
 
-Le *graphique Helm* contient la configuration de la ou des images docker à extraire du registre de conteneurs `containerpreview.azurecr.io`.
+Le *graphique Helm* contient la configuration de la ou des images docker à extraire du registre de conteneurs `mcr.microsoft.com`.
 
 > Un [graphique Helm][helm-charts] est une collection de fichiers qui décrivent un ensemble de ressources Kubernetes. Un graphique unique peut être utilisé pour déployer quelque chose de simple comme un pod mis en cache, ou quelque chose de complexe, comme une pile d’application web complète avec des serveurs HTTP, des bases de données, des caches et ainsi de suite.
 
-Les *graphiques Helm* fournis tirent les images docker du service Vision par ordinateur, et le service correspondant du registre de conteneurs `containerpreview.azurecr.io`.
+Les *graphiques Helm* fournis tirent les images docker du service Vision par ordinateur, et le service correspondant du registre de conteneurs `mcr.microsoft.com`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installer le graphique Helm sur le cluster Kubernetes
 
-Pour installer le *graphique Helm*, vous devez exécuter la commande [`helm install`][helm-install-cmd]. Veillez à exécuter la commande d’installation à partir du répertoire situé au-dessus du dossier `read`.
+Pour installer le *graphique Helm* , vous devez exécuter la commande [`helm install`][helm-install-cmd]. Veillez à exécuter la commande d’installation à partir du répertoire situé au-dessus du dossier `read`.
 
 ```console
 helm install read ./read

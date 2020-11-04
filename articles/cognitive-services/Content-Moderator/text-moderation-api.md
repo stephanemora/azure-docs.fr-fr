@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85800089"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912903"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 
@@ -34,7 +34,7 @@ La réponse du service inclut les informations suivantes :
 
 ## <a name="profanity"></a>Termes vulgaires
 
-Si l’API détecte des termes injurieux dans l’une des [langues prises en charge](Text-Moderation-API-Languages.md), ces termes sont inclus dans la réponse. La réponse contient également leur emplacement (`Index`) dans le texte d’origine. La valeur `ListId` dans l’exemple JSON suivant fait référence à des termes se trouvant dans les [listes de termes personnalisées](try-terms-list-api.md), le cas échéant.
+Si l’API détecte des termes injurieux dans l’une des [langues prises en charge](./language-support.md), ces termes sont inclus dans la réponse. La réponse contient également leur emplacement (`Index`) dans le texte d’origine. La valeur `ListId` dans l’exemple JSON suivant fait référence à des termes se trouvant dans les [listes de termes personnalisées](try-terms-list-api.md), le cas échéant.
 
 ```json
 "Terms": [
@@ -47,13 +47,13 @@ Si l’API détecte des termes injurieux dans l’une des [langues prises en cha
 ```
 
 > [!NOTE]
-> Pour le paramètre **langue**, attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
+> Pour le paramètre **langue** , attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
 >
-> Pour la détection des **termes injurieux**, utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
+> Pour la détection des **termes injurieux** , utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
 
 ## <a name="classification"></a>classification ;
 
-La **fonctionnalité de classification de texte** assistée par ordinateur de Content Moderator, qui prend en charge **uniquement l’anglais**, permet de détecter le contenu potentiellement indésirable. Le contenu marqué d’un indicateur peut être considéré comme inapproprié en fonction du contexte. La classification de texte informe de cette probabilité pour chaque catégorie et peut vous recommander une révision par des humains. Cette fonctionnalité utilise un modèle entraîné pour identifier un langage potentiellement abusif, dépréciatif ou discriminatoire. Cela inclut l’argot, les mots abrégés, les mots offensants et les mots intentionnellement mal orthographiés à réviser. 
+La **fonctionnalité de classification de texte** assistée par ordinateur de Content Moderator, qui prend en charge **uniquement l’anglais** , permet de détecter le contenu potentiellement indésirable. Le contenu marqué d’un indicateur peut être considéré comme inapproprié en fonction du contexte. La classification de texte informe de cette probabilité pour chaque catégorie et peut vous recommander une révision par des humains. Cette fonctionnalité utilise un modèle entraîné pour identifier un langage potentiellement abusif, dépréciatif ou discriminatoire. Cela inclut l’argot, les mots abrégés, les mots offensants et les mots intentionnellement mal orthographiés à réviser. 
 
 L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
 
@@ -142,7 +142,7 @@ Si vous demandez la correction automatique, la réponse contient la version corr
 Bien que la liste globale par défaut de termes fonctionne parfaitement pour la plupart des cas, vous pouvez passer au crible un texte pour détecter des termes qui sont spécifiques à vos besoins professionnels. Vous pouvez, par exemple, filtrer tous les noms de marques de concurrents dans des posts d’utilisateurs.
 
 > [!NOTE]
-> Il existe une limite maximale de **5 listes de termes**, chaque liste ne devant **pas dépasser 10 000 termes**.
+> Il existe une limite maximale de **5 listes de termes** , chaque liste ne devant **pas dépasser 10 000 termes**.
 >
 
 L’exemple suivant présente l’ID de liste correspondant :

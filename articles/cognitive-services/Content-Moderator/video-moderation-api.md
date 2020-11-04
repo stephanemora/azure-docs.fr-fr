@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919350"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912852"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analyser la présence de matériau répréhensible dans du contenu vidéo en C#
 
@@ -33,17 +33,17 @@ Les fonctionnalités de modération de vidéos de Content Moderator sont disponi
 
 ### <a name="create-an-azure-media-services-account"></a>Créer un compte Azure Media Services
 
-Suivez les instructions de [Créer un compte Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) pour vous abonner à AMS et créer un compte de stockage Azure associé. Dans ce compte de stockage, créez un conteneur de stockage Blob.
+Suivez les instructions de [Créer un compte Azure Media Services](../../media-services/previous/media-services-portal-create-account.md) pour vous abonner à AMS et créer un compte de stockage Azure associé. Dans ce compte de stockage, créez un conteneur de stockage Blob.
 
 ### <a name="create-an-azure-active-directory-application"></a>Créer une application Azure Active Directory
 
-Accédez à votre nouvel abonnement AMS sur le Portail Azure et sélectionnez **Accès à l’API** dans le menu latéral. Sélectionnez **Se connecter à Azure Media Services avec le principal de service**. Notez la valeur du champ **Point de terminaison d’API REST** ; vous en aurez besoin plus tard.
+Accédez à votre nouvel abonnement AMS sur le Portail Azure et sélectionnez **Accès à l’API** dans le menu latéral. Sélectionnez **Se connecter à Azure Media Services avec le principal de service**. Notez la valeur du champ **Point de terminaison d’API REST**  ; vous en aurez besoin plus tard.
 
-Dans la section **Application Azure AD**, sélectionnez **Créer** et donnez un nom à votre nouvelle inscription d’application Azure AD (par exemple, « VideoModADApp »). Cliquez sur **Enregistrer** et patientez quelques minutes, le temps que l’application se configure. Votre nouvelle inscription d’application devrait alors apparaître sous la section **Application Azure AD** de la page.
+Dans la section **Application Azure AD** , sélectionnez **Créer** et donnez un nom à votre nouvelle inscription d’application Azure AD (par exemple, « VideoModADApp »). Cliquez sur **Enregistrer** et patientez quelques minutes, le temps que l’application se configure. Votre nouvelle inscription d’application devrait alors apparaître sous la section **Application Azure AD** de la page.
 
-Sélectionnez votre inscription d’application et cliquez sur le bouton **Gérer l’application** qui se trouve en dessous. Notez la valeur du champ **ID d’application** ; vous en aurez besoin plus tard. Sélectionnez **Paramètres** > **Clés**, puis entrez la description de la nouvelle clé (par exemple, « VideoModKey »). Cliquez sur **Enregistrer**, puis copiez la nouvelle valeur de clé et enregistrez-la dans un endroit sûr.
+Sélectionnez votre inscription d’application et cliquez sur le bouton **Gérer l’application** qui se trouve en dessous. Notez la valeur du champ **ID d’application**  ; vous en aurez besoin plus tard. Sélectionnez **Paramètres** > **Clés** , puis entrez la description de la nouvelle clé (par exemple, « VideoModKey »). Cliquez sur **Enregistrer** , puis copiez la nouvelle valeur de clé et enregistrez-la dans un endroit sûr.
 
-Pour une présentation plus détaillée de la procédure ci-dessus, voir [Bien démarrer avec l’authentification Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+Pour une présentation plus détaillée de la procédure ci-dessus, voir [Bien démarrer avec l’authentification Azure AD](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
 Vous pourrez ensuite utiliser le processeur multimédia de modération de vidéos de deux manières différentes.
 
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Une fois le travail de modération du contenu accompli, analysez la réponse JSON. Elle se compose des éléments suivants :
 
 - Résumé des informations sur la vidéo
-- **Captures** en tant que « **fragments** »
-- **Images clés** en tant qu’« **événements** » avec un indicateur **reviewRecommended" (= true or false)"** basé sur les scores **Adult** et **Racy**
-- **start**, **duration**, **totalDuration** et **timestamp** sont exprimés en « tics ». Divisez par la valeur **timestamp** pour obtenir le nombre de secondes.
+- **Captures** en tant que «  **fragments**  »
+- **Images clés** en tant qu’«  **événements**  » avec un indicateur **reviewRecommended" (= true or false)"** basé sur les scores **Adult** et **Racy**
+- **start** , **duration** , **totalDuration** et **timestamp** sont exprimés en « tics ». Divisez par la valeur **timestamp** pour obtenir le nombre de secondes.
  
 > [!NOTE]
 > - `adultScore` représente la présence potentielle et le score de prédiction du contenu pouvant être considéré comme sexuellement explicite ou pour adultes dans certaines situations.

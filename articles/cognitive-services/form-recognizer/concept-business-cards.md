@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334546"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909945"
 ---
 # <a name="business-card-concepts"></a>Concepts relatifs aux cartes de visite
 
@@ -66,7 +66,7 @@ La seconde étape consiste à appeler l’opération d’[obtention du résultat
 |:-----|:----:|:----|
 |status | string | notStarted : L’opération d’analyse n’a pas commencé.<br /><br />running : L’opération d’analyse est en cours.<br /><br />failed : L’opération d’analyse a échoué.<br /><br />succeeded : L’opération d’analyse a réussi.|
 
-Quand le champ **status** a la valeur de **succeeded**, la réponse JSON inclut les résultats de la compréhension de carte de visite et de la reconnaissance de texte facultative, si nécessaire. Le résultat de compréhension de carte de visite est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
+Quand le champ **status** a la valeur de **succeeded** , la réponse JSON inclut les résultats de la compréhension de carte de visite et de la reconnaissance de texte facultative, si nécessaire. Le résultat de compréhension de carte de visite est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
 
 ![Exemple de sortie de carte de visite](./media/business-card-results.png)
 
@@ -385,7 +385,7 @@ Les données extraites avec l’API Carte de visite peuvent être utilisées pou
 * Suivi des prospects.  
 * Extraction d’informations de contact en bloc à partir d’images de carte de visite existantes. 
 
-L’API Carte de visite optimise également la [fonctionnalité de traitement des cartes de visite AI Builder](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+L’API Carte de visite optimise également la [fonctionnalité de traitement des cartes de visite AI Builder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 22732ae10fb328839c47194e0a33faf18514ff45
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14b361ae2163636864b37d2a063ad10886a9e3c8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018448"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029448"
 ---
 Commencez à utiliser la bibliothèque de client Détecteur d’anomalies pour .NET. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 
@@ -66,7 +66,7 @@ Build succeeded.
 Dans le répertoire de l’application, installez la bibliothèque de client Détecteur d’anomalies pour .NET avec la commande suivante :
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector
 ```
 
 À partir du répertoire du projet, ouvrez le fichier *program.cs* et ajoutez ce qui suit en utilisant des `directives` :

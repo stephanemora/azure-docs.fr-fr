@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489011"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100612"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problèmes connus dans Azure Digital Twins
 
@@ -32,7 +32,7 @@ Cela peut être résolu en réexécutant la commande `az login` dans Cloud Shell
 
 Autrement, vous pouvez ouvrir le volet Cloud Shell dans le portail Azure et effectuer votre travail Cloud Shell à partir de là :
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vue du portail Azure avec l’icône « Cloud Shell » mise en évidence, et l’éditeur Cloud Shell s’affichant dans la partie inférieure de la fenêtre du portail":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vue du portail Azure avec l’icône « Cloud Shell » mise en évidence, et l’éditeur Cloud Shell s’affichant dans la partie inférieure de la fenêtre du portail" lightbox="media/includes/portal-cloud-shell.png":::
 
 Une dernière solution consiste à [installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) sur votre ordinateur afin de pouvoir exécuter les commandes Azure CLI localement. L’interface CLI locale ne rencontre pas ce problème.
 
@@ -68,7 +68,7 @@ Pour les utilisateurs connectés avec un [compte Microsoft (MSA)](https://accoun
 
 Lorsque vous écrivez du code d’authentification dans vos applications Azure Digital Twins à l’aide de la version **1.2.0** de la bibliothèque **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** , vous pouvez rencontrer des problèmes avec la méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
 
-Il ne s’agit pas de la version la plus récente de la bibliothèque. La version la plus récente est **1.2.2** .
+Il ne s’agit pas de la version la plus récente de la bibliothèque. La version la plus récente est **1.2.2**.
 
 La méthode concernée est utilisée dans les articles suivants : 
 * [*Tutoriel : Coder une application cliente*](tutorial-code.md)
