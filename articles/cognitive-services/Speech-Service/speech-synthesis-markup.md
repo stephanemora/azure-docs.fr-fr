@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207680"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311628"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -218,7 +218,7 @@ Pour la voix chinoise XiaoxiaoNeural, l’intensité du style d’élocution peu
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `style` | Spécifie le style oral. Actuellement, les styles oraux sont spécifiques à la voix. | Obligatoire en cas d’ajustement du style oral pour une voix neuronale. Si vous utilisez `mstts:express-as`, le style doit être fourni. Si une valeur non valide est fournie, cet élément est ignoré. |
-| `styledegree` | Spécifie l’intensité du style d’élocution. **Valeurs acceptées** : 0,01 à 2 incluse. La valeur par défaut est 1, ce qui correspond à l’intensité de style prédéfinie. L’unité minimale est 0,01, ce qui aboutit à une légère tendance pour le style cible. La valeur 2 produit un doublement de l’intensité de style par défaut.  | Facultatif (Pour le moment, `styledegree` prend uniquement en charge XiaoxiaoNeural.)|
+| `styledegree` | Spécifie l’intensité du style d’élocution. **Valeurs acceptées**  : 0,01 à 2 incluse. La valeur par défaut est 1, ce qui correspond à l’intensité de style prédéfinie. L’unité minimale est 0,01, ce qui aboutit à une légère tendance pour le style cible. La valeur 2 produit un doublement de l’intensité de style par défaut.  | Facultatif (Pour le moment, `styledegree` prend uniquement en charge XiaoxiaoNeural.)|
 
 Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pour chaque voix neuronale.
 
@@ -233,6 +233,7 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 | `en-US-JennyNeural`     | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
 |                         | `style="chat"`            | Exprime un ton informel et détendu                         |
 |                         | `style="assistant"`       | Exprime un ton chaud et détendu pour les assistants numériques    |
+|                         | `style="newscast"`        | Exprime un ton polyvalent et décontracté pour la diffusion d’informations générales   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Exprime un ton formel et professionnel pour la présentation des actualités |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Exprime un ton formel et professionnel pour la présentation des actualités |
 |                         | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
@@ -630,7 +631,7 @@ Les types de contenu suivants sont pris en charge pour les attributs `interpret-
 | `address` | | Le texte est prononcé sous forme d'adresse. Le moteur de synthèse vocale prononce :<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Par exemple, « Je suis au 150e court nord est redmond washington. » |
 | `cardinal`, `number` | | Le texte est prononcé sous forme de nombre cardinal. Le moteur de synthèse vocale prononce :<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Par exemple, « Il existe trois alternatives ». |
 | `characters`, `spell-out` | | Le texte est prononcé sous forme de lettres individuelles (épelées). Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Par exemple, « T E S T ». |
-| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date (*j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
+| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date ( *j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
 | `digits`, `number_digit` | | Le texte est prononcé sous forme de séquence de chiffres individuels. Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Par exemple, « 1 2 3 4 5 6 7 8 9 ». |
 | `fraction` | | Le texte est prononcé sous forme de nombre fractionnaire. Le moteur de synthèse vocale prononce :<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Par exemple, « Trois huitièmes de pouce ». |
 | `ordinal` | | Le texte est prononcé sous forme de nombre ordinal. Le moteur de synthèse vocale prononce :<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Par exemple, « Sélectionnez la troisième option ». |
