@@ -6,14 +6,15 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489283"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319834"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Cet article fournit une vue d’ensemble des quotas par défaut appliqués à différentes ressources dans Azure Cosmos DB.
 
@@ -132,7 +133,6 @@ En fonction de l’API que vous utilisez, un élément Azure Cosmos peut représ
 | Longueur maximale de la valeur de clé de partition | 2 048 octets |
 | Longueur maximale de la valeur d’ID | 1 023 octets |
 | Nombre maximal de propriétés par élément | Aucune limite pratique |
-| Profondeur d’imbrication maximale | Aucune limite pratique |
 | Longueur maximale du nom d’une propriété | Aucune limite pratique |
 | Longueur maximale de la valeur d’une propriété | Aucune limite pratique |
 | Longueur maximale d’une valeur de propriété de chaîne | Aucune limite pratique |

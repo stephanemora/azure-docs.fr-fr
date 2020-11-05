@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ac1fc5688dad3406041f36ff858e6fd27c7272f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026064"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321864"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
 
@@ -30,9 +30,9 @@ L’échantillonnage Python utilise la bibliothèque ODBC [pyodbc](https://code.
 > 
 
 **Pourquoi échantillonner vos données ?**
-Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. L’échantillonnage facilite la compréhension des données, l’exploration ainsi que l’ingénierie de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. L’échantillonnage facilite la compréhension des données, l’exploration ainsi que l’ingénierie de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](./index.yml) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
-Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](./index.yml).
 
 ## <a name="using-sql"></a><a name="SQL"></a>Utilisation de SQL
 Cette section décrit différentes méthodes permettant d’effectuer un échantillonnage aléatoire simple des données de la base de données via SQL. Choisissez une méthode en fonction de la taille de vos données et de leur distribution.
@@ -134,4 +134,4 @@ Pour obtenir un exemple de procédure pas à pas du processus TDSP (Team Data Sc
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

@@ -10,20 +10,20 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5fe11b20ff8e96bc4b0d997c49201aafdd2e2cac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe822b75368a1ab72bcd7f73419770b291d2508
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320521"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321144"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
 Les tâches courantes de science des données incluent l’exploration, la modélisation et le déploiement. Cet article explique comment recourir aux utilitaires **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** et **AMAR (Automated Modeling and Reporting)** pour effectuer plusieurs tâches courantes de science des données, telles que l’exploration des données, l’analyse des données et la création de rapports interactives, ainsi que la création de modèles. Les options de déploiement d’un modèle dans un environnement de production peuvent inclure :
 
 - [Azure Machine Learning](../index.yml)
-- [SQL Server avec les services ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [SQL Server avec les services ML](/sql/advanced-analytics/r/r-services)
+- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 
 
 ## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> Exploration 
@@ -76,7 +76,7 @@ Une fois que plusieurs modèles ont été générés, vous devez généralement 
 1. [Azure Machine Learning - Service de gestion des modèles](../index.yml)
 2. [ModelDB de MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL Server comme système de gestion de modèle](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 ## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> Déploiement
 
@@ -87,8 +87,8 @@ Il existe différentes approches et plateformes pour mettre les modèles en prod
 
 
 - [Déploiement du modèle dans Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Déploiement d’un modèle dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Déploiement d’un modèle dans SQL Server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
 > Avant de procéder au déploiement, vous devez vérifier que le niveau de la latence du modèle est suffisamment faible pour permettre l’utilisation de ce dernier dans l’environnement de production.

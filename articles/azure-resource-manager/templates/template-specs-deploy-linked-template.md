@@ -2,13 +2,13 @@
 title: Déployer une spec de modèle en tant que modèle lié
 description: Découvrez comment déployer une spec de modèle existante dans un déploiement lié.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 4469e793a7da407f793bfe2885f7bb039e29d736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369108"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321575"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutoriel : Déployer une spec de modèle en tant que modèle lié (préversion)
 
@@ -27,7 +27,7 @@ Consultez [Démarrage rapide : Créer et déployer une spec de modèle](quickst
 
 ## <a name="create-the-main-template"></a>Créer le modèle principal
 
-Pour déployer une spec de modèle dans un modèle Resource Manager, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété `templateLink`, spécifiez l’ID de ressource d’une spec de modèle. Créez un modèle avec le code JSON suivant appelé **azuredeploy.json**. Ce tutoriel part du principe que vous avez enregistré sous le chemin d’accès **c:\Templates\deployTS\azuredeploy.json**, mais vous pouvez utiliser n’importe quel chemin.
+Pour déployer une spec de modèle dans un modèle Resource Manager, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété `templateLink`, spécifiez l’ID de ressource d’une spec de modèle. Créez un modèle avec le code JSON suivant appelé **azuredeploy.json**. Ce tutoriel part du principe que vous avez enregistré sous le chemin d’accès **c:\Templates\deployTS\azuredeploy.json** , mais vous pouvez utiliser n’importe quel chemin.
 
 ```json
 {
@@ -160,7 +160,10 @@ New-AzResourceGroup `
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
-  -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\deployTS\azuredeploy.json" `
+  -tsResourceGroup templateSpecRg `
+  -tsName storageSpec `
+  -tsVersion 1.0
 ```
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
@@ -172,8 +175,8 @@ az group create \
 
 az deployment group create \
   --resource-group webRG \
-  --template-file "c:\Templates\deployTS\azuredeploy.json"
-
+  --template-file "c:\Templates\deployTS\azuredeploy.json" \
+  --parameters tsResourceGroup=templateSpecRG tsName=storageSpec tsVersion=1.0
 ```
 
 ---

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276082"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322310"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -53,9 +53,9 @@ Vous pouvez partager un espace de travail avec d’autres utilisateurs.
 
 Azure Machine Learning introduit deux machines virtuelles basées sur le cloud et complètement managées qui sont configurées pour les tâches Machine Learning :
 
-* <a name="compute-instance"></a> **Instance de calcul** : une instance de calcul est une machine virtuelle qui comprend plusieurs outils et environnements installés pour le Machine Learning. L’instance de calcul s’utilise principalement pour votre station de travail de développement.  Vous pouvez commencer à exécuter des exemples de notebooks sans qu’aucune configuration ne soit requise. Une instance de calcul peut également être utilisée comme cible de calcul pour des travaux d’entraînement et d’inférence.
+* <a name="compute-instance"></a> **Instance de calcul**  : une instance de calcul est une machine virtuelle qui comprend plusieurs outils et environnements installés pour le Machine Learning. L’instance de calcul s’utilise principalement pour votre station de travail de développement.  Vous pouvez commencer à exécuter des exemples de notebooks sans qu’aucune configuration ne soit requise. Une instance de calcul peut également être utilisée comme cible de calcul pour des travaux d’entraînement et d’inférence.
 
-* **Clusters de calcul** : les clusters de calcul sont un cluster de machines virtuelles avec des fonctionnalités de mise à l’échelle à plusieurs nœuds. Ils sont mieux adaptés aux cibles de calcul pour les travaux de grande taille et de production.  Le cluster subit automatiquement un scale-up lors de l’envoi d’un travail.  À utiliser comme cible de calcul de formation ou pour le déploiement de développement/test.
+* **Clusters de calcul**  : les clusters de calcul sont un cluster de machines virtuelles avec des fonctionnalités de mise à l’échelle à plusieurs nœuds. Ils sont mieux adaptés aux cibles de calcul pour les travaux de grande taille et de production.  Le cluster subit automatiquement un scale-up lors de l’envoi d’un travail.  À utiliser comme cible de calcul de formation ou pour le déploiement de développement/test.
 
 Pour plus d’informations sur les cibles de calcul de formation, consultez [Cibles de calcul de formation](concept-compute-target.md#train).  Pour plus d’informations sur les cibles de calcul de déploiement, consultez [Cibles de déploiement](concept-compute-target.md#deploy).
 
@@ -102,7 +102,7 @@ Vous déclenchez une exécution lorsque vous envoyez un script pour entraîner u
 
 [Espace de travai](#workspace)l  > [Expériences](#experiments) > [Exécution](#runs) > **Exécuter la configuration**
 
-Une configuration de série de tests définit la façon dont un script doit être exécuté dans une cible de calcul spécifiée. Vous utilisez la configuration pour spécifier le script, la cible de calcul et l’environnement Azure ML d’exécution, toutes les configurations propres aux tâches distribuées et certaines propriétés supplémentaires. Pour plus d’informations sur l’ensemble complet d’options configurables pour les exécutions, consultez [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+Une configuration de série de tests définit la façon dont un script doit être exécuté dans une cible de calcul spécifiée. Vous utilisez la configuration pour spécifier le script, la cible de calcul et l’environnement Azure ML d’exécution, toutes les configurations propres aux tâches distribuées et certaines propriétés supplémentaires. Pour plus d’informations sur l’ensemble complet d’options configurables pour les exécutions, consultez [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
 
 Une configuration d’exécution peut être rendue persistante dans un fichier du répertoire qui contient votre script d’entraînement.   Elle peut aussi être construite comme un objet en mémoire et utilisée pour envoyer une exécution.
 
@@ -233,10 +233,10 @@ Le studio est également l’emplacement où vous accédez aux outils interactif
 > Les outils marqués (préversion) ci-dessous sont actuellement en préversion publique.
 > La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interagissez avec le service dans un environnement Python avec le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++  Interagissez avec le service dans un environnement Python avec le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + Interagissez avec le service dans un environnement R avec le [Kit de développement logiciel (SDK) Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (préversion).
 + Utilisez le [Concepteur Azure Machine Learning](concept-designer.md) pour effectuer les étapes de workflow sans écrire de code. 
-+ Utiliser l’[interface de ligne de commande d’Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) pour l’automatisation.
++ Utiliser l’[interface de ligne de commande d’Azure Machine Learning](./reference-azure-machine-learning-cli.md) pour l’automatisation.
 + L’[accélérateur de solution de nombreux modèles](https://aka.ms/many-models) (préversion) s’appuie sur Azure Machine Learning et vous permet d’effectuer l’apprentissage, l’utilisation et la gestion de centaines, voire de milliers de modèles Machine Learning.
 
 ## <a name="next-steps"></a>Étapes suivantes

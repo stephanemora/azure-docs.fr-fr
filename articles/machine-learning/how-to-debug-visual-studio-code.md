@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325585"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 
@@ -38,7 +38,7 @@ Utilisez l’extension Azure Machine Learning pour valider, exécuter et débogu
 > Sur Windows, veillez à [Configurer Docker pour utiliser des conteneurs Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 > [!TIP]
-> Pour Windows, bien que cela ne soit pas obligatoire, il est vivement recommandé d’[utiliser Docker avec le Sous-système Windows pour Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+> Pour Windows, bien que cela ne soit pas obligatoire, il est vivement recommandé d’[utiliser Docker avec le Sous-système Windows pour Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
 
 > [!IMPORTANT]
 > Avant d’exécuter votre expérience localement, assurez-vous que Docker est en cours d’exécution.
@@ -48,8 +48,8 @@ Utilisez l’extension Azure Machine Learning pour valider, exécuter et débogu
 1. Dans VS Code, ouvrez l’affichage de l’extension Azure Machine Learning.
 1. Développez le nœud d’abonnement contenant votre espace de travail. Si vous n’en avez pas encore, vous pouvez [créer un espace de travail Azure Machine Learning](how-to-manage-resources-vscode.md#create-a-workspace) à l’aide de l’extension.
 1. Développez le nœud de votre espace de travail.
-1. Cliquez avec le bouton droit sur le nœud **Expériences**, puis sélectionnez **Créer une expérience**. Quand vous y être invité, spécifiez un nom pour votre expérience.
-1. Développez le nœud **Expériences**, cliquez avec le bouton droit sur l’expérience que vous souhaitez exécuter, puis sélectionnez **Exécuter une expérience**.
+1. Cliquez avec le bouton droit sur le nœud **Expériences** , puis sélectionnez **Créer une expérience**. Quand vous y être invité, spécifiez un nom pour votre expérience.
+1. Développez le nœud **Expériences** , cliquez avec le bouton droit sur l’expérience que vous souhaitez exécuter, puis sélectionnez **Exécuter une expérience**.
 1. Dans la liste des options d’exécution de votre expérience, sélectionnez **Localement**.
 1. **Première utilisation sur Windows uniquement**. Lorsque vous êtes invité à autoriser le Partage de fichiers, sélectionnez **Oui**. Lorsque vous activez le partage de fichiers, Docker peut monter le répertoire contenant votre script sur le conteneur. En outre, il permet à Docker de stocker les journaux et les sorties de votre exécution dans un répertoire temporaire sur votre système.
 1. Sélectionnez **Oui** pour déboguer votre expérience. Sinon, sélectionnez **Non**. Si vous sélectionnez Non, votre expérience est exécutée localement sans être attachée au débogueur.
@@ -58,7 +58,7 @@ Utilisez l’extension Azure Machine Learning pour valider, exécuter et débogu
     1. Indiquez le nom du script que vous souhaitez exécuter. Le chemin d’accès est relatif au répertoire ouvert dans VS Code.
     1. Indiquez si vous souhaitez utiliser un jeu de données Azure Machine Learning ou non. Vous pouvez créer des [jeux de données Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) à l’aide de l’extension.
     1. Debugpy est requis pour attacher le débogueur au conteneur exécutant votre expérience. Pour ajouter debugpy en tant que dépendance, sélectionnez **Ajouter Debugpy**. Autrement, sélectionnez **Ignorer**. Si vous n’ajoutez pas debugpy en tant que dépendance, votre expérience s’exécute sans être attachée au débogueur.
-    1. Un fichier de configuration contenant vos paramètres de configuration de série de tests s’ouvre dans l’éditeur. Si vous êtes satisfait des paramètres, sélectionnez **Soumettre l’expérience**. Vous pouvez également ouvrir la palette de commandes (**Afficher > Palette de commandes**) à partir de la barre de menus, puis entrer la commande `Azure ML: Submit experiment` dans la zone de texte.
+    1. Un fichier de configuration contenant vos paramètres de configuration de série de tests s’ouvre dans l’éditeur. Si vous êtes satisfait des paramètres, sélectionnez **Soumettre l’expérience**. Vous pouvez également ouvrir la palette de commandes ( **Afficher > Palette de commandes** ) à partir de la barre de menus, puis entrer la commande `Azure ML: Submit experiment` dans la zone de texte.
 1. Une fois votre expérience envoyée, une image Docker contenant votre script et les configurations spécifiées dans votre configuration de série de tests est créée.
 
     Lorsque le processus de génération d’image Docker commence, le contenu du fichier `60_control_log.txt` est diffusé vers la console de sortie dans VS Code.
@@ -88,7 +88,7 @@ Dans certains cas, vous devrez peut-être déboguer interactivement le code Pyth
 
 * Un __espace de travail Azure Machine Learning__ configuré pour utiliser un __réseau virtuel Azure__.
 * un __pipeline Azure Machine Learning__ utilisant des scripts Python dans le cadre de ses étapes. Par exemple, PythonScriptStep.
-* Un cluster de Capacité de calcul Machine Learning se trouvant __dans le réseau virtuel__, que __le pipeline utilise pour effectuer l’apprentissage__.
+* Un cluster de Capacité de calcul Machine Learning se trouvant __dans le réseau virtuel__ , que __le pipeline utilise pour effectuer l’apprentissage__.
 * Un __environnement de développement__ se trouvant __dans le réseau virtuel__. L’environnement de développement peut être l’une des ressources suivantes :
 
   * une machine virtuelle Azure se trouvant dans le réseau virtuel ;
@@ -292,9 +292,9 @@ Enregistrez la valeur `ip_address`. Elles seront utilisées dans la section suiv
 
 1. Pour configurer VS Code afin de communiquer avec la Capacité de calcul Azure Machine Learning qui exécute le débogueur, créez une nouvelle configuration de débogage :
 
-    1. Dans VS Code, sélectionnez le menu __Déboguer__, puis sélectionnez __Ouvrir les configurations__. Un fichier nommé __launch.json__ s’ouvre.
+    1. Dans VS Code, sélectionnez le menu __Déboguer__ , puis sélectionnez __Ouvrir les configurations__. Un fichier nommé __launch.json__ s’ouvre.
 
-    1. Dans le fichier __launch.json__, recherchez la ligne contenant `"configurations": [` et insérez le texte suivant après celle-ci : Remplacez l’entrée `"host": "<IP-ADDRESS>"` par l’adresse IP renvoyée dans vos journaux de la section précédente. Remplacez l’entrée `"localRoot": "${workspaceFolder}/code/step"` par un répertoire local contenant une copie du script en cours de débogage :
+    1. Dans le fichier __launch.json__ , recherchez la ligne contenant `"configurations": [` et insérez le texte suivant après celle-ci : Remplacez l’entrée `"host": "<IP-ADDRESS>"` par l’adresse IP renvoyée dans vos journaux de la section précédente. Remplacez l’entrée `"localRoot": "${workspaceFolder}/code/step"` par un répertoire local contenant une copie du script en cours de débogage :
 
         ```json
         {
@@ -339,7 +339,7 @@ Enregistrez la valeur `ip_address`. Elles seront utilisées dans la section suiv
 Dans certains cas, vous devrez peut-être déboguer interactivement le code Python contenu dans votre modèle de déploiement. Par exemple, si le script d’entrée échoue pour une raison ne pouvant pas être déterminée par une journalisation supplémentaire. À l’aide de VS Code et de debugpy, vous pouvez attacher au code qui s’exécute dans le conteneur Docker.
 
 > [!IMPORTANT]
-> Cette méthode de débogage ne fonctionne pas lorsque `Model.deploy()` et `LocalWebservice.deploy_configuration` sont utilisés pour déployer un modèle localement. Au lieu de cela, vous devez créer une image à l’aide de la méthode [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Cette méthode de débogage ne fonctionne pas lorsque `Model.deploy()` et `LocalWebservice.deploy_configuration` sont utilisés pour déployer un modèle localement. Au lieu de cela, vous devez créer une image à l’aide de la méthode [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Les déploiements de service web locaux nécessitent l’installation d’un Docker de travail sur votre système local. Pour plus d’informations sur l’utilisation de Docker, consultez la [documentation Docker](https://docs.docker.com/). Notez que, lorsque vous travaillez avec des instances de calcul, Docker est déjà installé.
 
@@ -355,9 +355,9 @@ Les déploiements de service web locaux nécessitent l’installation d’un Doc
 
 1. Pour configurer VS Code pour communiquer avec l’image Docker, créez une nouvelle configuration de débogage :
 
-    1. Dans VS Code, sélectionnez le menu __Déboguer__, puis sélectionnez __Ouvrir les configurations__. Un fichier nommé __launch.json__ s’ouvre.
+    1. Dans VS Code, sélectionnez le menu __Déboguer__ , puis sélectionnez __Ouvrir les configurations__. Un fichier nommé __launch.json__ s’ouvre.
 
-    1. Dans le fichier __launch.json__, recherchez la ligne qui contient `"configurations": [` et insérez le texte suivant après celle-ci :
+    1. Dans le fichier __launch.json__ , recherchez la ligne qui contient `"configurations": [` et insérez le texte suivant après celle-ci :
 
         ```json
         {

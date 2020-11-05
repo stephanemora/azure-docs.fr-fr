@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338852"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322819"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
 
@@ -98,7 +98,7 @@ Pour répondre à notre question, nous visualisons 1,35 carat et dessinons une l
 ![Rechercher la réponse en utilisant le modèle](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Créer un intervalle de confiance
-Il est normal de vous demander le degré de précision de cette prédiction. Il est utile de savoir si le prix du diamant de 1,35 carat est très proche de 10 000 $, ou largement supérieur ou inférieur. Pour le déterminer, nous allons dessiner une enveloppe autour de la ligne de régression qui inclut la plupart des points. Il s’agit de notre *intervalle de confiance* : nous sommes pratiquement certains que les prix se situent dans cet intervalle, car c’était le cas dans la plupart des cas dans le passé. Nous pouvons dessiner deux lignes horizontales supplémentaires où la ligne de 1,35 carat coupe le haut et le bas de l’intervalle.
+Il est normal de vous demander le degré de précision de cette prédiction. Il est utile de savoir si le prix du diamant de 1,35 carat est très proche de 10 000 $, ou largement supérieur ou inférieur. Pour le déterminer, nous allons dessiner une enveloppe autour de la ligne de régression qui inclut la plupart des points. Il s’agit de notre *intervalle de confiance*  : nous sommes pratiquement certains que les prix se situent dans cet intervalle, car c’était le cas dans la plupart des cas dans le passé. Nous pouvons dessiner deux lignes horizontales supplémentaires où la ligne de 1,35 carat coupe le haut et le bas de l’intervalle.
 
 ![intervalle de confiance](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -129,4 +129,4 @@ Nous vous invitons à regarder les autres vidéos de la série « Science des do
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio (classique)](create-experiment.md)
-* [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](../overview-what-is-azure-ml.md)

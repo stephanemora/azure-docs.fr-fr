@@ -4,16 +4,18 @@ description: Vue d’ensemble des modèles de conception des flux de modificatio
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489351"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334581"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modèles de conception des flux de modification dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Le flux de modification Azure Cosmos DB permet de traiter efficacement les grands jeux de données avec un volume important d’écritures. Le flux de modification offre également une alternative à l’interrogation d’un jeu de données complet dans le but d’y identifier les changements. Ce document est axé sur les modèles de conception de flux de modification courants, les compromis de conception et les limitations des flux de modification.
 
@@ -38,7 +40,7 @@ Vous pouvez également déclencher de manière sélective une notification ou en
 Le flux de modification Azure Cosmos DB peut être utilisé pour le traitement de flux en temps réel en vue du traitement de l’analytique en temps réel ou IoT sur des données opérationnelles.
 Par exemple, vous pouvez recevoir et stocker des données d’événement à partir d’appareils, de capteurs, d’infrastructures et d’applications, et traiter ces événements en temps réel à l’aide de [Spark](../hdinsight/spark/apache-spark-overview.md). L’illustration suivante montre comment implémenter une architecture lambda à l’aide d’Azure Cosmos DB via le flux de modification :
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Utilisation du flux de modification d’Azure Cosmos DB pour bénéficier de l’analytique en temps réel et de calculs pilotés par les événements" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Pipeline lambda Azure Cosmos DB pour l’ingestion et l’interrogation" border="false":::
 
 Dans de nombreux cas, les implémentations de traitement de flux reçoivent d’abord un volume élevé de données entrantes dans une file d’attente de messages temporaire comme Azure Event Hub ou Apache Kafka. Le flux de modification est une alternative intéressante en raison de la capacité d’Azure Cosmos DB à prendre en charge un taux élevé et soutenu d’ingestion de données avec une latence de lecture et d’écriture faible et garantie. Les avantages du flux de modification Azure Cosmos DB par rapport à une file d’attente de messages sont les suivants :
 

@@ -3,17 +3,19 @@ title: Interrogation de données géospatiales avec Azure Cosmos DB
 description: Interrogation de données spatiales avec Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9a0351b6f1de47f3687995c65060a23bdb2874
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764976"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336110"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Interrogation de données géospatiales avec Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment interroger des données géospatiales dans Azure Cosmos DB avec SQL et LINQ. Le stockage des données géospatiales et leur accès sont actuellement pris en charge par les comptes d’API SQL Azure Cosmos DB uniquement. Azure Cosmos DB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. Pour plus d’informations sur l’ensemble complet de fonctions intégrées dans le langage SQL, consultez [Fonctions système de requête dans Azure Cosmos DB](sql-query-system-functions.md).
 

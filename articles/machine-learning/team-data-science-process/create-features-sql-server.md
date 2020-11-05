@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0be75b3b0a7b9b5aaec0da1d9f41f67a7108e77a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bf1c5856276c4c7ee0e37ed4ef2120d1d93d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085308"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322045"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
 Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python pour accomplir cette tâche. Les deux approches sont décrites ici.
 
-Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Cette tâche est une étape du [processus TDSP (Team Data Science Process)](./index.yml).
 
 > [!NOTE]
 > Pour découvrir un exemple pratique, vous pouvez consulter le [jeu de données NYC Taxi](https://www.andresmh.com/nyctaxitrips/) et vous reporter au bloc-notes IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
@@ -99,12 +99,12 @@ Vous pouvez en outre exploiter ces fonctionnalités de localisation pour génér
 
 > [!TIP]
 > Vous pouvez insérer les enregistrements par programmation en utilisant le langage de votre choix. Vous devrez peut-être insérer les données en blocs pour améliorer l'efficacité de l'écriture. [Voici un exemple montrant comment faire à l’aide de la commande pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Une autre solution consiste à insérer les données dans la base de données à l’aide de l’ [utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> Une autre solution consiste à insérer les données dans la base de données à l’aide de l’ [utilitaire BCP](/sql/tools/bcp-utility)
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connexion à Azure Machine Learning
-La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) dans Azure Machine Learning comme expliqué ci-dessous :
+La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données](/azure/machine-learning/studio-module-reference/import-data) dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![Lecteurs Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -126,5 +126,4 @@ La [bibliothèque Pandas](https://pandas.pydata.org/) de Python offre un ensembl
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans la rubrique [Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas](create-features-blob.md).
-
+Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans la rubrique [Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas](./explore-data-blob.md).

@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789c6c36def21bfe1c2acc8797c1847455a5c86c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708966"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324396"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Création d’un pool partagé de Data Science Virtual Machines
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser plusieurs méthodes et technologies pour créer un pool de 
 
 Un pool de machines virtuelles interactives qui sont partagées par l’équipe complète AI/science des données permet aux utilisateurs de se connecter à une instance disponible de la DSVM au lieu de disposer d’une instance dédiée pour chaque ensemble d’utilisateurs. Cette configuration permet une meilleure disponibilité et une utilisation plus efficace des ressources.
 
-Vous utilisez la technologie des You use [groupe de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) pour créer un pool de machines virtuelles interactives. Les groupes identiques vous permettent de créer et de gérer un groupe de machines virtuelles identiques, disposant d’une charge équilibrée et d’une mise à l’échelle automatique.
+Vous utilisez la technologie des You use [groupe de machines virtuelles identiques Azure](../../virtual-machine-scale-sets/index.yml) pour créer un pool de machines virtuelles interactives. Les groupes identiques vous permettent de créer et de gérer un groupe de machines virtuelles identiques, disposant d’une charge équilibrée et d’une mise à l’échelle automatique.
 
 L’utilisateur se connecte à l’adresse IP ou DNS du pool principal. La session est automatiquement acheminée vers une DSVM disponible dans le groupe identique. Comme les utilisateurs souhaitent un environnement cohérent et familier quelle que soit la machine virtuelle à laquelle ils se connectent, toutes les instances de la machine virtuelle dans le groupe identique montent un lecteur réseau partagé, comme un partage Azure Files ou NFS (Network File System). L’espace de travail partagé de l’utilisateur est normalement conservé dans le magasin de fichiers partagé qui est monté sur chacune des instances.
 
@@ -53,7 +53,7 @@ Le modèle présenté ci-dessus active le protocole SSH et le port JupyterHub du
 
 Le [script permettant de monter le partage Azure Files](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) est également disponible dans le référentiel GitHub des machines virtuelles DSVM Azure. Le script monte le partage de fichiers Azure au niveau du point de montage spécifié dans le fichier de paramètres. Le script crée également des liens symboliques pour le lecteur monté dans le répertoire de base initial de l’utilisateur. Un répertoire de notebooks propre à l’utilisateur figurant dans le partage Azure Files est associé par un lien symbolique au répertoire `$HOME/notebooks/remote` ce qui permet aux utilisateurs d’accéder aux notebooks Jupyter, de les exécuter et de les enregistrer. Vous pouvez utiliser la même convention lorsque vous créez des utilisateurs supplémentaires sur la machine virtuelle pour pointer l’espace de travail Jupyter de chaque utilisateur vers le répertoire Azure Files partagé.
 
-Le groupe de machines virtuelles identiques prend en charge la mise à l’échelle automatique. Vous pouvez définir des règles concernant ce qui déclenche la création d’instances supplémentaires ou la diminution du nombre d’instances. Par exemple, vous pouvez descendre en puissance jusqu’à ne plus avoir d’instances afin d’économiser sur les coûts d’utilisation de matériel cloud lorsque les machines virtuelles ne sont pas du tout utilisées. Les pages de documentation des groupes identiques de machines virtuelles fournissent des instructions détaillées de [mise à l’échelle automatique](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+Le groupe de machines virtuelles identiques prend en charge la mise à l’échelle automatique. Vous pouvez définir des règles concernant ce qui déclenche la création d’instances supplémentaires ou la diminution du nombre d’instances. Par exemple, vous pouvez descendre en puissance jusqu’à ne plus avoir d’instances afin d’économiser sur les coûts d’utilisation de matériel cloud lorsque les machines virtuelles ne sont pas du tout utilisées. Les pages de documentation des groupes identiques de machines virtuelles fournissent des instructions détaillées de [mise à l’échelle automatique](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

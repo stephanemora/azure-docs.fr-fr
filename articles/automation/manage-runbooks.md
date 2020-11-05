@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521065"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317096"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gérer les runbooks dans Azure Automation
 
@@ -28,7 +28,7 @@ Créez un runbook dans Azure Automation à l’aide du portail Azure ou de Windo
 
 1. Dans le portail Azure, ouvrez votre compte Automation.
 2. À partir du hub, sélectionnez **Runbooks** sous **Automatisation de processus** pour ouvrir la liste des runbooks.
-3. Cliquez sur **Créer un runbook** .
+3. Cliquez sur **Créer un runbook**.
 4. Entrez un nom pour le runbook et sélectionnez son [type](automation-runbook-types.md). Le nom du runbook doit commencer par une lettre et peut contenir des lettres, des chiffres, des traits de soulignement et des tirets.
 5. Cliquez sur **Créer** pour créer le runbook et ouvrez l’éditeur.
 
@@ -64,11 +64,11 @@ Vous pouvez utiliser la procédure suivante pour importer un fichier de script d
 
 1. Dans le portail Azure, ouvrez votre compte Automation.
 2. Sélectionnez **Runbooks** sous **Automatisation de processus** pour ouvrir la liste des runbooks.
-3. Cliquez sur **Importer un runbook** .
+3. Cliquez sur **Importer un runbook**.
 4. Cliquez sur **Fichier runbook** et sélectionnez le fichier à importer.
 5. Si le champ **Nom** est activé, vous avez la possibilité de modifier le nom du runbook. Celui-ci doit commencer par une lettre et peut contenir des lettres, des chiffres, des traits de soulignement et des tirets.
 6. Le [type de runbook](automation-runbook-types.md) est sélectionné automatiquement, mais vous pouvez le modifier après avoir pris en compte les restrictions applicables.
-7. Cliquez sur **Créer** . Le nouveau runbook apparaît dans la liste des runbooks pour le compte Automation.
+7. Cliquez sur **Créer**. Le nouveau runbook apparaît dans la liste des runbooks pour le compte Automation.
 8. Vous devez [Publier le runbook](#publish-a-runbook) avant de pouvoir l’exécuter.
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Pour utiliser un script personnalisé :
 
 ## <a name="test-a-runbook"></a>Tester un runbook
 
-Lorsque vous testez un runbook, la [version Brouillon](#publish-a-runbook) est exécutée et toutes les actions qu’il effectue sont finalisées. Aucun historique des tâches n’est créé, mais les flux [Résultat](automation-runbook-output-and-messages.md#use-the-output-stream) et [Avertissement et Erreur](automation-runbook-output-and-messages.md#monitor-message-streams) s’affichent dans le volet de sortie du test. Les messages destinés au [flux de commentaires](automation-runbook-output-and-messages.md#monitor-message-streams) ne sont affichés dans le volet des résultats que si la variable [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) est définie sur `Continue`.
+Lorsque vous testez un runbook, la [version Brouillon](#publish-a-runbook) est exécutée et toutes les actions qu’il effectue sont finalisées. Aucun historique des tâches n’est créé, mais les flux [Résultat](automation-runbook-output-and-messages.md#use-the-output-stream) et [Avertissement et Erreur](automation-runbook-output-and-messages.md#working-with-message-streams) s’affichent dans le volet de sortie du test. Les messages destinés au [flux de commentaires](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) ne sont affichés dans le volet des résultats que si la variable [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) est définie sur `Continue`.
 
 Bien que la version brouillon soit exécutée, le runbook s'exécute normalement et effectue des actions sur des ressources dans l’environnement. Pour cette raison, vous devez tester les runbooks uniquement sur des ressources hors production.
 
@@ -249,7 +249,7 @@ Lorsque vous créez ou importez un runbook, vous devez le publier avant de pouvo
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Publier un runbook dans le portail Azure
 
 1. Ouvrez le runbook dans le portail Azure.
-2. Cliquez sur **Modifier** .
+2. Cliquez sur **Modifier**.
 3. Cliquez sur **Publier** , puis sur **Oui** en réponse au message de vérification.
 
 ### <a name="publish-a-runbook-using-powershell"></a>Publier un runbook à l’aide de PowerShell
@@ -270,19 +270,19 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 Une fois votre runbook publié, vous pouvez le planifier en vue de l'utiliser :
 
 1. Ouvrez le runbook dans le portail Azure.
-2. Sélectionnez **Planifications** sous **Ressources** .
-3. Sélectionnez **Ajouter une planification** .
-4. Dans le volet Planifier le runbook, sélectionnez **Associer une planification à votre runbook** .
+2. Sélectionnez **Planifications** sous **Ressources**.
+3. Sélectionnez **Ajouter une planification**.
+4. Dans le volet Planifier le runbook, sélectionnez **Associer une planification à votre runbook**.
 5. Choisissez **Créer une planification** dans le volet Planification.
 6. Entrez un nom, une description et d'autres paramètres dans le volet Nouvelle planification.
-7. Une fois la planification créée, mettez-la en surbrillance et cliquez sur **OK** . Elle doit maintenant être associée à votre runbook.
+7. Une fois la planification créée, mettez-la en surbrillance et cliquez sur **OK**. Elle doit maintenant être associée à votre runbook.
 8. Accédez à votre boîte aux lettres et recherchez-y un e-mail qui vous informe de l'état du runbook.
 
 ## <a name="obtain-job-statuses"></a>Obtenir les états des tâches
 
 ### <a name="view-statuses-in-the-azure-portal"></a>Afficher les états sur le portail Azure
 
-Les détails de la gestion des tâches dans Azure Automation apparaissent dans la section [Tâches](automation-runbook-execution.md#jobs). Lorsque vous êtes prêt à afficher vos tâches runbook, utilisez le portail Azure et accédez à votre compte Automation. À droite, vous pouvez voir un résumé de toutes les tâches runbook dans la section **Statistiques des tâches** .
+Les détails de la gestion des tâches dans Azure Automation apparaissent dans la section [Tâches](automation-runbook-execution.md#jobs). Lorsque vous êtes prêt à afficher vos tâches runbook, utilisez le portail Azure et accédez à votre compte Automation. À droite, vous pouvez voir un résumé de toutes les tâches runbook dans la section **Statistiques des tâches**.
 
 ![Vignette Statistiques des tâches](./media/manage-runbooks/automation-account-job-status-summary.png)
 
@@ -292,13 +292,13 @@ Lorsque vous cliquez sur la vignette, la page Tâches s’affiche avec un récap
 
 :::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Capture d’écran de la page Tâches.":::
 
-Vous pouvez filtrer la liste des tâches en sélectionnant **Filtrer les tâches** . Filtrez en fonction d’un runbook spécifique, d’un état de tâche ou d’un choix dans la liste déroulante, puis indiquez un intervalle de temps pour la recherche.
+Vous pouvez filtrer la liste des tâches en sélectionnant **Filtrer les tâches**. Filtrez en fonction d’un runbook spécifique, d’un état de tâche ou d’un choix dans la liste déroulante, puis indiquez un intervalle de temps pour la recherche.
 
 ![Filtrer en fonction de l’état des tâches](./media/manage-runbooks/automation-account-jobs-filter.png)
 
-Vous pouvez aussi afficher un résumé détaillé des tâches d’un runbook en sélectionnant le runbook dans la page Runbooks de votre compte Automation, puis en sélectionnant **Tâches** . Cette action affiche la page Tâches. De là, vous pouvez cliquer sur un enregistrement de tâche pour en afficher les détails et la sortie.
+Vous pouvez aussi afficher un résumé détaillé des tâches d’un runbook en sélectionnant le runbook dans la page Runbooks de votre compte Automation, puis en sélectionnant **Tâches**. Cette action affiche la page Tâches. De là, vous pouvez cliquer sur un enregistrement de tâche pour en afficher les détails et la sortie.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Capture d’écran de la page Tâches.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Capture d’écran de la page Tâches avec le bouton Erreurs mis en surbrillance.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Récupérer des états de tâches avec PowerShell
 

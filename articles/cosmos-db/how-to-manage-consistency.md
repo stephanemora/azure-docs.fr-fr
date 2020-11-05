@@ -3,18 +3,20 @@ title: Gérer la cohérence dans Azure Cosmos DB
 description: Découvrez comment configurer et gérer les niveaux de cohérence dans Azure Cosmos DB avec le portail Azure, le SDK .NET, le SDK Java et différents kits SDK
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2b3433d969611fabe1b12a8dcabfe6e50066a8c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491187"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333475"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gérer les niveaux de cohérence dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment gérer les niveaux de cohérence dans Azure Cosmos DB. Vous apprenez à configurer le niveau de cohérence par défaut, à remplacer la cohérence par défaut, à gérer manuellement les jetons de session et à comprendre la métrique PBS (Probabilistically Bounded Staleness).
 
@@ -26,7 +28,7 @@ Le [niveau de cohérence par défaut](consistency-levels.md) est le niveau de co
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Pour afficher ou modifier le niveau de cohérence par défaut, connectez-vous au portail Azure. Recherchez votre compte Azure Cosmos, puis ouvrez le volet **Cohérence par défaut** . Sélectionnez le niveau de cohérence que vous souhaitez utiliser comme nouvelle valeur par défaut, puis sélectionnez **Enregistrer** . Le portail Azure permet également de visualiser les différents niveaux de cohérence grâce à des notes de musique. 
+Pour afficher ou modifier le niveau de cohérence par défaut, connectez-vous au portail Azure. Recherchez votre compte Azure Cosmos, puis ouvrez le volet **Cohérence par défaut**. Sélectionnez le niveau de cohérence que vous souhaitez utiliser comme nouvelle valeur par défaut, puis sélectionnez **Enregistrer**. Le portail Azure permet également de visualiser les différents niveaux de cohérence grâce à des notes de musique. 
 
 :::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menu Cohérence dans le portail Azure":::
 
@@ -162,7 +164,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>Utiliser des jetons de session
 
-Parmi les différents niveaux de cohérence rencontrés dans Azure Cosmos DB figure la cohérence *Session* . Il s’agit du niveau appliqué par défaut aux comptes Cosmos. Quand vous utilisez la cohérence *Session* , le client utilise un jeton de session en interne à chaque demande de lecture/requête pour faire en sorte que le niveau de cohérence défini soit maintenu.
+Parmi les différents niveaux de cohérence rencontrés dans Azure Cosmos DB figure la cohérence *Session*. Il s’agit du niveau appliqué par défaut aux comptes Cosmos. Quand vous utilisez la cohérence *Session* , le client utilise un jeton de session en interne à chaque demande de lecture/requête pour faire en sorte que le niveau de cohérence défini soit maintenu.
 
 Pour gérer les jetons de session manuellement, obtenez le jeton de session à partir de la réponse, puis définissez-les par requête. Si vous n’avez pas besoin de gérer des jetons de session manuellement, les exemples ci-dessous ne vous sont pas utiles. Le kit SDK effectue le suivi des jetons de session automatiquement. Si vous ne définissez pas le jeton de session manuellement, par défaut, le kit SDK utilise le jeton de session le plus récent.
 
@@ -279,9 +281,9 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Surveiller la métrique de probabilités en fonction de l’obsolescence limitée (PBS)
 
-Quel est le degré d’éventualité de la cohérence éventuelle ? Pour le cas moyen, pouvons-nous offrir des limites d’obsolescence par rapport à l’historique de version et au moment ? La métrique [**PBS (Probabilistically Bounded Staleness)**](https://pbs.cs.berkeley.edu/) essaie de quantifier la probabilité d’obsolescence et l’affiche sous forme de métrique. Pour afficher la métrique PBS, accédez à votre compte Azure Cosmos DB sur le portail Azure. Ouvrez le volet **Métriques** , puis sélectionnez l’onglet **Cohérence** . Examinez le graphe intitulé **Probability of strongly consistent reads based on your workload (see PBS)** .
+Quel est le degré d’éventualité de la cohérence éventuelle ? Pour le cas moyen, pouvons-nous offrir des limites d’obsolescence par rapport à l’historique de version et au moment ? La métrique [**PBS (Probabilistically Bounded Staleness)**](https://pbs.cs.berkeley.edu/) essaie de quantifier la probabilité d’obsolescence et l’affiche sous forme de métrique. Pour afficher la métrique PBS, accédez à votre compte Azure Cosmos DB sur le portail Azure. Ouvrez le volet **Métriques** , puis sélectionnez l’onglet **Cohérence**. Examinez le graphe intitulé **Probability of strongly consistent reads based on your workload (see PBS)** .
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Menu Cohérence dans le portail Azure":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Graphe PBS dans le portail Azure":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

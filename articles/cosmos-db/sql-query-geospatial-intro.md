@@ -3,18 +3,20 @@ title: Données de localisation géospatiales et GeoJSON dans Azure Cosmos DB
 description: Découvrez comment créer des objets spatiaux avec Azure Cosmos DB et l’API SQL.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482823"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336161"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Données de localisation géospatiales et GeoJSON dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article est une introduction aux fonctionnalités géospatiales dans Azure Cosmos DB. Le stockage des données géospatiales et leur accès sont actuellement pris en charge par les comptes d’API SQL Azure Cosmos DB uniquement. Après avoir lu notre documentation sur l’indexation géospatiale, vous serez en mesure de répondre aux questions suivantes :
 
@@ -36,7 +38,7 @@ Les données géospatiales impliquent souvent des requêtes de proximité, comme
 
 Les données spatiales décrivent la position et la forme des objets dans l'espace. Dans la plupart des applications, ils correspondent aux objets sur terre et aux données géospatiales. Les données spatiales peuvent servir à représenter l'emplacement d'une personne, d'un point d'intérêt ou de la limite d'une ville ou un lac.
 
-L’API SQL Azure Cosmos DB prend en charge deux types de données spatiales : les données de type **géométrique** et les données de type **géographique** .
+L’API SQL Azure Cosmos DB prend en charge deux types de données spatiales : les données de type **géométrique** et les données de type **géographique**.
 
 - Le type **géométrique** représente des données dans un système de coordonnées euclidien (plat)
 - Le type **geography** représente des données dans un système de coordonnées de monde sphérique.

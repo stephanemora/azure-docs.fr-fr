@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324997"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ Pour Azure SQL Database, la fonctionnalité de règle de réseau virtuel présen
 
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
   - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
-  - Localement via [ExpressRoute][expressroute-indexmd-744v]
+  - Localement via [ExpressRoute](../../expressroute/index.yml)
 
 ### <a name="considerations-when-using-service-endpoints"></a>Considérations en cas d’utilisation des points de terminaison de service
 
@@ -136,7 +136,7 @@ La technologie PolyBase et l’instruction COPY sont couramment utilisées pour 
    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](../../storage/common/storage-account-upgrade.md).
    > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle** . Attribuez le rôle Azure de **Contributeur aux données blob du stockage** au serveur qui héberge l’instance Azure Synapse Analytics que vous avez enregistrée auprès d'Azure Active Directory (AAD), comme à l'étape 1.
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure de **Contributeur aux données blob du stockage** au serveur qui héberge l’instance Azure Synapse Analytics que vous avez enregistrée auprès d'Azure Active Directory (AAD), comme à l'étape 1.
 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire sur le compte de stockage peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md).
@@ -180,7 +180,7 @@ L’audit d’objets blob transfère des journaux d’audit à votre propre comp
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Ajout d’une règle de pare-feu de réseau virtuel à votre serveur sans activer les points de terminaison de service de réseau virtuel
 
-Il y a longtemps, avant que cette fonctionnalité ne soit améliorée, vous deviez activer les points de terminaison de service VNet avant de pouvoir implémenter une règle de réseau virtuel dynamique dans le pare-feu. Les points de terminaison associaient un sous-réseau/réseau virtuel donné à une base de données dans Azure SQL Database. Depuis janvier 2018, vous pouvez éviter cette opération en définissant l’indicateur **IgnoreMissingVNetServiceEndpoint** .
+Il y a longtemps, avant que cette fonctionnalité ne soit améliorée, vous deviez activer les points de terminaison de service VNet avant de pouvoir implémenter une règle de réseau virtuel dynamique dans le pare-feu. Les points de terminaison associaient un sous-réseau/réseau virtuel donné à une base de données dans Azure SQL Database. Depuis janvier 2018, vous pouvez éviter cette opération en définissant l’indicateur **IgnoreMissingVNetServiceEndpoint**.
 
 La simple définition d’une règle de pare-feu ne permet pas de sécuriser le serveur. Vous devez également activer les points de terminaison de service Vnet pour que la sécurité entre en vigueur. Quand vous activez les points de terminaison de service, votre sous-réseau/réseau virtuel est arrêté pendant qu’il passe de l’état désactivé à l’état activé. Cela est particulièrement vrai dans le contexte de grands réseaux virtuels. Vous pouvez utiliser l’indicateur **IgnoreMissingVNetServiceEndpoint** pour réduire ou éliminer le temps d’arrêt pendant la transition.
 
@@ -210,7 +210,7 @@ L’erreur de connexion 40914 est liée aux *règles de réseau virtuel* , comme
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Le portail peut créer une règle de réseau virtuel
 
-Cette section montre comment utiliser le [portail Azure][http-azure-portal-link-ref-477t] pour créer une *règle de réseau virtuel* dans votre base de données Azure SQL Database. La règle donne l’instruction à votre base de données d’accepter les communications provenant d’un sous-réseau spécifique qui a été marqué comme étant un *point de terminaison de service de réseau virtuel* .
+Cette section montre comment utiliser le [portail Azure][http-azure-portal-link-ref-477t] pour créer une *règle de réseau virtuel* dans votre base de données Azure SQL Database. La règle donne l’instruction à votre base de données d’accepter les communications provenant d’un sous-réseau spécifique qui a été marqué comme étant un *point de terminaison de service de réseau virtuel*.
 
 > [!NOTE]
 > Si vous envisagez d’ajouter un point de terminaison de service aux règles de pare-feu de réseau virtuel de votre serveur, commencez par vérifier que les points de terminaison de service sont activés pour le sous-réseau.
@@ -231,7 +231,7 @@ En interne, les applets de commande PowerShell pour les actions de réseau virtu
 
 Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* de point de terminaison de service de réseau virtuel particulier approprié pour Azure SQL Database.
 
-- Le nom de type de point de terminaison approprié est **Microsoft.Sql** .
+- Le nom de type de point de terminaison approprié est **Microsoft.Sql**.
 - Si votre sous-réseau n’est pas étiqueté avec le nom de type, consultez [Vérifier que votre sous-réseau est un point de terminaison][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
@@ -240,14 +240,14 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 
 1. Connectez-vous au [portail Azure][http-azure-portal-link-ref-477t].
 
-2. Recherchez et sélectionnez **Serveurs SQL** , puis sélectionnez votre serveur. Sous **Sécurité** , sélectionnez **Pare-feux et réseaux virtuels** .
+2. Recherchez et sélectionnez **Serveurs SQL** , puis sélectionnez votre serveur. Sous **Sécurité** , sélectionnez **Pare-feux et réseaux virtuels**.
 
 3. Définissez le contrôle **Autoriser l’accès aux services Azure** sur DÉSACTIVÉ.
 
     > [!IMPORTANT]
     > Si vous laissez le contrôle défini sur ON (Activé), votre serveur accepte les communications en provenance de n’importe quel sous-réseau à l’intérieur de la limite Azure, c’est-à-dire en provenance de l’une des adresses IP reconnues comme celles comprises dans les plages définies pour les centres de données Azure. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure, associée à la fonctionnalité de règle de réseau virtuel de SQL Database, peuvent ensemble réduire votre surface d’exposition de sécurité.
 
-4. Cliquez sur le contrôle **+ Ajouter existant** dans la section **Réseaux virtuels** .
+4. Cliquez sur le contrôle **+ Ajouter existant** dans la section **Réseaux virtuels**.
 
     ![Cliquez sur Ajouter existant (point de terminaison de sous-réseau, en tant que règle SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
@@ -255,7 +255,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 
     > [!TIP]
     > Vous devez inclure le **préfixe d’adresse** correct pour votre sous-réseau. Vous pouvez trouver la valeur correspondante dans le portail.
-    > Accédez à **Toutes les ressources** &gt; **Tous les types** &gt; **Réseaux virtuels** . Le filtre affiche vos réseaux virtuels. Cliquez sur votre réseau virtuel, puis sur **Sous-réseaux** . La colonne **PLAGE D’ADRESSES** contient le préfixe d’adresse nécessaire.
+    > Accédez à **Toutes les ressources** &gt; **Tous les types** &gt; **Réseaux virtuels**. Le filtre affiche vos réseaux virtuels. Cliquez sur votre réseau virtuel, puis sur **Sous-réseaux**. La colonne **PLAGE D’ADRESSES** contient le préfixe d’adresse nécessaire.
 
     ![Renseignez les champs de la nouvelle règle.][image-portal-firewall-create-update-vnet-rule-20-png]
 

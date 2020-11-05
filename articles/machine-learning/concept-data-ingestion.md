@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890169"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323037"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Options d’ingestion des données pour les workflows Azure Machine Learning
 
@@ -33,7 +33,7 @@ L’ingestion des données est le processus dans lequel les données non structu
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) offre une prise en charge native de la surveillance des sources de données et des déclencheurs pour les pipelines d’ingestion des données.  
+[Azure Data Factory](../data-factory/introduction.md) offre une prise en charge native de la surveillance des sources de données et des déclencheurs pour les pipelines d’ingestion des données.  
 
 Le tableau suivant récapitule les avantages et les inconvénients de l’utilisation d’Azure Data Factory pour vos workflows d’ingestion des données.
 
@@ -41,11 +41,11 @@ Le tableau suivant récapitule les avantages et les inconvénients de l’utilis
 ---|---
 Conçu spécifiquement pour extraire, charger et transformer des données.|Offre actuellement un ensemble limité de tâches de pipeline Azure Data Factory. 
 Vous permet de créer des workflows basés sur les données afin d’orchestrer le déplacement et les transformations des données à grande échelle.|Coûteux à construire et à entretenir. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) d’Azure Data Factory.
-Intégré à différents outils Azure comme [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) et [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). | N’exécute pas les scripts en mode natif, et s’appuie plutôt sur un calcul distinct pour l’exécution des scripts. 
+Intégré à différents outils Azure comme [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) et [Azure Functions](../data-factory/control-flow-azure-function-activity.md). | N’exécute pas les scripts en mode natif, et s’appuie plutôt sur un calcul distinct pour l’exécution des scripts. 
 Prend en charge l’ingestion des données déclenchée par la source de données en mode natif.| 
 Les processus de préparation des données et de formation des modèles sont distincts.|
 Capacité de traçabilité des données incorporées pour les dataflows Azure Data Factory.|
-Fournit une [interface utilisateur](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) à faible expérience de code pour les approches sans script. |
+Fournit une [interface utilisateur](../data-factory/quickstart-create-data-factory-portal.md) à faible expérience de code pour les approches sans script. |
 
 Ces étapes et le diagramme suivant illustrent le workflow d’ingestion des données d’Azure Data Factory.
 
@@ -60,7 +60,7 @@ Découvrez comment créer un pipeline d’ingestion de données pour Machine Lea
 
 ## <a name="azure-machine-learning-python-sdk"></a>SDK Python Azure Machine Learning 
 
-Avec le [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/ml), vous pouvez incorporer des tâches d’ingestion des données dans une étape de [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md).
+Avec le [Kit de développement logiciel (SDK) Python](/python/api/overview/azure/ml), vous pouvez incorporer des tâches d’ingestion des données dans une étape de [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
 Le tableau suivant récapitule les avantages et les inconvénients de l’utilisation du Kit de développement logiciel (SDK) et d’une étape de pipelines ML pour les tâches d’ingestion des données.
 

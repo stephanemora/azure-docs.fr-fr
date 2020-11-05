@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: e86be87faf6bb0c58674a15882e52dcef43fe42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66155e5dce00caf73af64fb0b8a4ab75f7c948a7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710974"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316626"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du service Stockage Table Azure
 
@@ -36,7 +36,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 #### <a name="table-storage"></a>Stockage de tables
 
-Ce tableau montre des [métriques de Stockage Table](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+Ce tableau montre des [métriques de Stockage Table](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
 | Métrique | Description |
 | ------------------- | ----------------- |

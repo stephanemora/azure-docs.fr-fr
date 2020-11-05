@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f0c923bcb7df930ed4b1380d487ededc6c160844
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 0fb7dfb24a3c0a0b73b5fb18924f233080f73e80
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743741"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314446"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Former des modèles scikit-learn à l’échelle avec Azure Machine Learning
 
@@ -35,7 +35,7 @@ Exécutez ce code sur l’un de ces environnements :
 
  - Votre propre serveur de notebooks Jupyter
 
-    - [Installer le SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0).
+    - [Installer le SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0).
     - [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
 
 ## <a name="set-up-the-experiment"></a>Configurer l’expérience
@@ -44,7 +44,7 @@ Cette section configure l’expérience de formation via le chargement des packa
 
 ### <a name="initialize-a-workspace"></a>Initialiser un espace de travail
 
-L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
+L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
 
 Créez un objet d’espace de travail à partir du fichier `config.json` créé dans la [section Conditions préalables](#prerequisites).
 
@@ -142,9 +142,9 @@ Quand l’exécution est lancée, elle passe par les phases suivantes :
 
 - **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui stocke cet environnement organisé est utilisée.
 
-- **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
+- **Mise à l’échelle**  : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 
-- **En cours d’exécution** : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
+- **En cours d’exécution**  : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
 
 - **Post-traitement** : le dossier **./outputs** de l’exécution est copié dans l’historique des exécutions.
 
@@ -160,7 +160,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Inscrivez le modèle sur votre espace de travail avec le code suivant. En spécifiant les paramètres `model_framework`, `model_framework_version` et `resource_configuration`, le modèle de déploiement sans code devient disponible. Le modèle de déploiement sans code vous permet de déployer directement votre modèle en tant que service web à partir du modèle inscrit, et l’objet [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py&preserve-view=true) définit la ressource de calcul pour le service web.
+Inscrivez le modèle sur votre espace de travail avec le code suivant. En spécifiant les paramètres `model_framework`, `model_framework_version` et `resource_configuration`, le modèle de déploiement sans code devient disponible. Le modèle de déploiement sans code vous permet de déployer directement votre modèle en tant que service web à partir du modèle inscrit, et l’objet [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?preserve-view=true&view=azure-ml-py) définit la ressource de calcul pour le service web.
 
 ```Python
 from azureml.core import Model
@@ -179,7 +179,7 @@ Le modèle que vous venez d’inscrire peut être déployé exactement de la mê
 
 ### <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
 
-Au lieu de la route de déploiement traditionnelle, vous pouvez également utiliser la fonctionnalité de déploiement sans code (préversion) pour scikit-learn. Le modèle de déploiement sans code est pris en charge pour tous les types de modèles scikit-learn intégrés. En inscrivant votre modèle comme indiqué ci-dessus avec les paramètres `model_framework`, `model_framework_version` et `resource_configuration`, vous pouvez simplement utiliser la fonction statique [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) pour déployer votre modèle.
+Au lieu de la route de déploiement traditionnelle, vous pouvez également utiliser la fonctionnalité de déploiement sans code (préversion) pour scikit-learn. Le modèle de déploiement sans code est pris en charge pour tous les types de modèles scikit-learn intégrés. En inscrivant votre modèle comme indiqué ci-dessus avec les paramètres `model_framework`, `model_framework_version` et `resource_configuration`, vous pouvez simplement utiliser la fonction statique [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) pour déployer votre modèle.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

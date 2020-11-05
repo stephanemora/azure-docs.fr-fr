@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338609"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322832"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Déployer un service web Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (classique) vous permet de générer et de tester une solution d’analytique prédictive. Vous pouvez ensuite déployer la solution comme un service web.
@@ -35,8 +35,8 @@ La saisie pour BES ressemble à la saisie de données utilisée par RRS. La prin
 D'un point de vue très général, vous déployez votre modèle en trois étapes :
 
 * **[Créez une expérience d’entraînement]**  : dans Studio (classique), vous pouvez entraîner et tester un modèle d’analytique prédictive à l’aide de données d’entraînement que vous fournissez, en utilisant un grand ensemble d’algorithmes Machine Learning intégrés.
-* **[Convertissez-la en une expérience prédictive]**: lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
-* **Déployez** en tant que **[nouveau service web ]** ou **[service web classique]** : lorsque vous déployez votre expérience prédictive en tant que service web Azure, les utilisateurs peuvent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
+* **[Convertissez-la en une expérience prédictive]** : lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
+* **Déployez** en tant que **[nouveau service web]** ou **[service web classique]** : lorsque vous déployez votre expérience prédictive en tant que service web Azure, les utilisateurs peuvent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
 
 ## <a name="create-a-training-experiment"></a>Créez une expérience d'apprentissage
 
@@ -67,7 +67,7 @@ Le processus de conversion d’une expérience d’apprentissage en expérience 
 ![Convertir une expérience de notation](./media/publish-a-machine-learning-web-service/figure-1.png)
 
 ### <a name="set-up-web-service-button"></a>Définir le bouton de service web
-Après avoir exécuté votre expérience (cliquez sur **EXÉCUTER** en bas du canevas de l’expérience), cliquez sur **Configurer le service web** (sélectionnez l’option **Service web prédictif**). **Configurer le service web** effectue les trois étapes de conversion de votre expérience de formation en une expérience prédictive :
+Après avoir exécuté votre expérience (cliquez sur **EXÉCUTER** en bas du canevas de l’expérience), cliquez sur **Configurer le service web** (sélectionnez l’option **Service web prédictif** ). **Configurer le service web** effectue les trois étapes de conversion de votre expérience de formation en une expérience prédictive :
 
 1. Il enregistre votre modèle entraîné dans la section **Modèles entraînés** de la palette du module (à gauche du canevas de l’expérience). Il remplace ensuite l’algorithme de Machine Learning et les modules [Train Model][train-model] par le modèle entraîné enregistré.
 2. Il analyse votre expérience et supprime les modules qui ont clairement été utilisés exclusivement pour la formation et ne sont plus nécessaires.
@@ -89,11 +89,11 @@ Lorsque vous convertissez cette expérience de formation en une expérience pré
   
     Notamment, cet exemple de jeu de données peut avoir des valeurs manquantes : un module [Clean Missing Data][clean-missing-data] a donc été inclus pour les gérer. En outre, l’exemple de jeu de données comprend des colonnes qui ne sont pas nécessaires pour effectuer l’apprentissage du modèle. Par conséquent, un module [Select Columns in Dataset][select-columns] a été inclus afin d’exclure ces colonnes supplémentaires du flux de données. Si vous savez qu’aucune donnée ne manque parmi les données qui seront soumises à des fins de calcul de la notation via le service web, vous pouvez retirer le module [Clean Missing Data][clean-missing-data]. Toutefois, étant donné qu’il permet de définir les colonnes de données attendues par le modèle entraîné, le module [Select Columns in Dataset][select-columns] doit être conservé.
 
-* **Train** : ces modules sont utilisés pour former le modèle. Lorsque vous cliquez sur **Configurer le service web**, ces modules sont remplacés par un module unique qui contient le modèle entraîné. Ce nouveau module est enregistré dans la section **Modèles formés** de la palette des modules.
+* **Train** : ces modules sont utilisés pour former le modèle. Lorsque vous cliquez sur **Configurer le service web** , ces modules sont remplacés par un module unique qui contient le modèle entraîné. Ce nouveau module est enregistré dans la section **Modèles formés** de la palette des modules.
 
 * **Score** : dans cet exemple, le module [Split Data][split] est utilisé pour diviser le flux de données en données de test, d’une part, et données d’apprentissage, d’autre part. Dans l’expérience prédictive, nous n’effectuons plus l’apprentissage ; nous pouvons donc supprimer [Split Data][split]. De même, le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas nécessaires à l’expérience prédictive. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
 
-Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Définir un service Web**:
+Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Définir un service Web** :
 
 ![Expérience prédictive convertie](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -138,7 +138,7 @@ Les étapes suivantes décrivent le déploiement d’une expérience prédictive
 
 À présent que l’expérience prédictive a été correctement préparée, vous pouvez la déployer comme nouveau (basé sur Resource Manager) service web Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
 
-Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l’expérience. Une fois l’expérience terminée, cliquez sur **Déployer le service web**, puis sélectionnez **Déployer le service web [Nouveau]** .  La page de déploiement du portail de service web Machine Learning Studio (classique) s’ouvre.
+Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l’expérience. Une fois l’expérience terminée, cliquez sur **Déployer le service web** , puis sélectionnez **Déployer le service web [Nouveau]** .  La page de déploiement du portail de service web Machine Learning Studio (classique) s’ouvre.
 
 > [!NOTE] 
 > Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
@@ -148,8 +148,8 @@ Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas d
 Sur la page de l’expérience de déploiement, entrez le nom du service web.
 Sélectionnez un plan de tarification. Si vous disposez d’un plan de tarification existant, vous pouvez le sélectionner. Sinon, vous devez créer un nouveau plan de tarification pour le service.
 
-1. Dans la liste déroulante **Plan tarifaire**, sélectionnez un plan existant ou choisissez l’option **Select new plan** (Sélectionner un nouveau plan).
-2. Dans **Plan Name**, (Nom du plan), tapez un nom qui identifiera le plan sur votre facture.
+1. Dans la liste déroulante **Plan tarifaire** , sélectionnez un plan existant ou choisissez l’option **Select new plan** (Sélectionner un nouveau plan).
+2. Dans **Plan Name** , (Nom du plan), tapez un nom qui identifiera le plan sur votre facture.
 3. Sélectionnez un des **niveaux de plans mensuels**. Les niveaux de plan s’appliquent par défaut aux plans de votre région par défaut et votre service web est déployé dans cette région.
 
 Cliquez sur **Déployer** pour ouvrir la page **Démarrage rapide** de votre service web.
@@ -164,23 +164,23 @@ Pour tester votre nouveau service web, cliquez sur **Tester le service web** dan
 
 La page de test RRS affiche les entrées, les sorties et tous les paramètres globaux que vous avez définis pour l’expérience. Pour tester le service web, vous pouvez entrer manuellement les valeurs appropriées pour les entrées ou fournir un fichier au format CSV contenant les valeurs de test.
 
-Pour tester le service en tant que Service de requête-réponse (RRS), en mode d’affichage liste, entrez les valeurs appropriées pour les entrées et cliquez sur **Test Request-Response**(Tester la requête-réponse). Vos résultats de prédiction s’affichent dans la colonne de sortie à gauche de la page.
+Pour tester le service en tant que Service de requête-réponse (RRS), en mode d’affichage liste, entrez les valeurs appropriées pour les entrées et cliquez sur **Test Request-Response** (Tester la requête-réponse). Vos résultats de prédiction s’affichent dans la colonne de sortie à gauche de la page.
 
 ![Entrer les valeurs appropriées pour tester votre service web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Pour tester votre service d’exécution de lots (BES), cliquez sur **Lot**. Sur la page de test BES, cliquez sur Parcourir en dessous de votre entrée et sélectionnez un fichier CSV contenant les exemples de valeurs appropriés. Si vous n’avez pas de fichier CSV et que vous avez créé votre expérience prédictive à l’aide de Machine Learning Studio (classique), vous pouvez télécharger le jeu de données à utiliser pour votre expérience prédictive.
 
-Pour télécharger le jeu de données, ouvrez Machine Learning Studio (classique). Ouvrez votre expérience prédictive et cliquez avec le bouton droit sur l’entrée correspondant à votre expérience. Dans le menu contextuel, sélectionnez **Jeu de données**, puis **Télécharger**.
+Pour télécharger le jeu de données, ouvrez Machine Learning Studio (classique). Ouvrez votre expérience prédictive et cliquez avec le bouton droit sur l’entrée correspondant à votre expérience. Dans le menu contextuel, sélectionnez **Jeu de données** , puis **Télécharger**.
 
 ![Télécharger votre jeu de données à partir du canevas Studio (classique)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
-Cliquez sur **Test**. L’état de votre travail de traitement par lots s’affiche à droite sous **Test Batch Jobs**(Travaux de test de traitement par lots).
+Cliquez sur **Test**. L’état de votre travail de traitement par lots s’affiche à droite sous **Test Batch Jobs** (Travaux de test de traitement par lots).
 
 ![Tester votre travail d'exécution de lots avec le portail de services web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
-Dans la page **CONFIGURATION**, vous pouvez modifier la description et le titre, mettre à jour la clé du compte de stockage et activer les exemples de données pour votre service web.
+Dans la page **CONFIGURATION** , vous pouvez modifier la description et le titre, mettre à jour la clé du compte de stockage et activer les exemples de données pour votre service web.
 
 ![Configurer votre service web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
@@ -194,7 +194,7 @@ Pour plus d’informations sur l’accès à un service web Machine Learning Stu
 
 ### <a name="manage-your-new-web-service"></a>Gestion de votre nouveau service web
 
-Vous pouvez gérer vos nouveaux services web par le biais du portail des services web Machine Learning Studio (classique). Dans la [page principale du portail](https://services.azureml.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
+Vous pouvez gérer vos nouveaux services web par le biais du portail des services web Machine Learning Studio (classique). Dans la [page principale du portail](https://services.azureml.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log** (Journal de requête de traitement par lots).
 
 ### <a name="deploy-your-new-web-service-to-multiple-regions"></a><a id="multi-region"></a> Déployer votre nouveau service web dans plusieurs régions
 
@@ -211,7 +211,7 @@ La tarification est spécifique à chaque région et vous devez donc définir un
 5. Dans la liste déroulante **Région** , sélectionnez une région pour le nouveau plan. Les options du plan de la région sélectionnée apparaissent dans la section **Plan Options** (Option du plan) de la page.
 6. Dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources pour le plan. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. Dans **Plan Name** (Nom du plan), tapez le nom du plan.
-8. Sous **Plan Options**(Options du plan), cliquez sur le niveau de facturation du nouveau plan.
+8. Sous **Plan Options** (Options du plan), cliquez sur le niveau de facturation du nouveau plan.
 9. Cliquez sur **Créer**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Déployer le service web dans une autre région
@@ -219,8 +219,8 @@ La tarification est spécifique à chaque région et vous devez donc définir un
 1. Sur la page des services web Microsoft Azure Machine Learning, cliquez sur l’option de menu **Services web**.
 2. Sélectionnez le service web que vous déployez dans une nouvelle région.
 3. Cliquez sur **Copier**.
-4. Dans **Nom du service web**, tapez le nouveau nom du service web.
-5. Dans **Description du service web**, tapez une description du service web.
+4. Dans **Nom du service web** , tapez le nouveau nom du service web.
+5. Dans **Description du service web** , tapez une description du service web.
 6. Dans la liste déroulante **Abonnement** , sélectionnez l’abonnement dans lequel résidera le nouveau service web.
 7. Dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources pour le service web. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. Dans la liste déroulante **Région** , sélectionnez la région dans laquelle vous voulez déployer le service web.
@@ -248,9 +248,9 @@ Pour tester le service d’exécution de lots, cliquez sur le lien d’aperçu *
 
 ![Test du service web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Dans la page **CONFIGURATION**, vous pouvez modifier le nom d’affichage du service et lui donner une description. Le nom et la description s’affichent dans le [portail Azure](https://portal.azure.com/) où vous gérez vos services web.
+Dans la page **CONFIGURATION** , vous pouvez modifier le nom d’affichage du service et lui donner une description. Le nom et la description s’affichent dans le [portail Azure](https://portal.azure.com/) où vous gérez vos services web.
 
-Vous pouvez fournir une description de vos données d’entrée, de vos données de sortie et des paramètres de service web en saisissant une chaîne pour chaque colonne sous **SCHÉMA D’ENTRÉE**, **SCHÉMA DE SORTIE** et **PARAMÈTRE DU SERVICE WEB**. Ces descriptions sont utilisées dans la documentation relative à l'exemple de code fournie pour le service web.
+Vous pouvez fournir une description de vos données d’entrée, de vos données de sortie et des paramètres de service web en saisissant une chaîne pour chaque colonne sous **SCHÉMA D’ENTRÉE** , **SCHÉMA DE SORTIE** et **PARAMÈTRE DU SERVICE WEB**. Ces descriptions sont utilisées dans la documentation relative à l'exemple de code fournie pour le service web.
 
 Vous pouvez activer la journalisation pour diagnostiquer toute défaillance que vous observez lors de l’accès à votre service web. Pour plus d’informations, consultez [Activer la journalisation pour les services web Machine Learning Studio (classique)](web-services-logging.md).
 
@@ -277,12 +277,12 @@ Vous pouvez apporter des modifications à votre service web, par exemple mettre 
 
 Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine utilisée pour déployer le service web et effectuez une copie modifiable en cliquant sur **ENREGISTRER SOUS**. Effectuez vos modifications, puis cliquez sur **Déployer le service web**.
 
-Étant donné que vous avez déjà déployé cette expérience, une invite vous demande si vous souhaitez remplacer (service web classique) ou mettre à jour (nouveau service web) le service existant. Si vous cliquez sur **OUI** ou **Mettre à jour**, le service web existant est arrêté et la nouvelle expérience prédictive est déployée à la place.
+Étant donné que vous avez déjà déployé cette expérience, une invite vous demande si vous souhaitez remplacer (service web classique) ou mettre à jour (nouveau service web) le service existant. Si vous cliquez sur **OUI** ou **Mettre à jour** , le service web existant est arrêté et la nouvelle expérience prédictive est déployée à la place.
 
 > [!NOTE]
 > Si vous avez apporté des modifications de configuration dans le service web d'origine, par exemple, si vous saisissez un nouveau nom d'affichage ou une description, vous devrez saisir ces valeurs à nouveau.
 
-Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d’informations, consultez [Réentraîner les modèles Machine Learning Studio (classique) programmatiquement](/azure/machine-learning/studio/retrain-machine-learning-model).
+Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d’informations, consultez [Réentraîner les modèles Machine Learning Studio (classique) programmatiquement](./retrain-machine-learning-model.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -305,11 +305,11 @@ Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’ai
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

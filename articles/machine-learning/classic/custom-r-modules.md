@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 7b5881651312e69ed840eb50388d497258ddeb27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec6a3304ffe035e7ac206e96f7666e3ba1877d9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362450"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322781"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Définir des modules R personnalisés pour Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Cette rubrique explique comment créer et déployer un module R Studio personnalisé (classique). Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
 
@@ -38,7 +38,7 @@ Des fichiers auxiliaires supplémentaires peuvent également être inclus dans l
 Cet exemple explique comment créer les fichiers requis par un module R personnalisé, les empaqueter dans un fichier .zip, puis enregistrer le module dans l’espace de travail Machine Learning. Les exemples de fichiers et de package zip sont disponibles en téléchargement depuis le [fichier CustomAddRows.zip](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>Le fichier source
-Prenons l’exemple d’un module **Custom Add Rows**, qui modifie l’implémentation standard du module **Add Rows** utilisé pour concaténer des lignes (observations) à partir de deux jeux de données (trames de données). Le module **Add Rows** standard ajoute les lignes du deuxième jeu de données d’entrée à la fin du premier, au moyen de l’algorithme `rbind`. De la même manière, la fonction `CustomAddRows` personnalisée accepte deux jeux de données, mais également un paramètre d’échange booléen en entrée supplémentaire. Si le paramètre d’échange a la valeur **FALSE**, il renvoie le même jeu de données que l’implémentation standard. Par contre, s’il a la valeur **TRUE**, la fonction ajoute des lignes du premier jeu de données d’entrée à la fin du deuxième jeu de données. Le fichier CustomAddRows.R qui contient l’implémentation de la fonction R `CustomAddRows` exposée par le module **Custom Add Rows** contient le code R suivant.
+Prenons l’exemple d’un module **Custom Add Rows** , qui modifie l’implémentation standard du module **Add Rows** utilisé pour concaténer des lignes (observations) à partir de deux jeux de données (trames de données). Le module **Add Rows** standard ajoute les lignes du deuxième jeu de données d’entrée à la fin du premier, au moyen de l’algorithme `rbind`. De la même manière, la fonction `CustomAddRows` personnalisée accepte deux jeux de données, mais également un paramètre d’échange booléen en entrée supplémentaire. Si le paramètre d’échange a la valeur **FALSE** , il renvoie le même jeu de données que l’implémentation standard. Par contre, s’il a la valeur **TRUE** , la fonction ajoute des lignes du premier jeu de données d’entrée à la fin du deuxième jeu de données. Le fichier CustomAddRows.R qui contient l’implémentation de la fonction R `CustomAddRows` exposée par le module **Custom Add Rows** contient le code R suivant.
 
 ```r
 CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
@@ -91,12 +91,12 @@ Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learni
 </Module>
 ```
 
-Il est essentiel de noter que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre aux noms des paramètres de la fonction du code R dans le fichier CustomAddRows.R À L’EXACT (*dataset1*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Language** doit correspondre au nom de la fonction dans le script R À L’EXACT (*CustomAddRows* dans l’exemple). 
+Il est essentiel de noter que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre aux noms des paramètres de la fonction du code R dans le fichier CustomAddRows.R À L’EXACT ( *dataset1* , *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Language** doit correspondre au nom de la fonction dans le script R À L’EXACT ( *CustomAddRows* dans l’exemple). 
 
 En revanche, l’attribut **id** de l’élément **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés *dans le même ordre* que celui dans lequel les éléments **Sorties** sont déclarés dans le fichier XML.
 
 ### <a name="package-and-register-the-module"></a>Empaqueter et inscrire le module
-Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml*, puis compressez les deux fichiers ensemble dans un fichier *CustomAddRows.zip*.
+Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml* , puis compressez les deux fichiers ensemble dans un fichier *CustomAddRows.zip*.
 
 Pour les enregistrer dans votre espace de travail Machine Learning, accédez à votre espace de travail dans Azure Machine Learning Studio (classique), cliquez sur le bouton **+NOUVEAU** situé dans la partie inférieure de la fenêtre et choisissez **MODULE -> À PARTIR DU PACKAGE ZIP** pour charger le nouveau module **Custom Add Rows**.
 
@@ -140,7 +140,7 @@ L’élément **Language** dans votre fichier de définition XML est utilisé po
 Les ports d’entrée et de sortie d’un module personnalisé sont spécifiés dans les éléments enfants de la section **Ports** du fichier de définition XML. L’ordre de ces éléments détermine la disposition rencontrée par les utilisateurs (expérience utilisateur). Le premier enfant **input** ou **output** répertorié dans l’élément **Ports** du fichier XML devient le port d’entrée le plus à gauche dans l’expérience utilisateur Machine Learning.
 Chaque port d’entrée et de sortie peut avoir un élément enfant **Description** facultatif qui spécifie le texte affiché lorsque vous passez le curseur de la souris sur le port dans l’interface utilisateur de Machine Learning.
 
-**Règles relatives aux ports**:
+**Règles relatives aux ports** :
 
 * Le nombre maximum de **ports d’entrée et de sortie** est de 8 pour chacun.
 
@@ -156,7 +156,7 @@ Les ports d’entrée vous permettent de transmettre des données à votre fonct
 ```
 
 L’attribut **id** associé à chaque port d’entrée **DataTable** doit avoir une valeur unique qui doit correspondre au paramètre nommé correspondant dans votre fonction R.
-Pour les ports **DataTable** facultatifs qui ne sont pas transmis comme entrée d’une expérience, la valeur **NULL** est transmise à la fonction R et les ports zip facultatifs sont ignorés si l’entrée n’est pas connectée. L’attribut **isOptional** est facultatif pour les types **DataTable** et **Zip** ; il a la valeur *false* par défaut.
+Pour les ports **DataTable** facultatifs qui ne sont pas transmis comme entrée d’une expérience, la valeur **NULL** est transmise à la fonction R et les ports zip facultatifs sont ignorés si l’entrée n’est pas connectée. L’attribut **isOptional** est facultatif pour les types **DataTable** et **Zip**  ; il a la valeur *false* par défaut.
 
 **Zip :** modules personnalisés pouvant accepter un fichier .zip en entrée. Cette entrée est décompactée et placée dans le répertoire de travail R de votre fonction.
 
@@ -188,7 +188,7 @@ Pour les modules R personnalisés, l’ID d’un port Zip ne doit pas nécessair
 
 Pour les sorties dans des modules personnalisés R, la valeur de l’attribut **id** ne doit pas forcément correspondre à un élément du script R, mais elle doit être unique. Pour une sortie de module unique, la valeur de retour de la fonction R doit être un *data.frame*. Pour créer une sortie portant sur plusieurs objets qui présentent un type de données pris en charge, vous devez spécifier les ports de sortie appropriés dans le fichier de définition XML et les objets doivent être renvoyés dans une liste. Les objets de la sortie sont affectés à des ports de sortie, de gauche à droite, selon l’ordre dans lequel les objets sont placés dans la liste renvoyée.
 
-Par exemple, si vous souhaitez modifier le module **Custom Add Rows** pour sortir les deux jeux de données d’origine, *dataset1* et *dataset2*, en plus du nouveau jeu de données joint dataset, *dataset* (dans l’ordre suivant, de gauche à droite : *dataset*, *dataset1*, *dataset2*), vous devez définir les ports de sortie dans le fichier CustomAddRows.xml comme suit :
+Par exemple, si vous souhaitez modifier le module **Custom Add Rows** pour sortir les deux jeux de données d’origine, *dataset1* et *dataset2* , en plus du nouveau jeu de données joint dataset, *dataset* (dans l’ordre suivant, de gauche à droite : *dataset* , *dataset1* , *dataset2* ), vous devez définir les ports de sortie dans le fichier CustomAddRows.xml comme suit :
 
 ```xml
 <Ports> 
@@ -221,7 +221,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 } 
 ```
 
-**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization*, qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de ports de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
+**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* , qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de ports de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type**  :
 
 ```xml
 <Output id="deviceOutput" name="View Port" type="Visualization">
@@ -237,12 +237,12 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 * La valeur de l’attribut **type** de l’élément **Output** doit être *Visualization*.
 
 ### <a name="arguments"></a>Arguments
-Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments** . Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Comme pour les éléments **Ports**, les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre.
+Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments** . Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Comme pour les éléments **Ports** , les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre.
 Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties** . Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge dans la section suivante. Pour les arguments dont la propriété **isOptional** est définie sur **« true »** , l’utilisateur n’a pas à entrer de valeur. Si aucune valeur n’est fournie à l’argument, celui-ci n’est pas transmis à la fonction de point d’entrée. Les arguments de la fonction de point d’entrée qui sont facultatifs doivent être gérés explicitement par la fonction, par exemple se voir attribuer la valeur NULL par défaut dans la définition de fonction de point d’entrée. Un argument facultatif applique uniquement les autres contraintes d’argument, par exemple min ou max, si une valeur est fournie par l’utilisateur.
 Comme dans le cas des entrées et sorties, il est essentiel que chaque paramètre soit associé à une valeur d’ID unique. Dans notre exemple de démarrage rapide, l’ID/paramètre associé était *swap*.
 
 ### <a name="arg-element"></a>Élément Arg
-Un paramètre de module est défini à l’aide de l’élément enfant **Arg** de la section **Arguments** du fichier de définition XML. Comme dans le cas des éléments enfants de la section **Ports**, l’ordre des paramètres de la section **Arguments** définit la disposition rencontrée dans l’expérience utilisateur. Les paramètres apparaissent de haut en bas dans l’interface utilisateur dans le même ordre que celui dans lequel ils sont définis dans le fichier XML. Les types pris en charge par Machine Learning pour les paramètres sont répertoriés ici. 
+Un paramètre de module est défini à l’aide de l’élément enfant **Arg** de la section **Arguments** du fichier de définition XML. Comme dans le cas des éléments enfants de la section **Ports** , l’ordre des paramètres de la section  **Arguments** définit la disposition rencontrée dans l’expérience utilisateur. Les paramètres apparaissent de haut en bas dans l’interface utilisateur dans le même ordre que celui dans lequel ils sont définis dans le fichier XML. Les types pris en charge par Machine Learning pour les paramètres sont répertoriés ici. 
 
 **int** : paramètre de type entier (32 bits).
 
@@ -253,7 +253,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 </Arg>
 ```
 
-* *Propriétés facultatives* : **min**, **max**, **default** et **isOptional**
+* *Propriétés facultatives*  : **min** , **max** , **default** et **isOptional**
 
 **double** : paramètre de type double.
 
@@ -264,7 +264,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 </Arg>
 ```
 
-* *Propriétés facultatives* : **min**, **max**, **default** et **isOptional**
+* *Propriétés facultatives*  : **min** , **max** , **default** et **isOptional**
 
 **bool** : paramètre booléen représenté par une case à cocher dans l’expérience utilisateur.
 
@@ -275,9 +275,9 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 </Arg>
 ```
 
-* *Propriétés facultatives* : **default**. False si non défini
+* *Propriétés facultatives*  : **default**. False si non défini
 
-**string**: chaîne standard
+**string** : chaîne standard
 
 ```xml
 <Arg id="stringValue1" name="My string Param" type="string">
@@ -286,9 +286,9 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 </Arg>    
 ```
 
-* *Propriétés facultatives* : **default** et **isOptional**
+* *Propriétés facultatives*  : **default** et **isOptional**
 
-**ColumnPicker**: paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes sont sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées. 
+**ColumnPicker** : paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes sont sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées. 
 
 ```xml
 <Arg id="colset" name="Column set" type="ColumnPicker">      
@@ -297,8 +297,8 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 </Arg>
 ```
 
-* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
-* *Propriétés facultatives*:
+* *Propriétés obligatoires*  : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
+* *Propriétés facultatives* :
   
   * **allowedTypes**. Filtre les types de colonnes que vous pouvez choisir. Les valeurs valides sont les suivantes : 
     
@@ -334,7 +334,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
     * AllScore
     * Tous
 
-**DropDown**: liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’**id** de chaque **Item** doit être unique et être une variable R valide. La valeur **name** d’un **Item** est à la fois le texte affiché et la valeur transmise à la fonction R.
+**DropDown** : liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’ **id** de chaque **Item** doit être unique et être une variable R valide. La valeur **name** d’un **Item** est à la fois le texte affiché et la valeur transmise à la fonction R.
 
 ```xml
 <Arg id="color" name="Color" type="DropDown">
@@ -347,8 +347,8 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 </Arg>    
 ```
 
-* *Propriétés facultatives*:
-  * **default** : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Item**.
+* *Propriétés facultatives* :
+  * **default**  : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Item**.
 
 ### <a name="auxiliary-files"></a>Fichiers auxiliaires
 Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. Toutes les structures de répertoire présentes sont conservées. Cela signifie que l'approvisionnement du fichier fonctionne de la même façon en local et lors de l'exécution d'Azure Machine Learning Studio (classique). 
@@ -394,4 +394,3 @@ L’environnement d’exécution du script R utilise la même version de R que l
 
 * Système de fichiers non persistant : les fichiers écrits lorsque le module personnalisé est exécuté ne sont pas persistants sur plusieurs exécutions du même module.
 * Pas d’accès réseau.
-

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628675"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325419"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 
@@ -42,13 +42,13 @@ Dans votre espace de travail Azure Machine Learning, créez un bloc-notes Jupyte
 Pour créer un bloc-notes : 
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com), ouvrez votre espace de travail.
-1. Sur le côté gauche, sélectionnez **Bloc-notes** . 
-1. Sélectionnez l’icône **Créer un fichier** dans la section **Mes fichiers** au-dessus de la liste **Fichiers utilisateur** .
+1. Sur le côté gauche, sélectionnez **Bloc-notes**. 
+1. Sélectionnez l’icône **Créer un fichier** dans la section **Mes fichiers** au-dessus de la liste **Fichiers utilisateur**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Créer un fichier":::
 
 1. Nommez le fichier. 
-1. Pour Fichiers Jupyter Notebook, sélectionnez le type de fichier **Bloc-note** .
+1. Pour Fichiers Jupyter Notebook, sélectionnez le type de fichier **Bloc-note**.
 1. Sélectionnez un répertoire de fichiers.
 1. Sélectionnez **Create** (Créer).
 
@@ -75,16 +75,16 @@ Vous pouvez accéder à toutes les opérations Git à l’aide d’une fenêtre 
 Pour accéder au terminal :
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com), ouvrez votre espace de travail.
-1. Sur le côté gauche, sélectionnez **Bloc-notes** .
+1. Sur le côté gauche, sélectionnez **Bloc-notes**.
 1. Sélectionnez un bloc-notes dans la section **Fichiers utilisateur** sur le côté gauche.  Si aucun bloc-notes ne s’y trouve, commencez par [créer un bloc-notes](#create).
 1. Sélectionnez ou créez une cible de **calcul** , puis attendez qu’elle s’exécute.
-1. Sélectionnez l’icône **Ouvrir le terminal** .
+1. Sélectionnez l’icône **Ouvrir le terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Créer un fichier":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Ouvrir le terminal":::
 
-1. Si vous ne voyez pas l’icône, sélectionnez les points de suspension ( **...** ) à droite de la cible de calcul, puis choisissez **Ouvrir le terminal** .
+1. Si vous ne voyez pas l’icône, sélectionnez les points de suspension ( **...** ) à droite de la cible de calcul, puis choisissez **Ouvrir le terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Créer un fichier":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Ouvrir le terminal à partir de...":::
 
 
 Apprenez-en davantage sur le [clonage des dépôts Git dans le système de fichiers de votre espace de travail](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
@@ -114,9 +114,9 @@ Vous pouvez également lancer Jupyter ou JupyterLab à partir de la barre d’ou
 Utilisez le mode focus pour développer votre affichage actuel afin de pouvoir vous concentrer sur vos onglets actifs. Le mode focus masque l’explorateur de fichiers Notebooks.
 
 1. Dans la barre d’outils de la fenêtre du terminal, sélectionnez **Mode focus** pour activer le mode focus. En fonction de la largeur de la fenêtre, il peut se trouver sous l’élément de menu **…** dans la barre d’outils.
-1. En mode focus, revenez à l’affichage standard en sélectionnant **Affichage standard** .
+1. En mode focus, revenez à l’affichage standard en sélectionnant **Affichage standard**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Créer un fichier":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Activer/désactiver le mode focus et l’affichage standard":::
 
 
 ### <a name="use-intellisense"></a>Utiliser IntelliSense
@@ -136,18 +136,18 @@ Au cours de la création d’un notebook, vous récupérez généralement les ce
 1. Exécutez toutes les cellules de votre notebook.
 1. Sélectionnez la cellule qui contient le code que vous souhaitez que le nouveau notebook exécute. Par exemple, le code qui soumet une expérience ou le code qui inscrit un modèle.
 1. Sélectionnez l’icône **Gather (Assembler)** qui apparaît dans la barre d’outils de la cellule.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Créer un fichier":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Capture d’écran : sélectionner l’icône Gather (Assembler)":::
 1. Entrez le nom de votre nouveau notebook « assemblé ».  
 
 Le nouveau notebook contient uniquement des cellules de code, ainsi que toutes les cellules requises pour produire les mêmes résultats que ceux obtenus dans la cellule que vous avez sélectionnée pour l’assemblage.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Enregistrement et point de contrôle d’un bloc-notes
 
-Azure Machine Learning crée un fichier de point de contrôle lorsque vous créez un fichier *ipynb* .
+Azure Machine Learning crée un fichier de point de contrôle lorsque vous créez un fichier *ipynb*.
 
 Dans la barre d’outils du bloc-notes, sélectionnez le menu, puis **Fichier&gt;Enregistrer et effectuer un point de contrôle** pour enregistrer manuellement le bloc-notes et ajouter un fichier de point de contrôle associé au bloc-notes.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Créer un fichier":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Capture d’écran de l’outil d’enregistrement dans la barre d’outils du bloc-notes":::
 
 Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes. L’enregistrement automatique met à jour uniquement le fichier *ipynb* initial, et non le fichier de point de contrôle.
  
@@ -180,7 +180,7 @@ Vous *pouvez* supprimer des blocs-notes **Fichiers utilisateur** de l’une des 
 Pour exécuter une expérience à partir d’un bloc-notes, vous devez d’abord vous connecter à une [instance de calcul](concept-compute-instance.md) en cours d’exécution. Si vous n’avez pas d’instance de calcul, procédez comme suit pour en créer une : 
 
 1. Sélectionnez **+** dans la barre d’outils du bloc-notes. 
-2. Nommez l’instance de calcul, puis choisissez une **taille de machine virtuelle** . 
+2. Nommez l’instance de calcul, puis choisissez une **taille de machine virtuelle**. 
 3. Sélectionnez **Create** (Créer).
 4. L’instance de calcul est automatiquement connectée au bloc-notes et vous pouvez maintenant exécuter vos cellules.
 
@@ -188,7 +188,7 @@ Vous seul pouvez voir et utiliser les instances de calcul que vous créez.  Vos 
 
 ### <a name="view-logs-and-output"></a>Afficher les journaux et la sortie
 
-Utilisez des [widgets de bloc-notes](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) pour afficher la progression de l’exécution et les journaux. Un widget est asynchrone et fournit des mises à jour jusqu’à ce que l’apprentissage se termine. Les widgets d’Azure Machine Learning sont également pris en charge dans Jupyter et JupterLab.
+Utilisez des [widgets de bloc-notes](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) pour afficher la progression de l’exécution et les journaux. Un widget est asynchrone et fournit des mises à jour jusqu’à ce que l’apprentissage se termine. Les widgets d’Azure Machine Learning sont également pris en charge dans Jupyter et JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Modifier l’environnement du bloc-notes
 

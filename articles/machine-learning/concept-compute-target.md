@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841943"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322283"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -52,9 +52,9 @@ Pour effectuer l’inférence, Azure Machine Learning crée un conteneur Docker 
     * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
     * Azure Functions (préversion). Les déploiements dans Azure Functions reposent uniquement sur Azure Machine Learning pour générer le conteneur Docker. À partir de là, il est déployé à l’aide d’Azure Functions. Pour plus d’informations, consultez [Déployer un modèle Machine Learning sur Azure Functions (préversion)](how-to-deploy-functions.md).
 
-* En tant que point de terminaison d’_inférence en lots_ utilisé pour traiter occasionnellement des lots de données. L’inférence en lots utilise des [clusters de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md).
+* En tant que point de terminaison d’ _inférence en lots_ utilisé pour traiter occasionnellement des lots de données. L’inférence en lots utilise des [clusters de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
-* Vers un _appareil IoT_ (préversion). Les déploiements vers un appareil IoT reposent uniquement sur Azure Machine Learning pour générer le conteneur Docker. À partir de là, il est déployé à l’aide d’Azure IoT Edge. Pour plus d’informations, consultez [Déployer en tant que module IoT Edge (préversion)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* Vers un _appareil IoT_ (préversion). Les déploiements vers un appareil IoT reposent uniquement sur Azure Machine Learning pour générer le conteneur Docker. À partir de là, il est déployé à l’aide d’Azure IoT Edge. Pour plus d’informations, consultez [Déployer en tant que module IoT Edge (préversion)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Découvrez [où et comment déployer votre modèle sur une cible de calcul](how-to-deploy-and-where.md).
 
@@ -89,7 +89,7 @@ Une fois créées, ces ressources de calcul font automatiquement partie de votre
 
 ### <a name="supported-vm-series-and-sizes"></a>Tailles et séries de machine virtuelle prises en charge
 
-Lorsque vous sélectionnez une taille de nœud pour une ressource de calcul managée dans Azure Machine Learning, vous pouvez choisir parmi les tailles de machines virtuelles disponibles dans Azure. Azure propose une gamme de tailles de machines virtuelles Windows et Linux pour différentes charges de travail. Pour plus d’informations, consultez [Types et tailles des machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Lorsque vous sélectionnez une taille de nœud pour une ressource de calcul managée dans Azure Machine Learning, vous pouvez choisir parmi les tailles de machines virtuelles disponibles dans Azure. Azure propose une gamme de tailles de machines virtuelles Windows et Linux pour différentes charges de travail. Pour plus d’informations, consultez [Types et tailles des machines virtuelles](../virtual-machines/sizes.md).
 
 Quelques exceptions et limites s’appliquent quant au choix d’une taille de machine virtuelle :
 
@@ -133,7 +133,7 @@ Les offres actuelles de machines virtuelles isolées sont les suivantes :
 
 *Prenant en charge RDMA
 
-Pour en savoir plus sur l’isolement, consultez [Isolation dans le cloud public Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Pour en savoir plus sur l’isolement, consultez [Isolation dans le cloud public Azure](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Calcul non managé
 

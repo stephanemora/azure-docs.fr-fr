@@ -3,17 +3,19 @@ title: Interroger des conteneurs dans Azure Cosmos DB
 description: Découvrez comment interroger des conteneurs dans Azure Cosmos DB à l’aide de requêtes dans une partition et dans plusieurs partitions
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276110"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335889"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Interroger un conteneur Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment interroger un conteneur (collection, graphe ou table) dans Azure Cosmos DB. En particulier, il aborde la façon dont les requêtes de partition et sur plusieurs partitions fonctionnent dans Azure Cosmos DB.
 
@@ -59,7 +61,7 @@ Vous pouvez gérer l’exécution de requêtes parallèles en réglant les param
 
 - **MaxConcurrency** : définit le nombre maximal de connexions réseau simultanées aux partitions du conteneur. Si vous affectez la valeur `-1` à cette propriété, le kit SDK gère le degré de parallélisme. Si la  `MaxConcurrency` est définie sur `0`, il existe une seule connexion réseau aux partitions du conteneur.
 
-- **MaxBufferedItemCount** : limite la latence des requêtes par rapport à l’utilisation de la mémoire côté client. Si cette option est omise ou si elle a la valeur -1, le kit SDK gère le nombre d’éléments mis en mémoire tampon durant l’exécution de requêtes parallèles.
+- **MaxBufferedItemCount**  : limite la latence des requêtes par rapport à l’utilisation de la mémoire côté client. Si cette option est omise ou si elle a la valeur -1, le kit SDK gère le nombre d’éléments mis en mémoire tampon durant l’exécution de requêtes parallèles.
 
 En raison de la capacité d’Azure Cosmos DB à paralléliser les requêtes entre les partitions, la latence des requêtes est généralement correctement mise à l’échelle lorsque le système ajoute des [partitions physiques](partitioning-overview.md#physical-partitions). Toutefois, les frais de RU augmenteront considérablement avec le nombre total de partitions physiques.
 

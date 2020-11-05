@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a1af48d89fbf5d303c2a6b8ef85ca3117debd5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439825"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320085"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Guides d’application du processus TDSP (Team Data Science Process)
 
@@ -42,5 +42,4 @@ Pour en savoir plus sur les composants clés qui constituent le processus TDSP (
 
 Pour en savoir plus sur le cycle de vie du processus TDSP (Team Data Science Process), consultez [Cycle de vie du processus TDSP (Team Data Science Process)](lifecycle.md). Ce cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement lorsqu’ils sont exécutés. 
 
-Pour obtenir une vue d’ensemble, consultez [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
-
+Pour obtenir une vue d’ensemble, consultez [Data Science Process](./index.yml).

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330391"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323743"
 ---
 # <a name="execute-r-script-module"></a>Module Exécuter un script R
 
@@ -121,7 +121,7 @@ Une fois l’exécution du pipeline terminée, vous pouvez afficher un aperçu d
 
 ## <a name="access-to-registered-dataset"></a>Accès au jeu de données inscrit
 
-Vous pouvez vous référer à l’exemple de code suivant pour [accéder aux jeux de données inscrits](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) dans votre espace de travail :
+Vous pouvez vous référer à l’exemple de code suivant pour [accéder aux jeux de données inscrits](../how-to-create-register-datasets.md) dans votre espace de travail :
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -194,12 +194,12 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
     > [!NOTE]
     > Vous devrez peut-être apporter des modifications mineures au code R existant pour qu’il s’exécute dans un pipeline de concepteur. Par exemple, les données d’entrée que vous fournissez au format CSV doivent être explicitement converties en un jeu de données avant de pouvoir les utiliser dans votre code. Les types de données et de colonnes utilisés dans le langage R diffèrent également à certains égards des types de données et de colonnes utilisés dans le concepteur.
 
-1. Si la taille de votre script est supérieure à 16 Ko, utilisez le port **Script Bundle** pour éviter des erreurs comme *La ligne de commande dépasse la limite de 16597 caractères* . 
+1. Si la taille de votre script est supérieure à 16 Ko, utilisez le port **Script Bundle** pour éviter des erreurs comme *La ligne de commande dépasse la limite de 16597 caractères*. 
     
     1. Regroupez le script et d'autres ressources personnalisées dans un fichier zip.
     1. Chargez le fichier zip en tant que **jeu de données** dans Studio. 
     1. Faites glisser le module du jeu de données de la liste *Jeux de données* vers le volet de module de gauche sur la page de création du concepteur. 
-    1. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R** .
+    1. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R**.
     
     Voici l’exemple de code permettant d’utiliser le script dans le groupe de scripts :
 
@@ -237,11 +237,11 @@ Il existe de nombreuses façons d’étendre votre pipeline à l’aide de scrip
 
 Le module Exécuter un script R prend en charge des fichiers de script R arbitraires en tant qu’entrées. Pour les utiliser, vous devez les télécharger sur votre espace de travail en tant que partie du fichier .zip.
 
-1. Pour télécharger un fichier. zip contenant du code R dans votre espace de travail, accédez à la page de ressources **Jeux de données** . Sélectionnez **Créer un jeu de données** , puis sélectionnez **À partir d’un fichier local** et l’option de type de jeu de données **Fichier** .  
+1. Pour télécharger un fichier. zip contenant du code R dans votre espace de travail, accédez à la page de ressources **Jeux de données**. Sélectionnez **Créer un jeu de données** , puis sélectionnez **À partir d’un fichier local** et l’option de type de jeu de données **Fichier**.  
 
 1. Vérifiez que le fichier compressé apparaît dans **Mes jeux de données** sous la catégorie **Jeux de données** de l'arborescence du module de gauche.
 
-1.  Connectez le jeu de données au port d’entrée **ScriptBundle** .
+1.  Connectez le jeu de données au port d’entrée **ScriptBundle**.
 
 1. Tous les fichiers dans le fichier .zip sont disponibles pendant la durée d’exécution du pipeline. 
 
@@ -289,10 +289,10 @@ azureml_main <- function(dataframe1, dataframe2){
 
 Cet exemple montre comment utiliser un jeu de données dans un fichier .zip en tant qu’entrée pour le module Exécuter un script R.
 
-1. Créez le fichier de données au format CSV et nommez-le **mydatafile.csv** .
+1. Créez le fichier de données au format CSV et nommez-le **mydatafile.csv**.
 1. Créez un fichier .zip et ajoutez le fichier CSV à l’archive.
 1. Chargez le fichier compressé sur votre espace de travail Azure Machine Learning. 
-1. Connectez le jeu de données obtenu à l’entrée **ScriptBundle** de votre module **Exécuter un script R** .
+1. Connectez le jeu de données obtenu à l’entrée **ScriptBundle** de votre module **Exécuter un script R**.
 1. Utilisez le code suivant pour lire les données CSV du fichier compressé.
 
 ```R
@@ -505,4 +505,4 @@ Les packages R préinstallés suivants sont actuellement disponibles :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

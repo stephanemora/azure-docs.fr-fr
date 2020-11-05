@@ -11,22 +11,22 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1789f83f048a2ab0fb75aa33635e58b0850b865b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89647324"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319130"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utiliser Azure AD Identity avec votre service web de machine learning dans Azure Kubernetes Service
 
-Dans cette rubrique de guide pratique, vous allez apprendre à attribuer une identité Azure Active Directory (AAD) à votre modèle Machine Learning déployé dans Azure Kubernetes Service. Le projet [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) permet aux applications d’accéder de manière sécurisée à des ressources cloud avec AAD à l’aide d’une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) et de primitives Kubernetes. Votre service web peut ainsi accéder de manière sécurisée à vos ressources Azure sans avoir à incorporer des informations d’identification ou à gérer des jetons directement à l’intérieur de votre script `score.py`. Cet article décrit les étapes nécessaires à la création et à l’installation d’une identité Azure dans votre cluster Azure Kubernetes Service, ainsi qu’à l’attribution de l’identité à votre service web déployé.
+Dans cette rubrique de guide pratique, vous allez apprendre à attribuer une identité Azure Active Directory (AAD) à votre modèle Machine Learning déployé dans Azure Kubernetes Service. Le projet [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) permet aux applications d’accéder de manière sécurisée à des ressources cloud avec AAD à l’aide d’une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) et de primitives Kubernetes. Votre service web peut ainsi accéder de manière sécurisée à vos ressources Azure sans avoir à incorporer des informations d’identification ou à gérer des jetons directement à l’intérieur de votre script `score.py`. Cet article décrit les étapes nécessaires à la création et à l’installation d’une identité Azure dans votre cluster Azure Kubernetes Service, ainsi qu’à l’attribution de l’identité à votre service web déployé.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
+- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [kit SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
 
-- Un accès à votre cluster AKS à l’aide de la commande `kubectl`. Pour plus d’informations, consultez [Se connecter au cluster](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster).
+- Un accès à votre cluster AKS à l’aide de la commande `kubectl`. Pour plus d’informations, consultez [Se connecter au cluster](../aks/kubernetes-walkthrough.md#connect-to-the-cluster).
 
 - Un service web Azure Machine Learning déployé sur votre cluster AKS.
 
@@ -126,7 +126,7 @@ Une fois que les pods sont opérationnels, les services web pour ce déploiement
 
 ## <a name="assign-the-appropriate-roles-to-your-azure-identity"></a>Affecter les rôles appropriés à votre identité Azure
 
-[Affectez votre identité managée Azure avec les rôles appropriés](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) pour accéder à d’autres ressources Azure. Vérifiez que les rôles que vous affectez ont les **actions de données** appropriées. Par exemple, le [rôle de lecteur des données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) aura des autorisations de lecture sur votre objet blob de stockage, alors que le [rôle de lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) générique n’en aura probablement pas.
+[Affectez votre identité managée Azure avec les rôles appropriés](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) pour accéder à d’autres ressources Azure. Vérifiez que les rôles que vous affectez ont les **actions de données** appropriées. Par exemple, le [rôle de lecteur des données Blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) aura des autorisations de lecture sur votre objet blob de stockage, alors que le [rôle de lecteur](../role-based-access-control/built-in-roles.md#reader) générique n’en aura probablement pas.
 
 ## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Utiliser une identité Azure avec votre service web de machine learning
 
@@ -134,7 +134,7 @@ Déployez un modèle sur votre cluster AKS. Le script `score.py` peut contenir d
 
 ### <a name="access-key-vault-from-your-web-service"></a>Accéder à un coffre de clés à partir de votre service web
 
-Si vous avez donné à votre identité Azure un accès en lecture à un secret à l’intérieur d’un **coffre de clés**, votre `score.py` peut y accéder à l’aide du code suivant.
+Si vous avez donné à votre identité Azure un accès en lecture à un secret à l’intérieur d’un **coffre de clés** , votre `score.py` peut y accéder à l’aide du code suivant.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -153,11 +153,11 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> Cet exemple utilise DefaultAzureCredential. Pour accorder l’accès à votre identité à l’aide d’une stratégie d’accès spécifique, consultez [Affecter une stratégie d’accès Key Vault à l’aide de l’interface de ligne de commande Azure](/azure/key-vault/general/assign-access-policy-cli).
+> Cet exemple utilise DefaultAzureCredential. Pour accorder l’accès à votre identité à l’aide d’une stratégie d’accès spécifique, consultez [Affecter une stratégie d’accès Key Vault à l’aide de l’interface de ligne de commande Azure](../key-vault/general/assign-access-policy-cli.md).
 
 ### <a name="access-blob-from-your-web-service"></a>Accéder à un objet blob à partir de votre service web
 
-Si vous avez donné à votre identité Azure un accès en lecture à des données à l’intérieur d’un **objet blob de stockage**, votre `score.py` peut y accéder à l’aide du code suivant.
+Si vous avez donné à votre identité Azure un accès en lecture à des données à l’intérieur d’un **objet blob de stockage** , votre `score.py` peut y accéder à l’aide du code suivant.
 
 ```python
 from azure.identity import DefaultAzureCredential

@@ -5,16 +5,18 @@ description: Apprenez tout ce que devez savoir sur la modélisation des données
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278403"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333237"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modélisation des données dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Bien que les bases de données sans schéma, comme Azure Cosmos DB, rendent très faciles le stockage et l’interrogation des données non structurées et semi-structurées, vous devez prendre le temps de réfléchir à votre modèle de données pour tirer le meilleur parti du service en termes de niveau de performance, de scalabilité et de coût.
 
@@ -29,7 +31,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 ## <a name="embedding-data"></a>Incorporation de données
 
-Quand vous entamez la modélisation des données dans Azure Cosmos DB, essayez de traiter vos entités en tant qu’**éléments autonomes** représentés sous la forme de documents  JSON.
+Quand vous entamez la modélisation des données dans Azure Cosmos DB, essayez de traiter vos entités en tant qu’ **éléments autonomes** représentés sous la forme de documents  JSON.
 
 À des fins de comparaison, nous allons tout d’abord voir comment nous pouvons modéliser les données dans une base de données relationnelle. L'exemple suivant montre comment une personne peut être stockée dans une base de données relationnelle.
 
@@ -116,7 +118,7 @@ Prenons cet extrait de code JSON.
 }
 ```
 
-Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité**, c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela peut devenir un problème, car la taille de l’élément peut augmenter à l’infini.
+Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité** , c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela peut devenir un problème, car la taille de l’élément peut augmenter à l’infini.
 
 L’augmentation de la taille de l’élément a une incidence sur les possibilités de transmission des données par câble, ainsi que sur les possibilités de lecture et de mise à jour de l’élément à grande échelle.
 
@@ -299,7 +301,7 @@ Dans l'exemple ci-dessus, nous avons supprimé la collection illimitée dans le 
 Dans une base de données relationnelle *plusieurs-à-plusieurs* , les relations sont souvent modélisées avec des tables de jointure qui relient simplement les enregistrements d’autres tables.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Modèle de base de données relationnelle" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Tables de jointures" border="false":::
 
 Vous pouvez être tenté de répliquer la même chose à l'aide de documents et de générer un modèle de données qui ressemble à ce qui suit.
 

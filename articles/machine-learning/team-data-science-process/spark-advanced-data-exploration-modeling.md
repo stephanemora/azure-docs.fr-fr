@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027543"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321339"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modélisation et exploration avancées des données avec Spark
 
-Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données et former des modèles de régression et de classification binaire à l’aide de la validation croisée et de l’optimisation hyperparamétrique sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013. Elle vous guide tout au long des étapes du [processus de science des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Python a été utilisé pour coder la solution et montrer les tracés correspondants. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression. 
+Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données et former des modèles de régression et de classification binaire à l’aide de la validation croisée et de l’optimisation hyperparamétrique sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013. Elle vous guide tout au long des étapes du [processus de science des données](./index.yml), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Python a été utilisé pour coder la solution et montrer les tracés correspondants. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression. 
 
 * La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
 * La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
@@ -764,7 +764,7 @@ Durée d’exécution de la cellule ci-dessus : 2,67 secondes
 
 **Tracer la courbe ROC.**
 
-*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results*, dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
+*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results* , dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +895,7 @@ Durée d’exécution de la cellule ci-dessus : 107,98 secondes
 
 **Tracer la courbe ROC.**
 
-*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results*, dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
+*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results* , dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
 
 ```python
 # QUERY RESULTS
@@ -1508,4 +1508,3 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Maintenant que vous avez créé des modèles de régression et de classification avec la bibliothèque MlLib Spark, vous êtes prêt à apprendre à noter et évaluer ces modèles.
 
 **Utilisation des modèles :** pour savoir comment noter et évaluer les modèles de classification et de régression créés dans cette rubrique, voir [Noter et évaluer des modèles Machine Learning créés avec Spark](spark-model-consumption.md).
-

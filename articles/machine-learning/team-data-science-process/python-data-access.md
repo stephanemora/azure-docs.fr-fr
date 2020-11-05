@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361498"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321959"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -73,7 +73,7 @@ Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquem
 
 ![Capture d’écran montrant les paramètres de la page UTILISATEURS d’Azure Machine Learning Studio.][security]
 
-Si votre rôle n’est pas défini en tant que **Propriétaire**, vous pouvez demander à être invité à nouveau en tant que propriétaire ou demander au propriétaire de l’espace de travail de vous fournir l’extrait de code.
+Si votre rôle n’est pas défini en tant que **Propriétaire** , vous pouvez demander à être invité à nouveau en tant que propriétaire ou demander au propriétaire de l’espace de travail de vous fournir l’extrait de code.
 
 Pour obtenir le jeton d’autorisation, vous pouvez choisir l’une des options suivantes :
 
@@ -364,6 +364,5 @@ Si vos données sont déjà sérialisées, utilisez `update_from_raw_data` au l
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
+[split]: /azure/machine-learning/studio-module-reference/split-data

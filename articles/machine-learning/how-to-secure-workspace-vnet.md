@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672860"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316694"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -48,7 +48,7 @@ Dans cet article, vous découvrirez comment activer les ressources d’espaces d
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
-    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking)
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Sécuriser l’espace de travail avec point de terminaison privé
@@ -66,7 +66,7 @@ Azure Machine Learning prend en charge les comptes de stockage configurés pour 
 >
 > Le compte de stockage par défaut est automatiquement configuré lorsque vous créez un espace de travail.
 >
-> Pour les comptes de stockage autres que ceux par défaut, le paramètre `storage_account` dans la fonction [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) vous permet de spécifier un compte de stockage personnalisé par ID de ressource Azure.
+> Pour les comptes de stockage autres que ceux par défaut, le paramètre `storage_account` dans la fonction [`Workspace.create()`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) vous permet de spécifier un compte de stockage personnalisé par ID de ressource Azure.
 
 Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau virtuel, effectuez les étapes suivantes :
 
@@ -188,7 +188,7 @@ Pour utiliser les fonctionnalités d’expérimentation Azure Machine Learning a
 
 Pour utiliser Azure Container Registry dans un réseau virtuel, vous devez remplir les conditions suivantes :
 
-* Vous devez disposer de la version Premium d’Azure Container Registry. Pour plus d'informations sur la mise à niveau, consultez [Changer de référence SKU](/azure/container-registry/container-registry-skus#changing-skus).
+* Vous devez disposer de la version Premium d’Azure Container Registry. Pour plus d'informations sur la mise à niveau, consultez [Changer de référence SKU](../container-registry/container-registry-skus.md#changing-tiers).
 
 * Votre instance d'Azure Container Registry doit se trouver dans les mêmes réseau virtuel et sous-réseau que le compte de stockage et les cibles de calcul utilisés pour l'apprentissage ou l'inférence.
 
@@ -233,7 +233,7 @@ Une fois ces conditions remplies, procédez comme suit pour activer Azure Contai
     > [!IMPORTANT]
     > Votre compte de stockage, votre cluster de calcul et Azure Container Registry doivent tous se trouver dans le même sous-réseau du réseau virtuel.
     
-    Pour plus d'informations, consultez les informations de référence disponibles sur la méthode [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
+    Pour plus d'informations, consultez les informations de référence disponibles sur la méthode [update()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
 
 1. Appliquez le modèle Azure Resource Manager suivant. Ce modèle permet à votre espace de travail de communiquer avec ACR.
 

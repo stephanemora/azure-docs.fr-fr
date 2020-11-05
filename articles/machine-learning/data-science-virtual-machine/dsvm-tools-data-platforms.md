@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320915"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -103,5 +103,4 @@ Les bibliothèques pour l’accès aux données à partir du Stockage Blob Azure
 
 Pour que l’instance Spark sur DSVM accède aux données stockées dans le Stockage Blob ou Azure Data Lake Storage, vous devez créer et configurer le fichier `core-site.xml` en fonction du modèle figurant dans $SPARK_HOME/conf/core-site.xml.template. Vous devez également disposer des informations d’identification appropriées pour accéder au Stockage Blob et à Azure Data Lake Storage. (Notez que les fichiers de modèle utilisent des espaces réservés pour les configurations du Stockage Blob et d’Azure Data Lake Storage.)
 
-Pour plus d’informations sur la création des informations d’identification du service Azure Data Lake Storage, consultez [Authentification avec Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Une fois que les informations d’identification pour le Stockage Blob Azure ou Azure Data Lake Storage sont entrées dans le fichier core-site.xml, vous pouvez référencer les données stockées dans ces sources par le biais du préfixe d’URI wasb:// ou adl://.
-
+Pour plus d’informations sur la création des informations d’identification du service Azure Data Lake Storage, consultez [Authentification avec Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Une fois que les informations d’identification pour le Stockage Blob Azure ou Azure Data Lake Storage sont entrées dans le fichier core-site.xml, vous pouvez référencer les données stockées dans ces sources par le biais du préfixe d’URI wasb:// ou adl://.

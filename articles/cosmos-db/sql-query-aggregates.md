@@ -3,17 +3,19 @@ title: Fonctions d’agrégation dans Azure Cosmos DB
 description: Découvrez la syntaxe de la fonction d’agrégation SQL et les types de fonctions d’agrégation prises en charge par Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
-ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c988f379e94bf2f69854c90d45af42fe2a7ec4f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79464459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332778"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Fonctions d’agrégation dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Les fonctions d’agrégation effectuent un calcul sur un ensemble de valeurs dans la clause `SELECT` et retournent une valeur unique. Par exemple, la requête suivante retourne le nombre d’éléments présents dans le conteneur `Families` :
 

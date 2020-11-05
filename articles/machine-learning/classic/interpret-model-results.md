@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: e422c1a7b333254ed49b53bcdf2d10e65f2846e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3cfdeaee863c8e11a76ac5842ae6c35d370e2ae2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91338663"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322547"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio (classique). Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
@@ -107,7 +107,7 @@ Dans les données de formation, 16 caractéristiques sont extraites d’images d
 
 Figure 6. Expérience de problème de classification multiclasse de reconnaissance de lettre
 
-Lorsque vous visualisez les résultats du module [Noter le modèle][score-model] en cliquant sur le port de sortie du module [Noter le modèle][score-model], puis sur **Visualiser**, vous devez voir apparaître une fenêtre, comme illustré dans la Figure 7.
+Lorsque vous visualisez les résultats du module [Noter le modèle][score-model] en cliquant sur le port de sortie du module [Noter le modèle][score-model], puis sur **Visualiser** , vous devez voir apparaître une fenêtre, comme illustré dans la Figure 7.
 
 ![Résultats Noter le modèle](./media/interpret-model-results/7.png)
 
@@ -247,7 +247,7 @@ Figure 20. Expérience du système de recommandation
 
 **Prédire des notations pour un utilisateur et un élément donné**
 
-En sélectionnant **Prédiction de notation** dans le menu **Type de prédiction de recommandation**, vous demandez au système de recommandation de prédire la notation pour un utilisateur et un élément donné. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 21.
+En sélectionnant **Prédiction de notation** dans le menu **Type de prédiction de recommandation** , vous demandez au système de recommandation de prédire la notation pour un utilisateur et un élément donné. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 21.
 
 ![Visualisation du résultat de notation du système de recommandation - Prédiction de notation](./media/interpret-model-results/21.png)
 
@@ -257,7 +257,7 @@ Les deux premières colonnes représentent les paires utilisateur-élément four
 
 **Recommander des éléments à un utilisateur donné**
 
-En sélectionnant **Recommandation d’éléments** dans le menu **Type de prédiction de recommandation**, vous demandez au système de recommandation de recommander des éléments à un utilisateur donné. Le dernier paramètre à choisir dans ce scénario est la *sélection d’éléments recommandés*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
+En sélectionnant **Recommandation d’éléments** dans le menu **Type de prédiction de recommandation** , vous demandez au système de recommandation de recommander des éléments à un utilisateur donné. Le dernier paramètre à choisir dans ce scénario est la *sélection d’éléments recommandés*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
 
 ![Visualisation du résultat de notation du système de recommandation - Recommandation d’éléments](./media/interpret-model-results/22.png)
 
@@ -267,7 +267,7 @@ La première des six colonnes représente le nom de l’utilisateur donné pour 
 
 **Trouver des utilisateurs associés à un utilisateur donné**
 
-En sélectionnant **Utilisateurs associés** dans **Type de prédiction de recommandation**, nous demandons au système de recommandation de trouver des utilisateurs associés à un utilisateur donné. Les utilisateurs associés sont les utilisateurs qui ont des préférences similaires. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’utilisateur associé*. L’option **À partir d’utilisateurs qui ont noté des éléments (pour l’évaluation de modèle)** est principalement utilisée pour l’évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, choisissez **À partir de tous les utilisateurs**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 23.
+En sélectionnant **Utilisateurs associés** dans **Type de prédiction de recommandation** , nous demandons au système de recommandation de trouver des utilisateurs associés à un utilisateur donné. Les utilisateurs associés sont les utilisateurs qui ont des préférences similaires. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’utilisateur associé*. L’option **À partir d’utilisateurs qui ont noté des éléments (pour l’évaluation de modèle)** est principalement utilisée pour l’évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, choisissez **À partir de tous les utilisateurs**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 23.
 
 ![Visualisation du résultat de notation du système de recommandation - Utilisateurs associés](./media/interpret-model-results/23.png)
 
@@ -277,7 +277,7 @@ La première des six colonnes contient les ID utilisateurs donnés nécessaires 
 
 **Trouver des éléments associés à un élément donné**
 
-En sélectionnant **Éléments associés** dans le menu **Type de prédiction de recommandation**, vous demandez au système de recommandation de trouver des éléments associés à un élément donné. Les éléments associés sont les éléments les plus susceptibles d'être appréciés par le même utilisateur. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’article associé*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments** . La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 24.
+En sélectionnant **Éléments associés** dans le menu **Type de prédiction de recommandation** , vous demandez au système de recommandation de trouver des éléments associés à un élément donné. Les éléments associés sont les éléments les plus susceptibles d'être appréciés par le même utilisateur. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’article associé*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments** . La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 24.
 
 ![Visualisation du résultat de notation du système de recommandation - articles associés](./media/interpret-model-results/24.png)
 
@@ -304,10 +304,10 @@ Exécution du service web, le résultat renvoyé est semblable à celui indiqué
 Figure 26. Résultat du service web d’un problème de recommandation de restaurants
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

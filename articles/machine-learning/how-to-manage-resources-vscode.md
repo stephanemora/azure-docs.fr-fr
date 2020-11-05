@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/30/2020
-ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530627"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319347"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code (préversion)
 
@@ -56,8 +56,8 @@ Les autres méthodes de création d’un espace de travail sont les suivantes :
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Cliquez avec le bouton doit sur l’espace de travail que vous souhaitez supprimer.
 1. Indiquez si vous souhaitez supprimer :
-    - *Uniquement l’espace de travail* : cette option supprime **uniquement** la ressource Azure de l’espace de travail. Le groupe de ressources, les comptes de stockage et toute autre ressource à laquelle l’espace de travail a été attaché sont toujours dans Azure.
-    - *Avec les ressources associées* : cette option supprime l’espace de travail **et** toutes les ressources qui lui sont associées.
+    - *Uniquement l’espace de travail*  : cette option supprime **uniquement** la ressource Azure de l’espace de travail. Le groupe de ressources, les comptes de stockage et toute autre ressource à laquelle l’espace de travail a été attaché sont toujours dans Azure.
+    - *Avec les ressources associées*  : cette option supprime l’espace de travail **et** toutes les ressources qui lui sont associées.
 
 ## <a name="datastores"></a>Magasins de données
 
@@ -80,7 +80,7 @@ Pour plus d’informations, consultez [Magasins de données](concept-data.md#dat
     1. Choisissez le type de magasin de données.
     1. Sélectionnez votre ressource de stockage. Vous pouvez choisir une ressource de stockage qui est associée à votre espace de travail ou sélectionner parmi les ressources de stockage valides dans vos abonnements Azure.
     1. Choisissez le conteneur où se trouvent vos données à l’intérieur de la ressource de stockage sélectionnée précédemment.
-1. Un fichier de configuration s’affiche dans VS Code. Si vous êtes satisfait de votre fichier de configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Un fichier de configuration s’affiche dans VS Code. Si vous êtes satisfait de votre fichier de configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 ### <a name="manage-a-datastore"></a>Gérer un magasin de données
 
@@ -96,7 +96,7 @@ Pour plus d’informations, consultez [Magasins de données](concept-data.md#dat
 
 L’extension prend actuellement en charge les types de jeux de données suivants :
 
-- *Tabulaire* : vous permet de matérialiser des données dans un DataFrame (Pandas ou PySpark).
+- *Tabulaire*  : vous permet de matérialiser des données dans un DataFrame (Pandas ou PySpark).
 - *Fichier* : fichier ou collection de fichiers. Vous permet de télécharger ou de monter des fichiers dans votre capacité de calcul.
 
 Pour plus d’informations, consultez [Jeux de données](concept-data.md#datasets).
@@ -159,12 +159,12 @@ Pour plus d’informations, consultez [Environnements](concept-environments.md).
 1. À l’invite :
     1. Donnez un nom à votre environnement.
     1. Définissez la configuration de votre environnement :
-        - *Environnements organisés* : environnements préconfigurés dans Azure Machine Learning. Vous pouvez personnaliser davantage l’environnement en modifiant la propriété `dependencies` dans le fichier JSON. Apprenez-en davantage sur les [environnements organisés](resource-curated-environments.md).
-        - *Fichier de dépendances Conda* : pour les environnements Anaconda, vous pouvez fournir le fichier contenant la définition de votre environnement.
-        - *Fichier de spécifications pip* : pour les environnements pip, vous pouvez fournir le fichier contenant la définition de votre environnement.
-        - *Environnement Conda existant* : cette option recherche les environnements Conda sur votre PC local et tente de créer un environnement à partir de l’environnement sélectionné.
-        - *Personnalisé* : définissez vos propres canaux et dépendances.
-    1. Un fichier de configuration s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+        - *Environnements organisés*  : environnements préconfigurés dans Azure Machine Learning. Vous pouvez personnaliser davantage l’environnement en modifiant la propriété `dependencies` dans le fichier JSON. Apprenez-en davantage sur les [environnements organisés](resource-curated-environments.md).
+        - *Fichier de dépendances Conda*  : pour les environnements Anaconda, vous pouvez fournir le fichier contenant la définition de votre environnement.
+        - *Fichier de spécifications pip*  : pour les environnements pip, vous pouvez fournir le fichier contenant la définition de votre environnement.
+        - *Environnement Conda existant*  : cette option recherche les environnements Conda sur votre PC local et tente de créer un environnement à partir de l’environnement sélectionné.
+        - *Personnalisé*  : définissez vos propres canaux et dépendances.
+    1. Un fichier de configuration s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 ### <a name="view-environment-configurations"></a>Afficher les configurations de l’environnement
 
@@ -182,7 +182,7 @@ Pour modifier les dépendances et les configurations d’un environnement spéci
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Environnements** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur l’environnement que vous souhaitez afficher, puis sélectionnez **Modifier l’environnement**.
-1. Après avoir effectué les modifications, si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Après avoir effectué les modifications, si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 ## <a name="experiments"></a>Expériences
 
@@ -252,12 +252,12 @@ Pour plus d’informations, consultez [Instances de calcul](concept-compute-inst
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer l’instance de calcul.
-1. Cliquez avec le bouton droit sur le nœud **Instances de calcul**, puis sélectionnez **Créer une instance de calcul**.
+1. Cliquez avec le bouton droit sur le nœud **Instances de calcul** , puis sélectionnez **Créer une instance de calcul**.
 1. À l’invite :
     1. Donnez un nom à votre instance de calcul.
     1. Sélectionnez une taille de machine virtuelle dans la liste.
     1. Indiquez si vous souhaitez activer l’accès SSH.
-        1. Si vous activez l’accès SSH, vous devez également fournir la clé SSH publique ou le fichier contenant la clé. Pour plus d’informations, consultez le [guide sur la création et l’utilisation de clés SSH sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+        1. Si vous activez l’accès SSH, vous devez également fournir la clé SSH publique ou le fichier contenant la clé. Pour plus d’informations, consultez le [guide sur la création et l’utilisation de clés SSH sur Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 ### <a name="stop-or-restart-compute-instance"></a>Arrêter ou redémarrer une instance de calcul
 
@@ -290,10 +290,10 @@ Pour plus d’informations, consultez [Cibles de calcul](concept-compute-target.
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le cluster de calcul.
-1. Cliquez avec le bouton droit sur le nœud **Clusters de calcul**, puis sélectionnez **Créer un calcul**.
+1. Cliquez avec le bouton droit sur le nœud **Clusters de calcul** , puis sélectionnez **Créer un calcul**.
 1. À l’invite :
     1. Choisissez un type de capacité de calcul.
-    1. Choisissez une taille de machine virtuelle. Apprenez-en davantage sur les [tailles de machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+    1. Choisissez une taille de machine virtuelle. Apprenez-en davantage sur les [tailles de machines virtuelles](../virtual-machines/sizes.md).
     1. Entrez un nom pour votre capacité de calcul.
 
 ### <a name="view-compute-configuration"></a>Afficher une configuration de calcul
@@ -307,7 +307,7 @@ Pour plus d’informations, consultez [Cibles de calcul](concept-compute-target.
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Clusters de calcul** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur la capacité de calcul à modifier, puis sélectionnez **Modifier le calcul**.
-1. Un fichier de configuration pour votre capacité de calcul s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Un fichier de configuration pour votre capacité de calcul s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 ### <a name="delete-compute"></a>Supprimer une capacité de calcul
 
@@ -327,15 +327,15 @@ Pour créer une configuration d’exécution dans l’extension
     1. Choisissez ou créez un environnement.
     1. Tapez le nom du script que vous souhaitez exécuter, ou appuyez sur **Entrée** pour naviguer jusqu’au script sur votre ordinateur local.
     1. (Facultatif) Précisez si vous souhaitez créer une référence de données pour votre exécution d’entraînement. Vous serez alors invité à définir un jeu de données dans votre configuration d’exécution.
-        1. Sélectionnez l’un de vos jeux de données inscrits afin de le lier à la configuration d’exécution. Un fichier de configuration pour votre jeu de données s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
-    1. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+        1. Sélectionnez l’un de vos jeux de données inscrits afin de le lier à la configuration d’exécution. Un fichier de configuration pour votre jeu de données s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
+    1. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 ### <a name="edit-run-configuration"></a>Modifier une configuration d’exécution
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez votre nœud de cluster de calcul dans le nœud **Clusters de calcul** de votre espace de travail.
 1. Cliquez avec le bouton droit sur la configuration d’exécution que vous souhaitez modifier, puis sélectionnez **Modifier la configuration d’exécution**.
-1. Un fichier de configuration pour votre configuration d’exécution s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Un fichier de configuration pour votre configuration d’exécution s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 ### <a name="delete-run-configuration"></a>Supprimer une configuration d’exécution
 
@@ -357,7 +357,7 @@ Pour plus d’informations, consultez [Modèles](concept-azure-machine-learning-
     1. Donnez un nom à votre modèle.
     1. Choisissez si votre modèle est un fichier ou un dossier.
     1. Recherchez le modèle sur votre PC local.
-    1. Un fichier de configuration pour votre modèle s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+    1. Un fichier de configuration pour votre modèle s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 ### <a name="view-model-properties"></a>Afficher les propriétés d’un modèle
 
@@ -401,7 +401,7 @@ Pour plus d’informations, consultez [Points de terminaison de service web](con
     1. Donnez un nom à votre modèle.
     1. Fournissez le script à exécuter lors du scoring du modèle.
     1. Spécifiez un fichier de dépendances Conda.
-    1. Un fichier de configuration pour votre déploiement s’affiche dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+    1. Un fichier de configuration pour votre déploiement s’affiche dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
 
 > [!NOTE]
 > Vous pouvez également cliquer avec le bouton droit sur un modèle inscrit dans le nœud *Modèles* et sélectionner **Déployer le service à partir du modèle inscrit**.
@@ -421,7 +421,7 @@ Vous pouvez également afficher et modifier les paramètres associés au déploi
 1. Développez le nœud **Points de terminaison** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur le déploiement que vous souhaitez gérer :
     - Pour modifier des paramètres, sélectionnez **Modifier le service**.
-        - Un fichier de configuration pour votre déploiement s’affiche dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+        - Un fichier de configuration pour votre déploiement s’affiche dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code ( **Affichage > Palette de commandes** ) et tapez **Azure ML : Enregistrer et continuer**.
     - Pour afficher les paramètres de configuration du déploiement, sélectionnez **Afficher les propriétés du service**.
 
 ## <a name="next-steps"></a>Étapes suivantes

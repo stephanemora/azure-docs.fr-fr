@@ -2,16 +2,16 @@
 title: Résoudre des problèmes de runbook Azure Automation
 description: Cet article explique comment dépanner et résoudre des problèmes liés aux runbooks Azure Automation.
 services: automation
-ms.date: 07/28/2020
+ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e173e76b80717d6685e9a6b383ee98eddf910f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904800"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323490"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -42,7 +42,7 @@ Lorsque des erreurs surviennent pendant l’exécution de runbooks dans Azure Au
     * [Renouvelez le certificat](../manage-runas-account.md#cert-renewal) si le compte d’identification a expiré.
     * [Renouvelez le webhook](../automation-webhooks.md#renew-a-webhook) si vous essayez d’utiliser un webhook expiré pour démarrer le runbook.
     * [Vérifiez les états des travaux](../automation-runbook-execution.md#job-statuses) pour déterminer les états de runbook actuels et des causes possibles du problème.
-    * [Ajoutez une sortie supplémentaire](../automation-runbook-output-and-messages.md#monitor-message-streams) au runbook pour identifier ce qui se passe avant l'interruption du runbook.
+    * [Ajoutez une sortie supplémentaire](../automation-runbook-output-and-messages.md#working-with-message-streams) au runbook pour identifier ce qui se passe avant l'interruption du runbook.
     * [Gérez les exceptions](../automation-runbook-execution.md#exceptions) qui sont levées par votre travail.
 
 1. Effectuez cette étape si le travail ou l’environnement du runbook sur Runbook Worker hybride ne répond pas.
@@ -147,7 +147,7 @@ Si vous recevez cette erreur après avoir mis à jour un module AzureRM ou Az, 
 
 Si vous essayez d’accéder à des ressources dans un autre abonnement, suivez ces étapes pour configurer les autorisations :
 
-1. Accédez au compte d’identification Automation, puis copiez l’**ID d’application** et l’**Empreinte**.
+1. Accédez au compte d’identification Automation, puis copiez l’ **ID d’application** et l’ **Empreinte**.
 
     ![Copier l’ID d’application et l’empreinte](../media/troubleshoot-runbooks/collect-app-id.png)
 
@@ -155,7 +155,7 @@ Si vous essayez d’accéder à des ressources dans un autre abonnement, suivez 
 
     ![Contrôle d’accès](../media/troubleshoot-runbooks/access-control.png)
 
-1. Ajoutez l’**ID d’application** collecté précédemment. Sélectionnez des autorisations **Contributeur**.
+1. Ajoutez l’ **ID d’application** collecté précédemment. Sélectionnez des autorisations **Contributeur**.
 
     ![Ajouter une attribution de rôle](../media/troubleshoot-runbooks/add-role-assignment.png)
 
@@ -201,7 +201,7 @@ Cette erreur peut se produire si :
 Suivez ces étapes pour déterminer si vous vous êtes correctement authentifié auprès d’Azure, et si vous avez accès à l’abonnement que vous souhaitez sélectionner :
 
 1. Pour vérifier qu’il fonctionne de façon autonome, testez votre script en dehors d’Azure Automation.
-1. Vérifiez que votre script exécute la cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) avant d’exécuter la cmdlet `Select-*`.
+1. Vérifiez que votre script exécute la cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) avant d’exécuter la cmdlet `Select-*`.
 1. Ajoutez `Disable-AzContextAutosave –Scope Process` au début de votre runbook. Cette applet de commande permet de s'assurer que les informations d’identification s’appliquent uniquement à l’exécution du runbook actuel.
 1. Si le message d’erreur persiste, modifiez votre code en ajoutant le paramètre `AzContext` pour `Connect-AzAccount`, puis exécutez le code.
 
@@ -291,7 +291,7 @@ Cette erreur peut être due à l’utilisation de modules Azure obsolètes.
 
 Vous pouvez corriger cette erreur en mettant à jour vos modules Azure avec la toute dernière version :
 
-1. Dans votre compte Automation, sélectionnez **Modules**, puis **Mettre à jour les modules Azure**.
+1. Dans votre compte Automation, sélectionnez **Modules** , puis **Mettre à jour les modules Azure**.
 1. La mise à jour prend environ 15 minutes. Une fois l’opération terminée, réexécutez le runbook qui a échoué.
 
 Pour en savoir plus sur la mise à jour de vos modules, consultez [Mettre à jour des modules Azure dans Azure Automation](../automation-update-azure-modules.md).
@@ -398,7 +398,7 @@ Si le flux contient des objets, `Start-AzAutomationRunbook` ne gère pas correct
 
 ### <a name="resolution"></a>Résolution
 
-Implémentez une logique d’interrogation et utilisez l’applet de commande [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) pour récupérer la sortie. Un exemple de cette logique est défini ici :
+Implémentez une logique d’interrogation et utilisez l’applet de commande [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) pour récupérer la sortie. Un exemple de cette logique est défini ici :
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -476,14 +476,14 @@ Vous recevez le message d’erreur suivant lors de l’exécution de l’applet 
 
 ### <a name="cause"></a>Cause
 
-Cette erreur peut se produire lors de la récupération d’une sortie de tâche à partir d’un runbook comportant de nombreux [flux détaillés](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
+Cette erreur peut se produire lors de la récupération d’une sortie de tâche à partir d’un runbook comportant de nombreux [flux détaillés](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream).
 
 ### <a name="resolution"></a>Résolution
 
 Effectuez l’une des actions suivantes pour corriger cette erreur :
 
 * Modifiez le runbook et réduisez le nombre de flux de tâches émis.
-* Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour cela, vous pouvez définir la valeur du paramètre `Stream` de la cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) de manière à récupérer uniquement les flux de sortie. 
+* Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour cela, vous pouvez définir la valeur du paramètre `Stream` de la cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) de manière à récupérer uniquement les flux de sortie. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>Scénario : Le travail du runbook échoue en raison du dépassement du quota alloué
 
@@ -505,7 +505,7 @@ Si vous voulez utiliser plus de 500 minutes de traitement par mois, passez d’
 
 1. Connectez-vous à votre abonnement Azure.
 1. Sélectionnez le compte Automation à mettre à niveau.
-1. Sélectionnez **Paramètres**, puis **Tarifs**.
+1. Sélectionnez **Paramètres** , puis **Tarifs**.
 1. Sélectionnez **Activer** au bas de la page pour mettre à niveau votre compte vers le niveau De base.
 
 ## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scénario : Flux de sortie du runbook supérieur à 1 Mo
@@ -576,7 +576,7 @@ Cette erreur peut indiquer que l’exécution de runbooks dans un bac à sable (
 
 Il existe deux façons de résoudre cette erreur :
 
-* Au lieu d’utiliser [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), utilisez [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) pour démarrer le runbook.
+* Au lieu d’utiliser [Start-Job](/powershell/module/microsoft.powershell.core/start-job), utilisez [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) pour démarrer le runbook.
 * Exécutez le runbook sur un Runbook Worker hybride.
 
 Pour plus d’informations sur ce comportement et d’autres comportements des runbooks Azure Automation, consultez [Exécution d’un Runbook dans Azure Automation](../automation-runbook-execution.md).
@@ -605,8 +605,8 @@ Une autre solution consiste à optimiser le runbook en créant des [runbooks enf
 
 Applets de commande PowerShell prenant en charge le scénario avec des runbooks enfants :
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Cette applet de commande vous permet de démarrer un runbook et de lui transmettre des paramètres.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). Si des opérations doivent être effectuées à la fin de l’exécution du runbook enfant, cette applet de commande vous permet de vérifier l’état du travail de chaque enfant.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). Cette applet de commande vous permet de démarrer un runbook et de lui transmettre des paramètres.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob). Si des opérations doivent être effectuées à la fin de l’exécution du runbook enfant, cette applet de commande vous permet de vérifier l’état du travail de chaque enfant.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>Scénario : Une erreur se produit dans les flux de travaux en lien avec la méthode get_SerializationSettings
 
@@ -642,7 +642,7 @@ Lorsque votre runbook ou votre application tente de s’exécuter dans un bac à
 
 ### <a name="cause"></a>Cause
 
-Ce problème peut se produire, car les bacs à sable (sandboxes) Azure empêchent l’accès à tous les serveurs COM hors processus. Par exemple, un runbook ou une application sandbox ne peut pas appeler Windows Management Instrumentation (WMI) ni le service Windows Installer (msiserver.exe). 
+Ce problème peut se produire, car les bacs à sable (sandboxes) Azure empêchent l’accès à tous les serveurs COM hors processus. Par exemple, un runbook ou une application sandbox ne peut pas appeler Windows Management Instrumentation (WMI) ni le service Windows Installer (msiserver.exe).
 
 ### <a name="resolution"></a>Résolution
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736557"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324591"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Déployer des modèles Machine Learning sur Azure Functions (préversion)
 
@@ -26,12 +26,12 @@ Découvrez comment déployer un modèle à partir d’Azure Machine Learning en 
 > [!IMPORTANT]
 > Bien qu’Azure Machine Learning et Azure Functions soient mis à la disposition générale, la possibilité d’empaqueter un modèle Machine Learning Service vers Functions est disponible en préversion.
 
-Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de modèles Machine Learning entraînés. Azure Machine Learning dispose à présent de la fonctionnalité en préversion pour créer ces modèles Machine Learning dans des applications de fonction, qui peuvent être [déployées dans Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
+Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de modèles Machine Learning entraînés. Azure Machine Learning dispose à présent de la fonctionnalité en préversion pour créer ces modèles Machine Learning dans des applications de fonction, qui peuvent être [déployées dans Azure Functions](../azure-functions/functions-deployment-technologies.md#docker-container).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * Un modèle Machine Learning entraîné inscrit dans votre espace de travail. Si vous n’avez pas de modèle, utilisez le [tutoriel de classification d’image : entraîner un modèle](tutorial-train-models-with-aml.md) pour entraîner et inscrire un modèle.
 
     > [!IMPORTANT]
@@ -47,23 +47,23 @@ Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de m
 
 Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter le modèle en tant que service web. La liste suivante décrit les éléments principaux nécessaires pour un déploiement :
 
-* __Script d’entrée__ . Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
+* __Script d’entrée__. Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
 
     > [!IMPORTANT]
     > Le script d’entrée est spécifique à votre modèle. Il doit comprendre le format des données de la requête entrante, le format des données attendues par votre modèle et le format des données renvoyées aux clients.
     >
     > Si le format des données de la requête n'est pas utilisable par votre modèle, le script peut les convertir à un format acceptable. Il peut également transformer la réponse avant de la renvoyer au client.
     >
-    > Par défaut, lors de l’empaquetage des fonctions, l’entrée est traitée comme du texte. Si vous souhaitez consommer les octets bruts de l’entrée (par exemple pour les déclencheurs de blob), vous devez utiliser [AMLRequest pour accepter les données brutes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
+    > Par défaut, lors de l’empaquetage des fonctions, l’entrée est traitée comme du texte. Si vous souhaitez consommer les octets bruts de l’entrée (par exemple pour les déclencheurs de blob), vous devez utiliser [AMLRequest pour accepter les données brutes](./how-to-deploy-advanced-entry-script.md#binary-data).
 
-Pour plus d’informations sur le script d’entrée, consultez [Définir le code de scoring](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script).
+Pour plus d’informations sur le script d’entrée, consultez [Définir le code de scoring](./how-to-deploy-and-where.md#define-an-entry-script).
 
 * **Dépendances** , comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 
-Ces entités sont encapsulées dans une __configuration d'inférence__ . La configuration d’inférence référence le script d’entrée et d’autres dépendances.
+Ces entités sont encapsulées dans une __configuration d'inférence__. La configuration d’inférence référence le script d’entrée et d’autres dépendances.
 
 > [!IMPORTANT]
-> Lors de la création d’une configuration d’inférence à utiliser avec Azure Functions, vous devez utiliser un objet [Environnement](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
+> Lors de la création d’une configuration d’inférence à utiliser avec Azure Functions, vous devez utiliser un objet [Environnement](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -84,7 +84,7 @@ Pour plus d’informations sur les environnements , consultez [Créer et gérer 
 Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Lors du déploiement sur Azure Functions, il n’est pas nécessaire de créer une __configuration de déploiement__ .
+> Lors du déploiement sur Azure Functions, il n’est pas nécessaire de créer une __configuration de déploiement__.
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installer le package de la préversion du SDK pour la prise en charge des fonctions
 
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Création de l’image
 
-Pour créer l’image Docker qui est déployée sur Azure Functions, utilisez [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) ou la fonction de package spécifique pour le déclencheur que vous souhaitez utiliser. L’extrait de code suivant montre comment créer un nouveau package avec un déclencheur de blob à partir de la configuration du modèle et de l’inférence :
+Pour créer l’image Docker qui est déployée sur Azure Functions, utilisez [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) ou la fonction de package spécifique pour le déclencheur que vous souhaitez utiliser. L’extrait de code suivant montre comment créer un nouveau package avec un déclencheur de blob à partir de la configuration du modèle et de l’inférence :
 
 > [!NOTE]
 > L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
@@ -113,7 +113,7 @@ print(blob.location)
 Si la condition est `show_output=True`, la sortie du processus de génération Docker s’affiche. Une fois le processus terminé, l’image a été créée dans le registre Azure Container Registry pour votre espace de travail. Une fois que l’image a été créée, son emplacement dans Azure Container Registry s’affiche. L’emplacement est retourné au format `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
 
 > [!NOTE]
-> L’empaquetage des fonctions prend actuellement en charge les déclencheurs HTTP, les déclencheurs de blob et les déclencheurs Service Bus. Pour plus d’informations sur les déclencheurs, consultez [Liaisons Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> L’empaquetage des fonctions prend actuellement en charge les déclencheurs HTTP, les déclencheurs de blob et les déclencheurs Service Bus. Pour plus d’informations sur les déclencheurs, consultez [Liaisons Azure Functions](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Enregistrez les informations concernant l’emplacement, car vous en aurez besoin lors du déploiement de l’image.
@@ -293,12 +293,12 @@ Une fois l’image chargée et l’application disponible, procédez comme suit 
 
     Une fois la commande exécutée, ouvrez le fichier. Il contient les données retournées par le modèle.
 
-Pour plus d’informations sur l’utilisation des déclencheurs d’objets blob, voir l’article [Créer une fonction déclenchée par un stockage Blob Azure](/azure/azure-functions/functions-create-storage-blob-triggered-function).
+Pour plus d’informations sur l’utilisation des déclencheurs d’objets blob, voir l’article [Créer une fonction déclenchée par un stockage Blob Azure](../azure-functions/functions-create-storage-blob-triggered-function.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment configurer votre application de fonction dans la documentation sur [Functions](/azure/azure-functions/functions-create-function-linux-custom-image).
-* Pour en savoir plus sur les déclencheurs de Stockage Blob, consultez [Liaisons Stockage Blob Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+* Découvrez comment configurer votre application de fonction dans la documentation sur [Functions](../azure-functions/functions-create-function-linux-custom-image.md).
+* Pour en savoir plus sur les déclencheurs de Stockage Blob, consultez [Liaisons Stockage Blob Azure](../azure-functions/functions-bindings-storage-blob.md).
 * [Déployez votre modèle sur Azure App Service](how-to-deploy-app-service.md).
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
-* [Référence sur l’API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)
+* [Référence sur l’API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)

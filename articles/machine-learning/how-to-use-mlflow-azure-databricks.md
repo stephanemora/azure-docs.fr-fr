@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338982"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319032"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Assurer le suivi des expériences de Machine Learning Azure Databricks avec MLflow et Azure Machine Learning (préversion)
 
 Cet article explique comment activer l'URI de suivi et l'API de journalisation de MLflow, collectivement appelées [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), pour lier vos expériences Azure Databricks (ADB), MLflow et Azure Machine Learning.
 
-[MLflow](https://www.mlflow.org) est une bibliothèque open source permettant de gérer le cycle de vie de vos expériences de Machine Learning. MLFlow Tracking est un composant de MLflow qui consigne et assure le suivi de vos métriques d'exécution d'apprentissage et de vos artefacts de modèle. Découvrez-en plus sur [Azure Databricks et MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) est une bibliothèque open source permettant de gérer le cycle de vie de vos expériences de Machine Learning. MLFlow Tracking est un composant de MLflow qui consigne et assure le suivi de vos métriques d'exécution d'apprentissage et de vos artefacts de modèle. Découvrez-en plus sur [Azure Databricks et MLflow](/azure/databricks/applications/mlflow/). 
 
 Consultez [Assurer le suivi des exécutions d'expériences et créer des points de terminaison avec MLflow et Azure Machine Learning](how-to-use-mlflow.md) pour bénéficier d'intégrations supplémentaires de fonctionnalités MLflow et Azure Machine Learning.
 
@@ -35,8 +35,8 @@ Consultez [Assurer le suivi des exécutions d'expériences et créer des points 
 ## <a name="prerequisites"></a>Prérequis
 
 * Installez le package `azureml-mlflow`. 
-    * Ce package intègre automatiquement `azureml-core` du [Kit de développement logiciel (SDK) Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), qui fournit la connectivité nécessaire pour que MLflow accède à votre espace de travail.
-* Un [cluster et un espace de travail Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+    * Ce package intègre automatiquement `azureml-core` du [Kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), qui fournit la connectivité nécessaire pour que MLflow accède à votre espace de travail.
+* Un [cluster et un espace de travail Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="track-azure-databricks-runs"></a>Suivre les exécutions Azure Databricks
@@ -62,7 +62,7 @@ Pour installer des bibliothèques sur votre cluster, accédez à l'onglet **Bibl
 
  ![mlflow avec azure databricks](./media/how-to-use-mlflow-azure-databricks/azure-databricks-cluster-libraries.png)
 
-Dans le champ **Package**, entrez azureml-mlflow, puis sélectionnez Installer. Répétez cette étape si nécessaire afin d’installer d'autres packages sur votre cluster pour votre expérience.
+Dans le champ **Package** , entrez azureml-mlflow, puis sélectionnez Installer. Répétez cette étape si nécessaire afin d’installer d'autres packages sur votre cluster pour votre expérience.
 
  ![Installation de bibliothèque mlflow Azure DB](./media/how-to-use-mlflow-azure-databricks/install-libraries.png)
 
@@ -156,9 +156,9 @@ Au terme de l'apprentissage de votre modèle, vous pouvez le consigner et l'insc
 
 Par défaut, le serveur de suivi principal est l'espace de travail Azure Databricks ; sauf si vous avez choisi de [configurer MLflow Tracking pour limiter le suivi à votre espace de travail Azure Machine Learning](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), auquel cas le serveur de suivi principal est l'espace de travail Azure Machine Learning.   
 
-* **S'il n'existe pas de modèle inscrit sous ce nom**, la méthode en inscrit un nouveau, crée une Version 1, puis renvoie un objet MLflow ModelVersion. 
+* **S'il n'existe pas de modèle inscrit sous ce nom** , la méthode en inscrit un nouveau, crée une Version 1, puis renvoie un objet MLflow ModelVersion. 
 
-* **S'il existe déjà un modèle inscrit sous ce nom**, la méthode crée une nouvelle version du modèle et renvoie l'objet version. 
+* **S'il existe déjà un modèle inscrit sous ce nom** , la méthode crée une nouvelle version du modèle et renvoie l'objet version. 
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -234,4 +234,4 @@ Les [notebooks MLflow avec Azure Machine Learning](https://github.com/Azure/Mach
 
 * [Gérez vos modèles](concept-model-management-and-deployment.md).
 * [Assurez le suivi des exécutions d'expériences et créez des points de terminaison avec MLflow et Azure Machine Learning](how-to-use-mlflow.md). 
-* Découvrez-en plus sur [Azure Databricks et MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/).
+* Découvrez-en plus sur [Azure Databricks et MLflow](/azure/databricks/applications/mlflow/).

@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883079"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325453"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 
@@ -29,7 +29,7 @@ Au cours de cette procédure, vous allez apprendre à effectuer les tâches suiv
 > * Utiliser un point de terminaison de pipeline
 > * Gérer les versions d'un point de terminaison
 
-Pour configurer les services de scoring par lots à l'aide du kit de développement logiciel (SDK), consultez cette [procédure](how-to-run-batch-predictions.md).
+Pour configurer les services de scoring par lots à l'aide du kit de développement logiciel (SDK), consultez cette [procédure](./tutorial-pipeline-batch-scoring-classification.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -51,7 +51,7 @@ Votre pipeline de formation doit être exécuté au moins une fois pour créer u
 
 Maintenant que le pipeline de formation a été exécuté, vous pouvez créer un pipeline d'inférence par lots.
 
-1. En regard de **Envoyer**, sélectionnez le nouveau menu déroulant **Créer un pipeline d’inférence**.
+1. En regard de **Envoyer** , sélectionnez le nouveau menu déroulant **Créer un pipeline d’inférence**.
 
 1. Sélectionnez **Pipeline d'inférence par lots**.
 

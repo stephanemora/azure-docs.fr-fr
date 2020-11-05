@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 700cc461563f145f58e02f7ed9a09b2899a4eb5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc7fd1f3f7615c0622b684e3da4020c7da601f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338764"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322870"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Création et partage d’un espace de travail Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Pour utiliser Azure Machine Learning Studio (classique), vous devez disposer d’un espace de travail Machine Learning Studio (classique). Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
 
@@ -72,8 +72,8 @@ Si vous rencontrez un problème lors de la création de votre espace de travail,
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Partager un espace de travail Azure Machine Learning Studio (classique)
 Une fois l’espace de travail Machine Learning Studio (classique) créé, vous pouvez inviter des utilisateurs à partager l’accès à celui-ci et à l’ensemble de ses expériences, jeux de données, etc. Vous pouvez ajouter des utilisateurs dans l’un des deux rôles :
 
-* **Utilisateur** : un utilisateur de l’espace de travail peut créer, ouvrir, modifier et supprimer des expérimentations, jeux de données, etc. dans l’espace de travail.
-* **Propriétaire** : un propriétaire peut inviter et supprimer des utilisateurs dans l’espace de travail, ainsi que les actions qu’ils sont autorisés à effectuer.
+* **Utilisateur**  : un utilisateur de l’espace de travail peut créer, ouvrir, modifier et supprimer des expérimentations, jeux de données, etc. dans l’espace de travail.
+* **Propriétaire**  : un propriétaire peut inviter et supprimer des utilisateurs dans l’espace de travail, ainsi que les actions qu’ils sont autorisés à effectuer.
 
 > [!NOTE]
 > Le compte d’administrateur qui crée l’espace de travail y est automatiquement ajouté en tant que propriétaire de l’espace de travail. Toutefois, les autres administrateurs ou utilisateurs de cet abonnement ne bénéficient pas automatiquement d’un accès à l’espace de travail : vous devez les inviter explicitement.
@@ -118,11 +118,11 @@ Une fois l’espace de travail Machine Learning Studio (classique) créé, vous 
 
    ![Options Internet](media/troubleshooting-creating-ml-workspace/screen4.png)
 
-2. Sous l'onglet **Général**, cliquez sur **Supprimer…**
+2. Sous l'onglet **Général** , cliquez sur **Supprimer…**
 
    ![Onglet Général](media/troubleshooting-creating-ml-workspace/screen5.png)
 
-3. Dans la boîte de dialogue **Supprimer l’historique de navigation**, vérifiez que **Cookies et données de sites web** est sélectionné, puis cliquez sur **Supprimer**.
+3. Dans la boîte de dialogue **Supprimer l’historique de navigation** , vérifiez que **Cookies et données de sites web** est sélectionné, puis cliquez sur **Supprimer**.
 
    ![Delete cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 

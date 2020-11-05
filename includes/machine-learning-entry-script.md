@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 4975bb2a8ad384b8abc28f1d1835c2c9e98b8c54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95acb028867caf6f497dd99ad3082efcaab09c7b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315425"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325281"
 ---
 Le script d’entrée reçoit les données envoyées à un service web déployé, puis les passe au modèle. Ensuite, il prend la réponse retournée par le modèle et la retourne au client. *Le script est propre à votre modèle*. Il doit comprendre les données que le modèle attend et retourne.
 
@@ -49,7 +49,7 @@ import os
 model = open(os.path.join('.', 'models', 'model1.onnx'))
 ```
 
-#### <a name="writing-run"></a>Écriture de la fonction run()
+### <a name="writing-run"></a>Écriture de la fonction run()
 
 `run()` est exécutée chaque fois que votre modèle reçoit une demande de scoring et s’attend à ce que le corps de la demande soit un document JSON avec la structure suivante :
 

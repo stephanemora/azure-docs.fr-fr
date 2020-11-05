@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324776"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurer une identité commune sur une Data Science Virtual Machine
 
@@ -23,9 +23,9 @@ Sur une machine virtuelle Microsoft Azure, notamment une Data Science Virtual Ma
 
 Active Directory est un fournisseur d’identité éprouvé et pris en charge sur Azure à la fois en tant que service cloud et en tant qu’annuaire local. Vous pouvez utiliser Azure Active Directory (Azure AD) ou la version d’Active Directory locale pour authentifier les utilisateurs sur un DSVM autonome ou un cluster de DSVM dans un groupe de machines virtuelles identiques Azure. Pour cela, joignez les instances DSVM à un domaine Active Directory.
 
-Si vous disposez déjà d’un annuaire Active Directory, vous pouvez l’utiliser en tant que fournisseur d’identité commune. Si vous n’en n’avez pas, vous pouvez exécuter une instance Active Directory managée sur Azure par le biais d’[Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)(Azure AD DS).
+Si vous disposez déjà d’un annuaire Active Directory, vous pouvez l’utiliser en tant que fournisseur d’identité commune. Si vous n’en n’avez pas, vous pouvez exécuter une instance Active Directory managée sur Azure par le biais d’[Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml)(Azure AD DS).
 
-La documentation sur [Azure AD](https://docs.microsoft.com/azure/active-directory/) fournit des [instructions de gestion](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution) détaillées, notamment des procédures pour connecter Azure AD à votre annuaire local si vous en avez un.
+La documentation sur [Azure AD](../../active-directory/index.yml) fournit des [instructions de gestion](../../active-directory/hybrid/whatis-hybrid-identity.md) détaillées, notamment des procédures pour connecter Azure AD à votre annuaire local si vous en avez un.
 
 Cet article explique comment configurer un service de domaine Active Directory entièrement managé sur Azure à l’aide d’Azure AD DS. Vous pouvez ensuite joindre vos DSVM au domaine Active Directory managé. Cette approche permet aux utilisateurs d’accéder à un pool de DSVM (et à d’autres ressources Azure) par le biais d’un compte d’utilisateur commun et d’informations d’identification communes.
 
@@ -37,29 +37,29 @@ Azure AD DS facilite la gestion des identités en fournissant un service entièr
 
    1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour l’annuaire.
     
-   1. Sélectionnez **Azure Active Directory**, puis **Utilisateurs et groupes**.
+   1. Sélectionnez **Azure Active Directory** , puis **Utilisateurs et groupes**.
     
-   1. Dans **Utilisateurs et groupes**, sélectionnez **Tous les utilisateurs**, puis **Nouvel utilisateur**.
+   1. Dans **Utilisateurs et groupes** , sélectionnez **Tous les utilisateurs** , puis **Nouvel utilisateur**.
    
         Le volet **Utilisateur** s’ouvre :
       
         ![Volet « Utilisateur »](./media/add-user.png)
     
-   1. Entrez les détails de l’utilisateur, dont son **nom** et son **nom d’utilisateur**. La partie du nom de domaine du nom d’utilisateur doit être le nom de domaine initial par défaut, « [nom de domaine].onmicrosoft.com », ou un [nom de domaine personnalisé](../../active-directory/add-custom-domain.md) vérifié, non fédéré, comme « contoso.com ».
+   1. Entrez les détails de l’utilisateur, dont son **nom** et son **nom d’utilisateur**. La partie du nom de domaine du nom d’utilisateur doit être le nom de domaine initial par défaut, « [nom de domaine].onmicrosoft.com », ou un [nom de domaine personnalisé](../../active-directory/fundamentals/add-custom-domain.md) vérifié, non fédéré, comme « contoso.com ».
     
    1. Copiez ou notez d’une autre façon le mot de passe généré de sorte à pouvoir le fournir à l’utilisateur une fois ce processus terminé.
     
-   1. Si vous le souhaitez, vous pouvez ouvrir et renseigner les informations dans **Profil**, **Groupes** ou **Rôle d’annuaire** pour l’utilisateur. 
+   1. Si vous le souhaitez, vous pouvez ouvrir et renseigner les informations dans **Profil** , **Groupes** ou **Rôle d’annuaire** pour l’utilisateur. 
     
-   1. Sous **Utilisateur**, sélectionnez **Créer**.
+   1. Sous **Utilisateur** , sélectionnez **Créer**.
     
    1. Distribuez de manière sécurisée le mot de passe généré au nouvel utilisateur afin qu’il puisse se connecter.
 
-1. Créez une instance Azure AD DS. Suivez les instructions données dans [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (section « Créer une instance et configurer les paramètres de base »). Il est important de mettre à jour les mots de passe existants de l’utilisateur dans Active Directory afin que le mot de passe dans Azure AD DS soit synchronisé. Il est également important d’ajouter DNS à Azure AD DS, comme décrit sous « Renseigner les champs de la fenêtre Général du portail Azure pour créer une instance Azure AD DS » dans cette section.
+1. Créez une instance Azure AD DS. Suivez les instructions données dans [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../../active-directory-domain-services/tutorial-create-instance.md) (section « Créer une instance et configurer les paramètres de base »). Il est important de mettre à jour les mots de passe existants de l’utilisateur dans Active Directory afin que le mot de passe dans Azure AD DS soit synchronisé. Il est également important d’ajouter DNS à Azure AD DS, comme décrit sous « Renseigner les champs de la fenêtre Général du portail Azure pour créer une instance Azure AD DS » dans cette section.
 
 1. Créez un sous-réseau DSVM distinct dans le réseau virtuel créé dans la section « Créer et configurer le réseau virtuel » de l’étape précédente.
 1. Créez une ou plusieurs instances de DSVM dans le sous-réseau DSVM.
-1. Suivez les [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) pour ajouter la DSVM à Active Directory. 
+1. Suivez les [instructions](../../active-directory-domain-services/join-ubuntu-linux-vm.md) pour ajouter la DSVM à Active Directory. 
 1. Montez un partage Azure Files pour héberger votre répertoire de base ou de notebooks afin que votre espace de travail puisse être monté sur n’importe quelle machine. (Si vous avez besoin d’autorisations limitées au niveau des fichiers, vous avez besoin d’un système NFS (Network File System) s’exécutant sur une ou plusieurs machines virtuelles.)
 
    1. [Créez un partage Azure Files](../../storage/files/storage-how-to-create-file-share.md).
@@ -79,6 +79,3 @@ Pour la mise à l’échelle automatique, vous pouvez utiliser le groupe de mach
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Stocker en toute sécurité les informations d’identification pour accéder aux ressources cloud](dsvm-secure-access-keys.md)
-
-
-

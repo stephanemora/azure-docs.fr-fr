@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330126"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324860"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
 Cet article explique l’apprentissage profond et l’apprentissage automatique, ainsi que la façon dont ils s’intègrent dans la catégorie plus large de l’intelligence artificielle. Découvrez les solutions d’apprentissage profond que vous pouvez créer sur Azure Machine Learning, par exemple, pour la détection des fraudes, la reconnaissance vocale et faciale, l’analyse des sentiments et la prévision de séries chronologiques.
 
-Pour obtenir des conseils sur le choix des algorithmes pour vos solutions, consultez l’[Aide-mémoire de l’algorithme Machine Learning](algorithm-cheat-sheet.md).
+Pour obtenir des conseils sur le choix des algorithmes pour vos solutions, consultez l’[Aide-mémoire de l’algorithme Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, Machine Learning et intelligence artificielle
 
@@ -29,7 +29,7 @@ Pour obtenir des conseils sur le choix des algorithmes pour vos solutions, consu
 
 Consultez les définitions suivantes pour comprendre la différence entre le deep learning, le machine learning et l’IA :
 
-- Le **Deep Learning**, ou apprentissage profond, est un sous-ensemble du Machine Learning, ou apprentissage automatique, basé sur des réseaux neuronaux artificiels. Le _processus d’apprentissage_ est qualifié de _profond_ parce que la structure des réseaux neuronaux artificiels se compose de plusieurs couches d’entrée, de sortie et masquées. Chaque couche contient des unités qui transforment les données d’entrée en informations que la couche suivante peut utiliser une tâche prédictive spécifique. Grâce à cette structure, une machine est capable d’apprendre au travers de son propre traitement de données.
+- Le **Deep Learning** , ou apprentissage profond, est un sous-ensemble du Machine Learning, ou apprentissage automatique, basé sur des réseaux neuronaux artificiels. Le _processus d’apprentissage_ est qualifié de _profond_ parce que la structure des réseaux neuronaux artificiels se compose de plusieurs couches d’entrée, de sortie et masquées. Chaque couche contient des unités qui transforment les données d’entrée en informations que la couche suivante peut utiliser une tâche prédictive spécifique. Grâce à cette structure, une machine est capable d’apprendre au travers de son propre traitement de données.
 
 - Le **Machine Learning** est un sous-ensemble de l’intelligence artificielle utilisant des techniques (telles que le Deep Learning), qui permettent aux machines de tirer des enseignements de leur expérience pour améliorer la manière dont elles exécutent leur tâches. Le _processus d’apprentissage_ repose sur les étapes suivantes :
 
@@ -38,7 +38,7 @@ Consultez les définitions suivantes pour comprendre la différence entre le dee
    1. Tester et déployer le modèle.
    1. Utiliser le modèle déployé pour effectuer une tâche prédictive automatisée (en d’autres termes, appeler et utiliser le modèle déployé pour recevoir les prédictions retournées par le modèle).
 
-- L’**intelligence artificielle** est une technique qui permet aux ordinateurs d’imiter l’intelligence humaine. Cette technique inclut le Machine Learning. 
+- L’ **intelligence artificielle** est une technique qui permet aux ordinateurs d’imiter l’intelligence humaine. Cette technique inclut le Machine Learning. 
  
 Les techniques de Machine Learning et de Deep Learning vous permettent de créer des systèmes informatiques et des applications qui effectuent des tâches généralement associées à l’intelligence humaine. Ces tâches incluent la reconnaissance d’images, la reconnaissance vocale et la traduction linguistique.
 
@@ -73,7 +73,7 @@ le Deep Learning est souvent utilisé pour la détection d’objets. La détecti
 
 La détection d’objets est déjà utilisée dans les secteurs du jeu, de la distribution, du tourisme et des véhicules autonomes.
 
-Découvrez comment utiliser un modèle de classification d’images à partir d’une infrastructure open source dans Azure Machine Learning : [Classifier des images à l’aide d’un modèle Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Découvrez comment utiliser un modèle de classification d’images à partir d’une infrastructure open source dans Azure Machine Learning : [Classifier des images à l’aide d’un modèle Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Génération de légende d’image
 
@@ -93,7 +93,7 @@ L’analyse de texte basée sur des méthodes de deep learning implique l’anal
 
 Les entreprises utilisent le deep learning pour analyser le texte et détecter le délit d’initié et la conformité aux réglementations gouvernementales. Un autre exemple courant concerne la fraude aux assurances : l’analyse de texte a souvent été utilisée pour analyser de grandes quantités de documents dans le but de reconnaître d’éventuelles fraudes dans les déclarations de sinistres. 
 
-Découvrez comment utiliser un modèle TensorFlow dans Azure Machine Learning : [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Découvrez comment utiliser un modèle TensorFlow dans Azure Machine Learning : [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Réseaux neuronaux artificiels
 
@@ -117,8 +117,8 @@ Des réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les articles suivants présentent des options supplémentaires pour l’utilisation de modèles d’apprentissage profond open source dans [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri) :
+Les articles suivants présentent des options supplémentaires pour l’utilisation de modèles d’apprentissage profond open source dans [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri) :
 
-- [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](./how-to-set-up-training-targets.md)

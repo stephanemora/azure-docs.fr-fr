@@ -10,17 +10,17 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2ed8910db8b903dab3b81d9db6c9b5798d2b6b69
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 7642fe6642c1b938645e520c15ac367e12630f91
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542051"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316670"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualiser des exécutions d’expériences et des métriques avec TensorBoard et le service Azure Machine Learning
 
 
-Dans cet article, vous allez apprendre à consulter vos exécutions d’expériences et métriques dans TensorBoard à l’aide du [package `tensorboard`](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py&preserve-view=true) dans le kit SDK Azure Machine Learning principal. Une fois que vous avez examiné vos exécutions d’expériences, vous pouvez optimiser et réentraîner vos modèles Machine Learning.
+Dans cet article, vous allez apprendre à consulter vos exécutions d’expériences et métriques dans TensorBoard à l’aide du [package `tensorboard`](/python/api/azureml-tensorboard/?preserve-view=true&view=azure-ml-py) dans le kit SDK Azure Machine Learning principal. Une fois que vous avez examiné vos exécutions d’expériences, vous pouvez optimiser et réentraîner vos modèles Machine Learning.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) est une suite d’applications web pour l’examen et la compréhension de la structure et des performances de vos expériences.
 
@@ -42,7 +42,7 @@ La façon dont vous lancez TensorBoard avec des expériences Azure Machine Learn
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**
     * Votre propre serveur de notebooks Jupyter
-       * [Installer le kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) avec le `tensorboard` supplémentaire
+       * [Installer le kit SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) avec le `tensorboard` supplémentaire
         * [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md).  
         * [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
 
@@ -166,7 +166,7 @@ run = exp.submit(src)
 
 Vous pouvez lancer TensorBoard pendant ou après l’exécution. Dans la section suivante, nous créons une instance d’objet TensorBoard, `tb`, qui prend l’historique des exécutions des expériences chargé dans le `run`, puis lance TensorBoard avec la méthode `start()`. 
   
-Comme le [constructeur TensorBoard](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true) accepte un tableau d’exécutions, veillez à le transmettre sous la forme d’un tableau à un seul élément.
+Comme le [constructeur TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py) accepte un tableau d’exécutions, veillez à le transmettre sous la forme d’un tableau à un seul élément.
 
 ```python
 from azureml.tensorboard import Tensorboard
@@ -247,7 +247,7 @@ for alpha in tqdm(alphas):
 
 ### <a name="export-runs-to-tensorboard"></a>Exporter les exécutions vers TensorBoard
 
-Avec la méthode [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py&preserve-view=true) du kit SDK, nous pouvons exporter l’historique des exécutions de notre expérience Azure Machine Learning dans les journaux TensorBoard pour pouvoir les voir via TensorBoard.  
+Avec la méthode [export_to_tensorboard()](/python/api/azureml-tensorboard/azureml.tensorboard.export?preserve-view=true&view=azure-ml-py) du kit SDK, nous pouvons exporter l’historique des exécutions de notre expérience Azure Machine Learning dans les journaux TensorBoard pour pouvoir les voir via TensorBoard.  
 
 Dans le code suivant, nous créons le dossier `logdir` dans notre répertoire de travail actuel. Ce dossier est l’endroit où nous allons exporter notre historique des exécutions des expériences ainsi que les journaux du répertoire `root_run`, puis marquer cette exécution comme terminée. 
 
@@ -273,7 +273,7 @@ root_run.complete()
 > Vous pouvez également exporter une exécution spécifique vers TensorBoard en spécifiant le nom de l’exécution `export_to_tensorboard(run_name, logdir)`
 
 ### <a name="start-and-stop-tensorboard"></a>Démarrer et arrêter TensorBoard
-Une fois l’historique des exécutions exporté pour cette expérience, nous pouvons lancer TensorBoard avec la méthode [start()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-start-browser-false-). 
+Une fois l’historique des exécutions exporté pour cette expérience, nous pouvons lancer TensorBoard avec la méthode [start()](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-start-browser-false-). 
 
 ```Python
 from azureml.tensorboard import Tensorboard
@@ -285,7 +285,7 @@ tb = Tensorboard([], local_root=logdir, port=6006)
 tb.start()
 ```
 
-Lorsque vous avez terminé, veillez à appeler la méthode [stop()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestop--) de l’objet TensorBoard. Sinon, TensorBoard continue de s’exécuter tant que vous n’arrêtez pas le noyau du notebook. 
+Lorsque vous avez terminé, veillez à appeler la méthode [stop()](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py#&preserve-view=truestop--) de l’objet TensorBoard. Sinon, TensorBoard continue de s’exécuter tant que vous n’arrêtez pas le noyau du notebook. 
 
 ```python
 tb.stop()
@@ -296,4 +296,4 @@ tb.stop()
 Dans cette procédure, vous avez créé deux expériences et appris à lancer TensorBoard sur leurs historiques des exécutions afin d’identifier les zones potentielles d’optimisation et de réentraînement. 
 
 * Si vous êtes satisfait de votre modèle, consultez notre article [Guide pratique pour déployer un modèle](how-to-deploy-and-where.md). 
-* Apprenez-en davantage sur l’[optimisation des hyperparamètres](how-to-tune-hyperparameters.md). 
+* Apprenez-en davantage sur l’[optimisation des hyperparamètres](how-to-tune-hyperparameters.md).

@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed11a1b772acb31268f3d0a61fba10301ad62e18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886191"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320464"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurer les fractionnements de données et la validation croisée dans les opérations de Machine Learning automatisé
 
@@ -24,7 +24,7 @@ Dans cet article, vous allez découvrir les différentes options de configuratio
 
 Dans Azure Machine Learning, quand vous utilisez AutoML pour générer plusieurs modèles de ML. Chaque exécution enfant doit valider le modèle associé en calculant les mesures de qualité pour ce modèle, telles que la précision ou la pondération AUC. Ces métriques sont calculées en comparant les prédictions effectuées avec chaque modèle avec des balises d’observations passées basées sur les données de validation. 
 
-Les expériences AutoML effectuent la validation de modèle automatiquement. Les sections suivantes décrivent comment vous pouvez personnaliser davantage les paramètres de validation avec le [Kit de développement logiciel (SDK) Python pour Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
+Les expériences AutoML effectuent la validation de modèle automatiquement. Les sections suivantes décrivent comment vous pouvez personnaliser davantage les paramètres de validation avec le [Kit de développement logiciel (SDK) Python pour Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Pour une expérience avec peu, voire sans code, consultez la section [Créer vos expériences de machine learning automatisé dans Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ Pour cet article, vous avez besoin des éléments suivants :
 
 ## <a name="default--data-splits-and-cross-validation"></a>Fractionnements de données et validation croisée par défaut
 
-Utilisez l’objet [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) pour définir vos paramètres d’expérimentation et de formation. Dans l’extrait de code suivant, Notez que seuls les paramètres requis sont définis, c’est-à-dire que les paramètres pour `n_cross_validation` ou `validation_ data` ne sont **pas** inclus.
+Utilisez l’objet [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) pour définir vos paramètres d’expérimentation et de formation. Dans l’extrait de code suivant, Notez que seuls les paramètres requis sont définis, c’est-à-dire que les paramètres pour `n_cross_validation` ou `validation_ data` ne sont **pas** inclus.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -67,7 +67,7 @@ Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cr
 |Formation sur la taille des&nbsp;données&nbsp;| Technique de validation |
 |---|-----|
 |**Contient plus&nbsp;de&nbsp;20 000&nbsp;lignes**| Le fractionnement des données de formation/validation est appliqué. La valeur par défaut consiste à prendre 10 % du jeu de données d’apprentissage initial en tant que jeu de validation. Ce jeu de validation est ensuite utilisé pour le calcul des métriques.
-|**Contient moins&nbsp;de&nbsp;20 000&nbsp;lignes**| L’approche de validation croisée est appliquée. Le nombre de plis par défaut dépend du nombre de lignes. <br> **Si le jeu de données est inférieur à 1 000 lignes**, 10 plis sont utilisés. <br> **S’il y a entre 1 000 et 20 000 lignes**, trois plis sont utilisés.
+|**Contient moins&nbsp;de&nbsp;20 000&nbsp;lignes**| L’approche de validation croisée est appliquée. Le nombre de plis par défaut dépend du nombre de lignes. <br> **Si le jeu de données est inférieur à 1 000 lignes** , 10 plis sont utilisés. <br> **S’il y a entre 1 000 et 20 000 lignes** , trois plis sont utilisés.
 
 ## <a name="provide-validation-data"></a>Fournir des données de validation
 

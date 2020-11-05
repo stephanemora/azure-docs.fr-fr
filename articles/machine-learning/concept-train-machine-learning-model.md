@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675685"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324821"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -41,13 +41,13 @@ Chacune de ces méthodes d’entraînement peut utiliser différents types de re
 
 Le SDK Azure Machine Learning pour Python vous permet de créer et exécuter des workflows de machine learning avec Azure Machine Learning. Vous pouvez interagir avec le service à partir d’une session Python interactive, de notebooks Jupyter, de Visual Studio Code ou d’un autre IDE.
 
-* [Qu’est-ce que le SDK Azure Machine Learning pour Python ?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [Installer/mettre à jour le SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [Qu’est-ce que le SDK Azure Machine Learning pour Python ?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [Installer/mettre à jour le SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Configurer un environnement de développement pour Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuration de série de tests
 
-Un travail d’apprentissage générique avec Azure Machine Learning peut être défini à l’aide de la classe [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). La configuration de série de tests de script est ensuite utilisée avec vos scripts d’apprentissage pour effectuer l’apprentissage d’un modèle sur une cible de calcul.
+Un travail d’apprentissage générique avec Azure Machine Learning peut être défini à l’aide de la classe [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). La configuration de série de tests de script est ensuite utilisée avec vos scripts d’apprentissage pour effectuer l’apprentissage d’un modèle sur une cible de calcul.
 
 Vous pouvez commencer avec une configuration d’exécution pour votre ordinateur local avant de passer si besoin à une autre pour une cible de calcul cloud. Quand vous changez de cible de calcul, vous ne changez que la configuration d’exécution utilisée. Une exécution consigne aussi des informations sur la tâche d’entraînement, notamment les entrées, les sorties et les journaux.
 
@@ -90,8 +90,8 @@ Le cycle de vie de formation Azure est constitué des éléments suivants :
 1. Création ou téléchargement du Dockerfile sur le nœud de calcul 
     1. Le système calcule un code de hachage pour : 
         - l’image de base ; 
-        - les étapes Docker personnalisées (voir [Déployer un modèle à l’aide d’une image de base Docker personnalisée](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)) ;
-        - la définition Conda YAML (voir [Créer et utiliser des environnements logiciels dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)).
+        - les étapes Docker personnalisées (voir [Déployer un modèle à l’aide d’une image de base Docker personnalisée](./how-to-deploy-custom-docker-image.md)) ;
+        - la définition Conda YAML (voir [Créer et utiliser des environnements logiciels dans Azure Machine Learning](./how-to-use-environments.md)).
     1. Le système utilise ce code de hachage comme clé pour rechercher le Dockerfile dans l’espace de travail Azure Container Registry (ACR).
     1. Si le Dockerfile est introuvable, il recherche une correspondance dans l’ensemble d’ACR.
     1. Si le Dockerfile est introuvable, le système génère une nouvelle image (qui sera mise en cache et inscrite auprès de l’espace de travail ACR).
@@ -101,7 +101,7 @@ Le cycle de vie de formation Azure est constitué des éléments suivants :
 1. Enregistrement des journaux, des fichiers de modèle et des autres fichiers écrits dans `./outputs` dans le compte de stockage associé à l’espace de travail
 1. Scale down du calcul, notamment la suppression du stockage temporaire 
 
-Si vous choisissez d’effectuer l’apprentissage sur votre ordinateur local (« Configurer en tant qu’exécution locale »), vous n’avez pas besoin d’utiliser Docker. Vous pouvez utiliser Docker localement si vous le souhaitez (voir la section [Configurer un pipeline de ML](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) pour obtenir un exemple).
+Si vous choisissez d’effectuer l’apprentissage sur votre ordinateur local (« Configurer en tant qu’exécution locale »), vous n’avez pas besoin d’utiliser Docker. Vous pouvez utiliser Docker localement si vous le souhaitez (voir la section [Configurer un pipeline de ML](./how-to-debug-pipelines.md) pour obtenir un exemple).
 
 ## <a name="r-sdk-preview"></a>Kit de développement logiciel (SDK) R (préversion)
 

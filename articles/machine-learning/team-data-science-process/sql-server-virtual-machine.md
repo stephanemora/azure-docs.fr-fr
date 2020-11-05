@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e387d5f7ee0b1926457717b30b03bbfeb8d70a1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be878cf40967356d68e9be0765e898c81b5ba0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027424"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314631"
 ---
 # <a name="process-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
 Ce document décrit l'exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cet objectif peut être atteint par data wrangling à l’aide de SQL ou en utilisant un langage de programmation comme Python.
@@ -98,7 +98,7 @@ Voici une petite présentation des données de latitude/longitude issue du site 
 * La cinquième décimale équivaut à 1,1 m maximum : elle permet de distinguer un arbre d’un autre. Un tel niveau de précision sur les appareils GPS commerciaux ne peut être atteint qu’au moyen d’une correction différentielle.
 * La sixième décimale équivaut à 0,11 m maximum : vous pouvez notamment l’utiliser pour représenter des structures en détail, pour concevoir des plans d’aménagement paysager et pour construire des routes. Elle devrait se révéler amplement suffisante pour assurer le suivi des mouvements des glaciers et des rivières. L’obtention d’une telle précision sur un GPS nécessite l’emploi de mesures rigoureuses, telles qu’une correction différentielle.
 
-Vous pouvez implémenter les informations de localisation comme illustré ci-dessous, en les répartissant par région, par emplacement et par ville. Vous pouvez aussi appeler un point de terminaison REST, tel que l’API Bing Maps disponible dans [Rechercher un emplacement par point](https://msdn.microsoft.com/library/ff701710.aspx), pour obtenir des informations sur la région/le secteur.
+Vous pouvez implémenter les informations de localisation comme illustré ci-dessous, en les répartissant par région, par emplacement et par ville. Vous pouvez aussi appeler un point de terminaison REST, tel que l’API Bing Maps disponible dans [Rechercher un emplacement par point](/bingmaps/rest-services/locations/find-a-location-by-point), pour obtenir des informations sur la région/le secteur.
 
 ```sql
 select 
@@ -116,7 +116,7 @@ from <tablename>
 Vous pouvez en outre exploiter ces fonctionnalités de localisation pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment. 
 
 > [!TIP]
-> Vous pouvez insérer les enregistrements par programmation en utilisant le langage de votre choix. Vous aurez peut-être besoin d’insérer les données dans des blocs pour améliorer l’efficacité des écritures (pour obtenir un exemple illustrant la marche à suivre, consultez cet [exemple HelloWorld qui montre comment accéder à SQL Server avec python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). Une autre solution consiste à insérer les données dans la base de données à l’aide de l’ [utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> Vous pouvez insérer les enregistrements par programmation en utilisant le langage de votre choix. Vous aurez peut-être besoin d’insérer les données dans des blocs pour améliorer l’efficacité des écritures (pour obtenir un exemple illustrant la marche à suivre, consultez cet [exemple HelloWorld qui montre comment accéder à SQL Server avec python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). Une autre solution consiste à insérer les données dans la base de données à l’aide de l’ [utilitaire BCP](/sql/tools/bcp-utility).
 > 
 > 
 
@@ -152,5 +152,4 @@ Pour découvrir un exemple de procédure pas à pas du processus de science des 
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883112"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322257"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Qu'est-ce que le concepteur Azure Machine Learning ? 
 
@@ -114,7 +114,7 @@ Les pipelines publiés sont flexibles ; ils peuvent être utilisés pour effect
 
 Un pipeline publié s’exécute sur les ressources de calcul que vous définissez dans le brouillon de pipeline pour chaque module.
 
-Le concepteur crée le même objet [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) que le Kit de développement logiciel (SDK).
+Le concepteur crée le même objet [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py) que le Kit de développement logiciel (SDK).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

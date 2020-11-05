@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829388"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324851"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Qu’est-ce que l’apprentissage automatique responsable ? (préversion)
 
@@ -73,7 +73,7 @@ Dans les solutions traditionnelles de calcul et de stockage cloud, le cloud doit
 
 Le chiffrement homomorphe permet d’effectuer des calculs sur des données chiffrées sans avoir à accéder à une clé secrète (déchiffrement). Les résultats des calculs sont chiffrés et peuvent être révélés uniquement par le propriétaire de la clé secrète. En utilisant le chiffrement homomorphe, les opérateurs de cloud n’auront jamais un accès non chiffré aux données qu’ils stockent et calculent. Les calculs sont effectués directement sur les données chiffrées. La confidentialité des données repose sur un chiffrement de pointe, et le propriétaire des données contrôle toutes les informations diffusées. Pour plus d’informations sur le chiffrement homomorphe chez Microsoft, consultez [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-Pour commencer à utiliser le chiffrement homomorphe dans Azure Machine Learning, utilisez les liaisons Python [à inférence chiffrée](https://pypi.org/project/encrypted-inference/) pour [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL est une bibliothèque de chiffrement homomorphe open source qui permet d’effectuer des ajouts et des multiplications sur des entiers chiffrés ou des nombres réels. Pour en savoir plus sur Microsoft SEAL, accédez à [Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou consultez la [page de projet Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+Pour commencer à utiliser le chiffrement homomorphe dans Azure Machine Learning, utilisez les liaisons Python [à inférence chiffrée](https://pypi.org/project/encrypted-inference/) pour [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL est une bibliothèque de chiffrement homomorphe open source qui permet d’effectuer des ajouts et des multiplications sur des entiers chiffrés ou des nombres réels. Pour en savoir plus sur Microsoft SEAL, accédez à [Centre des architectures Azure](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou consultez la [page de projet Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
 
 Consultez l’exemple suivant pour apprendre à [déployer un service web d’inférence chiffré dans Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -96,5 +96,5 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure Machine
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- Pour plus d’informations et en savoir plus sur les meilleures pratiques, consultez la [boîte à outils de l’innovation responsable](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/).
+- Pour plus d’informations et en savoir plus sur les meilleures pratiques, consultez la [boîte à outils de l’innovation responsable](/azure/architecture/guide/responsible-innovation/).
 - En savoir plus sur l’ensemble de recommandations [À PROPOS DE L’APPRENTISSAGE AUTOMATIQUE](https://www.partnershiponai.org/about-ml/) pour la documentation de système d’apprentissage automatique.

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446694"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322237"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning facilite la connexion à vos données dans le cloud.  Il 
     
 ## <a name="data-workflow"></a>Workflow de données
 
-Quand vous êtes prêt à utiliser les données dans votre solution de stockage cloud, nous vous recommandons de recourir au workflow de livraison de données suivant. Ce workflow suppose que vous disposez d’un [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) et de données dans un service de stockage cloud au sein d’Azure. 
+Quand vous êtes prêt à utiliser les données dans votre solution de stockage cloud, nous vous recommandons de recourir au workflow de livraison de données suivant. Ce workflow suppose que vous disposez d’un [compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal) et de données dans un service de stockage cloud au sein d’Azure. 
 
 1. Créez un [magasin de données Azure Machine Learning](#datastores) pour stocker les informations de connexion à votre stockage Azure.
 
@@ -81,9 +81,9 @@ Les jeux de données peuvent être créés à partir de fichiers locaux, d’URL
 
 Il existe 2 types de datasets : 
 
-+ Un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences de formation, vous pouvez [télécharger ou monter des fichiers](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) référencés par FileDatasets dans votre cible de calcul.
++ Un [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences de formation, vous pouvez [télécharger ou monter des fichiers](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) référencés par FileDatasets dans votre cible de calcul.
 
-+ Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Vous pouvez charger un TabularDataset dans une trame de données Pandas ou Spark afin d’effectuer une autre manipulation et un nettoyage. Pour obtenir la liste complète des formats de données à partir desquels vous pouvez créer des TabularDatasets, consultez la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Vous pouvez charger un TabularDataset dans une trame de données Pandas ou Spark afin d’effectuer une autre manipulation et un nettoyage. Pour obtenir la liste complète des formats de données à partir desquels vous pouvez créer des TabularDatasets, consultez la [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Vous trouverez des fonctionnalités supplémentaires des jeux de données dans la documentation suivante :
 
@@ -100,7 +100,7 @@ Avec les jeux de données, vous pouvez effectuer un certain nombre de tâches de
      + le [concepteur](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
      + [Pipelines Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Accédez aux jeux de données pour le scoring avec l’[inférence par lot](how-to-use-parallel-run-step.md) dans des [pipelines machine learning](how-to-create-your-first-pipeline.md).
++ Accédez aux jeux de données pour le scoring avec l’[inférence par lot](./tutorial-pipeline-batch-scoring-classification.md) dans des [pipelines machine learning](how-to-create-your-first-pipeline.md).
 + Configurez un moniteur de jeu de données pour la détection de la [dérive de données](#drift).
 
 <a name="label"></a>

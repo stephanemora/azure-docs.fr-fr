@@ -3,18 +3,20 @@ title: 'Langage de requête Azure Cosmos DB : fonctions spatiales'
 description: Découvrez les fonctions système SQL spatiales dans Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 87d73787998d1a49d7512723b212c26b7107513f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 690a5cef2141af75412eaca207a16c59b37aa3ac
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559802"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335379"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Fonctions spatiales (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. 
 

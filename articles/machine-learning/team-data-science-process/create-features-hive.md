@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085376"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323671"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -25,15 +25,15 @@ Les opérations nécessaires pour créer des fonctionnalités peuvent utiliser l
 
 Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de données [NYC Taxi Trip](https://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état. La dernière section présente également les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Cette tâche est une étape du [processus TDSP (Team Data Science Process)](./index.yml).
 
 ## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md).
-* Approvisionné un cluster Hadoop personnalisé avec le service HDInsight.  Si vous avez besoin d'aide, consultez [Personnaliser des clusters Hadoop Azure HDInsight pour l'analyse avancée](customize-hadoop-cluster.md).
+* Approvisionné un cluster Hadoop personnalisé avec le service HDInsight.  Si vous avez besoin d'aide, consultez [Personnaliser des clusters Hadoop Azure HDInsight pour l'analyse avancée](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Chargé les données dans les tables Hive de clusters Hadoop Azure HDInsight. Si tel n’est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](move-hive-tables.md).
-* Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](customize-hadoop-cluster.md).
+* Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ## <a name="feature-generation"></a><a name="hive-featureengineering"></a>Génération de fonctionnalités
 Dans cette section, plusieurs exemples de création de fonctionnalités à l'aide de requêtes Hive sont décrits. Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec les fonctionnalités supplémentaires et la clé principale, sur lesquelles vous pouvez créer une jointure à la table d’origine. Voici les exemples présentés :
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-Dans cette requête, si *\<datetime field>* suit le modèle *03/26/2015 12:04:39*, *\<pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
+Dans cette requête, si *\<datetime field>* suit le modèle *03/26/2015 12:04:39* , *\<pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -124,7 +124,7 @@ from <databasename>.<tablename>;
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
 La requête fournie dans cette section peut être directement appliquée aux données du jeu « NYC Taxi Trip ». Cette requête montre comment appliquer une fonction mathématique intégrée dans Hive pour générer des fonctionnalités.
 
-Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d’arrivée, intitulés *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* *dropoff\_latitude*. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
+Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d’arrivée, intitulés *pickup\_longitude* , *pickup\_latitude* , *dropoff\_longitude* *dropoff\_latitude*. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
 
 ```hiveql
 set R=3959;
@@ -144,7 +144,7 @@ and dropoff_latitude between 30 and 90
 limit 10;
 ```
 
-Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat_or_lon*pi/180, qui convertit les degrés en radians. Ici, *lat_or_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
+Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat_or_lon* pi/180, qui convertit les degrés en radians. Ici, *lat_or_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
 ![Créer un espace de travail](./media/create-features-hive/atan2new.png)
 
@@ -175,7 +175,7 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
     set hive.auto.convert.join=true;
     ```
 
-3. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l’utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l’astuce consiste à choisir les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size*, car la taille de chaque tâche de mappage est déterminée par :
+3. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l’utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l’astuce consiste à choisir les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size* , car la taille de chaque tâche de mappage est déterminée par :
    
     ```hiveql
     num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
@@ -198,4 +198,3 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
     set mapred.reduce.tasks=128;
     set mapred.tasktracker.reduce.tasks.maximum=128;
     ```
-

@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5a04e5a7136ac1a33766bf543a27ff7794498c26
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: be2afad7e7cb08d9c677e589846f3d67cf43e708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996370"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314229"
 ---
 # <a name="collect-data-from-models-in-production"></a>Collecter des données pour des modèles en production
 
@@ -67,11 +67,11 @@ Le chemin des données de sortie dans l’objet blob respecte cette syntaxe :
 
 - Vous avez besoin d’un cluster AKS. Pour plus d’informations sur la création et le déploiement d’un cluster AKS, consultez [Où et comment effectuer un déploiement](how-to-deploy-and-where.md)
 
-- [Configurez votre environnement](how-to-configure-environment.md) et installez le [SDK de supervision Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+- [Configurez votre environnement](how-to-configure-environment.md) et installez le [SDK de supervision Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Activer la collecte des données
 
-Vous pouvez activer la [collecte de données](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true), quel que soit le modèle que vous déployez par le biais d’Azure Machine Learning ou d’autres outils.
+Vous pouvez activer la [collecte de données](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py), quel que soit le modèle que vous déployez par le biais d’Azure Machine Learning ou d’autres outils.
 
 Pour activer la collecte de données, vous devez :
 
@@ -153,13 +153,13 @@ Vous pouvez choisir l’outil de votre choix pour analyser les données collect�
 
 1. Téléchargez et ouvrez [Power BI Desktop](https://www.powerbi.com).
 
-1. Sélectionnez **Obtenir des données**, puis sélectionnez [**Stockage Blob Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+1. Sélectionnez **Obtenir des données** , puis sélectionnez [**Stockage Blob Azure**](/power-bi/desktop-data-sources).
 
     [![Configuration de l’objet blob Power BI](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
 1. Ajoutez le nom de votre compte de stockage et entrez votre clé de stockage. Vous pouvez accéder à ces informations en sélectionnant **Paramètres** > **Clés d’accès** dans votre objet blob.
 
-1. Sélectionnez le conteneur de **données de modèle**, puis sélectionnez **Modifier**.
+1. Sélectionnez le conteneur de **données de modèle** , puis sélectionnez **Modifier**.
 
     [![Navigateur - Power BI](./media/how-to-enable-data-collection/pbiNavigator.png)](././media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
@@ -187,7 +187,7 @@ Vous pouvez choisir l’outil de votre choix pour analyser les données collect�
 
 ### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analyser des données de modèle à l’aide d’Azure Databricks
 
-1. Créez un [espace de travail Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Créez un [espace de travail Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Accédez à votre espace de travail Databricks.
 
@@ -195,7 +195,7 @@ Vous pouvez choisir l’outil de votre choix pour analyser les données collect�
 
     [![Sélection de l’option Charger des données - Databricks](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. Sélectionnez **Créer une table**, puis sélectionnez **Autres sources de données** > **Stockage Blob Azure** > **Créer une table dans Notebook**.
+1. Sélectionnez **Créer une table** , puis sélectionnez **Autres sources de données** > **Stockage Blob Azure** > **Créer une table dans Notebook**.
 
     [![Création d’une table - Databricks](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

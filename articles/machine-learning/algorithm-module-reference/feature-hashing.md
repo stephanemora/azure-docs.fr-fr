@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907922"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323716"
 ---
 # <a name="feature-hashing-module-reference"></a>Informations de référence sur le module de hachage des caractéristiques
 
@@ -22,7 +22,7 @@ Cet article décrit un module inclus dans le concepteur Azure Machine Learning.
 
 Utilisez le module Feature Hashing (Hachage des caractéristiques) pour transformer un flux de texte anglais en un ensemble de caractéristiques numériques (entiers). Vous pouvez alors passer cet ensemble de caractéristiques hachées à un algorithme de machine learning pour entraîner un modèle d’analyse de texte.
 
-La fonctionnalité de hachage des caractéristiques fournie dans ce module se base sur le framework nimbusml. Pour plus d’informations, consultez [NgramHash (classe)](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+La fonctionnalité de hachage des caractéristiques fournie dans ce module se base sur le framework nimbusml. Pour plus d’informations, consultez [NgramHash (classe)](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
 ## <a name="what-is-feature-hashing"></a>Qu’est-ce que le hachage des caractéristiques ?
 
@@ -131,4 +131,4 @@ L’ensemble optimal de méthodes de prétraitement à appliquer dans une soluti
 
 ## <a name="next-steps"></a>Étapes suivantes
             
-Regardez les [modules disponibles](module-reference.md) pour Azure Machine Learning 
+Regardez les [modules disponibles](module-reference.md) pour Azure Machine Learning

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905251"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319410"
 ---
 # <a name="poisson-regression"></a>Régression de Poisson
 
@@ -29,7 +29,7 @@ Utilisez ce module pour créer un modèle de régression de Poisson dans un pipe
 - Une distribution de Poisson étant une distribution discrète, il n'y a donc pas lieu d'utiliser cette méthode avec des nombres non entiers.
 
 > [!TIP]
-> Si votre cible n'est pas un nombre, la régression de Poisson n'est probablement pas une méthode appropriée. Essayez [d’autres modules de régression dans le concepteur](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> Si votre cible n'est pas un nombre, la régression de Poisson n'est probablement pas une méthode appropriée. Essayez [d’autres modules de régression dans le concepteur](./module-reference.md#machine-learning-algorithms). 
 
 Une fois que vous avez configuré la méthode de régression, vous devez effectuer l’apprentissage du modèle à l’aide d’un jeu de données contenant des exemples de la valeur que vous souhaitez prédire. Le modèle ainsi formé permet ensuite d’effectuer des prédictions.
 
@@ -49,13 +49,13 @@ La régression de Poisson est un type d'analyse de régression généralement ut
 
 ## <a name="how-to-configure-poisson-regression"></a>Comment configurer la régression de Poisson
 
-1. Ajoutez le module **Régression de poisson** à votre pipeline dans le Concepteur. Vous le trouverez sous **Algorithmes de Machine Learning**, dans la catégorie **Régression**.
+1. Ajoutez le module **Régression de poisson** à votre pipeline dans le Concepteur. Vous le trouverez sous **Algorithmes de Machine Learning** , dans la catégorie **Régression**.
 
 2. Ajoutez un jeu de données qui contient les données d’apprentissage du bon type. 
 
     Il est recommandé d'utiliser [Normaliser les données](normalize-data.md) pour normaliser le jeu de données d'entrée avant de l'utiliser pour former le régresseur.
 
-3. Dans le volet droit du module **Régression de Poisson**, spécifiez la façon dont vous souhaitez que le modèle soit formé, en définissant l’option **Créer le mode de formateur**.  
+3. Dans le volet droit du module **Régression de Poisson** , spécifiez la façon dont vous souhaitez que le modèle soit formé, en définissant l’option **Créer le mode de formateur**.  
   
     - **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, fournissez un ensemble spécifique de valeurs en tant qu’arguments.
   
@@ -73,7 +73,7 @@ La régression de Poisson est un type d'analyse de régression généralement ut
 
     Dans ce module, vous pouvez appliquer une combinaison de régularisations L1 et L2. En associant les régularisations L1 et L2, vous pouvez imposer une pénalité sur l'amplitude des valeurs de paramètre. L'apprenant essaie de réduire la pénalité, en faisant un compromis avec la réduction de la perte.
 
-    Pour une bonne présentation des régularisations L1 et L2, consultez [Régularisations L1 et L2 pour l’apprentissage automatique](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    Pour une bonne présentation des régularisations L1 et L2, consultez [Régularisations L1 et L2 pour l’apprentissage automatique](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
 6. **Taille de la mémoire pour L-BFGS** : Spécifiez la quantité de mémoire à réserver pour l’ajustement et l’optimisation du modèle.
 
@@ -83,9 +83,9 @@ La régression de Poisson est un type d'analyse de régression généralement ut
 
 7. Connectez le jeu de données d’apprentissage et le modèle non formé à l’un des modules d’apprentissage : 
 
-    - Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](train-model.md).
+    - Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique** , utilisez le module [Entraîner le du modèle](train-model.md).
 
-    - Si vous définissez **Créer mode de formateur** sur **Plage de paramètres**, utilisez le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).
+    - Si vous définissez **Créer mode de formateur** sur **Plage de paramètres** , utilisez le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).
 
     > [!WARNING]
     > 
@@ -105,4 +105,4 @@ Une fois l’apprentissage terminé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

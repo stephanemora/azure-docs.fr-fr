@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 1742c80fd6914a1c9420f37217df02791e80da9d
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 0dab99c902269f7d598eedb8c2fa23bbed3948c4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710054"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325366"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Emplacement où enregistrer et écrire des fichiers pour les expériences de Azure Machine Learning
 
@@ -30,13 +30,13 @@ Quand des exécutions d’entraînement sont lancées sur une [cible de calcul](
 
 Avant de pouvoir démarrer une expérience sur une cible de calcul ou sur votre ordinateur local, vous devez vérifier que les fichiers nécessaires sont disponibles pour cette cible de calcul, comme les fichiers de dépendance et les fichiers de données dont votre code a besoin pour s’exécuter.
 
-Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. À la place, accédez à vos données à l’aide d’un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
+Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. À la place, accédez à vos données à l’aide d’un [magasin de données](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
 
 La limite de stockage pour les instantanés d’expérience est de 300 Mo et/ou de 2 000 fichiers.
 
 C’est pourquoi nous vous recommandons d’effectuer les opérations suivantes :
 
-* **Stockage de vos fichiers dans un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true) Azure Machine Learning.** Cela évite les problèmes de latence des expériences et présente l’avantage d’un accès aux données à partir d’une cible de calcul distante, ce qui signifie que l’authentification et le montage sont gérés par Azure Machine Learning. Découvrez-en plus sur la spécification d’un magasin de données comme votre répertoire source et sur le chargement de fichiers dans votre magasin de données dans l’article [Accéder aux données à partir de vos magasins de données](how-to-access-data.md).
+* **Stockage de vos fichiers dans un [magasin de données](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py) Azure Machine Learning.** Cela évite les problèmes de latence des expériences et présente l’avantage d’un accès aux données à partir d’une cible de calcul distante, ce qui signifie que l’authentification et le montage sont gérés par Azure Machine Learning. Découvrez-en plus sur la spécification d’un magasin de données comme votre répertoire source et sur le chargement de fichiers dans votre magasin de données dans l’article [Accéder aux données à partir de vos magasins de données](how-to-access-data.md).
 
 * **Si vous avez besoin de seulement quelques fichiers de données et scripts de dépendance, et que vous ne pouvez pas utiliser un magasin de données,** placez les fichiers dans le même répertoire de dossier que votre script d’entraînement. Spécifiez ce dossier comme votre `source_directory` directement dans votre script d’entraînement ou dans le code qui appelle votre script d’entraînement.
 
@@ -69,7 +69,7 @@ Lors de l’écriture de changements, nous vous recommandons d’écrire les fic
 Si vous n’avez pas besoin d’un magasin de données, écrivez les fichiers dans le dossier `./outputs` et/ou `./logs`.
 
 >[!Important]
-> Deux dossiers, *outputs* et *logs*, reçoivent un traitement spécial de la part d’Azure Machine Learning. Pendant l’entraînement, quand vous écrivez des fichiers dans les dossiers `./outputs` and`./logs`, les fichiers sont automatiquement chargés dans votre historique des exécutions. Vous pouvez ainsi y accéder une fois l’exécution terminée.
+> Deux dossiers, *outputs* et *logs* , reçoivent un traitement spécial de la part d’Azure Machine Learning. Pendant l’entraînement, quand vous écrivez des fichiers dans les dossiers `./outputs` and`./logs`, les fichiers sont automatiquement chargés dans votre historique des exécutions. Vous pouvez ainsi y accéder une fois l’exécution terminée.
 
 * **Pour la sortie, comme des messages d’état ou des résultats de notation,** écrivez les fichiers dans le dossier `./outputs` afin qu’ils soient conservés en tant qu’artefacts dans l’historique des exécutions. Soyez attentif au nombre de fichiers écrits dans ce dossier ainsi qu’à leur taille, car il peut se produire une latence quand le contenu est chargé dans l’historique des exécutions. Si la latence pose problème, il est recommandé d’écrire les fichiers dans un magasin de données.
 

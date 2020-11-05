@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998690"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325514"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Comment déployer un service web d’inférence chiffrée (version préliminaire)
 
-Découvrez comment déployer un modèle de classification d’images en tant que service web d’inférence chiffrée dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Le service web est une image conteneur Docker qui contient le modèle et la logique de scoring.
+Découvrez comment déployer un modèle de classification d’images en tant que service web d’inférence chiffrée dans [Azure Container Instances](../container-instances/index.yml) (ACI). Le service web est une image conteneur Docker qui contient le modèle et la logique de scoring.
 
 Dans ce guide, vous utilisez Azure Machine Learning service pour :
 
@@ -30,7 +30,7 @@ Dans ce guide, vous utilisez Azure Machine Learning service pour :
 > * Faire des prédictions chiffrées
 > * Nettoyer les ressources
 
-ACI est une excellente solution pour comprendre et tester le workflow du modèle de déploiement. Pour les déploiements de production évolutifs, envisagez d’utiliser Azure Kubernetes Service. Pour plus d’informations, consultez [Comment et où déployer](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACI est une excellente solution pour comprendre et tester le workflow du modèle de déploiement. Pour les déploiements de production évolutifs, envisagez d’utiliser Azure Kubernetes Service. Pour plus d’informations, consultez [Comment et où déployer](./how-to-deploy-and-where.md).
 
 La méthode de chiffrement utilisée dans cet exemple est [le chiffrement homomorphe](https://github.com/Microsoft/SEAL#homomorphic-encryption). Le chiffrement homomorphe permet d’effectuer des calculs sur des données chiffrées sans avoir à accéder à une clé secrète (déchiffrement). Les résultats des calculs sont chiffrés et peuvent être révélés uniquement par le propriétaire de la clé secrète. 
 

@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 30c4838dd5a6f4e8b08d3619588ee3ae746349ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 456e881d84697f4542f972ac0798cc95a3455b3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86042133"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322404"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Créer et optimiser des tables pour une importation rapide en parallèle de données dans un serveur SQL Server sur une machine virtuelle Azure
 
-Cet article explique comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les *vues et tables partitionnées*permettent d’améliorer l’importation des données et le traitement des requêtes. 
+Cet article explique comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les *vues et tables partitionnées* permettent d’améliorer l’importation des données et le traitement des requêtes. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Créer une base de données et un ensemble de groupes de fichiers
-* [Créez une base de données](https://technet.microsoft.com/library/ms176061.aspx) (si elle n’existe pas).
+* [Créez une base de données](/sql/t-sql/statements/create-database-transact-sql) (si elle n’existe pas).
 * Ajoutez des groupes de fichiers à la base de données qui contient les fichiers physiques partitionnés. 
-* Pour cette opération, utilisez [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si la base de données n’existe pas encore ou [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si elle existe.
+* Pour cette opération, utilisez [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql) si la base de données n’existe pas encore ou [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options) si elle existe.
 * Ajoutez un ou plusieurs fichiers (selon le cas) dans chaque groupe de fichiers de base de données.
   
   > [!NOTE]
@@ -33,7 +33,7 @@ Cet article explique comment créer une ou plusieurs tables partitionnées pour 
   > 
   > 
 
-L’exemple suivant crée une base de données avec trois groupes de fichiers autres que le groupe principal et le groupe de journalisation, chacun contenant un fichier physique Les fichiers de la base de données sont créés dans le dossier de données SQL Server par défaut configuré dans l’instance SQL Server. Pour plus d’informations sur les emplacements par défaut des fichiers, consultez l’article [Emplacement des fichiers pour les instances par défaut et nommées de SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+L’exemple suivant crée une base de données avec trois groupes de fichiers autres que le groupe principal et le groupe de journalisation, chacun contenant un fichier physique Les fichiers de la base de données sont créés dans le dossier de données SQL Server par défaut configuré dans l’instance SQL Server. Pour plus d’informations sur les emplacements par défaut des fichiers, consultez l’article [Emplacement des fichiers pour les instances par défaut et nommées de SQL Server](/sql/sql-server/install/file-locations-for-default-and-named-instances-of-sql-server).
 
 ```sql
    DECLARE @data_path nvarchar(256);
@@ -60,7 +60,7 @@ L’exemple suivant crée une base de données avec trois groupes de fichiers a
 Pour créer des tables partitionnées basées sur le schéma de données, mappé aux groupes de fichiers de base de données créé à l’étape précédente, vous devez d’abord créer une fonction de partition et un schéma. Une fois les données importées en bloc dans la ou les tables partitionnées, les enregistrements sont répartis dans les groupes de fichiers conformément à un schéma de partition, comme indiqué ci-dessous.
 
 ### <a name="1-create-a-partition-function"></a>1. Créer une fonction de partition
-[Créez une fonction de partition](https://msdn.microsoft.com/library/ms187802.aspx) Cette fonction définit la plage de valeurs/limites à inclure dans chaque table de partition, par exemple pour limiter les partitions mensuelles (un\_champ\_date_heure) de l’année 2013 :
+[Créez une fonction de partition](/sql/t-sql/statements/create-partition-function-transact-sql) Cette fonction définit la plage de valeurs/limites à inclure dans chaque table de partition, par exemple pour limiter les partitions mensuelles (un\_champ\_date_heure) de l’année 2013 :
   
 ```sql
    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -71,7 +71,7 @@ Pour créer des tables partitionnées basées sur le schéma de données, mappé
 ```
 
 ### <a name="2-create-a-partition-scheme"></a>2. Créer un schéma de partition
-[Créez un schéma de partition](https://msdn.microsoft.com/library/ms179854.aspx). Ce schéma mappe chaque plage de la fonction de partition à un groupe de fichiers physique, par exemple :
+[Créez un schéma de partition](/sql/t-sql/statements/create-partition-scheme-transact-sql). Ce schéma mappe chaque plage de la fonction de partition à un groupe de fichiers physique, par exemple :
   
 ```sql
       CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -94,24 +94,24 @@ pour vérifier les plages de chaque partition selon la fonction et le schéma, e
 ```
 
 ### <a name="3-create-a-partition-table"></a>3. Créer une table de partition
-[Créez une ou plusieurs tables partitionnées](https://msdn.microsoft.com/library/ms174979.aspx) conformément à votre schéma de données, puis spécifiez le schéma de partition et le champ de contrainte utilisé pour partitionner la table, par exemple :
+[Créez une ou plusieurs tables partitionnées](/sql/t-sql/statements/create-table-transact-sql) conformément à votre schéma de données, puis spécifiez le schéma de partition et le champ de contrainte utilisé pour partitionner la table, par exemple :
   
 ```sql
    CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 ```
 
-Pour plus d’informations, consultez l’article [Créer des tables partitionnées et des index](https://msdn.microsoft.com/library/ms188730.aspx).
+Pour plus d’informations, consultez l’article [Créer des tables partitionnées et des index](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Importer les données en bloc dans chaque table de partition
 
 * Vous pouvez utiliser BCP, BULK INSERT ou d’autres méthodes telles que l’ [Assistant Migration SQL Server](https://sqlazuremw.codeplex.com/). L’exemple fourni utilise la méthode BCP.
-* [Modifiez la base de données](https://msdn.microsoft.com/library/bb522682.aspx) en remplaçant le schéma de journalisation des transactions par BULK_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
+* [Modifiez la base de données](/sql/t-sql/statements/alter-database-transact-sql-set-options) en remplaçant le schéma de journalisation des transactions par BULK_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
   
    ```sql
       ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
    ```
-* Pour accélérer le chargement des données, lancez plusieurs importations en bloc en parallèle. Pour obtenir des conseils sur l’accélération de l’importation en bloc de volumes importants dans des bases de données SQL Server, consultez l’article [Charger 1 To en moins d’une heure](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
+* Pour accélérer le chargement des données, lancez plusieurs importations en bloc en parallèle. Pour obtenir des conseils sur l’accélération de l’importation en bloc de volumes importants dans des bases de données SQL Server, consultez l’article [Charger 1 To en moins d’une heure](/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
 
 Le script PowerShell suivant est un exemple de chargement de données en parallèle avec BCP.
 
@@ -180,7 +180,7 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Créer des index pour optimiser les jointures et le traitement des requêtes
 * Si vous extrayez des données de plusieurs tables à des fins de modélisation, créez des index sur les clés de jointure pour améliorer les performances des jointures.
-* [Créez des index](https://technet.microsoft.com/library/ms188783.aspx) (en cluster ou non) ciblant le même groupe de fichiers pour chaque partition, par exemple :
+* [Créez des index](/sql/t-sql/statements/create-index-transact-sql) (en cluster ou non) ciblant le même groupe de fichiers pour chaque partition, par exemple :
   
 ```sql
    CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
@@ -198,4 +198,3 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Exemple de processus d’analyse avancé et technologie en action
 Pour obtenir un exemple de procédure pas à pas complet du processus TDSP (Team Data Science Process) avec un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](sql-walkthrough.md).
-

@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250655"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322025"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingénierie des caractéristiques dans la science des données
 
 Dans cet article, vous allez découvrir l’ingénierie de caractéristiques et son rôle dans l’amélioration des données d’apprentissage automatique. Découvrez à partir des exemples explicatifs tirés d’expériences [Azure Machine Learning Studio (classique)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
 * **Ingénierie des caractéristiques** : processus de création de nouvelles caractéristiques à partir de données brutes pour augmenter la puissance prédictive de l’algorithme d’apprentissage. Les caractéristiques conçues doivent capturer des informations supplémentaires qui ne sont pas facilement visibles dans l’ensemble de caractéristiques d’origine.
-* **Sélection de caractéristiques** : Processus de sélection du sous-ensemble clé de caractéristiques pour réduire la dimensionnalité du problème d’apprentissage.
+* **Sélection de caractéristiques**  : Processus de sélection du sous-ensemble clé de caractéristiques pour réduire la dimensionnalité du problème d’apprentissage.
 
-En général, l’**ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. La **sélection de caractéristiques** est alors effectuée pour éliminer des caractéristiques non pertinentes, redondantes ou fortement corrélées.
+En général, l’ **ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. La **sélection de caractéristiques** est alors effectuée pour éliminer des caractéristiques non pertinentes, redondantes ou fortement corrélées.
 
 L’ingénierie et la sélection de caractéristiques font partie de la [phase de modélisation](lifecycle-modeling.md) du processus TDSP (Team Data science process). Pour en savoir plus sur le processus TDSP et le cycle de vie de la science des données, consultez [Qu’est-ce que le processus TDSP ?](overview.md)
 
@@ -60,7 +60,7 @@ Excepté l’ensemble de caractéristiques A, qui existe déjà dans les donné
 
 ### <a name="feature-engineering-using-studio-classic"></a>ingénierie de caractéristiques à l’aide de Studio (classique)
 
-Dans l’expérience de Studio (classique), ces quatre jeux de données d’apprentissage sont constitués de quatre branches provenant du jeu de données d’entrée traité au préalable. À l’exception de la branche la plus à gauche, chacune de ces branches contient un module [Exécuter le Script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), dans lequel les caractéristiques dérivées (ensemble de caractéristiques B, C et D) sont construites et ajoutées au jeu de données importé.
+Dans l’expérience de Studio (classique), ces quatre jeux de données d’apprentissage sont constitués de quatre branches provenant du jeu de données d’entrée traité au préalable. À l’exception de la branche la plus à gauche, chacune de ces branches contient un module [Exécuter le Script R](/azure/machine-learning/studio-module-reference/execute-r-script), dans lequel les caractéristiques dérivées (ensemble de caractéristiques B, C et D) sont construites et ajoutées au jeu de données importé.
 
 La figure suivante montre le script R utilisé pour créer un ensemble de caractéristiques B dans la deuxième branche de gauche.
 
@@ -80,9 +80,9 @@ L’ingénierie de caractéristiques s’applique largement aux tâches liées �
 
 ### <a name="feature-hashing"></a>Hachage des caractéristiques
 
-Pour effectuer cette tâche, une technique appelée [hachage de caractéristiques](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) est appliquée pour transformer efficacement les caractéristiques de texte arbitraires en index. Au lieu d’associer chaque caractéristique de texte (mots ou expressions) à un index particulier, cette méthode applique une fonction de hachage aux caractéristiques et utilise directement leurs valeurs de hachage en tant qu’index.
+Pour effectuer cette tâche, une technique appelée [hachage de caractéristiques](/azure/machine-learning/studio-module-reference/feature-hashing) est appliquée pour transformer efficacement les caractéristiques de texte arbitraires en index. Au lieu d’associer chaque caractéristique de texte (mots ou expressions) à un index particulier, cette méthode applique une fonction de hachage aux caractéristiques et utilise directement leurs valeurs de hachage en tant qu’index.
 
-Dans Studio (classique), il existe un module [Hachage des caractéristiques](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) qui crée en toute facilité des caractéristiques de mots ou expressions. La figure suivante montre un exemple d'utilisation de ce module. Le jeu de données d'entrée contient deux colonnes : l'évaluation du livre allant de 1 à 5 et le contenu même de la critique. L’objectif de ce module est de récupérer un ensemble de nouvelles caractéristiques qui montrent la fréquence d’occurrence des mots ou expressions correspondants dans cette critique de livre. Pour utiliser ce module, effectuez les étapes suivantes :
+Dans Studio (classique), il existe un module [Hachage des caractéristiques](/azure/machine-learning/studio-module-reference/feature-hashing) qui crée en toute facilité des caractéristiques de mots ou expressions. La figure suivante montre un exemple d'utilisation de ce module. Le jeu de données d'entrée contient deux colonnes : l'évaluation du livre allant de 1 à 5 et le contenu même de la critique. L’objectif de ce module est de récupérer un ensemble de nouvelles caractéristiques qui montrent la fréquence d’occurrence des mots ou expressions correspondants dans cette critique de livre. Pour utiliser ce module, effectuez les étapes suivantes :
 
 * Tout d'abord, sélectionnez la colonne qui contient le texte d'entrée (« Col2 » pour cet exemple).
 * Ensuite, définissez le « nombre de bits de hachage » sur 8, ce qui signifie que 2 ^ 8 = 256 caractéristiques seront créées. Le mot ou l'expression sera haché en 256 index dans tout le texte. Le paramètre « hachage du nombre de bits » est compris entre 1 et 31. Les mots ou les phrases sont moins susceptibles d'être hachés dans le même index s'ils sont définis sur un nombre plus grand.

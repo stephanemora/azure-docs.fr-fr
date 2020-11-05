@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905270"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319395"
 ---
 # <a name="permutation-feature-importance"></a>Importance de la fonctionnalité de permutation
 
@@ -24,7 +24,7 @@ Dans ce module, les valeurs des fonctionnalités sont mélangées aléatoirement
 
 Les scores retournés par le module représentent la *modification* dans les performances d’un modèle formé, après permutation. Les fonctionnalités importantes sont généralement plus sensibles au processus de mélange. Elles génèrent donc des scores d’importance plus élevés. 
 
-Cet article fournit une vue d’ensemble de la fonctionnalité de permutation, de sa base théorique et de ses applications dans le machine learning : [Importance de la fonctionnalité de permutation](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Cet article fournit une vue d’ensemble de la fonctionnalité de permutation, de sa base théorique et de ses applications dans le machine learning : [Importance de la fonctionnalité de permutation](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Comment utiliser l’importance de la fonctionnalité de permutation
 
@@ -40,7 +40,7 @@ La génération d’un ensemble de scores de fonctionnalités exige que vous dis
 
      Une valeur de départ est facultative, mais vous devez fournir une valeur si vous souhaitez que la reproductibilité s’effectue entre les exécutions du même pipeline.  
 
-5.  Pour **Métrique pour la mesure des performances**, sélectionnez une métrique unique à utiliser lors du calcul de la qualité du modèle après la permutation.  
+5.  Pour **Métrique pour la mesure des performances** , sélectionnez une métrique unique à utiliser lors du calcul de la qualité du modèle après la permutation.  
 
      Le concepteur Azure Machine Learning prend en charge les métriques suivantes, selon que vous évaluez un modèle de classification ou de régression :  
 
@@ -69,4 +69,4 @@ La raison de cette différence tient au fait que le module Importance de la fonc
   
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

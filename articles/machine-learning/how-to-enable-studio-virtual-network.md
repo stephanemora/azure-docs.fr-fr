@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792019"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325523"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen1 prend uniquement en charge les listes de contrôle 
 
 Pour accéder aux données stockées dans Azure SQL Database à l’aide d’une identité managée, vous devez créer un utilisateur autonome SQL mappé à l’identité managée. Pour plus d’informations sur la création d’un utilisateur à partir d’un fournisseur externe, consultez [Créer des utilisateurs à relation contenant-contenu mappés à des identités Azure AD](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-Après avoir créé un utilisateur autonome SQL, vous devez lui accorder des autorisations à l’aide de la [commande T-SQL GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+Après avoir créé un utilisateur autonome SQL, vous devez lui accorder des autorisations à l’aide de la [commande T-SQL GRANT](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### <a name="azure-machine-learning-designer-default-datastore"></a>Magasin de données par défaut du concepteur Azure Machine Learning
 

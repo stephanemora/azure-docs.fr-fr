@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323069"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -26,6 +26,8 @@ Utilisez une instance de calcul comme environnement de développement complètem
 
 Pour un entraînement de modèle de niveau production, utilisez un [cluster de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md) avec des fonctionnalités de mise à l’échelle multinœud. Pour le déploiement d’un modèle de niveau production, utilisez un [cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
+Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, vérifiez que la communication avec le socket web n’est pas désactivée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms.
+
 ## <a name="why-use-a-compute-instance"></a>Pourquoi créer une instance de calcul ?
 
 Une instance de calcul est une station de travail cloud complètement managée qui est optimisée pour votre environnement de développement Machine Learning. Elle vous permet de bénéficier des avantages suivants :
@@ -33,7 +35,7 @@ Une instance de calcul est une station de travail cloud complètement managée q
 |Principaux avantages|Description|
 |----|----|
 |Productivité|Vous pouvez créer et déployer des modèles à l’aide des blocs-notes intégrés et des outils suivants dans Azure Machine Learning Studio :<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (préversion)<br/>L’instance de calcul est entièrement intégrée avec l’espace de travail et le studio Azure Machine Learning. Vous pouvez partager des blocs-notes et des données avec d’autres scientifiques des données dans l’espace de travail.<br/> Vous pouvez également utiliser [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) avec des instances de calcul.
-|Managée et sécurisée|Réduisez votre empreinte de sécurité et ajoutez la conformité aux exigences de sécurité de l’entreprise. Les instances de calcul fournissent des stratégies de gestion robustes et des configurations de mise en réseau sécurisées telles que :<br/><br/>- Provisionnement automatique par les modèles Resource Manager ou le SDK Azure Machine Learning<br/>- [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Prise en charge des réseaux virtuels](how-to-enable-virtual-network.md#compute-instance)<br/>- Stratégie SSH pour activer/désactiver l’accès SSH<br/>TLS 1.2 activé |
+|Managée et sécurisée|Réduisez votre empreinte de sécurité et ajoutez la conformité aux exigences de sécurité de l’entreprise. Les instances de calcul fournissent des stratégies de gestion robustes et des configurations de mise en réseau sécurisées telles que :<br/><br/>- Provisionnement automatique par les modèles Resource Manager ou le SDK Azure Machine Learning<br/>- [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Prise en charge des réseaux virtuels](./how-to-secure-training-vnet.md#compute-instance)<br/>- Stratégie SSH pour activer/désactiver l’accès SSH<br/>TLS 1.2 activé |
 |Préconfiguré&nbsp;pour&nbsp;ML|Gagnez du temps sur les tâches d’installation grâce à des packages ML préconfigurés et à jour, des infrastructures de Deep Learning et des pilotes GPU.|
 |Entièrement personnalisable|Les scénarios avancés deviennent un jeu d’enfant grâce à la prise en charge étendue des types de machines virtuelles Azure, y compris les GPU et la personnalisation de bas niveau persistante, comme l’installation de packages et de pilotes. |
 
@@ -75,7 +77,7 @@ Les outils et environnements suivants sont déjà installés sur l’instance de
 |Anaconda Python||
 |Jupyter et extensions||
 |Jupyterlab et extensions||
-[SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>de PyPI|Comprend la plupart des packages supplémentaires azureml.  Pour afficher la liste complète, [ouvrez une fenêtre de terminal sur votre instance de calcul](how-to-run-jupyter-notebooks.md#terminal), puis exécutez <br/> `conda list -n azureml_py36 azureml*` |
+[SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>de PyPI|Comprend la plupart des packages supplémentaires azureml.  Pour afficher la liste complète, [ouvrez une fenêtre de terminal sur votre instance de calcul](how-to-run-jupyter-notebooks.md#terminal), puis exécutez <br/> `conda list -n azureml_py36 azureml*` |
 |Autres packages PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Packages Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Packages Deep learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -118,7 +120,7 @@ Pour chaque instance de calcul de votre espace de travail que vous pouvez utilis
 * Ajouter un accès SSH à une instance de calcul. L’accès SSH est désactivé par défaut, mais il peut être activé au moment de la création de l’instance de calcul. L’accès SSH s’effectue par le biais d’un mécanisme de clé publique/privée. L’onglet vous donne des informations sur la connexion SSH, telles que l’adresse IP, le nom d’utilisateur et le numéro de port.
 * Obtenir des informations sur une instance de calcul spécifique, telles que l’adresse IP et la région.
 
-Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/overview) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L'instance de calcul utilisera une connexion mono-utilisateur et toutes les actions utiliseront l'identité de cet utilisateur pour le contrôle d'accès en fonction du rôle Azure (Azure RBAC) et l'attribution des exécutions d'expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
+Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L'instance de calcul utilisera une connexion mono-utilisateur et toutes les actions utiliseront l'identité de cet utilisateur pour le contrôle d'accès en fonction du rôle Azure (Azure RBAC) et l'attribution des exécutions d'expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
 
 Ces actions peuvent être contrôlées par Azure RBAC :
 * *Microsoft.MachineLearningServices/workspaces/computes/read*

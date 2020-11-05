@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339020"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325015"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Bien démarrer avec Azure Machine Learning Studio (classique) dans R
 
-**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 <!-- Stephen F Elston, Ph.D. -->
@@ -144,7 +144,7 @@ Nous allons commencer par charger le fichier **csdairydata.csv** dans Machine Le
 
 1. Démarrez votre environnement Machine Learning Studio (classique).
 1. Cliquez sur **+ NOUVEAU** en bas à gauche de l'écran, puis sélectionnez **Jeu de données**.
-1. Sélectionnez **Depuis un fichier local**, puis **Parcourir** pour sélectionner le fichier.
+1. Sélectionnez **Depuis un fichier local** , puis **Parcourir** pour sélectionner le fichier.
 1. Veillez à sélectionner **Fichier CSV générique avec en-tête (.csv)** comme type de jeu de données.
 1. Sélectionnez la coche.
 1. Une fois le jeu de données chargé, vous devez voir le nouveau jeu de données lorsque vous sélectionnez l'onglet **Jeux de données**.
@@ -159,7 +159,7 @@ Maintenant que Machine Learning Studio (classique) contient des données, nous d
 1. Faites glisser le **jeu de données csdairydata.csv** vers l'expérimentation.
 1. Dans la zone **Rechercher dans les éléments de l'expérimentation** en haut du volet gauche, entrez [Exécuter un script R][execute-r-script]. Le module s'affiche alors dans la liste de recherche.
 1. Faites glisser le module [Exécuter un script R][execute-r-script] vers votre palette.
-1. Reliez la sortie du **jeu de données csdairydata.csv** à l'entrée la plus à gauche (**Jeu de données1**) du module [Exécuter un script R][execute-r-script].
+1. Reliez la sortie du **jeu de données csdairydata.csv** à l'entrée la plus à gauche ( **Jeu de données1** ) du module [Exécuter un script R][execute-r-script].
 1. Sélectionnez **Enregistrer**.
 
 À ce stade, votre expérimentation doit être semblable à cet exemple.
@@ -169,7 +169,7 @@ Maintenant que Machine Learning Studio (classique) contient des données, nous d
 
 #### <a name="check-on-the-data"></a>Vérification des données
 
-Examinons les données que nous avons chargées dans l'expérimentation. Dans l'expérimentation, cliquez sur la sortie du **jeu de données cadairydata.csv**, puis sélectionnez **Visualiser**. Un résultat semblable au résumé suivant devrait s'afficher :
+Examinons les données que nous avons chargées dans l'expérimentation. Dans l'expérimentation, cliquez sur la sortie du **jeu de données cadairydata.csv** , puis sélectionnez **Visualiser**. Un résultat semblable au résumé suivant devrait s'afficher :
 
 ![Capture d'écran montrant un résumé du jeu de données cadairydata.csv.](./media/r-quickstart/fig4.png)
 
@@ -1029,10 +1029,10 @@ Cette fonction génère la sortie suivante.
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1062,10 +1062,10 @@ Cette fonction génère la sortie suivante.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1113,21 +1113,21 @@ Cette fonction génère la sortie suivante.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1
@@ -1276,9 +1276,9 @@ Ces résultats nous montrent que l’ajout des facteurs saisonniers au modèle a
 
 RStudio est bien documenté. Voici quelques liens vers les principales sections de la documentation RStudio pour vous aider à démarrer.
 
-* **Créer des projets** : Vous pouvez organiser et gérer votre code R dans les projets à l’aide de RStudio. Pour plus d'informations, consultez [Utilisation de projets](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Suivez ces instructions et créez un projet pour les exemples de code R présentés dans cet article.
-* **Modifier et exécuter du code R** : RStudio offre un environnement intégré qui permet de modifier et d'exécuter du code R. Pour plus d'informations, consultez [Modification et exécution de code](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
-* **Déboguer** : RStudio intègre de puissantes fonctionnalités de débogage. Pour plus d'informations sur ces fonctionnalités, consultez [Débogage avec RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Pour plus d’informations sur les fonctionnalités de dépannage par point d’arrêt, consultez [Résolution des problèmes de point d’arrêt](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
+* **Créer des projets**  : Vous pouvez organiser et gérer votre code R dans les projets à l’aide de RStudio. Pour plus d'informations, consultez [Utilisation de projets](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Suivez ces instructions et créez un projet pour les exemples de code R présentés dans cet article.
+* **Modifier et exécuter du code R**  : RStudio offre un environnement intégré qui permet de modifier et d'exécuter du code R. Pour plus d'informations, consultez [Modification et exécution de code](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
+* **Déboguer**  : RStudio intègre de puissantes fonctionnalités de débogage. Pour plus d'informations sur ces fonctionnalités, consultez [Débogage avec RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Pour plus d’informations sur les fonctionnalités de dépannage par point d’arrêt, consultez [Résolution des problèmes de point d’arrêt](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
 ## <a name="further-reading"></a><a id="appendixb"></a>Pour aller plus loin
 

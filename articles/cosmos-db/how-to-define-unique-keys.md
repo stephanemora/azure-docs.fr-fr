@@ -3,18 +3,20 @@ title: Définir des clés uniques pour un conteneur Azure Cosmos
 description: Découvrez comment définir des clés uniques pour un conteneur Azure Cosmos avec le Portail Azure, PowerShell, le kit de développement logiciel (SDK) .Net, le SDK Java et d’autres SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336620"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Définir des clés uniques pour un conteneur Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article présente les différentes façons de définir des [clés uniques](unique-keys.md) lors de la création d’un conteneur Azure Cosmos. Il est actuellement possible d’effectuer cette opération à l’aide du portail Azure ou de l’un des kits SDK.
 
@@ -26,7 +28,7 @@ Cet article présente les différentes façons de définir des [clés uniques](u
 
 1. Ouvrez le volet **Explorateur de données** , puis sélectionnez le conteneur avec lequel vous voulez travailler.
 
-1. Cliquez sur **Nouveau conteneur** .
+1. Cliquez sur **Nouveau conteneur**.
 
 1. Dans la boîte de dialogue **Ajouter un conteneur** , cliquez sur **+ Ajouter une clé unique** pour ajouter une entrée de clé unique.
 

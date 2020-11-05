@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee2280aba99606d9e31a0e565a67cd6202df3c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333866"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317028"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
 
@@ -36,14 +36,14 @@ Avec les analyses de jeux de données Azure Machine Learning (version prélimina
 
 Un [jeu de données Azure Machine learning](how-to-create-register-datasets.md) est utilisé pour créer l’analyse. Le jeu de données doit inclure une colonne timestamp.
 
-Vous pouvez afficher les métriques de dérive des données avec le kit de développement logiciel (SDK) Python ou dans Azure Machine Learning Studio.  Les autres métriques et insights sont disponibles par le biais de la ressource [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associée à l’espace de travail Azure Machine Learning.
+Vous pouvez afficher les métriques de dérive des données avec le kit de développement logiciel (SDK) Python ou dans Azure Machine Learning Studio.  Les autres métriques et insights sont disponibles par le biais de la ressource [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) associée à l’espace de travail Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour créer et utiliser des analyses de jeux de données, vous avez besoin des éléments suivants :
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
-* Le [SDK Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), qui inclut le paquet azureml-datasets.
+* Le [SDK Azure Machine Learning pour Python installé](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), qui inclut le paquet azureml-datasets.
 * Données structurées (tabulaires) avec un horodatage spécifié dans le chemin d’accès du fichier, le nom de fichier ou la colonne dans les données.
 
 ## <a name="what-is-data-drift"></a>Qu’est-ce qu’une dérive de données ?
@@ -73,7 +73,7 @@ Avec un moniteur de jeu de données, vous pouvez :
 
 L’algorithme de dérive des données fournit une mesure globale des modifications apportées aux données et indique les caractéristiques qui sont responsables de l’investigation. Les superviseurs de jeu de données produisent un certain nombre d’autres métriques en profilant les nouvelles données dans le jeu de données `timeseries`. 
 
-Des alertes personnalisées peuvent être configurées sur toutes les métriques générées par le superviseur via [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Les superviseurs de jeu de données permettent de détecter rapidement les problèmes des données et de réduire le temps nécessaire au débogage du problème en identifiant ses causes probables.  
+Des alertes personnalisées peuvent être configurées sur toutes les métriques générées par le superviseur via [Azure Application Insights](../azure-monitor/app/app-insights-overview.md). Les superviseurs de jeu de données permettent de détecter rapidement les problèmes des données et de réduire le temps nécessaire au débogage du problème en identifiant ses causes probables.  
 
 Conceptuellement, il existe trois scénarios principaux pour la configuration des analyses de jeux de données dans Azure Machine Learning.
 
@@ -102,7 +102,7 @@ Le jeu de données cible doit avoir la caractéristique `timeseries` définie su
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>Kit SDK Python
 
-Dans la classe [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-), la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) définit la colonne timestamp du jeu de données.
+Dans la classe [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-), la méthode [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) définit la colonne timestamp du jeu de données.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -129,7 +129,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Pour obtenir un exemple complet d’utilisation de la caractéristique `timeseries` de jeux de données, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou la [documentation du SDK des jeux de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Pour obtenir un exemple complet d’utilisation de la caractéristique `timeseries` de jeux de données, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou la [documentation du SDK des jeux de données](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
 
@@ -139,13 +139,13 @@ Dans l’exemple suivant, toutes les données sous le sous-dossier *NoaaIsdFlori
 
 [![Format de partition](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
-Dans les paramètres **Schéma**, spécifiez la colonne Timestamp d’une colonne virtuelle ou réelle dans le jeu de données spécifié :
+Dans les paramètres **Schéma** , spécifiez la colonne Timestamp d’une colonne virtuelle ou réelle dans le jeu de données spécifié :
 
 :::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="Définir le timestamp":::
 
 Si vos données sont partitionnées par date, comme c’est le cas ici, vous pouvez également spécifier le timestamp de partition.  Cela permet un traitement plus efficace des dates.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Définir le timestamp":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Timestamp de partition":::
 
 
 ## <a name="create-dataset-monitors"></a>Créer des analyses de jeu de données
@@ -211,9 +211,9 @@ Pour obtenir un exemple complet de configuration d’un jeu de données et d’u
 1. Sélectionnez **Analyses de jeu de données**.
    ![Liste des analyses](./media/how-to-monitor-datasets/monitor-list.png)
 
-1. Cliquez sur le bouton **+Créer une analyse**, puis passez à la prochaine étape de l’assistant en cliquant sur **Suivant**.  
+1. Cliquez sur le bouton **+Créer une analyse** , puis passez à la prochaine étape de l’assistant en cliquant sur **Suivant**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Définir le timestamp":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Créer un assistant d'analyse":::
 
 * **Sélectionner un jeu de données cible**.  Le jeu de données cible est un jeu de données tabulaires avec colonne timestamp qui sera analysé pour la dérive des données. Le jeu de données cible doit avoir des caractéristiques en commun avec le jeu de données de base et il doit s’agir d’un jeu de données `timeseries` auquel de nouvelles données sont ajoutées. Les données d’historique peuvent être analysées dans le jeu de données cible ou de nouvelles données peuvent être surveillées.
 
@@ -240,7 +240,7 @@ Cette section vous montre les résultats de la surveillance d’un jeu de donné
 
 Commencez par des insights de haut niveau sur l'ampleur de la dérive des données et un aperçu des caractéristiques à étudier plus en détail.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Définir le timestamp":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Vue d’ensemble de la dérive":::
 
 
 | Métrique | Description | 
@@ -253,7 +253,7 @@ Commencez par des insights de haut niveau sur l'ampleur de la dérive des donné
 
 Découvrez comment le jeu de données diffère du jeu de données cible au cours de la période spécifiée.  Plus on se rapproche des 100 %, plus les deux jeux de données sont différents.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Définir le timestamp":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Tendance de l'amplitude de la dérive":::
 
 ### <a name="drift-magnitude-by-features"></a>Amplitude de la dérive par caractéristiques
 
@@ -263,7 +263,7 @@ Le jeu de données cible est également profilé au fil du temps. La distance st
 
 Dans Azure Machine Learning Studio, cliquez sur une barre dans le graphique pour afficher les détails de niveau de fonctionnalité de cette date. Par défaut, il affiche la distribution du jeu de données de référence et la distribution de la même caractéristique issue de la dernière exécution.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Définir le timestamp":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Amplitude de la dérive par caractéristiques":::
 
 Ces métriques peuvent également être récupérées dans le SDK Python par le biais de la méthode `get_metrics()` sur un objet `DataDriftDetector`.
 
@@ -271,7 +271,7 @@ Ces métriques peuvent également être récupérées dans le SDK Python par le 
 
 Enfin, faites défiler l’écran pour afficher les détails de chaque fonctionnalité.  Utilisez les listes déroulantes au-dessus du graphique pour sélectionner la fonctionnalité, puis sélectionnez la métrique que vous souhaitez afficher.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Définir le timestamp":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Graphique des fonctionnalités numériques et comparaison":::
 
 Les mesures dans le graphique dépendent du type de fonctionnalité.
 
@@ -288,16 +288,16 @@ Les mesures dans le graphique dépendent du type de fonctionnalité.
     
     | Métrique | Description |  
     | ------ | ----------- |  
-    | Distance euclidienne     |  Calculée pour les colonnes catégorielles. La distance euclidienne est calculée sur deux vecteurs, générés à partir de la distribution empirique de la même colonne catégorielle à partir de deux jeux de données. 0 indique qu’il n’y a aucune différence dans les distributions empiriques.  Plus la valeur s’éloigne de 0, plus la colonne a dérivé. Les tendances peuvent être observées à partir d’un tracé de série chronologique de cette mesure et peuvent être utiles pour dévoiler une fonction de dérive.  |
+    | Distance euclidienne     |  Calculée pour les colonnes catégorielles.  La distance euclidienne est calculée sur deux vecteurs, générés à partir de la distribution empirique de la même colonne catégorielle à partir de deux jeux de données.  0 indique qu’il n’y a aucune différence dans les distributions empiriques.    Plus la valeur s’éloigne de 0, plus la colonne a dérivé.  Les tendances peuvent être observées à partir d’un tracé de série chronologique de cette mesure et peuvent être utiles pour dévoiler une fonction de dérive.  |
     | Valeurs uniques | Nombre de valeurs uniques (cardinalité) de la caractéristique. |
 
 Sur ce graphique, sélectionnez une seule date pour comparer la répartition des caractéristiques entre la cible et cette date pour la caractéristique affichée. Pour les caractéristiques numériques, cela montre deux distributions de probabilité.  Si la fonctionnalité est numérique, un graphique à barres est affiché.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Définir le timestamp":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Sélectionner une date à comparer à la cible":::
 
 ## <a name="metrics-alerts-and-events"></a>Métriques, alertes et événements
 
-Les métriques peuvent être interrogées dans la ressource [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associée à votre espace de travail Machine Learning, Vous avez accès à toutes les fonctionnalités d’Application Insights, notamment la configuration de règles d’alerte personnalisées et de groupes d’actions pour déclencher une action, comme une notification E-mail/SMS/Push/Voix ou une fonction Azure. Pour plus d’informations, reportez-vous à la documentation complète d’Application Insights. 
+Les métriques peuvent être interrogées dans la ressource [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) associée à votre espace de travail Machine Learning, Vous avez accès à toutes les fonctionnalités d’Application Insights, notamment la configuration de règles d’alerte personnalisées et de groupes d’actions pour déclencher une action, comme une notification E-mail/SMS/Push/Voix ou une fonction Azure. Pour plus d’informations, reportez-vous à la documentation complète d’Application Insights. 
 
 Pour commencer, accédez au [Portail Azure](https://portal.azure.com) et sélectionnez la page **Vue d’ensemble** de votre espace de travail.  La ressource Application Insights associée se trouve à l’extrême droite :
 
@@ -322,6 +322,6 @@ Vous pouvez utiliser un groupe d’actions existant ou en créer un pour défini
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour configurer une analyse de jeu de données, accédez à [Azure Machine Learning studio](https://ml.azure.com) ou au [notebook Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb).
-* Découvrez comment configurer la dérive de données sur les [modèles déployés sur Azure Kubernetes Service](how-to-monitor-data-drift.md).
+* Découvrez comment configurer la dérive de données sur les [modèles déployés sur Azure Kubernetes Service](./how-to-enable-data-collection.md).
 * Configurez des superviseurs de dérive de jeu de données avec [Event Grid](how-to-use-event-grid.md). 
 * Consultez ces [conseils de dépannage](resource-known-issues.md#data-drift) courants si vous rencontrez des problèmes.

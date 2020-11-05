@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440454"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320954"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Science des données avec une Data Science Virtual Machine Windows
 
@@ -75,13 +75,13 @@ Pour R, vous pouvez utiliser un IDE comme RStudio, accessible à partir du menu 
 
 Pour Python, vous pouvez utiliser un IDE comme Visual Studio Community Edition, dans lequel l'extension Outils Python pour Visual Studio (PTVS) est préinstallée. Par défaut, seul Python 3.6, l’environnement racine de Conda, est configuré sur PTVS. Pour activer Anaconda Python 2.7, effectuez les étapes suivantes :
 
-1. Créez des environnements personnalisés pour chaque version en accédant à **Outils** > **Outils Python** > **Environnements Python**, puis en sélectionnant **+ Personnalisé** dans Visual Studio Community Edition.
+1. Créez des environnements personnalisés pour chaque version en accédant à **Outils** > **Outils Python** > **Environnements Python** , puis en sélectionnant **+ Personnalisé** dans Visual Studio Community Edition.
 1. Donnez une description et définissez **c:\anaconda\envs\python2** comme chemin de préfixe d’environnement pour Anaconda Python 2.7.
 1. Sélectionnez **Détection automatique** > **Appliquer** pour enregistrer l’environnement.
 
-Pour plus d’informations sur la façon de créer des environnements Python, consultez la [Documentation de PTVS](https://aka.ms/ptvsdocs).
+Pour plus d’informations sur la façon de créer des environnements Python, consultez la [Documentation de PTVS](/visualstudio/python/).
 
-Vous êtes maintenant prêt à créer un nouveau projet Python. Accédez à **Fichier** > **Nouveau** > **Projet** > **Python** et sélectionnez le type d’application Python que vous créez. Vous pouvez définir l’environnement Python pour le projet actuel sur la version souhaitée (Python 2.7 ou 3.6) en cliquant avec le bouton droit sur **Environnements Python** et en sélectionnant **Ajouter/supprimer des environnements Python**. Vous trouverez plus d’informations sur l’utilisation de PTVS dans la [documentation produit](https://aka.ms/ptvsdocs).
+Vous êtes maintenant prêt à créer un nouveau projet Python. Accédez à **Fichier** > **Nouveau** > **Projet** > **Python** et sélectionnez le type d’application Python que vous créez. Vous pouvez définir l’environnement Python pour le projet actuel sur la version souhaitée (Python 2.7 ou 3.6) en cliquant avec le bouton droit sur **Environnements Python** et en sélectionnant **Ajouter/supprimer des environnements Python**. Vous trouverez plus d’informations sur l’utilisation de PTVS dans la [documentation produit](/visualstudio/python/).
 
 
 
@@ -91,7 +91,7 @@ La DSVM ne vous permet pas uniquement de créer votre solution d’analytique lo
 Pour gérer vos ressources cloud et votre abonnement Azure, deux options s’offrent à vous :
 + Utiliser votre navigateur web et accéder au [portail Azure](https://portal.azure.com)
 
-+ Utiliser des scripts PowerShell. Exécuter Azure PowerShell à partir d’un raccourci sur le Bureau ou à partir du menu **Démarrer**. Pour plus d’informations, voir la [documentation Microsoft Azure PowerShell](../../powershell-azure-resource-manager.md) 
++ Utiliser des scripts PowerShell. Exécuter Azure PowerShell à partir d’un raccourci sur le Bureau ou à partir du menu **Démarrer**. Pour plus d’informations, voir la [documentation Microsoft Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md) 
 
 ## <a name="extend-storage-by-using-shared-file-systems"></a>Étendre le stockage à l’aide de systèmes de fichiers partagés
 Les scientifiques des données peuvent partager des jeux de données volumineux, du code ou d’autres ressources au sein de leur équipe. La DSVM dispose d’environ 45 Go d’espace disponible. Pour étendre votre espace de stockage, vous pouvez utiliser Azure Files et le monter sur une ou plusieurs instances DSVM ou y accéder par le biais de l’API REST. Vous pouvez également utiliser le [portail Azure](../../virtual-machines/windows/attach-managed-disk-portal.md) ou [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) pour ajouter des disques de données supplémentaires dédiés. 
@@ -162,7 +162,7 @@ Stockage Blob Azure est un service de stockage cloud fiable et économique pour 
 
    ![Capture d’écran du processus de création d’un compte de stockage dans le portail Azure](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Vérifiez que l’outil en ligne de commande AzCopy est préinstallé : ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Le répertoire qui contient le fichier azcopy.exe se trouve déjà sur votre variable d’environnement PATH. Ainsi, vous n’êtes pas obligé de taper tout le chemin de la commande lors de l’exécution de cet outil. Pour plus d’informations sur l’outil AzCopy, consultez la [documentation d’AzCopy](../../storage/common/storage-use-azcopy.md).
+* Vérifiez que l’outil en ligne de commande AzCopy est préinstallé : ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Le répertoire qui contient le fichier azcopy.exe se trouve déjà sur votre variable d’environnement PATH. Ainsi, vous n’êtes pas obligé de taper tout le chemin de la commande lors de l’exécution de cet outil. Pour plus d’informations sur l’outil AzCopy, consultez la [documentation d’AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 * Lancez l’outil Azure Storage Explorer. Vous pouvez le télécharger à partir de la page web [Explorateur Stockage Azure](https://storageexplorer.com/). 
 
    ![Capture d’écran de l’Explorateur Stockage Azure accédant à un compte de stockage](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -197,7 +197,7 @@ Une fois que vous avez exécuté la commande AzCopy pour copier vers un objet bl
 Vous pouvez également charger des données du fichier local vers votre machine virtuelle à l’aide de l’Explorateur Stockage Azure :
 
 * Pour charger des données vers un conteneur, sélectionnez le conteneur cible, puis le bouton **Charger**.![Capture d’écran du bouton Charger dans l’Explorateur Stockage Azure](./media/vm-do-ten-things/storage-accounts.png)
-* Sélectionnez **...** à droite de la zone **Fichiers**, sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis sélectionnez **Charger** pour lancer le chargement des fichiers.![Capture d’écran de la boîte de dialogue Charger des fichiers](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Sélectionnez **...** à droite de la zone **Fichiers** , sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis sélectionnez **Charger** pour lancer le chargement des fichiers.![Capture d’écran de la boîte de dialogue Charger des fichiers](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Lire des données à partir d’un objet blob : Python ODBC
 
@@ -255,7 +255,7 @@ Les données sont lues en tant que trame de données :
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (anciennement SQL DW) et bases de données
 Azure Synapse Analytics (anciennement SQL DW) est un entrepôt de données élastique en tant que service offrant une expérience SQL Server professionnelle.
 
-Vous pouvez configurer Azure Synapse Analytics en suivant les instructions dans [cet article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Une fois que vous avez configuré Azure Synapse Analytics, vous pouvez utiliser [cette procédure pas à pas](../team-data-science-process/sqldw-walkthrough.md) pour le chargement, l’exploration et la modélisation de données en utilisant les données d’Azure Synapse Analytics.
+Vous pouvez configurer Azure Synapse Analytics en suivant les instructions dans [cet article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Une fois que vous avez configuré Azure Synapse Analytics, vous pouvez utiliser [cette procédure pas à pas](../team-data-science-process/sqldw-walkthrough.md) pour le chargement, l’exploration et la modélisation de données en utilisant les données d’Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB est une base de données NoSQL sur le cloud. Vous pouvez l’utiliser pour travailler avec des documents comme JSON, et pour stocker et interroger les documents.
@@ -269,7 +269,7 @@ Effectuez les étapes prérequises suivantes pour accéder à Azure Cosmos DB 
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-Une fois les données importées, vous pouvez accéder à Jupyter et ouvrir le notebook intitulé *DocumentDBSample*. Il contient du code Python pour accéder à Azure Cosmos DB et effectuer des requêtes de base. Pour en savoir plus sur Azure Cosmos DB, consultez la [page de documentation](https://docs.microsoft.com/azure/cosmos-db/) du service.
+Une fois les données importées, vous pouvez accéder à Jupyter et ouvrir le notebook intitulé *DocumentDBSample*. Il contient du code Python pour accéder à Azure Cosmos DB et effectuer des requêtes de base. Pour en savoir plus sur Azure Cosmos DB, consultez la [page de documentation](../../cosmos-db/index.yml) du service.
 
 ## <a name="use-power-bi-reports-and-dashboards"></a>Utiliser des rapports et des tableaux de bord Power BI 
 Vous pouvez visualiser le fichier JSON Volcano de l’exemple Azure Cosmos DB précédent dans Power BI Desktop afin d’obtenir des insights visuels des données. Les étapes détaillées sont présentées dans [l’article Power BI](../../cosmos-db/powerbi-visualize.md). Les étapes principales sont les suivantes :
@@ -326,10 +326,9 @@ Outre les exemples basés sur les frameworks, vous pouvez obtenir un ensemble de
 
 - [Guide pratique pour créer une solution de bout en bout afin de détecter des produits dans des images](https://github.com/Azure/cortana-intelligence-product-detection-from-images) : la détection d’image est une technique qui peut localiser des objets dans les images et les classer. Les retombées concrètes de cette technologie semblent très prometteuses dans de nombreux domaines professionnels. Par exemple, un détaillant peut utiliser cette technique pour déterminer quel produit un client a choisi dans un rayon. Il peut ensuite utiliser ces informations pour gérer le stock des produits. 
 
-- [Deep learning pour l’audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) : ce tutoriel montre comment entraîner un modèle de deep learning pour la détection d’événements audio sur le [jeu de données de sons urbains](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). Il fournit également une vue d’ensemble de l’utilisation des données audio.
+- [Deep learning pour l’audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure) : ce tutoriel montre comment entraîner un modèle de deep learning pour la détection d’événements audio sur le [jeu de données de sons urbains](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). Il fournit également une vue d’ensemble de l’utilisation des données audio.
 
 - [Classification de documents texte](https://github.com/anargyri/lstm_han) : cette procédure pas à pas montre comment créer et entraîner deux architectures de réseau neuronal : réseau d’attention hiérarchisée et réseau à mémoire à long ou court terme. Ces réseaux neuronaux utilisent l’API Keras de l’apprentissage profond pour classer les documents texte. 
 
 ## <a name="summary"></a>Résumé
 Cet article décrit certaines des actions possibles sur la Microsoft Data Science Virtual Machine. Il existe bien d’autres actions que vous pouvez effectuer pour faire de la DSVM un environnement d’analytique efficace.
-

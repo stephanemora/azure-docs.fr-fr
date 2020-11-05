@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908094"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323767"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
 
@@ -23,7 +23,7 @@ Cet article décrit les messages d’erreur et les codes d’exception dans le c
 
 Vous pouvez trouver le message d’erreur dans le concepteur en procédant comme suit :  
 
-- Sélectionnez le module ayant échoué, accédez à l’onglet **Résultats + Journaux**, où vous trouverez le journal détaillé dans le fichier **70_driver_log.txt** sous la catégorie **azureml-logs**.
+- Sélectionnez le module ayant échoué, accédez à l’onglet **Résultats + Journaux** , où vous trouverez le journal détaillé dans le fichier **70_driver_log.txt** sous la catégorie **azureml-logs**.
 
 - Pour plus d’informations sur l’erreur du module, vous pouvez consulter error_info.json sous la catégorie **module_statistics**.
 
@@ -713,7 +713,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Résolution :** Cette erreur est due à de nombreuses conditions différentes : c’est pourquoi il n’existe pas une seule solution au problème.  
  Le tableau suivant contient des messages génériques pour cette erreur, qui sont suivis d’une description spécifique de la condition. 
 
- Si aucun détail n’est disponible, [référez-vous à la Page de questions Microsoft Q&A pour envoyer des commentaires](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) dans lesquels vous fournirez des informations sur les modules qui ont généré l’erreur et sur les conditions associées.
+ Si aucun détail n’est disponible, [référez-vous à la Page de questions Microsoft Q&A pour envoyer des commentaires](/answers/topics/azure-machine-learning-studio-classic.html) dans lesquels vous fournirez des informations sur les modules qui ont généré l’erreur et sur les conditions associées.
 
 |Messages d’exception|
 |------------------------|
@@ -862,7 +862,7 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 
  Cette erreur se produit dans Azure Machine Learning si la clé utilisée pour accéder au compte de stockage Azure est incorrecte. Par exemple, vous pouvez voir cette erreur si la clé de stockage Azure a été tronquée lors de l’opération de copier-coller ou si la clé incorrecte a été utilisée.  
 
- Pour plus d’informations sur la façon d’obtenir la clé d’un compte de stockage Azure, consultez la section consacrée à [l’affichage, la copie et la régénération des clés d’accès au stockage](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Pour plus d’informations sur la façon d’obtenir la clé d’un compte de stockage Azure, consultez la section consacrée à [l’affichage, la copie et la régénération des clés d’accès au stockage](../../storage/common/storage-account-create.md).  
 
 **Résolution :** Réexaminez le module et vérifiez que la clé de stockage Azure est correcte pour le compte ; copiez à nouveau la clé du Portail Azure classique si nécessaire.  
 
@@ -1083,9 +1083,9 @@ Le message d’erreur Hive est normalement rapporté dans le journal des erreurs
 
 Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive dans le cadre de l’apprentissage automatique :
 
-+ [Créer des tables Hive et charger des données à partir de Stockage Blob Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Explorer les données dans des tables avec des requêtes Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Créer des fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Créer des tables Hive et charger des données à partir de Stockage Blob Azure](../team-data-science-process/move-hive-tables.md)
++ [Explorer les données dans des tables avec des requêtes Hive](../team-data-science-process/explore-data-hive-tables.md)
++ [Créer des fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive](../team-data-science-process/create-features-hive.md)
 + [Aide-mémoire pour les utilisateurs Hive pour SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) (en anglais)
 
   
@@ -1106,7 +1106,7 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
  Vérifiez que la requête fonctionne correctement en dehors d’Azure ML en vous connectant directement au serveur de base de données et en exécutant la requête.  
 
  Si un message SQL est généré par l’exception du module, prenez les mesures en fonction de l’erreur signalée. Par exemple, les messages d’erreur contiennent parfois des indications spécifiques sur l’erreur probable :
-+ *Aucune colonne ou base de données manquante*, indiquant que vous avez peut-être tapé un nom de colonne incorrect. Si vous êtes sûr que le nom de la colonne est correct, essayez d’utiliser des crochets ou des guillemets pour inclure l’identificateur de colonne.
++ *Aucune colonne ou base de données manquante* , indiquant que vous avez peut-être tapé un nom de colonne incorrect. Si vous êtes sûr que le nom de la colonne est correct, essayez d’utiliser des crochets ou des guillemets pour inclure l’identificateur de colonne.
 + *Erreur logique SQL près de \<SQL keyword\>* , indiquant une erreur de syntaxe possible avant le mot-clé spécifié
 
   
@@ -1164,7 +1164,7 @@ Cette erreur se produit dans Azure Machine Learning lorsque vous essayez de lier
 
 La gestion des erreurs pour cet événement a été introduite dans une version antérieure d’Azure Machine Learning qui permettait une plus grande personnalisation des méthodes de compartimentage. Actuellement, toutes les méthodes de compartimentage sont basées sur une sélection dans une liste déroulante, donc techniquement cette erreur ne devrait plus se produire.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Messages d’exception|
 |------------------------|
@@ -1516,11 +1516,10 @@ Exception de la bibliothèque interne.
 
 Cette erreur est fournie pour capturer les erreurs internes du moteur qui n’auraient pas été gérées autrement. Par conséquent, la cause de cette erreur peut être différente selon le module qui a généré l’erreur.  
 
-Pour obtenir plus d’aide, nous vous recommandons de publier le message détaillé qui accompagne l’erreur sur le [forum Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), en indiquant une description du scénario, y compris les données utilisées comme entrées. Ces commentaires nous aideront à hiérarchiser les erreurs et à identifier les problèmes les plus importants qui feront l’objet de travaux ultérieurs.  
+Pour obtenir plus d’aide, nous vous recommandons de publier le message détaillé qui accompagne l’erreur sur le [forum Azure Machine Learning](/answers/topics/azure-machine-learning.html), en indiquant une description du scénario, y compris les données utilisées comme entrées. Ces commentaires nous aideront à hiérarchiser les erreurs et à identifier les problèmes les plus importants qui feront l’objet de travaux ultérieurs.  
 
 |Messages d’exception|
 |------------------------|
 |Exception de la bibliothèque.|
 |Exception de bibliothèque : {exception}.|
 |Exception de bibliothèque inconnue : {exception}. {customer_support_guidance}.|
-

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324896"
 ---
 # <a name="convert-to-image-directory"></a>Convertir en répertoire d’images
 
-Cet article explique comment utiliser le module Convertir en répertoire d’images pour faciliter la conversion d’un jeu de données d’images en type de données *Répertoire d’images*, qui est un format de données standardisé dans les tâches associées aux images, telles que la classification d’images dans le concepteur Azure Machine Learning.
+Cet article explique comment utiliser le module Convertir en répertoire d’images pour faciliter la conversion d’un jeu de données d’images en type de données *Répertoire d’images* , qui est un format de données standardisé dans les tâches associées aux images, telles que la classification d’images dans le concepteur Azure Machine Learning.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Utilisation du module Convertir en répertoire d’images  
 
@@ -49,7 +49,7 @@ Cet article explique comment utiliser le module Convertir en répertoire d’ima
 
     Pour le scoring, le dossier du jeu de données d’images doit contenir uniquement des images non classifiées.
 
-1. [Enregistrez le jeu de données d’images en tant que jeu de données de fichiers](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) dans votre espace de travail, car l’entrée du module Convertir en répertoire d’images doit être un **jeu de données de fichiers**.
+1. [Enregistrez le jeu de données d’images en tant que jeu de données de fichiers](../how-to-create-register-datasets.md) dans votre espace de travail, car l’entrée du module Convertir en répertoire d’images doit être un **jeu de données de fichiers**.
 
 1. Ajoutez le jeu de données d’images enregistré au canevas. Vous trouverez votre jeu de données enregistré dans la catégorie **Jeux de données** dans la liste des modules à gauche du canevas. Actuellement, le concepteur ne prend pas en charge la visualisation du jeu de données d’images.
 
@@ -82,4 +82,4 @@ La sortie du module **Convertir en répertoire d’images** est au format **Rép
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999215"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325558"
 ---
 # <a name="advanced-entry-script-authoring"></a>Création de scripts d’entrée avancés
 
@@ -89,7 +89,7 @@ def run(data):
 
 ## <a name="power-bi-compatible-endpoint"></a>Point de terminaison compatible Power BI 
 
-L’exemple suivant montre comment définir la forme d’API conformément à l’instruction ci-dessus. Cette méthode est prise en charge pour l’utilisation du service web déployé à partir de Power BI. ([Découvrez-en plus sur l’utilisation du service web à partir de Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+L’exemple suivant montre comment définir la forme d’API conformément à l’instruction ci-dessus. Cette méthode est prise en charge pour l’utilisation du service web déployé à partir de Power BI. ([Découvrez-en plus sur l’utilisation du service web à partir de Power BI](/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -312,7 +312,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Quand vous inscrivez un modèle, vous fournissez un nom de modèle qui est utilisé pour gérer le modèle dans le Registre. Vous utilisez ce nom avec la méthode [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) pour récupérer le chemin du ou des fichiers de modèle sur le système de fichiers local. Si vous inscrivez un dossier ou une collection de fichiers, cette API retourne le chemin du répertoire contenant ces fichiers.
+Quand vous inscrivez un modèle, vous fournissez un nom de modèle qui est utilisé pour gérer le modèle dans le Registre. Vous utilisez ce nom avec la méthode [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) pour récupérer le chemin du ou des fichiers de modèle sur le système de fichiers local. Si vous inscrivez un dossier ou une collection de fichiers, cette API retourne le chemin du répertoire contenant ces fichiers.
 
 Quand vous inscrivez un modèle, vous lui donnez un nom. Le nom correspond à l’endroit où le modèle est placé, localement ou durant le déploiement du service.
 

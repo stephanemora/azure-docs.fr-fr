@@ -11,30 +11,30 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207119"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318203"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Créer un cluster de calcul Azure Machine Learning
 
 Découvrez comment créer et gérer un [cluster de calcul](concept-compute-target.md#azure-machine-learning-compute-managed) dans votre espace de travail Azure Machine Learning.
 
-Vous pouvez utiliser un cluster de calcul Azure Machine Learning pour distribuer un processus d’entraînement ou d’inférence en lots sur un cluster de nœuds de calcul de processeur ou de GPU dans le cloud. Pour plus d’informations sur les tailles de machine virtuelle qui incluent des GPU, consultez [Tailles de machine virtuelle à GPU optimisé](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Vous pouvez utiliser un cluster de calcul Azure Machine Learning pour distribuer un processus d’entraînement ou d’inférence en lots sur un cluster de nœuds de calcul de processeur ou de GPU dans le cloud. Pour plus d’informations sur les tailles de machine virtuelle qui incluent des GPU, consultez [Tailles de machine virtuelle à GPU optimisé](../virtual-machines/sizes-gpu.md). 
 
 Dans cet article, découvrez comment :
 
 * Créer un cluster de calcul
 *  Réduire le coût de votre cluster de calcul
-* Configurer une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour le cluster
+* Configurer une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour le cluster
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
-* L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
+* L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="what-is-a-compute-cluster"></a>Qu’est-ce qu’un cluster de calcul ?
 
@@ -48,11 +48,11 @@ Les clusters de calcul peuvent exécuter des travaux de manière sécurisée dan
 
     Si vous voulez réattacher une cible de calcul, par exemple pour changer les paramètres de configuration du cluster, vous devez d’abord supprimer l’attachement existant.
 
-* Certains des scénarios présentés dans ce document présentent la mention __préversion__ . Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Certains des scénarios présentés dans ce document présentent la mention __préversion__. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Capacité de calcul Azure Machine Learning comporte des limites par défaut, par exemple le nombre de cœurs qui peuvent être alloués. Pour plus d’informations, consultez [Gérer et demander des quotas pour les ressources Azure](how-to-manage-quotas.md).
 
-* Azure vous permet de placer des _verrous_ sur les ressources, afin qu’elles ne puissent pas être supprimées ou restent en lecture seule. __N’appliquez pas de verrous aux ressources du groupe de ressources qui contient votre espace de travail__ . L’application d’un verrou au groupe de ressources contenant votre espace de travail empêchera les opérations de mise à l’échelle pour les clusters de calcul Azure ML. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../azure-resource-manager/management/lock-resources.md).
+* Azure vous permet de placer des _verrous_ sur les ressources, afin qu’elles ne puissent pas être supprimées ou restent en lecture seule. __N’appliquez pas de verrous aux ressources du groupe de ressources qui contient votre espace de travail__. L’application d’un verrou au groupe de ressources contenant votre espace de travail empêchera les opérations de mise à l’échelle pour les clusters de calcul Azure ML. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
 > Les clusters peuvent généralement effectuer un scale-up jusqu’à 100 nœuds tant que vous disposez d’un quota suffisant pour le nombre de cœurs requis. Par défaut, les clusters sont configurés de manière à permettre la communication entre les nœuds du cluster, pour prendre en charge les travaux MPI par exemple. Toutefois, vous pouvez mettre à l’échelle vos clusters sur des milliers de nœuds simplement en [soumettant un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et en demandant à ajouter votre abonnement, un espace de travail ou un cluster spécifique à une liste verte pour désactiver la communication entre nœuds. 
@@ -72,7 +72,7 @@ La capacité de calcul diminue en puissance, et passe automatiquement à zéro n
     
 # <a name="python"></a>[Python](#tab/python)
 
-Pour créer une ressource de capacité de calcul Azure Machine Learning persistante dans Python, spécifiez les propriétés **vm_size** et **max_nodes** . Azure Machine Learning utilise ensuite des valeurs calculées par défaut pour les autres propriétés. 
+Pour créer une ressource de capacité de calcul Azure Machine Learning persistante dans Python, spécifiez les propriétés **vm_size** et **max_nodes**. Azure Machine Learning utilise ensuite des valeurs calculées par défaut pour les autres propriétés. 
     
 * **vm_size**  : famille de machines virtuelles des nœuds créés par Capacité de calcul Azure Machine Learning.
 * **max_nodes**  : nombre maximal de nœuds pour la mise à l’échelle automatique lors de l’exécution d’un travail sur une capacité de calcul Azure Machine Learning.
@@ -80,7 +80,7 @@ Pour créer une ressource de capacité de calcul Azure Machine Learning persista
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-Vous pouvez aussi configurer plusieurs propriétés avancées lors de la création d’une capacité de calcul Azure Machine Learning. Ces propriétés vous permettent de créer un cluster persistant de taille fixe, ou au sein d’un réseau virtuel Azure existant dans votre abonnement.  Pour plus de détails, voir la [classe AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true).
+Vous pouvez aussi configurer plusieurs propriétés avancées lors de la création d’une capacité de calcul Azure Machine Learning. Ces propriétés vous permettent de créer un cluster persistant de taille fixe, ou au sein d’un réseau virtuel Azure existant dans votre abonnement.  Pour plus de détails, voir la [classe AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py).
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -90,7 +90,7 @@ Vous pouvez aussi configurer plusieurs propriétés avancées lors de la créati
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-Pour plus d’informations, consultez [aaz ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
+Pour plus d’informations, consultez [aaz ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -217,4 +217,4 @@ Consultez [Configurer une identité managée dans le studio](how-to-create-attac
 Utilisez votre cluster de calcul pour :
 
 * [Soumettre une exécution d’entraînement](how-to-set-up-training-targets.md) 
-* [Exécuter une inférence par lots](how-to-use-parallel-run-step.md)
+* [Exécuter une inférence par lots](./tutorial-pipeline-batch-scoring-classification.md)

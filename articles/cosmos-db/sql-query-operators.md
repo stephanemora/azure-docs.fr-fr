@@ -3,17 +3,19 @@ title: Opérateurs de requête SQL pour Azure Cosmos DB
 description: Découvrez les opérateurs SQL, tels que les opérateurs d’égalité, de comparaison et logiques pris en charge par Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335435"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Opérateurs dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article décrit les différents opérateurs pris en charge par Azure Cosmos DB.
 

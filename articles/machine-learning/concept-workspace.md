@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495723"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324806"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -52,9 +52,9 @@ Vous pouvez interagir avec votre espace de travail comme suit :
 + Sur le web :
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Concepteur Azure Machine Learning](concept-designer.md) 
-+ Dans un environnement Python avec le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++ Dans un environnement Python avec le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + Dans un environnement R avec le [kit de développement logiciel (SDK) Azure Machine Learning pour R (préversion)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Sur la ligne de commande avec l’[extension CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning :
++ Sur la ligne de commande avec l’[extension CLI](./reference-azure-machine-learning-cli.md) Azure Machine Learning :
 + [Extension VS Code Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -103,9 +103,9 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 + [Compte Stockage Azure](https://azure.microsoft.com/services/storage/) : Utilisé comme magasin de données par défaut pour l’espace de travail.  Les notebooks Jupyter utilisés avec vos instances de calcul Azure Machine Learning sont également stockés ici. 
   
   > [!IMPORTANT]
-  > Par défaut, le compte de stockage est un compte v1 à usage général. Vous pouvez [mettre ce compte à niveau vers un compte v2 à usage général](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) après la création de l’espace de travail. N’activez pas l’espace de noms hiérarchique sur le compte de stockage après une mise à niveau vers un compte v2 universel.
+  > Par défaut, le compte de stockage est un compte v1 à usage général. Vous pouvez [mettre ce compte à niveau vers un compte v2 à usage général](../storage/common/storage-account-upgrade.md) après la création de l’espace de travail. N’activez pas l’espace de noms hiérarchique sur le compte de stockage après une mise à niveau vers un compte v2 universel.
 
-  Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni les espaces de noms hiérarchiques ne sont pris en charge avec le compte de stockage _par défaut_ de l’espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_ .
+  Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni les espaces de noms hiérarchiques ne sont pris en charge avec le compte de stockage _par défaut_ de l’espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : Enregistre les conteneurs docker que vous utilisez pendant la formation et lorsque vous déployez un modèle. Pour réduire les coûts, ACR est **chargé en différé** jusqu’à la création des images de déploiement.
 

@@ -3,18 +3,20 @@ title: Créer plusieurs déclencheurs Azure Functions indépendants pour Cosmos 
 description: Découvrez comment configurer plusieurs déclencheurs Azure Functions indépendants pour Cosmos DB afin de créer des architectures basées sur les événements.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279642"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336671"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Créer plusieurs déclencheurs Azure Functions pour Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment configurer plusieurs déclencheurs Azure Functions pour Cosmos DB fonctionnant en parallèle et réagissant de façon indépendante aux modifications.
 
@@ -24,7 +26,7 @@ Cet article explique comment configurer plusieurs déclencheurs Azure Functions 
 
 Quand il s’agit de créer des architectures serverless avec [Azure Functions](../azure-functions/functions-overview.md), il est [recommandé](../azure-functions/functions-best-practices.md#avoid-long-running-functions) de créer un ensemble de petites fonctions qui fonctionnent bien ensemble plutôt que des fonctions volumineuses et durables.
 
-À mesure que vous créerez des flux serverless basés sur les événements à l’aide du [déclencheur Azure Functions pour Cosmos DB](./change-feed-functions.md), le cas se présentera où vous voudrez faire plusieurs choses chaque fois qu’un nouvel événement se produit dans un [conteneur Azure Cosmos](./account-databases-containers-items.md#azure-cosmos-containers) déterminé. Si les actions que vous souhaitez déclencher sont indépendantes les unes des autres, la solution idéale consiste à **créer un déclencheur Azure Functions pour Cosmos DB par action**, chacun étant à l’écoute des modifications se produisant dans le même conteneur Azure Cosmos.
+À mesure que vous créerez des flux serverless basés sur les événements à l’aide du [déclencheur Azure Functions pour Cosmos DB](./change-feed-functions.md), le cas se présentera où vous voudrez faire plusieurs choses chaque fois qu’un nouvel événement se produit dans un [conteneur Azure Cosmos](./account-databases-containers-items.md#azure-cosmos-containers) déterminé. Si les actions que vous souhaitez déclencher sont indépendantes les unes des autres, la solution idéale consiste à **créer un déclencheur Azure Functions pour Cosmos DB par action** , chacun étant à l’écoute des modifications se produisant dans le même conteneur Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optimisation des conteneurs pour plusieurs déclencheurs
 
@@ -32,7 +34,7 @@ Compte tenu des *exigences* du déclencheur Azure Functions pour Cosmos DB, nous
 
 Ici, vous avez le choix entre deux options :
 
-* Créer **un conteneur de baux par fonction** : cette approche peut entraîner des coûts supplémentaires, à moins que vous utilisiez une [base de données à débit partagé](./set-throughput.md#set-throughput-on-a-database). Ne perdez pas de vue que le débit minimal au niveau du conteneur est de 400 [unités de requête](./request-units.md), et dans le cas du conteneur de baux, il sert uniquement à vérifier la progression et à maintenir l’état.
+* Créer **un conteneur de baux par fonction**  : cette approche peut entraîner des coûts supplémentaires, à moins que vous utilisiez une [base de données à débit partagé](./set-throughput.md#set-throughput-on-a-database). Ne perdez pas de vue que le débit minimal au niveau du conteneur est de 400 [unités de requête](./request-units.md), et dans le cas du conteneur de baux, il sert uniquement à vérifier la progression et à maintenir l’état.
 * Prévoir **un conteneur de baux et le partager** pour toutes vos fonctions : cette deuxième option fait un meilleur usage des unités de requête provisionnées dans le conteneur, car elle permet à plusieurs fonctions Azure de partager et d’utiliser le même débit provisionné.
 
 Le but de cet article est de vous guider jusqu’à parvenir à la deuxième option.
