@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537597"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347639"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Créer un suggesteur pour activer l’autocomplétion et les résultats suggérés dans une requête
 
-Dans la recherche cognitive Azure, la « search-as-you-type » (recherche pendant la saisie) est activée par le biais d’une construction de **suggesteur** ajoutée à un [index de recherche](search-what-is-an-index.md). Un suggesteur prend en charge deux expériences : l’*autocomplétion*, qui complète une entrée partielle pour une recherche sur un terme entier, et les *suggestions*, qui invitent à cliquer sur une correspondance particulière. L’autocomplétion génère une requête. Les suggestions produisent un document correspondant.
+Dans la recherche cognitive Azure, la « search-as-you-type » (recherche pendant la saisie) est activée par le biais d’une construction de **suggesteur** ajoutée à un [index de recherche](search-what-is-an-index.md). Un suggesteur prend en charge deux expériences : l’ *autocomplétion* , qui complète une entrée partielle pour une recherche sur un terme entier, et les *suggestions* , qui invitent à cliquer sur une correspondance particulière. L’autocomplétion génère une requête. Les suggestions produisent un document correspondant.
 
 Toutes deux sont illustrées par la capture d’écran suivante, extraite de [Créer votre première application en C#](tutorial-csharp-type-ahead-and-suggestions.md). L’autocomplétion anticipe un terme potentiel, en ajoutant « in » si vous avez tapé « tw ». Les suggestions sont des mini-résultats de recherche, où un champ comme Nom de l’hôtel représente un document de recherche d’hôtels correspondants à partir de l’index. Concernant les suggestions, vous pouvez couvrir n’importe quel champ fournissant des informations descriptives.
 
@@ -52,7 +52,7 @@ L’autocomplétion bénéficie d’un plus grand nombre de champs à exploiter,
 
 En revanche, les suggestions produisent de meilleurs résultats lorsque votre choix de champ est sélectif. N’oubliez pas que la suggestion est un proxy pour un document de recherche, vous voudrez donc les champs qui représentent le mieux un résultat unique. Les noms, titres ou autres champs uniques qui font la distinction entre plusieurs correspondances fonctionnent le mieux. Si les champs sont constitués de valeurs répétitives, les suggestions consistent en des résultats identiques, et l’utilisateur ne saura pas sur lequel cliquer.
 
-Pour convenir aux deux expériences « search-as-you-type », ajoutez tous les champs dont vous avez besoin pour l’autocomplétion, mais utilisez **$select**, **$top**, **$filter** et **searchFields** pour contrôler les résultats des suggestions.
+Pour convenir aux deux expériences « search-as-you-type », ajoutez tous les champs dont vous avez besoin pour l’autocomplétion, mais utilisez **$select** , **$top** , **$filter** et **searchFields** pour contrôler les résultats des suggestions.
 
 ### <a name="choose-analyzers"></a>Choisir des analyseurs
 
@@ -146,14 +146,14 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 Un suggesteur est utilisé dans une requête. Après la création d’un suggesteur, appelez l’une des API suivantes pour tester une expérience « search-as-you-type » :
 
-+ [REST API Suggestions](/rest/api/searchservice/suggestions) 
-+ [API REST Autocomplétion](/rest/api/searchservice/autocomplete) 
-+ [Méthode SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [REST API Suggestions](/rest/api/searchservice/suggestions)
++ [API REST Autocomplétion](/rest/api/searchservice/autocomplete)
++ [Méthode SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
 + [Méthode AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 Dans une application de recherche, le code client doit utiliser une bibliothèque comme [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) pour collecter la requête partielle et fournir la correspondance. Pour plus d’informations sur cette tâche, consultez [Ajouter l’autocomplétion ou les résultats suggérés au code client](search-autocomplete-tutorial.md).
 
-L’utilisation de l’API est illustrée dans l’appel suivant de l’API REST Autocomplétion. Dans cet exemple, deux éléments importants sont à retenir. Tout d’abord, comme avec toutes les requêtes, l’opération est effectuée sur la collection de documents d’un index et la requête inclut un paramètre de **recherche**, qui, dans ce cas, fournit la requête partielle. Ensuite, vous devez ajouter **suggesterName** à la requête. Si un suggesteur n’est pas défini dans l’index, tout appel à l'autocomplétion ou aux suggestions se soldera par un échec.
+L’utilisation de l’API est illustrée dans l’appel suivant de l’API REST Autocomplétion. Dans cet exemple, deux éléments importants sont à retenir. Tout d’abord, comme avec toutes les requêtes, l’opération est effectuée sur la collection de documents d’un index et la requête inclut un paramètre de **recherche** , qui, dans ce cas, fournit la requête partielle. Ensuite, vous devez ajouter **suggesterName** à la requête. Si un suggesteur n’est pas défini dans l’index, tout appel à l'autocomplétion ou aux suggestions se soldera par un échec.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -166,8 +166,6 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 ## <a name="sample-code"></a>Exemple de code
 
 + L’exemple [Créer votre première application en C# (Leçon 3 : Ajouter « search-as-you-type »)](tutorial-csharp-type-ahead-and-suggestions.md) illustre une construction de suggesteur, des requêtes suggérées, l’autocomplétion et la navigation par facettes. Cet exemple de code s’exécute dans un service Recherche cognitive Azure de bac à sable et utilise un index des hôtels préchargé. Vous n’avez plus qu’à appuyer sur F5 pour exécuter l’application. Aucun abonnement ou connexion n’est nécessaire.
-
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) correspond à un précédent exemple contenant du code C# et Java. Il illustre une construction de suggesteur, des requêtes suggérées, l'autocomplétion et la navigation par facettes. Cet exemple de code utilise les exemples de données hébergées [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

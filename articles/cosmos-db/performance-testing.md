@@ -3,18 +3,20 @@ title: Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 description: Découvrez comment effectuer un test des performances et de la mise à l’échelle avec Azure Cosmos DB. Vous pouvez ensuite évaluer les fonctionnalités d’Azure Cosmos DB dans des scénarios d’applications hautes performances.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6ddc428a1b2228c7e6e15093c12deb25ddd65c27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f27e4f9f8e9f027233db89838614b523c5d0fe1f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281032"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341771"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche Base de données a un impact significatif sur les performances globales et la scalabilité. Il s’agit donc d’une composante essentielle des tests de performances. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) a été spécialement conçu pour offrir une mise à l’échelle élastique et des performances prévisibles. Ces capacités en font une solution de choix pour les applications qui ont besoin d’une couche Base de données hautement performante. 
 
@@ -35,7 +37,7 @@ Si vous recherchez des options de configuration côté client pour améliorer le
 ## <a name="run-the-performance-testing-application"></a>Exécution de l’application de test des performances
 Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .NET, comme décrit dans la procédure ci-dessous. Vous pouvez aussi examiner le code source et implémenter des configurations similaires dans vos propres applications clientes.
 
-**Étape 1 :** téléchargez le projet à partir de l’[exemple de test de performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou dupliquez (fork) le dépôt GitHub.
+**Étape 1 :** téléchargez le projet à partir de l’ [exemple de test de performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou dupliquez (fork) le dépôt GitHub.
 
 **Étape 2 :** modifiez les paramètres pour EndpointUrl, AuthorizationKey, CollectionThroughput et DocumentTemplate (facultatif) dans App.config.
 

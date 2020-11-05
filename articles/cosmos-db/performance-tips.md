@@ -3,18 +3,20 @@ title: Conseils sur les performances Azure Cosmos DB pour le kit SDK .NET v2
 description: Découvrez les options de configuration côté client permettant d’améliorer les performances d’Azure Cosmos DB pour le kit .NET v2.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475156"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339680"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Conseils sur les performances pour Azure Cosmos DB et le kit SDK .NET v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -42,16 +44,16 @@ Le kit SDK [.NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3) est sorti.
 
 Nous recommandons les processus hôte Windows 64 bits pour améliorer les performances. Le Kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée. Les types d’applications suivants utilisent les processus hôte 32 bits par défaut. Pour modifier les processus hôte en traitement 64 bits, procédez comme suit, selon le type de votre application :
 
-- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64** dans la fenêtre **Propriétés du projet** , sous l’onglet **Générer** .
+- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64** dans la fenêtre **Propriétés du projet** , sous l’onglet **Générer**.
 
-- Pour les projets basés sur VSTest, vous pouvez modifier les processus hôte en sélectionnant **Test** > **Paramètres de test** > **Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir du menu **Visual Studio Test** .
+- Pour les projets basés sur VSTest, vous pouvez modifier les processus hôte en sélectionnant **Test** > **Paramètres de test** > **Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir du menu **Visual Studio Test**.
 
-- Pour les applications web ASP.NET déployées localement, vous pouvez modifier les processus hôte en sélectionnant **Utiliser la version 64 bits d’IIS Express pour les sites et les projets Web** , sous **Outils** > **Options** > **Projects and Solutions (Projets et solutions)**  > **Projets Web** .
+- Pour les applications web ASP.NET déployées localement, vous pouvez modifier les processus hôte en sélectionnant **Utiliser la version 64 bits d’IIS Express pour les sites et les projets Web** , sous **Outils** > **Options** > **Projects and Solutions (Projets et solutions)**  > **Projets Web**.
 
 - Pour les applications Web ASP.NET déployées sur Azure, vous pouvez modifier les processus hôte en sélectionnant la plateforme **64 bits** dans les **paramètres d’application** dans le Portail Azure.
 
 > [!NOTE] 
-> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU** . Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86** . Un projet défini sur **Any CPU** peut facilement basculer vers **x86** si une dépendance est ajoutée à x86 uniquement.<br/>
+> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU**. Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86**. Un projet défini sur **Any CPU** peut facilement basculer vers **x86** si une dépendance est ajoutée à x86 uniquement.<br/>
 > ServiceInterop.dll doit se trouver dans le dossier à partir duquel le fichier DLL du Kit de développement logiciel (SDK) s’exécute. Cela ne doit être un problème que si vous copiez manuellement des DLL ou si vous avez des systèmes de génération/déploiement personnalisés.
     
 **Activer garbage collection (GC) côté serveur**

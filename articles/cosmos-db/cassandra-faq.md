@@ -3,17 +3,19 @@ title: Foire aux questions sur l’API Cassandra pour Azure Cosmos DB
 description: Obtenez des réponses aux questions fréquemment posées sur l’API Cassandra pour Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3436a0edf69efc71d3528bffaefd613668426fad
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482602"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339935"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Forum aux questions sur l’API Cassandra dans Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cet article décrit les différences de fonctionnalités entre Apache Cassandra et l’API Cassandra dans Azure Cosmos DB. Il fournit également des réponses aux questions fréquemment posées sur l’API Cassandra pour Azure Cosmos DB.
 

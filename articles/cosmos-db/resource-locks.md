@@ -3,17 +3,19 @@ title: Empêcher la suppression ou la modification des ressources Azure Cosmos 
 description: Utilisez les verrous de ressources Azure pour empêcher la suppression ou la modification des ressources Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: b23fb22a99705e1bf37de7a7982513ff692d8f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91770996"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341958"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Empêcher la suppression ou la modification des ressources Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un compte, une base de données ou un conteneur Azure Cosmos afin d’empêcher les utilisateurs de votre organisation de supprimer ou de modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur CanNotDelete ou ReadOnly.
 

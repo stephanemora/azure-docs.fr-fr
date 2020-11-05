@@ -3,18 +3,20 @@ title: 'Langage de requête Azure Cosmos DB : GetCurrentDateTime'
 description: Découvrez la fonction système SQL GetCurrentDateTime dans Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ec0b8ccaceed4abe3dd2784463f507f3bc76d890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03a3183fe3001008cdd3f3caae1b8c3af81668fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606952"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340207"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Retourne la date et l’heure UTC actuelles sous forme de chaîne ISO 8601.
   

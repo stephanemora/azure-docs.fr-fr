@@ -3,18 +3,20 @@ title: Comment convertir des formats de jeton de session dans le Kit de dévelop
 description: Découvrez comment convertir les formats de jeton de session pour garantir la compatibilité entre les différentes versions du Kit de développement logiciel (SDK) .NET
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490439"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342043"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Convertir les format de jeton de session dans le Kit de développement logiciel (SDK) .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment effectuer une conversion entre différents formats de jeton de session pour garantir la compatibilité entre les différentes versions du Kit de développement logiciel (SDK).
 
@@ -26,7 +28,7 @@ Cet article explique comment effectuer une conversion entre différents formats 
 
 ## <a name="session-token-formats"></a>Formats de jeton de session
 
-Il existe deux formats de jeton de session : **simple** et **vector** .  Ces deux formats n’étant pas interchangeables, ils doivent être convertis lors de la transmission à l’application cliente avec des versions différentes.
+Il existe deux formats de jeton de session : **simple** et **vector**.  Ces deux formats n’étant pas interchangeables, ils doivent être convertis lors de la transmission à l’application cliente avec des versions différentes.
 - Le format de jeton de session **simple** est utilisé par le Kit de développement logiciel (SDK) .NET v1 (Microsoft.Azure.DocumentDB -version 1.x).
 - Le format de jeton de session **vector** est utilisé par le Kit de développement logiciel (SDK) .NET v2 (Microsoft.Azure.DocumentDB -version 2.x).
 
@@ -40,7 +42,7 @@ Un jeton de session vector présente le format suivant : `{pkrangeid}:{Version}
 
 ## <a name="convert-to-simple-session-token"></a>Convertir en jeton de session simple
 
-Pour transmettre un jeton de session à un client à l’aide du Kit de développement logiciel (SDK) .NET v1, utilisez un format de jeton de session **simple** .  Par exemple, utilisez l’exemple de code suivant pour le convertir.
+Pour transmettre un jeton de session à un client à l’aide du Kit de développement logiciel (SDK) .NET v1, utilisez un format de jeton de session **simple**.  Par exemple, utilisez l’exemple de code suivant pour le convertir.
 
 ```csharp
 private static readonly char[] SegmentSeparator = (new[] { '#' });
@@ -74,7 +76,7 @@ else
 
 ## <a name="convert-to-vector-session-token"></a>Convertir en jeton de session vector
 
-Pour transmettre un jeton de session à un client à l’aide du Kit de développement logiciel (SDK) .NET v2, utilisez un format de jeton de session **vector** .  Par exemple, utilisez l’exemple de code suivant pour le convertir.
+Pour transmettre un jeton de session à un client à l’aide du Kit de développement logiciel (SDK) .NET v2, utilisez un format de jeton de session **vector**.  Par exemple, utilisez l’exemple de code suivant pour le convertir.
 
 ```csharp
 

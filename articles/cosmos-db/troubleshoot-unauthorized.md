@@ -3,18 +3,20 @@ title: Résoudre des problèmes liés aux exceptions non autorisées Azure Cosmo
 description: Découvrez comment diagnostiquer et corriger des exceptions non autorisées.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a4f51b641ca38b2b6f74bb77928537270d12f1e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce956b932274a44e98a28b4c6567a5e98771613
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870848"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340003"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-unauthorized-exceptions"></a>Diagnostiquer et résoudre des problèmes liés à des exceptions non autorisées Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 HTTP 401 : La signature MAC trouvée dans la requête HTTP n’est pas la même que la signature calculée.
 Si vous avez reçu le message d’erreur 401 « La signature MAC trouvée dans la requête HTTP n’est pas la même que la signature calculée », cela peut être dû aux scénarios suivants.

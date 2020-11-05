@@ -3,17 +3,19 @@ title: Mettre à l’échelle Azure Cosmos DB selon une planification à l’aid
 description: Apprenez à mettre à l’échelle les modifications du débit dans Azure Cosmos DB à l’aide de PowerShell et d’Azure Functions.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c60f3fc6b4ce4a1aead273fedb81e39de697f576
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482007"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339255"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Mettre à l’échelle le débit Azure Cosmos DB à l’aide du déclencheur de minuteur Azure Functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Les performances d’un compte Azure Cosmos sont basées sur le débit provisionné exprimé en unités de requête par seconde (RU/s). Le provisionnement s’effectue avec une précision d’une seconde et est facturé en fonction de la valeur RU/s par heure la plus élevée. Ce modèle de capacité approvisionnée permet au service de fournir un débit prévisible et constant, une faible latence garantie et une haute disponibilité. La plupart des charges de travail de production utilisent ces fonctionnalités. Toutefois, dans les environnements de développement et de test où Azure Cosmos DB n’est utilisé que pendant les heures de travail, vous pouvez augmenter le débit le matin et le réduire à nouveau le soir après les heures de travail.
 

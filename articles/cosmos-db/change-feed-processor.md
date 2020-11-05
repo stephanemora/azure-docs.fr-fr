@@ -4,19 +4,21 @@ description: Découvrez comment utiliser le processeur de flux de modification A
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475802"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340224"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Le processeur de flux de modification fait partie du [kit de développement logiciel Azure Cosmos DB V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Elle simplifie le processus de lecture du flux de modification et répartit efficacement le traitement des événements sur plusieurs consommateurs.
 
@@ -61,7 +63,7 @@ Le cycle de vie normal d’une instance d’hôte est le suivant :
 
 1. Lire le flux de modification.
 1. Si aucune modification n’est apportée, veillez pendant un intervalle de temps prédéfini (personnalisable avec `WithPollInterval` dans le générateur) et accédez à #1.
-1. En cas de modifications, envoyez-les au **délégué** .
+1. En cas de modifications, envoyez-les au **délégué**.
 1. Lorsque le délégué finit de traiter **correctement** les modifications, mettez à jour le magasin de baux avec le dernier point traité dans le temps et accédez à #1.
 
 ## <a name="error-handling"></a>Gestion des erreurs
@@ -112,7 +114,7 @@ Le processeur de flux de modification sera initialisé pour cette date et cette 
 
 ### <a name="reading-from-the-beginning"></a>Lecture à partir du début
 
-Dans d’autres scénarios tels que la migration de données ou l’analyse de l’intégralité de l’historique d’un conteneur, nous devons lire le flux de modification à partir du **début de la durée de vie de ce conteneur** . Pour ce faire, nous pouvons utiliser `WithStartTime` sur l’extension du générateur, mais en passant `DateTime.MinValue.ToUniversalTime()`, ce qui génère la représentation UTC de la valeur `DateTime` minimale, comme ci-après :
+Dans d’autres scénarios tels que la migration de données ou l’analyse de l’intégralité de l’historique d’un conteneur, nous devons lire le flux de modification à partir du **début de la durée de vie de ce conteneur**. Pour ce faire, nous pouvons utiliser `WithStartTime` sur l’extension du générateur, mais en passant `DateTime.MinValue.ToUniversalTime()`, ce qui génère la représentation UTC de la valeur `DateTime` minimale, comme ci-après :
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

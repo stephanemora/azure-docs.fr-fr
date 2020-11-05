@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a2f1229ab8a292b06dfc43b95d9047ed8d233523
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791135"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345701"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
@@ -22,12 +22,12 @@ Les files d’attente de stockage Azure sont un service permettant de stocker un
 
 > [!div class="checklist"]
 >
-> * Créer une file d’attente
-> * Récupérer une file d’attente
-> * Ajouter un message
-> * Lire un message
-> * Supprimer un message
-> * Suppression d'une file d'attente
+> - Créer une file d’attente
+> - Récupérer une file d’attente
+> - Ajouter un message
+> - Lire un message
+> - Supprimer un message
+> - Suppression d'une file d'attente
 
 Ce guide pratique nécessite le module Az Azure PowerShell version 0.7 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Récupérer la liste des régions
 
-Si vous ne savez pas quelle localisation utiliser, affichez la liste des localisations disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Cet exercice utilise **eastus** . Stockez cette région dans la variable **location** pour une utilisation ultérieure.
+Si vous ne savez pas quelle localisation utiliser, affichez la liste des localisations disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Cet exercice utilise **eastus**. Stockez cette région dans la variable **location** pour une utilisation ultérieure.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -56,7 +56,7 @@ $location = "eastus"
 
 Créez un groupe de ressources avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Stockez le nom du groupe de ressources dans une variable pour une utilisation ultérieure. Dans cet exemple, un groupe de ressources nommé *howtoqueuesrg* est créé dans la région *eastus* .
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Stockez le nom du groupe de ressources dans une variable pour une utilisation ultérieure. Dans cet exemple, un groupe de ressources nommé *howtoqueuesrg* est créé dans la région *eastus*.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -127,13 +127,13 @@ Si vous utilisez [l’Explorateur Stockage Azure](https://storageexplorer.com), 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Lire un message de la file d’attente, puis le supprimer
 
-Les messages sont lus, dans la mesure du possible, dans l’ordre du premier entré, premier sorti. Nous n’offrons aucune garantie. Quand vous lisez le message de la file d’attente, il devient invisible à tous les autres processus ciblant la file d’attente. De cette façon, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer.  
+Les messages sont lus, dans la mesure du possible, dans l’ordre du premier entré, premier sorti. Nous n’offrons aucune garantie. Quand vous lisez le message de la file d’attente, il devient invisible à tous les autres processus ciblant la file d’attente. De cette façon, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer.
 
 Cette **période d’invisibilité** définit la durée d’invisibilité du message avant qu’il ne redevienne disponible pour traitement. La valeur par défaut est 30 secondes.
 
 Votre code lit un message dans la file d’attente en deux étapes. Quand vous appelez la méthode [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez également appeler la méthode [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage).
 
-Dans l’exemple suivant, vous lisez les trois messages de la file d’attente, puis attendez 10 secondes (période d’invisibilité). Ensuite, quand vous relisez les trois messages, vous les supprimez un à un en appelant **DeleteMessage** . Si vous essayez de lire la file d’attente une fois les messages supprimés, $queueMessage retourne NULL.
+Dans l’exemple suivant, vous lisez les trois messages de la file d’attente, puis attendez 10 secondes (période d’invisibilité). Ensuite, quand vous relisez les trois messages, vous les supprimez un à un en appelant **DeleteMessage**. Si vous essayez de lire la file d’attente une fois les messages supprimés, $queueMessage retourne NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -185,17 +185,17 @@ Cet article sur les procédures vous a présenté les bases de la gestion de Sto
 
 > [!div class="checklist"]
 >
-> * Créer une file d’attente
-> * Récupérer une file d’attente
-> * Ajouter un message
-> * Lire le message suivant
-> * Supprimer un message
-> * Suppression d'une file d'attente
+> - Créer une file d’attente
+> - Récupérer une file d’attente
+> - Ajouter un message
+> - Lire le message suivant
+> - Supprimer un message
+> - Suppression d'une file d'attente
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Applets de commande Microsoft Azure PowerShell - Stockage
 
-* [Applets de commande PowerShell - Stockage](/powershell/module/az.storage)
+- [Applets de commande PowerShell - Stockage](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

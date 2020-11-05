@@ -3,17 +3,19 @@ title: Modèles Azure Resource Manager pour Core (API SQL) Azure Cosmos DB
 description: Utilisez des modèles Azure Resource Manager pour créer et configurer Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3247f35fec8615b9c5e277b7453c340caaf56ffd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 52fa5957cdbc3ae73ebc4b36e04582741199414a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283112"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340598"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modèles Azure Resource Manager pour Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article présente uniquement des exemples de modèles Azure Resource Manager pour des comptes de l’API Core (SQL). Vous trouverez également des exemples de modèles pour les API [Cassandra](templates-samples-cassandra.md), [Gremlin](templates-samples-gremlin.md), [MongoDB](templates-samples-mongodb.md) et [Table](templates-samples-table.md).
 

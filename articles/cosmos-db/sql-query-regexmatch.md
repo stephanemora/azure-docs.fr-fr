@@ -3,18 +3,20 @@ title: RegexMatch dans langage de requête Azure Cosmos DB
 description: En savoir plus sur la fonction système SQL RegexMatch dans Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 620ffcb379f9fa1402e422c13bcadf8da4047409
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7f5b2831f45e902b312636e4133557a16ee7ec95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283043"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341635"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Fournit des fonctionnalités d’expressions régulières. Les expressions régulières sont des notations concises et souples pour la recherche de modèles de texte. Azure Cosmos DB utilise les[PCRE (expressions régulières compatibles PERL)](http://www.pcre.org/). 
 

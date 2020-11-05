@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/09/2020
-ms.openlocfilehash: 46102305e99c94fc71ad0934a2c0063fdcbeec4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3599052e49b91747580bf506f06ebfb8d2e34423
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317788"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346806"
 ---
 # <a name="create-an-azure-container-offer"></a>Créer une offre de conteneur Azure
 
@@ -38,8 +38,8 @@ En plus du domaine de votre solution, votre équipe d'ingénierie doit connaîtr
 
 Choisissez l'un des environnements de script suivants, ou les deux, pour vous aider à gérer votre image conteneur :
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+- [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure/).
 
 Nous vous recommandons d'ajouter les outils suivants à votre environnement de développement :
 

@@ -4,18 +4,20 @@ description: Découvrir comment utiliser le modèle de tirage (pull) du flux de 
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b3f7a8fbe2afcf9b5603f288fe6e3bc429b14532
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784675"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340190"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modèle de tirage (pull) du flux de modification dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Avec le modèle de tirage du flux de modification, vous pouvez consommer le flux de modification Azure Cosmos DB à votre rythme. Comme le [processeur de flux de modification](change-feed-processor.md) vous le permet déjà, vous pouvez utiliser le modèle de tirage du flux de modification pour paralléliser le traitement des modifications sur plusieurs consommateurs de flux de modification.
 

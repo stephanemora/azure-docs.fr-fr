@@ -3,12 +3,12 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 206bd6604ecd9dfece9c946c653b2720e75ff1e3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653364"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347792"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -494,6 +494,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | firewallPolicies | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | firewallPolicies / ruleGroups | stratégie de pare-feu | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | frontDoors | globale | 5-64 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
+> | frontdoorWebApplicationFirewallPolicies | resource group | 1-128 | Caractères alphanumériques.<br><br>Doit commencer par une lettre. |
 > | loadBalancers | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | loadBalancers / inboundNatRules | équilibreur de charge | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | localNetworkGateways | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |

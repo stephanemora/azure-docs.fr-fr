@@ -4,17 +4,19 @@ description: Niveaux de cohérence Apache Cassandra et Azure Cosmos DB.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 155e1ed5b089c16887c845c94f36c9c6d9f0af6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a02076c09d038b02c0ab846440ad14e799271733
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283023"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339952"
 ---
 # <a name="apache-cassandra-and-azure-cosmos-db-consistency-levels"></a>Niveaux de cohérence Apache Cassandra et Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Contrairement à Azure Cosmos DB, Apache Cassandra ne fournit pas en mode natif des garanties de cohérence précises. Au lieu de cela, Apache Cassandra fournit un niveau de cohérence d’écriture et un niveau de cohérence de lecture, pour permettre les compromis de haute disponibilité, de cohérence et de latence. Lors de l’utilisation de l’API Cassandra Azure Cosmos DB :
 

@@ -3,7 +3,7 @@ title: Obtention d’une instance de processeur multimédia à l’aide de REST�
 description: Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: ba625aa048360a4c201b91b4a5a4a7ca4dd6277b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: e1ac2a2408e16c3f8057c49c69c354ebb1e377c7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269503"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348489"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Obtention d’une instance de processeur multimédia
 
@@ -28,18 +28,18 @@ ms.locfileid: "89269503"
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
-> 
-> 
+
 
 ## <a name="overview"></a>Vue d’ensemble
-Les processeurs multimédias sont un composant qui gère une tâche de traitement vidéo ou audio spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Toutes les tâches envoyées à Media Services ont besoin d’un processeur multimédia pour encoder, chiffrer ou convertir le contenu vidéo ou audio. 
 
-## <a name="azure-media-processors"></a>Processeurs multimédias Azure 
+Les processeurs multimédias sont un composant qui gère une tâche de traitement vidéo ou audio spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Toutes les tâches envoyées à Media Services ont besoin d’un processeur multimédia pour encoder, chiffrer ou convertir le contenu vidéo ou audio.
+
+## <a name="azure-media-processors"></a>Processeurs multimédias Azure
 
 La rubrique suivante fournit une liste de processeurs multimédias :
 
-* [Processeurs multimédias d’encodage](scenarios-and-availability.md#encoding-media-processors)
-* [Processeurs multimédias Analytics](scenarios-and-availability.md#analytics-media-processors)
+* [Processeurs multimédias d’encodage](scenarios-and-availability.md)
+* [Processeurs multimédias Analytics](scenarios-and-availability.md)
 
 >[!NOTE]
 >Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
@@ -51,7 +51,7 @@ Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’A
 
 ## <a name="get-a-media-processor"></a>Obtention d’un processeur multimédia
 
-L’appel REST suivant montre comment obtenir une instance de processeur multimédia par nom (dans ce cas, **Media Encoder Standard**). 
+L’appel REST suivant montre comment obtenir une instance de processeur multimédia par nom (dans ce cas, **Media Encoder Standard** ). 
 
 Demande :
 

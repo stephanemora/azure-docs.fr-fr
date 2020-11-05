@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289682"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345939"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Guide pratique pour utiliser Stockage Files d’attente à partir de Node.js
 
@@ -44,13 +44,13 @@ La [bibliothèque de client Stockage Azure pour JavaScript][Azure Storage client
 
 1. Saisissez **npm install \@azure/storage-queue** dans la fenêtre de commande.
 
-1. Vérifiez qu’un dossier **node\_modules** a été créé. Dans ce dossier, vous trouverez le package **\@azure/storage-queue**, qui contient la bibliothèque de client dont vous avez besoin pour accéder au stockage.
+1. Vérifiez qu’un dossier **node\_modules** a été créé. Dans ce dossier, vous trouverez le package **\@azure/storage-queue** , qui contient la bibliothèque de client dont vous avez besoin pour accéder au stockage.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
 1. Tapez **npm install azure-storage** dans la fenêtre de commande.
 
-1. Vérifiez qu’un dossier **node\_modules** a été créé. Dans ce dossier, vous trouverez le package **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
+1. Vérifiez qu’un dossier **node\_modules** a été créé. Dans ce dossier, vous trouverez le package **azure-storage** , qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
 
 ---
 
@@ -160,13 +160,13 @@ L’exemple suivant met à jour le texte d’un message.
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Modifiez le contenu d’un message qui se trouve dans la file d’attente en utilisant [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Modifiez le contenu d’un message qui se trouve dans la file d’attente en utilisant [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Modifiez le contenu d’un message qui se trouve dans la file d’attente en utilisant **updateMessage**. 
+Modifiez le contenu d’un message qui se trouve dans la file d’attente en utilisant **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -234,8 +234,8 @@ L’utilisation de **getMessages** lorsqu’il n’y a aucun message dans la fil
 
 Il existe deux méthodes pour personnaliser l'extraction d'un message d'une file d'attente :
 
-* [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) : récupérer un lot de messages (jusqu’à 32).
-* [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) : définir une durée d’invisibilité plus longue ou plus courte.
+- [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) : récupérer un lot de messages (jusqu’à 32).
+- [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) : définir une durée d’invisibilité plus longue ou plus courte.
 
 L’exemple suivant utilise la méthode **receiveMessages** pour obtenir cinq messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle `for`. La durée d'invisibilité est passée à cinq minutes pour tous les messages renvoyés par cette méthode.
 
@@ -245,8 +245,8 @@ L’exemple suivant utilise la méthode **receiveMessages** pour obtenir cinq m
 
 Il existe deux méthodes pour personnaliser l'extraction d'un message d'une file d'attente :
 
-* `options.numOfMessages` - Extraire un lot de messages (jusqu’à 32).
-* `options.visibilityTimeout` - Définir une durée d’invisibilité plus longue ou plus courte.
+- `options.numOfMessages` - Extraire un lot de messages (jusqu’à 32).
+- `options.visibilityTimeout` - Définir une durée d’invisibilité plus longue ou plus courte.
 
 L'exemple suivant utilise la méthode **getMessages** pour obtenir 15 messages dans un appel. Ensuite, il traite chaque message à l'aide d'une boucle `for`. La durée d'invisibilité est passée à cinq minutes pour tous les messages renvoyés par cette méthode.
 
@@ -347,8 +347,8 @@ Pour effacer tous les messages d’une file d’attente sans supprimer cette der
 
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-* Consultez le [blog de l’équipe Azure Storage][Azure Storage Team Blog] pour découvrir les nouveautés.
-* Consultez le référentiel relatif à la [bibliothèque de client Stockage Azure pour JavaScript][Azure Storage client library for JavaScript] sur GitHub.
+- Consultez le [blog de l’équipe Azure Storage][Azure Storage Team Blog] pour découvrir les nouveautés.
+- Consultez le référentiel relatif à la [bibliothèque de client Stockage Azure pour JavaScript][Azure Storage client library for JavaScript] sur GitHub.
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

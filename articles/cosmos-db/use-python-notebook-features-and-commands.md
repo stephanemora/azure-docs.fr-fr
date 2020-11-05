@@ -3,17 +3,19 @@ title: Utiliser les fonctionnalités et commandes de notebook intégrées dans l
 description: Découvrez comment utiliser les fonctionnalités et commandes intégrées pour effectuer des opérations courantes à l’aide des notebooks Python intégrés d’Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 596d34ef0544f4160c18210f05f68b488ec114d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476278"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340411"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Utiliser les fonctionnalités et commandes de notebook intégrées dans les notebooks Python Azure Cosmos DB (préversion)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Les notebooks Jupyter intégrés dans Azure Cosmos DB vous permettent d’analyser et de visualiser vos données via le portail Azure. Cet article explique comment utiliser les fonctionnalités et commandes de notebook intégrées pour effectuer des opérations courantes dans des notebooks Python.
 
@@ -200,7 +202,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Réinitialiser l’espace de travail des notebooks
 Pour rétablir les paramètres par défaut de l’espace de travail des notebooks, sélectionnez **Réinitialiser l’espace de travail** dans la barre de commandes. Cette opération supprime tous les packages personnalisés installés et redémarre le serveur Jupyter. Vos notebooks, fichiers et ressources Azure Cosmos ne seront pas affectés.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Explorateur de données nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Réinitialiser l’espace de travail des notebooks":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

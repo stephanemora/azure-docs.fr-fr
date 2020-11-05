@@ -3,18 +3,20 @@ title: Fonctions définies par l’utilisateur dans Azure Cosmos DB
 description: Découvrez les fonctions définies par l’utilisateur dans Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c17fcbb7f6cd2d7f4948defad49e8319a013eb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c7050042d59156e1203b5830d710e61bd8eb382
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262057"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341890"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Fonctions définies par l’utilisateur dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 L’API SQL prend en charge les fonctions définies par l’utilisateur. Les fonctions scalaires définies par l’utilisateur vous permettent de passer zéro ou plusieurs arguments et de retourner un résultat contenant un seul argument. L’API vérifie que chaque argument est une valeur JSON légale.  
 

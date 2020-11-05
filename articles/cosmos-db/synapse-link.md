@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: ae99f5fc1cd6f27c46f7a4444bc75b8c773b4f74
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1e78a7ff806cbd6a7f30c68786e62f8508c850ac
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480001"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340683"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB (préversion) ?
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 > [!IMPORTANT]
 > Azure Synapse Link pour Azure Cosmos DB est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

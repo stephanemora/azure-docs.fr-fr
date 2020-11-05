@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
 ms.custom: contperfq2
-ms.openlocfilehash: e819073c3bc723a66f8beb2f9b2a094a07233ca9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5fc0156b9b832f44fd38292ef2b9a25e39401610
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427678"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348659"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Comprendre l’authentification unique basée sur OIDC
 Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Cet article décrit plus en détails les applications qui utilisent la norme OpenID Connect pour implémenter l’authentification unique. 
@@ -33,7 +33,7 @@ La bonne chose avec l’ajout d’une application qui utilise la norme OIDC pour
 
 Ajout d’une application basée sur OIDC dans Azure Active Directory
 
-> [!VIDEO https://www.youtube.com/embed/4kv-upsZCI0]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

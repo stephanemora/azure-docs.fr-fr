@@ -3,19 +3,21 @@ title: Conseils sur les performances pour le Kit de développement logiciel (SDK
 description: Découvrez les options de configuration clientes disponibles afin d’améliorer les performances de la base de données Azure Cosmos pour le Kit de développement logiciel (SDK) Java asynchrone v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 3064672dc9eafbabda896f56f4881302980585b0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: 4285571ead30f74f9136ad81687e52d92fdd1c47
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475377"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341754"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java asynchrone v2 Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) Java v4](performance-tips-java-sdk-v4-sql.md)
@@ -46,7 +48,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
   
   Le mode Passerelle est pris en charge sur toutes les plateformes du SDK et c’est l’option configurée par défaut. Si vos applications s’exécutent dans un réseau d’entreprise comportant des restrictions de pare-feu strictes, le mode Passerelle est idéal, car il utilise le port HTTPS standard et un seul point de terminaison.   Cela implique toutefois un compromis en matière de performances : ce mode fait intervenir un tronçon réseau supplémentaire chaque fois que des données sont lues ou écrites dans Azure Cosmos DB. Pour cette raison, le mode Direct offre de meilleures performances grâce à un moins grand nombre de tronçons réseau.
   
-  *ConnectionMode* est configuré pendant la construction de l’instance *DocumentClient* avec le paramètre *ConnectionPolicy* .
+  *ConnectionMode* est configuré pendant la construction de l’instance *DocumentClient* avec le paramètre *ConnectionPolicy*.
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-connectionpolicy"></a>Kit de développement logiciel (SDK) Java asynchrone v2 (Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -86,7 +88,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
   * ***Vue d’ensemble du mode direct** _
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de la stratégie de connexion Azure Cosmos DB" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de l’architecture du mode direct" border="false":::
   
   L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 _ *canaux* * côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, d’une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins par le **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** l’achemine vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
 

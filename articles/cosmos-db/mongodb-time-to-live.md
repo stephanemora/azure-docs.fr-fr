@@ -4,18 +4,20 @@ description: Découvrez comment définir les valeurs de durée de vie des docume
 author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ec7f233db34b00ad3904a0bb117b2a97c6512e34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ef3092c611e1eede2be1e0994ce69959a46f1d7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322714"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340921"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Faire expirer des données avec l’API Azure Cosmos DB pour MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 La fonctionnalité de durée de vie (TTL) permet à la base de données de faire expirer automatiquement les données. L’API Azure Cosmos DB pour MongoDB utilise les fonctionnalités de durée de vie de base de Cosmos DB. Deux modes sont prises en charge : la définition d’une valeur de durée de vie par défaut sur l’ensemble de la collection et la définition de valeurs de durée de vie individuelles pour chaque document. La logique d’index de durée de vie et les valeurs de durée de vie par document dans l’API Cosmos DB pour MongoDB est la [même que dans Cosmos DB](../cosmos-db/mongodb-indexing.md).
 

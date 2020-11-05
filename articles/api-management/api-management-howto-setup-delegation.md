@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148759"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341839"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -37,14 +37,14 @@ Le processus final se présente comme suit :
 3. À son tour, le point de terminaison de délégation présente une interface demandant à l’utilisateur de se connecter ou de s’inscrire, ou bien le redirige vers cette interface.
 4. Si l'authentification est réussie, l'utilisateur revient à la page du portail des développeurs Gestion des API d'où il est parti.
 
-Pour commencer, configurons Gestion des API pour que les demandes soient acheminées via votre point de terminaison de délégation. Sur le portail Azure, recherchez **Sécurité** dans votre ressource Gestion des API, puis cliquez sur l’ élément **Délégation** . Cochez la case pour activer « Déléguer la connexion et l’inscription ».
+Pour commencer, configurons Gestion des API pour que les demandes soient acheminées via votre point de terminaison de délégation. Sur le portail Azure, recherchez **Sécurité** dans votre ressource Gestion des API, puis cliquez sur l’ élément **Délégation**. Cochez la case pour activer « Déléguer la connexion et l’inscription ».
 
 ![Delegation page][api-management-delegation-signin-up]
 
 * Décidez de l'URL de votre point de terminaison de délégation spécial, puis entrez-la dans le champ **URL du point de terminaison de délégation** . 
 * Dans le champ Clé d’authentification de la délégation, entrez le secret utilisé pour calculer une signature qui vous sera fournie pour vérification afin de vous assurer que la demande provient bien de Gestion des API Azure. Vous pouvez cliquer sur le bouton **Générer** pour que Gestion des API génère une clé de manière aléatoire pour vous.
 
-À présent, vous devez créer le **point de terminaison de délégation** . Il doit effectuer certaines actions :
+À présent, vous devez créer le **point de terminaison de délégation**. Il doit effectuer certaines actions :
 
 1. Recevoir une demande au format suivant :
    
@@ -62,7 +62,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
      
      > HMAC( **salt** + ’\n’ + **returnUrl** )
 
-   * Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig** . Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
+   * Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 3. Vérifiez que vous recevez une demande de connexion/d’inscription : le paramètre de requête **operation** sera défini sur « **SignIn** ».
 4. Présenter une interface de connexion ou d’inscription à l’utilisateur
 5. Si l'utilisateur s'inscrit, vous devez créer un compte dans Gestion des API. [Créez un utilisateur] avec l'API REST de gestion de Gestion des API. Lors de cette opération, assurez-vous de bien attribuer à l’identifiant utilisateur une valeur identique à celle de votre magasin utilisateur ou un identifiant que vous pouvez suivre.
@@ -71,7 +71,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
    * [Demandez un jeton d'accès partagé] via l'API REST Gestion des API
    * Ajoutez un paramètre de requête returnUrl à l'URL SSO reçue de l'appel d'API ci-dessus :
      
-     > par exemple, `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     > par exemple, `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
      
    * Redirigez l'utilisateur vers l'URL générée
 
@@ -97,7 +97,7 @@ La délégation de l’abonnement aux produits fonctionne de la même manière q
 2. Le navigateur est redirigé vers le point de terminaison de délégation.
 3. Le point de terminaison de délégation effectue les étapes nécessaires pour l’abonnement au produit. C’est à vous de concevoir les étapes. Celles-ci peuvent permettre de rediriger l’utilisateur vers une autre page pour obtenir des informations de facturation, demander des informations supplémentaires ou simplement stocker les informations sans aucune action de l’utilisateur.
 
-Pour activer la fonctionnalité, dans la page **Délégation** , cliquez sur **Déléguer l’abonnement au produit** .
+Pour activer la fonctionnalité, dans la page **Délégation** , cliquez sur **Déléguer l’abonnement au produit**.
 
 Assurez-vous ensuite que le point de terminaison de délégation effectue bien les actions suivantes :
 
@@ -125,7 +125,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
      > HMAC( **salt** + ’\n’ + **productId** + ’\n’ + **userId** )
      > 
      > 
-   * Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig** . Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
+   * Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 3. Traitez l’abonnement au produit en fonction du type d’opération demandé dans **operation** (par exemple, facturation, autres questions, etc.).
 4. Après avoir correctement abonné l’utilisateur au produit de votre côté, abonnez l’utilisateur au produit Gestion des API en [appelant l’API REST pour les abonnements].
 

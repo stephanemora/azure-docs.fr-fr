@@ -3,18 +3,21 @@ title: 'Langage de requête Azure Cosmos DB : SUBSTRING'
 description: Découvrez la fonction système SQL SUBSTRING dans Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17888ccd8fc51ed96f7fc92a0f9275d2c8cb56f8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303696"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340826"
 ---
 # <a name="substring-azure-cosmos-db"></a>SUBSTRING (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Renvoie une partie d’une expression de chaîne commençant à la position de caractère spécifiée (avec base zéro) et se poursuit jusqu'à la longueur spécifiée ou à la fin de la chaîne.  
   
 ## <a name="syntax"></a>Syntaxe

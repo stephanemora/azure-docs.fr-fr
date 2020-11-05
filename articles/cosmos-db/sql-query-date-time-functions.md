@@ -3,18 +3,20 @@ title: 'Langage de requête Azure Cosmos DB : fonctions de date et heure'
 description: Découvrez les fonctions système SQL de date et d’heure dans Azure Cosmos DB pour effectuer des opérations Date/Heure et timestamp.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1ea838224f9d91b000100d5fa9308289619fd963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8b6e932f4cd5f4119d93f3fed7db524f65cbc1f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605192"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338949"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Fonctions de date et heure (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Les fonctions de date et heure vous permettent d’effectuer des opérations d’horodatage et DateHeure dans Azure Cosmos DB.
 

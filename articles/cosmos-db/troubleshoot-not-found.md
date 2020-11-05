@@ -3,18 +3,21 @@ title: Résoudre les problèmes liés à des exceptions introuvables Azure Cosmo
 description: Découvrez comment diagnostiquer et résoudre des exceptions introuvables.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f0fa8e5923639ea74a83a9a775bd5d580234b7ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496082"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340122"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostiquer et résoudre les problèmes liés à des exceptions introuvables Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Le code d’état HTTP 404 indique que la ressource n’existe plus.
 
 ## <a name="expected-behavior"></a>Comportement attendu

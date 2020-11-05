@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e1c5d696e97ac6e14c1739be2feb93814975586
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709102"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347061"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Créer une offre de conteneur Azure dans la Place de marché Azure
 
@@ -36,7 +36,7 @@ Cet article explique comment créer et publier une offre de conteneur sur la Pla
 Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
-- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1** , l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
 Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
@@ -52,10 +52,10 @@ La page **Vue d’ensemble de l’offre** montre une représentation visuelle de
 
 Cette page montre des liens différents en fonction de l’état actuel de l’offre. Par exemple :
 
-- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](update-existing-offer.md#delete-a-draft-offer)
+- Si l’offre est un brouillon : Supprimer le brouillon de l’offre
 - Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval)
-- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](update-existing-offer.md#cancel-publishing)
+- Si l’offre est disponible en préversion : [Mise en service](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuration de l’offre
 
@@ -98,7 +98,7 @@ Sélectionnez les catégories et les sous-catégories pour placer votre offre da
 - Au moins une et jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
 - Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est applicable à votre offre, sélectionnez **Non applicable**.
 
-Consultez la liste complète des catégories et sous-catégories dans [Bonnes pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md). Les conteneurs s’affichent toujours sous **Conteneurs**, puis la catégorie **Images conteneur**.
+Consultez la liste complète des catégories et sous-catégories dans [Bonnes pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md). Les conteneurs s’affichent toujours sous **Conteneurs** , puis la catégorie **Images conteneur**.
 
 #### <a name="legal"></a>Informations juridiques
 
@@ -165,9 +165,9 @@ Entrez l’adresse web de la politique de confidentialité de votre organisation
 
 #### <a name="useful-links"></a>Liens utiles
 
-Fournissez des documents en ligne complémentaires à propos de votre offre. Vous pouvez ajouter jusqu’à 25 liens. Pour ajouter un lien, sélectionnez **+ Ajouter un lien**, puis complétez les champs suivants :
+Fournissez des documents en ligne complémentaires à propos de votre offre. Vous pouvez ajouter jusqu’à 25 liens. Pour ajouter un lien, sélectionnez **+ Ajouter un lien** , puis complétez les champs suivants :
 
-- **Titre** : les clients verront le titre dans la page de détails de votre offre.
+- **Titre**  : les clients verront le titre dans la page de détails de votre offre.
 - **Lien (URL)**  : entrez un lien pour que les clients puissent voir votre document en ligne. Le lien doit démarrer par http:// ou https://.
 
 ### <a name="contact-information"></a>Informations de contact
@@ -178,9 +178,9 @@ Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact 
 - Contact en ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
 - Contact du programme du fournisseur de solutions cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
 
-Dans la section **Contact du support**, indiquez le **site web de support** où les partenaires peuvent trouver un support pour votre offre selon que celle-ci est disponible dans Azure international, Azure Government ou les deux.
+Dans la section **Contact du support** , indiquez le **site web de support** où les partenaires peuvent trouver un support pour votre offre selon que celle-ci est disponible dans Azure international, Azure Government ou les deux.
 
-Dans la section **Contact du programme du fournisseur de solutions Cloud**, fournissez le lien (**Ressources Marketing du programme CSP**) où les partenaires CSP peuvent trouver des ressources marketing pour votre offre.
+Dans la section **Contact du programme du fournisseur de solutions Cloud** , fournissez le lien ( **Ressources Marketing du programme CSP** ) où les partenaires CSP peuvent trouver des ressources marketing pour votre offre.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
@@ -223,26 +223,26 @@ Les exemples suivants montrent où sont positionnés les champs de l’annonce d
 
 Voici la page **Description de l’offre** sur la Place de marché Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustre la page Description de l’offre dans la Place de marché Azure." :::
 
 Voici les résultats de la recherche dans la Place de marché Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustre les résultats de la recherche dans la Place de marché Azure.":::
 
 Voici la page **Description de l’offre** dans le portail Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustre la page Description de l’offre dans le portail Azure.":::
 
 Voici les résultats de la recherche dans le portail Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustre les résultats de la recherche dans le portail Azure.":::
 
 ## <a name="preview"></a>PRÉVERSION
 
 Sous l’onglet Préversion, vous pouvez choisir de restreindre le **public de la préversion** en vue de valider votre offre avant de la publier en ligne.
 
 > [!IMPORTANT]
-> Une fois que vous avez affiché votre offre en **préversion**, vous devez sélectionner **Mise en service** afin de publier votre offre pour le public.
+> Une fois que vous avez affiché votre offre en **préversion** , vous devez sélectionner **Mise en service** afin de publier votre offre pour le public.
 
 Spécifiez votre public de préversion en utilisant des GUID d’ID d’abonnement Azure et une description facultative pour chacun. Aucun de ces champs ne peut être vu par les clients.
 
@@ -269,19 +269,19 @@ Une fois que vous avez créé vos plans, l’onglet **Vue d’ensemble du plan**
 
 Les actions disponibles dans Vue d’ensemble du plan varient selon l’état actuel de votre plan. Ils comprennent :
 
-- **Supprimer le brouillon** : si l’état du plan est Brouillon.
-- **Arrêter la vente du plan** : si l’état du plan est « publié en ligne ».
+- **Supprimer le brouillon**  : si l’état du plan est Brouillon.
+- **Arrêter la vente du plan**  : si l’état du plan est « publié en ligne ».
 
 ### <a name="create-new-plan"></a>Créer un plan
 
 Sélectionnez **Créer un plan**. La boîte de dialogue **Nouveau plan** s’affiche.
 
-Dans la zone **ID du plan**, créez un identificateur de plan unique pour chaque plan contenu dans cette offre. Cet ID sera visible par les clients dans l’adresse web du produit. Utilisez uniquement des lettres minuscules et des chiffres, des tirets ou des traits de soulignement, dans la limite de 50 caractères.
+Dans la zone **ID du plan** , créez un identificateur de plan unique pour chaque plan contenu dans cette offre. Cet ID sera visible par les clients dans l’adresse web du produit. Utilisez uniquement des lettres minuscules et des chiffres, des tirets ou des traits de soulignement, dans la limite de 50 caractères.
 
 > [!NOTE]
 > L’ID de plan ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-Dans la zone **Nom du plan**, entrez un nom pour ce plan. Les clients voient ce nom quand ils décident du plan à sélectionner dans votre offre. Créez un nom unique pour chaque plan dans cette offre. Par exemple, vous pouvez utiliser le nom d’offre **Windows Server** avec les plans **Windows Server 2016** et **Windows Server 2019**.
+Dans la zone **Nom du plan** , entrez un nom pour ce plan. Les clients voient ce nom quand ils décident du plan à sélectionner dans votre offre. Créez un nom unique pour chaque plan dans cette offre. Par exemple, vous pouvez utiliser le nom d’offre **Windows Server** avec les plans **Windows Server 2016** et **Windows Server 2019**.
 
 ### <a name="plan-setup"></a>Configuration du plan
 
@@ -328,11 +328,11 @@ Les exemples suivants montrent où sont positionnés les champs de la liste des 
 
 Voici les champs dans la Place de marché Azure lors de l’affichage des détails du plan :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustre les champs que vous voyez quand vous affichez les détails du plan dans la Place de marché Azure.":::
 
 Voici les détails du plan sur le portail Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustre les détails du plan sur le portail Azure.":::
 
 ### <a name="plan-availability"></a>Disponibilité du plan
 
@@ -347,7 +347,7 @@ Ce champ est utilisé dans les cas suivants :
 
 ## <a name="technical-configuration"></a>Configuration technique
 
-Les images conteneur doivent être hébergées dans une instance privée d’[Azure Container Registry](https://azure.microsoft.com/services/container-registry/). Sous l’onglet **Configuration technique**, fournissez des informations de référence pour le dépôt d’images conteneur situé dans Azure Container Registry.
+Les images conteneur doivent être hébergées dans une instance privée d’[Azure Container Registry](https://azure.microsoft.com/services/container-registry/). Sous l’onglet **Configuration technique** , fournissez des informations de référence pour le dépôt d’images conteneur situé dans Azure Container Registry.
 
 Une fois l’offre publiée, votre image conteneur est copiée sur la Place de marché Azure dans un registre de conteneurs public. Toutes les demandes effectuées pour utiliser votre image conteneur sont traitées à partir du registre de conteneurs public de la Place de marché Azure, et non pas à partir de votre registre de conteneurs privé. Pour plus d’informations, consultez [Préparer vos ressources techniques de conteneur Azure](create-azure-container-technical-assets.md).
 
@@ -355,19 +355,19 @@ Une fois l’offre publiée, votre image conteneur est copiée sur la Place de m
 
 Fournissez les informations suivantes sous l’onglet **Détails du référentiel d’images**.
 
-**ID d’abonnement Azure** : indiquez l’ID d’abonnement dans lequel l’utilisation est signalée et les services sont facturés pour le registre de conteneurs Azure qui contient votre image conteneur. Vous pouvez trouver cet ID dans la [page Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
+**ID d’abonnement Azure**  : indiquez l’ID d’abonnement dans lequel l’utilisation est signalée et les services sont facturés pour le registre de conteneurs Azure qui contient votre image conteneur. Vous pouvez trouver cet ID dans la [page Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 
-**Nom du groupe de ressources Azure** : indiquez le nom du [groupe de ressources](../../azure-resource-manager/management/manage-resource-groups-portal.md) qui contient le registre de conteneurs Azure abritant votre image conteneur. Le groupe de ressources doit être accessible dans l’ID d’abonnement (ci-dessus). Vous trouverez le nom dans la page [Groupes de ressources](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) du portail Azure.
+**Nom du groupe de ressources Azure**  : indiquez le nom du [groupe de ressources](../../azure-resource-manager/management/manage-resource-groups-portal.md) qui contient le registre de conteneurs Azure abritant votre image conteneur. Le groupe de ressources doit être accessible dans l’ID d’abonnement (ci-dessus). Vous trouverez le nom dans la page [Groupes de ressources](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) du portail Azure.
 
-**Nom du registre de conteneurs Azure** : indiquez le nom du [registre de conteneurs Azure](../../container-registry/container-registry-intro.md) contenant votre image conteneur. Le registre de conteneurs doit se trouver dans le groupe de ressources Azure que vous avez fourni. Indiquez uniquement le nom du registre, et non le nom complet du serveur de connexion. Veillez à omettre **azurecr.io** dans le nom. Vous trouverez le nom du registre dans la [page Registres de conteneurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) du portail Azure.
+**Nom du registre de conteneurs Azure**  : indiquez le nom du [registre de conteneurs Azure](../../container-registry/container-registry-intro.md) contenant votre image conteneur. Le registre de conteneurs doit se trouver dans le groupe de ressources Azure que vous avez fourni. Indiquez uniquement le nom du registre, et non le nom complet du serveur de connexion. Veillez à omettre **azurecr.io** dans le nom. Vous trouverez le nom du registre dans la [page Registres de conteneurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) du portail Azure.
 
-**Nom d’utilisateur de l’administrateur pour Azure Container Registry** : indiquez le [nom d’utilisateur de l’administrateur](../../container-registry/container-registry-authentication.md#admin-account) qui est associé au registre Azure Container Registry contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
+**Nom d’utilisateur de l’administrateur pour Azure Container Registry**  : indiquez le [nom d’utilisateur de l’administrateur](../../container-registry/container-registry-authentication.md#admin-account) qui est associé au registre Azure Container Registry contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustre la boîte de dialogue Mettre à jour le registre de conteneurs.":::
 
-**Mot de passe du registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Mot de passe du registre de conteneurs Azure**  : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](/cli/azure/acr/credential#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustration du menu Clé d’accès.":::
 
 **Nom du dépôt au sein du registre de conteneurs Azure**. Indiquez le nom du dépôt Azure Container Registry contenant votre image. Spécifiez le nom du dépôt quand vous envoyez (push) l’image vers le registre. Vous trouverez le nom du dépôt en accédant à [Registre de conteneurs](https://azure.microsoft.com/services/container-registry/) > **Page Dépôts**. Pour plus d’informations, consultez [Afficher les dépôts de registre de conteneurs dans le portail Azure](../../container-registry/container-registry-repositories.md).
 
@@ -396,9 +396,9 @@ Dans le coin supérieur droit du portail, sélectionnez **Vérifier et** **publi
 Dans la page de révision, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre. Vous ne pouvez pas publier tant que toutes les sections de l’offre ne sont pas marquées comme étant complètes.
-  - **Non démarrée** : n’a pas été démarrée et doit être complétée.
-  - **Incomplète** : comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
-  - **Complète** : comprend toutes les données nécessaires sans erreurs. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
+  - **Non démarrée**  : n’a pas été démarrée et doit être complétée.
+  - **Incomplète**  : comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
+  - **Complète**  : comprend toutes les données nécessaires sans erreurs. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
 - Fournissez des instructions de test à l’équipe de certification pour vous assurer que votre offre est correctement testée. Vous pouvez également fournir des notes supplémentaires utiles pour comprendre votre offre.
 
 Pour envoyer l’offre à des fins de publication, sélectionnez **Publier**.

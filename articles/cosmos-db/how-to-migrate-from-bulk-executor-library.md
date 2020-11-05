@@ -3,18 +3,20 @@ title: Migrer de la bibliothèque d’exécuteur en bloc vers la prise en charge
 description: Découvrez comment migrer votre application de l’utilisation de la bibliothèque d’exécuteur en bloc vers la prise en charge de l’exécution en bloc dans le SDK Azure Cosmos DB v3.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 62a31750fe0c058624c4f69848abb56e7b5095b4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 24d6b475964e4bf7745495e9c41d0e89bb76f7e9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491017"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341280"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrer de la bibliothèque d’exécuteur en bloc vers la prise en charge de l’exécution en bloc dans le SDK Azure Cosmos DB .NET v3
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article décrit les étapes nécessaires pour migrer le code d’une application existante qui utilise la [bibliothèque d’exécuteur en bloc .NET](bulk-executor-dot-net.md) vers la fonctionnalité de [prise en charge de l’exécution en bloc](tutorial-sql-api-dotnet-bulk-import.md) de la dernière version du SDK .NET.
 

@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951398"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348608"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Ajouter l’autocomplétion et les suggestions aux applications clientes
 
-La recherche en cours de frappe est une technique courante pour améliorer la productivité des requêtes initiées par l’utilisateur. Dans Recherche cognitive Azure, cette expérience est prise en charge via l’*autocomplétion*, qui termine un terme ou une expression en fonction d’une entrée partielle (en complétant « micro » par « microsoft » par exemple). Les *suggestions* sont une autre possibilité : une liste succincte de documents correspondants (retournant des titres de livres avec un ID pour pouvoir lier vers une page d’informations). L’autocomplétion et les suggestions sont basées sur une correspondance dans l’index. Le service ne propose pas de requêtes qui ne retournent aucun résultat.
+La recherche en cours de frappe est une technique courante pour améliorer la productivité des requêtes initiées par l’utilisateur. Dans Recherche cognitive Azure, cette expérience est prise en charge via l’ *autocomplétion* , qui termine un terme ou une expression en fonction d’une entrée partielle (en complétant « micro » par « microsoft » par exemple). Les *suggestions* sont une autre possibilité : une liste succincte de documents correspondants (retournant des titres de livres avec un ID pour pouvoir lier vers une page d’informations). L’autocomplétion et les suggestions sont basées sur une correspondance dans l’index. Le service ne propose pas de requêtes qui ne retournent aucun résultat.
 
 Pour implémenter ces expériences dans Recherche cognitive Azure, vous avez besoin des éléments suivants :
 
@@ -69,7 +69,7 @@ Vous devez affiner la réponse pour éviter les doublons ou les résultats non l
 
 | Paramètre | Usage |
 |-----------|-------|
-| **$select** | Si vous avez plusieurs champs source (**sourceFields**) dans un suggesteur, utilisez **$select** pour choisir le champ qui contribue aux valeurs (`$select=GameTitle`). |
+| **$select** | Si vous avez plusieurs champs source ( **sourceFields** ) dans un suggesteur, utilisez **$select** pour choisir le champ qui contribue aux valeurs (`$select=GameTitle`). |
 | **searchFields** | Limitez la requête à des champs spécifiques. |
 | **$filter** | Appliquez des critères de correspondance sur le jeu de résultats (`$filter=Category eq 'ActionAdventure'`). |
 | **$top** | Limitez les résultats à un nombre spécifique (`$top=5`).|
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Activer la mise en surbrillance
 
-La mise en surbrillance applique le style de police aux caractères du résultat qui correspondent à l’entrée de l’utilisateur. Par exemple, si l’entrée partielle est « micro », le résultat est le suivant : **micro**soft, **micro**scope, et ainsi de suite. La mise en surbrillance est basée sur les paramètres HighlightPreTag et HighlightPostTag, définis en ligne avec la fonction Suggestion.
+La mise en surbrillance applique le style de police aux caractères du résultat qui correspondent à l’entrée de l’utilisateur. Par exemple, si l’entrée partielle est « micro », le résultat est le suivant : **micro** soft, **micro** scope, et ainsi de suite. La mise en surbrillance est basée sur les paramètres HighlightPreTag et HighlightPostTag, définis en ligne avec la fonction Suggestion.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Fonction Suggest
 
-Si vous utilisez C# et une application MVC, le **fichier HomeController.cs** sous le répertoire Controllers est l’endroit où vous pouvez créer une classe pour les résultats suggérés. Dans .NET, une fonction Suggest est basée sur la [méthode DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Pour plus d’informations sur le SDK .NET, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](./search-howto-dotnet-sdk.md).
+Si vous utilisez C# et une application MVC, le **fichier HomeController.cs** sous le répertoire Controllers est l’endroit où vous pouvez créer une classe pour les résultats suggérés. Dans .NET, une fonction Suggest est basée sur la [méthode DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Pour plus d’informations sur le SDK .NET, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](search-howto-dotnet-sdk.md).
 
 La méthode `InitSearch` crée un client d’index HTTP authentifié dans le service Recherche cognitive Azure. Les propriétés de la classe [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) déterminent les champs recherchés et retournés dans les résultats, le nombre de correspondances et l’utilisation de la correspondance approximative. 
 
@@ -253,4 +253,3 @@ Suivez ces liens pour obtenir des instructions de bout en bout ou du code illust
 
 + [Tutoriel : Créer votre première application en C# (leçon 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Exemple de code C# : azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# et JavaScript avec l’exemple de code côte à côte REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

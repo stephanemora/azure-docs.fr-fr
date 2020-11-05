@@ -3,17 +3,19 @@ title: Estimer les coûts à l’aide du planificateur de capacité Azure Cosmos
 description: Le planificateur de capacité Azure Cosmos DB vous permet d’estimer le débit (unités de requête/seconde) requis et le coût de votre charge de travail. Cet article explique comment utiliser la nouvelle version du planificateur de capacité pour estimer le débit et le coût requis.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 5b1edb5bbd3ac6fa415f24670c98cd99ffb74fc6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 017aeaaa24e8ac2d493d0de81a7abb655bae5611
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488501"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342077"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimer le nombre d’unités de requête/seconde à l’aide du planificateur de capacité Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Pour optimiser les coûts et les performances, il est essentiel de configurer vos bases de données et conteneurs Azure Cosmos avec la quantité appropriée de débit provisionné, ou d’[unités de requête par seconde](request-units.md), pour votre charge de travail. Cet article explique comment utiliser le [planificateur de capacité](https://cosmos.azure.com/capacitycalculator/) Azure Cosmos DB pour estimer le nombre requis d’unités de requête par seconde et le coût de votre charge de travail. 
 
@@ -39,7 +41,7 @@ Pour obtenir une estimation rapide de votre charge de travail à l’aide du mod
 |Lectures/seconde par région|Nombre de lectures attendues par seconde. |
 |Écritures/seconde par région|Nombre d’écritures attendues par seconde. |
 
-Une fois que vous avez rempli les informations requises, sélectionnez **Calculer** . L’onglet **Estimation du coût** affiche le coût total du stockage et le débit provisionné. Vous pouvez développer le lien **Afficher les détails** sous cet onglet pour obtenir la répartition du débit requis pour les demandes de lecture et d’écriture. Chaque fois que vous modifiez la valeur d’un champ, sélectionnez **Calculer** pour recalculer le coût estimé. 
+Une fois que vous avez rempli les informations requises, sélectionnez **Calculer**. L’onglet **Estimation du coût** affiche le coût total du stockage et le débit provisionné. Vous pouvez développer le lien **Afficher les détails** sous cet onglet pour obtenir la répartition du débit requis pour les demandes de lecture et d’écriture. Chaque fois que vous modifiez la valeur d’un champ, sélectionnez **Calculer** pour recalculer le coût estimé. 
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Mode De base du planificateur de capacité":::
 
@@ -62,7 +64,7 @@ Une fois que vous êtes connecté, vous pouvez voir des champs supplémentaires 
 
 Vous pouvez également utiliser le bouton **Save Estimate (Enregistrer l’estimation)** pour télécharger un fichier .csv contenant l’estimation actuelle. 
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Mode De base du planificateur de capacité":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Mode Avancé du planificateur de capacité":::
 
 Les prix indiqués dans le planificateur de capacité Azure Cosmos DB sont des estimations basées sur les tarifs publics pour le débit et le stockage. Tous les prix sont affichés en dollars américains. Reportez -vous à la [page de tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) pour afficher tous les tarifs par région.  
 

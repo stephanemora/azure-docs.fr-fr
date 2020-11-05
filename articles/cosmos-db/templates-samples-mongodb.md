@@ -3,17 +3,19 @@ title: Modèles Resource Manager pour Azure Cosmos DB API pour MongoDB
 description: Utilisez des modèles Azure Resource Manager pour créer et configurer l’API Azure Cosmos DB pour MongoDB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 974ddf4e5e6353eeb53ad90a16740909466016cf
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7664d48bad153b34e7557e9faaf4c8aa0d4215ad
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477060"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340620"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API MongoDB Azure Cosmos DB à l’aide de modèles Azure Resource Manager
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Dans cet article, vous apprenez à utiliser des modèles Azure Resource Manager pour faciliter le déploiement et la gestion de vos bases de données, collections et comptes Azure Cosmos DB pour l’API MongoDB.
 

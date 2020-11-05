@@ -5,17 +5,19 @@ author: anfeldma-ms
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327852"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339757"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migration d’une application de façon à utiliser le kit SDK Java Azure Cosmos DB v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > Pour plus d’informations sur le kit SDK Java Azure Cosmos DB v4, consultez les [Notes de publication](sql-api-sdk-java-v4.md), le [Référentiel Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), les [Conseils en matière de performances](performance-tips-java-sdk-v4-sql.md) et le [Guide de résolution des problèmes](troubleshoot-java-sdk-v4-sql.md) correspondants.

@@ -3,18 +3,20 @@ title: Créer des conteneurs Azure Cosmos avec une grande clé de partition
 description: Découvrez comment créer un conteneur dans Azure Cosmos DB avec une grande clé de partition à l’aide du portail Azure et de différents kits de développement logiciel (SDK).
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4ad26d63ca06f5a46a4a1f77d329d04896e96c52
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488433"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339291"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Créer des conteneurs avec une grande clé de partition
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB utilise le partitionnement basé sur le hachage pour mettre à l'échelle horizontale les données. Tous les conteneurs Azure Cosmos créés avant le 3 mai 2019 utilisent une fonction de hachage calculant le hachage en fonction des 100 premiers octets de la clé de partition. Si les 100 premiers octets de plusieurs clés de partition sont identiques, ces partitions logiques sont considérées comme identiques par le service. Cela peut entraîner des problèmes tels qu'un quota erroné ou l'application d'index uniques aux clés de partition. Les grandes clés de partition permettent d'y remédier. Azure Cosmos DB prend désormais en charge les grandes clés de partition avec des valeurs jusqu'à 2 Ko.
 
@@ -22,7 +24,7 @@ Les grandes clés de partition sont prises en charge moyennant une version amél
 
 ## <a name="create-a-large-partition-key-azure-portal"></a>Créer une grande clé de partition (portail Azure)
 
-Pour créer une grande clé de partition, quand vous créez un conteneur à l’aide du portail Azure, activez l’option **Ma clé de partition est supérieure à 100 octets** . Désactivez la case à cocher si vous n’avez pas besoin de grandes clés de partition ou si vos applications s’exécutent sur des kits de développement logiciel (SDK) antérieurs à la version 1.18.
+Pour créer une grande clé de partition, quand vous créez un conteneur à l’aide du portail Azure, activez l’option **Ma clé de partition est supérieure à 100 octets**. Désactivez la case à cocher si vous n’avez pas besoin de grandes clés de partition ou si vos applications s’exécutent sur des kits de développement logiciel (SDK) antérieurs à la version 1.18.
 
 :::image type="content" source="./media/large-partition-keys/large-partition-key-with-portal.png" alt-text="Créer de grandes clés de partition à l’aide du portail Azure":::
 

@@ -3,18 +3,20 @@ title: Utiliser des procédures stockées, des déclencheurs et des fonctions d�
 description: 'Cet article présente les concepts suivants : procédures stockées, des déclencheurs et fonctions définies par l’utilisateur dans Azure Cosmos DB.'
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480222"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340700"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB offre une exécution transactionnelle, intégrée au langage, de JavaScript. Lorsque vous utilisez l’API SQL dans Azure Cosmos DB, vous pouvez écrire les **procédures stockées** , les **déclencheurs** et les **fonctions définies par l’utilisateur** dans le langage JavaScript. Vous pouvez écrire votre logique dans JavaScript et l’exécuter dans le moteur de base de données. Vous pouvez créer et exécuter des déclencheurs, des procédures stockées et des fonctions définies par l’utilisateur à l’aide du [Portail Azure](https://portal.azure.com/), de [l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md) ou des [Kits de développement logiciel (SDK) clients de l’API SQL Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -41,7 +43,7 @@ L’écriture de procédures stockées, déclencheurs et fonctions définies par
 
 ## <a name="transactions"></a>Transactions
 
-Une transaction dans une base de données classique peut être définie comme étant une séquence d'opérations effectuées en tant qu'unité de travail logique unique. Chaque transaction offre des **garanties de propriété ACID** . ACID est un acronyme bien connu qui est l’abréviation de : **A** tomicity, **C** onsistency, **I** solation, **D** urability (Atomicité, cohérence, isolation et durabilité). 
+Une transaction dans une base de données classique peut être définie comme étant une séquence d'opérations effectuées en tant qu'unité de travail logique unique. Chaque transaction offre des **garanties de propriété ACID**. ACID est un acronyme bien connu qui est l’abréviation de : **A** tomicity, **C** onsistency, **I** solation, **D** urability (Atomicité, cohérence, isolation et durabilité). 
 
 * L'atomicité permet de s'assurer que toutes les opérations effectuées au sein d'une transaction sont traitées en tant que simple unité validée dans son intégralité ou aucunement. 
 

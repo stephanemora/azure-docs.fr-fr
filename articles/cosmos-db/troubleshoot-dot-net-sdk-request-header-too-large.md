@@ -3,19 +3,22 @@ title: Résoudre un message « En-tête de demande trop volumineux » ou une r
 description: Découvrez comment diagnostiquer et corriger l’exception d’en-tête de demande trop volumineux.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14503bc56777563b6360143efaa86a136b22278
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014045"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340513"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnostiquer et résoudre le message « En-tête de demande trop volumineux » dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Le message « En-tête de demande trop volumineux » est généré avec un code d’erreur HTTP 400. Cette erreur se produit si la taille de l’en-tête de demande est devenue trop importante et dépasse la taille maximale autorisée. Nous vous recommandons d’utiliser la dernière version du Kit de développement logiciel (SDK). Utilisez au moins la version 3.x ou 2.x, car ces versions ajoutent un suivi de la taille d’en-tête au message d’exception.
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage

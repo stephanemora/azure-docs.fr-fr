@@ -3,17 +3,19 @@ title: Mise à l’échelle élastique avec l’API Cassandra dans Azure Cosmos 
 description: En savoir plus sur les options disponibles pour mettre à l’échelle un compte d’API Cassandra Azure Cosmos DB et leurs avantages et inconvénients
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482517"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340955"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Mettre à l’échelle de manière élastique un compte d’API Cassandra Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Il existe diverses options pour explorer la nature élastique de l’API d’Azure Cosmos DB pour Cassandra. Pour comprendre comment mettre à l’échelle efficacement dans Azure Cosmos DB, il est important de comprendre comment approvisionner la quantité appropriée d’unités de requête (RU/s) pour tenir compte des exigences de performances de votre système. Pour en savoir plus sur les unités de requête, consultez l’article relatif aux [unités de requête](request-units.md). 
 
@@ -62,7 +64,7 @@ L’avantage de cette approche est qu’elle vous permet de répondre aux besoin
 
 En plus de la façon standard (manuelle) ou par programmation d’approvisionner le débit, vous pouvez également configurer des conteneurs Azure Cosmos avec le débit approvisionné en mode de mise à l’échelle automatique. La mise à l’échelle automatique s’adapte automatiquement et instantanément à vos besoins en matière de consommation dans les limites RU spécifiées, sans compromettre les SLA. Pour en savoir plus, consultez l’article [Créer des conteneurs et des bases de données Azure Cosmos en mise à l’échelle automatique](provision-throughput-autoscale.md).
 
-L’avantage de cette approche est qu’il s’agit du moyen le plus simple de gérer les besoins de mise à l’échelle dans votre système. Elle n’appliquera pas de limitation du débit **dans les plages RU configurées** . L’inconvénient est que, si les besoins en matière de mise à l’échelle dans votre système sont prévisibles, la mise à l’échelle automatique peut être un moyen plus onéreux de gérer vos besoins de mise à l’échelle que d’utiliser les approches du plan de contrôle ou du Kit de développement logiciel (SDK) mentionnées ci-dessus.
+L’avantage de cette approche est qu’il s’agit du moyen le plus simple de gérer les besoins de mise à l’échelle dans votre système. Elle n’appliquera pas de limitation du débit **dans les plages RU configurées**. L’inconvénient est que, si les besoins en matière de mise à l’échelle dans votre système sont prévisibles, la mise à l’échelle automatique peut être un moyen plus onéreux de gérer vos besoins de mise à l’échelle que d’utiliser les approches du plan de contrôle ou du Kit de développement logiciel (SDK) mentionnées ci-dessus.
 
 Pour définir ou modifier le débit maximal (unités de requête) pour la mise à l’échelle automatique à l’aide de CQL, utilisez la commande suivante (en remplaçant l’espace de noms/le nom de la table en conséquence) :
 

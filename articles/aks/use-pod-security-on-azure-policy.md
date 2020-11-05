@@ -4,13 +4,12 @@ description: Découvrez comment sécuriser les pods avec Azure Policy dans Azure
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900126"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348523"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Sécuriser les pods avec Azure Policy
 
@@ -61,7 +60,7 @@ Les limitations générales suivantes s’appliquent au module complémentaire A
 Les limitations suivantes s’appliquent uniquement au module complémentaire Azure Policy pour AKS :
 
 - La [stratégie de sécurité des pods AKS (préversion)](use-pod-security-policies.md) et le module complémentaire Azure Policy pour AKS ne peuvent pas être activés simultanément. 
-- Espaces de noms automatiquement exclus par le module complémentaire Azure Policy à des fins d’évaluation : _kube-system_ , _gatekeeper-system_ et _aks-periscope_ .
+- Espaces de noms automatiquement exclus par le module complémentaire Azure Policy à des fins d’évaluation : _kube-system_ , _gatekeeper-system_ et _aks-periscope_.
 
 ### <a name="recommendations"></a>Recommandations
 
@@ -150,7 +149,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Les pods dans les espaces de noms d’administrateur tels que kube-system doivent s’exécuter pour qu’un cluster reste intègre, et la suppression d’un espace de noms requis de la liste des espaces de noms exclus par défaut peut déclencher des violations de stratégie en raison d’un pod système requis.
 
-AKS requiert que les pods système s’exécutent sur un cluster pour fournir des services essentiels, tels que la résolution DNS. Les stratégies qui limitent la fonctionnalité des pods peuvent avoir un impact sur la capacité de stabilité du pod système. Par conséquent, les espaces de noms suivants sont **exclus de l’évaluation de la stratégie pendant les demandes d’admission lors de la création, de la mise à jour et de l’audit de stratégie** . Cela oblige les nouveaux déploiements vers ces espaces de noms à être exclus des stratégies Azure.
+AKS requiert que les pods système s’exécutent sur un cluster pour fournir des services essentiels, tels que la résolution DNS. Les stratégies qui limitent la fonctionnalité des pods peuvent avoir un impact sur la capacité de stabilité du pod système. Par conséquent, les espaces de noms suivants sont **exclus de l’évaluation de la stratégie pendant les demandes d’admission lors de la création, de la mise à jour et de l’audit de stratégie**. Cela oblige les nouveaux déploiements vers ces espaces de noms à être exclus des stratégies Azure.
 
 1. kube-system
 1. gatekeeper-system

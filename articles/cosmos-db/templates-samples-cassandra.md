@@ -3,17 +3,19 @@ title: Modèles Resource Manager pour l’API Cassandra Azure Cosmos DB
 description: Utilisez des modèles Azure Resource Manager pour créer et configurer l’API Cassandra Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: a3081b90fb715b55af394c9c5f8c73316233a1c3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb746e8105717883b029586db2bfce8e31290e93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477162"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340666"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API Cassandra Azure Cosmos DB à l’aide de modèles Azure Resource Manager
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Dans cet article, vous apprenez à utiliser des modèles Azure Resource Manager pour faciliter le déploiement et la gestion de vos espaces de clés, tables et comptes Azure Cosmos DB.
 

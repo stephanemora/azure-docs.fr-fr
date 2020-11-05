@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc6c4e57d0e04cc85bd83c11ba583b3f0b24fa82
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715510"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345990"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de files d’attente dans le portail Azure
 
-Lorsque vous accédez aux données de file d’attente à l’aide du [Portail Azure](https://portal.azure.com), le portail fait des requêtes à Azure Storage en arrière-plan. Une requête au stockage Azure peut être autorisée à l’aide de votre compte Azure AD ou de la clé d’accès au compte de stockage. Le portail indique quelle méthode vous utilisez et vous permet de basculer entre les deux si vous disposez des autorisations appropriées.  
+Lorsque vous accédez aux données de file d’attente à l’aide du [Portail Azure](https://portal.azure.com), le portail fait des requêtes à Azure Storage en arrière-plan. Une requête au stockage Azure peut être autorisée à l’aide de votre compte Azure AD ou de la clé d’accès au compte de stockage. Le portail indique quelle méthode vous utilisez et vous permet de basculer entre les deux si vous disposez des autorisations appropriées.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Autorisations nécessaires pour accéder aux données de file d’attente
 
@@ -37,7 +37,7 @@ Pour accéder aux données de file d’attente avec la clé d’accès au compte
 Lorsque vous tentez d’accéder aux données de file d’attente dans le Portail Microsoft Azure, le portail commence par vérifier si un rôle RBAC vous a été attribué avec **Microsoft.Storage/storageAccounts/listkeys/action**. Si un rôle avec cette action vous a été attribué, le portail utilise la clé de compte pour l’accès aux données de file d’attente. Si un rôle avec cette action ne vous a pas été attribué, le portail tente d’accéder aux données à l’aide de votre compte Azure AD.
 
 > [!NOTE]
-> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** inclut toutes les actions, y compris **Microsoft.Storage/storageAccounts/listkeys/action**, pour qu’un utilisateur avec l’un de ces rôles d’administration puisse accéder également aux données de file d’attente avec la clé de compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** inclut toutes les actions, y compris **Microsoft.Storage/storageAccounts/listkeys/action** , pour qu’un utilisateur avec l’un de ces rôles d’administration puisse accéder également aux données de file d’attente avec la clé de compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Utiliser votre compte Azure AD
 
@@ -74,11 +74,11 @@ Lorsque vous accédez à une file d’attente, le portail Azure indique si vous 
 
 Si vous vous authentifiez à l’aide de la clé d’accès au compte, vous verrez la méthode **Clé d’accès** spécifiée comme méthode d’authentification dans le portail :
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Capture d’écran montrant comment accéder aux données de file d'attente dans le portail Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Capture d’écran montrant l’utilisateur qui accède actuellement aux files d’attente à l’aide de la clé de compte":::
 
 Pour passer à l’utilisation du compte Azure AD, cliquez sur le lien mis en surbrillance dans l’image. Si vous disposez des autorisations appropriées via les rôles Azure qui vous sont attribués, vous pourrez poursuivre. Toutefois, si vous n’avez pas les autorisations appropriées, vous verrez un message d’erreur semblable à celui-ci :
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Capture d’écran montrant comment accéder aux données de file d'attente dans le portail Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Erreur affichée si le compte Azure AD ne prend pas en charge l’accès":::
 
 Notez qu’aucune file d'attente n’apparaît dans la liste si votre compte Azure AD ne dispose pas des autorisations pour les afficher. Cliquez sur le lien **Basculer sur clé d’accès** pour utiliser à nouveau la clé d’accès pour l’authentification.
 
@@ -86,7 +86,7 @@ Notez qu’aucune file d'attente n’apparaît dans la liste si votre compte Azu
 
 Si vous vous authentifiez à l’aide de votre compte Azure AD, vous verrez la méthode **Clé d’accès** spécifiée comme méthode d’authentification dans le portail :
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Capture d’écran montrant comment accéder aux données de file d'attente dans le portail Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Capture d’écran montrant l’utilisateur qui accède actuellement aux files d’attente à l’aide du compte Azure AD":::
 
 Pour passer à l’utilisation d’une clé d’accès au compte, cliquez sur le lien mis en surbrillance dans l’image. Si vous avez accès à la clé de compte, vous pourrez poursuivre. Toutefois, si vous n’avez pas accès à la clé de compte, le Portail Azure affiche un message d’erreur.
 

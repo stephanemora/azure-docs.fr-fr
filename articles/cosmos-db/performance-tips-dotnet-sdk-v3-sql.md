@@ -3,18 +3,20 @@ title: Conseils sur les performances Azure Cosmos DB pour le kit SDK .NET v3
 description: Découvrez les options de configuration côté client favorisant l’amélioration des performances d’Azure Cosmos DB avec le kit SDK .NET v3.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: ab9fc4f08b96fc10a20125c30af2d6b8050c7606
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475326"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341737"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -39,16 +41,16 @@ Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll
 
 Les quatre types d’application listés ici utilisent un traitement 32 bits des processus hôte par défaut. Pour passer à un traitement 64 bits des processus hôte pour votre type d’application, procédez comme suit :
 
-- **Pour les applications exécutables**  : Dans la fenêtre **Propriétés du projet** , dans le volet **Build** , définissez la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64** .
+- **Pour les applications exécutables**  : Dans la fenêtre **Propriétés du projet** , dans le volet **Build** , définissez la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64**.
 
-- **Pour les projets de test basés sur VSTest**  : Dans le menu Visual Studio **Test** , sélectionnez **Test** > **Paramètres de test** , puis définissez **Architecture de processeur par défaut** sur **X64** .
+- **Pour les projets de test basés sur VSTest**  : Dans le menu Visual Studio **Test** , sélectionnez **Test** > **Paramètres de test** , puis définissez **Architecture de processeur par défaut** sur **X64**.
 
-- **Pour les applications web ASP.NET déployées localement**  : Sélectionnez **Outils** > **Options** > **Projets et solutions** > **Projets web** , puis sélectionnez **Utiliser la version 64 bits d’IIS Express pour les sites et les projets web** .
+- **Pour les applications web ASP.NET déployées localement**  : Sélectionnez **Outils** > **Options** > **Projets et solutions** > **Projets web** , puis sélectionnez **Utiliser la version 64 bits d’IIS Express pour les sites et les projets web**.
 
-- **Pour les applications web ASP.NET déployées sur Azure**  : Dans le portail Azure, dans **Paramètres de l’application** , sélectionnez la plateforme **64 bits** .
+- **Pour les applications web ASP.NET déployées sur Azure**  : Dans le portail Azure, dans **Paramètres de l’application** , sélectionnez la plateforme **64 bits**.
 
 > [!NOTE] 
-> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU** . Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86** . Un projet défini sur **N’importe quelle UC** peut facilement basculer vers **x86** si une dépendance x86 exclusive est ajoutée.<br/>
+> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU**. Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86**. Un projet défini sur **N’importe quelle UC** peut facilement basculer vers **x86** si une dépendance x86 exclusive est ajoutée.<br/>
 > Le fichier ServiceInterop.dll doit se trouver dans le dossier à partir duquel la bibliothèque DLL du kit SDK s’exécute. Cela ne doit être un problème que si vous copiez manuellement des DLL ou si vous avez des systèmes de génération ou de déploiement personnalisés.
     
 **Activer le garbage collection (GC) côté serveur**

@@ -3,17 +3,19 @@ title: Indexation dans Azure Cosmos DB
 description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB et différents types d’index, tels que Range, Spatial et les index composites pris en charge.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: fcb6e004c86289e2efa89a988b362e76145a9538
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490422"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339751"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB est une base de données indépendante des schémas qui vous permet d’itérer sur votre application sans avoir à vous soucier de la gestion des schémas ou des index. Par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés de tous les éléments de votre [conteneur](account-databases-containers-items.md#azure-cosmos-containers) sans avoir à définir de schéma ou configurer d’index secondaires.
 
@@ -180,7 +182,7 @@ Les chemins d’accès extraits lors de l’indexation des données facilitent l
 
 Considérez la requête suivante : `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Le prédicat de requête (filtrage sur les éléments, où une localisation affiche « France » comme pays/région) correspondrait au chemin mis en évidence en rouge ci-dessous :
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="L’élément précédent représenté sous forme d’arborescence" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Mise en correspondance d’un chemin d’accès spécifique au sein d’une arborescence" border="false":::
 
 > [!NOTE]
 > Une clause `ORDER BY` qui commande par une seule propriété a *toujours* besoin d’un index plage et échouera si le chemin d’accès qu’elle référence n’en a pas. De même, une requête `ORDER BY` qui commande selon plusieurs propriétés nécessite *toujours* un index composite.

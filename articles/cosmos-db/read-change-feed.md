@@ -4,17 +4,19 @@ description: Cet article décrit les différentes options disponibles pour accé
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785253"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339272"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lire le flux de modification Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Vous pouvez utiliser le flux de modifications Azure Cosmos DB à l’aide d’un modèle d’envoi (push) ou de tirage (pull). Avec un modèle d’envoi (push), le processeur de flux de modification envoie (push) le travail à un client qui dispose d’une logique métier pour traiter ce travail. Toutefois, la complexité liée à la vérification du travail et au stockage de l’état du dernier travail traité est gérée sur le processeur de flux de modification.
 

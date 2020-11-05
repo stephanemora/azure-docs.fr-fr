@@ -3,17 +3,19 @@ title: Questions fréquentes (FAQ) sur l’API Table dans Azure Cosmos DB
 description: Obtenir des réponses aux questions fréquentes sur l’API Table dans Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484999"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341231"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Questions fréquentes (FAQ) sur l’API Table dans Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 L’API Table dans Azure Cosmos DB est disponible dans le [portail Azure](https://portal.azure.com). Vous devez d’abord vous inscrire pour obtenir un abonnement Azure. Une fois inscrit, vous pouvez ajouter un compte d’API Table d’Azure Cosmos DB à votre abonnement Azure, puis ajouter des tables à votre compte. Vous trouverez les langages pris en charge et les démarrages rapides associés dans [Présentation de l’API Table d’Azure Cosmos DB](table-introduction.md).
 
@@ -195,7 +197,7 @@ Oui, l’API Table d’Azure Cosmos DB assure l’indexation automatique de tous
 
 Oui, vous pouvez modifier la stratégie d’indexation en fournissant la définition d’index. Vous devez correctement encoder et placer dans une séquence d’échappement les paramètres.
 
-Pour les kits SDK non-.NET, la stratégie d’indexation peut uniquement être définie dans le portail au niveau de l’ **Explorateur de données** . Naviguez jusqu’à la table à changer, accédez à **Mise à l‘échelle et paramètres**  -> Stratégie d‘indexation, effectuez le changement souhaité, puis cliquez sur **Enregistrer** .
+Pour les kits SDK non-.NET, la stratégie d’indexation peut uniquement être définie dans le portail au niveau de l’ **Explorateur de données**. Naviguez jusqu’à la table à changer, accédez à **Mise à l‘échelle et paramètres**  -> Stratégie d‘indexation, effectuez le changement souhaité, puis cliquez sur **Enregistrer**.
 
 À partir du kit SDK .NET, vous pouvez la soumettre dans le fichier app.config :
 

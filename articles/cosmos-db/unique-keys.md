@@ -4,17 +4,19 @@ description: Découvrez comment définir et utiliser des clés uniques pour une 
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c3c42146ba93115e257924c23dc34785c8258533
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476363"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340445"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Les clés uniques renforcent l’intégrité des données dans un conteneur Azure Cosmos. Les stratégies de clé unique s’établissent lors de la création d'un conteneur Azure Cosmos. Les clés uniques permettent de certifier qu’une ou plusieurs valeurs d’une partition logique sont uniques. Vous pouvez également garantir l’unicité par [clé de partition](partitioning-overview.md).
 

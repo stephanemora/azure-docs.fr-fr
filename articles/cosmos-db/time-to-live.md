@@ -4,17 +4,19 @@ description: Avec la TTL, Microsoft Azure Cosmos DB offre la possibilité de vid
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476975"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340547"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Avec la **Durée de vie** (TTL, Time to Live), Azure Cosmos DB permet de supprimer automatiquement des éléments d’un conteneur après une période déterminée. La durée de vie par défaut peut être définie au niveau du conteneur et être substituée par élément. Une fois la durée de vie définie au niveau d'un conteneur ou d'un élément, Azure Cosmos DB supprime automatiquement les éléments correspondants au terme de la période écoulée depuis la dernière modification. La valeur de durée de vie est définie en secondes. Lorsque vous définissez la durée de vie, le système supprime automatiquement les éléments arrivés à expiration en fonction de la valeur de durée de vie, sans avoir besoin d’une opération de suppression explicitement émise par l’application cliente. La valeur maximale pour la durée de vie est 2147483647.
 

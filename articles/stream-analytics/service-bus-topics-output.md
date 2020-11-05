@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c578febf088148e9e0496d87b715c953c5bd9d36
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261044"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348370"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Sortie des rubriques Service Bus à partir d’Azure Stream Analytics
 
-Les files d’attente Service Bus offrent une méthode de communication biunivoque entre l’expéditeur et le destinataire. Les [rubriques Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) fournissent une forme de communication de type un-à-plusieurs.
+Les files d’attente Service Bus offrent une méthode de communication biunivoque entre l’expéditeur et le destinataire. Les [rubriques Service Bus](/previous-versions/azure/hh367516(v=azure.100)) fournissent une forme de communication de type un-à-plusieurs.
 
 Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie de rubrique Service Bus.
 
@@ -61,11 +61,11 @@ Dans l’exemple suivant, les champs `DeviceId` et `DeviceStatus` sont ajoutés 
 
 L’illustration suivante présente les propriétés de message de sortie attendues qui sont inspectées dans un Event Hub à l’aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Colonnes de propriété":::
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Propriétés personnalisées d’événement":::
 
 ## <a name="system-properties"></a>Propriétés système
 
-Vous pouvez attacher des colonnes de requête en tant que [propriétés système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) à vos messages sortants de file d’attente ou de rubrique Service Bus. Ces colonnes ne sont pas placées dans la charge utile ; au lieu de cela, la [propriété système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage correspondante est renseignée avec les valeurs de la colonne de requête.
+Vous pouvez attacher des colonnes de requête en tant que [propriétés système](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) à vos messages sortants de file d’attente ou de rubrique Service Bus. Ces colonnes ne sont pas placées dans la charge utile ; au lieu de cela, la [propriété système](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) BrokeredMessage correspondante est renseignée avec les valeurs de la colonne de requête.
 Les propriétés système suivantes sont prises en charge : `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 Les valeurs de chaîne de ces colonnes sont analysées en tant que type de valeur de propriété système correspondante et les échecs d’analyse sont traités comme des erreurs de données.

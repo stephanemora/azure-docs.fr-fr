@@ -3,18 +3,20 @@ title: Gérer les conflits entre les régions dans Azure Cosmos DB
 description: Découvrir comment gérer des conflits dans Azure Cosmos DB en créant la stratégie de type last-writer-wins (dernière version valide) ou une stratégie personnalisée de résolution de conflit
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3edaf55c8acb4def4f074c0d8f96eb399d98b6ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491085"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339340"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gérer les stratégies de résolution des conflits dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Avec les écritures multirégions, quand plusieurs clients écrivent dans le même élément, des conflits peuvent se produire. Quand un conflit se produit, vous pouvez le résoudre à l’aide des différentes stratégies de résolution de conflit. Cet article explique comment gérer les stratégies de résolution de conflit.
 

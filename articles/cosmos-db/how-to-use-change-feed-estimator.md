@@ -3,18 +3,20 @@ title: Utiliser l’estimateur de flux de modification - Azure Cosmos DB
 description: Découvrez comment utiliser l’estimateur de flux de modification pour analyser la progression de votre processeur de flux de modification.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485849"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339833"
 ---
 # <a name="use-the-change-feed-estimator"></a>Utilisation de l’estimateur de flux de modification
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article décrit comment superviser la progression de vos instances de [processeur de flux de modification](./change-feed-processor.md) au fur et à mesure qu’elles lisent le flux de modification.
 

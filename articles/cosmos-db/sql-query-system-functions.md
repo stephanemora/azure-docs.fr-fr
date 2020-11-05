@@ -3,18 +3,20 @@ title: 'Langage de requête Azure Cosmos DB : fonctions système'
 description: Découvrez les fonctions système SQL intégrées et définies par l’utilisateur dans Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18fdab8f4aa90e993f6802508c13a78565b9fa6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279921"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340823"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Fonctions système (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB fournit de nombreuses fonctions SQL intégrées. Les catégories de fonctions intégrées sont répertoriées ci-dessous.  
   

@@ -4,17 +4,19 @@ description: Découvrez comment identifier, diagnostiquer et dépanner les API d
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488382"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340887"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Résoudre les problèmes de requête lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Cet article décrit une approche générale recommandée pour le dépannage des requêtes dans Azure Cosmos DB. Bien que vous ne devriez pas considérer les étapes décrites dans cet article comme une protection complète contre les problèmes de requête potentiels, nous avons inclus ici les conseils sur les performances les plus courants. Vous devez utiliser cet article comme point de départ pour le dépannage des requêtes lentes ou coûteuses dans l’API de Azure Cosmos DB pour MongoDB. Si vous utilisez l’API Azure Cosmos DB Core (SQL), consultez l’article correspondant dans le Guide de dépannage des requêtes d’API [SQL](troubleshoot-query-performance.md).
 

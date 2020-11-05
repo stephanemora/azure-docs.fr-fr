@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521303"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341856"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Matrice de prise en charge pour le déplacement des machines virtuelles Azure entre différentes régions Azure
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 et 15 SP1 |  Tous les noyaux de stock SUSE 15
 **Paramètre** | **Support** | **Détails**
 --- | --- | ---
 Taille | N'importe quelle taille de machine virtuelle Azure avec au moins deux cœurs d'UC et 1 Go de RAM | Consultez [Tailles de machine virtuelle Azure](../virtual-machines/sizes-general.md).
-Groupes à haute disponibilité | Non prise en charge pour le moment | Si vous ajoutez une machine virtuelle Azure avec un groupe à haute disponibilité à la collection de déplacements en conservant les options par défaut, le processus de préparation échoue. Vous pouvez choisir de déplacer la machine virtuelle vers une zone de disponibilité ou de la déplacer en tant que machine virtuelle à instance unique. Vous pouvez modifier ces paramètres sur la page de modification des propriétés de la cible.
+Groupes à haute disponibilité | Prise en charge | Pris en charge.
 Zones de disponibilité | Prise en charge | Prises en charge, en fonction de la prise en charge de la région cible.
 Images de la galerie Azure (publiées par Microsoft) | Prise en charge | Prises en charge si la machine virtuelle s’exécute sur un système d’exploitation pris en charge.
 Images de la galerie Azure (publiées par un tiers)  | Prise en charge | Prises en charge si la machine virtuelle s’exécute sur un système d’exploitation pris en charge.

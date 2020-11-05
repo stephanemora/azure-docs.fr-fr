@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785661"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346024"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données en file d’attente
 
@@ -27,7 +27,7 @@ Vous pouvez attribuer des autorisations sur les données de file d’attente à 
 
 Les extensions Stockage Azure sont prises en charge pour les opérations sur les données en file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à PowerShell. Les autorisations sur les files d’attente Stockage Azure sont attribuées via Azure RBAC. Par exemple, si le rôle **Lecteur des données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent les données d’une file d’attente. Si le rôle **Contributeur aux données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment une file d’attente ou les données qu’elle contient.
 
-Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Appeler des commandes PowerShell à l’aide des informations d’identification Azure AD
 
@@ -45,7 +45,7 @@ L’exemple suivant montre comment créer une file d’attente dans un nouveau c
 
     Pour plus d’informations sur la connexion à Azure avec PowerShell, consultez [Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Créez un groupe de ressources Azure en appelant [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Créez un groupe de ressources Azure en appelant [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

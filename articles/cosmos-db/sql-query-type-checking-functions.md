@@ -3,18 +3,20 @@ title: 'Langage de requête Azure Cosmos DB : fonctions de contrôle de type'
 description: Découvrez les fonctions système SQL de contrôle de type dans Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3ffe8fa9286c8594dc72d78582f8c7b0a3d05c78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96fea7cb53c89c02583a6dba8434cd33641d6a09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85563343"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341499"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Fonctions de contrôle de type (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Les fonctions de vérification du type vous permettent de vérifier le type d’une expression donnée dans une requête SQL. Vous pouvez les utiliser pour déterminer instantanément le types variables ou inconnus des propriétés des éléments. 
 

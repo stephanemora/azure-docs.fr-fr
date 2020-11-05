@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359677"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348693"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Niveaux de performance des disques managés (préversion)
 
@@ -55,10 +55,6 @@ Pour plus d’informations sur la facturation, consultez [Tarification des disqu
 - Vous devez libérer votre machine virtuelle ou détacher votre disque d'une machine virtuelle en cours d'exécution avant de pouvoir modifier le niveau du disque.
 - L’utilisation des niveaux de performance P60, P70 et P80 est limitée aux disques de 4 096 Gio ou plus.
 - Le niveau de performance d'un disque ne peut être rétrogradé qu'une fois toutes les 24 heures.
-
-## <a name="regional-availability"></a>Disponibilité régionale
-
-La possibilité d’ajuster le niveau de performance d’un disque géré est actuellement disponible uniquement sur les disques SSD Premium dans les régions USA Est 2, USA Centre Sud, USA Centre-Ouest et Sud-Est de l’Australie.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Créez un disque de données vide avec un niveau supérieur au niveau de base de référence
 

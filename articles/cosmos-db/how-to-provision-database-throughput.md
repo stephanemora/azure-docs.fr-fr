@@ -3,18 +3,20 @@ title: Approvisionner le débit d’une base de données dans l’API SQL Azure 
 description: Apprenez à approvisionner le débit au niveau de la base de données dans l’API SQL Azure Cosmos DB à l’aide du Portail Azure, de l’interface CLI, de PowerShell et des différents Kits de développement logiciel (SDK).
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 347da75d8e3f58d3875b02000d74533b36a9b18c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486104"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341992"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit standard (manuel) sur une base de données Azure Cosmos DB - API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment approvisionner le débit standard (manuel) sur une base de données dans l’API SQL Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul [conteneur](how-to-provision-container-throughput.md) ou d’une base de données et le partager entre les conteneurs au sein de la base de données. Pour savoir quand utiliser le débit au niveau du conteneur et au niveau de la base de données, voir [Cas d’usage de l’approvisionnement du débit des conteneurs et des bases de données](set-throughput.md). Vous pouvez provisionner le débit au niveau d’une base de données via le portail Azure ou à l’aide des kits SDK Azure Cosmos DB.
 
@@ -26,12 +28,12 @@ Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to
 
 1. [Créez un compte Azure Cosmos](create-sql-api-dotnet.md#create-account) ou sélectionnez un compte Azure Cosmos existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle base de données** . Fournissez les détails suivants :
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle base de données**. Fournissez les détails suivants :
 
    * Entrez un ID de base de données.
-   * Sélectionnez l’option **Provisionner le débit de base de données** .
+   * Sélectionnez l’option **Provisionner le débit de base de données**.
    * Entrez un débit, par exemple 1 000 RU.
-   * Sélectionnez **OK** .
+   * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Capture d’écran de la boîte de dialogue Nouvelle base de données":::
 

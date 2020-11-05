@@ -3,19 +3,22 @@ title: Résoudre les problèmes de dépassement de délai de demande ou HTTP 40
 description: Apprenez à diagnostiquer et corriger des exceptions de dépassement de délai de demande avec le SDK .NET.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476924"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340496"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnostiquer et résoudre les exceptions de dépassement de délai de demande avec le SDK .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 L'erreur HTTP 408 se produit si le SDK n'a pas pu terminer la demande avant l'expiration du délai d'attente.
 
 ## <a name="customize-the-timeout-on-the-azure-cosmos-db-net-sdk"></a>Personnaliser le délai d'expiration sur le Kit de développement logiciel (SDK) .NET Azure Cosmos

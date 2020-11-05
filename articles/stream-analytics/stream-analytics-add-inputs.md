@@ -6,13 +6,13 @@ ms.author: krishmam
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: b58a2b4cb5cd083f837eb598d4e5f330783181c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/29/2020
+ms.openlocfilehash: b344e9e24d15189b805f586227c7253395e8448e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279992"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348982"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Comprendre les entrées d’Azure Stream Analytics
 
@@ -22,11 +22,11 @@ Stream Analytics possède une intégration de première classe avec quatre types
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [stockage d’objets blob Azure](https://azure.microsoft.com/services/storage/blobs/) 
-- [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 Ces ressources d’entrée peuvent résider dans le même abonnement Azure que votre travail Stream Analytics, ou provenir d’un autre abonnement.
 
-Vous pouvez utiliser le [portail Azure](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) et [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) pour créer, modifier et tester les entrées du travail Stream Analytics.
+Vous pouvez utiliser le [portail Azure](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [API .NET](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [API REST](/rest/api/streamanalytics/2016-03-01/inputs) et [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) pour créer, modifier et tester les entrées du travail Stream Analytics.
 
 ## <a name="stream-and-reference-inputs"></a>Entrées de flux de données et entrées de données de référence
 Lorsque les données sont transmises à une source de données, elles sont utilisées par le travail Stream Analytics et traitées en temps réel. Les entrées sont réparties en deux types : les entrées de flux de données et les entrées de données de référence.

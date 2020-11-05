@@ -3,19 +3,21 @@ title: Conseils sur les performances pour le SDK Java v4 Azure Cosmos DB
 description: Découvrir les options de configuration clientes afin d’améliorer les performances de la base de données Azure Cosmos pour le SDK Java v4
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: 6b87a06620a6e20ff67bde6fde9ed01aaef7fc9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475224"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339714"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Conseils sur les performances pour le SDK Java v4 Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK Java v4](performance-tips-java-sdk-v4-sql.md)
@@ -106,7 +108,7 @@ Pour plus d’informations, consultez les instructions propres à [Windows](../v
 
 * **Utiliser le niveau de cohérence le plus bas requis pour votre application**
 
-    Quand vous créez un *CosmosClient* , la cohérence par défaut utilisée est *Session* si elle n’est pas explicitement définie. Si la cohérence *Session* n’est pas requise par votre logique d’application, attribuez *Eventual* à *Consistency* . Remarque : Il est recommandé d’utiliser au moins une cohérence *Session* dans les applications utilisant le processeur de flux de modification Azure Cosmos DB.
+    Quand vous créez un *CosmosClient* , la cohérence par défaut utilisée est *Session* si elle n’est pas explicitement définie. Si la cohérence *Session* n’est pas requise par votre logique d’application, attribuez *Eventual* à *Consistency*. Remarque : Il est recommandé d’utiliser au moins une cohérence *Session* dans les applications utilisant le processeur de flux de modification Azure Cosmos DB.
 
 * **Utiliser l’API Async pour maximiser le débit provisionné**
 
@@ -150,7 +152,7 @@ Pour plus d’informations, consultez les instructions propres à [Windows](../v
 
     * ***Vue d’ensemble du mode direct** _
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de la stratégie de connexion Azure Cosmos DB" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de l’architecture du mode direct" border="false":::
 
         L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 _ *canaux* * côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, qui correspond à une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins du **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** route la requête vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
 

@@ -3,18 +3,20 @@ title: Inscrire et utiliser des procédures stockées, des déclencheurs et des 
 description: Découvrez comment inscrire et appeler des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3744029b72a12cee1543a17bf1dee67a080904c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022a45199cfc2d467b1d0d408e86cb5d621070d9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253052"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339846"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 L’API SQL dans Azure Cosmos DB prend en charge l’inscription et l’appel de procédures stockées, déclencheurs et fonctions définies par l’utilisateur (UDF) écrites en JavaScript. Vous pouvez utiliser les SDK API SQL [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) ou [Python](sql-api-sdk-python.md) pour inscrire et appeler les procédures stockées. Après avoir défini des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le [portail Azure](https://portal.azure.com/) à l’aide de l’Explorateur de données.
 
