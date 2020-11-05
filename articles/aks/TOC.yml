@@ -154,6 +154,8 @@
           href: cluster-container-registry-integration.md
         - name: Créer des nœuds virtuels
           items:
+            - name: Utiliser des nœuds virtuels
+              href: virtual-nodes.md
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: virtual-nodes-cli.md
             - name: Utilisation du portail Azure

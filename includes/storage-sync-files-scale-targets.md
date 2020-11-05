@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 29518fb971649087d8a5afa39d69c7fc2c014f98
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116805"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331147"
 ---
 | Ressource | Cible | Limite inconditionnelle |
 |----------|--------------|------------|
@@ -21,7 +21,7 @@ ms.locfileid: "92116805"
 | Groupes de synchronisation par service de synchronisation de stockage | 200 groupes de synchronisation | Oui |
 | Serveurs inscrits par le service de synchronisation de stockage | 99 serveurs | Oui |
 | Points de terminaison cloud par groupe de synchronisation | 1 point de terminaison cloud | Oui |
-| Points de terminaison de serveur par groupe de synchronisation | 50 points de terminaison de serveur | Non |
+| Points de terminaison de serveur par groupe de synchronisation | 100 points de terminaison de serveur | Oui |
 | Points de terminaison de serveur par serveur | 30 points de terminaison de serveur | Oui |
 | Objets du système de fichiers (répertoires et fichiers) par groupe de synchronisation | 100 millions d’objets | Non |
 | Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire | 5 millions d’objets | Oui |

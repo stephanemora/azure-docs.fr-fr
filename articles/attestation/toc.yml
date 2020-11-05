@@ -11,9 +11,9 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
-- name: Tutoriels
+- name: Didacticiels
   items:
-    - name: Création et signature d’une stratégie d’attestation
+    - name: Création d’une stratégie d’attestation
       href: author-sign-policy.md
     - name: Exemples de code d’attestation SGX
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Bibliothèque Azure DCAP pour Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Problèmes de dépannage
+      href: troubleshoot-guide.md
     - name: Protocole d’attestation VBS
       href: virtualization-based-security-protocol.md
