@@ -1,17 +1,17 @@
 ---
 title: Haute disponibilité - Azure Database pour MySQL
 description: Cet article fournit des informations sur la haute disponibilité dans Azure Database pour MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b301946ce818559510b4e401b1f0aaf7c235d5a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882552"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242294"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Haute disponibilité dans Azure Database pour MySQL
 Le service Azure Database pour MySQL offre un niveau élevé de disponibilité de [99,99 %](https://azure.microsoft.com/support/legal/sla/mysql) de temps d’activité, financièrement garanti par un contrat de niveau de service (SLA). Azure Database pour MySQL offre une haute disponibilité pendant des événements planifiés tels qu’une opération de calcul de mise à l’échelle demandée par l’utilisateur, ainsi que pendant des événements non planifiés tels que des défaillances de matériel, de logiciels ou de réseau sous-jacents. Azure Database pour MySQL peut rapidement récupérer de la plupart des circonstances critiques, ce qui garantit pratiquement une absence totale de temps d’arrêt.
@@ -46,7 +46,7 @@ Voici quelques scénarios de maintenance planifiée :
 Des temps d’arrêt non planifiés peuvent se produire suite à des défaillances imprévues telles qu’un échec matériel sous-jacent, des problèmes de mise en réseau et des bogues logiciels. Si le serveur de base de données tombe en panne de façon inattendue, un nouveau serveur de base de données est automatiquement approvisionné en quelques secondes. Le stockage étendu est automatiquement attaché au nouveau serveur de base de données. Le moteur MySQL effectue l’opération de récupération à l’aide des fichiers WAL et de base de données, puis ouvre le serveur de base de données pour permettre aux clients de se connecter. Les transactions non validées sont perdues et doivent être retentées par l’application. Bien qu’il ne soit pas possible d’éviter un temps d’arrêt non planifié, le service Azure Database pour MySQL réduit les temps d’arrêt en effectuant automatiquement des opérations de récupération au niveau du serveur de base de données et des couches de stockage, sans intervention humaine. 
 
 
-:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="vue de la mise à l’échelle élastique dans Azure MySQL":::
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="affichage de la haute disponibilité dans Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Temps d’arrêt non planifié : scénarios d’échec et récupération du service
 Voici quelques scénarios d’échec et comment le service Azure Database pour MySQL récupère automatiquement :

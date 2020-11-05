@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 72124c7e52afcf68f33a8b8a2295448506b0719f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9f2f2386e37dd7dbfe4c41bb3a83fcc46232cf6d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165024"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312712"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -45,16 +45,16 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
-* Le [SDK Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), qui inclut le paquet azureml-datasets.
+* Le [SDK Azure Machine Learning pour Python installé](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), qui inclut le paquet azureml-datasets.
 
     * Créez une [instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md), qui est un environnement de développement entièrement configuré et géré qui comprend des blocs-notes intégrés et le kit de développement logiciel (SDK) déjà installé.
 
     **OR**
 
-    * Travaillez sur votre propre bloc-notes Jupyter et installez vous-même le kit de développement logiciel (SDK) à l’aide de [ces instructions](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+    * Travaillez sur votre propre bloc-notes Jupyter et installez vous-même le kit de développement logiciel (SDK) à l’aide de [ces instructions](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 > [!NOTE]
-> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true), qui n’est compatible qu’avec Python 64 bits. Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) et CentOS (7). Si vous utilisez des distributions non pris en charge, suivez [ce guide](https://docs.microsoft.com/dotnet/core/install/linux) afin d'installer .NET Core 2.1 pour continuer. 
+> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py), qui n’est compatible qu’avec Python 64 bits. Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) et CentOS (7). Si vous utilisez des distributions non pris en charge, suivez [ce guide](/dotnet/core/install/linux) afin d'installer .NET Core 2.1 pour continuer. 
 
 ## <a name="compute-size-guidance"></a>Conseils liés à la taille de calcul
 
@@ -70,14 +70,14 @@ Il existe deux types de jeux de données, selon la façon dont les utilisateurs 
 
 ### <a name="filedataset"></a>FileDataset
 
-Un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences d’apprentissage, vous pouvez [télécharger ou monter](how-to-train-with-datasets.md#mount-vs-download) les fichiers dans votre calcul en tant qu’objet FileDataset. 
+Un [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences d’apprentissage, vous pouvez [télécharger ou monter](how-to-train-with-datasets.md#mount-vs-download) les fichiers dans votre calcul en tant qu’objet FileDataset. 
 
 Nous vous recommandons d’utiliser FileDatasets pour vos flux de travail d’apprentissage automatique, car les fichiers sources peuvent être dans n’importe quel format, ce qui permet un éventail plus large de scénarios d’apprentissage automatique, dont l’apprentissage profond.
 
 Créez un FileDataset avec le [kit de développement logiciel (SDK) Python](#create-a-filedataset) ou [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 ### <a name="tabulardataset"></a>TabularDataset
 
-Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans une tramedonnées pandas ou Spark afin de pouvoir travailler avec des bibliothèques de formation et de préparation des données familières sans avoir à quitter votre notebook. Vous pouvez créer un objet `TabularDataset` à partir de fichiers .csv, .tsv, .parquet et .jsonl, et à partir de [résultats de requête SQL](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
+Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans une tramedonnées pandas ou Spark afin de pouvoir travailler avec des bibliothèques de formation et de préparation des données familières sans avoir à quitter votre notebook. Vous pouvez créer un objet `TabularDataset` à partir de fichiers .csv, .tsv, .parquet et .jsonl, et à partir de [résultats de requête SQL](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 Avec TabularDatasets, vous pouvez spécifier un horodatage à partir d’une colonne dans les données ou à partir de là où les données du modèle de chemin sont stockées pour activer une caractéristique de série chronologique. Cette spécification permet un filtrage chronologique facile et efficace. Pour un exemple, consultez [Démonstration de l’API pour une série chronologique tabulaire avec des données météo NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
@@ -107,7 +107,7 @@ Pour créer des jeux de données à partir d’un [magasin de données Azure](ho
 
 ### <a name="create-a-filedataset"></a>Créer un FileDataset
 
-Utilisez la méthode [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-files-path--validate-true-) sur la classe `FileDatasetFactory` pour charger des fichiers de n’importe quel format et créer un FileDataset non inscrit. 
+Utilisez la méthode [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) sur la classe `FileDatasetFactory` pour charger des fichiers de n’importe quel format et créer un FileDataset non inscrit. 
 
 Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, définissez le paramètre `validate=False` dans votre méthode `from_files()`. Cela permet de contourner l’étape de validation initiale et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 
@@ -124,12 +124,12 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 Pour réutiliser et partager des jeux de données dans des expériences au sein de votre espace de travail, [inscrivez votre jeu de données](#register-datasets). 
 
 > [!TIP] 
-> Chargez des fichiers à partir d’un répertoire local et créez un FileDataset dans une méthode unique avec la méthode de préversion publique [upload_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true#methods). Cette méthode est une fonctionnalité d’évaluation [expérimentale](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#stable-vs-experimental) en préversion qui peut évoluer à tout moment. 
+> Chargez des fichiers à partir d’un répertoire local et créez un FileDataset dans une méthode unique avec la méthode de préversion publique [upload_directory()](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py#methods). Cette méthode est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) en préversion qui peut évoluer à tout moment. 
 > 
 >  Elle permet de charger des données dans votre stockage sous-jacent, ce qui entraîne la facturation de coûts de stockage. 
 ### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
-Utilisez la méthode [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
+Utilisez la méthode [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
 
 Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, définissez le paramètre `validate=False` dans votre méthode `from_delimited_files()`. Cela permet de contourner l’étape de validation initiale et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 
@@ -154,7 +154,7 @@ datastore_paths = [(datastore, 'weather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-Par défaut, quand vous créez un TabularDataset, les types de données des colonnes sont inférés automatiquement. Si les types inférés ne sont pas ceux que vous attendez, vous pouvez les spécifier en utilisant le code suivant. Le paramètre `infer_column_type` s’applique uniquement aux jeux de données créés à partir de fichiers délimités. [Apprenez-en davantage sur les types de données pris en charge](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py&preserve-view=true).
+Par défaut, quand vous créez un TabularDataset, les types de données des colonnes sont inférés automatiquement. Si les types inférés ne sont pas ceux que vous attendez, vous pouvez les spécifier en utilisant le code suivant. Le paramètre `infer_column_type` s’applique uniquement aux jeux de données créés à partir de fichiers délimités. [Apprenez-en davantage sur les types de données pris en charge](/python/api/azureml-core/azureml.data.dataset_factory.datatype?preserve-view=true&view=azure-ml-py).
 
 
 ```Python
@@ -208,13 +208,13 @@ dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepar
 ```
 
 > [!TIP]
-> Créez et inscrivez un TabularDataset à partir d’un dataframe Spark ou Pandas en mémoire avec une méthode unique avec les méthodes de préversion publique [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#methods) et [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#methods). Ces méthodes d’inscription sont des fonctionnalités d’évaluation [expérimentales](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#stable-vs-experimental) susceptibles d’évoluer à tout moment. 
+> Créez et inscrivez un TabularDataset à partir d’un dataframe Spark ou Pandas en mémoire avec une méthode unique avec les méthodes de préversion publique [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) et [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods). Ces méthodes d’inscription sont des fonctionnalités d’évaluation [expérimentales](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) susceptibles d’évoluer à tout moment. 
 > 
 >  Elles chargent les données dans votre stockage sous-jacent et entraînent la facturation de coûts de stockage. 
 
 ## <a name="register-datasets"></a>Inscrire des jeux de données
 
-Pour terminer le processus de création, inscrivez vos jeux de données dans un espace de travail. Utilisez la méthode [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-workspace--name--description-none--tags-none--create-new-version-false-) pour inscrire des jeux de données auprès de votre espace de travail afin de pouvoir les partager avec d’autres personnes et les réutiliser dans des expériences dans votre espace de travail :
+Pour terminer le processus de création, inscrivez vos jeux de données dans un espace de travail. Utilisez la méthode [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-workspace--name--description-none--tags-none--create-new-version-false-) pour inscrire des jeux de données auprès de votre espace de travail afin de pouvoir les partager avec d’autres personnes et les réutiliser dans des expériences dans votre espace de travail :
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,

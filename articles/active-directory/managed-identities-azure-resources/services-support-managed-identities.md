@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426438"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289597"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -202,8 +202,8 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] | 
-| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | Non disponible | 
+| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
 
 
 Pour plus d’informations, voir [Utiliser les identités managées dans Azure Kubernetes Service](../../aks/use-managed-identity.md).
@@ -281,8 +281,8 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 |Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | PRÉVERSION | PRÉVERSION | PRÉVERSION |
-| Attribuée par l'utilisateur | ![Disponible][check] | PRÉVERSION | PRÉVERSION | PRÉVERSION |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | PRÉVERSION |
+| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | PRÉVERSION |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des groupes Azure Virtual Machine Scale Sets (dans les régions où ils sont disponibles) :
 

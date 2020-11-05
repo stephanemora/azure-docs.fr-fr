@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 977e3571a24e8be9d9ef6cd79e80e654ca944fa4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538814"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284470"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Résoudre les problèmes liés aux actions de script dans Azure HDInsight
 
@@ -27,11 +27,11 @@ Vous pouvez utiliser l’interface utilisateur web d’Apache Ambari pour affich
 
 1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
-1. Dans la barre située en haut de la page, sélectionnez l’entrée **ops** . Une liste affiche les opérations en cours et précédentes effectuées sur le cluster via Ambari.
+1. Dans la barre située en haut de la page, sélectionnez l’entrée **ops**. Une liste affiche les opérations en cours et précédentes effectuées sur le cluster via Ambari.
 
     ![Barre de l’interface utilisateur web d’Ambari avec ops sélectionné](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
 
-1. Recherchez les entrées comportant **run\_customscriptaction** dans la colonne **Operations** . Ces entrées sont créées lors de l’exécution des actions de script.
+1. Recherchez les entrées comportant **run\_customscriptaction** dans la colonne **Operations**. Ces entrées sont créées lors de l’exécution des actions de script.
 
     ![Apache Ambari - Action de script, opérations](./media/troubleshoot-script-action/ambari-script-action.png)
 
@@ -45,7 +45,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
     ![Journaux d’actions de script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    Sous ce répertoire, les journaux d’activité sont organisés séparément pour le **nœud principal** , le **nœud worker** et le **nœud zookeeper** . Regardez les exemples suivants :
+    Sous ce répertoire, les journaux d’activité sont organisés séparément pour le **nœud principal** , le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
 
     * **Nœud principal**  : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
@@ -59,7 +59,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
     ```
 
-* Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux d’activité correspondants par le nom de dossier **DATE** . Par exemple, la structure de dossiers d’un cluster, **mycluster** , créé à différentes dates ressemble aux entrées de journaux suivantes :
+* Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux d’activité correspondants par le nom de dossier **DATE**. Par exemple, la structure de dossiers d’un cluster, **mycluster** , créé à différentes dates ressemble aux entrées de journaux suivantes :
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
@@ -75,7 +75,7 @@ Ne changez pas le mot de passe de l’agent de surveillance Ambari (hdinsightwat
 
 ## <a name="cant-import-name-blobservice"></a>Impossible d’importer le nom BlobService
 
-__Symptômes__ . L’action de script échoue. Un texte semblable à l’erreur suivante s’affiche lorsque vous observez l’opération dans Ambari :
+__Symptômes__. L’action de script échoue. Un texte semblable à l’erreur suivante s’affiche lorsque vous observez l’opération dans Ambari :
 
 ```
 Traceback (most recent call list):
@@ -84,9 +84,9 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__Cause__ . Cette erreur se produit si vous mettez à niveau le client Stockage Azure Python qui est inclus dans le cluster HDInsight. HDInsight attend le client de stockage Azure 0.20.0.
+__Cause__. Cette erreur se produit si vous mettez à niveau le client Stockage Azure Python qui est inclus dans le cluster HDInsight. HDInsight attend le client de stockage Azure 0.20.0.
 
-__Résolution__ . Pour résoudre cette erreur, connectez-vous manuellement à chaque nœud de cluster avec `ssh`. Exécutez la commande suivante pour réinstaller la version correcte du client de stockage :
+__Résolution__. Pour résoudre cette erreur, connectez-vous manuellement à chaque nœud de cluster avec `ssh`. Exécutez la commande suivante pour réinstaller la version correcte du client de stockage :
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -110,10 +110,4 @@ Deux exceptions :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
-
-* Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
-
-* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
-
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour plus d’informations, consultez [Création d’une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

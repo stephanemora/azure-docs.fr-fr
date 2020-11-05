@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744637"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285655"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Guide pratique pour activer la journalisation de Key Vault
 
@@ -147,7 +147,7 @@ Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enab
   * Création, modification ou suppression de ces clés ou secrets.
   * Signature, vérification, chiffrement, déchiffrement, inclusion dans un wrapper et retrait d’un wrapper de clés, obtention des secrets, et liste de clés et secrets (et leurs versions).
 * les requêtes non authentifiées qui génèrent une réponse 401. Il s’agit notamment des requêtes dépourvues de jeton du porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.  
-* Les événements de notification Event Grid concernant l’expiration proche, l’expiration et la modification de la stratégie d’accès au coffre (l’événement de nouvelle version n’est pas consigné). Les événements sont consignés, quel que soit l’abonnement aux événements créé sur le coffre de clés. Pour plus d’informations, consultez [Schéma d’événement Event Grid pour Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Les événements de notification Event Grid concernant l’expiration proche, l’expiration et la modification de la stratégie d’accès au coffre (l’événement de nouvelle version n’est pas consigné). Les événements sont consignés, quel que soit l’abonnement aux événements créé sur le coffre de clés. Pour plus d’informations, consultez [Schéma d’événement Event Grid pour Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="access-your-logs"></a>Accéder à vos journaux d’activité
 

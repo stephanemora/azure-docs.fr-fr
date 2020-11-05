@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998392"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289365"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostiquer les problèmes de configuration des liaisons privées sur Azure Key Vault
 
@@ -56,7 +56,7 @@ Si l’application, le script ou le portail s’exécute sur un réseau arbitrai
 
 Ce guide n’est PAS applicable aux solutions qui sont managées par Microsoft, où le coffre de clés est accessible par un produit Azure qui existe indépendamment du réseau virtuel client. Des exemples de scénarios de ce type sont Stockage Azure ou Azure SQL configuré pour le chiffrement au repos, Azure Event Hub chiffrant des données avec des clés fournies par le client, Azure Data Factory accédant aux informations d’identification du service stockées dans le coffre de clés, Azure Pipelines récupérant des secrets du coffre de clés et d’autres scénarios similaires. Dans ce cas, *vous devez vérifier si le produit prend en charge les coffres de clés avec le pare-feu activé*. Cette prise en charge s’effectue généralement à l’aide de la fonctionnalité de [services approuvés](overview-vnet-service-endpoints.md#trusted-services) du pare-feu Key Vault. De nombreux produits ne sont toutefois pas inclus dans la liste des services approuvés pour diverses raisons. Dans ce cas, obtenez un support spécifique au produit.
 
-Un petit nombre de produits Azure prend en charge le concept d’*injection de réseau virtuel*. En termes simples, le produit ajoute un périphérique réseau au réseau virtuel du client, ce qui lui permet d’envoyer des requêtes comme s’il était déployé sur le réseau virtuel. [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) en est un exemple probant. Les produits comme celui-ci peuvent effectuer des requêtes auprès du coffre de clés à l’aide des liaisons privées, et ce guide de résolution des problèmes peut être utile.
+Un petit nombre de produits Azure prend en charge le concept d’ *injection de réseau virtuel*. En termes simples, le produit ajoute un périphérique réseau au réseau virtuel du client, ce qui lui permet d’envoyer des requêtes comme s’il était déployé sur le réseau virtuel. [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) en est un exemple probant. Les produits comme celui-ci peuvent effectuer des requêtes auprès du coffre de clés à l’aide des liaisons privées, et ce guide de résolution des problèmes peut être utile.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Confirmer que la connexion est approuvée et réussie
 
@@ -65,7 +65,7 @@ Les étapes suivantes permettent de confirmer que la connexion au point de termi
 1. Ouvrez le portail Azure et ouvrez votre ressource de coffre de clés.
 2. Dans le menu de gauche, sélectionnez **Mise en réseau**.
 3. Cliquez sur l’onglet **Connexions de point de terminaison privé**. Cette opération affiche toutes les connexions de point de terminaison privé et leurs états respectifs. S’il n’existe aucune connexion, ou si la connexion de votre réseau virtuel est manquante, vous devez créer un nouveau point de terminaison privé. Ce sujet sera abordé ultérieurement.
-4. Toujours dans **Connexions de point de terminaison privé**, recherchez celle que vous diagnostiquez et confirmez que « État de la connexion » est **Approuvé** et que « État de l’approvisionnement » est **Réussi**.
+4. Toujours dans **Connexions de point de terminaison privé** , recherchez celle que vous diagnostiquez et confirmez que « État de la connexion » est **Approuvé** et que « État de l’approvisionnement » est **Réussi**.
     - Si la connexion est à l’état « En attente », vous pouvez simplement l’approuver.
     - Si la connexion est à l’état « Rejeté », « Échec », « Erreur », « Déconnecté » ou un autre état, cela signifie qu’elle n’est pas effective et vous devez créer une nouvelle ressource de point de terminaison privé.
 
@@ -278,7 +278,7 @@ Comme vous pouvez le constater, vous contrôlez la résolution de noms. Les rais
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Interroger le point de terminaison `/healthstatus` du coffre de clés
 
-Votre coffre de clés fournit le point de terminaison `/healthstatus`, qui peut être utilisé pour les diagnostics. Les en-têtes de réponse incluent l’adresse IP d’origine, telle qu’elle est affichée par le service de coffre de clés. Vous pouvez appeler ce point de terminaison à l’aide de la commande suivante (**n’oubliez pas d’utiliser le nom d’hôte de votre coffre de clés**) :
+Votre coffre de clés fournit le point de terminaison `/healthstatus`, qui peut être utilisé pour les diagnostics. Les en-têtes de réponse incluent l’adresse IP d’origine, telle qu’elle est affichée par le service de coffre de clés. Vous pouvez appeler ce point de terminaison à l’aide de la commande suivante ( **n’oubliez pas d’utiliser le nom d’hôte de votre coffre de clés** ) :
 
 Windows (PowerShell) :
 

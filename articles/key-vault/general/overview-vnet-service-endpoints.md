@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e491b89ec5e6488228dd8befed669a13842f9d15
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530452"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288560"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -63,23 +63,23 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 
 |Service approuvé|Scénarios d’utilisation pris en charge|
 | --- | --- |
-|Service de déploiement de machines virtuelles Azure|[Déployer des certificats sur des machines virtuelles à partir d’un coffre de clés géré par le client](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)|
+|Service de déploiement de machines virtuelles Azure|[Déployer des certificats sur des machines virtuelles à partir d’un coffre de clés géré par le client](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault)|
 |Service de déploiement modèle Azure Resource Manager|[Passage de valeurs sécurisées lors du déploiement](../../azure-resource-manager/templates/key-vault-parameter.md)|
-|Référence SKU Azure Application Gateway v2|[Arrêt TLS avec certificats Key Vault](/azure/application-gateway/key-vault-certs)|
+|Référence SKU Azure Application Gateway v2|[Arrêt TLS avec certificats Key Vault](../../application-gateway/key-vault-certs.md)|
 |Service de chiffrement de volume Azure Disk Encryption|Autoriser l’accès à la clé BitLocker (machine virtuelle Windows) ou à la phrase secrète DM (machine virtuelle Linux), et à la clé de chiffrement lors du déploiement de machines virtuelles. Ceci active [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
-|Sauvegarde Azure|Autoriser la sauvegarde et restauration des clés et des secrets pertinents lors de la sauvegarde de Machines virtuelles Azure avec [Sauvegarde Azure](../../backup/backup-introduction-to-azure-backup.md).|
+|Sauvegarde Azure|Autoriser la sauvegarde et restauration des clés et des secrets pertinents lors de la sauvegarde de Machines virtuelles Azure avec [Sauvegarde Azure](../../backup/backup-overview.md).|
 |Exchange Online et SharePoint Online|Autoriser l’accès à la clé du client pour Azure Storage Service Encryption avec une [clé de client](/microsoft-365/compliance/customer-key-overview).|
-|Azure Information Protection|Autoriser l’accès à la clé de locataire pour [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
+|Azure Information Protection|Autoriser l’accès à la clé de locataire pour [Azure Information Protection](/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Déploiement d’un certificat Azure Web App via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
-|Stockage Azure|[Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Stockage Azure|[Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Chiffrement de données dans Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) avec une clé gérée par le client.|
-|Azure Databricks|[Service d'analyse rapide, simple et collaboratif basé sur Apache Spark](../../azure-databricks/what-is-azure-databricks.md)|
+|Azure Databricks|[Service d'analyse rapide, simple et collaboratif basé sur Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Gestion des API Azure|[Déployer des certificats pour un domaine personnalisé à partir de Key Vault à l’aide de MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Récupérer les informations d’identification du magasin de données dans Key Vault à partir de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Hubs d'événements Azure|[Autoriser l'accès à un coffre de clés pour le scénario de clés gérées par le client](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
-|Azure Service Bus|[Autoriser l'accès à un coffre de clés pour le scénario de clés gérées par le client](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-|Azure Import/Export| [Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Hubs d'événements Azure|[Autoriser l'accès à un coffre de clés pour le scénario de clés gérées par le client](../../event-hubs/configure-customer-managed-key.md)|
+|Azure Service Bus|[Autoriser l'accès à un coffre de clés pour le scénario de clés gérées par le client](../../service-bus-messaging/configure-customer-managed-key.md)|
+|Azure Import/Export| [Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export](../../storage/common/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Chiffrement du registre à l’aide de clés gérées par le client](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Transférer des artefacts vers un autre registre](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]

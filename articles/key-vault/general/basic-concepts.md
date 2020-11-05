@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 6c1da45115303bb0a67d6ff796a40ef47c24224a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398508"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287436"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Concepts de base d’Azure Key Vault
 
@@ -23,29 +23,29 @@ Azure Key Vault est un service cloud permettant de stocker les secrets et d’y 
 
 Voici d’autres termes importants :
 
-- **Tenant** : un locataire est l’organisation qui possède et gère une instance spécifique de services cloud Microsoft. Ce terme est souvent utilisé pour faire référence à l’ensemble des services Azure et Microsoft 365 d’une organisation.
+- **Tenant**  : un locataire est l’organisation qui possède et gère une instance spécifique de services cloud Microsoft. Ce terme est souvent utilisé pour faire référence à l’ensemble des services Azure et Microsoft 365 d’une organisation.
 
-- **Propriétaire de coffre** : un propriétaire de coffre peut créer un coffre de clés, et bénéficier d’un accès et d’un contrôle complets à celui-ci. Le propriétaire du coffre peut également configurer l’audit pour consigner qui accède aux secrets et aux clés. Les administrateurs peuvent contrôler le cycle de vie de la clé. Ils peuvent déployer une nouvelle version de la clé, la sauvegarder, et effectuer les tâches associées.
+- **Propriétaire de coffre**  : un propriétaire de coffre peut créer un coffre de clés, et bénéficier d’un accès et d’un contrôle complets à celui-ci. Le propriétaire du coffre peut également configurer l’audit pour consigner qui accède aux secrets et aux clés. Les administrateurs peuvent contrôler le cycle de vie de la clé. Ils peuvent déployer une nouvelle version de la clé, la sauvegarder, et effectuer les tâches associées.
 
-- **Consommateur de coffre** : un consommateur de coffre peut effectuer des actions sur les ressources à l’intérieur du coffre de clés quand le propriétaire du coffre lui accorde l’accès de consommateur. Les actions disponibles varient selon les autorisations accordées.
+- **Consommateur de coffre**  : un consommateur de coffre peut effectuer des actions sur les ressources à l’intérieur du coffre de clés quand le propriétaire du coffre lui accorde l’accès de consommateur. Les actions disponibles varient selon les autorisations accordées.
 
-- **Administrateur du HSM managé** : Les utilisateurs qui se voient attribuer le rôle d’administrateur ont un contrôle total sur un pool HSM managé. Ils peuvent créer des attributions de rôles supplémentaires afin de déléguer l’accès contrôlé à d’autres utilisateurs.
+- **Administrateur du HSM managé**  : Les utilisateurs qui se voient attribuer le rôle d’administrateur ont un contrôle total sur un pool HSM managé. Ils peuvent créer des attributions de rôles supplémentaires afin de déléguer l’accès contrôlé à d’autres utilisateurs.
 
-- **Responsable/Utilisateur du chiffrement du HSM managé** : rôles intégrés généralement attribués aux utilisateurs ou aux principaux de service effectuant des opérations de chiffrement à l’aide de clés dans le HSM managé. L’utilisateur du chiffrement peut créer des clés, mais il ne peut pas les supprimer.
+- **Responsable/Utilisateur du chiffrement du HSM managé**  : rôles intégrés généralement attribués aux utilisateurs ou aux principaux de service effectuant des opérations de chiffrement à l’aide de clés dans le HSM managé. L’utilisateur du chiffrement peut créer des clés, mais il ne peut pas les supprimer.
 
-- **Chiffrement du service du HSM managé** : rôle intégré généralement attribué à une identité de service managé de comptes de service (compte de stockage, par exemple) pour le chiffrement des données au repos à l’aide d’une clé gérée par le client.
+- **Chiffrement du service du HSM managé**  : rôle intégré généralement attribué à une identité de service managé de comptes de service (compte de stockage, par exemple) pour le chiffrement des données au repos à l’aide d’une clé gérée par le client.
 
-- **Ressource** : une ressource est un élément gérable disponible par le biais d’Azure. Il peut s’agir par exemple de machines virtuelles, de comptes de stockage, d’applications web, de bases de données et de réseaux virtuels. Mais il en existe bien d’autres encore.
+- **Ressource**  : une ressource est un élément gérable disponible par le biais d’Azure. Il peut s’agir par exemple de machines virtuelles, de comptes de stockage, d’applications web, de bases de données et de réseaux virtuels. Mais il en existe bien d’autres encore.
 
-- **Groupe de ressources** : Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation.
+- **Groupe de ressources**  : Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation.
 
-- **Principal de sécurité** : Un principal de sécurité Azure est une identité de sécurité utilisée par les applications, les services et les outils d’automatisation créés par l’utilisateur pour accéder à des ressources Azure spécifiques. Il équivaut un peu à une « identité d’utilisateur » (nom d’utilisateur et mot de passe ou certificat) avec un rôle spécifique et des autorisations étroitement contrôlées. Un principal de sécurité doit uniquement effectuer des opérations spécifiques, contrairement à une identité d’utilisateur générale. Il améliore la sécurité si vous lui octroyez seulement le niveau d’autorisation minimal nécessaire pour effectuer ses tâches de gestion. Un principal de sécurité utilisé avec une application ou un service est spécifiquement appelé **principal de service**.
+- **Principal de sécurité**  : Un principal de sécurité Azure est une identité de sécurité utilisée par les applications, les services et les outils d’automatisation créés par l’utilisateur pour accéder à des ressources Azure spécifiques. Il équivaut un peu à une « identité d’utilisateur » (nom d’utilisateur et mot de passe ou certificat) avec un rôle spécifique et des autorisations étroitement contrôlées. Un principal de sécurité doit uniquement effectuer des opérations spécifiques, contrairement à une identité d’utilisateur générale. Il améliore la sécurité si vous lui octroyez seulement le niveau d’autorisation minimal nécessaire pour effectuer ses tâches de gestion. Un principal de sécurité utilisé avec une application ou un service est spécifiquement appelé **principal de service**.
 
-- [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md) : Azure AD est le service Active Directory pour un locataire. Chaque répertoire contient au moins un domaine personnalisé. Un répertoire peut avoir plusieurs abonnements associés, mais qu’un seul locataire.
+- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) : Azure AD est le service Active Directory pour un locataire. Chaque répertoire contient au moins un domaine personnalisé. Un répertoire peut avoir plusieurs abonnements associés, mais qu’un seul locataire.
 
-- **ID de locataire Azure** : un ID de locataire est un moyen unique d’identifier une instance Azure AD au sein d’un abonnement Azure.
+- **ID de locataire Azure**  : un ID de locataire est un moyen unique d’identifier une instance Azure AD au sein d’un abonnement Azure.
 
-- **Identités managées** : Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier sur Key Vault pour les récupérer. L’utilisation d’une identité mangée simplifie la résolution de ce problème en donnant aux services Azure une identité automatiquement managée dans Azure AD. Vous pouvez utiliser cette identité pour vous authentifier sur Key Vault ou n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. Pour plus d’informations, consultez l’image ci-dessous et lisez la présentation des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+- **Identités managées**  : Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier sur Key Vault pour les récupérer. L’utilisation d’une identité mangée simplifie la résolution de ce problème en donnant aux services Azure une identité automatiquement managée dans Azure AD. Vous pouvez utiliser cette identité pour vous authentifier sur Key Vault ou n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. Pour plus d’informations, consultez l’image ci-dessous et lisez la présentation des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
     ![Diagramme illustrant le fonctionnement des identités managées pour les ressources Azure](../media/key-vault-whatis/msi.png)
 
@@ -53,8 +53,8 @@ Voici d’autres termes importants :
 Pour effectuer des opérations avec un coffre de clés, vous devez vous authentifier auprès de celui-ci. Il existe trois façons de s’authentifier auprès de Key Vault :
 
 - [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md) : quand vous déployez une application sur une machine virtuelle dans Azure, vous pouvez attribuer une identité à votre machine virtuelle qui a accès à Key Vault. Vous pouvez également assigner une identité aux [autres ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). L’avantage de cette approche est que l’application ou le service ne gère pas la rotation du premier secret. Azure fait alterner automatiquement l’identité. Nous recommandons cette approche en tant que meilleure pratique. 
-- **Principal de service et certificat** : vous pouvez utiliser un principal de service et un certificat associé qui a accès à Key Vault. Nous ne recommandons pas cette approche, car le propriétaire de l’application ou son développeur doit régulièrement renouveler le certificat.
-- **Principal de service et secret** : bien que vous puissiez utiliser un principal de service et un secret pour vous authentifier auprès de Key Vault, cette option n’est pas recommandée. Il est difficile de renouveler automatiquement le secret de démarrage qui sert à l’authentification auprès de Key Vault.
+- **Principal de service et certificat**  : vous pouvez utiliser un principal de service et un certificat associé qui a accès à Key Vault. Nous ne recommandons pas cette approche, car le propriétaire de l’application ou son développeur doit régulièrement renouveler le certificat.
+- **Principal de service et secret**  : bien que vous puissiez utiliser un principal de service et un secret pour vous authentifier auprès de Key Vault, cette option n’est pas recommandée. Il est difficile de renouveler automatiquement le secret de démarrage qui sert à l’authentification auprès de Key Vault.
 
 
 ## <a name="key-vault-roles"></a>Rôles de Key Vault

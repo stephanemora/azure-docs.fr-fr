@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 817b9bfc0af054b344ca9f770085ac022a8e6eac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb28b4b678b37f69331b2ecff6272fd7aa64d191
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380422"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287616"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Attribuer une stratégie d’accès Key Vault à l’aide d’Azure PowerShell
 
@@ -29,7 +29,7 @@ Pour plus d’informations sur la création de groupes dans Azure Active Directo
 
 1. Pour exécuter des commandes localement, installez [Azure PowerShell](/powershell/azure/) si ce n’est déjà fait.
 
-    Pour exécuter des commandes directement dans le cloud, utilisez [Azure Cloud Shell](/azure/cloud-shell/overview).
+    Pour exécuter des commandes directement dans le cloud, utilisez [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 1. PowerShell local uniquement :
 

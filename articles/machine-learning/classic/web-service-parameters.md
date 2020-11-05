@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 1a4e4e8f97f543132e4295cca59312b0e78a6637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5857e44623f545f2807592c0f6f7b6dae366f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362829"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308627"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Utiliser les paramètres de service web Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Un service Web Azure Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez effectuer cette tâche grâce aux *paramètres de service Web*. 
@@ -51,8 +51,8 @@ Par exemple, supposons que nous avons une expérience avec un module [Exporter d
 1. Dans Machine Learning Studio (classique), cliquez sur le module [Exporter les données][writer] pour le sélectionner. Ses propriétés sont affichées dans le volet Propriétés à droite du canevas de l'expérience.
 2. Spécification du type de stockage :
    
-   * Sous le message **Veuillez spécifier la destination des données**, sélectionnez « Stockage d'objets blob Azure ».
-   * Sous le message **Veuillez spécifier le type d'authentification**, sélectionnez « Compte ».
+   * Sous le message **Veuillez spécifier la destination des données** , sélectionnez « Stockage d'objets blob Azure ».
+   * Sous le message **Veuillez spécifier le type d'authentification** , sélectionnez « Compte ».
    * Entrez les informations de compte correspondant au stockage d’objets blob Azure. 
 
 3. Cliquez sur l'icône à droite du **Chemin d'accès d’objet blob commençant par le paramètre du conteneur**. Voici à quoi cela ressemble :
@@ -75,13 +75,12 @@ Par exemple, supposons que nous avons une expérience avec un module [Exporter d
 L’utilisateur du service web peut désormais indiquer une nouvelle destination pour le module [Exporter des données][writer] au moment d’accéder au service web.
 
 ## <a name="more-information"></a>Informations complémentaires
-Vous trouverez un exemple plus détaillé en consultant l’entrée [Paramètres de service Web](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) du blog [Machine Learning ](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Vous trouverez un exemple plus détaillé en consultant l’entrée [Paramètres de service Web](/archive/blogs/machinelearning/azureml-web-service-parameters) du blog [Machine Learning ](/archive/blogs/machinelearning/azureml-web-service-parameters).
 
 Pour plus d’informations sur l’accès à un service web Machine Learning, consultez [Utilisation d’un service web Azure Machine Learning](consume-web-services.md).
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
+[feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
+[reader]: /azure/machine-learning/studio-module-reference/import-data
+[writer]: /azure/machine-learning/studio-module-reference/export-data

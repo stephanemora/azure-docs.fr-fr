@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883227"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310034"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Modules Entrée du service web et Sortie du service web
 
@@ -26,7 +26,7 @@ Le module Entrée du service web indique où les données utilisateur entrent da
 
 ## <a name="how-to-use-web-service-input-and-output"></a>Comment utiliser les modules Entrée/Sortie du service web
 
-Quand vous [créez un pipeline d’inférence en temps réel](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) à partir de votre pipeline d’entraînement, les modules Entrée du service web et Sortie du service web sont automatiquement ajoutés pour indiquer l’emplacement où les données utilisateur entrent dans le pipeline et l’emplacement où elles sont retournées. 
+Quand vous [créez un pipeline d’inférence en temps réel](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) à partir de votre pipeline d’entraînement, les modules Entrée du service web et Sortie du service web sont automatiquement ajoutés pour indiquer l’emplacement où les données utilisateur entrent dans le pipeline et l’emplacement où elles sont retournées. 
 
 > [!NOTE]
 > La génération automatique du pipeline d’inférence en temps réel est un processus de meilleur effort basé sur une règle. Il n’y a aucune garantie d’exactitude. 
@@ -48,6 +48,6 @@ Une fois le pipeline envoyé et l’exécution terminée, vous pouvez déployer 
 >  Dans l’exemple précédent, l’option **Entrer des données manuellement** fournit le schéma de données pour l’entrée du service web et elle est nécessaire pour déployer le point de terminaison en temps réel. En règle générale, vous devez toujours connecter un module ou un jeu de données au port où le module **Entrée de service web** est connecté pour fournir le schéma de données.
    
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez-en plus sur le [déploiement du point de terminaison en temps réel](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Découvrez-en plus sur le [déploiement du point de terminaison en temps réel](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

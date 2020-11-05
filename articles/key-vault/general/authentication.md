@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481373"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287504"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>S’authentifier auprès d’Azure Key Vault
 
@@ -20,7 +20,7 @@ Azure Key Vault offre la possibilité de stocker des secrets et de contrôler le
 
 ## <a name="app-identity-and-security-principals"></a>Identité et principaux de sécurité des applications
 
-L’authentification auprès de Key Vault fonctionne conjointement avec [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), qui est chargé d’authentifier l’identité de chaque **principal de sécurité** donné.
+L’authentification auprès de Key Vault fonctionne conjointement avec [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), qui est chargé d’authentifier l’identité de chaque **principal de sécurité** donné.
 
 Un principal de sécurité est un objet qui représente un utilisateur, un groupe, un service ou une application demandant l’accès aux ressources Azure. Azure affecte un **ID d’objet** unique à chaque principal de sécurité.
 
@@ -28,7 +28,7 @@ Un principal de sécurité est un objet qui représente un utilisateur, un group
 
 * Un principal de sécurité **groupe** identifie un ensemble d’utilisateurs créés dans Azure Active Directory. Tous les rôles et autorisations attribués au groupe sont accordés à tous les utilisateurs du groupe.
 
-* Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client**, lui sert de nom d’utilisateur. La **clé secrète client** du principal de service fonctionne comme un mot de passe.
+* Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client** , lui sert de nom d’utilisateur. La **clé secrète client** du principal de service fonctionne comme un mot de passe.
 
 Pour les applications, il existe deux façons d’obtenir un principal de service :
 
@@ -36,9 +36,9 @@ Pour les applications, il existe deux façons d’obtenir un principal de servic
 
     Avec l’identité managée, Azure gère en interne le principal de service de l’application et authentifie automatiquement l’application auprès d’autres services Azure. L’identité managée est disponible pour les applications déployées sur un large éventail de services.
 
-    Pour plus d’informations, consultez [Vue d’ensemble de l’identité managée](/azure/active-directory/managed-identities-azure-resources/overview). Consultez également [Services Azure qui prennent en charge l’identité managée](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities), qui comporte des liens vers des articles expliquant comment activer l’identité managée pour des services spécifiques (par exemple, App Service, Azure Functions ou Machines Virtuelles).
+    Pour plus d’informations, consultez [Vue d’ensemble de l’identité managée](../../active-directory/managed-identities-azure-resources/overview.md). Consultez également [Services Azure qui prennent en charge l’identité managée](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), qui comporte des liens vers des articles expliquant comment activer l’identité managée pour des services spécifiques (par exemple, App Service, Azure Functions ou Machines Virtuelles).
 
-* Si vous ne pouvez pas utiliser l’identité managée, **inscrivez** l’application auprès de votre locataire Azure AD (cf. [Démarrage rapide : Inscription d’une application avec la Plateforme d’identités Azure](/azure/active-directory/develop/quickstart-register-app)). L’inscription a également pour effet de créer un deuxième objet d’application qui identifie l’application sur tous les locataires.
+* Si vous ne pouvez pas utiliser l’identité managée, **inscrivez** l’application auprès de votre locataire Azure AD (cf. [Démarrage rapide : Inscription d’une application avec la Plateforme d’identités Azure](../../active-directory/develop/quickstart-register-app.md)). L’inscription a également pour effet de créer un deuxième objet d’application qui identifie l’application sur tous les locataires.
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autoriser un principal de sécurité à accéder à Key Vault
 
@@ -56,13 +56,13 @@ Key Vault fonctionne avec deux niveaux d’autorisation distincts :
  
     Pour affecter et gérer les rôles, consultez les articles suivants :
 
-    - [Azure portal](/azure/role-based-access-control/role-assignments-portal)
-    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+    - [Azure portal](../../role-based-access-control/role-assignments-portal.md)
+    - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-    Key Vault prend actuellement en charge le rôle [Contributeur](/azure/role-based-access-control/built-in-roles#key-vault-contributor), qui autorise les opérations de gestion sur les ressources Key Vault. D’autres rôles sont actuellement en préversion. Vous pouvez également créer des rôles personnalisés (cf. [Rôles personnalisés Azure](/azure/role-based-access-control/custom-roles)).
+    Key Vault prend actuellement en charge le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#key-vault-contributor), qui autorise les opérations de gestion sur les ressources Key Vault. D’autres rôles sont actuellement en préversion. Vous pouvez également créer des rôles personnalisés (cf. [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md)).
 
-    Pour des informations générales sur les rôles, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC) ?](/azure/role-based-access-control/overview).
+    Pour des informations générales sur les rôles, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC) ?](../../role-based-access-control/overview.md).
 
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Key Vault fonctionne avec deux niveaux d’autorisation distincts :
 
 Par défaut, Key Vault autorise l’accès aux ressources par le biais d’adresses IP publiques. Pour une sécurité optimale, vous pouvez aussi limiter l’accès à des plages d’adresses IP, des points de terminaison de service, des réseaux virtuels ou des points de terminaison privés spécifiques.
 
-Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pare-feu](/azure/key-vault/general/access-behind-firewall).
+Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pare-feu](./access-behind-firewall.md).
 
 
 ## <a name="the-key-vault-authentication-flow"></a>Flux d’authentification Key Vault
@@ -80,7 +80,7 @@ Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pa
 1. Un principal de service demande à s’authentifier auprès d’Azure AD, par exemple :
     * Un utilisateur se connecte au Portail Azure avec un nom d’utilisateur et un mot de passe.
     * Une application appelle une API REST Azure, en présentant un ID client et une clé secrète ou un certificat client.
-    * Une ressource Azure, comme une machine virtuelle avec identité managée, contacte le point de terminaison REST [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) pour obtenir un jeton d’accès.
+    * Une ressource Azure, comme une machine virtuelle avec identité managée, contacte le point de terminaison REST [Azure Instance Metadata Service (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) pour obtenir un jeton d’accès.
 
 1. Si l’authentification auprès d’Azure AD réussit, un jeton OAuth est accordé au principal de service.
 
@@ -89,7 +89,7 @@ Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pa
 1. Le pare-feu Key Vault vérifie les critères suivants. Si un critère est respecté, l’appel est autorisé. Dans le cas contraire, l’appel est bloqué et une réponse Interdit est retournée.
 
     * Le pare-feu Key Vault est désactivé et le point de terminaison public de Key Vault est accessible sur l’Internet public.
-    * L’appelant est un [service approuvé Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), ce qui lui permet de contourner le pare-feu.
+    * L’appelant est un [service approuvé Key Vault](./overview-vnet-service-endpoints.md#trusted-services), ce qui lui permet de contourner le pare-feu.
     * L’appelant est listé dans le pare-feu par adresse IP, réseau virtuel ou point de terminaison de service.
     * L’appelant peut accéder à Key Vault au moyen d’une connexion de liaison privée configurée.    
 
@@ -109,20 +109,20 @@ Le tableau suivant contient des liens vers différents articles qui montrent com
 
 | Secrets Key Vault | Clés Key Vault | Certificats Key Vault |
 |  --- | --- | --- |
-| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
-| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
+| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
+| [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
+| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
+| [Java](../secrets/quick-create-java.md) | -- | -- |
+| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
 | | | |
-| [Azure portal](/azure/key-vault/secrets/quick-create-portal) | [Azure portal](/azure/key-vault/keys/quick-create-portal) | [Azure portal](/azure/key-vault/certificates/quick-create-portal) |
-| [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
-| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
-| [Modèle ARM](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Azure portal](../secrets/quick-create-portal.md) | [Azure portal](../keys/quick-create-portal.md) | [Azure portal](../certificates/quick-create-portal.md) |
+| [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
+| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
+| [Modèle ARM](../secrets/quick-create-net.md) | -- | -- |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Résolution des problèmes de stratégie d’accès à Key Vault](troubleshooting-access-issues.md)
 - [Codes d'erreur de l'API REST Key Vault](rest-error-codes.md)
 - [Guide du développeur Key Vault](developers-guide.md)
-- [Présentation du contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/role-based-access-control/overview)
+- [Présentation du contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md)

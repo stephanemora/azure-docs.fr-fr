@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 27cf60f09a8c0f149aec16dd81da0e7ce0707a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fc9f082a012922a8595c2726764e84be038a26
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302092"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312230"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Gérer les versions et suivre des jeux de données dans les expériences
 
@@ -32,7 +32,7 @@ Scénarios de contrôle de version classiques :
 
 Pour ce didacticiel, vous avez besoin des éléments suivants :
 
-- [SDK Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Ce kit de développement logiciel (SDK) comprend le package [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py&preserve-view=true).
+- [SDK Azure Machine Learning pour Python installé](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). Ce kit de développement logiciel (SDK) comprend le package [azureml-datasets](/python/api/azureml-core/azureml.core.dataset?preserve-view=true&view=azure-ml-py).
     
 - Un [espace de travail Azure Machine Learning](concept-workspace.md). Récupérez un espace de travail existant en exécutant le code suivant, ou bien [créez un nouvel espace de travail](how-to-manage-workspace.md).
 
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>Récupérer un jeu de données par nom
 
-Par défaut, la méthode [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne la dernière version du jeu de données inscrit auprès de l’espace de travail. 
+Par défaut, la méthode [get_by_name()](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne la dernière version du jeu de données inscrit auprès de l’espace de travail. 
 
 Le code suivant obtient la version 1 du jeu de données `titanic_ds`.
 
@@ -158,7 +158,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 Pour chaque expérience Machine Learning, vous pouvez facilement suivre les jeux de données utilisés comme entrée via l’objet `Run` de l’expérience.
 
-Le code suivant utilise la méthode [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) pour suivre les jeux de données d’entrée qui ont été utilisés lors de l’exécution de l’expérimentation :
+Le code suivant utilise la méthode [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) pour suivre les jeux de données d’entrée qui ont été utilisés lors de l’exécution de l’expérimentation :
 
 ```Python
 # get input datasets

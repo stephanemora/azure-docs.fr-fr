@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125250"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285240"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Résolution des problèmes de stratégie d’accès au coffre de clés Azure
 
@@ -20,11 +20,11 @@ ms.locfileid: "92125250"
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>Comment faire pour identifier le mode et le moment d’accès aux coffres de clés ?
 
-Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez probablement contrôler qui accède à ces derniers, par quel moyen et quand. Pour effectuer cette supervision, vous pouvez activer la journalisation pour Azure Key Vault. Pour plus d’informations sur l’activation de la journalisation, consultez ce [guide pas à pas](https://docs.microsoft.com/azure/key-vault/general/logging).
+Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez probablement contrôler qui accède à ces derniers, par quel moyen et quand. Pour effectuer cette supervision, vous pouvez activer la journalisation pour Azure Key Vault. Pour plus d’informations sur l’activation de la journalisation, consultez ce [guide pas à pas](./logging.md).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Comment faire pour surveiller la disponibilité du coffre, les périodes de latence du service ou d’autres métriques de performances pour le coffre de clés ?
 
-Plus votre service se développera, plus le nombre de demandes envoyées à votre coffre de clés augmentera. Cette demande risque d'augmenter la latence de vos demandes et, dans les cas les plus extrêmes, de les limiter, ce qui aura un impact sur les performances de votre service. Vous pouvez surveiller les métriques de performances du coffre de clés et recevoir des alertes pour des seuils spécifiques. Pour en savoir plus sur la configuration de la surveillance, consultez ce [guide pas à pas](https://docs.microsoft.com/azure/key-vault/general/alert).
+Plus votre service se développera, plus le nombre de demandes envoyées à votre coffre de clés augmentera. Cette demande risque d'augmenter la latence de vos demandes et, dans les cas les plus extrêmes, de les limiter, ce qui aura un impact sur les performances de votre service. Vous pouvez surveiller les métriques de performances du coffre de clés et recevoir des alertes pour des seuils spécifiques. Pour en savoir plus sur la configuration de la surveillance, consultez ce [guide pas à pas](./alert.md).
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Je ne parviens pas à modifier la stratégie d’accès, comment l’activer ?
 L’utilisateur doit disposer d’autorisations AAD suffisantes pour modifier la stratégie d’accès. Dans le cas présent, l’utilisateur doit détenir un rôle Contributeur supérieur.
@@ -53,7 +53,7 @@ L’application nécessite également l’affectation d’au moins un rôle IAM 
 
 Actuellement, un redéploiement Key Vault a pour effet de supprimer toutes les stratégies d’accès de Key Vault et de les remplacer par une stratégie d’accès dans un modèle ARM. Il n’existe pas d’option incrémentielle pour les stratégies d’accès du Key Vault. Afin de conserver dans Key Vault les stratégies d’accès existantes, vous devez lire celles-ci dans Key Vault, puis remplir le modèle ARM à l’aide de ces stratégies pour éviter toute interruption d’accès.
 
-Une autre option qui peut être utile pour ce scénario consiste à utiliser des rôles RBAC en guise d’alternative aux stratégies d’accès. Avec RBAC, vous pouvez redéployer le coffre de clés sans spécifier à nouveau la stratégie. Vous trouverez d’autres informations sur cette solution [ici](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+Une autre option qui peut être utile pour ce scénario consiste à utiliser des rôles RBAC en guise d’alternative aux stratégies d’accès. Avec RBAC, vous pouvez redéployer le coffre de clés sans spécifier à nouveau la stratégie. Vous trouverez d’autres informations sur cette solution [ici](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Procédure de résolution des problèmes recommandée pour les types d’erreurs suivants
 

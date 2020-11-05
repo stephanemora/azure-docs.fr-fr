@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789758"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285370"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -151,12 +151,12 @@ Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 
 Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
 
-1. Sous **Gestionnaire de serveur** , sélectionnez **Outils** , puis **Gestionnaire du cluster de basculement** .
-1. Sous **Gestionnaire du cluster de basculement** , sélectionnez **Action** , puis **Valider la configuration** .
-1. Sélectionnez **Suivant** .
+1. Sous **Gestionnaire de serveur** , sélectionnez **Outils** , puis **Gestionnaire du cluster de basculement**.
+1. Sous **Gestionnaire du cluster de basculement** , sélectionnez **Action** , puis **Valider la configuration**.
+1. Sélectionnez **Suivant**.
 1. Sous **Sélectionner des serveurs ou un cluster** , entrez le nom des deux machines virtuelles.
-1. Sous **Options de test** , sélectionnez **Exécuter uniquement les tests que je sélectionne** . 
-1. Sélectionnez **Suivant** .
+1. Sous **Options de test** , sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
+1. Sélectionnez **Suivant**.
 1. Sous **Sélection des tests** , sélectionnez tous les tests *à l’exception* **Stockage**
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster
@@ -175,11 +175,11 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 
 1. Recherchez le support d’installation. Si la machine virtuelle utilise l’une des images Azure Marketplace, le support se situe sous `C:\SQLServer_<version number>_Full`. 
 
-1. Sélectionnez **Configuration** .
+1. Sélectionnez **Configuration**.
 
-1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation** .
+1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation**.
 
-1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server** . Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
+1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
 
 Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur les disques partagés Azure. 
 
@@ -187,9 +187,9 @@ Les répertoires de données de l’instance de cluster de basculement doivent s
 
 1. Une fois que le programme d’installation a installé l’instance de cluster de basculement sur le premier nœud, connectez-vous au second nœud avec RDP.
 
-1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation** .
+1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation**.
 
-1. Sélectionnez **Ajouter un nœud à un cluster de basculement SQL Server** . Suivez les instructions de l’Assistant pour installer SQL Server et ajouter le serveur à l’instance de cluster de basculement.
+1. Sélectionnez **Ajouter un nœud à un cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer SQL Server et ajouter le serveur à l’instance de cluster de basculement.
 
    >[!NOTE]
    >Si vous avez utilisé une image de la galerie de la Place de marché Azure avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé une de ces images, installez les outils de SQL Server séparément. Pour plus d’informations, consultez la page [Télécharger SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -217,7 +217,7 @@ Pour acheminer le trafic de manière appropriée vers le nœud principal actuel,
 
 ## <a name="limitations"></a>Limites
 
-- Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d’administration léger](sql-vm-resource-provider-register.md#management-modes) est prise en charge.
+- Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d’administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606666"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289582"
 ---
 # <a name="certificate-creation-methods"></a>Méthodes de création de certificats
 
@@ -82,7 +82,7 @@ La création du certificat peut être effectuée manuellement ou à l’aide d�
 
 |Fournisseur|Type de certificat|Configuration  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault propose des certificats SSL OV ou EV avec DigiCert| [Guide d’intégration](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+|DigiCert|Key Vault propose des certificats SSL OV ou EV avec DigiCert| [Guide d’intégration](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault propose des certificats SSL OV ou EV avec GlobalSign| [Guide d’intégration](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  L’émetteur de certificat est une entité représentée dans Azure Key Vault (KV) en tant que ressource CertificateIssuer. Il fournit des informations sur la source d’un certificat KV, ainsi que le nom de l’émetteur, le fournisseur, les informations d’identification et d’autres détails administratifs.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907697"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309990"
 ---
 # <a name="two-class-logistic-regression-module"></a>Module de régression logistique à deux classes
 
@@ -22,7 +22,7 @@ Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour créer un modèle de régression logistique qui peut être utilisé pour prédire seulement deux résultats. 
 
-La régression logistique est une technique statistique connue utilisée pour modéliser de nombreux types de problèmes. Cet algorithme est une méthode d’*apprentissage supervisé*. Par conséquent, vous devez fournir un jeu de données qui contient déjà les résultats pour former le modèle.  
+La régression logistique est une technique statistique connue utilisée pour modéliser de nombreux types de problèmes. Cet algorithme est une méthode d’ *apprentissage supervisé*. Par conséquent, vous devez fournir un jeu de données qui contient déjà les résultats pour former le modèle.  
 
 ### <a name="about-logistic-regression"></a>À propos de la régression logistique  
 
@@ -44,9 +44,9 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
 
     -   **Plage de paramètres** : en cas de doute sur les paramètres à utiliser, utilisez le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md). Vous fournissez une plage de valeurs, et le mode d'apprentissage effectue une itération sur plusieurs combinaisons de paramètres pour déterminer la combinaison de valeurs qui produit le meilleur résultat.
   
-3.  Pour la **tolérance d’optimisation**, spécifiez une valeur de seuil à utiliser lors de l’optimisation du modèle. Si l’amélioration entre les itérations tombe au-dessous du seuil spécifié, on considère que l’algorithme a convergé vers une solution, et l’entraînement cesse.  
+3.  Pour la **tolérance d’optimisation** , spécifiez une valeur de seuil à utiliser lors de l’optimisation du modèle. Si l’amélioration entre les itérations tombe au-dessous du seuil spécifié, on considère que l’algorithme a convergé vers une solution, et l’entraînement cesse.  
   
-4.  Pour la **pondération de régularisation L1** et la **pondération de régularisation L2**, saisissez une valeur à utiliser pour les paramètres de régularisation L1 et L2. La définition d’une valeur non nulle est recommandée pour les deux options.  
+4.  Pour la **pondération de régularisation L1** et la **pondération de régularisation L2** , saisissez une valeur à utiliser pour les paramètres de régularisation L1 et L2. La définition d’une valeur non nulle est recommandée pour les deux options.  
      La *régularisation* est une méthode qui sert à empêcher le surajustement en pénalisant les modèles avec des valeurs de coefficient extrêmes. La régularisation fonctionne en ajoutant la pénalité associée aux valeurs de coefficient à l’erreur de l’hypothèse. Par conséquent, un modèle précis avec des valeurs de coefficient extrêmes est plus pénalisé, mais un modèle moins précis avec des valeurs plus conservatrices est moins pénalisé.  
   
      Les régularisations L1 et L2 ont différents effets et cas d’utilisation.  
@@ -58,24 +58,24 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
      Cet algorithme prend en charge une combinaison linéaire de valeurs de régularisation L1 et L2 : autrement dit, si <code>x = L1</code> et <code>y = L2</code>, <code>ax + by = c</code> définit l’étendue linéaire des termes du contrat de régularisation.  
   
     > [!NOTE]
-    >  Vous souhaitez en savoir plus sur la régularisation L1 et L2 ? L’article suivant explore les différences entre les régularisations L1 et L2 et comment elles influent sur l’ajustement du modèle, avec des exemples de code pour les modèles de régression logistique et de réseau neuronal :  [Régularisations L1 et L2 pour l’apprentissage automatique](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Vous souhaitez en savoir plus sur la régularisation L1 et L2 ? L’article suivant explore les différences entre les régularisations L1 et L2 et comment elles influent sur l’ajustement du modèle, avec des exemples de code pour les modèles de régression logistique et de réseau neuronal :  [Régularisations L1 et L2 pour l’apprentissage automatique](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Différentes combinaisons linéaires de termes L1 et L2 ont été imaginées pour les modèles de régression logistique : par exemple, [régularisation de réseau élastique](https://wikipedia.org/wiki/Elastic_net_regularization). Nous vous suggérons de faire référence à ces combinaisons pour définir une combinaison linéaire est efficace dans votre modèle.
       
-5.  Pour la **taille de la mémoire pour L-BFGS**, spécifiez la quantité de mémoire à utiliser pour l’optimisation *L-BFGS*.  
+5.  Pour la **taille de la mémoire pour L-BFGS** , spécifiez la quantité de mémoire à utiliser pour l’optimisation *L-BFGS*.  
   
      L-BFGS est l’acronyme de « limited memory Broyden-Fletcher-Goldfarb-Shanno ». Il s’agit d’un algorithme d’optimisation souvent utilisé pour l’estimation des paramètres. Ce paramètre indique le nombre de positions passées et de gradients à stocker pour le calcul de l’étape suivante.  
   
      Ce paramètre d’optimisation limite la quantité de mémoire utilisée pour calculer l’étape suivante et la direction. Lorsque vous spécifiez moins de mémoire, l’apprentissage est plus rapide mais moins précis.  
   
-6.  Pour la **valeur initiale aléatoire**, saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions du même pipeline.  
+6.  Pour la **valeur initiale aléatoire** , saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions du même pipeline.  
   
   
 8. Ajoutez un jeu de données étiqueté au pipeline, puis entraînez le modèle :
 
     + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres** , connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
@@ -97,4 +97,4 @@ Une fois l’apprentissage terminé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

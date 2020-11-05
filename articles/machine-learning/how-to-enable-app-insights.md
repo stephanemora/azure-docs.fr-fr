@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897660"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314219"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
 
@@ -143,7 +143,7 @@ Pour désactiver Azure Application Insights, utilisez le code suivant :
 Vous pouvez également activer Application Insights à partir du studio Azure Machine Learning. Lorsque vous êtes prêt à déployer votre modèle en tant que service web, procédez comme suit pour activer Application Insights :
 
 1. Connectez-vous au studio à l’adresse https://ml.azure.com.
-1. Accédez à **Modèles**, puis sélectionnez le modèle que vous voulez déployer.
+1. Accédez à **Modèles** , puis sélectionnez le modèle que vous voulez déployer.
 1. Sélectionnez **+ Déployer**.
 1. Renseignez le formulaire **Déployer le modèle**.
 1. Développez le menu **Avancé**.
@@ -178,7 +178,7 @@ Azure Application Insights stocke les journaux du service dans le même groupe d
 
     [![Locate Application Insights url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Dans Application Insights, à partir de l’onglet **Vue d’ensemble** ou de la section __Surveillance__, sélectionnez __Journaux__.
+1. Dans Application Insights, à partir de l’onglet **Vue d’ensemble** ou de la section __Surveillance__ , sélectionnez __Journaux__.
 
     [![Onglet Vue d’ensemble de la surveillance](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -204,9 +204,9 @@ Pour enregistrer les informations sur la demande du service web, ajoutez des ins
 ## <a name="export-data-for-retention-and-processing"></a>Exporter des données pour la rétention et le traitement
 
 >[!Important]
-> Azure Application Insights ne prend en charge que les exportations vers le Stockage Blob. Pour plus d’informations sur les limites de cette implémentation, voir [Exporter la télémétrie depuis Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Azure Application Insights ne prend en charge que les exportations vers le Stockage Blob. Pour plus d’informations sur les limites de cette implémentation, voir [Exporter la télémétrie depuis Application Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-L’[exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) d’Application Insights permet d’exporter des données vers un compte de stockage d’objets Blob dans lequel vous pouvez définir des paramètres de rétention. Application Insights exporte les données au format JSON. 
+L’[exportation continue](../azure-monitor/app/export-telemetry.md) d’Application Insights permet d’exporter des données vers un compte de stockage d’objets Blob dans lequel vous pouvez définir des paramètres de rétention. Application Insights exporte les données au format JSON. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportation continue":::
 
@@ -215,8 +215,8 @@ L’[exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/ex
 Dans cet article, vous avez appris à activer la journalisation et à consulter les journaux des points de terminaison de service web. Consultez les articles suivants pour les prochaines étapes :
 
 
-* [Procédure de déploiement d’un modèle dans un cluster AKS](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [Procédure de déploiement d’un modèle dans un cluster AKS](./how-to-deploy-azure-kubernetes-service.md)
 
-* [Procédure de déploiement d’un modèle dans Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [Procédure de déploiement d’un modèle dans Azure Container Instances](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps : Déployer, gérer et superviser des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) pour en savoir plus sur l’exploitation des données collectées à partir des modèles en production. Ces données peuvent vous aider à améliorer continuellement votre processus de Machine Learning.
+* [MLOps : Déployer, gérer et superviser des modèles avec Azure Machine Learning](./concept-model-management-and-deployment.md) pour en savoir plus sur l’exploitation des données collectées à partir des modèles en production. Ces données peuvent vous aider à améliorer continuellement votre processus de Machine Learning.

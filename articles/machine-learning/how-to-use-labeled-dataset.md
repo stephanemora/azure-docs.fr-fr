@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fad51f5c8ec426792c74b1a14ea80ab47c2d892
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757773"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312293"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
 
@@ -27,8 +27,8 @@ Nous faisons référence aux jeux de données Azure Machine Learning avec des é
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
-* Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).
-    * Installer le package [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true)
+* Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).
+    * Installer le package [azure-contrib-dataset](/python/api/azureml-contrib-dataset/?preserve-view=true&view=azure-ml-py)
 * Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 * Accédez à un projet d’étiquetage de données Azure Machine Learning. Si vous n’avez pas de projet d’étiquetage, créez-en un en suivant [ces étapes](how-to-create-labeling-projects.md).
 
@@ -52,7 +52,7 @@ Chargez vos jeux de données étiquetés dans une tramedonnées pandas ou un jeu
 
 ### <a name="pandas-dataframe"></a>Tramedonnées Pandas
 
-Vous pouvez charger des jeux de données étiquetés dans une tramedonnées pandas avec la méthode [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la classe `azureml-contrib-dataset`. Installez la classe avec la commande d’interpréteur de commandes suivante : 
+Vous pouvez charger des jeux de données étiquetés dans une tramedonnées pandas avec la méthode [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la classe `azureml-contrib-dataset`. Installez la classe avec la commande d’interpréteur de commandes suivante : 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -87,7 +87,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Jeux de données Torchvision
 
-Vous pouvez charger des jeux de données étiquetés dans un jeu de données Torchvision avec la méthode [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) également à partir de la classe `azureml-contrib-dataset`. Pour pouvoir utiliser cette méthode, [PyTorch](https://pytorch.org/) doit être installé. 
+Vous pouvez charger des jeux de données étiquetés dans un jeu de données Torchvision avec la méthode [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-torchvision--) également à partir de la classe `azureml-contrib-dataset`. Pour pouvoir utiliser cette méthode, [PyTorch](https://pytorch.org/) doit être installé. 
 
 Dans le code suivant, le jeu de données `animal_labels` est la sortie d’un projet d’étiquetage enregistré dans l’espace de travail.
 

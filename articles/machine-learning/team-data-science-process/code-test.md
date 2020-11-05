@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090295"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312688"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test de code de science des données dans Azure avec Team Data Science Process et Azure DevOps Services
 Cet article donne des recommandations préliminaires pour tester les codes dans un flux de travail de science des données. Ce type de test permet aux chercheurs de données de vérifier leur code systématiquement et efficacement pour en garantir la qualité et le résultat. Nous nous basons sur un projet TDSP (Team Data Science Process) [qui utilise le jeu de données UCI Adult Income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que nous avons publié précédemment afin de montrer comment tester les codes. 
@@ -124,7 +124,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     ![Liste des modèles et bouton Processus vide](./media/code-test/start_empty_process_template.PNG)
 
-    d. Donnez un nom à la build et sélectionnez l’agent. Vous pouvez choisir ici la valeur par défaut si vous souhaitez utiliser une machine DSVM et terminer le processus de génération. Pour plus d’informations sur la configuration des agents, voir [Créer et libérer des agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Donnez un nom à la build et sélectionnez l’agent. Vous pouvez choisir ici la valeur par défaut si vous souhaitez utiliser une machine DSVM et terminer le processus de génération. Pour plus d’informations sur la configuration des agents, voir [Créer et libérer des agents](/azure/devops/pipelines/agents/agents?view=vsts).
     
     ![Sélections de la build et de l’agent](./media/code-test/select_agent.PNG)
 
@@ -134,7 +134,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     f. Dans les détails de PowerShell, renseignez les informations requises, notamment le nom et la version de PowerShell. Choisissez **Script Inline** comme type. 
     
-    Dans la zone sous **Script Inline**, saisissez **python test1.py**. Assurez-vous que la variable d’environnement est correctement configurée pour Python. Si vous avez besoin d’un noyau ou d’une version différente de Python, vous pouvez spécifier explicitement le chemin d’accès, comme indiqué dans l’illustration : 
+    Dans la zone sous **Script Inline** , saisissez **python test1.py**. Assurez-vous que la variable d’environnement est correctement configurée pour Python. Si vous avez besoin d’un noyau ou d’une version différente de Python, vous pouvez spécifier explicitement le chemin d’accès, comme indiqué dans l’illustration : 
     
     ![Détails de PowerShell](./media/code-test/powershell_scripts.PNG)
 
@@ -155,7 +155,7 @@ Si les alertes sont correctement définies, vous serez averti par courrier élec
 * Appuyez-vous sur le plan et les exemples fournis précédemment dans le scénario UCI Income Prediction pour vos propres projets de science des données.
 
 ## <a name="references"></a>References
-* [Processus Team Data Science Process](https://aka.ms/tdsp)
+* [Processus Team Data Science Process](./index.yml)
 * [Outils de test Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Ressources de test Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Machines virtuelles Data Science](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

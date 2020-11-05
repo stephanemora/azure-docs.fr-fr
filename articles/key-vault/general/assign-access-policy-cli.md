@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 32a323e8cc56a8c45b18737bb55ebe19d4be27c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59ba81944ecdf4f2b6322f4298e61df33f5b1da8
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380416"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289183"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Attribuer une stratégie d’accès Key Vault
 
@@ -29,7 +29,7 @@ Pour plus d’informations sur la création de groupes dans Azure Active Directo
 
 1. Pour exécuter des commandes Azure CLI localement, installez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
  
-    Pour exécuter des commandes directement dans le cloud, utilisez le service [Azure Cloud Shell](/azure/cloud-shell/overview).
+    Pour exécuter des commandes directement dans le cloud, utilisez le service [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 1. CLI locale uniquement : connectez-vous à Azure à l’aide de la commande `az login` :
 

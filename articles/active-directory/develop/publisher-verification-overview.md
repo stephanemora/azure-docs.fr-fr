@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363417"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308783"
 ---
 # <a name="publisher-verification"></a>Vérification de l'éditeur
 
-La vérification de l’éditeur permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications qui s'intègrent à la plateforme d'identités Microsoft. Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à son inscription d'application. 
+La vérification de l’éditeur permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications qui s'intègrent à la plateforme d'identités Microsoft. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à son inscription d'application. 
 
 Un badge bleu « vérifié » apparaît sur l'invite de consentement d'Azure AD et sur d'autres écrans : ![Invite de consentement](./media/publisher-verification-overview/consent-prompt.png)
 

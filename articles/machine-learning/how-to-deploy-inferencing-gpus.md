@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 9a18b35ce974aebb38f8f58b892fd93b94f5e3c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8480a0b8722fbfff0f1d8a8fafc1a64f38d21d6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314802"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307208"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 
@@ -38,7 +38,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
-* Un environnement de développement Python dans lequel le SDK Azure Machine Learning est installé. Pour plus d’informations, consultez [Kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* Un environnement de développement Python dans lequel le SDK Azure Machine Learning est installé. Pour plus d’informations, consultez [Kit SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * Un modèle inscrit qui utilise un GPU.
 
@@ -192,7 +192,7 @@ inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
 Pour plus d’informations sur les environnements , consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md).
-Pour plus d’informations, consultez la documentation de référence pour [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Pour plus d’informations, consultez la documentation de référence pour [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Déployer le modèle
 
@@ -217,7 +217,7 @@ aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
-Pour plus d’informations, consultez la documentation de référence sur [le modèle](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Pour plus d’informations, consultez la documentation de référence sur [le modèle](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Envoyer un exemple de requête à votre service
 

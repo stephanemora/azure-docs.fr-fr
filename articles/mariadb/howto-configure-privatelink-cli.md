@@ -1,18 +1,18 @@
 ---
 title: Private Link - Azure CLI - Azure Database for MariaDB
 description: Découvrez comment configurer une instance Private Link pour Azure Database for MariaDB à partir d’Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537216"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242889"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Créer et gérer Private Link pour Azure Database for MariaDB à l'aide de l'interface CLI
 
@@ -133,24 +133,24 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit :
 
-1. Dans la barre de recherche du portail, entrez *myVm* .
+1. Dans la barre de recherche du portail, entrez *myVm*.
 
-1. Sélectionnez le bouton **Connexion** . Après avoir sélectionné le bouton **Connecter** , **Se connecter à la machine virtuelle** s’ouvre.
+1. Sélectionnez le bouton **Connexion**. Après avoir sélectionné le bouton **Connecter** , **Se connecter à la machine virtuelle** s’ouvre.
 
-1. Sélectionnez **Télécharger le fichier RDP** . Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp* ) et le télécharge sur votre ordinateur.
+1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp* ) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier *downloaded.rdp* .
+1. Ouvrez le fichier *downloaded.rdp*.
 
-    1. Si vous y êtes invité, sélectionnez **Connexion** .
+    1. Si vous y êtes invité, sélectionnez **Connexion**.
 
     1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
 
         > [!NOTE]
         > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte** , pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
 
-1. Sélectionnez **OK** .
+1. Sélectionnez **OK**.
 
-1. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer** .
+1. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer**.
 
 1. Une fois que le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre poste de travail local.  
 
@@ -181,11 +181,11 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
     | Mot de passe | Entrez le mot de passe fourni lors de la création du serveur MariaDB. |
     ||
 
-5. Sélectionnez **Tester la connexion** ou **OK** .
+5. Sélectionnez **Tester la connexion** ou **OK**.
 
 6. (Facultatif) Parcourez les bases de données à partir du menu de gauche et créez ou interrogez des informations à partir de la base de données MariaDB
 
-8. Fermez la connexion Bureau à distance à myVm.
+8. Fermez la connexion Bureau à distance avec myVm.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Lorsque vous n'en avez plus besoin, vous pouvez utiliser az group delete pour supprimer le groupe de ressources, ainsi que toutes les ressources qu’il contient : 

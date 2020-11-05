@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 6f136d0818daca1585de3896305a080ddbabfbe2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3763942c7b939bf9a4fcc3e11a2536de33b61e05
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426918"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308113"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gérer un espace de travail Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 > [!NOTE]
@@ -51,4 +51,4 @@ Pour gérer les services web associés à cet espace de travail Studio (classiqu
 >Pour plus d'informations sur le paramétrage des autorisations d'accès, consultez [Ajouter ou supprimer des attributions de rôles Azure à l'aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment [déployer le Machine Learning avec des modèles Azure Resource Manager](deploy-with-resource-manager-template.md). 
+* Découvrez comment [déployer le Machine Learning avec des modèles Azure Resource Manager](deploy-with-resource-manager-template.md).

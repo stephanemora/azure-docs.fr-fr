@@ -4,17 +4,17 @@ description: Créer une instance gérée Azure SQL à l’aide d’Azure Data St
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 651811384a8e831c41c48ca8c4849e5ee3852054
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320300"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280476"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Créer une instance gérée SQL – Azure Arc utilisant Azure Data Studio
 
@@ -60,7 +60,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
   - Sélectionnez la classe de stockage appropriée pour les données.
   - Sélectionnez la classe de stockage appropriée pour les journaux.
 
-- Cliquez sur le bouton **Déployer** .
+- Cliquez sur le bouton **Déployer**.
 
 - Cette action doit lancer la création de l’instance gérée Azure SQL – Azure Arc sur le contrôleur de données.
 
@@ -88,7 +88,7 @@ Name          Replicas    ServerEndpoint     State
 sqlinstance1  1/1         25.51.65.109:1433  Ready
 ```
 
-- Dans Azure Data Studio, sous l’onglet **Connexions** , cliquez sur **Nouvelle connexion** dans la vue **Serveurs** .
+- Dans Azure Data Studio, sous l’onglet **Connexions** , cliquez sur **Nouvelle connexion** dans la vue **Serveurs**.
 - Dans le panneau **Connexion** , collez l’élément ServerEndpoint dans la zone de texte Serveur.
 - Sélectionnez **Connexion SQL** comme type d’authentification.
 - Entrez *sa* comme nom d’utilisateur.

@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541711"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312318"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
@@ -49,8 +49,8 @@ Exécutez ce code dans l’un des environnements suivants. Nous vous recommandon
  
  - Votre propre serveur de notebooks Jupyter
 
-    - Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-    - Installez le [Kit de développement logiciel (SDK) d’apprentissage par renforcement d’Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true) : `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+    - Installez le [Kit de développement logiciel (SDK) d’apprentissage par renforcement d’Azure Machine Learning](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py) : `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Créer un [fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
     - Exécutez le [bloc-notes de configuration](https://aka.ms/azure-rl-env-setup) du réseau virtuel pour ouvrir les ports réseau utilisés pour l’apprentissage par renforcement distribué.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Créer une expérience d’apprentissage par renforcement
 
-Créez une [expérience](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) pour suivre votre apprentissage par renforcement. Dans Azure Machine Learning, les expériences sont des collections logiques d’essais associés pour organiser des journaux d’exécution, un historique, des résultats et bien plus encore.
+Créez une [expérience](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) pour suivre votre apprentissage par renforcement. Dans Azure Machine Learning, les expériences sont des collections logiques d’essais associés pour organiser des journaux d’exécution, un historique, des résultats et bien plus encore.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -131,7 +131,7 @@ Cet exemple utilise des cibles de calcul distinctes pour les nœuds Worker et pr
 
 Cet exemple utilise un cluster principal équipé d’un GPU pour optimiser les performances d’apprentissage profond. Le nœud principal forme le réseau neuronal que l’agent utilise pour prendre des décisions. Le nœud principal collecte également des points de données à partir des nœuds Worker pour approfondir l’apprentissage du réseau neuronal.
 
-Le calcul principal utilise une seule [machine virtuelle `STANDARD_NC6`](https://docs.microsoft.com/azure/virtual-machines/nc-series). Il possède 6 processeurs virtuels entre lesquels il peut répartir le travail.
+Le calcul principal utilise une seule [machine virtuelle `STANDARD_NC6`](../virtual-machines/nc-series.md). Il possède 6 processeurs virtuels entre lesquels il peut répartir le travail.
 
 
 ```python
@@ -173,7 +173,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>Cluster de calcul Worker
 
-Cet exemple utilise quatre [machines virtuelles `STANDARD_D2_V2`](https://docs.microsoft.com/azure/virtual-machines/nc-series) pour la cible de calcul Worker. Chaque nœud Worker dispose de 2 processeurs pour un total de 8 processeurs disponibles pour paralléliser le travail.
+Cet exemple utilise quatre [machines virtuelles `STANDARD_D2_V2`](../virtual-machines/nc-series.md) pour la cible de calcul Worker. Chaque nœud Worker dispose de 2 processeurs pour un total de 8 processeurs disponibles pour paralléliser le travail.
 
 Les GPU ne sont pas nécessaires pour les nœuds Worker, car ils n’effectuent pas d’apprentissage approfondi. Les Workers exécutent les simulations de jeu et collectent des données.
 
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Créer un estimateur d’apprentissage par renforcement
 
-Cette section explique comment à utiliser l’[estimateur d’apprentissage par renforcement](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) pour soumettre un travail d’apprentissage à Azure Machine Learning.
+Cette section explique comment à utiliser l’[estimateur d’apprentissage par renforcement](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) pour soumettre un travail d’apprentissage à Azure Machine Learning.
 
 Azure Machine Learning utilise des classes d’estimateur pour encapsuler les informations de configuration de l’exécution. Cela vous permet de spécifier facilement comment configurer l’exécution d’un script. 
 
@@ -248,7 +248,7 @@ Le script d’entrée `pong_rllib.py` accepte une liste de paramètres qui défi
 
 Si vous spécifiez la valeur `num_workers` appropriée, vous tirerez le meilleur parti de vos efforts de parallélisation. Définissez le nombre de Workers sur le nombre d’UC disponibles. Pour cet exemple, vous pouvez calculer ce nombre comme suit :
 
-Le nœud principal est un [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) avec 6 processeurs virtuels. Le cluster Worker est composé de 4 [machines virtuelles Standard_D2_V2](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series) avec 2 UC chacune, pour un total de 8 UC. Toutefois, vous devez soustraire du nombre de Workers 1 UC dédiée au rôle de nœud principal. 6 UC + 8 UC - 1 UC de nœud principal = 13 Workers simultanés. Azure Machine Learning utilise des clusters principal et Worker pour distinguer les ressources de calcul. Toutefois, l’infrastructure Ray ne fait pas de distinction entre les clusters principal et Worker, et toutes les UC sont disponibles pour l’exécution du thread Worker.
+Le nœud principal est un [Standard_NC6](../virtual-machines/nc-series.md) avec 6 processeurs virtuels. Le cluster Worker est composé de 4 [machines virtuelles Standard_D2_V2](../cloud-services/cloud-services-sizes-specs.md#dv2-series) avec 2 UC chacune, pour un total de 8 UC. Toutefois, vous devez soustraire du nombre de Workers 1 UC dédiée au rôle de nœud principal. 6 UC + 8 UC - 1 UC de nœud principal = 13 Workers simultanés. Azure Machine Learning utilise des clusters principal et Worker pour distinguer les ressources de calcul. Toutefois, l’infrastructure Ray ne fait pas de distinction entre les clusters principal et Worker, et toutes les UC sont disponibles pour l’exécution du thread Worker.
 
 
 ```python
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Envoyer une exécution
 
-[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) gère l’historique des exécutions des travaux en cours ou terminés. 
+[Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) gère l’historique des exécutions des travaux en cours ou terminés. 
 
 ```python
 run = exp.submit(config=rl_estimator)

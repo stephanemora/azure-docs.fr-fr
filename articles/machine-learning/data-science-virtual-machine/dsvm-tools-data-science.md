@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012404"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309114"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Outils d’apprentissage automatique et de science des données sur les machines virtuelles de science des données (DSVM) Azure
 Les machines virtuelles DSVM (Data Science Virtual Machine) offrent un ensemble complet d’outils et de bibliothèques de Machine Learning disponibles dans des langages courants tels que Python, R et Julia.
@@ -24,7 +24,7 @@ Voici une partie des outils et des bibliothèques de Machine Learning disponible
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>Kit SDK Azure Machine Learning pour Python
 
-Consultez la référence complète du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python.](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
+Consultez la référence complète du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python.](../overview-what-is-azure-ml.md)
 
 | Category | Valeur |
 | ------------- | ------------- |
@@ -113,5 +113,3 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Utilisations classiques      |  Pour l’exploration de données sur place sans nécessiter une opération d’extraction, de transformation et de chargement (ETL). Interroger différents formats et sources de données, notamment CSV, JSON, les tables relationnelles et Hadoop.     |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau  <br/> [Prendre en main Drill en 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Outils connexes sur la machine virtuelle DSVM      |   Rattle, Weka, SQL Server Management Studio      |
-
-

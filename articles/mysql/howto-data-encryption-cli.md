@@ -1,18 +1,18 @@
 ---
 title: Chiffrement des données - Azure CLI - Azure Database pour MySQL
 description: Découvrez comment configurer et gérer le chiffrement des données pour votre instance Azure Database pour MySQL avec Azure CLI.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799817"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242090"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Chiffrement des données pour Azure Database pour MySQL avec Azure CLI
 
@@ -50,7 +50,7 @@ Découvrez comment utiliser Azure CLI pour configurer et gérer le chiffrement d
 * La clé doit avoir les attributs suivants à utiliser en tant que clé gérée par le client :
   * Aucune date d’expiration
   * Non activée
-  * Effectuer les opérations **get**, **wrap** et **unwrap**
+  * Effectuer les opérations **get** , **wrap** et **unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Définir les permissions appropriées pour les opérations sur les clés
 
@@ -68,7 +68,7 @@ Découvrez comment utiliser Azure CLI pour configurer et gérer le chiffrement d
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Définissez les **Autorisations de clé** (**Get**, **Wrap**, **Unwrap**) pour le **Principal** (nom du serveur MySQL).
+2. Définissez les **Autorisations de clé** ( **Get** , **Wrap** , **Unwrap** ) pour le **Principal** (nom du serveur MySQL).
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

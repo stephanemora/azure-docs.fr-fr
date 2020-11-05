@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311515"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interprétabilité des modèles dans le service Azure Machine Learning (version préliminaire)
 
@@ -39,7 +39,7 @@ La capacité à expliquer un modèle Machine Learning est importante lors de deu
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interprétabilité avec Azure Machine Learning
 
-Les classes d’interprétabilité sont accessibles via le package de Kit de développement logiciel (SDK) suivant : (En savoir plus sur l’[installation de packages de Kit de développement logiciel (SDK) pour Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+Les classes d’interprétabilité sont accessibles via le package de Kit de développement logiciel (SDK) suivant : (En savoir plus sur l’[installation de packages de Kit de développement logiciel (SDK) pour Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`, contient des fonctionnalités prises en charge par Microsoft.
 
@@ -66,10 +66,10 @@ Découvrez les techniques d’interprétabilité, les modèles Machine Learning 
 |--|--|--------------------|
 |Explicatif d’arborescence SHAP| L’explicatif d’arborescence de [SHAP](https://github.com/slundberg/shap) cible l’algorithme d’estimation de valeur SHAP rapide de temps polynomial spécifique des **arborescences et ensembles d’arborescences**.|Spécifique au modèle|
 |Explicatif approfondi SHAP| Selon l’explication proposée par SHAP, l’explicatif approfondi « est un algorithme d’approximation à vitesse élevée de valeurs SHAP dans des modèles de deep learning qui s’appuie sur une connexion avec DeepLIFT décrite dans le [document NIPS de SHAP](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Les modèles **TensorFlow** et **Keras** utilisant le serveur principal TensorFlow sont pris en charge (une prise en charge préliminaire de PyTorch est également possible) ».|Spécifique au modèle|
-|Explicatif linéaire SHAP| L’explicatif linéaire de SHAP calcule les valeurs SHAP pour un **modèle linéaire**, en prenant éventuellement en compte les corrélations entre les caractéristiques.|Spécifique au modèle|
+|Explicatif linéaire SHAP| L’explicatif linéaire de SHAP calcule les valeurs SHAP pour un **modèle linéaire** , en prenant éventuellement en compte les corrélations entre les caractéristiques.|Spécifique au modèle|
 |Explicatif de noyau SHAP| L’explicatif de noyau de SHAP utilise une régression linéaire locale spécialement pondérée pour estimer les valeurs SHAP pour **n’importe quel modèle**.|Indépendant du modèle|
 |Explicatif d’imitation (substitution globale)| L’explicatif d’imitation repose sur l’idée d’entraînement de [modèles de substitution globaux](https://christophm.github.io/interpretable-ml-book/global.html) sur des modèles de boîte noire d’imitation. Un modèle de substitution global est un modèle intrinsèquement interprétable qui est formé pour estimer les prédictions de **n’importe quel modèle de boîte noire** aussi précisément que possible. Les scientifiques des données peuvent interpréter le modèle de substitution pour déduire des conclusions sur le modèle de boîte noire. Vous pouvez utiliser un des modèles interprétables suivants comme modèle de substitution : LightGBM (LGBMExplainableModel), régression linéaire (LinearExplainableModel), modèle explicable Stochastic Gradient Descent (SGDExplainableModel) et arbre de décision (DecisionTreeExplainableModel).|Indépendant du modèle|
-|Explicatif d’importance de fonctionnalité de permutation (PFI)| L’importance de fonctionnalité de permutation est une technique utilisée pour expliquer les modèles de classification et de régression qui s’inspirent du [document relatif aux forêts aléatoires de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consultez la section 10). De façon générale, il fonctionne en permutant aléatoirement les données d’une caractéristique à la fois pour l’ensemble du jeu de données et en calculant dans quelle mesure la métrique de performances d’intérêt change. Plus la modification est importante, et plus la fonctionnalité l’est également. La PFI peut expliquer le comportement global de **n’importe quel modèle sous-jacent**, mais n’explique pas les prédictions individuelles. |Indépendant du modèle|
+|Explicatif d’importance de fonctionnalité de permutation (PFI)| L’importance de fonctionnalité de permutation est une technique utilisée pour expliquer les modèles de classification et de régression qui s’inspirent du [document relatif aux forêts aléatoires de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consultez la section 10). De façon générale, il fonctionne en permutant aléatoirement les données d’une caractéristique à la fois pour l’ensemble du jeu de données et en calculant dans quelle mesure la métrique de performances d’intérêt change. Plus la modification est importante, et plus la fonctionnalité l’est également. La PFI peut expliquer le comportement global de **n’importe quel modèle sous-jacent** , mais n’explique pas les prédictions individuelles. |Indépendant du modèle|
 
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: ff08af00649cf61134c3e27d07b329e40169ea66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbac7c8818300ffb09959969e6b79f949177f457
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338738"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307678"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
 ## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants
@@ -91,4 +91,4 @@ Nous vous invitons à regarder les autres vidéos de la série « Science des do
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio (classique)](create-experiment.md)
-* [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](../overview-what-is-azure-ml.md)

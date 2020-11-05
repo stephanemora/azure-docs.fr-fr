@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0ed958d24a7ff499c8cf33974648afb0f4e0a81d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367986"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307857"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning Studio (classique). La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
 
@@ -30,8 +30,8 @@ Le processus de recherche de l’ensemble de paramètres idéal comprend quatre 
 
 1. **Définir l’espace de paramètre :** Pour l’algorithme, vous devez d’abord déterminer les valeurs de paramètres exactes que vous souhaitez prendre en compte.
 2. **Définir les paramètres de validation croisée** : Déterminez comment choisir les plis de validation croisée pour le jeu de données.
-3. **Définir la mesure** : déterminez la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
-4. **Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la mesure d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
+3. **Définir la mesure**  : déterminez la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
+4. **Apprentissage, évaluation et comparaison**  : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la mesure d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
 
 L’image ci-dessous illustre cette opération dans Azure Machine Learning Studio (classique).
 
@@ -66,12 +66,12 @@ Le module dispose également d’un jeu de données d’entrée facultatif. Conn
 
 ![Classifieur d’arbre de décision optimisé](./media/algorithm-parameters-optimize/fig6a.png)
 
-Le modèle est ensuite évalué sur le jeu de données de validation. Le port de sortie de gauche du module affiche des mesures différentes comme fonctions des valeurs de paramètres. Le port de sortie de droite indique le modèle formé correspondant au modèle le plus performant, en fonction de la mesure choisie (dans ce cas, l’**exactitude**).  
+Le modèle est ensuite évalué sur le jeu de données de validation. Le port de sortie de gauche du module affiche des mesures différentes comme fonctions des valeurs de paramètres. Le port de sortie de droite indique le modèle formé correspondant au modèle le plus performant, en fonction de la mesure choisie (dans ce cas, l’ **exactitude** ).  
 
 ![Jeu de données de validation](./media/algorithm-parameters-optimize/fig6b.png)
 
 Vous pouvez voir les paramètres exacts choisis en visualisant le port de sortie de droite. Ce modèle peut être utilisé lors du calcul de la notation d’un ensemble de test ou dans un service web mis en œuvre après l’enregistrement en tant que modèle formé.
 
 <!-- Module References -->
-[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[partition-and-sample]: /azure/machine-learning/studio-module-reference/partition-and-sample
+[tune-model-hyperparameters]: /azure/machine-learning/studio-module-reference/tune-model-hyperparameters

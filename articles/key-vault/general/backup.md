@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440516"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287474"
 ---
 # <a name="azure-key-vault-backup"></a>Sauvegarde Azure Key Vault
 
@@ -25,9 +25,9 @@ Ce document vous montre comment sauvegarder des secrets, des clés et des certif
 
 Azure Key Vault fournit automatiquement des fonctionnalités permettant de garantir la disponibilité et d’empêcher toute perte de données. Sauvegardez les secrets uniquement si vous avez une justification métier stratégique. La sauvegarde de secrets dans votre coffre de clés peut introduire des défis opérationnels, comme la gestion de plusieurs ensembles de journaux, d’autorisations et de sauvegardes quand des secrets expirent ou permutent.
 
-Key Vault assure la disponibilité dans les scénarios de sinistre et bascule automatiquement les demandes vers une région associée sans aucune intervention de l’utilisateur. Pour plus d’informations, consultez [Disponibilité et redondance d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault assure la disponibilité dans les scénarios de sinistre et bascule automatiquement les demandes vers une région associée sans aucune intervention de l’utilisateur. Pour plus d’informations, consultez [Disponibilité et redondance d’Azure Key Vault](./disaster-recovery-guidance.md).
 
-Si vous voulez une protection contre la suppression accidentelle ou malveillante de vos secrets, configurez les fonctionnalités de suppression réversible et de protection contre le vidage sur votre coffre de clés. Pour plus d’informations, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Si vous voulez une protection contre la suppression accidentelle ou malveillante de vos secrets, configurez les fonctionnalités de suppression réversible et de protection contre le vidage sur votre coffre de clés. Pour plus d’informations, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Limites
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Activez [la journalisation et la supervision](https://docs.microsoft.com/azure/key-vault/general/logging) pour Key Vault.
+Activez [la journalisation et la supervision](./logging.md) pour Key Vault.

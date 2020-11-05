@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361941"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312869"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gérer des exécutions d’expériences dans Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.
@@ -33,7 +33,7 @@ Vous pouvez consulter les précédentes exécutions de vos expériences à tout 
 ## <a name="view-the-prior-run"></a>Afficher l’exécution précédente
 Lorsqu'une expérience que vous avez exécutée au moins une fois est ouverte, vous pouvez afficher l'exécution précédente de l'expérience en cliquant sur **Exécution précédente** dans le volet Propriétés.
 
-Supposons par exemple que vous créez une expérience et que vous exécutez des versions de celle-ci à 11:23, 11:42 et 11:55. Si vous ouvrez la dernière exécution de l'expérience (11:55) et que vous cliquez sur **Exécution précédente**, la version que vous avez exécutée à 11:42 est ouverte.
+Supposons par exemple que vous créez une expérience et que vous exécutez des versions de celle-ci à 11:23, 11:42 et 11:55. Si vous ouvrez la dernière exécution de l'expérience (11:55) et que vous cliquez sur **Exécution précédente** , la version que vous avez exécutée à 11:42 est ouverte.
 
 ## <a name="view-the-run-history"></a>Afficher l’historique des exécutions
 Vous pouvez afficher toutes les précédentes exécutions d'une expérience en cliquant sur **Afficher l'historique d'exécution** d'une expérience ouverte.
@@ -47,7 +47,7 @@ Supposons par exemple que vous créez une expérience à l’aide du module [Ré
 | 0.4 |11/9/2014 16:28:36 |
 | 0.5 |11/9/2014 16:33:31 |
 
-Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes ces exécutions apparaîtra :
+Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** , une liste de toutes ces exécutions apparaîtra :
 
 ![Exemple d'historique d'exécution](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -58,7 +58,7 @@ Cliquez sur une de ces exécutions pour afficher un instantané de l'expérience
 > 
 > 
 
-La liste des expériences de l’onglet **EXPÉRIENCES** dans Machine Learning Studio (classique) affiche toujours la version la plus récente d’une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION**), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l'**ÉTAT** est défini sur **Modifiable**.
+La liste des expériences de l’onglet **EXPÉRIENCES** dans Machine Learning Studio (classique) affiche toujours la version la plus récente d’une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION** ), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l' **ÉTAT** est défini sur **Modifiable**.
 
 ## <a name="run-a-previous-experiment"></a>Exécuter une expérience précédente
 Lorsque vous cliquez sur **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION** et que vous ouvrez une exécution précédente, vous pouvez afficher une expérience terminée en mode lecture seule.
@@ -76,4 +76,4 @@ Supposons par exemple que l'historique d'exécution d'une expérience est indiqu
 Vous pouvez maintenant continuer à modifier et exécuter cette version de votre expérience, en créant un nouvel historique d'exécution pour enregistrer votre travail.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604090"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286230"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Concepts de base de l’authentification Key Vault
 
@@ -24,8 +24,8 @@ En tant qu’administrateur, vous pouvez contrôler étroitement les utilisateur
 
 Ce document suppose que vous connaissez les concepts suivants. Si vous n’êtes pas familiarisé avec ces concepts, suivez les liens d’aide avant de continuer.
 
-* [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-* [Principaux de sécurité](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals)
+* [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+* [Principaux de sécurité](./authentication.md#app-identity-and-security-principals)
 
 ## <a name="key-vault-configuration-steps-summary"></a>Résumé des étapes de configuration de Key Vault
 
@@ -42,8 +42,8 @@ Lorsqu’un utilisateur ou une application effectue une requête auprès du coff
 Suivez les liens de la documentation ci-dessous pour comprendre comment inscrire un utilisateur ou une application dans Azure Active Directory.
 **Veillez à créer un mot de passe pour l’inscription de l’utilisateur et une clé secrète client ou un certificat client pour les applications.**
 
-* [Inscription d’un utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* [Inscription d’une application dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+* [Inscription d’un utilisateur dans Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md)
+* [Inscription d’une application dans Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Attribuer un rôle à votre principal de sécurité dans Azure Active Directory
 
@@ -57,8 +57,8 @@ Dans le contexte du coffre de clés, ces attributions de rôles déterminent le 
 >[!NOTE]
 > Lorsque vous attribuez un rôle à un utilisateur au niveau du locataire Azure Active Directory, cet ensemble d’autorisations s’étend à tous les abonnements, groupes de ressources et ressources au sein de l’étendue de l’attribution. Pour suivre le principe du moindre privilège, vous pouvez effectuer cette attribution de rôle dans une étendue plus granulaire. Par exemple, vous pouvez attribuer à un utilisateur un rôle Lecteur au niveau de l’abonnement et un rôle Propriétaire pour un coffre de clés unique. Accédez aux paramètres de gestion des identités et des accès (IAM) d’un abonnement, d’un groupe de ressources ou d’un coffre de clés pour effectuer une attribution de rôle dans une étendue plus granulaire.
 
-* [En savoir plus sur les rôles Azure Active Directory](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-* [En savoir plus sur l’attribution ou la suppression des rôles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [En savoir plus sur les rôles Azure Active Directory](../../role-based-access-control/built-in-roles.md)
+* [En savoir plus sur l’attribution ou la suppression des rôles](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configurer les stratégies d’accès au coffre de clés pour votre principal de sécurité
 
@@ -121,8 +121,8 @@ Les attributions de rôles Azure Key Vault sont un ensemble de rôles intégrés
 
 Pour en savoir plus sur le RBAC de coffre de clés, consultez les documents suivants :
 
-* [RBAC Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
-* [Rôles RBAC Azure Key Vault (préversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview)
+* [RBAC Azure Key Vault](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* [Rôles RBAC Azure Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
 
 ## <a name="configure-key-vault-firewall"></a>Configurer le pare-feu Key Vault
 
@@ -132,9 +132,9 @@ Pour activer le pare-feu du coffre de clés, cliquez sur l’onglet Mise en rés
 
 * Ajoutez des adresses IPv4 à la liste d’autorisation du pare-feu de coffre de clés. Cette option fonctionne mieux pour les applications qui ont des adresses IP statiques.
 
-* Ajoutez un réseau virtuel au pare-feu de coffre de clés. Cette option fonctionne mieux pour les ressources Azure qui ont des adresses IP dynamiques comme les machines virtuelles. Vous pouvez ajouter des ressources Azure à un réseau virtuel, puis ajouter le réseau virtuel à la liste d’autorisation du pare-feu de coffre de clés. Cette option utilise un point de terminaison de service qui est une adresse IP privée au sein du réseau virtuel. Cela constitue une couche de protection supplémentaire, de sorte qu’aucun trafic entre le coffre de clés et votre réseau virtuel n’est acheminé via l’Internet public. Pour en savoir plus sur le point de terminaison de service, consultez la documentation accessible [ici](https://docs.microsoft.com/azure/key-vault/general/network-security).
+* Ajoutez un réseau virtuel au pare-feu de coffre de clés. Cette option fonctionne mieux pour les ressources Azure qui ont des adresses IP dynamiques comme les machines virtuelles. Vous pouvez ajouter des ressources Azure à un réseau virtuel, puis ajouter le réseau virtuel à la liste d’autorisation du pare-feu de coffre de clés. Cette option utilise un point de terminaison de service qui est une adresse IP privée au sein du réseau virtuel. Cela constitue une couche de protection supplémentaire, de sorte qu’aucun trafic entre le coffre de clés et votre réseau virtuel n’est acheminé via l’Internet public. Pour en savoir plus sur le point de terminaison de service, consultez la documentation accessible [ici](./network-security.md).
 
-* Ajoutez une connexion de liaison privée au coffre de clés. Cette option connecte votre réseau virtuel directement à une instance particulière du coffre de clés, ce qui permet d’intégrer efficacement votre coffre de clés à votre réseau virtuel. Pour en savoir plus sur la configuration d’une connexion de point de terminaison privé au coffre de clés, suivez [ce lien](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
+* Ajoutez une connexion de liaison privée au coffre de clés. Cette option connecte votre réseau virtuel directement à une instance particulière du coffre de clés, ce qui permet d’intégrer efficacement votre coffre de clés à votre réseau virtuel. Pour en savoir plus sur la configuration d’une connexion de point de terminaison privé au coffre de clés, suivez [ce lien](./private-link-service.md).
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Tester la capacité de votre principal de service à accéder au coffre de clés
 
@@ -142,11 +142,11 @@ Une fois que vous avez suivi toutes les étapes ci-dessus, vous pourrez définir
 
 ### <a name="authentication-process-for-users-examples"></a>Processus d’authentification des utilisateurs (exemples)
 
-* Les utilisateurs peuvent se connecter au portail Azure pour utiliser le coffre de clés. [Démarrage rapide Key Vault via le portail](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Les utilisateurs peuvent se connecter au portail Azure pour utiliser le coffre de clés. [Démarrage rapide Key Vault via le portail](./quick-create-portal.md)
 
-* L’utilisateur peut utiliser Azure CLI pour utiliser le coffre de clés. [Démarrage rapide Key Vault via Azure CLI](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* L’utilisateur peut utiliser Azure CLI pour utiliser le coffre de clés. [Démarrage rapide Key Vault via Azure CLI](./quick-create-cli.md)
 
-* L’utilisateur peut utiliser Azure PowerShell pour utiliser le coffre de clés. [Démarrage rapide Key Vault via Azure PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* L’utilisateur peut utiliser Azure PowerShell pour utiliser le coffre de clés. [Démarrage rapide Key Vault via Azure PowerShell](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Processus d’authentification Azure Active Directory des applications ou des services (exemples)
 
@@ -156,7 +156,7 @@ Une fois que vous avez suivi toutes les étapes ci-dessus, vous pourrez définir
 
 * Une ressource Azure utilise l’authentification MSI pour recevoir un jeton Azure Active Directory. 
 
-* En savoir plus sur l’[authentification MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+* En savoir plus sur l’[authentification MSI](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="authentication-process-for-application-python-example"></a>Processus d’authentification des applications (exemple Python)
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’authentification du coffre de clés, consultez le document suivant : [Authentification du coffre de clés](https://docs.microsoft.com/azure/key-vault/general/authentication)
+Pour en savoir plus sur l’authentification du coffre de clés, consultez le document suivant : [Authentification du coffre de clés](./authentication.md)

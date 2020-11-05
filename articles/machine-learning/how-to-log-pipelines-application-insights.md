@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 624409be4d7e2cfba37dbe16e083904766ae1389
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897507"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309658"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Collecter les fichiers journaux de pipeline de Machine Learning dans Application Insights pour les alertes et le débogage
 
@@ -38,7 +38,7 @@ Le fait de disposer de vos journaux dans un emplacement unique permet d’obteni
 
 Cette section est une introduction spécifique à l’utilisation d’OpenCensus à partir d’un pipeline Azure Machine Learning. Pour obtenir un didacticiel détaillé, consultez [Exportateurs OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Ajoutez un PythonScriptStep à votre pipeline Azure ML. Configurez votre [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) avec la dépendance définie sur opencensus-ext-azure. Configurez la variable d’environnement `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+Ajoutez un PythonScriptStep à votre pipeline Azure ML. Configurez votre [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) avec la dépendance définie sur opencensus-ext-azure. Configurez la variable d’environnement `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -153,7 +153,7 @@ Le résultat dans Application Insights affiche le message du journal ainsi que l
 
 ### <a name="additional-helpful-queries"></a>Autres requêtes utiles
 
-Certaines des requêtes ci-dessous utilisent « customDimensions.Level ». Ces niveaux de gravité correspondent au niveau avec lequel le journal Python a été envoyé à l’origine. Pour plus d’informations sur les requêtes, consultez [Requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Certaines des requêtes ci-dessous utilisent « customDimensions.Level ». Ces niveaux de gravité correspondent au niveau avec lequel le journal Python a été envoyé à l’origine. Pour plus d’informations sur les requêtes, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/).
 
 | Cas d’utilisation                                                               | Requête                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Certaines des requêtes ci-dessous utilisent « customDimensions.Level ». Ces
 
 Une fois que vous avez des journaux dans votre instance Application Insights, vous pouvez les utiliser pour définir des [alertes Azure Monitor](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) en fonction des résultats de la requête.
 
-Vous pouvez également ajouter des résultats de requêtes à un [tableau de bord Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) pour obtenir des informations supplémentaires.
+Vous pouvez également ajouter des résultats de requêtes à un [tableau de bord Azure](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) pour obtenir des informations supplémentaires.

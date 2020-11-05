@@ -1,17 +1,17 @@
 ---
 title: Chiffrement double d’infrastructure - Azure Database pour MySQL
 description: Découvrez comment utiliser le chiffrement double d’infrastructure pour ajouter une deuxième couche de chiffrement avec des clés gérées par le service.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 233dcbeee0bccc714e3b4fe93e7c8b19aa9f2df0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125728"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242447"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database pour MySQL Chiffrement double d’infrastructure
 
@@ -58,7 +58,7 @@ Les fonctionnalités de chiffrement fournies par Azure Database pour MySQL peuve
 
 Pour Azure Database pour MySQL, la prise en charge du double chiffrement de l’infrastructure à l’aide de la clé gérée par le service présente les limitations suivantes :
 
-* La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée** .
+* La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée**.
 * Vous pouvez créer un Azure Database pour MySQL avec un chiffrement d’infrastructure activé dans les régions suivantes :
 
    * USA Est

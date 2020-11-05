@@ -9,25 +9,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015153"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286602"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure (préversion)
 
 > [!NOTE]
 > Le fournisseur de ressources Key Vault prend en charge deux types de ressources : les **coffres** et les **HSM managés**. Le contrôle d’accès décrit dans cet article s’applique uniquement aux **coffres**. Pour en savoir plus sur le contrôle d’accès pour le HSM managé, consultez [Contrôle d’accès HSM managé](../managed-hsm/access-control.md).
 
-Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), qui permet une gestion précise des accès des ressources Azure.
+Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md), qui permet une gestion précise des accès des ressources Azure.
 
 Le RBAC Azure permet aux utilisateurs de gérer les autorisations de clé, de secrets et de certificats. Il fournit un emplacement unique pour gérer toutes les autorisations sur tous les coffres de clés. 
 
 Le modèle de RBAC Azure offre la possibilité de définir des autorisations pour différents niveaux d’étendue : groupe d’administration, abonnement, groupe de ressources ou ressources individuelles.  Le RBAC Azure pour le coffre de clés offre également la possibilité d’avoir des autorisations distinctes sur des clés, des secrets et des certificats individuels.
 
-Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Meilleures pratiques pour les clés, secrets et certificats individuels
 
@@ -59,7 +59,7 @@ Pour des instructions sur la gestion d’Azure Key Vault, consultez :
 | Responsable des secrets de Key Vault (préversion)| Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Utilisateur de secrets de Key Vault (préversion)| Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-Pour plus d’informations sur les définitions de rôles intégrés Azure, consultez [Rôles intégrés Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Pour plus d’informations sur les définitions de rôles intégrés Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Utilisation des autorisations de secret, de clé et de certificat de RBAC Azure avec Key Vault
 
@@ -70,7 +70,7 @@ Le nouveau modèle d’autorisation de RBAC Azure pour le coffre de clés fourni
 Pour ajouter des attributions de rôles, vous devez disposer :
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [Propriétaire de l’accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+- d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Activer les autorisations de RBAC Azure sur Key Vault
 
@@ -194,7 +194,7 @@ La page Créer un secret (Secrets \> +Générer/Importer) doit afficher l’erre
 
 ### <a name="creating-custom-roles"></a>Création de rôles personnalisés 
 
-[Commande az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[Commande az role definition create](/cli/azure/role/definition#az-role-definition-create)
 
 **(Script Bash de CLI)</br>**
 ```azurecli
@@ -216,7 +216,7 @@ az role definition create --role-definition '{ \
 
 Pour plus d’informations sur la manière de créer des rôles personnalisés, consultez :
 
-[Rôle personnalisés Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Rôle personnalisés Azure](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>Limites et performances connues
 
@@ -226,5 +226,5 @@ Pour plus d’informations sur la manière de créer des rôles personnalisés, 
 
 ## <a name="learn-more"></a>En savoir plus
 
-- [Vue d’ensemble d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Tutoriel Rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Vue d’ensemble d’Azure RBAC](../../role-based-access-control/overview.md)
+- [Tutoriel Rôles personnalisés](../../role-based-access-control/tutorial-custom-role-cli.md)

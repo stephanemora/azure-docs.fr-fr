@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e06a7a759c712b47f3a725a3c49a660226da6a09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a36bfc048a6214ccb79b793a23c21d5f8e305e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064067"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288272"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Migrer d’une stratégie d’accès de coffre vers un modèle d’autorisation de type contrôle d’accès en fonction du rôle Azure (préversion)
 
 Le modèle de stratégie d’accès du coffre est un système d’autorisation existant intégré à Key Vault pour fournir l’accès aux clés, aux secrets et aux certificats. Vous pouvez contrôler l’accès en affectant des autorisations individuelles au principal de sécurité (utilisateur, groupe, principal du service, identité gérée) à l’échelle de Key Vault. 
 
-Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), qui permet une gestion précise des accès des ressources Azure. Azure RBAC pour la gestion des accès aux clés, secrets et certificats Key Vault est actuellement en préversion publique. Avec Azure RBAC, vous contrôlez l’accès aux ressources en créant des attributions de rôles, qui se composent de trois éléments : principal de sécurité, définition de rôle (jeu prédéfini d’autorisations) et étendue (groupe de ressources ou ressource individuelle). Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md), qui permet une gestion précise des accès des ressources Azure. Azure RBAC pour la gestion des accès aux clés, secrets et certificats Key Vault est actuellement en préversion publique. Avec Azure RBAC, vous contrôlez l’accès aux ressources en créant des attributions de rôles, qui se composent de trois éléments : principal de sécurité, définition de rôle (jeu prédéfini d’autorisations) et étendue (groupe de ressources ou ressource individuelle). Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 Avant de migrer vers Azure RBAC, il est important de comprendre ses avantages et ses limitations.
 
@@ -28,7 +28,7 @@ Avantages principaux d’Azure RBAC par rapport aux stratégies d’accès du co
 - Fournit un modèle de contrôle d’accès unifié pour les ressources Azure, avec une même API à travers les services Azure
 - Gestion centralisée des accès pour les administrateurs: gérez toutes les ressources Azure dans une seule vue
 - Intégration à [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) pour le contrôle d’accès en fonction du temps
-- Refus des affectations : possibilité d’exclure un principal de sécurité à une étendue particulière. Pour plus d’informations, consultez [Comprendre les affectations de refus Azure](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)
+- Refus des affectations : possibilité d’exclure un principal de sécurité à une étendue particulière. Pour plus d’informations, consultez [Comprendre les affectations de refus Azure](../../role-based-access-control/deny-assignments.md)
 
 Inconvénients d’Azure RBAC :
 - Latence pour les attributions de rôles : l’application de l’attribution des rôles peut prendre plusieurs minutes. Les stratégies d’accès au coffre sont immédiatement affectées.
@@ -36,7 +36,7 @@ Inconvénients d’Azure RBAC :
 
 ## <a name="access-policies-to-azure-roles-mapping"></a>Mappage des stratégies d’accès aux rôles Azure
 
-Azure RBAC a plusieurs rôles intégrés Azure que vous pouvez affecter aux utilisateurs, groupes, principaux de service et identités managées. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Azure RBAC a plusieurs rôles intégrés Azure que vous pouvez affecter aux utilisateurs, groupes, principaux de service et identités managées. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md).
 
 Rôles intégrés de Key Vault pour la gestion de l’accès aux clés, certificats et secrets :
 - Administrateur de Key Vault (préversion)
@@ -47,7 +47,7 @@ Rôles intégrés de Key Vault pour la gestion de l’accès aux clés, certific
 - Responsable des secrets de Key Vault (préversion)
 - Utilisateur de secrets de Key Vault (préversion)
 
-Pour plus d’informations sur les rôles intégrés existants, consultez [Rôles intégrés Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+Pour plus d’informations sur les rôles intégrés existants, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md)
 
 Les stratégies d’accès au coffre peuvent être attribuées avec des autorisations sélectionnées individuellement ou des modèles d’autorisation prédéfinis.
 
@@ -103,8 +103,8 @@ En général, il est recommandé de disposer d’un coffre de clés par applicat
 Il existe de nombreuses différences entre le modèle d’autorisation Azure RBAC et la stratégie d’accès du coffre. Pour éviter les pannes au cours de la migration, il est recommandé de suivre les étapes ci-dessous.
  
 1. **Identifiez et attribuez les rôles** : identifiez les rôles intégrés en fonction du tableau de mappage ci-dessus et créez des rôles personnalisés si nécessaire. Affectez des rôles aux étendues, en fonction des recommandations de mappage des étendues. Pour plus d’informations sur la façon d’attribuer des rôles à un coffre de clés, consultez [Fournir l’accès à Key Vault avec un contrôle d’accès en fonction du rôle Azure (préversion)](rbac-guide.md)
-1. **Validez l’attribution des rôles** : la propagation des attributions de rôles dans Azure RBAC peut prendre plusieurs minutes. Pour savoir comment vérifier les attributions de rôles, consultez [Répertorier les affectations de rôles dans l’étendue](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope)
-1. **Configurez la surveillance et les alertes sur le coffre de clés** : il est important d’activer la journalisation et les alertes de configuration pour les exceptions de refus d’accès. Pour plus d’informations, consultez [Surveillance et alertes Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/alert)
+1. **Validez l’attribution des rôles** : la propagation des attributions de rôles dans Azure RBAC peut prendre plusieurs minutes. Pour savoir comment vérifier les attributions de rôles, consultez [Répertorier les affectations de rôles dans l’étendue](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)
+1. **Configurez la surveillance et les alertes sur le coffre de clés** : il est important d’activer la journalisation et les alertes de configuration pour les exceptions de refus d’accès. Pour plus d’informations, consultez [Surveillance et alertes Azure Key Vault](./alert.md)
 1. **Définissez le modèle d’autorisation de contrôle d’accès en fonction du rôle Azure sur Key Vault** : l’activation du modèle d’autorisation Azure RBAC invalidera toutes les stratégies d’accès existantes. En cas d’erreur, le modèle d’autorisation peut être rétabli avec toutes les stratégies d’accès existantes inchangées.
 
 > [!NOTE]
@@ -116,6 +116,6 @@ Il existe de nombreuses différences entre le modèle d’autorisation Azure RBA
 
 ## <a name="learn-more"></a>En savoir plus
 
-- [Vue d’ensemble d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Tutoriel Rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Vue d’ensemble d’Azure RBAC](../../role-based-access-control/overview.md)
+- [Tutoriel Rôles personnalisés](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)

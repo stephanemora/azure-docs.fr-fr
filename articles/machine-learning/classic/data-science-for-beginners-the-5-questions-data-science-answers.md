@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338724"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307477"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>La science des données pour les débutants, vidéo 1 : Les cinq questions auxquelles répond la science des données
 
@@ -45,7 +45,7 @@ Dans cette première vidéo, nous allons parler des « 5 questions auxquelles la
 
 La science des données utilise des nombres et des noms (également connus sous les noms de catégories ou d’étiquettes) pour prédire des réponses à des questions.
 
-Cela peut vous surprendre, mais *il existe cinq questions auxquelles la science des données répond*:
+Cela peut vous surprendre, mais *il existe cinq questions auxquelles la science des données répond* :
 
 * Est-ce A ou B ?
 * Est-ce étrange ?
@@ -136,4 +136,4 @@ Et voilà ! Ce sont les 5 questions auxquelles la science des données peut ré
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio (classique)](create-experiment.md)
-* [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](../overview-what-is-azure-ml.md)

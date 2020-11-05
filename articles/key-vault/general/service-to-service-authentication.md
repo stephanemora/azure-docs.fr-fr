@@ -8,23 +8,23 @@ ms.author: mbaldwin
 ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
-ms.openlocfilehash: 1a6ec20d860a409bbe7d3114c54e1e46a75968a0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970110"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289826"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
 > [!NOTE]
-> L’utilisation de **Microsoft.Azure.Services.AppAuthentication** n’est plus recommandée avec le nouveau Kit de développement logiciel (SDK) Key Vault. Elle est remplacée par une nouvelle **bibliothèque de client d’identité Azure** disponible pour .NET, Java, TypeScript et Python, qui doit être utilisée pour tout nouveau développement. Des informations supplémentaires sont disponibles ici : [Authentification auprès de Key Vault dans le code](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries).
+> L’utilisation de **Microsoft.Azure.Services.AppAuthentication** n’est plus recommandée avec le nouveau Kit de développement logiciel (SDK) Key Vault. Elle est remplacée par une nouvelle **bibliothèque de client d’identité Azure** disponible pour .NET, Java, TypeScript et Python, qui doit être utilisée pour tout nouveau développement. Des informations supplémentaires sont disponibles ici : [Authentification auprès de Key Vault dans le code](./developers-guide.md#azure-identity-client-libraries).
 
 Pour vous authentifier auprès d’Azure Key Vault, vous avez besoin d’informations d’identification Azure Active Directory (Azure AD), soit un secret partagé ou certificat.
 
 La gestion de ces informations d’identification peut être difficile. Il peut être tentant de regrouper les informations d’identification au sein d’une application, en les incluant dans des fichiers source ou de configuration. L’élément `Microsoft.Azure.Services.AppAuthentication` de la bibliothèque .NET simplifie ce problème. Il utilise les informations d’identification du développeur pour l’authentification pendant le développement local. Lorsque la solution est déployée ultérieurement vers Azure, la bibliothèque bascule automatiquement vers les informations d’identification de l’application. Il est plus sûr d’utiliser les informations d’identification du développeur pendant le développement local, car vous n’avez pas besoin de créer des informations d’identification Azure AD ou de partager des informations d’identification entre les développeurs.
 
-La bibliothèque `Microsoft.Azure.Services.AppAuthentication` gère l’authentification automatiquement, ce qui vous permet de vous concentrer sur votre solution, plutôt que sur vos informations d’identification. Elle prend en charge le développement local avec Microsoft Visual Studio, Azure CLI ou l’authentification intégrée Azure AD. Quand elle est déployée sur une ressource Azure qui prend en charge une identité managée, la bibliothèque utilise automatiquement des [identités managées pour les ressources Azure](../../active-directory/msi-overview.md). Aucune modification du code ou de la configuration n’est requise. La bibliothèque prend également en charge les [informations d’identification client](../../azure-resource-manager/resource-group-authenticate-service-principal.md) Azure AD lorsqu’une identité managée n’est pas disponible, ou lorsque le contexte de sécurité du développeur ne peut être déterminé pendant le développement local.
+La bibliothèque `Microsoft.Azure.Services.AppAuthentication` gère l’authentification automatiquement, ce qui vous permet de vous concentrer sur votre solution, plutôt que sur vos informations d’identification. Elle prend en charge le développement local avec Microsoft Visual Studio, Azure CLI ou l’authentification intégrée Azure AD. Quand elle est déployée sur une ressource Azure qui prend en charge une identité managée, la bibliothèque utilise automatiquement des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Aucune modification du code ou de la configuration n’est requise. La bibliothèque prend également en charge les [informations d’identification client](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) Azure AD lorsqu’une identité managée n’est pas disponible, ou lorsque le contexte de sécurité du développeur ne peut être déterminé pendant le développement local.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -55,7 +55,7 @@ Pour les applications .NET, la façon la plus simple d’utiliser une identité 
 
 La classe `AzureServiceTokenProvider` thread-safe met en cache le jeton en mémoire et le récupère auprès d’Azure AD, juste avant l’expiration. Cela signifie que vous n’avez jamais besoin de vérifier l’expiration du jeton avant d’appeler la méthode `GetAccessTokenAsync`. 
 
-La méthode `GetAccessTokenAsync` requiert un identificateur de ressource. Pour en savoir plus sur services Microsoft Azure, voir[Que sont les identités managées pour les ressources Azure ?](../../active-directory/msi-overview.md).
+La méthode `GetAccessTokenAsync` requiert un identificateur de ressource. Pour en savoir plus sur services Microsoft Azure, voir[Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="local-development-authentication"></a>Authentification du développement local
 
@@ -65,7 +65,7 @@ Pour un développement local, il existe deux scénarios d’authentification pri
 
 Les ordinateurs locaux ne prennent pas en charge les identités managées pour les ressources Azure. Par conséquent, la bibliothèque `Microsoft.Azure.Services.AppAuthentication` utilise vos informations d’identification de développeur pour s’exécuter dans votre environnement de développement local. Lorsque la solution est déployée sur Azure, la bibliothèque utilise une identité managée pour basculer vers un flux d’octroi d’informations d’identification de client OAuth 2.0. Cette approche signifie que vous pouvez sans problème tester le même code en local et à distance.
 
-Pour le développement local, `AzureServiceTokenProvider` extrait des jetons à l’aide de **Visual Studio**, de **l’interface de ligne de commande Azure** (CLI) ou de **l’authentification intégrée Azure AD**. Le système essaie chaque option de manière séquentielle et utilise la première option qui aboutit. Si aucune option ne fonctionne, une exception `AzureServiceTokenProviderException` est levée, avec des informations détaillées.
+Pour le développement local, `AzureServiceTokenProvider` extrait des jetons à l’aide de **Visual Studio** , de **l’interface de ligne de commande Azure** (CLI) ou de **l’authentification intégrée Azure AD**. Le système essaie chaque option de manière séquentielle et utilise la première option qui aboutit. Si aucune option ne fonctionne, une exception `AzureServiceTokenProviderException` est levée, avec des informations détaillées.
 
 #### <a name="authenticating-with-visual-studio"></a>Authentification avec Visual Studio
 
@@ -73,11 +73,11 @@ Pour authentifier à l’aide de Visual Studio :
 
 1. Connectez-vous à Visual Studio puis sélectionnez **Outils**&nbsp;>&nbsp;**Options** pour ouvrir **Options**.
 
-1. Sélectionnez **Authentification par le service Azure**, choisissez un compte pour le développement local, puis cliquez sur **OK**.
+1. Sélectionnez **Authentification par le service Azure** , choisissez un compte pour le développement local, puis cliquez sur **OK**.
 
 Si vous rencontrez des problèmes lorsque vous utilisez Visual Studio, telles que les erreurs impliquant le fichier du fournisseur de jetons, lisez attentivement les étapes précédentes.
 
-Il se peut que vous deviez authentifier à nouveau votre jeton de développeur. Pour ce faire, sélectionnez **Outils**&nbsp;>&nbsp;**Options**, puis **Azure&nbsp;Service&nbsp;Authentification**. Recherchez un lien **Réauthentifier** sous le compte sélectionné. Cliquez sur ce lien pour effectuer l’authentification.
+Il se peut que vous deviez authentifier à nouveau votre jeton de développeur. Pour ce faire, sélectionnez **Outils**&nbsp;>&nbsp;**Options** , puis **Azure&nbsp;Service&nbsp;Authentification**. Recherchez un lien **Réauthentifier** sous le compte sélectionné. Cliquez sur ce lien pour effectuer l’authentification.
 
 #### <a name="authenticating-with-azure-cli"></a>Authentification avec Azure CLI
 
@@ -85,13 +85,13 @@ Pour utiliser Azure CLI pour le développement local, vérifiez que vous dispose
 
 Pour utiliser Azure CLI :
 
-1. Recherchez Azure CLI dans la barre des tâches Windows pour ouvrir l’**invite de commandes de Microsoft Azure**.
+1. Recherchez Azure CLI dans la barre des tâches Windows pour ouvrir l’ **invite de commandes de Microsoft Azure**.
 
 1. Connectez-vous au portail Azure : *az login* pour se connecter à Azure.
 
 1. Vérifiez l’accès en entrant *az account get-access-token --resource https:\//vault.azure.net*. Si vous recevez une erreur, vérifiez que la version appropriée d’Azure CLI est correctement installée.
 
-   Si Azure CLI n’est pas installé dans le répertoire par défaut, vous pouvez recevoir une erreur signalant que `AzureServiceTokenProvider` ne peut pas trouver le chemin d’accès à Azure CLI. Utilisez la variable d’environnement **AzureCLIPath** pour définir le dossier d’installation d’Azure CLI. Le paramètre `AzureServiceTokenProvider` ajoute le répertoire spécifié dans la variable d’environnement **AzureCLIPath** à la variable d’environnement **Path**, le cas échéant.
+   Si Azure CLI n’est pas installé dans le répertoire par défaut, vous pouvez recevoir une erreur signalant que `AzureServiceTokenProvider` ne peut pas trouver le chemin d’accès à Azure CLI. Utilisez la variable d’environnement **AzureCLIPath** pour définir le dossier d’installation d’Azure CLI. Le paramètre `AzureServiceTokenProvider` ajoute le répertoire spécifié dans la variable d’environnement **AzureCLIPath** à la variable d’environnement **Path** , le cas échéant.
 
 1. Si vous êtes connecté à Azure CLI à l’aide de plusieurs comptes, ou si votre compte peut accéder à plusieurs abonnements, vous devez spécifier l’abonnement à utiliser. Entrez la commande *az account set --subscription <subscription-id>* .
 
@@ -101,7 +101,7 @@ Cette commande génère une sortie uniquement en cas d’échec. Pour vérifier 
 
 Pour utiliser l’authentification Azure Active Directory, vérifiez les éléments suivants :
 
-- Votre Active Directory local est synchronisé avec Azure AD. Pour plus d’informations, voir [Présentation de l’identité hybride avec Azure Active Directory](../../active-directory/connect/active-directory-aadconnect.md).
+- Votre Active Directory local est synchronisé avec Azure AD. Pour plus d’informations, voir [Présentation de l’identité hybride avec Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 - Votre code s’exécute sur un ordinateur joint au domaine.
 
@@ -167,7 +167,7 @@ Il existe trois méthodes principales d’utilisation d’un principal de servic
           CertificateStoreLocation={CertificateStore}
     ```
 
-    Remplacez *{AppId}* , *{TenantId}* et *{Thumbprint}* par les valeurs générées à l’étape 1. Remplacez *{CertificateStore}* par *LocalMachine* ou *CurrentUser*, en fonction de votre plan de déploiement.
+    Remplacez *{AppId}* , *{TenantId}* et *{Thumbprint}* par les valeurs générées à l’étape 1. Remplacez *{CertificateStore}* par *LocalMachine* ou *CurrentUser* , en fonction de votre plan de déploiement.
 
 1. Exécutez l'application.
 
@@ -217,7 +217,7 @@ Pour utiliser un certificat client pour l’authentification de principal de ser
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
     ```
 
-    Par exemple, si votre coffre de clés a été appelé *myKeyVault* et que vous avez créé un certificat nommé *myCert*, l’identificateur de certificat serait :
+    Par exemple, si votre coffre de clés a été appelé *myKeyVault* et que vous avez créé un certificat nommé *myCert* , l’identificateur de certificat serait :
 
     ```azurecli
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
@@ -229,7 +229,7 @@ Par défaut, `AzureServiceTokenProvider` essaie les méthodes d’authentificati
 
 - [Identité managée pour les ressources Azure](../..//active-directory/managed-identities-azure-resources/overview.md)
 - Authentification Visual Studio
-- [Authentification Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Authentification Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 - [Authentification Windows intégrée](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
 Pour contrôler le processus, utilisez une chaîne de connexion passée au constructeur `AzureServiceTokenProvider` ou spécifiée dans la variable d’environnement *AzureServicesAuthConnectionString*.  Les options suivantes sont prises en charge :
@@ -262,7 +262,7 @@ Pour voir la bibliothèque `Microsoft.Azure.Services.AppAuthentication` en actio
 
 #### <a name="azure-cli-is-not-installed-youre-not-logged-in-or-you-dont-have-the-latest-version"></a>Azure CLI n’est pas installé, vous n’êtes pas connecté ou vous ne disposez pas de la dernière version
 
-Exécutez *az account get-access-token* pour déterminer si Azure CLI affiche un jeton pour vous. Si aucun **programme de ce type n’est trouvé**, installez la [dernière version d’Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Vous serez peut-être invité à vous connecter.
+Exécutez *az account get-access-token* pour déterminer si Azure CLI affiche un jeton pour vous. Si aucun **programme de ce type n’est trouvé** , installez la [dernière version d’Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Vous serez peut-être invité à vous connecter.
 
 #### <a name="azureservicetokenprovider-cant-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider ne peut pas trouver le chemin d’accès pour Azure CLI
 
@@ -276,7 +276,7 @@ AzureServiceTokenProvider recherche Azure CLI à ses emplacements d’installati
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Accès non autorisé, accès refusé, interdit, ou erreur similaire
 
-Le principal utilisé n’a pas accès à la ressource à laquelle il tente d’accéder. Accordez à votre compte d’utilisateur ou au « contributeur » MSI d’App Service l’accès à une ressource. Celle-ci varie selon que vous exécutez l’exemple sur votre ordinateur local ou déployé dans Azure sur votre App Service. Certaines ressources, telles que les coffres de clés, disposent également de leurs propres [stratégies d’accès](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) que vous pouvez utiliser pour accorder l’accès aux principaux (utilisateurs, applications et groupes).
+Le principal utilisé n’a pas accès à la ressource à laquelle il tente d’accéder. Accordez à votre compte d’utilisateur ou au « contributeur » MSI d’App Service l’accès à une ressource. Celle-ci varie selon que vous exécutez l’exemple sur votre ordinateur local ou déployé dans Azure sur votre App Service. Certaines ressources, telles que les coffres de clés, disposent également de leurs propres [stratégies d’accès](./secure-your-key-vault.md#data-plane-and-access-policies) que vous pouvez utiliser pour accorder l’accès aux principaux (utilisateurs, applications et groupes).
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problèmes courants lors du déploiement sur Azure App Service
 
@@ -289,11 +289,11 @@ Vérifiez que les variables d’environnement MSI_ENDPOINT et MSI_SECRET existen
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>Impossible de récupérer les jetons lors du débogage de l’application dans IIS
 
 Par défaut, AppAuth s’exécute dans un contexte utilisateur différent dans IIS. C’est pourquoi il n’a pas accès à l’utilisation de votre identité de développeur pour récupérer des jetons d’accès. Vous pouvez configurer IIS pour qu’il s’exécute avec votre contexte utilisateur en suivant les deux étapes suivantes :
-- Configurez le pool d’applications pour que l’application Web s’exécute en tant que compte d’utilisateur actuel. Plus d’informations, cliquez [ici](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
-- Configurez « setProfileEnvironment » sur « true ». Plus d’informations, cliquez [ici](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+- Configurez le pool d’applications pour que l’application Web s’exécute en tant que compte d’utilisateur actuel. Plus d’informations, cliquez [ici](/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
+- Configurez « setProfileEnvironment » sur « true ». Plus d’informations, cliquez [ici](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
 
     - Accédez à %windir%\System32\inetsrv\config\applicationHost.config
     - Recherchez « setProfileEnvironment ». Si la valeur est définie sur « false », modifiez-la en « true ». Si elles est absente, ajoutez-la en tant qu’attribut à l’élément processModel (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment) et définissez-la sur « true ».
 
 - En savoir plus sur les [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/index.yml).
-- Apprenez-en davantage sur les [scénarios d’authentification Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md).
+- Apprenez-en davantage sur les [scénarios d’authentification Azure AD](../../active-directory/develop/authentication-vs-authorization.md).

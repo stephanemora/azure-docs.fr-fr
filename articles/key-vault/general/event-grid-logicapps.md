@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087981"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284485"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Utilisez Logic Apps pour recevoir un e-mail sur les changements d’état des secrets du coffre de clés
 
@@ -28,7 +28,7 @@ Pour obtenir une vue d’ensemble de l’intégration d’Azure Key Vault/Azure 
 - Un compte e-mail d’un fournisseur d’e-mail pris en charge par Azure Logic Apps (par exemple Office 365 Outlook). Ce compte e-mail permet d’envoyer les notifications d’événements. Pour obtenir la liste complète des connecteurs d’application logique pris en charge, consultez la [Vue d’ensemble des connecteurs](/connectors).
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Un coffre de clés dans votre abonnement Azure. Vous pouvez créer rapidement un coffre de clés en suivant les étapes décrites dans [Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI](../secrets/quick-create-cli.md).
-- Event Grid inscrit en tant que fournisseur de ressources. Consultez [Inscriptions de fournisseurs de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+- Event Grid inscrit en tant que fournisseur de ressources. Consultez [Inscriptions de fournisseurs de ressources](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Créer une application logique via Event Grid
 
@@ -36,7 +36,7 @@ Tout d’abord, créez une application logique avec un gestionnaire Event Grid e
 
 Pour créer un abonnement Azure Event Grid, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, accédez à votre coffre de clés, sélectionnez **Événements > Démarrer**, puis cliquez sur **Logic Apps**
+1. Dans le portail Azure, accédez à votre coffre de clés, sélectionnez **Événements > Démarrer** , puis cliquez sur **Logic Apps**
 
     
     ![Key Vault - Page des événements](../media/eventgrid-logicapps-kvsubs.png)
@@ -45,7 +45,7 @@ Pour créer un abonnement Azure Event Grid, effectuez les étapes suivantes :
  
     ![Concepteur d’application logique - Connexion](../media/eventgrid-logicappdesigner1.png)
 
-1. Dans l’écran **Quand un événement de ressource se produit**, effectuez ce qui suit :
+1. Dans l’écran **Quand un événement de ressource se produit** , effectuez ce qui suit :
     - Conservez les valeurs contenues dans **Abonnement** et **Nom de la ressource** en tant que valeurs par défaut.
     - Sélectionnez Select **Microsoft.KeyVault.vaults** pour **Type de ressource**.
     - Sélectionnez **Microsoft.KeyVault.SecretNewVersionCreated** pour **Élément de type d’événement - 1**.
@@ -77,11 +77,11 @@ Pour créer un abonnement Azure Event Grid, effectuez les étapes suivantes :
     
     ![Concepteur d’application logique – Tester et vérifier](../media/eventgrid-logicapps-kvnewsubs.png)
 
-1.  Accédez à votre coffre de clés, sélectionnez **Secrets**, puis **+ Générer/Importer**. Créez un secret à des fins de test, nommez la clé et conservez les autres paramètres avec leurs valeurs par défaut.
+1.  Accédez à votre coffre de clés, sélectionnez **Secrets** , puis **+ Générer/Importer**. Créez un secret à des fins de test, nommez la clé et conservez les autres paramètres avec leurs valeurs par défaut.
 
     ![Key Vault - Créer un secret](../media/eventgrid-logicapps-kv-create-secret.png)
 
-1. Dans l’écran **Créer un secret**, indiquez un nom, une valeur, puis sélectionnez **Créer**.
+1. Dans l’écran **Créer un secret** , indiquez un nom, une valeur, puis sélectionnez **Créer**.
 
 Une fois le secret créé, un e-mail est reçu aux adresses configurées.
 

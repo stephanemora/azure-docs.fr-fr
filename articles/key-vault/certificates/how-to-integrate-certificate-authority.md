@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327414"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289543"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Intégration de Key Vault à l’autorité de certification DigiCert
 
@@ -23,7 +23,7 @@ Azure Key Vault vous permet de provisionner, gérer et déployer facilement des 
 
 Les utilisateurs d’Azure Key Vault peuvent générer des certificats DigiCert directement à partir de leur coffre de clé. Key Vault assure une gestion du cycle de vie des certificats de bout en bout pour les certificats émis par DigiCert à la faveur du partenariat de confiance établi entre Key Vault et l’autorité de certification DigiCert.
 
-Pour plus d’informations générales sur les certificats, consultez [Certificats Azure Key Vault](/azure/key-vault/certificates/about-certificates).
+Pour plus d’informations générales sur les certificats, consultez [Certificats Azure Key Vault](./about-certificates.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -51,9 +51,9 @@ Après avoir récupéré les informations ci-dessus du compte DigiCert CertCentr
 ### <a name="azure-portal"></a>Portail Azure
 
 1.  Pour ajouter l’autorité de certification DigiCert, accédez au coffre de clés auquel vous voulez ajouter DigiCert. 
-2.  Dans les pages des propriétés Key Vault, sélectionnez **Certificats** .
-3.  Sélectionnez l’onglet **Autorités de certification** . ![sélectionner Autorités de certification](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.  Sélectionnez l’option **Ajouter** .
+2.  Dans les pages des propriétés Key Vault, sélectionnez **Certificats**.
+3.  Sélectionnez l’onglet **Autorités de certification**. ![sélectionner Autorités de certification](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+4.  Sélectionnez l’option **Ajouter**.
  ![ajouter des autorités de certification](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Dans l’écran **Créer une autorité de certification** , choisissez les valeurs suivantes :
     -   **Name**  : ajoutez un nom d’émetteur identifiable. Par exemple : DigicertCA
@@ -61,7 +61,7 @@ Après avoir récupéré les informations ci-dessus du compte DigiCert CertCentr
     -   **Account ID** (ID de compte) : entrez votre ID de compte DigiCert CertCentral.
     -   **Mot de passe du compte**  : entrez la clé d’API que vous avez générée dans votre compte DigiCert CertCentral.
     -   **ID d’organisation**  : entrez l’OrgID récupéré à partir du compte DigiCert CertCentral. 
-    -   Cliquez sur **Créer** .
+    -   Cliquez sur **Créer**.
    
 6.  Vous pouvez alors observer que DigicertCA a bien été ajouté à la liste des autorités de certification.
 

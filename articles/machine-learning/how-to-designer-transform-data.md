@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983831"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312804"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformer des données dans le concepteur Azure Machine Learning
 
 
 Cet article explique comment transformer et enregistrer des jeux de données dans le concepteur Azure Machine Learning afin de pouvoir préparer vos propres données afin d’effectuer un apprentissage automatique (Machine Learning).
 
-Vous allez utiliser l’exemple de jeu de données [Adult Census Income Binary Classification](sample-designer-datasets.md) pour préparer deux jeux de données : l’un contenant des informations de recensement d’adultes natifs des USA, et l’autre contenant des informations de recensement d’adultes non natifs des USA.
+Vous allez utiliser l’exemple de jeu de données [Adult Census Income Binary Classification](./samples-designer.md) pour préparer deux jeux de données : l’un contenant des informations de recensement d’adultes natifs des USA, et l’autre contenant des informations de recensement d’adultes non natifs des USA.
 
 Dans cet article, vous apprendrez comment :
 
@@ -74,7 +74,7 @@ Dans cette section, vous utilisez le module [Split Data](algorithm-module-refere
 
 1. Dans le volet d’informations du module à droite du canevas, définissez **Splitting mode** (Mode de fractionnement) sur **Regular Expression** (Expression régulière).
 
-1. Entrez l’**expression régulière** : `\"native-country" United-States`.
+1. Entrez l’ **expression régulière**  : `\"native-country" United-States`.
 
     Le mode **Regular expression** (Expression régulière) teste une seule colonne pour une valeur. Pour plus d’informations sur le module Split Data, consultez la [page de référence du module d’algorithme](algorithm-module-reference/split-data.md) associée.
 
@@ -105,7 +105,7 @@ Maintenant que votre pipeline est configuré pour fractionner les données, vous
     
     **Datastore type** (Type de magasin de données) : Stockage Blob Azure
 
-    **Banque de données** : Sélectionnez un magasin de données existant ou sélectionnez « Nouveau magasin de banques » pour en créer un maintenant.
+    **Banque de données**  : Sélectionnez un magasin de données existant ou sélectionnez « Nouveau magasin de banques » pour en créer un maintenant.
 
     **Path** (Chemin d’accès) : `/data/us-income`
 
@@ -122,7 +122,7 @@ Maintenant que votre pipeline est configuré pour fractionner les données, vous
     
     **Datastore type** (Type de magasin de données) : Stockage Blob Azure
 
-    **Banque de données** : Sélectionnez le même magasin de données comme ci-dessus
+    **Banque de données**  : Sélectionnez le même magasin de données comme ci-dessus
 
     **Path** (Chemin) : `/data/non-us-income`
 

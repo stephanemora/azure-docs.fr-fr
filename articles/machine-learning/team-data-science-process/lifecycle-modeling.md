@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336443"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305621"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Phase de modélisation du cycle de vie du processus TDSP (Team Data Science Process)
 
@@ -42,7 +42,7 @@ Voici une représentation visuelle du cycle de vie TDSP :
 Trois tâches principales sont traitées dans cette phase :
 
   * **Ingénierie des caractéristiques** : Créez des caractéristiques de données à partir des données brutes pour faciliter l’apprentissage du modèle.
-  * **Apprentissage du modèle** : Recherchez le modèle qui répond le plus précisément à la question en comparant leurs mesures de réussite.
+  * **Apprentissage du modèle**  : Recherchez le modèle qui répond le plus précisément à la question en comparant leurs mesures de réussite.
   * Déterminez si votre modèle est **approprié pour la production**.
 
 ### <a name="feature-engineering"></a>Ingénierie des caractéristiques
@@ -59,11 +59,11 @@ Le processus d’apprentissage du modèle comprend les étapes suivantes :
 
    * **Fractionner les données d’entrée** de manière aléatoire en vue d’une modélisation dans un jeu de données d’apprentissage et un jeu de données de test.
    * **Créer les modèles** à l’aide du jeu de données d’apprentissage.
-   * **Évaluer** l’apprentissage et le jeu de données de test. Utiliser une série d’algorithmes d’apprentissage automatique concurrents, ainsi que les divers paramètres associés (*balayage de paramètres*), destinés à répondre à la question digne d’intérêt avec les données actuelles.
+   * **Évaluer** l’apprentissage et le jeu de données de test. Utiliser une série d’algorithmes d’apprentissage automatique concurrents, ainsi que les divers paramètres associés ( *balayage de paramètres* ), destinés à répondre à la question digne d’intérêt avec les données actuelles.
    * **Déterminer la solution « optimale »** pour répondre à la question en comparant les mesures de réussite entre différentes méthodes.
 
 > [!NOTE]
-> **Éviter la fuite** : Une fuite de données peut avoir lieu si vous incluez des données extérieures au jeu de données d’apprentissage, qui permet à un modèle ou à un algorithme d’apprentissage automatique d’effectuer des prédictions anormalement correctes. La nervosité qui gagne les scientifiques de données quand ils obtiennent des résultats prédictifs semblant trop beaux pour être vrais est souvent liée à une fuite. Ces dépendances peuvent être difficiles à détecter. Pour éviter toute fuite, il est souvent nécessaire de jongler entre la création d’un jeu de données d’analyse, la création d’un modèle et l’évaluation de la précision des résultats. 
+> **Éviter la fuite**  : Une fuite de données peut avoir lieu si vous incluez des données extérieures au jeu de données d’apprentissage, qui permet à un modèle ou à un algorithme d’apprentissage automatique d’effectuer des prédictions anormalement correctes. La nervosité qui gagne les scientifiques de données quand ils obtiennent des résultats prédictifs semblant trop beaux pour être vrais est souvent liée à une fuite. Ces dépendances peuvent être difficiles à détecter. Pour éviter toute fuite, il est souvent nécessaire de jongler entre la création d’un jeu de données d’analyse, la création d’un modèle et l’évaluation de la précision des résultats. 
 > 
 > 
 
@@ -90,4 +90,4 @@ Voici les liens vers chaque étape du cycle de vie TDSP :
 
 Nous indiquons des procédures pas à pas complètes qui illustrent toutes les étapes du processus correspondant à des scénarios spécifiques. L’article [Example walkthroughs](walkthroughs.md) (Exemples de procédures pas à pas) contient une liste des scénarios ainsi que des liens et des descriptions de miniatures. Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente. 
 
-Pour obtenir des exemples sur l’exécution de procédures dans les processus TDSP utilisant Azure Machine Learning Studio, consultez [Utilisation du processus de science des données avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Pour obtenir des exemples sur l’exécution de procédures dans les processus TDSP utilisant Azure Machine Learning Studio, consultez [Utilisation du processus de science des données avec Azure Machine Learning](./index.yml).

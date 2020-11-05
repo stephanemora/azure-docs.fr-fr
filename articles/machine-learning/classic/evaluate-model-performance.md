@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362416"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310156"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Évaluer des performances d’un modèle dans Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Dans cet article, vous allez découvrir les métriques que vous pouvez utiliser pour surveiller les performances de modèles dans Azure Machine Learning Studio (classique).  L’évaluation des performances d’un modèle constitue l’une des étapes clés du processus de science des données. Elle indique l’efficacité de la notation (prédictions) d’un jeu de données par un modèle formé. Azure Machine Learning Studio (classique) prend en charge l’évaluation des modèles via deux de ses principaux modules d’apprentissage automatique : 
@@ -47,7 +47,7 @@ Une autre possibilité consiste à utiliser la validation croisée pour applique
 Dans les sections qui suivent, nous allons générer des modèles de régression et de classification simples et en évaluer les performances à l’aide des modules [Évaluer le modèle][evaluate-model] et [Effectuer la validation croisée du modèle][cross-validate-model].
 
 ## <a name="evaluating-a-regression-model"></a>Évaluation d’un modèle de régression
-Supposons que vous souhaitiez prédire le prix d’une voiture à l’aide de caractéristiques comme les dimensions, le nombre de chevaux, les spécifications du moteur, etc. Il s’agit d’un problème de régression classique, dans lequel la variable cible, price (*prix*), est une valeur numérique continue. Nous pouvons ajuster un modèle de régression linéaire nous permettant de prédire le prix d’une voiture spécifique en nous basant sur les valeurs de caractéristiques de cette voiture. Il est possible d’utiliser ce modèle de régression pour noter le même jeu de données que celui sur lequel nous avons effectué l’apprentissage. Une fois que nous avons prédit les prix de toutes les voitures, nous pouvons évaluer les performances du modèle en examinant l’importance de l’écart entre les prédictions et les prix réels en moyenne. Pour illustrer cette approche, nous utilisons le jeu de données *Automobile price data (Raw) dataset* disponible à la section **Jeux de données enregistrés** d’Azure Machine Learning Studio (classique).
+Supposons que vous souhaitiez prédire le prix d’une voiture à l’aide de caractéristiques comme les dimensions, le nombre de chevaux, les spécifications du moteur, etc. Il s’agit d’un problème de régression classique, dans lequel la variable cible, price ( *prix* ), est une valeur numérique continue. Nous pouvons ajuster un modèle de régression linéaire nous permettant de prédire le prix d’une voiture spécifique en nous basant sur les valeurs de caractéristiques de cette voiture. Il est possible d’utiliser ce modèle de régression pour noter le même jeu de données que celui sur lequel nous avons effectué l’apprentissage. Une fois que nous avons prédit les prix de toutes les voitures, nous pouvons évaluer les performances du modèle en examinant l’importance de l’écart entre les prédictions et les prix réels en moyenne. Pour illustrer cette approche, nous utilisons le jeu de données *Automobile price data (Raw) dataset* disponible à la section **Jeux de données enregistrés** d’Azure Machine Learning Studio (classique).
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
 Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio (classique) :
@@ -65,7 +65,7 @@ Connectez les ports comme illustré ci-après à la Figure 1, puis définissez 
 Figure 1. évaluation d’un modèle de régression
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspection des résultats de l’évaluation
-Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionner *Visualiser* pour visualiser les résultats de l’évaluation. Les mesures d’évaluation disponibles pour les modèles de régression sont les suivantes : *Erreur d’absolue moyenne*, *Erreur d’absolue moyenne racine*, *Erreur d’absolue relative*, *Erreur carrée relative* et *Coefficient de détermination*.
+Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionner *Visualiser* pour visualiser les résultats de l’évaluation. Les mesures d’évaluation disponibles pour les modèles de régression sont les suivantes : *Erreur d’absolue moyenne* , *Erreur d’absolue moyenne racine* , *Erreur d’absolue relative* , *Erreur carrée relative* et *Coefficient de détermination*.
 
 Le terme « erreur » utilisé ici représente la différence entre la valeur prédite et la valeur réelle. La valeur absolue ou le carré de cette différence est généralement calculé pour capturer l’ampleur totale de l’erreur sur l’ensemble des instances, car l’écart entre la valeur prédite et la valeur réelle pourrait être négatif dans certains cas. Les métriques d’erreur mesurent les performances prédictives d’un modèle de régression en termes d’écart moyen entre ses prédictions et les valeurs réelles. Plus les valeurs d’erreur sont faibles, plus les prédictions élaborées par le modèle sont exactes. Une métrique d’erreur globale de zéro signifie que le modèle est parfaitement ajusté par rapport aux données.
 
@@ -107,7 +107,7 @@ Connectez les ports comme illustré ci-après à la Figure 5, puis définissez 
 Figure 5. évaluation d’un modèle de classification binaire
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspection des résultats de l’évaluation
-Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionner *Visualiser* pour visualiser les résultats de l’évaluation (Figure 7). Les métriques d’évaluation disponibles pour les modèles de classification binaire sont les suivantes : *Accuracy*, *Precision*, *Recall*, *F1 Score* et *AUC*. En outre, le module génère une matrice de confusion présentant le nombre de vrais positifs, de faux négatifs, de faux positifs et de vrais négatifs, ainsi que les courbes *ROC*, *Precision/Recall* et *Lift*.
+Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionner *Visualiser* pour visualiser les résultats de l’évaluation (Figure 7). Les métriques d’évaluation disponibles pour les modèles de classification binaire sont les suivantes : *Accuracy* , *Precision* , *Recall* , *F1 Score* et *AUC*. En outre, le module génère une matrice de confusion présentant le nombre de vrais positifs, de faux négatifs, de faux positifs et de vrais négatifs, ainsi que les courbes *ROC* , *Precision/Recall* et *Lift*.
 
 La métrique « Accuracy » (Exactitude) désigne simplement la proportion d’instances qui ont été classées correctement. Il s’agit généralement du premier métrique que vous examinez quand vous évaluez un classifieur. Toutefois, quand les données de test sont déséquilibrées (dans les cas où la plupart des instances appartiennent à l’une des classes), ou que vous êtes plus intéressé par les performances d’une seule des classes, l’exactitude ne permet pas de déterminer véritablement l’efficacité d’un classifieur. Dans le scénario de classification du niveau de revenu, supposons que vous testiez certaines données où 99 % des instances représentent des employés dont le revenu annuel est inférieur ou égal à 50 K. Il est alors possible d’atteindre une valeur d’exactitude de 0,99 en prédisant la classe « <=50 K » pour toutes les instances. Dans ce cas, le classifieur semble se révéler globalement efficace, alors qu’en réalité, il classe incorrectement tous les employés dont le revenu est plus élevé (les 1 % restants).
 
@@ -123,7 +123,7 @@ Revenons au problème de classification du revenu et posons-nous plusieurs quest
 
 Figure 7. résultats de l’évaluation de la classification binaire
 
-Un autre métrique connexe fréquemment utilisé est la métrique **F1 Score**(F-mesure), qui prend en compte à la fois la précision et le rappel. Il s’agit de la moyenne harmonique de ces deux métriques, calculée comme suit : F1 = 2 (précision x rappel) / (précision + rappel). Le score F1 offre un bon moyen de résumer l’évaluation en une seule valeur ; toutefois, il est recommandé d’examiner systématiquement la précision et le rappel simultanément afin de mieux comprendre le comportement d’un classifieur.
+Un autre métrique connexe fréquemment utilisé est la métrique **F1 Score** (F-mesure), qui prend en compte à la fois la précision et le rappel. Il s’agit de la moyenne harmonique de ces deux métriques, calculée comme suit : F1 = 2 (précision x rappel) / (précision + rappel). Le score F1 offre un bon moyen de résumer l’évaluation en une seule valeur ; toutefois, il est recommandé d’examiner systématiquement la précision et le rappel simultanément afin de mieux comprendre le comportement d’un classifieur.
 
 En outre, il est possible d’inspecter le taux de vrais positifs par rapport au taux de faux positifs dans la courbe **Receiver Operating Characteristic (ROC) (Fonction d’efficacité de l’observateur)** et la valeur **Area Under the Curve (AUC) (Surface sous la courbe (SSC)** correspondante. Plus cette courbe se rapproche de l’angle supérieur gauche, plus le classifieur se comporte de manière efficace (autrement dit, il optimise le taux de vrais positifs et minimise le taux de faux positifs). Les courbes qui se rapprochent de la diagonale du diagramme résultent de classifieurs tendant à effectuer des prédictions proches d’une supposition aléatoire.
 
@@ -155,7 +155,7 @@ Connectez les ports comme illustré ci-après à la Figure 10.
 
 Définissez l’index de la colonne Étiquette du module [Former le modèle][train-model] sur 5. Le jeu de données ne comporte pas de ligne d’en-tête, mais nous savons que les étiquettes de classe figurent dans la cinquième colonne.
 
-Cliquez sur le module [Importer des données][import-data], puis définissez la propriété *Source de données* sur *URL Web via HTTP*, et la propriété *URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Cliquez sur le module [Importer des données][import-data], puis définissez la propriété *Source de données* sur *URL Web via HTTP* , et la propriété *URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Définissez la fraction d’instances à utiliser pour l’apprentissage dans le module [Fractionner les données][split] (0,7 par exemple).
 
@@ -182,12 +182,12 @@ Figure 12 : validation croisée d’un modèle de classification multiclasse
 Figure 13 : résultats de la validation croisée d’un modèle de classification multiclasse
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

@@ -1,17 +1,17 @@
 ---
 title: Architecture de connectivité - Azure Database for MariaDB
 description: Décrit l’architecture de connectivité pour votre serveur Azure Database for MariaDB.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c1331b7d868c29fddf7b709912e87d55d73c45
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065350"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241444"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architecture de connectivité dans Azure Database for MariaDB
 Cet article présente l’architecture de connectivité Azure Database for MariaDB, ainsi que la façon dont le trafic est orienté vers votre instance Azure Database for MariaDB des clients dans Azure et en dehors.
@@ -74,7 +74,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 
 ## <a name="connection-redirection"></a>Redirection de connexion
 
-Azure Database for MariaDB prend en charge une stratégie de connexion supplémentaire, la **redirection**, qui permet de réduire la latence réseau entre les applications clientes et les serveurs MariaDB. Avec cette fonctionnalité, une fois que la session TCP initiale est établie au serveur Azure Database for MariaDB, le serveur retourne l’adresse back-end du nœud qui héberge le serveur MariaDB au client. Par la suite, les paquets suivants sont directement acheminés vers le serveur, en ignorant la passerelle. Étant donné que les paquets vont directement au serveur, la latence et le débit améliorent les performances.
+Azure Database for MariaDB prend en charge une stratégie de connexion supplémentaire, la **redirection** , qui permet de réduire la latence réseau entre les applications clientes et les serveurs MariaDB. Avec cette fonctionnalité, une fois que la session TCP initiale est établie au serveur Azure Database for MariaDB, le serveur retourne l’adresse back-end du nœud qui héberge le serveur MariaDB au client. Par la suite, les paquets suivants sont directement acheminés vers le serveur, en ignorant la passerelle. Étant donné que les paquets vont directement au serveur, la latence et le débit améliorent les performances.
 
 Cette fonctionnalité est prise en charge dans les serveurs Azure Database for MariaDB avec les versions de moteur 10.2 et 10.3.
 

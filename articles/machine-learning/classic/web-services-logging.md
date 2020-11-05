@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359747"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308565"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Ce document fournit des informations sur la capacité de journalisation des services web Machine Learning Studio (classique). La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio (classique).  
@@ -52,9 +52,9 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 
    1. Dans le [portail Azure](https://portal.azure.com), accédez au compte de stockage associé au service web.
 
-   2. Sous **Service Blob**, cliquez sur **Conteneurs**.
+   2. Sous **Service Blob** , cliquez sur **Conteneurs**.
 
-   3. Si le conteneur **ml-diagnostics** n’existe pas, cliquez sur **+Conteneur**, nommez le conteneur « ml-diagnostics », puis sélectionnez le **Type d’accès** « Blob ». Cliquez sur **OK**.
+   3. Si le conteneur **ml-diagnostics** n’existe pas, cliquez sur **+Conteneur** , nommez le conteneur « ml-diagnostics », puis sélectionnez le **Type d’accès** « Blob ». Cliquez sur **OK**.
 
       ![Créer un conteneur pour stocker vos journaux de diagnostic](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -66,7 +66,7 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 ## <a name="the-effects-of-enabling-logging"></a>Effets de l’activation de la journalisation
 Quand la journalisation est activée, les diagnostics et erreurs du point de terminaison de service web sont journalisés dans le conteneur d’objets blob **ml-diagnostics** dans le compte de Stockage Azure lié à l’espace de travail de l’utilisateur. Ce conteneur contient toutes les informations de diagnostic pour tous les points de terminaison de service web pour tous les espaces de travail associés à ce compte de stockage.
 
-Les journaux d’activité peuvent être consultés à l’aide de plusieurs outils servant à « explorer » un compte de Stockage Azure. Le plus simple peut être d’accéder au compte de stockage dans le portail Azure, de cliquer sur **Conteneurs**, puis sur le conteneur **ml-diagnostics**.  
+Les journaux d’activité peuvent être consultés à l’aide de plusieurs outils servant à « explorer » un compte de Stockage Azure. Le plus simple peut être d’accéder au compte de stockage dans le portail Azure, de cliquer sur **Conteneurs** , puis sur le conteneur **ml-diagnostics**.  
 
 ## <a name="log-blob-detail-information"></a>Journaliser les informations détaillées sur l’objet blob
 Chaque objet blob dans le conteneur conserve les informations de diagnostic pour une et une seule des actions suivantes :
@@ -85,5 +85,4 @@ Où _Type de journal_ est l’une des valeurs suivantes :
 
 * lot  
 * score/requests  
-* score/init  
-
+* score/init

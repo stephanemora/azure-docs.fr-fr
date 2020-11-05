@@ -1,17 +1,17 @@
 ---
 title: Chiffrement des données à l’aide d’une clé gérée par le client - Azure Database pour MySQL
 description: Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client permet le scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c7b4d4cf61c1d605bd632ac6fe210171b2ebe01b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544118"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242328"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
 
@@ -68,7 +68,7 @@ Les exigences suivantes s'appliquent à la configuration de la clé gérée par 
 
 * La clé gérée par le client à utiliser pour chiffrer la clé de chiffrement de données ne peut être qu’asymétrique, RSA 2048.
 * La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d'expiration (si définie) doit correspondre à une date et une heure ultérieures.
-* La clé doit être dans l’état *activé* .
+* La clé doit être dans l’état *activé*.
 * Si vous [importez une clé existante](/rest/api/keyvault/ImportKey/ImportKey) dans le coffre de clés, veillez à ce qu’elle respecte les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
 
 ## <a name="recommendations"></a>Recommandations
@@ -80,7 +80,7 @@ Si vous utilisez le chiffrement de données à l'aide d'une clé gérée par le 
 * Assurez-vous que Key Vault et Azure Database pour MySQL résident dans la même région pour garantir un accès plus rapide aux opérations wrap et unwrap des clés de chiffrement de données.
 * Verrouillez l’Azure Key Vault uniquement pour **le point de terminaison privé et les réseaux sélectionnés** , et autorisez uniquement des services *Microsoft approuvés* à sécuriser les ressources.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagramme illustrant le scénario Bring Your Own Key (BYOK)":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 Suivez les recommandations ci-dessous pour configurer une clé gérée par le client :
 
@@ -90,13 +90,13 @@ Suivez les recommandations ci-dessous pour configurer une clé gérée par le cl
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Condition de clé managée par le client inaccessible
 
-Lorsque vous configurez le chiffrement des données avec une clé gérée par le client dans Key Vault, un accès continu à cette clé est requis pour que le serveur reste en ligne. Si le serveur perd l'accès à la clé gérée par le client dans Key Vault, il commence à refuser toutes les connexions dans un délai de 10 minutes. Le serveur émet un message d'erreur et affiche l'état *Inaccessible* . Voici des raisons pour lesquelles le serveur peut atteindre cet état :
+Lorsque vous configurez le chiffrement des données avec une clé gérée par le client dans Key Vault, un accès continu à cette clé est requis pour que le serveur reste en ligne. Si le serveur perd l'accès à la clé gérée par le client dans Key Vault, il commence à refuser toutes les connexions dans un délai de 10 minutes. Le serveur émet un message d'erreur et affiche l'état *Inaccessible*. Voici des raisons pour lesquelles le serveur peut atteindre cet état :
 
-* Si nous créons un serveur de limite de restauration dans le temps pour votre base de données Azure pour MySQL pour laquelle le chiffrement des données est activé, le serveur créé se trouve dans l’état *Inaccessible* . Vous pouvez résoudre ce problème à l’aide du [portail Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou de l’[interface CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Si nous créons un réplica en lecture pour votre base de données Azure pour MySQL pour lequel le chiffrement des données est activé, le serveur de réplication se trouve dans l’état *Inaccessible* . Vous pouvez résoudre ce problème à l’aide du [portail Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou de l’[interface CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Si vous supprimez le coffre de clés, la base de données Azure pour MySQL ne peut plus accéder à la clé et passe à l’état *Inaccessible* . Récupérez le [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) et revalidez le chiffrement des données pour rendre le serveur *Disponible* .
-* Si nous supprimons la clé du coffre de clés, la base de données Azure pour MySQL ne peut plus accéder à la clé et passe à l’état *Inaccessible* . Récupérez la [clé](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) et revalidez le chiffrement des données pour rendre le serveur *Disponible* .
-* Si la clé stockée dans le coffre de clés Azure expire, elle devient non valide et la base de données Azure pour MySQL passe à l’état *Inaccessible* . Étendez la date d’expiration de la clé à l’aide de [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes), puis revalidez le chiffrement de données pour rendre le serveur *Disponible* .
+* Si nous créons un serveur de limite de restauration dans le temps pour votre base de données Azure pour MySQL pour laquelle le chiffrement des données est activé, le serveur créé se trouve dans l’état *Inaccessible*. Vous pouvez résoudre ce problème à l’aide du [portail Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou de l’[interface CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
+* Si nous créons un réplica en lecture pour votre base de données Azure pour MySQL pour lequel le chiffrement des données est activé, le serveur de réplication se trouve dans l’état *Inaccessible*. Vous pouvez résoudre ce problème à l’aide du [portail Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou de l’[interface CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
+* Si vous supprimez le coffre de clés, la base de données Azure pour MySQL ne peut plus accéder à la clé et passe à l’état *Inaccessible*. Récupérez le [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
+* Si nous supprimons la clé du coffre de clés, la base de données Azure pour MySQL ne peut plus accéder à la clé et passe à l’état *Inaccessible*. Récupérez la [clé](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
+* Si la clé stockée dans le coffre de clés Azure expire, elle devient non valide et la base de données Azure pour MySQL passe à l’état *Inaccessible*. Étendez la date d’expiration de la clé à l’aide de [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes), puis revalidez le chiffrement de données pour rendre le serveur *Disponible*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Révocation accidentelle de l'accès aux clés de Key Vault
 
@@ -131,11 +131,11 @@ Pour éviter les problèmes lors de la configuration du chiffrement des données
 
 Pour Azure Database pour MySQL, la prise en charge du chiffrement des données au repos à l’aide de Customer Managed Key (CMK) présente peu de restrictions.
 
-* La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée** .
+* La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée**.
 * Cette fonctionnalité est uniquement prise en charge dans les régions et les serveurs qui prennent en charge jusqu’à 16 To de stockage. Pour obtenir la liste des régions Azure qui prennent en charge le stockage jusqu’à 16 To, reportez-vous à la section consacrée au stockage dans la documentation [ici](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - Pour tous les nouveaux serveurs MySQL créés dans les régions mentionnées ci-dessus, la prise en charge du chiffrement avec les clés CMK est **disponible** . En théorie, le serveur de restauration jusqu’à une date et une heure (PITR) ou le réplica de lecture ne sont pas signalés comme des ressources « nouvelles ».
+    > - Pour tous les nouveaux serveurs MySQL créés dans les régions mentionnées ci-dessus, la prise en charge du chiffrement avec les clés CMK est **disponible**. En théorie, le serveur de restauration jusqu’à une date et une heure (PITR) ou le réplica de lecture ne sont pas signalés comme des ressources « nouvelles ».
     > - Pour vérifier si votre serveur approvisionné prend en charge jusqu’à 16 To, vous pouvez accéder au tableau de bord de niveau tarifaire dans le portail et voir la taille de stockage maximale prise en charge par votre serveur approvisionné. Si vous pouvez déplacer le curseur jusqu’à 4 To, il se peut que votre serveur ne prenne pas en charge le chiffrement avec les clés managées par le client. Toutefois, les données sont chiffrées à l’aide de clés managées par le service à tout moment. Posez vos questions en contactant AskAzureDBforMySQL@service.microsoft.com.
 
 * Le chiffrement est pris en charge uniquement avec la clé de chiffrement RSA 2048.

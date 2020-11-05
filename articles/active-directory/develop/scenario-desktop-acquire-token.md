@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 26f0c18fee8fe56a9bc0fa163ef59dfe0977cad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac22305e64e2f6bc2ec61bc65f7e92f1b1af1bf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825337"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287538"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -417,7 +417,7 @@ Pour connecter un utilisateur de domaine sur une machine jointe à Azure AD ou �
 
 ### <a name="constraints"></a>Contraintes
 
-- L’authentification Windows intégrée n’est utilisable que pour les utilisateurs *fédérés+* , c’est-à-dire les utilisateurs créés dans Active Directory et reposant sur Azure AD. Les utilisateurs créés directement dans Azure AD sans appui Active Directory, appelés utilisateurs *managés*, ne peuvent pas utiliser ce flux d’authentification. Cette restriction ne concerne pas le flux de nom d’utilisateur et de mot de passe.
+- L’authentification Windows intégrée n’est utilisable que pour les utilisateurs *fédérés+* , c’est-à-dire les utilisateurs créés dans Active Directory et reposant sur Azure AD. Les utilisateurs créés directement dans Azure AD sans appui Active Directory, appelés utilisateurs *managés* , ne peuvent pas utiliser ce flux d’authentification. Cette restriction ne concerne pas le flux de nom d’utilisateur et de mot de passe.
 - L’authentification Windows intégrée est destinée aux applications écrites pour les plateformes .NET Framework, .NET Core et UWP, la plateforme Windows universelle.
 - L’authentification Windows n’ignore pas l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md). Si l’authentification MFA est configurée, IWA peut échouer en cas de demande MFA exigée, car MFA a besoin d’une interaction utilisateur.
   > [!NOTE]
@@ -602,7 +602,7 @@ Vous pouvez également acquérir un jeton en fournissant le nom d’utilisateur 
 
 ### <a name="this-flow-isnt-recommended"></a>Ce flux n’est pas conseillé.
 
-Ce flux est *déconseillé*, car le fait que votre application demande à un utilisateur son mot de passe n’est pas une pratique sûre. Pour plus d’informations, consultez l’article sur [la solution aux problèmes croissants associés aux mots de passe](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Vous pouvez également utiliser le [flux de code d’appareil](https://aka.ms/msal-net-device-code-flow).
+Ce flux est *déconseillé* , car le fait que votre application demande à un utilisateur son mot de passe n’est pas une pratique sûre. Pour plus d’informations, consultez l’article sur [la solution aux problèmes croissants associés aux mots de passe](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Vous pouvez également utiliser le [flux de code d’appareil](https://aka.ms/msal-net-device-code-flow).
 
 > [!NOTE]
 > L’utilisation d’un nom d’utilisateur et d’un mot de passe est utile dans certains cas, comme dans les scénarios DevOps. Toutefois, si vous souhaitez utiliser un nom d’utilisateur et un mot de passe dans des scénarios interactifs pour lesquels vous fournissez votre propre interface utilisateur, prenez le temps de réfléchir à un moyen qui vous permettrait de l’éviter. En utilisant un nom d’utilisateur et un mot de passe, vous abandonnez un certain nombre de choses :
@@ -954,7 +954,7 @@ L’exemple de code suivant met en évidence le cas le plus courant, avec des ex
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -969,7 +969,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)

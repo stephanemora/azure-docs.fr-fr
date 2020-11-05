@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 7d58cd26b6e4ca77da98f8c2f82dbdb481ccbb50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54a1894c88d12cfac1a2d8062425de9549c4292e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585750"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285201"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>Déplacer un coffre de clés Azure d’une région à une autre
 
@@ -35,7 +35,7 @@ Avant de commencer, tenez compte des concepts suivants :
 
 ## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Option 1 : Utiliser les commandes de sauvegarde et restauration de coffre de clés
 
-Vous pouvez sauvegarder chacun des secrets, clés et certificats de votre coffre à l’aide de la commande de sauvegarde. Vos secrets sont téléchargés sous forme d’objet blob chiffré. Vous pouvez ensuite restaurer le blob dans votre nouveau coffre de clés. Pour obtenir la liste des commandes, consultez [Commandes Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+Vous pouvez sauvegarder chacun des secrets, clés et certificats de votre coffre à l’aide de la commande de sauvegarde. Vos secrets sont téléchargés sous forme d’objet blob chiffré. Vous pouvez ensuite restaurer le blob dans votre nouveau coffre de clés. Pour obtenir la liste des commandes, consultez [Commandes Azure Key Vault](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
 
 L’utilisation des commandes de sauvegarde et restauration présentent deux limitations :
 

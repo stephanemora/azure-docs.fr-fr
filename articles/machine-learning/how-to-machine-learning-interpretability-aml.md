@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708252"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311604"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
@@ -354,7 +354,7 @@ Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans
    [![Tableau de bord de visualisation - Importance d’une caractéristique locale dans AzureML Studio au sein des expériences](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Volet **Modèles**
-  1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
+  1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](./how-to-deploy-and-where.md), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
   1. Sélectionnez un modèle, puis l'onglet **Explications** pour voir le tableau de bord de visualisation des explications.
 
 ## <a name="interpretability-at-inference-time"></a>Interprétabilité au moment de l’inférence
@@ -419,7 +419,7 @@ Vous pouvez déployer l’explicatif avec le modèle d’origine et l’utiliser
 
 1. Déployez l’image sur une cible de calcul en procédant comme suit :
 
-   1. Si nécessaire, enregistrez votre modèle de prédiction d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. Si nécessaire, enregistrez votre modèle de prédiction d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Créez un fichier de scoring.
 
@@ -553,4 +553,3 @@ Vous pouvez déployer l’explicatif avec le modèle d’origine et l’utiliser
 [En savoir plus sur l’interprétation des modèles](how-to-machine-learning-interpretability.md)
 
 [Consultez les exemples de notebooks sur l’interprétabilité d’Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

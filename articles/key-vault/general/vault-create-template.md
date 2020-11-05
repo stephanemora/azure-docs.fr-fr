@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282329"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285136"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Comment créer un coffre de clés Azure et une stratégie d’accès à l’aide d’un modèle Resource Manager
 
@@ -84,7 +84,7 @@ Le modèle suivant montre comment créer un coffre de clés de façon très simp
 
 ```
 
-Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez [Référence sur le modèle ARM de coffre de clés](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez [Référence sur le modèle ARM de coffre de clés](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > Si un modèle est redéployé, toutes les stratégies d’accès existantes dans le coffre de clés seront remplacées. Nous vous recommandons de renseigner la propriété `accessPolicies` avec les stratégies d’accès existantes afin d’éviter de perdre l’accès au coffre de clés. 
@@ -160,7 +160,7 @@ Vous pouvez déployer des stratégies d’accès à un coffre de clés existant 
 }
 
 ```
-Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez notre page de [référence sur le modèle ARM de coffre de clés](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez notre page de [référence sur le modèle ARM de coffre de clés](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Modèles Resource Manager de coffre de clés supplémentaires
 
@@ -168,13 +168,13 @@ Il existe d’autres modèles Resource Manager pour les objets Key Vault :
 
 | Secrets | Keys | Certificats |
 |--|--|--|
-|<ul><li>[Démarrage rapide](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Référence](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
+|<ul><li>[Démarrage rapide](../secrets/quick-create-template.md)<li>[Référence](/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
 
-Des modèles de coffre de clés supplémentaires sont disponibles ici : [Référence Resource Manager relative aux coffres de clés](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
+Des modèles de coffre de clés supplémentaires sont disponibles ici : [Référence Resource Manager relative aux coffres de clés](/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Déployer les modèles
 
-Vous pouvez utiliser le portail Azure pour déployer les modèles précédents à l’aide de l’option **Build your own template in editor** (Créer votre modèle dans l’éditeur), comme décrit ici : [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
+Vous pouvez utiliser le portail Azure pour déployer les modèles précédents à l’aide de l’option **Build your own template in editor** (Créer votre modèle dans l’éditeur), comme décrit ici : [Déployer des ressources à partir d’un modèle personnalisé](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 Vous pouvez également enregistrer les modèles précédents dans des fichiers et utiliser ces commandes :  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) et [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) :
 

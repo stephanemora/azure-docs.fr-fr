@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481407"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287712"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure
 
@@ -23,31 +23,31 @@ Une stratégie d’accès Key Vault détermine si un principal de service donné
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Pour plus d’informations sur la création de groupes dans Azure Active Directory via le portail Azure, consultez [Créer un groupe de base et ajouter des membres](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+Pour plus d’informations sur la création de groupes dans Azure Active Directory via le portail Azure, consultez [Créer un groupe de base et ajouter des membres](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="assign-an-access-policy"></a>Attribuer une stratégie d’accès
 
 1.  Dans le [portail Azure](https://portal.azure.com), accédez à la ressource Key Vault. 
 
-1.  Sous **Paramètres**, sélectionnez **Stratégies d’accès**, puis sélectionnez **Ajouter une stratégie d’accès** :
+1.  Sous **Paramètres** , sélectionnez **Stratégies d’accès** , puis sélectionnez **Ajouter une stratégie d’accès**  :
 
     ![Sélectionner des stratégies d’accès, sélection d’Ajouter une attribution de rôle](../media/authentication/assign-policy-portal-01.png)
 
-1.  Sélectionnez les autorisations souhaitées sous **Autorisations de certificat**, **Autorisations de clé** et **Autorisations de secret**. Vous pouvez également sélectionner un modèle contenant des combinaisons d’autorisations courantes :
+1.  Sélectionnez les autorisations souhaitées sous **Autorisations de certificat** , **Autorisations de clé** et **Autorisations de secret**. Vous pouvez également sélectionner un modèle contenant des combinaisons d’autorisations courantes :
 
     ![Spécification des autorisations de stratégie d’accès](../media/authentication/assign-policy-portal-02.png)
 
-1. Sous **Sélectionner le principal**, choisissez le lien **Aucune sélectionnée** pour ouvrir le volet de sélection **Principal**. Entrez le nom de l’application ou du principal du service dans le champ de recherche, sélectionnez le résultat approprié, puis choisissez **Sélectionner**.
+1. Sous **Sélectionner le principal** , choisissez le lien **Aucune sélectionnée** pour ouvrir le volet de sélection **Principal**. Entrez le nom de l’application ou du principal du service dans le champ de recherche, sélectionnez le résultat approprié, puis choisissez **Sélectionner**.
 
     ![Sélection du principal du service pour la stratégie d’accès](../media/authentication/assign-policy-portal-03.png)
 
     Si vous utilisez une identité managée pour l’application, recherchez et sélectionnez le nom de l’application (pour plus d’informations sur l’identité managée et les principaux de service, consultez [Authentification du coffre de clés – Identité d’application et principaux de service](authentication.md#app-identity-and-security-principals)).
  
-1.  De retour dans le volet **Ajouter une stratégie d’accès**, sélectionnez **Ajouter** pour enregistrer la stratégie d’accès.
+1.  De retour dans le volet **Ajouter une stratégie d’accès** , sélectionnez **Ajouter** pour enregistrer la stratégie d’accès.
 
     ![Ajout de la stratégie d’accès avec le principal de service attribué](../media/authentication/assign-policy-portal-04.png)
 
-1. De retour sur la page **Stratégies d’accès**, vérifiez que votre stratégie d’accès figure sous **Stratégies d’accès actuelles**, puis sélectionnez **Enregistrer**. Les stratégies d’accès ne sont pas appliquées tant que vous ne les enregistrez pas.
+1. De retour sur la page **Stratégies d’accès** , vérifiez que votre stratégie d’accès figure sous **Stratégies d’accès actuelles** , puis sélectionnez **Enregistrer**. Les stratégies d’accès ne sont pas appliquées tant que vous ne les enregistrez pas.
 
     ![Enregistrement des changements de stratégie d’accès](../media/authentication/assign-policy-portal-05.png)
 

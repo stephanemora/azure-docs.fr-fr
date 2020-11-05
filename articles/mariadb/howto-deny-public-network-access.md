@@ -1,17 +1,17 @@
 ---
 title: Refus d’accès réseau public – Portail Azure – Azure Database for MariaDB
 description: Découvrez comment configurer et gérer le refus d’accès réseau public avec le Portail Azure pour Azure Database for MariaDB.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f33dbfa0b96d7f6d85443005ff7e8b1a780c75a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3117ebfd258c72bb97432871c2ea74d30c52f669
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104382"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242188"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mariadb-using-azure-portal"></a>Refus d’accès réseau public dans Azure Database for MariaDB avec le Portail Azure
 

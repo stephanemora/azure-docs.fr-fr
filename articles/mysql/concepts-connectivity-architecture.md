@@ -1,17 +1,17 @@
 ---
 title: Architecture de connectivité - Azure Database pour MySQL
 description: Décrit l’architecture de connectivité pour le serveur Azure Database pour MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d3842675cf4b36dfaa95ed6041bf8c6f0978a53
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896390"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242872"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
@@ -72,7 +72,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 
 ## <a name="connection-redirection"></a>Redirection de connexion
 
-Azure Database pour MySQL prend en charge une stratégie de connexion supplémentaire, une **redirection**, qui permet de réduire la latence réseau entre les applications clientes et les serveurs MySQL. Avec cette fonctionnalité, une fois que la session TCP initiale est établie au serveur Azure Database pour MySQL, le serveur retourne l’adresse back-end du nœud qui héberge le serveur MySQL pour le client. Par la suite, les paquets suivants sont directement acheminés vers le serveur, en ignorant la passerelle. Étant donné que les paquets vont directement au serveur, la latence et le débit améliorent les performances.
+Azure Database pour MySQL prend en charge une stratégie de connexion supplémentaire, une **redirection** , qui permet de réduire la latence réseau entre les applications clientes et les serveurs MySQL. Avec cette fonctionnalité, une fois que la session TCP initiale est établie au serveur Azure Database pour MySQL, le serveur retourne l’adresse back-end du nœud qui héberge le serveur MySQL pour le client. Par la suite, les paquets suivants sont directement acheminés vers le serveur, en ignorant la passerelle. Étant donné que les paquets vont directement au serveur, la latence et le débit améliorent les performances.
 
 Cette fonctionnalité est prise en charge dans les serveurs Azure Database pour MySQL avec les versions de moteur 5.6, 5.7 et 8.0.
 

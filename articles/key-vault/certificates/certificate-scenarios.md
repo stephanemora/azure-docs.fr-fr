@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124219"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286882"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -37,7 +37,7 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
 
 **Étape 1** : fournisseurs d’autorités de certification  
 -   L’embarquement en tant qu’administrateur informatique, administrateur PKI ou toute personne assurant la gestion des comptes auprès des autorités de certification, pour une société donnée (par exemple Contoso) est une condition préalable requise pour utiliser des certificats Key Vault.  
-    Les autorités de certification suivantes sont les fournisseurs actuels associés à Key Vault. Apprenez-en davantage [ici](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers).   
+    Les autorités de certification suivantes sont les fournisseurs actuels associés à Key Vault. Apprenez-en davantage [ici](./create-certificate.md#partnered-ca-providers).   
     -   DigiCert : Key Vault propose des certificats TSL/SSL OV avec DigiCert.  
     -   GlobalSign : Key Vault propose des certificats TSL/SSL OV avec GlobalSign.  
 
@@ -50,7 +50,7 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
     -   Fournisseur  
     -   Informations d’identification : informations d’identification du compte d’autorité de certification. Chaque autorité de certification possède ses propres données spécifiques.  
 
-    Pour plus d’informations sur la création de comptes avec des fournisseurs d’autorités de certification, consultez le billet associé sur le [blog Key Vault](https://aka.ms/kvcertsblog).  
+    Pour plus d’informations sur la création de comptes avec des fournisseurs d’autorités de certification, consultez le billet associé sur le [blog Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
 **Étape 3.1**  : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
 
@@ -82,7 +82,7 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
       -   Une opération d’annulation peut être lancée en raison du délai de création. L’annulation peut ou non être effective.  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Stratégies de sécurité et d’accès réseau associées à l’autorité de certification intégrée
-Le service Key Vault envoie des demandes à l’autorité de certification (trafic sortant). Par conséquent, il est entièrement compatible avec les coffres de clés qui se trouvent derrière un pare-feu. Il ne partage pas de stratégies d’accès avec l’autorité de certification. L’autorité de certification doit être configurée de façon à accepter indépendamment les demandes de signature. [Guide d’intégration de l’autorité de certification approuvée](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+Le service Key Vault envoie des demandes à l’autorité de certification (trafic sortant). Par conséquent, il est entièrement compatible avec les coffres de clés qui se trouvent derrière un pare-feu. Il ne partage pas de stratégies d’accès avec l’autorité de certification. L’autorité de certification doit être configurée de façon à accepter indépendamment les demandes de signature. [Guide d’intégration de l’autorité de certification approuvée](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>Importation d’un certificat  
  Vous pouvez également importer un certificat dans Key Vault : PFX ou PEM.  

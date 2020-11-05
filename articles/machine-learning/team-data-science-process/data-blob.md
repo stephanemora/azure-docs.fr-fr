@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bb2a9bf8c26b1abfca0685248fef2058d63c03bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a088d5918a957036b905db9136f9b16e5f0527e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087553"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307157"
 ---
 # <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Traitement des données d’objets blob Azure avec des analyses de données avancées
 Ce document concerne l’exploration des données et la génération de fonctionnalités à partir de données stockées dans le stockage d’objets blob. 
@@ -207,5 +207,4 @@ Après avoir exploré les données et créé les caractéristiques nécessaires,
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

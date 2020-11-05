@@ -1,17 +1,17 @@
 ---
 title: Versions prises en charge – Serveur flexible Azure Database pour MySQL
 description: Découvrez les versions du serveur MySQL qui sont prises en charge dans le serveur flexible Azure Database pour MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 11cefb1a29f7139f137221ab6fb924cc656da15d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7ad6a576262b8e722b16c81af544a9370c2b49b3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547195"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242260"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Versions prises en charge pour Azure Database pour MySQL – Serveur flexible
 

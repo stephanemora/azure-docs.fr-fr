@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327491"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242206"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informations de référence sur le moteur de règles standard pour Azure CDN
 
@@ -35,6 +35,9 @@ Pour définir une règle dans le moteur de règles, définissez les [conditions 
 Chaque règle peut avoir jusqu’à dix conditions de correspondance et cinq actions. Chaque point de terminaison Azure CDN peut avoir jusqu’à 25 règles. 
 
 Une valeur par défaut *règle globale* est incluse dans cette limite. La règle globale n’a pas de conditions de correspondance ; les actions définies dans une règle globale se déclenchent toujours.
+
+   > [!IMPORTANT]
+   > L’ordre dans lequel plusieurs règles sont listées affecte la façon dont elles sont gérées. Les actions spécifiées dans une règle peuvent être remplacées par une règle suivante.
 
 ## <a name="limits-and-pricing"></a>Limites et tarification 
 

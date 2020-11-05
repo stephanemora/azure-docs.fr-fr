@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631040"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305480"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -30,7 +30,7 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
 * Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) ou [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 * Dans certains scénarios, vous devez ouvrir un ticket de support. Ces scénarios sont les suivants :
 
@@ -69,7 +69,7 @@ L’exemple de modèle comprend deux paramètres **obligatoires**  :
 > [!TIP]
 > Le modèle associé à ce document crée un registre de conteneurs Azure, mais vous pouvez également créer un espace de travail sans créer de registre de conteneurs. Un registre de conteneurs est créé quand vous effectuez une opération qui le nécessite. C’est par exemple ce qui se passe lors de l’entraînement ou du déploiement d’un modèle.
 >
-> Vous pouvez également référencer un registre de conteneurs ou un compte de stockage existant dans le modèle Azure Resource Manager au lieu d’en créer un. Toutefois, le registre de conteneurs que vous utilisez doit avoir le __compte d’administrateur__ activé. Pour plus d’informations sur l’activation du compte d’administrateur, consultez [Compte d’administrateur](/azure/container-registry/container-registry-authentication#admin-account).
+> Vous pouvez également référencer un registre de conteneurs ou un compte de stockage existant dans le modèle Azure Resource Manager au lieu d’en créer un. Toutefois, le registre de conteneurs que vous utilisez doit avoir le __compte d’administrateur__ activé. Pour plus d’informations sur l’activation du compte d’administrateur, consultez [Compte d’administrateur](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +77,7 @@ Pour plus d’informations sur les modèles, voir les articles suivants :
 
 * [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Déployer une application avec des modèles Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* [Types de ressources Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Types de ressources Microsoft.MachineLearningServices](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Déployer un modèle
 
@@ -541,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
-1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__ , choisissez le modèle **201-machine-learning-advanced** dans la liste déroulante.
+1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__ , choisissez le modèle **201-machine-learning-advanced** dans la liste déroulante.
 1. Sélectionnez __Sélectionner un modèle__ pour utiliser le modèle. Fournissez les informations nécessaires suivantes et tous les autres paramètres en fonction de votre scénario de déploiement.
 
    * Abonnement : Sélectionnez l’abonnement Azure à utiliser pour ces ressources.
@@ -576,7 +576,7 @@ Pour éviter ce problème, nous vous recommandons une des approches suivantes :
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Pour plus d’informations sur l’utilisation de la section `accessPolicies` du modèle, consultez les [informations de référence sur l’objet AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Pour plus d’informations sur l’utilisation de la section `accessPolicies` du modèle, consultez les [informations de référence sur l’objet AccessPolicyEntry](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Vérifiez si la ressource Key Vault existe déjà. Si c’est le cas, ne la recréez pas via le modèle. Par exemple, pour utiliser la ressource Key Vault existante au lieu d’en créer une nouvelle, apportez les modifications suivantes au modèle :
 

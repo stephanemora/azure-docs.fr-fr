@@ -1,17 +1,17 @@
 ---
 title: Private Link - Portail Azure - Azure Database pour MySQL
 description: Découvrez comment configurer une instance Private Link pour Azure Database pour MySQL à partir du portail Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: b6a2725c6e4d72e8e79e3e45cc60060c02d90cac
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545002"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242396"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant le portail
 
@@ -32,24 +32,24 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 ### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
 Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour héberger la machine virtuelle qui est utilisée pour accéder à votre ressource de liaison privée.
 
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel** .
+1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 2. Dans **Créer un réseau virtuel** , entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *MyVirtualNetwork* . |
-    | Espace d’adressage | Entrez *10.1.0.0/16* . |
+    | Nom | Entrez *MyVirtualNetwork*. |
+    | Espace d’adressage | Entrez *10.1.0.0/16*. |
     | Abonnement | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionnez **Créer nouveau** , entrez *myResourceGroup* et sélectionnez **OK** . |
-    | Emplacement | Sélectionnez **Europe Ouest** .|
-    | Sous-réseau - Nom | Entrez *mySubnet* . |
-    | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24* . |
+    | Resource group | Sélectionnez **Créer nouveau** , entrez *myResourceGroup* et sélectionnez **OK**. |
+    | Emplacement | Sélectionnez **Europe Ouest**.|
+    | Sous-réseau - Nom | Entrez *mySubnet*. |
+    | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
     |||
-3. Conservez les autres valeurs par défaut, puis sélectionnez **Créer** .
+3. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
 
 ### <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
-1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle** .
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle**.
 
 2. Dans **Créer une machine virtuelle - Notions de base** , entrez ou sélectionnez ces informations :
 
@@ -57,49 +57,49 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
     | Abonnement | Sélectionnez votre abonnement. |
-    | Resource group | Sélectionnez **myResourceGroup** . Vous avez créé cela dans la section précédente.  |
+    | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.  |
     | **DÉTAILS DE L’INSTANCE** |  |
-    | Nom de la machine virtuelle | Entrez *myVm* . |
-    | Région | Sélectionnez **Europe Ouest** . |
-    | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire** . |
-    | Image | Sélectionnez **Windows Server 2019 Datacenter** . |
-    | Taille | Conservez la valeur par défaut **Standard DS1 v2** . |
+    | Nom de la machine virtuelle | Entrez *myVm*. |
+    | Région | Sélectionnez **Europe Ouest**. |
+    | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
+    | Image | Sélectionnez **Windows Server 2019 Datacenter**. |
+    | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmer le mot de passe | Retapez le mot de passe. |
     | **RÈGLES DES PORTS D’ENTRÉE** |  |
-    | Aucun port d’entrée public | Conservez la valeur par défaut **Aucun** . |
+    | Aucun port d’entrée public | Conservez la valeur par défaut **Aucun**. |
     | **ÉCONOMISEZ DE L’ARGENT** |  |
-    | Vous disposez déjà d’une licence Windows ? | Conservez la valeur par défaut **Non** . |
+    | Vous disposez déjà d’une licence Windows ? | Conservez la valeur par défaut **Non**. |
     |||
 
-1. Sélectionnez **Suivant : Disques** .
+1. Sélectionnez **Suivant : Disques**.
 
-1. Dans **Créer une machine virtuelle - Disks** , conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau** .
+1. Dans **Créer une machine virtuelle - Disks** , conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
 
 1. Dans **Créer une machine virtuelle - Mise en réseau** , sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Réseau virtuel | Conservez la valeur par défaut, **MyVirtualNetwork** .  |
-    | Espace d’adressage | Conservez la valeur par défaut, **10.1.0.0/24** .|
+    | Réseau virtuel | Conservez la valeur par défaut, **MyVirtualNetwork**.  |
+    | Espace d’adressage | Conservez la valeur par défaut, **10.1.0.0/24**.|
     | Subnet | Conservez la valeur par défaut, **mySubnet (10.1.0.0/24)** .|
-    | Adresse IP publique | Conservez la valeur par défaut **(new) myVm-ip** . |
-    | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés** . |
-    | Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP** .|
+    | Adresse IP publique | Conservez la valeur par défaut **(new) myVm-ip**. |
+    | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés**. |
+    | Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP**.|
     |||
 
 
-1. Sélectionnez **Revoir + créer** . Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration.
+1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration.
 
-1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer** .
+1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
 
 ## <a name="create-an-azure-database-for-mysql"></a>Créer une base de données Azure pour MySQL
 
 Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans Azure. 
 
-1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Bases de données** > **Azure Database pour MySQL** .
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Bases de données** > **Azure Database pour MySQL**.
 
 1. Dans **Azure Database pour MySQL** , fournissez les informations suivantes :
 
@@ -107,9 +107,9 @@ Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans 
     | ------- | ----- |
     | **Détails du projet** | |
     | Abonnement | Sélectionnez votre abonnement. |
-    | Resource group | Sélectionnez **myResourceGroup** . Vous avez créé cela dans la section précédente.|
+    | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **Détails du serveur** |  |
-    |Nom du serveur  | Entrez *myServer* . Si ce nom est utilisé, créez un nom unique.|
+    |Nom du serveur  | Entrez *myServer*. Si ce nom est utilisé, créez un nom unique.|
     | Nom d’utilisateur administrateur| Entrez le nom d’un administrateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 8 caractères et satisfaire aux exigences définies. |
     | Emplacement | Sélectionnez une région Azure dans laquelle vous souhaitez que votre serveur MySQL réside. |
@@ -117,9 +117,9 @@ Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans 
     | Calcul + Stockage| Sélectionnez le niveau tarifaire requis pour le serveur en fonction de la charge de travail. |
     |||
  
-7. Sélectionnez **OK** . 
-8. Sélectionnez **Revoir + créer** . Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
-9. Quand le message Validation réussie s’affiche, sélectionnez **Créer** . 
+7. Sélectionnez **OK**. 
+8. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
+9. Quand le message Validation réussie s’affiche, sélectionnez **Créer**. 
 10. Quand le message Validation réussie s’affiche, sélectionnez Créer. 
 
 > [!NOTE]
@@ -130,9 +130,9 @@ Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans 
 
 Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point de terminaison privé. 
 
-1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Liaison privée** .
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Liaison privée**.
 
-2. Dans **Centre de liaisons privées - Vue d’ensemble** , dans l’option permettant de **Générer une connexion privée à un service** , sélectionnez **Démarrer** .
+2. Dans **Centre de liaisons privées - Vue d’ensemble** , dans l’option permettant de **Générer une connexion privée à un service** , sélectionnez **Démarrer**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Présentation de Private Link":::
 
@@ -142,43 +142,43 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     | ------- | ----- |
     | **Détails du projet** | |
     | Abonnement | Sélectionnez votre abonnement. |
-    | Resource group | Sélectionnez **myResourceGroup** . Vous avez créé cela dans la section précédente.|
+    | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **Détails de l’instance** |  |
-    | Nom | Entrez *myPrivateEndpoint* . Si ce nom est utilisé, créez un nom unique. |
-    |Région|Sélectionnez **Europe Ouest** .|
+    | Nom | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
+    |Région|Sélectionnez **Europe Ouest**.|
     |||
 
-5. Sélectionnez **Suivant : Ressource** .
+5. Sélectionnez **Suivant : Ressource**.
 6. Dans **Créer un point de terminaison privé - Ressource** , entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
     |Méthode de connexion  | Sélectionnez Se connecter à une ressource Azure dans mon répertoire.|
     | Abonnement| Sélectionnez votre abonnement. |
-    | Type de ressource | Sélectionnez **Microsoft.DBforMySQL/servers** . |
+    | Type de ressource | Sélectionnez **Microsoft.DBforMySQL/servers**. |
     | Ressource |Sélectionnez *myServer*|
     |Sous-ressource cible |Sélectionnez *mysqlServer*|
     |||
-7. Sélectionnez **Suivant : Configuration** .
+7. Sélectionnez **Suivant : Configuration**.
 8. Dans **Créer un point de terminaison privé – Configuration** , entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
     |**MISE EN RÉSEAU**| |
-    | Réseau virtuel| Sélectionnez *MyVirtualNetwork* . |
-    | Subnet | Sélectionnez *mySubnet* . |
+    | Réseau virtuel| Sélectionnez *MyVirtualNetwork*. |
+    | Subnet | Sélectionnez *mySubnet*. |
     |**INTÉGRATION À DNS PRIVÉ**||
-    |Intégrer à une zone DNS privée |Sélectionnez **Oui** . |
+    |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
     |Zone DNS privée |Sélectionnez *(New)privatelink.mysql.database.azure.com* |
     |||
 
     > [!Note] 
     > Utilisez la zone DNS privée prédéfinie pour votre service ou indiquez le nom de la zone DNS de votre choix. Pour plus d’informations, reportez-vous à la [Configuration de la zone DNS des services Azure](../private-link/private-endpoint-dns.md).
 
-1. Sélectionnez **Revoir + créer** . Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
-2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer** . 
+1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
+2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Présentation de Private Link":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Instance Private Link créée":::
 
     > [!NOTE] 
     > Le FQDN dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
@@ -188,24 +188,24 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
 
 Après avoir créé **myVm** , connectez-vous à cette machine virtuelle à partir d’Internet comme suit : 
 
-1. Dans la barre de recherche du portail, entrez *myVm* .
+1. Dans la barre de recherche du portail, entrez *myVm*.
 
-1. Sélectionnez le bouton **Connexion** . Après avoir sélectionné le bouton **Connecter** , **Se connecter à la machine virtuelle** s’ouvre.
+1. Sélectionnez le bouton **Connexion**. Après avoir sélectionné le bouton **Connecter** , **Se connecter à la machine virtuelle** s’ouvre.
 
-1. Sélectionnez **Télécharger le fichier RDP** . Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp* ) et le télécharge sur votre ordinateur.
+1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp* ) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier *downloaded.rdp* .
+1. Ouvrez le fichier *downloaded.rdp*.
 
-    1. Si vous y êtes invité, sélectionnez **Connexion** .
+    1. Si vous y êtes invité, sélectionnez **Connexion**.
 
     1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
 
         > [!NOTE]
         > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte** , pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
 
-1. Sélectionnez **OK** .
+1. Sélectionnez **OK**.
 
-1. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer** .
+1. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer**.
 
 1. Une fois que le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre poste de travail local.
 
@@ -230,11 +230,11 @@ Après avoir créé **myVm** , connectez-vous à cette machine virtuelle à part
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Type de serveur| Sélectionnez **MySQL** .|
-    | Nom du serveur| Sélectionnez *myServer.privatelink.mysql.database.azure.com* . |
+    | Type de serveur| Sélectionnez **MySQL**.|
+    | Nom du serveur| Sélectionnez *myServer.privatelink.mysql.database.azure.com*. |
     | Nom d'utilisateur | Entrez le nom d’utilisateur au format username@servername qui est fourni lors de la création du serveur MySQL. |
     |Mot de passe |Entrez le mot de passe fourni lors de la création du serveur MySQL. |
-    |SSL|Sélectionnez **Obligatoire** .|
+    |SSL|Sélectionnez **Obligatoire**.|
     ||
 
 5. Sélectionnez Se connecter.
@@ -249,8 +249,8 @@ Après avoir créé **myVm** , connectez-vous à cette machine virtuelle à part
 Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur MySQL et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient :
 
 1. Entrez *myResourceGroup* dans la zone **Recherche** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche.
-2. Sélectionnez **Supprimer le groupe de ressources** .
-3. Entrez myResourceGroup dans **TAPER LE NOM DU GROUPE DE RESSOURCES** , puis sélectionnez **Supprimer** .
+2. Sélectionnez **Supprimer le groupe de ressources**.
+3. Entrez myResourceGroup dans **TAPER LE NOM DU GROUPE DE RESSOURCES** , puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

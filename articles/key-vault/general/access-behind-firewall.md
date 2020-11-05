@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 1ab5ae7bf9f1d13458e3bbeeec564fe642eb3303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588726"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289161"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accès à Azure Key Vault derrière un pare-feu
 
@@ -43,7 +43,7 @@ L’application cliente de coffre de clés doit accéder aux points de terminais
 | Utilisateur ou principal du service utilisant un compte professionnel ou scolaire avec Azure AD (par exemple, user@contoso.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure China :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br> login.microsoftonline.de:443 |
 | Utilisateur ou principal du service utilisant un compte professionnel ou scolaire, plus Active Directory Federation Services (AD FS) ou un autre point de terminaison fédéré (par exemple, user@contoso.com) |Tous les points de terminaison correspondant à un compte professionnel ou scolaire, plus AD FS ou d’autres points de terminaison fédérés |
 
-D’autres scénarios complexes sont possibles. Pour plus d’informations, reportez-vous à [Azure Active Directory Authentication Flow (Flux d’authentification d’Azure Active Directory)](../../active-directory/develop/authentication-scenarios.md), [Intégration d’applications dans Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) et [Protocoles d’authentification Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
+D’autres scénarios complexes sont possibles. Pour plus d’informations, reportez-vous à [Azure Active Directory Authentication Flow (Flux d’authentification d’Azure Active Directory)](../../active-directory/develop/authentication-vs-authorization.md), [Intégration d’applications dans Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) et [Protocoles d’authentification Active Directory](/previous-versions/azure/dn151124(v=azure.100)).  
 
 ## <a name="key-vault-management"></a>Gestion de Key Vault
 
@@ -56,7 +56,7 @@ Pour la gestion d’un coffre de clés Key Vault (CRUD et définition de la stra
 
 ## <a name="key-vault-operations"></a>Opérations Key Vault
 
-Pour toutes les opérations de gestion et de chiffrement d’objets (clés et secrets), le client de coffre de clés doit accéder au point de terminaison du coffre de clés. Le suffixe DNS du point de terminaison varie en fonction de l’emplacement de votre coffre de clés. Le point de terminaison du coffre de clés est au format *nom du coffre*.*suffixe-dns-spécifique-à-la-région*, comme indiqué dans le tableau ci-dessous.  
+Pour toutes les opérations de gestion et de chiffrement d’objets (clés et secrets), le client de coffre de clés doit accéder au point de terminaison du coffre de clés. Le suffixe DNS du point de terminaison varie en fonction de l’emplacement de votre coffre de clés. Le point de terminaison du coffre de clés est au format *nom du coffre*. *suffixe-dns-spécifique-à-la-région* , comme indiqué dans le tableau ci-dessous.  
 
 | Type d’opération | Point de terminaison:port |
 | --- | --- |
@@ -74,4 +74,4 @@ L’authentification et l’identité (Azure Active Directory) est un service gl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour toute question concernant Key Vault, rendez-vous sur la [Page de questions Microsoft Q&A consacrée à Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).
+Pour toute question concernant Key Vault, rendez-vous sur la [Page de questions Microsoft Q&A consacrée à Azure Key Vault](/answers/topics/azure-key-vault.html).

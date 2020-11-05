@@ -1,17 +1,17 @@
 ---
 title: Prépayer les ressources de calcul avec une capacité de réserve - Azure Database for MariaDB
 description: Prépayer les ressources de calcul Azure Database for MariaDB avec une capacité de réserve
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c28abc882635f7cd0815952fe0ae183bef7138d2
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427800"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241614"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database for MariaDB avec une capacité de réserve
 
@@ -38,7 +38,7 @@ Par exemple, supposons que vous exécutez un usage général ; une base de donn�
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Acheter une capacité de réserve Azure Database for MariaDB
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Tous les services** > **Réservations** .
+2. Sélectionnez **Tous les services** > **Réservations**.
 3.  Sélectionnez **Ajouter** , puis dans le volet Acheter des réservations, sélectionnez **Azure Database for MariaDB** pour acheter une nouvelle réservation pour vos bases de données MariaDB.
 4.  Renseignez les champs obligatoires. Les bases de données existantes ou nouvelles, correspondant aux attributs que vous sélectionnez, peuvent prétendre à la remise de capacité réservée. Le nombre réel de vos serveurs Azure Database for MariaDB qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
 

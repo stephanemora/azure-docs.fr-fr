@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131171"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286710"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -26,7 +26,7 @@ Vous pouvez accéder aux informations de journalisation 10 minutes (au maximum) 
 * Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
 * Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
 
-Pour obtenir des informations générales sur Key Vault, consultez l’article [Qu’est-ce qu’Azure Key Vault ?](overview.md). Pour plus d’informations sur les endroits où Key Vault est disponible, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/key-vault/). Découvrez plus d’informations sur l’utilisation d’[Azure Monitor pour Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Pour obtenir des informations générales sur Key Vault, consultez l’article [Qu’est-ce qu’Azure Key Vault ?](overview.md). Pour plus d’informations sur les endroits où Key Vault est disponible, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/key-vault/). Découvrez plus d’informations sur l’utilisation d’[Azure Monitor pour Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpréter vos journaux d’activité Key Vault
 
@@ -75,7 +75,7 @@ Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 | **identity** |Identité issue du jeton qui a été présenté dans la requête d’API REST. Il s’agit généralement d’un « utilisateur », d’un « principal de service » ou de la « utilisateur + appId », comme dans le cas d’une requête résultant d’une cmdlet Azure PowerShell. |
 | **properties** |Informations variables en fonction de l’opération ( **operationName** ). Dans la plupart des cas, ce champ contient des informations sur le client (chaîne d’agent utilisateur transmise par le client), l’URI de requête d’API REST exacte et le code d’état HTTP. En outre, quand un objet est retourné suite à une requête (par exemple, **KeyCreate** ou **VaultGet** ), ce champ contient également l’URI de la clé (sous la forme `id`), l’URI du coffre ou l’URI du secret. |
 
-Les valeurs du champ **operationName** sont indiquées au format *ObjectVerb* . Par exemple :
+Les valeurs du champ **operationName** sont indiquées au format *ObjectVerb*. Par exemple :
 
 * Toutes les opérations de coffre de clés présentent le format `Vault<action>`, comme `VaultGet` et `VaultCreate`.
 * Toutes les opérations de clé présentent le format `Key<action>`, comme `KeySign` et `KeyList`.
@@ -88,32 +88,32 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | operationName | Commande API REST |
 | --- | --- |
 | **Authentification** |Authentification par le biais du point de terminaison Azure Active Directory |
-| **VaultGet** |[Obtention des informations sur un coffre de clés](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Création ou mise à jour d’un coffre de clés](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Suppression d’un coffre de clés](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Mise à jour d’un coffre de clés](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[Liste de l’ensemble des coffres de clés dans un groupe de ressources](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Création d’une clé](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Obtention des informations sur une clé](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Importation d’une clé dans un coffre](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Sauvegarde d’une clé](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Suppression d’une clé](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Restauration d’une clé](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Signature avec une clé](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Vérification à l’aide d’une clé](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Encapsulage d’une clé](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Désencapsulage d’une clé](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Chiffrement avec une clé](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Déchiffrement avec une clé](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Mise à jour d’une clé](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[Liste des clés dans un coffre](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[Liste des versions d’une clé](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Création d’une clé secrète](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Obtention d’un secret](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Mise à jour d’une clé secrète](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Suppression d’une clé secrète](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[Liste des clés secrètes d’un coffre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[Liste des versions d’une clé secrète](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Obtention des informations sur un coffre de clés](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Création ou mise à jour d’un coffre de clés](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Suppression d’un coffre de clés](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Mise à jour d’un coffre de clés](/rest/api/keyvault/vaults) |
+| **VaultList** |[Liste de l’ensemble des coffres de clés dans un groupe de ressources](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[Création d’une clé](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Obtention des informations sur une clé](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Importation d’une clé dans un coffre](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[Sauvegarde d’une clé](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[Suppression d’une clé](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[Restauration d’une clé](/rest/api/keyvault/restorekey) |
+| **KeySign** |[Signature avec une clé](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Vérification à l’aide d’une clé](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Encapsulage d’une clé](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Désencapsulage d’une clé](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Chiffrement avec une clé](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Déchiffrement avec une clé](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Mise à jour d’une clé](/rest/api/keyvault/updatekey) |
+| **KeyList** |[Liste des clés dans un coffre](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[Liste des versions d’une clé](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[Création d’une clé secrète](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Obtention d’un secret](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Mise à jour d’une clé secrète](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Suppression d’une clé secrète](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Liste des clés secrètes d’un coffre](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[Liste des versions d’une clé secrète](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | Événement lié à la modification de la stratégie d’accès au coffre publié |
 | **SecretNearExpiryEventGridNotification** |Événement lié à un secret proche de l’expiration publié |
 | **SecretExpiredEventGridNotification** |Événement lié à un secret expiré publié |

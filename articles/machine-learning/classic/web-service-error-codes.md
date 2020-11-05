@@ -11,16 +11,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: c48c59db2d9b830367276d39a82bc7fc8fdc34d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e0fa530b370782af730a2383df1240bbf5c859
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357248"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308661"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Codes d’erreur de l’API REST Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Les codes d’erreur suivants peuvent être retournés par une opération effectuée sur un service web Azure Machine Learning Studio (classique).
@@ -252,4 +252,3 @@ Impossible d'exécuter l'opération dans le temps imparti.
 | ---------- |--------------|
 | BackendInitializationTimeout | L’initialisation du service web n’a pas pu s’exécuter dans le temps imparti. |
 | BackendScoreTimeout | L’exécution de la requête du service web n’a pas pu s’exécuter dans le temps imparti. |
- 

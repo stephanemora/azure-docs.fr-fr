@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c728b219168f61f7f791b7db280a701ff216985
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 822bb43aaeb3cc1cf5914bb1600ef754441c4206
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362382"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310201"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Python est un précieux outil dans le coffre à outils de nombreux scientifiques de données. Il est utilisé à chaque étape des flux de travail d’apprentissage automatique typiques, y compris l'exploration des données, l'extraction des fonctionnalités, la formation, la validation et le déploiement de modèles.
@@ -81,7 +81,7 @@ Ensuite, nous créons un fichier Hello.zip contenant Hello.py :
 
 ![Fichier zip contenant le code Python défini par l'utilisateur](./media/execute-python-scripts/figure5.png)
 
-Chargez le fichier zip en tant que jeu de données dans Studio (classique). Créez et exécutez ensuite une expérience qui utilise le code Python dans le fichier Hello.zip en le joignant au troisième port d’entrée du module **Exécuter le script Python**, comme illustré dans l’image suivante.
+Chargez le fichier zip en tant que jeu de données dans Studio (classique). Créez et exécutez ensuite une expérience qui utilise le code Python dans le fichier Hello.zip en le joignant au troisième port d’entrée du module **Exécuter le script Python** , comme illustré dans l’image suivante.
 
 ![Exemple d’expérience avec Hello.zip comme entrée d’un module Exécuter le script Python](./media/execute-python-scripts/figure6a.png)
 
@@ -186,5 +186,5 @@ L'ajout de modules Python personnalisés n'est, à l'heure actuelle, possible qu
 Pour plus d’informations, consultez le [Centre pour développeurs Python](https://azure.microsoft.com/develop/python/).
 
 <!-- Module References -->
-[execute-python-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-python-script
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
+[execute-python-script]: /azure/machine-learning/studio-module-reference/execute-python-script
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
