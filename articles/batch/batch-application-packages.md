@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91277697"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
@@ -64,12 +64,12 @@ Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) ou les API de 
 
 Pour utiliser des packages d’application, vous devez lier un [compte de stockage Azure](accounts.md#azure-storage-accounts) à votre compte Batch. Le service Batch utilisera le compte de stockage associé pour stocker vos packages d’application. Nous vous recommandons de créer un compte de stockage spécifiquement destiné à être utilisé avec votre compte Batch.
 
-Si vous n’avez pas encore configuré de compte de stockage, le portail Azure affiche un avertissement la première fois que vous sélectionnez **Applications** dans votre compte Batch. Pour lier un compte de stockage à votre compte Batch, dans la fenêtre **Avertissement** , sélectionnez **Compte de stockage** , puis sélectionnez à nouveau **Compte de stockage** .
+Si vous n’avez pas encore configuré de compte de stockage, le portail Azure affiche un avertissement la première fois que vous sélectionnez **Applications** dans votre compte Batch. Pour lier un compte de stockage à votre compte Batch, dans la fenêtre **Avertissement** , sélectionnez **Compte de stockage** , puis sélectionnez à nouveau **Compte de stockage**.
 
 Une fois que vous avez lié les deux comptes, Batch peut déployer automatiquement les packages stockés dans le compte de stockage lié sur vos nœuds de calcul.
 
 > [!IMPORTANT]
-> Vous ne pouvez pas utiliser de packages d’application avec des comptes de stockage Azure configurés avec des [règles de pare-feu](../storage/common/storage-network-security.md) ou un **espace de noms hiérarchique** défini sur **Activé** .
+> Vous ne pouvez pas utiliser de packages d’application avec des comptes de stockage Azure configurés avec des [règles de pare-feu](../storage/common/storage-network-security.md) ou un **espace de noms hiérarchique** défini sur **Activé**.
 
 Le service Batch utilise un stockage Azure pour stocker vos packages d’application en tant qu’objets blob de blocs. Vous êtes [facturé de façon normale](https://azure.microsoft.com/pricing/details/storage/) pour les données des objets blob de blocs, et la taille de chaque package ne peut pas dépasser la taille maximale d’objet blob de blocs. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité de Stockage Azure](../storage/blobs/scalability-targets.md). Afin de minimiser les coûts, veillez à prendre en compte la taille et le nombre de vos packages d’application, ainsi qu’à supprimer régulièrement les packages obsolètes.
 
@@ -77,21 +77,21 @@ Le service Batch utilise un stockage Azure pour stocker vos packages d’applica
 
 Pour afficher les applications dans votre compte batch, sélectionnez **Applications** dans le menu de navigation à gauche.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagramme montrant une vue d’ensemble des applications et packages d’applications.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Capture d’écran de l’élément de menu Applications dans le portail Azure.":::
 
-La sélection de cette option de menu a pour effet d’ouvrir la fenêtre **Applications** . Cette fenêtre affiche l’ID de chaque application dans votre compte et les propriétés suivantes :
+La sélection de cette option de menu a pour effet d’ouvrir la fenêtre **Applications**. Cette fenêtre affiche l’ID de chaque application dans votre compte et les propriétés suivantes :
 
 - **Packages** : nombre de versions associées à cette application.
 - **Version par défaut** : Le cas échéant, version de l’application qui sera installée si aucune version n’est spécifiée lors du déploiement de l’application.
 - **Autoriser les mises à jour** : Spécifie si les mises à jour et suppressions de package sont autorisées.
 
-Si vous voyez la [structure de fichiers](files-and-directories.md) du package d’application sur un nœud de calcul, accédez à votre compte Batch dans le portail Azure. Sélectionnez **Pools** . Sélectionnez ensuite le pool contenant le nœud de calcul. Sélectionnez le nœud de calcul sur lequel le package d’application est installé, puis ouvrez le dossier **Applications** .
+Si vous voyez la [structure de fichiers](files-and-directories.md) du package d’application sur un nœud de calcul, accédez à votre compte Batch dans le portail Azure. Sélectionnez **Pools**. Sélectionnez ensuite le pool contenant le nœud de calcul. Sélectionnez le nœud de calcul sur lequel le package d’application est installé, puis ouvrez le dossier **Applications**.
 
 ### <a name="view-application-details"></a>Affichage des détails de l’application
 
-Pour afficher les détails d’une application, sélectionnez celle-ci dans la fenêtre **Applications** . Vous pouvez configurer les paramètres suivants pour votre application.
+Pour afficher les détails d’une application, sélectionnez celle-ci dans la fenêtre **Applications**. Vous pouvez configurer les paramètres suivants pour votre application.
 
-- **Autoriser les mises à jour** : indique si les packages d’application peuvent être [mis à jour ou supprimés](#update-or-delete-an-application-package). La valeur par défaut de ce paramètre est **Oui** . Si la valeur est **Non** , les packages d’application existants ne peuvent pas être mis à jour ou supprimés, mais de nouvelles versions de package d’application peuvent toujours être ajoutées.
+- **Autoriser les mises à jour** : indique si les packages d’application peuvent être [mis à jour ou supprimés](#update-or-delete-an-application-package). La valeur par défaut de ce paramètre est **Oui**. Si la valeur est **Non** , les packages d’application existants ne peuvent pas être mis à jour ou supprimés, mais de nouvelles versions de package d’application peuvent toujours être ajoutées.
 - **Version par défaut** : package d’application par défaut à utiliser lors du déploiement de l’application, si aucune version n’est spécifiée.
 - **Nom d'affichage**  : nom convivial que votre solution Batch peut utiliser quand elle affiche des informations sur l’application. Par exemple, ce nom peut être utilisé dans l’interface utilisateur d’un service que vous fournissez à vos clients par le biais de Batch.
 
@@ -99,9 +99,9 @@ Pour afficher les détails d’une application, sélectionnez celle-ci dans la f
 
 Pour créer une application, ajoutez un package d’application et spécifiez un ID d’application unique.
 
-Dans votre compte Batch, sélectionnez **Applications** , puis **Ajouter** .
+Dans votre compte Batch, sélectionnez **Applications** , puis **Ajouter**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagramme montrant une vue d’ensemble des applications et packages d’applications.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Capture d’écran du processus de création Nouvelle application dans le portail Azure.":::
 
 Entrez les informations suivantes :
 
@@ -116,19 +116,19 @@ L’ **ID d’application** et la **Version** de vous entrez doivent respecter l
 - Doit être unique dans le compte Batch.
 - Les ID conservent la casse et ne respectent pas la casse.
 
-Quand vous êtes prêt, sélectionnez **Envoyer** . Une fois le fichier. zip chargé sur votre compte de stockage Azure, le portail affiche une notification. Selon la taille du fichier que vous chargez et la vitesse de votre connexion réseau, cette opération peut prendre un certain temps.
+Quand vous êtes prêt, sélectionnez **Envoyer**. Une fois le fichier. zip chargé sur votre compte de stockage Azure, le portail affiche une notification. Selon la taille du fichier que vous chargez et la vitesse de votre connexion réseau, cette opération peut prendre un certain temps.
 
 ### <a name="add-a-new-application-package"></a>Ajout d’un package d’application
 
-Pour ajouter une version de package d’application pour une application existante, sélectionnez l’application dans la section **Applications** de votre compte Batch, puis sélectionnez **Ajouter** .
+Pour ajouter une version de package d’application pour une application existante, sélectionnez l’application dans la section **Applications** de votre compte Batch, puis sélectionnez **Ajouter**.
 
-Comme vous l’avez fait pour la nouvelle application, spécifiez la **Version** de votre nouveau package, chargez votre fichier. zip dans le champ **Package d’application** , puis sélectionnez **Envoyer** .
+Comme vous l’avez fait pour la nouvelle application, spécifiez la **Version** de votre nouveau package, chargez votre fichier. zip dans le champ **Package d’application** , puis sélectionnez **Envoyer**.
 
 ### <a name="update-or-delete-an-application-package"></a>Mettre à jour ou supprimer un package d’application
 
 Pour mettre à jour ou supprimer un package d’application existant, sélectionnez l’application dans la section **Applications** de votre compte Batch. Sélectionnez les points de suspension dans la ligne du package d’application que vous souhaitez modifier, puis sélectionnez l’action à effectuer.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagramme montrant une vue d’ensemble des applications et packages d’applications.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Capture d’écran montrant les options de mise à jour et de suppression pour les packages d’application dans le portail Azure.":::
 
 Si vous sélectionnez **Mettre à jour** , vous pourrez charger un nouveau fichier. zip. Cette opération remplace le fichier. zip précédent que vous avez chargé pour cette version.
 

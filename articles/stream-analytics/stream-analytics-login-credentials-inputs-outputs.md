@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47afaea03e58cf6a24382727c6fc7193fde5abe4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123810"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotation des informations d'identification pour les entrées et les sorties dans un travail Stream Analytics
 
@@ -38,7 +38,7 @@ Dans cette section, nous vous guiderons tout au long du processus de régénéra
 ### <a name="event-hubs"></a>Hubs d'événements
 
 1. Connectez-vous au portail Azure > accédez au hub d’événements que vous avez utilisé comme entrée/sortie pour le travail Stream Analytics.    
-2. Dans la section des paramètres, ouvrez **Stratégies d'accès partagé** et sélectionnez la stratégie d’accès requise. Entre la **clé primaire** et la **clé secondaire**, choisissez celle qui n’est pas utilisée par votre travail et régénérez-la :  
+2. Dans la section des paramètres, ouvrez **Stratégies d'accès partagé** et sélectionnez la stratégie d’accès requise. Entre la **clé primaire** et la **clé secondaire** , choisissez celle qui n’est pas utilisée par votre travail et régénérez-la :  
    ![Régénérer les clés pour le hub d’événements](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. Copiez la clé qui vient d’être générée.    
 4. Dans le portail Azure, accédez à votre travail Stream Analytics > sélectionnez **Arrêter** et attendez que le travail s’arrête.    
@@ -52,7 +52,7 @@ Dans cette section, nous vous guiderons tout au long du processus de régénéra
 Vous devez vous connecter à SQL Database pour mettre à jour les informations d’identification de connexion d’un utilisateur existant. Vous pouvez mettre à jour les informations d’identification en utilisant le portail Azure ou un outil côté client comme SQL Server Management Studio. Cette section décrit le processus de mise à jour des informations d’identification à l’aide du portail Azure.
 
 1. Connectez-vous au portail Azure > accédez à la base de données SQL que vous avez utilisée comme sortie pour le travail Stream Analytics.    
-2. À partir de l’**Explorateur de données**, connectez-vous à votre base de données > sélectionnez le type d’autorisation **Authentification SQL Server** > entrez votre **identifiant** et votre **mot de passe** > sélectionnez **Ok**.  
+2. À partir de l’ **Explorateur de données** , connectez-vous à votre base de données > sélectionnez le type d’autorisation **Authentification SQL Server** > entrez votre **identifiant** et votre **mot de passe** > sélectionnez **Ok**.  
    ![Régénérer les informations d’identification pour SQL Database](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Sous l’onglet de la requête, modifiez le mot de passe d’un de vos utilisateurs en exécutant la requête suivante (veillez à remplacer `<user_name>` par votre nom d’utilisateur et `<new_password>` par votre nouveau mot de passe) :  
@@ -84,5 +84,5 @@ Vous devez vous connecter à SQL Database pour mettre à jour les informations d
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](/rest/api/streamanalytics/)

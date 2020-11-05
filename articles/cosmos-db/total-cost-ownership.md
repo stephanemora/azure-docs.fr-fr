@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476992"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079289"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Coût total de possession avec Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est conçu avec la gouvernance des ressources et une architecture mutualisée affinée. Cette conception permet à Azure Cosmos DB de fonctionner à un coût nettement plus faible et de faire gagner du temps aux utilisateurs. Actuellement, Azure Cosmos DB prend en charge plus de 280 charges de travail clientes sur un seul ordinateur avec une densité qui augmente en continu, et des milliers de charges de travail clientes au sein d’un cluster. Il équilibre la charge de réplicas des charges de travail clientes sur différents ordinateurs dans un cluster et sur plusieurs clusters d’un centre de données. Pour en savoir plus, consultez [Azure Cosmos DB : Pushing the frontier of globally distributed databases (Repousser les limites des bases de données distribuées à l’échelle mondiale)](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). En raison de la gouvernance des ressources, de l’architecture mutualisée et de l’intégration native avec le reste de l’infrastructure Azure, Azure Cosmos DB est en moyenne 4 à 6 fois moins cher que MongoDB, Cassandra ou d’autres systèmes NoSQL open source exécutés sur IaaS et jusqu’à 10 fois moins cher que les moteurs de bases de données s’exécutant en local. Consultez le livre blanc sur le [coût total de (non-)possession d’un service cloud de base de données NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 

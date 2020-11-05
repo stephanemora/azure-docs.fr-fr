@@ -8,19 +8,21 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570620"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085766"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Points de terminaison régionaux pour le compte de graphe Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Comme la base de données de graphes Azure Cosmos DB est [globalement distribuée](distribute-data-globally.md), les applications peuvent utiliser plusieurs points de terminaison de lecture. Les applications qui ont besoin d’un accès en écriture dans plusieurs localisations doivent activer la fonctionnalité [Écritures multirégions](how-to-multi-master.md).
 
 Raisons pour lesquelles choisir plusieurs régions :
-1. **Scalabilité de la lecture horizontale** : à mesure que la charge de l’application augmente, il peut être prudent de router le trafic en lecture vers des régions Azure différentes.
-2. **Latence plus faible** : vous pouvez réduire la surcharge de latence du réseau de chaque traversée en routant le trafic en lecture et en écriture vers la région Azure la plus proche.
+1. **Scalabilité de la lecture horizontale**  : à mesure que la charge de l’application augmente, il peut être prudent de router le trafic en lecture vers des régions Azure différentes.
+2. **Latence plus faible**  : vous pouvez réduire la surcharge de latence du réseau de chaque traversée en routant le trafic en lecture et en écriture vers la région Azure la plus proche.
 
 Les exigences en matière de **résidence des données** sont obtenues en définissant une stratégie Azure Resource Manager sur le compte Cosmos DB. Le client peut limiter les régions dans lesquelles Cosmos DB réplique les données.
 

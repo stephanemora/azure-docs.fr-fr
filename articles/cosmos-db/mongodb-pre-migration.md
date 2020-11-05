@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: jasonh
-ms.openlocfilehash: 2ad56bf0295efca45ee958e1ce135d79ed850d62
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8e3a0ac6996762bc7f4bd1a6d9dde8cfb59db662
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277588"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096425"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de prémigration pour les migrations de données de MongoDB vers l’API Azure Cosmos DB pour MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Avant de migrer vos données depuis MongoDB (localement ou dans le cloud) vers l’API Azure Cosmos DB pour MongoDB, vous devez :
 
@@ -30,13 +31,13 @@ Si vous avez déjà effectué les étapes prérequises ci-dessus pour la migrati
 
 Les caractéristiques spécifiques à l’API Azure Cosmos DB pour MongoDB sont les suivantes :
 
-- **Modèle de capacité** : La capacité de base de données dans Azure Cosmos DB est basée sur un modèle basé sur le débit. Ce modèle est basé sur les [unités de requête par seconde](request-units.md) et constitue une unité qui représente le nombre d’opérations de base de données pouvant être exécutées par seconde sur une collection. Cette capacité peut être allouée [au niveau d’une collection ou d’une base de données](set-throughput.md), et elle peut être approvisionnée sur un modèle d’allocation ou à l’aide du [débit approvisionné en mode de mise à l’échelle automatique](provision-throughput-autoscale.md).
+- **Modèle de capacité**  : La capacité de base de données dans Azure Cosmos DB est basée sur un modèle basé sur le débit. Ce modèle est basé sur les [unités de requête par seconde](request-units.md) et constitue une unité qui représente le nombre d’opérations de base de données pouvant être exécutées par seconde sur une collection. Cette capacité peut être allouée [au niveau d’une collection ou d’une base de données](set-throughput.md), et elle peut être approvisionnée sur un modèle d’allocation ou à l’aide du [débit approvisionné en mode de mise à l’échelle automatique](provision-throughput-autoscale.md).
 
-- **Unités de requête** : Chaque opération de base de données a un coût d’unités de requête (RU) associé dans Azure Cosmos DB. Une fois l’opération exécutée, ce coût est soustrait du niveau d’unités de requête disponible à une seconde donnée. Si une demande nécessite plus d’unités de requête que le nombre d’unités de requête actuellement allouées/s, il existe deux options pour résoudre le problème : augmenter le nombre d’unités de requête ou attendre que la seconde suivante démarre, puis recommencer l’opération.
+- **Unités de requête**  : Chaque opération de base de données a un coût d’unités de requête (RU) associé dans Azure Cosmos DB. Une fois l’opération exécutée, ce coût est soustrait du niveau d’unités de requête disponible à une seconde donnée. Si une demande nécessite plus d’unités de requête que le nombre d’unités de requête actuellement allouées/s, il existe deux options pour résoudre le problème : augmenter le nombre d’unités de requête ou attendre que la seconde suivante démarre, puis recommencer l’opération.
 
-- **Capacité élastique** : La capacité d’une collection ou d’une base de données donnée peut changer à tout moment. Cela permet à la base de données de s’adapter de manière élastique aux exigences de débit de votre charge de travail.
+- **Capacité élastique**  : La capacité d’une collection ou d’une base de données donnée peut changer à tout moment. Cela permet à la base de données de s’adapter de manière élastique aux exigences de débit de votre charge de travail.
 
-- **Partitionnement automatique** : Azure Cosmos DB fournit un système de partitionnement automatique qui requiert un seul partitionnement (ou une clé de partition). Le [mécanisme de partitionnement automatique](partitioning-overview.md) est partagé entre toutes les API Azure Cosmos DB et permet une mise à l’échelle transparente des données et du débit via une distribution horizontale.
+- **Partitionnement automatique**  : Azure Cosmos DB fournit un système de partitionnement automatique qui requiert un seul partitionnement (ou une clé de partition). Le [mécanisme de partitionnement automatique](partitioning-overview.md) est partagé entre toutes les API Azure Cosmos DB et permet une mise à l’échelle transparente des données et du débit via une distribution horizontale.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Options de migration pour l’API Azure Cosmos DB pour MongoDB
 
@@ -56,9 +57,9 @@ Dans Azure Cosmos DB, le débit est provisionné à l’avance et mesuré en uni
 Vous pouvez utiliser la [calculatrice de capacité Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) pour déterminer la quantité d’unités de requête en fonction de la configuration de votre compte de base de données, de la quantité de données, de la taille du document et des opérations de lecture et d’écriture requises par seconde.
 
 Les principaux facteurs qui affectent le nombre d’unités de requête nécessaires sont les suivants :
-- **Taille du document** : plus la taille d’un élément/document augmente, plus le nombre d’unités de requête consommées pour le lire ou l’écrire augmente.
+- **Taille du document**  : plus la taille d’un élément/document augmente, plus le nombre d’unités de requête consommées pour le lire ou l’écrire augmente.
 
-- **Nombre de propriétés de document** : le nombre d’unités de requête consommées pour créer ou mettre à jour un document est lié au nombre, à la complexité et à la longueur de ses propriétés. Vous pouvez réduire la consommation d’unités de requête pour les opérations d’écriture en [limitant le nombre de propriétés indexées](mongodb-indexing.md).
+- **Nombre de propriétés de document**  : le nombre d’unités de requête consommées pour créer ou mettre à jour un document est lié au nombre, à la complexité et à la longueur de ses propriétés. Vous pouvez réduire la consommation d’unités de requête pour les opérations d’écriture en [limitant le nombre de propriétés indexées](mongodb-indexing.md).
 
 - **Modèles de requête** : la complexité d’une requête a une incidence sur le nombre d’unités de requête qu’elle consomme. 
 

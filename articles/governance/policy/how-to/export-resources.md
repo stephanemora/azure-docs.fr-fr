@@ -1,15 +1,15 @@
 ---
 title: Exporter les ressources Azure Policy
 description: Apprenez à exporter des ressources Azure Policy vers GitHub, comme les définitions de stratégie et les attributions de stratégie.
-ms.date: 09/30/2020
+ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16ceed755cab3228b8f9e401f486a0629f3a60d
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777086"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025712"
 ---
 # <a name="export-azure-policy-resources"></a>Exporter les ressources Azure Policy
 
@@ -19,7 +19,7 @@ Cet article fournit des informations sur l’exportation de vos ressources Azure
 
 Pour exporter une définition de stratégie à partir du Portail Azure, procédez comme suit :
 
-1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
+1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services** , puis en recherchant et en cliquant sur **Stratégie**.
 
 1. Sélectionnez **Définitions** sur le côté gauche de la page Azure Policy.
 
@@ -27,14 +27,14 @@ Pour exporter une définition de stratégie à partir du Portail Azure, procéde
 
 1. Sélectionnez le bouton **Sign in with GitHub** (Se connecter avec GitHub). Si vous n’avez pas encore été authentifié avec GitHub pour autoriser Azure Policy à exporter la ressource, passez en revue les besoins [GitHub Actions](https://github.com/features/actions) dans la nouvelle fenêtre qui s’ouvre, puis sélectionnez **Autoriser AzureGitHubActions** pour poursuivre le processus d’exportation. Une fois l’opération terminée, la nouvelle fenêtre se ferme automatiquement.
 
-1. Sous l’onglet **Général**, définissez les options suivantes, puis sélectionnez l’onglet **Stratégies** ou **Suivant : Stratégies** en bas de la page.
+1. Sous l’onglet **Général** , définissez les options suivantes, puis sélectionnez l’onglet **Stratégies** ou **Suivant : Stratégies** en bas de la page.
 
-   - **Filtre de référentiel** : Affectez la valeur _Mes référentiels_ pour afficher uniquement les référentiels que vous possédez, ou _Tous les référentiels_ pour voir tous les référentiels auxquels vous avez accordé l’accès à GitHub Action.
+   - **Filtre de référentiel**  : Affectez la valeur _Mes référentiels_ pour afficher uniquement les référentiels que vous possédez, ou _Tous les référentiels_ pour voir tous les référentiels auxquels vous avez accordé l’accès à GitHub Action.
    - **Référentiel** : Définissez sur le référentiel dans lequel vous souhaitez exporter les ressources Azure Policy.
    - **Branche** : Définissez la branche dans le référentiel. L’utilisation d’une autre branche que la branche par défaut est un bon moyen de valider vos mises à jour avant de les fusionner dans votre code source.
    - **Répertoire** : Le _dossier racine_ vers lequel exporter les ressources Azure Policy. Les sous-dossiers de ce répertoire sont créés en fonction des ressources exportées.
 
-1. Sous l’onglet **Stratégies**, définissez l’étendue à rechercher en sélectionnant les points de suspension et en choisissant une combinaison de groupes d’administration, d’abonnements ou de groupes de ressources.
+1. Sous l’onglet **Stratégies** , définissez l’étendue à rechercher en sélectionnant les points de suspension et en choisissant une combinaison de groupes d’administration, d’abonnements ou de groupes de ressources.
    
 1. Utilisez le bouton **Ajouter une ou plusieurs définitions de stratégie** pour rechercher l’étendue des objets à exporter. Dans la fenêtre latérale qui s’ouvre, sélectionnez chaque objet à exporter. Filtrez la sélection avec la zone de recherche ou en sélectionnant un type. Une fois que vous avez sélectionné tous les objets à exporter, utilisez le bouton **Ajouter** au bas de la page.
 
@@ -43,7 +43,7 @@ Pour exporter une définition de stratégie à partir du Portail Azure, procéde
    > [!NOTE]
    > Si vous avez choisi l’option _Définition et affectation(s)_ , seules les affectations de stratégie au sein de l’étendue définie par le filtre lors de l’ajout de la définition de stratégie sont exportées.
 
-1. Sous l’onglet **Vérifier + exporter**, vérifiez que les détails correspondent, puis utilisez le bouton **Exporter** au bas de la page.
+1. Sous l’onglet **Vérifier + exporter** , vérifiez que les détails correspondent, puis utilisez le bouton **Exporter** au bas de la page.
 
 1. Vérifiez votre référentiel, votre branche et votre _dossier de niveau racine_ GitHub pour vérifier que les ressources sélectionnées sont désormais exportées vers votre contrôle de code source.
 
@@ -67,7 +67,7 @@ Les définitions, initiatives et affectations d’Azure Policy peuvent être exp
 - Initiative : [az policy set-definition show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
 - Affectation : [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show)
 
-Voici un exemple d’obtention de JSON pour une définition de stratégie avec la propriété **name** de _VirtualMachineStorage_ :
+Voici un exemple d’obtention de JSON pour une définition de stratégie avec la propriété **name** de _VirtualMachineStorage_  :
 
 ```azurecli-interactive
 az policy definition show --name 'VirtualMachineStorage'
@@ -81,10 +81,10 @@ Les définitions, initiatives et affectations d’Azure Policy peuvent être exp
 - Initiative : [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
 - Affectation : [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-Voici un exemple d’obtention de JSON pour une définition de stratégie avec la propriété **Name** de _VirtualMachineStorage_ :
+Voici un exemple d’obtention de JSON pour une définition de stratégie avec la propriété **Name** de _VirtualMachineStorage_  :
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

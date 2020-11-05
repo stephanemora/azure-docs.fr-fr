@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570570"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085732"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Utiliser des jetons de ressource Azure Cosmos DB avec le SDK Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Cet article explique comment utiliser des [jetons de ressource Azure Cosmos DB](secure-access-to-data.md) pour accéder à la base de données de graphe via le SDK Gremlin.
 
@@ -25,11 +26,11 @@ Le SDK Apache TinkerPop Gremlin ne dispose pas d’une API à utiliser pour cré
 
 La hiérarchie du modèle d’objets au-dessus des jetons de ressource est illustrée dans le plan suivant :
 
-- **Compte Azure Cosmos DB** : entité de plus haut niveau à laquelle est associé un DNS (par exemple `contoso.gremlin.cosmos.azure.com`).
+- **Compte Azure Cosmos DB**  : entité de plus haut niveau à laquelle est associé un DNS (par exemple `contoso.gremlin.cosmos.azure.com`).
   - **Base de données Azure Cosmos DB**
     - **Utilisateur**
       - **Permission**
-        - **Jeton** : propriété d’un objet d’autorisation qui indique les actions autorisées ou refusées.
+        - **Jeton**  : propriété d’un objet d’autorisation qui indique les actions autorisées ou refusées.
 
 Un jeton de ressource utilise le format suivant : `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Cette chaîne est opaque pour les clients et doit être utilisée telle quelle, sans modification ni interprétation.
 

@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290546"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124354"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -199,7 +199,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -237,7 +237,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -403,7 +403,7 @@ kubectl delete -f certificates.yaml
 kubectl delete -f cluster-issuer.yaml
 ```
 
-À présent, listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress* et *cert-manager*, comme illustré dans l’exemple de sortie suivant :
+À présent, listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress* et *cert-manager* , comme illustré dans l’exemple de sortie suivant :
 
 ```
 $ helm list --all-namespaces
@@ -435,7 +435,7 @@ Supprimez l’espace de noms lui-même. Utilisez la commande `kubectl delete` et
 kubectl delete namespace ingress-basic
 ```
 
-Enfin, supprimez l’adresse IP publique statique créée pour le contrôleur d’entrée. Indiquez le nom du groupe de ressources de cluster *MC_* obtenu à la première étape de cet article, tel que *MC_myResourceGroup_myAKSCluster_eastus* :
+Enfin, supprimez l’adresse IP publique statique créée pour le contrôleur d’entrée. Indiquez le nom du groupe de ressources de cluster *MC_* obtenu à la première étape de cet article, tel que *MC_myResourceGroup_myAKSCluster_eastus*  :
 
 ```azurecli-interactive
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP

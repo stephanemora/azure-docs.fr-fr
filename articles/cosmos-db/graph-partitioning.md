@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 89615f53f62329ca37ae4a4dde301a9fae6b1202
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 076355e39f813292e00aa54780a3aadc49c50d31
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081992"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la mise à l’échelle horizontale. Les conteneurs peuvent évoluer indépendamment en termes de débit et de stockage. Vous pouvez créer des conteneurs dans Azure Cosmos DB qui peuvent être automatiquement mis à l’échelle pour stocker des données graphiques. Les données sont automatiquement réparties en fonction de la **clé de partition** spécifiée.
 

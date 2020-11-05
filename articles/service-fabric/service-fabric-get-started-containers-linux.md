@@ -4,12 +4,12 @@ description: Créez votre première application de conteneur Linux sur Microsoft
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563707"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092940"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -235,11 +235,11 @@ Vous pouvez configurer un comportement **HEALTHCHECK** pour chaque conteneur en 
     </Policies>
 </ServiceManifestImport>
 ```
-Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true**, *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
+Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true** , *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
 
-Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
+Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true** , un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
 
-Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
+Si *TreatContainerUnhealthyStatusAsError* est défini sur **true** , des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 
@@ -413,7 +413,7 @@ Vous pouvez configurer le cluster Service Fabric pour supprimer des images conte
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }

@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 131cd9b1de82213d89ee07f30aed25544f6fcb18
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124949"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Questions courantes sur les machines virtuelles dans Place de marché Azure
 
@@ -22,7 +22,7 @@ Ces questions fréquentes couvrent les problèmes courants que vous pouvez renco
 
 Si vous utilisez le modèle de déploiement Azure Resource Manager, vous disposez de trois options :
 
-- [Créer une passerelle VPN basée sur des itinéraires à l’aide du Portail Azure](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+- [Créer une passerelle VPN basée sur des itinéraires à l’aide du Portail Azure](../vpn-gateway/tutorial-create-gateway-portal.md)
 - [Créer une passerelle VPN basée sur un itinéraire à l’aide d’Azure PowerShell](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
 - [Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
@@ -32,7 +32,7 @@ Pour plus d’informations, consultez [Prise en charge des logiciels serveurs Mi
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>Dans une machine virtuelle, comment gérer l’extension de script personnalisé lors de la tâche de démarrage ?
 
-Pour plus d’informations sur l’utilisation de l’extension de script personnalisé avec le module Azure PowerShell, sur les modèles Azure Resource Manager et sur les étapes de dépannage des systèmes Windows, consultez [Extension de script personnalisé pour Windows](/azure/virtual-machines/extensions/custom-script-windows).
+Pour plus d’informations sur l’utilisation de l’extension de script personnalisé avec le module Azure PowerShell, sur les modèles Azure Resource Manager et sur les étapes de dépannage des systèmes Windows, consultez [Extension de script personnalisé pour Windows](../virtual-machines/extensions/custom-script-windows.md).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Les services et les applications 32 bits sont-ils pris en charge dans la Place de marché Azure ?
 
@@ -40,7 +40,7 @@ Non. Les systèmes d’exploitation et services standard pris en charge pour les
 
 Pour plus d’informations, voir les articles suivants :
 
-- [Running 32-bit applications](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications) (Exécution d’applications 32 bits)
+- [Running 32-bit applications](/windows/desktop/WinProg64/running-32-bit-applications) (Exécution d’applications 32 bits)
 - [Prise en charge pour les systèmes d’exploitation 32 bits sur des machines virtuelles Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Prise en charge des logiciels serveurs Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 

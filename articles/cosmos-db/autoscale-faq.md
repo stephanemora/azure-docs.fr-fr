@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277967"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092685"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Grâce au débit approvisionné par mise à l’échelle automatique, Azure Cosmos DB gère et met à l’échelle automatiquement l’unité de requête/s de votre base de données ou conteneur en fonction de l’utilisation. Cette page répond aux questions fréquentes à propos de la mise à l’échelle automatique.
 
@@ -108,9 +109,9 @@ Lorsque vous envoyez une requête pour augmenter l’unité de requête/s maxima
 #### <a name="lowering-the-max-rus"></a>Réduction de l’unité de requête/s maximale
 Lorsque vous réduisez l’unité de requête/s maximale, la valeur minimale que vous pouvez lui affecter est la suivante : `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, arrondie aux 1 000 RU/s les plus proches. 
 
-Exemple 1 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 20 000 RU/s (mise à l’échelle entre 2 000 et 20 000 RU/s) et d’un stockage de 50 Go. La valeur minimale la plus basse que vous pouvez définir pour la RU/s est : MAX (4 000, 20 000/10, **50 * 100**) = 5 000 RU/s (mise à l’échelle entre 500 et 5 000 RU/s).
+Exemple 1 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 20 000 RU/s (mise à l’échelle entre 2 000 et 20 000 RU/s) et d’un stockage de 50 Go. La valeur minimale la plus basse que vous pouvez définir pour la RU/s est : MAX (4 000, 20 000/10, **50 * 100** ) = 5 000 RU/s (mise à l’échelle entre 500 et 5 000 RU/s).
 
-Exemple 2 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 100 000 RU/s et d’un stockage de 100 Go. Vous pouvez à présente mettre à l’échelle l’unité de requête/s maximale jusqu’à 150 000 RU/s (mise à l’échelle entre 15 000 et 150 000 RU/s). La valeur minimale la plus basse que vous pouvez à présent définir pour la RU/s est : MAX (4 000, **150 000/10**, 100 * 100) = 15 000 RU/s (mise à l’échelle entre 1 500 et 15 000 RU/s). 
+Exemple 2 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 100 000 RU/s et d’un stockage de 100 Go. Vous pouvez à présente mettre à l’échelle l’unité de requête/s maximale jusqu’à 150 000 RU/s (mise à l’échelle entre 15 000 et 150 000 RU/s). La valeur minimale la plus basse que vous pouvez à présent définir pour la RU/s est : MAX (4 000, **150 000/10** , 100 * 100) = 15 000 RU/s (mise à l’échelle entre 1 500 et 15 000 RU/s). 
 
 Pour une base de données à débit partagé, lorsque vous réduisez l’unité de requête/s maximale, la valeur minimale que vous pouvez lui affecter est la suivante : `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arrondie aux 1 000 RU/s les plus proches.  
 

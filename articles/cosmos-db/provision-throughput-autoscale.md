@@ -6,14 +6,15 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282107"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097343"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Créer des conteneurs et des bases de données Azure Cosmos en débit de mise à l’échelle automatique
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB vous permet de définir le débit approvisionné standard (manuel) ou approvisionné en mode de mise à l’échelle automatique sur vos bases de données et conteneurs. Cet article décrit les avantages et les cas d’usage du débit approvisionné en mode de mise à l’échelle automatique. 
 

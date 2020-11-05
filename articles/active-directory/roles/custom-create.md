@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 254ab7a10eb9779706ee31e5a16d51fe03b7122b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097989"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Créer et attribuer un rôle personnalisé dans Azure Active Directory
 
@@ -183,4 +183,4 @@ Tout comme les rôles intégrés, les rôles personnalisés sont attribués par 
 
 - N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - Pour plus d’informations sur les rôles et l’attribution de rôle d’administrateur, consultez [Attribuer des rôles d’administrateur](permissions-reference.md).
-- Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](/azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).
+- Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](/azure/active-directory/fundamentals/users-default-permissions).

@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482262"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096391"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Comment distribuer à l’échelle mondiale des lectures par l’intermédiaire de l’API Azure Cosmos DB pour MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Cet article explique comment distribuer à l’échelle mondiale des opérations de lecture à l’aide des paramètres de [préférence de lecture MongoDB](https://docs.mongodb.com/manual/core/read-preference/) avec l’API Azure Cosmos DB pour MongoDB.
 
@@ -86,8 +87,8 @@ Pour plus d’informations sur le comportement de chacun de ces modes de préfé
 
 Sur la base des scénarios courants, nous recommandons d’utiliser les paramètres suivants :
 
-1. Si des **lectures à faible latence** sont nécessaires, utilisez le mode de préférence de lecture **NEAREST** . Ce paramètre dirige les opérations de lecture vers la région disponible la plus proche. Notez que si la région la plus proche est la région d’écriture, ces opérations sont dirigées vers cette région.
-2. Si une **haute disponibilité et une géoréplication des lectures** sont nécessaires (la latence n’est pas une contrainte), utilisez le mode de préférence de lecture **PRIMARY PREFERRED** ou **SECONDARY PREFERRED** . Ce paramètre dirige les opérations de lecture vers une région de lecture ou d’écriture disponible. Si la région n’est pas disponible, les demandes sont dirigées vers la région disponible suivante, conformément au comportement de la préférence de lecture.
+1. Si des **lectures à faible latence** sont nécessaires, utilisez le mode de préférence de lecture **NEAREST**. Ce paramètre dirige les opérations de lecture vers la région disponible la plus proche. Notez que si la région la plus proche est la région d’écriture, ces opérations sont dirigées vers cette région.
+2. Si une **haute disponibilité et une géoréplication des lectures** sont nécessaires (la latence n’est pas une contrainte), utilisez le mode de préférence de lecture **PRIMARY PREFERRED** ou **SECONDARY PREFERRED**. Ce paramètre dirige les opérations de lecture vers une région de lecture ou d’écriture disponible. Si la région n’est pas disponible, les demandes sont dirigées vers la région disponible suivante, conformément au comportement de la préférence de lecture.
 
 L’extrait de code suivant tiré de l’exemple d’application montre comment configurer la préférence de lecture NEAREST dans NodeJS :
 
@@ -145,7 +146,7 @@ Outre le mode de préférence de lecture, le protocole MongoDB autorise l’util
       }
 ```
 
-Ainsi, MongoClient peut utiliser la balise `region` en plus du nom de la région pour diriger les opérations de lecture vers des régions spécifiques. Pour les comptes Cosmos, les noms des régions figurent dans le portail Azure, à gauche sous **Paramètres -> Répliquer les données globalement** . Ce paramètre est utile pour bénéficier d’une **isolation de lecture** , cas dans lesquels une application cliente souhaite diriger les opérations de lecture uniquement vers une région spécifique. Ce paramètre est idéal pour les scénarios de type analytique/non-production, qui s’exécutent en arrière-plan et ne sont pas des services essentiels pour la production.
+Ainsi, MongoClient peut utiliser la balise `region` en plus du nom de la région pour diriger les opérations de lecture vers des régions spécifiques. Pour les comptes Cosmos, les noms des régions figurent dans le portail Azure, à gauche sous **Paramètres -> Répliquer les données globalement**. Ce paramètre est utile pour bénéficier d’une **isolation de lecture** , cas dans lesquels une application cliente souhaite diriger les opérations de lecture uniquement vers une région spécifique. Ce paramètre est idéal pour les scénarios de type analytique/non-production, qui s’exécutent en arrière-plan et ne sont pas des services essentiels pour la production.
 
 L’extrait de code suivant tiré de l’exemple d’application montre comment configurer la préférence de lecture avec des balises dans NodeJS :
 
@@ -167,7 +168,7 @@ Dans cet article, vous avez découvert comment distribuer à l’échelle mondia
 Si vous ne prévoyez pas de continuer à utiliser cette application, supprimez toutes les ressources créées par cet article dans le portail Azure en effectuant les étapes suivantes :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer** .
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

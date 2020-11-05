@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212150"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040938"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Liaison de sortie Azure Service Bus pour Azure Functions
 
 Utilisez la liaison de sortie Azure Service Bus pour envoyer des messages de file d’attente ou de rubrique.
 
-Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-service-bus-output.md).
+Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exemple
 
@@ -40,7 +40,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 L’exemple suivant montre une liaison de sortie Service Bus dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction utilise un déclencheur de minuteur pour envoyer un message de file d’attente toutes les 15 secondes.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 ```json
 {
@@ -91,7 +91,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 
 L’exemple suivant montre une liaison de sortie Service Bus dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction utilise un déclencheur de minuteur pour envoyer un message de file d’attente toutes les 15 secondes.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 ```json
 {
@@ -143,7 +143,7 @@ module.exports = function (context, myTimer) {
 
 L’exemple suivant montre comment écrire dans une file d’attente Service Bus en Python.
 
-Une définition de liaison Service Bus figure dans *function.json*, où *type* a la valeur `serviceBus`.
+Une définition de liaison Service Bus figure dans *function.json* , où *type* a la valeur `serviceBus`.
 
 ```json
 {
@@ -175,7 +175,7 @@ Une définition de liaison Service Bus figure dans *function.json*, où *type* a
 }
 ```
 
-Dans *_\_init_\_.py*, vous pouvez écrire un message dans la file d’attente en passant une valeur à la méthode `set`.
+Dans *_\_init_\_.py* , vous pouvez écrire un message dans la file d’attente en passant une valeur à la méthode `set`.
 
 ```python
 import azure.functions as func
@@ -288,7 +288,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**queueName**|**QueueName**|Nom de la file d’attente.  Défini uniquement en cas d’envoi de messages de file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique. Défini uniquement en cas d’envoi de messages de rubrique, ne s’applique pas à une file d’attente.|
 |**connection**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.|
-|**accessRights** (v1 uniquement)|**y accéder**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion. Dans Azure Functions versions 2.x et ultérieures, cette propriété n’est pas disponible parce que la version la plus récente du Kit de développement logiciel (SDK) Service Bus ne prend pas en charge les opérations de gestion.|
+|**accessRights** (v1 uniquement)|**y accéder**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer** , définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion. Dans Azure Functions versions 2.x et ultérieures, cette propriété n’est pas disponible parce que la version la plus récente du Kit de développement logiciel (SDK) Service Bus ne prend pas en charge les opérations de gestion.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

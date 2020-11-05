@@ -9,14 +9,15 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487379"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096476"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 L’API d’Azure Cosmos DB pour MongoDB tire parti des fonctionnalités de base de gestion des index d’Azure Cosmos DB. Cet article décrit comment ajouter des index à l’aide de l’API d’Azure Cosmos DB pour MongoDB. Vous pouvez également lire une [vue d’ensemble de l’indexation dans Azure Cosmos DB](index-overview.md) qui est pertinente pour toutes les API.
 
@@ -121,7 +122,7 @@ La commande suivante crée un index générique sur toutes les propriétés dans
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Contrairement à MongoDB, les index génériques peuvent prendre en charge plusieurs champs dans les prédicats de requête** . Il n’y aura pas de différence dans les performances de requête si vous utilisez un seul index générique au lieu de créer un index distinct pour chaque propriété.
+**Contrairement à MongoDB, les index génériques peuvent prendre en charge plusieurs champs dans les prédicats de requête**. Il n’y aura pas de différence dans les performances de requête si vous utilisez un seul index générique au lieu de créer un index distinct pour chaque propriété.
 
 Vous pouvez créer les types d’index suivants à l’aide de la syntaxe des caractères génériques :
 

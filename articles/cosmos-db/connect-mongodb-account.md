@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0a25301bac125cd95b975a5ba1fc0cce47b56abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06b03ac1cfe37307a5839be0d5ca3b1003db35af
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85954092"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072407"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connecter une application MongoDB à Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Découvrez comment connecter votre application MongoDB à une instance Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB. Vous pouvez ensuite utiliser une base de données Azure Cosmos en tant que magasin de données pour votre application MongoDB.
 
@@ -32,9 +33,9 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 ## <a name="get-the-mongodb-connection-string-by-using-the-quick-start"></a>Obtenir la chaîne de connexion MongoDB à l’aide du démarrage rapide
 
 1. Dans un navigateur Internet, connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le panneau **Azure Cosmos DB**, sélectionnez l’API.
+2. Dans le panneau **Azure Cosmos DB** , sélectionnez l’API.
 3. Dans le volet gauche du panneau Compte, cliquez sur **Démarrage rapide**.
-4. Choisissez votre plateforme ( **.NET**, **Node.js**, **MongoDB Shell**, **Java** ou **Python**). Si votre pilote ou outil n’est pas répertorié, ne vous inquiétez pas, nous développons en permanence de nouveaux extraits de code de connexion. Entrez ci-dessous un commentaire sur ce que vous voudriez voir. Pour savoir comment créer votre propre connexion, lisez [Obtenir les informations de chaîne de connexion du compte](#get-the-mongodb-connection-string-to-customize).
+4. Choisissez votre plateforme ( **.NET** , **Node.js** , **MongoDB Shell** , **Java** ou **Python** ). Si votre pilote ou outil n’est pas répertorié, ne vous inquiétez pas, nous développons en permanence de nouveaux extraits de code de connexion. Entrez ci-dessous un commentaire sur ce que vous voudriez voir. Pour savoir comment créer votre propre connexion, lisez [Obtenir les informations de chaîne de connexion du compte](#get-the-mongodb-connection-string-to-customize).
 5. Copiez et collez l’extrait de code dans votre application MongoDB.
 
     :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="Panneau Démarrage rapide":::
@@ -42,11 +43,11 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 ## <a name="get-the-mongodb-connection-string-to-customize"></a>Obtenir la chaîne de connexion MongoDB à personnaliser
 
 1. Dans un navigateur Internet, connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le panneau **Azure Cosmos DB**, sélectionnez l’API.
+2. Dans le panneau **Azure Cosmos DB** , sélectionnez l’API.
 3. Dans le volet gauche du panneau Compte, cliquez sur **Chaîne de connexion**.
 4. Le panneau **Chaîne de connexion** s’ouvre. Il affiche toutes les informations nécessaires pour la connexion au compte à l’aide d’un pilote pour MongoDB, dont une chaîne de connexion prédéfinie.
 
-   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Panneau Démarrage rapide" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Panneau Chaîne de connexion" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Exigences relatives à la chaîne de connexion
 

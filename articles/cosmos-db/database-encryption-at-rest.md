@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ceb2b8812b52b1ca2030a0fd0006c9388630c05e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abe4bb3a53e3177857cb8041fd255ec916985054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487481"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089863"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Chiffrement des données dans Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Le chiffrement au repos est une expression qui se réfère en général au chiffrement des données situées sur des appareils de stockage non volatile, comme des disques SSD et des lecteurs de disques durs. Cosmos DB stocke ses bases de données primaires sur des SSD. Ses pièces jointes multimédias et ses sauvegardes sont stockées dans le Stockage Blob Azure, qui est généralement sauvegardé sur des disques durs. Avec l’apparition du chiffrement au repos pour Cosmos DB, toutes vos bases de données, pièces jointes multimédias et sauvegardes sont maintenant chiffrées. Vos données sont désormais chiffrées pendant le transit (sur le réseau) et au repos (stockage non volatile), ce qui vous donne un chiffrement de bout en bout.
 

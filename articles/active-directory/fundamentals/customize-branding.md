@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "89565852"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
@@ -37,7 +37,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 ### <a name="to-customize-your-branding"></a>Pour personnaliser votre marque
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Azure Active Directory** , puis sélectionnez **Marque de société** et **Configurer** .
+2. Sélectionnez **Azure Active Directory** , puis sélectionnez **Marque de société** et **Configurer**.
 
     ![Contoso - Page Marque de société, avec option Configurer mise en surbrillance](media/customize-branding/company-branding-configure-button.png)
 
@@ -56,7 +56,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
         
             Il est recommandé d’utiliser des images qui n’attireront pas l’attention. Par exemple, si une zone blanche opaque apparaît au centre de l’écran, elle peut couvrir n’importe quelle partie de l’image en fonction des dimensions de l’espace affichable.
 
-        - **Logo de bannière.** Sélectionnez une version .png ou .jpg de votre logo, qui apparaît sur la page de connexion une fois que l’utilisateur a entré un nom d’utilisateur et sur la page du portail **Mes applications** .
+        - **Logo de bannière.** Sélectionnez une version .png ou .jpg de votre logo, qui apparaît sur la page de connexion une fois que l’utilisateur a entré un nom d’utilisateur et sur la page du portail **Mes applications**.
             
             L’image ne peut pas faire plus de 60 pixels de haut ou 280 pixels de large. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
 
@@ -94,12 +94,12 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
             >Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent du choix des utilisateurs de rester connecté. Si vous définissez cette option sur **Non** , il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
    
 
-3. Une fois que vous avez terminé votre personnalisation, sélectionnez **Enregistrer** .
+3. Une fois que vous avez terminé votre personnalisation, sélectionnez **Enregistrer**.
 
     Si ce processus crée votre première configuration de personnalisation, il devient le processus par défaut pour votre locataire. Si vous avez d’autres configurations, vous pouvez choisir votre configuration par défaut.
     
     >[!IMPORTANT]
-    >Si vous souhaitez ajouter d’autres configurations de personnalisation d’entreprise pour votre locataire, vous devez sélectionnez **Nouvelle langue** dans la page **Contoso - Marque de société** . Cette opération ouvre la page **Configurer la marque de société** , où vous pouvez suivre les mêmes étapes que ci-dessus.
+    >Si vous souhaitez ajouter d’autres configurations de personnalisation d’entreprise pour votre locataire, vous devez sélectionnez **Nouvelle langue** dans la page **Contoso - Marque de société**. Cette opération ouvre la page **Configurer la marque de société** , où vous pouvez suivre les mêmes étapes que ci-dessus.
 
 ## <a name="update-your-custom-branding"></a>Mettre à jour votre personnalisation
 Une fois que vous avez créé votre personnalisation, vous pouvez revenir en arrière et la modifier à votre gré.
@@ -107,13 +107,13 @@ Une fois que vous avez créé votre personnalisation, vous pouvez revenir en arr
 ### <a name="to-edit-your-custom-branding"></a>Modifier votre personnalisation
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Azure Active Directory** , puis sélectionnez **Marque de société** et **Configurer** .
+2. Sélectionnez **Azure Active Directory** , puis sélectionnez **Marque de société** et **Configurer**.
 
     ![Page Contoso - Marque de société, avec configuration par défaut](media/customize-branding/company-branding-default-config.png)
 
 3. Dans la page **Configurer la marque de société** , ajoutez, supprimez ou modifiez les informations en fonction des descriptions disponibles dans la section [Personnaliser votre page de connexion Azure AD](#customize-your-azure-ad-sign-in-page) de cet article.
 
-4. Sélectionnez **Enregistrer** .
+4. Sélectionnez **Enregistrer**.
 
    Il peut s’écouler jusqu’à une heure avant que les modifications que vous avez apportées à la page de connexion soient visibles.
 
@@ -124,13 +124,13 @@ Vous ne pouvez pas changer la langue par défaut de votre configuration d’orig
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Azure Active Directory** , puis **Marque de société** et **Nouvelle langue** .
+2. Sélectionnez **Azure Active Directory** , puis **Marque de société** et **Nouvelle langue**.
 
     ![Page Contoso - Marque de société, avec option Nouvelle langue mise en surbrillance](media/customize-branding/company-branding-new-language.png)
 
 3. Dans la page **Configurer la marque de société** , sélectionnez votre langue (par exemple, français), puis ajoutez vos informations traduites en fonction des descriptions disponibles dans la section [Personnaliser votre page de connexion Azure AD](#customize-your-azure-ad-sign-in-page) de cet article.
 
-4. Sélectionnez **Enregistrer** .
+4. Sélectionnez **Enregistrer**.
 
     La page **Contoso - Marque de société** est mise à jour pour afficher la nouvelle configuration en français.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 72bb821c0dfed6d3f9e7e2cc222242e65a35a011
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895492"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911050"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
@@ -80,10 +80,10 @@ L’étape suivante de la création de votre application consiste à installer A
     3. Mettez à jour votre bloc de dépendances et ajoutez une nouvelle ligne de dépendance d’implémentation pour la dernière version d’Android SDK Azure Maps :
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.4"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
         ```
     
-    4. Accédez à **Fichier** dans la barre d’outils, puis cliquez sur **Synchroniser le projet avec les fichiers Gradle** .
+    4. Accédez à **Fichier** dans la barre d’outils, puis cliquez sur **Synchroniser le projet avec les fichiers Gradle**.
 3. Ajoutez un fragment de carte à l’activité principale (res \> layout \> activity\_main.xml) :
     
     ```XML

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 614c8e5f76475c7e7af35db37334eb645ad553a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 286c59938413a912c005181fca12f6698a7bc55e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018601"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042887"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Interroger les API EventStore pour rechercher des événements de cluster
 
@@ -192,7 +192,7 @@ Outre les événements du cycle de vie des applications, vous avez également la
 
 *Intégrité des données historiques de tous les services de « myApp » :*
 
-Actuellement, les événements du rapport d’intégrité des services apparaissent comme des événements `DeployedServicePackageNewHealthReport` sous l’application correspondante. Pour voir comment vos services se sont comportés pour « App1 », utilisez la requête suivante : `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+Actuellement, les événements du rapport d’intégrité des services apparaissent comme des événements `DeployedServicePackageNewHealthReport` sous l’application correspondante. Pour voir comment vos services se sont comportés pour « App1 », utilisez la requête suivante : `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Reconfiguration de la partition :*
 

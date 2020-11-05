@@ -12,18 +12,18 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277457"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124810"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Effectuer une révision d’accès à partir du portail Mes applications
 
 Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour effectuer des révisions d’accès pour vos applications et vos groupes. Les révisions d’accès vous aident à gérer les accès obsolètes ou les changements d’exigences en matière d’accès et à vérifier qu’ils sont révisés et mis à jour.
 
-Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
+Si vous n’avez pas accès au portail **Mes applications** , contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -35,7 +35,7 @@ Si vous n’avez pas accès au portail **Mes applications**, contactez le suppor
 Si votre administrateur vous a autorisé à effectuer vos propres révisions d’accès, vous pouvez gérer l’accès à vos groupes ou applications à partir de la vignette **Révisions d’accès** sur la page du portail **Mes applications**.
 
 >[!Note]
->Si vous ne voyez pas la vignette **Révisions d’accès**, cela signifie que vous n’êtes pas autorisé à effectuer des révisions d’accès ou qu’aucune révision n’est en attente de votre approbation. Si vous pensez que vous devez avoir accès à la vignette, contactez votre support technique pour obtenir de l’aide.
+>Si vous ne voyez pas la vignette **Révisions d’accès** , cela signifie que vous n’êtes pas autorisé à effectuer des révisions d’accès ou qu’aucune révision n’est en attente de votre approbation. Si vous pensez que vous devez avoir accès à la vignette, contactez votre support technique pour obtenir de l’aide.
 
 ## <a name="to-perform-your-access-reviews"></a>Pour effectuer vos révisions d’accès
 
@@ -62,7 +62,7 @@ Si votre administrateur vous a autorisé à effectuer vos propres révisions d�
 
 6. Sélectionnez **Oui** conserver votre accès ou **Non** pour supprimer votre accès.
 
-    Si vous sélectionnez **Oui**, vous devrez peut-être spécifier une justification dans la zone **Raison**.
+    Si vous sélectionnez **Oui** , vous devrez peut-être spécifier une justification dans la zone **Raison**.
 
     ![Page Révision d’accès affichant la zone Raison avec exemple de texte](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
@@ -76,5 +76,5 @@ Si votre administrateur vous a autorisé à effectuer vos propres révisions d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Accéder aux applications et les utiliser sur le portail Mes applications](my-apps-portal-end-user-access.md)
-- [Modifier vos informations de profil](my-apps-portal-end-user-update-profile.md)
+- [Modifier vos informations de profil](./my-account-portal-settings.md)
 - [Consulter et mettre à jour les informations relatives aux groupes](my-apps-portal-end-user-groups.md)

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 16110c8f48330d60d4d0b6a2affb870ffa5e349c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5252993c560b30836c65bf2d395173513993c307
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092396"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Flux de modification dans l’API Azure Cosmos DB pour Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 La prise en charge du [flux de modification](change-feed.md) dans l’API Azure Cosmos DB pour Cassandra est disponible par le biais des prédicats de requête en CQL (Cassandra Query Language). À l’aide de ces conditions de prédicat, vous pouvez interroger l’API de flux de modification. Les applications peuvent obtenir les modifications apportées à une table à l’aide de la clé primaire (également appelée clé de partition) comme le nécessite le langage CQL. Vous pouvez ensuite effectuer d’autres actions en fonction des résultats. Les modifications apportées aux lignes du tableau sont capturées dans l'ordre de leur modification et dans l'ordre de tri par clé de partition.
 

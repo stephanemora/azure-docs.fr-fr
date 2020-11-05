@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 1c45999dbb354e8c2d550be82cdf37a6694d2dbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091353"
 ---
 # <a name="encrypt-deployment-data"></a>Chiffrer les données de déploiement
 
@@ -33,7 +33,7 @@ Vous pouvez vous appuyer sur les clés gérées par Microsoft pour le chiffremen
 
 Le reste du document décrit les étapes nécessaires pour chiffrer vos données de déploiement ACI avec votre clé (clé gérée par le client). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Chiffrer des données avec une clé gérée par le client
 
@@ -84,7 +84,7 @@ Créez une nouvelle stratégie d’accès pour autoriser le service ACI à accé
 * Une fois votre clé générée, revenez dans le panneau de vos ressources du coffre de clés et, sous Paramètres, cliquez sur **Stratégies d’accès**.
 * Dans la page « Stratégies d’accès » de votre coffre de clés, cliquez sur **Ajouter une stratégie d’accès**.
 * Définissez les *Autorisations de clé* pour inclure **Get** et **Unwrap Key** ![Définir des autorisations de clé](./media/container-instances-encrypt-data/set-key-permissions.png)
-* Pour *Sélectionner un principal*, sélectionnez **Service Azure Container Instances**
+* Pour *Sélectionner un principal* , sélectionnez **Service Azure Container Instances**
 * En bas, cliquez sur **Ajouter**. 
 
 La stratégie d’accès doit maintenant apparaître dans les stratégies d’accès de votre coffre de clés.

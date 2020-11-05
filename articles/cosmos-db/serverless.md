@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757895"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098754"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB serverless (préversion)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB serverless est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -34,7 +35,7 @@ Azure Cosmos DB serverless est adapté aux scénarios où vous vous attendez à�
 
 - **Un trafic léger** : Car l’approvisionnement de capacité dans de telles situations n’est pas obligatoire et peut être un coût prohibitif
 - **Des augmentations de trafic modérées** : Car les conteneurs serverless peuvent fournir jusqu’à 5 000 unités de requête par seconde
-- **Des performances modérées** : Car les conteneurs serverless ont des [caractéristiques de performances spécifiques](#performance)
+- **Des performances modérées**  : Car les conteneurs serverless ont des [caractéristiques de performances spécifiques](#performance)
 
 Pour ces raisons, Azure Cosmos DB serverless doit être pris en compte pour les types de charges de travail suivants :
 
@@ -81,8 +82,8 @@ Vous pouvez trouver le même graphique lorsque vous utilisez Azure Monitor, comm
 
 Les ressources serverless offrent des caractéristiques de performances spécifiques qui diffèrent de celles fournies par les ressources de débit approvisionné :
 
-- **Disponibilité** : Une fois l’offre serverless mise à la disposition générale, la disponibilité des conteneurs serverless est couverte par un Contrat de niveau de service (SLA) de 99,9 % lorsque les zones de disponibilité (redondance de zone) ne sont pas utilisées. Le contrat SLA est de 99,99 % lors de l’utilisation de zones de disponibilité.
-- **Latence** : Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
+- **Disponibilité**  : Une fois l’offre serverless mise à la disposition générale, la disponibilité des conteneurs serverless est couverte par un Contrat de niveau de service (SLA) de 99,9 % lorsque les zones de disponibilité (redondance de zone) ne sont pas utilisées. Le contrat SLA est de 99,99 % lors de l’utilisation de zones de disponibilité.
+- **Latence**  : Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
 - **Prise en charge de l’augmentation du trafic** : Une fois que l’offre serverless sera en disponibilité générale, la charge des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 95 %. Cela signifie que la charge maximale peut être atteinte au moins 95 % du temps.
 
 > [!NOTE]

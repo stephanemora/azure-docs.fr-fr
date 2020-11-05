@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125136"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
 Utilisez ce type si vous disposez d’une offre sur la Place de marché Azure ou AppSource, mais que vous souhaitez créer une version d’évaluation uniquement avec des ressources Azure. Un modèle ARM (Azure Resource Manager) est un conteneur codé de ressources Azure que vous concevez pour représenter votre solution de la meilleure façon. La version d’évaluation prend le modèle ARM fourni et déploie toutes les ressources nécessaires sur un groupe de ressources. Il s’agit de la seule option de version d’évaluation pour les machines virtuelles ou Azure App.
 
-Si vous ne savez pas très bien ce qu’est un modèle ARM, lisez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/resource-group-overview.md) et [Comprendre la structure et la syntaxe des modèles ARM](../azure-resource-manager/resource-group-authoring-templates.md) pour mieux comprendre comment créer et tester vos propres modèles.
+Si vous ne savez pas très bien ce qu’est un modèle ARM, lisez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/management/overview.md) et [Comprendre la structure et la syntaxe des modèles ARM](../azure-resource-manager/templates/template-syntax.md) pour mieux comprendre comment créer et tester vos propres modèles.
 
 Pour plus d’informations sur ce qu’est une version d’évaluation **hébergée** ou d’ **application logique** , consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md)
 
@@ -34,7 +34,7 @@ Un modèle de déploiement contient toutes les ressources Azure constituant votr
 
   - **Froid**  : ce type d’instance représente le nombre total d’instances pouvant éventuellement être déployées par région. Les instances à froid nécessitent le modèle Resource Manager entier de la version d’évaluation pour être déployées lorsqu’un client demande la version d’évaluation, les instances *à froid* sont donc plus lentes à charger que les instances *à chaud*. L’inconvénient est que vous avez uniquement à payer pour la durée de la version d’évaluation, elle n’est *pas* toujours en cours d’exécution sur votre abonnement Azure comme c’est le cas avec une instance *à chaud*.
 
-- **Version d’évaluation du modèle Azure Resource Manager** – Chargez le fichier .zip contenant votre modèle Azure Resource Manager. Apprenez-en plus sur la création d’un modèle Azure Resource Manager dans l’article de démarrage rapide [Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Version d’évaluation du modèle Azure Resource Manager** – Chargez le fichier .zip contenant votre modèle Azure Resource Manager. Apprenez-en plus sur la création d’un modèle Azure Resource Manager dans l’article de démarrage rapide [Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
     > Pour une publication réussie, il est important de valider la mise en forme du modèle ARM. Pour ce faire, il existe deux méthodes : (1) en utilisant un [outil API en ligne](https://docs.microsoft.com/rest/api/resources/deployments/validate) ou (2) avec un [déploiement de test](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).

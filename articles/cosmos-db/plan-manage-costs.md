@@ -7,14 +7,15 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482245"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080700"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planifier et gérer les coûts pour Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Cet article explique comment planifier et gérer les coûts pour Azure Cosmos DB.
 
@@ -66,12 +67,12 @@ Une fois que vous avez calculé le nombre total d’unités de requête et les G
 Quand vous commencez à utiliser des ressources Azure Cosmos DB du portail Azure, vous pouvez voir les coûts estimés. Procédez comme suit pour passer en revue les estimations des coûts :
 
 1. Connectez-vous au portail Azure et accédez à votre compte Azure Cosmos.
-1. Accédez à la section **Vue d’ensemble** .
+1. Accédez à la section **Vue d’ensemble**.
 1. Consultez le graphique **Coût** en bas. Ce graphique montre une estimation du coût actuel sur une période configurable :
 1. Créez un conteneur, comme un conteneur de graphiques.
 1. Entrez le débit nécessaire pour votre charge de travail, par exemple, 400 RU/s. Une fois que vous avez entré la valeur du débit, vous pouvez voir l’estimation de prix comme le montre la capture d’écran suivante :
 
-   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Estimation des coûts dans la calculatrice de capacité d’Azure Cosmos DB":::
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Estimation de coût dans le portail Azure":::
 
 ## <a name="use-budgets-and-cost-alerts"></a>Utiliser des budgets et des alertes de coût
 
@@ -87,13 +88,13 @@ Quand vous utilisez l’analyse des coûts, vous pouvez voir les coûts d’Azur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Ouvrez la fenêtre **Gestion des coûts + Facturation** , sélectionnez **Gestion des coûts** dans le menu, puis sélectionnez **Analyse des coûts** . Vous pouvez ensuite changer l’étendue pour un abonnement spécifique dans la liste déroulante **Étendue** .
+1. Ouvrez la fenêtre **Gestion des coûts + Facturation** , sélectionnez **Gestion des coûts** dans le menu, puis sélectionnez **Analyse des coûts**. Vous pouvez ensuite changer l’étendue pour un abonnement spécifique dans la liste déroulante **Étendue**.
 
 1. Par défaut, le coût de tous les services est affiché dans le premier graphique en anneau. Dans le graphique, sélectionnez la zone intitulée « Azure Cosmos DB ».
 
-1. Pour limiter les coûts à un seul service, par exemple Azure Cosmos DB, sélectionnez **Ajouter un filtre** , puis sélectionnez **Nom du service** . Choisissez ensuite **Azure Cosmos DB** dans la liste. Voici un exemple montrant les coûts seulement pour Azure Cosmos DB :
+1. Pour limiter les coûts à un seul service, par exemple Azure Cosmos DB, sélectionnez **Ajouter un filtre** , puis sélectionnez **Nom du service**. Choisissez ensuite **Azure Cosmos DB** dans la liste. Voici un exemple montrant les coûts seulement pour Azure Cosmos DB :
  
-   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Estimation des coûts dans la calculatrice de capacité d’Azure Cosmos DB":::
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Superviser les coûts avec le volet Analyse des coûts":::
 
 Dans l’exemple précédent, vous voyez le coût actuel d’Azure Cosmos DB pour le mois de février. Les graphiques contiennent également les coûts d’Azure Cosmos DB par emplacement et par groupe de ressources.
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743894"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092804"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Guide pratique pour auditer les opérations de plan de contrôle Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Dans Azure Cosmos DB, le plan de contrôle est un service RESTful qui vous permet d’effectuer un ensemble diversifié d’opérations sur le compte Azure Cosmos. Il expose un modèle de ressource publique (par exemple, une base de données ou un compte) et différentes opérations aux utilisateurs finaux pour effectuer des actions sur le modèle de ressource. Les opérations de plan de contrôle incluent les modifications apportées au compte ou au conteneur Azure Cosmos. Par exemple, des opérations telles que la création d’un compte Azure Cosmos, l’ajout d’une région, la mise à jour du débit, le basculement de région, l’ajout d’un réseau virtuel, etc., sont des opérations de plan de contrôle. Cet article explique comment auditer les opérations de plan de contrôle dans Azure Cosmos DB. Vous pouvez exécuter les opérations du plan de contrôle sur les comptes Azure Cosmos à l’aide d’Azure CLI, de PowerShell ou du Portail Azure, tandis que pour les conteneurs, vous devez utiliser Azure CLI ou PowerShell.
 
@@ -45,7 +46,7 @@ Effectuez les étapes suivantes pour activer la journalisation sur les opératio
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre compte Azure Cosmos.
 
-1. Ouvrez le volet **Paramètres de diagnostic**, puis fournissez un **Nom** pour les journaux à créer.
+1. Ouvrez le volet **Paramètres de diagnostic** , puis fournissez un **Nom** pour les journaux à créer.
 
 1. Sélectionnez **ControlPlaneRequests** comme type de journal et sélectionnez l’option **Envoyer à Log Analytics**.
 
@@ -69,17 +70,17 @@ Après avoir activé la journalisation, suivez les étapes ci-dessous pour effec
 
 Les captures d’écran suivantes capturent des journaux lorsqu’un niveau de cohérence est modifié par un compte Azure Cosmos :
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Activer la journalisation des demandes du plan de contrôle":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Journaux du plan de contrôle lors de l’ajout d’un réseau virtuel":::
 
 Les captures d’écran suivantes capturent les journaux lorsque l’espace de clés ou une table d’un compte Cassandra sont créés et lorsque le débit est mis à jour. Les journaux du plan de contrôle pour les opérations de création et de mise à jour sur la base de données et le conteneur sont consignés séparément, comme le montre la capture d’écran suivante :
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Activer la journalisation des demandes du plan de contrôle":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Journaux du plan de contrôle lors de la mise à jour du débit":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identifier l’identité associée à une opération spécifique
 
 Si vous souhaitez effectuer un débogage supplémentaire, vous pouvez identifier une opération spécifique dans le **journal d’activité** à l’aide de l’ID d’activité ou de l’horodatage de l’opération. L’horodatage est utilisé pour certains clients Resource Manager dans les cas où l’ID d’activité n’est pas explicitement passée. Le journal d’activité fournit des détails sur l’identité sous laquelle l’opération a été lancée. La capture d’écran suivante montre comment utiliser l’ID d’activité et rechercher les opérations qui lui sont associées dans le journal d’activité :
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Activer la journalisation des demandes du plan de contrôle":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Utiliser l’ID d’activité et rechercher les opérations":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Opérations du plan de contrôle pour le compte Azure Cosmos
 
@@ -170,29 +171,29 @@ La propriété *ResourceDetails* contient l’intégralité du corps de la resso
 Voici quelques exemples pour obtenir des journaux de diagnostic pour les opérations de plan de contrôle :
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Lancez une requête pour obtenir l’activityId et l’appelant à l’origine de l’opération de suppression de conteneur :

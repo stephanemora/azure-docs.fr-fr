@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044377"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123708"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
@@ -42,7 +42,7 @@ Un générateur d’anomalies disponible [ici](https://aka.ms/asaanomalygenerato
 
 ## <a name="spike-and-dip"></a>Pics et baisses
 
-Les anomalies temporaires d’un flux d’événements d’une série chronologique sont appelées « pics et baisses ». Les pics et baisses peuvent être surveillés à l’aide de l’opérateur basé sur Machine Learning [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+Les anomalies temporaires d’un flux d’événements d’une série chronologique sont appelées « pics et baisses ». Les pics et baisses peuvent être surveillés à l’aide de l’opérateur basé sur Machine Learning [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
 ![Exemple d’anomalie de pic et de baisse](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -74,7 +74,7 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Point de changement
 
-Les anomalies persistantes d’un flux d’événements d’une série chronologique sont des modifications de la distribution des valeurs du flux d’événements, telles que des modifications du niveau et des tendances. Dans Stream Analytics, ces anomalies sont détectées à l’aide de l’opérateur basé sur Machine Learning [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics).
+Les anomalies persistantes d’un flux d’événements d’une série chronologique sont des modifications de la distribution des valeurs du flux d’événements, telles que des modifications du niveau et des tendances. Dans Stream Analytics, ces anomalies sont détectées à l’aide de l’opérateur basé sur Machine Learning [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics).
 
 Les modifications persistantes durent beaucoup plus longtemps que les pics et les baisses, et peuvent indiquer un ou des événements catastrophiques. Les modifications persistantes ne sont généralement pas visibles à l’œil nu, mais peuvent être détectées avec l’opérateur **AnomalyDetection_ChangePoint**.
 
@@ -152,13 +152,12 @@ Un exemple de code permettant d'exécuter les configurations non partitionnées 
 > Pour une estimation plus précise, personnalisez les échantillons en fonction de votre scénario.
 
 ### <a name="identifying-bottlenecks"></a>Identification des goulots d’étranglement
-Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog**, pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
+Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog** , pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Références sur le langage des requêtes d'Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](/rest/api/streamanalytics/)

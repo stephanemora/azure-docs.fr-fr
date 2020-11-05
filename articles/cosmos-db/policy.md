@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482228"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080649"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Utiliser Azure Policy pour implémenter la gouvernance et les contrôles sur les ressources Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy](../governance/policy/overview.md) permet d’appliquer les normes de gouvernance de l’organisation, d’évaluer la conformité des ressources et d’implémenter la correction automatique. Les cas d’utilisation courants incluent la gestion de la sécurité et des coûts et la cohérence de la configuration.
 
@@ -126,7 +127,7 @@ La capture d’écran montre les résultats d’évaluation de la conformité su
 - Aucun des deux comptes n’est conforme à une stratégie requérant que le compte soit configuré pour plusieurs emplacements d’écriture
 - Aucun des deux comptes n’est conforme à une stratégie selon laquelle les ressources ont été déployées vers des régions Azure autorisées.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Recherche de définitions de stratégie intégrée Azure Cosmos DB":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Résultats de conformité pour les affectations d’Azure Policy répertoriées":::
 
 Pour comment corriger les ressources non conformes, consultez [Corriger les ressources non conformes avec Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

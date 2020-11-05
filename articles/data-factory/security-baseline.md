@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a917ade5da6938487076b983bd42ce9b27672c49
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 09c35ff8c045fa7d912324886fb31b02e606d2f8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089081"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Base de référence de sécurité Azure pour Azure Data Factory
 
@@ -412,7 +412,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, les
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Supervision d’Azure Security Center**  : Non applicable
+**Supervision Azure Security Center**  : Non applicable
 
 **Responsabilité**  : Customer
 
@@ -688,9 +688,9 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, sui
 
 Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite tout le contenu client comme sensible et déploie d'importants efforts pour vous protéger contre la perte et l’exposition des données client. Pour garantir la sécurité des données client dans Azure, Microsoft a implémenté et tient à jour une suite de contrôles et de fonctionnalités de protection des données robustes.
 
-* [Solution Update Management dans Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solution Update Management dans Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -702,9 +702,9 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Conseils**  : Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, vous pouvez utiliser une solution de gestion des correctifs tierce. Vous pouvez utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
-* [Solution Update Management dans Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solution Update Management dans Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 **Supervision Azure Security Center**  : actuellement non disponible
 

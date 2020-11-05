@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: ff92f66d4d7b96660fe83b79273f65ca50eb22f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 906adb5b9535ee66fd7bc4a22c5c30a86b561547
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89292892"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910251"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
@@ -42,8 +42,8 @@ Les sections suivantes décrivent les catégories d’applications.
 
 Les scénarios d’authentification impliquent deux activités :
 
-- **Acquisition de jetons de sécurité pour une API web protégée** : Nous vous recommandons d’utiliser les [bibliothèques de client prises en charge par Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) pour acquérir des jetons. Nous vous recommandons plus particulièrement d’utiliser la famille de bibliothèques MSAL (Microsoft Authentication Library).
-- **Protection d’une API web ou d’une application web** : l’une des tâches les plus complexes dans la protection de ces ressources est la validation du jeton de sécurité. Sur certaines plateformes, Microsoft propose des [bibliothèques d’intergiciels (middleware)](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Acquisition de jetons de sécurité pour une API web protégée**  : Nous vous recommandons d’utiliser les [bibliothèques de client prises en charge par Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) pour acquérir des jetons. Nous vous recommandons plus particulièrement d’utiliser la famille de bibliothèques MSAL (Microsoft Authentication Library).
+- **Protection d’une API web ou d’une application web**  : l’une des tâches les plus complexes dans la protection de ces ressources est la validation du jeton de sécurité. Sur certaines plateformes, Microsoft propose des [bibliothèques d’intergiciels (middleware)](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Avec utilisateurs ou sans utilisateurs
 
@@ -59,14 +59,14 @@ Toutefois, il existe également des applications démon. Dans ces scénarios, le
 
 Les jetons de sécurité peuvent être acquis par plusieurs types d’applications. On peut diviser ces applications en trois catégories. Chacune est utilisée avec différents objets et bibliothèques.
 
-- **Applications monopages** : Également appelées « applications SPA », il s’agit d’applications web dans lesquelles les jetons sont acquis par une application JavaScript ou TypeScript qui s’exécute dans le navigateur. De nombreuses applications modernes ont un front-end d’application monopage écrit principalement en JavaScript. L’application utilise souvent un framework comme Angular, React ou Vue. MSAL.js est la seule bibliothèque d’authentification Microsoft prenant en charge les applications monopages.
+- **Applications monopages**  : Également appelées « applications SPA », il s’agit d’applications web dans lesquelles les jetons sont acquis par une application JavaScript ou TypeScript qui s’exécute dans le navigateur. De nombreuses applications modernes ont un front-end d’application monopage écrit principalement en JavaScript. L’application utilise souvent un framework comme Angular, React ou Vue. MSAL.js est la seule bibliothèque d’authentification Microsoft prenant en charge les applications monopages.
 
-- **Applications clientes publiques** : Les applications qui appartiennent à cette catégorie, comme les types d’applications qui suivent, connectent toujours les utilisateurs :
+- **Applications clientes publiques**  : Les applications qui appartiennent à cette catégorie, comme les types d’applications qui suivent, connectent toujours les utilisateurs :
   - Applications de bureau qui appellent des API web pour le compte d’utilisateurs connectés
   - Applications mobiles
   - Applications s’exécutant sur des appareils qui n’ont pas de navigateur, comme ceux qui s’exécutent sur IoT
   
-- **Applications clientes confidentielles** : Les applications appartenant à cette catégorie sont les suivantes :
+- **Applications clientes confidentielles**  : Les applications appartenant à cette catégorie sont les suivantes :
   - Applications web qui appellent une API web
   - API web qui appellent une API web
   - Applications démon, même implémentées en tant que service de console tel qu’un démon Linux ou un service Windows
@@ -217,7 +217,7 @@ Les scénarios qui impliquent l’acquisition de jetons sont également mappés 
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that calls web APIs" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">Application web qui appelle des API web</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Code d’autorisation</a></td>
    <td>Comptes professionnels ou scolaires, comptes personnels et Azure AD B2C</td>

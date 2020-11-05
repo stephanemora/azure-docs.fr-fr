@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9d0694a76bca832887d30601711894b953fe22e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490660"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078439"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Rechercher les frais des unités de requête pour les opérations exécutées dans l’API SQL d’Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB prend en charge de nombreuses API, notamment SQL, MongoDB, Cassandra, Gremlin et Table. Chaque API possède son propre ensemble d’opérations de base de données, qui vont de simples opérations ponctuelles de lecture et d'écriture à des requêtes complexes. Chaque opération de base de données consomme des ressources système en fonction de sa complexité.
 
@@ -33,9 +34,9 @@ Il n’est actuellement possible de mesurer cette consommation que sur le portai
 
 1. Accédez au volet **Explorateur de données** , puis sélectionnez le conteneur sur lequel vous voulez travailler.
 
-1. Sélectionnez **Nouvelle requête SQL** .
+1. Sélectionnez **Nouvelle requête SQL**.
 
-1. Entrez une requête valide, puis sélectionnez **Exécuter la requête** .
+1. Entrez une requête valide, puis sélectionnez **Exécuter la requête**.
 
 1. Sélectionnez **Statistiques des requêtes** pour afficher les frais réels de la demande que vous avez exécutée.
 

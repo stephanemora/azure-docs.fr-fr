@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 8/6/2020
-ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870015"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123467"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming
 
@@ -42,7 +42,7 @@ Dans le didacticiel de détection des fraudes en temps réel, la sortie est envo
 3. Sélectionnez **+ Ajouter** > **Power BI**. Remplissez ensuite le formulaire avec les informations suivantes et sélectionnez **Autoriser** pour utiliser votre propre identité d’utilisateur pour vous connecter à Power BI (le jeton est valide pendant 90 jours). 
 
 >[!NOTE]
->En ce qui concerne les travaux de production, nous vous recommandons de vous connecter pour [utiliser l’identité managée pour authentifier votre travail Azure Stream Analytics vers Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
+>En ce qui concerne les travaux de production, nous vous recommandons de vous connecter pour [utiliser l’identité managée pour authentifier votre travail Azure Stream Analytics vers Power BI](./powerbi-output-managed-identity.md).
 
    |**Paramètre**  |**Valeur suggérée**  |
    |---------|---------|
@@ -57,18 +57,18 @@ Dans le didacticiel de détection des fraudes en temps réel, la sortie est envo
    > Nous vous recommandons de ne pas créer explicitement ce jeu de données et cette table dans votre compte Power BI. Ceux-ci sont automatiquement créés au démarrage du travail Stream Analytics et lorsque celui-ci se met à injecter des sorties dans Power BI. Si la requête de travail ne retourne aucun résultat, le jeu de données et la table ne sont pas créés.
    >
 
-4. Lorsque vous sélectionnez **Autoriser**, une fenêtre contextuelle s’ouvre et vous invite à fournir des informations d’identification pour vous authentifier auprès de votre compte Power BI. Une fois que l’autorisation a réussi, **enregistrez** les paramètres.
+4. Lorsque vous sélectionnez **Autoriser** , une fenêtre contextuelle s’ouvre et vous invite à fournir des informations d’identification pour vous authentifier auprès de votre compte Power BI. Une fois que l’autorisation a réussi, **enregistrez** les paramètres.
 
 8. Cliquez sur **Créer**.
 
 Le jeu de données est créé avec les paramètres suivants :
 
-* **defaultRetentionPolicy : BasicFIFO** : Les données sont de type « premier entré, premier sorti » (FIFO), avec un maximum de 200 000 lignes.
-* **defaultMode : pushStreaming** : Le jeu de données prend en charge les vignettes de streaming et les visuels basés sur des rapports standard, également appelés « envoi (push) ».
+* **defaultRetentionPolicy : BasicFIFO**  : Les données sont de type « premier entré, premier sorti » (FIFO), avec un maximum de 200 000 lignes.
+* **defaultMode : pushStreaming**  : Le jeu de données prend en charge les vignettes de streaming et les visuels basés sur des rapports standard, également appelés « envoi (push) ».
 
 Pour le moment, vous ne pouvez pas créer de jeux de données avec d’autres indicateurs.
 
-Pour plus d’informations sur les jeux de données Power BI, consultez la référence [API REST Power BI](https://msdn.microsoft.com/library/mt203562.aspx).
+Pour plus d’informations sur les jeux de données Power BI, consultez la référence [API REST Power BI](/rest/api/power-bi/).
 
 
 ## <a name="write-the-query"></a>Écrire la requête
@@ -148,15 +148,15 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
 
     ![Créer un tableau de bord et lui donner un nom dans l’espace de travail Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
-4. En haut de la fenêtre, cliquez sur **Ajouter une vignette**, sélectionnez **DONNÉES DE STREAMING PERSONNALISÉES**, puis cliquez sur **Suivant**.
+4. En haut de la fenêtre, cliquez sur **Ajouter une vignette** , sélectionnez **DONNÉES DE STREAMING PERSONNALISÉES** , puis cliquez sur **Suivant**.
 
     ![Vignette de jeu de données de streaming personnalisées dans Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-5. Sous **VOS JEUX DE DONNÉES**, sélectionnez votre jeu de données, puis cliquez sur **Suivant**.
+5. Sous **VOS JEUX DE DONNÉES** , sélectionnez votre jeu de données, puis cliquez sur **Suivant**.
 
     ![Votre jeu de données de streaming dans Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-6. Sous **Type de visualisation**, sélectionnez **Carte**, puis, dans la liste **Champs**, sélectionnez **fraudulentcalls**.
+6. Sous **Type de visualisation** , sélectionnez **Carte** , puis, dans la liste **Champs** , sélectionnez **fraudulentcalls**.
 
     ![Détails de la visualisation de la nouvelle vignette](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
@@ -174,14 +174,14 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
 
 8. Suivez à nouveau les étapes pour ajouter une vignette (à partir de l’étape 4). Cette fois, procédez comme suit :
 
-    * Lorsque vous accédez à **Type de visualisation**, sélectionnez **Graphique en courbes**. 
+    * Lorsque vous accédez à **Type de visualisation** , sélectionnez **Graphique en courbes**. 
     * Ajoutez un axe, puis sélectionnez **windowend**. 
     * Ajoutez une valeur, puis sélectionnez **fraudulentcalls**.
-    * Pour **Fenêtre de temps à afficher**, sélectionnez les 10 dernières minutes.
+    * Pour **Fenêtre de temps à afficher** , sélectionnez les 10 dernières minutes.
 
       ![Créer une vignette pour le graphique en courbes dans Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
-9. Cliquez sur **Suivant**, ajoutez un titre et un sous-titre, puis cliquez sur **Appliquer**.
+9. Cliquez sur **Suivant** , ajoutez un titre et un sous-titre, puis cliquez sur **Appliquer**.
 
      Le tableau de bord Power BI présente désormais deux vues de données sur les appels frauduleux détectés dans les données de diffusion en continu.
 
@@ -223,7 +223,7 @@ L’équation est donc la suivante :
 ### <a name="renew-authorization"></a>Renouveler une autorisation
 Si le mot de passe a été modifié depuis la création ou la dernière authentification de votre travail, vous devez réauthentifier votre compte Power BI. Si Azure Multi-Factor Authentication est configuré sur votre client Azure Active Directory (Azure AD), vous devez également renouveler l’autorisation Power BI toutes les deux semaines. Si vous ne la renouvelez pas, vous pouvez observer des symptômes comme un manque de sortie du travail ou une `Authenticate user error` dans les journaux d’activité des opérations.
 
-De même, si un travail démarre après l’expiration du jeton, une erreur se produit et le travail échoue. Pour résoudre ce problème, arrêtez le travail en cours d’exécution et accédez à votre sortie Power BI. Pour éviter toute perte de données, sélectionnez le lien **Renouveler l’autorisation**, puis redémarrez votre travail depuis l’**heure du dernier arrêt**.
+De même, si un travail démarre après l’expiration du jeton, une erreur se produit et le travail échoue. Pour résoudre ce problème, arrêtez le travail en cours d’exécution et accédez à votre sortie Power BI. Pour éviter toute perte de données, sélectionnez le lien **Renouveler l’autorisation** , puis redémarrez votre travail depuis l’ **heure du dernier arrêt**.
 
 Une fois que l’autorisation a été actualisée avec Power BI, une alerte verte apparaît dans la zone d’autorisation pour indiquer que le problème a été résolu.
 
@@ -231,6 +231,6 @@ Une fois que l’autorisation a été actualisée avec Power BI, une alerte ver
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Sorties Stream Analytics](stream-analytics-define-outputs.md)
-* [Références sur le langage des requêtes Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-* [Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics dans Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)
+* [Références sur le langage des requêtes Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](/rest/api/streamanalytics/)
+* [Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics dans Power BI](./powerbi-output-managed-identity.md)

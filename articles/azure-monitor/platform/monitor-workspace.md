@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674742"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092753"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Surveiller l’intégrité d’un espace de travail Log Analytics dans Azure Monitor
 Pour maintenir les performances et la disponibilité de votre espace de travail Log Analytics dans Azure Monitor, vous devez être en mesure de détecter de façon proactive les problèmes qui surviennent. Cet article décrit comment surveiller l’intégrité de votre espace de travail Log Analytics à l’aide des données du tableau [Opération](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation). Ce tableau, qui figure dans tous les espaces de travail Log Analytics, présente les erreurs et les avertissements qui surviennent dans votre espace de travail. Nous vous conseillons de consulter ces données régulièrement et de créer des alertes pour être informé en amont des incidents importants survenus dans votre espace de travail.
@@ -60,8 +60,8 @@ Les opérations d’ingestion sont les problèmes qui sont survenus pendant l’
 | Métadonnées. | Erreur | Erreur de configuration détectée. | |
 | Collecte de données | Erreur   | Les données ont été supprimées, car la demande a été créée avant le nombre de jours défini. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Collecte de données | Informations    | Une configuration de l’ordinateur de collecte est détectée.| |
-| Collecte de données | Informations    | La collecte de données a commencé en raison du changement de jour. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Collecte de données | Avertissement | La collecte de données s’est arrêtée, car la limite quotidienne a été atteinte.| [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Collecte de données | Informations    | La collecte de données a commencé en raison du changement de jour. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| Collecte de données | Avertissement | La collecte de données s’est arrêtée, car la limite quotidienne a été atteinte.| [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
 | Traitement des données | Erreur   | Format JSON non valide. | [Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)](data-collector-api.md#request-body) | 
 | Traitement des données | Avertissement | La valeur a été tronquée à la taille maximale autorisée. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Traitement des données | Avertissement | Valeur de champ tronquée en raison de la limite de taille. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) | 

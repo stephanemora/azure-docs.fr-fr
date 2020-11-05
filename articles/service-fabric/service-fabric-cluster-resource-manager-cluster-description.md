@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71629ebf1397c00face500f0bfd9c8e92deacc5e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173013"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911764"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Décrire un cluster Service Fabric à l’aide de Cluster Resource Manager
 
@@ -47,9 +47,7 @@ Dans l’environnement Azure, Service Fabric utilise les informations de domaine
 
 Dans le graphique suivant, nous avons indiqué en couleur toutes les entités qui contribuent aux domaines d’erreur et nous avons listé tous les domaines d’erreur différents qui en résultent. Dans cet exemple, nous avons des centres de données (« DC »), des racks (« R ») et des panneaux (« B »). Si chaque panneau contient plusieurs machines virtuelles, il peut exister une autre couche dans la hiérarchie de domaine d’erreur.
 
-<center>
-![Nœuds organisés par domaines d’erreur][Image1]
-</center>
+![Nœuds organisés par domaines d'erreur][Image1]
 
 Pendant l’exécution, Service Fabric Cluster Resource Manager prend en compte les domaines d’erreur du cluster et planifie des dispositions. Les réplicas avec état ou les instances sans état d’un service sont répartis de sorte qu’ils se trouvent dans des domaines d’erreur distincts. La répartition du service entre les domaines d’erreur est l’assurance que la disponibilité du service n’est pas mise à mal quand un domaine d’erreur connaît une défaillance à n’importe quel niveau de la hiérarchie.
 
@@ -62,9 +60,7 @@ Il est préférable d’avoir le même nombre de nœuds à chaque niveau de prof
 
 À quoi ressemblent des domaines déséquilibrés ? Le diagramme suivant montre deux dispositions de cluster différentes. Dans le premier exemple, les nœuds sont répartis uniformément entre les domaines d’erreur. Dans le deuxième exemple, un domaine d’erreur contient beaucoup plus de nœuds que les autres domaines d’erreur.
 
-<center>
 ![Deux dispositions de cluster différentes][Image2]
-</center>
 
 Dans Azure, le choix du domaine d’erreur qui contient un nœud est géré automatiquement. Mais en fonction du nombre de nœuds que vous configurez, vous pouvez malgré tout vous retrouver avec des domaines d’erreur contenant plus de nœuds que d’autres.
 
@@ -78,9 +74,7 @@ Les domaines de mise à niveau sont très semblables aux domaines d’erreur, av
 
 Le diagramme suivant illustre trois domaines de mise à niveau répartis sur trois domaines d’erreur. Il montre également un emplacement possible pour trois réplicas différents d’un service avec état, où chaque réplica est attribué à des domaines d’erreur et de mise à niveau différents. Ce positionnement autorise la perte d’un domaine d’erreur au cours de la mise à niveau d’un service tout en conservant une copie du code et des données.  
 
-<center>
 ![Positionnement avec des domaines d’erreur et de mise à niveau][Image3]
-</center>
 
 Il existe des avantages et des inconvénients au fait de disposer de nombreux domaines de mise à niveau. Davantage de domaines de mise à niveau signifie que chaque étape de la mise à niveau est plus précise et qu’elle affecte un plus petit nombre de nœuds ou de services. Il y a moins de services à déplacer simultanément, ce qui limite l’activité au sein du système. Cela tend à améliorer la fiabilité, car un pan moins important du service est affecté dans le cas de l’introduction d’un problème pendant la mise à niveau. Une quantité plus élevée de domaines de mise à niveau signifie aussi que vos besoins en mémoire tampon sur les autres nœuds sont moindres pour gérer l’impact de la mise à niveau.
 
@@ -98,9 +92,7 @@ Il n’existe aucune limite réelle au nombre total de domaines d’erreur ou de
 * Un domaine de mise à niveau par nœud (instance de système d’exploitation physique ou virtuel)
 * Un modèle « agrégé par bandes » ou de « matrice » dans lequel les domaines d’erreur et les domaines de mise à niveau forment une matrice où les machines s’exécutent généralement en suivant la matrice diagonale
 
-<center>
 ![Dispositions des domaines d’erreur et de mise à niveau][Image4]
-</center>
 
 Il n’existe aucune meilleure réponse quant à la disposition. Chaque option a ses avantages et inconvénients. Par exemple, le modèle à un domaine d’erreur pour un domaine de mise à niveau est simple à mettre en place. Le modèle à un domaine de mise à niveau par nœud ressemble davantage au modèle généralement adopté. Lors des mises à niveau, chaque nœud est mis à jour indépendamment. Il s’agit d’un processus analogue à celui qui consistait par le passé à mettre à jour manuellement des petits groupes d’ordinateurs.
 
@@ -187,7 +179,7 @@ Cluster Resource Manager prend en charge une autre version de la contrainte pour
 > [!NOTE]
 > Pour un service avec état, il est question de *perte de quorum* quand une majorité des réplicas de partition est arrêtée en même temps. Par exemple, si **TargetReplicaSetSize** a la valeur cinq, un ensemble de trois réplicas représente le quorum. De même, si **TargetReplicaSetSize** a la valeur 6, quatre réplicas sont nécessaires pour le quorum. Dans les deux cas, pas plus de deux réplicas ne peuvent être arrêtés en même temps si la partition doit continuer à fonctionner normalement.
 >
-> Pour un service sans état, il n’existe pas de *perte de quorum* . Les services sans état continuent à fonctionner normalement même si une majorité des instances est arrêtée en même temps. Par conséquent, nous allons nous concentrer sur les services avec état dans le reste de cet article.
+> Pour un service sans état, il n’existe pas de *perte de quorum*. Les services sans état continuent à fonctionner normalement même si une majorité des instances est arrêtée en même temps. Par conséquent, nous allons nous concentrer sur les services avec état dans le reste de cet article.
 >
 
 Revenons à l’exemple précédent. Avec la version « sécurité de quorum » de la contrainte, les trois dispositions sont toutes valides. Même si FD0 échouait dans la deuxième disposition ou si UD1 échouait dans la troisième disposition, la partition aurait toujours le quorum. (Une majorité des réplicas serait toujours actifs.) Avec cette version de la contrainte, N6 peut presque toujours être utilisé.
@@ -357,21 +349,17 @@ Service Fabric s’attend dans certains cas à ce que des charges de travail par
 * Une charge de travail doit être exécutée sur un matériel spécifique pour des raisons d’isolation de sécurité, de performances ou de mise à l’échelle
 * Une charge de travail doit être isolée des autres charges de travail pour des raisons de stratégie ou de consommation de ressources
 
-Pour prendre en charge ces types de configurations, Service Fabric inclut des balises que vous pouvez appliquer aux nœuds. Ces balises sont appelés *propriétés de nœud* . Les *contraintes de placement* sont les instructions associées aux différents services que vous sélectionnez pour une ou plusieurs propriétés de nœud. Les contraintes de placement définissent là où les services doivent s’exécuter. L’ensemble de contraintes est extensible. N’importe quelle paire clé/valeur peut fonctionner.
+Pour prendre en charge ces types de configurations, Service Fabric inclut des balises que vous pouvez appliquer aux nœuds. Ces balises sont appelés *propriétés de nœud*. Les *contraintes de placement* sont les instructions associées aux différents services que vous sélectionnez pour une ou plusieurs propriétés de nœud. Les contraintes de placement définissent là où les services doivent s’exécuter. L’ensemble de contraintes est extensible. N’importe quelle paire clé/valeur peut fonctionner.
 
-<center>
 ![Différentes charges de travail pour une disposition de cluster][Image5]
-</center>
 
 ### <a name="built-in-node-properties"></a>Propriétés de nœud intégrées
 
-Service Fabric définit certaines propriétés de nœud par défaut qui peuvent être utilisées automatiquement afin que vous n’ayez pas à les définir. Les propriétés par défaut définies sur chaque nœud sont **NodeType** et **NodeName** .
+Service Fabric définit certaines propriétés de nœud par défaut qui peuvent être utilisées automatiquement afin que vous n’ayez pas à les définir. Les propriétés par défaut définies sur chaque nœud sont **NodeType** et **NodeName**.
 
 Par exemple, vous pouvez écrire une contrainte de placement ainsi : `"(NodeType == NodeType03)"`. **NodeType** est une propriété couramment utilisée. Elle est utile car elle correspond parfaitement à un type de machine. Chaque type de machine correspond à un type de charge de travail dans une application multicouche classique.
 
-<center>
-![Contraintes de placement et propriétés de nœud][Image6]
-</center>
+![Contraintes de positionnement et propriétés de nœud][Image6]
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>Syntaxe des contraintes de placement et des propriétés de nœud
 
@@ -477,7 +465,7 @@ En premier lieu, il peut s’agir de veiller à ce que les machines ne soient pa
 
 En second lieu, il peut s’agir d’équilibrer et d’optimiser, opérations qui sont essentielles au bon fonctionnement des services. Les offres de services sensibles aux coûts ou aux performances ne peuvent pas s’accommoder de la présence simultanée de nœuds à chaud et de nœuds à froid. Les nœuds à chaud entraînent des conflits de ressources et une dégradation des performances. Les nœuds à froid représentent un gaspillage de ressources et des coûts accrus.
 
-Service Fabric représente les ressources en tant que *métriques* . Les métriques correspondent à n’importe quelle ressource logique ou physique que vous souhaitez décrire pour Service Fabric. Par exemple, « WorkQueueDepth » et « MemoryInMb » sont des métriques. Pour plus d’informations sur les ressources physiques que Service Fabric peut régir sur les nœuds, consultez [Gouvernance des ressources](service-fabric-resource-governance.md). Pour plus d’informations sur les métriques par défaut qu’utilise le Gestionnaire des ressources clusters et leur personnalisation, voir [cet article](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric représente les ressources en tant que *métriques*. Les métriques correspondent à n’importe quelle ressource logique ou physique que vous souhaitez décrire pour Service Fabric. Par exemple, « WorkQueueDepth » et « MemoryInMb » sont des métriques. Pour plus d’informations sur les ressources physiques que Service Fabric peut régir sur les nœuds, consultez [Gouvernance des ressources](service-fabric-resource-governance.md). Pour plus d’informations sur les métriques par défaut qu’utilise le Gestionnaire des ressources clusters et leur personnalisation, voir [cet article](service-fabric-cluster-resource-manager-metrics.md).
 
 Les métriques sont différentes des contraintes de placement et des propriétés de nœud. Les propriétés de nœud sont des descripteurs statiques des nœuds proprement dits. Les métriques décrivent les ressources à la disposition des nœuds et que les services consomment quand ils s’exécutent sur un nœud. La propriété d’un nœud pourrait être **HasSSD** et avoir la valeur true ou false. La quantité d’espace disponible sur ce disque SSD et la quantité consommée par les services pourrait correspondre à une métrique nommée « DriveSpaceInMb ».
 
@@ -491,9 +479,7 @@ La capacité et la consommation au niveau du service sont toutes deux exprimées
 
 Pendant l’exécution, Cluster Resource Manager assure le suivi de la capacité restante dans le cluster et sur les nœuds. Pour cela, il soustrait la consommation de chaque service de la capacité du nœud sur lequel le service s’exécute. Grâce à ces informations, Cluster Resource Manager peut déterminer où placer ou déplacer les réplicas afin que les nœuds ne dépassent pas la capacité.
 
-<center>
 ![Nœuds de cluster et capacité][Image7]
-</center>
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();

@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 90717f329cc366dbb951b24da0ffc1b65881a865
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 27725b1a3dd6059010ce67977c39891a012c037e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097632"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 La capacité réservée Azure Cosmos DB vous permet de faire des économies en vous engageant à réserver des ressources Azure Cosmos DB sur un an ou trois ans. Avec la capacité réservée Azure Cosmos DB, vous pouvez obtenir une remise sur le débit provisionné pour les ressources Cosmos DB. Les bases de données et les conteneurs (tables, collections et graphes) sont des exemples de ressources.
 
@@ -36,9 +37,9 @@ Nous calculons les recommandations d’achat en fonction de votre modèle d’ut
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).  
 
-2. Sélectionnez **Tous les services** > **Réservations** > **Ajouter** .
+2. Sélectionnez **Tous les services** > **Réservations** > **Ajouter**.
 
-3. À partir du volet **Acheter des réservations** , choisissez **Azure Cosmos DB** .
+3. À partir du volet **Acheter des réservations** , choisissez **Azure Cosmos DB**.
 
 4. Sélectionnez l’onglet **Recommandé** pour afficher les réservations recommandées :
 
@@ -60,13 +61,13 @@ Cette recommandation d’achat indique que, parmi les réservations d’une dur�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).  
 
-2. Sélectionnez **Tous les services** > **Réservations** > **Ajouter** .  
+2. Sélectionnez **Tous les services** > **Réservations** > **Ajouter**.  
 
 3. À partir du volet **Acheter des réservations** , choisissez **Azure Cosmos DB** pour acheter une nouvelle réservation.  
 
 4. Renseignez les champs obligatoires, comme décrit dans le tableau suivant :
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Recommandations sur la capacité de réserve":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Remplir le formulaire de réservation de capacité":::
 
    |Champ  |Description  |
    |---------|---------|
@@ -80,11 +81,11 @@ Cette recommandation d’achat indique que, parmi les réservations d’une dur�
 
 5. Le prix requis pour acheter la capacité réservée est calculé une fois le formulaire rempli. La sortie indique également le pourcentage de remise que vous obtenez avec les options sélectionnées. Cliquez ensuite sur **Sélectionner**
 
-6. Vérifiez la remise et le prix de la réservation dans le volet **Acheter des réservations** . Ce prix de réservation s’applique aux ressources Azure Cosmos DB avec débit provisionné dans toutes les régions.  
+6. Vérifiez la remise et le prix de la réservation dans le volet **Acheter des réservations**. Ce prix de réservation s’applique aux ressources Azure Cosmos DB avec débit provisionné dans toutes les régions.  
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Recommandations sur la capacité de réserve":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Résumé de la capacité réservée":::
 
-7. Sélectionnez **Évaluer et acheter** , puis **Acheter maintenant** . Vous voyez la page suivante une fois l’achat correctement effectué :
+7. Sélectionnez **Évaluer et acheter** , puis **Acheter maintenant**. Vous voyez la page suivante une fois l’achat correctement effectué :
 
 Une fois achetée, une réservation est immédiatement appliquée à toutes les ressources Azure Cosmos DB existantes qui répondent à ses conditions. Si vous n’avez pas de ressources Azure Cosmos DB, la réservation s’applique quand vous déployez une nouvelle instance Cosmos DB qui satisfait aux conditions de la réservation. Dans les deux cas, la période de la réservation démarre une fois l’achat correctement effectué.
 

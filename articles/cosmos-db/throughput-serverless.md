@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0adb346a693beaa905438cfdc1249c1646c28811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608633"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079336"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Comment choisir entre le mode débit approvisionné et le mode serverless
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est disponible en deux modes de capacité différents : [débit approvisionné](set-throughput.md) et [serverless](serverless.md). Vous pouvez effectuer exactement les mêmes opérations de base de données dans les deux modes, mais la façon dont vous êtes facturé pour ces opérations est radicalement différente. La vidéo suivante explique les principales différences entre ces modes, et la façon dont ils s’adaptent aux différents types de charges de travail :
 
@@ -41,21 +42,21 @@ Azure Cosmos DB est disponible en deux modes de capacité différents : [débit
 
 Dans certains cas, il peut être difficile de choisir entre le mode débit approvisionné ou le mode serverless pour une charge de travail donnée. Pour vous aider à prendre cette décision, vous pouvez estimer les aspects suivants :
 
-- Le besoin d’**extensibilité en rafale** de votre charge de travail, c’est-à-dire le nombre maximal de RU que vous pouvez être amené à devoir consommer en une seconde.
-- L’ensemble de votre **consommation attendue**, c’est-à-dire le nombre total de RU que vous pouvez consommer sur un mois (vous pouvez estimer cela avec l’aide du tableau présenté [ici](plan-manage-costs.md#estimating-serverless-costs)).
+- Le besoin d’ **extensibilité en rafale** de votre charge de travail, c’est-à-dire le nombre maximal de RU que vous pouvez être amené à devoir consommer en une seconde.
+- L’ensemble de votre **consommation attendue** , c’est-à-dire le nombre total de RU que vous pouvez consommer sur un mois (vous pouvez estimer cela avec l’aide du tableau présenté [ici](plan-manage-costs.md#estimating-serverless-costs)).
 
 Si votre charge de travail nécessite une extensibilité en rafale supérieure à 5 000 RU par seconde, vous devriez choisir un débit approvisionné, car les conteneurs sans serveur ne peuvent pas dépasser cette limite. Si ce n’est pas le cas, vous pouvez comparer le coût des deux modes en fonction de la consommation attendue.
 
-**Exemple 1** : la charge de travail attendue en rafale est d’au maximum 10 000 RU/s, et la consommation attendue totale de 20 millions de RU par mois.
+**Exemple 1**  : la charge de travail attendue en rafale est d’au maximum 10 000 RU/s, et la consommation attendue totale de 20 millions de RU par mois.
 
 - Seul le mode de débit approvisionné peut fournir un débit de 10 000 RU/s.
 
-**Exemple 1** : la charge de travail attendue en rafale est d’au maximum 500 RU/s, et la consommation attendue totale de 20 millions de RU par mois.
+**Exemple 1**  : la charge de travail attendue en rafale est d’au maximum 500 RU/s, et la consommation attendue totale de 20 millions de RU par mois.
 
 - En mode débit approvisionné, vous pouvez approvisionner un conteneur avec 500 RU/s pour un coût mensuel de 0,008 USD * 5 * 730 = **29,20 USD**.
 - En mode serverless, vous payez pour les RU consommées, soit 0,25 USD * 20 = **5,00 USD**.
 
-**Exemple 1** : la charge de travail attendue en rafale est d’au maximum 500 RU/s, et la consommation attendue totale de 250 millions de RU par mois.
+**Exemple 1**  : la charge de travail attendue en rafale est d’au maximum 500 RU/s, et la consommation attendue totale de 250 millions de RU par mois.
 
 - En mode débit approvisionné, vous pouvez approvisionner un conteneur avec 500 RU/s pour un coût mensuel de 0,008 USD * 5 * 730 = **29,20 USD**.
 - En mode serverless, vous payez pour le RU consommées, soit 0,25 USD * 250 = **62,50 USD**

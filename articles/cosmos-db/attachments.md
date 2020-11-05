@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 847ae3688fb713ddbd2dbf196ad1b89a6bb472a1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b6504c0521328edc356dea1c146fe9aeb6bde55f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486631"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092736"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Pièces jointes Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Les pièces jointes Azure Cosmos DB sont des éléments spéciaux contenant des références vers des métadonnées associées avec un objet blob ou un fichier multimédia externe.
 

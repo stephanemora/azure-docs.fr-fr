@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325791"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025899"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions
 
@@ -56,7 +56,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée. L’objet [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) est transmis à la fonction.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 ```json
 {
@@ -99,7 +99,7 @@ public void keepAlive(
 
 L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée. L’[objet de minuteur](#usage) est transmis à la fonction.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 ```json
 {
@@ -165,7 +165,7 @@ Une instance de l’[objet de minuteur](#usage) est transmise comme premier argu
 
 L’exemple suivant utilise une liaison de déclencheur de minuteur dont la configuration est décrite dans le fichier *function.json*. La véritable [fonction Python](functions-reference-python.md) qui utilise la liaison est décrite dans le fichier *__init__.py*. L’objet transmis à la fonction est de type [Objet azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logique de fonction écrit dans les journaux indiquant si l’appel est dû à une occurrence de planification manquée.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 ```json
 {
@@ -276,18 +276,18 @@ Lorsqu’une fonction de déclencheur de minuteur est appelée, l’objet minute
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-La propriété `IsPastDue` est `true` lorsque l’appel de fonction en cours arrive plus tard que prévu. Par exemple, un redémarrage de la fonction d’application peut entraîner l’échec d’un appel.
+La propriété `isPastDue` est `true` lorsque l’appel de fonction en cours arrive plus tard que prévu. Par exemple, un redémarrage de la fonction d’application peut entraîner l’échec d’un appel.
 
 ## <a name="ncrontab-expressions"></a>Expressions NCRONTAB
 

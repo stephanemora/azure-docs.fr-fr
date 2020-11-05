@@ -3,12 +3,12 @@ title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426347"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042852"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -66,10 +66,10 @@ En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieu
 
 Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle. Cela vous donne la possibilité d’ajouter ou de supprimer des utilisateurs individuels dans le groupe qui a accès, afin de ne pas avoir à répéter le processus d’intégration pour apporter des modifications à l’utilisateur. Vous pouvez assigner des rôles à un principal de service, ce qui peut être utile pour les scénarios d’automatisation.
 
-Lorsque vous définissez vos autorisations, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour des consignes et des informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
-
 > [!IMPORTANT]
 > Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **type de groupe** doit être défini sur **Sécurité**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+Lorsque vous définissez vos autorisations, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour des consignes et des informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Pour définir des autorisations, vous devez connaître les valeurs d’ID pour chaque utilisateur, groupe d’utilisateurs ou principal de service dans le locataire du fournisseur de services auquel vous souhaitez accorder l’accès. Vous aurez également besoin de l’ID de définition de rôle pour chaque rôle intégré que vous souhaitez attribuer. Si vous ne les avez pas déjà, vous pouvez les récupérer en exécutant les commandes ci-dessous à partir du locataire du fournisseur de services.
 

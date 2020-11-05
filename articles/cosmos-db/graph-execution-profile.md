@@ -2,21 +2,21 @@
 title: Utiliser le profil d’exécution pour évaluer des requêtes dans l’API Gremlin Azure Cosmos DB
 description: Découvrez comment dépanner et améliorer vos requêtes Gremlin à l’aide de l’étape de profil d’exécution.
 services: cosmos-db
-author: jasonwhowell
-manager: kfile
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: jasonh
-ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490592"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087483"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Guide pratique pour utiliser l’étape de profil d’exécution pour évaluer vos requêtes Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Cet article fournit une vue d’ensemble de l’utilisation de l’étape de profil d’exécution pour les bases de données de graphe d’API Gremlin Azure Cosmos DB. Cette étape fournit des informations pertinentes sur la résolution des problèmes et l’optimisation des requêtes. Elle est compatible avec n’importe quelle requête Gremlin pouvant être exécutée sur un compte d’API Gremlin Cosmos DB.
 
@@ -220,7 +220,7 @@ Considérez la réponse de profil d’exécution suivante provenant d’un **gra
 
 Nous pouvons en tirer les conclusions suivantes :
 - La requête est une recherche d’ID unique, puisque l’instruction Gremlin suit le modèle `g.V('id')`.
-- À en juger par la métrique `time`, la latence de cette requête semble être élevée, car elle est [supérieure à 10 ms pour une seule opération de lecture de point](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- À en juger par la métrique `time`, la latence de cette requête semble être élevée, car elle est [supérieure à 10 ms pour une seule opération de lecture de point](./introduction.md#guaranteed-speed-at-any-scale).
 - Si nous examinons l’objet `storeOps`, nous constatons que `fanoutFactor` est égal à `5`, ce qui signifie que [cinq partitions](./partitioning-overview.md) ont été sollicitées par cette opération.
 
 En conclusion de cette analyse, nous pouvons dire que la première requête accède à plus de partitions que nécessaire. Ce problème peut être résolu en spécifiant la clé de partitionnement dans la requête en tant que prédicat. Cela permettra de réduire la latence et le coût par requête. Explorez plus en détail le [partitionnement de graphe](graph-partitioning.md). `g.V('tt0093640').has('partitionKey', 't1001')` serait une requête plus optimale.

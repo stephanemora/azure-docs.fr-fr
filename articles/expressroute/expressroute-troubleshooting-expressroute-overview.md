@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92204637"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
@@ -85,7 +85,7 @@ Dans le Portail Azure, ouvrez le panneau du circuit ExpressRoute. Dans la sectio
 
 Dans ExpressRoute Essentials, *l'état du circuit* indique l’état du circuit côté Microsoft. *L'état du fournisseur* indique si le circuit a été *approvisionné/non approvisionné* côté fournisseur de service. 
 
-Pour qu'un circuit ExpressRoute soit opérationnel, *l'état du Circuit* doit être *activé* et *l'état du fournisseur* doit être *approvisionné* .
+Pour qu'un circuit ExpressRoute soit opérationnel, *l'état du Circuit* doit être *activé* et *l'état du fournisseur* doit être *approvisionné*.
 
 > [!NOTE]
 > Après la configuration d’un circuit ExpressRoute, si l’ *état du circuit* est désactivé, contactez le [Support Microsoft][Support]. En revanche, si l’ *état du fournisseur* est non approvisionné, contactez votre fournisseur de services.
@@ -100,7 +100,7 @@ Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 ```
 
 >[!TIP]
->Si vous recherchez le nom d’un groupe de ressources, vous pouvez l’obtenir en répertoriant tous les groupes de ressources dans votre abonnement à l’aide de la commande *Get-AzResourceGroup* .
+>Si vous recherchez le nom d’un groupe de ressources, vous pouvez l’obtenir en répertoriant tous les groupes de ressources dans votre abonnement à l’aide de la commande *Get-AzResourceGroup*.
 >
 
 

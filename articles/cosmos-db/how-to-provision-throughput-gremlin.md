@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 70eecc7843867a5832d962b7efaecda1b6ab4ae4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282999"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086157"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Approvisionner le débit des conteneurs, des bases de données et la mise à l’échelle automatique sur des ressources de l’API Gremlin d’Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Cet article explique comment provisionner le débit dans l’API Gremlin d’Azure Cosmos DB. Vous pouvez approvisionner un débit standard (manuel) ou avec mise à l’échelle automatique sur un conteneur ou sur une base de données et le partager entre les conteneurs de la base de données. Vous pouvez provisionner le débit à l’aide du portail Azure, d’Azure CLI ou des SDK Azure Cosmos DB.
 
@@ -27,13 +28,13 @@ Si vous utilisez une autre API, consultez les articles [API SQL](how-to-provisio
 
 1. [Créez un compte Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) ou sélectionnez un compte Azure Cosmos existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouveau graphe** . Fournissez ensuite les détails suivants :
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouveau graphe**. Fournissez ensuite les détails suivants :
 
    * Indiquez si vous créez une base de données ou si vous utilisez une base de données existante. Sélectionnez l’option **Approvisionner le débit d’une base de données** si vous souhaitez approvisionner le débit au niveau de la base de données.
    * Entrez un ID de graphe.
    * Entrez une valeur de clé de partition (par exemple `/ItemID`).
    * Entrez un débit que vous voulez provisionner (par exemple, 1 000 unités de requête).
-   * Sélectionnez **OK** .
+   * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Capture d’écran de l’Explorateur de données, lors de la création d’un nouveau graphique avec un débit au niveau de base de données":::
 

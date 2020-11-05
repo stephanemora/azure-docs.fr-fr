@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: aed0c83bfa61f6afdbdcca3c10dbd5fac3f823d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123368"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -22,7 +22,7 @@ Comme prérequis, vous pouvez vous familiariser avec la notion d’unité de str
 La définition d’un travail Stream Analytics inclut au moins une entrée de streaming, une requête et une sortie. Les entrées correspondent à l’emplacement où le travail lit le flux de données. La requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.
 
 ## <a name="partitions-in-inputs-and-outputs"></a>Partitions dans les entrées et sorties
-Le partitionnement vous permet de répartir les données en sous-ensembles basés sur une [clé de partition](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Si votre entrée (par exemple Event Hubs) est partitionnée par une clé, il est vivement recommandé de spécifier cette clé de partition lors de l’ajout d’une entrée à votre travail Stream Analytics. La mise à l’échelle d’un travail Stream Analytics tire parti des partitions dans l’entrée et la sortie. Un travail Stream Analytics peut consommer et écrire différentes partitions en parallèle, ce qui augmente le débit. 
+Le partitionnement vous permet de répartir les données en sous-ensembles basés sur une [clé de partition](../event-hubs/event-hubs-scalability.md#partitions). Si votre entrée (par exemple Event Hubs) est partitionnée par une clé, il est vivement recommandé de spécifier cette clé de partition lors de l’ajout d’une entrée à votre travail Stream Analytics. La mise à l’échelle d’un travail Stream Analytics tire parti des partitions dans l’entrée et la sortie. Un travail Stream Analytics peut consommer et écrire différentes partitions en parallèle, ce qui augmente le débit. 
 
 ### <a name="inputs"></a>Entrées
 Toutes les entrées Azure Stream Analytics peuvent tirer parti du partitionnement :
@@ -41,14 +41,14 @@ Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement
 -   Event Hubs (définir la clé de partition explicitement)
 -   IoT Hub (nécessité de définir la clé de partition explicitement)
 -   Service Bus
-- SQL et Azure Synapse Analytics avec partitionnement facultatif : consultez plus d’informations sur la [page Sortie dans Azure SQL Database](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL et Azure Synapse Analytics avec partitionnement facultatif : consultez plus d’informations sur la [page Sortie dans Azure SQL Database](./stream-analytics-sql-output-perf.md).
 
 Power BI ne prend pas en charge le partitionnement. Toutefois, vous pouvez toujours partitionner l’entrée comme décrit dans [cette section](#multi-step-query-with-different-partition-by-values) 
 
 Pour plus d’informations sur les partitions, consultez les articles suivants :
 
 * [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](../event-hubs/event-hubs-features.md#partitions)
-* [Partitionnement des données](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
+* [Partitionnement des données](/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Travaux massivement parallèles
@@ -279,7 +279,7 @@ La solution [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 |    5 000   |   18 |  P4   |
 |    10 000  |   36 |  P6   |
 
-[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) prend en charge l’écriture en parallèle, appelée Inherit Partitioning, qui n’est pas activée par défaut. Toutefois, l’activation de la fonctionnalité Inherit Partitioning avec une requête entièrement parallèle peut ne pas suffire pour atteindre des débits supérieurs. Les débits en écriture SQL dépendent considérablement de la configuration et du schéma de table de votre base de données. L’article [Performances en sortie SQL](./stream-analytics-sql-output-perf.md) contient des informations plus détaillées sur les paramètres susceptibles d’optimiser votre débit en écriture. Comme indiqué dans l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), cette solution n’est pas mise à l’échelle de manière linéaire en tant que pipeline entièrement parallèle au-delà de 8 partitions, et peut nécessiter un repartitionnement avant la sortie SQL (voir [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Des références (SKU) Premium sont nécessaires pour prendre en charge des taux d’E/S élevés, ainsi que la surcharge liée aux sauvegardes de fichiers journaux toutes les quelques minutes.
+[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) prend en charge l’écriture en parallèle, appelée Inherit Partitioning, qui n’est pas activée par défaut. Toutefois, l’activation de la fonctionnalité Inherit Partitioning avec une requête entièrement parallèle peut ne pas suffire pour atteindre des débits supérieurs. Les débits en écriture SQL dépendent considérablement de la configuration et du schéma de table de votre base de données. L’article [Performances en sortie SQL](./stream-analytics-sql-output-perf.md) contient des informations plus détaillées sur les paramètres susceptibles d’optimiser votre débit en écriture. Comme indiqué dans l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), cette solution n’est pas mise à l’échelle de manière linéaire en tant que pipeline entièrement parallèle au-delà de 8 partitions, et peut nécessiter un repartitionnement avant la sortie SQL (voir [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Des références (SKU) Premium sont nécessaires pour prendre en charge des taux d’E/S élevés, ainsi que la surcharge liée aux sauvegardes de fichiers journaux toutes les quelques minutes.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Taux d’ingestion (événements par seconde) | Unités de diffusion en continu | Ressources de sortie  |
@@ -311,17 +311,17 @@ Tous les [exemples Azure de diffusion en continu à grande échelle](https://git
 
 ### <a name="identifying-bottlenecks"></a>Identification des goulots d’étranglement
 
-Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog**, pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
+Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog** , pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Pour obtenir de l’aide supplémentaire, essayez notre [page de questions Microsoft Q&A pour Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Pour obtenir de l’aide supplémentaire, essayez notre [page de questions Microsoft Q&A pour Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -334,10 +334,9 @@ Pour obtenir de l’aide supplémentaire, essayez notre [page de questions Micro
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

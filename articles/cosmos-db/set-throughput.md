@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098771"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB vous permet de définir le débit approvisionné sur vos bases de données et conteneurs. Il existe deux types de débit approvisionné, standard (manuel) ou avec mise à l’échelle automatique. Cet article présente le fonctionnement du débit approvisionné. 
 
@@ -72,7 +73,7 @@ Si votre compte Azure Cosmos DB contient déjà une base de données à débit p
 
 Si vos charges de travail impliquent la suppression et la recréation de toutes les collections d’une base de données, il est recommandé de supprimer la base de données vide et de recréer une nouvelle base de données avant la création de la collection. L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques d'un conteneur" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques appartenant à différents conteneurs" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Définir le débit sur une base de données et un conteneur
 
@@ -81,9 +82,9 @@ Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de do
 * Vous pouvez créer une base de données Azure Cosmos nommée *« Z »* avec le débit approvisionné standard (manuel) des unités de requête *« K »* . 
 * Créez ensuite cinq conteneurs nommés *A* , *B* , *C* , *D* et *E* dans la base de données. Lors de la création du conteneur B, assurez-vous d’activer **Fournir un débit dédié pour cette option conteneur** et configurez explicitement *"P"* . RU de débit provisionné sur ce conteneur. Vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et du conteneur. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques d'un conteneur":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Définition du débit au niveau du conteneur":::
 
-* Le début des unités de requête *« K »* est partagé entre les quatre conteneurs *A* , *C* , *D* , et *E* . La quantité exacte de débit disponible pour *A* , *C* , *D* , ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
+* Le début des unités de requête *« K »* est partagé entre les quatre conteneurs *A* , *C* , *D* , et *E*. La quantité exacte de débit disponible pour *A* , *C* , *D* , ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
 * Le conteneur nommé *B* est assuré de bénéficier en permanence du débit des unités de requête *« P »* . Il est associé à des contrats SLA.
 
 > [!NOTE]

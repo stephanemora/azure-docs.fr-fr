@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: b7d54dfe2efa82aaa650168c476da03d89fe4527
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 978a2909202e01d8c58ba9253bfe0b3996b72d56
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490490"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100879"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modèle de tarification dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Le modèle de tarification d’Azure Cosmos DB simplifie la gestion et la planification des coûts. Avec Azure Cosmos DB, vous payez pour les opérations que vous effectuez sur la base de données et pour le stockage utilisé par vos données.
 

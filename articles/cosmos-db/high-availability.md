@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490541"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081873"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB fournit-il une haute disponibilité ?
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB offre une haute disponibilité de deux principales façons. Premièrement, Azure Cosmos DB réplique les données entre les régions configurées dans un compte Cosmos. Deuxièmement, Azure Cosmos DB conserve quatre réplicas de données dans une région.
 
@@ -73,7 +74,7 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 * Une fois que la région d’écriture précédemment impactée a récupéré, elle devient automatiquement disponible en tant que région de lecture. Vous pouvez basculer vers la région récupérée en tant que région d’écriture. Vous pouvez basculer d’une région à l’autre en utilisant [PowerShell, Azure CLI ou le portail Azure](how-to-manage-database-account.md#manual-failover). Il n'y a **aucune perte de données ou de disponibilité** avant, pendant ou après le changement de région d'écriture, et votre application continue d’être hautement disponible.
 
 > [!IMPORTANT]
-> Il est fortement recommandé de configurer les comptes Azure Cosmos utilisés pour les charges de travail de production afin **d’activer le basculement automatique** . Le basculement manuel nécessite une connectivité entre une région d’écriture secondaire et une région d’écriture primaire pour effectuer une vérification de cohérence et éviter toute perte de données pendant le basculement. Si la région primaire n’est pas disponible, cette vérification de cohérence ne peut pas se terminer et le basculement manuel échoue, ce qui entraîne une perte de disponibilité en écriture pendant la panne régionale.
+> Il est fortement recommandé de configurer les comptes Azure Cosmos utilisés pour les charges de travail de production afin **d’activer le basculement automatique**. Le basculement manuel nécessite une connectivité entre une région d’écriture secondaire et une région d’écriture primaire pour effectuer une vérification de cohérence et éviter toute perte de données pendant le basculement. Si la région primaire n’est pas disponible, cette vérification de cohérence ne peut pas se terminer et le basculement manuel échoue, ce qui entraîne une perte de disponibilité en écriture pendant la panne régionale.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Comptes multirégion avec une seule région d’écriture (panne de région de lecture)
 
@@ -89,7 +90,7 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 
 * Les lectures suivantes sont redirigées vers la région récupérée sans modification nécessaire de votre code d’application. Pendant le basculement et la réintégration d’une région ayant précédemment échoué, les garanties de cohérence de lecture continuent à être respectées par Azure Cosmos DB.
 
-* Même dans un cas rare et malheureux où la région Azure est définitivement irrécupérable, il n’y a aucune perte de données si votre compte Azure Cosmos multirégion est configuré avec une cohérence *forte* . Si une région d’écriture est définitivement irrécupérable et en présence d’un compte Azure Cosmos multirégion configuré avec une cohérence de l’obsolescence limitée, la fenêtre de perte de données potentielle est limitée à la fenêtre d’obsolescence ( *K* ou *T* ) où K = 100 000 mises à jour et T = 5 minutes. Pour les niveaux de cohérence session, garantie de préfixe et éventuelle, la fenêtre de perte de données potentielle est limitée à un maximum de 15 minutes. Pour plus d'informations sur les cibles RPO et RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](./consistency-levels.md#rto)
+* Même dans un cas rare et malheureux où la région Azure est définitivement irrécupérable, il n’y a aucune perte de données si votre compte Azure Cosmos multirégion est configuré avec une cohérence *forte*. Si une région d’écriture est définitivement irrécupérable et en présence d’un compte Azure Cosmos multirégion configuré avec une cohérence de l’obsolescence limitée, la fenêtre de perte de données potentielle est limitée à la fenêtre d’obsolescence ( *K* ou *T* ) où K = 100 000 mises à jour et T = 5 minutes. Pour les niveaux de cohérence session, garantie de préfixe et éventuelle, la fenêtre de perte de données potentielle est limitée à un maximum de 15 minutes. Pour plus d'informations sur les cibles RPO et RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Prise en charge des zones de disponibilité
 
@@ -101,7 +102,7 @@ La redondance de zone *complète* la fonctionnalité de [réplication dans des �
 
 Lorsque vous configurez des écritures multirégions pour votre compte Azure Cosmos, vous pouvez opter pour la redondance de zone, sans frais supplémentaires. Sinon, consultez la note ci-dessous relative à la tarification de la redondance de zone. Vous pouvez activer la redondance de zone dans une région existante de votre compte Azure Cosmos en supprimant la région, puis en l'ajoutant à nouveau avec la redondance de zone activée.
 
-Cette fonctionnalité est disponible dans : les régions *Royaume-Uni Sud, Asie Sud-Est, USA Est, USA Est 2, USA Centre, Europe Ouest, USA Ouest 2, Japon Est, Europe Nord, France Centre, Australie Est, USA Est 2 EUAP* .
+Cette fonctionnalité est disponible dans : les régions *Royaume-Uni Sud, Asie Sud-Est, USA Est, USA Est 2, USA Centre, Europe Ouest, USA Ouest 2, Japon Est, Europe Nord, France Centre, Australie Est, USA Est 2 EUAP*.
 
 Le tableau suivant récapitule la fonctionnalité de haute disponibilité des différentes configurations de compte :
 

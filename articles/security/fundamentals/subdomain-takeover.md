@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447368"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911390"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Prévention des entrées DNS non résolues et de l’acquisition de sous-domaine
 
@@ -51,7 +51,7 @@ Voici un cas de figure courant d’acquisition de sous-domaine :
 
     1. L’acteur de menace configure une ressource Azure avec le nom de domaine complet de la ressource que vous avez précédemment contrôlée. Dans cet exemple : `app-contogreat-dev-001.azurewebsites.net`.
 
-    1. Le trafic envoyé au sous-domaine `myapp.contoso.com` est désormais routé vers la ressource de l’acteur malveillant où celui-ci contrôle le contenu.
+    1. Le trafic envoyé au sous-domaine `greatapp.contoso.com` est désormais routé vers la ressource de l’acteur malveillant où celui-ci contrôle le contenu.
 
 
 
@@ -119,7 +119,7 @@ Si vous êtes un administrateur général du locataire de votre organisation, é
 
 ### <a name="run-the-script"></a>Exécuter le script
 
-En savoir plus sur le script PowerShell, **Get-DanglingDnsRecords. ps1**, et le télécharger à partir de GitHub : https://aka.ms/DanglingDNSDomains.
+En savoir plus sur le script PowerShell, **Get-DanglingDnsRecords. ps1** , et le télécharger à partir de GitHub : https://aka.ms/DanglingDNSDomains.
 
 ## <a name="remediate-dangling-dns-entries"></a>Corriger les entrées de DNS non-résolu 
 

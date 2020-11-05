@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 529b1ce8026d9880bbc8caf87ab59148baf92df3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019458"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123759"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Effectuer une analyse des sentiments avec Azure Stream Analytics et Azure Machine Learning Studio (classique)
 
@@ -59,7 +59,7 @@ Dans cette étape, vous allez charger un fichier CSV dans votre conteneur de sto
 
 3. Sélectionnez **Vérifier + créer**. Ensuite, sélectionnez **créer** pour déployer votre compte de stockage.
 
-4. Une fois le déploiement terminé, accédez à votre compte de stockage. Sous **Service BLOB**, sélectionnez **Conteneurs**. Sélectionnez **+ Conteneur** pour créer un conteneur.
+4. Une fois le déploiement terminé, accédez à votre compte de stockage. Sous **Service BLOB** , sélectionnez **Conteneurs**. Sélectionnez **+ Conteneur** pour créer un conteneur.
 
    ![Créer un conteneur de stockage d’objets blob pour les entrées](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -99,7 +99,7 @@ Maintenant que les exemples de données sont dans un objet blob, vous pouvez act
 
    ![Résultats de test dans Studio (classique)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
-7. Dans la colonne **Applications**, sélectionnez le lien **Classeur Excel 2010 ou version antérieure** pour télécharger un classeur Excel. Le classeur contient la clé de l’API et l’URL dont vous aurez besoin pour configurer le travail Stream Analytics.
+7. Dans la colonne **Applications** , sélectionnez le lien **Classeur Excel 2010 ou version antérieure** pour télécharger un classeur Excel. Le classeur contient la clé de l’API et l’URL dont vous aurez besoin pour configurer le travail Stream Analytics.
 
     ![Stream Analytics Azure Machine Learning Studio (classique), aperçu rapide](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
@@ -115,7 +115,7 @@ Accédez au [portail Azure](https://portal.azure.com) et créez un travail Strea
 
 Le travail reçoit les entrées à partir du fichier CSV chargé précédemment dans le stockage d’objets blob.
 
-1. Accédez à votre travail Stream Analytics. Sous **Topologie du travail**, sélectionnez l’option **Entrées**. Sélectionnez **Ajouter une entrée de flux** >**Stockage Blob**.
+1. Accédez à votre travail Stream Analytics. Sous **Topologie du travail** , sélectionnez l’option **Entrées**. Sélectionnez **Ajouter une entrée de flux** >**Stockage Blob**.
 
 2. Entrez les détails du **Stockage Blob** avec les valeurs suivantes :
 
@@ -133,7 +133,7 @@ Le travail reçoit les entrées à partir du fichier CSV chargé précédemment 
 
 Le travail envoie les résultats vers le stockage d’objets blob d’où il a reçu les entrées.
 
-1. Accédez à votre travail Stream Analytics. Sous **Topologie du travail**, sélectionnez l’option **Sorties**. Sélectionnez **Ajouter** > **Stockage Blob**.
+1. Accédez à votre travail Stream Analytics. Sous **Topologie du travail** , sélectionnez l’option **Sorties**. Sélectionnez **Ajouter** > **Stockage Blob**.
 
 2. Remplissez les formulaire **Stockage Blob** avec ces valeurs :
 
@@ -161,7 +161,7 @@ Dans cette section du didacticiel, vous allez définir une fonction dans le trav
 
    |Champ  |Valeur  |
    |---------|---------|
-   | Alias de fonction | Utilisez le nom `sentiment` et sélectionnez **Fournir les paramètres de fonction Azure Machine Learning manuellement**, ce qui vous donne la possibilité d’entrer l’URL et la clé.      |
+   | Alias de fonction | Utilisez le nom `sentiment` et sélectionnez **Fournir les paramètres de fonction Azure Machine Learning manuellement** , ce qui vous donne la possibilité d’entrer l’URL et la clé.      |
    | URL| Collez l’URL du service web.|
    |Clé | Collez la clé d’API. |
 
@@ -173,7 +173,7 @@ Stream Analytics utilise une requête SQL déclarative pour examiner l’entrée
 
 1. Revenez à la vue d’ensemble du travail de Stream Analytics.
 
-2. Sous **Topologie de la tâche**, sélectionnez **Requête**.
+2. Sous **Topologie de la tâche** , sélectionnez **Requête**.
 
 3. Entrez la requête suivante :
 
@@ -202,7 +202,7 @@ Vous pouvez maintenant démarrer le travail Stream Analytics.
 
 2. En haut de la page, sélectionnez **Démarrer**.
 
-3. Dans le panneau **Démarrer la tâche**, sélectionnez **Personnalisé**, puis un jour antérieur au moment où vous avez chargé le fichier CSV sur le Stockage Blob. Lorsque vous avez terminé, sélectionnez **Démarrer**.  
+3. Dans le panneau **Démarrer la tâche** , sélectionnez **Personnalisé** , puis un jour antérieur au moment où vous avez chargé le fichier CSV sur le Stockage Blob. Lorsque vous avez terminé, sélectionnez **Démarrer**.  
 
 ### <a name="check-the-output"></a>Consulter la sortie
 
@@ -227,6 +227,6 @@ Vous pouvez également afficher les métriques relatives à la fonction Studio (
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Intégrer l’API REST et Machine Learning Studio (classique)](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](/rest/api/streamanalytics/)

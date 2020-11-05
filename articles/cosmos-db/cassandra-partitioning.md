@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f12919cd35441c6c198269e2f79c705c1d304acd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278815"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087636"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionnement dans l'API Cassandra Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cet article décrit le fonctionnement du partitionnement dans l'API Cassandra Azure Cosmos DB. 
 
@@ -83,11 +84,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Lorsque les données sont renvoyées, elles sont triées en fonction de la clé de clustering, comme prévu dans Apache Cassandra :
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="partitions":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Capture d’écran montrant les données retournées triées par la clé de clustering.":::
 
 Avec des données ainsi modélisées, plusieurs enregistrements, regroupés par utilisateur, peuvent être attribués à chaque partition. Nous pouvons donc émettre une requête qui est efficacement acheminée par la `partition key` (dans ce cas, `user`) pour obtenir tous les messages d'un utilisateur donné. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="partitions" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagramme montrant comment plusieurs enregistrements peuvent être attribués à chaque partition, regroupés par utilisateur." border="false":::
 
 
 ## <a name="composite-partition-key"></a>Clé de partition composite

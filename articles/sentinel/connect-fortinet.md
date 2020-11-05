@@ -1,6 +1,6 @@
 ---
 title: Connecter des données Fortinet à Azure Sentinel | Microsoft Docs
-description: Connectez votre appliance Fortinet à Azure Sentinel pour consulter des tableaux de bord, créer des alertes personnalisées et améliorer les enquêtes. 
+description: Connectez votre appliance Fortinet à Azure Sentinel pour consulter des tableaux de bord, créer des alertes personnalisées et améliorer les enquêtes.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 8aa8599cbaab6af00d7b4122b94c9e24870881f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60be22f439547d006f54e489833b63171e617e3e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511328"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913991"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Connecter Fortinet à Azure Sentinel
 
@@ -38,19 +38,19 @@ Configurez Fortinet pour transférer les messages Syslog au format CEF à votre 
 
     ```console
     config log syslogd setting
+    set status enable
     set format cef
     set port 514
     set server <ip_address_of_Receiver>
-    set status enable
     end
     ```
 
-    - Remplacez l’**adresse IP** du serveur par l’adresse IP de l’agent.
+    - Remplacez l’ **adresse IP** du serveur par l’adresse IP de l’agent.
     - Affectez au **port Syslog** la valeur **514** ou la valeur du port défini sur l’agent.
     - Pour activer le format CEF dans les premières versions de FortiOS, vous devrez peut-être exécuter le jeu de commandes **csv disable**.
  
    > [!NOTE] 
-   > Pour plus d’informations, accédez à la [bibliothèque de documents Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Sélectionnez votre version et utilisez le manuel d’utilisation (**Handbook**) et la référence des messages de journaux (**Log Message Reference**).
+   > Pour plus d’informations, accédez à la [bibliothèque de documents Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Sélectionnez votre version et utilisez le manuel d’utilisation ( **Handbook** ) et la référence des messages de journaux ( **Log Message Reference** ).
 
 1. Pour utiliser le schéma pertinent dans Azure Monitor Log Analytics pour les événements Fortinet, recherchez `CommonSecurityLog`.
 

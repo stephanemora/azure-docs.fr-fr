@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736701"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927513"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
@@ -49,7 +49,7 @@ Si vous préférez le développement en ligne de commande dans le terminal, le m
 
 La commande suivante génère un projet de fonction Java à l’aide de cet archétype :
 
-```
+```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 

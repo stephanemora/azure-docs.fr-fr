@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 8032833df3e0912bab93bd9ccc695c4ca6688e69
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5ac9c4cc28e3cb87307e032f4cd15afb7c687652
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079085"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partenaires de connectivité ExpressRoute et localisations de peering
 
@@ -116,7 +116,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Prise en charge| Prise en charge | Chennai, Mumbai |
 | **Intelsat** | Prise en charge | Prise en charge | Washington DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Francfort, Hong Kong, Londres, New York, Paris, Silicon Valley, Singapore, Washington DC, Zurich |
-| **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Prise en charge |Prise en charge |Chicago, Dallas, Silicon Valley, Washington DC |
+| **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Prise en charge |Prise en charge |Chicago, Dallas, Silicon Valley, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Prise en charge |Prise en charge |Osaka, Tokyo |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Prise en charge |Prise en charge |Le Cap, Johannesburg, Londres |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Londres, Marseille, Paris, Zurich |

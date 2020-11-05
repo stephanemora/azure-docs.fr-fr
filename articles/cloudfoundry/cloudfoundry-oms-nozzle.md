@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277355"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040765"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 
@@ -59,15 +59,15 @@ Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’ai
 #### <a name="to-create-the-workspace-manually"></a>Pour créer l’espace de travail manuellement, procédez comme suit :
 
 1. Sur le portail Azure, dans la liste des services de la Place de marché Azure, sélectionnez les espaces de travail Log Analytics.
-2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
+2. Cliquez sur **Créer** , puis sélectionnez des options pour les éléments suivants :
 
-   * **Espace de travail Log Analytics** : saisissez un nom pour votre espace de travail.
-   * **Abonnement**: si vous possédez plusieurs abonnements, choisissez celui sur lequel vous avez déployé Cloud Foundry.
-   * **Groupe de ressources** : vous pouvez créer un groupe de ressources, ou utiliser celui de l’environnement Cloud Foundry que vous avez déployé.
+   * **Espace de travail Log Analytics**  : saisissez un nom pour votre espace de travail.
+   * **Abonnement** : si vous possédez plusieurs abonnements, choisissez celui sur lequel vous avez déployé Cloud Foundry.
+   * **Groupe de ressources**  : vous pouvez créer un groupe de ressources, ou utiliser celui de l’environnement Cloud Foundry que vous avez déployé.
    * **Emplacement** : indiquez l’emplacement.
-   * **Niveau tarifaire** : sélectionnez **OK** pour terminer.
+   * **Niveau tarifaire**  : sélectionnez **OK** pour terminer.
 
-Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../azure-monitor/overview.md).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Pour créer l’espace de travail Log Analytics par le biais du modèle de supervision de la Place de Marché Azure :
 
@@ -76,13 +76,13 @@ Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor]
 1. Tapez « Cloud Foundry » dans la fenêtre Rechercher et sélectionnez « Cloud Foundry Monitoring Solution ».
 1. La page d’accueil du modèle de solution de supervision Cloud Foundry se charge. Cliquez sur « Créer » pour lancer le panneau de modèle.
 1. Entrez les paramètres requis :
-    * **Abonnement**: sélectionnez un abonnement Azure pour l’espace de travail Log Analytics, généralement le même que pour le déploiement de Cloud Foundry.
-    * **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un pour l’espace de travail Log Analytics.
-    * **Emplacement du groupe de ressources** : sélectionnez l’emplacement du groupe de ressources.
-    * **nom_espace_de_travail_OMS** : entrez un nom d’espace de travail. S’il n’existe pas, le modèle en crée un nouveau.
-    * **région_espace_de_travail_OMS** : sélectionnez l'emplacement de l'espace de travail.
-    * **niveau_tarifaire_espace_de_travail_OMS** : sélectionnez la référence (SKU) de l’espace de travail Log Analytics. Pour plus d’informations, consultez le [Guide de tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
-    * **Conditions juridiques** : cliquez sur Conditions juridiques, puis sur « Créer » pour accepter les conditions juridiques.
+    * **Abonnement** : sélectionnez un abonnement Azure pour l’espace de travail Log Analytics, généralement le même que pour le déploiement de Cloud Foundry.
+    * **Groupe de ressources**  : sélectionnez un groupe de ressources existant ou créez-en un pour l’espace de travail Log Analytics.
+    * **Emplacement du groupe de ressources**  : sélectionnez l’emplacement du groupe de ressources.
+    * **nom_espace_de_travail_OMS**  : entrez un nom d’espace de travail. S’il n’existe pas, le modèle en crée un nouveau.
+    * **région_espace_de_travail_OMS**  : sélectionnez l'emplacement de l'espace de travail.
+    * **niveau_tarifaire_espace_de_travail_OMS**  : sélectionnez la référence (SKU) de l’espace de travail Log Analytics. Pour plus d’informations, consultez le [Guide de tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
+    * **Conditions juridiques**  : cliquez sur Conditions juridiques, puis sur « Créer » pour accepter les conditions juridiques.
 1. Après avoir spécifié tous les paramètres, cliquez sur « Créer » pour déployer le modèle. Une fois le déploiement terminé, l’état s’affiche sous l’onglet de notification.
 
 
@@ -183,7 +183,7 @@ Si vous avez créé l’espace de travail Log Analytics manuellement, suivez les
 
 ### <a name="1-import-the-oms-view"></a>1. Importer la vue OMS
 
-À partir du portail OMS, accédez à la zone **Concepteur de vues** > **Importer** > **Parcourir**, puis sélectionnez l’un des fichiers omsview. Par exemple, sélectionnez *Cloud Foundry.omsview*et enregistrez la vue. Une mosaïque s’affiche alors sur la page **Vue d’ensemble**. Sélectionnez-la pour afficher les mesures visualisées.
+À partir du portail OMS, accédez à la zone **Concepteur de vues** > **Importer** > **Parcourir** , puis sélectionnez l’un des fichiers omsview. Par exemple, sélectionnez *Cloud Foundry.omsview* et enregistrez la vue. Une mosaïque s’affiche alors sur la page **Vue d’ensemble**. Sélectionnez-la pour afficher les mesures visualisées.
 
 Les opérateurs peuvent personnaliser ces vues ou en créer, grâce au **Concepteur de vues**.
 
@@ -191,7 +191,7 @@ Le fichier *« Cloud Foundry.omsview »* est une préversion du modèle de vue O
 
 ### <a name="2-create-alert-rules"></a>2. Créer des règles d'alerte
 
-Vous pouvez [créer des alertes](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) et personnaliser les requêtes et les valeurs de seuil, si nécessaire. Voici les alertes recommandées :
+Vous pouvez [créer des alertes](../azure-monitor/platform/alerts-overview.md) et personnaliser les requêtes et les valeurs de seuil, si nécessaire. Voici les alertes recommandées :
 
 | Requête de recherche                                                                  | Générer l’alerte selon | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |

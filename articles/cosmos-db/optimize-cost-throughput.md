@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475462"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097462"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En proposant un modèle avec débit approvisionné, Azure Cosmos DB offre des performances prévisibles à n’importe quelle échelle. La réservation ou l’approvisionnement du débit en amont élimine l’effet « voisin bruyant » pouvant affecter les performances. Vous spécifiez le débit exact dont vous avez besoin, et Azure Cosmos DB garantit par contrat de niveau de service le débit défini.
 

@@ -4,12 +4,12 @@ description: Créez votre première application de conteneur Windows sur Microso
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564319"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087058"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 
@@ -38,8 +38,8 @@ L’exécution d’une application existante dans un conteneur Windows sur un cl
   
 Pour déterminer la version de Windows Server avec conteneurs dont vous avez besoin pour votre cluster, exécutez la commande `ver` à partir d’une invite de commandes Windows sur votre ordinateur de développement :
 
-* Si la version contient *x.x.14323.x*, sélectionnez *WindowsServer 2016-Datacenter-with-Containers* comme système d’exploitation lors de la [création du cluster](service-fabric-cluster-creation-via-portal.md).
-  * Si la version contient *x.x.16299.x*, sélectionnez *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* comme système d’exploitation lors de la [création d’un cluster](service-fabric-cluster-creation-via-portal.md).
+* Si la version contient *x.x.14323.x* , sélectionnez *WindowsServer 2016-Datacenter-with-Containers* comme système d’exploitation lors de la [création du cluster](service-fabric-cluster-creation-via-portal.md).
+  * Si la version contient *x.x.16299.x* , sélectionnez *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* comme système d’exploitation lors de la [création d’un cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Un registre dans Azure Container Registry. [Créez un registre de conteneurs](../container-registry/container-registry-get-started-portal.md) dans votre abonnement Azure.
 
@@ -193,7 +193,7 @@ Le kit de développement logiciel Service Fabric fournit un modèle de service p
 1. Démarrez Visual Studio. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
 2. Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **OK**.
 3. Sélectionnez **Container** (Conteneur) dans la liste des **modèles de service**.
-4. Sous **Nom de l’image**, entrez « myregistry.azurecr.io/samples/helloworldapp », c’est-à-dire l’image que vous avez envoyée à votre référentiel de conteneurs.
+4. Sous **Nom de l’image** , entrez « myregistry.azurecr.io/samples/helloworldapp », c’est-à-dire l’image que vous avez envoyée à votre référentiel de conteneurs.
 5. Donnez un nom à votre service et cliquez sur **OK**.
 
 ## <a name="configure-communication"></a>Configurer la communication
@@ -310,18 +310,18 @@ Vous pouvez configurer un comportement **HEALTHCHECK** pour chaque conteneur en 
     </Policies>
 </ServiceManifestImport>
 ```
-Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true**, *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
+Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true** , *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
 
-Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
+Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true** , un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
 
-Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
+Si *TreatContainerUnhealthyStatusAsError* est défini sur **true** , des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 
 ## <a name="deploy-the-container-application"></a>Déployer l’application de conteneur
 Enregistrez toutes les modifications et générez l’application. Pour publier votre application, cliquez avec le bouton droit de la souris sur **MyFirstContainer** dans l’Explorateur de solutions, puis sélectionnez **Publier**.
 
-Dans **Point de terminaison de connexion**, entrez le point de terminaison de gestion pour le cluster. Par exemple : `containercluster.westus2.cloudapp.azure.com:19000`. Vous trouverez le point de terminaison de connexion client dans l’onglet Vue d’ensemble de votre cluster dans le [portail Azure](https://portal.azure.com).
+Dans **Point de terminaison de connexion** , entrez le point de terminaison de gestion pour le cluster. Par exemple : `containercluster.westus2.cloudapp.azure.com:19000`. Vous trouverez le point de terminaison de connexion client dans l’onglet Vue d’ensemble de votre cluster dans le [portail Azure](https://portal.azure.com).
 
 Cliquez sur **Publier**.
 
@@ -534,7 +534,7 @@ Vous pouvez configurer le cluster Service Fabric pour supprimer des images conte
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
@@ -578,7 +578,7 @@ Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à 
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Démarrer le démon Docker avec des arguments personnalisés
 
-Avec la version 6.2 du runtime Service Fabric et versions supérieures, vous pouvez démarrer le démon Docker avec des arguments personnalisés. Lorsque des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument `--pidfile`. Par conséquent, `--pidfile` ne doit pas être transmis en tant qu’argument. En outre, le démon Docker de l’argument doit continuer à écouter le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric communique avec le démon. Les arguments personnalisés sont transmis dans le manifeste de cluster, dans la section **Hébergement** sous **ContainerServiceArguments**, comme indiqué dans l’extrait de code suivant : 
+Avec la version 6.2 du runtime Service Fabric et versions supérieures, vous pouvez démarrer le démon Docker avec des arguments personnalisés. Lorsque des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument `--pidfile`. Par conséquent, `--pidfile` ne doit pas être transmis en tant qu’argument. En outre, le démon Docker de l’argument doit continuer à écouter le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric communique avec le démon. Les arguments personnalisés sont transmis dans le manifeste de cluster, dans la section **Hébergement** sous **ContainerServiceArguments** , comme indiqué dans l’extrait de code suivant : 
  
 
 ```json

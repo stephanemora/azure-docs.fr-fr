@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903823"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124167"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Déboguer des requêtes Azure Stream Analytics en local à l’aide du diagramme de travail dans Visual Studio Code
 
@@ -104,7 +104,7 @@ Sélectionnez **Résumé de la tâche** en haut à droite du diagramme pour affi
 
 * Le code personnalisé C# et les fonctions Azure Machine Learning ne sont pas pris en charge. 
 
-* Seules les options d’entrée dans le cloud offrent une prise en charge de [stratégies de temps](stream-analytics-out-of-order-and-late-events.md) ; les options d’entrée locale n’en proposent pas.
+* Seules les options d’entrée dans le cloud offrent une prise en charge de [stratégies de temps](./stream-analytics-time-handling.md) ; les options d’entrée locale n’en proposent pas.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

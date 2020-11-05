@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277492"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124150"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
 
@@ -50,9 +50,9 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 4. Selon les autorisations dont vous disposez, vous pouvez utiliser la page **Mes groupes** pour :
 
-    - **Passer en revue les groupes dont vous êtes propriétaire.** Consultez les informations relatives aux groupes dont vous êtes propriétaire au sein de votre organisation dans la zone **Groupes dont je suis propriétaire** . La sélection d'un nom de groupe spécifique affiche des détails supplémentaires sur le groupe : type, nombre de membres, stratégie d'adhésion, liste des membres actifs, etc.
+    - **Passer en revue les groupes dont vous êtes propriétaire.** Consultez les informations relatives aux groupes dont vous êtes propriétaire au sein de votre organisation dans la zone **Groupes dont je suis propriétaire**. La sélection d'un nom de groupe spécifique affiche des détails supplémentaires sur le groupe : type, nombre de membres, stratégie d'adhésion, liste des membres actifs, etc.
 
-    - **Créer un groupe.** Créez un groupe dans la zone **Groupes dont je suis propriétaire** . Pour obtenir des instructions spécifiques, consultez la section [Créer un groupe](#create-a-new-group) de cet article.
+    - **Créer un groupe.** Créez un groupe dans la zone **Groupes dont je suis propriétaire**. Pour obtenir des instructions spécifiques, consultez la section [Créer un groupe](#create-a-new-group) de cet article.
 
     - **Modifier un groupe existant.** Modifiez les détails d'un groupe dont vous êtes propriétaire. Pour obtenir des instructions spécifiques, consultez la section [Modifier un groupe existant](#edit-an-existing-group) de cet article.
 
@@ -60,15 +60,15 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
     - **Renouveler un groupe Office 365.** Si votre organisation l'autorise, vous pouvez renouveler vos groupes Office 365. Pour obtenir des instructions spécifiques, consultez la section [Renouveler un groupe Office 365](#renew-an-office-365-group) de cet article. 
 
-    - **Supprimer un groupe** . Supprimez un groupe dont vous êtes propriétaire. Pour obtenir des instructions spécifiques, consultez la section [Supprimer un groupe](#delete-a-group) de cet article.
+    - **Supprimer un groupe**. Supprimez un groupe dont vous êtes propriétaire. Pour obtenir des instructions spécifiques, consultez la section [Supprimer un groupe](#delete-a-group) de cet article.
 
-    - **Passer en revue les groupes dont vous êtes membre.** Affichez les noms des groupes dont vous êtes un membre dans la zone **Groupes dont je suis membre** . La sélection d'un nom de groupe spécifique affiche des détails supplémentaires sur le groupe : type, nombre de membres, stratégie d'adhésion, liste des membres actifs, etc.
+    - **Passer en revue les groupes dont vous êtes membre.** Affichez les noms des groupes dont vous êtes un membre dans la zone **Groupes dont je suis membre**. La sélection d'un nom de groupe spécifique affiche des détails supplémentaires sur le groupe : type, nombre de membres, stratégie d'adhésion, liste des membres actifs, etc.
 
-    - **Rejoindre un groupe.** Rejoignez un groupe existant, dont vous n'êtes pas membre, à partir de la zone **Groupes dont je suis membre** . Pour obtenir des instructions spécifiques, consultez la section [Rejoindre un groupe existant](#join-an-existing-group).
+    - **Rejoindre un groupe.** Rejoignez un groupe existant, dont vous n'êtes pas membre, à partir de la zone **Groupes dont je suis membre**. Pour obtenir des instructions spécifiques, consultez la section [Rejoindre un groupe existant](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Créer un groupe
 
-1. Sur la page **Groupes** , sélectionnez **Créer un groupe** à partir de la zone **Groupes dont je suis propriétaire** .
+1. Sur la page **Groupes** , sélectionnez **Créer un groupe** à partir de la zone **Groupes dont je suis propriétaire**.
 
     La boîte de dialogue **Créer un groupe** s'affiche.
 
@@ -82,7 +82,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
         - **Office 365.** Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe.
 
-    - **Nom du groupe** . Ajoutez le nom du groupe, quelque chose dont vous vous souviendrez et qui est évocateur.
+    - **Nom du groupe**. Ajoutez le nom du groupe, quelque chose dont vous vous souviendrez et qui est évocateur.
 
     - **Description du groupe (facultatif).** Ajoutez une description facultative à votre groupe.
 
@@ -90,7 +90,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 3. Sélectionnez **Create** (Créer).
 
-    Votre nouveau groupe est créé. Il apparaît alors dans votre liste **Groupes dont je suis propriétaire** . Comme vous en êtes le propriétaire, ce groupe apparaît également dans la liste **Groupes dont je suis membre** .
+    Votre nouveau groupe est créé. Il apparaît alors dans votre liste **Groupes dont je suis propriétaire**. Comme vous en êtes le propriétaire, ce groupe apparaît également dans la liste **Groupes dont je suis membre**.
 
 ## <a name="edit-an-existing-group"></a>Modifier un groupe existant
 
@@ -100,7 +100,7 @@ Après avoir créé un groupe, vous pouvez modifier les détails de celui-ci, y 
 
     La boîte de dialogue **Modifier les détails** s'affiche et vous pouvez mettre à jour les informations que vous avez ajoutées lors de la création du groupe.
 
-2. Apportez vos modifications, puis sélectionnez **Mettre à jour** .
+2. Apportez vos modifications, puis sélectionnez **Mettre à jour**.
 
 ## <a name="add-or-remove-a-member"></a>Ajouter ou supprimer un membre
 
@@ -110,7 +110,7 @@ Vous pouvez ajouter ou supprimer des membres pour tous les groupes dont vous êt
 
     ![Ajouter un membre au groupe, avec le signe + mis en évidence](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Recherchez le membre que vous souhaitez ajouter dans la boîte de dialogue **Ajouter des membres** , puis sélectionnez **Ajouter** .
+2. Recherchez le membre que vous souhaitez ajouter dans la boîte de dialogue **Ajouter des membres** , puis sélectionnez **Ajouter**.
 
     ![Boîte de dialogue Ajouter des membres, avec nouveau membre à ajouter](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
@@ -124,7 +124,7 @@ Vous pouvez ajouter ou supprimer des membres pour tous les groupes dont vous êt
 
 Si votre organisation l'autorise, vous pouvez renouveler un groupe Office 365 en repoussant la date d'expiration.
 
-1. Sélectionnez le groupe Office 365 que vous souhaitez renouveler, puis choisissez **Renouveler un groupe** .
+1. Sélectionnez le groupe Office 365 que vous souhaitez renouveler, puis choisissez **Renouveler un groupe**.
 
     ![Renouveler un groupe Office 365, en repoussant la date d'expiration](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
@@ -146,19 +146,19 @@ Vous pouvez à tout moment supprimer un groupe dont vous êtes propriétaire. To
 
 ## <a name="join-an-existing-group"></a>Rejoindre un groupe existant
 
-Vous pouvez rejoindre ou quitter un groupe existant à partir de la page **Groupes** .
+Vous pouvez rejoindre ou quitter un groupe existant à partir de la page **Groupes**.
 
-1. Sur la page **Groupes** , sélectionnez **Rejoindre le groupe** à partir de la zone **Groupes dont je suis membre** .
+1. Sur la page **Groupes** , sélectionnez **Rejoindre le groupe** à partir de la zone **Groupes dont je suis membre**.
 
     La page **Rejoindre des groupes** s'affiche.
 
     ![Page Rejoindre des groupes, avec le bouton Rejoindre le groupe mis en évidence](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. Sur la page **Rejoindre des groupes** , sélectionnez le nom du groupe que vous souhaitez rejoindre, consultez les détails relatifs à ce groupe et, s'il est disponible, choisissez **Rejoindre le groupe** .
+2. Sur la page **Rejoindre des groupes** , sélectionnez le nom du groupe que vous souhaitez rejoindre, consultez les détails relatifs à ce groupe et, s'il est disponible, choisissez **Rejoindre le groupe**.
 
-    Si le groupe exige que son propriétaire approuve la demande d'adhésion, vous êtes invité à entrer une justification métier expliquant pourquoi vous souhaitez rejoindre le groupe, puis à sélectionner **Demander** . Si aucune approbation n'est requise, vous rejoignez immédiatement le groupe et celui-ci apparaît dans votre liste **Groupes dont je suis membre** .
+    Si le groupe exige que son propriétaire approuve la demande d'adhésion, vous êtes invité à entrer une justification métier expliquant pourquoi vous souhaitez rejoindre le groupe, puis à sélectionner **Demander**. Si aucune approbation n'est requise, vous rejoignez immédiatement le groupe et celui-ci apparaît dans votre liste **Groupes dont je suis membre**.
 
-3. Si vous avez rejoint un groupe par erreur ou si vous ne souhaitez plus en être membre, vous pouvez sélectionner son nom sur la page **Rejoindre des groupes** , puis choisir **Quitter le groupe** .
+3. Si vous avez rejoint un groupe par erreur ou si vous ne souhaitez plus en être membre, vous pouvez sélectionner son nom sur la page **Rejoindre des groupes** , puis choisir **Quitter le groupe**.
 
     ![Page Rejoindre des groupes, avec le bouton Quitter le groupe mis en évidence](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
@@ -166,6 +166,6 @@ Vous pouvez rejoindre ou quitter un groupe existant à partir de la page **Group
 
 - [Accéder aux applications et les utiliser sur le portail Mes applications](my-apps-portal-end-user-access.md).
 
-- [Modifier vos informations de profil](my-apps-portal-end-user-update-profile.md).
+- [Modifier vos informations de profil](./my-account-portal-settings.md).
 
 - [Effectuer vos propres révisions d’accès](my-apps-portal-end-user-access-reviews.md).

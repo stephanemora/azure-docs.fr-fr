@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous activez les événements E
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736855"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074214"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
@@ -19,15 +19,15 @@ Après avoir terminé les étapes décrites dans cet article, les événements e
 
 ![Navigateur web affichant l’exemple d’application web avec trois événements reçus][sample-app-01]
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-account] avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Les commandes CLI de cet article sont mises en forme pour le shell **Bash** . Si vous utilisez un autre shell, comme PowerShell ou l’invite de commandes, il peut être nécessaire d’ajuster en conséquence les caractères de continuation de ligne ou les lignes d’affectation des variables. Cet article utilise des variables pour réduire le nombre de modifications nécessaires des commandes.
+- Les commandes CLI de cet article sont mises en forme pour le shell **Bash**. Si vous utilisez un autre shell, comme PowerShell ou l’invite de commandes, il peut être nécessaire d’ajuster en conséquence les caractères de continuation de ligne ou les lignes d’affectation des variables. Cet article utilise des variables pour réduire le nombre de modifications nécessaires des commandes.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources Azure est un conteneur logique dans lequel vous déployez et vous gérez vos ressources Azure. La commande [az group create][az-group-create] suivante crée un groupe de ressources nommé *myResourceGroup* dans la région *eastus* . Si vous voulez utiliser un autre nom pour votre groupe de ressources, définissez `RESOURCE_GROUP_NAME` sur une autre valeur.
+Un groupe de ressources Azure est un conteneur logique dans lequel vous déployez et vous gérez vos ressources Azure. La commande [az group create][az-group-create] suivante crée un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Si vous voulez utiliser un autre nom pour votre groupe de ressources, définissez `RESOURCE_GROUP_NAME` sur une autre valeur.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -179,7 +179,7 @@ L’étiquette « v1 » de l’image que vous avez générée doit apparaître d
 
 ### <a name="delete-the-image"></a>Supprimer l’image
 
-À présent, générez un événement `ImageDeleted` en supprimant l’image avec la commande [az acr repository delete][az-acr-repository-delete] :
+À présent, générez un événement `ImageDeleted` en supprimant l’image avec la commande [az acr repository delete][az-acr-repository-delete] :
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
@@ -206,7 +206,7 @@ Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`,
 
 Une fois que vous en avez terminé avec les ressources créées dans ce guide de démarrage rapide, vous pouvez les supprimer toutes avec la commande Azure CLI suivante. Quand vous supprimez un groupe de ressources, toutes les ressources qu’il contient sont supprimées de façon définitive.
 
-**AVERTISSEMENT** : Cette action est irréversible. Vérifiez bien que vous n’avez plus besoin des ressources du groupe avant d’exécuter la commande.
+**AVERTISSEMENT** : cette action est irréversible. Vérifiez bien que vous n’avez plus besoin des ressources du groupe avant d’exécuter la commande.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

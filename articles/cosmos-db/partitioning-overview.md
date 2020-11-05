@@ -6,16 +6,17 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080830"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB utilise le partitionnement pour procéder à la mise à l’échelle des conteneurs au sein d’une base de données afin de répondre aux besoins de performances de votre application. Avec le partitionnement, les éléments d’un conteneur sont répartis en sous-ensembles distincts, appelés *partitions logiques* . Les partitions logiques sont formées en fonction de la valeur d’une *clé de partition* associée à chaque élément d’un conteneur. Tous les éléments d’une partition logique possèdent la même valeur de clé de partition.
+Azure Cosmos DB utilise le partitionnement pour procéder à la mise à l’échelle des conteneurs au sein d’une base de données afin de répondre aux besoins de performances de votre application. Avec le partitionnement, les éléments d’un conteneur sont répartis en sous-ensembles distincts, appelés *partitions logiques*. Les partitions logiques sont formées en fonction de la valeur d’une *clé de partition* associée à chaque élément d’un conteneur. Tous les éléments d’une partition logique possèdent la même valeur de clé de partition.
 
 Par exemple, un conteneur contient des éléments. Chaque élément a une valeur unique pour la propriété `UserID`. Si `UserID` sert de clé de partition pour les éléments présents dans un conteneur et qu’il existe 1 000 valeurs `UserID` uniques, 1 000 partitions logiques sont créées pour le conteneur.
 
@@ -73,11 +74,11 @@ En général, les petits conteneurs nécessitent uniquement une seule partition 
 
 L’illustration suivante montre comment les partitions logiques sont mappées sur des partitions physiques mondialement distribuées :
 
-:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Affichage du nombre de partitions physiques" border="false":::
+:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Image illustrant le partitionnement dans Azure Cosmos DB" border="false":::
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Choix d’une clé de partition
 
-Une clé de partition a deux composants : le **chemin de clé de partition** et la **valeur de clé de partition** . Par exemple, considérez un élément { "userId" : "Andrew", "worksFor": "Microsoft" } si vous choisissez « userId » comme clé de partition, voici les deux composants de la clé de partition :
+Une clé de partition a deux composants : le **chemin de clé de partition** et la **valeur de clé de partition**. Par exemple, considérez un élément { "userId" : "Andrew", "worksFor": "Microsoft" } si vous choisissez « userId » comme clé de partition, voici les deux composants de la clé de partition :
 
 * Chemin de clé de partition (par exemple : « /userId »). Le chemin de clé de partition accepte les caractères alphanumériques et les traits de soulignement (_). Vous pouvez également utiliser des objets imbriqués à l’aide de la notation de chemin standard (/).
 
@@ -115,18 +116,18 @@ Si votre conteneur peut atteindre plus de quelques partitions physiques, vous de
 
 Si votre conteneur a une propriété qui présente une large gamme de valeurs possibles, il s’agit probablement d’un bon choix de clé de partition. L’ *ID d’élément* est un exemple possible d’une telle propriété. Pour les petits conteneurs à lecture intensive ou les conteneurs à écriture intensive de toute taille, l’ *ID d’élément* est naturellement un bon choix pour la clé de partition.
 
-La propriété système *ID d’élément* existe dans chaque élément de votre conteneur. Vous pouvez avoir d’autres propriétés qui représentent un ID logique de votre élément. Dans de nombreux cas, il s’agit également d’excellents choix de clé de partition pour les mêmes raisons que pour l’ *ID d’élément* .
+La propriété système *ID d’élément* existe dans chaque élément de votre conteneur. Vous pouvez avoir d’autres propriétés qui représentent un ID logique de votre élément. Dans de nombreux cas, il s’agit également d’excellents choix de clé de partition pour les mêmes raisons que pour l’ *ID d’élément*.
 
 L’ *ID d’élément* est un excellent choix de clé de partition pour les raisons suivantes :
 
 * Il existe un large éventail de valeurs possibles (un *ID d’élément* unique par élément).
 * Étant donné qu’il existe un *ID d’élément* unique par élément, l’ *ID d’élément* fait un excellent travail pour équilibrer la consommation des RU et le stockage des données.
-* Vous pouvez facilement effectuer des lectures de point efficaces, car vous connaissez toujours la clé de partition d’un élément si vous connaissez son *ID d’élément* .
+* Vous pouvez facilement effectuer des lectures de point efficaces, car vous connaissez toujours la clé de partition d’un élément si vous connaissez son *ID d’élément*.
 
 Voici quelques points à prendre en compte lors de la sélection de l’ *ID d’élément* comme clé de partition :
 
 * Si l’ *ID d’élément* est la clé de partition, il deviendra un identificateur unique dans tout le conteneur. Vous ne pouvez pas avoir d’éléments dont l’ *ID d’élément* est dupliqué.
-* Si vous disposez d’un conteneur à lecture intensive qui comporte un grand nombre de [partitions physiques](partitioning-overview.md#physical-partitions), les requêtes seront plus efficaces si elles sont dotées d’un filtre d’égalité avec l’ *ID d’élément* .
+* Si vous disposez d’un conteneur à lecture intensive qui comporte un grand nombre de [partitions physiques](partitioning-overview.md#physical-partitions), les requêtes seront plus efficaces si elles sont dotées d’un filtre d’égalité avec l’ *ID d’élément*.
 * Vous ne pouvez pas exécuter de procédures stockées ni de déclencheurs sur plusieurs partitions logiques.
 
 ## <a name="next-steps"></a>Étapes suivantes

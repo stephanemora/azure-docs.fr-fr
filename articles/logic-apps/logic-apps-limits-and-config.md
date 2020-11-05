@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540718"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094504"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -81,7 +81,7 @@ Par exemple, supposons que vous réduisiez la limite de conservation de 90 à 30
 
 1. Lorsque vous avez terminé, dans la barre d’outils **Paramètres du workflow** , sélectionnez **Enregistrer**.
 
-Si vous générez un modèle de Azure Resource Manager pour votre application logique, ce paramètre apparaît en tant que propriété dans la définition de ressource de votre workflow, qui est décrite dans la [référence du modèle de workflow Microsoft. Logic](/templates/microsoft.logic/workflows) :
+Si vous générez un modèle de Azure Resource Manager pour votre application logique, ce paramètre apparaît en tant que propriété dans la définition de ressource de votre workflow, qui est décrite dans la [référence du modèle de workflow Microsoft. Logic](/azure/templates/microsoft.logic/workflows) :
 
 ```json
 {

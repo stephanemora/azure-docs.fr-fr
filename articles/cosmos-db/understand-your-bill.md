@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476397"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073823"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est un service de base de données natif Cloud entièrement géré qui simplifie la facturation en facturant uniquement vos opérations de base de données et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
 
@@ -102,7 +103,7 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 * Au cours d’un mois comptant 720 heures, si le débit provisionné pendant 300 heures est de 120 000 unités de requête/seconde et que pour les 420 heures restantes, le débit provisionné est de 155 000 unités de requête/seconde, votre facture mensuelle est la suivante : 300 x 9,60 $/heure + 420 x 12,40 $/heure = 2 880 $ + 5 208 $ = 8 088 $ /mois. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemple de facturation d’un débit dédié":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemple de facturation d’un débit partagé":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Exemples de facturation avec géoréplication et écritures multirégions  
 
@@ -192,7 +193,7 @@ Prenons l’exemple suivant, où nous avons un compte Azure Cosmos multirégion 
 
 Les modifications apportées au débit total approvisionné pendant 720 heures pour le mois sont représentées visuellement dans la figure ci-dessous : 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemple de facturation d’un débit dédié":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemple concret":::
 
 La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures par mois) sera calculée comme suit :
 

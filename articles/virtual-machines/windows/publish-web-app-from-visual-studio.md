@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "87088391"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
@@ -32,12 +32,12 @@ Pour pouvoir publier un projet ASP.NET sur une machine virtuelle Azure à l’ai
 La section suivante décrit comment publier une application web ASP.NET existante sur une machine virtuelle Azure.
 
 1. Ouvrez votre solution d’application web dans Visual Studio 2019.
-2. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis choisissez **Publier** .
-3. Utilisez la flèche à droite de la page pour faire défiler les options de publication jusqu’à **Machines virtuelles Microsoft Azure** .  
+2. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis choisissez **Publier**.
+3. Utilisez la flèche à droite de la page pour faire défiler les options de publication jusqu’à **Machines virtuelles Microsoft Azure**.  
 
    ![Page Publier - Flèche à droite]
 
-4. Sélectionnez l’icône **Machines virtuelles Microsoft Azure** , puis sélectionnez **Publier** .
+4. Sélectionnez l’icône **Machines virtuelles Microsoft Azure** , puis sélectionnez **Publier**.
 
    ![Page Publier - Icône Machine virtuelle Microsoft Azure]
 
@@ -87,7 +87,7 @@ Pour publier des mises à jour de votre application web, sélectionnez le bouton
 
 ### <a name="modify-publish-profile-settings"></a>Modifier les paramètres de profil de publication
 
-Pour afficher et modifier les paramètres de profil de publication, sélectionnez **Paramètres** .  
+Pour afficher et modifier les paramètres de profil de publication, sélectionnez **Paramètres**.  
 
 ![Page Publier - Bouton Paramètres]
 
@@ -96,12 +96,12 @@ Vos paramètres doivent ressembler à ce qui suit :
 ![Paramètres de publication - Page Connexion]
 
 #### <a name="save-user-name-and-password"></a>Enregistrer le nom d’utilisateur et le mot de passe
-- Évitez de fournir des informations d’authentification chaque fois que vous publiez. Pour cela, renseignez les champs **Nom d’utilisateur** et **Mot de passe** , puis sélectionnez la zone **Enregistrer le mot de passe** .
+- Évitez de fournir des informations d’authentification chaque fois que vous publiez. Pour cela, renseignez les champs **Nom d’utilisateur** et **Mot de passe** , puis sélectionnez la zone **Enregistrer le mot de passe**.
 - Utilisez le bouton **Valider la connexion** pour confirmer que vous avez entré les informations correctes.
 
 #### <a name="deploy-to-clean-web-server"></a>Déployer sur un nouveau serveur web
 
-- Si vous voulez être sûr que le serveur web a une nouvelle copie de l’application web après chaque chargement et qu’il ne reste aucun autre fichier d’un déploiement précédent, vous pouvez cocher la case **Supprimer les fichiers supplémentaires de la destination** sous l’onglet **Paramètres** .
+- Si vous voulez être sûr que le serveur web a une nouvelle copie de l’application web après chaque chargement et qu’il ne reste aucun autre fichier d’un déploiement précédent, vous pouvez cocher la case **Supprimer les fichiers supplémentaires de la destination** sous l’onglet **Paramètres**.
 
 - Avertissement : La publication avec ce paramètre supprime tous les fichiers qui existent sur le serveur web (répertoire wwwroot). Assurez-vous de connaître l’état de la machine avant de publier avec cette option activée. 
 

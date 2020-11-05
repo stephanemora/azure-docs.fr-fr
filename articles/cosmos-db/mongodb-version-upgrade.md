@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409661"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096306"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Mettre à niveau la version de protocole filaire MongoDB de votre API Azure Cosmos DB pour le compte MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Cet article décrit comment mettre à niveau la version de protocole filaire de votre API Azure Cosmos DB pour le compte MongoDB. Après la mise à niveau de la version du protocole, vous pouvez utiliser les fonctionnalités les plus récentes de l’API Azure Cosmos DB pour MongoDB. Le processus de mise à niveau n’interrompt pas la disponibilité de votre compte et ne consomme pas de RU/s, et ne réduit à aucun moment la capacité de la base de données. Les index ou données existants ne seront pas affectés par ce processus.
 
@@ -62,27 +63,27 @@ Vous devez remplacer le point de terminaison existant dans vos applications et p
 
 2. Dans les options sur la gauche, sélectionnez le panneau `Features`. Cela permet d’afficher les fonctionnalités de niveau compte disponibles pour votre compte de base de données.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Portail Azure avec vue d'ensemble du compte MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Portail Azure avec vue d’ensemble du compte MongoDB avec le panneau des fonctionnalités mis en surbrillance" border="false":::
 
 3. Cliquez sur la ligne `Upgrade to Mongo server version 3.6`. Si vous ne voyez pas cette option, votre compte peut ne pas être éligible pour cette mise à niveau. Créez un [ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si c’est le cas.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Portail Azure avec vue d'ensemble du compte MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Panneau de fonctionnalités avec options." border="false":::
 
 4. Passez en revue les informations affichées sur cette mise à niveau. Notez que la mise à niveau ne sera effectuée que lorsque vos applications utiliseront le point de terminaison mis à jour, comme indiqué dans cette section. Cliquez sur `Enable` dès que vous êtes prêt à démarrer le processus.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Portail Azure avec vue d'ensemble du compte MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Guide de mise à niveau développé." border="false":::
 
 5. Après le démarrage du processus, le menu `Features` affiche l’état de la mise à niveau. L’état passe de `Pending` à `In Progress`, puis à `Upgraded`. Ce processus n’affecte pas les fonctionnalités ou opérations existantes du compte de base de données.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Portail Azure avec vue d'ensemble du compte MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="État de la mise à niveau après le lancement." border="false":::
 
 6. Une fois la mise à niveau terminée, l’état s’affiche comme `Upgraded`. Cliquez dessus pour en savoir plus sur les étapes et les actions que vous devez suivre pour finaliser le processus. Veuillez [contacter le support technique](https://azure.microsoft.com/en-us/support/create-ticket/) en cas de problème lors du traitement de votre demande.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Portail Azure avec vue d'ensemble du compte MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="État du compte mis à niveau." border="false":::
 
-7. **Pour commencer à utiliser la version mise à niveau de votre compte de base de données**, revenez au panneau `Overview` et copiez la nouvelle chaîne de connexion à utiliser dans votre application. Les applications commencent à utiliser la version mise à niveau dès qu’elles se connectent au nouveau point de terminaison. Les connexions existantes ne seront pas interrompues et pourront être mises à jour à votre convenance. Pour garantir une expérience cohérente, toutes vos applications doivent utiliser le nouveau point de terminaison.
+7. **Pour commencer à utiliser la version mise à niveau de votre compte de base de données** , revenez au panneau `Overview` et copiez la nouvelle chaîne de connexion à utiliser dans votre application. Les applications commencent à utiliser la version mise à niveau dès qu’elles se connectent au nouveau point de terminaison. Les connexions existantes ne seront pas interrompues et pourront être mises à jour à votre convenance. Pour garantir une expérience cohérente, toutes vos applications doivent utiliser le nouveau point de terminaison.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Portail Azure avec vue d'ensemble du compte MongoDB" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nouveau panneau de vue d’ensemble." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

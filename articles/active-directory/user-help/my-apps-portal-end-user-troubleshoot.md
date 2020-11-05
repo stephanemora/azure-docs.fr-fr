@@ -12,16 +12,16 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c148e673b8ada549a6543f8f35634aaf29abff0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123946"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Résoudre les problèmes avec le portail Mes applications
 
-Si vous rencontrez des problèmes liés à la connexion ou à l’utilisation du portail **Mes applications**, essayez ces conseils de résolution des problèmes avant de demander de l’aide au support technique ou à votre administrateur.
+Si vous rencontrez des problèmes liés à la connexion ou à l’utilisation du portail **Mes applications** , essayez ces conseils de résolution des problèmes avant de demander de l’aide au support technique ou à votre administrateur.
 
 ## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Je n’arrive pas à installer l’extension de connexion sécurisée à Mes applications
 
@@ -45,7 +45,7 @@ Si vous n’arrivez pas à installer l’extension de connexion sécurisée à M
 
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Je n’arrive pas à me connecter au portail **Mes applications**
 
-Si vous ne parvenez pas à vous connecter au portail **Mes applications**, vous pouvez essayer ce qui suit :
+Si vous ne parvenez pas à vous connecter au portail **Mes applications** , vous pouvez essayer ce qui suit :
 
 - Vérifiez que vous utilisez la bonne URL. Il doit s’agir de https://myapps.microsoft.com ou d’une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
@@ -67,7 +67,7 @@ Pour pouvoir réinitialiser votre propre mot de passe, votre administrateur doit
 
 ## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>J’obtiens un message d’accès refusé lorsque je démarre une application
 
-Si vous voyez un message d’**accès refusé** lorsque vous démarrez une application dans le portail **Mes applications**, vous pouvez essayer ce qui suit :
+Si vous voyez un message d’ **accès refusé** lorsque vous démarrez une application dans le portail **Mes applications** , vous pouvez essayer ce qui suit :
 
 - Assurez-vous que vous avez installé l’[extension de connexion sécurisée à Mes applications](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) et que vous utilisez un [navigateur pris en charge](my-apps-portal-end-user-access.md#supported-browsers).
 
@@ -83,11 +83,11 @@ Si après avoir essayé ces solutions, vous ne pouvez toujours pas accéder à v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après vous être connecté au portail **Mes applications**, vous pouvez également mettre à jour votre profil et les informations de votre compte, les informations de votre groupe et les informations de vérification de l’accès (si vous en avez l’autorisation).
+Après vous être connecté au portail **Mes applications** , vous pouvez également mettre à jour votre profil et les informations de votre compte, les informations de votre groupe et les informations de vérification de l’accès (si vous en avez l’autorisation).
 
 - [Accéder aux applications et les utiliser sur le portail Mes applications](my-apps-portal-end-user-access.md).
 
-- [Modifier vos informations de profil](my-apps-portal-end-user-update-profile.md).
+- [Modifier vos informations de profil](./my-account-portal-settings.md).
 
 - [Consulter et mettre à jour vos informations relatives aux groupes](my-apps-portal-end-user-groups.md).
 

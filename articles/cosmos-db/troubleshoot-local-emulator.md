@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: af9122aaa0233fe5248f31ffe805e01a98831eae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf174d45f33c50ce93b45b19c6030cf42cb20983
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447419"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081448"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>Résoudre les problèmes liés à l'utilisation de l'émulateur Azure Cosmos
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 L'émulateur Azure Cosmos fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement. Suivez les conseils fournis dans cet article pour résoudre les problèmes rencontrés lors de l'installation ou de l'utilisation de l'émulateur Azure Cosmos. 
 
@@ -34,7 +35,7 @@ Si vous avez installé une nouvelle version de l’émulateur et si vous rencont
 
 * Si vous rencontrez un problème de connectivité, [collectez les fichiers de trace](#trace-files), compressez-les et ouvrez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
-* Si vous recevez un message **Service indisponible**, il se peut que l’émulateur n’arrive pas à initialiser la pile réseau. Vérifiez si les clients Pulse Secure ou Juniper Networks sont installés, car leurs pilotes de filtre réseau peuvent être à l’origine du problème. La désinstallation des pilotes de filtre de réseau tiers permet généralement de résoudre le problème. Vous pouvez également démarrer l’émulateur avec l’option /DisableRIO, pour passer la communication réseau de l’émulateur à Winsock standard. 
+* Si vous recevez un message **Service indisponible** , il se peut que l’émulateur n’arrive pas à initialiser la pile réseau. Vérifiez si les clients Pulse Secure ou Juniper Networks sont installés, car leurs pilotes de filtre réseau peuvent être à l’origine du problème. La désinstallation des pilotes de filtre de réseau tiers permet généralement de résoudre le problème. Vous pouvez également démarrer l’émulateur avec l’option /DisableRIO, pour passer la communication réseau de l’émulateur à Winsock standard. 
 
 * Si vous rencontrez des problèmes de connectivité indiquant **« Interdit »,« message »:« La requête est effectuée avec un chiffrement ou un protocole de chiffrement en transit interdit. Vérifiez le paramètre de protocole minimum autorisé SSL/TLS… »** , cela peut être dû à des changements globaux dans le système d’exploitation (par exemple, Insider Preview Build 20170) ou dans les paramètres du navigateur qui activent TLS 1.3 par défaut. Une erreur similaire peut se produire lors de l’utilisation du Kit de développement logiciel (SDK) pour exécuter une requête sur l’émulateur Cosmos, par exemple **Microsoft.Azure.Documents.DocumentClientException: La requête est effectuée avec un chiffrement ou un protocole de chiffrement en transit interdit. Vérifiez le paramètre de protocole minimum autorisé SSL/TLS**. Ceci est en attente pour le moment, car l’émulateur Cosmos fonctionne uniquement avec le protocole TLS 1.2. La solution recommandée consiste à modifier les paramètres et à utiliser par défaut TLS 1.2 ; par exemple, dans IIS Manager, accédez à « Sites » -> « Sites web par défaut » et recherchez les « Liaisons de site » pour le port 8081, puis modifiez-les pour désactiver TLS 1.3. Une opération similaire peut être effectuée pour le navigateur web via les options « Paramètres ».
 
