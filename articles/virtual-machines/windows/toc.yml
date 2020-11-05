@@ -558,7 +558,7 @@
     - name: Sécuriser des machines virtuelles
       items:
         - name: Recommandations
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Accès juste-à-temps
           href: ../../security-center/security-center-just-in-time.md
         - name: Utiliser Bastion
@@ -666,7 +666,7 @@
         - name: Agent de machine virtuelle Azure
           href: ../extensions/agent-windows.md
         - name: Atténuation de l’exécution spéculative
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Surveiller des métadonnées
           href: instance-metadata-service.md
         - name: Activer la virtualisation imbriquée
@@ -959,7 +959,7 @@
         - name: Utiliser la mise en réseau accélérée
           href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Assigner un nom DNS public
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Résolution DNS
           href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Configurer des identités managées

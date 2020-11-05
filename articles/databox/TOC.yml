@@ -127,6 +127,7 @@
           items:
             - name: Configuration - Portail Azure
               href: data-box-disk-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: Tutoriels
           items:
             - name: 1 - Commander
@@ -177,6 +178,7 @@
           items:
             - name: Configuration - Portail Azure
               href: data-box-heavy-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: Tutoriels
           items:
             - name: 1 - Commander

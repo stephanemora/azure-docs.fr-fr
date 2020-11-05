@@ -529,6 +529,8 @@
       items:
         - name: Charger des données dans des pools SQL en utilisant l’activité de copie
           href: quickstart-copy-activity-load-sql-pool.md
+        - name: Transformer des données avec des flux de données de mappage
+          href: quickstart-data-flow.md
     - name: Concepts
       items:
         - name: Pipeline et activité

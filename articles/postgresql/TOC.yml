@@ -1,4 +1,4 @@
-- name: Documentation Azure DB pour PostgreSQL
+- name: Documentation Azure Database pour PostgreSQL
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -255,6 +255,9 @@
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: 'restore, georestore, geo-restore, outage'
+            - name: Restaurer un serveur supprimé
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
         - name: Activer l’authentification
           items:
             - name: Créer des utilisateurs

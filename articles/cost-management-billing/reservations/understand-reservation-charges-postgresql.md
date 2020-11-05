@@ -1,18 +1,18 @@
 ---
 title: Comprendre la remise de réservation - Serveur unique Azure Database pour PostgreSQL
 description: Découvrez comment une remise de réservation est appliquée à des serveurs uniques Azure Database pour PostgreSQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: d6b32df7264066daa0bc7298a04453dad4fc9937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ace362872f0b7ba8e2f3d0302c887e2465c62982
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147253"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240339"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Comment une remise de réservation est-elle appliquée à un serveur unique Azure Database pour PostgreSQL ?
 
@@ -20,7 +20,7 @@ Lorsque vous achetez une capacité réservée de serveur unique Azure Database p
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
-Une remise de réservation repose sur le principe de ***capacité utilisée ou perdue***. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.</br>
+Une remise de réservation repose sur le principe de * **capacité utilisée ou perdue** _. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.</br>
 
 Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n’est trouvée dans l’étendue spécifiée, les heures réservées sont perdues.
 
@@ -30,15 +30,15 @@ La remise de capacité réservée de serveur unique Azure Database pour PostgreS
 
 Les exemples suivants montrent comment la remise de capacité réservée de serveur unique Azure Database pour PostgreSQL s’applique en fonction du nombre de cœurs achetés et du moment où ils s’exécutent.
 
-**Exemple 1** : Vous achetez une capacité réservée de serveur unique Azure Database pour PostgreSQL pour un 8 vCore. Si vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 8 vCore de votre utilisation de calcul de serveur unique PostgreSQL et vous bénéficiez de la remise de réservation pour une heure de calcul utilisé de serveur unique PostgreSQL 8 vCore.</br>
+_ **Exemple 1**  : Vous achetez une capacité réservée de serveur unique Azure Database pour PostgreSQL pour un 8 vCore. Si vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 8 vCore de votre utilisation de calcul de serveur unique PostgreSQL et vous bénéficiez de la remise de réservation pour une heure de calcul utilisé de serveur unique PostgreSQL 8 vCore.</br>
 
 Dans le reste de ces exemples, nous supposons que la capacité réservée de serveur unique Azure Database pour PostgreSQL que vous achetez est pour un serveur unique Azure Database pour PostgreSQL 16 vCore et que le reste des attributs de réservation correspond aux serveurs uniques PostgreSQL en cours d’exécution.
 
 * **Exemple 2 :** Vous exécutez deux serveurs uniques Azure Database pour PostgreSQL avec 8 vCore chacun pendant une heure. La remise de réservation pour 16 vCore est appliquée aux calculs utilisés par le serveur unique Azure Database pour PostgreSQL 8 vCore.
 
-* **Exemple 3** : Vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h et 13h30. Vous exécutez un autre serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h30 et 14h. Les deux sont couvertes par la remise de réservation.
+* **Exemple 3**  : Vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h et 13h30. Vous exécutez un autre serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h30 et 14h. Les deux sont couvertes par la remise de réservation.
 
-* **Exemple 4** : Vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h et 13h45. Vous exécutez un autre serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h30 et 14h. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
+* **Exemple 4**  : Vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h et 13h45. Vous exécutez un autre serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h30 et 14h. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](./understand-reserved-instance-usage-ea.md).
 

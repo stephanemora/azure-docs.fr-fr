@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337011"
 ---
-# <a name="use-github-actions-to-connect-to-azure-mysql"></a>Utiliser GitHub Actions pour se connecter à Azure MySQL
+# <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Démarrage rapide : Utiliser GitHub Actions pour se connecter à Azure MySQL
 
 Démarrez avec [GitHub Actions](https://docs.github.com/en/actions) en utilisant un workflow pour déployer des mises à jour de base de données sur [Azure Database pour MySQL](https://azure.microsoft.com/services/mysql/). 
 
@@ -39,7 +39,7 @@ Le fichier comporte deux sections :
 
 ## <a name="generate-deployment-credentials"></a>Générer les informations d’identification du déploiement
 
-Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer** .
+Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
 Remplacez les espaces réservés `server-name` par le nom de votre serveur MySQL hébergé sur Azure. Remplacez les valeurs `subscription-id` et `resource-group` par l’ID d’abonnement et le groupe de ressources connectés à votre serveur MySQL.  
 
@@ -66,7 +66,7 @@ La sortie est un objet JSON dont les informations d’identification d’attribu
 
 ## <a name="copy-the-mysql-connection-string"></a>Copier la chaîne de connexion MySQL 
 
-Dans le portail Azure, accédez à votre serveur Azure Database pour MySQL, puis ouvrez **Paramètres** > **Chaînes de connexion** . Copiez la chaîne de connexion **ADO.NET** . Remplacez les valeurs d’espace réservé spécifiées pour `your_database` et `your_password`. La chaîne de connexion ressemblera à ceci : 
+Dans le portail Azure, accédez à votre serveur Azure Database pour MySQL, puis ouvrez **Paramètres** > **Chaînes de connexion**. Copiez la chaîne de connexion **ADO.NET**. Remplacez les valeurs d’espace réservé spécifiées pour `your_database` et `your_password`. La chaîne de connexion ressemblera à ceci : 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -77,7 +77,7 @@ Vous utiliserez cette chaîne de connexion comme secret GitHub.
 
 1. Dans [GitHub](https://github.com/), accédez à votre référentiel.
 
-1. Sélectionnez **Paramètres > Secrets > Nouveau secret** .
+1. Sélectionnez **Paramètres > Secrets > Nouveau secret**.
 
 1. Collez l’intégralité de la sortie JSON de la commande Azure CLI dans le champ de valeur du secret. Nommez le secret `AZURE_CREDENTIALS`.
 
@@ -89,7 +89,7 @@ Vous utiliserez cette chaîne de connexion comme secret GitHub.
         creds: ${{ secrets.AZURE_CREDENTIALS }}
    ```
 
-1. Sélectionnez de nouveau **Nouveau secret** . 
+1. Sélectionnez de nouveau **Nouveau secret**. 
 
 1. Collez la valeur de la chaîne de connexion dans le champ de valeur du secret. Nommez le secret `AZURE_MYSQL_CONNECTION_STRING`.
 
@@ -98,7 +98,7 @@ Vous utiliserez cette chaîne de connexion comme secret GitHub.
 
 1. Accédez à **Actions** pour votre référentiel GitHub. 
 
-2. Sélectionnez **Configurer vous-même un workflow** . 
+2. Sélectionnez **Configurer vous-même un workflow**. 
 
 2. Supprimez tous les éléments après la section `on:` de votre fichier de workflow. Par exemple, votre workflow restant peut ressembler à ce qui suit. 
 

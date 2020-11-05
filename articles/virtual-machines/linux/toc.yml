@@ -582,7 +582,7 @@
     - name: Sécuriser des machines virtuelles
       items:
         - name: Recommandations
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Accès juste-à-temps
           href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Utiliser Bastion
@@ -717,7 +717,7 @@
             - name: Mise à jour de l’agent
               href: ../extensions/update-linux-agent.md
         - name: Atténuation de l’exécution spéculative
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Surveiller des métadonnées
           href: instance-metadata-service.md
         - name: Obtenir les métriques d'utilisation avec REST
@@ -1045,7 +1045,7 @@
         - name: Utiliser la mise en réseau accélérée
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Assigner un nom DNS public
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Rechercher et supprimer les cartes réseau non attachées
           href: find-unattached-nics.md
         - name: Résolution DNS

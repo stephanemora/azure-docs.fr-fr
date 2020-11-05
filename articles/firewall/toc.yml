@@ -86,6 +86,7 @@
       href: dns-settings.md
     - name: Surveiller les journaux de diagnostics
       href: firewall-diagnostics.md
+      displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Journaux d’activité Azure Monitor
       href: log-analytics-samples.md
     - name: Classeur du Pare-feu Azure
