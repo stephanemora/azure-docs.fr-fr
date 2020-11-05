@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 51de1ab26318a02381ed95f00eadcc4e892f2f57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371628"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127839"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de soumission de l’Espace partenaires pour l’intégration d’applications Azure dans l’Espace partenaires
 
@@ -29,9 +29,9 @@ Différentes ressources de programmation sont nécessaires pour pouvoir utiliser
 
 Avant de commencer à écrire du code pour appeler l’API de soumission de l’Espace partenaires, veillez à respecter les prérequis suivants.
 
-- Vous (ou votre organisation) devez disposer d’un annuaire Azure AD et de l’autorisation [Administrateur général](../../active-directory/roles/permissions-reference.md) sur l’annuaire. Si vous utilisez déjà Microsoft 365 ou d’autres services professionnels de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans le cas contraire, vous pouvez [créer un annuaire Azure AD dans l’Espace partenaires](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sans frais supplémentaires.
+- Vous (ou votre organisation) devez disposer d’un annuaire Azure AD et de l’autorisation [Administrateur général](../../active-directory/roles/permissions-reference.md) sur l’annuaire. Si vous utilisez déjà Microsoft 365 ou d’autres services professionnels de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans le cas contraire, vous pouvez [créer un annuaire Azure AD dans l’Espace partenaires](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sans frais supplémentaires.
 
-- Vous devez [associer une application Azure AD à votre compte Espace partenaires](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) et récupérer votre ID tenant, votre ID client et votre clé. Ces valeurs sont nécessaires pour obtenir un jeton d’accès Azure AD, que vous utiliserez dans les appels à l’API de soumission au Microsoft Store.
+- Vous devez [associer une application Azure AD à votre compte Espace partenaires](/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) et récupérer votre ID tenant, votre ID client et votre clé. Ces valeurs sont nécessaires pour obtenir un jeton d’accès Azure AD, que vous utiliserez dans les appels à l’API de soumission au Microsoft Store.
 
 #### <a name="how-to-associate-an-azure-ad-application-with-your-partner-center-account"></a>Associer une application Azure AD à un compte Espace partenaires
 
@@ -40,16 +40,16 @@ Pour utiliser l’API de soumission au Microsoft Store, vous devez associer une 
 >[!Note]
 >Vous ne devez effectuer cette tâche qu’une seule fois. Une fois que vous les avez, vous pouvez réutiliser l’ID tenant, l’ID client et la clé chaque fois que vous devez créer un jeton d’accès Azure AD.
 
-1. Dans l’Espace partenaires, [associez le compte Espace partenaires de votre organisation à l’annuaire Azure AD de votre organisation](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center).
-1. Ensuite, sur la page **Utilisateurs** de la section **Paramètres de compte** de l’Espace partenaires, [ajoutez l’application Azure AD](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) représentant l’application ou le service que vous utiliserez pour accéder aux soumissions de votre compte Espace partenaires. Veillez à attribuer à cette application le rôle **Gestionnaire** . Si l’application n’existe pas encore dans votre annuaire Azure AD, vous pouvez [créer une application Azure AD dans l’Espace partenaires](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
-1. Revenez à la page **Utilisateurs** , cliquez sur le nom de votre application Azure AD pour accéder à ses paramètres, puis copiez les valeurs **ID tenant** et **ID client** .
-1. Cliquez sur **Ajouter une nouvelle clé** . Sur l’écran suivant, copiez la valeur **Clé** . Vous ne pourrez plus accéder à cette information une fois que vous aurez quitté cette page. Pour plus d’informations, voir [Gérer les clés pour une application Azure AD](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Dans l’Espace partenaires, [associez le compte Espace partenaires de votre organisation à l’annuaire Azure AD de votre organisation](/windows/uwp/publish/associate-azure-ad-with-partner-center).
+1. Ensuite, sur la page **Utilisateurs** de la section **Paramètres de compte** de l’Espace partenaires, [ajoutez l’application Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) représentant l’application ou le service que vous utiliserez pour accéder aux soumissions de votre compte Espace partenaires. Veillez à attribuer à cette application le rôle **Gestionnaire**. Si l’application n’existe pas encore dans votre annuaire Azure AD, vous pouvez [créer une application Azure AD dans l’Espace partenaires](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
+1. Revenez à la page **Utilisateurs** , cliquez sur le nom de votre application Azure AD pour accéder à ses paramètres, puis copiez les valeurs **ID tenant** et **ID client**.
+1. Cliquez sur **Ajouter une nouvelle clé**. Sur l’écran suivant, copiez la valeur **Clé**. Vous ne pourrez plus accéder à cette information une fois que vous aurez quitté cette page. Pour plus d’informations, voir [Gérer les clés pour une application Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Étape 2 : Obtenir un jeton d’accès Azure AD
 
 Avant d’appeler les méthodes de l’API de soumission de l’Espace partenaires, vous devez récupérer un jeton d’accès Azure AD à transmettre à l’en-tête **Autorisation** de chacune des méthodes de l’API. Une fois que vous avez récupéré le jeton d’accès, vous avez 60 minutes pour l’utiliser avant qu’il n’expire. Après expiration, vous pouvez l’actualiser pour pouvoir continuer à l’utiliser dans de nouveaux appels à l’API.
 
-Pour obtenir le jeton d’accès, suivez les instructions de la section [Appels de service à service à l’aide des informations d’identification du client](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/) pour envoyer une requête `HTTP POST` au point de terminaison `https://login.microsoftonline.com/<tenant_id>/oauth2/token`. Voici un exemple de requête :
+Pour obtenir le jeton d’accès, suivez les instructions de la section [Appels de service à service à l’aide des informations d’identification du client](../../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) pour envoyer une requête `HTTP POST` au point de terminaison `https://login.microsoftonline.com/<tenant_id>/oauth2/token`. Voici un exemple de requête :
 
 JSONCopy
 ```Json

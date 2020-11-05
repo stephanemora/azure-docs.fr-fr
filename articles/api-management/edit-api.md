@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1c4e64251390936e8a63ee904ec69f173cac6114
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092696"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146703"
 ---
 # <a name="edit-an-api"></a>Modifier une API
 
@@ -37,18 +37,18 @@ Les étapes de ce didacticiel vous montrent comment utiliser le service Gestion 
 
 ![Capture d’écran mettant en évidence le processus d’édition d’une API dans APIM.](./media/edit-api/edit-api001.png)
 
-1. Cliquez sur l’onglet **API** .
+1. Cliquez sur l’onglet **API**.
 2. Sélectionnez l’une des API que vous avez importées précédemment.
-3. Sélectionnez l’onglet **Conception** .
+3. Sélectionnez l’onglet **Conception**.
 4. Sélectionnez une opération à modifier.
-5. Pour renommer l’opération, sélectionnez un **crayon** dans la fenêtre **FrontEnd** .
+5. Pour renommer l’opération, sélectionnez un **crayon** dans la fenêtre **FrontEnd**.
 
 ## <a name="update-the-swagger"></a>Mettre à jour le Swagger
 
 Vous pouvez mettre à jour votre API de service de serveur principal à partir du portail Azure en suivant ces étapes :
 
-1. Sélectionnez **Toutes les opérations** .
-2. Cliquez sur le crayon dans la fenêtre **FrontEnd** .
+1. Sélectionnez **Toutes les opérations**.
+2. Cliquez sur le crayon dans la fenêtre **FrontEnd**.
 
     ![Capture d’écran mettant en évidence l’icône de crayon dans l’écran FrontEnd.](./media/edit-api/edit-api002.png)
 
@@ -57,7 +57,7 @@ Vous pouvez mettre à jour votre API de service de serveur principal à partir d
     ![Modifier une API](./media/edit-api/edit-api003.png)
 
 3. Mettez à jour le Swagger.
-4. Appuyez sur **Enregistrer** .
+4. Appuyez sur **Enregistrer**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

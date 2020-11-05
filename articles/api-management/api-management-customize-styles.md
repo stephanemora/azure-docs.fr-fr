@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168203"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145767"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personnaliser le style des pages du portail des développeurs
 
@@ -45,21 +45,21 @@ Dans cet article, vous allez apprendre à personnaliser le style des éléments 
 
 ## <a name="customize-the-developer-portal"></a>Personnaliser le portail des développeurs
 
-1. Sélectionnez **Vue d’ensemble** .
-2. Cliquez sur le bouton **Portail des développeurs (hérité)** en haut de la fenêtre **Vue d’ensemble** .
+1. Sélectionnez **Vue d’ensemble**.
+2. Cliquez sur le bouton **Portail des développeurs (hérité)** en haut de la fenêtre **Vue d’ensemble**.
 3. Sur le côté supérieur gauche de l’écran, une icône composée de deux pinceaux apparaît. Placez le curseur de la souris au-dessus de cette icône pour ouvrir le menu de personnalisation du portail.
 
     ![Capture d’écran mettant en évidence l’icône avec deux pinceaux.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Sélectionnez **Styles** dans le menu pour ouvrir le volet de personnalisation du style.
 
     Tous les éléments que vous pouvez personnaliser à l’aide de **Styles** apparaissent dans la page.
-5. Entrez « headings-color » dans le champ **Changez les valeurs des variables pour personnaliser l’apparence du portail des développeurs** .
+5. Entrez « headings-color » dans le champ **Changez les valeurs des variables pour personnaliser l’apparence du portail des développeurs**.
 
     L’élément **\@headings-color** apparaît dans la page. Cette variable contrôle la couleur du texte.
 
     ![Personnaliser le style](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Cliquez sur le champ associé à la variable **\@headings-color** . 
+6. Cliquez sur le champ associé à la variable **\@headings-color**. 
     
     Une liste déroulante de sélecteur de couleurs s’ouvre.
 7. Dans cette liste déroulante, sélectionnez une nouvelle couleur.

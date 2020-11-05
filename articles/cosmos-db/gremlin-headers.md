@@ -7,14 +7,16 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490575"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100386"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>En-têtes de réponse du serveur Gremlin d’Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Cet article traite des en-têtes que le serveur Gremlin de Cosmos DB retourne à l’appelant lors de l’exécution d’une requête. Ces en-têtes sont utiles pour la résolution des problèmes de performance des requêtes et la création d’applications s’intégrant de manière native au service Cosmos DB. Ils contribuent également à simplifier les opérations du service clientèle.
 
 Gardez à l’esprit que la dépendance à ces en-têtes limite la portabilité de votre application vers d’autres implémentations Gremlin. En revanche, vous bénéficiez d’une intégration plus étroite à l’API Gremlin de Cosmos DB. Ces en-têtes ne représentent pas une norme TinkerPop.
@@ -43,7 +45,7 @@ Les codes d’état les plus courants retournés par le serveur sont listés ci-
 | **408** | `"Server timeout"` indique que le parcours a pris plus de **30 secondes** et qu’il a été annulé par le serveur. Optimisez vos parcours pour qu’ils s’exécutent rapidement en filtrant les arêtes ou les sommets sur chaque tronçon afin d’affiner l’étendue de recherche.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Cela se produit généralement lorsque le sommet ou une arête avec identificateur existe déjà dans le graphique.| 
 | **412** | Le code d’état s’accompagne du message d’erreur `"PreconditionFailedException": One of the specified pre-condition is not met`. Il indique une violation du contrôle d’accès concurrentiel optimiste entre la lecture d’une arête ou d’un sommet et sa réécriture dans le magasin après modification. Dans la plupart des cas, cette erreur se produit lors d’une modification de propriété, par exemple `g.V('identifier').property('name','value')`. Le moteur Gremlin lit le sommet, le modifie, puis procède à sa réécriture. Si un autre parcours exécuté en parallèle tente d’écrire le même sommet ou une arête, l’un d’eux recevra cette erreur. L’application doit soumettre de nouveau le parcours au serveur.| 
-| **429** | La demande a été limitée et doit être retentée après la valeur définie dans **x-ms-retry-after-ms** .| 
+| **429** | La demande a été limitée et doit être retentée après la valeur définie dans **x-ms-retry-after-ms**.| 
 | **500** | Le message d'erreur qui contient `"NotFoundException: Entity with the specified id does not exist in the system."` indique qu'une base de données et/ou une collection ont été recréées avec le même nom. Cette erreur disparaîtra dans les 5 minutes à mesure que la modification se propagera et invalidera les caches de différents composants Cosmos DB. Pour éviter ce problème, utilisez des noms de base de données et de collection uniques à chaque fois.| 
 | **1 000** | Ce code d’état est retourné quand le serveur a correctement analysé un message, mais que l’exécution a échoué. Il indique généralement un problème avec la requête.| 
 | **1001** | Ce code est retourné quand le serveur termine l’exécution du parcours, mais ne parvient pas à sérialiser la réponse en retour pour le client. Cette erreur peut se produire quand le parcours génère un résultat complexe, trop grand ou non conforme à la spécification du protocole TinkerPop. Quand elle rencontre cette erreur, l’application doit simplifier le parcours. | 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218253"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130984"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Déboguer des requêtes Azure Stream Analytics en local à l’aide du diagramme de travail dans Visual Studio
 
@@ -32,7 +32,7 @@ Utilisez ce [Démarrage rapide](stream-analytics-quick-create-vs.md) pour appren
 > [!NOTE]
 > Si vous exportez un travail vers un projet local et que vous souhaitez effectuer un test par rapport à un flux d’entrée dynamique, vous devez spécifier à nouveau les informations d’identification pour toutes les entrées.  
 
-Choisissez la source d’entrée et de sortie dans l’éditeur de script et sélectionnez **Exécuter localement** . Le diagramme de travail apparaît sur le côté droit.
+Choisissez la source d’entrée et de sortie dans l’éditeur de script et sélectionnez **Exécuter localement**. Le diagramme de travail apparaît sur le côté droit.
 
 ### <a name="view-the-intermediate-result-set"></a>Afficher le jeu de résultats intermédiaire  
 
@@ -119,7 +119,7 @@ D’autres métriques au niveau du travail s’affichent dans la console context
 
 * Les récepteurs de sortie Power BI et Azure Data Lake Storage Gen1 ne sont pas pris en charge en raison des limitations du modèle d’authentification.
 
-* Seules les options d’entrée dans le cloud offrent une prise en charge de [stratégies de temps](stream-analytics-out-of-order-and-late-events.md) ; les options d’entrée locale n’en proposent pas.
+* Seules les options d’entrée dans le cloud offrent une prise en charge de [stratégies de temps](./stream-analytics-time-handling.md) ; les options d’entrée locale n’en proposent pas.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

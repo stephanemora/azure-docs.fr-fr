@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7008c305525c7564e57fd225e961b462bf6939f2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130831"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Support pour la place de marché commerciale Microsoft
 
@@ -32,7 +32,7 @@ Ouvrez un ticket auprès du [support des éditeurs de la Place de marché Micros
 
 | Canal de support | Description |  
 |:--- |:--- |  
-| Forums MSDN : Place de marché dans la [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/products/azure) | Forum Microsoft Developer Network. |  
+| Forums MSDN : Place de marché dans la [Page de questions Microsoft Q&A](/answers/products/azure) | Forum Microsoft Developer Network. |  
 | Stack Overflow : Azure à l’adresse [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Environnement Stack Overflow permettant d’obtenir des solutions et de poser des questions sur tout ce qui concerne la Place de Marché Azure.<ul> <li>Stack Overflow : Place de marché Azure à l’adresse [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow : Azure Resource Manager à l’adresse [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow : Machines virtuelles sur Azure à l’adresse [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow : Conteneurs sur Azure à l’adresse [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Ressources marketing  

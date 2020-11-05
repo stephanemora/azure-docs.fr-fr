@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d253bda69839c76aed0170f9a79a03b7d4bf1a79
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130104"
 ---
 # <a name="create-a-managed-service-offer"></a>Créer une offre de service managé
 
@@ -36,7 +36,7 @@ Vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou 
 Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
 * Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
-* Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1** , l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 * L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
 Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
@@ -52,7 +52,7 @@ Sélectionnez **Créer** pour générer l’offre et continuer.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Selon les [stratégies de certification des services gérés](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), une **destination de prospect** est requise. Ainsi, un enregistrement est créé dans votre système CRM chaque fois qu’un client déploie votre offre.
+Selon les [stratégies de certification des services gérés](/legal/marketplace/certification-policies#700-managed-services), une **destination de prospect** est requise. Ainsi, un enregistrement est créé dans votre système CRM chaque fois qu’un client déploie votre offre.
 
 Pour plus d’informations, consultez [Vue d’ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 
@@ -124,7 +124,7 @@ Dans cette section, entrez le nom, l’adresse e-mail et le numéro de télépho
 
 ### <a name="support-urls"></a>URL de support technique
 
-Si vous avez des sites web de support pour les **clients Azure international** et/ou les **clients Azure Government**, fournissez ces URL ici.
+Si vous avez des sites web de support pour les **clients Azure international** et/ou les **clients Azure Government** , fournissez ces URL ici.
 
 ### <a name="marketplace-images"></a>Images de la Place de marché
 
@@ -179,9 +179,9 @@ Chaque offre doit avoir un ou plusieurs plans (anciennement « références SK
 
 Vous pouvez créer jusqu’à 100 plans pour chaque offre : jusqu’à 45 peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](../private-offers.md).
 
-Dans la page **Vue d’ensemble du plan**, sélectionnez **+ Créer un plan**. Entrez ensuite un **ID de plan** et un **Nom de plan**. Ces deux valeurs ne peuvent contenir que des caractères alphanumériques minuscules, des tirets et des traits de soulignement, dont le nombre ne peut pas dépasser 50 signes. Ces valeurs peuvent être visibles par les clients et elles ne peuvent pas être changées après la publication de l’offre.
+Dans la page **Vue d’ensemble du plan** , sélectionnez **+ Créer un plan**. Entrez ensuite un **ID de plan** et un **Nom de plan**. Ces deux valeurs ne peuvent contenir que des caractères alphanumériques minuscules, des tirets et des traits de soulignement, dont le nombre ne peut pas dépasser 50 signes. Ces valeurs peuvent être visibles par les clients et elles ne peuvent pas être changées après la publication de l’offre.
 
-Sélectionnez **Créer** une fois que vous avez entré ces valeurs pour continuer à travailler sur votre plan. Les sections à effectuer sont au nombre de trois : **Liste des plans**, **Tarification et disponibilité** et **Configuration technique**.
+Sélectionnez **Créer** une fois que vous avez entré ces valeurs pour continuer à travailler sur votre plan. Les sections à effectuer sont au nombre de trois : **Liste des plans** , **Tarification et disponibilité** et **Configuration technique**.
 
 ### <a name="plan-listing"></a>Liste des plans
 
@@ -229,14 +229,14 @@ Vous pouvez créer jusqu’à vingt autorisations pour chaque plan.
 > [!TIP]
 > Dans la plupart des cas, vous affectez des rôles à un groupe d’utilisateurs ou à un principal de service Azure AD, plutôt qu’à une série de comptes d’utilisateur individuels. Cela vous permet d’ajouter ou de supprimer l’accès d’utilisateurs individuels sans devoir mettre à jour et republier le plan lorsque vos conditions d’accès changent. Quand vous affectez des rôles à des groupes Azure AD, [assurez-vous que le **Type de groupe** est **Sécurité** et non **Office 365**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Pour obtenir des recommandations supplémentaires, consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
-Pour chaque **autorisation**, vous devez fournir les informations suivantes. Vous pouvez ensuite sélectionner **+ Ajouter une autorisation** autant de fois que nécessaire pour ajouter des utilisateurs et des définitions de rôles.
+Pour chaque **autorisation** , vous devez fournir les informations suivantes. Vous pouvez ensuite sélectionner **+ Ajouter une autorisation** autant de fois que nécessaire pour ajouter des utilisateurs et des définitions de rôles.
 
-- **ID d’objet Azure AD** : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels certaines autorisations seront accordées (comme défini dans la définition de rôle) sur les ressources de votre client.
-- **Nom d’affichage d’objet Azure AD** : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
-- **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour obtenir une description de ces rôles, consultez [Rôles intégrés](../../role-based-access-control/built-in-roles.md) et [Prise en charge des rôles pour Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
+- **ID d’objet Azure AD**  : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels certaines autorisations seront accordées (comme défini dans la définition de rôle) sur les ressources de votre client.
+- **Nom d’affichage d’objet Azure AD**  : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
+- **Définition de rôle**  : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour obtenir une description de ces rôles, consultez [Rôles intégrés](../../role-based-access-control/built-in-roles.md) et [Prise en charge des rôles pour Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > Comme les nouveaux rôles intégrés applicables sont ajoutés à Azure, ils sont disponibles ici, même si un certain temps puis s’écouler avant qu’ils n’apparaissent.
-- **Rôles attribuables** : cette option apparaît uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces rôles à des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](../../lighthouse/how-to/deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.
+- **Rôles attribuables**  : cette option apparaît uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces rôles à des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](../../lighthouse/how-to/deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.
 
 > [!TIP]
 > Pour être sûr de pouvoir [supprimer l’accès à une délégation](../../lighthouse/how-to/remove-delegation.md) en cas de nécessité, incluez une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
@@ -257,7 +257,7 @@ S’il s’agit de votre première publication de cette offre, vous pouvez :
   - **Non démarrée** : la section n’a pas encore été modifiée et doit être complétée.
   - **Incomplète** : la section comporte des erreurs qui doivent être corrigées ou nécessite un complément d’informations. Revenir à la ou les sections et les mettre à jour.
   - **Complète** : la section est complète, toutes les données obligatoires ont été fournies et aucune erreur n’est présente. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
-- Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
+- Dans la sections **Notes pour la certification** , fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail si une version d’essai de l’offre est disponible pour vérification et approbation. Retourner dans Partner Center et sélectionner **Publier** pour que votre offre soit publiée pour le public (ou au public privé, si l’offre est privée).
 
 ### <a name="customer-experience-and-offer-management"></a>Gestion des offres et de l’expérience client

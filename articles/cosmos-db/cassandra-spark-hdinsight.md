@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cee5181bf3dda3f0fb609d5aa344697e989ae6c3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260569"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098890"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Accéder à l’API Cassandra Azure Cosmos DB à partir de Spark sur YARN avec HDInsight
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cet article explique comment accéder à l’API Cassandra Azure Cosmos DB à partir de Spark sur YARN avec HDInsight-Spark au moyen de spark-shell. HDInsight est le service PaaS Hadoop Hortonworks de Microsoft sur Azure, qui tire parti du stockage d’objets pour HDFS et se présente sous diverses variantes, notamment [Spark](../hdinsight/spark/apache-spark-overview.md).  Bien que le contenu de ce document référence HDInsight-Spark, il est applicable à toutes les distributions Hadoop.  
 
@@ -31,7 +32,7 @@ Cet article explique comment accéder à l’API Cassandra Azure Cosmos DB à pa
 
 * [Utiliser cqlsh pour la validation si vous le souhaitez](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Configuration de l’API Cassandra dans Spark2** : le connecteur Spark pour Cassandra nécessite que les informations de la connexion Cassandra soient initialisées dans le cadre du contexte Spark. Quand vous lancez un bloc-notes Jupyter, la session et le contexte spark sont déjà initialisés ; nous vous déconseillons d’arrêter et de réinitialiser le contexte Spark tant qu’il n’est pas doté de la configuration complète définie dans le cadre du démarrage de bloc-notes Jupyter HDInsight par défaut. Une solution de contournement consiste à ajouter les détails de l’instance Cassandra à la configuration du service Spark2 Ambari. Cette opération est nécessaire une seule fois par cluster qui requiert un redémarrage du service Spark2.
+* **Configuration de l’API Cassandra dans Spark2**  : le connecteur Spark pour Cassandra nécessite que les informations de la connexion Cassandra soient initialisées dans le cadre du contexte Spark. Quand vous lancez un bloc-notes Jupyter, la session et le contexte spark sont déjà initialisés ; nous vous déconseillons d’arrêter et de réinitialiser le contexte Spark tant qu’il n’est pas doté de la configuration complète définie dans le cadre du démarrage de bloc-notes Jupyter HDInsight par défaut. Une solution de contournement consiste à ajouter les détails de l’instance Cassandra à la configuration du service Spark2 Ambari. Cette opération est nécessaire une seule fois par cluster qui requiert un redémarrage du service Spark2.
  
   1. Accédez au service Spark2 Ambari, puis sélectionnez les configurations.
 

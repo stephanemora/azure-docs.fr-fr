@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperfq2
-ms.openlocfilehash: f7c08172f3a60487ae6e15260a0cd5fc5e4a712c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740741"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129539"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Avantage d’Azure Consumption Commitment
 
@@ -57,4 +57,4 @@ Si vous n’êtes pas certain que votre organisation dispose d’un contrat éli
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la façon dont votre organisation peut tirer parti de la Place de marché Azure, suivez notre module Microsoft Learn : [Simplifier le provisionnement et la gouvernance dans le cloud avec la Place de marché Azure](https://aka.ms/cm.marketplaceprocurement).
+- Pour en savoir plus sur la façon dont votre organisation peut tirer parti de la Place de marché Azure, suivez notre module Microsoft Learn : [Simplifier le provisionnement et la gouvernance dans le cloud avec la Place de marché Azure](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).

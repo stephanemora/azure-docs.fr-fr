@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130338"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -93,7 +93,7 @@ Pour suivre les modifications apportées à des fichiers sur Windows et Linux, S
 
 ## <a name="tracking-file-content-changes"></a>Suivi des modifications de contenu de fichier
 
-Change Tracking and Inventory vous permet d’afficher le contenu d’un fichier Windows ou Linux. Pour chaque modification apportée à un fichier, Suivi des modifications et inventaire stocke le contenu du fichier dans un [compte Stockage Azure](/storage/common/storage-account-create). Quand vous effectuez le suivi d’un fichier, vous pouvez afficher son contenu avant ou après une modification. Le contenu du fichier peut être affiché en ligne ou côte à côte.
+Change Tracking and Inventory vous permet d’afficher le contenu d’un fichier Windows ou Linux. Pour chaque modification apportée à un fichier, Suivi des modifications et inventaire stocke le contenu du fichier dans un [compte Stockage Azure](../../storage/common/storage-account-create.md). Quand vous effectuez le suivi d’un fichier, vous pouvez afficher son contenu avant ou après une modification. Le contenu du fichier peut être affiché en ligne ou côte à côte.
 
 ![Afficher les modifications d’un fichier](./media/overview/view-file-changes.png)
 
@@ -158,7 +158,7 @@ Le tableau suivant montre les limites des éléments suivis par machine pour Sui
 |Services|250|
 |Démons|250|
 
-La consommation moyenne de données Log Analytics d’une machine utilisant Suivi des modifications et inventaire est d’environ 40 Mo par mois, selon votre environnement. Avec la fonctionnalité Utilisation et estimation des coûts de l’espace de travail Log Analytics, vous pouvez afficher les données ingérées par Change Tracking and Inventory dans un graphique d’utilisation. Utilisez cette vue pour évaluer votre utilisation des données et déterminer la manière dont elle se répercute sur votre facture. Voir [Comprendre votre utilisation et estimer les coûts](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+La consommation moyenne de données Log Analytics d’une machine utilisant Suivi des modifications et inventaire est d’environ 40 Mo par mois, selon votre environnement. Avec la fonctionnalité Utilisation et estimation des coûts de l’espace de travail Log Analytics, vous pouvez afficher les données ingérées par Change Tracking and Inventory dans un graphique d’utilisation. Utilisez cette vue pour évaluer votre utilisation des données et déterminer la manière dont elle se répercute sur votre facture. Voir [Comprendre votre utilisation et estimer les coûts](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Données de services Microsoft
 

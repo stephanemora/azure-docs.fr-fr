@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491170"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101593"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Créer un conteneur dans API Azure Cosmos DB pour MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Cet article explique les différentes façons de créer un conteneur dans l’API Azure Cosmos DB pour MongoDB. Il montre comment créer un conteneur à l’aide de Portail Azure, Azure CLI, PowerShell ou des kits de développement logiciel (SDK) pris en charge. Cet article montre comment créer un conteneur, spécifier la clé de partition et provisionner le débit.
 
@@ -30,13 +31,13 @@ Cet article explique les différentes façons de créer un conteneur dans l’AP
 
 1. [Créez un compte Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouveau conteneur** . Fournissez ensuite les détails suivants :
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouveau conteneur**. Fournissez ensuite les détails suivants :
 
    * Indiquez si vous créez une base de données ou si vous utilisez une base de données existante.
    * Entrez un ID de conteneur.
    * Entrez une clé de sharding.
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
-   * Sélectionnez **OK** .
+   * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Capture d'écran de l'API Azure Cosmos DB pour MongoDB, boîte de dialogue Ajouter un conteneur":::
 

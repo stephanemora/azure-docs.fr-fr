@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710649"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131494"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d’application Power BI
 
@@ -32,7 +32,7 @@ Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de 
 > Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires n’apparaissent dans les magasins en ligne qu’après republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
 
 > [!IMPORTANT]
-> Si l’**Application de service Power BI** n’est pas affichée ou activée, votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](create-power-bi-app-overview.md) pour ce type d’offre, notamment l’inscription d’un compte de développeur.
+> Si l’ **Application de service Power BI** n’est pas affichée ou activée, votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](create-power-bi-app-overview.md) pour ce type d’offre, notamment l’inscription d’un compte de développeur.
 
 ## <a name="new-offer"></a>Nouvelle offre
 
@@ -55,10 +55,10 @@ La page montre une représentation visuelle des étapes nécessaires à la publi
 
 Elle contient des liens permettant d’effectuer des opérations sur cette offre en fonction de la sélection que vous effectuez. Par exemple :
 
-- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](update-existing-offer.md#delete-a-draft-offer)
+- Si l’offre est un brouillon : Supprimer le brouillon de l’offre
 - Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval)
-- Si vous n’avez pas terminé la publication : [Annuler la publication](update-existing-offer.md#cancel-publishing)
+- Si l’offre est disponible en préversion : [Mise en service](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuration de l’offre
 
@@ -192,7 +192,7 @@ Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact 
 - Contact en ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
 - Contact du programme du fournisseur de solutions cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
 
-Dans la section **Contact du support**, indiquez l’adresse du **site web du support** où les partenaires peuvent trouver l’assistance pour votre offre.
+Dans la section **Contact du support** , indiquez l’adresse du **site web du support** où les partenaires peuvent trouver l’assistance pour votre offre.
 
 ### <a name="supporting-documents"></a>Documents de soutien
 
@@ -234,7 +234,7 @@ Pour en savoir plus sur la création d’annonces d’offres, consultez [Bonnes 
 
 ## <a name="technical-configuration"></a>Configuration technique
 
-Promouvez votre application dans le service Power BI en production et fournissez le lien du programme d’installation Power BI qui permet aux clients d’installer votre application. Pour plus d’informations, consultez [Publish apps with dashboards and reports in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps) (Publier des applications avec tableaux de bord et rapports dans Power BI).
+Promouvez votre application dans le service Power BI en production et fournissez le lien du programme d’installation Power BI qui permet aux clients d’installer votre application. Pour plus d’informations, consultez [Publish apps with dashboards and reports in Power BI](/power-bi/service-create-distribute-apps) (Publier des applications avec tableaux de bord et rapports dans Power BI).
 
 ## <a name="supplemental-content"></a>Contenu supplémentaire
 
@@ -253,9 +253,9 @@ Dans le coin supérieur droit du portail, sélectionnez **Vérifier et publier**
 Dans la page de révision, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre. Vous ne pouvez pas publier tant que toutes les sections de l’offre ne sont pas marquées comme étant complètes.
-  - **Non démarrée** : la section n’a pas été démarrée et doit être complétée.
-  - **Incomplète** : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
-  - **Complète** : la section contient toutes les données nécessaires et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
+  - **Non démarrée**  : la section n’a pas été démarrée et doit être complétée.
+  - **Incomplète**  : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
+  - **Complète**  : la section contient toutes les données nécessaires et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
 - Fournissez des instructions de test à l’équipe de certification pour vous assurer que votre application est correctement testée. Vous pouvez également fournir des notes supplémentaires utiles pour comprendre votre offre.
 
 Pour envoyer l’offre à des fins de publication, sélectionnez **Publier**.

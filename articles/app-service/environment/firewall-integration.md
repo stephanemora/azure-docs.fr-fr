@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 8acd0a6992c26266f20aaf46dd225a9fff9d6974
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e5f9cd361d4f130d725f608614159d67fb7b56d1
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172012"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026358"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -65,7 +65,7 @@ Les étapes pour verrouiller les sorties de votre environnement ASE existant ave
 
    ![Ajouter une règle de réseau NTP][3]
    
-1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, sous Balises de service, indiquez un nom, sélectionnez un protocole **Quelconque**, définissez * sur Adresses sources, sélectionnez une balise de service AzureMonitor et définissez les ports sur 80, 443. Cette règle permet au système de fournir à Azure Monitor des informations d'intégrité et des métriques.
+1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, sous Balises de service, indiquez un nom, sélectionnez un protocole **Quelconque** , définissez * sur Adresses sources, sélectionnez une balise de service AzureMonitor et définissez les ports sur 80, 443. Cette règle permet au système de fournir à Azure Monitor des informations d'intégrité et des métriques.
 
    ![Ajouter une règle de réseau de balise de service NTP][6]
    
@@ -255,6 +255,7 @@ Avec un pare-feu Azure, tout ce qui suit est automatiquement configuré avec les
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*.data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |

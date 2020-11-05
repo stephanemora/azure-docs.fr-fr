@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891952"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127346"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Sortie de stockage de table à partir d’Azure Stream Analytics
 
@@ -28,7 +28,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Nom de la table |Nom de la table. La table est créée si elle n’existe pas. |
 | Clé de partition |Nom de la colonne de sortie contenant la clé de partition. La clé de partition est un identificateur unique pour la partition dans une table qui constitue la première partie de la clé primaire d’une entité. C’est une valeur de chaîne qui peut atteindre 1 Ko. |
 | Clé de ligne |Nom de la colonne de sortie contenant la clé de ligne. La clé de ligne est un identificateur unique pour une entité dans une partition. Elle constitue la deuxième partie de la clé primaire d'une entité. La clé de ligne est une valeur de chaîne qui peut atteindre 1 Ko. |
-| Taille du lot |Nombre d’enregistrements d’une opération par lot. La valeur par défaut (100) est suffisante pour la plupart des travaux. Pour plus d’informations sur la modification de ce paramètre, consultez la spécification [TableBatchOperation Class](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) (Classe TableBatchOperation). |
+| Taille du lot |Nombre d’enregistrements d’une opération par lot. La valeur par défaut (100) est suffisante pour la plupart des travaux. Pour plus d’informations sur la modification de ce paramètre, consultez la spécification [TableBatchOperation Class](/java/api/com.microsoft.azure.storage.table.tablebatchoperation) (Classe TableBatchOperation). |
 
 ## <a name="partitioning"></a>Partitionnement
 

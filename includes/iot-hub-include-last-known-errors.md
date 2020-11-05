@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a0b7a1c600fe81081fbfe8d33c3878f68e730888
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d8583a1fee96d0a6eb3300882b2b115f057cbeec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547354"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136127"
 ---
 [Obtenir l’intégrité du point de terminaison](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) dans l’API REST donne l’état d’intégrité des points de terminaison, ainsi que la dernière erreur connue, afin d’identifier la raison pour laquelle un point de terminaison n’est pas sain. Le tableau ci-dessous répertorie les erreurs les plus courantes.
 
 |Dernière erreur connue|Description/lorsqu’elle se produit|Atténuation possible|
 |-----|-----|-----|
-|Temporaire|Une erreur temporaire s’est produite et l’IoT Hub retentera l’opération.|Observez les [journaux de ressources des routes](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes).|
-|InternalError|Une erreur s’est produite lors de la transmission d’un message à un point de terminaison.|Il s’agit d’une exception interne, mais observez également les [journaux de ressources](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes) des itinéraires.|
+|Temporaire|Une erreur temporaire s’est produite et l’IoT Hub retentera l’opération.|Observez les [journaux de ressources des routes](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#routes).|
+|InternalError|Une erreur s’est produite lors de la transmission d’un message à un point de terminaison.|Il s’agit d’une exception interne, mais observez également les [journaux de ressources](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#routes) des itinéraires.|
 |Non autorisé|L’IoT Hub n’est pas autorisé à envoyer des messages au point de terminaison spécifié.|Vérifiez que la chaîne de connexion est à jour pour le point de terminaison. Si une modification a été apportée, envisagez une mise à jour sur votre IoT Hub. Si le point de terminaison utilise l’identité managée, vérifiez que l’IoT Hub principal dispose des autorisations requises sur la cible.|
 |Throttled|L’IoT Hub est limité lors de l’écriture de messages dans le point de terminaison.|Passez en revue les seuils de limitation pour le point de terminaison affecté. Modifiez les configurations pour que le point de terminaison soit mis à l’échelle si nécessaire.|
 |Délai d'expiration|Délai d’expiration de l’opération.|Retentez l’opération.|

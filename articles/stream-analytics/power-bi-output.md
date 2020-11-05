@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129777"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI à partir d’Azure Stream Analytics
 
@@ -51,7 +51,7 @@ Power BI utilise la stratégie de rétention FIFO (premier entré, premier sorti
 
 Azure Stream Analytics met à jour le modèle de données dynamiquement lors de l’exécution si le schéma de sortie est modifié. L’intégralité des modifications de nom de colonne, modifications de type de colonne et ajouts ou suppressions de colonnes sont suivis.
 
-Ce tableau décrit les conversions des [types de données Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) vers les [types Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) de Power BI si un jeu de données et une table Power BI n’existent pas.
+Ce tableau décrit les conversions des [types de données Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics) vers les [types Entity Data Model (EDM)](/dotnet/framework/data/adonet/entity-data-model) de Power BI si un jeu de données et une table Power BI n’existent pas.
 
 De Stream Analytics | Vers Power BI
 -----|-----
@@ -76,7 +76,7 @@ Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 
-Pour la taille du lot de sortie, consultez [Limites d’API REST de Power BI](https://msdn.microsoft.com/library/dn950053.aspx).
+Pour la taille du lot de sortie, consultez [Limites d’API REST de Power BI](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

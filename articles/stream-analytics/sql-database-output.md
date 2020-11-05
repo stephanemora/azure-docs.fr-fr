@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129828"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Sortie dans Azure SQL Database d’Azure Stream Analytics
 
 Vous pouvez utiliser [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Azure Stream Analytics écrivent dans une table existante dans SQL Database. Le schéma de table doit correspondre exactement aux champs et aux types dans la sortie de votre travail. Vous pouvez également spécifier [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) en tant que sortie via l’option de sortie SQL Database. Pour découvrir les moyens d’améliorer le débit d’écriture, consultez l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).
 
-Vous pouvez aussi utiliser [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) comme sortie. Vous devez [configurer un point de terminaison public dans SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure), puis configurer manuellement les paramètres suivants dans Azure Stream Analytics. Une machine virtuelle Azure exécutant SQL Server auquel une base de données est attachée est également prise en charge en configurant manuellement les paramètres ci-dessous.
+Vous pouvez aussi utiliser [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) comme sortie. Vous devez [configurer un point de terminaison public dans SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md), puis configurer manuellement les paramètres suivants dans Azure Stream Analytics. Une machine virtuelle Azure exécutant SQL Server auquel une base de données est attachée est également prise en charge en configurant manuellement les paramètres ci-dessous.
 
 ## <a name="output-configuration"></a>Configuration de la sortie
 
@@ -39,7 +39,7 @@ Deux adaptateurs sont activés pour la sortie d'Azure Stream Analytics vers Azur
 
 * **Débit** : Si le débit attendu est supérieur à 10 Mo/s, utilisez l’option de sortie Azure Synapse pour obtenir de meilleures performances.
 
-* **Partitions d'entrée** : Si vous disposez d'un minimum de huit partitions, utilisez l’option de sortie Azure Synapse pour améliorer la montée en charge.
+* **Partitions d'entrée**  : Si vous disposez d'un minimum de huit partitions, utilisez l’option de sortie Azure Synapse pour améliorer la montée en charge.
 
 ## <a name="partitioning"></a>Partitionnement
 
@@ -47,7 +47,7 @@ Le partitionnement doit être activé et est basé sur la clause PARTITION BY de
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 
-Vous pouvez configurer la taille maximale de message à l’aide du **Nombre maximal de lots**. La valeur maximale par défaut est 10 000 et la valeur minimale par défaut est de 100 lignes par insertion en bloc. Pour plus d’informations, consultez [Limites d’Azure DNS](../sql-database/sql-database-resource-limits.md). Chaque lot est initialement inséré en bloc avec le nombre de lots maximum. Le lot est divisé de moitié (jusqu’au nombre de lots minimum) en fonction des erreurs renouvelables de SQL.
+Vous pouvez configurer la taille maximale de message à l’aide du **Nombre maximal de lots**. La valeur maximale par défaut est 10 000 et la valeur minimale par défaut est de 100 lignes par insertion en bloc. Pour plus d’informations, consultez [Limites d’Azure DNS](../azure-sql/database/resource-limits-logical-server.md). Chaque lot est initialement inséré en bloc avec le nombre de lots maximum. Le lot est divisé de moitié (jusqu’au nombre de lots minimum) en fonction des erreurs renouvelables de SQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

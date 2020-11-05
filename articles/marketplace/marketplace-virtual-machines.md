@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329030"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129590"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Comment planifier une offre de machine virtuelle
 
 Cet article explique les différentes options et conditions requises pour la publication d’une offre de machine virtuelle sur la Place de marché commerciale. Les offres de machines virtuelles sont des offres pouvant faire l’objet d’une transaction, déployées et facturées via la Place de marché Azure.
 
-Avant de commencer, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), et vérifier que votre compte est inscrit dans le programme de la Place de marché commerciale.
+Avant de commencer, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/create-account.md), et vérifier que votre compte est inscrit dans le programme de la Place de marché commerciale.
 
 ### <a name="technical-fundamentals"></a>Notions de base techniques
 
@@ -70,7 +70,7 @@ Vous pouvez envoyer des invitations à des adresses e-mail de Compte Microsoft (
 
 Les offres de machines virtuelles nécessitent au moins un plan. Un plan définit l’étendue et les limites de la solution, ainsi que la tarification associée. Vous pouvez créer plusieurs plans pour votre offre, afin d’offrir à vos clients différentes options techniques et de licence, ainsi que des évaluations gratuites. Pour obtenir des conseils généraux sur les plans, notamment des modèles de tarification, des essais gratuits et des plans privés, consultez [Plans et tarification des offres de la Place de marché commerciale](plans-pricing.md). 
 
-Les machines virtuelles sont entièrement commercialisables à l’aide des modèles de licence Paiement à l’utilisation ou BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture votre client pour votre compte. Vous avez ainsi l’avantage utiliser la relation de paiement préférée entre votre client et Microsoft, et notamment un éventuel contrat Entreprise. Pour plus d’informations, consultez [Fonctionnalités de transaction de la Place de marché commerciale](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+Les machines virtuelles sont entièrement commercialisables à l’aide des modèles de licence Paiement à l’utilisation ou BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture votre client pour votre compte. Vous avez ainsi l’avantage utiliser la relation de paiement préférée entre votre client et Microsoft, et notamment un éventuel contrat Entreprise. Pour plus d’informations, consultez [Fonctionnalités de transaction de la Place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > Vous pouvez consacrer les engagement monétaires associés à un Contrat Entreprise à la couverture de l’utilisation par Azure de votre machine virtuelle, mais pas à celle de vos frais de licence logicielle.
@@ -84,7 +84,7 @@ Voici les options de licence disponibles pour les offres de machines virtuelles�
 | Option de licence | Processus de transaction |
 | --- | --- |
 | Essai gratuit | Offrez à vos clients une évaluation gratuite de 1, 3 ou 6 mois. |
-| Version d'évaluation | Cette option permet à vos clients d’évaluer des machines virtuelles sans coût supplémentaire. Pour bénéficier de l’évaluation gratuite, un client ne doit pas nécessairement être un client Azure existant. Pour plus d’informations, consultez [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Version d'évaluation | Cette option permet à vos clients d’évaluer des machines virtuelles sans coût supplémentaire. Pour bénéficier de l’évaluation gratuite, un client ne doit pas nécessairement être un client Azure existant. Pour plus d’informations, consultez [Qu’est-ce qu’une version d’évaluation ?](./what-is-test-drive.md) |
 | BYOL | L’option BYOL (avec apport de sa propre licence) permet à vos clients d’intégrer des licences logicielles existantes à Azure.\* |
 | Basés sur l’utilisation | Également appelée paiement à l’utilisation, cette option permet à vos clients de payer par heure. |
 | Démonstration interactive  | Proposez à vos clients une expérience guidée de votre solution à l’aide d’une démonstration interactive. L’avantage de celle-ci est qu’elle vous permet de proposer une expérience d’évaluation sans devoir effectuer une configuration compliquée de votre solution complexe. |
@@ -119,17 +119,17 @@ Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou apr�
 
 Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un contrat Standard que vous pouvez utiliser pour vos offres dans la place de marché commerciale. Lorsque vous proposez votre logiciel dans le cadre du contrat standard, les clients ne doivent lire et accepter ce contrat qu’une seule fois, et vous n’avez pas besoin d’élaborer des conditions générales personnalisées.
 
-Si vous choisissez d’utiliser le contrat standard, vous avez la possibilité d’ajouter à celui-ci des conditions d’avenant universel et jusqu’à 10 avenants personnalisés. Vous pouvez également utiliser vos propres conditions générales à la place du contrat standard. Vous devez gérer ces détails dans la page **Propriétés** . Pour plus d’informations, consultez [Contrat Standard pour la place de marché commerciale de Microsoft](standard-contract.md).
+Si vous choisissez d’utiliser le contrat standard, vous avez la possibilité d’ajouter à celui-ci des conditions d’avenant universel et jusqu’à 10 avenants personnalisés. Vous pouvez également utiliser vos propres conditions générales à la place du contrat standard. Vous devez gérer ces détails dans la page **Propriétés**. Pour plus d’informations, consultez [Contrat Standard pour la place de marché commerciale de Microsoft](standard-contract.md).
 
 > [!NOTE]
 > Après avoir publié une offre à l’aide du contrat standard pour la place de marché commerciale, vous ne pouvez pas utiliser vos propres conditions générales personnalisées. Vous devez faire un choix entre les deux. Vous proposez votre solution avec le contrat standard ou vos propres conditions générales. Si vous souhaitez modifier les conditions du contrat standard, vous le pouvez par le biais d’avenants au contrat standard.
 
 ## <a name="cloud-solution-providers"></a>Fournisseurs de solutions cloud
 
-Lors de la création de votre offre dans l’Espace partenaires, vous verrez l’onglet **Revendre via des fournisseurs de solutions cloud** . Cette option permet aux partenaires qui font partie du programme Fournisseur de solutions cloud (CSP) de Microsoft de revendre votre machine virtuelle dans le cadre d’une offre groupée. Tous les plans BYOL (apportez votre propre licence) rejoignent automatiquement le programme. Vous pouvez également choisir de joindre vos plans non BYOL. Pour plus d’informations, consultez [Programme des fournisseurs de solution cloud](cloud-solution-providers.md). 
+Lors de la création de votre offre dans l’Espace partenaires, vous verrez l’onglet **Revendre via des fournisseurs de solutions cloud**. Cette option permet aux partenaires qui font partie du programme Fournisseur de solutions cloud (CSP) de Microsoft de revendre votre machine virtuelle dans le cadre d’une offre groupée. Tous les plans BYOL (apportez votre propre licence) rejoignent automatiquement le programme. Vous pouvez également choisir de joindre vos plans non BYOL. Pour plus d’informations, consultez [Programme des fournisseurs de solution cloud](cloud-solution-providers.md). 
 
 > [!NOTE]
-> L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible. Pour plus d’informations sur la commercialisation de votre offre via les canaux partenaires CSP de Microsoft, consultez [**Fournisseurs de solutions cloud**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+> L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible. Pour plus d’informations sur la commercialisation de votre offre via les canaux partenaires CSP de Microsoft, consultez [**Fournisseurs de solutions cloud**](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

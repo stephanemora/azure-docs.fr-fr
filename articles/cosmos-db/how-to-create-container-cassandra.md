@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 54b58a07e3d6d4b330b6f97ef0f4a7bdd10293da
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 01030a563c15eee7786058c2eae30d23803dfe42
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490456"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101644"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-cassandra-api"></a>Créer un conteneur dans l’API Cassandra d’Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cet article explique les différentes façons de créer un conteneur dans l’API Cassandra d’Azure Cosmos DB. Il montre comment créer un conteneur à l’aide de Portail Azure, d’Azure CLI, de PowerShell ou des Kits de développement logiciel (SDK) pris en charge. Cet article montre comment créer un conteneur, spécifier la clé de partition et provisionner le débit.
 
@@ -30,13 +31,13 @@ Cet article explique les différentes façons de créer un conteneur dans l’AP
 
 1. [Créez un compte Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle table** . Fournissez ensuite les détails suivants :
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle table**. Fournissez ensuite les détails suivants :
 
    * Indiquez si vous créez un espace de clés ou si vous utilisez une base de données existante.
    * Saisissez le nom de la table.
    * Entrez les propriétés et spécifiez une clé primaire.
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
-   * Sélectionnez **OK** .
+   * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Capture d’écran de l’API Cassandra, boîte de dialogue Ajouter une table":::
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: ec2f2f572caa69a9017bfa6da0de404db5b4fd2a
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 49fa0c849a6b2eab0647922a711c50b4fe762584
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904883"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095660"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>Démarrage rapide : Créer et configurer Azure DDoS Protection Standard à l’aide d’Azure PowerShell
 
@@ -89,11 +89,9 @@ Get-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 Vérifiez que la commande retourne les détails corrects de votre plan de protection DDoS.
 
-Tester à l’aide de simulations
-
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez conserver vos ressources pour le didacticiel suivant. Si vous n’en avez plus besoin, supprimez le groupe de ressources _MyResourceGroup_. Lorsque vous supprimez le groupe de ressources, vous supprimez aussi le plan de protection DDoS et toutes ses ressources associées. 
+Vous pouvez conserver vos ressources pour le tutoriel suivant. Si vous n’en avez plus besoin, supprimez le groupe de ressources _MyResourceGroup_. Lorsque vous supprimez le groupe de ressources, vous supprimez aussi le plan de protection DDoS et toutes ses ressources associées. 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

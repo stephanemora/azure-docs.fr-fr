@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5b2457018daf716052b81a8b99c21e3248f185eb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096782"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Indexation dans Azure Cosmos DB - Vue d’ensemble
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Cet article décrit les meilleures pratiques en matière de sécurité de la base de données et les principales fonctionnalités d’Azure Cosmos DB qui vous aident à prévenir et détecter les violations de la base de données et à y répondre.
 
@@ -79,7 +80,7 @@ Examinons à présent chacune d’entre elles en détail.
 |Comptes administratifs avec des mots de passe forts|Il est difficile de croire que nous devions encore mentionner cette exigence, mais contrairement à certains de nos concurrents, il est impossible d’avoir un compte d’administrateur sans mot de passe dans Azure Cosmos DB.<br><br> La sécurité via TLS et l’authentification basée sur un secret HMAC sont intégrées par défaut.|
 |Certifications de sécurité et de protection des données| Pour obtenir la toute dernière liste de certifications, consultez le [site de conformité Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) général, ainsi que le [document dédié à la conformité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) le plus récent, contenant toutes les certifications (recherchez Cosmos). Pour obtenir des informations plus ciblées, lisez l’article intitulé [Azure #CosmosDB: Secure, private, compliant] du 25 avril 2018 qui traite des normes SOCS 1/2 Type 2, HITRUST, PCI DSS niveau 1, ISO 27001, HIPAA, FedRAMP High et de nombreuses autres certifications.
 
-La capture d’écran suivante montre comment utiliser l’enregistrement d’audit et les journaux d’activité pour surveiller votre compte : :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Responsabilités du client et du fournisseur de base de données":::
+La capture d’écran suivante montre comment utiliser l’enregistrement d’audit et les journaux d’activité pour surveiller votre compte : :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Journaux d’activité pour Azure Cosmos DB":::
 
 <a id="primary-keys"></a>
 
@@ -98,7 +99,7 @@ Outre les deux clés primaires du compte Azure Cosmos DB, il existe deux clés e
 
 Les clés primaire, secondaire, en lecture seule, et en lecture et en écriture peuvent être récupérées et régénérées à l’aide du Portail Azure. Pour connaître la procédure, consultez [Affichage, copie et régénération des clés d’accès](manage-with-cli.md#regenerate-account-key).
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Responsabilités du client et du fournisseur de base de données":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

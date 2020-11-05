@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196437"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129726"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 
-Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement par nature, utilisé pour effectuer des recherches ou pour augmenter vos flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) dans votre requête. 
+Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement par nature, utilisé pour effectuer des recherches ou pour augmenter vos flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](/stream-analytics-query/reference-data-join-azure-stream-analytics) dans votre requête. 
 
 ## <a name="example"></a>Exemple  
 Vous pouvez avoir un flux d’événements en temps réel généré quand les voitures passent un poste de péage. Le poste de péage peut capturer la plaque de licence en temps réel et associer un jeu de données statique qui contient les détails de l’inscription pour identifier les plaques de licence qui ont expiré.  
@@ -96,7 +96,7 @@ Avec l’option de requête delta, Stream Analytics exécute la requête de capt
 
 Pour configurer vos données de référence SQL Database, vous devez d'abord créer une entrée **Données de référence**. Le tableau ci-dessous explique chaque propriété que vous devez fournir lors de la création de l’entrée des données de référence avec sa description. Pour plus d'informations, consultez [Utiliser les données de référence d'une instance de SQL Database pour une tâche Azure Stream Analytics](sql-reference-data.md).
 
-Vous pouvez utiliser [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) comme entrée de données de référence. Vous devez [configurer un point de terminaison public dans SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure), puis configurer manuellement les paramètres suivants dans Azure Stream Analytics. Une machine virtuelle Azure exécutant SQL Server auquel une base de données est attachée est également prise en charge en configurant manuellement les paramètres ci-dessous.
+Vous pouvez utiliser [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) comme entrée de données de référence. Vous devez [configurer un point de terminaison public dans SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md), puis configurer manuellement les paramètres suivants dans Azure Stream Analytics. Une machine virtuelle Azure exécutant SQL Server auquel une base de données est attachée est également prise en charge en configurant manuellement les paramètres ci-dessous.
 
 |**Nom de la propriété**|**Description**  |
 |---------|---------|
@@ -146,6 +146,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

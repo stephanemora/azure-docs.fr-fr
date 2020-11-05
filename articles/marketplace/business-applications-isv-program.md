@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 4c4455d62f32acb1cfebde8f5e4d97de5bda17c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463225"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126734"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -25,7 +25,7 @@ Pour s’inscrire et profiter de tous les avantages techniques, marketing et com
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Configurer votre compte Espace partenaires Microsoft
 
-Pour configurer et gérer votre compte pour le programme ISV Connect, effectuez les étapes de l’article : [Créer un compte Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Cet article fournit toutes les étapes permettant de créer un nouveau compte, ainsi que des informations sur l’ajout de nouveaux éditeurs au programme Place de marché commerciale.
+Pour configurer et gérer votre compte pour le programme ISV Connect, effectuez les étapes de l’article : [Créer un compte Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/create-account.md). Cet article fournit toutes les étapes permettant de créer un nouveau compte, ainsi que des informations sur l’ajout de nouveaux éditeurs au programme Place de marché commerciale.
 
 > [!NOTE]
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires.
@@ -38,10 +38,10 @@ Pour participer à ce programme, vous devez passer en revue et accepter les term
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à signer des contrats juridiques.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
-1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur** .
-1. Sélectionnez **Contrats** .
+1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur**.
+1. Sélectionnez **Contrats**.
 1. Sélectionnez le lien de la version et affichez l'accord.
-1. Pour accepter les termes du contrat, sélectionnez **Accepter le contrat** .
+1. Pour accepter les termes du contrat, sélectionnez **Accepter le contrat**.
 
 ## <a name="set-up-your-billing-information"></a>Configurer vos informations de facturation
 
@@ -51,11 +51,11 @@ Définissez vos informations de facturation pour le programme Business Applicati
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à mettre à jour vos informations de facturation.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
-1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur** .
-1. Sous **Compte** , sélectionnez **Profil de facturation** .
+1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur**.
+1. Sous **Compte** , sélectionnez **Profil de facturation**.
 1. Passez en revue les coordonnées du contact principal et les informations de facturation fournies par votre entité juridique, et faites les mises à jour nécessaires.
 1. Le cas échéant, spécifiez vos paramètres d’identifiant fiscal / de n° de TVA.
-1. Pour enregistrer vos modifications, cliquez sur **Enregistrer** .
+1. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
 
 > [!NOTE]
 > Vous pouvez mettre à jour votre profil de facturation à tout moment. Toutefois, le *nom de l’entreprise* et le *pays* de l’adresse de facturation ne peuvent pas être modifiés ultérieurement.
@@ -66,11 +66,11 @@ Une fois que vous avez effectué les étapes ci-dessus, vos applications Dynamic
 
 La dernière étape de l’inscription au programme Business Applications ISV Connect consiste à publier et certifier vos applications existantes. Pour publier et certifier votre application sur AppSource, suivez le lien approprié :
 
-- [Pour Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
-- [Pour Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [Pour Dynamics 365 Customer Engagement](/powerapps/developer/common-data-service/publish-app-appsource) 
+- [Pour Dynamics 365 for Finance and Operations](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> Vous devez recertifier vos applications tous les six mois pour les maintenir en ligne sur AppSource. Pour plus d’informations, consultez la stratégie de la place de marché [Stratégies de certification de la Place de marché commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies).
+> Vous devez recertifier vos applications tous les six mois pour les maintenir en ligne sur AppSource. Pour plus d’informations, consultez la stratégie de la place de marché [Stratégies de certification de la Place de marché commerciale](/legal/marketplace/certification-policies).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

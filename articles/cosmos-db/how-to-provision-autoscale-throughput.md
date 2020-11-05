@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100114"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur dans Azure Cosmos DB - API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur (collection, graphique ou table) dans l’API SQL Azure Cosmos DB. Vous pouvez activer la mise à l’échelle automatique sur un seul conteneur ou approvisionner le débit avec mise à l’échelle automatique sur une base de données et le partager entre tous les conteneurs de cette base de données.
 
@@ -27,13 +28,13 @@ Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou à l’ [explorateur Azure Cosmos DB.](https://cosmos.azure.com/)
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données** .
+1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
 
-1. Sélectionnez **Nouveau conteneur** . Entrez un nom pour votre base de données, conteneur, ainsi qu'une clé de partition. Sous **Débit** , sélectionnez l’option **Mise à l’échelle automatique** et définissez le [débit maximal (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) auquel vous souhaitez que la base de données ou le conteneur soit mis à l’échelle.
+1. Sélectionnez **Nouveau conteneur**. Entrez un nom pour votre base de données, conteneur, ainsi qu'une clé de partition. Sous **Débit** , sélectionnez l’option **Mise à l’échelle automatique** et définissez le [débit maximal (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) auquel vous souhaitez que la base de données ou le conteneur soit mis à l’échelle.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Création d’un conteneur et configuration du débit provisionné en mode de mise à l’échelle automatique":::
 
-1. Sélectionnez **OK** .
+1. Sélectionnez **OK**.
 
 Pour configurer la mise à l’échelle automatique sur une base de données à débit partagé, sélectionnez l’option **Approvisionner le débit d’une base de données** lors de la création d’une base de données. 
 
@@ -44,13 +45,13 @@ Pour configurer la mise à l’échelle automatique sur une base de données à 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou à l’ [explorateur Azure Cosmos DB.](https://cosmos.azure.com/)
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données** .
+1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
 
 1. Sélectionnez **Mise à l’échelle et paramètres** pour votre conteneur ou **Mise à l’échelle** pour votre base de données.
 
-1. Sous **Mise à l’échelle** , sélectionnez l’option **Mise à l’échelle automatique** , puis **Enregistrer** .
+1. Sous **Mise à l’échelle** , sélectionnez l’option **Mise à l’échelle automatique** , puis **Enregistrer**.
 
-   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Création d’un conteneur et configuration du débit provisionné en mode de mise à l’échelle automatique":::
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Activation de la mise à l’échelle automatique sur un conteneur existant":::
 
 > [!NOTE]
 > Lorsque vous activez la mise à l’échelle automatique sur une base de données ou un conteneur existant, la valeur de départ pour le nombre maximum de RU/s est déterminée par le système, en fonction de vos paramètres de débit approvisionné manuellement et de votre stockage. Une fois l’opération terminée, vous pouvez modifier le nombre maximal de RU/s si nécessaire. [En savoir plus.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 

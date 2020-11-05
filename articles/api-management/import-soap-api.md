@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 58f2a102349baff0b70e2a0c9f72c8a4e0e44046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81ded79ee72fb7c2d89898595602cb3e6d7ae5e2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626817"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146975"
 ---
 # <a name="import-soap-api"></a>Importer une API SOAP
 
@@ -42,7 +42,7 @@ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion d
 2. Sélectionnez **WSDL** dans la liste **Ajouter une nouvelle API**.
 
     ![API SOAP](./media/import-soap-api/wsdl-api.png)
-3. Dans **Spécification WSDL**, entrez l’URL correspondant à votre API SOAP.
+3. Dans **Spécification WSDL** , entrez l’URL correspondant à votre API SOAP.
 4. La case d’option **Requête SOAP directe** est sélectionnée par défaut. Avec cette sélection, l’API va être exposée en tant que SOAP. Le consommateur doit utiliser des règles SOAP. Si vous souhaitez « convertir l’API pour REST », suivez les étapes de [Import a SOAP API and convert to REST](restify-soap-api.md) (Importer une API SOAP et la convertir pour REST).
 
     ![Capture d’écran montrant la boîte de dialogue Créer à partir de WSDL dans laquelle vous pouvez entrer une spécification WSDL.](./media/import-soap-api/pass-through.png)

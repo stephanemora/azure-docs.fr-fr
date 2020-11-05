@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: d04f95372eb050c3eea08d50d4c9bdbd3a0232b1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c277525927f7f74f281220bf5e593e98509d8237
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126683"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 
@@ -204,4 +204,4 @@ Pour plus d’informations sur la façon d’entrer les prix de certains types d
 - [Créer une offre de module IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
 - [Créer une offre de service managé](partner-center-portal/create-new-managed-service-offer.md)
 - [Créer une application dans Power BI](partner-center-portal/create-power-bi-app-offer.md)
-- [Créer une offre SaaS](partner-center-portal/create-new-saas-offer.md)
+- [Créer une offre SaaS](./create-new-saas-offer.md)

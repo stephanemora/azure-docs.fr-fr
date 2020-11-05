@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 34d64d70c657712bb44aa6331b53f014349a0dda
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129294"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Création d’une machine virtuelle à l’aide d’une base approuvée
 
@@ -32,12 +32,12 @@ Sélectionnez l’une des images Windows ou Linux suivantes comme base.
 
 ### <a name="linux"></a>Linux
 
-Azure offre toute une gamme de distributions de Linux approuvées. Pour obtenir la liste actuelle, consultez [Linux sur les distributions approuvées par Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Azure offre toute une gamme de distributions de Linux approuvées. Pour obtenir la liste actuelle, consultez [Linux sur les distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md).
 
 ## <a name="create-vm-on-the-azure-portal"></a>Créer une machine virtuelle sur le portail Azure
 
 1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
-2. Sélectionnez **Machines virtuelles** .
+2. Sélectionnez **Machines virtuelles**.
 3. Sélectionnez **+ ajouter**  pour ouvrir l’écran **Créer une machine virtuelle** .
 4. Sélectionnez l’image dans la liste déroulante ou sélectionnez **Parcourir toutes les images publiques et privées** pour rechercher ou parcourir toutes les images de machines virtuelles disponibles.
 5. Pour créer une machine virtuelle **Gen 2** , accédez à l’onglet **avancé** et sélectionnez l’option **Gen 2** .
@@ -46,12 +46,12 @@ Azure offre toute une gamme de distributions de Linux approuvées. Pour obtenir 
 
 6. Sélectionnez la taille de la machine virtuelle à déployer.
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Sélectionnez GEN 1 ou Gen 2.":::
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Sélectionnez une taille de machine virtuelle recommandée pour l’image sélectionnée.":::
 
 7. Fournissez les autres informations requises pour créer la machine virtuelle.
-8. Sélectionnez **Vérifier + créer** pour passer en revue vos choix. Lorsque le message **Validation réussie** s’affiche, sélectionnez **Créer** .
+8. Sélectionnez **Vérifier + créer** pour passer en revue vos choix. Lorsque le message **Validation réussie** s’affiche, sélectionnez **Créer**.
 
-Azure commence le provisionnement de la machine virtuelle que vous avez spécifiée. Suivez sa progression en sélectionnant l’onglet **Machines virtuelles** dans le menu de gauche. Une fois créé, l’état de la machine virtuelle passe à **En cours d’exécution** .
+Azure commence le provisionnement de la machine virtuelle que vous avez spécifiée. Suivez sa progression en sélectionnant l’onglet **Machines virtuelles** dans le menu de gauche. Une fois créé, l’état de la machine virtuelle passe à **En cours d’exécution**.
 
 
 ## <a name="configure-the-vm"></a>Configurer la machine virtuelle

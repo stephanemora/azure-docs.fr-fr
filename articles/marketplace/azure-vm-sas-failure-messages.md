@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 7b91cf3d49d88501fb908d157892ec3eb24bee6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1c89887117c10ca77ec4c04b3adbe3e2d9923479
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126836"
 ---
 # <a name="virtual-machine-sas-failure-messages"></a>Messages d’échec SAS de machine virtuelle
 
@@ -29,7 +29,7 @@ Voici certains des problèmes couramment rencontrés dans le cadre de l’utilis
 | Les paramètres « st » et « se » de l’URI SAS ne présentent pas une spécification de date-heure complète | `Failure: Copying Images. Not able to download blob due to incorrect SAS Uri.` | Les paramètres **Date de début** et **Date de fin** (sous-chaînes `st` et `se`) de l’URI SAS doivent présenter un format DateHeure complet, tel que `11-02-2017T00:00:00Z`. Les versions raccourcies ne sont pas valides (certaines commandes de l’interface de ligne de commande Azure peuvent générer des valeurs raccourcies par défaut). |
 |  |  |  |
 
-Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé (SAS)](../storage/common/storage-sas-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

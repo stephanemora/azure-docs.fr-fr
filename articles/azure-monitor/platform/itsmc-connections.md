@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677160"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089013"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](./itsmc-overview.md).
@@ -36,7 +36,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 
 Vérifiez que les prérequis suivants sont remplis :
 
-- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#add-it-service-management-connector).
 - L’application web Service Manager (application web) est déployée et configurée. Pour plus d’informations sur l’application web, cliquez [ici](#create-and-deploy-service-manager-web-app-service).
 - Connexion hybride créée et configurée. Plus d’informations : [Configurez la connexion hybride](#configure-the-hybrid-connection).
 - Versions prises en charge de Service Manager :  2012 R2 ou 2016.
@@ -184,7 +184,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 
 ### <a name="prerequisites"></a>Prérequis
 Vérifiez que les prérequis suivants sont remplis :
-- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#add-it-service-management-connector).
 - Versions prises en charge par ServiceNow : Orlando, New York, Madrid, Londres, Kingston, Jakarta, Istanbul, Helsinki, Genève.
 > [!NOTE]
 > Le connecteur ITSM prend en charge uniquement l’offre SaaS officielle de Service Now. Les déploiements privés de Service Now ne sont pas pris en charge. 
@@ -316,7 +316,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 Vérifiez que les prérequis suivants sont remplis :
 
 
-- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#add-it-service-management-connector).
 - L’application Provance doit être inscrite auprès d’Azure AD, et l’ID client est mis à disposition. Pour plus d’informations, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../../app-service/configure-authentication-provider-aad.md).
 
 - Rôle utilisateur :  Administrateur.
@@ -373,7 +373,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 
 Vérifiez que les prérequis suivants sont remplis :
 
-- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#add-it-service-management-connector).
 - ID client généré. Plus d’informations : [Générer un ID client pour Cherwell](#generate-client-id-for-cherwell).
 - Rôle utilisateur :  Administrateur.
 

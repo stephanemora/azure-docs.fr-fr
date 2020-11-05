@@ -5,12 +5,12 @@ description: Découvrir comment créer un volume persistant de manière dynamiqu
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: ad252118a56402386691d1cdf7d975ef69ec45ad
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 08752f8aaa76d83e13eeea86db3048a6d29a4d99
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900452"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126394"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant
 
-Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure. Le code YAML suivant permet de créer une revendication de volume persistant d’une taille de *5 Go* avec un accès *ReadWriteMany* . Pour plus d’informations sur les modes d’accès, consultez la documentation [Kubernetes sur les volumes persistants][access-modes].
+Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure. Le code YAML suivant permet de créer une revendication de volume persistant d’une taille de *5 Go* avec un accès *ReadWriteMany*. Pour plus d’informations sur les modes d’accès, consultez la documentation [Kubernetes sur les volumes persistants][access-modes].
 
 Maintenant, créez un fichier nommé `azure-file-pvc.yaml`, et copiez-y le code YAML suivant. Vérifiez que *storageClassName* correspond à la classe de stockage créée à la dernière étape :
 
@@ -86,7 +86,7 @@ spec:
 ```
 
 > [!NOTE]
-> Si vous utilisez la référence SKU *Premium_LRS* pour votre classe de stockage, la valeur minimale de *stockage* doit être *100 Gi* .
+> Si vous utilisez la référence SKU *Premium_LRS* pour votre classe de stockage, la valeur minimale de *stockage* doit être *100 Gi*.
 
 Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] :
 
@@ -105,7 +105,7 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>Utiliser le volume persistant
 
-Le code YAML ci-après crée un pod qui utilise la revendication de volume persistant *my-azurefile* pour monter le partage de fichiers Azure dans le chemin */mnt/azure* . Pour les conteneurs Windows Server, spécifiez un *chemin de montage* en utilisant la convention de chemin Windows, par exemple, *'D:'* .
+Le code YAML ci-après crée un pod qui utilise la revendication de volume persistant *my-azurefile* pour monter le partage de fichiers Azure dans le chemin */mnt/azure*. Pour les conteneurs Windows Server, spécifiez un *chemin de montage* en utilisant la convention de chemin Windows, par exemple, *'D:'* .
 
 Créez un fichier nommé `azure-pvc-files.yaml` et copiez-y le code YAML suivant. Vérifiez que *claimName* correspond à la revendication de volume persistant créée à la dernière étape.
 
@@ -140,13 +140,13 @@ Créez le pod avec la commande [kubectl apply][kubectl-apply].
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Vous disposez maintenant d’un pod en cours d’exécution avec le partage Azure Files monté dans le répertoire */mnt/azure* . Cette configuration peut s’afficher lors de l’inspection de votre pod par le biais de `kubectl describe pod mypod`. La sortie de l’exemple condensé suivant montre le volume monté dans le conteneur :
+Vous disposez maintenant d’un pod en cours d’exécution avec le partage Azure Files monté dans le répertoire */mnt/azure*. Cette configuration peut s’afficher lors de l’inspection de votre pod par le biais de `kubectl describe pod mypod`. La sortie de l’exemple condensé suivant montre le volume monté dans le conteneur :
 
 ```
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Fri, 01 Mar 2019 23:56:16 +0000

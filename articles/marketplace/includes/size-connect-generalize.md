@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129276"
 ---
 ## <a name="generalize-the-image"></a>Généraliser l’image
 
@@ -20,7 +20,7 @@ Toutes les images dans Azure Marketplace doivent être réutilisables de façon 
 
 ### <a name="for-windows"></a>Pour Windows
 
-Les disques de système d’exploitation Windows sont généralisés à l’aide de l’outil [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si vous mettez à jour ou reconfigurez le système d’exploitation par la suite, vous devrez réexécuter Sysprep.
+Les disques de système d’exploitation Windows sont généralisés à l’aide de l’outil [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si vous mettez à jour ou reconfigurez le système d’exploitation par la suite, vous devrez réexécuter Sysprep.
 
 > [!WARNING]
 > Après l’exécution de Sysprep, éteignez la machine virtuelle jusqu’à son déploiement, car les mises à jour peuvent s’exécuter automatiquement. Cet arrêt évite que des mises à jour ultérieures apportent des modifications propres à une instance au système d’exploitation ou aux services installés. Pour plus d’informations sur l’exécution de sysprep, consultez [Étapes de généralisation d’un disque dur virtuel](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -41,8 +41,8 @@ Le processus suivant généralise une machine virtuelle Linux et la redéploie s
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Effectuer une capture instantanée du disque de la machine virtuelle
 
 1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
-2. À partir du coin supérieur gauche, sélectionnez **Créer une ressource** , puis recherchez et sélectionnez **Instantané** .
-3. Dans le panneau Instantané, sélectionnez **Créer** .
+2. À partir du coin supérieur gauche, sélectionnez **Créer une ressource** , puis recherchez et sélectionnez **Instantané**.
+3. Dans le panneau Instantané, sélectionnez **Créer**.
 4. Entrez un **nom** pour la capture instantanée.
 5. Sélectionnez un groupe de ressources existant ou entrez le nom d’un nouveau.
 6. Dans **Disque source** , sélectionnez le disque managé dont vous souhaitez obtenir une capture instantanée.

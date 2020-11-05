@@ -1,17 +1,17 @@
 ---
 title: Guide pratique pour garantir la validation du chiffrement des données Azure Database pour MySQL
 description: Découvrez comment valider le chiffrement des données Azure Database pour MySQL à l’aide de la clé gérée par le client.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905790"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241070"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validation du chiffrement des données pour Azure Database pour MySQL
 
@@ -27,13 +27,13 @@ Cet article vous permet de vérifier que le chiffrement des données à l’aide
     * Sélectionnez la clé utilisée pour le chiffrement du serveur.
     * Définissez l’état de la clé **Activé** sur **Non**.
   
-       Après un certain temps (**environ 15 minutes**), l’**État** du serveur Azure Database pour MySQL doit être **Inaccessible**. Toutes les opérations d’E/S effectuées sur le serveur échouent, ce qui confirme que le serveur est effectivement chiffré avec la clé du client et que la clé n’est pas valide.
+       Après un certain temps ( **environ 15 minutes** ), l’ **État** du serveur Azure Database pour MySQL doit être **Inaccessible**. Toutes les opérations d’E/S effectuées sur le serveur échouent, ce qui confirme que le serveur est effectivement chiffré avec la clé du client et que la clé n’est pas valide.
     
-       Pour que le serveur soit **Disponible**, vous pouvez revalider la clé. 
+       Pour que le serveur soit **Disponible** , vous pouvez revalider la clé. 
     
     * Définissez l’état de la clé dans le coffre de clés sur **Oui**.
     * Dans la section **Chiffrement des données** du serveur, sélectionnez **Revalider la clé**.
-    * Une fois la clé revalidée, l’**État** du serveur passe à **Disponible**.
+    * Une fois la clé revalidée, l’ **État** du serveur passe à **Disponible**.
 
 2. Sur le portail Azure, si vous pouvez vous assurer que la clé de chiffrement est définie, les données sont chiffrées à l’aide de la clé du client utilisée dans le portail Azure.
 

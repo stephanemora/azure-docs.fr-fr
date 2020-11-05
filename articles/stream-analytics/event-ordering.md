@@ -7,22 +7,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87901689"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130661"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuration de stratégies de classement des événements pour Azure Stream Analytics
 
-Cet article explique comment configurer et utiliser des stratégies de classement des événements tardifs et désordonnés dans Azure Stream Analytics. Ces stratégies sont appliquées uniquement lorsque vous utilisez la clause [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête, et ne sont appliquées que pour des sources d’entrée cloud.
+Cet article explique comment configurer et utiliser des stratégies de classement des événements tardifs et désordonnés dans Azure Stream Analytics. Ces stratégies sont appliquées uniquement lorsque vous utilisez la clause [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête, et ne sont appliquées que pour des sources d’entrée cloud.
 
 ## <a name="event-time-and-arrival-time"></a>Heure de l’événement et heure d’arrivée
 
-Votre tâche Stream Analytics peut traiter les événements en fonction de *heure de l’événement* ou de l’*heure d’arrivée*. L’**heure de l’application/événement** est l’horodatage présent dans la charge utile d’événement (moment auquel l’événement a été généré). L’**heure d’arrivée** est l’horodatage du moment où l’événement a été reçu à la source d’entrée (Event Hubs/IoT Hub/Stockage Blob). 
+Votre tâche Stream Analytics peut traiter les événements en fonction de *heure de l’événement* ou de l’ *heure d’arrivée*. L’ **heure de l’application/événement** est l’horodatage présent dans la charge utile d’événement (moment auquel l’événement a été généré). L’ **heure d’arrivée** est l’horodatage du moment où l’événement a été reçu à la source d’entrée (Event Hubs/IoT Hub/Stockage Blob). 
 
-Par défaut, Stream Analytics traite les événements par *heure d’arrivée*, mais vous pouvez choisir de les traiter par *heure d’événement* en utilisant la clause [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête. Les stratégies d’arrivée tardive et dans le désordre s’appliquent uniquement si vous traitez les événements en fonction de l’heure d’événement. Tenez compte des exigences de latence et d’exactitude au moment de configurer ces paramètres pour votre scénario. 
+Par défaut, Stream Analytics traite les événements par *heure d’arrivée* , mais vous pouvez choisir de les traiter par *heure d’événement* en utilisant la clause [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête. Les stratégies d’arrivée tardive et dans le désordre s’appliquent uniquement si vous traitez les événements en fonction de l’heure d’événement. Tenez compte des exigences de latence et d’exactitude au moment de configurer ces paramètres pour votre scénario. 
 
 ## <a name="what-is-late-arrival-policy"></a>Qu’est-ce qu’une stratégie d’arrivée tardive ?
 
@@ -83,4 +83,4 @@ Quand une partition n’a pas de données pendant une durée supérieure au seui
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Considérations relatives à la gestion du temps](stream-analytics-time-handling.md)
-* [Mesures disponibles dans Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [Mesures disponibles dans Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

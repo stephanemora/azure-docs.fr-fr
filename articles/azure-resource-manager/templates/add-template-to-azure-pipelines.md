@@ -3,12 +3,12 @@ title: CI/CD avec Azure Pipelines et des modèles
 description: Décrit comment configurer l’intégration continue dans Azure Pipelines à l’aide de modèles Azure Resource Manager. Montre comment utiliser un script PowerShell ou copier des fichiers vers un emplacement intermédiaire et le déployer à partir de là.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653398"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233812"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Intégrer des modèles ARM avec Azure Pipelines
 
@@ -70,7 +70,7 @@ steps:
   inputs:
     azureSubscription: 'script-connection'
     ScriptType: 'FilePath'
-    ScriptPath: './Deploy-Template.ps1'
+    ScriptPath: './Deploy-AzTemplate.ps1'
     ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
     azurePowerShellVersion: 'LatestVersion'
 ```
@@ -101,7 +101,7 @@ Dans `ScriptArguments`, fournissez les paramètres nécessaires à votre script.
 ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Lorsque vous sélectionnez **Enregistrer**, le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
+Lorsque vous sélectionnez **Enregistrer** , le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
 
 ![Afficher les résultats](./media/add-template-to-azure-pipelines/view-results.png)
 
@@ -226,7 +226,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-Lorsque vous sélectionnez **Enregistrer**, le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
+Lorsque vous sélectionnez **Enregistrer** , le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

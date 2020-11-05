@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128995"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 
@@ -49,7 +49,7 @@ Le tableau suivant présente les options de publication disponibles pour les typ
 
 ## <a name="choose-a-listing-option"></a>Choisir une option de listing
 
-Les options de listing disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Notez les options de listing qui correspondent à l’option de publication :
+Les options de listing disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](./gtm-your-marketplace-benefits.md). Notez les options de listing qui correspondent à l’option de publication :
 
 | **Option de publication**    | **Description**  |
 | :------------------- | :-------------------|

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710632"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131511"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Créer une offre Dynamics 365 for Operations
 
@@ -177,7 +177,7 @@ Entrez l’URL du lien de la politique de confidentialité de votre organisation
 
 Dans cette section, indiquez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact de support** et d’un **contact d’ingénierie**. Ces informations ne sont pas présentées aux clients, mais seront disponibles pour Microsoft et pourront être fournies aux partenaires CSP.
 
-Dans la section **Contact de support**, indiquez **l’URL du support** où les partenaires CSP peuvent trouver l’assistance pour votre offre.
+Dans la section **Contact de support** , indiquez **l’URL du support** où les partenaires CSP peuvent trouver l’assistance pour votre offre.
 
 ### <a name="supporting-documents"></a>Documents de soutien
 
@@ -277,7 +277,7 @@ Cette page vous permet de fournir des informations supplémentaires sur votre of
 
 ### <a name="validation-assets"></a>Ressources de validation
 
-Chargez un [rapport d’analyse de la personnalisation (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) dans cette section. Ce rapport est généré en analysant vos modèles de personnalisation et d’extension, en fonction d’un ensemble prédéfini de règles de meilleures pratiques.
+Chargez un [rapport d’analyse de la personnalisation (CAR)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) dans cette section. Ce rapport est généré en analysant vos modèles de personnalisation et d’extension, en fonction d’un ensemble prédéfini de règles de meilleures pratiques.
 
 Ce fichier doit être au format .xls ou. xlsx. Si vous avez plus d’un rapport, vous pouvez télécharger un fichier .zip contenant tous les rapports.
 
@@ -300,10 +300,10 @@ Une fois que vous avez complété toutes les sections obligatoires de l’offre,
 S’il s’agit de votre première publication de cette offre, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre.
-    - **Non démarrée** – La section n’a pas encore été modifiée et doit être complétée.
+    - **Non démarrée**  – La section n’a pas encore été modifiée et doit être complétée.
     - **Incomplète** – La section comporte des erreurs qui doivent être corrigées ou nécessite un complément d’informations. Revenir à la ou les sections et les mettre à jour.
     - **Complète** – La section est complète, toutes les données obligatoires ont été fournies et aucune erreur n’est présente. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
-- Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application. Pour plus d’informations sur les instructions de test et sur la réalisation d’une première publication, consultez [Validation fonctionnelle d’AppSource Dynamics 365 Finance and Operations](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
+- Dans la sections **Notes pour la certification** , fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application. Pour plus d’informations sur les instructions de test et sur la réalisation d’une première publication, consultez [Validation fonctionnelle d’AppSource Dynamics 365 Finance and Operations](../dynamics-365-finance-operations-functional-validation.md).
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail pour vous faire savoir si une version d’essai de l’offre est disponible pour vérification et approbation. Revenez à l’Espace partenaires et sélectionnez **Go-Live** pour l’offre de publication sur le public.
 
 ## <a name="next-step"></a>Étape suivante

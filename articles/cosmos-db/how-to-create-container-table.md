@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491136"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101576"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Créer un conteneur dans l’API Table Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Cet article explique les différentes façons de créer un conteneur dans l’API Table Azure Cosmos DB. Il montre comment créer un conteneur à l’aide de Portail Azure, d’Azure CLI, de PowerShell ou des Kits de développement logiciel (SDK) pris en charge. Cet article montre comment créer un conteneur, spécifier la clé de partition et provisionner le débit.
 
@@ -30,11 +31,11 @@ Cet article explique les différentes façons de créer un conteneur dans l’AP
 
 1. [Créez un compte Azure Cosmos](create-table-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle table** . Fournissez ensuite les détails suivants :
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle table**. Fournissez ensuite les détails suivants :
 
    * Entrez un ID de table.
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
-   * Sélectionnez **OK** .
+   * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Capture d’écran de l’API Table, boîte de dialogue Ajouter une table":::
 

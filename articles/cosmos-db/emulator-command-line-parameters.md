@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096731"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Informations de référence sur la ligne de commande et PowerShell pour l’émulateur Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 L’émulateur Azure Cosmos fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement local. Après avoir [installé l’émulateur](local-emulator.md), vous pouvez le contrôler à l’aide de la ligne de commande et des commandes PowerShell. Cet article explique comment utiliser la ligne de commande et les commandes PowerShell pour démarrer et arrêter ’émulateur, configurer les options et effectuer d’autres opérations. Vous devez exécuter les commandes à partir de l’emplacement d’installation.
 
@@ -126,7 +127,7 @@ L’applet de commande garantit que l’émulateur est arrêté avant d’être 
 
 ## <a name="change-the-number-of-default-containers"></a><a id="set-partitioncount"></a>Modifier le nombre de conteneurs par défaut
 
-Par défaut, vous pouvez créer jusqu’à 25 conteneurs de taille fixe (pris en charge uniquement avec les SDK Azure Cosmos DB), ou cinq conteneurs illimités avec l’émulateur Azure Cosmos. En changeant la valeur **PartitionCount**, vous pouvez créer jusqu’à 250 conteneurs de taille fixe ou 50 conteneurs illimités, ou n’importe quelle combinaison des deux à hauteur de 250 conteneurs de taille fixe au total (sachant qu’un conteneur illimité est égal à cinq conteneurs de taille fixe). Toutefois, il est déconseillé de configurer l’émulateur pour s’exécuter avec plus de 200 conteneurs de taille fixe. En effet, cela ajoute une surcharge aux opérations d’E/S sur le disque, qui entraîne des délais d’attente imprévisibles lors de l’utilisation des API de point de terminaison.
+Par défaut, vous pouvez créer jusqu’à 25 conteneurs de taille fixe (pris en charge uniquement avec les SDK Azure Cosmos DB), ou cinq conteneurs illimités avec l’émulateur Azure Cosmos. En changeant la valeur **PartitionCount** , vous pouvez créer jusqu’à 250 conteneurs de taille fixe ou 50 conteneurs illimités, ou n’importe quelle combinaison des deux à hauteur de 250 conteneurs de taille fixe au total (sachant qu’un conteneur illimité est égal à cinq conteneurs de taille fixe). Toutefois, il est déconseillé de configurer l’émulateur pour s’exécuter avec plus de 200 conteneurs de taille fixe. En effet, cela ajoute une surcharge aux opérations d’E/S sur le disque, qui entraîne des délais d’attente imprévisibles lors de l’utilisation des API de point de terminaison.
 
 Si vous tentez de créer un conteneur après le dépassement du nombre de partitions actuel, l’émulateur lève une exception ServiceUnavailable et affiche un message similaire à celui-ci.
 

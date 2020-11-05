@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892619"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125680"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -50,7 +50,7 @@ Ce type de version d'évaluation n’est pas hébergé par Microsoft. Utilisez-l
 
 - **Durée de la version d’évaluation** (obligatoire) : entrez la durée d’activité de la version d’évaluation, en nombre d’heures. La version d’évaluation se termine automatiquement à la fin de cette période.
 
-- **Nom du groupe de ressources Azure** (obligatoire) : entrez le nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md#resource-groups) dans lequel votre version d’évaluation d’application logique est enregistrée.
+- **Nom du groupe de ressources Azure** (obligatoire) : entrez le nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md#resource-groups) dans lequel votre version d’évaluation d’application logique est enregistrée.
 
 - **Nom de l’application logique Azure** (obligatoire) : entrez le nom de l’application logique qui attribue la version d’évaluation à l’utilisateur. Cette application logique doit être enregistrée dans le groupe de ressources Azure ci-dessus.
 
@@ -60,7 +60,7 @@ Ce type de version d'évaluation n’est pas hébergé par Microsoft. Utilisez-l
 
 Les produits souhaitant afficher un visuel interactif Power BI peuvent utiliser un lien hypertexte pour partager un tableau de bord personnalisé et intégré qui sert de version d’évaluation, sans configuration technique supplémentaire. Il vous suffit de charger votre URL Power BI incorporée.
 
-Pour plus d’informations sur la configuration des applications Power BI, consultez [Que sont les applications Power BI ?](https://docs.microsoft.com/power-bi/service-template-apps-overview)
+Pour plus d’informations sur la configuration des applications Power BI, consultez [Que sont les applications Power BI ?](/power-bi/service-template-apps-overview)
 
 ## <a name="deployment-subscription-details"></a>Détails de l’abonnement de déploiement
 

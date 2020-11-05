@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651154"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131239"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validation fonctionnelle d’AppSource Dynamics 365 Finance and Operations
 
@@ -22,14 +22,14 @@ Pour une première publication dans l’[Espace partenaires](https://partner.mic
 - Présenter des captures d’écran montrant l’environnement LCS ([Lifecycle Services](https://lcs.dynamics.com/)) de la solution
 
 > [!NOTE]
-> Les publications de recertification ultérieures ne nécessitent pas de démonstration. Pour plus d’informations, consultez le [document sur les stratégies AppSource](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
+> Les publications de recertification ultérieures ne nécessitent pas de démonstration. Pour plus d’informations, consultez le [document sur les stratégies AppSource](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
 
 ## <a name="how-to-validate"></a>Processus de validation
 
 Deux options sont disponibles pour la validation fonctionnelle :
 
 - Participer à une conférence téléphonique de 30 minutes pendant les heures de bureau (Heure standard du Pacifique, PST), afin de nous montrer et d’enregistrer l’environnement et la solution [LCS](https://lcs.dynamics.com/), ou
-- Dans l’Espace partenaires, accéder à [Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Vue d’ensemble**, puis charger l’URL d’une vidéo de démonstration et des captures d’écran LCS sous l’onglet Contenu supplémentaire de l’offre.
+- Dans l’Espace partenaires, accéder à [Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Vue d’ensemble** , puis charger l’URL d’une vidéo de démonstration et des captures d’écran LCS sous l’onglet Contenu supplémentaire de l’offre.
 
 L’équipe de certification Microsoft examinera la vidéo et les fichiers, puis elle approuvera la solution ou vous enverra des e-mails concernant les étapes à suivre.
 
@@ -50,7 +50,7 @@ Pour planifier un appel de révision finale, envoyez un e-mail à l’adresse [a
 
 2. Prenez les captures d’écran suivantes de l’environnement [LCS](https://lcs.dynamics.com/), qui correspondent à l’offre ou à la solution que vous souhaitez publier. Elles doivent être suffisamment nettes pour que l’équipe de certification puisse en lire le texte. Enregistrez les captures d’écran au format JPG. Plutôt que de fournir des captures d’écran, vous pouvez autoriser [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) à accéder à votre environnement LCS pour qu’ils puissent vérifier la configuration.
 
-    1. Accédez à **LCS** > **Concepteur de processus d’entreprise** > **Bibliothèque de projets**. Prenez des captures d’écran de toutes les étapes du processus. Incluez les colonnes **Diagrammes** et **Révisé**, comme illustré ici :
+    1. Accédez à **LCS** > **Concepteur de processus d’entreprise** > **Bibliothèque de projets**. Prenez des captures d’écran de toutes les étapes du processus. Incluez les colonnes **Diagrammes** et **Révisé** , comme illustré ici :
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Affiche la fenêtre de la bibliothèque de projets.":::
 
@@ -65,7 +65,7 @@ Pour planifier un appel de révision finale, envoyez un e-mail à l’adresse [a
     | <ul><li>Modèle de rapport Power BI</li><li>Artefact BPM</li></ul><br>Les artefacts ne sont pas nécessaires dans la section **Power BI**. | [![Contenu du package - Capture 3](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Traiter le package de données</li><li>Contrat de licence et politique de confidentialité de la solution</li></ul><br>Dans les offres Finance and Operations, les sections **Configuration GER** et **Modèle de rapport Power BI** sont facultatives. | [![Contenu du package - Capture 4](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    Pour en savoir plus sur chaque section du portail LCS, consultez le [Guide de l’utilisateur LCS](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
+    Pour en savoir plus sur chaque section du portail LCS, consultez le [Guide de l’utilisateur LCS](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
 3. Chargez le package dans l’Espace partenaires.
 
@@ -76,4 +76,4 @@ Pour planifier un appel de révision finale, envoyez un e-mail à l’adresse [a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la création d’une offre, consultez : [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+Pour en savoir plus sur la création d’une offre, consultez : [Créer une offre Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md).

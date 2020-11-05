@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9ae770a21e93a0c8ab3827e91f15e163d7a875b4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428213"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130202"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -34,25 +34,25 @@ Concevoir, créer et tester une offre d’application Azure nécessite de dispos
 
 Lors de la préparation de votre offre d’application Azure pour la Place de marché commerciale, consultez les ressources suivantes.
 
-* [Comprendre les modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Comprendre les modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 * Guides de démarrage rapide :
 
     * [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/)
     * [Guide des meilleures pratiques pour les modèles Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    * [Publier une définition d’application](../../managed-applications/publish-service-catalog-app.md)
-    * [Déployer une application de catalogue de services](../../managed-applications/deploy-service-catalog-quickstart.md)
+    * [Publier une définition d’application](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Déployer une application de catalogue de services](../../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 
 * Tutoriels :
 
-    * [Créer les fichiers de définition](../../managed-applications/publish-service-catalog-app.md)
-    * [Publier l’application de la Place de marché](../../managed-applications/publish-marketplace-app.md)
+    * [Créer les fichiers de définition](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Publier l’application de la Place de marché]()
 
 * Exemples :
 
-    * [Azure CLI](../../managed-applications/cli-samples.md)
-    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
-    * [Solutions d’applications managées](../../managed-applications/sample-projects.md)
+    * [Azure CLI](../../azure-resource-manager/managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../azure-resource-manager/managed-applications/powershell-samples.md)
+    * [Solutions d’applications managées](../../azure-resource-manager/managed-applications/sample-projects.md)
 
 La vidéo sur la [Création de modèles de solution et d’applications managées pour la Place de marché Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603) présente de façon exhaustive le type d’offre d’application Azure :
 
@@ -67,8 +67,8 @@ La vidéo sur la [Création de modèles de solution et d’applications managée
 
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion de votre application Azure :
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-* [Azure CLI](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell](/powershell/azure/)
+* [Azure CLI](/cli/azure)
 
 Nous vous recommandons d’ajouter les outils suivants à votre environnement de développement :
 
@@ -84,17 +84,17 @@ Vous pouvez examiner les outils disponibles dans la page [Outils de développeme
 
 Il existe deux types de plans d’application Azure : les modèles de solution et les applications managées.
 
-* Le **modèle de solution** constitue l’un des principaux moyens de publier une solution sur la Place de marché. Utilisez ce type de plan si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration, au-delà d’une seule machine virtuelle. Avec un modèle de solution, vous pouvez automatiser la fourniture de plusieurs ressources, notamment les machines virtuelles, les ressources réseau et les ressources de stockage nécessaires pour fournir des solutions IaaS complexes.  Pour plus d’informations sur la création de modèles de solution, consultez la documentation [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+* Le **modèle de solution** constitue l’un des principaux moyens de publier une solution sur la Place de marché. Utilisez ce type de plan si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration, au-delà d’une seule machine virtuelle. Avec un modèle de solution, vous pouvez automatiser la fourniture de plusieurs ressources, notamment les machines virtuelles, les ressources réseau et les ressources de stockage nécessaires pour fournir des solutions IaaS complexes.  Pour plus d’informations sur la création de modèles de solution, consultez la documentation [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-* Une **application managée** est similaire aux modèles de solution, à une importante différence près. Dans une application managée, les ressources sont déployées vers un groupe de ressources géré par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. En tant qu’éditeur, vous spécifiez le coût de l’assistance en continu de la solution. Utilisez des applications managées pour créer et fournir facilement des applications clés en main et entièrement managées à vos clients.  Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](../../managed-applications/overview.md).
+* Une **application managée** est similaire aux modèles de solution, à une importante différence près. Dans une application managée, les ressources sont déployées vers un groupe de ressources géré par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. En tant qu’éditeur, vous spécifiez le coût de l’assistance en continu de la solution. Utilisez des applications managées pour créer et fournir facilement des applications clés en main et entièrement managées à vos clients.  Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](../../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="technical-requirements"></a>Exigences techniques
 
 Toutes les applications Azure incluent au moins deux fichiers dans le dossier racine d’une archive `.zip` :
 
-* Un fichier de modèle Resource Manager nommé [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md).  Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client. Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/resources/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
+* Un fichier de modèle Resource Manager nommé [mainTemplate.json](../../azure-resource-manager/management/overview.md).  Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client. Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/resources/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
 
-* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../../managed-applications/create-uidefinition-overview.md).  Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
+* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).  Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
 
 Toutes les nouvelles offres d’applications Azure doivent inclure un [GUID d’attribution de l’utilisation de client partenaire Azure](../azure-partner-customer-usage-attribution.md). 
 
@@ -136,7 +136,7 @@ Une version d’évaluation constitue un excellent moyen de présenter votre off
 
 Pour activer une version d’évaluation pour une durée déterminée, cochez la case **Activer une version d’évaluation**. Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher. Configurez l’environnement de la version d’évaluation dans la section [Configuration technique de la version d’évaluation](#test-drive-technical-configuration) plus loin dans cette rubrique.
 
-Pour plus d’informations, consultez [Proposer une version d’évaluation de votre offre sur la Place de marché commerciale](test-drive.md). Vous pouvez également découvrir les [meilleures pratiques en matière de version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) et télécharger le [PDF de présentation des versions d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (assurez-vous que le bloqueur de fenêtres publicitaires est désactivé).
+Pour plus d’informations, consultez [Proposer une version d’évaluation de votre offre sur la Place de marché commerciale](../what-is-test-drive.md). Vous pouvez également découvrir les [meilleures pratiques en matière de version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) et télécharger le [PDF de présentation des versions d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (assurez-vous que le bloqueur de fenêtres publicitaires est désactivé).
 
 >[!Note]
 >Du fait que toutes les applications Azure sont implémentées à l’aide d’un modèle Azure Resource Manager, le seul type de version d’évaluation disponible pour une application Azure est une [version d’évaluation d’Azure Resource Manager](../azure-resource-manager-test-drive.md).
@@ -465,8 +465,8 @@ Cet onglet vous permet de modifier la version provisoire de votre configuration 
 
 Tous les packages de plan d’application Azure doivent inclure ces deux fichiers dans le dossier racine d’une archive `.zip` :
 
-* Un fichier de modèle Resource Manager nommé [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md). Ce modèle automatise le déploiement de ressources dans l’abonnement Azure des clients.  Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
-* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* Un fichier de modèle Resource Manager nommé [mainTemplate.json](../../azure-resource-manager/management/overview.md). Ce modèle automatise le déploiement de ressources dans l’abonnement Azure des clients.  Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
+* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).
 
 Tailles maximales de fichiers prises en charge :
 
@@ -486,7 +486,7 @@ Le sous-onglet **Packages précédemment publiés** affiche toutes les versions 
 
 #### <a name="enable-just-in-time-jit-access"></a>Activer l’accès juste-à-temps (JIT)
 
-Sélectionnez cette option pour activer l’accès juste-à-temps (JIT) pour ce plan.  L'accès JIT vous permet de demander un accès élevé aux ressources d'une application managée à des fins de résolution des problèmes ou de maintenance. Vous bénéficiez toujours d'un accès en lecture seule aux ressources, mais pour une durée spécifique, votre accès est étendu.  Pour plus d’informations, consultez [Activer et demander l’accès juste-à-temps pour les applications managées Azure](../../managed-applications/request-just-in-time-access.md).  Pour exiger que les consommateurs de votre application managée accordent à votre compte un accès permanent, laissez cette option non cochée.
+Sélectionnez cette option pour activer l’accès juste-à-temps (JIT) pour ce plan.  L'accès JIT vous permet de demander un accès élevé aux ressources d'une application managée à des fins de résolution des problèmes ou de maintenance. Vous bénéficiez toujours d'un accès en lecture seule aux ressources, mais pour une durée spécifique, votre accès est étendu.  Pour plus d’informations, consultez [Activer et demander l’accès juste-à-temps pour les applications managées Azure](../../azure-resource-manager/managed-applications/request-just-in-time-access.md).  Pour exiger que les consommateurs de votre application managée accordent à votre compte un accès permanent, laissez cette option non cochée.
 
 >[!Note]
 >N’oubliez pas de mettre à jour votre fichier `createUiDefinition.json` pour la prise en charge de cette fonctionnalité.  
@@ -498,7 +498,7 @@ Configurez le **mode de déploiement incrémentiel** ou **complet** pour ce plan
 * En **mode complet** , un redéploiement de l’application par le client entraîne la suppression des ressources dans le groupe de ressources managées si les ressources ne sont pas définies dans le fichier `mainTemplate.json`. 
 * En **mode incrémentiel** , le redéploiement de l’application laisse les ressources existantes inchangées.
 
-Pour en savoir plus sur les modes de déploiement, consultez [Modes de déploiement Azure Resource Manager](../../azure-resource-manager/deployment-modes.md).
+Pour en savoir plus sur les modes de déploiement, consultez [Modes de déploiement Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
 #### <a name="notification-endpoint-url"></a>URL de point de terminaison de notification
 
@@ -543,7 +543,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="test-drive"></a>Test drive
 
-Configurez une démonstration (version d'évaluation) permettant aux clients d’évaluer votre offre avant de l’acheter. Pour créer un environnement de démonstration permettant aux clients d’évaluer votre offre pendant une période fixe, consultez [Évaluer votre offre sur la Place de marché commerciale](test-drive.md).
+Configurez une démonstration (version d'évaluation) permettant aux clients d’évaluer votre offre avant de l’acheter. Pour créer un environnement de démonstration permettant aux clients d’évaluer votre offre pendant une période fixe, consultez [Évaluer votre offre sur la Place de marché commerciale](../what-is-test-drive.md).
 
 Pour activer une version d’évaluation, cochez la case **Activer une version d’évaluation** sous l’onglet [Configuration de l’offre](#test-drive). Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher.
 
@@ -555,7 +555,7 @@ Pour activer une version d’évaluation, cochez la case **Activer une version d
 
 Pour autoriser le déploiement de la version d’évaluation pour votre compte, créez et fournissez un abonnement Azure unique distinct (non requis pour les versions d’évaluation de Power BI).
 
-* **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et Logic Apps) : entrez l’ID d’abonnement pour accorder l’accès aux services de votre compte Azure pour les rapports d’utilisation des ressources et la facturation. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](../../billing/billing-create-subscription.md) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
+* **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et Logic Apps) : entrez l’ID d’abonnement pour accorder l’accès aux services de votre compte Azure pour les rapports d’utilisation des ressources et la facturation. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](../../cost-management-billing/manage/create-subscription.md) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
 * **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour obtenir cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Propriétés** , puis cherchez le numéro d’ **ID d’annuaire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nom de locataire Azure AD** (obligatoire pour Dynamic 365) : entrez votre nom Azure Active Directory (AD). Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
 * **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications** , puis cherchez le numéro d’ **ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).

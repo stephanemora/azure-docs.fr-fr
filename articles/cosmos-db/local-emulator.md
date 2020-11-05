@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b1a0382b6bb650b6761897f4a16f988e5ce00c1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482619"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088741"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installer et utiliser l’émulateur Azure Cosmos pour le développement et le test en local
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 L’émulateur Azure Cosmos fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement. Cet émulateur vous permet de développer et de tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur Azure Cosmos, vous pouvez commencer à utiliser un compte Azure Cosmos dans le cloud. Cet article décrit l’installation et l’utilisation de l’émulateur sur les environnements Windows, Linux, macOS et Windows Docker.
 
@@ -86,13 +87,13 @@ L’émulateur Azure Cosmos est installé à l’emplacement `C:\Program Files\A
 
 Lorsque l’émulateur est démarré, une icône est affichée dans la zone de notification de la barre des tâches Windows. L’Explorateur de données Azure Cosmos s’ouvre automatiquement dans votre navigateur à cette URL `https://localhost:8081/_explorer/index.html`.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Sélectionnez le bouton Démarrer ou appuyez sur la touche Windows, commencez à taper Émulateur Azure Cosmos, puis sélectionnez l’émulateur dans la liste des applications":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Notification dans la barre des tâches de l’émulateur local Azure Cosmos DB":::
 
 Vous pouvez également démarrer et arrêter l’émulateur à partir de la ligne de commande ou de commandes PowerShell. Pour plus d’informations, consultez l’article [Référence de l’outil en ligne de commande](emulator-command-line-parameters.md).
 
 Par défaut, l’émulateur Azure Cosmos s’exécute sur la machine locale (« localhost ») et écoute sur le port 8081. L’adresse apparaît sous la forme `https://localhost:8081/_explorer/index.html`. Si vous fermez l’explorateur et que vous souhaitez le rouvrir ultérieurement, vous pouvez ouvrir l’URL dans votre navigateur ou la lancer à partir de l’émulateur Azure Cosmos dans l’icône de la barre d’état système Windows, comme illustré ci-dessous.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Sélectionnez le bouton Démarrer ou appuyez sur la touche Windows, commencez à taper Émulateur Azure Cosmos, puis sélectionnez l’émulateur dans la liste des applications":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Lanceur de l’Explorateur de données de l’émulateur local Azure Cosmos":::
 
 ## <a name="use-the-emulator-on-docker-for-windows"></a><a id="run-on-windows-docker"></a>Utiliser l’émulateur sur Docker pour Windows
 
@@ -293,9 +294,9 @@ Suivez les étapes ci-dessous si vous travaillez sur Mac :
 
 1. Ouvrez la liste des certificats et identifiez celui qui a le nom `localhost`.
 
-1. Ouvrez le menu contextuel pour cet élément particulier, sélectionnez *Obtenir l’élément* et, sous *Approuver* > *Lors de l’utilisation de ce certificat* , sélectionnez *Toujours approuver* . 
+1. Ouvrez le menu contextuel pour cet élément particulier, sélectionnez *Obtenir l’élément* et, sous *Approuver* > *Lors de l’utilisation de ce certificat* , sélectionnez *Toujours approuver*. 
 
-   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Sélectionnez le bouton Démarrer ou appuyez sur la touche Windows, commencez à taper Émulateur Azure Cosmos, puis sélectionnez l’émulateur dans la liste des applications":::
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Ouvrez le menu contextuel pour cet élément particulier, sélectionnez Obtenir l’élément et, sous l’option Approuver - Lors de l’utilisation de ce certificat, sélectionnez Toujours approuver":::
   
 ### <a name="option-2-disable-the-ssl-validation-in-the-application"></a><a id="disable-ssl-validation"></a>Option 2 : Désactiver la validation SSL dans l’application
 
@@ -328,7 +329,7 @@ Supposons que vous avez plusieurs ordinateurs utilisant un même réseau, et que
 
 Vous pouvez exécuter l’émulateur sur un réseau local. Pour activer l’accès réseau, spécifiez l’option `/AllowNetworkAccess` sur la [ligne de commande](emulator-command-line-parameters.md), avec `/Key=key_string` ou `/KeyFile=file_name`. Vous pouvez initialement utiliser `/GenKeyFile=file_name` pour générer un fichier avec une clé aléatoire. Passez ensuite cette clé à `/KeyFile=file_name` ou `/Key=contents_of_file`.
 
-Avant d’activer l’accès réseau pour la première fois, l’utilisateur doit arrêter l’émulateur et supprimer le répertoire de données de l’émulateur *%LOCALAPPDATA%\CosmosDBEmulator* .
+Avant d’activer l’accès réseau pour la première fois, l’utilisateur doit arrêter l’émulateur et supprimer le répertoire de données de l’émulateur *%LOCALAPPDATA%\CosmosDBEmulator*.
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Authentifier les connexions lors de l’utilisation de l’émulateur
 
@@ -458,11 +459,11 @@ Démarrez l’émulateur à partir d’une [invite de commandes](emulator-comman
 
 Utilisez les étapes suivantes pour désinstaller l’émulateur :
 
-1. Quittez toutes les instances ouvertes de l’émulateur local en cliquant avec le bouton droit sur l’icône de **l’émulateur Azure Cosmos** dans la barre d’état système, puis en sélectionnant **Quitter** . Quitter l’ensemble des instances peut prendre une minute.
+1. Quittez toutes les instances ouvertes de l’émulateur local en cliquant avec le bouton droit sur l’icône de **l’émulateur Azure Cosmos** dans la barre d’état système, puis en sélectionnant **Quitter**. Quitter l’ensemble des instances peut prendre une minute.
 
 1. Dans la zone de recherche Windows, tapez **Applications et fonctionnalités** , puis sélectionnez **Applications et fonctionnalités (paramètres système)** .
 
-1. Dans la liste des applications, faites défiler la page jusqu’à trouver **Émulateur Azure Cosmos DB** , sélectionnez-le, cliquez sur **Désinstaller** , puis confirmez en sélectionnant de nouveau **Désinstaller** .
+1. Dans la liste des applications, faites défiler la page jusqu’à trouver **Émulateur Azure Cosmos DB** , sélectionnez-le, cliquez sur **Désinstaller** , puis confirmez en sélectionnant de nouveau **Désinstaller**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331207"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131409"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -88,14 +88,14 @@ Pour les types d’offres pris en charge dans l’Espace partenaires, toutes les
 | Conteneur | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de conteneur Azure](partner-center-portal/create-azure-container-offer.md). |
 | Service de conseil | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de services de conseil](partner-center-portal/create-consulting-service-offer.md). |
 | Service managé | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de service managé](partner-center-portal/create-new-managed-service-offer.md). |
-| Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | Non | Microsoft a fait évoluer la feuille de route pour Cortana Intelligence. Nous avons donc supprimé les offres actives Cortana Intelligence dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles sur la place de marché commerciale, transformez-les en offres SaaS (Software as a Service) et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Liste de vérification de la création d’offre SaaS dans l’Espace partenaires](partner-center-portal/offer-creation-checklist.md). |
+| Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
+| Cortana Intelligence | Non | Microsoft a fait évoluer la feuille de route pour Cortana Intelligence. Nous avons donc supprimé les offres actives Cortana Intelligence dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles sur la place de marché commerciale, transformez-les en offres SaaS (Software as a Service) et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Liste de vérification de la création d’offre SaaS dans l’Espace partenaires](./plan-saas-offer.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Je ne trouve pas mes offres du portail Cloud Partner dans l’Espace partenaires
 
 Ce que vous voyez dans l’Espace partenaires dépend des programmes auxquels vous êtes inscrit, des comptes auxquels vous appartenez, des rôles utilisateur et des autorisations qui vous ont été attribués. De nombreux programmes de l’Espace partenaires sont disponibles et vous pourriez être inscrit à plusieurs d’entre eux. Vous pouvez également avoir accès à plusieurs comptes avec les mêmes informations d’identification utilisateur.
 
-Les offres que vous avez créées dans le portail Cloud Partner sont disponibles dans l’Espace partenaires sous le programme **Place de marché commerciale** et sous le compte utilisé pour créer les offres. Procédez comme suit pour vérifier que vous affichez le bon programme et le bon compte. Pour obtenir d’autres conseils de dépannage, consultez [Gérer votre compte Espace partenaires](https://docs.microsoft.com/partner-center/partner-center-account-setup).
+Les offres que vous avez créées dans le portail Cloud Partner sont disponibles dans l’Espace partenaires sous le programme **Place de marché commerciale** et sous le compte utilisé pour créer les offres. Procédez comme suit pour vérifier que vous affichez le bon programme et le bon compte. Pour obtenir d’autres conseils de dépannage, consultez [Gérer votre compte Espace partenaires](/partner-center/partner-center-account-setup).
 
 ### <a name="access-the-right-program-in-partner-center"></a>Accéder au programme approprié dans l’Espace partenaires
 
@@ -117,7 +117,7 @@ Si vous êtes membre de plusieurs comptes, un bouton de sélection de compte mar
 
 ## <a name="how-do-i-create-new-offers"></a>Comment créer de nouvelles offres ?
 
-Accédez au programme Place de marché commerciale dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour créer des offres. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** .
+Accédez au programme Place de marché commerciale dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour créer des offres. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre**.
 
 [![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Affiche le menu Vue d’ensemble de l’Espace partenaires")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ Si vous ne pouvez pas vous connecter à votre compte, vous pouvez ouvrir un [tic
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>Où se trouvent les instructions d’utilisation de l’Espace partenaires ?
 
-Accédez à la [documentation du marketplace commercial](index.yml), puis développez **Portail du marketplace commercial dans Espace partenaires** . Pour afficher des articles d’aide sur la création d’offres dans l’Espace partenaires, développez **Créer une offre** .
+Accédez à la [documentation du marketplace commercial](index.yml), puis développez **Portail du marketplace commercial dans Espace partenaires**. Pour afficher des articles d’aide sur la création d’offres dans l’Espace partenaires, développez **Créer une offre**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>Quelles sont les différences en matière de publication et de gestion des offres ?
 
@@ -135,7 +135,7 @@ Voici quelques différences entre le portail Cloud Partner et l’Espace partena
 
 ### <a name="modular-publishing-capabilities"></a>Fonctionnalités de publication modulaires
 
-L’Espace partenaires fournit une option de publication modulaire qui vous permet de sélectionner les modifications que vous souhaitez publier au lieu de toujours publier toutes les mises à jour à la fois. Par exemple, l’écran suivant montre que les seules modifications sélectionnées à publier sont les modifications apportées à **Propriétés** et **Référencement de l’offre** . Les modifications que vous apportez dans la page Préversion ne sont pas publiées.
+L’Espace partenaires fournit une option de publication modulaire qui vous permet de sélectionner les modifications que vous souhaitez publier au lieu de toujours publier toutes les mises à jour à la fois. Par exemple, l’écran suivant montre que les seules modifications sélectionnées à publier sont les modifications apportées à **Propriétés** et **Référencement de l’offre**. Les modifications que vous apportez dans la page Préversion ne sont pas publiées.
 
 [![Screenshot shows the Partner Center Review and publish page.](media/cpp-pc-faq/review-page.png "Affiche la page Révision et publication de l’Espace partenaires")](media/cpp-pc-faq/review-page.png#lightbox)
 
@@ -143,7 +143,7 @@ Les mises à jour que vous ne publiez pas sont enregistrées en tant que brouill
 
 ### <a name="enhanced-preview-options"></a>Options d’aperçu améliorées
 
-L’Espace partenaires comprend une [fonctionnalité de comparaison](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
+L’Espace partenaires comprend une [fonctionnalité de comparaison](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
 
 [![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Affiche la fonctionnalité de comparaison de l’Espace partenaires")](media/cpp-pc-faq/compare.png#lightbox)
 

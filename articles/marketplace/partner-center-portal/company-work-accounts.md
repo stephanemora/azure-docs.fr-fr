@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 5b4aadc506b2f4a251ccef5e9488066b609ba5a5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400262"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130525"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Comptes professionnels d’entreprise et Espace partenaires
 
@@ -44,7 +44,7 @@ Pour créer un nouveau compte professionnel pour votre entreprise, suivez les é
 
 L’adresse e-mail du compte d’utilisateur doit être un nom de domaine vérifié dans votre répertoire. Vous pouvez répertorier tous les domaines vérifiés dans votre répertoire en sélectionnant **Azure Active Directory** -> **Noms de domaine personnalisés** dans le menu de navigation de gauche.
 
-Pour en savoir plus sur l’ajout de domaines personnalisés dans Azure Active Directory, consultez [Ajouter ou associer un domaine dans Azure AD](../../active-directory/active-directory-add-domain.md).
+Pour en savoir plus sur l’ajout de domaines personnalisés dans Azure Active Directory, consultez [Ajouter ou associer un domaine dans Azure AD](../../active-directory/fundamentals/add-custom-domain.md).
 
 ## <a name="troubleshoot-work-email-sign-in"></a>Résoudre les problèmes de connexion à la messagerie professionnelle
 
@@ -54,4 +54,4 @@ Si vous ne parvenez pas à vous connecter à votre compte professionnel (égalem
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](./manage-account.md) 
+- [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](./manage-account.md)

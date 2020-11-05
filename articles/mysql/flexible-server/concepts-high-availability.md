@@ -1,17 +1,17 @@
 ---
 title: Vue d’ensemble de la haute disponibilité redondante interzone avec le serveur flexible Azure Database pour MySQL
 description: Découvrir les concepts de la haute disponibilité redondante interzone avec le serveur flexible Azure Database pour MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929826"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241182"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de haute disponibilité dans le serveur flexible Azure Database pour MySQL (préversion)
 
@@ -100,5 +100,5 @@ Voici quelques réflexions à prendre en compte lorsque vous utilisez la haute d
 ## <a name="next-steps"></a>Étapes suivantes
 
 -   Découvrir la [continuité de l’activité](./concepts-business-continuity.md)
--   Découvrir la  [haute disponibilité redondante interzone](./concepts-high-availability.md)
+-   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
 -   Découvrir [la sauvegarde et la récupération](./concepts-backup-restore.md)

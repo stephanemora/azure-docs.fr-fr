@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: eb9e8caff81e86b7db732c970eee1e1a08be5241
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491102"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101559"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Créer un conteneur dans l’API SQL Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique les différentes façons de créer un conteneur dans l’API SQL Azure Cosmos DB. Il montre comment créer un conteneur à l’aide du portail Azure, d’Azure CLI, de PowerShell ou des kits de développement logiciel pris en charge. Cet article montre comment créer un conteneur, spécifier la clé de partition et provisionner le débit.
 
@@ -30,13 +31,13 @@ Cet article explique les différentes façons de créer un conteneur dans l’AP
 
 1. [Créez un compte Azure Cosmos](create-sql-api-dotnet.md#create-account) ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouveau conteneur** . Fournissez ensuite les détails suivants :
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouveau conteneur**. Fournissez ensuite les détails suivants :
 
    * Indiquez si vous créez une base de données ou si vous utilisez une base de données existante.
    * Entrez un ID de conteneur.
    * Entrez une clé de partition.
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
-   * Sélectionnez **OK** .
+   * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Capture d’écran du volet Explorateur de données, avec l’option Nouveau conteneur mise en surbrillance":::
 

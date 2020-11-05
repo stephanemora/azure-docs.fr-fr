@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480919"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096697"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrer des centaines de téraoctets de données dans Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB peut stocker plusieurs téraoctets de données. Vous pouvez procéder à une migration de données à grande échelle pour transférer votre charge de travail de production vers Azure Cosmos DB. Cet article décrit les défis liés au transfert de données à grande échelle vers Azure Cosmos DB et vous présente l'outil qui permet de relever ces défis pour migrer les données vers Azure Cosmos DB. Dans cette étude de cas, le client a utilisé l'API SQL Cosmos DB.  
 
@@ -145,7 +146,7 @@ Au terme de la migration, vous pouvez vérifier que le nombre de documents conte
 ## <a name="contact-the-azure-cosmos-db-team"></a>Sélectionner l’équipe Azure Cosmos DB
 Même si vous pouvez suivre les instructions de ce guide pour migrer correctement des jeux de données volumineux vers Azure Cosmos DB, pour des migrations à grande échelle, il est recommandé de contacter l’équipe produit d’Azure Cosmos DB pour valider la modélisation des données et une révision de l’architecture générale. En fonction de votre jeu de données et de votre charge de travail, l’équipe produit peut également suggérer d’autres optimisations des performances et des coûts qui peuvent s’appliquer à votre situation. Pour contacter l’équipe Azure Cosmos DB afin d’obtenir de l’aide concernant les migrations à grande échelle, vous pouvez ouvrir un ticket de support sous le type de problème « Conseils généraux », sous-type de problème « Grandes (To+) migrations », comme indiqué ci-dessous.
 
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Configuration de l’outil de migration":::
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Rubrique sur le support de la migration":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes

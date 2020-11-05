@@ -1,17 +1,17 @@
 ---
 title: Vue d’ensemble de la continuité d’activité – Serveur flexible Azure Database pour MySQL
 description: Découvrir les concepts de la continuité d’activité avec le serveur flexible Azure Database pour MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546413"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240713"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -65,5 +65,5 @@ Voici quelques scénarios d’échec non planifiés et le processus de récupér
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir la [haute disponibilité redondante interzone](./concepts-high-availability.md)
+- Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
 - Découvrir [la sauvegarde et la récupération](./concepts-backup-restore.md)

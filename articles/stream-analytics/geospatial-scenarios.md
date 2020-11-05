@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90d8c70ac0a34470e8121d2234fd6b898cfed1ab
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045261"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130593"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scénarios de geofencing et d’agrégation géospatiale avec Azure Stream Analytics
 
@@ -125,4 +125,4 @@ L’image ci-dessous illustre la sortie de la requête dans le tableau de bord P
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation des fonctions géospatiales Stream Analytics](stream-analytics-geospatial-functions.md)
-* [Fonctions géospatiales (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)
+* [Fonctions géospatiales (Azure Stream Analytics)](/stream-analytics-query/geospatial-functions)

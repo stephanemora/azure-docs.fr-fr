@@ -4,12 +4,12 @@ description: Vous ne voyez pas de données dans Azure Application Insights ? E
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 2bf9b50c9b378d8624c311af5935b8cd0a28a31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757977"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083165"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Résolution des problèmes liés à l’absence de données - Application Insights pour .NET et .NET Core
 
@@ -44,7 +44,7 @@ ms.locfileid: "91757977"
 
 * Les outils ne prennent pas en charge tous les types de projets .NET. Les projets Web et WCF sont pris en charge. Pour les autres types de projets, notamment les applications de bureau ou de service, vous avez toujours la possibilité [d’ajouter un kit de développement logiciel Application Insights à votre projet manuellement](./windows-desktop.md).
 * Vérifiez que vous disposez de [Visual Studio 2013 Update 3 ou version ultérieure](/visualstudio/releasenotes/vs2013-update3-rtm-vs). Il est préinstallé avec les outils d’analyse développeur, qui fournissent le Kit de développement logiciel (SDK) Application Insights.
-* Sélectionnez **Outils**, **Extensions et mises à jour**, puis vérifiez l’installation et l’activation des outils **Analyse développeur**. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
+* Sélectionnez **Outils** , **Extensions et mises à jour** , puis vérifiez l’installation et l’activation des outils **Analyse développeur**. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
 * Ouvrez la boîte de dialogue Nouveau projet et sélectionnez l’application Web ASP.NET. Si vous voyez l’option Application Insights à cet endroit, les outils sont installés. Si ce n’est pas le cas, essayez de désinstaller, puis de réinstaller Developer Analytics Tools.
 
 ## <a name="adding-application-insights-failed"></a><a name="q02"></a>Échec de l’ajout d’Application Insights
@@ -84,8 +84,8 @@ Causes probables :
 Correctif :
 
 * assurez-vous que votre version de Visual Studio est bien 2013 Mise à jour 3 ou une version ultérieure.
-* Sélectionnez **Outils**, **Extensions et mises à jour**, puis vérifiez l’installation et l’activation des outils **Analyse développeur**. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
-* Cliquez avec le bouton droit sur l’Explorateur de solutions. Si vous voyez la commande **Application Insights > Configurer Application Insights**, utilisez-la pour raccorder votre projet à la ressource dans le service Application Insights.
+* Sélectionnez **Outils** , **Extensions et mises à jour** , puis vérifiez l’installation et l’activation des outils **Analyse développeur**. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
+* Cliquez avec le bouton droit sur l’Explorateur de solutions. Si vous voyez la commande **Application Insights > Configurer Application Insights** , utilisez-la pour raccorder votre projet à la ressource dans le service Application Insights.
 
 Dans le cas contraire, votre type de projet n’est pas directement pris en charge par les outils Developer Analytics Tools. Pour voir votre télémétrie, connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur Application Insights dans la barre de navigation de gauche, puis sélectionnez votre application.
 
@@ -128,7 +128,7 @@ Correctif :
   ![Capture d’écran montrant l’exécution de votre application en mode de débogage dans Visual Studio.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Dans Application Insights, ouvrez [Diagnostic Search](./diagnostic-search.md)(Recherche de diagnostic). En général, les données s’affichent d’abord ici.
 * Cliquez sur le bouton Actualiser. Le panneau s’actualise à intervalles réguliers, mais vous pouvez également l’actualiser manuellement. Plus les intervalles de temps sur lesquels portent les graphiques sont étendus, plus l’intervalle d’actualisation est long.
-* Consultez la correspondance des clés d’instrumentation Sur le panneau principal de votre application dans le portail Application Insights, dans la liste déroulante **Essentials**, examinez **Clé d’instrumentation**. Ensuite, dans votre projet dans Visual Studio, ouvrez le fichier ApplicationInsights.config et recherchez `<instrumentationkey>`. Vérifiez que les deux clés sont semblables. Si ce n’est pas le cas :  
+* Consultez la correspondance des clés d’instrumentation Sur le panneau principal de votre application dans le portail Application Insights, dans la liste déroulante **Essentials** , examinez **Clé d’instrumentation**. Ensuite, dans votre projet dans Visual Studio, ouvrez le fichier ApplicationInsights.config et recherchez `<instrumentationkey>`. Vérifiez que les deux clés sont semblables. Si ce n’est pas le cas :  
   * Dans le portail, cliquez sur Application Insights et recherchez la ressource d’application avec la clé adéquate ; ou
   * Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet, puis sélectionnez Application Insights, Configurer. Réinitialisez l’application pour envoyer des données de télémétrie à la ressource appropriée.
   * Si vous ne trouvez pas les clés correspondantes, vérifiez que vous utilisez pour Visual Studio les mêmes informations de connexion que pour le portail.
@@ -246,7 +246,7 @@ Vous pouvez modifier ces paramètres en fonction de vos besoins :
 
 Pour plus d’informations, consultez :
 - [Enregistrement des traces de performances avec PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Sources de l’événement Application Insights](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Sources de l’événement Application Insights](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Collecter des journaux avec dotnet-trace
 

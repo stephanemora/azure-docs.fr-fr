@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 819b0401b8516538c6fdd12b47e57f79ec45ae09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131086"
 ---
 # <a name="co-sell-partner-engagement"></a>Engagement en tant que partenaire de co-vente
 
@@ -40,15 +40,15 @@ Les offres qui atteignent le statut de **Co-vente Azure IP avec incentives** bé
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Étapes de publication et exigences relatives à la co-vente
 
-Le tableau ci-dessous répertorie les étapes et conditions requises pour que votre offre atteigne le statut d’offre Prête à la co-vente ou d’offre de Co-vente avec incentives sur la place de marché. Certains types d'offres de la place de marché commerciale ne sont pas encore configurables pour la co-vente dans l'Espace partenaires. Pour accéder aux informations les plus récentes, utilisez l'[option Co-vente de l'Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell). 
+Le tableau ci-dessous répertorie les étapes et conditions requises pour que votre offre atteigne le statut d’offre Prête à la co-vente ou d’offre de Co-vente avec incentives sur la place de marché. Certains types d'offres de la place de marché commerciale ne sont pas encore configurables pour la co-vente dans l'Espace partenaires. Pour accéder aux informations les plus récentes, utilisez l'[option Co-vente de l'Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md). 
 
 |Étape    |Type d’offre    |Spécifications    |Statut de co-vente    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li> Créez un compte dans l'Espace partenaires et publiez votre offre sur la place de marché commerciale.</li>|Tous|<li>L’offre répond aux exigences de publication de la Place de marché commerciale.</li><li>Vous disposez d’un profil métier complet dans l’Espace partenaires.</li>|Pas prêt|
-|<ol start=2><li>Soumettez les documents de co-vente requis.</li>|Offres IP *avec* [option de co-vente dans l'Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Charger les documents requis dans l’Espace partenaires](#how-to-submit-co-sell-materials-in-partner-center)|Prêt pour la co-vente|
-||Offres IP *sans* [option de co-vente dans l'Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Demande de [collaboration avec un spécialiste du cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) pour fournir la documentation de co-vente requise.|Prêt pour la co-vente|
+|<ol start=2><li>Soumettez les documents de co-vente requis.</li>|Offres IP *avec* [option de co-vente dans l'Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md)|[Charger les documents requis dans l’Espace partenaires](#how-to-submit-co-sell-materials-in-partner-center)|Prêt pour la co-vente|
+||Offres IP *sans* [option de co-vente dans l'Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md)|<li>Demande de [collaboration avec un spécialiste du cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) pour fournir la documentation de co-vente requise.|Prêt pour la co-vente|
 ||Services de conseil|<li>Demande de [collaboration avec un spécialiste du cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) pour fournir la documentation de co-vente requise.</li><li>Compétence de niveau Gold active.</li>|Prêt pour la co-vente|
-|<ol start=3><li>Co-vente IP avec incentives</li>|Applications Azure, conteneurs Azure, modules IoT Edge, SaaS, machines virtuelles|Une fois le statut « Prêt pour la co-vente » atteint, deux autres conditions s'appliquent : <ul> Condition 1 :<ul><li>*Au niveau de l'organisation :* avoir atteint au moins 100 000 USD de Revenu consommé Azure au cours des 12 derniers mois.</li><li>*Au niveau de l'offre*  : revenu cumulé de 100 000 USD facturé sur la place de marché.</li></ul><br>Condition 2 : plus de 50 % de l'infrastructure de votre offre doit s'exécuter sur Azure :<ul><li>Offres IP *avec* [option de co-vente dans l'Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) : chargez un diagramme d'architecture avec vos documents de co-vente dans l'Espace partenaires pour examen.</li><li>Offres IP *sans* [option de co-vente dans l'Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) : chargez un diagramme d'architecture sur OCP GTM.|Co-vente Azure IP avec incentives|
+|<ol start=3><li>Co-vente IP avec incentives</li>|Applications Azure, conteneurs Azure, modules IoT Edge, SaaS, machines virtuelles|Une fois le statut « Prêt pour la co-vente » atteint, deux autres conditions s'appliquent : <ul> Condition 1 :<ul><li>*Au niveau de l'organisation :* avoir atteint au moins 100 000 USD de Revenu consommé Azure au cours des 12 derniers mois.</li><li>*Au niveau de l'offre*  : revenu cumulé de 100 000 USD facturé sur la place de marché.</li></ul><br>Condition 2 : plus de 50 % de l'infrastructure de votre offre doit s'exécuter sur Azure :<ul><li>Offres IP *avec* [option de co-vente dans l'Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md) : chargez un diagramme d'architecture avec vos documents de co-vente dans l'Espace partenaires pour examen.</li><li>Offres IP *sans* [option de co-vente dans l'Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md) : chargez un diagramme d'architecture sur OCP GTM.|Co-vente Azure IP avec incentives|
 ||Dynamics|<li>Vous avez une inscription active au niveau Premium ISV Connect.</li>|Co-vente d'applications métier avec incentives|
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Soumettre des documents de co-vente dans l'Espace partenaires

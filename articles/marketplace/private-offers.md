@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607196"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129964"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Offres privées dans la Place de marché commerciale de Microsoft
 
@@ -23,25 +23,25 @@ Les offres privées dans la [Place de marché Microsoft Azure](https://azuremark
 Les entreprises clientes sont de plus en plus nombreuses à utiliser des places de marché en ligne pour trouver, tester et acheter des solutions cloud. Grâce aux offres privées, les éditeurs peuvent à présent partager des solutions personnalisées avec les clients ciblés sur la place de marché, en proposant les fonctionnalités exigées par les entreprises :
 
 - Les *tarifs négociés* permettent aux éditeurs d’étendre les remises et les prix hors catalogue par rapport aux offres publiques.
-- Grâce aux *conditions générales privées*, ils peuvent personnaliser les conditions générales pour chaque client.
+- Grâce aux *conditions générales privées* , ils peuvent personnaliser les conditions générales pour chaque client.
 - Les *configurations spécialisées* aident les éditeurs à adapter leur offre Machines virtuelles, Azure Application ou SaaS aux besoins de chaque client. Cette option leur permet également de proposer un accès en préversion aux nouvelles fonctionnalités des produits, avant le lancement général auprès de l’ensemble des clients.
 
 Les offres privées permettent aux éditeurs de tirer parti de l’envergure et de la disponibilité mondiale d’une place de marché publique, avec la flexibilité et le contrôle nécessaires pour négocier et proposer des configurations et des offres personnalisées. Toutes ces fonctionnalités ouvrent la voie à une adoption massive des places de marché cloud dans les entreprises. Ces dernières ont ainsi la liberté de gérer leurs achats/ventes comme elles le souhaitent.
 
 Les offres privées sont maintenant disponibles pour les offres Machines virtuelles, Azure Application (implémentées sous forme de modèles de solution ou d’applications managées) et SaaS.
 
-<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). Customers can be granted or revoked access to private offers in minutes.
+<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](). Customers can be granted or revoked access to private offers in minutes.
 --->
 
 ## <a name="creating-private-offers-using-plans"></a>Créer des offres privées avec des plans
 
-À partir d’*offres nouvelles ou existantes avec plans*, les éditeurs peuvent ajouter sans peine des variantes privées en créant de nouveaux plans (anciennement les « références SKU ») et en les marquant comme privés. Chaque offre peut avoir jusqu’à 45 plans privés.
+À partir d’ *offres nouvelles ou existantes avec plans* , les éditeurs peuvent ajouter sans peine des variantes privées en créant de nouveaux plans (anciennement les « références SKU ») et en les marquant comme privés. Chaque offre peut avoir jusqu’à 45 plans privés.
 
-<!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
+<!--- [Private SKUs]() --->
 
 Les plans privés sont des composants d’une offre que seuls les clients ciblés peuvent voir et acquérir. Ils peuvent réutiliser les images de base et offrir des métadonnées déjà publiées pour un plan public. Cette option permet aux éditeurs de créer plusieurs variantes privées d’une offre publique sans avoir à publier plusieurs versions de la même image de base ou à proposer des métadonnées. Dans le cas des offres Machines virtuelles et Azure Application uniquement, quand un plan privé partage une image de base avec un plan public, les modifications apportées à l’image de base de l’offre se propagent sur tous les plans, publics et privés, qui utilisent cette image de base.
 
-Pour les *nouvelles offres qui comportent uniquement des plans privés*, les éditeurs peuvent créer des offres classiques, puis marquer les plans comme privés. Ces offres ne sont accessibles ni sur la Place de marché commerciale de Microsoft ni sur le [portail Azure](https://azure.microsoft.com/features/azure-portal/) par les clients qui n’y sont pas associés.
+Pour les *nouvelles offres qui comportent uniquement des plans privés* , les éditeurs peuvent créer des offres classiques, puis marquer les plans comme privés. Ces offres ne sont accessibles ni sur la Place de marché commerciale de Microsoft ni sur le [portail Azure](https://azure.microsoft.com/features/azure-portal/) par les clients qui n’y sont pas associés.
 
 >[!NOTE]
 >Une offre qui contient uniquement des plans privés ne sera pas visible dans la Place de marché Azure publique, ni dans AppSource.
@@ -69,5 +69,5 @@ Les offres privées apparaissent également dans les résultats de recherche. Re
 <!---
 ## Next steps
 
-To start using private offers, follow the steps in the [Private SKUs and Plans](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) guide.
+To start using private offers, follow the steps in the [Private SKUs and Plans]() guide.
 --->

@@ -3,12 +3,12 @@ title: Restreindre l’accès avec un point de terminaison de service
 description: Restreignez l’accès à un registre de conteneurs Azure à l’aide d’un point de terminaison de service dans un réseau virtuel Azure. L’accès au point de terminaison de service est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215499"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026222"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restreindre l’accès à un registre de conteneurs à l’aide d’un point de terminaison de service dans un réseau virtuel Azure
 
@@ -19,7 +19,7 @@ Cet article explique comment configurer un point de terminaison de service de re
 > [!IMPORTANT]
 > Azure Container Registry prend désormais en charge [Azure Private Link](container-registry-private-link.md), ce qui permet de placer des points de terminaison privés d’un réseau virtuel sur un registre. Les points de terminaison privés sont accessibles à partir du réseau virtuel, à l’aide d’adresses IP privées. Nous vous recommandons d’utiliser des points de terminaison privés plutôt que des points de terminaison de service dans la plupart des scénarios réseau.
 
-La configuration d’un point de terminaison de service du registre est disponible dans le niveau de service de registre de conteneurs **Premium** . Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
+La configuration d’un point de terminaison de service du registre est disponible dans le niveau de service de registre de conteneurs **Premium**. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
@@ -53,7 +53,7 @@ Dans cette section, configurez votre registre de conteneurs pour autoriser l’a
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Ajouter un point de terminaison de service à un sous-réseau
 
-Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM* , le nom de réseau virtuel par défaut est *myDockerVMVNET* , avec un sous-réseau nommé *myDockerVMSubnet* . Vérifiez cela à l’aide de la commande [az network vnet list][az-network-vnet-list] :
+Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM* , le nom de réseau virtuel par défaut est *myDockerVMVNET* , avec un sous-réseau nommé *myDockerVMSubnet*. Vérifiez cela à l’aide de la commande [az network vnet list][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \
@@ -189,7 +189,6 @@ az group delete --name myResourceGroup
 
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

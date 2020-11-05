@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774576"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130151"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -114,7 +114,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 C’est là que vous définissez les détails de votre offre, tels que le nom, la description et les images.
 
 > [!NOTE]
-> Vous ne pouvez fournir les détails de l’offre que dans une seule langue. Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression « This application is available only in [langue non anglaise] ». Il est également possible de fournir l’*URL du lien Aide* pour offrir du contenu dans une langue autre que celle utilisée dans la description de l’offre.
+> Vous ne pouvez fournir les détails de l’offre que dans une seule langue. Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression « This application is available only in [langue non anglaise] ». Il est également possible de fournir l’ *URL du lien Aide* pour offrir du contenu dans une langue autre que celle utilisée dans la description de l’offre.
 
 Voici un exemple de la façon dont les informations de l’offre s’affichent dans Microsoft AppSource (les prix listés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
 
@@ -163,7 +163,7 @@ Cette section vous permet de fournir des liens permettant aux clients d’en sav
 
 #### <a name="help-link"></a>Lien d'aide
 
-Entrez l’URL à partir de laquelle les clients peuvent en savoir plus sur votre offre. Le **lien Aide** ne peut pas être le même que l’**URL du support** (voir ci-dessous).
+Entrez l’URL à partir de laquelle les clients peuvent en savoir plus sur votre offre. Le **lien Aide** ne peut pas être le même que l’ **URL du support** (voir ci-dessous).
 
 #### <a name="privacy-policy-link"></a>Lien de la politique de confidentialité
 
@@ -173,7 +173,7 @@ Entrez l’URL du lien de la politique de confidentialité de votre organisation
 
 Dans cette section, entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact d’ingénierie** et d’un **contact du service clientèle**. Ces informations ne sont pas présentées aux clients, mais seront disponibles pour Microsoft et pourront être fournies aux partenaires CSP.
 
-Dans la section **Contact de support**, vous devez également fournir **l’URL du support technique** où les partenaires CSP peuvent trouver l’assistance pour votre offre. L’URL du support ne peut pas être la même que le **lien Aide**.
+Dans la section **Contact de support** , vous devez également fournir **l’URL du support technique** où les partenaires CSP peuvent trouver l’assistance pour votre offre. L’URL du support ne peut pas être la même que le **lien Aide**.
 
 ### <a name="supporting-documents"></a>Documents de soutien
 
@@ -242,8 +242,8 @@ Cette page définit les détails techniques utilisés pour se connecter à votre
 
 Sélectionnez l’option qui s’applique à votre offre :
 
-* **Module complémentaire** : une application de module complémentaire étend l’expérience et les fonctionnalités existantes de Dynamics 365 Business Central. Pour plus d’informations, consultez l’article [Applications de module complémentaire](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Connexion** : une application de connexion peut être utilisée dans le scénario où une connexion point à point doit être établie entre Dynamics 365 Business Central et une solution ou un service tiers. Pour plus d’informations, consultez l’article [Applications de connexion](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Module complémentaire**  : une application de module complémentaire étend l’expérience et les fonctionnalités existantes de Dynamics 365 Business Central. Pour plus d’informations, consultez l’article [Applications de module complémentaire](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Connexion**  : une application de connexion peut être utilisée dans le scénario où une connexion point à point doit être établie entre Dynamics 365 Business Central et une solution ou un service tiers. Pour plus d’informations, consultez l’article [Applications de connexion](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Chargement de fichiers
 
@@ -280,7 +280,7 @@ Cette page vous permet de fournir des informations supplémentaires sur votre of
 
 ### <a name="target-release"></a>Version cible
 
-Indiquez la version de Microsoft Dynamics Business Central ciblée par votre solution : **Actuelle**, **Majeure suivante** ou **Mineure suivante**. Ces informations nous permettent de tester votre solution de manière appropriée.
+Indiquez la version de Microsoft Dynamics Business Central ciblée par votre solution : **Actuelle** , **Majeure suivante** ou **Mineure suivante**. Ces informations nous permettent de tester votre solution de manière appropriée.
 
 ### <a name="supported-editions"></a>Éditions prises en charge
 
@@ -292,7 +292,7 @@ Vous devez charger un fichier PDF dans lequel sont répertoriés les principaux
 
 ### <a name="app-tests-automation"></a>Automatisation des tests d’application
 
-Si votre offre est une application de module complémentaire, vous devez charger un fichier d’**automatisation des tests d’application** (.app). Ce fichier ne s’applique pas aux applications de connexion.
+Si votre offre est une application de module complémentaire, vous devez charger un fichier d’ **automatisation des tests d’application** (.app). Ce fichier ne s’applique pas aux applications de connexion.
 
 ### <a name="test-accounts"></a>Comptes de test
 
@@ -310,7 +310,7 @@ S’il s’agit de votre première publication de cette offre, vous pouvez :
     - *Non démarrée* : cela signifie que la section n’a pas encore été modifiée et doit être complétée.
     - *Incomplète* : cela signifie que la section comporte des erreurs qui doivent être corrigées ou qui nécessitent plus d’informations. Revenir à la ou les sections et les mettre à jour.
     - *Complète* : cela signifie que la section est terminée, que toutes les données requises ont été renseignées et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
-- Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
+- Dans la sections **Notes pour la certification** , fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail si une version d’essai de l’offre est disponible pour vérification et approbation. Revenez à l’Espace partenaires et sélectionnez **Go-Live** pour l’offre de publication sur le public.
 
 ## <a name="next-steps"></a>Étapes suivantes

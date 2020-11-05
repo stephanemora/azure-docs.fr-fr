@@ -1,17 +1,17 @@
 ---
 title: Tarifs du calcul réservé - Azure Database pour PostgreSQL - Serveur unique
 description: Prépayer les ressources de calcul Azure Database pour PostgreSQL avec une capacité de réserve
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: ca2e988067add1513036e2f314e84a7ba6908cdd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: dcc6cc40c936876c856326e330b67ef465f90cde
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488059"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240441"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL - Serveur unique avec une capacité de réserve
 
@@ -41,7 +41,7 @@ Par exemple, supposons que vous exécutez une base de données Gen5 – 32 vCore
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Acheter une capacité de réserve Azure Database pour PostgreSQL
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Tous les services** > **Réservations** .
+2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez **Ajouter** , puis dans le volet Acheter des réservations, sélectionnez **Azure Database pour PostgreSQL** pour acheter une nouvelle réservation pour vos bases de données PostgreSQL.
 4. Renseignez les champs obligatoires. Les bases de données existantes ou nouvelles, correspondant aux attributs que vous sélectionnez, peuvent prétendre à la remise de capacité réservée. Le nombre réel de vos serveurs Azure Database pour PostgreSQL qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
 
