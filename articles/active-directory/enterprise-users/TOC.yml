@@ -70,6 +70,8 @@
           href: ../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Gérer les noms de domaine
           href: domains-manage.md
+        - name: Vérifier les sous-domaines comme étant managés
+          href: domains-verify-custom-subdomain.md
         - name: Supprimer un répertoire
           href: directory-delete-howto.md
         - name: Plusieurs répertoires

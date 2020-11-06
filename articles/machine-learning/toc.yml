@@ -399,6 +399,9 @@
         - name: Utiliser des cibles de calcul distantes
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Utiliser le ML automatisé avec Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Entraîner automatiquement un modèle de prévision
           displayName: time series
           href: how-to-auto-train-forecast.md

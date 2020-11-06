@@ -120,6 +120,8 @@
           href: customize-branding.md
         - name: "Configurer «\_Restez connecté\_?\_»"
           href: keep-me-signed-in.md
+        - name: Guide pratique pour rechercher un ID de locataire
+          href: active-directory-how-to-find-tenant.md
         - name: Associer un abonnement Azure
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Ajouter des informations de confidentialité

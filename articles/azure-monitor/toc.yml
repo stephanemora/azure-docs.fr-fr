@@ -692,12 +692,14 @@
               href: app/kubernetes-codeless.md
             - name: Autonome - tous les environnements
               items:
-                - name: Java (préversion)
+                - name: Java
                   items:
                     - name: Vue d’ensemble
                       href: app/java-in-process-agent.md
                     - name: Options de configuration
                       href: app/java-standalone-config.md
+                    - name: Processeurs de télémétrie
+                      href: app/java-standalone-telemetry-processors.md
                     - name: Configuration d’arguments JVM
                       href: app/java-standalone-arguments.md
             - name: Serveurs locaux

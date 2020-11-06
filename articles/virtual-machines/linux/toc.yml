@@ -36,29 +36,31 @@
       href: tutorial-virtual-network.md
     - name: 9 – Sauvegarder les machines virtuelles
       href: tutorial-backup-vms.md
-    - name: 10 - Gérer les machines virtuelles
+    - name: 10 - Activer la reprise d’activité après sinistre
+      href: tutorial-disaster-recovery.md
+    - name: 11 - Gérer les machines virtuelles
       href: tutorial-govern-resources.md
-    - name: 11 - Suivre et mettre à jour les machines virtuelles
+    - name: 12 - Suivre et mettre à jour les machines virtuelles
       href: tutorial-config-management.md
-    - name: 12 - Superviser les machines virtuelles
+    - name: 13 - Superviser les machines virtuelles
       href: tutorial-monitor.md
-    - name: 13 - Gérer la sécurité des machines virtuelles
+    - name: 14 - Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
-    - name: 14a - Générer avec Jenkins
+    - name: 15a - Générer avec Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: 14b - Intégrer Jenkins avec Azure DevOps
+    - name: 15b - Intégrer Jenkins avec Azure DevOps
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: 15a - Configurer une stratégie de déploiement progressif
+    - name: 16a - Configurer une stratégie de déploiement progressif
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15b - Configurer une stratégie de déploiement Canary
+    - name: 16b - Configurer une stratégie de déploiement Canary
       href: tutorial-azure-devops-canary-strategy.md
-    - name: 15c - Configurer une stratégie de déploiement Blue-Green
+    - name: 16c - Configurer une stratégie de déploiement Blue-Green
       href: tutorial-azure-devops-blue-green-strategy.md
-    - name: 15d - CI/CD avec Azure Pipelines (YAML)
+    - name: 16d - CI/CD avec Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16 - Créer une pile LAMP
+    - name: 17 - Créer une pile LAMP
       href: tutorial-lamp-stack.md
-    - name: 17 - Sécuriser un serveur web avec SSL
+    - name: 18 - Sécuriser un serveur web avec SSL
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
@@ -285,7 +287,7 @@
         - name: Instances réservées
           items:
             - name: Prépayer pour des machines virtuelles
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Prépayer pour Dedicated Hosts
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: "Que sont les réservations Azure\_?"

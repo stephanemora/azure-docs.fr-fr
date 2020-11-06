@@ -140,8 +140,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: Kit SDK Azure pour JavaScript
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: API REST
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gestion des fonctionnalités
       items:
         - name: Bibliothèque .NET Core
@@ -156,6 +154,52 @@
           href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: API REST
+      items:
+        - name: Vue d’ensemble
+          href: rest-api.md
+        - name: Ressources
+          items:
+            - name: Keys
+              href: ./rest-api-keys.md
+            - name: Clés-valeurs
+              href: ./rest-api-key-value.md
+            - name: Étiquettes
+              href: ./rest-api-labels.md
+            - name: Verrous
+              href: ./rest-api-locks.md
+            - name: Révisions
+              href: ./rest-api-revisions.md
+        - name: Protocole
+          items:
+            - name: Authentification
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Authentification Azure Active Directory
+                  href: rest-api-authentication-azure-ad.md
+                - name: Authentification HMAC
+                  href: rest-api-authentication-hmac.md
+            - name: Autorisation
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Autorisation Azure Active Directory
+                  href: rest-api-authorization-azure-ad.md
+                - name: Autorisation HMAC
+                  href: rest-api-authorization-hmac.md
+            - name: Modèle de cohérence
+              href: ./rest-api-consistency.md
+            - name: En-têtes courants
+              href: ./rest-api-headers.md
+            - name: Limitation
+              href: ./rest-api-throttling.md
+            - name: Gestion de version
+              href: ./rest-api-versioning.md
+        - name: Développement
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: postman
+              href: ./rest-api-postman.md
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

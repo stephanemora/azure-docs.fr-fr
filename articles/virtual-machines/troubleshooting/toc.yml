@@ -109,6 +109,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: La machine virtuelle ne répond pas lors de l’application d’une stratégie de sécurité
           href: unresponsive-vm-apply-security-policy.md
+        - name: La machine virtuelle ne répond pas pendant l’attente du gestionnaire de session locale
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: Erreur du gestionnaire de démarrage Windows - État non valide du hachage d’image
           href: windows-boot-error-invalid-image-hash.md
         - name: Erreur d’arrêt de Windows - Informations de configuration système incorrectes
@@ -117,6 +119,8 @@
           href: troubleshoot-windows-stop-error.md
         - name: Erreur d’arrêt Windows - Processus système terminé
           href: windows-stop-error-system-process-terminated.md
+        - name: Erreur d’arrêt Windows - Exception de thread système non gérée
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Impossible de se connecter à ma machine virtuelle
   items:
     - name: RDP
