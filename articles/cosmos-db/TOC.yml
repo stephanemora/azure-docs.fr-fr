@@ -142,7 +142,7 @@
               href: create-sql-api-python.md
             - name: Application Xamarin
               href: create-sql-api-xamarin-dotnet.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: "1\_- Créer et gérer des données"
           items:
@@ -662,6 +662,8 @@
               href: how-to-time-to-live.md
             - name: Définir des clés uniques
               href: how-to-define-unique-keys.md
+            - name: Effectuer des opérations de traitement par lots transactionnelles
+              href: transactional-batch.md
         - name: Performances
           items:
             - name: Requête
@@ -753,8 +755,6 @@
               href: create-sql-api-java-changefeed.md
         - name: Programmation côté serveur
           items:
-            - name: Effectuer des opérations de traitement par lots transactionnelles
-              href: transactional-batch.md
             - name: 'Écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Écrire des procédures stockées et des déclencheurs avec l’API de requête JavaScript

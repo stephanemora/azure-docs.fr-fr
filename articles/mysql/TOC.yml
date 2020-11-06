@@ -29,6 +29,9 @@
     - name: Atténuer l’altération de base de données
       href: how-to-fix-corrupt-database.md
       displayName: corrupt data
+    - name: Stratégie de version
+      href: concepts-version-policy.md
+      displayName: version policy
 - name: Serveur unique
   expanded: true
   items:

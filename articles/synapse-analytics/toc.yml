@@ -14,8 +14,9 @@
     - name: Notes de publication
       href: release-notes.md
 - name: Démarrages rapides
+  expanded: true
   items:
-    - name: Introduction
+    - name: Bien démarrer
       href: get-started.md
       displayName: 'get, started, quickstart'
     - name: 1 Créer un espace de travail Synapse
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: Modèles de consommation de ressources
           href: sql/resource-consumption-models.md
-        - name: Bonnes pratiques sur les pools SQL serverless
+        - name: Données traitées
+          href: sql/data-processed.md
+        - name: Bonnes pratiques relatives à SQL à la demande
           href: sql/best-practices-sql-on-demand.md
         - name: Bonnes pratiques sur les pools SQL dédiés
           href: sql/best-practices-sql-pool.md
