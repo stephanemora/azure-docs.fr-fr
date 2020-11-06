@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 5352a95b865851be937af7b9f19268afd23148db
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495919"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280031"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connecter des applications Azure Functions pour le traitement des données
 
@@ -29,6 +29,10 @@ Voici un aperçu des étapes qui sont présentées :
 3. Ajouter du code d’authentification à la fonction (pour pouvoir accéder à Azure Digital Twins)
 4. Publier l’application de fonction dans Azure
 5. Configurer l’accès de [sécurité](concepts-security.md) pour l’application de fonction Azure
+
+## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Condition préalable : Configurer l’instance Azure Digital Twins
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Créer une application Azure Functions dans Visual Studio
 
@@ -50,7 +54,7 @@ Une fois l’application de fonction créée, Visual Studio dispose d’un exemp
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Écrire une fonction Azure avec un déclencheur Event Grid
 
-Vous pouvez écrire une fonction Azure en ajoutant le kit SDK à votre application de fonction. L’application de fonction interagit avec Azure Digital Twins à l’aide du [Kit de développement logiciel (SDK) Azure Digital Twins pour .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+Vous pouvez écrire une fonction Azure en ajoutant le kit SDK à votre application de fonction. L’application de fonction interagit avec Azure Digital Twins à l’aide du [Kit de développement logiciel (SDK) Azure Digital Twins pour .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 Pour utiliser le kit SDK, vous devez inclure les packages suivants dans votre projet. Vous pouvez installer les packages à l’aide du gestionnaire de package NuGet de Visual Studio, ou ajouter les packages avec l’outil en ligne de commande `dotnet`. Choisissez une de ces méthodes : 
 

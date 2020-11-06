@@ -69,6 +69,8 @@
           href: face-resource-container-config.md
         - name: Utiliser des instances de conteneur
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+        - name: Documentation sur les conteneurs Cognitive Services
+          href: ../containers/index.yml
 - name: Informations de référence
   items:
     - name: API Visage

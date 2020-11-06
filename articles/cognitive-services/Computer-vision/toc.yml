@@ -161,6 +161,8 @@
           href: spatial-analysis-zone-line-placement.md
         - name: Positionnement de la caméra
           href: spatial-analysis-camera-placement.md
+    - name: Documentation sur les conteneurs Cognitive Services
+      href: ../containers/index.yml
 - name: Guides pratiques
   items:
     - name: Appeler l’API Vision par ordinateur
