@@ -31,14 +31,10 @@
       href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alertes et groupes d’actions
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Utiliser IntelliJ pour déployer des applications
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Tableau de bord Disjoncteur
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Nom DNS personnalisé
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Provisionner une instance Azure Spring Cloud avec Terraform
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Utiliser l’identité managée pour connecter Key Vault à l’application Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Déployer Azure Spring Cloud dans un réseau virtuel
@@ -77,6 +73,8 @@
           href: spring-cloud-howto-staging-environment.md
         - name: Lancer une application Java à partir du code source
           href: spring-cloud-howto-launch-from-source.md
+        - name: Utiliser IntelliJ pour déployer des applications
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Configurer
       items:
         - name: 'Démarrer, arrêter et supprimer une application'
@@ -115,6 +113,8 @@
           href: spring-cloud-howto-github-actions.md
         - name: Authentification avec Key Vault dans GitHub Actions
           href: spring-cloud-github-actions-key-vault.md
+        - name: Provisionner une instance Azure Spring Cloud avec Terraform
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Dépanner
       items:
         - name: Diagnostiquer et résoudre les problèmes par vous-même
