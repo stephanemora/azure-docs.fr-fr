@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048004"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325381"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Noter des modèles Machine Learning avec PREDICT
 
 Synapse SQL vous offre la possibilité de noter des modèles Machine Learning en utilisant le langage familier T-SQL. La fonction T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) vous noter vos modèles Machine Learning entraînés avec des données historiques dans les limites sécurisées de votre entrepôt de données. La fonction PREDICT prend un modèle [ONNX (Open neuronal Network Exchange)](https://onnx.ai/) et des données en entrée. Cette fonctionnalité élimine l’étape de déplacement de données précieuses hors de l’entrepôt de données pour effectuer le scoring. Elle vise à permettre aux professionnels de l’informatique de déployer facilement des modèles Machine Learning avec l’interface T-SQL familière, et de collaborer de façon transparente avec des scientifiques de données travaillant avec l’infrastructure appropriée pour accomplir leur tâche.
 
 > [!NOTE]
-> Cette fonctionnalité n’est actuellement pas prise en charge dans SQL à la demande.
+> Cette fonctionnalité n’est actuellement pas prise en charge dans un pool SQL serverless.
 
 Elle requiert que le modèle soit entraîné hors de Synapse SQL. Après avoir compilé le modèle, chargez-le dans l’entrepôt de données et notez-le avec la syntaxe T-SQL PREDICT pour extraire des informations à partir des données.
 

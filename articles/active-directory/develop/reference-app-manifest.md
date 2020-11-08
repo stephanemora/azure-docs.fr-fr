@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627004"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286960"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
@@ -194,6 +194,7 @@ Configure la revendication `groups` émise dans un utilisateur ou un jeton d’a
 
 - `"None"`
 - `"SecurityGroup"` (pour les groupes de sécurité et les rôles Azure AD)
+- `"ApplicationGroup"` (cette option comprend uniquement les groupes attribués à l'application)
 - `"All"` (ceci permet d’obtenir tous les groupes de sécurité, groupes de distribution et rôles d’annuaire Azure AD dont l’utilisateur connecté est membre)
 
 Exemple :
@@ -663,11 +664,11 @@ Pour obtenir une description de ces attributs, consultez la section [Référence
 
 Lorsque vous essayez de charger un manifeste téléchargé précédemment, vous pouvez voir les erreurs suivantes. Cette erreur est probablement due au fait que l’éditeur de manifeste prend désormais en charge une version plus récente du schéma, qui ne correspond pas à celle que vous tentez de charger.
 
-* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Identificateur d’objet non valide 'undefined'. []. »
-* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Une ou plusieurs valeurs de propriété spécifiées ne sont pas valides. []. »
-* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Impossible de paramétrer availableToOtherTenants dans cette version d’api pour une mise à jour. []. »
-* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Les mises à jour de la propriété « replyUrls » ne sont pas autorisées pour cette application. Utilisez plutôt la propriété 'replyUrlsWithType'. []. »
-* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Une valeur sans nom de type a été trouvée et aucun type attendu n’est disponible. Lorsque le modèle est spécifié, chaque valeur dans la charge utile doit avoir un type qui peut être spécifié dans la charge utile, explicitement par l’appelant ou implicitement par déduction à partir de la valeur parente. [] »
+* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Identificateur d’objet non valide 'undefined'. []."
+* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Une ou plusieurs valeurs de propriété spécifiées ne sont pas valides. []."
+* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Impossible de paramétrer availableToOtherTenants dans cette version d’api pour une mise à jour. []."
+* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Les mises à jour de la propriété « replyUrls » ne sont pas autorisées pour cette application. Utilisez plutôt la propriété 'replyUrlsWithType'. []."
+* « Échec de mise à jour de l’application xxxxxx. Détail de l’erreur : Une valeur sans nom de type a été trouvée et aucun type attendu n’est disponible. Lorsque le modèle est spécifié, chaque valeur dans la charge utile doit avoir un type qui peut être spécifié dans la charge utile, explicitement par l’appelant ou implicitement par déduction à partir de la valeur parente. []"
 
 Lorsque vous voyez l’une de ces erreurs, nous recommandons l’une des actions suivantes :
 
