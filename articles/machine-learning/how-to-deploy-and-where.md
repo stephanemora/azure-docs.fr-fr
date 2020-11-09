@@ -1,22 +1,22 @@
 ---
 title: Comment et où déployer des modèles ?
 titleSuffix: Azure Machine Learning
-description: Découvrez comment et où déployer vos modèles Azure Machine Learning service, notamment Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA (Field Programmable Gate Arrays).
+description: Découvrez comment et où déployer vos modèles Azure Machine Learning service, notamment Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 09/17/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 2642af3490cd69a3e793f020c193d83d2966e1ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fa8d40e4817b6adb42da6daa3035bd1c4a67c5d8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744620"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325284"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 
@@ -45,7 +45,7 @@ Pour plus d’informations sur les concepts impliqués dans le workflow de dépl
 
 - Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 - Un modèle Si vous n’avez pas de modèle entraîné, vous pouvez utiliser les fichiers de modèle et de dépendance fournis dans [ce tutoriel](https://aka.ms/azml-deploy-cloud).
-- Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
+- Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 ---
 
@@ -70,7 +70,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config(path=".file-path/ws_config.json")
 ```
 
-Pour plus d’informations sur l’utilisation du kit SDK pour se connecter à un espace de travail, consultez la documentation sur le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace).
+Pour plus d’informations sur l’utilisation du kit SDK pour se connecter à un espace de travail, consultez la documentation sur le [kit SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#workspace).
 
 
 ---
@@ -81,10 +81,13 @@ Pour plus d’informations sur l’utilisation du kit SDK pour se connecter à u
 Un modèle inscrit est un conteneur logique pour un ou plusieurs fichiers qui composent votre modèle. Par exemple, si vous disposez d’un modèle stocké dans plusieurs fichiers, vous pouvez enregistrer ces derniers en tant que modèle unique dans l’espace de travail. Après l’inscription des fichiers, vous pouvez télécharger ou déployer le modèle inscrit et recevoir tous les fichiers que vous avez inscrits.
 
 > [!TIP] 
-> Il est recommandé, mais non obligatoire d’inscrire un modèle pour le suivi des versions. Si vous préférez continuer sans inscrire de modèle, vous devez spécifier un répertoire source dans [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) ou [inferenceconfig.json](./reference-azure-machine-learning-cli.md#inference-configuration-schema) et veiller à ce que votre modèle se trouve dans ce répertoire source.
+> Il est recommandé, mais non obligatoire d’inscrire un modèle pour le suivi des versions. Si vous préférez continuer sans inscrire de modèle, vous devez spécifier un répertoire source dans [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) ou [inferenceconfig.json](./reference-azure-machine-learning-cli.md#inference-configuration-schema) et veiller à ce que votre modèle se trouve dans ce répertoire source.
 
 > [!TIP]
 > Quand vous inscrivez un modèle, vous fournissez le chemin d’un emplacement cloud (à partir d’une exécution d’entraînement) ou d’un répertoire local. Ce chemin sert uniquement à localiser les fichiers à charger dans le cadre du processus d’inscription. Il ne doit pas forcément correspondre au chemin utilisé dans le script d’entrée. Pour plus d’informations, consultez [Localiser les fichiers de modèles dans votre script d’entrée](./how-to-deploy-advanced-entry-script.md#load-registered-models).
+
+> [!IMPORTANT]
+> Lors de l’utilisation de l’option Filtrer par `Tags` sur la page Modèles d’Azure Machine Learning Studio au lieu de `TagName : TagValue`, les clients doivent indiquer `TagName=TagValue` (sans espace)
 
 Les exemples suivants montrent comment inscrire un modèle.
 
@@ -114,7 +117,7 @@ Pour plus d’informations sur `az ml model register`, consultez la [documentati
 
 ### <a name="register-a-model-from-an-azure-ml-training-run"></a>Inscrire un modèle à partir d’une exécution de formation Azure ML
 
-  Quand vous utilisez le kit SDK pour entraîner un modèle, vous pouvez recevoir un objet [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true) ou [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) en fonction de la façon dont vous avez entraîné le modèle. Chaque objet peut être utilisé pour inscrire un modèle créé par un exécution d’expérimentation.
+  Quand vous utilisez le kit SDK pour entraîner un modèle, vous pouvez recevoir un objet [Run](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py) ou [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) en fonction de la façon dont vous avez entraîné le modèle. Chaque objet peut être utilisé pour inscrire un modèle créé par un exécution d’expérimentation.
 
   + Inscrire un modèle à partir d’un objet `azureml.core.Run` :
  
@@ -125,7 +128,7 @@ Pour plus d’informations sur `az ml model register`, consultez la [documentati
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    Le paramètre `model_path` fait référence à l’emplacement cloud du modèle. Dans cet exemple, le chemin d’un fichier unique est utilisé. Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` avec le chemin d’un dossier contenant les fichiers. Pour plus d’informations, consultez la documentation sur [Run.register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-).
+    Le paramètre `model_path` fait référence à l’emplacement cloud du modèle. Dans cet exemple, le chemin d’un fichier unique est utilisé. Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` avec le chemin d’un dossier contenant les fichiers. Pour plus d’informations, consultez la documentation sur [Run.register_model](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-).
 
   + Inscrire un modèle à partir d’un objet `azureml.train.automl.run.AutoMLRun` :
 
@@ -167,7 +170,7 @@ Vous pouvez inscrire un modèle en indiquant son chemin local. Vous pouvez fourn
 
   Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` avec le chemin d’un dossier contenant les fichiers.
 
-Pour plus d’informations, consultez la documentation sur la [classe Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Pour plus d’informations, consultez la documentation sur la [classe Model](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 Pour plus d’informations sur l’utilisation de modèles formés en dehors d’Azure Machine Learning, consultez [Déployer un modèle existant](how-to-deploy-existing-model.md).
 
@@ -223,7 +226,7 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
 
 Pour plus d’informations sur les environnements , consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md).
 
-Pour plus d’informations sur la configuration des inférences, consultez la documentation sur la classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Pour plus d’informations sur la configuration des inférences, consultez la documentation sur la classe [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ---
 
@@ -301,7 +304,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-Pour plus d’informations, consultez la documentation sur [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) et [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py&preserve-view=true).
+Pour plus d’informations, consultez la documentation sur [LocalWebservice](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py), [Model.deploy()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) et [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice?preserve-view=true&view=azure-ml-py).
 
 ---
 
@@ -326,7 +329,7 @@ Les cibles de calcul Azure Machine Learning sont créées et managées par Azure
 Pour obtenir une présentation détaillée de l’inférence par lots avec la capacité de calcul Azure Machine Learning, consultez le [guide pratique pour exécuter des prédictions par lots](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a name="iot-edge-inference"></a><a id="iotedge"></a> Inférence IoT Edge
-La prise en charge du déploiement en périphérie est en préversion. Pour plus d’informations, consultez [Déployer Azure Machine Learning en tant que module IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
+La prise en charge du déploiement en périphérie est en préversion. Pour plus d’informations, consultez [Déployer Azure Machine Learning en tant que module IoT Edge](../iot-edge/tutorial-deploy-machine-learning.md).
 
 ## <a name="delete-resources"></a>Supprimer des ressources
 
@@ -343,7 +346,7 @@ Apprenez-en davantage sur [la suppression d’un service web](/cli/azure/ext/azu
 Pour supprimer un service web déployé, utilisez `service.delete()`.
 Pour supprimer un modèle inscrit, utilisez `model.delete()`.
 
-Pour plus d’informations, consultez la documentation sur [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) et [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--).
+Pour plus d’informations, consultez la documentation sur [WebService.delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) et [Model.delete()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ---
 
@@ -359,4 +362,3 @@ Pour plus d’informations, consultez la documentation sur [WebService.delete()]
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
 * [Créer des alertes d’événement et des déclencheurs pour les déploiements de modèle](how-to-use-event-grid.md)
-

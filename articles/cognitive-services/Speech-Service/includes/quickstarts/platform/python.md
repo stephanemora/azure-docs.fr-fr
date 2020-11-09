@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 613ee87064cc3b0bbbae8b8ac2e31a5ed60d39f2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097199"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135913"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour Python. Si vous voulez simplement le nom du package pour commencer seul, exécutez `pip install azure-cognitiveservices-speech`.
 
@@ -20,25 +20,20 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
 - Le package Python du kit SDK Speech est disponible pour les systèmes d’exploitation suivants :
   - Windows : x64 et x86
   - Mac : macOS X version 10.12 ou ultérieure
-  - Linux : Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 sur x64
+  - Linux : consultez la liste des [architectures cibles et distributions Linux prises en charge](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Les plateformes Linux prises en charge nécessitent l’installation de certaines bibliothèques (`libssl` pour la prise en charge du protocole SSL et `libasound2` pour la prise en charge du son). Reportez-vous à votre distribution ci-dessous pour connaître les commandes nécessaires à l’installation des versions appropriées de ces bibliothèques.
 
-  - Sur Ubuntu, exécutez les commandes suivantes pour installer les packages requis :
+  - Sur Ubuntu/Debian, exécutez les commandes suivantes pour installer les packages requis :
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - Sur Debian 9, exécutez les commandes suivantes pour installer les packages requis :
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Si libssl1.0.0 n’est pas disponible, installez libssl1.0.x (où x est supérieur à 0) ou libssl1.1 à la place.
 
   - Sur RHEL/CentOS, exécutez les commandes suivantes pour installer les packages nécessaires :
 
@@ -79,12 +74,12 @@ import azure.cognitiveservices.speech as speechsdk
 1. Téléchargez et installez la dernière version prise en charge de [Python](https://www.python.org/downloads/) pour votre plateforme (3.5 à 3.8).
    - Les utilisateurs de Windows veillent à sélectionner « Ajouter Python à votre chemin d’accès » au cours du processus d’installation.
 1. Téléchargez et installez [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Ouvrez Visual Studio Code et installez l’extension Python. Sélectionnez **Fichier** > **Préférences** > **Extensions** dans le menu. Recherchez **Python**, puis cliquez sur **Installer**.
+1. Ouvrez Visual Studio Code et installez l’extension Python. Sélectionnez **Fichier** > **Préférences** > **Extensions** dans le menu. Recherchez **Python** , puis cliquez sur **Installer**.
 
    ![Installer l’extension Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. À partir de Visual Studio Code, installez le package Python du Kit de développement logiciel (SDK) Speech à partir de la ligne de commande intégrée :
-   1. Ouvrez un terminal (dans les menus déroulants, **Terminal** > **Nouveau terminal**)
+   1. Ouvrez un terminal (dans les menus déroulants, **Terminal** > **Nouveau terminal** )
    1. Dans le terminal qui s’ouvre, entrez la commande `python -m pip install azure-cognitiveservices-speech`
 
 Si vous débutez avec Visual Studio Code, reportez-vous à la [Documentation Visual Studio Code](https://code.visualstudio.com/docs) plus complète. Pour en savoir plus sur Visual Studio Code et Python, voir le [Didacticiel Python pour Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial).

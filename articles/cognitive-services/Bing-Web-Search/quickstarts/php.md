@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b917f6bece52b43cfd0db49d6a28456021645d11
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83873820"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076569"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser PHP pour appeler l’API Recherche Web Bing  
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing. Cette application Node.js envoie une demande de recherche à l’API et affiche la réponse JSON. Bien que cette application soit écrite en JavaScript, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 

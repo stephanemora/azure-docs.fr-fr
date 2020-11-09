@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 701c901cb9b85aeaf329846c13e6ed051ea52e63
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900871"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288509"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -77,6 +77,12 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | **Web** |  |  |
 > | [Lecteur de données Azure Maps](#azure-maps-data-reader) | Octroie un accès pour lire les données liées au mappage à partir d’un compte Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Contributeur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
+> | [Lecteur AccessKey SignalR](#signalr-accesskey-reader) | Lire les clés d’accès du service SignalR | 04165923-9d83-45d5-8227-78b77b0a687e |
+> | [Serveur d’applications SignalR (préversion)](#signalr-app-server-preview) | Permet à votre serveur d’applications d’accéder au service SignalR avec les options d’authentification AAD. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
+> | [Contributeur SignalR](#signalr-contributor) | Créer, lire, mettre à jour et supprimer des ressources de service SignalR | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
+> | [Contributeur SignalR Serverless (préversion)](#signalr-serverless-contributor-preview) | Permet à votre application d’accéder au service en mode serverless avec les options d’authentification AAD. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
+> | [Propriétaire de SignalR Service (préversion)](#signalr-service-owner-preview) | Accès complet aux API REST du service Azure SignalR | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
+> | [Lecteur de SignalR Service (préversion)](#signalr-service-reader-preview) | Accès en lecture seule aux API REST du service Azure SignalR | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [Contributeur de plan web](#web-plan-contributor) | Permet de gérer des plans web pour des sites web, mais pas d’y accéder. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Contributeur de site web](#website-contributor) | Permet de gérer des sites web (pas des plans web), mais pas d’y accéder. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Containers** |  |  |
@@ -2674,6 +2680,282 @@ Permet de gérer des services de recherche, mais pas d’y accéder. [En savoir 
 }
 ```
 
+### <a name="signalr-accesskey-reader"></a>Lecteur AccessKey SignalR
+
+Lire les clés d’accès du service SignalR
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/*/read |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/listkeys/action | Afficher la valeur des clés d’accès SignalR dans le portail de gestion ou par le biais d’une API |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Créer et mettre à jour un ticket de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read SignalR Service Access Keys",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/04165923-9d83-45d5-8227-78b77b0a687e",
+  "name": "04165923-9d83-45d5-8227-78b77b0a687e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*/read",
+        "Microsoft.SignalRService/SignalR/listkeys/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR AccessKey Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-app-server-preview"></a>Serveur d’applications SignalR (préversion)
+
+Permet à votre serveur d’applications d’accéder au service SignalR avec les options d’authentification AAD.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Générez un AccessKey temporaire pour la signature de ClientTokens. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Démarrer une connexion au serveur. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app server access SignalR Service with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/420fcaa2-552c-430f-98ca-3264be4806c7",
+  "name": "420fcaa2-552c-430f-98ca-3264be4806c7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/accessKey/action",
+        "Microsoft.SignalRService/SignalR/serverConnection/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR App Server (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-contributor"></a>Contributeur SignalR
+
+Créer, lire, mettre à jour et supprimer des ressources de service SignalR
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Créer et mettre à jour un ticket de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete SignalR service resources",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "name": "8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-serverless-contributor-preview"></a>Contributeur SignalR Serverless (préversion)
+
+Permet à votre application d’accéder au service en mode serverless avec les options d’authentification AAD.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Générez un ClientToken pour démarrer une connexion cliente. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app access service in serverless mode with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "name": "fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/clientToken/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Serverless Contributor (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-owner-preview"></a>Propriétaire de SignalR Service (préversion)
+
+Accès complet aux API REST du service Azure SignalR
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Diffusez des messages à toutes les connexions clientes dans le hub. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Diffusez le message au groupe. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Vérifiez l’existence du groupe ou l’existence de l’utilisateur dans le groupe. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Rejoignez/Quittez le groupe. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Envoyer des messages directement à une connexion cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Vérifier l’existence de la connexion cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Fermez la connexion cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Envoyer des messages à l’utilisateur, qui peut se composer de plusieurs connexions clientes. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Vérifiez l’existence d’un utilisateur. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "name": "7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/hub/send/action",
+        "Microsoft.SignalRService/SignalR/group/send/action",
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/group/write",
+        "Microsoft.SignalRService/SignalR/clientConnection/send/action",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/write",
+        "Microsoft.SignalRService/SignalR/user/send/action",
+        "Microsoft.SignalRService/SignalR/user/read",
+        "Microsoft.SignalRService/SignalR/user/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Owner (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-reader-preview"></a>Lecteur de SignalR Service (préversion)
+
+Accès en lecture seule aux API REST du service Azure SignalR
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Vérifiez l’existence du groupe ou l’existence de l’utilisateur dans le groupe. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Vérifier l’existence de la connexion cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Vérifiez l’existence d’un utilisateur. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ddde6b66-c0df-4114-a159-3618637b3035",
+  "name": "ddde6b66-c0df-4114-a159-3618637b3035",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/user/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Reader (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="web-plan-contributor"></a>Contributeur de plan web
 
 Permet de gérer des plans web pour des sites web, mais pas d’y accéder.
@@ -3943,7 +4225,7 @@ Permet de gérer les stratégies de sécurité des serveurs et bases de données
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/locations/administratorAzureAsyncOperation/read |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/locations/administratorAzureAsyncOperation/read | Obtient le résultat des opérations de l’administrateur Azure Async de l’instance gérée. |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |

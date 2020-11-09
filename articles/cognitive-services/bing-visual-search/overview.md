@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 192517aa16e0fe56eb5b7dc8b852116af500b715
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87023719"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082043"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Qu’est-ce que l’API Recherche visuelle Bing ?
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche visuelle Bing retourne des insights pour une image. Vous pouvez charger une image ou fournir une URL vers une image. Les insights sont des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, etc. Les insights retournés par l’API Recherche visuelle Bing sont similaires à ceux qui apparaissent sur Bing.com/images. 
 

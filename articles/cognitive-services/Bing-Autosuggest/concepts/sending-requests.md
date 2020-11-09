@@ -10,20 +10,25 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad00d60c5a1b75e200b49b0cdcf0d396012a5f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294116"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101950"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envoi de demandes à l’API Suggestion automatique Bing.
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Si votre application envoie des requêtes à l’une des API Recherche Bing, vous pouvez utiliser l’API Suggestion automatique Bing pour améliorer l’expérience de recherche de vos utilisateurs. L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche. À mesure que des caractères sont entrés dans la zone de recherche de votre application, vous pouvez afficher des suggestions dans une liste déroulante. Utilisez cet article pour savoir comment envoyer des requêtes de recherche cette API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Point de terminaison de l’API Suggestion automatique Bing
 
-L'**API Suggestion automatique Bing** inclut un point de terminaison, qui renvoie une liste de requêtes suggérées à partir d’un terme de recherche partielle.
+L' **API Suggestion automatique Bing** inclut un point de terminaison, qui renvoie une liste de requêtes suggérées à partir d’un terme de recherche partielle.
 
 Pour obtenir des suggestions de requête à l’aide de l’API Bing, envoyez une requête `GET` au point de terminaison suivant. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
@@ -35,7 +40,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, etc., consultez la référence [API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
 
-Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type. Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.
+Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type.  Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.
 Tous les points de terminaison prennent en charge les requêtes qui renvoient une langue et/ou un emplacement spécifique par longitude, latitude et rayon de recherche.
 
 Pour plus d’informations sur les paramètres pris en charge par chaque point de terminaison, consultez les pages de référence pour chaque type.

@@ -10,14 +10,19 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: e0402b1695e1d5f5c9f29d128f4cd405f219e724
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f6f816f6fb4d422a97c98994996967e71f6a1e07
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532492"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084899"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Qu’est-ce que l’API Recherche d’entités Bing ?
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche d’entités Bing envoie une requête de recherche à Bing et obtient des résultats comprenant des entités et des lieux. Les résultats de lieux incluent les restaurants, les hôtels et d’autres commerces locaux. Bing renvoie des lieux si la requête spécifie le nom de l’entreprise locale ou demande un type d’entreprise (par exemple, les restaurants à proximité). Bing renvoie des entités si la requête indique des personnes, des lieux (sites touristiques, États, pays/régions, etc.) ou des éléments connus.
 

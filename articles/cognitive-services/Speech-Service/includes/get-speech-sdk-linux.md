@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0298bcd675b1b94999dab3a1ad1c40a6feb7438
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83673048"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135561"
 ---
 :::row:::
     :::column span="3":::
-        Le Kit de développement logiciel (SDK) Speech prend en charge **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8** et **CentOS 7/8** uniquement sur les architectures cibles suivantes utilisées avec Linux :
+        Le SDK Speech prend en charge **Ubuntu 16.04/18.04/20.04** , **Debian 9/10** , **Red Hat Enterprise Linux (RHEL) 7/8** et **CentOS 7/8** uniquement sur les architectures cibles suivantes en cas d’utilisation avec Linux :
     :::column-end:::
     :::column:::
         <br>
@@ -39,19 +39,25 @@ Pour une application native, le Kit de développement logiciel (SDK) Speech s’
 - La bibliothèque OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
 - La bibliothèque partagée pour les applications ALSA (`libasound.so.2`)
 
-# <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
+# <a name="ubuntu-160418042004"></a>[Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-# <a name="debian-9"></a>[Debian 9](#tab/debian)
+> [!NOTE]
+> Si libssl1.0.x n’est pas disponible, installez libssl1.1 à la place.
+
+# <a name="debian-910"></a>[Debian 9/10](#tab/debian)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
+
+> [!NOTE]
+> Si libssl1.0.x n’est pas disponible, installez libssl1.1 à la place.
 
 # <a name="rhel-78-and-centos-78"></a>[RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
 

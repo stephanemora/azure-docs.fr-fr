@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 82b1f13562a49284059c25bcbd39a33daf949dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a982c150349ca31fdf93a38b38910c3572b14d2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74775538"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078762"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Présentation des API Recherche Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Les API Recherche Bing servent à créer des applications et des services connectés au web, permettant de rechercher des pages web, des images, des actualités, des lieux, etc. sans publicités. En envoyant des requêtes de recherche à l’aide de l’API REST Recherche Bing ou des SDK, vous pouvez obtenir des informations et du contenu pertinents. Utilisez cet article pour découvrir les différentes API Recherche Bing et savoir comment intégrer les recherches cognitives à vos applications et vos services. Les limites concernant les tarifs et les taux d’utilisation peuvent varier selon les API.
 

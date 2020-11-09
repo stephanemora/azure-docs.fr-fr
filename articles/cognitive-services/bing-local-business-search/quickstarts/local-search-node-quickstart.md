@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8c59263768b548ad3d59830c93b397203f3ce45c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 512ecd44d0d6fd6edc07fb7dc1508c062dd27f78
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91277068"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095167"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Node.js
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour découvrir comment envoyer des demandes à l’API Recherche d’entreprises locales Bing, un service Azure Cognitive Services. Bien que cette application simple soit écrite en Node.js, l’API est un service web RESTful compatible avec tous les langages de programmation capables de formuler des requêtes HTTP et d’analyser du JSON.
 

@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7999ed5296f2ff4e64b9edc0fb355f72b7d7a04e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316645"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100199"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche d'actualités Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Ce guide de mise à niveau identifie les changements entre la version 5 et la version 7 de l’API Recherche d'actualités Bing. Utilisez-le pour identifier les parties de votre application que vous avez besoin de mettre à jour pour utiliser la version 7.
 
@@ -90,4 +95,4 @@ Bloqué|InvalidRequest.Blocked
 
 - Ajout du champ `sort` à l’objet [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). Le champ `sort` indique l’ordre de tri des articles. Par exemple, les articles sont triés par pertinence (par défaut) ou par date.
 
-- Ajout de l’objet [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), qui définit l’ordre de tri. Le champ `isSelected` indique si la réponse a utilisé l’ordre de tri. Si la valeur est **true**, la réponse a utilisé l’ordre de tri. Si `isSelected` est **false**, vous pouvez utiliser l’URL dans le champ `url` pour demander un ordre de tri différent.
+- Ajout de l’objet [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), qui définit l’ordre de tri. Le champ `isSelected` indique si la réponse a utilisé l’ordre de tri. Si la valeur est **true** , la réponse a utilisé l’ordre de tri. Si `isSelected` est **false** , vous pouvez utiliser l’URL dans le champ `url` pour demander un ordre de tri différent.

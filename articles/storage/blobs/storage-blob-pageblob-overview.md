@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091013"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288326"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
 
@@ -24,6 +24,10 @@ Stockage Azure offre trois types de stockage d’objets blob : Objets blob de b
 Les objets blob de pages représentent une collection de pages de 512 octets, qui offrent la possibilité de lire/écrire des plages arbitraires d’octets. Les objets blob de pages sont donc particulièrement adaptés au stockage de structures de données basées sur des index et diverses comme les disques de système d’exploitation et de données pour machines virtuelles et bases de données. Par exemple, Azure SQL DB utilise des objets blob de pages comme stockage permanent sous-jacent pour ses bases de données. Les objets blob de pages sont également souvent utilisés pour les fichiers avec des mises à jour basées sur une plage.  
 
 Les principales fonctionnalités des objets blob de pages Azure résident dans son interface REST, la durabilité du stockage sous-jacent et les fonctionnalités de migration parfaite vers Azure. Ces fonctionnalités sont abordées plus en détail dans la section suivante. De plus, les objets blob de pages Azure sont actuellement pris en charge sur deux types de stockage : Stockage Premium et Standard. Stockage Premium est plus particulièrement conçu pour les charges de travail nécessitant de hautes performances et une faible latence, ce qui rend les objets blob de pages premium idéaux pour des scénarios de stockage hautes performances. Les comptes de stockage Standard sont plus économiques pour l’exécution de charges de travail insensibles à la latence.
+
+## <a name="restrictions"></a>Restrictions
+
+Les objets blob de pages ne peuvent utiliser que le niveau d’accès **chaud** , et ne peuvent donc pas utiliser les niveaux **froid** et **archive**. Pour plus d’informations sur les niveaux d’accès, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
 
 ## <a name="sample-use-cases"></a>Exemples de cas d’utilisation
 
@@ -59,7 +63,7 @@ Commencez par obtenir une référence à un conteneur. Pour créer un objet blob
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient**, avec l’URI de base pour accéder au stockage blob de votre compte de stockage (*pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey**, comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer**, puis la création du conteneur (*testvhds*) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer**, nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) en indiquant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
+Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient** , avec l’URI de base pour accéder au stockage blob de votre compte de stockage ( *pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey** , comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer** , puis la création du conteneur ( *testvhds* ) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer** , nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) en indiquant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
 
 ```csharp
 using Microsoft.Azure;

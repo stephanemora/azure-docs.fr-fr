@@ -10,27 +10,32 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed48a46a01cee5a7a981d4e863f981010b44112
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072624"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084253"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Points de terminaison pour l’API Recherche d’images Bing
 
-L’**API Recherche d’images** inclut trois points de terminaison.  Le point de terminaison 1 renvoie des images du Web grâce à une requête. Le point de terminaison 2 renvoie les informations [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  Le point de terminaison 3 renvoie des images populaires.
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+
+L’ **API Recherche d’images** inclut trois points de terminaison.  Le point de terminaison 1 renvoie des images du Web grâce à une requête. Le point de terminaison 2 renvoie les informations [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  Le point de terminaison 3 renvoie des images populaires.
 
 ## <a name="endpoints"></a>Points de terminaison
 
 Pour obtenir des résultats d’images à l’aide de l’API Bing, envoyez une requête à l’un des points de terminaison suivants. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
-**Point de terminaison 1 :** retourne des images qui sont pertinentes dans le cadre de la requête de recherche de l’utilisateur définie par `?q=""`.
+**Point de terminaison 1 :** renvoie des images qui sont pertinentes dans le cadre de la requête de recherche de l’utilisateur définie par `?q=""`.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
-**Point de terminaison 2 :** retourne des informations à propos d’une image, à l’aide des requêtes `GET` ou `POST`.
+**Point de terminaison 2 :** renvoie des informations à propos d’une image, à l’aide des requêtes `GET` ou `POST`.
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -39,7 +44,7 @@ Une requête GET renvoie des informations à propos d’une image, comme les pag
 Vous pouvez aussi inclure une image binaire dans le corps d’une requête `POST` et définir le paramètre de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) sur `RecognizedEntities`. Cette opération renvoie un jeton [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) à utiliser en tant que paramètre dans une requête `GET` ultérieure afin de récupérer des informations sur les personnes de l’image.  Définissez `modules` sur `All` pour obtenir toutes les informations, hormis `RecognizedEntities` dans les résultats de la requête `POST`, sans avoir à effectuer d’autres appels via `insightsToken`.
 
 
-**Point de terminaison 3 :** retourne des images qui sont populaires en fonction des requêtes de recherche effectuées par d’autres utilisateurs. Les images sont séparées en différentes catégories, par exemple par personnes célèbres ou événements.
+**Point de terminaison 3 :** renvoie des images qui sont populaires en fonction des requêtes de recherche effectuées par d’autres utilisateurs. Les images sont séparées en différentes catégories, par exemple par personnes célèbres ou événements.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 ```
@@ -51,7 +56,7 @@ Pour plus d’informations sur les en-têtes, les paramètres, les codes de marc
 La réponse à une requête de recherche d’images intègre les résultats sous forme d’objets JSON. Pour obtenir des exemples d’analyse des résultats, consultez le [didacticiel](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) et le [code source](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type. Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.  Tous les points de terminaison prennent en charge les requêtes qui renvoient une langue et/ou un emplacement spécifique par longitude, latitude et rayon de recherche.
+Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type.  Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.  Tous les points de terminaison prennent en charge les requêtes qui renvoient une langue et/ou un emplacement spécifique par longitude, latitude et rayon de recherche.
 
 Pour plus d’informations sur les paramètres pris en charge par chaque point de terminaison, consultez les pages de référence pour chaque type.
 Pour obtenir des exemples de requêtes de base à l’aide de l’API Recherche d’images, consultez les [guides de démarrage rapide sur la recherche d’images](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).

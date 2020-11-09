@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 923c69c12ca8cb7ceb9b570121f661e4c4e6e7f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 18764e0cd77ab9726e88ab28da98109ee12fcf58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298030"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096833"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de Go
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche visuelle Bing à l’aide du langage de programmation Go. Une requête POST charge une image sur le point de terminaison d’API. Les résultats incluent des URL et des informations descriptives à propos des images similaires à l’image chargée.
 

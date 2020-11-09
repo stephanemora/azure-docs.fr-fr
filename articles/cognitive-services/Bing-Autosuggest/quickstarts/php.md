@@ -10,14 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 534702a9122fd19be1b47dc1fcbd54ba7bfad14c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a30c053fc004d3e1eae6e876f5fc09c255aec8e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332608"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101831"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Démarrage rapide : Suggérer des requêtes de recherche avec l’API REST Suggestion automatique Bing et PHP
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Suivez ce démarrage rapide pour apprendre à effectuer des appels à l’API Suggestion automatique Bing et à lire la réponse JSON. Cette simple application PHP envoie une requête de recherche partielle à l’API et renvoie des suggestions pour les recherches. Alors que cette application est écrite en PHP, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
@@ -42,8 +47,8 @@ Suivez ce démarrage rapide pour apprendre à effectuer des appels à l’API Su
 // ;extension=php_openssl.dll
 
 // **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// **_ Update or verify the following values. _*_
+// _*********************************************
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $subscriptionKey = 'enter key here';

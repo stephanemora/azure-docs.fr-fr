@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: f84c6329c2a4dd0a9ad9e81f3700c9e31de95a2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb5da2e3009ca1c50cac05d1bd1f4a8eb55d97d2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883426"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084287"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtenir des informations sur les images avec l’API Recherche d’images Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 > [!IMPORTANT]
 > Plutôt que d’utiliser le point de terminaison /images/détails pour obtenir des informations sur l’image, vous devez utiliser la [recherche visuelle](../bing-visual-search/overview.md) car elle fournit des informations plus complètes.

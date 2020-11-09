@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c03800696897dc6cbb4cd793879e734366829b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88925111"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102177"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Tutoriel : Rechercher des images similaires dans des recherches précédentes à l’aide d’un jeton d’insights d’image
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 La bibliothèque de client Recherche visuelle Bing vous permet de rechercher des images en ligne à partir de recherches précédentes qui retournent un `ImageInsightsToken`. Cette application obtient un `ImageInsightsToken` et utilise le jeton dans une recherche ultérieure. Elle envoie alors le `ImageInsightsToken` à Bing, puis retourne des résultats qui incluent les URL de recherche Bing et les URL des images similaires disponibles en ligne.
 

@@ -10,14 +10,19 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 642aa23bc74f1f3f44deb6e489e6f7aafe7ff237
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43086c245f1d16975eae6951b1e8c2cb56fe5241
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098329"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guide de mise à niveau de l’API Vérification orthographique
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Ce guide de mise à niveau identifie les changements entre la version 5 et la version 7 de l’API Vérification orthographique Bing. Utilisez-le pour identifier les parties de votre application que vous avez besoin de mettre à jour pour utiliser la version 7.
 

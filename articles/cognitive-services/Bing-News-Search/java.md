@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-java
-ms.openlocfilehash: a1347364066f4b36256782dd8891390a47bae020
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4d1e178d5ed8ea00c277a6c15c63746c66a0a298
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87326764"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100165"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l'aide de Java et l’API REST Recherche d'actualités Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’actualités Bing. Cette application simple en Java envoie une requête de recherche d’actualités à l’API et affiche ensuite la réponse JSON.
 

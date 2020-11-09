@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32c7a97036319dcae610fd0baa2dad48763d8ae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883543"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094929"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Langages et régions pris en charge par l’API Recherche visuelle Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche visuelle Bing prend en charge plus d’une trentaine de pays/région, dont beaucoup possèdent plusieurs langues. Chaque demande doit inclure le pays/la région et la langue choisis par l’utilisateur. Le fait de connaître le marché de l’utilisateur aide Bing à renvoyer les résultats appropriés. Si vous n’indiquez rien, Bing fait au mieux pour déterminer le pays/la région et la langue de l’utilisateur. Étant donné que les résultats peuvent contenir des liens vers Bing, le fait de connaître le pays/la région et la langue aide à créer une meilleure expérience pour l’utilisateur Bing s’il clique sur des liens Bing.
 

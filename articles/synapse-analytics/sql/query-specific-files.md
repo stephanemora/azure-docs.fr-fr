@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288101"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318824"
 ---
-# <a name="use-file-metadata-in-queries"></a>Utiliser des métadonnées de fichier dans les requêtes
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Utiliser les métadonnées de fichier dans les requêtes de pool SQL serverless
 
-SQL à la demande peut traiter plusieurs fichiers et dossiers, comme cela est décrit dans l’article [Interroger plusieurs dossiers et fichiers](query-folders-multiple-csv-files.md). Dans cet article, vous allez apprendre à utiliser des informations de métadonnées sur des noms de fichiers et de dossiers dans les requêtes.
+Le pool SQL serverless peut traiter plusieurs fichiers et dossiers, comme cela est décrit dans l’article [Interroger plusieurs dossiers et fichiers](query-folders-multiple-csv-files.md). Dans cet article, vous allez apprendre à utiliser des informations de métadonnées sur des noms de fichiers et de dossiers dans les requêtes.
 
 Vous devrez peut-être parfois savoir quelle source de fichier ou de dossier est corrélée à une ligne spécifique dans le jeu de résultats.
 

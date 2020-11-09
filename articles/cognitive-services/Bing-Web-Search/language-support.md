@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 998e18f8901dda3430d5289e0590ef8099b6fb8c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262822"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095456"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Langages et régions pris en charge par l’API Recherche Web Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche Web Bing prend en charge plus d’une trentaine de pays ou régions, dont beaucoup possèdent plusieurs langues. En utilisant une requête pour spécifier un pays ou une région, vous pouvez affiner les résultats de la recherche en fonction des centres d’intérêt dans ce pays ou cette région. Il se peut que les résultats incluent des liens vers Bing qui permettent de localiser l’expérience utilisateur Bing en fonction du pays, de la région ou de la langue spécifié.
 

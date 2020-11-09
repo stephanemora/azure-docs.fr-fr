@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: d9be654b014b00a9d906210f484c2620e688838d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169132"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095116"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Cet article décrit les paramètres et attributs des requêtes envoyées à l’API Recherche visuelle Bing, ainsi que l’objet de réponse. 
 
@@ -148,7 +153,7 @@ Si vous chargez une image enregistrée en local, l’extrait de code suivant mon
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Content-Type: image/jpeg
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -175,7 +180,7 @@ Content-Disposition: form-data; name="image"; filename="image"
 Content-Type: image/jpeg
 
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```

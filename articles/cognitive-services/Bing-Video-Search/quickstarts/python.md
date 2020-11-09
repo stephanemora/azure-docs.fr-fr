@@ -11,20 +11,25 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: e6f132db9b4c0f0310496b2e22579e18359e1573
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: de29b4bfc15fdec30acd043564e99ebe6e02454d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87847225"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094079"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Python
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche de vidéos Bing. Cette application Python simple envoie une requête de recherche de vidéos HTTP à l’API, puis affiche la réponse JSON. Bien que cette application soit écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation. 
 
 Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) avec une gestion des erreurs supplémentaire et des annotations de code.
 
-Vous pouvez exécuter cet exemple en tant que notebook Jupyter sur [MyBinder](https://mybinder.org) en sélectionnant le badge de **lancement de Binder** : 
+Vous pouvez exécuter cet exemple en tant que notebook Jupyter sur [MyBinder](https://mybinder.org) en sélectionnant le badge de **lancement de Binder**  : 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 

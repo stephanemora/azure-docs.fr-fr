@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b414711f5589a141d59fbe2f14d0a8ae992f5acf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542760"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084440"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obtenez des images à partir du web avec l’API Recherche d’images Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Lorsque vous utilisez l’API REST Recherche d’images Bing, vous pouvez obtenir des images web qui sont liées au terme de votre recherche en envoyant la requête GET suivante :
 
@@ -31,7 +36,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Utilisez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) pour votre terme de recherche codé URL. Par exemple, si vous saisissez *sailing dinghies*, définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
+Utilisez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) pour votre terme de recherche codé URL. Par exemple, si vous saisissez *sailing dinghies* , définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
 
 > [!IMPORTANT]
 > * Toutes les requêtes doivent provenir d’un serveur, et non d’un client.

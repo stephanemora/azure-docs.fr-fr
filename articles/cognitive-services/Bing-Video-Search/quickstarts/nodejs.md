@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: ae049ede4ebfd6761665be9c9ea6b49e87111a20
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8554f99ab970e1b9053f6abdc20817db97db7dae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309788"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094130"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Node.js
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche de vidéos Bing. Cette application JavaScript simple envoie une requête de recherche de vidéos HTTP à l’API, puis affiche la réponse JSON. Bien que cette application soit écrite en JavaScript et utilise Node.js, l’API est un service web RESTful compatible avec la plupart des langages de programmation. 
 

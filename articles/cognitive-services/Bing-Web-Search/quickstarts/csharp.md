@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: f87cf1ed9194ff74f85dcd11ed398824750ef696
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cafb68bb859e1a0c87181a93824e6ab41692d5c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217284"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098918"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Démarrage rapide : Effectuer des recherches sur le web à l'aide de l'API REST Recherche Web Bing et de C#
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing. Cette application C# envoie une requête de recherche à l’API et affiche la réponse JSON. Bien que cette application soit écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 

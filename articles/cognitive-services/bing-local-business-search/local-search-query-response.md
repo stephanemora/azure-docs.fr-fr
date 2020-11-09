@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e26d128fea7208206be8a7329522f8202051215
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74326724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095405"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Vous pouvez obtenir des résultats locaux de l’API Recherche d’entreprises locales Bing en envoyant une requête de recherche à son point de terminaison et en incluant si nécessaire l’en-tête `Ocp-Apim-Subscription-Key`. En parallèle des [en-têtes](local-search-reference.md#headers) et [paramètres](local-search-reference.md#query-parameters) disponibles, vous pouvez personnaliser les recherches en spécifiant des [limites géographiques](specify-geographic-search.md) pour la zone de recherche ainsi que les [catégories](local-search-query-response.md) des emplacements retournés.
 

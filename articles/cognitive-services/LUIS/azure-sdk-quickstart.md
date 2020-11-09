@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: azure, intelligence artificielle, ia, traitement en langage naturel, tln, LUIS azure luis, compréhension du langage naturel, chatbot ia, créateur de chatbot, comprendre le langage naturel
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327270"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241376"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Démarrage rapide : Bibliothèques de client du SDK Language Understanding (LUIS) pour créer et interroger votre application LUIS
 
@@ -21,7 +21,8 @@ Créez et interrogez une application d’IA Azure LUIS avec les bibliothèques d
 
 Language Understanding (LUIS) vous permet d’appliquer un traitement en langage naturel au texte en langage naturel des conversations d’un utilisateur afin d’en prédire le sens général, et d’en extraire des informations détaillées et pertinentes.
 
-* La bibliothèque de client du **SDK de création** vous permet de créer, de modifier, d’entraîner et de publier votre application LUIS. * La bibliothèque de client **SDK du runtime de prédiction** vous permet d’interroger l’application publiée.
+* La bibliothèque de client du **SDK de création** vous permet de créer, de modifier, d’entraîner et de publier votre application LUIS.
+* La bibliothèque de client du **kit SDK du runtime de prédiction** vous permet d’interroger l’application publiée.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]
@@ -41,7 +42,7 @@ Vous pouvez supprimer l’application à partir du [portail LUIS](https://www.lu
 
 ## <a name="troubleshooting"></a>Dépannage
 
-* Authentification auprès de la bibliothèque de client : les erreurs d’authentification indiquent généralement qu’une clé et un point de terminaison incorrects ont été utilisés. Pour des raisons pratiques, ce guide de démarrage rapide utilise la clé de création et le point de terminaison de création pour le runtime de prédiction, mais elles fonctionneront seulement si vous n’avez pas déjà utilisé le quota mensuel. Si vous ne pouvez pas utiliser la clé et le point de terminaison de création, vous devez utiliser la clé et le point de terminaison du runtime de prédiction lors de l’accès à la bibliothèque de client du SDK du runtime de prédiction.
+* Authentification auprès de la bibliothèque de client : les erreurs d’authentification indiquent généralement qu’une clé et un point de terminaison incorrects ont été utilisés. Pour des raisons pratiques, ce guide de démarrage rapide utilise la clé de création et le point de terminaison de création pour le runtime de prédiction, mais cela fonctionnera seulement si vous n’avez pas déjà utilisé le quota mensuel. Si vous ne pouvez pas utiliser la clé et le point de terminaison de création, vous devez utiliser la clé et le point de terminaison du runtime de prédiction lors de l’accès à la bibliothèque de client du SDK du runtime de prédiction.
 * Création d’entités : si vous obtenez une erreur lors de la création de l’entité de machine learning imbriquée utilisée dans ce tutoriel, vérifiez que vous avez copié le code et que vous ne l’avez pas modifié pour créer une entité différente.
 * Création d’exemples d’énoncés : si vous obtenez une erreur lors de la création de l’exemple d’énoncé étiqueté utilisé dans ce tutoriel, vérifiez que vous avez copié le code et que vous ne l’avez pas modifié pour créer un exemple étiqueté différent.
 * Entraînement : si vous obtenez une erreur d’entraînement, cela indique généralement une application vide (sans intentions avec les exemples d’énoncés) ou une application avec des intentions ou des entités mal formées.

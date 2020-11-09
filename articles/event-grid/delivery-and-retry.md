@@ -2,13 +2,13 @@
 title: Distribution et nouvelle tentative de distribution avec Azure Event Grid
 description: Décrit comment Azure Event Grid distribue des événements et gère les messages qui n’ont pas été distribués.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/29/2020
+ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324091"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042959"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
@@ -22,8 +22,8 @@ Par défaut, Event Grid envoie chaque événement individuellement aux abonnés.
 
 La livraison par lot a deux paramètres :
 
-* **Nombre maximum d’événements par lot** : nombre maximum d’événements qu’Event Grid livrera par lot. Ce nombre ne sera jamais dépassé, mais moins d’événements peuvent être livrés si aucun autre événement n’est disponible au moment de la publication. Event Grid ne retarde pas la livraison des événements pour créer un lot si moins d’événements sont disponibles. Doit être compris entre 1 et 5 000.
-* **Taille de lot préférée en kilo-octets** : plafond cible pour la taille de lot en kilo-octets. Comme pour le nombre maximum d’événements, la taille du lot peut être plus petite si aucun autre événement n’est disponible au moment de la publication. Il est possible qu’un lot soit plus grand que la taille de lot préférée *si* un événement unique est plus volumineux que la taille préférée. Par exemple, si la taille préférée est de 4 Ko et qu’un événement de 10 Ko est envoyé (push) à Event Grid, l’événement de 10 Ko sera tout de même livré dans son propre lot plutôt que d’être abandonné.
+* **Nombre maximum d’événements par lot**  : nombre maximum d’événements qu’Event Grid livrera par lot. Ce nombre ne sera jamais dépassé, mais moins d’événements peuvent être livrés si aucun autre événement n’est disponible au moment de la publication. Event Grid ne retarde pas la livraison des événements pour créer un lot si moins d’événements sont disponibles. Doit être compris entre 1 et 5 000.
+* **Taille de lot préférée en kilo-octets**  : plafond cible pour la taille de lot en kilo-octets. Comme pour le nombre maximum d’événements, la taille du lot peut être plus petite si aucun autre événement n’est disponible au moment de la publication. Il est possible qu’un lot soit plus grand que la taille de lot préférée *si* un événement unique est plus volumineux que la taille préférée. Par exemple, si la taille préférée est de 4 Ko et qu’un événement de 10 Ko est envoyé (push) à Event Grid, l’événement de 10 Ko sera tout de même livré dans son propre lot plutôt que d’être abandonné.
 
 La livraison en lot est configurée sur la base d’un abonnement par événement via le portail, l’interface CLI, PowerShell ou les Kits de développement logiciel (SDK).
 
@@ -33,8 +33,8 @@ La livraison en lot est configurée sur la base d’un abonnement par événemen
 ### <a name="azure-cli"></a>Azure CLI
 Lorsque vous créez un abonnement aux événements, utilisez les paramètres suivants : 
 
-- **max-events-per-batch** : nombre maximum d’événements dans un lot. Doit être un nombre compris entre 1 et 5000.
-- **preferred-batch-size-in-kilobytes**  taille de lot préférée en kilo-octets. Doit être un nombre compris entre 1 et 1024.
+- **max-events-per-batch**  : nombre maximum d’événements dans un lot. Doit être un nombre compris entre 1 et 5000.
+- **preferred-batch-size-in-kilobytes**   taille de lot préférée en kilo-octets. Doit être un nombre compris entre 1 et 1024.
 
 ```azurecli
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -80,12 +80,14 @@ La livraison retardée a pour objectif de protéger les points de terminaison no
 ## <a name="dead-letter-events"></a>Événements de lettres mortes
 Lorsque Event Grid ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes**. Event Grid met un événement en file d’attente de lettres mortes lorsque **l’une des conditions suivantes** est remplie. 
 
-- L’événement n’est pas remis dans la période de durée de vie
-- Le nombre de tentatives de remise de l’événement a dépassé la limite
+- L’événement n’est pas remis dans la période de **durée de vie**. 
+- Le **nombre de tentatives** de livraison de l’événement a dépassé la limite.
 
 Si l’une des conditions est remplie, l’événement est abandonné ou mis en file d’attente de lettres mortes.  Par défaut, Event Grid n’active pas cette fonctionnalité. Pour l’activer, vous devez spécifier le compte de stockage dans lequel les événements non remis seront conservés au moment de créer l’abonnement aux événements. Les événements sont extraits de ce compte de stockage pour résoudre les remises.
 
 Event Grid envoie un événement à l’emplacement des lettres mortes lorsqu’il a effectué toutes ses nouvelles tentatives. Si Event Grid reçoit un code de réponse 400 (requête incorrecte) ou 413 (entité de requête trop grande), il envoie immédiatement l’événement au point de terminaison des lettres mortes. Ces codes de réponse indiquent que la diffusion de l’événement va échouer.
+
+L’expiration de la durée de vie est vérifiée uniquement lors de la prochaine tentative de livraison planifiée. Par conséquent, même si la durée de vie expire avant la prochaine tentative de livraison planifiée, l’expiration de l’événement est vérifiée uniquement au moment de la prochaine livraison, puis devient lettre morte par la suite. 
 
 Un délai de cinq minutes s’écoule entre la dernière tentative de remise d’un événement et le moment de sa remise à l’emplacement des lettres mortes. Ce décalage est destiné à réduire le nombre d’opérations de stockage d’objets blob. Si l’emplacement des lettres mortes est indisponible pendant quatre heures, l’événement est abandonné.
 

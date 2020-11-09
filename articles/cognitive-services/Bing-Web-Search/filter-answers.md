@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696709"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078626"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrage des correspondances contenues dans la réponse de recherche  
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Lorsque vous interrogez le web, Bing renvoie tout le contenu qu’il juge pertinent pour la recherche. Par exemple, si la requête de recherche est « sailing+dinghies », la réponse peut contenir les correspondances suivantes :
 
@@ -131,7 +136,7 @@ Les résultats peuvent inclure des pages web qui se situent en dehors de la pér
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitation du nombre de correspondances dans la réponse
 
-Bing peut retourner plusieurs types de réponses dans la réponse JSON. Par exemple, si votre requête porte sur *sailing+dinghies*, Bing peut retourner `webpages`, `images`, `videos` et `relatedSearches`.
+Bing peut retourner plusieurs types de réponses dans la réponse JSON. Par exemple, si votre requête porte sur *sailing+dinghies* , Bing peut retourner `webpages`, `images`, `videos` et `relatedSearches`.
 
 ```json
 {

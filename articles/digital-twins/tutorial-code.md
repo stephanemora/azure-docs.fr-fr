@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Tutoriel expliquant comment écrire le code minimal d’une application cliente à l’aide du kit SDK (C#) .NET.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: dd7c5da84d6330e0214404f55aad9487c71b0a29
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792427"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280288"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
-Il arrive souvent aux développeurs qui travaillent avec Azure Digital Twins de devoir écrire une application cliente pour interagir avec leur instance du service Azure Digital Twins. Ce tutoriel destiné aux développeurs fournit une introduction à la programmation par rapport au service Azure Digital Twins à l’aide du [SDK Azure Digital Twins pour .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). Il décrit étape par étape comment écrire une application console cliente C# à partir de rien.
+Il arrive souvent aux développeurs qui travaillent avec Azure Digital Twins de devoir écrire une application cliente pour interagir avec leur instance du service Azure Digital Twins. Ce tutoriel destiné aux développeurs fournit une introduction à la programmation par rapport au service Azure Digital Twins à l’aide du [SDK Azure Digital Twins pour .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Il décrit étape par étape comment écrire une application console cliente C# à partir de rien.
 
 > [!div class="checklist"]
 > * Configurer le projet
@@ -33,7 +33,9 @@ Pour commencer, il vous faut :
 * Un éditeur de code.
 * **.NET Core 3.1** sur votre ordinateur de développement. Vous pouvez télécharger cette version du kit SDK .NET Core pour plusieurs plateformes à partir du site [Télécharger .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
-[!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
+### <a name="prepare-an-azure-digital-twins-instance"></a>Préparer une instance Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins: instance prereq](../../includes/digital-twins-prereq-instance.md)]
 
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
@@ -56,7 +58,7 @@ Plusieurs fichiers seront alors créés dans votre répertoire, notamment un nom
 Laissez la fenêtre de commande ouverte parce que vous allez l’utiliser tout au long du tutoriel.
 
 Ensuite, **ajouter deux dépendances à votre projet** qui seront nécessaires pour utiliser Azure Digital Twins. Vous pouvez utiliser les liens ci-dessous pour accéder aux packages sur NuGet ; vous y trouverez les commandes de console (y compris pour l’interface CLI .NET) qui permettent d’ajouter à votre projet la dernière version de chaque package.
-* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Cette bibliothèque fournit des outils pour faciliter l’authentification auprès d’Azure.
 
 ## <a name="get-started-with-project-code"></a>Démarrer avec le code de projet
@@ -122,7 +124,7 @@ dotnet run
 
 Cette opération restaure les dépendances lors de la première exécution, puis exécute le programme. 
 * Si aucune erreur ne se produit, le programme imprime *Service client created - ready to go*.
-* Étant donné qu’il n’y a pas encore de gestion des erreurs dans ce projet, si un problème se produit, une exception est levée par le code.
+* Étant donné qu’il n’y a pas encore de gestion des erreurs dans ce projet, si un problème quelconque se produit, une exception est levée par le code.
 
 ### <a name="upload-a-model"></a>Charger un modèle
 
@@ -134,7 +136,7 @@ Dans le répertoire où vous avez créé votre projet, créez un fichier *.json*
 
 ```json
 {
-  "@id": "dtmi:com:contoso:SampleModel;1",
+  "@id": "dtmi:example:SampleModel;1",
   "@type": "Interface",
   "displayName": "SampleModel",
   "contents": [
@@ -197,21 +199,23 @@ Dans votre fenêtre de commande, exécutez le programme avec cette commande :
 ```cmd/sh
 dotnet run
 ```
-Le « chargement d’un modèle » sera imprimé dans la sortie, mais il n’existe pas encore de sortie pour préciser si les modèles ont été correctement ou incorrectement chargés.
+La mention « Upload a model » sera affichée dans la sortie, indiquant que ce code a été atteint, mais il n’existe pas encore de sortie pour préciser si le chargement a été effectué correctement.
 
-Pour ajouter une instruction d’impression indiquant si les modèles ont effectivement été chargés avec succès, ajoutez le code suivant juste après la section précédente :
+Pour ajouter une instruction print indiquant tous les modèles chargés avec succès sur l’instance, ajoutez le code suivant juste après la section précédente :
 
 ```csharp
 // Read a list of models back from the service
-AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
-await foreach (ModelData md in modelDataList)
+Console.WriteLine("Models uploaded to the instance:");
+AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
+await foreach (DigitalTwinsModelData md in modelDataList)
 {
-    Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
+    Console.WriteLine($"{md.Id}");
 }
 ```
-Avant de réexécuter le programme pour tester ce nouveau code, rappelez-vous que la dernière fois que vous avez exécuté le programme, vous avez déjà chargé votre modèle. Azure Digital Twins ne vous permet pas de charger deux fois le même modèle. Par conséquent, si vous tentez de charger à nouveau le même modèle, le programme doit lever une exception.
 
-À présent, réexécutez le programme avec cette commande dans votre fenêtre de commande :
+**Avant de réexécuter le programme pour tester ce nouveau code** , rappelez-vous que la dernière fois que vous avez exécuté le programme, vous avez déjà chargé votre modèle. Azure Digital Twins ne vous permet pas de charger deux fois le même modèle. Par conséquent, si vous tentez de charger à nouveau le même modèle, le programme doit lever une exception.
+
+Avec cela à l’esprit, réexécutez le programme avec cette commande dans votre fenêtre de commande :
 
 ```cmd/sh
 dotnet run
@@ -223,7 +227,7 @@ La section suivante traite des exceptions de ce type et explique comment les gé
 
 ### <a name="catch-errors"></a>Intercepter les erreurs
 
-Pour empêcher que le programme se plante, vous pouvez ajouter du code d’exception autour du code de chargement du modèle. Encapsulez l’appel client existant `client.CreateModelsAsync` dans un gestionnaire try/catch comme suit :
+Pour empêcher que le programme se plante, vous pouvez ajouter du code d’exception autour du code de chargement du modèle. Encapsulez l’appel client existant `await client.CreateModelsAsync(typeList)` dans un gestionnaire try/catch comme suit :
 
 ```csharp
 try {
@@ -232,27 +236,10 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 ```
-Si maintenant vous exécutez le programme avec `dotnet run` dans votre fenêtre de commande, vous verrez que vous obtenez un code d’erreur. La sortie ressemble à ceci :
 
-```cmd/sh
-Hello World!
-Service client created - ready to go
+À présent, si vous exécutez le programme avec `dotnet run` dans votre fenêtre de commande, vous verrez que vous obtenez un code d’erreur. La sortie du code de création de modèle indique l’erreur suivante :
 
-Upload a model
-Load model: 409:Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"ModelAlreadyExists","message":"Model with same ID already exists dtmi:com:contoso:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example. (http://aka.ms/ModelListSwSmpl):}}
-
-Headers:
-api-supported-versions: REDACTED
-Date: Thu, 10 Sep 2020 01:57:51 GMT
-Content-Length: 115
-Content-Type: application/json; charset=utf-8
-
-Type name: : dtmi:com:contoso:SampleModel;1
-```
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Sortie du programme, affichant le message « 409:Service request failed. État : 409 (Conflict). », suivi du contenu de l’erreur indiquant que dtmi:example:SampleModel;1 existe déjà":::
 
 Désormais, ce tutoriel encapsulera tous les appels aux méthodes de service dans des gestionnaires try/catch.
 
@@ -260,32 +247,19 @@ Désormais, ce tutoriel encapsulera tous les appels aux méthodes de service dan
 
 Maintenant que vous avez chargé un modèle dans Azure Digital Twins, vous pouvez utiliser cette définition de modèle pour créer des **jumeaux numériques**. Les [jumeaux numériques](concepts-twins-graph.md) sont des instances d’un modèle ; ils représentent les entités au sein de votre environnement d’entreprise (par exemple les capteurs dans une ferme, les salles d’un bâtiment ou les voyants d’une voiture). Cette section crée quelques jumeaux numériques basés sur le modèle que vous avez chargé.
 
-Ajoutez ces nouvelles instructions `using` au début, car cet exemple de code utilise le sérialiseur .NET Json intégré dans `System.Text.Json` et l’espace de noms `Serialization` du [SDK Azure Digital Twins pour .NET (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [LIEN MODIFIÉ POUR LA PRÉVERSION] :
-
-```csharp
-using System.Text.Json;
-using Azure.DigitalTwins.Core.Serialization;
-```
-
->[!NOTE]
->`Azure.DigitalTwins.Core.Serialization` n’est pas nécessaire pour utiliser des relations et des jumeaux numériques ; il s’agit d’un espace de noms facultatif qui peut aider à obtenir des données dans le format approprié. Certaines alternatives à son utilisation sont les suivantes :
->* Concaténation de chaînes pour former un objet JSON
->* Utilisation d’un analyseur JSON, comme `System.Text.Json`, pour générer dynamiquement un objet JSON
->* Modélisation de vos types personnalisés en C#, par leur instanciation et leur sérialisation dans des chaînes
-
-Ensuite, ajoutez le code suivant à la fin de la méthode `Main` pour créer et initialiser trois jumeaux numériques basés sur ce modèle.
+Ajoutez le code suivant à la fin de la méthode `Main` pour créer et initialiser trois jumeaux numériques basés sur ce modèle.
 
 ```csharp
 // Initialize twin data
 BasicDigitalTwin twinData = new BasicDigitalTwin();
-twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-twinData.CustomProperties.Add("data", $"Hello World!");
+twinData.Metadata.ModelId = "dtmi:example:SampleModel;1";
+twinData.Contents.Add("data", $"Hello World!");
 
 string prefix="sampleTwin-";
 for(int i=0; i<3; i++) {
     try {
         twinData.Id = $"{prefix}{i}";
-        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
+        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twinData.Id, twinData);
         Console.WriteLine($"Created twin: {prefix}{i}");
     } catch(RequestFailedException rex) {
         Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
@@ -293,17 +267,17 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Ensuite, répétez l’opération pour réexécuter le programme. 
+Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Dans la sortie, recherchez les messages print indiquant que *sampleTwin-0* , *sampleTwin-1* et *sampleTwin-2* ont été créés. 
 
-Notez qu’aucune erreur n’est générée quand les jumeaux sont créés la deuxième fois, bien qu’ils existent déjà après la première exécution. Contrairement à la création de modèle, la création de jumeau est, au niveau REST, un appel *PUT* avec une sémantique *upsert*. Cela signifie que si un jumeau existe déjà, toute tentative visant à le recréer ne fera que le remplacer. Aucune erreur n’est requise.
+Ensuite, réexécutez le programme. 
+
+Notez qu’aucune erreur n’est générée quand les jumeaux sont créés la deuxième fois, bien qu’ils existent déjà après la première exécution. Contrairement à la création de modèle, la création de jumeau est, au niveau REST, un appel *PUT* avec une sémantique *upsert*. Cela signifie que si un jumeau existe déjà, une tentative de création du même jumeau remplacera simplement le jumeau d’origine. Aucune erreur n’est levée.
 
 ### <a name="create-relationships"></a>Créer des relations
 
 Ensuite, vous pouvez créer des **relations** entre les jumeaux que vous avez créés, afin de les raccorder sur un **graphe de jumeaux**. Les [graphes de jumeaux](concepts-twins-graph.md) servent à représenter votre environnement entier.
 
-Pour faciliter la création de relations, cet exemple de code utilise l’espace de noms `Azure.DigitalTwins.Core.Serialization`. Vous l’avez ajouté au projet plus tôt dans la section [*Créer des jumeaux numériques*](#create-digital-twins).
-
-Ajoutez une nouvelle méthode statique à la classe `Program`, sous la méthode `Main` :
+Ajoutez une **nouvelle méthode statique** à la classe `Program`, sous la méthode `Main` (le code a désormais deux méthodes) :
 
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
@@ -317,7 +291,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
     try
     {
         string relId = $"{srcId}-contains->{targetId}";
-        await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
+        await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
         Console.WriteLine("Created relationship successfully");
     }
     catch (RequestFailedException rex) {
@@ -334,7 +308,7 @@ await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
 ```
 
-Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`.
+Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Dans la sortie, recherchez des instructions print indiquant que les deux relations ont été créées avec succès.
 
 Notez qu’Azure Digital Twins ne vous permet pas de créer une relation s’il en existe déjà une portant le même ID. Par conséquent, si vous exécutez le programme plusieurs fois, vous verrez des exceptions lors de la création de la relation. Ce code intercepte les exceptions et les ignore. 
 
@@ -342,18 +316,17 @@ Notez qu’Azure Digital Twins ne vous permet pas de créer une relation s’il 
 
 Le code que vous allez ensuite ajouter vous permet d’afficher la liste des relations que vous avez créées.
 
-Ajoutez la nouvelle méthode suivante à la classe `Program` :
+Ajoutez la **nouvelle méthode** suivante à la classe `Program` :
 
 ```csharp
 public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
 {
     try {
-        AsyncPageable<string> results = client.GetRelationshipsAsync(srcId);
+        AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
         Console.WriteLine($"Twin {srcId} is connected to:");
-        await foreach (string rel in results)
+        await foreach (BasicRelationship rel in results)
         {
-            var brel = JsonSerializer.Deserialize<BasicRelationship>(rel);
-            Console.WriteLine($" -{brel.Name}->{brel.TargetId}");
+            Console.WriteLine($" -{rel.Name}->{rel.TargetId}");
         }
     } catch (RequestFailedException rex) {
         Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
@@ -368,26 +341,9 @@ Ensuite, ajoutez le code suivant à la fin de la méthode `Main` pour appeler le
 await ListRelationships(client, "sampleTwin-0");
 ```
 
-Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Vous devez voir une liste de toutes les relations que vous avez créées.
+Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Vous devez voir une liste de toutes les relations que vous avez créées dans une instruction de sortie similaire à celle-ci :
 
-Voici un exemple de sortie :
-
-```cmd/sh
-Hello World!
-Service client created - ready to go
-
-Upload a model
-Type name: System.Collections.Generic.Dictionary'2[System.String,System.String]: dtmi:contosocom:DigitalTwins:SampleModel;1
-Create twin: sampleTwin-0
-Create twin: sampleTwin-1
-Create twin: sampleTwin-2
-Created relationship successfully
-Created relationship successfully
-Twin sampleTwin-0 is connected to:
--contains->sampleTwin-1
--contains->sampleTwin-2
-
-```
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Sortie du programme, contenant un message indiquant « Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2 »":::
 
 ### <a name="query-digital-twins"></a>Interroger des jumeaux numériques
 
@@ -395,16 +351,22 @@ L’une des principales fonctionnalités d’Azure Digital Twins est la capacit�
 
 La dernière section de code à ajouter dans ce tutoriel exécute une requête sur l’instance Azure Digital Twins. La requête utilisée dans cet exemple retourne tous les jumeaux numériques de l’instance.
 
-Ajoutez le code suivant à la fin de la méthode `Main` :
+Ajoutez cette instruction `using` pour permettre l’utilisation de la classe `JsonSerializer` pour présenter plus aisément les informations de jumeau numérique :
 
 ```csharp
-// Run a query    
-AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-await foreach (string twin in result)
+using System.Text.Json;
+```
+
+Ensuite, ajoutez le code suivant à la fin de la méthode `Main` :
+
+```csharp
+// Run a query for all twins   
+string query = "SELECT * FROM digitaltwins";
+AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
+
+await foreach (BasicDigitalTwin twin in result)
 {
-    object jsonObj = JsonSerializer.Deserialize<object>(twin);
-    string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine(prettyTwin);
+    Console.WriteLine(JsonSerializer.Serialize(twin));
     Console.WriteLine("---------------");
 }
 ```
@@ -423,7 +385,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
 namespace minimal
@@ -453,22 +414,23 @@ namespace minimal
                 Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
             }
             // Read a list of models back from the service
-            AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
-            await foreach (ModelData md in modelDataList)
+            Console.WriteLine("Models uploaded to the instance:");
+            AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
+            await foreach (DigitalTwinsModelData md in modelDataList)
             {
-                Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
+                Console.WriteLine($"{md.Id}");
             }
 
             // Initialize twin data
             BasicDigitalTwin twinData = new BasicDigitalTwin();
-            twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-            twinData.CustomProperties.Add("data", $"Hello World!");
-    
+            twinData.Metadata.ModelId = "dtmi:example:SampleModel;1";
+            twinData.Contents.Add("data", $"Hello World!");
+            
             string prefix="sampleTwin-";
             for(int i=0; i<3; i++) {
                 try {
                     twinData.Id = $"{prefix}{i}";
-                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
+                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twinData.Id, twinData);
                     Console.WriteLine($"Created twin: {prefix}{i}");
                 } catch(RequestFailedException rex) {
                     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
@@ -482,13 +444,13 @@ namespace minimal
             //List the relationships
             await ListRelationships(client, "sampleTwin-0");
 
-            // Run a query    
-            AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-            await foreach (string twin in result)
+            // Run a query for all twins   
+            string query = "SELECT * FROM digitaltwins";
+            AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
+            
+            await foreach (BasicDigitalTwin twin in result)
             {
-                object jsonObj = JsonSerializer.Deserialize<object>(twin);
-                string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-                Console.WriteLine(prettyTwin);
+                Console.WriteLine(JsonSerializer.Serialize(twin));
                 Console.WriteLine("---------------");
             }
         }
@@ -504,7 +466,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-contains->{targetId}";
-                await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
+                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
                 Console.WriteLine("Created relationship successfully");
             }
             catch (RequestFailedException rex) {
@@ -515,12 +477,11 @@ namespace minimal
         public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
         {
             try {
-                AsyncPageable<string> results = client.GetRelationshipsAsync(srcId);
+                AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
                 Console.WriteLine($"Twin {srcId} is connected to:");
-                await foreach (string rel in results)
+                await foreach (BasicRelationship rel in results)
                 {
-                    var brel = JsonSerializer.Deserialize<BasicRelationship>(rel);
-                    Console.WriteLine($" -{brel.Name}->{brel.TargetId}");
+                    Console.WriteLine($" -{rel.Name}->{rel.TargetId}");
                 }
             } catch (RequestFailedException rex) {
                 Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   

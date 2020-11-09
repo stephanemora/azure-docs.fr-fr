@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84434576"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077338"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Qu’est-ce que l’API Recherche personnalisée Bing ?
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche personnalisée Bing vous permet de créer des expériences de recherche exemptes de publicité, adaptées aux sujets qui vous intéressent. Vous pouvez spécifier les domaines et pages web dans lesquels Bing doit effectuer ses recherches, également épingler, élever ou rétrograder un contenu précis pour créer une vue personnalisée du web qui permet à vos utilisateurs d’obtenir rapidement des résultats pertinents par rapport à leurs recherches. 
 

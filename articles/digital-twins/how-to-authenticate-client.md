@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bf7b829d70af27850affe619d47ed4a4f5ec1bea
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495790"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279911"
 ---
 # <a name="write-client-app-authentication-code"></a>Écrire le code d’authentification de l’application cliente
 
@@ -20,24 +20,26 @@ Après avoir [configuré une instance et une authentification Azure Digital Twin
 
 Azure Digital Twins effectue l’authentification à l’aide de [jetons de sécurité Azure AD Security basés sur OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Pour authentifier votre kit de développement logiciel (SDK), vous devez obtenir un jeton du porteur avec les autorisations appropriées sur Azure Digital Twins et le transmettre avec vos appels d’API. 
 
-Cet article explique comment obtenir des informations d’identification à l’aide de la bibliothèque cliente `Azure.Identity`. Bien que cet article présente des exemples de code en C#, tels que ce que vous écrivez pour le [kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), vous pouvez utiliser une version de `Azure.Identity` quel que soit le kit de développement logiciel (SDK) que vous utilisez (pour plus d’informations sur les kits de développement logiciel (SDK) disponibles pour Azure Digital Twins, consultez [*Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md)).
+Cet article explique comment obtenir des informations d’identification à l’aide de la bibliothèque cliente `Azure.Identity`. Bien que cet article présente des exemples de code en C#, tels que ce que vous écrivez pour le [kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), vous pouvez utiliser une version de `Azure.Identity` quel que soit le kit de développement logiciel (SDK) que vous utilisez (pour plus d’informations sur les kits de développement logiciel (SDK) disponibles pour Azure Digital Twins, consultez [*Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md)).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Tout d’abord, suivez les étapes de configuration décrites dans [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Cela permet de s’assurer que vous disposez d’une instance Azure Digital Twins, que votre utilisateur a des autorisations d’accès et que vous avez configuré des autorisations pour les applications clientes. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
+Tout d’abord, suivez les étapes de configuration décrites dans [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Cela permet de s’assurer que vous disposez d’une instance Azure Digital Twins et que votre utilisateur dispose d’autorisations d’accès. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
 
 Pour continuer, vous aurez besoin d’un projet d’application cliente dans lequel écrire votre code. Si vous n’avez pas encore configuré de projet d’application cliente, créez un projet de base à utiliser avec ce didacticiel dans le langage de votre choix.
 
 ## <a name="common-authentication-methods-with-azureidentity"></a>Méthodes d’authentification courantes avec Azure.Identity
 
 `Azure.Identity` est une bibliothèque cliente qui fournit plusieurs méthodes d’obtention d’informations d’identification que vous pouvez utiliser pour obtenir un jeton du porteur et vous authentifier avec votre kit de développement logiciel (SDK). Bien que cet article donne des exemples en C# , vous pouvez afficher `Azure.Identity` pour plusieurs langages, notamment...
+
 * [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
 * [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
 * [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Trois méthodes d’obtention d’informations d’identification courantes dans `Azure.Identity` sont les suivantes :
-* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fournit un flux d’authentification `TokenCredential` par défaut pour les applications qui seront déployées sur Azure, et est **le choix recommandé pour le développement local** . Il peut également être activé pour essayer les deux autres méthodes recommandées dans cet article. Il encapsule `ManagedIdentityCredential` et peut accéder à `InteractiveBrowserCredential` à l’aide d’une variable de configuration.
+
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fournit un flux d’authentification `TokenCredential` par défaut pour les applications qui seront déployées sur Azure, et est **le choix recommandé pour le développement local**. Il peut également être activé pour essayer les deux autres méthodes recommandées dans cet article. Il encapsule `ManagedIdentityCredential` et peut accéder à `InteractiveBrowserCredential` à l’aide d’une variable de configuration.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) fonctionne parfaitement lorsqu’il vous faut des [identités managées (MSI)](../active-directory/managed-identities-azure-resources/overview.md) et peut être utilisé avec Azure Functions et pour déployer sur des services Azure.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) est destiné aux applications interactives et peut être utilisé pour créer un client de kit de développement logiciel (SDK) authentifié
 
@@ -60,7 +62,7 @@ Ajoutez ensuite du code pour obtenir des informations d’identification à l’
 
 ### <a name="defaultazurecredential-method"></a>Méthode DefaultAzureCredential
 
-[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fournit un flux d’authentification `TokenCredential` par défaut pour les applications qui seront déployées sur Azure, et est **le choix recommandé pour le développement local** .
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fournit un flux d’authentification `TokenCredential` par défaut pour les applications qui seront déployées sur Azure, et est **le choix recommandé pour le développement local**.
 
 Pour utiliser les informations d’identification Azure par défaut, vous avez besoin de l’URL de l’instance Azure Digital Twins ([instructions pour les trouver](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 

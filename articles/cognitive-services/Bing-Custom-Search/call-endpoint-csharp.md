@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eae9565db5fd88a38343423422cfcc92a3fac33f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0abd03338982c866c92a8462e1e840651a9c2759
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936807"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101780"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec C# 
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour découvrir comment demander des résultats de recherche à partir de votre instance Recherche personnalisée Bing. Bien que cette application est écrite en C#, l’API Recherche personnalisée Bing constitue un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 
@@ -31,8 +36,8 @@ Utilisez ce guide de démarrage rapide pour découvrir comment demander des rés
 - Le package NuGet [Recherche personnalisée Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0). 
 
    Pour installer ce package dans Visual Studio : 
-     1. Cliquez avec le bouton droit sur le projet dans l’**Explorateur de solutions**, puis sélectionnez **Gérer les packages NuGet**. 
-     2. Recherchez et sélectionnez *Microsoft.Azure.CognitiveServices.Search.CustomSearch*, puis installez le package.
+     1. Cliquez avec le bouton droit sur le projet dans l’ **Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet**. 
+     2. Recherchez et sélectionnez *Microsoft.Azure.CognitiveServices.Search.CustomSearch* , puis installez le package.
 
    Lorsque vous installez le package NuGet Recherche personnalisée Bing, Visual Studio installe également les packages suivants :
      - **Microsoft.Rest.ClientRuntime**

@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
-ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2907cb568076ef4de199c5227e03db652414464
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075215"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077215"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envoi de requêtes de recherche à l’API Recherche de vidéos Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Cet article décrit les paramètres et attributs des requêtes envoyées à l’API Recherche de vidéos Bing, ainsi que l’objet de réponse JSON qu’elle retourne. 
 
@@ -27,7 +32,7 @@ Cet article décrit les paramètres et attributs des requêtes envoyées à l’
 
 Si vous fournissez une zone de recherche dans laquelle l’utilisateur entre son terme de recherche, utilisez [l’API Suggestion automatique Bing](../../bing-autosuggest/get-suggested-search-terms.md) pour améliorer l’expérience. À mesure que l’utilisateur tape des termes de recherche, l’API suggère des chaînes de requête.
 
-Une fois que l’utilisateur a entré son terme de recherche, encodez-le sous forme d’URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query). Par exemple, si l’utilisateur entre *sailing dinghies*, définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
+Une fois que l’utilisateur a entré son terme de recherche, encodez-le sous forme d’URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query). Par exemple, si l’utilisateur entre *sailing dinghies* , définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
 
 ## <a name="sending-a-request"></a>Envoi d’une requête
 

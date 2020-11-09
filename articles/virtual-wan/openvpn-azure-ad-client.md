@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: e64de987bd82f6b93350cdd706fc1a243d2855b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecebaf9384bcb0dbbb6fe36df4dd474738422149
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977836"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043411"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurez un client VPN pour les connexions P2S de protocole OpenVPN : Authentification Azure AD
 
@@ -56,65 +56,65 @@ Une fois que vous disposez d’un profil fonctionnel et que vous devez le distri
 
 1. Mettez en surbrillance le profil client VPN que vous souhaitez exporter, sélectionnez les points de sélection ( **...** ), puis sélectionnez **Exporter**.
 
-    ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![Capture d’écran montrant l’option Exporter sélectionnée dans le menu.](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Sélectionnez l’emplacement dans lequel vous souhaitez enregistrer ce profil, laissez le nom de fichier tel quel, puis sélectionnez **Enregistrer** pour enregistrer le fichier XML.
 
-    ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![Capture d’écran montrant la boîte de dialogue Enregistrer sous où vous pouvez entrer un nom de fichier.](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="to-import-a-client-profile"></a><a name="import"></a>Pour importer un profil client
 
 1. Dans la page, sélectionnez **Importer**.
 
-    ![importer](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![Capture d’écran montrant l’option Importer sélectionnée dans le menu Plus.](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. Accédez au fichier XML de profil et sélectionnez-le. Une fois le fichier sélectionné, sélectionnez **Ouvrir**.
 
-    ![importer](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![Capture d’écran montrant une boîte de dialogue Ouvrir dans laquelle vous pouvez sélectionner un fichier.](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Spécifiez le nom du profil et sélectionnez **Enregistrer**.
 
-    ![importer](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![Capture d’écran montrant le nom de la connexion ajouté et le bouton Enregistrer sélectionné.](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Sélectionnez **Se connecter** pour vous connecter au VPN.
 
-    ![importer](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![Capture d’écran montrant le bouton Se connecter pour la connexion que vous venez de créer.](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Une fois que vous êtes connecté, l’icône devient verte et indique **Connecté**.
 
-    ![importer](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![Capture d’écran montrant la connexion dans un état Connecté avec l’option de déconnexion.](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Pour supprimer un profil client
 
 1. Sélectionnez les points de suspension en regard du profil client que vous souhaitez supprimer. Sélectionnez ensuite **Supprimer**.
 
-    ![supprimer](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![Capture d’écran montrant l’option Supprimer sélectionnée dans le menu.](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Sélectionnez **Supprimer** pour effectuer la suppression.
 
-    ![supprimer](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![Capture d’écran représentant une boîte de dialogue de confirmation avec l’option Supprimer ou Annuler.](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Créer une connexion
 
 1. Sur la page, sélectionnez **+** , puis **+ Ajouter**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![Capture d’écran montrant l’option Ajouter sélectionnée dans le menu Plus.](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Remplissez les informations de connexion. Si vous ne connaissez pas les valeurs, contactez votre administrateur. Quand vous avez rempli tous les champs, sélectionnez **Enregistrer**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![Capture d’écran montrant le volet dans lequel vous pouvez entrer les valeurs requises.](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Sélectionnez **Se connecter** pour vous connecter au VPN.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![Capture d’écran représentant le bouton Se connecter pour votre connexion.](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Sélectionnez les informations d’identification appropriées, puis sélectionnez **Continuer**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![Capture d’écran montrant la boîte de dialogue de connexion.](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Une fois que vous êtes connecté, l’icône devient verte et indique **Connecté**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![Capture d’écran montrant la connexion à l’état Connecté.](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Pour se connecter automatiquement
 
@@ -122,37 +122,37 @@ Ces étapes vous aident à configurer votre connexion pour qu’elle se connecte
 
 1. Sur la page d’accueil de votre client VPN, sélectionnez **Paramètres VPN**.
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![Capture d’écran représentant Connexions VPN où vous pouvez sélectionner Paramètres VPN.](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
 2. Sélectionnez **Oui** dans la boîte de dialogue de commutateur d’applications.
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![Capture d’écran affichant un message de vérification sur le changement d’application.](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
 3. Vérifiez que la connexion que vous souhaitez définir n’est pas déjà établie, puis mettez en surbrillance le profil et activez la case à cocher **Se connecter automatiquement**.
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![Capture d’écran représentant une boîte de dialogue Paramètres dans laquelle vous pouvez sélectionner Se connecter automatiquement.](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Sélectionnez **Se connecter** pour initier la connexion VPN.
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+    ![Capture d’écran montrant le bouton Se connecter.](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
 ## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnostiquer les problèmes de connexion
 
 1. Pour diagnostiquer les problèmes de connexion, vous pouvez utiliser l’outil **Diagnostiquer**. Sélectionnez les points de suspension ( **...** ) en regard de la connexion VPN que vous souhaitez diagnostiquer pour afficher le menu. Sélectionnez ensuite **Diagnostiquer**.
 
-    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![Capture d’écran montrant l’option Diagnostiquer sélectionnée dans le menu.](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. Dans la page **Propriétés de connexion**, sélectionnez **Exécuter le diagnostic**.
+2. Dans la page **Propriétés de connexion** , sélectionnez **Exécuter le diagnostic**.
 
-    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![Capture d’écran montre le bouton Exécuter le diagnostic pour une connexion.](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. Connectez-vous avec vos informations d’identification.
 
-    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![Capture d’écran montrant la boîte de dialogue d’identification pour cette action.](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
 4. Examinez les résultats du diagnostic.
 
-    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+    ![Capture d’écran affichant les résultats du diagnostic.](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

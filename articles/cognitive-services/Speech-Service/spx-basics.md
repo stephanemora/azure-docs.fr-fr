@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893813"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286688"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Présentation des bases de l’interface CLI Speech
 
@@ -65,15 +65,16 @@ Outre la reconnaissance et la synthèse vocales, l’interface CLI Speech permet
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-Dans cette commande, vous spécifiez à la fois la langue source (**avant** traduction) et la langue cible (**après** traduction). L’argument `--microphone` permet d’écouter l’audio sur le périphérique d’entrée actif et de s’arrêter lorsque vous appuyez sur `ENTER`. La sortie est une traduction de texte dans la langue cible, écrite dans un fichier texte.
+Dans cette commande, vous spécifiez à la fois la langue source ( **avant** traduction) et la langue cible ( **après** traduction). L’argument `--microphone` permet d’écouter l’audio sur le périphérique d’entrée actif et de s’arrêter lorsque vous appuyez sur `ENTER`. La sortie est une traduction de texte dans la langue cible, écrite dans un fichier texte.
 
 > [!NOTE]
 > Pour connaître la liste de toutes les langues prises en charge avec le code de paramètres régionaux correspondant, consultez l’article [Langues et paramètres régionaux](language-support.md).
 
 ### <a name="configuration-files-in-the-datastore"></a>Fichiers de configuration dans le magasin de données
 
-L’interface CLI Speech peut lire et écrire plusieurs paramètres dans les fichiers de configuration, qui sont stockés dans le magasin de données local de l’interface et sont nommés dans les appels de celle-ci au moyen d’un symbole @. L’interface CLI Speech tente d’enregistrer un nouveau paramètre dans un sous-répertoire `./spx/data` qu’elle crée dans le répertoire de travail actuel.
-Lors de la recherche d’une valeur de configuration, l’interface CLI Speech recherche dans votre répertoire de travail actuel, puis dans le chemin `./spx/data`.
+Le comportement de l’interface CLI Speech peut s’appuyer sur les paramètres des fichiers de configuration, auxquels vous pouvez faire référence dans les appels de l’interface CLI Speech à l’aide d’un symbole @.
+L’interface CLI Speech enregistre un nouveau paramètre dans un sous-répertoire `./spx/data` qu’elle crée dans le répertoire de travail actuel.
+Lors de la recherche d’une valeur de configuration, l’interface CLI Speech recherche dans votre répertoire de travail actuel, puis dans le magasin de données dans `./spx/data`, puis dans d’autres magasins de données, y compris un magasin de données en lecture seule final dans le fichier binaire `spx`.
 Avant, comme vous utilisiez le magasin de données pour enregistrer vos valeurs `@key` et `@region`, vous n’aviez pas besoin de les spécifier avec chaque appel de ligne de commande.
 Vous pouvez également utiliser des fichiers de configuration pour stocker vos propres paramètres de configuration, voire même pour transmettre des URL ou d’autres contenus dynamiques générés au moment de l’exécution.
 
@@ -181,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Suivez les guides de démarrage rapide [Reconnaissance vocale](./quickstarts/speech-to-text-from-microphone.md) et [Synthèse vocale](./quickstarts/text-to-speech.md) à l’aide du kit de développement logiciel (SDK).
+* Suivez les guides de démarrage rapide de [reconnaissance vocale](get-started-speech-to-text.md?pivots=programmer-tool-spx) et de [synthèse vocale](get-started-text-to-speech.md?pivots=programmer-tool-spx) à l’aide de l’interface CLI Speech.

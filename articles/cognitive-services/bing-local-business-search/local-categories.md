@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41acc956d4eca2accc16c46cdc52336c3cd89065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86200502"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095422"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Catégories de recherche pour l’API Recherche d’entreprises locales Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche d’entreprises locales Bing permet de rechercher des entités de type entreprise locales dans différentes catégories, en donnant la priorité aux résultats proches de l’emplacement de l’utilisateur. Vous pouvez inclure ces recherches dans les recherches avec les [paramètres](specify-geographic-search.md) `localCircularView` et `localMapView`.
 

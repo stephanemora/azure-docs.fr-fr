@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7683930af1de0fc4e4d112c1e559358d5d5d5609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ec57937b2bac430fccd7b6e1fbc05b44d9cf996
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68500590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078794"
 ---
 # <a name="get-insights-about-a-video"></a>Obtenir des informations sur une vidéo
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Chaque vidéo retournée par l’API Recherche de vidéos Bing inclut un ID de vidéo que vous pouvez utiliser pour obtenir plus d’informations sur la vidéo, comme les vidéos associées. Pour obtenir des informations sur une vidéo, récupérez son jeton [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) dans la réponse d’API. 
 

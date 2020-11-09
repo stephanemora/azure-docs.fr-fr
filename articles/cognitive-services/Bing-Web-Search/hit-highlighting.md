@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68854009"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078541"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilisation de marqueurs d’ornement pour mettre en surbrillance un texte
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Bing prend en charge la mise en surbrillance des correspondances qui marque les termes de requête (ou d’autres termes que Bing estime pertinents) dans les chaînes d’affichage de certaines réponses. Par exemple, les champs `name`, `displayUrl` et `snippet` des résultats d’une page web peuvent contenir des termes de requête marqués. 
 

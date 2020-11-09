@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0dfc93987fb2ca25b9e397e4aa91adcaaafd8a38
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: contperfq2
+ms.openlocfilehash: bd8fec0ae5b6ece1626049953b1f4afd3a581d97
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478833"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280600"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -35,7 +36,7 @@ Une fois dans le portail, commencez par sélectionner _Créer une ressource_ dan
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
-Recherchez *Azure Digital Twins* dans la zone de recherche, puis choisissez le service **Azure Digital Twins (préversion)** dans les résultats. Sélectionnez le bouton _Créer_ pour créer une instance du service.
+Recherchez *Azure Digital Twins* dans la zone de recherche, puis choisissez le service **Azure Digital Twins** dans les résultats. Sélectionnez le bouton _Créer_ pour créer une instance du service.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Sélection de l’option « Créer » dans la page du service Azure Digital Twins":::
 

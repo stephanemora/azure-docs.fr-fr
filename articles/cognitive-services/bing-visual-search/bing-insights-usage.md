@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: acb84a11318175c17976c5dc570ce5d5f6aa6b6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4e9bf67aa1d3df815c674fdc1e2019f68b4a60
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512689"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086701"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemples d’utilisation d’insights de Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Cet article contient des exemples d’utilisation et d’affichage d’insights relatifs aux images sur Bing.com.
 

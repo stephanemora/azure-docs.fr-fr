@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503315"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279899"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser Azure RBAC pour accorder des autorisations à un *principal
 
 ### <a name="authentication-and-authorization"></a>Authentification et autorisation
 
-Avec Azure AD, l’accès est un processus en deux étapes. Quand un principal de sécurité (un utilisateur, un groupe ou une application) tente d’accéder à une entité Azure Digital Twins, la requête doit être *authentifiée* et *autorisée* . 
+Avec Azure AD, l’accès est un processus en deux étapes. Quand un principal de sécurité (un utilisateur, un groupe ou une application) tente d’accéder à une entité Azure Digital Twins, la requête doit être *authentifiée* et *autorisée*. 
 
 1. Pour commencer, l’identité du principal de sécurité est *authentifiée* , et un jeton OAuth 2.0 est renvoyé.
 2. Ensuite, ce jeton est transmis dans une requête adressée au service Azure Digital Twins pour *autoriser* l’accès à la ressource spécifiée.
@@ -72,7 +72,7 @@ Pour plus d’informations sur la définition des rôles intégrés, consultez [
 Lorsque vous faites référence à des rôles dans des scénarios automatisés, il est recommandé d’y faire référence par leurs **ID** plutôt que par leurs noms. Les noms peuvent changer d’une version à l’autre, mais pas les ID, ce qui en fait une référence plus stable pour l’automatisation.
 
 > [!TIP]
-> Si vous affectez des rôles à l’aide d’une applet de commande, comme `New-AzRoleAssignment` ([référence](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), vous pouvez utiliser le paramètre `-RoleDefinitionId` au lieu de `-RoleDefinitionName` pour passer un ID à la place d’un nom pour le rôle.
+> Si vous affectez des rôles à l’aide d’une applet de commande, comme `New-AzRoleAssignment` ([référence](/powershell/module/az.resources/new-azroleassignment)), vous pouvez utiliser le paramètre `-RoleDefinitionId` au lieu de `-RoleDefinitionName` pour passer un ID à la place d’un nom pour le rôle.
 
 ### <a name="permission-scopes"></a>Étendues d’autorisation
 
@@ -88,6 +88,32 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 ### <a name="troubleshooting-permissions"></a>Résolution des problèmes d'autorisations
 
 Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [*Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)*](troubleshoot-error-403.md).
+
+## <a name="service-tags"></a>Balises de service
+
+Une **étiquette de service** représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les étiquettes de service, consultez  [*Étiquettes de réseau virtuel*](../virtual-network/service-tags-overview.md). 
+
+Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou [Pare-feu Azure](../firewall/service-tags.md), en utilisant des étiquettes de service à la place d’adresses IP spécifiques lorsque vous créez des règles de sécurité. En spécifiant le nom de l’étiquette de service (en l’occurrence,  **AzureDigitalTwins** ) dans le champ *source* ou de *destination* approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. 
+
+Vous trouverez ci-dessous les détails de l’étiquette de service **AzureDigitalTwins**.
+
+| Tag | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure Digital Twins<br>Remarque : Cette étiquette ou les adresses IP couvertes par cette étiquette peuvent être utilisées pour restreindre l’accès aux points de terminaison configurés pour des [routes d’événements](concepts-route-events.md). | Trafic entrant | Non | Oui |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Utilisation d’étiquettes de service pour accéder à des points de terminaison de route d’événement 
+
+Voici les étapes à suivre pour accéder à des points de terminaison de [route d’événement](concepts-route-events.md) à l’aide d’étiquettes de service avec Azure Digital Twins.
+
+1. Tout d’abord, téléchargez cette référence de fichier JSON montrant des plages d’adresses IP Azure et des étiquettes de service : [*Plages d’IP Azure et étiquettes de services*](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Recherchez les plages d’IP « AzureDigitalTwins » dans le fichier JSON.  
+
+3. Consultez la documentation de la ressource externe connectée au point de terminaison (par exemple [Event Grid](../event-grid/overview.md), [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) ou [Stockage Azure](../storage/blobs/storage-blobs-overview.md) pour [les événements de lettres mortes](concepts-route-events.md#dead-letter-events)) afin de découvrir comment définir des filtres IP pour cette ressource.
+
+4. Définissez des filtres IP sur la ou les ressources externes en utilisant les plages d’IP de l’ *Étape 2*.  
+
+5. Mettez régulièrement à jour les plages d’IP en fonction des besoins. Les plages peuvent changer au fil du temps. Il convient donc de les vérifier régulièrement et de les actualiser si nécessaire. La fréquence de ces mises à jour peut varier, mais il est judicieux de les vérifier une fois par semaine.
 
 ## <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
 

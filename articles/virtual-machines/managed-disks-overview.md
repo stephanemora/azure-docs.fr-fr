@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972031"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289360"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction aux disques managés Azure
 
@@ -31,7 +31,7 @@ Les disques managés sont conçus pour offrir une disponibilité de 99,999 %. I
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Déploiement de machines virtuelles simple et évolutif
 
-Avec des disques managés, vous pouvez créer jusqu’à 50 000 **disques** de machines virtuelles d’un type dans un abonnement par région. Ainsi, vous êtes en mesure de créer des milliers de **machines virtuelles** dans un seul abonnement. Par ailleurs, cette fonctionnalité optimise l’évolutivité des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md) en vous donnant les moyens de créer jusqu’à 1 000 machines virtuelles dans une instance de groupe de machines virtuelles identiques à l’aide d’une image de place de marché.
+Avec des disques managés, vous pouvez créer jusqu’à 50 000  **disques** de machines virtuelles d’un type dans un abonnement par région. Ainsi, vous êtes en mesure de créer des milliers de **machines virtuelles** dans un seul abonnement. Par ailleurs, cette fonctionnalité optimise l’évolutivité des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md) en vous donnant les moyens de créer jusqu’à 1 000 machines virtuelles dans une instance de groupe de machines virtuelles identiques à l’aide d’une image de place de marché.
 
 ### <a name="integration-with-availability-sets"></a>Intégration avec des groupes à haute disponibilité
 
@@ -59,7 +59,7 @@ Pour découvrir comment transférer votre disque dur virtuel sur Azure, consulte
 
 ### <a name="private-links"></a>Liaisons privées
 
-La prise en charge des liaisons privées pour les disques managés est actuellement en préversion et peut être utilisée pour importer ou exporter un disque managé interne dans votre réseau. Les liaisons privées vous permettent de générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés que vous pouvez utiliser pour exporter les données vers d’autres régions dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou d’une analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement un disque dur virtuel sur un disque vide à partir de l’environnement local. Vous pouvez désormais tirer parti des [liaisons privées](../private-link/private-link-overview.md) pour restreindre l’exportation et l’importation des disques managés, afin qu’elles aient lieu uniquement au sein de votre réseau virtuel Azure. Les liaisons privées vous permettent de vous assurer que vos données ne transitent que dans le réseau principal sécurisé de Microsoft.
+La prise en charge d’Azure Private Link pour les disques managés permet d’importer ou d’exporter un disque managé interne dans votre réseau. Les liaisons privées vous permettent de générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés que vous pouvez utiliser pour exporter les données vers d’autres régions dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou d’une analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement un disque dur virtuel sur un disque vide à partir de l’environnement local. Vous pouvez désormais tirer parti des [liaisons privées](../private-link/private-link-overview.md) pour restreindre l’exportation et l’importation des disques managés, afin qu’elles aient lieu uniquement au sein de votre réseau virtuel Azure. Les liaisons privées vous permettent de vous assurer que vos données ne transitent que dans le réseau principal sécurisé de Microsoft.
 
 Pour savoir comment activer les liaisons privées pour l’importation ou l’exportation d’un disque managé, consultez les articles relatifs à l’interface [CLI](linux/disks-export-import-private-links-cli.md) ou au [portail](disks-enable-private-links-for-import-export-portal.md).
 

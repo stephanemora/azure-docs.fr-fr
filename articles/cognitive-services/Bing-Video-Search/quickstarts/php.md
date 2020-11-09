@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849618"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094096"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et PHP
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche de vidéos Bing. Cette application PHP simple envoie une requête de recherche de vidéos HTTP à l’API, puis affiche la réponse JSON. L’exemple de code est écrit pour fonctionner sous PHP 5.6.
 
@@ -46,8 +51,8 @@ L’[API Recherche de vidéos Bing](https://docs.microsoft.com/rest/api/cognitiv
 // ;extension=php_openssl.dll
 
 // **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// **_ Update or verify the following values. _*_
+// _*********************************************
 
 // Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';

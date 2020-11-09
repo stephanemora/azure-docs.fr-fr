@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79218915"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102222"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Rechercher des vidéos avec l’API Recherche de vidéos Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche de vidéos Bing facilite l’intégration des capacités de recherche de vidéos cognitive de Bing dans vos applications. Alors que l’API trouve et retourne surtout des vidéos pertinentes provenant du web, elle propose plusieurs fonctionnalités pour les récupérer de manière intelligente et pertinente.
 
@@ -144,7 +149,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Développement de la requête
 
-Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contient le champ `queryExpansions`. Par exemple, si la requête était le *nettoyage de gouttières*, les requêtes développées pourraient être : **outils** pour le nettoyage de gouttières, nettoyage de gouttières **à partir du sol**, **appareil** pour le nettoyage de gouttières et nettoyage de gouttières **facile**.
+Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contient le champ `queryExpansions`. Par exemple, si la requête était le *nettoyage de gouttières* , les requêtes développées pourraient être : **outils** pour le nettoyage de gouttières, nettoyage de gouttières **à partir du sol** , **appareil** pour le nettoyage de gouttières et nettoyage de gouttières **facile**.
 
 L’exemple suivant montre les requêtes développées pour le *nettoyage de gouttières* (Cleaning Gutters).
 

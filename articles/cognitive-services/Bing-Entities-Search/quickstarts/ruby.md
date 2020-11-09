@@ -10,14 +10,19 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 9699bb0e75aac19a2d5c5c68d07e85b1c17c7cbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20eec55a7a875ff124737069d699e76674b27c3b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83650193"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084644"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en utilisant Ruby
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’entités Bing et voir la réponse JSON. Cette application Ruby simple envoie une requête de recherche d’actualités à l’API, puis affiche la réponse. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 

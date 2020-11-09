@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044664"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099111"
 ---
 # <a name="what-is-azure-digital-twins"></a>Qu’est-ce qu’Azure Digital Twins ?
 
@@ -44,7 +44,7 @@ Le langage DTDL est utilisé pour les modèles de données dans d’autres servi
 
 Les modèles numériques dans Azure Digital Twins sont des représentations dynamiques et à jour du monde réel. À l’aide des relations dans vos modèles DTDL personnalisés, vous allez connecter les représentations dans un **graphe dynamique** représentant votre environnement.
 
-Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’[**explorateur Azure Digital Twins**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’ [**explorateur Azure Digital Twins**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Voici à quoi ressemble l’exemple de visualisation :
 
@@ -64,7 +64,7 @@ Vous pouvez également piloter Azure Digital Twins à partir d’autres sources 
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Sortie vers Time Series Insights, Stockage et Analytics
 
-Les données de votre modèle Azure Digital Twins peuvent être routées vers les services Azure en aval pour des analyses ou du stockage supplémentaires. Cela est possible via des **itinéraires d’événements**, qui utilisent [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour piloter les flux de données souhaités.
+Les données de votre modèle Azure Digital Twins peuvent être routées vers les services Azure en aval pour des analyses ou du stockage supplémentaires. Cela est possible via des **itinéraires d’événements** , qui utilisent [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour piloter les flux de données souhaités.
 
 Voici quelques opérations que vous pouvez effectuer avec les itinéraires d’événements :
 * Stockage des données Azure Digital Twins dans [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
@@ -88,20 +88,16 @@ Une solution complète utilisant Azure Digital Twins peut contenir les élément
 
 Le schéma suivant montre où Azure Digital Twins se trouve dans le contexte d’une solution Azure IoT plus volumineuse.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Capture d’écran de l’exemple d’application Explorateur Azure Digital Twins, montrant un graphe des nœuds représentant des jumeaux numériques" border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Schéma montrant des sources d’entrée, des services de sortie et une communication bidirectionnelle avec les applications clientes et les ressources de calcul externes." border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Limites du service en préversion publique
+## <a name="service-limits"></a>Limites du service
 
-> [!IMPORTANT]
-> Azure Digital Twins est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [*Conditions supplémentaires relatives à l’utilisation des préversions de Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Pour obtenir la liste des limites Azure Digital Twins pendant la préversion publique, consultez [*Référence : Limites de service de la préversion publique*](reference-service-limits.md).
+Pour obtenir la liste des limites Azure Digital Twins, consultez [*Référence : limites de service*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez utilisé la préversion précédente d’Azure Digital Twins, découvrez ce qui a changé :
-* [*Vue d’ensemble : Différences avec la version précédente*](overview-differences.md)
+Si vous avez utilisé la première préversion d’Azure Digital Twins (octobre 2018), découvrez ce qui a changé :
+* [*Vue d’ensemble : Différences par rapport à la première version*](overview-differences.md)
 
 Pour découvrir comment utiliser Azure Digital Twins, vous pouvez également consulter le premier tutoriel :
 

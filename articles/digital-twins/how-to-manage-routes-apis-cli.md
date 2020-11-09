@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 88828d6dea05c530d20fe378a108df2bd0dcd5b9
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494819"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279460"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -20,14 +20,14 @@ ms.locfileid: "92494819"
 
 Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](how-to-interpret-event-data.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
 
-Vous pouvez gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[Kit de développement logiciel (SDK) C# .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), ou de la [CLI Azure Digital Twins](how-to-use-cli.md). Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires via ces mécanismes.
+Vous pouvez gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[Kit de développement logiciel (SDK) C# .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), ou de la [CLI Azure Digital Twins](how-to-use-cli.md). Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires via ces mécanismes.
 
 Vous pouvez également les gérer via le [portail Azure](https://portal.azure.com). Pour obtenir une version de cet article qui utilise le portail à la place, consultez le [Tutoriel  *: Gérer les points de terminaison et les itinéraires (portail)*](how-to-manage-routes-portal.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Vous avez besoin d’un **compte Azure** (vous pouvez en définir un gratuitement [ici](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [*Tutoriel : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
+* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [*Tutoriel : Configurer une instance et l’authentification*](how-to-set-up-instance-cli.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
     - Nom de l’instance
     - Resource group
     
@@ -88,7 +88,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Créer un point de terminaison avec mise en file d’attente de lettres mortes
 
-Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes** .
+Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes**.
 
 Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, vous devez utiliser les [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison. 
 
@@ -152,9 +152,9 @@ Voici un exemple de message mis en file d’attente de lettres mortes pour une [
 
 ## <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
 
-Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement** . Les **API EventRoutes** d’Azure Digital Twins permettent aux développeurs de lier le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
+Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement**. Les **API EventRoutes** d’Azure Digital Twins permettent aux développeurs de lier le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
 
-Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
+Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 **Condition préalable**  : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
@@ -176,45 +176,48 @@ Une définition d’itinéraire peut contenir les éléments suivants :
 
 Un itinéraire doit permettre la sélection de plusieurs notifications et types d’événements. 
 
-`CreateEventRoute` est l’appel du kit de développement logiciel (SDK) utilisé pour ajouter un itinéraire d’événement. Voici un exemple de son utilisation :
+`CreateOrReplaceEventRouteAsync` est l’appel du kit de développement logiciel (SDK) utilisé pour ajouter un itinéraire d’événement. Voici un exemple de son utilisation :
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter = "true"; //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
+await CreateOrReplaceEventRouteAsync(client, "routeName", er);
 ```
-
+    
 > [!TIP]
 > Toutes les fonctions du Kit de développement logiciel (SDK) sont disponibles en versions synchrone et asynchrone.
 
 ### <a name="event-route-sample-code"></a>Exemple de code d’itinéraire d’événement
 
-L’exemple de code suivant montre comment créer, répertorier et supprimer un itinéraire d’événement :
+L’exemple de méthode suivant montre comment créer, lister et supprimer une route d’événement :
 ```csharp
-try
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, DigitalTwinsEventRoute er)
 {
+  try
+  {
     Console.WriteLine("Create a route: testRoute1");
-    EventRoute er = new EventRoute("< your - endpoint - name >");
+            
     // Make a filter that passes everything
     er.Filter = "true";
-    client.CreateEventRoute("< your - route - name >", er);
+    await client.CreateOrReplaceEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable <EventRoute> result = client.GetEventRoutes();
-    foreach (EventRoute r in result)
+    Pageable<DigitalTwinsEventRoute> result = client.GetEventRoutes();
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
-    foreach (EventRoute r in result)
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);
     }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-}
+  }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
+    }
+  }
 ```
 
 ## <a name="filter-events"></a>Filtrer les événements

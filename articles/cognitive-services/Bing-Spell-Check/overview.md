@@ -10,14 +10,19 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 205d7991551ca48c3ea2e61baef53f5d06bdcbd2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905ae56ab8d64f7342c4ee6b9f25d188c907710d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86200490"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084185"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Qu’est-ce que l’API Vérification orthographique Bing ?
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Vérification orthographique Bing vous permet d’effectuer une vérification orthographique et grammaticale contextuelle sur du texte. Bien que la plupart des vérificateurs d’orthographe s’appuient sur des ensembles de règles basées sur un dictionnaire, le vérificateur d’orthographe Bing exploite l’apprentissage automatique et la traduction automatique statistique pour fournir des corrections précises et contextuelles. 
 

@@ -10,20 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872066"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085120"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Recherche d’entités avec l’API Recherche d’entités Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Suggérer des termes de recherche avec l’API Suggestion automatique Bing
 
 Si vous fournissez une zone de recherche dans laquelle l’utilisateur entre son terme de recherche, utilisez [l’API Suggestion automatique Bing](../../bing-autosuggest/get-suggested-search-terms.md) pour améliorer l’expérience. À mesure que l’utilisateur tape des termes de recherche, l’API suggère des chaînes de requête.
 
-Quand l’utilisateur a terminé d’entrer son terme de recherche, encodez-le par URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Par exemple, si l’utilisateur saisit *Marcus Appel*, définissez `q` sur *Marcus+Appel* ou *Marcus%20Appel*.
+Quand l’utilisateur a terminé d’entrer son terme de recherche, encodez-le par URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Par exemple, si l’utilisateur saisit *Marcus Appel* , définissez `q` sur *Marcus+Appel* ou *Marcus%20Appel*.
 
 Si le terme de recherche contient une faute d’orthographe, la réponse à la recherche inclut un objet [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext). L’objet affiche l’orthographe d’origine et l’orthographe corrigée utilisées par Bing pour la recherche.
 

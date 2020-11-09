@@ -10,21 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76983110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100539"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Appeler votre instance de Recherche personnalisée Bing à partir du portail
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Une fois votre expérience de recherche personnalisée configurée, vous pouvez la tester à partir du [portail](https://customsearch.ai) Recherche personnalisée Bing. 
 
 ![capture d’écran du portail Recherche personnalisée Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Créer une requête de recherche 
 
-Une fois connecté au [portail](https://customsearch.ai) Recherche personnalisée Bing, sélectionnez votre instance de recherche et cliquez sur l'onglet **Production**. Sous **Points de terminaison**, sélectionnez le point de terminaison d'une API (par exemple, de l'API Web). Les points de terminaison affichés dépendent de votre abonnement.
+Une fois connecté au [portail](https://customsearch.ai) Recherche personnalisée Bing, sélectionnez votre instance de recherche et cliquez sur l'onglet **Production**. Sous **Points de terminaison** , sélectionnez le point de terminaison d'une API (par exemple, de l'API Web). Les points de terminaison affichés dépendent de votre abonnement.
 
 Pour créer une requête de recherche, entrez les valeurs des paramètres de votre point de terminaison. Notez que les paramètres affichés sur le portail peuvent varier en fonction du point de terminaison choisi. Pour plus d’informations, consultez [Référence sur l’API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters). Pour modifier l’abonnement utilisée par votre instance de recherche, ajoutez la clé d’abonnement appropriée et mettez à jour les paramètres de mise sur le marché et/ou de langue appropriés.
 
@@ -35,10 +40,10 @@ Les paramètres suivants sont importants :
 |---------|---------|
 |Requête     | Terme à rechercher. Uniquement disponible pour les points de terminaison Web, Image, Vidéo et Suggestion automatique |
 |ID de configuration personnalisée | L'ID de configuration de l'instance de Recherche personnalisée sélectionnée. Ce champ est en lecture seule. |
-|Market     | Marché d'où proviendront les résultats. Uniquement disponible pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.        |
+|Marché     | Marché d'où proviendront les résultats. Uniquement disponible pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.        |
 |Clé d'abonnement | Clé d'abonnement à utiliser pour le test. Vous pouvez sélectionner une clé dans la liste déroulante ou en entrer une manuellement.          |
 
-Si vous cliquez sur **Paramètres supplémentaires**, les paramètres suivants s’affichent :  
+Si vous cliquez sur **Paramètres supplémentaires** , les paramètres suivants s’affichent :  
 
 |Paramètre  |Description  |
 |---------|---------|

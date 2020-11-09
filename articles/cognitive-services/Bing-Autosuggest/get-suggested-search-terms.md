@@ -10,20 +10,25 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: b68bc2eca25c35395d9a31f3a80e45d1595815bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d55ff4ed8717a449628e94a940c0896d31818da2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85601970"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101933"
 ---
 # <a name="what-is-bing-autosuggest"></a>Qu’est-ce que la Suggestion automatique Bing ?
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Si votre application envoie des requêtes à l’une des API Recherche Bing, vous pouvez utiliser l’API Suggestion automatique Bing pour améliorer l’expérience de recherche de vos utilisateurs. L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche. À mesure que des caractères sont entrés dans la zone de recherche, vous pouvez afficher des suggestions dans une liste déroulante.
 
 ## <a name="bing-autosuggest-api-features"></a>Fonctionnalités de l’API Suggestion automatique Bing
 
-| Fonctionnalité                                                                                                                                                                                 | Description                                                                                                                                                            |
+| Caractéristique                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggestion de termes de recherche en temps réel](concepts/get-suggestions.md) | Améliorez l’expérience dans votre application en utilisant l’API Suggestion automatique Bing pour afficher des suggestions de termes de recherche pendant la saisie d’une requête. |
 

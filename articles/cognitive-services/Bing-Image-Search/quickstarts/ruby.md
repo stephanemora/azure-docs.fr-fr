@@ -12,18 +12,23 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ee1308f08b5ca2192bb429acbb5bdaec199fb26f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0c2ee767e231fea47d0cf8205d7c256f827193de
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85603268"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095881"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et Ruby
 
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. Cette application Ruby simple envoie une requête de recherche à l’API et affiche les résultats bruts.
 
-Bien que cette application soit écrite en Ruby, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
+Bien que cette application est écrite en Ruby, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
 

@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: d080e9e2449eca45b3c929e2f566dd8e8e53bfaa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bd929d64d7b877e4b17952eaf4d4d0f2c0e3dff
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262907"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101814"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Démarrage rapide : Suggérer des requêtes de recherche avec l’API REST Suggestion automatique Bing et Python
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Suivez ce démarrage rapide pour apprendre à effectuer des appels à l’API Suggestion automatique Bing et à lire la réponse JSON. Cette application Python simple envoie une requête de recherche partielle à l’API et renvoie des suggestions pour les recherches. Alors que cette application est écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 

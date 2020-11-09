@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/29/2020
 ms.author: aahi
-ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244293"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130559"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Utiliser Docker Compose pour déployer plusieurs conteneurs
 
@@ -35,24 +35,17 @@ Cette procédure nécessite plusieurs outils qui doivent être installés et ex�
   * La ressource **Vision par ordinateur** avec le niveau tarifaire F0 ou Standard.
   * La ressource **Form Recognizer** avec le niveau tarifaire F0 ou Standard.
   * La ressource **Cognitive Services** avec un niveau tarifaire S0.
-
-## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
-
-Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services Speech](https://aka.ms/speechcontainerspreview/). 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+* Si vous utilisez un conteneur en préversion contrôlée, vous devez remplir le [formulaire de demande en ligne](https://aka.ms/csgate/) pour l’utiliser.
 
 ## <a name="docker-compose-file"></a>Fichier Docker Compose
 
-Le fichier YAML définit tous les services à déployer. Ces services s’appuient sur `DockerFile` ou sur une image conteneur existante. Dans ce cas, nous allons utiliser deux images en préversion. Copiez et collez le fichier YAML suivant, puis enregistrez-le sous le nom *docker-compose.yaml*. Entrez les valeurs appropriées pour **apikey**, **billing** et **EndpointUri** dans le fichier.
+Le fichier YAML définit tous les services à déployer. Ces services s’appuient sur `DockerFile` ou sur une image conteneur existante. Dans ce cas, nous allons utiliser deux images en préversion. Copiez et collez le fichier YAML suivant, puis enregistrez-le sous le nom *docker-compose.yaml*. Entrez les valeurs appropriées pour **apikey** , **billing** et **EndpointUri** dans le fichier.
 
 ```yaml
 version: '3.7'
 services:
   forms:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    image: "mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout"
     environment:
        eula: accept
        billing: # < Your form recognizer billing URL >
@@ -70,7 +63,7 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
+    image: "mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview"
     environment:
       eula: accept
       apikey: # < Your computer vision API key >
@@ -87,19 +80,19 @@ services:
 Un fichier Docker Compose permet de gérer tous les étapes du cycle de vie du service défini : démarrage, arrêt et reconstruction des services, affichage de l’état du service et streaming de journaux. Ouvrez une interface de ligne de commande à partir du répertoire du projet (où le fichier docker-compose.yaml se trouve).
 
 > [!NOTE]
-> Pour éviter les erreurs, vérifiez que la machine hôte partage correctement les lecteurs avec le moteur Docker. Par exemple, si *E:\publicpreview* est utilisé comme répertoire dans le fichier *docker-compose.yaml*, partagez le lecteur **E** avec Docker.
+> Pour éviter les erreurs, vérifiez que la machine hôte partage correctement les lecteurs avec le moteur Docker. Par exemple, si *E:\publicpreview* est utilisé comme répertoire dans le fichier *docker-compose.yaml* , partagez le lecteur  **E** avec Docker.
 
-À partir de l’interface de ligne de commande, exécutez la commande suivante pour démarrer (ou redémarrer) tous les services définis dans le fichier *docker-compose.yaml* :
+À partir de l’interface de ligne de commande, exécutez la commande suivante pour démarrer (ou redémarrer) tous les services définis dans le fichier *docker-compose.yaml*  :
 
 ```console
 docker-compose up
 ```
 
-La première fois que Docker exécute la commande **docker-compose up** en utilisant cette configuration, il extrait les images configurées sous le nœud **services**, puis les télécharge et les monte :
+La première fois que Docker exécute la commande **docker-compose up** en utilisant cette configuration, il extrait les images configurées sous le nœud **services** , puis les télécharge et les monte :
 
 ```console
-Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
-latest: Pulling from microsoft/cognitive-services-form-recognizer
+Pulling forms (mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout:)...
+latest: Pulling from azure-cognitive-services/form-recognizer/layout
 743f2d6c1f65: Pull complete
 72befba99561: Pull complete
 2a40b9192d02: Pull complete
@@ -113,8 +106,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
-latest: Pulling from microsoft/cognitive-services-read
+Pulling ocr (mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview:)...
+latest: Pulling from /azure-cognitive-services/vision/read:3.1-preview
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -166,13 +159,13 @@ Voici un exemple de sortie :
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
-2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
+2ce533f88e80        mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout          latest
+4be104c126c5        mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview         latest
 ```
 
 ### <a name="test-containers"></a>Conteneurs de test
 
-Ouvrez un navigateur sur la machine hôte, puis accédez à **localhost** en utilisant le port spécifié dans le fichier *docker-compose.yaml*, comme http://localhost:5021/swagger/index.html. Par exemple, vous pouvez utiliser la fonctionnalité **Essayer** de l’API pour tester le point de terminaison Form Recognizer. Les pages Swagger des deux conteneurs doivent être disponibles et testables.
+Ouvrez un navigateur sur la machine hôte, puis accédez à **localhost** en utilisant le port spécifié dans le fichier *docker-compose.yaml* , comme http://localhost:5021/swagger/index.html. Par exemple, vous pouvez utiliser la fonctionnalité **Essayer** de l’API pour tester le point de terminaison Form Recognizer. Les pages Swagger des deux conteneurs doivent être disponibles et testables.
 
 ![Conteneur Form Recognizer](media/form-recognizer-swagger-page.png)
 

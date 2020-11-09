@@ -11,14 +11,70 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 89a87cd881689f58bbc4d2b4bf2a63a992e8dae9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461632"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289626"
 ---
 # <a name="speech-service-release-notes"></a>Notes de publication du service Speech
+
+## <a name="speech-sdk-1140-2020-october-release"></a>Kit SDK Speech 1.14.0 : version d’octobre 2020
+
+**Remarque**  : Le kit SDK Speech sur Windows dépend du partage de Redistributable Visual C++ pour Visual Studio 2015, 2017 et 2019. Téléchargez-le [ici](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**Nouvelles fonctionnalités**
+- **Linux**  : Ajout de la prise en charge de Debian 10 et Ubuntu 20.04 LTS.
+- **Python/Objective-C**  : Ajout de la prise en charge de l’API `KeywordRecognizer`. La documentation sera disponible [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
+- **C++/Java/C#**  : Ajout de la prise en charge pour définir toute clé/valeur `HttpHeader` par le biais de `ServicePropertyChannel::HttpHeader`.
+- **JavaScript**  : Ajout de la prise en charge de l’API `ConversationTranscriber`. Lisez la documentation [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
+- **C++/C#**  : Ajout d’une nouvelle méthode `AudioDataStream FromWavFileInput` (pour lire les fichiers .WAV) [ici (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) et [ici (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
+-  **C++/C#/Java/Python/Objective-C/Swift**  : Ajout d’une méthode `stopSpeakingAsync()` pour arrêter la synthèse vocale. Lisez la documentation de référence [ici (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [ici (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [ici (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [ici (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python) et [ici (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- **C#, C++, Java**  : Ajout d’une fonction `FromDialogServiceConnector()` à la classe `Connection` qui peut être utilisée pour superviser les événements de connexion et de déconnexion pour `DialogServiceConnector`. Lisez la documentation de référence [ici (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [ici (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection) et [ici (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
+<!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
+
+**Résolution des bogues**
+- **Tout** : Correction de la régression 1.13 dans `SetServiceProperty` où les valeurs avec certains caractères spéciaux étaient ignorées.
+- **C#**  : Correction des exemples de console Windows sur Visual Studio 2019 qui ne parvenaient pas à trouver les DLL natives.
+- **C#**  : Correction d’un plantage avec la gestion de la mémoire si un flux était utilisé en tant qu’entrée `KeywordRecognizer`.
+- **ObjectiveC/Swift**  : Correction d’un plantage avec la gestion de la mémoire si un flux était utilisé en tant qu’entrée du module de reconnaissance.
+- **Windows**  : Résolution d’un problème de coexistence avec BT HFP/A2DP sur UWP.
+- **JavaScript**  : Correction du mappage des ID de session pour améliorer la journalisation et faciliter les corrélations de débogage/service internes.
+- **JavaScript**  : Ajout d’un correctif à `DialogServiceConnector` pour la désactivation des appels de `ListenOnce` après le premier appel.
+- **JavaScript**  : Résolution d’un problème où la sortie du résultat était toujours « simple ».
+- **JavaScript**  : Résolution d’un problème de reconnaissance continue dans Safari sur macOS.
+- **JavaScript**  : Atténuation de la charge du processeur pour le scénario de débit de requête élevé.
+- **JavaScript**  : Autorisation de l’accès aux détails de VoiceProfileEnrollmentResult.
+- **JavaScript**  : Ajout d’un correctif pour la reconnaissance continue dans `IntentRecognizer`.
+- **C++/C#/Java/Python/Swift/ObjectiveC**  : Correction d’une URL incorrecte pour australiaeast et brazilsouth dans `IntentRecognizer`.
+- **C++/C#**  : Ajout de `VoiceProfileType` en tant qu’argument lors de la création d’un objet `VoiceProfile`.
+- **C++/C#/Java/Python/Swift/ObjectiveC**  : Correction de `SPX_INVALID_ARG` potentiel lors de la tentative de lecture de `AudioDataStream` à partir d’une position donnée.
+- **IOS**  : Correction d’un plantage de la reconnaissance vocale sur Unity
+
+**Exemples**
+- **ObjectiveC**  : Ajout d’un exemple de reconnaissance de mot clé [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples).
+- **C#/JavaScript**  : Ajout d’un guide de démarrage rapide pour la transcription de conversation [ici (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) et [ici (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
+<!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
+- **Xamarin**  : Mise à jour du guide de démarrage rapide vers le dernier modèle Visual Studio [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
+
+**Problème connu**
+- Le certificat DigiCert Global Root G2 n’est pas pris en charge par défaut dans HoloLens 2 et Android 4.4 (KitKat), et doit être ajouté au système pour que le SDK Speech fonctionne. Le certificat sera ajouté prochainement aux images de système d’exploitation HoloLens 2. Les clients Android 4.4 doivent ajouter le certificat mis à jour au système.
+
+**Test raccourci COVID-19 :** en raison du travail à distance au cours des dernières semaines, nous n’avons pas pu effectuer autant de tests de vérification manuelle que nous le faisons habituellement. Nous n’avons apporté aucune modification qui aurait pu casser quoi que ce soit, et nos tests automatisés ont tous réussi. Dans le cas peu probable où nous aurions manqué quelque chose, veuillez nous en informer sur [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Restez en bonne santé !
+
+## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>Interface CLI Speech (également appelée SPX) : version d’octobre 2020
+SPX est l’interface de ligne de commande pour utiliser le service Azure Speech sans écrire de code. Téléchargez la dernière version [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+
+**Nouvelles fonctionnalités**
+- `spx csr dataset upload --kind audio|language|acoustic` : créez des jeux de données à partir de données locales, et non uniquement à partir d’URL.
+- `spx csr evaluation create|status|list|update|delete` : comparez les nouveaux modèles par rapport à la vérité de référence ou à d’autres modèles.
+- `spx * list` : prend en charge l’expérience non paginée (ne nécessite pas --top X --skip X).
+- `spx * --http header A=B` : prend en charge les en-têtes personnalisés (ajoutés pour Office pour l’authentification personnalisée). 
+- `spx help` : amélioration du codage couleur du texte et des accents graves (bleu).
+
 
 ## <a name="text-to-speech-2020-august-release"></a>Synthèse vocale - version août 2020
 
@@ -26,19 +82,19 @@ ms.locfileid: "92461632"
 
 * **Synthèse vocale neuronale : nouveau style d’élocution pour la voix Aria `en-US`** . AriaNeural peut ressembler à un présentateur de journal télévisé. Le style « newscast-formal » est plus sérieux, tandis que le style « newscast-casual » est plus décontracté et informel. Consultez [Comment utiliser les styles oraux dans SSML](speech-synthesis-markup.md).
 
-* **Voix personnalisée : une nouvelle fonctionnalité est disponible pour vérifier automatiquement la qualité des données de formation** . Lorsque vous chargez vos données, le système examine divers aspects de vos données audio et de transcription, et corrige ou filtre automatiquement les problèmes pour améliorer la qualité du modèle vocal. Cela couvre le volume de votre audio, le niveau de bruit, la précision de la prononciation, l’alignement du texte prononcé avec le texte normalisé, le silence dans l’audio, en plus du format audio et de script. 
+* **Voix personnalisée : une nouvelle fonctionnalité est disponible pour vérifier automatiquement la qualité des données de formation**. Lorsque vous chargez vos données, le système examine divers aspects de vos données audio et de transcription, et corrige ou filtre automatiquement les problèmes pour améliorer la qualité du modèle vocal. Cela couvre le volume de votre audio, le niveau de bruit, la précision de la prononciation, l’alignement du texte prononcé avec le texte normalisé, le silence dans l’audio, en plus du format audio et de script. 
 
 * **Création de contenu audio : un ensemble de nouvelles fonctionnalités pour activer des fonctionnalités de gestion audio et de réglage vocal plus puissantes**
 
     * Prononciation : la fonctionnalité de paramétrage de la prononciation a été mise à jour avec le dernier jeu de phonèmes. Vous pouvez choisir l’élément phonème approprié dans la bibliothèque et affiner la prononciation des mots que vous avez sélectionnés. 
 
-    * Télécharger : La fonctionnalité audio « Télécharger / Exporter » a été améliorée pour prendre en charge la génération d’audio par paragraphe. Vous pouvez modifier le contenu d’un même fichier/SSML tout en générant plusieurs sorties audio. La structure de fichiers du dossier « Download » a également été affinée. Vous pouvez maintenant facilement obtenir tous les éléments audio dans un même dossier. 
+    * Télécharger : La fonctionnalité audio « Télécharger / Exporter » a été améliorée pour prendre en charge la génération d’audio par paragraphe. Vous pouvez modifier le contenu d’un même fichier/SSML tout en générant plusieurs sorties audio. La structure de fichiers du dossier « Download » a également été affinée. Vous pouvez maintenant obtenir facilement tous les fichiers audio dans un même dossier. 
 
     * État de la tâche : L’expérience d’exportation de plusieurs fichiers a été améliorée. Auparavant, lorsque vous exportiez plusieurs fichiers, si l'un des fichiers échouait, toute la tâche échouait. Mais maintenant, tous les autres fichiers seront exportés avec succès. Le rapport de tâche contient des informations plus détaillées et structurées. Ce rapport vous permet maintenant de consulter les journaux de tous les fichiers et phrases ayant échoué. 
 
     * Documentation SSML : liée au document SSML pour vous aider à vérifier les règles d’utilisation de toutes les fonctionnalités de paramétrage.
 
-* **L’API Voice List a été mise à jour pour inclure un nom complet convivial ainsi que les styles oraux pris en charge pour les voix neurales** .
+* **L’API Voice List a été mise à jour pour inclure un nom complet convivial ainsi que les styles oraux pris en charge pour les voix neurales**.
 
 ### <a name="general-tts-voice-quality-improvements"></a>Améliorations générales de la qualité de la voix TTS
 

@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: aad804179739a77010446a146d32cd51ac6e6757
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7f9a72084cc9dd138eed58e395e009e1161c9382
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85603364"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099893"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de PHP
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. L’application simple présentée dans cet article envoie une requête de recherche et affiche les résultats bruts.
 

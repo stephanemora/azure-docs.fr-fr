@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 093e5482896e2af8008f20826e30443bdeb9aae9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 142d4504ab12e7df5cc1e009038554a5b90dff0c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097029"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135868"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour le Java Runtime Environment (JRE) Java 8 64 bits. Si vous voulez simplement le nom du package pour commencer seul, le SDK Java n’est pas disponible dans le référentiel central Maven. Que vous utilisiez Gradle ou un fichier de dépendances `pom.xml`, vous devez ajouter un référentiel personnalisé pointant vers `https://csspeechstorage.blob.core.windows.net/maven/` (voir ci-dessous pour connaître le nom du package).
 
@@ -30,7 +30,7 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
 - Le package Java du Kit de développement logiciel (SDK) Speech est disponible pour les systèmes d’exploitation suivants :
   - Windows : 64 bits uniquement
   - Mac : macOS X version 10.13 ou ultérieure
-  - Linux : 64 bits uniquement sur Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
+  - Linux : consultez la liste des [architectures cibles et distributions Linux prises en charge](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,19 +39,14 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/) (nécessite Java déjà installé)
 - Les plateformes Linux prises en charge nécessitent l’installation de certaines bibliothèques (`libssl` pour la prise en charge du protocole SSL et `libasound2` pour la prise en charge du son). Reportez-vous à votre distribution ci-dessous pour connaître les commandes nécessaires à l’installation des versions appropriées de ces bibliothèques.
 
-  - Sur Ubuntu, exécutez les commandes suivantes pour installer les packages requis :
+  - Sur Ubuntu/Debian, exécutez les commandes suivantes pour installer les packages requis :
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - Sur Debian 9, exécutez les commandes suivantes pour installer les packages requis :
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Si libssl1.0.0 n’est pas disponible, installez libssl1.0.x (où x est supérieur à 0) ou libssl1.1 à la place.
 
   - Sur RHEL/CentOS, exécutez les commandes suivantes pour installer les packages nécessaires :
 

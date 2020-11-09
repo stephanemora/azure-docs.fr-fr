@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: exploration de texte, analyse de sentiments, analyse de texte
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647468"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289698"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -29,7 +29,9 @@ L’API fait partie d’[Azure Cognitive Services](https://docs.microsoft.com/az
 
 ## <a name="sentiment-analysis"></a>analyse de sentiments
 
-Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) et découvrez ce que les gens pensent de votre marque ou de votre thématique en explorant le texte pour trouver des indices sur les sentiments positifs ou négatifs. Cette fonctionnalité de l’API retourne un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.
+Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) et découvrez ce que les gens pensent de votre marque ou de votre thématique en explorant le texte pour trouver des indices sur les sentiments positifs ou négatifs. 
+
+La fonctionnalité fournit des étiquettes de sentiment (comme « négatif », « neutre » et « positif ») en fonction du score de confiance le plus élevé trouvé par le service au niveau du document et de la phrase. Cette fonctionnalité retourne également des scores de confiance compris entre 0 et 1 pour chaque document, ainsi que les phrases qu’il contient pour les sentiments positif, neutre et négatif. Vous pouvez également exécuter le service localement [à l’aide d’un conteneur](how-tos/text-analytics-how-to-install-containers.md).
 
 À partir de la préversion 3.1, l’exploration des opinions est une fonctionnalité d’Analyse des sentiments. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte.
 

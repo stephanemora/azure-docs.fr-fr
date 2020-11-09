@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370540"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289211"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs
 
@@ -31,7 +31,7 @@ Lorsque le scanner signale des vulnérabilités à Security Center, ce dernier p
 |Registres et images pris en charge :|Images Linux dans des registres ACR accessibles depuis l’Internet public grâce à l’accès shell|
 |Registres et images pris en charge :|Images Windows<br>Registres « privés »<br>Registres dont l’accès est limité par un pare-feu, à un point de terminaison de service ou à des points de terminaison privés tels qu’Azure Private Link<br>Images super-minimalistes, telles que les images de [base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation|
 |Rôles et autorisations obligatoires :|**Lecteur de sécurité** et [rôle de lecteur Azure Container Registry](../container-registry/container-registry-roles.md)|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov : seule la fonctionnalité d’analyse à l’envoi est actuellement prise en charge. En savoir plus dans [Quand les images sont-elles analysées ?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![Non](./media/icons/no-icon.png) Cloud du secteur public de la Chine / Autres clouds du secteur public|
 |||
 
 

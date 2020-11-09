@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091801"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Échec de la demande de service. État : 403 (Interdit)
 
@@ -25,7 +25,7 @@ Cette erreur peut se produire sur de nombreux types de demandes de service qui r
 
 ### <a name="cause-1"></a>Cause no 1
 
-La plupart du temps, cette erreur indique que vos autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour le service ne sont pas configurées correctement. De nombreuses actions pour une instance Azure Digital Twins nécessitent que vous disposiez du rôle *Propriétaire de données Azure Digital Twins* **sur l’instance que vous essayez de gérer** . 
+La plupart du temps, cette erreur indique que vos autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour le service ne sont pas configurées correctement. De nombreuses actions pour une instance Azure Digital Twins nécessitent que vous disposiez du rôle *Propriétaire de données Azure Digital Twins* **sur l’instance que vous essayez de gérer**. 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -52,9 +52,9 @@ Notez que ce rôle est différent…
 
 #### <a name="fix-issues"></a>Corriger les problèmes 
 
-Si vous n’avez pas cette attribution de rôle, une personne disposant d’un rôle Propriétaire dans votre **abonnement Azure** doit exécuter la commande suivante pour permettre à votre utilisateur Azure d’utiliser le rôle *Propriétaire de données Azure Digital Twins* sur l’ **instance Azure Digital Twins** . 
+Si vous n’avez pas cette attribution de rôle, une personne disposant d’un rôle Propriétaire dans votre **abonnement Azure** doit exécuter la commande suivante pour permettre à votre utilisateur Azure d’utiliser le rôle *Propriétaire de données Azure Digital Twins* sur l’ **instance Azure Digital Twins**. 
 
-Si vous êtes propriétaire de l’abonnement, vous pouvez exécuter cette commande vous-même. Si ce n’est pas le cas, contactez un propriétaire pour l’exécuter à votre place.
+Si vous êtes propriétaire de l’abonnement, vous pouvez exécuter cette commande vous-même. Dans le cas contraire, contactez un propriétaire pour qu’il l’exécute à votre place.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
@@ -80,11 +80,11 @@ Vous devez voir apparaître l’inscription d’application que vous venez de cr
 
 Tout d’abord, vérifiez que les paramètres des autorisations Azure Digital Twins ont été correctement définis sur l’inscription. Pour ce faire, sélectionnez *Manifeste* dans la barre de menus pour afficher le code du manifeste de l’inscription de l’application. Faites défiler la fenêtre de code vers le bas et recherchez ces champs sous `requiredResourceAccess`. Les valeurs doivent correspondre à celles de la capture d’écran ci-dessous :
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Page Inscriptions d’applications dans le portail Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Vue dans le portail du manifeste pour l’inscription d’application Azure AD":::
 
 Ensuite, sélectionnez *Autorisations de l’API* dans la barre de menus pour vérifier que cette inscription d’application contient des autorisations de lecture/écriture pour Azure Digital Twins. Vous devriez obtenir une sortie similaire à celle-ci :
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Page Inscriptions d’applications dans le portail Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Vue dans le portail des autorisations de l’API pour l’inscription d’application Azure AD, avec « Accès en lecture/écriture » pour Azure Digital Twins":::
 
 #### <a name="fix-issues"></a>Corriger les problèmes
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 06/21/2019
-ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6353fe988b9b94c27ab777741bf63d3869579d9e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461034"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124439"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuration d’alertes pour des tâches Azure Stream Analytics
 
@@ -28,17 +28,17 @@ L’exemple suivant montre comment configurer des alertes quand votre travail en
 
 1. Dans le portail Azure, ouvrez le travail Stream Analytics pour lequel vous souhaitez créer une alerte.
 
-2. Dans la page **Travail**, accédez à la section **Supervision**.  
+2. Dans la page **Travail** , accédez à la section **Supervision**.  
 
-3. Sélectionnez **Métriques**, puis **Nouvelle règle d’alerte**.
+3. Sélectionnez **Métriques** , puis **Nouvelle règle d’alerte**.
 
    ![Configuration des alertes Stream Analytics sur le portail Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. Le nom de votre travail Stream Analytics doit automatiquement apparaître sous **RESSOURCE**. Cliquez sur **Ajouter une condition**, puis sélectionnez **Toutes les opérations d’administration** sous **Configurer la logique du signal**.
+4. Le nom de votre travail Stream Analytics doit automatiquement apparaître sous **RESSOURCE**. Cliquez sur **Ajouter une condition** , puis sélectionnez **Toutes les opérations d’administration** sous **Configurer la logique du signal**.
 
    ![Sélectionnez le nom du signal pour l’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Sous **Configurer la logique du signal**, définissez **Niveau d’événement** sur **Tous** et **État** sur **Échec**. Laissez vide **Événement lancé par** et sélectionnez **Terminé**.
+5. Sous **Configurer la logique du signal** , définissez **Niveau d’événement** sur **Tous** et **État** sur **Échec**. Laissez vide **Événement lancé par** et sélectionnez **Terminé**.
 
    ![Configurer la logique du signal de l’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -46,13 +46,13 @@ L’exemple suivant montre comment configurer des alertes quand votre travail en
 
    ![Configuration d’une alerte pour un travail Azure Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Les champs **RESSOURCE**, **CONDITION** et **GROUPES D’ACTIONS** doivent chacun avoir une entrée. Notez que pour que les alertes se déclenchent, les conditions définies doivent être respectées. Par exemple, vous pouvez mesurer la valeur moyenne d’une métrique sur les 15 dernières minutes, toutes les 5 minutes.
+7. Les champs **RESSOURCE** , **CONDITION** et **GROUPES D’ACTIONS** doivent chacun avoir une entrée. Notez que pour que les alertes se déclenchent, les conditions définies doivent être respectées. Par exemple, vous pouvez mesurer la valeur moyenne d’une métrique sur les 15 dernières minutes, toutes les 5 minutes.
 
-   ![Créer une règle d’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![Capture d’écran représentant la boîte de dialogue Créer une règle avec RESOURCE, CONDITION et ACTION GROUP.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   Ajoutez un **nom de règle d’alerte**, une **description** et votre **groupe de ressources** aux **DÉTAILS DE L’ALERTE** et cliquez sur **Créer une règle d’alerte** pour créer la règle de votre travail Stream Analytics.
+   Ajoutez un **nom de règle d’alerte** , une **description** et votre **groupe de ressources** aux **DÉTAILS DE L’ALERTE** et cliquez sur **Créer une règle d’alerte** pour créer la règle de votre travail Stream Analytics.
 
-   ![Créer une règle d’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![Capture d’écran représentant la boîte de dialogue Créer une règle avec ALERT DETAILS.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## <a name="scenarios-to-monitor"></a>Scénarios à superviser
 
@@ -68,5 +68,4 @@ Les alertes suivantes sont recommandées pour superviser les performances de vot
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-
+* [Références sur le langage des requêtes d'Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

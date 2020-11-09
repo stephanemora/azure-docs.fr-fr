@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 050e06a389ec1deb019677b0bd6ecc92c51d0762
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a9756277faf98939ad609231f46bb2f2c04b8b6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330687"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083998"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Node.js
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application JavaScript envoie une demande à l’API et retourne une liste de suggestions de corrections. 
 

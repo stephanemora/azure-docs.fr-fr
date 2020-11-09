@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c67ff71ccc7690fbf3362b423ba4b6a56091684
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3bf65fd2cc6feb338c1cd7d0742fb3d2a4289eff
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891242"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287188"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
@@ -36,8 +36,10 @@ Notre réseau de partenaires ISV étend les fonctionnalités de nos solutions et
 | ![Capture d’écran d’un logo ITSM.](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) est une solution d’identification numérique conforme aux normes eiDAS (Electronic Identification, Authentication and Trust Services) qui permet aux utilisateurs de se connecter en toute sécurité sans avoir à utiliser de lecteurs de cartes, de mots de passe, de méthode d’authentification à deux facteurs ni de codes PIN multiples. |
 | ![Capture d’écran d’un logo Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) est un service de vérification d’ID, qui permet de vérifier l’ID automatisé en temps réel et de protéger les données client. |
 | ![Capture d’écran d’un logo LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) est un fournisseur de solutions de profilage et de validation d’identité qui vérifie l’identification des utilisateurs et fournit des évaluations de risques complètes basées sur l’appareil de l’utilisateur. |
+| ![Capture d’écran d’un logo d’identité N8.](./media/partner-gallery/n8identity-logo.png) | [N8 Identity](./partner-n8identity.md) est une plateforme de gouvernance d’identité en tant que service qui fournit une solution pour répondre à la migration des comptes clients et à l’administration CSR (Customer Service Requests) s’exécutant sur Microsoft Azure. |
 | ![Capture d’écran d’un logo Onfido.](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) est un ID de document et une solution de vérification de biométrie faciale qui permet aux entreprises de répondre au exigences *de connaître la clientèle*  et d’identités en temps réel.  |
 | ![Capture d’écran d’un logo Saviynt.](./media/partner-gallery/saviynt-logo.png) | La plateforme native cloud [Saviynt](./partner-saviynt.md) utilise l’analytique intelligente et fournit une intégration interapplication pour simplifier la modernisation informatique et améliorer la sécurité, la gouvernance et la conformité. La modernisation des entreprises change la façon dont les entreprises examinent les demandes d’accès, effectuent les révisions d’accès, analysent les rapports et rationalisent les campagnes de certification.  |
+| ![Capture d’écran d’un logo Strata.](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) protège les applications locales en appliquant des stratégies d’accès cohérentes, en assurant la synchronisation des identités et en simplifiant la transition des applications entre des systèmes d’identité hérités et le contrôle d’accès et l’authentification standard fournis par Azure AD B2C. |
 | ![Capture d’écran d’un logo Trusona.](./media/partner-gallery/trusona-logo.png) | L’intégration avec [Trusona](./partner-trusona.md) vous aide à sécuriser vos connexions, et permet l’authentification sans mot de passe, l’authentification multifacteur et l’analyse de licence numérique.|
 | ![Capture d’écran d’un logo Twilio Verify App.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) fournit plusieurs solutions qui permettent l’authentification multifacteur (MFA) par l’envoi par SMS d’un mot de passe à usage unique (OTP), d’un mot de passe à usage unique et durée définie (TOTP) ou de notifications Push, et aident à se conformer aux normes SCA pour la directive 2 sur les services de paiement (PSD2).|
 | ![Capture d’écran montrant un logo TypingDNA.](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) est un fournisseur de solutions de vérification et confirmation d’identité basées sur le modèle de saisie de l’utilisateur, qui forcent l’authentification multifacteur et aident à se conformer aux normes SCA pour la directive 2 sur les services de paiement (PSD2). |

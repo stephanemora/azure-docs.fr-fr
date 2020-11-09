@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: f16b0fb5cf241604c627925a7cd905c1683399fd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ea5a5948ad051aca58879851e5e657973710eb8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886546"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135623"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -58,7 +58,7 @@ Pour plus d’informations sur `require`, consultez la <a href="https://nodejs.o
 Pour appeler le service Speech à l’aide du SDK Speech, vous devez créer une classe [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true). Celle-ci comprend des informations sur votre abonnement, telles que votre clé et la région, le point de terminaison, l’hôte ou le jeton d’autorisation associés. Créez une [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) à l’aide de votre clé et de votre région. Consultez la page de [prise en charge des régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) pour rechercher l’identificateur de votre région.
 
 ```javascript
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 ```
 
 Vous pouvez initialiser une [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) de plusieurs autres façons :
@@ -70,13 +70,13 @@ Vous pouvez initialiser une [`SpeechConfig`](https://docs.microsoft.com/javascri
 > [!NOTE]
 > Quand vous procédez à une reconnaissance vocale, une synthèse vocale, une traduction ou une reconnaissance intentionnelle, vous devez toujours créer une configuration.
 
-## <a name="recognize-from-microphone"></a>Reconnaître la voix provenant d’un microphone
+## <a name="recognize-from-microphone-browser-only"></a>Reconnaître la voix provenant d’un microphone (navigateur uniquement)
 
 Pour reconnaître la voix à l’aide du microphone de votre appareil, créez une `AudioConfig` en utilisant `fromDefaultMicrophoneInput()`. Initialisez ensuite un [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true), en transmettant vos `speechConfig` et `audioConfig`.
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromMic() {
     let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
@@ -100,7 +100,7 @@ Pour reconnaître la voix à partir d’un fichier audio dans un environnement J
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
     // wavByteContent should be a byte array of the raw wav content
@@ -126,7 +126,7 @@ Pour reconnaître la voix à partir d’un fichier audio dans Node.js, vous deve
 ```javascript
 const fs = require('fs');
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
     let pushStream = sdk.AudioInputStream.createPushStream();

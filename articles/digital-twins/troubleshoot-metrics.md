@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787191"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091699"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Dépannage d’Azure Digital Twins : Mesures
 
@@ -64,7 +64,7 @@ Métriques en rapport avec des demandes d’API :
 Métriques en rapport avec la facturation :
 
 >[!NOTE]
-> Pendant la période de préversion, la **facturation est zéro**. Bien que ces métriques apparaissent toujours dans la liste sélectionnable, elles ne s’appliquent pas au cours de la période de préversion et restent à zéro jusqu’à ce que le service sorte de la préversion.
+>Bien que ces métriques apparaissent toujours dans la liste sélectionnable, elles resteront à zéro jusqu’à ce que les nouveaux tarifs sur le service soient disponibles. Pour plus d’informations, consultez [*Tarification Azure Digital Twins*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |

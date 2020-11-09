@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 222256036a59c7df302546bbf82648c4d524d43f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dbd9f609944fc63c186ca150d5b9921f3e86622
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68405091"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090577"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Obtenir des vidéos à partir d’une vue personnalisée
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 La Recherche personnalisée de vidéos Bing vous permet d’enrichir votre expérience de recherche personnalisée avec des vidéos. Comme les résultats web, la recherche personnalisée prend en charge la recherche de vidéos dans la liste de sites web de votre instance. Vous pouvez obtenir des vidéos en utilisant l’API Recherche personnalisée de vidéos Bing ou la fonctionnalité Hosted UI (Interface utilisateur hébergée). La fonctionnalité d’interface utilisateur hébergée est simple à utiliser et recommandée pour rendre votre expérience de recherche rapidement opérationnelle. Pour plus d’informations sur la configuration de votre interface utilisateur hébergée dans le but d’inclure des vidéos, consultez [Configurer votre expérience d’interface utilisateur hébergée](hosted-ui.md).
 

@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 98fbef2ecef7b19e2ebd6d3c3977c77186847dc8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a01e39466752003d17c261086f48be59e6dafea3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426624"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094300"
 ---
 # <a name="quickstart-use-the-bing-video-search-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Recherche de vidéos Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 ::: zone pivot="programming-language-csharp"
 

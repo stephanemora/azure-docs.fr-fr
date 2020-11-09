@@ -11,14 +11,19 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ba749d671e24e86e2cd0a299e98ba03e47cf354
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85602752"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101678"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Qu’est-ce que l’API Recherche d’actualités Bing ?
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche d’actualités Bing facilite l’intégration des capacités de recherche d’actualités cognitive de Bing dans vos applications. L’API offre une expérience similaire à [Bing Actualités](https://www.bing.com/news), en vous permettant d’envoyer des requêtes de recherche et de recevoir des articles d’actualité pertinents.
 
@@ -28,7 +33,7 @@ N’oubliez pas que l’API Recherche d’actualités Bing retourne uniquement d
 
 L’API Recherche d’actualités Bing recherche et retourne naturellement des articles d’actualité pertinents, mais elle fournit aussi plusieurs fonctionnalités de récupération d’actualités intelligente et ciblée sur le web.
 
-|Fonctionnalité  |Description  |
+|Caractéristique  |Description  |
 |---------|---------|
 |[Suggestion et utilisation de termes de recherche](concepts/search-for-news.md#suggest-and-use-search-terms)     | Améliorez votre expérience de recherche en utilisant l’[API Suggestion automatique Bing](../bing-autosuggest/get-suggested-search-terms.md) pour afficher des suggestions de termes de recherche pendant la saisie de la requête.         |
 |[Obtenir des actualités générales](concepts/search-for-news.md#get-general-news)     | Recherchez des actualités en envoyant une requête de recherche à l’API Recherche d’actualités Bing et en obtenant une liste d’articles d’actualité pertinents.           |

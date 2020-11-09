@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3c404f0028705754a68be113a331132eec02f7cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304030"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095439"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Cette application monopage montre comment récupérer, analyser et afficher des résultats de recherche à partir de l’API Recherche Web Bing. Le tutoriel utilise du code HTML et CSS réutilisable, et se concentre sur le code JavaScript. Les fichiers HTML, CSS et JS sont disponibles sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) avec des instructions de démarrage rapide.
 

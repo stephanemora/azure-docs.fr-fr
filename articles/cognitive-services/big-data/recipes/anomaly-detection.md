@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691460"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324613"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Recette : Maintenance prédictive avec Cognitive Services pour le Big Data
 
-Cette recette montre comment vous pouvez utiliser Azure Synapse Analytics et Cognitive Services sur Spark pour la maintenance prédictive des appareils IoT. Nous allons suivre l’exemple [CosmosDB et Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples). Pour simplifier les choses, dans cette recette, nous allons lire les données directement à partir d’un fichier CSV au lieu d’obtenir des données diffusées en streaming via CosmosDB et Synapse Link. Nous vous encourageons vivement à examiner l’exemple Synapse Link.
+Cette recette montre comment vous pouvez utiliser Azure Synapse Analytics et Cognitive Services sur Apache Spark pour la maintenance prédictive des appareils IoT. Nous allons suivre l’exemple [CosmosDB et Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples). Pour simplifier les choses, dans cette recette, nous allons lire les données directement à partir d’un fichier CSV au lieu d’obtenir des données diffusées en streaming via CosmosDB et Synapse Link. Nous vous encourageons vivement à examiner l’exemple Synapse Link.
 
 ## <a name="hypothetical-scenario"></a>Scénario hypothétique
 
@@ -31,7 +31,7 @@ Il peut y avoir des valeurs hors norme dans les données de fréquence aléatoir
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
-* [Espace de travail Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configuré avec un [pool Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Espace de travail Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configuré avec un [pool Apache Spark serverless](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## <a name="setup"></a>Programme d’installation
 

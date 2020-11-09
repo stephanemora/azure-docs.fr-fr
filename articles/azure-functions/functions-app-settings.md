@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165762"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043225"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -226,6 +226,14 @@ Pour les plans Consommation et Premium uniquement. Chaîne de connexion du compt
 |Clé|Exemple de valeur|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
+
+Pour les plans Premium uniquement. La valeur `1` permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. Vous devez activer ce paramètre lorsque vous limitez votre compte de stockage à un réseau virtuel. Pour en savoir plus, consultez [Restreindre votre compte de stockage à un réseau virtuel](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Clé|Exemple de valeur|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 

@@ -10,20 +10,25 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb507df53778e1b432370daa050041625a45e06e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072885"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101967"
 ---
 # <a name="suggesting-query-terms"></a>Suggestion de termes de requête
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 En général, vous appelez l’API Suggestion automatique Bing chaque fois qu’un utilisateur tape un nouveau caractère dans la zone de recherche de votre application. L’exhaustivité de la chaîne de requête conditionne la pertinence des termes suggérés par l’API. Plus la chaîne de requête est complète, plus la liste de termes suggérés est pertinente. Par exemple, les suggestions que l’API peut retourner pour `s` sont probablement moins pertinentes que celles retournées pour `sailing dinghies` (dériveurs).
 
 ## <a name="example-request"></a>Exemple de requête
 
-L’exemple suivant illustre une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile). N’oubliez pas d’encoder en URL le terme de requête partiel de l’utilisateur quand vous définissez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Par exemple, si l’utilisateur a tapé *sailing les*, affectez la valeur `sailing+les` ou `sailing%20les` à `q`.
+L’exemple suivant illustre une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile). N’oubliez pas d’encoder en URL le terme de requête partiel de l’utilisateur quand vous définissez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Par exemple, si l’utilisateur a tapé *sailing les* , affectez la valeur `sailing+les` ou `sailing%20les` à `q`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1

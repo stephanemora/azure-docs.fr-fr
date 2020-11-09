@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187614"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147264"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformation de recherche dans le flux de données de mappage
 
@@ -27,7 +27,7 @@ Une transformation de recherche est similaire à une jointure externe gauche. To
 
 ## <a name="configuration"></a>Configuration
 
-![Transformation de recherche](media/data-flow/lookup1.png "Recherche")
+![Capture d’écran affichant l’onglet Paramètres de recherche avec les étiquettes décrites dans le texte suivant.](media/data-flow/lookup1.png "Recherche")
 
 **Flux principal :** Le flux de données entrant. Ce flux est équivalent au côté gauche d’une jointure.
 
@@ -69,6 +69,10 @@ Dans les transformations de jointure, de recherche et d’existence, si l’un d
 
 Il n’est pas recommandé de désactiver la diffusion à l’aide de l’option **Désactivé** à moins que vos jointures ne rencontrent des erreurs de délai d’attente.
 
+## <a name="cached-lookup"></a>Recherche mise en cache
+
+Si vous effectuez plusieurs petites recherches sur la même source, un récepteur et une recherche en cache sont peut-être préférables à la transformation de recherche. La recherche d’une valeur maximale dans un magasin de données et la mise en correspondance des codes d’erreur avec une base de données de messages d’erreur sont des situations courantes dans lesquelles un récepteur de cache peut être préférable. Pour plus d’informations, apprenez-en plus sur les [récepteurs de cache](data-flow-sink.md#cache-sink) et les [recherches mises en cache](concepts-data-flow-expression-builder.md#cached-lookup).
+
 ## <a name="data-flow-script"></a>Script de flux de données
 
 ### <a name="syntax"></a>Syntaxe
@@ -85,7 +89,7 @@ Il n’est pas recommandé de désactiver la diffusion à l’aide de l’option
 ```
 ### <a name="example"></a>Exemple
 
-![Transformation de recherche](media/data-flow/lookup-dsl-example.png "Recherche")
+![Capture d’écran représentant l’onglet Paramètres de recherche pour le code suivant.](media/data-flow/lookup-dsl-example.png "Recherche")
 
 Le script de transmission de données pour la configuration de recherche ci-dessus se trouve dans l’extrait de code suivant.
 

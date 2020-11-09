@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 79e5b5e0562c86668c276a94ab28835c13433eb8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aed96bab233a815091009278349627343cc5efd8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87327240"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099944"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Démarrage rapide : Rechercher des images à l’aide de l’API Recherche d’images Bing et de Java 
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour savoir comment envoyer des requêtes de recherche à l’API Recherche d’images Bing dans Azure Cognitive Services. Cette application Java envoie une requête de recherche à l’API et affiche l’URL de la première image dans les résultats. Bien que cette application soit écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 

@@ -7,49 +7,58 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494781"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280385"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
-Les entités de votre environnement sont représentées par des [jumeaux numériques](concepts-twins-graph.md). La gestion de vos jumeaux numériques peut inclure la création, la modification et la suppression. Pour effectuer ces opérations, vous pouvez utiliser les [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), le [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) ou la [CLI Azure Digital Twins](how-to-use-cli.md).
+Les entités de votre environnement sont représentées par des [jumeaux numériques](concepts-twins-graph.md). La gestion de vos jumeaux numériques peut inclure la création, la modification et la suppression. Pour effectuer ces opérations, vous pouvez utiliser les [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), le [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) ou la [CLI Azure Digital Twins](how-to-use-cli.md).
 
 Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser des relations et le [graphe des jumeaux](concepts-twins-graph.md) dans leur ensemble, consultez [*Procédure : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md).
 
 > [!TIP]
 > Toutes les fonctions du Kit de développement logiciel (SDK) sont disponibles en versions synchrone et asynchrone.
 
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-a-digital-twin"></a>Créer un jumeau numérique
 
-Pour créer un jumeau, vous utilisez la méthode `CreateDigitalTwin()` sur le client de service comme suit :
+Pour créer un jumeau, vous utilisez la méthode `CreateOrReplaceDigitalTwinAsync()` sur le client de service comme suit :
 
 ```csharp
-await client.CreateDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
 ```
 
 Pour créer un jumeau numérique, vous devez fournir les éléments suivants :
 * L’ID souhaité pour le jumeau numérique
 * Le [modèle](concepts-models.md) à utiliser
 
-Si vous le souhaitez, vous pouvez fournir des valeurs initiales pour toutes les propriétés du jumeau numérique. 
+Si vous le souhaitez, vous pouvez fournir des valeurs initiales pour toutes les propriétés du jumeau numérique. Les propriétés sont traitées comme facultatives et peuvent être définies ultérieurement, mais **elles ne s’affichent pas dans le cadre d’un jumeau tant qu’elles n’ont pas été définies.**
 
-Le modèle et les valeurs des propriétés initiales sont fournis par le biais du paramètre `initData`, qui est une chaîne JSON contenant les données pertinentes. Pour plus d’informations sur la structuration de cet objet, passez à la section suivante.
+>[!NOTE]
+>Bien que les propriétés de jumeau ne doivent pas obligatoirement être initialisées, tous les [composants](concepts-models.md#elements-of-a-model) sur les jumeaux **doivent** être définis lors de la création du jumeau. Il peut s’agir d’objets vides, mais les composants proprement dits doivent exister.
+
+Le modèle et les éventuelles valeurs des propriétés initiales sont fournis par le biais du paramètre `initData`, qui est une chaîne JSON contenant les données pertinentes. Pour plus d’informations sur la structuration de cet objet, passez à la section suivante.
 
 > [!TIP]
 > Après la création ou la mise à jour d’un jumeau, il peut y avoir une latence allant jusqu’à 10 secondes avant que les modifications soient reflétées dans les [requêtes](how-to-query-graph.md). L’API `GetDigitalTwin` (décrite [plus loin dans cet article](#get-data-for-a-digital-twin)) ne subit pas ce délai. Utilisez l’appel d’API au lieu d’une interrogation pour voir vos nouveaux jumeaux créés si vous avez besoin d’une réponse instantanée. 
 
 ### <a name="initialize-model-and-properties"></a>Initialiser le modèle et les propriétés
 
+Vous pouvez initialiser les propriétés d’un jumeau au moment de sa création. 
+
 L’API de création de jumeau accepte un objet qui est sérialisé dans une description JSON valide des propriétés du jumeau. Voir [*Concepts : Jumeaux numériques et graphe des jumeaux*](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau. 
 
-Tout d’abord, vous pouvez créer un objet de données pour représenter le jumeau et ses données de propriété. Vous pouvez ensuite utiliser `JsonSerializer` pour transmettre une version sérialisée de cet objet dans l’appel d’API du paramètre `initdata`, comme ceci :
+Tout d’abord, vous pouvez créer un objet de données pour représenter le jumeau et ses données de propriété, comme ceci :
 
 ```csharp
-await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
 ```
 Vous pouvez créer un objet de paramètre manuellement ou à l’aide d’une classe d’assistance fournie. Voici un exemple de chaque méthode.
 
@@ -71,14 +80,14 @@ twin.Metadata.ModelId = "dtmi:example:Room;1";
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
-twin.CustomProperties = props;
+twin.Contents = props;
 
-client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myRoomId", twin);
 Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> Les objets `BasicDigitalTwin` sont fournis avec un champ `Id`. Vous pouvez conserver ce champ vide, mais, si vous ajoutez une valeur d’ID, celle-ci doit correspondre au paramètre d’ID transmis à l’appel de `CreateDigitalTwin()`. Par exemple :
+> Les objets `BasicDigitalTwin` sont fournis avec un champ `Id`. Vous pouvez conserver ce champ vide, mais, si vous ajoutez une valeur d’ID, celle-ci doit correspondre au paramètre d’ID transmis à l’appel de `CreateOrReplaceDigitalTwinAsync()`. Par exemple :
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -91,15 +100,14 @@ Vous pouvez accéder aux détails de n’importe quel jumeau numérique en appel
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Cet appel retourne les données du jumeau sous forme de chaîne JSON. Voici un exemple d’utilisation pour afficher les détails du jumeau :
+Cet appel retourne des données de jumeau sous forme de type d’objet fortement typé tel que `BasicDigitalTwin`. Voici un exemple d’utilisation pour afficher les détails du jumeau :
 
 ```csharp
-Response<string> res = client.GetDigitalTwin("myRoomId");
-twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  if (twin.Contents.TryGetValue(prop, out object value))
   Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -174,12 +182,11 @@ Vous pouvez analyser le JSON retourné pour le jumeau à l’aide d’une biblio
 Vous pouvez également utiliser la classe d’assistance de sérialisation `BasicDigitalTwin` qui est incluse avec le kit SDK, qui retourne les propriétés et les métadonnées de base du jumeau dans un format préalablement analysé. Voici un exemple :
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_Id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -215,30 +222,12 @@ Voici un exemple de code de correctif JSON. Ce document remplace les valeurs des
   }
 ]
 ```
-Vous pouvez créer des correctifs manuellement ou à l’aide d’une classe d’assistance de sérialisation dans le [kit SDK](how-to-use-apis-sdks.md). Voici un exemple de chaque méthode.
-
-#### <a name="create-patches-manually"></a>Créer des correctifs manuellement
+Vous pouvez créer des correctifs à l’aide d’un `JsonPatchDocument` dans le [SDK](how-to-use-apis-sdks.md). Voici un exemple.
 
 ```csharp
-List<object> twinData = new List<object>();
-twinData.Add(new Dictionary<string, object>() {
-    { "op", "add"},
-    { "path", "/Temperature"},
-    { "value", 25.0}
-});
-
-await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
-Console.WriteLine("Updated twin properties");
-FetchAndPrintTwin(twin_Id, client);
-}
-```
-
-#### <a name="create-patches-using-the-helper-class"></a>Créer des correctifs à l’aide de la classe d’assistance
-
-```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendAddOp("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
 ```
 
 ### <a name="update-properties-in-digital-twin-components"></a>Mettre à jour les propriétés dans les composants des jumeaux numériques
@@ -276,8 +265,8 @@ Par exemple, examinez le document de correctif JSON suivant qui remplace le cham
 Cette opération réussit uniquement si le jumeau numérique modifié par le correctif est conforme au nouveau modèle. 
 
 Prenons l’exemple suivant :
-1. Imaginez un jumeau numérique avec un modèle *foo_old* . *foo_old* définit une propriété obligatoire : *masse* .
-2. Le nouveau modèle *foo_new* définit une propriété de masse et ajoute une nouvelle propriété obligatoire : *température* .
+1. Imaginez un jumeau numérique avec un modèle *foo_old*. *foo_old* définit une propriété obligatoire : *masse*.
+2. Le nouveau modèle *foo_new* définit une propriété de masse et ajoute une nouvelle propriété obligatoire : *température*.
 3. Après le correctif, le jumeau numérique doit avoir une propriété de masse et de température. 
 
 Le correctif pour cette situation doit mettre à jour le modèle et la propriété de température du jumeau, comme suit :
@@ -337,11 +326,10 @@ public async Task FindAndDeleteOutgoingRelationshipsAsync(string dtId)
     try
     {
         // GetRelationshipsAsync will throw an error if a problem occurs
-        AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+        AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
 
-        await foreach (string relJson in relsJson)
+        await foreach (BasicRelationship rel in rels)
         {
-            var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
             await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
             Log.Ok($"Deleted relationship {rel.Id} from {dtId}");
         }
@@ -446,8 +434,8 @@ namespace minimal
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
-            twin.CustomProperties = props;
-            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            twin.Contents = props;
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin_Id, twin);
             Console.WriteLine("Twin created successfully");
             Console.WriteLine();
 
@@ -458,14 +446,9 @@ namespace minimal
             Console.WriteLine();
 
             //Update twin data
-            List<object> twinData = new List<object>();
-            twinData.Add(new Dictionary<string, object>() 
-            {
-                { "op", "add"},
-                { "path", "/Temperature"},
-                { "value", 25.0}
-            });
-            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+            var updateTwinData = new JsonPatchDocument();
+            updateTwinData.AppendAdd("/Temperature", 25.0);
+            await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
             Console.WriteLine("Twin properties updated");
             Console.WriteLine();
 
@@ -482,12 +465,11 @@ namespace minimal
         private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_Id);
-            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
             Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-            foreach (string prop in twin.CustomProperties.Keys)
+            foreach (string prop in twin.Contents.Keys)
             {
-                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                if (twin.Contents.TryGetValue(prop, out object value))
                     Console.WriteLine($"Property '{prop}': {value}");
             }
 
@@ -515,11 +497,10 @@ namespace minimal
             try
             {
                 // GetRelationshipsAsync will throw an error if a problem occurs
-                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+                AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
 
-                await foreach (string relJson in relsJson)
+                await foreach (BasicRelationship rel in rels)
                 {
-                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
                     await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
                     Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
                 }

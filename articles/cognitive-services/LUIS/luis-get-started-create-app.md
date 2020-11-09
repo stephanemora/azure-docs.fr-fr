@@ -4,13 +4,13 @@ description: Ce guide de démarrage rapide montre comment créer une application
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316481"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128149"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
@@ -23,20 +23,23 @@ Dans ce guide de démarrage rapide, vous allez créer une application LUIS qui u
 ## <a name="create-a-new-app"></a>Créer une application
 Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
-1. Dans la liste Mes applications, sélectionnez **+Nouvelle application de conversation**, puis dans la liste des options, sélectionnez à nouveau **+Nouvelle application de conversation**.
+### <a name="create-an-application"></a>Créer une application
 
-1. Dans la boîte de dialogue, nommez votre application `Home Automation`.
-1. Sélectionnez **English** comme culture.
-1. Entrer une description facultative.
-1. Ne sélectionnez pas de ressource de prédiction si vous n’avez pas encore créé la ressource. Pour utiliser le point de terminaison de prédiction de votre application (intermédiaire ou production), vous devez affecter une ressource de prédiction.
-1. Sélectionnez **Terminé**.
+Pour créer une application, cliquez sur **+ Nouvelle application**. 
 
-    LUIS crée l’application.
+Dans la fenêtre qui s’affiche, entrez les informations suivantes :
 
-    ![Dans la boîte de dialogue, nommez votre application « Home Automation ».](./media/create-new-app-details.png)
+|Name  |Description  |
+|---------|---------|
+|Nom     | Nom de votre application. Par exemple, « domotique ».        |
+|culture     | Langage que votre application comprend et parle.   |
+|Description | Description de votre application.
+|Ressource de prédiction | Ressource de prédiction qui recevra les requêtes. |
 
-    >[!NOTE]
-    >La culture ne peut pas être modifiée une fois que l’application est créée.
+Sélectionnez **Terminé**.
+
+>[!NOTE]
+>La culture ne peut pas être modifiée une fois que l’application est créée.
 
 ## <a name="add-prebuilt-domain"></a>Ajouter un domaine prédéfini
 
@@ -51,10 +54,7 @@ Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
 ## <a name="intents-and-entities"></a>Intentions et entités
 
-1. Sélectionnez **Intentions** pour passer en revue les intentions du domaine HomeAutomation. Les intentions de domaine prédéfini comportent des exemples d’énoncés.
-
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran de la liste des intentions de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Capture d’écran de la liste des intentions de HomeAutomation")
+1. Sélectionnez **Intentions** dans le volet de navigation de gauche pour consulter les intentions du domaine HomeAutomation. Il contient des exemples d’énoncés, tels que `HomeAutomation.QueryState` et     `HomeAutomation.SetDevice`.
 
     > [!NOTE]
     > **Aucun** est une intention fournie par toutes les applications LUIS. Elle vous permet de gérer les énoncés qui ne correspondent pas aux fonctionnalités fournies par votre application.
@@ -63,6 +63,10 @@ Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
     > [!div class="mx-imgBorder"]
     > [![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+
+1. Si vous souhaitez afficher les entités pour l’application, sélectionnez **Entités**. Si vous cliquez sur l’une des entités, par exemple **HomeAutomation.DeviceName** , vous verrez la liste des valeurs qui lui sont associées. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Texte de l’image associée" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
@@ -73,11 +77,7 @@ Une fois que vous avez formé votre application, vous pouvez la tester.
 
 1. Sélectionnez **Test** dans le menu en haut à droite.
 
-1. Saisissez un énoncé de test tel que `Turn off the lights` dans le volet de test interactif, puis appuyez sur Entrée.
-
-    ```
-    Turn off the lights
-    ```
+1. Saisissez un énoncé de test tel que `Turn off the lights` dans le volet de test interactif, puis appuyez sur Entrée. Par exemple, *Turn off the lights* (Éteindre les lumières).
 
     Dans cet exemple, `Turn off the lights` est identifié correctement comme l’intention avec le score le plus élevé pour **HomeAutomation.TurnOff**.
 
@@ -94,7 +94,18 @@ Une fois que vous avez formé votre application, vous pouvez la tester.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+Pour recevoir une prédiction LUIS dans un chatbot ou une autre application cliente, vous devez publier l’application sur le point de terminaison de prédiction.
+
+1. En haut à droite de la fenêtre, sélectionnez **Publier**.
+
+1. Sélectionnez l’emplacement **Production** , puis sélectionnez **Terminé**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran LUIS - Publier sur le point de terminaison](media/howto-publish/publish-app-popup.png)
+
+1. Sélectionnez le lien **Accéder à vos URL de point de terminaison** dans la notification pour accéder à la page **Ressources Azure**. Les URL de point de terminaison sont répertoriées en tant qu’ **Exemple de requête**.
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
@@ -109,7 +120,7 @@ Une fois que vous avez formé votre application, vous pouvez la tester.
     |`verbose=true`|
     |`show-all-intents=true`|
 
-3. Dans la barre d’adresse du navigateur, allez à la fin de l’URL et entrez `turn off the living room light` pour la valeur _requête_, puis appuyez sur Entrée.
+3. Dans la barre d’adresse du navigateur, allez à la fin de l’URL et entrez `turn off the living room light` pour la valeur _requête_ , puis appuyez sur Entrée.
 
     ```json
     {

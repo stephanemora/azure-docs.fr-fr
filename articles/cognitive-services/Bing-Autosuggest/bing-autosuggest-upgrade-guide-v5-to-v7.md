@@ -10,14 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 65498e25108a28183ae6596a8a7288c071ef1147
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4b02ef7bc833a7f5ab41e0203836637613244e0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277510"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101984"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guide de mise à niveau de l’API Suggestion automatique Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Ce guide de mise à niveau identifie les changements apportés entre la version 5 et la version 7 de l’API Suggestion automatique Bing. Utilisez ce guide pour mettre à jour votre application vers la version 7.
 

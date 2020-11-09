@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73481740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074095"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Guide pratique pour parcourir les résultats à partir des API Recherche Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Quand vous envoyez un appel aux API Recherche web, personnalisée, d’images, d’actualités ou de vidéos Bing, Bing retourne une partie du nombre total de résultats susceptibles d’être pertinents pour la requête. Pour obtenir une estimation du nombre total de résultats disponibles, accédez au champ `totalEstimatedMatches` de l’objet de la réponse. 
 

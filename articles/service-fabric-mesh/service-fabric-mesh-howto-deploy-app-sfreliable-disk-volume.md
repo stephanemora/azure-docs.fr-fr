@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 1db412a3b83da905475749deea0432fbeae06e8f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 66d0d3ebf9d5866039bbbac3171513b37330be7a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742760"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146788"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Service Fabric Reliable Disk dans une application Azure Service Fabric Mesh 
 La méthode courante pour rendre persistant l’état avec des applications de conteneur consiste à utiliser un stockage à distance, tel que le Stockage Fichier Azure ou une base de données du type Azure Cosmos DB. Cela entraîne une importante latence de lecture et d’écriture sur le magasin distant.
@@ -45,6 +45,11 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
+
+>[!NOTE]
+> Depuis le 2 novembre 2020, des [limites de taux de téléchargement s’appliquent](https://docs.docker.com/docker-hub/download-rate-limit/) aux requêtes anonymes et authentifiées qui sont envoyées à Docker Hub à partir de comptes de plan Docker Gratuit. Ces limites sont appliquées par adresse IP. 
+> 
+> Ce modèle utilise des images publiques issues de Docker Hub. Notez que votre taux de téléchargement peut être limité. Pour plus d’informations, consultez [S’authentifier auprès de Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 La commande suivante déploie une application Linux à l’aide du [modèle counter.sfreliablevolume.linux.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Pour déployer une application Windows, utilisez le [modèle counter.sfreliablevolume.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). N’oubliez pas que le déploiement d’images de conteneur plus grandes peut prendre plus de temps.
 

@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 213457bc583494bbe039269b96b25990f7d0a961
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 210de0ef2cfbaec676528b4788bebecaa34136e4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "69906242"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095082"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Utiliser les limites géographiques pour filtrer les résultats de l’API Recherche d’entreprises locales Bing
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L’API Recherche d’entreprises locales Bing vous permet de définir des limites sur la zone géographique dans laquelle vous effectuez une recherche à l’aide du paramètre de requête `localCircularView` ou `localMapView`. N’utilisez qu’un seul paramètre dans vos requêtes. 
 

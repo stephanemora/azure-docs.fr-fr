@@ -10,14 +10,19 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5fbecd9c2fd6e3a9f1be29598bad50da4b77bbb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68423922"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084610"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Utilisation du classement pour afficher les résultats de la recherche d’entités  
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Chaque réponse de recherche d’entité inclut une réponse [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) qui spécifie comment vous devez afficher les résultats de recherche renvoyés par l’API Recherche d’entités Bing. La réponse de classement regroupe les résultats par pôle, principal et encadré. Le résultat en pôle est le plus important ou connu et doit être affiché en premier. Si vous n’affichez pas les résultats restants dans un format principal ou en encadré, vous devez fournir au contenu principal une visibilité supérieure à celui en encadré. 
   

@@ -7,22 +7,26 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494841"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279421"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
-Vous pouvez gérer les [modèles](concepts-models.md) que votre instance Azure Digital Twins connait à l’aide des API [**DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) ou de [l’interface CLI Azure Digital Twins](how-to-use-cli.md). 
+Vous pouvez gérer les [modèles](concepts-models.md) que votre instance Azure Digital Twins connait à l’aide des API [**DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) ou de [l’interface CLI Azure Digital Twins](how-to-use-cli.md). 
 
 Les opérations de gestion incluent le chargement, la validation, la récupération et la suppression des modèles. 
 
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-models"></a>Créer des modèles
 
-Les modèles pour Azure Digital Twins sont écrits en DTDL et enregistrés sous forme de fichiers *.JSON* . Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/), offrant une validation de la syntaxe et d’autres fonctionnalités facilitant l’écriture de documents DTDL.
+Les modèles pour Azure Digital Twins sont écrits en DTDL et enregistrés sous forme de fichiers *.JSON*. Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/), offrant une validation de la syntaxe et d’autres fonctionnalités facilitant l’écriture de documents DTDL.
 
 Prenons l’exemple d’un hôpital souhaitant disposer d’une représentation numérique des pièces de son bâtiment. Chaque pièce contient un distributeur de savon intelligent permettant de contrôler le lavage des mains, et des capteurs pour suivre le trafic.
 
@@ -137,10 +141,9 @@ Lors du chargement, les fichiers de modèle sont validés par le service.
 Vous pouvez répertorier et récupérer des modèles stockés sur votre instance Azure Digital Twins. 
 
 Voici les options disponibles :
-* Récupérer tous les modèles
 * Récupérer un seul modèle
-* Récupérer un modèle unique avec des dépendances
-* Récupérer les métadonnées de modèles
+* Récupérer tous les modèles
+* Récupérer les métadonnées et les dépendances pour les modèles
 
 Voici quelques exemples d’appels :
 
@@ -148,19 +151,16 @@ Voici quelques exemples d’appels :
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-Les appels d’API pour récupérer les modèles retournent tous les objets `ModelData`. `ModelData` contient les métadonnées relatives au modèle stocké dans l’instance Azure Digital Twins, par exemple le nom, le DTMI et la date de création du modèle. L’objet `ModelData` comprend également le modèle lui-même. En fonction des paramètres, vous pouvez utiliser les appels de récupération pour récupérer uniquement les métadonnées (utile lorsque vous souhaitez afficher une liste d’interfaces utilisateur des outils disponibles, par exemple) ou le modèle entier.
+Les appels d’API pour récupérer les modèles retournent tous les objets `DigitalTwinsModelData`. `DigitalTwinsModelData` contient les métadonnées relatives au modèle stocké dans l’instance Azure Digital Twins, par exemple le nom, le DTMI et la date de création du modèle. L’objet `DigitalTwinsModelData` comprend également le modèle lui-même. En fonction des paramètres, vous pouvez utiliser les appels de récupération pour récupérer uniquement les métadonnées (utile lorsque vous souhaitez afficher une liste d’interfaces utilisateur des outils disponibles, par exemple) ou le modèle entier.
 
 L’appel `RetrieveModelWithDependencies` retourne non seulement le modèle demandé, mais également tous les modèles dont il dépend.
 
@@ -200,7 +200,7 @@ Quand vous créez un jumeau, étant donné que la nouvelle version du modèle et
 
 Cela signifie également que le chargement d’une nouvelle version d’un modèle n’affecte pas automatiquement les jumeaux existants. Les jumeaux existants vont simplement rester des instances de l’ancienne version du modèle.
 
-Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques* . Dans le même correctif, vous devez mettre à jour à la fois l’ **ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle** .
+Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques*. Dans le même correctif, vous devez mettre à jour à la fois l’ **ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle**.
 
 ### <a name="remove-models"></a>Supprimer des modèles
 

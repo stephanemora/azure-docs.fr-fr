@@ -10,14 +10,19 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 21a8d47f80dae35553114f522c1c78a97a086518
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d994282d2c8d2b97110d57362b95254945daa14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83650216"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084695"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en PHP
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’entités Bing et voir la réponse JSON. Cette application simple en PHP envoie une requête de recherche d’actualités à l’API et affiche ensuite la réponse. 
 
@@ -46,8 +51,8 @@ Pour exécuter cette application, suivez les étapes ci-dessous :
 // ;extension=php_openssl.dll
 
 // **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// **_ Update or verify the following values. _*_
+// _*********************************************
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $subscriptionKey = 'ENTER KEY HERE';

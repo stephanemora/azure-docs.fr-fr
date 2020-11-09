@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 84cbdfbf4d34e1779fc119e4b6a92a3bbec88bdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d62ea00246123dedb386f168355cbf2834efc2ef
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88925128"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088792"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutoriel : Rogner une image avec le SDK Recherche visuelle Bing pour C#
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Le SDK Recherche visuelle Bing vous permet de rogner une image avant de rechercher des images en ligne similaires. Cette application rogne une seule personne à partir d’une image contenant plusieurs personnes, puis retourne les résultats de recherche contenant des images similaires disponibles en ligne.
 

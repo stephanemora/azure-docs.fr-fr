@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 069f3b95d76d8321ce0b1bba4ae61f35d0f14a57
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1dfc9c79e41a0dbeb08c9416316e601b05b2cb32
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87326781"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080139"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec Java
+
+> [!WARNING]
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Utilisez ce guide de démarrage rapide pour découvrir comment demander des résultats de recherche à partir de votre instance Recherche personnalisée Bing. Bien que cette application soit écrite en Java, l’API Recherche personnalisée Bing est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 

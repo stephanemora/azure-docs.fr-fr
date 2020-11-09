@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635445"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287161"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurer des clés gérées par le client pour le chiffrement des données dans le service Recherche cognitive Azure
 
@@ -43,13 +43,11 @@ Si vous utilisez une autre région ou un service créé avant le 1er août, vot
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les outils et services suivants sont utilisés dans cet exemple. 
+Les outils et services suivants sont utilisés dans ce scénario.
 
-+ [Créez un service Recherche cognitive](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
-
-+ [Créez une ressource Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) ou recherchez une ressource existante. Key Vault et Recherche cognitive doivent se trouver dans le même abonnement. La **suppression réversible** et la **protection contre le vidage** doivent été activées pour le coffre de clés.
-
-+ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) pour inscrire une application et créer une chaîne secrète utilisée par votre application pour l’authentification. Si vous n’en avez pas, [configurez un nouveau locataire](../active-directory/develop/quickstart-create-new-tenant.md).
++ [Recherche cognitive Azure](search-create-service-portal.md) sur un [niveau facturable](search-sku-tier.md#tiers) (de base ou version ultérieure, dans n’importe quelle région).
++ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) dans le même abonnement que Recherche cognitive Azure. La **suppression réversible** et la **protection contre le vidage** doivent été activées pour le coffre de clés.
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Si vous n’en avez pas, [configurez un nouveau locataire](../active-directory/develop/quickstart-create-new-tenant.md).
 
 Vous devez disposer d’une application de recherche capable de créer l’objet chiffré. Dans ce code, vous allez référencer une clé de coffre de clés et des informations d’inscription auprès d’Active Directory. Ce code peut être une application fonctionnelle ou un code prototype tel que l’[exemple de code C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 

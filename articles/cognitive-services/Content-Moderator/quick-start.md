@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Essayer Content Moderator sur le web'
 titleSuffix: Azure Cognitive Services
-description: Utilisez l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code.
+description: Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, modération du contenu
-ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596799"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143687"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
@@ -27,47 +27,50 @@ Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision C
 
 - Un navigateur web
 
-## <a name="set-up-the-review-tool"></a>Configurer l’outil de révision
-
+## <a name="set-up-the-review-tool"></a>Installer l’outil de révision
 L’outil de révision Content Moderator est un outil web qui permet aux réviseurs humains d’aider le service cognitif à prendre des décisions. Dans ce guide, vous allez suivre le processus consistent à installer l’outil de révision pour voir comment le service Content Moderator fonctionne. Accédez au site de l’[outil de révision Content Moderator](https://contentmoderator.cognitive.microsoft.com/) et inscrivez-vous.
 
 ![Page d'accueil Content Moderator](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>Créer une équipe de révision
 
-Ensuite, créez une équipe de révision. Dans un scénario réel, il s’agit du groupe de personnes qui vérifie manuellement les décisions de modération du service. Pour créer une équipe, vous devez sélectionner une **Région** et spécifier un **Nom d’équipe** et un **ID d’équipe**. Si vous souhaitez intégrer des collègues dans l’équipe, entrez leurs adresses e-mail ici.
+Ensuite, créez une équipe de révision. Dans un scénario réel, cette équipe correspond au groupe de personnes qui vérifient manuellement les décisions de modération du service. Pour créer une équipe, vous devez sélectionner une **Région** et spécifier un **Nom d’équipe** et un **ID d’équipe**. Si vous souhaitez intégrer des collègues dans l’équipe, entrez leurs adresses e-mail ici.
 
 > [!NOTE]
-> **Nom de l’équipe** est un nom convivial pour votre équipe de revue. Il s’agit du nom affiché dans le portail Azure. L’**ID de l’équipe** est utilisé pour identifier l’équipe de revue par programmation.
+> **Nom de l’équipe** est un nom convivial pour votre équipe de revue. Il s’agit du nom affiché dans le portail Azure. L’ **ID de l’équipe** est utilisé pour identifier l’équipe de revue par programmation.
 
 > [!div class="mx-imgBorder"]
 > ![Inviter un membre d’équipe](images/create-team.png)
 
-Si vous choisissez de chiffrer les données à l’aide d’une clé gérée par le client (CMK), vous êtes invité à fournir l’**ID de ressource** de votre ressource Content Moderator dans le niveau tarifaire E0. La ressource que vous fournissez doit être nouvelle. 
+Si vous choisissez de chiffrer les données à l’aide d’une clé gérée par le client (CMK), vous êtes invité à fournir l’ **ID de ressource** de votre ressource Content Moderator dans le niveau tarifaire E0. La ressource que vous fournissez doit être unique pour cette équipe. 
 
 > [!div class="mx-imgBorder"]
 > ![Inviter un membre de l’équipe avec une clé CMK](images/create-team-cmk.png)
 
-Si vous essayez de réutiliser une ressource Content Moderator, cet avertissement s’affiche : 
-
-> [!div class="mx-imgBorder"]
-> ![Échec de la clé CMK](images/create-team-cmk-fail.png)
-
 ## <a name="upload-sample-content"></a>Charger un contenu exemple
 
-Vous êtes maintenant prêt à charger un contenu exemple. Sélectionnez **Essayer > Image**, **Essayer > Texte** ou **Essayer > Vidéo**.
+Vous êtes maintenant prêt à charger un contenu exemple. Sélectionnez **Essayer > Image** , **Essayer > Texte** ou **Essayer > Vidéo**.
 
-![Modération - Essayer image ou texte](images/tryimagesortext.png)
+> [!div class="mx-imgBorder"]
+> ![Modération - Essayer image ou texte](images/tryimagesortext.png)
 
-Envoyez votre contenu en modération. En interne, l’outil de révision appelle les API de modération et analyse votre contenu. Une fois l’analyse terminée, un message vous informe que des résultats sont en attente de révision.
+Envoyez votre contenu en modération. Vous pouvez utiliser l’exemple de contenu de texte suivant :
 
-![Modérer les fichiers](images/submitted.png)
+```
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
+```
+
+En interne, l’outil de révision appelle les API de modération et analyse votre contenu. Une fois l’analyse terminée, un message vous informe que des résultats sont en attente de révision.
+
+> [!div class="mx-imgBorder"]
+> ![Modérer les fichiers](images/submitted.png)
 
 ## <a name="review-moderation-tags"></a>Vérifier les balises de modération
 
-Passez en revue les balises de modération appliquées. Vous voyez les balises qui ont été appliquées à votre contenu et le score dans chaque catégorie. Pour en savoir plus sur ce qu'indiquent les différentes balises de contenu, consultez [Image](image-moderation-api.md), [Texte](text-moderation-api.md) et [Vidéo](video-moderation-api.md).
+Passez en revue les balises de modération appliquées. Vous voyez les balises qui ont été appliquées à votre contenu et le score dans chaque catégorie. Pour en savoir plus sur ce qu’indiquent les différentes balises de contenu, consultez les articles de modération [Image](image-moderation-api.md), [Texte](text-moderation-api.md) et [Vidéo](video-moderation-api.md).
 
-![Passer en revue les résultats](images/reviewresults_text.png)
+<!-- ![Review results](images/reviewresults_text.png) -->
 
 Dans un projet, vous ou votre équipe de révision pouvez modifier ces balises ou, au besoin, en ajouter d’autres. Vous allez valider ces modifications en cliquant sur le bouton **Suivant**. Lorsque votre application appelle les API de modération, le contenu balisé est mis en file d’attente ici, où il attend la révision des personnes chargées de cette tâche. Cette approche vous permet de réviser rapidement d’importants volumes de contenu.
 
