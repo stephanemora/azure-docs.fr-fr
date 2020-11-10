@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Windows
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542860"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348880"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Créer des stratégies Guest Configuration pour Windows
 
@@ -23,8 +23,12 @@ La [configuration d’invité Azure Policy](../concepts/guest-configuration.md) 
 Utilisez les actions suivantes pour créer votre propre configuration pour la validation de l’état d’une machine Azure ou non-Azure.
 
 > [!IMPORTANT]
+> Les définitions de stratégie personnalisées avec la configuration invité dans les environnements Azure Government et Azure Chine sont des fonctionnalités d’évaluation.
+>
 > L’extension Guest Configuration (Configuration d’invité) est requise pour effectuer des audits sur des machines virtuelles Azure.
 > Pour déployer l’extension à grande échelle sur tous les ordinateurs Windows, attribuez les définitions de stratégie suivantes : `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> N’utilisez pas de secrets ni d’informations confidentielles dans des packages de contenu personnalisés.
 
 ## <a name="install-the-powershell-module"></a>Installer le module PowerShell
 
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Cycle de vie de la stratégie
 
-Si vous souhaitez publier une mise à jour de la stratégie, deux champs sont importants.
+Si vous souhaitez publier une mise à jour de la stratégie, votre attention est requise dans trois domaines.
 
-- **Version**  : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié. Cette propriété met à jour la version de l’attribution Guest Configuration pour que l’agent reconnaisse le package mis à jour.
+> [!NOTE]
+> La propriété `version` de l’affectation de configuration invité n’a d’influence que sur les packages qui sont hébergés par Microsoft. La meilleure pratique pour le contenu personnalisé du contrôle de version consiste à inclure la version dans le nom de fichier.
+
+- **Version**  : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.
+- **contentUri**  : Lorsque vous exécutez la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un URI vers l’emplacement du package. L’inclusion d’une version de package dans le nom de fichier garantit que la valeur de cette propriété change dans chaque version.
 - **contentHash** : Cette propriété est automatiquement mise à jour par l’applet de commande `New-GuestConfigurationPolicy`. Il s’agit d’une valeur de hachage du package créé par `New-GuestConfigurationPackage`. Cette propriété doit être correcte pour le fichier `.zip` que vous publiez. Si seule la propriété **contentUri** est mise à jour, l’extension n’accepte pas le package de contenu.
 
 Le moyen le plus simple de publier un package mis à jour consiste à répéter le processus décrit dans cet article et à fournir un numéro de version mis à jour. Ce processus garantit que toutes les propriétés ont été correctement mises à jour.

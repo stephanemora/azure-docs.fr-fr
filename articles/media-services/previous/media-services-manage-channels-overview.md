@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e899a9d98d43f826bfa63e62458adf1601f071
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265964"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042983"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
 
@@ -53,7 +53,7 @@ Avec Media Services, vous pouvez utiliser [l’empaquetage dynamique](media-serv
 
 ## <a name="streaming-endpoints-channels-programs"></a>Programmes, chaînes et points de terminaison de streaming
 
-Dans Azure Media Sercices, les **canaux**, les **programmes** et le **point de terminaison de diffusion en continu** gèrent toutes les fonctionnalités vidéo en flux continu, notamment la réception, le formatage, le DVR, la sécurité, l’extensibilité et la redondance.
+Dans Azure Media Sercices, les **canaux** , les **programmes** et le **point de terminaison de diffusion en continu** gèrent toutes les fonctionnalités vidéo en flux continu, notamment la réception, le formatage, le DVR, la sécurité, l’extensibilité et la redondance.
 
 Un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un canal peut recevoir des flux d’entrée live de l’une des manières suivantes :
 
@@ -92,7 +92,7 @@ Le tableau suivant fournit un guide de comparaison des deux types de canaux pris
 
 Le diagramme suivant présente les principaux composants de la plateforme AMS impliqués dans ce flux de travail de **méthode directe** .
 
-![Flux de travail live](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagramme montrant les principales parties de la plateforme A M S pour le flux de travail « Pass-through ».](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Pour plus d’informations, consultez [Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).
 

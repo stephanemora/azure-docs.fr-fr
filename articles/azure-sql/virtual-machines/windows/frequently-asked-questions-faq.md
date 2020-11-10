@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786494"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289407"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -169,15 +169,15 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je désinstaller l’instance SQL Server par défaut ?**
 
-   Oui, mais il existe quelques considérations à prendre en compte. Premièrement, la facturation associée à SQL Server peut continuer à s’appliquer en fonction du modèle de licence de la machine virtuelle. Deuxièmement, comme indiqué dans la réponse précédente, certaines fonctionnalités reposent sur l’[extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si vous désinstallez l’instance par défaut sans supprimer l’extension IaaS, cette dernière continue de rechercher l’instance par défaut et peut générer des erreurs dans le journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server** . L’une des erreurs peut se présenter comme suit :
+   Oui, mais il existe quelques considérations à prendre en compte. Premièrement, la facturation associée à SQL Server peut continuer à s’appliquer en fonction du modèle de licence de la machine virtuelle. Deuxièmement, comme indiqué dans la réponse précédente, certaines fonctionnalités reposent sur l’[extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si vous désinstallez l’instance par défaut sans supprimer l’extension IaaS, cette dernière continue de rechercher l’instance par défaut et peut générer des erreurs dans le journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server**. L’une des erreurs peut se présenter comme suit :
 
       Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible.
 
    Si vous décidez de désinstaller l’instance par défaut, vous devez également désinstaller [l’extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
 
-1. **Puis-je utiliser une instance nommée de SQL Server avec l’extension IaaS**  ?
+1. **Puis-je utiliser une instance nommée de SQL Server avec l’extension IaaS ?**
    
-   Oui, si l’instance nommée est la seule instance sur SQL Server et si l’instance par défaut d’origine a été [désinstallé correctement](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). En l’absence d’instance par défaut et si plusieurs instances nommées sont présentes sur une même machine virtuelle SQL Server, l’extension de l’agent IaaS SQL Server échoue à l’installation. 
+   Oui, si l’instance nommée est la seule instance sur SQL Server et si l’instance par défaut d’origine a été [désinstallé correctement](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). En l’absence d’instance par défaut et si plusieurs instances nommées sont présentes sur une même machine virtuelle SQL Server, l’extension de l’agent IaaS SQL Server échoue à l’installation.  
 
 1. **Puis-je supprimer SQL Server et la facturation de licence associée d’une machine virtuelle SQL Server ?**
 
@@ -210,7 +210,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je mettre à niveau mon instance SQL Server 2008/2008 R2 après l’avoir inscrite auprès du fournisseur de ressources de machine virtuelle SQL Server ?**
 
-   Oui. Vous pouvez utiliser n’importe quel support d’installation pour mettre à niveau la version et l’édition de SQL Server. Vous pouvez ensuite mettre à niveau votre [mode d’extension SQL IaaS](sql-vm-resource-provider-register.md#management-modes) de _aucun agent_ vers _complet_ . Vous pouvez ainsi tirer profit de tous les avantages de l’extension SQL IaaS tels que la facilité de gestion du portail, les sauvegardes automatisées et la mise à jour corrective automatisée. 
+   Oui, si le système d’exploitation est Windows Server 2008 R2 ou ultérieur. Vous pouvez utiliser n’importe quel support d’installation pour mettre à niveau la version et l’édition de SQL Server. Vous pouvez ensuite mettre à niveau votre [mode d’extension SQL IaaS](sql-server-iaas-agent-extension-automate-management.md#management-modes) de _aucun agent_ vers _complet_. Vous pouvez ainsi tirer profit de tous les avantages de l’extension SQL IaaS tels que la facilité de gestion du portail, les sauvegardes automatisées et la mise à jour corrective automatisée. Si la version du système d’exploitation est Windows Server 2008, seul le mode NoAgent est pris en charge. 
 
 1. **Comment obtenir des mises à jour de sécurité étendue gratuites pour mes instances SQL Server 2008 et SQL Server 2008 R2 qui sont en fin de support ?**
 

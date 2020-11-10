@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790642"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126649"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Modèles d’application et stratégies de développement pour SQL Server sur machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -121,7 +121,7 @@ Le schéma suivant explique comment placer les niveaux d’application dans plus
 ![Modèle d’application : scale-out du niveau de présentation](./media/application-patterns-development-strategies/IC728010.png)
 
 ### <a name="best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier"></a>Meilleures pratiques pour les modèles à 2 et 3 niveaux ou multiniveaux ayant plusieurs machines virtuelles dans un même niveau
-Nous vous recommandons de placer les machines virtuelles qui appartiennent au même niveau dans le même service cloud et dans le même groupe à haute disponibilité. Par exemple, placez un ensemble de serveurs web dans **Service_Cloud_1** et **Groupe_haute_disponibilité_1** et un ensemble de serveurs de base de données dans **Service_cloud_2** et **Groupe_haute_disponibilité_2** . Un groupe à haute disponibilité dans Azure vous permet de placer les nœuds de haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts.
+Nous vous recommandons de placer les machines virtuelles qui appartiennent au même niveau dans le même service cloud et dans le même groupe à haute disponibilité. Par exemple, placez un ensemble de serveurs web dans **Service_Cloud_1** et **Groupe_haute_disponibilité_1** et un ensemble de serveurs de base de données dans **Service_cloud_2** et **Groupe_haute_disponibilité_2**. Un groupe à haute disponibilité dans Azure vous permet de placer les nœuds de haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts.
 
 Pour tirer parti de plusieurs instances de machine virtuelle d’un niveau, vous devez configurer l’équilibreur de charge Azure entre les niveaux d’application. Pour configurer l’équilibreur de charge dans chaque niveau, créez un point de terminaison soumis à l’équilibrage de charge sur les machines virtuelles de chaque niveau séparément. Pour un niveau spécifique, commencez par créer des machines virtuelles dans le même service cloud. Cela garantit qu’elles ont la même adresse IP virtuelle publique. Puis créez un point de terminaison sur l’une des machines virtuelles de ce niveau. Ensuite, affectez le même point de terminaison aux autres machines virtuelles de ce niveau pour l’équilibrage de charge. En créant un jeu d’équilibrage de la charge, vous répartissez le trafic entre plusieurs machines virtuelles et permettez également à l’équilibreur de charge de déterminer le nœud auquel se connecter lorsqu’un nœud de machine virtuelle principal échoue. Par exemple, la présence de plusieurs instances des serveurs web derrière un équilibreur de charge garantit la haute disponibilité du niveau de présentation.
 
@@ -191,11 +191,11 @@ Le schéma suivant illustre un scénario local et sa solution cloud. Dans ce sc�
 
 Comme indiqué dans le schéma, l’équilibreur de charge Azure distribue le trafic sur plusieurs machines virtuelles et détermine le serveur web ou d’application auquel se connecter. La présence de plusieurs instances des serveurs web et d’application derrière un équilibreur de charge garantit la haute disponibilité des niveaux de présentation et métier. Pour plus d’informations, consultez la section [Meilleures pratiques pour les modèles d’application nécessitant des techniques de haute disponibilité et de récupération d’urgence (HADR) SQL](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Modèles d’application avec Cloud Services](./media/application-patterns-development-strategies/IC728013.png)
+![Le diagramme montre les machines physiques ou virtuelles locales connectées à des instances de rôle web dans un réseau virtuel Azure via un équilibreur de charge Azure.](./media/application-patterns-development-strategies/IC728013.png)
 
 Une autre approche d’implémentation de ce modèle d’application consiste à utiliser un rôle web consolidé contenant les composants des niveaux de présentation et métier comme indiqué dans le schéma suivant. Ce modèle d’application est utile pour les applications qui requièrent une conception avec état. Comme Azure fournit des nœuds de calcul sans état sur les rôles web et de travail, nous vous recommandons d’implémenter une logique pour stocker l’état de session à l’aide de l’une des technologies suivantes : [mise en cache Azure](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Stockage Table Azure](../../../cosmos-db/tutorial-develop-table-dotnet.md) ou [Azure SQL Database](../../database/sql-database-paas-overview.md).
 
-![Modèles d’application avec Cloud Services](./media/application-patterns-development-strategies/IC728014.png)
+![Le diagramme montre les machines physiques ou virtuelles locales connectées à des instances de rôle web/de travail consolidées dans un réseau virtuel Azure.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>Modèle avec des machines virtuelles Azure, Azure SQL Database et Azure App Service (Web Apps)
 Le principal objectif de ce modèle d’application consiste à vous montrer comment combiner des composants d’infrastructure en tant que service (IaaS) Azure avec des composants de plateforme en tant que service (PaaS) Azure dans votre solution. Ce modèle est axé sur Azure SQL Database pour le stockage des données relationnelles. Il n’inclut pas SQL Server dans une machine virtuelle Azure, qui fait partie de l’offre Infrastructure en tant que service (IaaS) Azure.

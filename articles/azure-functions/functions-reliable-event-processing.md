@@ -3,14 +3,14 @@ title: Traitement des événements fiables Azure Functions
 description: Éviter de rater des messages Event Hub dans Azure Functions
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506024"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287233"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Traitement des événements fiables Azure Functions
 
@@ -50,7 +50,7 @@ Azure Functions consomme les événements Event Hubs en parcourant les étapes s
 
 Ce comportement révèle quelques points importants :
 
-- *Les exceptions non gérées peuvent entraîner une perte de messages.* Les exécutions qui se terminent par une exception continuent à faire avancer le pointeur.
+- *Les exceptions non gérées peuvent entraîner une perte de messages.* Les exécutions qui se terminent par une exception continuent à faire avancer le pointeur.  Définir une [stratégie de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies) va retarder la progression du pointeur jusqu’à ce que la totalité de la stratégie de nouvelles tentatives ait été évaluée.
 - *Functions garantit au minimum une remise.* Votre code et vos systèmes dépendants ont peut-être besoin de [tenir compte du fait que le même message peut être reçu deux fois](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Gestion des exceptions
@@ -59,9 +59,9 @@ En règle générale, chaque fonction doit inclure un [bloc try/catch](./functio
 
 ### <a name="retry-mechanisms-and-policies"></a>Mécanismes et stratégies de nouvelle tentative
 
-Certaines exceptions sont transitoires par nature et ne réapparaissent pas quand une opération est retentée un peu plus tard. C’est la raison pour laquelle la première étape consiste toujours de retenter l’opération. Vous pouvez écrire vous-même des règles de traitement des nouvelles tentatives, mais elles sont si banales qu’il existe déjà plusieurs outils disponibles. L’utilisation de ces bibliothèques vous permet de définir des stratégies de nouvelle tentative robustes, qui permettent aussi de mieux préserver l’ordre de traitement.
+Certaines exceptions sont transitoires par nature et ne réapparaissent pas quand une opération est retentée un peu plus tard. C’est la raison pour laquelle la première étape consiste toujours de retenter l’opération.  Vous pouvez exploiter les [stratégies de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies) de l’application de fonction ou la logique de nouvelle tentative d’auteur pendant l’exécution de la fonction.
 
-L’introduction de bibliothèques de gestion des erreurs dans vos fonctions vous permet de définir des stratégies de nouvelle tentative à la fois basiques et avancées. Par exemple, vous pouvez implémenter une stratégie qui suit un workflow illustré par les règles suivantes :
+L’introduction de comportements de gestion des erreurs dans vos fonctions vous permet de définir des stratégies de nouvelle tentative à la fois basiques et avancées. Par exemple, vous pouvez implémenter une stratégie qui suit un workflow illustré par les règles suivantes :
 
 - Essayez d’insérer un message trois fois (avec un délai éventuel entre les nouvelles tentatives).
 - Si le résultat final de toutes les tentatives est un échec, ajoutez alors un message à une file d’attente afin que le traitement puisse continuer sur le flux.
@@ -69,10 +69,6 @@ L’introduction de bibliothèques de gestion des erreurs dans vos fonctions vou
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) est un exemple de bibliothèque de résilience et de gestion des erreurs temporaires pour les applications C#.
-
-Quand vous utilisez des bibliothèques de classes C# précompilées, des [filtres d’exception](/dotnet/csharp/language-reference/keywords/try-catch) vous permettent d’exécuter du code chaque fois qu’une exception non gérée se produit.
-
-Des exemples d’utilisation de filtres d’exception sont disponibles dans le dépôt du [SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 ## <a name="non-exception-errors"></a>Erreurs hors exception
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931068"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313975"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob
 
@@ -53,10 +53,7 @@ Le fait d’interdire l’accès public pour le compte de stockage empêche l’
 
 Pour autoriser ou interdire l’accès public pour un compte de stockage, configurez la propriété **AllowBlobPublicAccess** du compte. Cette propriété est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
-> [!NOTE]
-> La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage autorise l’accès public quand la valeur de la propriété est **Null** ou **true**.
->
-> La propriété **AllowBlobPublicAccess** est disponible pour tous les comptes de stockage dans le cloud public Azure et dans les clouds Azure Government.
+La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage autorise l’accès public quand la valeur de la propriété est **Null** ou **True**.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -135,8 +132,8 @@ az storage account show \
 Pour autoriser ou interdire l’accès public pour un compte de stockage à l’aide d’un modèle, créez un modèle avec la propriété **AllowBlobPublicAccess** définie sur **true** ou **false**. Les étapes suivantes montrent comment créer un modèle dans le Portail Azure.
 
 1. Dans le Portail Azure, choisissez **Créer une ressource**.
-1. Dans **Rechercher sur la Place de marché**, tapez **déploiement de modèle**, puis appuyez sur **Entrée**.
-1. Choisissez **Template deployment (déployer avec des modèles personnalisés) [préversion]** , **Créer**, puis **Créer votre propre modèle dans l’éditeur**.
+1. Dans **Rechercher sur la Place de marché** , tapez **déploiement de modèle** , puis appuyez sur **Entrée**.
+1. Choisissez **Template deployment (déployer avec des modèles personnalisés) [préversion]** , **Créer** , puis **Créer votre propre modèle dans l’éditeur**.
 1. Dans l’éditeur de modèle, collez le code JSON suivant pour créer un nouveau compte et définissez la propriété **AllowBlobPublicAccess** sur **true** ou **false**. N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs.
 
     ```json
@@ -207,7 +204,7 @@ Pour mettre à jour le niveau d’accès public pour un ou plusieurs conteneurs 
 
 Quand l’accès public est interdit pour le compte de stockage, le niveau d’accès public d’un conteneur ne peut pas être défini. Si vous essayez de définir le niveau d’accès public du conteneur, vous verrez que le paramètre est désactivé, car l’accès public est interdit pour le compte.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Capture d’écran montrant comment autoriser ou interdire l’accès public aux objets blob pour le compte":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Capture d’écran montrant que la définition du niveau d’accès public du conteneur est bloquée quand l’accès public est interdit":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

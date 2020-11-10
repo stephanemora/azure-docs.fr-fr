@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074411"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286776"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -154,10 +154,10 @@ Suivez les étapes *Avant de commencer* dans le document approprié pour créer 
 Les restrictions d’affectation de noms sont implémentées par la plateforme Azure et AKS. Si un nom ou paramètre de ressource enfreint une de ces restrictions, une erreur est retournée qui vous invite à fournir une entrée différente. Voici quelques-unes des recommandations qui s’appliquent en matière d’affectation de noms :
 
 * Les noms de cluster doivent comporter entre 1 et 63 caractères. Les seuls caractères autorisés sont les lettres, les chiffres, les tirets et le trait de soulignement. Le premier et le dernier caractères doivent être une lettre ou un chiffre.
-* Le nom de groupe de ressources Nœud AKS/*MC_* combine le nom du groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS. Vous pouvez également [personnaliser le nom de votre groupe de ressources de nœud](cluster-configuration.md#custom-resource-group-name).
+* Le nom de groupe de ressources Nœud AKS/ *MC_* combine le nom du groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS. Vous pouvez également [personnaliser le nom de votre groupe de ressources de nœud](cluster-configuration.md#custom-resource-group-name).
 * L'élément *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques et doit comporter 1 à 54 caractères. Parmi les caractères autorisés figurent les valeurs alphanumériques et les traits d’union (-). L’élément *dnsPrefix* ne peut pas inclure de caractères spéciaux comme un point (.).
 * Les noms de pools de nœuds AKS doivent être en minuscules et comprendre 1 à 11 caractères pour les pools de nœuds Linux et 1 à 6 caractères pour les pools de nœuds Windows. Le nom doit commencer par une lettre et les seuls caractères autorisés sont les lettres et les chiffres.
-* *admin-username*, qui définit le nom d’utilisateur de l’administrateur pour les nœuds Linux, doit commencer par une lettre, ne peut contenir que des lettres, des chiffres, des traits d’union et des traits de soulignement, et sa longueur maximale est de 64 caractères.
+* *admin-username* , qui définit le nom d’utilisateur de l’administrateur pour les nœuds Linux, doit commencer par une lettre, ne peut contenir que des lettres, des chiffres, des traits d’union et des traits de soulignement, et sa longueur maximale est de 64 caractères.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Je reçois une erreur quand j’essaie de créer, mettre à jour, mettre à l’échelle, supprimer ou mettre à niveau un cluster, m’informant que cette opération n’est pas autorisée quand une autre opération est en cours.
 
@@ -167,7 +167,7 @@ Les opérations de cluster sont limitées quand une opération précédente est 
 
 Selon la sortie de l’état du cluster :
 
-* Si le cluster est dans un état d’approvisionnement autre que *Opération réussie* ou *En échec*, attendez que l’opération (*mise à niveau/mise à jour/création/mise à l’échelle/suppression/migration*) se termine. Une fois que l’opération précédente a abouti, tentez à nouveau votre dernière opération de cluster.
+* Si le cluster est dans un état d’approvisionnement autre que *Opération réussie* ou *En échec* , attendez que l’opération ( *mise à niveau/mise à jour/création/mise à l’échelle/suppression/migration* ) se termine. Une fois que l’opération précédente a abouti, tentez à nouveau votre dernière opération de cluster.
 
 * Si la mise à niveau du cluster a échoué, suivez les étapes décrites dans [Je reçois des erreurs qui indiquent que mon cluster est en état d’échec et que la mise à niveau ou la mise à l’échelle n’aboutira pas tant que ce problème n’aura pas été résolu](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -198,7 +198,7 @@ Lors de la restriction du trafic sortant d’un cluster AKS, il existe des règl
 
 Vérifiez que vos paramètres ne sont pas en conflit avec l’une règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application obligatoires ou facultatives recommandées.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>Je reçois des erreurs « 429 Trop de requêtes » 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Je reçois des erreurs « 429 Trop de requêtes »
 
 Lorsqu’un cluster Kubernetes sur Azure (AKS ou non) effectue fréquemment un scale up ou scale-down ou utilise la mise à l’échelle automatique de cluster, ces opérations peuvent entraîner un grand nombre d’appels HTTP qui, à leur tour, dépassent le quota d’abonnement attribué, ce qui conduit à l’échec. Les erreurs se présentent comme suit
 
@@ -213,6 +213,12 @@ La recommandation de l’équipe d’ingénieurs d’AKS est de vous assurer que
 Étant donné que ces erreurs de limitation sont mesurées au niveau de l’abonnement, elles peuvent encore se produire dans les cas suivants :
 - Il existe des applications tierces qui effectuent des requêtes GET (par exemple, des applications de surveillance, etc.). La recommandation est de réduire la fréquence de ces appels.
 - Le groupe de machines virtuelles identiques contient un grand nombre de pool de nœuds/clusters AKS. La recommandation habituelle consiste à avoir moins de 20 à 30 clusters dans un abonnement donné.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>L’état de l’approvisionnement de mon cluster est passé de Prêt à Échec, que j’effectue une opération ou non. Que dois-je faire ?
+
+Si l’état d’approvisionnement de votre cluster passe de *Prêt* à *Échec* , que vous effectuiez des opérations ou non, mais que les applications sur votre cluster continuent à s’exécuter, ce problème peut être résolu automatiquement par le service et vos applications ne doivent pas être affectées.
+
+Si l’état d’approvisionnement de votre cluster reste en *Échec* ou si les applications sur votre cluster cessent de fonctionner, [envoyez une demande de support](https://azure.microsoft.com/support/options/#submit).
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Résolution des problèmes de stockage Azure et AKS
@@ -382,7 +388,7 @@ parameters:
 Certains paramètres *mountOptions* supplémentaires utiles :
 
 * *mfsymlinks* fait en sorte que le montage Azure Files (cifs) prenne en charge les liens symboliques
-* *nobrl*  empêche l’envoi des demandes de verrous de plage d’octets au serveur. Ce paramètre est nécessaire pour certaines applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs. La plupart des serveurs cifs ne prennent pas encore en charge la demande de verrous de plage d’octets. Si vous n’utilisez pas *nobrl*, les applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs peuvent entraîner des messages d’erreur comme suit :
+* *nobrl*  empêche l’envoi des demandes de verrous de plage d’octets au serveur. Ce paramètre est nécessaire pour certaines applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs. La plupart des serveurs cifs ne prennent pas encore en charge la demande de verrous de plage d’octets. Si vous n’utilisez pas *nobrl* , les applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs peuvent entraîner des messages d’erreur comme suit :
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -470,11 +476,8 @@ Cette erreur est due à une condition de concurrence du programme de mise à l�
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Attachement du disque lent : GetAzureDiskLun prend de 10 à 15 minutes et une erreur s’affiche
 
-Dans les versions de Kubernetes **antérieures à 1.15.0**, vous pouvez recevoir une erreur telle que **Erreur WaitForAttach : le numéro d’unité logique du disque est introuvable**.  Pour contourner ce problème, attendez environ 15 minutes, puis réessayez.
+Dans les versions de Kubernetes **antérieures à 1.15.0** , vous pouvez recevoir une erreur telle que **Erreur WaitForAttach : le numéro d’unité logique du disque est introuvable**.  Pour contourner ce problème, attendez environ 15 minutes, puis réessayez.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Pourquoi les mises à niveau vers Kubernetes 1.16 échouent lors de l’utilisation d’étiquettes de nœud avec un préfixe kubernetes.io ?
 
@@ -487,3 +490,9 @@ Par conséquent, pour atténuer ce risque, vous pouvez :
 3. Supprimer l’ancien pool de nœuds.
 
 AKS étudie actuellement la capacité à muter des étiquettes actives sur un pool de nœuds afin d’améliorer cette atténuation.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

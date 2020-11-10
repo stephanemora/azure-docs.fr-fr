@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 879b9f965a5ee76131a65bf3151be5c6114cd20c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ba8ccf3534cbb4a93983f81095b4ef2c20d6498
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260881"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042788"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Surveiller la progression du travail d’encodage avec le Portail Azure
 
@@ -34,7 +34,7 @@ Lorsque vous exécutez des travaux, vous avez généralement besoin de faire app
 
 Pour surveiller la progression du travail d’encodage, cliquez sur **Paramètres** (en haut de la page), puis sélectionnez **Travaux**.
 
-![travaux](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Capture d’écran montrant l’élément « Travaux » sélectionné dans le menu « Paramètres ».](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 Vous pouvez cliquer sur le travail pour afficher plus de détails.
 

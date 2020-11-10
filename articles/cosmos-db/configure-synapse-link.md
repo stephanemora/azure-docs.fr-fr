@@ -1,20 +1,21 @@
 ---
 title: Configurer et utiliser Azure Synapse Link pour Azure Cosmos DB (préversion)
-description: Découvrez comment activer les comptes Synapse Link pour Azure Cosmos DB, créer un conteneur avec le magasin analytique activé, connecter la base de données Azure Cosmos à l’espace de travail Synapse et exécuter des requêtes.
+description: Découvrez comment activer le lien Synapse pour les comptes Azure Cosmos DB, créer un conteneur avec le magasin analytique activé, connecter la base de données Azure Cosmos à l’espace de travail Synapse et exécuter des requêtes.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: d3e7eca546adbcac8af882ff4cd5b09d3d643d4c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489266"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334534"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurer et utiliser Azure Synapse Link pour Azure Cosmos DB (préversion)
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link pour Azure Cosmos DB](synapse-link.md) est une fonctionnalité de traitement transactionnel et analytique (HTAP) hybride et native Cloud qui vous permet d’exécuter des analyses en quasi-temps réel sur les données opérationnelles dans Azure Cosmos DB. Synapse Link crée une intégration transparente entre Azure Cosmos DB et Azure Synapse Analytics.
 
@@ -38,15 +39,15 @@ Azure Synapse Link est disponible pour les conteneurs d’API SQL Azure Cosmos 
 
 1. [Créez un compte Azure](create-sql-api-dotnet.md#create-account) ou sélectionnez un compte Azure Cosmos DB existant.
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez le volet **Nouvelles fonctionnalités** .
+1. Accédez à votre compte Azure Cosmos DB et ouvrez le volet **Nouvelles fonctionnalités**.
 
 1. Sélectionnez **Synapse Link** dans la liste des fonctionnalités.
 
    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Rechercher la fonctionnalité d’évaluation Synapse Link":::
 
-1. Ensuite, vous êtes invité à activer le lien Synapse sur votre compte. Sélectionnez **Activer** . Ce processus peut prendre de 1 à 5 minutes.
+1. Ensuite, vous êtes invité à activer le lien Synapse sur votre compte. Sélectionnez **Activer**. Ce processus peut prendre de 1 à 5 minutes.
 
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Rechercher la fonctionnalité d’évaluation Synapse Link":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Activer la fonctionnalité Synapse Link":::
 
 1. Votre compte est désormais activé pour l’utilisation de Synapse Link. Ensuite, découvrez comment créer des conteneurs activés pour le magasin analytique afin de démarrer automatiquement la réplication de vos données opérationnelles entre le magasin transactionnel et le magasin analytique.
 
@@ -64,13 +65,13 @@ Vous pouvez activer le magasin analytique sur un conteneur Azure Cosmos lors de 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) ou à l’[explorateur Azure Cosmos](https://cosmos.azure.com/).
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données** .
+1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
 
-1. Sélectionnez **Nouveau conteneur** , puis entrez un nom pour la base de données, le conteneur, la clé de partition et les détails du débit. Activez l’option **Magasin analytique** . Une fois que vous avez activé le magasin analytique, il crée un conteneur avec la propriété `AnalyicalTTL` définie sur la valeur par défaut -1 (conservation infinie). Ce magasin analytique conserve toutes les versions historiques des enregistrements.
+1. Sélectionnez **Nouveau conteneur** , puis entrez un nom pour la base de données, le conteneur, la clé de partition et les détails du débit. Activez l’option **Magasin analytique**. Une fois que vous avez activé le magasin analytique, il crée un conteneur avec la propriété `AnalyicalTTL` définie sur la valeur par défaut -1 (conservation infinie). Ce magasin analytique conserve toutes les versions historiques des enregistrements.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Rechercher la fonctionnalité d’évaluation Synapse Link":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Activer le magasin analytique pour le conteneur Azure Cosmos":::
 
-1. Si vous n’avez pas encore activé Synapse Link sur ce compte, vous êtes invité à le faire parce qu’il s’agit d’une condition préalable à la création d’un conteneur pour lequel le magasin analytique est activé. Si vous y êtes invité, sélectionnez **Activer Synapse Link** . Ce processus peut prendre de 1 à 5 minutes.
+1. Si vous n’avez pas encore activé Synapse Link sur ce compte, vous êtes invité à le faire parce qu’il s’agit d’une condition préalable à la création d’un conteneur pour lequel le magasin analytique est activé. Si vous y êtes invité, sélectionnez **Activer Synapse Link**. Ce processus peut prendre de 1 à 5 minutes.
 
 1. Sélectionnez **OK** pour créer un conteneur Azure Cosmos activé pour le magasin analytique.
 
@@ -172,11 +173,11 @@ Si vous avez créé un conteneur de magasin analytique activé via le Portail Az
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) ou à l’[explorateur Azure Cosmos](https://cosmos.azure.com/).
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données** .
+1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
 
 1. Sélectionnez un conteneur existant pour lequel le magasin analytique est activé. Développez-le et modifiez les valeurs suivantes :
 
-  * Ouvrez la fenêtre **Mise à l’échelle et paramètres** .
+  * Ouvrez la fenêtre **Mise à l’échelle et paramètres**.
   * Sous **Paramètre** , recherchez ** Analytical Storage Time to Live**.
   * Sélectionnez **Activée (pas par défaut)** ou sélectionnez **Activée** et définissez une valeur de TTL.
   * Cliquez sur **Enregistrer** pour enregistrer les modifications.
@@ -215,9 +216,9 @@ Suivez les instructions de [Se connecter à Azure Synapse Link](../synapse-analy
 
 Suivez les instructions de l’article [Interroger le magasin analytique Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) sur la procédure d’interrogation avec Synapse Spark. Cet article donne des exemples sur la façon dont vous pouvez interagir avec le magasin analytique à partir de mouvements Synapse. Ces mouvements sont visibles lorsque vous cliquez avec le bouton droit sur un conteneur. Avec les mouvements, vous pouvez rapidement générer du code et l’adapter à vos besoins. Ils sont également bien adaptés pour découvrir des données en un seul clic.
 
-## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Interroger le magasin analytique à l’aide de Synapse SQL Serverless
+## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Interroger le magasin analytique à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
-Synapse SQL serverless (préversion précédemment appelée **SQL à la demande** ), vous permet d’interroger et d’analyser les données de vos conteneurs Azure Cosmos DB qui sont activés avec Azure Synapse Link. Vous pouvez analyser les données en quasi-temps réel sans affecter les performances de vos charges de travail transactionnelles. Il offre une syntaxe T-SQL familière pour interroger les données du magasin analytique et la connectivité intégrée à un large éventail d’outils décisionnels et d’interrogation ad hoc via l’interface T-SQL. Pour plus d’informations, consultez l’article [Interroger le magasin analytique à l’aide de Synapse SQL Serverless](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
+Le pool SQL serverless vous permet d’interroger et d’analyser les données de vos conteneurs Azure Cosmos DB compatibles avec Azure Synapse Link. Vous pouvez analyser les données en quasi-temps réel sans affecter les performances de vos charges de travail transactionnelles. Il offre une syntaxe T-SQL familière pour interroger les données du magasin analytique et la connectivité intégrée à un large éventail d’outils décisionnels et d’interrogation ad hoc via l’interface T-SQL. Pour plus d’informations, consultez l’article [Interroger le magasin analytique à l’aide de Synapse SQL Serverless](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
 
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Utilisez Synapse SQL serverless pour analyser et visualiser les données dans Power BI
 

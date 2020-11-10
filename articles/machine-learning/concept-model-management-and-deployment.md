@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64784d747e9f33961c2f5d2df95e0d5a83e01548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302415"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324834"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion, déploiement et surveillance des modèles avec Azure Machine Learning
 
@@ -71,6 +71,9 @@ Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque 
 Vous ne pouvez pas supprimer un modèle inscrit qui est utilisé dans un déploiement actif.
 Pour plus d’informations, consultez la section consacrée à l’inscription d’un modèle dans l’article [Déployer des modèles](how-to-deploy-and-where.md#registermodel).
 
+> [!IMPORTANT]
+> Lors de l’utilisation de l’option Filtrer par `Tags` sur la page Modèles d’Azure Machine Learning Studio au lieu de `TagName : TagValue`, les clients doivent indiquer `TagName=TagValue` (sans espace)
+
 ### <a name="profile-models"></a>Modèles de profil
 
 Azure Machine Learning peut vous aider à comprendre les besoins en processeur et en mémoire du service qui sera créé lors du déploiement de votre modèle. Le profilage teste le service qui exécute votre modèle et retourne des informations telles que l’utilisation de l’UC, l’utilisation de la mémoire et la latence de la réponse. Il fournit également une recommandation pour l’UC et la mémoire en fonction de l’utilisation des ressources.
@@ -106,7 +109,7 @@ Vous fournissez également la configuration de la plateforme de déploiement cib
 Lorsque l’image est créée, les composants requis par Azure Machine Learning sont également ajoutés, par exemple les ressources nécessaires pour exécuter le service web et interagir avec IoT Edge.
 
 #### <a name="batch-scoring"></a>Scoring par lot
-La notation par lots est prise en charge via des pipelines ML. Pour plus d’informations, consultez [Prédictions par lots sur le Big Data](how-to-use-parallel-run-step.md).
+La notation par lots est prise en charge via des pipelines ML. Pour plus d’informations, consultez [Prédictions par lots sur le Big Data](./tutorial-pipeline-batch-scoring-classification.md).
 
 #### <a name="real-time-web-services"></a>Services web en temps réel
 
@@ -142,7 +145,7 @@ Pour plus d’informations, consultez [Déployer des modèles](how-to-deploy-and
 
 ### <a name="analytics"></a>Analytics
 
-Microsoft Power BI prend en charge l’utilisation de modèles Machine Learning pour l’analytique données. Pour plus d’informations, consultez [Intégration d’Azure Machine Learning dans Power BI (préversion)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Microsoft Power BI prend en charge l’utilisation de modèles Machine Learning pour l’analytique données. Pour plus d’informations, consultez [Intégration d’Azure Machine Learning dans Power BI (préversion)](/power-bi/service-machine-learning-integration).
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Capturer les données de gouvernance nécessaires pour la capture du cycle de vie ML de bout en bout
 
@@ -158,7 +161,7 @@ Azure ML vous donne la possibilité d’effectuer le suivi de la piste d’audi
 > [!TIP]
 > Bien que certaines informations sur les modèles et les jeux de données soient capturées automatiquement, vous pouvez ajouter des informations supplémentaires à l’aide de __balises__. Lorsque vous recherchez des modèles inscrits et des jeux de données dans votre espace de travail, vous pouvez utiliser des balises comme filtre.
 >
-> L’association d’un jeu de données à un modèle inscrit est une étape facultative. Pour plus d’informations sur le référencement d’un jeu de données lors de l’inscription d’un modèle, consultez la référence de classe [Modèle](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true).
+> L’association d’un jeu de données à un modèle inscrit est une étape facultative. Pour plus d’informations sur le référencement d’un jeu de données lors de l’inscription d’un modèle, consultez la référence de classe [Modèle](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py).
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifier, automatiser et alerter sur des événements du cycle de vie ML

@@ -3,12 +3,12 @@ title: Guide de configuration accélérée de compte de laboratoire pour Azure L
 description: Ce guide aide les administrateurs à configurer rapidement un compte de laboratoire pour une utilisation au sein de leur école.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855e59aced37e50c088cfe89ffeb3d0af9fcdca
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445421"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148279"
 ---
 # <a name="lab-account-setup-guide"></a>Guide de configuration de compte de laboratoire
 
@@ -29,6 +29,10 @@ Pour une prise en main rapide, créez un seul compte de laboratoire, puis créez
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>Qui doivent être les propriétaires et les contributeurs du compte de laboratoire ?
 
 Les administrateurs sont généralement les propriétaires et les contributeurs d’un compte de laboratoire. Ils sont responsables de la gestion des stratégies qui s’appliquent à tous les laboratoires contenus dans le compte de laboratoire. La personne qui crée le compte de laboratoire en est automatiquement le propriétaire. Vous pouvez ajouter d’autres propriétaires et contributeurs, en général à partir du locataire Azure Active Directory (Azure AD) associé à votre abonnement. Cela peut être utile pour faciliter la gestion d’un compte de laboratoire en affectant le rôle propriétaire ou contributeur au niveau du compte de laboratoire.
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Les utilisateurs du labo ne voient qu’une seule liste des machines virtuelles auxquelles ils ont accès dans les locataires dans Azure Lab Services.
 
 ### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>Qui sera autorisé à créer et gérer les laboratoires ?
 

@@ -2,13 +2,13 @@
 title: 'Azure Event Hubs : exceptions (hérité)'
 description: Cet article fournit la liste des exceptions de messagerie Azure Event Hubs et les actions suggérées.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 11/02/2020
+ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318481"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289343"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Exceptions de messagerie Event Hubs : .NET (hérité)
 Cette section liste les exceptions .NET générées par les API .NET Framework. 
@@ -70,7 +70,7 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | L'entité associée à l'opération n'existe pas ou a été supprimée. | Assurez-vous que l'entité existe. | Une nouvelle tentative ne sera pas bénéfique. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Le client ne peut pas établir de connexion à Event Hub. |Assurez-vous que le nom d'hôte fourni est correct et que l'hôte est accessible. | Une nouvelle tentative peut aider en cas de problèmes de connectivité intermittents. |
 | [Microsoft.ServiceBus.Messaging ServerBusyException ](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Le service n'est pas en mesure de traiter la demande pour l'instant. | Le client peut attendre pendant une période de temps, puis recommencer l'opération. <br /> Consultez [ServerBusyException](#serverbusyexception). | Le client peut réessayer après un certain temps. Si une nouvelle tentative provoque une exception différente, vérifiez le comportement de nouvelle tentative de cette exception. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Exception de messagerie générique qui peut être levée dans les cas suivants : une tentative est effectuée pour créer un [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) à l’aide d’un nom ou d’un chemin d’accès qui appartient à un autre type d’entité (par exemple, une rubrique). Une tentative est effectuée pour envoyer un message de taille supérieure à 1 Mo. Le serveur ou le service a rencontré une erreur lors du traitement de la demande. Consultez le message de l'exception pour obtenir plus d'informations. Cette exception est généralement temporaire. | Vérifiez le code et assurez-vous que seuls les objets sérialisables sont utilisés dans le corps du message (ou utilisez un sérialiseur personnalisé). Consultez la documentation pour connaître les types de valeurs des propriétés pris en charge et utilisez uniquement les types pris en charge. Vérifiez la propriété [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si sa valeur est **true**, vous pouvez réessayer d’effectuer l’opération. | Le comportement de la nouvelle tentative n'est pas défini et peut ne pas être utile. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Exception de messagerie générique qui peut être levée dans les cas suivants : une tentative est effectuée pour créer un [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) à l’aide d’un nom ou d’un chemin d’accès qui appartient à un autre type d’entité (par exemple, une rubrique). Une tentative est effectuée pour envoyer un message de taille supérieure à 1 Mo. Le serveur ou le service a rencontré une erreur lors du traitement de la demande. Consultez le message de l'exception pour obtenir plus d'informations. Cette exception est généralement temporaire. | Vérifiez le code et assurez-vous que seuls les objets sérialisables sont utilisés dans le corps du message (ou utilisez un sérialiseur personnalisé). Consultez la documentation pour connaître les types de valeurs des propriétés pris en charge et utilisez uniquement les types pris en charge. Vérifiez la propriété [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si sa valeur est **true** , vous pouvez réessayer d’effectuer l’opération. | Le comportement de la nouvelle tentative n'est pas défini et peut ne pas être utile. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Tentative de création d'une entité dont le nom est déjà utilisé par une autre entité de l'espace de noms de ce service. | Supprimez l'entité existante ou choisissez un autre nom pour l'entité à créer. | Une nouvelle tentative ne sera pas bénéfique. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | L'entité de messagerie a atteint sa taille maximale autorisée. Cette exception peut être levée si le nombre maximal de destinataires (c’est-à-dire 5) a déjà été ouvert sur un niveau de regroupement par consommateur. | Créez de l’espace dans l’entité en recevant des messages à partir de l’entité ou de ses files d’attente secondaires. <br /> Consultez [QuotaExceededException](#quotaexceededexception). | Une nouvelle tentative peut aider si des messages ont été supprimés entre-temps. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Demande d'une opération d'exécution sur une entité désactivée. |Activez l'entité. | Une nouvelle tentative peut aider si l'entité a été activée entre-temps. |
@@ -107,17 +107,29 @@ Cette erreur peut se produire pour deux raisons :
 
 - La charge n’est pas répartie de manière égale entre toutes les partitions du hub d’événements et une partition atteint la limite d’unité de débit locale.
     
-    **Résolution** : Passez en revue la stratégie de distribution de partition ou essayez [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient).
+    **Résolution**  : Passez en revue la stratégie de distribution de partition ou essayez [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient).
 
 - L’espace de noms Event Hubs n’a pas suffisamment d’unités de débit (pour le vérifier, consultez l’écran **Métriques** dans la fenêtre de l’espace de noms Event Hubs du [portail Azure](https://portal.azure.com)). Le portail affiche des informations agrégées (1 minute), mais nous mesurons le débit en temps réel. Cette valeur n’est donc qu’une estimation.
 
-    **Résolution** : Augmentez les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs. Vous pouvez également utiliser la [majoration automatique](event-hubs-auto-inflate.md).
+    **Résolution**  : Augmentez les unités de débit sur l’espace de noms. 
+
+    Vous pouvez configurer des unités de débit sur la page **Mettre à l’échelle** ou la page **Vue d’ensemble** de votre page **Espace de noms Event Hubs** dans le Portail Azure. Vous pouvez également utiliser [Majoration automatique](event-hubs-auto-inflate.md), qui augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation.
+
+    Les unités de débit s’appliquent à tous les Event Hubs d’un espace de noms Event Hubs. Cela signifie que vous achetez des unités de débit au niveau de l’espace de noms et que vous les partagez entre les Event Hubs sous cet espace de noms. Chaque TU donne accès à l’espace de noms pour les fonctionnalités suivantes :
+
+    - Jusqu’à 1 Mo par seconde d’événements d’entrée (événements envoyés à un concentrateur d’événements), mais pas plus de 1 000 événements d’entrée, opérations de gestion ou appels d’API de contrôle par seconde.
+    - Jusqu’à 2 Mo par seconde d’événements de sortie (événements consommés à partir d’un hub d’événements), mais pas plus de 4 096 événements de sortie.
+    - Jusqu’à 84 Go de stockage d’événements (suffisant pour la période de rétention de 24 heures par défaut).
+    
+    Sur la page **Vue d’ensemble** , dans la section **Afficher les métriques** , accédez à l’onglet **Débit**. Sélectionnez le graphique pour l’ouvrir dans une fenêtre plus grande avec des intervalles de 1 minute sur l’axe X. Examinez les valeurs de pic et divisez-les par 60 pour obtenir les octets entrants/s ou sortants/s. Utilisez une approche similaire pour calculer le nombre de demandes par seconde aux heures de pointe sous l’onglet **Requêtes**. 
+
+    Si vous constatez une valeur supérieure au nombre limite d’unités * (1 Mo par seconde pour les entrées ou 1 000 requêtes pour les entrées/seconde, 2 Mo par seconde pour la sortie), augmentez le nombre d’unités à l’aide de la page **Mettre à l’échelle** (dans le menu gauche) d’un espace de noms Event Hubs pour une mise à l’échelle manuelle supérieure ou pour utiliser la fonctionnalité [Majoration automatique](event-hubs-auto-inflate.md) d’Event Hubs. Notez que la majoration automatique ne peut atteindre qu’au maximum 20 unités. Pour qu’elle atteigne exactement 40 unités, envoyez une [demande de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### <a name="error-code-50001"></a>Code d’erreur 50001
 
 Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutant le code pour votre espace de noms n’a pas suffisamment de ressources d’UC ; pas plus de quelques secondes avant que l’équilibrage de charge des Event Hubs commence.
 
-**Résolution** : Limiter le nombre d’appels à la méthode GetRuntimeInformation. Azure Event Hubs prend en charge jusqu’à 50 appels par seconde à l’instance GetRuntimeInfo par seconde. Une fois la limite atteinte; vous pouvez recevoir une exception semblable à ce qui suit :
+**Résolution**  : Limiter le nombre d’appels à la méthode GetRuntimeInformation. Azure Event Hubs prend en charge jusqu’à 50 appels par seconde à l’instance GetRuntimeInfo par seconde. Une fois la limite atteinte; vous pouvez recevoir une exception semblable à ce qui suit :
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

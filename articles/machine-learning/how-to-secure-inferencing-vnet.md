@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735477"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325347"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -47,7 +47,7 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
-    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking).
 
 <a id="aksvnet"></a>
 
@@ -86,7 +86,7 @@ Pour ajouter AKS sur un réseau virtuel à votre espace de travail, effectuez le
     Pour trouver l’adresse IP du point de terminaison de scoring, examinez l’URI de scoring pour le service déployé. Pour plus d’informations sur l’affichage de l’URI de scoring, consultez [Consommer un modèle déployé en tant que service web](how-to-consume-web-service.md#connection-information).
 
    > [!IMPORTANT]
-   > Conservez les règles de trafic sortant par défaut pour le groupe de sécurité réseau. Pour plus d’informations, consultez les règles de sécurité par défaut dans [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+   > Conservez les règles de trafic sortant par défaut pour le groupe de sécurité réseau. Pour plus d’informations, consultez les règles de sécurité par défaut dans [Groupes de sécurité](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
    [![Règle de sécurité de trafic entrant](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -170,7 +170,7 @@ Un équilibreur de charge privé est activé en configurant AKS pour utiliser un
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-Pour plus d’informations sur l’utilisation de l’équilibreur de charge interne avec AKS, consultez [Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)](/azure/aks/internal-lb).
+Pour plus d’informations sur l’utilisation de l’équilibreur de charge interne avec AKS, consultez [Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)](../aks/internal-lb.md).
 
 #### <a name="enable-private-load-balancer"></a>Activer l’équilibreur de charge privé
 
@@ -217,7 +217,10 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+> [!IMPORTANT]
+> L’interface CLI vous permet uniquement de créer un cluster AKS avec un équilibreur de charge interne. Il n’existe aucune commande AZ ML pour mettre à niveau un cluster existant afin d’utiliser un équilibreur de charge interne.
+
+Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks).
 
 ---
 
@@ -258,8 +261,11 @@ Pour utiliser ACI sur un réseau virtuel à votre espace de travail, effectuez l
     > [!IMPORTANT]
     > Lorsque vous activez la délégation, utilisez `Microsoft.ContainerInstance/containerGroups` comme valeur __Déléguer le sous-réseau à un service__.
 
-2. Déployez le modèle à l’aide de [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), en utilisant les paramètres `vnet_name` et `subnet_name`. Appliquez ces paramètres au nom du réseau virtuel et au sous-réseau où vous avez activé la délégation.
+2. Déployez le modèle à l’aide de [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), en utilisant les paramètres `vnet_name` et `subnet_name`. Appliquez ces paramètres au nom du réseau virtuel et au sous-réseau où vous avez activé la délégation.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> Limitez la connectivité sortante à partir du réseau virtuel
+
+Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et souhaitez limiter l’accès sortant de votre réseau virtuel, vous devez autoriser l’accès à Azure Container Registry. Par exemple, assurez-vous que vos groupes de sécurité réseau (NSG) contiennent une règle qui autorise l’accès à l’étiquette de service __AzureContainerRegistry.RegionName__ , où {RegionName} correspond au nom d’une région Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

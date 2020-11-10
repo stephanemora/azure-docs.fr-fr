@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333815"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316684"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Surveiller et consulter les journaux d’exécution et les métriques de Machine Learning
 
@@ -58,7 +58,7 @@ Une fois l’exécution terminée, elle n’est plus affichée dans cette page. 
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Surveiller les exécutions avec le widget Jupyter Notebook
 
-Lorsque vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
+Lorsque vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
 
 Affichez le widget Jupyter en attendant la fin de l’exécution.
     
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Afficher la sortie une fois l’opération terminée
 
-Quand vous utilisez **ScriptRunConfig**, vous pouvez employer ```run.wait_for_completion(show_output = True)``` pour indiquer quand l’entraînement du modèle est terminé. L’indicateur ```show_output``` vous donne une sortie détaillée. Pour plus d’informations, consultez la section ScriptRunConfig de [Procédure d’activation de la journalisation](how-to-track-experiments.md#scriptrun-logs).
+Quand vous utilisez **ScriptRunConfig** , vous pouvez employer ```run.wait_for_completion(show_output = True)``` pour indiquer quand l’entraînement du modèle est terminé. L’indicateur ```show_output``` vous donne une sortie détaillée. Pour plus d’informations, consultez la section ScriptRunConfig de [Procédure d’activation de la journalisation](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Interroger les métriques d’exécution
@@ -105,7 +105,9 @@ Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```
 
 Vous pouvez parcourir les enregistrements d’exécution terminés, notamment les mesures journalisées, dans le [studio Azure Machine Learning](https://ml.azure.com).
 
-Accédez à l’onglet **Expériences** et sélectionnez votre expérience. Dans le tableau de bord d’exécution d’expérience, vous pouvez voir les journaux et les métriques suivis pour chaque exécution. 
+Accédez à l’onglet **Expériences**. Pour afficher toutes les exécutions de votre espace de travail dans Expériences, sélectionnez l’onglet **Toutes les exécutions**. Vous pouvez explorer les exécutions au niveau du détail pour des Expériences spécifiques en appliquant le filtre Expérience dans la barre de menus supérieure. 
+
+Pour l’affichage individuel de l’Expérience, sélectionnez l’onglet **Toutes les expériences**. Dans le tableau de bord d’exécution d’expérience, vous pouvez voir les journaux et les métriques suivis pour chaque exécution. 
 
 Vous pouvez descendre dans la hiérarchie jusqu’à une exécution spécifique pour en afficher les sorties ou les journaux, ou télécharger la capture instantanée de l’expérience afin de pouvoir partager le dossier de l’expérience avec d’autres utilisateurs.
 
@@ -132,4 +134,3 @@ Essayez de suivre les étapes suivantes pour savoir comment utiliser Azure Machi
 * Découvrez comment [suivre les expériences et activer les journaux dans le concepteur Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Examinez un exemple d’inscription et de déploiement du meilleur modèle dans le tutoriel [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md).
-

@@ -3,12 +3,12 @@ title: Résoudre des problèmes de connexion à un registre
 description: Symptômes, causes et résolution de problèmes courants de connexion à un registre de conteneurs Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148450"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348897"
 ---
 # <a name="troubleshoot-registry-login"></a>Résoudre des problèmes de connexion au registre
 
@@ -56,7 +56,7 @@ Liens connexes :
 
 ### <a name="specify-correct-registry-name"></a>Spécifier un nom de registre correct
 
-Lorsque vous utilisez `docker login`, indiquez le nom complet du serveur de connexion du registre, par exemple *myregistry.azurecr.io* . Veillez à utiliser uniquement des lettres minuscules. Exemple :
+Lorsque vous utilisez `docker login`, indiquez le nom complet du serveur de connexion du registre, par exemple *myregistry.azurecr.io*. Veillez à utiliser uniquement des lettres minuscules. Exemple :
 
 ```console
 docker login myregistry.azurecr.io
@@ -81,6 +81,7 @@ Vérifiez la validité des informations d’identification que vous utilisez pou
   * Mot de passe - mot de passe du principal de service (également appelé *clé secrète client* )
 * Si vous utilisez un service Azure, tel que Azure Kubernetes Service ou Azure DevOps pour accéder au registre, confirmez la configuration du registre pour votre service.
 * Si vous avez exécuté `az acr login` avec l’option `--expose-token` qui active la connexion au registre sans utiliser le démon Docker, veillez à vous authentifier avec le nom d’utilisateur `00000000-0000-0000-0000-000000000000`.
+* Si votre registre est configuré pour un [accès par tirage (pull) anonyme](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), les informations d’identification Docker existantes stockées à partir d’une connexion Docker précédente peuvent empêcher l’accès anonyme. Exécutez `docker logout` avant de tenter d’effectuer une opération de tirage (pull) anonyme sur le Registre.
 
 Liens connexes :
 

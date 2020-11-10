@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791526"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319277"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs et des bases de données uniques dans Azure SQL Database
 
@@ -43,7 +43,7 @@ Pour créer une base de données Azure SQL unique à l’aide du [portail Azure]
 
 ## <a name="manage-an-existing-server"></a>Gérer un serveur existant
 
-Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources** .
+Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources**.
 
 Pour gérer une base de données existante, accédez à la page **Bases de données SQL** , puis sélectionnez la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
 
@@ -123,10 +123,10 @@ Pour créer et gérer les serveurs, bases de données et pare-feu avec Transact-
 
 | Commande | Description |
 | --- | --- |
-|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Crée une base de données unique. Vous devez être connecté à la base de données master pour créer une base de données.|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifie une base de données ou un pool élastique. |
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Crée une base de données unique. Vous devez être connecté à la base de données master pour créer une base de données.|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifie une base de données ou un pool élastique. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Supprime une base de données.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique pour Azure SQL Database ou un pool SQL Azure Synapse Analytics. Si vous êtes connecté à la base de données MASTER d’un serveur dans SQL Database, retourne les informations sur toutes les bases de données. Pour Azure Synapse Analytics, vous devez être connecté à la base de données MASTER.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique pour Azure SQL Database ou un pool SQL dédié dans Azure Synapse Analytics. Si vous êtes connecté à la base de données MASTER d’un serveur dans SQL Database, retourne les informations sur toutes les bases de données. Pour Azure Synapse Analytics, vous devez être connecté à la base de données MASTER.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourne la consommation de mémoire, d’E/S et d’UC d’une base de données dans Azure SQL Database. Il existe une ligne pour chaque période de 15 secondes, même s'il n'y a aucune activité dans la base de données.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Renvoie les données de stockage et l’utilisation d’UC pour une base de données dans Azure SQL Database. Les données sont collectées et agrégées dans des intervalles de cinq minutes.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contient des statistiques pour les événements de connectivité SQL Database, ce qui fournit une vue d’ensemble du nombre d’échecs et de réussites de connexion de base de données. |
