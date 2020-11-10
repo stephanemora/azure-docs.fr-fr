@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
-ms.openlocfilehash: 187d430e1475a85118be3811520824d6f8ca3aa7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: aedaedd29082c9ad51c03aa919181649a6dcf281
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636508"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913345"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory
 
@@ -46,10 +46,6 @@ Pour l’activité de copie, avec ce connecteur, vous pouvez effectuer les opér
 - [La conservation des métadonnées de fichier lors de la copie](#preserve-metadata-during-copy).
 - [Conserver les listes de contrôle d’accès](#preserve-acls) lors de la copie à partir d’Azure Data Lake Storage Gen1/Gen2.
 
->[!IMPORTANT]
->Si vous activez l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans les paramètres du pare-feu Stockage Azure et que vous souhaitez utiliser le runtime d’intégration Azure pour vous connecter à Data Lake Storage Gen2, vous devez utiliser une [authentification d’identité managée](#managed-identity) pour ADLS Gen2.
-
-
 ## <a name="get-started"></a>Bien démarrer
 
 >[!TIP]
@@ -68,7 +64,8 @@ Le connecteur Azure Data Lake Storage Gen2 prend en charge les types d’authent
 - [Identités managées pour authentifier les ressources Azure](#managed-identity)
 
 >[!NOTE]
->Lorsque vous utilisez PolyBase pour charger des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse), si votre instance Data Lake Storage Gen2 source est configurée avec le point de terminaison de réseau virtuel, vous devez utiliser l’authentification par identité managée comme requis par PolyBase. Pour en savoir plus sur la configuration requise, voir la section sur l’[authentification par identité managée](#managed-identity).
+>- Si vous utilisez le runtime d’intégration Azure public pour vous connecter à Data Lake Storage Gen2 avec l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** activée sur le pare-feu Stockage Azure, vous devez recourir à [l’authentification par identité managée](#managed-identity).
+>- Si vous utilisez PolyBase ou l’instruction COPY pour charger des données dans Azure Synapse Analytics et que votre Data Lake Storage Gen2 source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser l’authentification par identité managée comme l’exige Synapse. Pour en savoir plus sur la configuration requise, voir la section sur l’[authentification par identité managée](#managed-identity).
 
 ### <a name="account-key-authentication"></a>Authentification par clé de compte
 
@@ -210,7 +207,7 @@ Pour utiliser les identités managées afin d’authentifier les ressources Azur
 >Si vous utilisez l’interface utilisateur de Data Factory pour la création et que l’identité managée n’est pas définie avec le rôle « Lecteur des données Blob du stockage/Contributeur aux données Blob du stockage » dans IAM, quand vous effectuez une connexion de test ou accédez à des dossiers, choisissez « Tester la connexion au chemin du fichier » ou « Parcourir à partir du chemin spécifié », puis spécifiez un chemin avec l’autorisation **Lecture + Exécution** pour continuer.
 
 >[!IMPORTANT]
->Si vous utilisez PolyBase pour charger des données de Data Lake Storage Gen2 vers Azure Synapse Analytics (anciennement SQL Data Warehouse), lors de l’utilisation de l’authentification par identité managée pour Data Lake Storage Gen2, veillez à suivre également les étapes 1 et 2 de [cette aide](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) pour 1) vous inscrire auprès d’Azure Active Directory [Azure AD] et 2) attribuer le rôle Contributeur aux données Stockage Blob à votre serveur. Le reste est géré par Data Factory. Si votre instance Data Lake Storage Gen2 source est configurée avec un point de terminaison de réseau virtuel Azure, pour utiliser PolyBase depuis cet emplacement, vous devez utiliser l’authentification par identité managée comme requis par PolyBase.
+>Si vous utilisez PolyBase ou l’instruction COPY pour charger des données de Data Lake Storage Gen2 dans Azure Synapse Analytics et que vous avez recours à l’authentification par identité managée pour Data Lake Storage Gen2, veillez également à suivre les étapes 1 à 3 de [cette aide](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si vous configurez le Stockage Blob avec un point de terminaison de réseau virtuel Azure, vous devez également activer **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans le menu des paramètres **Pare-feu et réseaux virtuels** du compte Stockage Azure, comme l’exige Synapse.
 
 Ces propriétés sont prises en charge pour le service lié :
 

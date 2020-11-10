@@ -2,14 +2,14 @@
 title: Vue d'ensemble du traitement des transactions dans Azure Service Bus
 description: Cet article offre une vue d'ensemble du traitement transactionnel et de la fonctionnalité « Envoyer par » dans Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999952"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927785"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Vue d’ensemble du traitement des transactions Service Bus
 
@@ -36,9 +36,9 @@ Le traitement du message (exécution, abandon, lettre morte, report) se produit 
 
 ## <a name="transfers-and-send-via"></a>Transferts
 
-Pour activer la remise transactionnelle des données à partir d’une file d’attente à un processeur, puis à une autre file d’attente, Service Bus prend en charge les *transferts*. Dans une opération de transfert, un expéditeur envoie d’abord un message à une *file d’attente de transfert*. Celle-ci déplace immédiatement le message vers la file d’attente de destination prévue à l’aide d’une implémentation de transfert particulièrement fiable (celle sur laquelle repose également la fonctionnalité de transfert automatique). Le message n’est jamais validé dans le journal de la file d’attente de transfert de telle façon qu’il devient visible pour les consommateurs de la file d’attente de transfert.
+Pour permettre la remise transactionnelle des données d’une file d’attente ou d’une rubrique à un processeur, puis à une autre file d’attente ou rubrique, Service Bus prend en charge les *transferts*. Dans une opération de transfert, un expéditeur envoie d’abord un message à une *file d’attente ou à une rubrique de transfert*. Celle-ci déplace immédiatement le message vers la file d’attente ou rubrique de destination prévue suivant une implémentation de transfert fiable (sur laquelle repose également la fonctionnalité de transfert automatique). Le message n’est jamais validé dans le journal de la file d’attente ou de la rubrique de transfert de façon à devenir accessible aux consommateurs de la file d’attente ou rubrique de transfert.
 
-La puissance de cette fonctionnalité transactionnelle devient évidente lorsque la file d’attente de transfert elle-même est la source des messages d’entrée de l’expéditeur. En d’autres termes, Service Bus peut transférer le message vers la file d’attente de destination « via » la file d’attente de transfert, tout en effectuant une opération d’exécution (ou une opération de report ou de lettre morte) sur le message d’entrée, en une opération atomique. 
+La puissance de cette fonctionnalité transactionnelle se révèle lorsque la file d’attente ou la rubrique de transfert est elle-même la source des messages d’entrée de l’expéditeur. En d’autres termes, Service Bus peut transférer le message à la file d’attente ou à la rubrique de destination « via » la file d’attente ou rubrique de transfert, tout en effectuant une opération d’exécution complète (ou différée ou de lettres mortes) sur le message d’entrée, en une seule opération atomique. 
 
 ### <a name="see-it-in-code"></a>Apparence dans le code
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980474"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913022"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
 
@@ -101,7 +101,7 @@ Tout d’abord, l’interaction entre les deux gabarits est améliorée
 
 Ensuite, des informations supplémentaires sur les menaces s’affichent dans la fenêtre Propriétés de la menace
 
-![Informations d’interaction](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![Capture d’écran de la fenêtre Propriétés de la menace, qui contient le titre, la catégorie, la description, l’interaction et la priorité](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 La menace générée lui permet de comprendre les failles potentielles de la conception. La catégorisation STRIDE lui donne une idée des vecteurs d’attaque potentiels, tandis que la description supplémentaire lui indique exactement ce qui est incorrect, ainsi que des méthodes possibles pour l’atténuer. Il peut utiliser des champs modifiables pour écrire des commentaires dans les détails de la justification ou modifier des classements de priorité en fonction de la barre de bogues de son organisation.
 
@@ -118,7 +118,7 @@ Les menaces non applicables à la conception en raison des atténuations existan
 
 Ricardo parcourt la liste avec Cristina et ajoute des remarques importantes, des atténuations /justifications, des modifications de la priorité et de l’état, il sélectionne Rapports -> Créer un rapport complet -> Enregistrer le rapport, qui imprime un rapport intéressant pour lui permettre de collaborer avec ses collègues et garantir la mise en œuvre d’un travail correctement sécurisé.
 
-![Informations d’interaction](./media/threat-modeling-tool-feature-overview/report.png)
+![Capture d’écran d’un rapport Threat Modeling représentatif](./media/threat-modeling-tool-feature-overview/report.png)
 
 Si Ricardo souhaite partager le fichier à la place, il peut facilement le faire en enregistrant le compte OneDrive de son organisation. Une fois cela fait, il peut copier le lien du document et le partager avec ses collègues. 
 

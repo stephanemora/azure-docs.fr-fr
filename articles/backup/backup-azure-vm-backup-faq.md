@@ -4,12 +4,12 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172829"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925575"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -76,6 +76,10 @@ Oui. Vous pouvez annuler un travail de sauvegarde dont la **prise de l’instant
 Si vous verrouillez le groupe de ressources créé par le service Sauvegarde Azure, les sauvegardes échoueront, car il existe une limite maximale de 18 points de restauration.
 
 Supprimez le verrou et effacez la collection de points de restauration de ce groupe de ressources pour que les futures sauvegardes réussissent. [Procédez comme suit](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) pour supprimer la collection de points de restauration.
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>J’ai un verrou au niveau du groupe de ressources qui contient toutes les ressources associées à ma machine virtuelle. Ma sauvegarde fonctionnera-t-elle ?
+
+La Sauvegarde Azure crée un groupe de ressources distinct au format `AzureBackupRG_<geo>_<number>` pour stocker les objets ResourcePointCollections. Étant donné que ce groupe de ressources est détenu par un service, le verrouillage entraînera l’échec des sauvegardes. Les verrous ne peuvent être appliqués qu’aux groupes de ressources créés par le client.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Le service Sauvegarde Microsoft Azure prend-il en charge les disques managés SSD standard ?
 

@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669936"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286212"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -33,7 +33,7 @@ Cet article est axé sur les restrictions liées au locataire pour Microsoft 36
 
 La solution comprend les composants suivants :
 
-1. **Azure AD**  : si le paramètre `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés.
+1. **Azure AD**  : si l’en-tête `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés.
 
 2. **Infrastructure de serveur proxy locale** : cette infrastructure est un appareil proxy capable d’inspection TLS (Transport Layer Security). Vous devez configurer le serveur proxy pour insérer l’en-tête contenant la liste des locataires autorisés dans le trafic destiné à Azure AD.
 
@@ -63,7 +63,7 @@ La configuration suivante est nécessaire pour activer les restrictions liées a
 
 - Les clients doivent approuver la chaîne de certificat présentée par le proxy pour les communications TLS. Par exemple, si des certificats d’une [infrastructure à clé publique](/windows/desktop/seccertenroll/public-key-infrastructure) interne sont utilisés, le certificat d’autorité de certificat racine émetteur interne doit être approuvé.
 
-- Cette fonctionnalité est comprise dans les abonnements Microsoft 365, mais si vous souhaitez utiliser les restrictions liées au locataire pour contrôler l’accès à d’autres applications SaaS, vous aurez besoin de licences Premium 1 Azure AD.
+- Des licences Azure AD Premium 1 sont requises pour l’utilisation de restrictions de locataire. 
 
 #### <a name="configuration"></a>Configuration
 

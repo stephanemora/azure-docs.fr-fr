@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636117"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233948"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Fonctions de transformation dans le flux de données de wrangling
 
@@ -25,7 +25,7 @@ Le flux de données de wrangling dans Azure Data Factory vous permet d’effectu
 
 Actuellement, toutes les fonctions Power Query M ne sont pas prises en charge pour le rassemblement de données brutes à l’analyse, bien qu’elles soient disponibles pendant la création. Lors de la génération de vos flux de données de wrangling, le message d’erreur suivant s’affiche si une fonction n’est pas prise en charge :
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 Voici une liste des fonctions Power Query M prises en charge.
 
@@ -76,7 +76,7 @@ Les fonctions M suivantes ajoutent ou transforment les colonnes : [Table.AddCol
 
 Utilisez [Table.Group](/powerquery-m/table-group) pour agréger des valeurs.
 * Doit être utilisé avec une fonction d’agrégation
-* Fonctions d’agrégation prises en charge :   [Table.RowCount](/powerquery-m/table-rowcount), [List.Sum](/powerquery-m/list-sum), [List.Count](/powerquery-m/list-count), [List.Average](/powerquery-m/list-average), [List.Min](/powerquery-m/list-min), [List.Max](/powerquery-m/list-max), [List.StandardDeviation](/powerquery-m/list-standarddeviation), [List.First](/powerquery-m/list-first), [List.Last](/powerquery-m/list-last)
+* Fonctions d’agrégation prises en charge :   [List.Sum](/powerquery-m/list-sum), [List.Count](/powerquery-m/list-count), [List.Average](/powerquery-m/list-average), [List.Min](/powerquery-m/list-min), [List.Max](/powerquery-m/list-max), [List.StandardDeviation](/powerquery-m/list-standarddeviation), [List.First](/powerquery-m/list-first) et [List.Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Tri
 
@@ -96,7 +96,7 @@ Conserver et supprimer les premiers éléments, Conserver la plage (fonctions M 
 | Table.NestedJoin | Effectuer une simple jointure entraînera une erreur de validation. Les colonnes doivent être développées pour que l’opération fonctionne. |
 | Table.Distinct | La suppression des lignes en double n’est pas prise en charge. |
 | Table.RemoveLastN | La suppression des lignes du bas n’est pas prise en charge. |
-| Table.RowCount | Non pris en charge, mais peut être obtenu en ajoutant une colonne avec des cellules vides (la colonne de condition peut être utilisée) et en utilisant l’option Regrouper par sur cette colonne. Table.Group est pris en charge. | 
+| Table.RowCount | Non pris en charge, mais peut être obtenu en ajoutant une colonne personnalisée contenant la valeur 1, puis en agrégeant cette colonne avec List.Sum. Table.Group est pris en charge. | 
 | Gestion des erreurs au niveau des lignes | La gestion des erreurs au niveau des lignes n’est pas prise en charge actuellement. Par exemple, pour exclure les valeurs non numériques d’une colonne, une méthode consiste à transformer la colonne de texte en nombre. Les cellules qui ne peuvent pas être transformées sont dans un état d’erreur et doivent être filtrées. Ce scénario n’est pas possible dans les flux de wrangling data. |
 | Table.Transpose | Non pris en charge |
 | Table.Pivot | Non pris en charge |

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c4e9a66e6bd6b94d8397429769d7718b3e9c555d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148115"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125204"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](./overview.md) fournit des fonctionnalités de supervision intégrées pour les applications web, mobiles et d’API dans le [portail Azure](https://portal.azure.com).
@@ -25,9 +25,9 @@ Les applications hébergées dans App Service sont soumises à certaines limites
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Si l’application est hébergée dans un plan *Gratuit* ou *Partagé*, les limites relatives aux ressources utilisables par l’application sont définies sous la forme de quotas.
+Si l’application est hébergée dans un plan *Gratuit* ou *Partagé* , les limites relatives aux ressources utilisables par l’application sont définies sous la forme de quotas.
 
-Si l’application est hébergée dans un plan *De base*, *Standard* ou *Premium*, les limites applicables aux ressources que l’application peut utiliser sont définies par la *taille* (Petite, Moyenne, Grande) et par le *nombre d’instances* (1, 2, 3, et ainsi de suite) du plan App Service.
+Si l’application est hébergée dans un plan *De base* , *Standard* ou *Premium* , les limites applicables aux ressources que l’application peut utiliser sont définies par la *taille* (Petite, Moyenne, Grande) et par le *nombre d’instances* (1, 2, 3, et ainsi de suite) du plan App Service.
 
 Les quotas des applications gratuites ou partagées sont les suivants :
 
@@ -39,13 +39,13 @@ Les quotas des applications gratuites ou partagées sont les suivants :
 | **Bande passante** | Quantité totale de bande passante sortante autorisée pour cette application sur une journée. Ce quota se réinitialise toutes les 24 heures à minuit en temps universel coordonné. |
 | **Système de fichiers** | Quantité totale de stockage autorisée. |
 
-Le seul quota applicable aux applications hébergées dans *De base*, *Standard* et *Premium* est Système de fichiers.
+Le seul quota applicable aux applications hébergées dans *De base* , *Standard* et *Premium* est Système de fichiers.
 
 Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, consultez [Limites du service d’abonnement Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Application de quotas
 
-Si une application dépasse le quota *Temps UC (court)* , *Temps UC (jour)* ou *Bande passante*, l’application est arrêtée jusqu’à la réinitialisation du quota. Pendant ce laps de temps, toutes les requêtes entrantes donnent lieu à une erreur HTTP 403.
+Si une application dépasse le quota *Temps UC (court)* , *Temps UC (jour)* ou *Bande passante* , l’application est arrêtée jusqu’à la réinitialisation du quota. Pendant ce laps de temps, toutes les requêtes entrantes donnent lieu à une erreur HTTP 403.
 
 ![Message d’erreur 403][http403]
 
@@ -87,6 +87,7 @@ Pour une application, les métriques disponibles sont les suivantes :
 | **Garbage collections de génération 1** | Nombre de fois que les objets de génération 1 ont été récupérés par le Garbage Collector depuis le début du processus d’application. Les garbage collections de génération supérieure comprennent toutes celles de génération inférieure.|
 | **Garbage collections de génération 2** | Nombre de fois que les objets de génération 2 ont été récupérés par le Garbage Collector depuis le début du processus d’application.|
 | **Nombre de descripteurs** | Nombre total de handles actuellement ouverts par le processus d’application.|
+| **État de contrôle d’intégrité** | État d’intégrité moyen de l’ensemble des instances d’application au sein du plan App Service.|
 | **Http 2xx** | Nombre de requêtes donnant lieu à un code d’état HTTP ≥ 200, mais < 300. |
 | **Http 3xx** | Nombre de requêtes donnant lieu à un code d’état HTTP ≥ 300, mais < 400. |
 | **Http 401** | Nombre de requêtes donnant lieu à un code d’état HTTP 401. |
@@ -113,7 +114,7 @@ Pour une application, les métriques disponibles sont les suivantes :
 Pour un plan App Service, les métriques disponibles sont les suivantes :
 
 > [!NOTE]
-> Les métriques du plan App Service sont disponibles uniquement pour les niveaux *De base*, *Standard* et *Premium*.
+> Les métriques du plan App Service sont disponibles uniquement pour les niveaux *De base* , *Standard* et *Premium*.
 > 
 
 | Métrique | Description |
@@ -130,9 +131,9 @@ Pour un plan App Service, les métriques disponibles sont les suivantes :
 
 Deux métriques reflètent l’utilisation du processeur  :
 
-**Temps processeur** : Utile pour les applications hébergées dans un plan Gratuit ou Partagé, car l’un des quotas de ces applications est défini en minutes de processeur utilisées par l’application.
+**Temps processeur**  : Utile pour les applications hébergées dans un plan Gratuit ou Partagé, car l’un des quotas de ces applications est défini en minutes de processeur utilisées par l’application.
 
-**Pourcentage processeur** : Utile pour les applications hébergées dans des plans De base, Standard et Premium qui peuvent faire l’objet d’un scale-out. Le pourcentage CPU est une bonne indication de l’utilisation globale de toutes les instances.
+**Pourcentage processeur**  : Utile pour les applications hébergées dans des plans De base, Standard et Premium qui peuvent faire l’objet d’un scale-out. Le pourcentage CPU est une bonne indication de l’utilisation globale de toutes les instances.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularité des métriques et stratégie de conservation
 Les métriques d’une application et d’un plan App Service sont consignées et agrégées par le service et [conservées conformément à ces règles](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).

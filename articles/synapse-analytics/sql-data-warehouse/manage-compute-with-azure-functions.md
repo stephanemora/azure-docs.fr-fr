@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259949"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043357"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans un pool SQL Azure Synapse Analytics
 
@@ -97,9 +97,9 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
 
 1. Créez une nouvelle fonction vide. Sélectionnez le bouton *+* proche de l’emplacement de votre fonction pour faire apparaître le volet de modèle de fonction.
 
-   ![Créer une fonction](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![Capture d’écran du menu « Applications de fonction » avec l’icône « Plus » à côté de « Fonctions » sélectionnée](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Sous Langage, sélectionnez *JavaScript*, puis *TimerTrigger*.
+2. Sous Langage, sélectionnez *JavaScript* , puis *TimerTrigger*.
 
    ![Créer une fonction](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 

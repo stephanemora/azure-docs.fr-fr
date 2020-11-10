@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164820"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043114"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -107,13 +107,13 @@ Dans JavaScript, les [liaisons](functions-triggers-bindings.md) sont configurée
 
 ### <a name="inputs"></a>Entrées
 Les entrées sont réparties en deux catégories dans Azure Functions : l’une correspond à l’entrée du déclencheur et l’autre, à l’entrée supplémentaire. Le déclencheur et autres liaisons d’entrée (liaisons de `direction === "in"`) peuvent être lus par une fonction de trois façons :
- - **_[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json* . La propriété `name` définie dans *function.json* n’a pas besoin de correspondre au nom de votre paramètre, même si c’est conseillé.
+ - **_[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. La propriété `name` définie dans *function.json* n’a pas besoin de correspondre au nom de votre paramètre, même si c’est conseillé.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **En tant que membres de l’objet [`context.bindings`](#contextbindings-property).** Chaque membre est nommé par la propriété `name` définie dans *function.json* .
+ - **En tant que membres de l’objet [`context.bindings`](#contextbindings-property).** Chaque membre est nommé par la propriété `name` définie dans *function.json*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Une fonction peut écrire des données dans les sorties (liaisons de `direction 
 
 Vous pouvez assigner des données aux liaisons de sortie de l’une des manières suivantes (ne combinez pas ces méthodes) :
 
-- **_[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez une fonction de retour async/Promise, vous pouvez retourner un objet avec des données de sortie assignées. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json* .
+- **_[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez une fonction de retour async/Promise, vous pouvez retourner un objet avec des données de sortie assignées. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -294,7 +294,7 @@ Vous permet d’écrire dans les journaux d’activité de fonction de streaming
 
 ## <a name="write-trace-output-to-logs"></a>Écrire la sortie de trace dans les journaux
 
-Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans les journaux et la console. Lorsque vous appelez `context.log()`, votre message est écrit dans les journaux au niveau de trace par défaut, qui est le niveau de trace d’ _informations_ . Functions s’intègre à Azure Application Insights pour mieux capturer les journaux de vos applications de fonction. Application Insights, qui fait partie de Azure Monitor, fournit des fonctionnalités pour la collecte, le rendu visuel et l’analyse des données de télémétrie d’application et de vos sorties de trace. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
+Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans les journaux et la console. Lorsque vous appelez `context.log()`, votre message est écrit dans les journaux au niveau de trace par défaut, qui est le niveau de trace d’ _informations_. Functions s’intègre à Azure Application Insights pour mieux capturer les journaux de vos applications de fonction. Application Insights, qui fait partie de Azure Monitor, fournit des fonctionnalités pour la collecte, le rendu visuel et l’analyse des données de télémétrie d’application et de vos sorties de trace. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
 L’exemple suivant écrit un journal au niveau de la trace des informations, y compris l’ID d’appel :
 
@@ -358,7 +358,7 @@ Utilisez la propriété `tracing.consoleLevel` dans le fichier host.json pour d�
 }  
 ```
 
-Les valeurs de **consoleLevel** correspondent aux noms des méthodes `context.log`. Pour désactiver toutes les journalisations de trace dans la console, définissez **consoleLevel** sur _désactivé_ . Pour plus d’informations, consultez l’article de référence sur [host.json v1.x](functions-host-json-v1.md).
+Les valeurs de **consoleLevel** correspondent aux noms des méthodes `context.log`. Pour désactiver toutes les journalisations de trace dans la console, définissez **consoleLevel** sur _désactivé_. Pour plus d’informations, consultez l’article de référence sur [host.json v1.x](functions-host-json-v1.md).
 
 ---
 
@@ -545,12 +545,12 @@ Vous pouvez installer des packages sur votre application de fonction de deux fa�
 ### <a name="using-kudu"></a>Utilisation de Kudu
 1. Atteindre `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Cliquez sur **Console de débogage** > **CMD** .
+2. Cliquez sur **Console de débogage** > **CMD**.
 
 3. Accédez à `D:\home\site\wwwroot`, puis faites glisser le fichier package.json vers le dossier **wwwroot** dans la partie supérieure de la page.  
     Il existe d’autres manières de télécharger des fichiers dans votre Function App. Pour plus d’informations, consultez [Comment mettre à jour les fichiers du conteneur de fonctions](functions-reference.md#fileupdate). 
 
-4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu** .  
+4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu**.  
     Les packages d’actions indiqués dans le fichier package.json sont téléchargés et Function App redémarre.
 
 ## <a name="environment-variables"></a>Variables d'environnement

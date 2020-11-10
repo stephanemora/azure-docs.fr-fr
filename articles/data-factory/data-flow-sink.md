@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891350"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147223"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -72,6 +72,23 @@ La vidéo suivant explique un certain nombre d’options de récepteur pour les 
 **Utiliser TempDB :** Par défaut, Data Factory utilise une table temporaire globale pour stocker des données dans le cadre du processus de chargement. Vous pouvez également désélectionner l’option « Utiliser TempDB » et demander à Data Factory de stocker la table d’hébergement temporaire dans une base de données utilisateur qui se trouve dans la base de données utilisée pour ce récepteur.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>Récepteur de cache
+ 
+Un *récepteur de cache* existe lorsqu’un flux de données écrit des données dans le cache Spark et non dans un magasin de données. Dans les flux de données de mappage, vous pouvez référencer ces données à la fois dans le même flux à l’aide d’une *recherche dans le cache*. Cela est utile lorsque vous souhaitez référencer des données dans le cadre d’une expression, mais que vous ne souhaitez pas explicitement y joindre les colonnes. La recherche d’une valeur maximale dans un magasin de données et la mise en correspondance des codes d’erreur avec une base de données de messages d’erreur sont des situations courantes dans lesquelles un récepteur de cache peut être utile. 
+
+Pour écrire dans un récepteur de cache, ajoutez une transformation de récepteur et sélectionnez **Cache** comme type de récepteur. Contrairement à d’autres types de récepteurs, vous ne devez pas sélectionner un jeu de données ou un service lié, car vous n’écrivez pas dans un magasin externe. 
+
+![Sélectionner le récepteur de cache](media/data-flow/select-cache-sink.png "Sélectionner le récepteur de cache")
+
+Dans les paramètres du récepteur, vous pouvez éventuellement spécifier les colonnes clés du récepteur de cache. Elles sont utilisées comme conditions de correspondance lors de l’utilisation de la fonction `lookup()` dans une recherche dans le cache. Si vous spécifiez des colonnes clés, vous ne pouvez pas utiliser la fonction `outputs()` dans une recherche dans le cache. Pour en savoir plus sur la syntaxe de recherche dans le cache, consultez [recherches mises en cache](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Colonnes clés du récepteur de cache](media/data-flow/cache-sink-key-columns.png "Colonnes clés du récepteur de cache")
+
+Par exemple, si je spécifie une seule colonne clé de `column1` dans un récepteur de cache appelé `cacheExample`, l’appel de `cacheExample#lookup()` aurait un paramètre spécifiant la ligne à laquelle le récepteur de cache doit correspondre. La fonction génère une colonne complexe unique avec des sous-colonnes pour chaque colonne mappée.
+
+> [!NOTE]
+> Un récepteur de cache doit se trouver dans un flux de données complètement indépendant de toute transformation qui y fait référence par le biais d’une recherche dans le cache. Un récepteur de cache doit également être le premier récepteur écrit. 
 
 ## <a name="field-mapping"></a>Mappages de champs
 

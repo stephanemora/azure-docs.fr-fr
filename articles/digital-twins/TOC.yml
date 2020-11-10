@@ -61,8 +61,8 @@
       items:
         - name: Gérer des modèles personnalisés
           href: how-to-manage-model.md
-        - name: Convertir des modèles standard
-          href: how-to-convert-models.md
+        - name: Intégrer des modèles standard du secteur
+          href: how-to-integrate-models.md
         - name: Analyser et valider les modèles
           href: how-to-parse-models.md
         - name: Ajouter des étiquettes
@@ -143,7 +143,7 @@
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: Kit SDK .NET (C#) - source
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
-            - name: Kit de développement logiciel (SDK) Java
+            - name: Kit SDK Java - Maven
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
             - name: Kit de développement logiciel (SDK) Java - référence
               href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
@@ -153,11 +153,11 @@
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: Kit SDK JavaScript - source
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins'
-            - name: Kit de développement logiciel (SDK) Python
+            - name: Kit SDK Python - PyPi
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: Kit SDK Python - source
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
-            - name: Kit de développement logiciel (SDK) Go
+            - name: Kit SDK Go - GoDoc
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
             - name: Go - source
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
@@ -174,17 +174,19 @@
             - name: Kit SDK Java - Maven
               href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar'
             - name: Kit de développement logiciel (SDK) Java - référence
-              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
+              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
             - name: Kit SDK Java - source
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: Kit SDK JavaScript - npm
               href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: Kit SDK JavaScript - référence
-              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
             - name: Kit SDK JavaScript - source
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Kit SDK Python - PyPi
-              href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+              href: 'https://pypi.org/project/azure-digitaltwins-core/'
+            - name: Kit SDK Python - référence
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
             - name: Kit SDK Python - source
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: Interface CLI Digital Twins

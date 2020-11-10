@@ -1,37 +1,46 @@
 ---
-title: Sécurité Entreprise avec Azure AD DS – Azure HDInsight
-description: Découvrez comment configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services.
+title: Configurer des clusters pour l’intégration à Active Directory
+titleSuffix: Azure HDInsight
+description: Découvrez comment configurer un cluster HDInsight intégré à Active Directory en utilisant Azure Active Directory Domain Services et la fonctionnalité Pack Sécurité Entreprise.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seodec18,seoapr2020
-ms.date: 04/17/2020
-ms.openlocfilehash: 7792ac688ede32155ec32e1f4ba25b328102f86c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18,seoapr2020, contperfq2
+ms.date: 10/30/2020
+ms.openlocfilehash: ed2ce13ab10c09dc738e522566742078819e8341
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079834"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148386"
 ---
-# <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Configuration d’un Pack Sécurité Entreprise avec Azure Active Directory Domain Services dans HDInsight
+# <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Configurer des clusters HDInsight pour l’intégration à Active Directory avec le Pack Sécurité Entreprise
 
-Les clusters Pack Sécurité Entreprise (ESP) offrent un accès multi-utilisateur sur les clusters Azure HDInsight. Les clusters HDInsight avec ESP sont connectés à un domaine. Cette connexion permet aux utilisateurs du domaine d’utiliser leurs informations d’identification de domaine pour s’authentifier auprès des clusters et d’exécuter des tâches de Big Data.
+Dans cet article, vous allez découvrir comment créer et configurer un cluster HDInsight intégré à Active Directory en utilisant une fonctionnalité appelée Pack Sécurité Entreprise (ESP), Azure Active Directory Domain Services (Azure AD-DS) et votre annuaire Active Directory local existant.
 
-Dans cet article, vous allez apprendre à configurer un cluster HDInsight avec ESP en utilisant Azure Active Directory Domain Services (Azure AD DS).
+Si vous recherchez un tutoriel sur l’installation et la configuration d’un domaine dans Azure et la création d’un cluster compatible ESP, consultez [Créer et configurer des clusters Pack Sécurité Entreprise dans Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
+
+## <a name="background"></a>Arrière-plan
+
+Pack Sécurité Entreprise (ESP) fournit l’intégration à Active Directory pour Azure HDInsight. Cette intégration permet aux utilisateurs du domaine d’utiliser leurs informations d’identification de domaine pour s’authentifier auprès des clusters HDInsight et d’exécuter des tâches de Big Data.
 
 > [!NOTE]  
 > La protection ESP est généralement disponible dans HDInsight 3.6 et 4.0 pour les types de clusters suivants : Apache Spark, Interactive, Hadoop et HBase. Le type de cluster ESP pour Apache Kafka est en préversion et ne bénéficie que d’une prise en charge au mieux. Les clusters ESP créés avant la date de disponibilité générale ESP (1er octobre 2018) ne sont pas pris en charge.
 
-## <a name="enable-azure-ad-ds"></a>Activer Azure AD DS
+## <a name="prerequisites"></a>Prérequis
 
-> [!NOTE]  
-> Seuls les administrateurs de locataires disposent des privilèges pour activer Azure AD DS. Si l’espace de stockage en cluster correspond à Azure Data Lake Storage Gen1 ou Gen2, vous ne devez désactiver Azure Multi-Factor Authentication que pour les utilisateurs qui accèdent au cluster à l’aide d’une authentification Kerberos de base.
->
-> Vous pouvez utiliser des [adresses IP approuvées](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) ou l’[accès conditionnel](../../active-directory/conditional-access/overview.md) afin de désactiver l’authentification multifacteur pour des utilisateurs spécifiques, *seulement* quand ils accèdent à la plage d’adresses IP du réseau virtuel du cluster HDInsight. Si vous utilisez l’accès conditionnel, vérifiez que le point de terminaison de service Active Directory est activé sur le réseau virtuel HDInsight.
->
-> Si l’espace de stockage en cluster correspond au stockage Blob Azure, ne désactivez pas l’authentification multifacteur.
+Quelques conditions préalables doivent être remplies pour pouvoir créer un cluster HDInsight compatible ESP :
+
+- Activez Azure AD-DS.
+- Vérifiez l’état d’intégrité d’Azure AD-DS pour vous assurer que la synchronisation est terminée.
+- Créez et autorisez une identité managée.
+- Effectuez la configuration de la mise en réseau pour le DNS et les problèmes connexes.
+
+Chacun de ces éléments sera traité en détail ci-dessous.
+
+### <a name="enable-azure-ad-ds"></a>Activer Azure AD DS
 
 L’activation d’Azure AD DS est une condition préalable à la création d’un cluster HDInsight avec ESP. Pour plus d’informations, consultez [Activer Azure Active Directory Domain Services à l’aide du Portail Azure](../../active-directory-domain-services/tutorial-create-instance.md).
 
@@ -41,7 +50,7 @@ Le nom de domaine que vous utilisez avec Azure AD DS doit comporter 39 caract�
 
 Vous pouvez choisir de synchroniser uniquement les groupes qui ont besoin d’accéder aux clusters HDInsight. Cette option de synchroniser uniquement certains groupes est appelée *synchronisation délimitée*. Pour obtenir des instructions, consultez [Configurer la synchronisation étendue depuis Azure AD vers votre domaine managé](../../active-directory-domain-services/scoped-synchronization.md).
 
-Lorsque vous activez le protocole LDAP sécurisé, indiquez le nom de domaine dans le nom de l’objet, et l’autre nom de l’objet dans le certificat. Si votre nom de domaine est *contoso100.onmicrosoft.com*, assurez-vous que ce nom exact existe dans le nom de l’objet et l’autre nom de l’objet de votre certificat. Pour plus d’informations, consultez [Configurer le protocole LDAP sécurisé pour un domaine managé Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md).
+Lorsque vous activez le protocole LDAP sécurisé, indiquez le nom de domaine dans le nom de l’objet, et l’autre nom de l’objet dans le certificat. Si votre nom de domaine est *contoso100.onmicrosoft.com* , assurez-vous que ce nom exact existe dans le nom de l’objet et l’autre nom de l’objet de votre certificat. Pour plus d’informations, consultez [Configurer le protocole LDAP sécurisé pour un domaine managé Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
 L’exemple suivant crée un certificat auto-signé. Le nom de domaine *contoso100.onmicrosoft.com* figure à la fois dans `Subject` (nom de l’objet) et `DnsName` (autre nom de l’objet).
 
@@ -52,13 +61,20 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.onmicrosoft.com, contoso100.onmicrosoft.com
 ```
 
-## <a name="check-azure-ad-ds-health-status"></a>Vérifier l’état d’intégrité d’Azure AD DS
+> [!NOTE]  
+> Seuls les administrateurs de locataires disposent des privilèges pour activer Azure AD DS. Si l’espace de stockage en cluster correspond à Azure Data Lake Storage Gen1 ou Gen2, vous ne devez désactiver Azure Multi-Factor Authentication que pour les utilisateurs qui accèdent au cluster à l’aide d’une authentification Kerberos de base.
+>
+> Vous pouvez utiliser des [adresses IP approuvées](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) ou l’ [accès conditionnel](../../active-directory/conditional-access/overview.md) afin de désactiver l’authentification multifacteur pour des utilisateurs spécifiques, *seulement* quand ils accèdent à la plage d’adresses IP du réseau virtuel du cluster HDInsight. Si vous utilisez l’accès conditionnel, vérifiez que le point de terminaison de service Active Directory est activé sur le réseau virtuel HDInsight.
+>
+> Si l’espace de stockage en cluster correspond au stockage Blob Azure, ne désactivez pas l’authentification multifacteur.
+
+### <a name="check-azure-ad-ds-health-status"></a>Vérifier l’état d’intégrité d’Azure AD DS
 
 Affichez l’état d’intégrité d’Azure Active Directory Domain Services en sélectionnant **Intégrité** dans la catégorie **Gérer**. Assurez-vous que l’état d’Azure AD DS est vert (en cours d’exécution) et que la synchronisation est terminée.
 
 ![Intégrité d’Azure AD DS](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-## <a name="create-and-authorize-a-managed-identity"></a>Créer et autoriser une identité managée
+### <a name="create-and-authorize-a-managed-identity"></a>Créer et autoriser une identité managée
 
 Utilisez une *identité managée attribuée à l’utilisateur* pour simplifier les opérations sécurisées de services de domaine. Lorsque vous affectez le rôle **Contributeur des services de domaine HDInsight** à l’identité managée, il peut lire, créer, modifier et supprimer des opérations de services de domaine.
 
@@ -78,7 +94,7 @@ Par exemple, l’administrateur Azure AD DS peut attribuer ce rôle au groupe *
 
 ![Attribution du rôle Opérateur d'identité managée HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
-## <a name="network-considerations"></a>Considérations relatives au réseau
+### <a name="network-configuration"></a>Configuration réseau
 
 > [!NOTE]  
 > Azure AD DS doit être déployé dans un réseau virtuel basé sur Azure Resource Manager. Les réseaux virtuels classiques ne sont pas pris en charge pour Azure AD DS. Pour plus d’informations, consultez [Activer Azure Active Directory Domain Services à l’aide du Portail Azure](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network).
@@ -87,7 +103,7 @@ Activez Azure AD DS. Un serveur DNS (Domain Name System) local s’exécute alor
 
 ![Rechercher les adresses IP des serveurs DNS locaux](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
-Modifiez la configuration des serveurs DNS dans le réseau virtuel Azure AD DS. Pour utiliser ces adresses IP personnalisées, sélectionnez **Serveurs DNS** dans la catégorie **Paramètres**. Sélectionnez ensuite l’option **Personnalisé**, entrez la première adresse IP dans la zone de texte, puis sélectionnez **Enregistrer**. Ajoutez des adresses IP supplémentaires en suivant la même procédure.
+Modifiez la configuration des serveurs DNS dans le réseau virtuel Azure AD DS. Pour utiliser ces adresses IP personnalisées, sélectionnez **Serveurs DNS** dans la catégorie **Paramètres**. Sélectionnez ensuite l’option **Personnalisé** , entrez la première adresse IP dans la zone de texte, puis sélectionnez **Enregistrer**. Ajoutez des adresses IP supplémentaires en suivant la même procédure.
 
 ![Mise à jour de la configuration DNS du réseau virtuel](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
@@ -120,11 +136,11 @@ Après l’activation d’ESP, les erreurs de configuration courantes associées
 
 Quand vous créez un cluster HDInsight avec ESP, vous devez fournir les paramètres suivants :
 
-* **Utilisateur administrateur de cluster** : Choisissez un administrateur pour votre cluster à partir de votre instance Azure AD DS synchronisée. Ce compte de domaine doit être déjà synchronisé et disponible dans Azure AD DS.
+* **Utilisateur administrateur de cluster**  : Choisissez un administrateur pour votre cluster à partir de votre instance Azure AD DS synchronisée. Ce compte de domaine doit être déjà synchronisé et disponible dans Azure AD DS.
 
-* **Groupe d’accès au cluster** : Les groupes de sécurité dont vous voulez que les utilisateurs puissent avoir accès au cluster et le synchroniser doivent être disponibles dans Azure AD DS. Le groupe HiveUsers en est un exemple. Pour plus d’informations, consultez [Créer un groupe et ajouter des membres dans Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+* **Groupe d’accès au cluster**  : Les groupes de sécurité dont vous voulez que les utilisateurs puissent avoir accès au cluster et le synchroniser doivent être disponibles dans Azure AD DS. Le groupe HiveUsers en est un exemple. Pour plus d’informations, consultez [Créer un groupe et ajouter des membres dans Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* **URL LDAPS** : par exemple `ldaps://contoso.com:636`.
+* **URL LDAPS**  : par exemple `ldaps://contoso.com:636`.
 
 Vous pouvez choisir l’identité managée que vous avez créée dans la liste déroulante **Identité managée affectée par l’utilisateur** lors de la création d’un nouveau cluster.
 

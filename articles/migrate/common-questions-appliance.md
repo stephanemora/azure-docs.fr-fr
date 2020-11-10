@@ -3,12 +3,12 @@ title: Questions fréquentes (FAQ) sur l’appliance Azure Migrate
 description: Retrouvez les réponses aux questions courantes sur l’appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314777"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337589"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -42,12 +42,13 @@ L’appliance peut être déployée comme suit :
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Comment l’appliance se connecte-t-elle à Azure ?
 
-L’appliance peut se connecter via Internet ou en utilisant Azure ExpressRoute. Assurez-vous que ces [URL](./migrate-appliance.md#url-access) sont dans la liste verte pour que l’appliance se connecte à Azure.
+L’appliance peut se connecter via Internet ou en utilisant Azure ExpressRoute. 
 
-- Afin d’utiliser Azure ExpressRoute pour le trafic de réplication Azure Migrate, un Peering Microsoft ou un Peering public existant est requis (le Peering public est déconseillé pour les nouvelles créations d’ExpressRoute ).
-- La réplication sur Azure ExpressRoute avec (uniquement) le Peering privé activé n’est pas prise en charge.
+- Vérifiez que l’appliance peut se connecter à ces [URL Azure](./migrate-appliance.md#url-access). 
+- Vous pouvez utiliser Azure ExpressRoute avec le peering Microsoft.  Le peering public, déconseillé, n’est pas disponible pour les nouveaux circuits ExpressRoute.
+- Le peering privé seul n’est pas prise en charge.
 
-Azure ExpressRoute avec Peering Microsoft configuré est le domaine de routage recommandé pour le trafic de réplication.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>L’analyse de l’appliance affecte-t-elle les performances ?
 
@@ -65,8 +66,8 @@ L’appliance doit avoir accès aux URL Azure. [Examinez](migrate-appliance.md#u
 
 Pour plus d’informations sur les données recueillies par l’appliance Azure Migrate sur les machines virtuelles, consultez les articles suivants :
 
-- **Machine virtuelle VMware** : [Examinez](migrate-appliance.md#collected-data---vmware) les données collectées.
-- **Machine virtuelle Hyper-V** : [Examinez](migrate-appliance.md#collected-data---hyper-v) les données collectées.
+- **Machine virtuelle VMware**  : [Examinez](migrate-appliance.md#collected-data---vmware) les données collectées.
+- **Machine virtuelle Hyper-V**  : [Examinez](migrate-appliance.md#collected-data---hyper-v) les données collectées.
 - **Serveurs physiques ou virtuels** : [révision](migrate-appliance.md#collected-data---physical) des données collectées.
 
 ## <a name="how-is-data-stored"></a>Comment les données sont stockées ?

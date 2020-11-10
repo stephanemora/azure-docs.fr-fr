@@ -5,18 +5,18 @@ description: Description des restrictions et limitations relatives au format des
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 08/07/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: marsma, lenalepa, manrath
+ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030308"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042903"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
@@ -24,7 +24,7 @@ Un URI de redirection, ou URL de réponse, correspond à l’emplacement vers le
 
  Les restrictions suivantes s’appliquent aux URI de redirection :
 
-* L’URI de redirection doit commencer par le schéma `https`.
+* L’URI de redirection doit commencer par le schéma `https`. Il existe des [exceptions pour les URI de redirection localhost](#localhost-exceptions).
 
 * L’URI de redirection respecte la casse. Sa casse doit correspondre à celle du chemin d’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin d’accès, ne spécifiez pas `.../ABC/response-oidc` dans l’URI de redirection. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
 
@@ -64,11 +64,10 @@ Du point de vue du développement, cela signifie plusieurs choses :
 
 * N’inscrivez pas plusieurs URI de redirection quand seul le port diffère. Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de redirection (par exemple, s’il s’agit d’une redirection de type `web`, `native` ou `spa`).
 * Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://127.0.0.1/MyWebApp` ne correspond pas à `http://127.0.0.1/MyNativeApp`.
-* D’après la documentation d’aide des RFC, vous ne devez pas utiliser `localhost` dans l’URI de redirection. À la place, utilisez l’adresse IP réelle de bouclage, `127.0.0.1`. Cela empêche votre application d’être bloquée par des pare-feu mal configurés ou des interfaces réseau renommées.
+* L’adresse de bouclage IPv6 (`[::1]`) n’est pas prise en charge actuellement.
+* Pour éviter que votre application ne soit interrompue par des pare-feu mal configurés ou des interfaces réseau renommées, utilisez l’adresse IP de bouclage littérale `127.0.0.1` dans votre URI de redirection, à la place de `localhost`.
 
-    Pour utiliser le schéma `http` avec l’adresse de bouclage (127.0.0.1) au lieu de localhost, vous devez modifier le [manifeste d’application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
-
-    L’adresse de bouclage IPv6 (`[::1]`) n’est pas prise en charge actuellement.
+    Pour utiliser le schéma `http` avec l’adresse IP de bouclage littérale `127.0.0.1`, vous devez actuellement modifier l’attribut [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) dans le [manifeste de l’application](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrictions concernant les caractères génériques des URI de redirection
 
@@ -78,9 +77,9 @@ Les URI avec caractères génériques ne sont actuellement pas pris en charge da
 
 Pour ajouter des URI de redirection avec des caractères génériques aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, vous devez utiliser l’éditeur de manifeste de l’application dans [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le Portail Azure. Bien qu’il soit possible de définir un URI de redirection avec un caractère générique à l’aide de l’éditeur de manifeste, nous vous recommandons *fortement* de respecter la [section 3.1.2 de la RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) et d’utiliser uniquement des URI absolus.
 
-Si votre scénario implique plus d’URI de redirection que la limite maximale autorisée, envisagez les [approches suivantes](#use-a-state-parameter) au lieu d’ajouter un URI de redirection avec caractères génériques.
+Si votre scénario implique plus d’URI de redirection que la limite maximale autorisée, envisagez l’[approche de paramètre d’état](#use-a-state-parameter) suivante au lieu d’ajouter un URI de redirection avec caractères génériques.
 
-### <a name="use-a-state-parameter"></a>Utiliser un paramètre d’état
+#### <a name="use-a-state-parameter"></a>Utiliser un paramètre d’état
 
 Si vous avez plusieurs sous-domaines et que votre scénario implique que vous redirigiez des utilisateurs, en cas d’authentification réussie, vers la même page que celle où ils ont été démarrés, l’utilisation d’un paramètre d’état peut être utile.
 

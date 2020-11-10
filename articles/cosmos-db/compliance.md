@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a013e07ada0ba88b20598c23f706eb5ee71d49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83747363"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073061"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformité dans Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est disponible dans toutes les régions Azure. Microsoft met cinq environnements cloud Azure distincts à disposition des clients :
 
-* Le cloud **public Azure**, qui est disponible dans le monde entier.
+* Le cloud **public Azure** , qui est disponible dans le monde entier.
 
 * **Azure China 21Vianet** est disponible via un partenariat unique entre Microsoft et 21Vianet, l’un des fournisseurs Internet les plus importants du pays.
 
@@ -47,12 +48,12 @@ Azure Cosmos DB étend en permanence sa couverture de certification. Actuellemen
 | ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
-Pour en savoir plus sur chacune de ces offres de conformité et pour découvrir en quoi elles peuvent vous être utiles, consultez la page [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+Pour plus d’informations sur chacune de ces offres de conformité et leurs avantages, consultez [Offres de conformité Microsoft Azure](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) (annexes A et B).
 
 Le tableau suivant répertorie les certifications prises en charge par Azure Cosmos DB dans Azure Government :
 
 | **Applicable globalement** | **Gouvernement américain** | **Propre à un secteur** | 
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Certification CSA STAR | CJIS| HIPAA BAA | 
 | Attestation CSA STAR| DoD SRG Niveau 2| HITRUST  | 
 | ISO 20000-1:2011 | DoD SRG Niveau 4 | PCI DSS | 
@@ -68,8 +69,14 @@ Le tableau suivant répertorie les certifications prises en charge par Azure Cos
 
 Pour en savoir plus sur les certifications de conformité Azure, consultez les articles suivants :
 
-* Pour connaître les certifications de conformité les plus récentes pour Azure Cosmos DB, consultez la page [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).  
+* Pour connaître les dernières certifications de conformité d’Azure Cosmos DB, consultez [Offres de conformité Microsoft Azure](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) (annexes A et B).  
 
-* Pour obtenir une vue d’ensemble de la sécurité Azure Cosmos DB et des dernières améliorations, consultez l’article [Sécurité de la base de données Azure Cosmos](database-security.md).
+* Pour une vue d’ensemble de la sécurité Azure Cosmos DB et des dernières améliorations, consultez [Sécurité des bases de données Azure Cosmos](database-security.md).
+
+* Pour obtenir des recommandations visant à améliorer l’état de la sécurité de votre déploiement Azure Cosmos DB, consultez [Base de référence de sécurité Azure Cosmos DB](security-baseline.md). 
 
 * Pour plus d’informations sur les certifications Microsoft, consultez le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/).
+
+* Pour plus d’informations sur la conformité FedRAMP, consultez [Services Azure par FedRAMP et étendue d’audit DoD CC SRG](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+
+* Pour plus d’informations sur la conformité DoD, consultez [Offres de conformité DoD](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide).

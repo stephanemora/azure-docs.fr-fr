@@ -3,12 +3,12 @@ title: Configurer l’analyse des dépendances sans agent dans l’outil d’év
 description: Configurez l’analyse des dépendances sans agent dans l’outil d’évaluation de serveur Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667467"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337691"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analyser les dépendances des machines (sans agent)
 
@@ -25,7 +25,7 @@ Cet article explique comment configurer l’analyse des dépendances sans agent 
 
 - Dans la vue d’analyse des dépendances, actuellement vous ne pouvez pas ajouter ou supprimer de serveur dans un groupe.
 - Aucune carte des dépendances pour un groupe de serveurs n’est disponible actuellement.
-- La collecte des données de dépendance peut être configurée pour 1 000 serveurs simultanément. Vous pouvez analyser un plus grand nombre de serveurs par un séquençage en lots de 1 000.
+- Dans un projet Azure Migrate, la collecte de données de dépendance peut être configurée pour 1 000 serveurs simultanément. Vous pouvez analyser un plus grand nombre de serveurs par un séquençage en lots de 1 000.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -48,8 +48,8 @@ Ajoutez le compte d’utilisateur à l’appliance.
 
 1. Ouvrez l’application de gestion de l’appliance. 
 2. Accédez au panneau **Fournir les détails de vCenter**.
-3. Dans **Découvrir l’application et les dépendances sur les machines virtuelles**, cliquez sur **Ajouter les informations d’identification**.
-3. Choisissez le **système d’exploitation**, fournissez un nom convivial pour le compte, puis le **nom d’utilisateur**/**mot de passe**.
+3. Dans **Découvrir l’application et les dépendances sur les machines virtuelles** , cliquez sur **Ajouter les informations d’identification**.
+3. Choisissez le **système d’exploitation** , fournissez un nom convivial pour le compte, puis le **nom d’utilisateur**/**mot de passe**.
 6. Cliquez sur **Enregistrer**.
 7. Cliquez sur **Enregistrer et démarrer la découverte**.
 
@@ -59,10 +59,10 @@ Ajoutez le compte d’utilisateur à l’appliance.
 
 Choisissez les machines sur lesquelles vous souhaitez activer la découverte de dépendance. 
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : Server Assessment** , cliquez sur **Serveurs découverts**.
 2. Cliquez sur l’icône **Analyse des dépendances**.
 3. Cliquez sur **Ajouter des serveurs**.
-4. Dans la page **Ajouter des serveurs**, choisissez l’appliance qui découvre les machines appropriées.
+4. Dans la page **Ajouter des serveurs** , choisissez l’appliance qui découvre les machines appropriées.
 5. Dans la liste des machines, opérez votre sélection.
 6. Cliquez sur **Ajouter des serveurs**.
 
@@ -72,9 +72,9 @@ Vous pouvez visualiser les dépendances environ six heures après le démarrage 
 
 ## <a name="visualize-dependencies"></a>Visualiser les dépendances
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : Server Assessment** , cliquez sur **Serveurs découverts**.
 2. Recherchez la machine que vous souhaitez afficher.
-3. Dans la colonne **Dépendances**, cliquez sur **Afficher les dépendances**.
+3. Dans la colonne **Dépendances** , cliquez sur **Afficher les dépendances**.
 4. Modifiez la période pendant laquelle vous souhaitez afficher la carte à l’aide de la liste déroulante **Durée**.
 5. Développez le groupe **Client** pour afficher la liste des machines qui ont une dépendance sur la machine sélectionnée.
 6. Développez le groupe **Port** pour répertorier les machines qui ont une dépendance de la machine sélectionnée.
@@ -93,10 +93,10 @@ Vous pouvez visualiser les dépendances environ six heures après le démarrage 
 
 ## <a name="export-dependency-data"></a>Exporter les données de dépendance
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : Server Assessment** , cliquez sur **Serveurs découverts**.
 2. Cliquez sur l’icône **Analyse des dépendances**.
 3. Cliquez sur **Exporter les dépendances d’application**.
-4. Dans la page **Exporter les dépendances d’application**, choisissez l’appliance qui découvre les machines appropriées.
+4. Dans la page **Exporter les dépendances d’application** , choisissez l’appliance qui découvre les machines appropriées.
 5. Sélectionnez l’heure de début et l’heure de fin. Notez que vous pouvez télécharger les données uniquement pour les 30 derniers jours.
 6. Cliquez sur **Exporter la dépendance**.
 
@@ -127,10 +127,10 @@ Port de destination | Numéro de port sur la machine de destination
 
 Choisissez les machines sur lesquelles vous souhaitez arrêter la découverte de dépendance. 
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : Server Assessment** , cliquez sur **Serveurs découverts**.
 2. Cliquez sur l’icône **Analyse des dépendances**.
 3. Cliquez sur **Supprimer des serveurs**.
-3. Dans la page **Supprimer des serveurs**, choisissez l’**appliance** qui découvre les machines virtuelles sur lesquelles vous souhaitez arrêter la découverte de dépendance.
+3. Dans la page **Supprimer des serveurs** , choisissez l’ **appliance** qui découvre les machines virtuelles sur lesquelles vous souhaitez arrêter la découverte de dépendance.
 4. Dans la liste des machines, opérez votre sélection.
 5. Cliquez sur **Supprimer des serveurs**.
 

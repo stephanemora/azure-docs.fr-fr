@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511885"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910472"
 ---
 # <a name="monitor-azure-data-share"></a>Superviser Azure Data Share  
 
@@ -42,7 +42,7 @@ Affichez l’état de vos abonnements de partage en accédant à Partages envoy�
 
 Dans l’onglet **Historique** d’un partage, vous pouvez afficher le moment où les données sont copiées du fournisseur de données vers le magasin de données du consommateur de données. Vous êtes en mesure de surveiller la fréquence, la durée et l’état de chaque instantané. 
 
-![Historique des instantanés](./media/sent-shares.png "Historique des instantanés") 
+![Capture d’écran de Partages envoyés sur le Portail Azure](./media/sent-shares.png "Historique des instantanés") 
 
 Vous pouvez afficher plus de détails sur chaque exécution d’instantané en cliquant sur la date de début de l’exécution. Cliquez ensuite sur l’état de chaque jeu de données pour afficher la quantité de données transférées, le nombre de fichiers/enregistrements copiés, la durée de l’instantané, le nombre de vCores utilisés et le message d’erreur, le cas échéant. 
 
@@ -52,7 +52,7 @@ L'historique des instantanés est de 30 jours. Si vous avez besoin d’enregist
 
 Vous pouvez configurer le paramètre de diagnostic pour enregistrer les données du journal ou les événements. Accédez à Supervision -> Paramètres de diagnostic et sélectionnez **Ajouter un paramètre de diagnostic**. Sélectionnez les données du journal ou les événements qui vous intéressent, ainsi que l’emplacement où vous souhaitez les stocker ou les envoyer. 
 
-![Historique des instantanés](./media/diagnostic-settings.png "Paramètres de diagnostic") 
+![Capture d’écran de la page Paramètres de diagnostic sur le Portail Azure](./media/diagnostic-settings.png "Paramètres de diagnostic") 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

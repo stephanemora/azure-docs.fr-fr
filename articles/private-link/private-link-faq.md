@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757042"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913719"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Azure Private Link
 
@@ -48,6 +48,9 @@ Oui. Les points de terminaison privés peuvent se connecter à des services Priv
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Private Endpoint peut-il se connecter à des ressources Azure PaaS situées dans une région Azure différente ?
 Oui. Les points de terminaison privés peuvent se connecter à des ressources Azure PaaS situées dans une région Azure différente.
+
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Puis-je modifier mon interface réseau (NIC) de point de terminaison privé ?
+Lors de la création d’un point de terminaison privé, une carte NIC en lecture seule est assignée. Non modifiable, elle sera conservée pendant tout le cycle de vie du point de terminaison privé.
 
 ## <a name="private-link-service"></a>Service Liaison privée
  

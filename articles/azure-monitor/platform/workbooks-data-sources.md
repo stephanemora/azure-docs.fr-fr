@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143733"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927904"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Sources de données des classeurs Azure Monitor
 
@@ -77,7 +77,7 @@ Les classeurs permettent de récupérer l’intégrité des ressources Azure et 
 
 Pour qu’un contrôle de requête utilise cette source de données, utilisez la liste déroulante **Type de requête** pour choisir Intégrité Azure et sélectionnez les ressources à cibler. Utilisez les listes déroulantes de filtrage de l’intégrité pour sélectionner un sous-ensemble de problèmes de ressources intéressant pour vos besoins d’analytique.
 
-![Capture d’écran de la requête Alertes](./media/workbooks-overview/resource-health.png)
+![Capture d’écran de la requête d’alertes qui permet d’afficher les listes de filtres d’intégrité](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -102,7 +102,7 @@ Les classeurs prennent en charge l’obtention de données à partir de n’impo
 
 Pour qu’un contrôle de requête utilise cette source de données, utilisez la liste déroulante _Source de données_ pour choisir _Point de terminaison personnalisé_. Fournissez les paramètres appropriés, tels que `Http method`, `url`, `headers`, `url parameters` et/ou `body`. Assurez-vous que votre source de données prenne en charge [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). sinon, la requête échouera.
 
-Pour éviter d’effectuer automatiquement des appels à des hôtes non approuvés lors de l’utilisation de modèles, l’utilisateur doit marquer les hôtes utilisés comme approuvés. Pour ce faire, vous pouvez soit cliquer sur le bouton _Ajouter en tant qu’approuvé_, soit l’ajouter en tant qu’hôte approuvé dans les Paramètres du classeur. Ces paramètres sont enregistrés dans les navigateurs qui prennent en charge IndexDb avec les traitements Web, plus d’informations [ici](https://caniuse.com/#feat=indexeddb).
+Pour éviter d’effectuer automatiquement des appels à des hôtes non approuvés lors de l’utilisation de modèles, l’utilisateur doit marquer les hôtes utilisés comme approuvés. Pour ce faire, vous pouvez soit cliquer sur le bouton _Ajouter en tant qu’approuvé_ , soit l’ajouter en tant qu’hôte approuvé dans les Paramètres du classeur. Ces paramètres sont enregistrés dans les navigateurs qui prennent en charge IndexDb avec les traitements Web, plus d’informations [ici](https://caniuse.com/#feat=indexeddb).
 
 > [!NOTE]
 > N’écrivez aucun secret dans les champs (`headers`, `parameters`, `body`, `url`), car ils seront visibles par tous les utilisateurs du Classeur.

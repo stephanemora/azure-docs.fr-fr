@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: cd00c5033d0435b24d4cfb9f413b5afe74da6774
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3618ba28403882ee1f949a2bbc97e586674b3772
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089007"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317558"
 ---
-# <a name="using-sql-script-in-azure-synapse-studio-preview"></a>Utilisation d’un script SQL dans Azure Synapse Studio (préversion)
+# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Utilisation de scripts SQL dans Azure Synapse Studio (préversion)
 
-Azure Synapse Studio (préversion) fournit une interface web de script SQL qui vous permet de créer des requêtes SQL. Vous pouvez vous connecter au pool SQL (préversion) ou à SQL à la demande (préversion). 
+Azure Synapse Studio (préversion) fournit une interface web de script SQL qui vous permet de créer des requêtes SQL. Vous pouvez vous connecter au pool SQL (préversion). 
 
 ## <a name="begin-authoring-in-sql-script"></a>Commencer à créer dans un script SQL 
 
@@ -26,33 +26,26 @@ Il existe plusieurs façons de démarrer l’expérience de création dans un sc
 
 1. Dans le menu Développer, sélectionnez l’icône de **« + »** , puis choisissez **Script SQL**.
 
-![nouveau script sql](media/author-sql-script/newsqlscript.png)
-
-2. Dans le menu **Actions**, choisissez **Nouveau script SQL**.
-> [!div class="mx-imgBorder"]
-> ![new sql script 2 actions](media/author-sql-script/newsqlscript2actions.png)
-
-Sinon, vous pouvez : 
+2. Dans le menu **Actions** , choisissez **Nouveau script SQL**.
 
 3. Choisir **Importer** dans le menu **Actions** sous Développer des scripts SQL. Sélectionnez un script SQL existant dans votre stockage local.
-![new sql script 3 actions](media/author-sql-script/newsqlscript3actions.png)
+![new sql script 3 actions](media/author-sql-script/new-sql-script-3-actions.png)
 
 ## <a name="create-your-sql-script"></a>Créer votre script SQL
 
-1. Choisissez un nom pour votre script SQL en sélectionnant le bouton **Propriété**, puis en remplaçant le nom par défaut attribué au script. 
-![new sql script rename](media/author-sql-script/newsqlscriptrename.png)
+1. Choisissez un nom pour votre script SQL en sélectionnant le bouton **Propriété** , puis en remplaçant le nom par défaut attribué au script. 
+![new sql script rename](media/author-sql-script/new-sql-script-rename.png)
 
-2. Choisissez le pool SQL spécifique ou SQL à la demande dans le menu déroulant **Se connecter à**. Ou bien, si nécessaire, choisissez la base de données dans **Utiliser la base de données**. 
-![new sql choose pool](media/author-sql-script/newsqlchoosepool.png)
+2. Choisissez le pool SQL dédié ou le pool SQL serverless spécifique dans le menu déroulant **Se connecter à** . Ou bien, si nécessaire, choisissez la base de données dans **Utiliser la base de données**. 
+![new sql choose pool](media/author-sql-script/new-sql-choose-pool.png)
 
 3. Commencez à créer votre script SQL à l’aide de la fonctionnalité intellisense.
-![new sql intellisense](media/author-sql-script/newsqlintellisense.png)
 
 ## <a name="run-your-sql-script"></a>Exécuter votre script SQL
 
 Sélectionnez le bouton **Exécuter** pour exécuter votre script SQL. Par défaut, les résultats sont affichés dans une table.
 
-![table de résultats du nouveau script sql](media/author-sql-script/newsqlscriptresultstable.png)
+![table de résultats du nouveau script sql](media/author-sql-script/new-sql-script-results-table.png)
 
 ## <a name="export-your-results"></a>Exporter vos résultats
 
@@ -60,13 +53,13 @@ Vous pouvez exporter les résultats vers votre stockage local dans différents f
 
 Vous pouvez également visualiser les résultats du script SQL dans un graphique en sélectionnant le bouton **Graphique**. Sélectionnez le « Type de graphique » et la **Colonne Catégorie**. Vous pouvez exporter le graphique dans une image en sélectionnant **Enregistrer en tant qu’image**. 
 
-![graphique de résultats du nouveau script sql](media/author-sql-script/newsqlscriptresultschart.png)
+![graphique de résultats du nouveau script sql](media/author-sql-script/new-sql-script-results-chart.png)
 
 ## <a name="explore-data-from-a-parquet-file"></a>Explorer les données d’un fichier Parquet
 
 Vous pouvez explorer des fichiers Parquet dans un compte de stockage à l’aide du script SQL pour obtenir un aperçu de leur contenu.
 
-![parquet du nouveau script sql](media/author-sql-script/newscriptsqlodparquet.png)
+![parquet du nouveau script sql](media/author-sql-script/new-script-sqlod-parquet.png)
 
 ## <a name="sql-tables-external-tables-views"></a>Tables SQL, tables externes, affichages
 
@@ -77,9 +70,9 @@ En sélectionnant le menu **Actions** sous les données, vous pouvez choisir plu
 - CREATE
 - DROP et CREATE 
  
-Explorez les mouvements disponibles en cliquant avec le bouton droit sur les nœuds du pool SQL et de SQL à la demande.
+Explorez les mouvements disponibles en cliquant avec le bouton droit sur les nœuds de base de données SQL.
  
-![base de données du nouveau script sql](media/author-sql-script/newscriptdatabase.png)
+![base de données du nouveau script sql](media/author-sql-script/new-script-database.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

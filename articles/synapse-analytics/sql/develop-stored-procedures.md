@@ -1,38 +1,39 @@
 ---
 title: Utiliser des procédures stockées
-description: Conseils sur l’implémentation des procédures stockées dans Synapse SQL pour le développement de solutions.
+description: Conseils pour l’implémentation de procédures stockées à l’aide de Synapse SQL dans Azure Synapse Analytics pour le développement de solution.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315558"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Utiliser des procédures stockées dans Synapse SQL
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Procédures stockées utilisant Synapse SQL dans Azure Synapse Analytics
 
-Conseils sur l’implémentation des procédures stockées dans un pool Synapse SQL pour le développement de solutions.
+Les pools Synapse SQL approvisionnés et serverless vous permettent d’introduire une logique de traitement de données complexe dans des procédures stockées SQL. Une procédure stockée est un excellent moyen d’encapsuler votre code SQL, en le stockant à un emplacement proche de vos données au sein de l’entrepôt de données. Les procédures stockées aident les développeurs à modulariser leurs solutions en encapsulant le code dans des unités facile à gérer, facilitant la réutilisation du code. Chaque procédure stockée peut également accepter des paramètres, ce qui les rend encore plus flexibles.
+Cet article contient des conseils sur l’implémentation des procédures stockées dans un pool Synapse SQL pour le développement de solutions.
 
 ## <a name="what-to-expect"></a>À quoi s’attendre
 
-Synapse SQL prend en charge plusieurs fonctionnalités T-SQL qui sont utilisées dans SQL Server. Plus important encore, il existe différentes fonctions, propres à l’augmentation de la taille des instances, que nous voulons exploiter pour optimiser les performances de notre solution.
+Synapse SQL prend en charge plusieurs fonctionnalités T-SQL qui sont utilisées dans SQL Server. Plus important encore, il existe différentes fonctions, propres à l’augmentation de la taille des instances, que nous voulons exploiter pour optimiser les performances de notre solution. Cet article présente les fonctionnalités que vous pouvez introduire dans des procédures stockées.
 
 > [!NOTE]
-> Dans le corps de la procédure, vous pouvez uniquement utiliser les fonctionnalités qui sont prises en charge dans la surface d’exposition de Synapse SQL. Consultez [cet article](overview-features.md) pour identifier les objets et les instructions qui peuvent être utilisés dans les procédures stockées. Dans les exemples de ces articles sont utilisées des fonctionnalités génériques qui sont disponibles dans les surfaces d’exposition serverless et approvisionnée.
+> Dans le corps de la procédure, vous pouvez uniquement utiliser les fonctionnalités qui sont prises en charge dans la surface d’exposition de Synapse SQL. Consultez [cet article](overview-features.md) pour identifier les objets et les instructions qui peuvent être utilisés dans les procédures stockées. Les exemples présentés dans ces articles utilisent des fonctionnalités génériques disponibles dans des surfaces d’exposition tant serverless que dédiées. Consultez les [limitations supplémentaires des pools Synapse SQL approvisionnés et serverless](#limitations) à la fin de cet article.
 
 Pour assurer la mise à l’échelle et les performances du pool SQL, il existe divers mécanismes et fonctions dont le comportement présente des différences, ainsi que d’autres qui ne sont pas pris en charge.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Procédures stockées dans Synapse SQL
 
-Une procédure stockée est un excellent moyen d’encapsuler votre code SQL, en le stockant à un emplacement proche de vos données au sein de l’entrepôt de données. Les procédures stockées aident les développeurs à modulariser leurs solutions en encapsulant le code sous la forme d’unités pouvant être facilement gérées, afin d’optimiser la réutilisation du code. Chaque procédure stockée peut également accepter des paramètres, ce qui les rend encore plus flexibles. Dans l’exemple suivant, vous pouvez voir les procédures qui suppriment des objets externes s’ils se trouvent déjà dans la base de données :
+Dans l’exemple suivant, vous pouvez voir les procédures qui suppriment des objets externes s’ils se trouvent déjà dans la base de données :
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT... EXECUTE
 
-Synapse SQL ne vous permet pas de consommer le jeu de résultats d’une procédure stockée avec une instruction INSERT. Pour cela, une autre méthode existe. Pour obtenir un exemple, consultez l’article sur les [tables temporaires](develop-tables-temporary.md) pour le pool Synapse SQL approvisionné.
+Un pool Synapse SQL approvisionné ne vous permet pas d’utiliser le jeu de résultats d’une procédure stockée avec une instruction INSERT. Pour cela, une autre méthode existe. Pour obtenir un exemple, consultez l’article sur les [tables temporaires](develop-tables-temporary.md) pour le pool Synapse SQL approvisionné.
 
 ## <a name="limitations"></a>Limites
 
 Certains aspects des procédures stockées Transact-SQL ne sont pas implémentés dans Synapse SQL. C’est le cas des :
 
-* Procédures stockées temporaires
-* Procédures stockées numérotées
-* Procédures stockées étendues
-* Procédures stockées CLR
-* Option de chiffrement
-* Option de réplication
-* Paramètres table
-* Paramètres en lecture seule
-* Paramètres par défaut (dans le pool provisionné)
-* Contextes d’exécution
-* Instruction RETURN
+| Fonctionnalité/option | approvisionné | Sans serveur |
+| --- | --- |
+| Procédures stockées temporaires | Non | Oui |
+| Procédures stockées numérotées | Non | Non |
+| Procédures stockées étendues | Non | Non |
+| Procédures stockées CLR | Non | Non |
+| Option de chiffrement | Non | Oui |
+| Option de réplication | Non | Non |
+| Paramètres table | Non | Non |
+| Paramètres en lecture seule | Non | Non |
+| Paramètres par défaut | Non | Oui |
+| Contextes d’exécution | Non | Non |
+| Return (instruction) | Non | Oui |
+| INSERT INTO EXEC | Non | Oui |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

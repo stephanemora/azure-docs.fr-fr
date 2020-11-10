@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538270"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909639"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -52,7 +52,7 @@ Pour MQTT, certains kits de développement logiciel (SDK) s’appuient sur l’I
 
 ### <a name="cause-2"></a>Cause 2
 
-L’IoT Hub n’a pas pu authentifier l’en-tête, la règle ou la clé d’autorisation.
+L’IoT Hub n’a pas pu authentifier l’en-tête, la règle ou la clé d’autorisation. Peuvent être en cause toutes les raisons citées dans les symptômes.
 
 ## <a name="solution"></a>Solution
 
@@ -66,10 +66,13 @@ Si le volume des erreurs pose problème, basculez vers le Kit de développement 
 
 En général, le message d’erreur présenté doit expliquer comment corriger l’erreur. Si, pour une raison quelconque, vous n’avez pas accès au détail du message d’erreur, assurez-vous que :
 
-- Le jeton de signature d’accès partagé (SAP) ou un autre jeton de sécurité que vous utilisez ne sont pas arrivés à expiration. 
-- Les informations d’identification d’autorisation sont bien formées pour le protocole que vous utilisez. Pour en savoir plus, voir [Contrôle d’accès IoT Hub](iot-hub-devguide-security.md).
+- Le jeton de signature d’accès partagé (SAP) ou un autre jeton de sécurité que vous utilisez ne sont pas arrivés à expiration.
+- Pour l’authentification par certificat X.509, le certificat d’appareil ou le certificat d’autorité de certification associé à l’appareil n’est pas arrivé à expiration. Pour savoir comment inscrire des certificats d’autorité de certification X.509 auprès de IoT Hub, consultez [Configuration de la sécurité X.509 dans un hub IoT Azure](iot-hub-security-x509-get-started.md).
+- Pour l’authentification par empreinte de certificat X.509, l’empreinte numérique du certificat d’appareil est inscrite auprès de IoT Hub.
+- Les informations d’identification d’autorisation sont bien formées pour le protocole que vous utilisez. Pour plus d’informations, consultez [Contrôle de l’accès à IoT Hub](iot-hub-devguide-security.md).
 - La règle d’autorisation utilisée a l’autorisation pour l’opération demandée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour faciliter l’authentification auprès d’IoT Hub, nous vous recommandons d’utiliser des [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).
+- Pour faciliter l’authentification auprès d’IoT Hub, nous vous recommandons d’utiliser des [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).
+- Pour plus d’informations sur l’authentification avec IoT Hub, consultez [Contrôle de l’accès à IoT Hub](iot-hub-devguide-security.md).

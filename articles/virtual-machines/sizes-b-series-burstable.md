@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968920"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928040"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 
-Les machines virtuelles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les preuves de concept, les petites bases de données et les environnements de build pour le développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base. Ainsi, l’instance de machine virtuelle génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès que la machine virtuelle a cumulé des crédits, elle peut étendre ses performances en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application requiert des performances de processeur plus élevées.
+Les machines virtuelles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les preuves de concept, les petites bases de données et les environnements de build pour le développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base qui génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès qu’elle a cumulé des crédits, la machine virtuelle peut étendre son niveau de performance en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application réclame des performances de processeur plus élevées.
 
 La série B est disponible dans les tailles de machines virtuelles suivantes :
 
@@ -93,25 +93,24 @@ Pour un D16s_v3 disposant de 16 processeurs virtuels et de 64 Gio de mémoire, l
 
 ## <a name="q--a"></a>Questions et réponses
 
-### <a name="q-what-happens-if-the-credits-run-out"></a>Q : Que se passe-t-il s’il n’y a plus de crédits ?
-**R** : Une fois les crédits épuisés, la machine virtuelle revient aux performances de ligne de base.
+### <a name="q-what-happens-when-my-credits-run-out"></a>Q : Que se passe-t-il si je n’ai plus de crédits ?
+**R**  : Une fois les crédits épuisés, la machine virtuelle revient aux performances de ligne de base.
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q : Comment obtenir 135 % des performances de base d’une machine virtuelle ?
 
-**R** : Ce pourcentage est réparti sur les huit processeurs virtuels qui composent la taille de la machine virtuelle. Par exemple, si votre application utilise 4 des 8 cœurs travaillant au traitement par lots et que chacun de ces 4 processeurs virtuels est utilisé à 30 %, la quantité totale des performances du processeur de la machine virtuelle serait égale à 120 %.  Ce qui signifie que votre machine virtuelle générerait un crédit temps basé sur le delta de 15 % à partir de vos performances de base.  Cela signifie également que lorsque vous disposez de crédits, cette même machine virtuelle peut utiliser la totalité des 8 processeurs virtuels pour obtenir une performance de processeur maximale de 800 %.
-
+**R**  : Ce pourcentage est réparti sur les huit processeurs virtuels qui composent la taille de la machine virtuelle. Par exemple, si votre application utilise 4 des 8 cœurs travaillant au traitement par lots et que chacun de ces 4 processeurs virtuels est utilisé à 30 %, la quantité totale des performances du processeur de la machine virtuelle serait égale à 120 %.  Ce qui signifie que votre machine virtuelle générerait un crédit temps basé sur le delta de 15 % à partir de vos performances de base.  Cela signifie également que lorsque vous disposez de crédits, cette même machine virtuelle peut utiliser la totalité des 8 processeurs virtuels pour obtenir une performance de processeur maximale de 800 %.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q : Comment puis-je surveiller mon solde créditeur et ma consommation ?
 
-**R** : Nous allons présenter deux nouvelles mesures dans les semaines à venir. La mesure **Credit** vous permettra d’afficher les crédits cumulés par votre machine virtuelle et la mesure **ConsumedCredit** d’afficher le nombre de crédits de processeur utilisés par votre machine virtuelle.    Ces mesures figurent sur le volet des mesures du portail ou sont visibles par programme via les API Azure Monitor.
+**R**  : La métrique **Credit** vous permet d’afficher le nombre de crédits cumulés par votre machine virtuelle et la métrique **ConsumedCredit** le nombre de crédits de processeur consommés par votre machine virtuelle.    Ces mesures figurent sur le volet des mesures du portail ou sont visibles par programme via les API Azure Monitor.
 
 Pour en savoir plus sur l’accès aux données de mesure pour Azure, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>Q : Comment les crédits sont-ils accumulés et consommés ?
 
-**R** : Les taux de cumul et d’utilisation de la machine virtuelle sont définis pour qu’une machine virtuelle s’exécutant exactement à son niveau de performances de base ne génère aucun cumul net ou n’utilise aucun crédit.  Une machine virtuelle connaît une augmentation nette de ses crédits chaque fois qu’elle s’exécute sous son niveau de performances de base, et une diminution nette de ses crédits chaque fois qu’elle utilise le processeur à un niveau plus élevé de performances.
+**R**  : Les taux de cumul et d’utilisation de la machine virtuelle sont définis pour qu’une machine virtuelle s’exécutant exactement à son niveau de performances de base ne génère aucun cumul net ou n’utilise aucun crédit.  Une machine virtuelle connaît une augmentation nette de ses crédits chaque fois qu’elle s’exécute sous son niveau de performances de base, et une diminution nette de ses crédits chaque fois qu’elle utilise le processeur à un niveau plus élevé de performances.
 
-**Exemple** :  Je déploie une machine virtuelle à l’aide de la taille B1ms pour ma petite application de base de données de pointage des présences. Cette taille permet à mon application d’utiliser jusqu’à 20 % d’un processeur virtuel qui est considéré comme étant ma base, soit 0,2 crédit par minute utilisable ou cumulable.
+**Exemple**  :  Je déploie une machine virtuelle à l’aide de la taille B1ms pour ma petite application de base de données de pointage des présences. Cette taille permet à mon application d’utiliser jusqu’à 20 % d’un processeur virtuel qui est considéré comme étant ma base, soit 0,2 crédit par minute utilisable ou cumulable.
 
 Mon application est occupée en début et fin de journée de travail de mes employés, soit entre 7 h 00 et 9 h 00 et 16 h 00 et 18 h 00. Pendant les 20 heures restantes de la journée, mon application est en général en veille et n’utilise que 10 % du processeur virtuel. Pendant les heures creuses, je cumule 0,2 crédit par minute et utilise uniquement 0,1 crédit par minute. Ainsi, ma machine virtuelle cumule 0,1 x 60, soit 6 crédits par heure.  Pendant les 20 heures creuses, je cumule 120 crédits.  
 
@@ -121,7 +120,7 @@ Si je prends les 120 crédits cumulés lors des heures creuses et que je soustr
 
 ### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>Q : Comment puis-je calculer les crédits accumulés et utilisés ?
 
-**R** : Vous pouvez utiliser les formules suivantes :
+**R**  : Vous pouvez utiliser les formules suivantes :
 
 (Perf. de base de l’UC de la machine virtuelle - utilisation de l’UC) / 100 = accumulation ou utilisation de crédits par minute
 
@@ -129,11 +128,11 @@ Par exemple, dans l’exemple ci-dessus, vos performances de base sont de 20 %. 
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q : La série B prend-elle en charge les disques de données de stockage Premium ?
 
-**R** : Oui, toutes les tailles de série B prennent en charge les disques de données de stockage Premium.
+**R**  : Oui, toutes les tailles de série B prennent en charge les disques de données de stockage Premium.
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>Q : Pourquoi mon crédit restant est-il défini sur 0 après un redéploiement ou un arrêt/démarrage ?
 
-**R** : Lorsqu’une machine virtuelle est « REDÉPLOYÉE » et qu’elle est déplacée vers un autre nœud, le crédit cumulé est perdu. Si la machine virtuelle est arrêtée/démarrée, mais reste sur le même nœud, la machine virtuelle conserve le crédit cumulé. Lorsque la machine virtuelle redémarre de zéro sur un nœud, elle obtient un crédit initial, de 240 minutes pour  Standard_B8ms.
+**R** : Lorsqu’une machine virtuelle est « REDÉPLOYÉE » et qu’elle est déplacée vers un autre nœud, le crédit cumulé est perdu. Si la machine virtuelle est arrêtée/démarrée, mais reste sur le même nœud, la machine virtuelle conserve le crédit cumulé. Lorsque la machine virtuelle redémarre à zéro sur un nœud, elle obtient un crédit initial (240 pour Standard_B8ms).
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>Q : Que se passe-t-il si je déploie une image de système d’exploitation non prise en charge sur B1ls ?
 

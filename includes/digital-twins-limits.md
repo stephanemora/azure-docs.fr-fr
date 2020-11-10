@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 60a5f62d4ea23db1052b2e40d10775dfaa33c632
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989554"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091772"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
-Le tableau ci-dessous présente les limites fonctionnelles d’Azure Digital Twins dans la préversion actuelle.
+Le tableau ci-dessous présente les limites fonctionnelles d’Azure Digital Twins.
 
 | Domaine | Fonctionnalité | Limite par défaut | Ajustable ? |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ Le tableau ci-dessous présente les limites fonctionnelles d’Azure Digital Twi
 | Jumeaux numériques | Nombre de relations entrantes à un seul jumeau | 5 000 | Non |
 | Jumeaux numériques | Nombre de relations sortantes à partir d’un seul jumeau | 5 000 | Non |
 | Jumeaux numériques | Taille maximale d’un seul jumeau | 32 Ko | Non |
-| API Digital Twins | Taille maximale de la charge utile de requête | 32 Ko | Non | 
+| Jumeaux numériques | Taille maximale de la charge utile de requête | 32 Ko | Non | 
 | Routage | Nombre de points de terminaison pour une même instance Azure Digital Twins | 6 | Non |
 | Routage | Nombre d’itinéraires pour une même instance Azure Digital Twins | 6 | Oui |
 | Modèles | Nombre de modèles dans une même instance Azure Digital Twins | 10 000 | Oui |
@@ -37,12 +37,14 @@ Le tableau ci-dessous présente les limites fonctionnelles d’Azure Digital Twi
 
 ### <a name="rate-limits"></a>Limites du taux de transfert
 
-Ce tableau reflète les limites de débit de différentes API.
+Le tableau suivant reflète les limites de débit de différentes API.
 
 | API | Fonctionnalité | Limite par défaut | Ajustable ? |
 | --- | --- | --- | --- |
 | API Modèles | Nombre de demandes par seconde | 100 | Oui |
-| API Digital Twins | Nombre de demandes par seconde | 1 000 | Oui |
+| API Digital Twins | Nombre de demandes par seconde | 2 000 | Oui |
+| API Digital Twins | Nombre d’opérations de création/suppression par seconde pour l’ **ensemble des jumeaux et des relations** | 50 | Oui |
+| API Digital Twins | Nombre d’opérations de création/mise à jour/suppression par seconde sur un **jumeau unique** ou ses relations | 10 | Non |
 | API de requête | Nombre de demandes par seconde | 500 | Oui |
 | API de requête | [Unités de requête](../articles/digital-twins/concepts-query-units.md) par seconde | 4 000 | Oui |
 | API Routage d’événement | Nombre de demandes par seconde | 100 | Oui |
@@ -51,4 +53,4 @@ Ce tableau reflète les limites de débit de différentes API.
 
 Les limites des types de données et des champs dans les documents DTDL pour les modèles Azure Digital Twins sont disponibles dans la documentation des spécifications sur GitHub : [*DTDL (Digital Twins Definition Language) – version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Pour plus d’informations sur la latence des requêtes et d’autres instructions sur l’écriture de requêtes en préversion, consultez [*Guide pratique : Interroger le graphique de jumeaux*](../articles/digital-twins/how-to-query-graph.md).
+Pour des détails sur la latence des requêtes et les limitations de requête, consultez [*Procédure : Interroger le graphique de jumeaux*](../articles/digital-twins/how-to-query-graph.md).

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8b59bcf3f25921a348e9c5f25e83619d8596ebd5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489861"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909911"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utiliser le portail Azure pour configurer des alertes de métriques pour Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -41,13 +41,13 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
 4. La page **Créer une règle** s’ouvre, comme illustré ci-dessous. Entrez les informations obligatoires :
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formulaire Ajouter une alerte Métrique":::
 
-5. Dans la section **Condition** , sélectionnez **Ajouter** .
+5. Dans la section **Condition** , sélectionnez **Ajouter**.
 
 6. Sélectionnez une métrique dans la liste des signaux d'alerte. Dans cet exemple, sélectionnez « Storage percent ».
    
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Capture d’écran de la page Configurer la logique du signal sur laquelle apparaissent plusieurs signaux":::
 
 7. Configurez la logique d’alerte :
 
@@ -58,25 +58,25 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
    
    Sélectionnez **Terminé** lorsque vous avez terminé.
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Capture d’écran du volet permettant de configurer la logique des alertes":::
 
 8. Dans la section **Groupes d’actions** , sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
 
 9. Renseignez le formulaire « Ajouter un groupe d'actions » avec un nom, un nom court, un abonnement et un groupe de ressources.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Sélectionner des règles d’alerte":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Capture d’écran du formulaire Ajouter un groupe d’actions permettant d’entrer les valeurs décrites":::
 
-10. Configurez un type d'action **E-mail/SMS/Push/Voix** .
+10. Configurez un type d'action **E-mail/SMS/Push/Voix**.
     
     Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour envoyer des notifications aux propriétaires, aux contributeurs et aux lecteurs de l’abonnement.
    
     Sélectionnez **OK** lorsque vous avez terminé.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Sélectionner des règles d’alerte":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Capture d’écran du volet E-mail/SMS/Push/Voix":::
 
 11. Spécifiez un nom de règle d’alerte, une description et une gravité.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Sélectionner des règles d’alerte"::: 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Capture d’écran du volet Détails de l’alerte"::: 
 
 12. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 

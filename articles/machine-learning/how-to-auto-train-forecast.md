@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b708d85e94782ea264432ae3780b2b1f0d240396
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320818"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
 
-Dans cet article, vous allez apprendre à configurer et à effectuer l'apprentissage d’un modèle de régression de prévisions de séries chronologiques à l’aide du Machine Learning automatisé dans le [Kit de développement logiciel (SDK) Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
+Dans cet article, vous allez apprendre à configurer et à effectuer l'apprentissage d’un modèle de régression de prévisions de séries chronologiques à l’aide du Machine Learning automatisé dans le [Kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Pour cela, vous devez : 
 
@@ -120,7 +120,7 @@ En savoir plus sur la façon dont AutoML applique la validation croisée afin [d
 
 ## <a name="configure-experiment"></a>Configurer une expérience
 
-L’objet [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) définit les paramètres et les données nécessaires pour une tâche de Machine Learning automatisé. La configuration d’un modèle de prévisions est semblable à celle d’un modèle de régression standard, mais certains modèles et certaines options de configuration et étapes de caractérisation existent spécifiquement pour les données de séries chronologiques. 
+L’objet [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) définit les paramètres et les données nécessaires pour une tâche de Machine Learning automatisé. La configuration d’un modèle de prévisions est semblable à celle d’un modèle de régression standard, mais certains modèles et certaines options de configuration et étapes de caractérisation existent spécifiquement pour les données de séries chronologiques. 
 
 ### <a name="supported-models"></a>Modèles pris en charge
 Le Machine Learning automatisé essaie automatiquement différents modèles et algorithmes dans le cadre du processus de création et de paramétrage du modèle. En tant qu’utilisateur, vous n’avez pas besoin de spécifier l’algorithme. Pour les expériences de prévision, les modèles natifs de série chronologique et de Deep Learning font partie du système de recommandation. Le tableau suivant récapitule ce sous-ensemble de modèles. 
@@ -138,7 +138,7 @@ ForecastTCN (préversion)| ForecastTCN est un modèle de réseau neuronal conçu
 
 Comme pour un problème de régression, vous définissez les paramètres d’entraînement standard comme type de tâche, le nombre d’itérations, les données d’apprentissage et le nombre de validations croisées. Pour les tâches de prévision, il existe des paramètres supplémentaires qui doivent être définis et qui affectent l’expérience. 
 
-Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consultez la [documentation de référence](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) pour obtenir des modèles de conception de la syntaxe.
+Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consultez la [documentation de référence](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) pour obtenir des modèles de conception de la syntaxe.
 
 | Nom du&nbsp;paramètre | Description | Obligatoire |
 |-------|-------|-------|
@@ -149,10 +149,11 @@ Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consult
 |`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Le décalage est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. ||
 |`feature_lags`| Les fonctionnalités à décaler seront automatiquement déterminées par Machine Learning automatisé lorsque `target_lags` sont définis et `feature_lags` est défini sur `auto`. L’activation des décalages de fonctionnalités peut contribuer à améliorer l’exactitude. Les décalages de fonctionnalités sont désactivés par défaut. ||
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle. En savoir plus sur l’[agrégation de fenêtres dynamiques cibles](#target-rolling-window-aggregation).||
+|`short_series_handling`| Permet une gestion courte des séries chronologiques pour éviter toute défaillance due à des données insuffisantes au cours de l’apprentissage. Ce paramètre est défini sur True par défaut.|
 
 
 Le code suivant, 
-* Crée le `time-series settings` en tant qu’objet dictionnaire. 
+* Tire parti de la classe `ForecastingParameters` pour définir les paramètres de prévisions associés à l’entraînement de l’expérience.
 * Définit le `time_column_name` sur le champ `day_datetime` dans le jeu de données. 
 * Définit le paramètre `time_series_id_column_names` sur `"store"`. Cela permet de s’assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; une pour les banques A et B.
 * Définit le `forecast_horizon` sur 50 afin de prédire pour l’ensemble du jeu de tests. 
@@ -161,16 +162,18 @@ Le code suivant,
 * Définit `target_lags` sur le paramètre « Automatique » recommandé, qui détectera automatiquement cette valeur pour vous.
 
 ```python
-time_series_settings = {
-    "time_column_name": "day_datetime",
-    "time_series_id_column_names": ["store"],
-    "forecast_horizon": 50,
-    "target_lags": "auto",
-    "target_rolling_window_size": 10,
-}
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecasting_parameters = ForecastingParameters(
+    time_column_name='day_datetime', 
+    forecast_horizon=50,
+    time_series_id_column_names=["store"],
+    target_lags='auto',
+    target_rolling_window_size=10
+)
 ```
 
-Ces `time_series_settings` sont ensuite transmises à votre objet `AutoMLConfig` standard, ainsi que le type de tâche `forecasting`, la métrique principale, les critères de sortie et les données de formation. 
+Ces `forecasting_parameters` sont ensuite transmises à votre objet `AutoMLConfig` standard, ainsi que le type de tâche `forecasting`, la métrique principale, les critères de sortie et les données de formation. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -346,4 +349,3 @@ Consultez les [exemples de notebooks de prévision](https://github.com/Azure/Mac
 * Découvrez l’[interprétabilité : explications des modèles en machine learning automatisé (préversion)](how-to-machine-learning-interpretability-automl.md). 
 * Découvrez comment effectuer l’apprentissage de plusieurs modèles avec AutoML dans l’article [Many Models Solution Accelerator](https://aka.ms/many-models) (Accélérateur de solution de nombreux modèles).
 * Suivez le [tutoriel](tutorial-auto-train-models.md) pour voir un exemple de bout en bout de création d’expériences avec le machine learning automatisé.
-

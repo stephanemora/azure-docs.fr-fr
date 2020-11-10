@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: 5969c449afe203ec9a014d2da78b56eeeb837590
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635913"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913362"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -48,9 +48,6 @@ Pour l’activité Copy, ce connecteur de stockage d’objets blob prend en char
 - Copie d’objets blob en l’état, ou analyse/génération d’objets blob avec des [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 - [Conservation des métadonnées de fichier lors de la copie](#preserving-metadata-during-copy).
 
->[!IMPORTANT]
->Si vous activez l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans les paramètres du pare-feu de Stockage Azure, et souhaitez utiliser le runtime d’intégration Azure pour vous connecter à un stockage d’objets blob Azure, vous devez utiliser une [authentification d’identité managée](#managed-identity).
-
 ## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -67,7 +64,8 @@ Ce connecteur de stockage d’objets blob prend en charge les types d’authenti
 - [Identités managées pour l’authentification des ressources Azure](#managed-identity)
 
 >[!NOTE]
->Lorsque vous utilisez PolyBase pour charger des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse), si votre stockage d’objets blob source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser une authentification par identité managée comme l’exige PolyBase. Vous devez également utiliser le runtime d’intégration auto-hébergé avec la version 3.18 ou une version ultérieure. Pour en savoir plus sur la configuration requise, consultez la section sur [Authentification par identité managée](#managed-identity).
+>- Si vous utilisez le runtime d’intégration Azure public pour vous connecter à votre Stockage Blob avec l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** activée sur le pare-feu Stockage Azure, vous devez recourir à [l’authentification par identité managée](#managed-identity).
+>- Si vous utilisez PolyBase ou l’instruction COPY pour charger des données dans Azure Synapse Analytics et que votre Stockage Blob source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser l’authentification par identité managée comme l’exige Synapse. Pour en savoir plus sur la configuration requise, consultez la section sur [Authentification par identité managée](#managed-identity).
 
 >[!NOTE]
 >Les activités Azure HDInsight et Azure Machine Learning prennent en charge uniquement l’authentification utilisant des clés de compte de stockage d’objets blob Azure.
@@ -234,7 +232,7 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AzureBlobStorage**. |Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
-| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/> Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-les en pointant dans l’angle supérieur droit du portail Azure. | Oui |
@@ -286,7 +284,7 @@ Pour des informations générales sur l’authentification de Stockage Azure, co
     - **En tant que récepteur** , dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
 
 >[!IMPORTANT]
->Si vous utilisez PolyBase pour charger des données à partir d’un stockage d’objets blob (source ou intermédiaire) dans Azure Synapse Analytics (anciennement SQL Data Warehouse), lorsque vous utilisez une authentification par identité managée pour le stockage d’objets blob, veillez également à suivre les étapes 1 et 2 de [ces conseils](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si votre stockage d’objets blob est configuré avec un point de terminaison de réseau virtuel Azure, pour utiliser PolyBase afin de charger des données à partir de celui-ci, vous devez utiliser une authentification par identité managée comme l’exige PolyBase.
+>Si vous utilisez PolyBase ou l’instruction COPY pour charger des données du Stockage Blob (comme source ou emplacement de préproduction) dans Azure Synapse Analytics et que vous avez recours à l’authentification par identité managée pour le Stockage Blob, veillez également à suivre les étapes 1 à 3 de [cette aide](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si vous configurez le Stockage Blob avec un point de terminaison de réseau virtuel Azure, vous devez également activer **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans le menu des paramètres **Pare-feu et réseaux virtuels** du compte Stockage Azure, comme l’exige Synapse.
 
 Les propriétés prises en charge pour un service lié de Stockage Blob Azure sont les suivantes :
 
@@ -294,7 +292,7 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AzureBlobStorage**. |Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
-| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/> Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 > [!NOTE]

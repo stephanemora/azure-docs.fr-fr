@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336647"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305933"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Azure HDInsight Hadoop sur un jeu de données de 1 To
 
@@ -58,12 +58,12 @@ Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour la science des données
 > [!NOTE]
-> Cette étape est généralement une tâche d’**administration**.
+> Cette étape est généralement une tâche d’ **administration**.
 
 Configurez votre environnement de science des données Azure pour créer des solutions d'analyse prédictives avec les clusters HDInsight en trois étapes :
 
 1. [Créer un compte de stockage](../../storage/common/storage-account-create.md) : ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight sont stockées ici.
-2. [Personnaliser les clusters Azure HDInsight Hadoop pour la science des données](customize-hadoop-cluster.md) : Cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Deux étapes importantes (décrites dans cette rubrique) doivent être suivies lors de la personnalisation du cluster HDInsight.
+2. [Personnaliser les clusters Azure HDInsight Hadoop pour la science des données](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) : Cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Deux étapes importantes (décrites dans cette rubrique) doivent être suivies lors de la personnalisation du cluster HDInsight.
 
    * Liez le compte de stockage créé à l’étape 1 à votre cluster HDInsight une fois sa création terminée. Ce compte de stockage est utilisé pour accéder aux données qui peuvent être traitées au sein du cluster.
    * Activez l’accès à distance sur le nœud principal du cluster après sa création. Souvenez-vous des informations d’identification de l’accès à distance que vous indiquez ici (différentes de celles qui sont spécifiées à la création du cluster) : effectuez les procédures suivantes.
@@ -76,7 +76,7 @@ Pour accéder au groupe de données [Criteo](https://labs.criteo.com/downloads/d
 
 Cliquez sur **Poursuivre le téléchargement** pour en savoir plus sur le jeu de données et sa disponibilité.
 
-Les données résident dans un emplacement [Stockage Blob Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. « wasb » fait référence à l'emplacement de stockage d'objets blob Azure.
+Les données résident dans un emplacement [Stockage Blob Azure](../../storage/blobs/storage-quickstart-blobs-dotnet.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. « wasb » fait référence à l'emplacement de stockage d'objets blob Azure.
 
 1. Les données de ce stockage d’objets blob Azure sont constituées de trois sous-dossiers de données décompressées :
 
@@ -88,7 +88,7 @@ Les données résident dans un emplacement [Stockage Blob Azure](../../storage/b
 Une autre approche vous permettant d’accéder, d’explorer et de modéliser ces données ne nécessitant aucun téléchargement local est expliquée plus loin dans cette procédure pas à pas lors de la création de tables Hive.
 
 ## <a name="log-in-to-the-cluster-headnode"></a><a name="login"></a>Connexion au nœud principal du cluster
-Pour vous connecter au nœud principal du cluster, utilisez le [portail Azure](https://ms.portal.azure.com) afin de localiser le cluster. Cliquez sur l’icône d’éléphant HDInsight située sur la gauche et double-cliquez ensuite sur le nom de votre cluster. Accédez à l’onglet **Configuration**, double-cliquez sur l’icône CONNECTER en bas de la page et entrez vos informations d’identification pour l’accès à distance lorsque vous y êtes invité ; vous êtes alors redirigé vers le nœud principal du cluster.
+Pour vous connecter au nœud principal du cluster, utilisez le [portail Azure](https://ms.portal.azure.com) afin de localiser le cluster. Cliquez sur l’icône d’éléphant HDInsight située sur la gauche et double-cliquez ensuite sur le nom de votre cluster. Accédez à l’onglet **Configuration** , double-cliquez sur l’icône CONNECTER en bas de la page et entrez vos informations d’identification pour l’accès à distance lorsque vous y êtes invité ; vous êtes alors redirigé vers le nœud principal du cluster.
 
 Une première connexion au nœud principal de cluster ressemble généralement à ceci :
 
@@ -99,7 +99,7 @@ Sur la gauche se trouve la « ligne de commande Hadoop », qui nous permet d’e
 Vous êtes désormais prêt à entamer la première partie de la procédure pas à pas : l’exploration de données à l’aide de Hive et la préparation de données pour Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Création de la base de données et des tables Hive
-Pour créer des tables Hive pour notre jeu de données Criteo, ouvrez la ***ligne de commande Hadoop*** sur le bureau du nœud principal et saisissez le répertoire Hive en entrant la commande
+Pour créer des tables Hive pour le jeu de données Criteo, ouvrez la * *_ligne de commande Hadoop_* _ sur le bureau du nœud principal, puis saisissez le répertoire Hive en entrant la commande suivante :
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Lorsque Hive REPL apparaît avec un signe « hive > », coupez-collez simplem
 
 Le code suivant crée une base de données « criteo » et génère ensuite quatre tables :
 
-* une *table pour la génération de nombres* reposant sur les jours day\_00 à day\_20 ;
+_ une *table de comptage* du jour day\_00 au jour day\_20 ;
 * une *table à utiliser comme jeu de données d’apprentissage* reposant sur day\_21 ; et
 * deux *tables à utiliser comme jeux de données de test* reposant sur day\_22 et day\_23 respectivement.
 
@@ -169,7 +169,7 @@ Toutes ces tables étant externes, vous pouvez pointer vers leurs emplacements d
   ```
 
      Dans la ligne de commande REPL, coupez-collez la requête qu’elle exécute.
-* **Enregistrement des requêtes dans un fichier et Exécution de la commande** : La seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
+* **Enregistrement des requêtes dans un fichier et Exécution de la commande** : La seconde consiste à enregistrer les requêtes dans un fichier .hql ( [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -354,7 +354,7 @@ Cela donne :
 Time taken: 448.116 seconds, Fetched: 1 row(s)
 ```
 
-Col15 a des valeurs uniques 19M ! L’utilisation des techniques naïves, telles que « l’encodage à chaud » pour encoder des variables catégorielles de grande dimension, est tout bonnement impossible. Une technique puissante et robuste appelée [Apprentissage à l’aide de compteurs](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) est notamment expliquée et présentée pour résoudre ce problème de manière efficace.
+Col15 a des valeurs uniques 19M ! L’utilisation des techniques naïves, telles que « l’encodage à chaud » pour encoder des variables catégorielles de grande dimension, est tout bonnement impossible. Une technique puissante et robuste appelée [Apprentissage à l’aide de compteurs](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) est notamment expliquée et présentée pour résoudre ce problème de manière efficace.
 
 Enfin, examinez le nombre de valeurs uniques pour d’autres colonnes catégorielles. [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient :
 
@@ -472,7 +472,7 @@ Vous êtes ainsi prêt à utiliser nos jeux de données de formation et de test 
 Intéressons-nous à un dernier composant important avant de passer à Azure Machine Learning, qui concerne la table de comptage. Dans la sous-section suivante, la table de comptage est décrite en détail.
 
 ## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> Une brève discussion sur la table de comptage
-Comme vous l’avez remarqué, plusieurs variables catégorielles ont une dimensionnalité élevée. Dans la procédure pas à pas, une technique puissante appelée [Apprentissage à l’aide de compteurs](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) est présentée pour encoder ces variables de manière fiable et efficace. Plus d'informations sur cette technique sont indiquées dans le lien fourni.
+Comme vous l’avez remarqué, plusieurs variables catégorielles ont une dimensionnalité élevée. Dans la procédure pas à pas, une technique puissante appelée [Apprentissage à l’aide de compteurs](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) est présentée pour encoder ces variables de manière fiable et efficace. Plus d'informations sur cette technique sont indiquées dans le lien fourni.
 
 >[!NOTE]
 >Dans cette procédure pas à pas, penchez-vous sur l’utilisation de tables de comptage permettant de produire des représentations compactes de fonctionnalités catégorielles de grande dimension. Ce n’est pas la seule manière d’encoder des fonctionnalités catégorielles ; pour plus d’informations sur les autres techniques, les utilisateurs intéressés peuvent consulter les rubriques [Encodage à chaud](https://en.wikipedia.org/wiki/One-hot) et [Hachage de caractéristiques](https://en.wikipedia.org/wiki/Feature_hashing).
@@ -506,8 +506,8 @@ Pour le module **Importer des données** , les valeurs des paramètres qui sont 
 4. **Nom du compte utilisateur Hadoop** : nom d’utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
 5. **Mot de passe du compte utilisateur Hadoop** : mot de passe pour le nom d’utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
 6. **Emplacement des données de sortie** : Choisir « Azure »
-7. **Nom du compte de Stockage Azure** : le compte de stockage associé au cluster
-8. **Clé du compte de Stockage Azure** : la clé du compte de stockage associé au cluster.
+7. **Nom du compte de Stockage Azure**  : le compte de stockage associé au cluster
+8. **Clé du compte de Stockage Azure**  : la clé du compte de stockage associé au cluster.
 9. **Nom de conteneur Azure** : si le nom du cluster est « abc », il se nommera tout simplement « abc ».
 
 Dès lors que le module **Importer des données** a récupéré les données (une coche verte est affichée sur le module), enregistrez-les en tant que jeu de données (avec le nom de votre choix). Cela ressemble à :
@@ -533,7 +533,7 @@ Notre expérience Azure Machine Learning Studio (classique) ressemble à ceci :
 Examinez maintenant les composants clés de cette expérience. Faites d’abord glisser nos jeux de données d’entraînement et de test sur le canevas de l’expérience.
 
 #### <a name="clean-missing-data"></a>Nettoyage des données manquantes
-Le module **Nettoyer des données manquantes**, comme son nom l’indique, nettoie les données manquantes via des méthodes qui peuvent être spécifiées par l’utilisateur. Regardez dans ce module pour voir ceci :
+Le module **Nettoyer des données manquantes** , comme son nom l’indique, nettoie les données manquantes via des méthodes qui peuvent être spécifiées par l’utilisateur. Regardez dans ce module pour voir ceci :
 
 ![Nettoyage des données manquantes](./media/hive-criteo-walkthrough/0ycXod6.png)
 
@@ -549,7 +549,7 @@ Pour créer des fonctionnalités de comptage, utilisez le module **Créer une tr
 ![Créer un module de transformation de comptage](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT]
-> Dans la zone **Nombre de colonnes**, entrez les colonnes sur lesquelles vous souhaitez effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Rappelez-vous que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, effectuez un comptage sur chacune d’elles et donnez leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
+> Dans la zone **Nombre de colonnes** , entrez les colonnes sur lesquelles vous souhaitez effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Rappelez-vous que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, effectuez un comptage sur chacune d’elles et donnez leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
 >
 
 Pour utiliser le module en mode MapReduce (adapté aux grands jeux de données), vous devez accéder à un cluster HDInsight Hadoop (celui utilisé pour l’exploration de la fonctionnalité peut être réutilisé à cet effet) et ses informations d’identification. Les figures précédentes illustrent les valeurs renseignées (remplacez les valeurs fournies à titre d’illustration avec celles adaptées à votre propre cas d’utilisation).
@@ -667,7 +667,7 @@ Notez comment le module **Sélectionner des colonnes dans le jeu de données** p
 
 ![Filtrage avec le module Sélectionner des colonnes dans le jeu de données](./media/hive-criteo-walkthrough/oVUJC9K.png)
 
-Pour obtenir les ports d’entrée et de sortie bleus, vous cliquez simplement sur **préparer le service web**, situé en bas à droite. L’exécution de cette expérience permet également de publier le service web. Pour ce faire, cliquez sur l’icône **PUBLIER LE SERVICE WEB** située en bas à droite :
+Pour obtenir les ports d’entrée et de sortie bleus, vous cliquez simplement sur **préparer le service web** , situé en bas à droite. L’exécution de cette expérience permet également de publier le service web. Pour ce faire, cliquez sur l’icône **PUBLIER LE SERVICE WEB** située en bas à droite :
 
 ![Publication du service Web](./media/hive-criteo-walkthrough/WO0nens.png)
 

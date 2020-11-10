@@ -37,6 +37,10 @@
           href: test-drive-technical-configuration.md
         - name: Version d’évaluation pour Azure Resource Manager
           href: azure-resource-manager-test-drive.md
+        - name: Configuration détaillée pour un test drive hébergé
+          href: test-drive-hosted-detailed-config.md
+        - name: Configurer un abonnement Azure pour des test drives hébergés
+          href: test-drive-azure-subscription-setup.md
     - name: Attribution de l’utilisation de client partenaire Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Options de mise sur le marché
@@ -270,15 +274,15 @@
     - name: Analytique de la Place de marché commerciale
       href: partner-center-portal/analytics.md
     - name: Tableau de bord Résumé
-      href: partner-center-portal/summary-dashboard.md
+      href: summary-dashboard.md
     - name: Tableau de bord des commandes
-      href: partner-center-portal/orders-dashboard.md
+      href: orders-dashboard.md
     - name: Tableau de bord de l’utilisation
-      href: partner-center-portal/usage-dashboard.md
-    - name: Tableau de bord Client
-      href: partner-center-portal/customer-dashboard.md
+      href: usage-dashboard.md
+    - name: Tableau de bord des clients
+      href: customer-dashboard.md
     - name: Tableau de bord des insights de la Place de marché
-      href: partner-center-portal/insights-dashboard.md
+      href: insights-dashboard.md
     - name: Tableau de bord Téléchargements
       href: partner-center-portal/downloads-dashboard.md
     - name: Tableau de bord des évaluations et des avis

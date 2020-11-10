@@ -4,17 +4,19 @@ description: Découvrez les concepts liés au contrôle d’accès dans Azure Co
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371730"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340904"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
@@ -89,7 +91,7 @@ Voici un modèle de conception standard dans le cadre duquel des jetons de resso
 7. Cette dernière peut continuer à utiliser le jeton de ressource pour accéder directement aux ressources Azure Cosmos DB avec les autorisations définies et pendant l’intervalle autorisé.
 8. À expiration du jeton de ressource, les demandes suivantes reçoivent une exception non autorisée 401.  L'application du téléphone établit alors de nouveau l'identité de l'utilisateur et demande un nouveau jeton de ressource.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Renouvellement de clé primaire sur le Portail Azure – Démonstration de la sécurité de la base de données NoSQL" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Workflow de jetons de ressource Azure Cosmos DB" border="false":::
 
 La gestion et la génération des jetons de ressource sont prises en charge par les bibliothèques clientes natives Azure Cosmos DB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Contrôle d’accès aux ressources Azure Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou le code source de notre [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [Kit de développement logiciel (SDK) Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
@@ -118,6 +120,12 @@ Une ressource d’autorisation est associée à un utilisateur et attribuée au 
 
 > [!NOTE]
 > Pour exécuter des procédures stockées, l’utilisateur doit disposer de toutes les autorisations sur le conteneur dans lequel la procédure stockée est exécutée.
+
+Si les [journaux de diagnostic sur les demandes de plan de données](cosmosdb-monitor-resource-logs.md) sont activés, les deux propriétés suivantes correspondant à l’autorisation sont journalisées :
+
+* **resourceTokenPermissionId** : cette propriété indique l’ID d’autorisation du jeton de ressource que vous avez spécifié. 
+
+* **resourceTokenPermissionMode** : cette propriété indique le mode d’autorisation que vous avez défini lors de la création du jeton de ressource. Elle peut avoir différentes valeurs, notamment « all » et « read ».
 
 ### <a name="code-sample-to-create-permission"></a>Exemple de code pour créer une autorisation
 
@@ -150,12 +158,12 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Pour ajouter l’accès en lecture aux comptes Azure Cosmos DB à votre compte d’utilisateur, demandez à un propriétaire d’abonnement d’effectuer les étapes suivantes dans le portail Azure.
 
 1. Ouvrez le portail Azure, puis sélectionnez votre compte Azure Cosmos DB.
-2. Cliquez sur l’onglet **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle** .
-3. Dans le volet **Ajouter une attribution de rôle** , dans la zone **Rôle** , sélectionnez **Rôle de lecteur de compte Cosmos DB** .
-4. Dans la zone **Attribuer l’accès à** , sélectionnez **Utilisateur, groupe ou application Azure AD** .
+2. Cliquez sur l’onglet **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**.
+3. Dans le volet **Ajouter une attribution de rôle** , dans la zone **Rôle** , sélectionnez **Rôle de lecteur de compte Cosmos DB**.
+4. Dans la zone **Attribuer l’accès à** , sélectionnez **Utilisateur, groupe ou application Azure AD**.
 5. Dans votre annuaire, sélectionnez l’utilisateur, le groupe ou l’application qui doit recevoir l’accès.  Dans l’annuaire, vous pouvez rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet.
     L’utilisateur, le groupe ou l’application s’affiche alors dans la liste des membres sélectionnés.
-6. Cliquez sur **Enregistrer** .
+6. Cliquez sur **Enregistrer**.
 
 L’entité peut désormais lire les ressources Azure Cosmos DB.
 

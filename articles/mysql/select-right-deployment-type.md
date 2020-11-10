@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543778"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926187"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
 
@@ -55,7 +55,7 @@ Le tableau suivant liste les principales différences entre ces options :
 | Haute disponibilité | Haute disponibilité intégrée à l’intérieur d’une zone de disponibilité unique| Haute disponibilité intégrée à l’intérieur de zones de disponibilité et entre elles | Gestion personnalisée à l’aide d’un clustering, d’une réplication, etc.|
 | Redondance de zone | Non pris en charge | Prise en charge | Prise en charge|
 | Scénarios hybrides | Pris en charge avec [Réplication des données entrantes](./concepts-data-in-replication.md)| Non disponible en préversion | Géré par les utilisateurs finaux |
-| Réplicas en lecture | Prise en charge| Prise en charge | Géré par les utilisateurs finaux |
+| Réplicas en lecture | Pris en charge (jusqu’à 5 réplicas)| Pris en charge (jusqu’à 10 réplicas)| Géré par les utilisateurs finaux |
 | Sauvegarde | Automatisée avec une rétention de 7 à 35 jours | Automatisée avec une rétention de 1 à 35 jours | Géré par les utilisateurs finaux |
 | Supervision des opérations de base de données | Prise en charge | Prise en charge | Géré par les utilisateurs finaux |
 | Récupération d'urgence | Prise en charge avec le stockage de sauvegarde géo-redondant et les réplicas de lecture inter-régions | Non prise en charge en préversion| Gérée de manière personnalisée avec des technologies de réplication |

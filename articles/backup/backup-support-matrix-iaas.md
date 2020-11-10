@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5988cc7bdc34521bfa75e9f179f88bfbe881b882
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332727"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925643"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -88,7 +88,7 @@ Pour les sauvegardes de machines virtuelles Azure Linux, Sauvegarde Azure prend 
 **Paramètre** | **Limites**
 --- | ---
 Nombre maximal de points de récupération par instance protégée (machine/charge de travail) | 9 999.
-Délai d’expiration maximal pour un point de récupération | Aucune limite.
+Délai d’expiration maximal pour un point de récupération | Aucune limite (99 ans).
 Fréquence maximale de sauvegarde dans le coffre (extension de machine virtuelle Azure) | Une fois par jour.
 Fréquence maximale de sauvegarde dans le coffre (agent MARS) | Trois sauvegardes par jour.
 Fréquence de sauvegarde maximale dans DPM/MABS | Toutes les 15 minutes pour SQL Server.<br/><br/> Une fois par heure pour les autres charges de travail.
@@ -130,7 +130,7 @@ Restaurer une machine virtuelle directement sur un groupe à haute disponibilit�
 Restaurer une sauvegarde de machines virtuelles non managées après leur mise à niveau en machines virtuelles managées| Pris en charge.<br/><br/> Vous pouvez restaurer les disques, puis créer une machine virtuelle managée.
 Restaurer une machine virtuelle sur un point de restauration antérieur à la migration de la machine virtuelle vers des disques managés | Pris en charge.<br/><br/> Vous restaurez sur des disques non managés (par défaut), vous convertissez les disques restaurés en disques managés, et vous créez une machine virtuelle avec les disques managés.
 Restaurer une machine virtuelle qui a été supprimée. | Pris en charge.<br/><br/> Vous pouvez restaurer la machine virtuelle à partir d’un point de récupération.
-Restaurer une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine via le portail | Pris en charge si vous restaurez le disque et que vous créez une machine virtuelle avec PowerShell.
+Restaurer une machine virtuelle contrôleur de domaine  | Pris en charge. Pour plus d’informations, consultez [Restaurer des machines virtuelles contrôleurs de domaine](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 Restaurer une machine virtuelle dans un autre réseau virtuel |Pris en charge.<br/><br/> Les réseaux virtuels doivent se trouver dans le même abonnement et la même région.
 
 ## <a name="vm-compute-support"></a>Prise en charge du calcul de machine virtuelle
@@ -160,12 +160,13 @@ Taille de disque de données | La taille d’un disque individuel peut atteindre
 Type de stockage | HDD Standard, SSD Standard, SSD Premium.
 Disques managés | Pris en charge.
 Disques chiffrés | Pris en charge.<br/><br/> Les machines virtuelles Azure activées pour Azure Disk Encryption peuvent être sauvegardées (avec ou sans l’application Azure AD).<br/><br/> Les machines virtuelles chiffrées ne peuvent pas être récupérées au niveau fichier/dossier. Vous devez récupérer la totalité de la machine virtuelle.<br/><br/> Vous pouvez activer le chiffrement sur des machines virtuelles qui sont déjà protégées par Sauvegarde Azure.
-Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> Le service Sauvegarde Azure exclut automatiquement les disques avec l’Accélérateur d’écriture (WA) activé durant la sauvegarde. Dans la mesure où ils ne sont pas sauvegardés, vous ne pouvez pas restaurer ces disques à partir des points de récupération de la machine virtuelle. <br><br> **Remarque importante** : Les machines virtuelles avec des disques WA ont besoin d’une connectivité Internet pour une sauvegarde réussie (même si ces disques sont exclus de la sauvegarde).
+Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> Le service Sauvegarde Azure exclut automatiquement les disques avec l’Accélérateur d’écriture (WA) activé durant la sauvegarde. Dans la mesure où ils ne sont pas sauvegardés, vous ne pouvez pas restaurer ces disques à partir des points de récupération de la machine virtuelle. <br><br> **Remarque importante**  : Les machines virtuelles avec des disques WA ont besoin d’une connectivité Internet pour une sauvegarde réussie (même si ces disques sont exclus de la sauvegarde).
 Sauvegarder et restaurer des machines virtuelles/disques dédupliqués | Sauvegarde Azure ne prend pas en charge la déduplication. Pour plus d’informations, consultez cet [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Sauvegarde Azure n’effectue pas de déduplication entre les machines virtuelles du coffre Recovery Services <br/> <br/>  - S’il existe des machines virtuelles en état de déduplication pendant la restauration, les fichiers ne peuvent pas être restaurés, car le coffre ne comprend pas le format. Toutefois, vous pouvez effectuer la restauration complète de la machine virtuelle.
 Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volume partagé de cluster (CSV) ou d’un serveur de fichiers avec montée en puissance parallèle n’est pas prise en charge. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
 [Disques partagés](../virtual-machines/disks-shared-enable.md) | Non pris en charge.
+Disques SSD Ultra | Non pris en charge. Pour plus d’informations, consultez ces [Limitations](selective-disk-backup-restore.md#limitations).
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 
@@ -222,7 +223,7 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | N/D | ![Oui][green]
-Machines virtuelles Azure | N/D | N/D
+Machines virtuelles Azure | NA | N/D
 Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
 Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 

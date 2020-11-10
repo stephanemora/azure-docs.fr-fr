@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231127"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123130"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Applets de commande Azure AD PowerShell pour la création de rapports
 
@@ -59,7 +59,7 @@ Accédez aux journaux d’audit à l’aide de la cmdlet « AzureADAuditDirector
 
 L’illustration suivante montre un exemple de cette commande. 
 
-![Bouton « Synthèse des données »](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Capture d’écran montrant le résultat de la commande Get-AzureADAuditDirectoryLogs.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -81,7 +81,7 @@ Vous accédez aux journaux de connexion à l’aide de la cmdlet « AzureADAudit
 
 L’illustration suivante montre un exemple de cette commande. 
 
-![Bouton « Synthèse des données »](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Capture d’écran montrant le résultat de la commande Get-AzureADAuditSignInLogs.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282195"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186584"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Les API Blob et les API Data Lake Storage Gen2 peuvent fonctionner sur les même
 
 Cette section décrit les problèmes et les limitations liés à l’utilisation des API d’objets BLOB et des API Data Lake Storage Gen 2 pour fonctionner sur les mêmes données.
 
-* Il n’est pas possible d’utiliser à la fois l’API et les API Data Lake Storage pour écrire dans la même instance d’un fichier. Si vous écrivez dans un fichier à l’aide des API Data Lake Storage Gen 2, les blocs de ce fichier ne seront pas visibles pour les appels à l’API [Obtenir la liste de bloc](https://docs.microsoft.com/rest/api/storageservices/get-block-list) d’objets BLOB. La seule exception concerne les cas de remplacement. Il est en effet possible de remplacer un fichier ou un objet blob à l’aide de n’importe quelle API.
+* Il n’est pas possible d’utiliser l’API Blob et les API Data Lake Storage pour écrire dans la même instance d’un fichier. Si vous écrivez dans un fichier à l’aide des API Data Lake Storage Gen 2, les blocs de ce fichier ne seront pas visibles pour les appels à l’API [Obtenir la liste de bloc](https://docs.microsoft.com/rest/api/storageservices/get-block-list) d’objets BLOB. La seule exception concerne les cas de remplacement. Il est en effet possible de remplacer un fichier ou un objet blob à l’aide de n’importe quelle API.
 
 * Lorsque vous utilisez l’opération [Lister les objets BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sans spécifier de délimiteur, les résultats incluront à la fois des répertoires et des objets BLOB. Si vous choisissez d’utiliser un délimiteur, n’utilisez qu’une barre oblique (`/`). Il s’agit du seul délimiteur pris en charge.
 
@@ -68,19 +68,19 @@ La possibilité d’appliquer les modifications aux listes ACL de manière récu
 
 ## <a name="azcopy"></a>AzCopy
 
-Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  Les versions antérieures d’AzCopy (telles qu’AzCopy v8.1) ne sont pas prises en charge.
+Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy, telles qu’AzCopy v8.1, ne sont pas prises en charge.
 
 <a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 
-Utilisez uniquement les versions `1.6.0` ou ultérieures.
+Utilisez uniquement les versions `1.6.0` ou ultérieures.
 
 <a id="explorer-in-portal"></a>
 
 ## <a name="storage-explorer-in-the-azure-portal"></a>Explorateur Stockage dans le portail Azure
 
-Les listes de contrôle d’accès ne sont pas prises en charge pour le moment.
+Les ACL ne sont pas encore prises en charge.
 
 <a id="third-party-apps"></a>
 
@@ -92,38 +92,15 @@ Les applications tierces qui utilisent les API REST continueront à fonctionner 
 
 Si l’[accès en lecture anonyme](storage-manage-access-to-resources.md) a été accordé à un conteneur, les listes de contrôle d’accès n’ont aucun effet sur ce conteneur ou les fichiers de ce conteneur.
 
-### <a name="diagnostic-logs"></a>Journaux de diagnostic
+## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
 Le réglage du nombre de jours de rétention n’est pas encore pris en charge, mais vous pouvez supprimer les journaux manuellement à l’aide de n’importe quel outil pris en charge, comme Explorateur Stockage Azure, REST ou un Kit de développement logiciel (SDK).
 
-## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problèmes spécifiques aux comptes de stockage BlockBlobStorage de performances Premium
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Stratégies de gestion du cycle de vie avec niveau Premium pour Azure Data Lake Storage
 
-### <a name="diagnostic-logs"></a>Journaux de diagnostic
+Il n’est pas possible de déplacer des données stockées dans le niveau Premium entre les niveaux chaud, froid et archive. Vous pouvez toutefois copier des données du niveau Premium vers le niveau d’accès chaud dans un autre compte.
 
-Les journaux de diagnostic ne peuvent pas être activés à l’aide du Portail Azure. Vous pouvez les activer à l’aide de PowerShell. Par exemple :
-
-```powershell
-#To login
-Connect-AzAccount
-
-#Set default block blob storage account.
-Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
-
-#Enable logging
-Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-```
-
-### <a name="lifecycle-management-policies"></a>Stratégies de gestion du cycle de vie
-
-- Les stratégies de gestion du cycle de vie sont prises en charge uniquement par les comptes universels v2. Elles ne sont pas encore prises en charge par les comptes de stockage BlockBlobStorage Premium.
-- Les données ne peuvent pas être déplacées du niveau Premium vers des niveaux inférieurs.
-
-
-### <a name="hdinsight-support"></a>Support HDInsight
-
-Lorsque vous créez un cluster HDInsight, vous ne pouvez pas encore sélectionner un compte BlockBlobStorage sur lequel la fonctionnalité d’espace de noms hiérarchique est activée. Toutefois, vous pouvez attacher le compte au cluster après l’avoir créé.
-
-### <a name="dremio-support"></a>Support Dremio
+## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>Prise en charge Dremio avec des comptes de stockage BlockBlobStorage de niveau de performance Premium
 
 Dremio ne se connecte pas encore à un compte BlockBlobStorage sur lequel la fonctionnalité d’espace de noms hiérarchique est activée. 
 

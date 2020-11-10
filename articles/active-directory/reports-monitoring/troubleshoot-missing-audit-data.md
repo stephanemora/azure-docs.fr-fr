@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85608107"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123062"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Résoudre les problèmes : données manquantes dans les journaux d’activité Azure Active Directory 
 
@@ -32,7 +32,7 @@ ms.locfileid: "85608107"
 
 J’ai réalisé certaines actions dans le portail Azure et je pensais pouvoir consulter les journaux d’audit associés dans le panneau `Activity logs > Audit Logs`, mais je ne les trouve pas.
 
- ![Signalement](./media/troubleshoot-missing-audit-data/01.png)
+ ![Capture d’écran montrant des entrées de journal d’audit.](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Cause
 
@@ -53,7 +53,7 @@ Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent d
 
 Je me suis connecté récemment au portail Azure et je pensais pouvoir consulter les journaux d’activité de connexion associés dans le panneau `Activity logs > Sign-ins`, mais je ne les trouve pas.
 
- ![Signalement](./media/troubleshoot-missing-audit-data/02.png)
+ ![Capture d’écran montrant des connexions dans le journal d’activité.](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Cause
 
@@ -74,7 +74,7 @@ Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent d
 
 Je n’arrive pas à afficher plus de 30 jours de données de connexion et d’audit dans le portail Azure. Pourquoi ? 
 
- ![Signalement](./media/troubleshoot-missing-audit-data/03.png)
+ ![Capture d’écran montrant le menu Date.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Cause
 

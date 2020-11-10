@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226979"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126632"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
 
@@ -159,7 +159,7 @@ Pour chaque tendance, vous obtenez une répartition par application et par proto
 ## <a name="sign-ins-by-conditional-access"></a>Connexions par accès conditionnel 
 
 
-Pour accéder au classeur afin d’identifier les connexions via des [stratégies d’accès conditionnel](../conditional-access/overview.md), accédez à la section **Accès conditionnel**, puis sélectionnez **Sign-ins by Conditional Access** (Connexions par accès conditionnel). 
+Pour accéder au classeur afin d’identifier les connexions via des [stratégies d’accès conditionnel](../conditional-access/overview.md), accédez à la section **Accès conditionnel** , puis sélectionnez **Sign-ins by Conditional Access** (Connexions par accès conditionnel). 
 
 Ce classeur affiche les tendances relatives aux connexions désactivées. Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
@@ -174,7 +174,7 @@ Ce classeur affiche les tendances relatives aux connexions désactivées. Vous p
 
 Pour les connexions désactivées, vous obtenez une répartition en fonction de l’état de l’accès conditionnel.
 
-![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Capture d’écran des zones État de l’accès conditionnel et Connexions récentes](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>Insights sur l’accès conditionnel
@@ -194,12 +194,12 @@ Pour accéder au classeur relatif aux Informations sur l’accès conditionnel, 
 
 - **Vue de données**
 
-![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Capture d’écran du volet Accès conditionnel permettant de sélectionner une stratégie d’accès conditionnel](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 Le résumé de l’impact indique le nombre d’utilisateurs ou de connexions pour lesquels les stratégies sélectionnées ont un résultat particulier. « Total » représente le nombre d’utilisateurs ou de connexions pour lesquels les stratégies sélectionnées ont été évaluées dans l’intervalle de temps sélectionné. Cliquez sur une vignette pour filtrer les données du classeur en fonction de ce type de résultat. 
 
-![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Capture d’écran des vignettes permettant de filtrer les résultats, notamment Total, Réussite et Échec](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 Ce classeur montre également l’impact des stratégies sélectionnées, ventilé selon chacune des six conditions : 
 - **État de l’appareil**
@@ -209,19 +209,15 @@ Ce classeur montre également l’impact des stratégies sélectionnées, ventil
 - **Lieu**
 - **Applications**
 
-![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Capture d’écran des détails du filtre Nombre total de connexions.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 Vous pouvez également examiner des connexions individuelles, filtrées par les paramètres sélectionnés dans le classeur. Recherchez des utilisateurs individuels, triés par fréquence de connexion, et affichez les événements de connexion correspondants. 
 
-![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
-
-
+![Capture d’écran des connexions individuelles consultables](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## <a name="sign-ins-by-grant-controls"></a>Connexions par contrôles d’octroi
 
-Pour accéder au classeur afin d’identifier les connexions via des [contrôles d’octroi](../conditional-access/controls.md), accédez à la section **Accès conditionnel**, puis sélectionnez **Sign-ins by Grant Control** (Connexions par contrôle d’octroi). 
+Pour accéder au classeur afin d’identifier les connexions via des [contrôles d’octroi](../conditional-access/controls.md), accédez à la section **Accès conditionnel** , puis sélectionnez **Sign-ins by Grant Control** (Connexions par contrôle d’octroi). 
 
 Ce classeur montre les tendances suivantes concernant les connexions désactivées :
 
@@ -261,7 +257,7 @@ Utilisez le classeur **Analyse des échecs de connexion** pour résoudre les err
 - Authentification héritée 
 
 
-Pour accéder aux données relatives aux connexions via l’accès conditionnel, accédez à la session **Résoudre les problèmes**, puis sélectionnez **Sign-ins using Legacy Authentication** (Connexions à l’aide d’une authentification héritée). 
+Pour accéder aux données relatives aux connexions via l’accès conditionnel, accédez à la session **Résoudre les problèmes** , puis sélectionnez **Sign-ins using Legacy Authentication** (Connexions à l’aide d’une authentification héritée). 
 
 Ce classeur montre les tendances suivantes en matière de connexion :
 

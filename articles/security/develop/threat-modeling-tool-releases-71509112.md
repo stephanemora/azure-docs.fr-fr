@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0afdd90f2a1413c7f8364fc4518c4d1116454a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539813"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913583"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Version en disponibilité générale de Threat Modeling Tool v 7.1.50911.2 - 12/09/2018
 
@@ -65,13 +65,13 @@ L’utilisateur peut cliquer sur le texte d’atténuation et utiliser le contr�
 
 La fonctionnalité « Open From OneDrive » (Ouvrir à partir de OneDrive) de la préversion a été supprimée. Les utilisateurs disposant de « modèles récemment ouverts » enregistrés dans OneDrive recevront l’erreur suivante.
 
-![Fonctionnalité OneDrive supprimée](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![Capture d’écran d’une erreur : Erreur à l’ouverture du fichier – Référence d’objet non définie comme une instance d’un objet](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>Solution de contournement
 
 Nous conseillons aux utilisateurs de OneDrive de se servir du client [OneDrive pour Windows](https://onedrive.live.com/about/en-us/download/) pour accéder à leurs fichiers stockés sur OneDrive, en utilisant la boîte de dialogue classique « d’ouverture d’un modèle ».
 
-![Fonctionnalité OneDrive supprimée](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![Capture d’écran de OneDrive sélectionné dans la boîte de dialogue Ouvrir un modèle](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>Mon organisation utilise la version 2016 de l’outil, puis-je utiliser le jeu de stencils Azure ?
 

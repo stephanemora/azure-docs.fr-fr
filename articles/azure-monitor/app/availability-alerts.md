@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970742"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043379"
 ---
 # <a name="availability-alerts"></a>Alertes de disponibilité
 
@@ -28,11 +28,11 @@ Les alertes sont maintenant activées automatiquement par défaut, mais afin de 
 
 1. Après avoir enregistré le test de disponibilité, sous l’onglet des détails, cliquez sur les points de suspension à côté du test que vous venez de faire. Cliquez sur « Modifier l’alerte ».
 
-   ![Modifier après l’enregistrement](./media/availability-alerts/edit-alert.png)
+   ![Capture d’écran de l’option Modifier l’alerte sélectionnée dans le menu](./media/availability-alerts/edit-alert.png)
 
 2. Définissez le niveau de gravité et la description des règles souhaités, et surtout, le groupe d’actions disposant des préférences de notification que vous souhaitez utiliser pour cette règle d’alerte.
 
-   ![Modifier après l’enregistrement](./media/availability-alerts/set-action-group.png)
+   ![Capture d’écran de la page Gestion des règles permettant de modifier la règle](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Les alertes de disponibilité créées à l’aide de cette expérience sont basées sur l’état. Cela signifie que lorsque les critères d’alerte sont remplis, une seule alerte est générée lorsque le site est détecté comme étant non disponible. Si le site est toujours indisponible la prochaine fois que le critère d'alerte est évalué, aucune nouvelle alerte ne sera générée. Ainsi, si votre site était indisponible pendant une heure et que vous aviez configuré une alerte par e-mail, vous ne recevrez un e-mail que lorsque le site devient indisponible, puis un autre e-mail lorsqu’il redevient disponible. Vous ne recevrez pas d’alertes continues vous rappelant que le site n’est toujours pas disponible.

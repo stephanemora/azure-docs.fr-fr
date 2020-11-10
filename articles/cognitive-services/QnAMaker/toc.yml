@@ -94,6 +94,8 @@
       href: troubleshooting.md
     - name: Paires de questions-réponses
       href: Concepts/question-answer-set.md
+    - name: Réponse précise
+      href: reference-precise-answering.md
     - name: Ajouter des fichiers SharePoint sécurisés
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'

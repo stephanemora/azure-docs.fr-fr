@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88648987"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926612"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Charge de travail SAP sur les machines virtuelles Azure - Scénarios pris en charge
 Concevoir un architecture système SAP NetWeaver, Business One, `Hybris` ou S/4HANA dans Azure ouvre la voie à bien des opportunités en termes d'architectures et d'outils à utiliser afin d'obtenir un déploiement évolutif, efficace et hautement disponible. Bien qu’elles dépendent du système d’exploitation ou du SGBD utilisé, il existe des restrictions. De même, tous les scénarios pris en charge localement ne sont pas pris en charge de la même manière dans Azure. Ce document présente les configurations sans haute disponibilité prises en charge, ainsi que les configurations et architectures haute disponibilité utilisant exclusivement des machines virtuelles Azure. Pour les scénarios pris en charge avec de [grandes instances HANA](./hana-overview-architecture.md), consultez l’article [Scénarios pris en charge pour les grandes instances HANA](./hana-supported-scenario.md). 
@@ -46,7 +46,7 @@ Dans de telles configurations, vous séparez la couche d’application SAP et la
 
 La représentation graphique se présente comme suit :
 
-![Configuration simple à deux niveaux](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![Diagramme d’une configuration simple à trois niveaux](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 Ce type de configuration est pris en charge sur Windows, Red Hat, SUSE et Oracle Linux pour les systèmes SGBD de SQL Server, Oracle, DB2, SAP HANA, maxDB et SAP ASE pour les cas de production et de non-production. Il s’agit de la configuration de déploiement par défaut pour les [grandes instances Azure HANA](./hana-overview-architecture.md). Dans un souci de simplification, nous n’avons pas fait la distinction entre les services centraux SAP et les instances de dialogue SAP dans la couche d'application SAP. Dans cette configuration simple à trois niveaux, aucune protection haute disponibilité n’est disponible pour les services centraux SAP.
 
@@ -83,7 +83,7 @@ Dans de nombreux cas, plusieurs instances de dialogue sont déployées sur des s
 
 Une configuration à trois niveaux où plusieurs instances de dialogue SAP sont exécutées dans des machines virtuelles Azure peut se présenter comme suit :
 
-![Plusieurs instances SGBD dans une seule unité](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Diagramme d’une configuration à trois niveaux dans laquelle plusieurs instances de dialogue SAP sont exécutées dans des machines virtuelles Azure](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 Dans un souci de simplification, nous n’avons pas fait la distinction entre les services centraux SAP et les instances de dialogue SAP dans la couche d'application SAP. Dans cette configuration simple à trois niveaux, aucune protection haute disponibilité n’est disponible pour les services centraux SAP. En ce qui concerne les systèmes de production, il est conseillé de protéger les services centraux SAP. Pour plus d'informations sur les configurations multi-SID liées aux instances de services centraux SAP et la haute disponibilité de telles configurations multi-SID, consultez les sections ultérieures de ce document.
 
@@ -208,7 +208,7 @@ La configuration est documentée dans [Guide de haute disponibilité multi-SID p
 
 Un cluster multi-SID avec Enqueue Replication Server se présente schématiquement comme suit
 
-![Configuration haute disponibilité SGBD et ASCS](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Diagramme d’un cluster multi-SID avec Enqueue Replication Server](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## <a name="sap-hana-scale-out-scenarios"></a>Scénarios de scale-out SAP HANA

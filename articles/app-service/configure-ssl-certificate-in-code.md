@@ -5,18 +5,18 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311816"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126037"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Utiliser un certificat TLS/SSL dans votre code dans Azure App Service
 
 Dans votre code d’application, vous pouvez accéder aux [certificats publics ou privés que vous ajoutez à App Service](configure-ssl-certificate.md). Votre code d’application peut agir en tant que client et accéder à un service externe qui exige une authentification par certificat, ou il peut être amené à effectuer des tâches de chiffrement. Ce guide pratique explique comment utiliser des certificats publics ou privés dans le code de votre application.
 
-Cette approche de l'utilisation des certificats dans votre code utilise la fonctionnalité TLS d'App Service, qui requiert que votre application soit au niveau **De base** ou supérieur. Si votre application se situe au niveau **Gratuit** ou **Partagé**, vous pouvez [inclure le fichier de certificat dans le référentiel de votre application](#load-certificate-from-file).
+Cette approche de l'utilisation des certificats dans votre code utilise la fonctionnalité TLS d'App Service, qui requiert que votre application soit au niveau **De base** ou supérieur. Si votre application se situe au niveau **Gratuit** ou **Partagé** , vous pouvez [inclure le fichier de certificat dans le référentiel de votre application](#load-certificate-from-file).
 
 Lorsque vous confiez la gestion de vos certificats TLS/SSL à App Service, vous pouvez conserver les certificats et le code de votre application séparément et protéger vos données sensibles.
 
@@ -31,7 +31,7 @@ Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
 Sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<app-name>** .
 
-Dans la barre de navigation gauche de votre application, sélectionnez **Paramètres TLS/SSL**, puis **Certificats de clé privée (.pfx)** ou **Certificats de clé publique (.cer)** .
+Dans la barre de navigation gauche de votre application, sélectionnez **Paramètres TLS/SSL** , puis **Certificats de clé privée (.pfx)** ou **Certificats de clé publique (.cer)** .
 
 Trouvez le certificat que vous souhaitez utiliser et copiez-en l’empreinte.
 
@@ -49,10 +49,7 @@ Pour rendre tous vos certificats accessibles, définissez la valeur sur `*`.
 
 ## <a name="load-certificate-in-windows-apps"></a>Charger le certificat dans les applications Windows
 
-Le paramètre d’application `WEBSITE_LOAD_CERTIFICATES` rend les certificats spécifiés accessibles pour votre application hébergée sur Windows dans le magasin de certificats Windows, dont l’emplacement dépend du [niveau tarifaire](overview-hosting-plans.md) :
-
-- Niveau **Isolé**, dans [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- Tous les autres niveaux, dans [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+Le paramètre d’application `WEBSITE_LOAD_CERTIFICATES` rend les certificats spécifiés accessibles à votre application hébergée sur Windows dans le magasin de certificats Windows, dans [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
 Dans le code C#, vous accédez au certificat par l’empreinte numérique du certificat. Le code suivant charge un certificat avec l’empreinte `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 

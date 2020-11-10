@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596037"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286909"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
 
@@ -146,6 +146,9 @@ Cette option évite d’avoir à écrire du code d’authentification dans l’a
 
 > [!CAUTION]
 > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique.
+
+> [!NOTE]
+> Par défaut, tout utilisateur de votre locataire Azure AD peut demander un jeton pour votre application à partir d’Azure AD. Vous pouvez [configurer l’application dans Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) si vous souhaitez restreindre l’accès à votre application à un ensemble défini d’utilisateurs.
 
 ## <a name="more-resources"></a>Plus de ressources
 

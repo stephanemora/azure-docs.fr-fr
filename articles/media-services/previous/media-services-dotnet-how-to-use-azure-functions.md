@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262107"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913634"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Développement de fonctions Azure Functions avec Media Services
 
@@ -55,7 +55,7 @@ La fonction, définie dans cet article, suppose que les variables d’environnem
 
 **AMSClientId** : ID client d’application Azure AD.
 
-**AMSClientSecret** : clé secrète client d’application Azure AD.
+**AMSClientSecret**  : clé secrète client d’application Azure AD.
 
 **StorageConnection** : connexion au stockage du compte associé au compte Media Services. Cette valeur est utilisée dans le fichier **function.json** et le fichier **run.csx** (décrits ci-après).
 
@@ -65,13 +65,13 @@ Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonct
 
 1. Sélectionnez votre Function App et cliquez sur **Nouvelle fonction**.
 2. Choisissez le langage **C#** et le scénario **Traitement des données**.
-3. Choisissez le modèle **BlobTrigger**. Cette fonction est déclenchée à chaque fois qu’un objet blob est chargé dans le conteneur **input**. Le nom **input** est spécifié dans le **chemin d’accès**, à l’étape suivante.
+3. Choisissez le modèle **BlobTrigger**. Cette fonction est déclenchée à chaque fois qu’un objet blob est chargé dans le conteneur **input**. Le nom **input** est spécifié dans le **chemin d’accès** , à l’étape suivante.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![Capture d’écran de la boîte de dialogue Choisir un modèle avec l’option BlobTrigger sélectionnée](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Lorsque vous sélectionnez **BlobTrigger**, d’autres commandes s’affichent sur la page.
+4. Lorsque vous sélectionnez **BlobTrigger** , d’autres commandes s’affichent sur la page.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![Capture d’écran de la boîte de dialogue Nommer la fonction](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Cliquez sur **Créer**. 
 
@@ -79,7 +79,7 @@ Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonct
 
 Votre fonction Azure est associée à des fichiers de code et à d’autres fichiers décrits dans cette section. Lorsque vous utilisez le portail Azure pour créer une fonction, **function.json** et **run.csx** sont créés automatiquement. Vous devez ajouter ou charger un fichier **project.json**. Le reste de cette section donne une brève explication de chaque fichier et montre leur définition.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Capture d’écran des fichiers JSON du projet](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -338,7 +338,7 @@ Pour tester votre fonction, vous devez charger un fichier MP4 dans le conteneur 
 1. Sélectionnez le compte de stockage que vous avez spécifié dans la variable d’environnement **StorageConnection**.
 2. Cliquez sur **Objets blob**.
 3. Cliquez sur **+ conteneur**. Nommez le conteneur **input**.
-4. Appuyez sur **Charger**, puis accédez au fichier .mp4 que vous souhaitez charger.
+4. Appuyez sur **Charger** , puis accédez au fichier .mp4 que vous souhaitez charger.
 
 >[!NOTE]
 > Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob après qu’une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour plus d’informations, consultez [Déclencheurs et liaisons de stockage blob](../../azure-functions/functions-bindings-storage-blob.md).

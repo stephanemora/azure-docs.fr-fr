@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085263"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927190"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
 Ce document décrit la façon dont [HANA - Grandes instances](./hana-overview-architecture.md) est présenté dans le [portail Azure](https://portal.azure.com) et les activités qui peuvent être effectuées par le biais du portail Azure avec des unités de Grande instance HANA qui sont automatiquement déployées. La visibilité de la fonctionnalité HANA - Grandes instances dans le portail Azure est fournie par le biais d’un fournisseur de ressources Azure pour HANA - Grandes instances, qui est actuellement en préversion publique
@@ -54,7 +54,7 @@ Lors du déploiement de votre première unités de Grande instance HANA, un [gro
 
 Afin de trouver le groupe de ressources Azure, vous affichez la liste des groupes de ressources de votre abonnement en parcourant le volet de navigation de gauche du portail Azure
 
-![Volet de navigation du portail Azure](./media/hana-li-portal/portal-resource-group.png)
+![Capture d’écran de l’option Groupes de ressources](./media/hana-li-portal/portal-resource-group.png)
 
 Vous êtes répertorié dans la liste des groupes de ressources. Vous devrez peut-être filtrer sur l’abonnement que vous avez utilisé pour déployer HANA - Grandes instances.
 
@@ -151,7 +151,7 @@ Dans la liste des services, vous trouverez le service **Grande instance SAP HANA
 
 ![Sélectionner la classe de problème dans le portail Azure](./media/hana-li-portal/portal-select-problem-class.png)
 
-Sous chacun des différents types de problèmes, une sélection des sous-types de problèmes que vous devez sélectionner pour mieux caractériser votre problème est disponible. Après avoir sélectionné le sous-type, vous pouvez nommer l’objet. Une fois que vous avez terminé le processus de sélection, vous pouvez passer à l’étape suivante de la création. Dans la section **Solutions**, vous êtes dirigé vers une documentation concernant HANA - Grandes instances, qui peut donner des indications pour résoudre votre problème. Si vous ne trouvez aucune solution à votre problème dans la documentation suggérée, vous passez à l’étape suivante. À l’étape suivante, vous devrez indiquer si le problème concerne les machines virtuelles ou les unités de Grande instance HANA. Ces informations permettent d’adresser la demande de support aux spécialistes appropriés. 
+Sous chacun des différents types de problèmes, une sélection des sous-types de problèmes que vous devez sélectionner pour mieux caractériser votre problème est disponible. Après avoir sélectionné le sous-type, vous pouvez nommer l’objet. Une fois que vous avez terminé le processus de sélection, vous pouvez passer à l’étape suivante de la création. Dans la section **Solutions** , vous êtes dirigé vers une documentation concernant HANA - Grandes instances, qui peut donner des indications pour résoudre votre problème. Si vous ne trouvez aucune solution à votre problème dans la documentation suggérée, vous passez à l’étape suivante. À l’étape suivante, vous devrez indiquer si le problème concerne les machines virtuelles ou les unités de Grande instance HANA. Ces informations permettent d’adresser la demande de support aux spécialistes appropriés. 
 
 ![Détails d’un cas de support dans le portail Azure](./media/hana-li-portal/portal-support-request-details.png)
 

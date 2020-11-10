@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367735"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336117"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -22,7 +22,7 @@ Chaque action se compose des propriétés suivantes :
 
 * **Type**  : notification ou action effectuée. Exemples : envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou déclenchement de différents types d'actions automatisées. Reportez-vous aux types présentés plus loin dans cet article.
 * **Name**  : identificateur unique au sein du groupe d’actions.
-* **Détails** : détails correspondants qui varient selon le *type* .
+* **Détails** : détails correspondants qui varient selon le *type*.
 
 Pour plus d’informations sur l’utilisation de modèles Azure Resource Manager pour configurer des groupes d’actions, consultez la page [Modèles Resource Manager de groupes d’actions](./action-groups-create-resource-manager-template.md).
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Monitor** Le volet **Moniteur** consolide tous vos paramètres et données de supervision dans une même vue.
 
-1. Sélectionnez **Alertes** , puis **Gérer les actions** .
+1. Sélectionnez **Alertes** , puis **Gérer les actions**.
 
     ![Bouton Gérer les actions](./media/action-groups/manage-action-groups.png)
     
@@ -46,9 +46,9 @@ Sélectionnez l’ **Abonnement** et le **Groupe de ressources** dans lequel le 
 
 Sous **Détails de l’instance**  :
 
-1. Entrez un **Nom de groupe d’actions** .
+1. Entrez un **Nom de groupe d’actions**.
 
-1. Entrez un **Nom d’affichage** . Le nom d’affichage est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+1. Entrez un **Nom d’affichage**. Le nom d’affichage est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
 
       ![La boîte de dialogue « Ajouter un groupe d’actions »](./media/action-groups/action-group-1-basics.png)
 
@@ -89,7 +89,7 @@ Sous **Détails de l’instance**  :
 
 ### <a name="create-the-action-group"></a>Créer le groupe d’actions
 
-1. Si vous le souhaitez, vous pouvez explorer les paramètres **Balises** . Cela vous permet d’associer des paires clé/valeur au groupe d’actions pour votre catégorisation. Cette fonctionnalité est disponible pour toutes les ressources Azure.
+1. Si vous le souhaitez, vous pouvez explorer les paramètres **Balises**. Cela vous permet d’associer des paires clé/valeur au groupe d’actions pour votre catégorisation. Cette fonctionnalité est disponible pour toutes les ressources Azure.
 
     ![Onglet Balises](./media/action-groups/action-group-4-tags.png)
     
@@ -102,7 +102,7 @@ Sous **Détails de l’instance**  :
 
 ## <a name="manage-your-action-groups"></a>Gérer des groupes d’actions
 
-Une fois que vous avez créé un groupe d’actions, vous pouvez voir les **groupes d’actions** en sélectionnant **Gérer les actions** dans la page d’arrivée **Alertes** du volet **Monitor** . Sélectionnez le groupe d’actions que vous souhaitez gérer pour :
+Une fois que vous avez créé un groupe d’actions, vous pouvez voir les **groupes d’actions** en sélectionnant **Gérer les actions** dans la page d’arrivée **Alertes** du volet **Monitor**. Sélectionnez le groupe d’actions que vous souhaitez gérer pour :
 
 * Ajouter, modifier ou supprimer des actions.
 * Supprimer le groupe d’actions.
@@ -131,7 +131,7 @@ Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’action
 ### <a name="email-azure-resource-manager-role"></a>Envoyer un message au rôle Azure Resource Manager
 Envoyer un message aux membres du rôle de l’abonnement. L’e-mail sera envoyé uniquement aux **utilisateurs Azure AD** membres du rôle. L’e-mail ne sera pas envoyé aux groupes ou principaux du service Azure AD.
 
-Un e-mail de notification est envoyé uniquement à l’ *adresse e-mail principale* .
+Un e-mail de notification est envoyé uniquement à l’ *adresse e-mail principale*.
 
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 
@@ -287,32 +287,32 @@ Pour recevoir des mises à jour sur les modifications apportées à ces adresses
 
 Vous pouvez avoir un nombre limité d’actions de webhook par groupe d’actions.
 
-### <a name="service-tag"></a>Étiquette du service
+Les mises à jour fréquentes des adresses IP source peuvent prendre beaucoup de temps dans le Webhook. Le recours à des **Étiquettes de service** pour *ActionGroup* permet de réduire manuellement la complexité de ces mises à jour fréquentes. Les préfixes des plages d’adresses IP sources partagées ci-dessus sont gérés automatiquement par Microsoft dans le cadre des **Étiquettes de service**.
+
+#### <a name="service-tag"></a>Étiquette du service
 Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses inclus dans l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes des règles de sécurité réseau pour un ActionGroup.
 
-1. Dans le portail Azure, sous services Azure, recherchez *Groupe de sécurité réseau* .
+1. Dans le portail Azure, sous services Azure, recherchez *Groupe de sécurité réseau*.
 2. Cliquez sur **Ajouter** , puis créez un groupe de sécurité réseau.
 
-   1. Ajoutez le nom du groupe de ressources, puis entrez les *Détails de l’instance* .
-   1. Cliquez sur **Vérifier + créer** , puis sur *Créer* .
+   1. Ajoutez le nom du groupe de ressources, puis entrez les *Détails de l’instance*.
+   1. Cliquez sur **Vérifier + créer** , puis sur *Créer*.
    
    :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Exemple de création d’un groupe de sécurité réseau."border="true":::
 
 3. Accédez à un Groupe de ressources, puis cliquez sur le *groupe de sécurité réseau* que vous avez créé.
 
-    1. Sélectionnez *Règles de sécurité de trafic entrant* .
-    1. Cliquez sur **Ajouter** .
+    1. Sélectionnez *Règles de sécurité de trafic entrant*.
+    1. Cliquez sur **Ajouter**.
     
     :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Exemple d’ajout d’étiquette de service."border="true":::
 
 4. Une nouvelle fenêtre s’ouvre dans le volet de droite.
     1.  Sélectionnez Source : **Étiquette de service**
     1.  Étiquette de service source : **ActionGroup**
-    1.  Cliquez sur **Add** .
+    1.  Cliquez sur **Add**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exemple d’ajout d’étiquette de service."border="true":::
-
-L’utilisation d’ **Étiquette de service** pour ActionGroup permet de réduire la complexité des mises à jour fréquentes des adresses IP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le [comportement des alertes SMS](./alerts-sms-behavior.md).  

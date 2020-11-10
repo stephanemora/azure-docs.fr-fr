@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c446a7f05dce2ea6979e9810e729bdac479ae153
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513466"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910489"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Comment ajouter un destinataire à un partage de données existant dans Azure Data Share
 
@@ -23,11 +23,11 @@ Pour plus d’informations sur l’ajout de destinataires au fur et à mesure de
 
 Dans Azure Data Share, accédez à votre partage envoyé et sélectionnez l’onglet **Invitations**. Les destinataires des invitations à ce partage de données sont répertoriés ici. Pour en ajouter un, cliquez sur **Ajouter un destinataire**.
 
-![Ajouter un destinataire](./media/how-to/how-to-add-recipients/add-recipient.png)
+![Capture d’écran de l’option Ajouter un destinataire sélectionnée](./media/how-to/how-to-add-recipients/add-recipient.png)
 
-Un panneau s’affiche sur le côté droit de la page. Cliquez sur **Ajouter un destinataire**, puis entrez l’adresse de votre nouveau destinataire sur la ligne vide. Ajoutez autant de destinataires que vous le souhaitez.
+Un panneau s’affiche sur le côté droit de la page. Cliquez sur **Ajouter un destinataire** , puis entrez l’adresse de votre nouveau destinataire sur la ligne vide. Ajoutez autant de destinataires que vous le souhaitez.
 
-![Ajouter un destinataire](./media/how-to/how-to-add-recipients/add-recipient-side.png)
+![Capture d’écran du volet Ajouter un destinataire permettant d’ajouter et d’envoyer une invitation](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
 Cliquez sur **Valider et envoyer une invitation**. Les nouveaux destinataires recevront des messages d’invitation à ce partage de données.
 

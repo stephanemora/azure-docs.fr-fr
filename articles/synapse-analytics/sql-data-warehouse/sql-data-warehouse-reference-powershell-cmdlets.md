@@ -1,6 +1,6 @@
 ---
-title: API REST et PowerShell
-description: Recherchez les principales cmdlets PowerShell pour le pool SQL Azure Synapse Analytics, y compris comment suspendre et reprendre une base de données.
+title: API REST et PowerShell pour le pool SQL dédié
+description: Principales cmdlets PowerShell pour le pool SQL dédié dans Azure Synapse Analytics, y compris pour suspendre et reprendre une base de données.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a86676f1a7939ff33deeeeae8d3f45c8238645d5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072891"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305299"
 ---
-# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>API REST et PowerShell pour le pool SQL Azure Synapse Analytics
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>API REST et PowerShell pour le pool SQL dédié dans Azure Synapse Analytics 
 
-De nombreuses tâches d’administration de pool SQL Azure Synapse Analytics peuvent être gérées à l’aide de cmdlets Azure PowerShell ou d’API REST.  Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans votre pool SQL.  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST](sql-data-warehouse-manage-compute-rest-api.md).
+De nombreuses tâches d’administration de pool SQL dédié peuvent être gérées avec des cmdlets Azure PowerShell ou des API REST.  Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans votre pool SQL dédié.  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

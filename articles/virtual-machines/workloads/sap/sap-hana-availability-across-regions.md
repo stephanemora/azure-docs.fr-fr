@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de5a449e90452307f3c9b02c725050df6fdd873
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70078854"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925677"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilité de SAP HANA dans l’ensemble des régions Azure
 
@@ -74,7 +74,7 @@ L’architecture possible avec la réplication multi-cibles ressemblerait à :
 
 Si l’organisation dispose de la configuration requise pour la préparation de la haute disponibilité dans la région Azure secondaire (récupération d’urgence), l’architecture ressemblerait à :
 
-![Schéma représentant trois machines virtuelles sur deux régions multi-cibles](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagramme d’une organisation ayant des exigences de préparation à la haute disponibilité dans la deuxième région Azure (récupération d’urgence)](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 Avec le mode d’opération logreplay, cette configuration offre un objectif de point de récupération égal à 0, avec un objectif de délai de récupération faible, dans la région primaire. La configuration fournit également un objectif de point de récupération acceptable en cas de migration vers la région secondaire. Les délais d’objectifs de délai de récupération dans la région secondaire dépendent du préchargement ou non des données. De nombreux clients utilisent la machine virtuelle dans la région secondaire pour exécuter un test du système. Dans ce cas d’usage, les données ne peuvent pas être préchargées.

@@ -1,7 +1,7 @@
 ---
 title: Déploiement sans code (préversion)
 titleSuffix: Azure Machine Learning
-description: Apprenez à déployer un modèle sans script d’entrée.
+description: Aucun déploiement de code ne vous permet de déployer un modèle en tant que service web sans devoir créer manuellement un script d’entrée.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998856"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324917"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Pour noter un modèle, consultez [Utiliser un modèle Machine Learning déployé en tant que service web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). De nombreux projets ONNX utilisent des fichiers protobuf pour stocker de manière compacte les données de formation et de validation, ce qui peut rendre difficile de savoir quel est le format de données attendu par le service. En tant que développeur de modèles, vous devez documenter les éléments suivants pour vos développeurs :
+Pour noter un modèle, consultez [Utiliser un modèle Machine Learning déployé en tant que service web](./how-to-consume-web-service.md). De nombreux projets ONNX utilisent des fichiers protobuf pour stocker de manière compacte les données de formation et de validation, ce qui peut rendre difficile de savoir quel est le format de données attendu par le service. En tant que développeur de modèles, vous devez documenter les éléments suivants pour vos développeurs :
 
 * Format d’entrée (JSON ou binaire)
 * Type et forme des données d’entrée (par exemple, un tableau de floats de forme [100,100,3])

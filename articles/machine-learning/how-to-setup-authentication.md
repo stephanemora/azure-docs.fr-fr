@@ -1,7 +1,7 @@
 ---
 title: Configurer l’authentification
 titleSuffix: Azure Machine Learning
-description: Découvrez comment installer et configurer l’authentification pour divers workflows et ressources dans Azure Machine Learning. Il existe plusieurs façons de configurer et d’utiliser l’authentification sur le service, qu’il s’agisse de l’authentification simple basée sur l’interface utilisateur pour le développement ou les tests, ou de l’authentification complète du principal de service dans Azure Active Directory.
+description: Découvrez comment installer et configurer l’authentification pour divers workflows et ressources dans Azure Machine Learning.
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fd6f933e1b3c1e7c003f62e03215273e3d28ea5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741884"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318530"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 
@@ -38,7 +38,7 @@ Quel que soit le type d’authentification utilisé, le contrôle d’accès en 
 ## <a name="interactive-authentication"></a>Authentification interactive
 
 > [!IMPORTANT]
-> L’authentification interactive utilise votre navigateur et nécessite des cookies (notamment des cookies tiers). Si vous avez désactivé les cookies, vous risquez de recevoir un message d’erreur tel que « Nous n’avons pas pu vous connecter ». Cette erreur peut également se produire si vous avez activé [l’authentification multifacteur Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
+> L’authentification interactive utilise votre navigateur et nécessite des cookies (notamment des cookies tiers). Si vous avez désactivé les cookies, vous risquez de recevoir un message d’erreur tel que « Nous n’avons pas pu vous connecter ». Cette erreur peut également se produire si vous avez activé [l’authentification multifacteur Azure](../active-directory/authentication/concept-mfa-howitworks.md).
 
 La plupart des exemples de la documentation et des exemples utilisent l’authentification interactive. Par exemple, lors de l’utilisation du SDK, deux appels de fonction vous invitent automatiquement à utiliser un flux d’authentification basée sur l’interface utilisateur :
 
@@ -77,7 +77,7 @@ Pour utiliser l’authentification du principal de service, vous devez d’abord
 >
 > La raison pour laquelle vous accordez l’accès le plus bas est qu’un principal de service utilise un mot de passe pour l’authentification et que le mot de passe peut être stocké dans le cadre d’un script d’automatisation. Si le mot de passe est divulgué, le fait d’avoir un accès minimal requis pour une tâche spécifique réduit au minimum l’utilisation malveillante du principal de service.
 
-Le moyen le plus simple de créer un principal de service et de lui accorder l’accès à votre espace de travail consiste à utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Pour créer un principal de service et lui accorder l’accès à votre espace de travail, procédez comme suit :
+Le moyen le plus simple de créer un principal de service et de lui accorder l’accès à votre espace de travail consiste à utiliser [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Pour créer un principal de service et lui accorder l’accès à votre espace de travail, procédez comme suit :
 
 > [!NOTE]
 > Vous devez être administrateur de l’abonnement pour pouvoir effectuer toutes les étapes ci-dessous.
@@ -92,7 +92,7 @@ Le moyen le plus simple de créer un principal de service et de lui accorder l�
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+    Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 1. Installez l’extension Azure Machine Learning :
 
@@ -190,11 +190,11 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Utiliser un principal de service à partir d’Azure CLI
 
-Vous pouvez utiliser un principal de service pour les commandes Azure CLI. Pour plus d’informations, consultez [Se connecter avec un principal de service](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
+Vous pouvez utiliser un principal de service pour les commandes Azure CLI. Pour plus d’informations, consultez [Se connecter avec un principal de service](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Utiliser un principal de service avec l’API REST (préversion)
 
-Le principal de service permet également de s’authentifier auprès de l’[’API REST](https://docs.microsoft.com/rest/api/azureml/) Azure Machine Learning (préversion). Vous utilisez le [flux d’octroi des informations d’identification du client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) Azure Active Directory, qui permet d’effectuer des appels de service à service pour l’authentification sans affichage dans les workflows automatisés. Les exemples sont implémentés avec la [bibliothèque ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) en Python et en Node.js, mais vous pouvez aussi utiliser n’importe quelle bibliothèque open source prenant en charge OpenID Connect 1.0.
+Le principal de service permet également de s’authentifier auprès de l’[’API REST](/rest/api/azureml/) Azure Machine Learning (préversion). Vous utilisez le [flux d’octroi des informations d’identification du client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) Azure Active Directory, qui permet d’effectuer des appels de service à service pour l’authentification sans affichage dans les workflows automatisés. Les exemples sont implémentés avec la [bibliothèque ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) en Python et en Node.js, mais vous pouvez aussi utiliser n’importe quelle bibliothèque open source prenant en charge OpenID Connect 1.0.
 
 > [!NOTE]
 > MSAL.js est une bibliothèque plus récente qu’ADAL. Toutefois, MSAL.js ne prend pas en charge l’authentification de service à service avec les informations d’identification du client, car il s’agit principalement d’une bibliothèque côté client conçue pour l’authentification interactive/basée sur l’interface utilisateur qui est associée à un utilisateur spécifique. Nous vous recommandons d’utiliser ADAL comme indiqué ci-dessous pour créer des workflows automatisés avec l’API REST.
@@ -280,6 +280,62 @@ La variable `token_response` est un dictionnaire qui contient le jeton et des m�
 ```
 
 Utilisez `token_response["accessToken"]` pour récupérer (fetch) le jeton d’authentification. Consultez la [documentation de l’API REST](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) si vous souhaitez voir des exemples d’utilisation du jeton pour effectuer des appels d’API.
+
+#### <a name="java"></a>Java
+
+Dans Java, récupérez le jeton du porteur à l’aide d’un appel REST standard :
+
+```java
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+if (response.statusCode == 200)
+{
+     body = gson.fromJson(body, AuthenticationBody.class);
+
+    // ... etc ... 
+}
+// ... etc ...
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(authUrl))
+            .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+            .build();
+    return request;
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
+Le code ci-dessus devrait gérer les exceptions et les codes d’état autres que `200 OK`, mais présente le modèle : 
+
+- Utiliser l’ID et le secret du client pour confirmer que votre programme doit bénéficier de l’accès
+- Utiliser votre ID de locataire pour spécifier l’emplacement que doit consulter `login.microsoftonline.com`
+- Utiliser Azure Resource Manager comme source du jeton d’autorisation
 
 ## <a name="web-service-authentication"></a>Authentification auprès d’un service web
 

@@ -1,7 +1,7 @@
 ---
 title: Auditer et gérer la conformité à la stratégie
 titleSuffix: Azure Machine Learning
-description: Apprenez à utiliser Azure Policy afin de tirer partir des stratégies intégrées pour Azure Machine Learning.
+description: Découvrez comment utiliser Azure Policy pour utiliser des stratégies intégrées pour Azure Machine Learning afin de vous assurer que vos espaces de travail sont conformes à vos besoins.
 author: jhirono
 ms.author: jhirono
 ms.date: 09/15/2020
@@ -10,25 +10,25 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: d371ea077b479ad2256e782dadd5d037f53004f2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900134"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325494"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Auditer et gérer Azure Machine Learning à l'aide d'Azure Policy
 
-[Azure Policy](/azure/governance/policy) est un outil de gouvernance qui vous permet de vous assurer que les ressources Azure sont conformes à vos stratégies. Avec Azure Machine Learning, vous pouvez attribuer les stratégies suivantes :
+[Azure Policy](../governance/policy/index.yml) est un outil de gouvernance qui vous permet de vous assurer que les ressources Azure sont conformes à vos stratégies. Avec Azure Machine Learning, vous pouvez attribuer les stratégies suivantes :
 
 * **Clé gérée par le client**  : auditez ou appliquez une valeur indiquant si les espaces de travail doivent utiliser une clé gérée par le client.
 * **Liaison privée**  : procédez à un audit pour déterminer si les espaces de travail utilisent un point de terminaison privé pour communiquer avec un réseau virtuel.
 
-Les stratégies peuvent être définies sur des étendues différentes, par exemple au niveau de l'abonnement ou du groupe de ressources. Pour plus d'informations, consultez la [documentation relative à Azure Policy](/azure/governance/policy/overview).
+Les stratégies peuvent être définies sur des étendues différentes, par exemple au niveau de l'abonnement ou du groupe de ressources. Pour plus d'informations, consultez la [documentation relative à Azure Policy](../governance/policy/overview.md).
 
 ## <a name="built-in-policies"></a>Stratégies prédéfinies
 
-Azure Machine Learning fournit un ensemble de stratégies que vous pouvez utiliser dans des scénarios courants. Vous pouvez attribuer ces définitions de stratégie à votre abonnement existant ou les utiliser comme base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des stratégies intégrées pour Azure Machine Learning, consultez [Stratégies intégrées pour Azure Machine Learning](/azure/governance/policy/samples/built-in-policies#machine-learning).
+Azure Machine Learning fournit un ensemble de stratégies que vous pouvez utiliser dans des scénarios courants. Vous pouvez attribuer ces définitions de stratégie à votre abonnement existant ou les utiliser comme base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des stratégies intégrées pour Azure Machine Learning, consultez [Stratégies intégrées pour Azure Machine Learning](../governance/policy/samples/built-in-policies.md#machine-learning).
 
 Pour consulter les définitions de stratégie intégrées en rapport avec Azure Machine Learning, procédez comme suit :
 
@@ -36,9 +36,9 @@ Pour consulter les définitions de stratégie intégrées en rapport avec Azure 
 1. Sélectionnez __Définitions__.
 1. Dans le champ __Type__ , sélectionnez _Intégré_ et dans le champ __Catégorie__ , sélectionnez __Machine Learning__.
 
-De là, vous pouvez sélectionner les définitions de stratégie à consulter. Lorsque vous consultez une définition, vous pouvez utiliser le lien __Attribuer__ pour attribuer la stratégie à une étendue spécifique et configurer les paramètres de cette stratégie. Pour plus d'informations, consultez [Attribuer une stratégie - portail](/azure/governance/policy/assign-policy-portal).
+De là, vous pouvez sélectionner les définitions de stratégie à consulter. Lorsque vous consultez une définition, vous pouvez utiliser le lien __Attribuer__ pour attribuer la stratégie à une étendue spécifique et configurer les paramètres de cette stratégie. Pour plus d'informations, consultez [Attribuer une stratégie - portail](../governance/policy/assign-policy-portal.md).
 
-Vous pouvez également attribuer des stratégies à l'aide d'[Azure PowerShell](/azure/governance/policy/assign-policy-powershell), d'[Azure CLI](https://docs.microsoft.com/azure/governance/policy/assign-policy-azurecli) et de [modèles](/azure/governance/policy/assign-policy-template).
+Vous pouvez également attribuer des stratégies à l'aide d'[Azure PowerShell](../governance/policy/assign-policy-powershell.md), d'[Azure CLI](../governance/policy/assign-policy-azurecli.md) et de [modèles](../governance/policy/assign-policy-template.md).
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>Chiffrement des espaces de travail à l'aide d'une clé gérée par le client
 
@@ -56,6 +56,6 @@ Pour configurer cette stratégie, définissez le paramètre d'effet sur __audit_
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Documentation Azure Policy](/azure/governance/policy/overview)
+* [Documentation Azure Policy](../governance/policy/overview.md)
 * [Stratégies intégrées pour Azure Machine Learning](policy-reference.md)
-* [Utiliser des stratégies de sécurité avec Azure Security Center](/azure/security-center/tutorial-security-policy)
+* [Utiliser des stratégies de sécurité avec Azure Security Center](../security-center/tutorial-security-policy.md)

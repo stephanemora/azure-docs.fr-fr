@@ -4,62 +4,30 @@ description: Découvrez comment utiliser des groupes de placement de proximité 
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
-author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: fa81e293bc5e53a852bdb404f9e6d41c4297647b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986710"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349033"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Réduire la latence au moyen de groupes de placement de proximité (préversion)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Réduire la latence au moyen de groupes de placement de proximité
 
 > [!Note]
 > Lors de l’utilisation de groupes de placement de proximité sur AKS, la colocation s’applique uniquement aux nœuds d’agent. La latence entre les nœuds et entre les pods hébergés correspondants est plus faible. La colocation n’affecte pas l’emplacement du plan de contrôle d’un cluster.
 
 Quand vous déployez votre application dans Azure, la répartition des instances de machine virtuelle sur différentes régions ou zones de disponibilité engendre une latence au niveau du réseau, qui peut impacter les performances globales de votre application. Un groupe de placement de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Certaines applications telles que les jeux, les simulations d’ingénierie et les transactions à haute fréquence (HFT) exigent que la latence soit faible et que les tâches s’exécutent rapidement. Dans ces types de scénarios de calcul haute performance (HPC), envisagez d’utiliser des [groupes de placement de proximité](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) pour les pools de nœuds de votre cluster.
 
-## <a name="limitations"></a>Limites
+## <a name="before-you-begin"></a>Avant de commencer
+
+Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.14 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+
+### <a name="limitations"></a>Limites
 
 * Un groupe de placement de proximité peut mapper à une zone de disponibilité au maximum.
 * Un pool de nœuds doit utiliser Virtual Machine Scale Sets pour associer un groupe de placement de proximité.
 * Un pool de nœuds peut associer un groupe de placement de proximité uniquement lors de la création du pool de nœuds.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-Les ressources suivantes doivent être installées :
-
-- L’extension aks-preview 0.4.53
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Configurer la fonctionnalité en préversion pour les groupes de placement de proximité
-
-> [!IMPORTANT]
-> Lors de l’utilisation de groupes de placement de proximité avec des pools de nœuds AKS, la colocation s’applique uniquement aux nœuds d’agent. La latence entre les nœuds et entre les pods hébergés correspondants est plus faible. La colocation n’affecte pas l’emplacement du plan de contrôle d’un cluster.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-L’inscription peut prendre plusieurs minutes. Utilisez la commande ci-dessous pour vérifier que la fonctionnalité est inscrite :
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-Durant la phase de préversion, vous avez besoin de l’extension CLI *aks-preview* pour utiliser les groupes de placement de proximité. Utilisez la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Pools de nœuds et groupes de placement de proximité
 

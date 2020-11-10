@@ -11,18 +11,18 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0515827ab2d93c76ea91e95c2d53a44273b5633b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213786"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321003"
 ---
-# <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure Synapse Analytics - Vidéos du pool SQL
+# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Azure Synapse Analytics – Vidéos du pool SQL dédié
 
-Regardez les dernières vidéos consacrées au pool SQL Azure Synapse pour en savoir plus sur les nouvelles fonctionnalités et améliorations de performances. 
+Pour plus d’informations sur les nouvelles fonctionnalités et les améliorations du niveau de performance, regardez les dernières vidéos consacrées au pool SQL dédié. 
 
-Commencez par sélectionner la vidéo de présentation ci-dessous pour en savoir plus sur les nouvelles mises à jour du pool SQL Azure Synapse. Découvrez également comment les modèles d’entrepôt de données moderne peuvent vous aider à faire face à des situations concrètes telles que la cybercriminalité.
+Commencez par sélectionner la vidéo de présentation ci-dessous pour en savoir plus sur les nouvelles mises à jour du pool SQL dédié. Découvrez également comment les modèles d’entrepôt de données moderne peuvent vous aider à faire face à des situations concrètes telles que la cybercriminalité.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518005"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927717"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -227,6 +227,9 @@ Oui. Vous pouvez déployer une [appliance virtuelle réseau de pare-feu](https:/
 
 ### <a name="is-there-information-available-about-securing-vnets"></a>Existe-t-il des informations sur la sécurisation des réseaux virtuels ?
 Oui. Pour plus d’informations, consultez [Présentation de la sécurité réseau Azure](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="do-virtual-networks-store-customer-data"></a>Les réseaux virtuels stockent-ils des données client ?
+Non. Les réseaux virtuels ne stockent aucune donnée client. 
 
 ## <a name="apis-schemas-and-tools"></a>API, schémas et outils
 

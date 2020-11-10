@@ -199,6 +199,8 @@
           href: bookmarks.md
         - name: Utiliser LiveStream pour chasser
           href: livestream.md
+        - name: Gérer les requêtes de chasse avec REST-API
+          href: hunting-with-rest-api.md
     - name: Supprimer Azure Sentinel
       href: offboard.md
 - name: "Référence (Nouveau\_!)"

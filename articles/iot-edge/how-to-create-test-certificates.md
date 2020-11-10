@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147885"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927700"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -255,7 +255,7 @@ Le nom d'appareil transmis à la commande **New-CACertsEdgeDevice** ne doit pas 
 2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Fournissez un nom pour le certificat de l'autorité de certification.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    Cette commande de script crée plusieurs fichiers de certificats et de clés. Le certificat et la paire de clés suivants doivent être copiés sur un appareil IoT Edge et référencés dans le fichier config.yaml :
@@ -263,7 +263,7 @@ Le nom d'appareil transmis à la commande **New-CACertsEdgeDevice** ne doit pas 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-Le nom transmis à la commande **create_edge_device_certificate** ne doit pas être le même que le paramètre hostname du fichier config.yaml ou que l'ID de l'appareil dans IoT Hub.
+Le nom transmis à la commande **create_edge_device_ca_certificate** ne doit pas être le même que le paramètre hostname du fichier config.yaml ni que l’ID de l’appareil dans IoT Hub.
 
 ## <a name="create-downstream-device-certificates"></a>Créer des certificats d’appareils en aval
 

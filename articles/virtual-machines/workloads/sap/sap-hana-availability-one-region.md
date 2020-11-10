@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978201"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927768"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilité de SAP HANA au sein d’une région Azure
 Cet article décrit plusieurs scénarios de disponibilité au sein d’une région Azure. Azure dispose de plusieurs régions, réparties à travers le monde. Pour obtenir la liste des régions Azure, voir [Régions Azure](https://azure.microsoft.com/regions/). Pour le déploiement de SAP HANA sur des machines virtuelles au sein d’une région Azure, Microsoft offre le déploiement d’une machine virtuelle unique avec une instance HANA. Pour une disponibilité accrue, vous pouvez déployer deux machines virtuelles avec deux instances HANA au sein d’un [groupe à haute disponibilité Azure](../../windows/tutorial-availability-sets.md) qui utilise la réplication de système HANA pour des raisons de disponibilité. 
@@ -78,7 +78,7 @@ L’une des configurations les plus rudimentaires consiste à utiliser des sauve
 
 L’architecture ressemble à ceci :
 
-![Diagramme de deux machines virtuelles avec réplication de stockage](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagramme de l’architecture de deux machines virtuelles avec réplication du stockage](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Cette configuration n’est pas bien adaptée à la réalisation de bons temps d’objectif de point de récupération (RPO) et d’objectif de délai de récupération (RTO). Les temps de RTO, plus particulièrement, souffriraient en raison du besoin de restaurer entièrement toute la base de données à l’aide des sauvegardes copiées. Toutefois, cette configuration est utile pour récupérer d’une suppression de données involontaire sur les instances principales. Avec cette configuration, vous êtes en mesure de restaurer à un certain point dans le temps, d’extraire les données et d’importer les données supprimées dans votre instance principale en tout temps. Ainsi, il est peut-être logique d’utiliser une méthode de copie de sauvegarde avec d’autres fonctionnalités de haute disponibilité. 
 

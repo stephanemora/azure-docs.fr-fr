@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271900"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146669"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrer le disque du journal vers le disque Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,13 +44,13 @@ Pour activer la compatibilité, procédez comme suit :
 
 1. Accédez à votre machine virtuelle dans le [portail Azure](https://portal.azure.com/). 
 1. Arrêtez/libérez la machine virtuelle. 
-1. Sélectionnez **Disques** sous **Paramètres**, puis **Paramètres supplémentaires**. 
+1. Sélectionnez **Disques** sous **Paramètres** , puis **Paramètres supplémentaires**. 
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Sélectionner des paramètres supplémentaires pour les disques sous Paramètres dans le portail Azure":::
 
 1. Sélectionnez **Oui** pour **Activer la compatibilité avec les disques Ultra**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Sélectionner des paramètres supplémentaires pour les disques sous Paramètres dans le portail Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Capture d’écran montrant l’option Oui.":::
 
 1. Sélectionnez **Enregistrer**. 
 
@@ -84,7 +84,7 @@ Configurez SQL Server pour utiliser le nouveau lecteur de journal. Vous pouvez l
 1. Accédez à votre nouveau disque. 
 1. Créez un dossier (ou plusieurs dossiers) à utiliser pour votre fichier journal. 
 1. Cliquez avec le bouton droit sur le dossier et sélectionnez **Propriétés**.
-1. Sous l’onglet **Sécurité**, octroyez un accès Contrôle total au compte de service SQL Server. 
+1. Sous l’onglet **Sécurité** , octroyez un accès Contrôle total au compte de service SQL Server. 
 1. Sélectionnez **OK** pour enregistrer vos paramètres. 
 1. Répétez cette procédure pour chaque dossier de niveau racine dans lequel vous prévoyez d’avoir des données SQL. 
 
@@ -143,14 +143,14 @@ Utilisez T-SQL pour déplacer les fichiers existants vers un nouvel emplacement�
 Utilisez SSMS pour déplacer les fichiers existants vers un nouvel emplacement :
 
 1. Connectez-vous à votre base de données dans SQL Server Management Studio (SSMS). 
-1. Cliquez avec le bouton droit sur la base de données, sélectionnez **Propriétés**, puis **Fichiers**. 
+1. Cliquez avec le bouton droit sur la base de données, sélectionnez **Propriétés** , puis **Fichiers**. 
 1. Notez le chemin des fichiers existants. 
 1. puis cliquez sur **OK** pour fermer la boîte de dialogue. 
 1. Cliquez avec le bouton droit sur la base de données et sélectionnez **Tâches** > **Détacher**. 
 1. Suivez les instructions de l’Assistant pour détacher la base de données. 
 1. Utilisez l’Explorateur de fichiers pour déplacer manuellement le fichier journal vers le nouvel emplacement.
 1. Attachez la base de données dans SQL Server Management Studio
-   1. Cliquez avec le bouton droit sur **Bases de données** dans l’**Explorateur d’objets**, puis sélectionnez **Attacher la base de données**. 
+   1. Cliquez avec le bouton droit sur **Bases de données** dans l’ **Explorateur d’objets** , puis sélectionnez **Attacher la base de données**. 
    1. À l’aide de la boîte de dialogue, ajoutez chaque fichier, dont le fichier journal dans son nouvel emplacement. 
    1. Sélectionnez **OK** pour attacher la base de données. 
 
