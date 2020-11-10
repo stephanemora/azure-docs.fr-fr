@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220616"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308964"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -59,12 +59,12 @@ Media Services vous permet de créer un grand nombre de flux de travail multimé
 * Utilisez Azure Media Services avec les [API Azure Cognitive Services](../../index.yml?pivot=products&panel=ai) pour ajouter des sous-titres et des légendes aux vidéos afin de répondre aux besoins d’une audience plus large (par exemple, les personnes ayant des problèmes d’audition ou souhaitant lire simultanément dans une autre langue).
 * Activez Azure CDN pour effectuer un scaling à grande échelle afin d’améliorer la gestion instantanée des charges importantes (par exemple le début d’un événement de lancement d’un produit).
 
-## <a name="how-can-i-get-started-with-v3"></a>Comment bien démarrer avec v3 ? 
+## <a name="how-can-i-get-started-with-v3"></a>Comment bien démarrer avec v3 ?
 
 Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 
 > [!TIP]
-> Avant de commencer à développer, passez en revue ce qui suit :<br/>* [Concepts fondamentaux](concepts-overview.md) (concepts importants : empaquetage, encodage, protection, etc.)<br/>* [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions de nommage, etc.)
+> Avant de commencer à développer, passez en revue ce qui suit : L’article [Concepts fondamentaux](concepts-overview.md), qui explique certains concepts importants, comme la création de packages, l’encodage et la protection, et l’article [Développement avec des API Media Services v3](media-services-apis-overview.md), qui fournit des informations sur l’accès aux API et les conventions de nommage, entre autres.
 
 ### <a name="sdks"></a>Kits SDK
 

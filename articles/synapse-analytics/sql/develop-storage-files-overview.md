@@ -1,6 +1,6 @@
 ---
-title: Accéder aux fichiers sur le stockage dans SQL à la demande (préversion)
-description: Décrit l’interrogation des fichiers de stockage avec des ressources SQL à la demande (préversion) dans Synapse SQL.
+title: Accéder aux fichiers sur le stockage dans un pool SQL serverless (préversion)
+description: Décrit l’interrogation de fichiers de stockage en utilisant un pool SQL serverless (préversion) dans Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288985"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315926"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Accéder au stockage externe dans Synapse SQL (à la demande)
+# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Accéder à un stockage externe en utilisant un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-Ce document décrit comment l’utilisateur peut lire des données à partir des fichiers stockés sur le Stockage Azure dans Synapse SQL (à la demande). Les utilisateurs disposent des options suivantes pour accéder au stockage :
+Ce document décrit comment les utilisateurs peuvent lire des données dans des fichiers stockés sur Stockage Azure dans le pool SQL serverless. Les utilisateurs disposent des options suivantes pour accéder au stockage :
 
 - Fonction [OPENROWSET](develop-openrowset.md), qui permet des requêtes ad hoc sur les fichiers dans le Stockage Azure.
 - [Table externe](develop-tables-external-tables.md), qui est une structure de données prédéfinie reposant sur un ensemble de fichiers externes.
@@ -27,7 +27,7 @@ L’utilisateur peut recourir à [différentes méthodes d’authentification](d
 
 ## <a name="query-files-using-openrowset"></a>Interroger des fichiers à l’aide d’OPENROWSET
 
-OPENROWSET permet aux utilisateurs d’interroger des fichiers externes sur le stockage Azure s’ils ont accès à celui-ci. L’utilisateur qui est connecté au point de terminaison Synapse SQL à la demande doit utiliser la requête suivante pour lire le contenu des fichiers sur le stockage Azure :
+OPENROWSET permet aux utilisateurs d’interroger des fichiers externes sur Stockage Azure s’ils ont accès au stockage. L’utilisateur qui est connecté au pool SQL serverless doit utiliser la requête suivante pour lire le contenu des fichiers sur Stockage Azure :
 
 ```sql
 SELECT * FROM

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537947"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927972"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -50,7 +50,7 @@ Si la haute disponibilité redondante interzone est configurée, le service appr
 
 Pour plus d’informations, consultez [Concepts de haute disponibilité](concepts-high-availability.md).
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Schéma conceptuel de haute disponibilité à zone unique"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Schéma conceptuel de haute disponibilité redondante interzone"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Mise à jour corrective automatisée avec fenêtre de maintenance gérée
 
@@ -75,7 +75,7 @@ Vous avez deux possibilités de mise en réseau pour connecter votre serveur fle
    * Utilisation d’un VPN ou du service ExpressRoute pour vous connecter à partir de ressources non-Azure à votre serveur flexible
    * Aucun point de terminaison public
 
-* **Accès public (adresses IP autorisées)**  : vous pouvez déployer votre serveur flexible avec un point de terminaison public. Le point de terminaison public est une adresse DNS résolvable publiquement. L’expression « adresses IP autorisées » fait référence à une plage d’adresses IP que vous choisissez d’autoriser à accéder à votre serveur. Ces autorisations sont appelées **règles de pare-feu** .
+* **Accès public (adresses IP autorisées)**  : vous pouvez déployer votre serveur flexible avec un point de terminaison public. Le point de terminaison public est une adresse DNS résolvable publiquement. L’expression « adresses IP autorisées » fait référence à une plage d’adresses IP que vous choisissez d’autoriser à accéder à votre serveur. Ces autorisations sont appelées **règles de pare-feu**.
 
 Pour en savoir plus, consultez [Concepts de mise en réseau](concepts-networking.md).
 
@@ -84,6 +84,17 @@ Pour en savoir plus, consultez [Concepts de mise en réseau](concepts-networking
 Trois références SKU sont disponibles pour le service à serveur flexible : Expansible, Usage général et À mémoire optimisée. Le niveau Expansible est idéalement adapté aux charges de travail de développement à faible coût et faible concurrence ne nécessitant pas en permanence une capacité de calcul complète. Les niveaux Usage général et À mémoire optimisée conviendront quant à eux aux charges de travail de production nécessitant une simultanéité et une mise à l'échelle de haut niveau, ainsi que des performances prévisibles. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle en toute transparence aux besoins de votre solution. La mise à l'échelle du stockage s'effectue en ligne et prend en charge la croissance automatique du stockage. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous ne payez que pour les ressources que vous consommez. 
 
 Pour plus d’informations, consultez [Concepts de calcul et de stockage](concepts-compute-storage.md).
+
+## <a name="scale-out-your-read-workload-with-up-to-10-read-replicas"></a>Effectuer un scale-out de la charge de travail en lecture pour utiliser jusqu’à dix réplicas en lecture
+
+MySQL est l’un des moteurs de base de données couramment utilisés pour exécuter des applications web et mobiles à l’échelle d’Internet. La plupart de nos clients s’en servent pour leurs services de formation en ligne, services de diffusion vidéo, solutions de paiement numérique, plateformes de commerce électronique, services de jeux, portails d’actualité, administrations publiques et sites web de santé. Ces services sont requis à des fins de mise à l’échelle à mesure que le trafic sur l’application web ou mobile augmente.
+
+Du côté des applications, l’application est généralement développée en Java ou PHP et migrée pour s’exécuter sur des  [groupes de machines virtuelles identiques Azure](/azure/virtual-machine-scale-sets/overview.md) , [Azure App Services](/azure/app-service/overview.md) ou en conteneur sur  [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes.md). Avec un groupe de machines virtuelles identiques, App Service ou AKS en tant qu’infrastructure sous-jacente, la mise à l’échelle des applications est simplifiée grâce à l’approvisionnement instantané de nouvelles machines virtuelles et à la réplication des composants sans état des applications pour répondre aux demandes, mais souvent, la base de données finit par constituer un goulot d’étranglement comme composant avec état centralisé.
+
+La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur flexible Azure Database pour MySQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur source vers **dix réplicas au maximum**. Les réplicas sont mis à jour de manière asynchrone à l’aide de la [technologie de réplication selon la position du fichier journal binaire (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) native au moteur MySQL. Vous pouvez utiliser une solution de proxy d’équilibrage de charge comme [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) pour faire un scale-out transparent de la charge de travail de votre application vers des réplicas en lecture sans coût de refactorisation de l’application. 
+
+Pour en savoir plus, reportez-vous aux [concepts des réplicas en lecture](concepts-read-replicas.md). 
+
 
 ## <a name="stopstart-server-to-optimize-cost"></a>Arrêter/démarrer le serveur pour optimiser les coûts
 

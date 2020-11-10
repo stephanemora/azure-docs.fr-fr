@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer un pool Apache Spark dans Azure Synapse Analytics avec des outils web'
-description: Ce guide de démarrage rapide montre comment utiliser les outils web pour créer un pool Apache Spark dans Azure Synapse Analytics et exécuter une requête Spark SQL.
+title: 'Démarrage rapide : Créer un pool Apache Spark serverless avec les outils web'
+description: Ce guide de démarrage rapide montre comment utiliser les outils web pour créer un pool Apache Spark serverless dans Azure Synapse Analytics et comment exécuter une requête Spark SQL.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742572"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316134"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Démarrage rapide : Créer un pool Apache Spark dans Azure Synapse Analytics avec des outils web
+# <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Démarrage rapide : Créer un pool Apache Spark serverless dans Azure Synapse Analytics avec les outils web
 
-Dans ce guide de démarrage rapide, vous allez découvrir comment créer un pool Apache Spark (préversion) dans Azure Synapse avec des outils web. Vous apprendrez ensuite à vous connecter au pool Apache Spark et à exécuter des requêtes Spark SQL sur des fichiers et des tables. Apache Spark permet une analytique des données et des calculs sur cluster rapides à l’aide du traitement en mémoire. Pour plus d’informations sur Spark dans Azure Synapse, consultez [Vue d’ensemble : Apache Spark sur Azure Synapse](./spark/apache-spark-overview.md).
+Dans ce guide de démarrage rapide, vous allez découvrir comment créer un pool Apache Spark serverless (préversion) dans Azure Synapse avec les outils web. Vous apprendrez ensuite à vous connecter au pool Apache Spark et à exécuter des requêtes Spark SQL sur des fichiers et des tables. Apache Spark permet une analytique des données et des calculs sur cluster rapides à l’aide du traitement en mémoire. Pour plus d’informations sur Spark dans Azure Synapse, consultez [Vue d’ensemble : Apache Spark sur Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > La facturation des instances Spark est calculée au prorata des minutes écoulées, que vous les utilisiez ou non. Veillez à arrêter votre instance Spark une fois que vous avez fini de l’utiliser, ou définissez un délai d’expiration court. Pour plus d’informations, consultez la section **Nettoyer les ressources** de cet article.
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de co
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - [Espace de travail Synapse Analytics](quickstart-create-workspace.md)
-- [Pool Apache Spark](quickstart-create-apache-spark-pool-studio.md)
+- [Pool Apache Spark serverless](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -132,9 +132,12 @@ SQL (Structured Query Language) est le langage le plus courant et le plus largem
 
 11. Chacune des cellules précédemment exécutées offrait la possibilité d’accéder à **Serveur d’historique** et **Supervision**. Un clic sur les liens vous permet d’accéder à différentes parties de l’expérience utilisateur.
 
+> [!NOTE]
+> Une partie de la [documentation Apache Spark officielle](https://spark.apache.org/docs/latest/) repose sur l’utilisation de la console Spark, qui n’est pas disponible sur Synapse Spark. Utilisez à la place les expériences [notebook](quickstart-apache-spark-notebook.md) ou [IntelliJ](./spark/intellij-tool-synapse.md).
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Azure Synapse enregistre vos données dans Azure Data Lake Storage. Vous pouvez laisser une instance Spark s’arrêter en toute sécurité quand elle n’est pas utilisée. Un pool Apache Spark d’Azure Synapse vous est facturé tant qu’il est en cours d’exécution, même s’il n’est pas en cours d’utilisation. 
+Azure Synapse enregistre vos données dans Azure Data Lake Storage. Vous pouvez laisser une instance Spark s’arrêter en toute sécurité quand elle n’est pas utilisée. Vous êtes facturé pour un pool Apache Spark serverless tant qu’il est en cours d’exécution, même s’il n’est pas en cours d’utilisation. 
 
 Étant donné que les frais pour le pool sont bien plus élevés que les frais de stockage, économique, mieux vaut laisser les instances Spark s’arrêter quand elles ne sont pas utilisées.
 
@@ -142,11 +145,10 @@ Pour vous assurer que l’instance Spark est arrêtée, mettez fin aux sessions 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez découvert comment créer un pool Apache Spark d’Azure Synapse et exécuter une requête Spark SQL de base.
+Dans ce guide de démarrage rapide, vous avez découvert comment créer un pool Apache Spark serverless et exécuter une requête Spark SQL simple.
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [Documentation .NET pour Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Documentation officielle Apache Spark](https://spark.apache.org/docs/latest/)
 
->[!NOTE]
-> Une partie de la documentation Apache Spark officielle repose sur l’utilisation de la console Spark qui n’est pas disponible sur Azure Synapse Spark. Utilisez à la place les expériences [notebook](quickstart-apache-spark-notebook.md) ou [IntelliJ](./spark/intellij-tool-synapse.md).
+
+

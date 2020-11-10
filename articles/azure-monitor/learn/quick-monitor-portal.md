@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd262b942d6ce4e423f524c7381574afd501f466
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88080947"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927547"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Démarrer la surveillance de votre application web ASP.NET
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 2. Sélectionnez **Configurer Application Insights** dans le menu Projet. Visual Studio ajoute le SDK Application Insights à votre application.
 
     > [!IMPORTANT]
-    > Le processus d’ajout d’Application Insights varie selon le type de modèle ASP.NET. Si vous utilisez le modèle **Vide** ou **Application mobile Azure**, sélectionnez **Projet** > **Ajouter Application Insights Telemetry**. Pour tous les autres modèles ASP.NET, consultez les instructions de l’étape précédente. 
+    > Le processus d’ajout d’Application Insights varie selon le type de modèle ASP.NET. Si vous utilisez le modèle **Vide** ou **Application mobile Azure** , sélectionnez **Projet** > **Ajouter Application Insights Telemetry**. Pour tous les autres modèles ASP.NET, consultez les instructions de l’étape précédente. 
 
 3. Cliquez sur **Prise en main** (les versions antérieures de Visual Studio ont un bouton **Démarrer gratuitement** à la place).
 
@@ -60,15 +60,15 @@ Application Insights recueille les données de télémétrie pour votre applicat
 
 Vous pouvez maintenant ouvrir Application Insights dans le portail Azure pour afficher différents détails sur votre application en cours d’exécution.
 
-1. Développez le dossier **Services connectés** (icône d’une prise branchée au cloud) dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Application Insights**, puis cliquez sur **Ouvrir le portail Application Insights**.  Vous voyez des informations sur votre application et diverses options.
+1. Développez le dossier **Services connectés** (icône d’une prise branchée au cloud) dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Application Insights** , puis cliquez sur **Ouvrir le portail Application Insights**.  Vous voyez des informations sur votre application et diverses options.
 
-    ![Mise en correspondance d'applications](media/quick-monitor-portal/04-overview.png)
+    ![Capture d’écran montrant des informations sur l’application dans le portail Application Insights.](media/quick-monitor-portal/04-overview.png)
 
 2. Cliquez sur **cartographie d’application** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application.  Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
 
     ![Mise en correspondance d'applications](media/quick-monitor-portal/05-appmap.png)
 
-3. Cliquez sur l’icône **Analyse d’application** ![Mise en correspondance d’applications](media/quick-monitor-portal/app-viewinlogs-icon.png)**Voir dans Logs (Analytics)** sur l’un des composants de l’application. Vous ouvrez ainsi **Logs (Analytics)** , lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
+3. Cliquez sur l’icône **Analytique d’application** ![Capture d’écran de l’icône Analytique d’application.](media/quick-monitor-portal/app-viewinlogs-icon.png) **Afficher dans les journaux (Analytics)** sur l’un des composants de l’application. Vous ouvrez ainsi **Logs (Analytics)** , lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
     ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
@@ -103,8 +103,8 @@ Pour en savoir plus, visitez le référentiel GitHub pour notre [Kit de dévelop
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Une fois les tests terminés, vous pouvez supprimer le groupe de ressources et toutes les ressources associées. Pour ce faire, procédez comme suit.
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur **myResourceGroup**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez activé votre application pour une supervision par Azure Application Insights.  Continuez à passer en revue les didacticiels pour apprendre à l’utiliser pour surveiller les statistiques et détecter les problèmes dans votre application.

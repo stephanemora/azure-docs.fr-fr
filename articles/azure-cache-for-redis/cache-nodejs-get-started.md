@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Utiliser le cache Azure pour Redis avec Node.js'
+title: 'Démarrage rapide : Utiliser Azure Cache pour Redis dans Node.js'
 description: Dans ce guide de démarrage rapide, vous apprendrez à utiliser le cache Azure pour Redis avec Node.js et node_redis.
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330993"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087143"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Node.js
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans Node.js
 
 Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Redis dans une application Node.js pour avoir accès à un cache sécurisé et dédié accessible à partir de n’importe quelle application dans Azure.
 
@@ -51,7 +51,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-Ne créez pas de connexion pour chaque opération dans votre code. Réutilisez plutôt les connexions disponibles autant que possible. 
+Ne créez pas une connexion pour chaque opération dans votre code. Réutilisez plutôt les connexions disponibles autant que possible. 
 
 ## <a name="create-a-new-nodejs-app"></a>Créer une application Node.js
 
@@ -121,7 +121,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom**, entrez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom** , entrez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
 ![Supprimer un groupe de ressources azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 

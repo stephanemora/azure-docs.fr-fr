@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503281"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311747"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gérer l’accès aux espaces de travail, aux données et aux pipelines
 
@@ -94,21 +94,21 @@ Quand vous provisionniez votre espace de travail, vous deviez choisir un compte 
 Le contrôle d’accès aux données sous-jacentes se divise en trois parties :
 
 - L’accès du plan de données au compte de stockage (déjà configuré à l’étape 2)
-- L’accès du plan de données aux bases de données SQL (pour les pools SQL et SQL à la demande)
-- Création d’informations d’identification pour les bases de données SQL à la demande dans le compte de stockage
+- L’accès du plan de données aux bases de données SQL (pour les pools SQL dédiés et le pool SQL serverless)
+- Création d’informations d’identification pour les bases de données de pool SQL serverless dans le compte de stockage
 
 ## <a name="access-control-to-sql-databases"></a>Contrôle d’accès aux bases de données SQL
 
 > [!TIP]
 > Les étapes ci-dessous doivent être exécutées pour **chaque** base de données SQL afin d’accorder l’accès utilisateur à toutes les bases de données SQL, sauf dans la section [Autorisation au niveau du serveur](#server-level-permission) où vous pouvez attribuer un rôle sysadmin à l’utilisateur.
 
-### <a name="sql-on-demand"></a>SQL à la demande
+### <a name="serverless-sql-pool"></a>Pool SQL serverless
 
 Cette section illustre, à l’aide de différents exemples, comment accorder à un utilisateur une autorisation d’accès à une base de données particulière ou des autorisations de serveur complètes.
 
 #### <a name="database-level-permission"></a>Autorisation au niveau base de données
 
-Pour accorder à un utilisateur l’accès à une base de données SQL à la demande **unique** , suivez les étapes de cet exemple :
+Pour accorder à un utilisateur l’accès à une base de données de pool SQL serverless **unique** , suivez les étapes de cet exemple :
 
 1. Créer des informations de connexion (LOGIN)
 
@@ -140,14 +140,14 @@ Pour accorder à un utilisateur l’accès à une base de données SQL à la dem
 
 #### <a name="server-level-permission"></a>Autorisation au niveau du serveur
 
-Pour accorder à un utilisateur l’accès complet à **toutes** les bases de données SQL à la demande, suivez cet exemple :
+Pour accorder à un utilisateur l’accès complet à **toutes** les bases de données de pool SQL serverless, suivez cet exemple :
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>Pools SQL
+### <a name="dedicated-sql-pool"></a>Pool SQL dédié
 
 Pour accorder à un utilisateur l’accès à une base de données SQL **unique** , effectuez les étapes suivantes :
 
@@ -167,18 +167,18 @@ Pour accorder à un utilisateur l’accès à une base de données SQL **unique*
 
 > [!IMPORTANT]
 > *db_datareader* et *db_datawriter* peuvent fonctionner avec les autorisations en lecture/écriture si vous ne souhaitez pas accorder l’autorisation *db_owner*.
-> Pour qu’un utilisateur Spark puisse lire et écrire directement à partir de Spark dans un pool SQL (et vice versa), l’autorisation *db_owner* est nécessaire.
+> Pour qu’un utilisateur Spark puisse lire et écrire directement à partir de Spark dans/depuis un pool SQL dédié, l’autorisation *db_owner* est nécessaire.
 
-Après avoir créé les utilisateurs, vérifiez que SQL à la demande peut interroger le compte de stockage.
+Après avoir créé les utilisateurs, vérifiez que vous pouvez interroger le compte de stockage en utilisant le pool SQL serverless.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Contrôle d’accès aux exécutions de pipelines de l’espace de travail
 
 ### <a name="workspace-managed-identity"></a>Identité managée par l’espace de travail
 
 > [!IMPORTANT]
-> Pour exécuter des pipelines comprenant des jeux de données ou des activités qui référencent un pool SQL, l’identité de l’espace de travail doit pouvoir accéder directement au pool SQL.
+> Pour exécuter des pipelines comprenant des jeux de données ou des activités qui référencent un pool SQL dédié, l’identité de l’espace de travail doit être autorisée à accéder directement au pool SQL.
 
-Exécutez les commandes suivantes sur chaque pool SQL pour autoriser l’identité managée de l’espace de travail à exécuter des pipelines sur la base de données du pool SQL :
+Exécutez les commandes suivantes sur chaque pool SQL dédié pour autoriser l’identité managée de l’espace de travail à exécuter des pipelines sur la base de données du pool SQL :
 
 ```sql
 --Create user in DB

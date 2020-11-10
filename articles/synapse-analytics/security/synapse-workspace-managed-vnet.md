@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06b535b25df19e5062d16184f4469d9e9253b9c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87042604"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313731"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Synapse Analytics (préversion)
 
@@ -30,11 +30,11 @@ Le réseau virtuel d’espace de travail managé offre de la valeur de quatre ma
 - Vous n’avez pas besoin de créer de sous-réseau pour vos clusters Spark en fonction de la charge maximale
 - Le réseau virtuel d’espace de travail managé, ainsi que les points de terminaison privés managés, assurent une protection contre l’exfiltration des données. Vous pouvez créer des points de terminaison privés managés uniquement dans un espace de travail associé à un réseau virtuel d’espace de travail managé.
 
-La création d’un espace de travail avec un réseau virtuel d’espace de travail managé associé permet de garantir que le réseau de votre espace de travail est isolé de celui des autres espaces de travail. Azure Synapse fournit diverses fonctionnalités d’analytique dans un espace de travail : intégration de données, Apache Spark, pool SQL et SQL à la demande.
+La création d’un espace de travail avec un réseau virtuel d’espace de travail managé associé permet de garantir que le réseau de votre espace de travail est isolé de celui des autres espaces de travail. Azure Synapse fournit diverses fonctionnalités d’analytique dans un espace de travail : Intégration des données, pool Apache Spark serverless, pool SQL dédié et pool SQL serverless.
 
 Si votre espace de travail a un réseau virtuel d’espace de travail managé, les ressources Spark et l’intégration de données sont déployées dans celui-ci. Un réseau virtuel d’espace de travail managé fournit également une isolation au niveau de l’utilisateur pour les activités Spark, car chaque cluster Spark est sur son propre sous-réseau.
 
-Le pool SQL et SQL à la demande sont des fonctionnalités multi-locataires ; par conséquent, elles résident en dehors du réseau virtuel d’espace de travail managé. La communication intra-espace de travail avec le pool SQL et SQL à la demande utilise des liaisons privées Azure. Ces liaisons privées sont créées automatiquement quand vous créez un espace de travail associé à un réseau virtuel d’espace de travail managé.
+Le pool SQL dédie et le pool SQL serverless sont des fonctionnalités multilocataires ; elles sont donc en dehors du réseau virtuel d’espace de travail managé. La communication intra-espace de travail avec le pool SQL dédié et le pool SQL serverless utilise des liaisons privées Azure. Ces liaisons privées sont créées automatiquement quand vous créez un espace de travail associé à un réseau virtuel d’espace de travail managé.
 
 >[!IMPORTANT]
 >Vous ne pouvez pas modifier cette configuration d’espace de travail après la création de l’espace de travail. Par exemple, vous ne pouvez pas reconfigurer un espace de travail qui n’est pas associé à un réseau virtuel d’espace de travail managé et lui associer un réseau virtuel. De même, vous ne pouvez pas reconfigurer un espace de travail qui est associé à un réseau virtuel d’espace de travail managé et le dissocier d’un réseau virtuel.
@@ -43,7 +43,7 @@ Le pool SQL et SQL à la demande sont des fonctionnalités multi-locataires ; p
 
 Si vous ne l’avez pas encore fait, inscrivez le fournisseur de ressources réseau. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Choisissez *Microsoft.Network* dans la liste des fournisseurs de ressources lors de votre [inscription](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Pour créer un espace de travail Azure Synapse associé à un réseau virtuel d’espace de travail managé, sélectionnez l’onglet **Sécurité + réseau** dans le portail Azure et cochez la case **Activer le réseau virtuel managé**.
+Pour créer un espace de travail Azure Synapse associé à un réseau virtuel d’espace de travail managé, sélectionnez l’onglet **Réseau** dans le portail Azure et cochez la case **Activer le réseau virtuel managé**.
 
 Si vous ne cochez pas cette case, aucun réseau virtuel n’est associé à votre espace de travail.
 

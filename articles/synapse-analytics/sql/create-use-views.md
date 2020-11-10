@@ -1,6 +1,6 @@
 ---
-title: Créer et utiliser des vues dans SQL à la demande (préversion)
-description: Dans cette section, vous allez apprendre à créer et à utiliser des vues pour wrapper des requêtes SQL à la demande (préversion). Les vues vous permettent de réutiliser ces requêtes. Elles sont également nécessaires si vous souhaitez utiliser des outils, tels que Power BI, conjointement avec SQL à la demande.
+title: Créer et utiliser des vues dans un pool SQL serverless (préversion)
+description: Dans cette section, vous allez découvrir comment créer et utiliser des vues pour wrapper des requêtes de pool SQL serverless (préversion). Les vues vous permettent de réutiliser ces requêtes. Elles sont également nécessaires si vous voulez utiliser des outils comme Power BI en combinaison avec un pool SQL serverless.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f91611ab3c75a96f13ab84312ca0b2157e69af0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289308"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316236"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Créer et utiliser des vues dans SQL à la demande (préversion) avec Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Créer et utiliser des vues avec un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-Dans cette section, vous allez apprendre à créer et à utiliser des vues pour wrapper des requêtes SQL à la demande (préversion). Les vues vous permettent de réutiliser ces requêtes. Elles sont également nécessaires si vous souhaitez utiliser des outils, tels que Power BI, conjointement avec SQL à la demande.
+Dans cette section, vous allez découvrir comment créer et utiliser des vues pour wrapper des requêtes de pool SQL serverless (préversion). Les vues vous permettent de réutiliser ces requêtes. Elles sont également nécessaires si vous voulez utiliser des outils comme Power BI en combinaison avec un pool SQL serverless.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -57,7 +57,7 @@ WITH (
 
 La vue de cet exemple utilise la fonction `OPENROWSET` qui se sert du chemin absolu des fichiers sous-jacents. Si vous disposez de `EXTERNAL DATA SOURCE` avec une URL racine de votre stockage, vous pouvez utiliser `OPENROWSET` avec `DATA_SOURCE` et le chemin relatif du fichier :
 
-```
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM

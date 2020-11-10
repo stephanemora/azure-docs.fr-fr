@@ -4,12 +4,12 @@ description: Utilisez les commandes Azure Container Registry pour générer, env
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 1b4dcc05747ceae52c649c366c3faf437e77b560
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538204"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098907"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks
 
@@ -17,11 +17,11 @@ Dans ce guide de démarrage rapide, vous avez utilisé les commandes [Azure Cont
 
 Après avoir suivi ce guide de démarrage rapide, explorez les fonctionnalités plus avancées d’ACR Tasks à l’aide des [tutoriels](container-registry-tutorial-quick-task.md). ACR Tasks peut automatiser les builds d’image en fonction de commits de code ou de mises à jour de l’image de base, ou tester plusieurs conteneurs, en parallèle, entre autres scénarios. 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-account] avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Si vous souhaitez l’utiliser en local, nous vous recommandons la version 2.0.58 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+    
+- Pour ce guide de démarrage rapide, vous devez avoir la version 2.0.58 ou ultérieure de l’interface Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -42,14 +42,14 @@ az acr create --resource-group myResourceGroup \
   --name myContainerRegistry008 --sku Basic
 ```
 
-Cet exemple crée un registre *De base*, option économique pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles, consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
+Cet exemple crée un registre *De base* , option économique pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles, consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Générer et envoyer (push) une image à partir d’un Dockerfile
 
-Maintenant, utilisez Azure Container Registry pour générer et envoyer (push) une image. Tout d’abord, créez un répertoire de travail local, puis un Dockerfile nommé *Dockerfile* avec la ligne unique : `FROM hello-world`. Il s’agit d’un exemple simple de création d’une image conteneur Linux à partir de l’image `hello-world` dans Docker Hub. Vous pouvez créer votre propre Dockerfile standard et générer des images pour d’autres plateformes. Si vous utilisez un interpréteur de commandes bash, créez le Dockerfile à l’aide de la commande suivante :
+Maintenant, utilisez Azure Container Registry pour générer et envoyer (push) une image. Tout d’abord, créez un répertoire de travail local, puis un Dockerfile nommé *Dockerfile* avec la ligne unique : `FROM mcr.microsoft.com/hello-world`. Il s’agit d’un exemple simple de création d’une image conteneur Linux à partir de l’image `hello-world` hébergée sur Microsoft Container Registry. Vous pouvez créer votre propre Dockerfile standard et générer des images pour d’autres plateformes. Si vous utilisez un interpréteur de commandes bash, créez le Dockerfile à l’aide de la commande suivante :
 
 ```bash
-echo FROM hello-world > Dockerfile
+echo FROM mcr.microsoft.com/hello-world > Dockerfile
 ```
 
 Exécutez la commande [az acr build][az-acr-build], qui génère l’image et, une fois l’image correctement générée, l’envoie (push) à votre registre. L’exemple suivant génère et envoie (push) l’image `sample/hello-world:v1`. Le `.` à la fin de la commande définit l’emplacement du fichier Dockerfile, dans ce cas, le répertoire actif.
@@ -78,8 +78,8 @@ Waiting for agent...
 2019/03/18 21:57:00 Successfully obtained source code and scanned for dependencies
 2019/03/18 21:57:00 Launching container with name: build
 Sending build context to Docker daemon  13.82kB
-Step 1/1 : FROM hello-world
-latest: Pulling from library/hello-world
+Step 1/1 : FROM mcr.microsoft.com/hello-world
+latest: Pulling from hello-world
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586fxxxx21577a99efb77324b0fe535
 Successfully built fce289e99eb9
 Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:v1

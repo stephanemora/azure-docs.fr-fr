@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91543298"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307958"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Démarrage rapide : Créer un nouveau service lié Azure Machine Learning dans Synapse
 
@@ -50,7 +50,7 @@ Cette étape va créer un nouveau principal de service. Si vous souhaitez utilis
 
    ![Générer le secret](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00a.png)
 
-1. Créez un principal de service pour l’application. Accédez à **Votre application** -> **Vue d’ensemble**, puis cliquez sur **Créer un principal de service**. Dans certains cas, ce principal de service est automatiquement créé.
+1. Créez un principal de service pour l’application. Accédez à **Votre application** -> **Vue d’ensemble** , puis cliquez sur **Créer un principal de service**. Dans certains cas, ce principal de service est automatiquement créé.
 
    ![Créer un principal du service](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00b.png)
 
@@ -60,13 +60,13 @@ Cette étape va créer un nouveau principal de service. Si vous souhaitez utilis
 
 ## <a name="create-a-linked-service"></a>Créer un service lié
 
-1. Dans l’espace de travail Synapse dans lequel vous souhaitez créer le service lié Azure Machine Learning, accédez à **Gestion** -> **Service lié**, créez un service lié de type « Azure Machine Learning ».
+1. Dans l’espace de travail Synapse dans lequel vous souhaitez créer le service lié Azure Machine Learning, accédez à **Gestion** -> **Service lié** , créez un service lié de type « Azure Machine Learning ».
 
    ![Création d’un service lié](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
 2. Remplissez le formulaire :
 
-   - ID de principal de service : Il s’agit de l’**ID d’application (client)** de l’application.
+   - ID de principal de service : Il s’agit de l’ **ID d’application (client)** de l’application.
   
      > [!NOTE]
      > Il ne s’agit PAS du nom de l’application. Vous pouvez trouver cet ID dans la page de présentation de l’application. Il doit s’agir d’une chaîne longue ressemblant à ce qui suit : « 81707eac-ab38-406u-8f6c-10ce76a568d5 ».
@@ -79,5 +79,5 @@ Cette étape va créer un nouveau principal de service. Si vous souhaitez utilis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Assistant de notation du modèle Machine Learning - pool SQL](tutorial-sql-pool-model-scoring-wizard.md)
+- [Tutoriel : Assistant Scoring de modèle Machine learning - Pool SQL dédié](tutorial-sql-pool-model-scoring-wizard.md)
 - [Fonctionnalités de Machine Learning dans Azure Synapse Analytics (aperçus d’espaces de travail)](what-is-machine-learning.md)

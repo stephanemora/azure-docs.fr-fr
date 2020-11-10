@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide Azure – Créer un coffre de clés Azure et une clé à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
-description: Guide de démarrage rapide montrant comment créer des coffres de clés Azure et leur ajouter une clé à l’aide d’un modèle Azure Resource Manager.
+description: Guide de démarrage rapide montrant comment créer des coffres de clés Azure Key Vault et leur ajouter une clé à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 services: key-vault
 author: sebansal
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 55641dacf8f7efb18b479dd4b4253787df540341
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0a613ce64d2037fdc7ebad680939893f1faa0639
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132446"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899014"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM (préversion)
 
@@ -25,11 +25,11 @@ ms.locfileid: "92132446"
 
 Pour effectuer ce qui est décrit dans cet article :
 
-* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Le modèle requiert votre ID objet utilisateur Azure AD pour la configuration des autorisations. La procédure suivante permet d’obtenir l’ID de l’objet (GUID).
+- Le modèle requiert votre ID objet utilisateur Azure AD pour la configuration des autorisations. La procédure suivante permet d’obtenir l’ID de l’objet (GUID).
 
-    1. Exécutez la commande Azure PowerShell ou Azure CLI ci-dessous en sélectionnant **Essayer** , puis collez le script dans le volet de l’interpréteur de commandes. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller** .
+    1. Exécutez la commande Azure PowerShell ou Azure CLI ci-dessous en sélectionnant **Essayer** , puis collez le script dans le volet de l’interpréteur de commandes. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
 
         # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
         ```azurecli-interactive
@@ -48,118 +48,121 @@ Pour effectuer ce qui est décrit dans cet article :
 
         ---
 
-    2. Notez l’ID de l’objet. Vous en aurez besoin dans la prochaine section de ce guide de démarrage rapide.
+    1. Notez l’ID de l’objet. Vous en aurez besoin dans la prochaine section de ce guide de démarrage rapide.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vaultName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the key vault to be created."
-            }
-        },
-        "skuName": {
-            "type": "string",
-            "defaultValue": "Standard",
-            "allowedValues": [
-                "Standard",
-                "Premium"
-            ],
-            "metadata": {
-                "description": "The SKU of the vault to be created."
-            }
-        },
-        "keyName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the key to be created."
-            }
-        },
-        "keyType": {
-            "type": "string",
-            "metadata": {
-                "description": "The JsonWebKeyType of the key to be created."
-            }
-        },
-        "keyOps": {
-            "type": "array",
-            "defaultValue": [],
-            "metadata": {
-                "description": "The permitted JSON web key operations of the key to be created."
-            }
-        },
-        "keySize": {
-            "type": "int",
-            "defaultValue": -1,
-            "metadata": {
-                "description": "The size in bits of the key to be created."
-            }
-        },
-        "curveName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The JsonWebKeyCurveName of the key to be created."
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vaultName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the key vault to be created."
+      }
     },
-    "resources": [
-        {
-            "type": "Microsoft.KeyVault/vaults",
-            "name": "[parameters('vaultName')]",
-            "apiVersion": "2019-09-01",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "enableRbacAuthorization": false,
-                "enableSoftDelete": false,
-                "enabledForDeployment": false,
-                "enabledForDiskEncryption": false,
-                "enabledForTemplateDeployment": false,
-                "tenantId": "[subscription().tenantId]",
-                "accessPolicies": [],
-                "sku": {
-                    "name": "[parameters('skuName')]",
-                    "family": "A"
-                },
-                "networkAcls": {
-                    "defaultAction": "Allow",
-                    "bypass": "AzureServices"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.KeyVault/vaults/keys",
-            "name": "[concat(parameters('vaultName'), '/', parameters('keyName'))]",
-            "apiVersion": "2019-09-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[resourceId('Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-            ],
-            "properties": {
-                "kty": "[parameters('keyType')]",
-                "keyOps": "[parameters('keyOps')]",
-                "keySize": "[if(equals(parameters('keySize'), -1), json('null'), parameters('keySize'))]",
-                "curveName": "[parameters('curveName')]"
-            }
-        }
-    ],
-    "outputs": {
-        "proxyKey": {
-            "type": "object",
-            "value": "[reference(resourceId('Microsoft.KeyVault/vaults/keys', parameters('vaultName'), parameters('keyName')))]"
-        }
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Standard",
+      "allowedValues": [
+        "Standard",
+        "Premium"
+      ],
+      "metadata": {
+        "description": "The SKU of the vault to be created."
+      }
+    },
+    "keyName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the key to be created."
+      }
+    },
+    "keyType": {
+      "type": "string",
+      "metadata": {
+        "description": "The JsonWebKeyType of the key to be created."
+      }
+    },
+    "keyOps": {
+      "type": "array",
+      "defaultValue": [],
+      "metadata": {
+        "description": "The permitted JSON web key operations of the key to be created."
+      }
+    },
+    "keySize": {
+      "type": "int",
+      "defaultValue": -1,
+      "metadata": {
+        "description": "The size in bits of the key to be created."
+      }
+    },
+    "curveName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The JsonWebKeyCurveName of the key to be created."
+      }
     }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('vaultName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "enableRbacAuthorization": false,
+        "enableSoftDelete": false,
+        "enabledForDeployment": false,
+        "enabledForDiskEncryption": false,
+        "enabledForTemplateDeployment": false,
+        "tenantId": "[subscription().tenantId]",
+        "accessPolicies": [],
+        "sku": {
+          "name": "[parameters('skuName')]",
+          "family": "A"
+        },
+        "networkAcls": {
+          "defaultAction": "Allow",
+          "bypass": "AzureServices"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/keys",
+      "apiVersion": "2019-09-01",
+      "name": "[concat(parameters('vaultName'), '/', parameters('keyName'))]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+      ],
+      "properties": {
+        "kty": "[parameters('keyType')]",
+        "keyOps": "[parameters('keyOps')]",
+        "keySize": "[if(equals(parameters('keySize'), -1), json('null'), parameters('keySize'))]",
+        "curveName": "[parameters('curveName')]"
+      }
+    }
+  ],
+  "outputs": {
+    "proxyKey": {
+      "type": "object",
+      "value": "[reference(resourceId('Microsoft.KeyVault/vaults/keys', parameters('vaultName'), parameters('keyName')))]"
+    }
+  }
 }
-
 ```
 
-Vous trouverez d’autres exemples de modèles Azure Key Vault dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
+Deux ressources sont définies dans le modèle :
 
+- [Microsoft.KeyVault/vaults](/azure/templates/microsoft.keyvault/vaults)
+- Microsoft.KeyVault/vaults/keys
+
+Vous trouverez d’autres exemples de modèles Azure Key Vault dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 

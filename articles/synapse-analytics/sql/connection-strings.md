@@ -10,18 +10,18 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a90b63f39a4c1cff53686e7ea67c3481f1274f85
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289376"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322636"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Chaînes de connexion pour Synapse SQL (préversion)
 
 Vous pouvez vous connecter à Synapse SQL (préversion) avec plusieurs protocoles d’application différents, comme [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) et [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Voici quelques exemples de chaînes de connexion pour chaque protocole. 
 
-Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion.  Pour créer votre chaîne de connexion avec le portail Azure, accédez au panneau de votre base de données, sous *Éléments principaux*, sélectionnez *Afficher les chaînes de connexion de la base de données*.
+Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion.  Pour créer votre chaîne de connexion avec le portail Azure, accédez au panneau de votre base de données, sous *Éléments principaux* , sélectionnez *Afficher les chaînes de connexion de la base de données*.
 
 ## <a name="sample-adonet-connection-string"></a>Exemple de chaîne de connexion ADO.NET
 
@@ -52,7 +52,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 ## <a name="recommendations"></a>Recommandations
 
-Pour exécuter des requêtes **SQL à la demande**, les outils recommandés sont [Azure Data Studio](get-started-azure-data-studio.md) et Azure Synapse Studio.
+Pour exécuter des requêtes de **pool SQL serverless** , les outils recommandés sont [Azure Data Studio](get-started-azure-data-studio.md) et Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

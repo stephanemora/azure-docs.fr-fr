@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629151"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026715"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
@@ -42,27 +42,19 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 
 Le Benchmark de sécurité Azure est l’ensemble des directives propres à Azure et créées par Microsoft contenant les bonnes pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. [En savoir plus sur le Benchmark de sécurité Azure](../security/benchmarks/introduction.md).
 
-Les 29 nouvelles recommandations suivantes seront ajoutées à Security Center pour étendre la couverture du benchmark.
+Les 18 nouvelles recommandations suivantes seront ajoutées à Security Center pour étendre la couverture du benchmark.
 
 Les recommandations en préversion ne rendent pas une ressource non saine et ne sont pas incluses dans les calculs de votre degré de sécurisation. Corrigez-les là où c’est possible, de sorte que quand la période de préversion se termine, elles soient prises en compte dans le calcul de votre degré de sécurisation. Découvrez comment répondre à ces recommandations dans [Corriger les recommandations dans Azure Security Center](security-center-remediate-recommendations.md).
 
 - Sauvegarde Azure doit être activé pour les machines virtuelles
-- La conservation des audits pour les serveurs SQL Server doit être définie sur au moins 90 jours
-- Les journaux de diagnostic doivent être activés dans App Service 
 - L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL
 - L’application de la connexion SSL doit être activée pour les serveurs de base de données PostgreSQL
-- FTPS doit être exigé dans votre application API
-- FTPS doit être exigé dans votre application de fonction
-- FTPS doit être exigé dans votre application web
 - La sauvegarde géoredondante doit être activée pour Azure Database for MariaDB
 - La sauvegarde géoredondante doit être activée pour Azure Database pour MySQL
 - La sauvegarde géoredondante doit être activée pour Azure Database pour PostgreSQL
 - Java doit être mis à jour vers la dernière version pour votre application API
 - Java doit être mis à jour vers la dernière version pour votre application de fonction
 - Java doit être mis à jour vers la dernière version pour votre application web
-- Une identité managée doit être utilisée dans votre application API
-- Une identité managée doit être utilisée dans votre application de fonction
-- Une identité managée doit être utilisée dans votre application web
 - PHP doit être mis à jour vers la dernière version pour votre application API
 - PHP doit être mis à jour vers la dernière version pour votre application web
 - Le point de terminaison privé doit être activé pour les serveurs MariaDB
@@ -71,9 +63,6 @@ Les recommandations en préversion ne rendent pas une ressource non saine et ne 
 - Python doit être mis à jour vers la dernière version pour votre application API
 - Python doit être mis à jour vers la dernière version pour votre application de fonction
 - Python doit être mis à jour vers la dernière version pour votre application web
-- TLS doit être mis à jour vers la dernière version pour votre application API
-- TLS doit être mis à jour vers la dernière version pour votre application de fonction
-- TLS doit être mis à jour vers la dernière version pour votre application web
 - Les applications web doivent exiger un certificat SSL pour toutes les demandes entrantes
 
 Liens connexes :

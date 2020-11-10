@@ -1,6 +1,6 @@
 ---
 title: Intégration du contrôle de code source
-description: Expérience DevOps de base de données pour l’entreprise destinée au pool SQL avec intégration du contrôle de code source natif à l’aide d’Azure Repos (Git et GitHub).
+description: Expérience DevOps de base de données pour l’entreprise destinée au pool SQL dédié avec intégration du contrôle de code source natif à l’aide d’Azure Repos (Git et GitHub).
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441319"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313291"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>Intégration du contrôle de code source pour le pool SQL
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Intégration du contrôle de code source pour le pool SQL dédié dans Azure Synapse Analytics
 
-Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQL Server Data Tools) au contrôle de code source.  L’intégration du contrôle de code source est la première étape de la génération de votre pipeline d’intégration et de déploiement continus avec la ressource de pool SQL dans Azure Synapse Analytics.
+Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQL Server Data Tools) au contrôle de code source.  L’intégration du contrôle de code source est la première étape de la génération de votre pipeline d’intégration et de déploiement continus avec la ressource de pool SQL dédié dans Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -37,7 +37,7 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
    ![Gérer les connexions](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gérer les connexions")
 
-3. Connectez-vous à votre projet en sélectionnant **Gérer les connexions**, puis **Se connecter à un projet**.
+3. Connectez-vous à votre projet en sélectionnant **Gérer les connexions** , puis **Se connecter à un projet**.
  ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Se connecter")
 
 
@@ -85,8 +85,8 @@ Pour plus d’informations sur la connexion de projets en utilisant Visual Studi
 
    ![Vérifier](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Vérifier les changements")
 
-4. (**Facultatif**) Utilisez Comparer les schémas et mettez à jour les changements apportés à votre entrepôt de données cible à l’aide de SSDT pour être certain que les définitions d’objets dans votre dépôt Azure et le dépôt local reflètent votre entrepôt de données.
+4. ( **Facultatif** ) Utilisez Comparer les schémas et mettez à jour les changements apportés à votre entrepôt de données cible à l’aide de SSDT pour être certain que les définitions d’objets dans votre dépôt Azure et le dépôt local reflètent votre entrepôt de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Développement pour un pool SQL](sql-data-warehouse-overview-develop.md)
+- [Développement pour le pool SQL dédié](sql-data-warehouse-overview-develop.md)

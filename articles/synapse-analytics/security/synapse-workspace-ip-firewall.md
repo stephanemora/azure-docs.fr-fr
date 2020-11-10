@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480545"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313895"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Règles de pare-feu IP Azure Synapse Analytics (préversion)
 
@@ -21,7 +21,7 @@ Cet article explique ce que sont les règles de pare-feu IP et montre comment le
 
 ## <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 
-Les règles de pare-feu IP octroient ou refusent l’accès à votre espace de travail Synapse en fonction de l’adresse IP d’origine de chaque requête. Vous pouvez configurer des règles de pare-feu IP pour votre espace de travail. Les règles de pare-feu IP configurées au niveau de l’espace de travail s’appliquent à tous les points de terminaison publics de l’espace de travail (pools SQL, SQL à la demande et développement).
+Les règles de pare-feu IP octroient ou refusent l’accès à votre espace de travail Synapse en fonction de l’adresse IP d’origine de chaque requête. Vous pouvez configurer des règles de pare-feu IP pour votre espace de travail. Les règles de pare-feu IP configurées au niveau de l’espace de travail s’appliquent à tous les points de terminaison publics de l’espace de travail (pools SQL dédiés, pool SQL serverless et développement).
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Créer et gérer des règles de pare-feu IP
 
@@ -37,7 +37,7 @@ Vous pouvez également ajouter des règles de pare-feu IP à un espace de travai
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>Se connecter à Synapse à partir de votre propre réseau
 
-Vous pouvez vous connecter à votre espace de travail Synapse à l’aide de Synapse Studio. Vous pouvez également utiliser SQL Server Management Studio (SSMS) pour vous connecter aux ressources SQL (pools SQL et SQL à la demande) dans votre espace de travail.
+Vous pouvez vous connecter à votre espace de travail Synapse à l’aide de Synapse Studio. Vous pouvez également utiliser SQL Server Management Studio (SSMS) pour vous connecter aux ressources SQL (pools SQL dédiés et pool SQL serverless) dans votre espace de travail.
 
 Vérifiez que le pare-feu sur votre réseau et ordinateur local autorise les communications sortantes sur les ports TCP 80, 443 et 1443 pour Synapse Studio.
 

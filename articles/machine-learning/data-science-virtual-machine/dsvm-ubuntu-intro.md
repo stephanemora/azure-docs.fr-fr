@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85254699"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322175"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Démarrage rapide : Configurer la machine virtuelle Science des données pour Linux (Ubuntu)
 
@@ -39,15 +39,15 @@ Voici les étapes de création d’une instance de DSVM Ubuntu 18.04 :
    
 1. Entrez les informations suivantes pour configurer chaque étape de l’Assistant :
 
-    1. **Paramètres de base**:
+    1. **Paramètres de base** :
     
-       * **Abonnement**: Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine. Vous devez disposer des privilèges de création de ressources pour cet abonnement.
-       * **Groupe de ressources** : Créez un groupe ou sélectionnez-en un.
+       * **Abonnement** : Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine. Vous devez disposer des privilèges de création de ressources pour cet abonnement.
+       * **Groupe de ressources**  : Créez un groupe ou sélectionnez-en un.
        * **Nom de la machine virtuelle** : Entrez le nom de la machine virtuelle. C’est le nom qui sera utilisé sur votre portail Azure.
-       * **Région** : Sélectionnez le centre de données qui convient le mieux. Pour un accès réseau plus rapide, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique. Apprenez-en davantage sur les [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Image** : Conservez la valeur par défaut.
-       * **Size** : Cette option doit être renseignée automatiquement avec une taille adaptée aux charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Linux dans Azure](../../virtual-machines/linux/sizes.md).
-       * **Type d'authentification** : Pour une configuration plus rapide, sélectionnez « Mot de passe ». 
+       * **Région**  : Sélectionnez le centre de données qui convient le mieux. Pour un accès réseau plus rapide, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique. Apprenez-en davantage sur les [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Image**  : Conservez la valeur par défaut.
+       * **Size** : Cette option doit être renseignée automatiquement avec une taille adaptée aux charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Linux dans Azure](../../virtual-machines/sizes.md).
+       * **Type d'authentification**  : Pour une configuration plus rapide, sélectionnez « Mot de passe ». 
          
          > [!NOTE]
          > Si vous envisagez d’utiliser JupyterHub, veillez à sélectionner « Mot de passe », car JupyterHub n’est *pas* configuré pour utiliser des clés publiques SSH.
@@ -57,7 +57,7 @@ Voici les étapes de création d’une instance de DSVM Ubuntu 18.04 :
          > [!IMPORTANT]
          > Si vous utilisez des lettres majuscules dans votre nom d’utilisateur, JupyterHub ne fonctionnera pas et vous rencontrerez une erreur 500 interne au serveur.
 
-       * **Mot de passe** : Entrez le mot de passe que vous utiliserez pour vous connecter à votre machine virtuelle.    
+       * **Mot de passe**  : Entrez le mot de passe que vous utiliserez pour vous connecter à votre machine virtuelle.    
     
    1. Sélectionnez **Revoir + créer**.
    1. **Vérifier+créer**
@@ -95,13 +95,13 @@ La machine virtuelle Linux est déjà provisionnée avec le serveur X2Go et ell
 1. Exécutez le client X2Go. Si la fenêtre « Nouvelle session » ne s’affiche pas automatiquement, accédez à Session -> Nouvelle session.
 
 1. Dans la fenêtre de configuration obtenue, entrez les paramètres de configuration suivants :
-   * **Onglet Session**:
-     * **Hôte** : Entrez l’adresse IP de votre machine virtuelle, que vous avez notée précédemment.
-     * **Connexion** : Entrez le nom d’utilisateur dans la machine virtuelle Linux.
-     * **Port SSH** : conservez la valeur par défaut (22).
-     * **Type de session** : remplacez la valeur par **XFCE**. La machine virtuelle Linux prend uniquement en charge l’environnement de bureau XFCE.
-   * **Onglet Multimédia** : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
-   * **Dossiers partagés** : Utilisez cet onglet pour ajouter le répertoire de l’ordinateur client que vous souhaitez monter sur la machine virtuelle. 
+   * **Onglet Session** :
+     * **Hôte**  : Entrez l’adresse IP de votre machine virtuelle, que vous avez notée précédemment.
+     * **Connexion**  : Entrez le nom d’utilisateur dans la machine virtuelle Linux.
+     * **Port SSH**  : conservez la valeur par défaut (22).
+     * **Type de session**  : remplacez la valeur par **XFCE**. La machine virtuelle Linux prend uniquement en charge l’environnement de bureau XFCE.
+   * **Onglet Multimédia**  : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
+   * **Dossiers partagés**  : Utilisez cet onglet pour ajouter le répertoire de l’ordinateur client que vous souhaitez monter sur la machine virtuelle. 
 
    ![Configuration X2go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Sélectionnez **OK**.
@@ -126,7 +126,7 @@ La machine DSVM Ubuntu exécute [JupyterHub](https://github.com/jupyterhub/jupy
       ![Entrer la connexion Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
 >[!NOTE]
-> Si vous obtenez une erreur 500 à ce stade, vous avez probablement utilisé des majuscules dans votre nom d’utilisateur. Il s’agit d’une interaction connue entre Jupyter Hub et le module PAMAuthenticator qu’il utilise. 
+> Si vous obtenez une erreur 500 à ce stade, vous avez probablement utilisé des majuscules dans votre nom d’utilisateur. Il s’agit d’une interaction connue entre Jupyter Hub et le module PAMAuthenticator qu’il utilise. Si vous recevez une erreur « Impossible d’atteindre cette page », vous devrez probablement ajuster vos autorisations de groupe de sécurité réseau. Dans le portail Azure, recherchez la ressource de groupe de sécurité réseau dans votre groupe de ressources. Pour accéder à JupyterHub à partir de l’Internet public, le port 8000 doit être ouvert. (L’image montre que cette machine virtuelle est configurée pour un accès juste-à-temps, ce qui est fortement recommandé. Consultez [Sécuriser vos ports de gestion avec un accès juste-à-temps](../../security-center/security-center-just-in-time.md).) ![Configuration d’un groupe de sécurité réseau](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Parcourez les nombreux exemples de notebooks disponibles.
 
@@ -144,6 +144,6 @@ Voici comment poursuivre votre formation et votre exploration :
 
 * La procédure [Science des données sur la machine virtuelle pour la science des données pour Linux](linux-dsvm-walkthrough.md) vous montre comment effectuer plusieurs tâches courantes relatives à la science des données avec la machine virtuelle DSVM Linux provisionnée ici. 
 * Explorez les différents outils de science des données sur la machine virtuelle DSVM en testant les outils décrits dans cet article. Vous pouvez également exécuter `dsvm-more-info` dans l’interpréteur de commandes sur la machine virtuelle pour accéder à une présentation de base et à des liens vers des informations supplémentaires concernant les outils installés sur la machine virtuelle.  
-* Découvrez comment créer systématiquement des solutions analytiques à l’aide du [processus TDSP (Team Data Science Process)](https://aka.ms/tdsp).
+* Découvrez comment créer systématiquement des solutions analytiques à l’aide du [processus TDSP (Team Data Science Process)](../team-data-science-process/index.yml).
 * Pour des exemples d’apprentissage automatique et d’analyse de données utilisant les services d’intelligence artificielle d’Azure, visitez [Azure AI Gallery](https://gallery.azure.ai/).
 * Consultez la [documentation de référence](./reference-ubuntu-vm.md) appropriée pour cette machine virtuelle.

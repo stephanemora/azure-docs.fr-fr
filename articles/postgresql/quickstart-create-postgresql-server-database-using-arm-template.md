@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Création d’un serveur Azure Database pour PostgreSQL - Modèle ARM'
-description: Dans cet article, découvrez comment créer un seul serveur Azure Database pour PostgreSQL à l’aide d’un modèle Azure Resource Manager.
-author: mgblythe
+description: Dans ce guide de démarrage rapide, découvrez comment créer un serveur unique Azure Database pour PostgreSQL à l’aide d’un modèle Azure Resource Manager.
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906442"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331639"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour PostgreSQL à l’aide d’un modèle ARM – Serveur unique
 
@@ -68,32 +68,32 @@ Sélectionnez le lien suivant pour déployer le modèle de serveur Azure Databas
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-Sur la page **Déployer Azure Database pour PostgreSQL avec un réseau virtuel** :
+Sur la page **Déployer Azure Database pour PostgreSQL avec un réseau virtuel**  :
 
-1. Pour **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
+1. Pour **Groupe de ressources** , sélectionnez **Créer** , entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
 
 2. Si vous avez créé un groupe de ressources, sélectionnez une **Localisation** pour le groupe de ressources et le nouveau serveur.
 
-3. Entrez un **Nom de serveur**, une **Connexion de l’administrateur** et un **Mot de passe de connexion de l’administrateur**.
+3. Entrez un **Nom de serveur** , une **Connexion de l’administrateur** et un **Mot de passe de connexion de l’administrateur**.
 
-    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Déployer sur Azure":::
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Fenêtre Déployer Azure Database pour PostgreSQL avec un réseau virtuel, modèle de démarrage rapide Azure, Portail Azure":::
 
 4. Changez les autres paramètres par défaut si vous le souhaitez :
 
-    * **Abonnement** : sélectionnez l’abonnement Azure que vous souhaitez utiliser pour le serveur.
-    * **Capacité de la référence** : capacité vCore, qui peut être *2* (valeur par défaut), *4*, *8*, *16*, *32* ou *64*.
-    * **Nom de la référence** : préfixe du niveau de référence, famille de références et capacité de référence, joints par des traits de soulignement, par exemple, *B_Gen5_1*, *GP_Gen5_2* (valeur par défaut) ou *MO_Gen5_32*.
-    * **Taille de la référence SKU (Mo)**  : taille de stockage, en mégaoctets, du serveur Azure Database pour PostgreSQL (par défaut, *51200*).
-    * **Niveau de référence SKU** : niveau de déploiement, tel que *Basic*, *GeneralPurpose* (valeur par défaut) ou *MemoryOptimized*.
-    * **Famille de références** : *Gen4* ou *Gen5* (valeur par défaut), qui indique la génération du matériel pour le déploiement du serveur.
-    * **Version de PostgreSQL** : version du serveur PostgreSQL à déployer, par exemple *9.5*, *9.6*, *10* ou *11* (par défaut).
-    * **Nombre de jours de conservation de la sauvegarde** : période souhaitée pour la conservation des sauvegardes géoredondantes, en jours (par défaut, *7*).
-    * **Sauvegarde géoredondante** : *Activé* ou *Désactivé* (valeur par défaut), en fonction des exigences de géo-reprise d’activité après sinistre.
-    * **Nom du réseau virtuel** : nom du réseau virtuel (par défaut, *azure_postgresql_vnet*).
-    * **Nom du sous-réseau** : nom du sous-réseau (par défaut, *azure_postgresql_subnet*).
-    * **Nom de la règle de réseau virtuel** : nom de la règle de réseau virtuel autorisant le sous-réseau (par défaut, *AllowSubnet*).
-    * **Préfixe d’adresse de réseau virtuel** : préfixe d’adresse du réseau virtuel (par défaut, *10.0.0.0/16*).
-    * **Préfixe de sous-réseau** : préfixe de l’adresse du sous-réseau (par défaut, *10.0.0.0/16*).
+    * **Abonnement**  : sélectionnez l’abonnement Azure que vous souhaitez utiliser pour le serveur.
+    * **Capacité de la référence**  : capacité vCore, qui peut être *2* (valeur par défaut), *4* , *8* , *16* , *32* ou *64*.
+    * **Nom de la référence**  : préfixe du niveau de référence, famille de références et capacité de référence, joints par des traits de soulignement, par exemple, *B_Gen5_1* , *GP_Gen5_2* (valeur par défaut) ou *MO_Gen5_32*.
+    * **Taille de la référence SKU (Mo)**  : taille de stockage, en mégaoctets, du serveur Azure Database pour PostgreSQL (par défaut, *51200* ).
+    * **Niveau de référence SKU**  : niveau de déploiement, tel que *Basic* , *GeneralPurpose* (valeur par défaut) ou *MemoryOptimized*.
+    * **Famille de références**  : *Gen4* ou *Gen5* (valeur par défaut), qui indique la génération du matériel pour le déploiement du serveur.
+    * **Version de PostgreSQL**  : version du serveur PostgreSQL à déployer, par exemple *9.5* , *9.6* , *10* ou *11* (par défaut).
+    * **Nombre de jours de conservation de la sauvegarde**  : période souhaitée pour la conservation des sauvegardes géoredondantes, en jours (par défaut, *7* ).
+    * **Sauvegarde géoredondante**  : *Activé* ou *Désactivé* (valeur par défaut), en fonction des exigences de géo-reprise d’activité après sinistre.
+    * **Nom du réseau virtuel**  : nom du réseau virtuel (par défaut, *azure_postgresql_vnet* ).
+    * **Nom du sous-réseau**  : nom du sous-réseau (par défaut, *azure_postgresql_subnet* ).
+    * **Nom de la règle de réseau virtuel**  : nom de la règle de réseau virtuel autorisant le sous-réseau (par défaut, *AllowSubnet* ).
+    * **Préfixe d’adresse de réseau virtuel**  : préfixe d’adresse du réseau virtuel (par défaut, *10.0.0.0/16* ).
+    * **Préfixe de sous-réseau**  : préfixe de l’adresse du sous-réseau (par défaut, *10.0.0.0/16* ).
 
 5. Lisez les conditions générales, puis cochez la case **J’accepte les conditions générales mentionnées ci-dessus**.
 

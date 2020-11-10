@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950616"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027565"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Activer Security Center sur tous les abonnements d’un groupe d’administration
 
@@ -25,20 +25,20 @@ Vous pouvez utiliser Azure Policy pour activer Azure Security Center sur tous le
 
 Pour intégrer un groupe d’administration et tous ses abonnements :
 
-1. En tant qu’utilisateur disposant des autorisations **Administration de sécurité**, ouvrez Azure Policy et recherchez la définition **Activer Azure Security Center sur votre abonnement**.
+1. En tant qu’utilisateur disposant des autorisations **Administration de sécurité** , ouvrez Azure Policy et recherchez la définition **Activer Azure Security Center sur votre abonnement**.
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Définition Azure Policy Activer Azure Security Center sur votre abonnement":::
 
 1. Sélectionnez **Affecter** et veillez à définir l’étendue sur le niveau du groupe d’administration.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Définition Azure Policy Activer Azure Security Center sur votre abonnement":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Affectation de la définition Activer Azure Security Center sur votre abonnement":::
 
     > [!TIP]
     > Hormis l’étendue, il n’existe aucun paramètre obligatoire.
 
 1. Sélectionnez **Créer une tâche de correction** afin que soient intégrés tous les abonnements existants pour lesquels Security Center n’est pas activé.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Définition Azure Policy Activer Azure Security Center sur votre abonnement":::
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Création d’une tâche de correction pour la définition Azure Policy Activer Azure Security Center sur votre abonnement":::
 
 1. Quand la définition est assignée, elle effectue les opérations suivantes :
 
@@ -55,7 +55,7 @@ Pour intégrer un groupe d’administration et tous ses abonnements :
 
 Vous pouvez modifier la définition Azure Policy de plusieurs façons : 
 
-- **Définir la conformité différemment** : la stratégie fournie classifie comme « non conformes » tous les abonnements du groupe d’administration qui ne sont pas encore inscrits auprès de Security Center. Vous pouvez choisir de la définir sur tous les abonnements sans Azure Defender.
+- **Définir la conformité différemment**  : la stratégie fournie classifie comme « non conformes » tous les abonnements du groupe d’administration qui ne sont pas encore inscrits auprès de Security Center. Vous pouvez choisir de la définir sur tous les abonnements sans Azure Defender.
 
     La définition fournie définit *un* des paramètres de tarif ci-dessous comme étant conforme. Cela signifie qu’un abonnement défini sur « standard » ou « free » (gratuit) est conforme.
 
@@ -88,7 +88,7 @@ Vous pouvez modifier la définition Azure Policy de plusieurs façons :
     },
     ```
 
-- **Définir des plans Azure Defender à appliquer lors de l’activation de Security Center** : la stratégie fournie active Security Center sans aucun des plans Azure Defender facultatifs. Vous pouvez choisir d’activer un ou plusieurs d’entre eux.
+- **Définir des plans Azure Defender à appliquer lors de l’activation de Security Center**  : la stratégie fournie active Security Center sans aucun des plans Azure Defender facultatifs. Vous pouvez choisir d’activer un ou plusieurs d’entre eux.
 
     La section `deployment` de la définition fournie a un paramètre `pricingTier`. Par défaut, ce paramètre est défini sur `free`, mais vous pouvez le modifier. 
 

@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: jasonh
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ad00fcc0c7b871210b29400821808b6729d953f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ae86f918b1ecaf28d5f0118d90ea6c2389674da
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409406"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129692"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Démarrage rapide : Créer une base de données de graphe avec le SDK Java et l’API Azure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -167,17 +168,17 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
 Vous pouvez à présent revenir à l’Explorateur de données et voir les vertex ajoutés au graphique, ainsi qu’ajouter des points de données supplémentaires.
 
-1. Dans votre compte Azure Cosmos DB, dans le portail Azure, sélectionnez **Explorateur de données**, développez **sample-graph**, sélectionnez **Graphe**, puis sélectionnez **Appliquer un filtre**. 
+1. Dans votre compte Azure Cosmos DB, dans le portail Azure, sélectionnez **Explorateur de données** , développez **sample-graph** , sélectionnez **Graphe** , puis sélectionnez **Appliquer un filtre**. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Capture d’écran montrant Graph sélectionné dans la zone de l’API avec l’option Appliquer le filtre.":::
 
-2. Dans la liste **Résultats**, observez les nouveaux utilisateurs ajoutés au graphique. Sélectionnez **ben** et notez que l’utilisateur est connecté à robin. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
+2. Dans la liste **Résultats** , observez les nouveaux utilisateurs ajoutés au graphique. Sélectionnez **ben** et notez que l’utilisateur est connecté à robin. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Nouveaux sommets dans le graphe dans l’Explorateur de données du portail Azure":::
 
 3. Nous allons à présent ajouter quelques nouveaux utilisateurs. Sélectionnez **New Vertex (Nouveau vertex)** pour ajouter des données à votre graphique.
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Capture d’écran montrant le volet Nouveau sommet dans lequel vous pouvez entrer des valeurs.":::
 
 4. Dans la zone d’étiquette, entrez *personne*.
 
@@ -212,17 +213,17 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
     À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et sélectionnez **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
 
-12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure"::: en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
+12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats** , puis sélectionnez :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Modifier la cible d’un vertex dans un graphique"::: en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Changer la cible d’un sommet dans un graphe – Azure Cosmos DB":::
 
-13. Dans la zone **Cible**, entrez *rakesh*, et dans la zone **Edge label (Étiquette de relation)** , entrez *knows*, puis cochez la case.
+13. Dans la zone **Cible** , entrez *rakesh* , et dans la zone **Edge label (Étiquette de relation)** , entrez *knows* , puis cochez la case.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Ajouter une connexion dans l’Explorateur de données – Azure Cosmos DB":::
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Deux sommets connectés dans l’Explorateur de données – Azure Cosmos DB":::
 
 Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 

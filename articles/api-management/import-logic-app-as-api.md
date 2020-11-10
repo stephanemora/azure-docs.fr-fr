@@ -1,6 +1,6 @@
 ---
 title: Importer une application logique en tant qu’API avec le portail Azure | Microsoft Docs
-description: Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour importer une application logique en tant qu’API.
+description: Cet article vous montre comment utiliser le service Gestion des API (APIM) pour importer une application logique en tant qu’API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: b107b4a54b7d013da160119b16bd646a79cce696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dd460bce01b86c72d0b8fd70351fdcc85c69bd4
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626834"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146958"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importer une application logique en tant qu’API
 

@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser OPENROWSET dans SQL à la demande (préversion)
-description: Cet article décrit la syntaxe de OPENROWSET dans SQL à la demande (préversion) et explique comment utiliser des arguments.
+title: Guide pratique pour utiliser OPENROWSET dans un pool SQL serverless (préversion)
+description: Cet article décrit la syntaxe d’OPENROWSET dans un pool SQL serverless (préversion) et explique comment utiliser des arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474782"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341329"
 ---
-# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Guide pratique pour utiliser OPENROWSET avec SQL à la demande (préversion)
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-La fonction `OPENROWSET(BULK...)` vous permet d’accéder à des fichiers dans Stockage Azure. La fonction `OPENROWSET` lit le contenu d’une source de données distante (par exemple, un fichier) et retourne le contenu sous la forme d’un ensemble de lignes. Dans la ressource SQL à la demande (préversion), le fournisseur d’ensembles de lignes en bloc OPENROWSET est accessible en appelant la fonction OPENROWSET et en spécifiant l’option BULK.  
+La fonction `OPENROWSET(BULK...)` vous permet d’accéder à des fichiers dans Stockage Azure. La fonction `OPENROWSET` lit le contenu d’une source de données distante (par exemple, un fichier) et retourne le contenu sous la forme d’un ensemble de lignes. Dans la ressource de pool SQL serverless (préversion), le fournisseur d’ensembles de lignes en bloc OPENROWSET est accessible en appelant la fonction OPENROWSET et en spécifiant l’option BULK.  
 
 Il est possible de référencer la fonction `OPENROWSET` dans la clause `FROM` d’une requête comme s’il s’agissait d’un nom de table `OPENROWSET`. Elle prend en charge les opérations en bloc par l’intermédiaire d’un fournisseur BULK intégré qui permet de lire les données d’un fichier et de les retourner sous la forme d’un ensemble de lignes.
 
@@ -95,6 +95,8 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
+[ , HEADER_ROW = { TRUE | FALSE } ]
+[ , DATAFILETYPE = { 'char' | 'widechar' } ]
 ```
 
 ## <a name="arguments"></a>Arguments
@@ -111,7 +113,7 @@ L’élément unstructured_data_path qui établit un chemin d’accès aux donn�
 - Un chemin d’accès absolu au format « \<prefix>://\<storage_account_path>/\<storage_path> » permet à un utilisateur de lire directement les fichiers.
 - Chemin relatif au format « < storage_path > » qui doit être utilisé avec le paramètre `DATA_SOURCE` et décrit le modèle de fichier dans l’emplacement <storage_account_path> défini dans `EXTERNAL DATA SOURCE`. 
 
- Vous trouverez ci-dessous les valeurs <storage account path> appropriées qui établiront un lien à votre source de données externe particulière. 
+Vous trouverez ci-dessous les valeurs <storage account path> appropriées qui établiront un lien à votre source de données externe particulière. 
 
 | Source de données externe       | Préfixe | Chemin de compte de stockage                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -124,18 +126,20 @@ L’élément unstructured_data_path qui établit un chemin d’accès aux donn�
 
 '\<storage_path>'
 
- Spécifie un chemin au sein de votre stockage qui pointe vers le dossier ou le fichier que vous souhaitez lire. Si le chemin pointe vers un conteneur ou un dossier, tous les fichiers sont lus à partir de ce conteneur ou dossier particulier. Les fichiers des sous-dossiers ne sont pas inclus. 
+Spécifie un chemin au sein de votre stockage qui pointe vers le dossier ou le fichier que vous souhaitez lire. Si le chemin pointe vers un conteneur ou un dossier, tous les fichiers sont lus à partir de ce conteneur ou dossier particulier. Les fichiers des sous-dossiers ne sont pas inclus. 
 
- Vous pouvez utiliser des caractères génériques pour cibler plusieurs fichiers ou dossiers. L’utilisation de plusieurs caractères génériques non consécutifs est autorisée.
+Vous pouvez utiliser des caractères génériques pour cibler plusieurs fichiers ou dossiers. L’utilisation de plusieurs caractères génériques non consécutifs est autorisée.
 Dans l’exemple ci-dessous, tous les fichiers *csv* sont lus en débutant par *population* à partir de tous les dossiers en débutant par */csv/population*  :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Si vous spécifiez l’élément unstructured_data_path comme dossier, une requête SQL à la demande récupère les fichiers de ce dossier. 
+Si vous spécifiez que unstructured_data_path est un dossier, une requête de pool SQL serverless récupère des fichiers auprès de ce dossier. 
+
+Vous pouvez indiquer au pool SQL serverless de parcourir les dossiers en spécifiant /* à la fin du chemin, comme dans l’exemple suivant : `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Contrairement à Hadoop et à PolyBase, SQL à la demande ne retourne pas de sous-dossiers. Par ailleurs, à la différence d’Hadoop et de PolyBase, SQL à la demande retourne les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
+> Contrairement à Hadoop et à PolyBase, un pool SQL serverless ne retourne pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin. Par ailleurs, à la différence d’Hadoop et de PolyBase, un pool SQL serverless retourne les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
-Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, une requête SQL à la demande retournera des lignes de mydata.txt et de _hidden.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
+Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, une requête de pool SQL serverless va retourner des lignes de mydata.txt et de _hidden.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
 
 ![Données récursives pour les tables externes](./media/develop-openrowset/folder-traversal.png)
 
@@ -144,12 +148,13 @@ Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://my
 La clause WITH vous permet de préciser les colonnes que vous souhaitez lire des fichiers.
 
 - Pour les fichiers de données CSV, si vous souhaitez lire toutes les colonnes, indiquez les noms des colonnes et leur type de données. Si vous désirez un sous-ensemble de colonnes, utilisez des nombres ordinaux pour sélectionner les colonnes des fichiers de données d’origine par ordinal. Les colonnes seront liées par la désignation ordinale. 
-
-    > [!IMPORTANT]
-    > La clause WITH est obligatoire pour les fichiers CSV.
-    >
+    > [!TIP]
+    > Vous pouvez aussi omettre la clause WITH pour les fichiers CSV. Les types de données sont inférés automatiquement du contenu du fichier. Vous pouvez utiliser l’argument HEADER_ROW pour spécifier l’existence d’une ligne d’en-tête, auquel cas les noms de colonnes seront lus à partir de cette ligne. Pour plus d’informations, consultez [Découverte automatique du schéma](#automatic-schema-discovery).
     
-- Pour les fichiers de données Parquet, fournissez des noms de colonne qui correspondent aux noms des colonnes des fichiers de données d’origine. Les colonnes seront liées par nom. Si la clause WITH est omise, toutes les colonnes des fichiers Parquet seront retournées.
+- Pour les fichiers de données Parquet, fournissez des noms de colonne qui correspondent aux noms des colonnes des fichiers de données d’origine. Les colonnes sont liées sur la base du nom et sont sensibles à la casse. Si la clause WITH est omise, toutes les colonnes des fichiers Parquet seront retournées.
+    > [!IMPORTANT]
+    > Les noms de colonnes dans les fichiers Parquet sont sensible à la casse. Si vous spécifiez un nom de colonne avec une casse différente de la casse du nom de colonne dans le fichier Parquet, des valeurs NULL sont retournées pour cette colonne.
+
 
 column_name = Nom de la colonne de sortie. S’il est fourni, ce nom remplace le nom de la colonne dans le fichier source.
 
@@ -205,6 +210,10 @@ Spécifie la version d’analyseur à utiliser lors de la lecture de fichiers. S
 
 La version 1.0 de l’analyseur CSV, qui est la version par défaut, est riche en fonctionnalités. La version 2.0, conçue pour les performances, ne prend pas en charge l’ensemble des options et des encodages. 
 
+Informations détaillées sur l’analyseur CSV version 1.0 :
+
+- Les options suivantes ne sont pas prises en charge : HEADER_ROW.
+
 Caractéristiques la version 2.0 de l’analyseur CSV :
 
 - Certains types de données ne sont pas pris en charge.
@@ -212,22 +221,97 @@ Caractéristiques la version 2.0 de l’analyseur CSV :
 - Les options suivantes ne sont pas prises en charge : DATA_COMPRESSION.
 - La chaîne vide entre guillemets ("") est interprétée comme une chaîne vide.
 
+HEADER_ROW = { TRUE | FALSE }
+
+Spécifie si le fichier CSV contient une ligne d’en-tête. La valeur par défaut est FALSE. Pris en charge dans PARSER_VERSION='2.0'. Si la valeur est TRUE, les noms de colonnes sont lus à partir de la première ligne en fonction de l’argument FIRSTROW.
+
+DATAFILETYPE = { 'char' | 'widechar' }
+
+Spécifie l’encodage : char est utilisé pour UTF8, widechar est utilisé pour les fichiers UTF16.
+
+## <a name="fast-delimited-text-parsing"></a>Analyse rapide du texte délimité
+
+Il existe deux versions de l’analyseur de texte délimité que vous pouvez utiliser. La version 1.0 de l’analyseur CSV est la version par défaut et est riche en fonctionnalités, tandis que sa version 2.0 est conçue pour les performances. L’amélioration des performances dans l’analyseur 2.0 provient de techniques d’analyse avancées et du multithreading. La différence de rapidité s’accroît à mesure que la taille du fichier augmente.
+
+## <a name="automatic-schema-discovery"></a>Découverte automatique du schéma
+
+Vous pouvez facilement interroger des fichiers CSV et Parquet sans connaître ou spécifier le schéma en omettant la clause WITH. Les noms de colonnes et les types de données seront inférés à partir des fichiers.
+
+Les fichiers Parquet contiennent des métadonnées de colonne qui seront lues ; les mappages de types se trouvent dans [mappages de type pour Parquet](#type-mapping-for-parquet). Pour obtenir des exemples, consultez [Lecture de fichiers parquet sans spécifier de schéma](#read-parquet-files-without-specifying-schema).
+
+Pour les fichiers CSV, les noms de colonnes peuvent être lus à partir de la ligne d’en-tête. Vous pouvez spécifier s’il existe une ligne d’en-tête en utilisant l’argument HEADER_ROW. Si HEADER_ROW = FALSE, des noms de colonnes génériques sont utilisés : C1, C2, ... Cn, où n est le nombre de colonnes dans le fichier. Les types de données seront inférés à partir des 100 premières lignes de données. Pour obtenir des exemples, consultez [Lecture de fichiers CSV sans spécifier de schéma](#read-csv-files-without-specifying-schema).
+
+> [!IMPORTANT]
+> Dans certains cas, le type de données approprié ne peut pas être inféré en raison d’un manque d’informations : un type de données plus grand est alors utilisé à la place. Ceci réduit les performances et est particulièrement important pour les colonnes de caractères qui seront inférées en tant que varchar(8000). Pour des performances optimales, [vérifiez les types de données inférés](best-practices-sql-on-demand.md#check-inferred-data-types) et [utilisez les types de données appropriés](best-practices-sql-on-demand.md#use-appropriate-data-types).
+
+### <a name="type-mapping-for-parquet"></a>Mappage de type pour Parquet
+
+Les fichiers Parquet contiennent des descriptions de type pour chaque colonne. Le tableau suivant explique comment les types Parquet sont mappés aux types SQL natifs.
+
+| Type Parquet | Type logique Parquet (annotation) | Type de données SQL |
+| --- | --- | --- |
+| BOOLEAN | | bit |
+| BINARY / BYTE_ARRAY | | varbinary |
+| DOUBLE | | float |
+| FLOAT | | real |
+| INT32 | | int |
+| INT64 | | bigint |
+| INT96 | |datetime2 |
+| FIXED_LEN_BYTE_ARRAY | |binary |
+| BINARY |UTF8 |varchar \*(classement UTF8) |
+| BINARY |STRING |varchar \*(classement UTF8) |
+| BINARY |ENUM|varchar \*(classement UTF8) |
+| BINARY |UUID |UNIQUEIDENTIFIER |
+| BINARY |DECIMAL |Décimal |
+| BINARY |JSON |varchar (max) \*(classement UTF8) |
+| BINARY |BSON |varbinary(max) |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |Décimal |
+| BYTE_ARRAY |INTERVAL |varchar (max), sérialisé au format standardisé |
+| INT32 |INT(8, true) |SMALLINT |
+| INT32 |INT(16, true) |SMALLINT |
+| INT32 |INT(32, true) |int |
+| INT32 |INT(8, false) |TINYINT |
+| INT32 |INT(16, false) |int |
+| INT32 |INT(32, false) |bigint |
+| INT32 |DATE |Date |
+| INT32 |DECIMAL |Décimal |
+| INT32 |TIME (MILLIS )|time |
+| INT64 |INT(64, true) |bigint |
+| INT64 |INT(64, false ) |decimal(20,0) |
+| INT64 |DECIMAL |Décimal |
+| INT64 |TIME (MICROS / NANOS) |time |
+|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
+|[Type complexe](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |Liste |varchar(max), sérialisé en JSON |
+|[Type complexe](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), sérialisé en JSON |
+
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant retourne seulement deux colonnes avec les nombres ordinaux 1 et 4 à partir des fichiers population*.csv. Étant donné qu’il n’y a pas de ligne d’en-tête dans les fichiers, la lecture commence à la première ligne :
+### <a name="read-csv-files-without-specifying-schema"></a>Lire des fichiers CSV sans spécifier le schéma
+
+L’exemple suivant lit un fichier CSV qui contient une ligne d’en-tête sans spécifier les noms de colonnes et les types de données : 
 
 ```sql
-SELECT * 
+SELECT 
+    *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
-        FORMAT = 'CSV',
-        FIRSTROW = 1
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
-    [population] bigint 4
-) AS [r]
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0',
+    HEADER_ROW = TRUE) as [r]
 ```
+
+L’exemple suivant lit un fichier CSV qui ne contient pas de ligne d’en-tête sans spécifier les noms de colonnes et les types de données : 
+
+```sql
+SELECT 
+    *
+FROM OPENROWSET(
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0') as [r]
+```
+
+### <a name="read-parquet-files-without-specifying-schema"></a>Lire des fichiers Parquet sans spécifier le schéma
 
 L’exemple suivant retourne toutes les colonnes de la première ligne du jeu de données de recensement, au format Parquet, et sans spécifier les noms des colonnes et les types de données : 
 
@@ -241,6 +325,42 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-specific-columns-from-csv-file"></a>Lire des colonnes spécifiques dans un fichier CSV
+
+L’exemple suivant retourne seulement deux colonnes avec les nombres ordinaux 1 et 4 à partir des fichiers population*.csv. Étant donné qu’il n’y a pas de ligne d’en-tête dans les fichiers, la lecture commence à la première ligne :
+
+```sql
+SELECT 
+    * 
+FROM OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 1
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
+    [population] bigint 4
+) AS [r]
+```
+
+### <a name="read-specific-columns-from-parquet-file"></a>Lire des colonnes spécifiques dans un fichier Parquet
+
+L’exemple suivant retourne seulement deux colonnes de la première ligne du jeu de données de recensement au format Parquet : 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    [stateName] VARCHAR (50),
+    [population] bigint
+) AS [r]
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser `OPENROWSET` pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) et [JSON](query-json-files.md). Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).
+Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser `OPENROWSET` pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) et [JSON](query-json-files.md). Consultez les [bonnes pratiques](best-practices-sql-on-demand.md) pour obtenir des performances optimales. Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).

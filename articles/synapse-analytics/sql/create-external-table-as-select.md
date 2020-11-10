@@ -1,6 +1,6 @@
 ---
-title: Stocker les résultats des requêtes dans le stockage
-description: Dans cet article, vous allez voir comment stocker les résultats des requêtes dans le stockage en utilisant SQL à la demande (préversion).
+title: Stocker des résultats de requêtes à partir d’un pool SQL serverless
+description: Dans cet article, vous allez découvrir comment stocker des résultats de requêtes dans un stockage en utilisant un pool SQL serverless (préversion).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5fda5e7a5caf72df3d4c80e37a684232ca5541
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50897d81ed5ef2fc33e458bd46d9229f6184fea8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289359"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322618"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Stocker les résultats de la requête dans le stockage en utilisant SQL à la demande (préversion) avec Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Stocker des résultats de requêtes en utilisant un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-Dans cet article, vous allez voir comment stocker les résultats des requêtes dans le stockage en utilisant SQL à la demande (préversion).
+Dans cet article, vous allez découvrir comment stocker des résultats de requêtes dans un stockage en utilisant un pool SQL serverless (préversion).
 
 ## <a name="prerequisites"></a>Prérequis
 

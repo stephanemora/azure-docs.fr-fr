@@ -1,6 +1,6 @@
 ---
-title: Utiliser Java et JDBC avec Azure Database pour PostgreSQL
-description: Découvrez comment utiliser Java et JDBC avec une base de données Azure Database pour PostgreSQL.
+title: 'Démarrage rapide : Utiliser Java et JDBC avec Azure Database pour PostgreSQL'
+description: Dans ce guide de démarrage rapide, découvrez comment utiliser Java et JDBC avec une base de données Azure Database pour PostgreSQL.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734972"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341414"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Utiliser Java et JDBC avec Azure Database pour PostgreSQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Démarrage rapide : Utiliser Java et JDBC avec Azure Database pour PostgreSQL
 
 Cette rubrique illustre la création d’un exemple d’application qui utilise Java et [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) pour stocker et récupérer des informations dans [Azure Database pour PostgreSQL](./index.yml).
 
@@ -233,7 +233,7 @@ Ce code Java utilisera les fichiers *application.properties* et *schema.sql* que
 Dans ce fichier, vous pouvez voir que nous avons commenté des méthodes pour insérer, lire, mettre à jour et supprimer des données : nous allons coder ces méthodes dans le reste de cet article, et vous pourrez en supprimer les marques de commentaire les unes après les autres.
 
 > [!NOTE]
-> Les informations d’identification de base de données sont stockées dans les propriétés *user* et *password* du fichier *application.properties* . Ces informations d’identification sont utilisées lors de l’exécution de `DriverManager.getConnection(properties.getProperty("url"), properties);`, car le fichier de propriétés est passé comme argument.
+> Les informations d’identification de base de données sont stockées dans les propriétés *user* et *password* du fichier *application.properties*. Ces informations d’identification sont utilisées lors de l’exécution de `DriverManager.getConnection(properties.getProperty("url"), properties);`, car le fichier de propriétés est passé comme argument.
 
 Vous pouvez maintenant exécuter cette classe main avec votre outil favori :
 
@@ -318,7 +318,7 @@ public class Todo {
 }
 ```
 
-Cette classe est un modèle de domaine mappé sur la table `todo` que vous avez créée lors de l’exécution du script *schema.sql* .
+Cette classe est un modèle de domaine mappé sur la table `todo` que vous avez créée lors de l’exécution du script *schema.sql*.
 
 ### <a name="insert-data-into-azure-database-for-postgresql"></a>Insertion des données dans Azure Database pour PostgreSQL
 
@@ -485,7 +485,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Conclusion et nettoyage des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Félicitations ! Vous avez créé une application Java qui utilise JDBC pour stocker et récupérer des données dans Azure Database pour PostgreSQL.
 

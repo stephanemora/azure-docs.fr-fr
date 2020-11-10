@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748167"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043272"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Créer des abonnements Azure programmatiquement avec les API les plus récentes
 
@@ -232,7 +232,7 @@ Vous recevez le subscriptionId dans la réponse à la commande.
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 
 - Seuls des abonnements Azure Enterprise peuvent être créés à l’aide de l’API.
-- Il existe une limite de 2 000 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Pour créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
+- Il existe une limite de 2 000 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Pour créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription. Les abonnements annulés, supprimés et transférés sont pris en compte dans la limite de 2 000.
 - Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription par le biais d’un RBAC Azure, ne peuvent pas créer d’abonnements dans le portail Azure.
 - Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -400,7 +400,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-a-subscription-for-an-invoice-section"></a>Créer un abonnement pour une section de facture
 
-L’exemple suivant crée un abonnement nommé *Dev Team subscription* pour la section de facture *Development* . Cet abonnement est facturé au profil de facturation *Contoso Billing Profile* et s’affiche dans la section *Development* de la facture correspondante. Vous utilisez l’étendue de facturation copiée à l’étape précédente : `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+L’exemple suivant crée un abonnement nommé *Dev Team subscription* pour la section de facture *Development*. Cet abonnement est facturé au profil de facturation *Contoso Billing Profile* et s’affiche dans la section *Development* de la facture correspondante. Vous utilisez l’étendue de facturation copiée à l’étape précédente : `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
 ### <a name="rest"></a>[REST](#tab/rest-MCA)
 
@@ -958,7 +958,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-a-subscription-and-resource-group-with-a-template"></a>Créer un abonnement et un groupe de ressources à l’aide d’un modèle
 
-Le modèle ARM suivant crée un abonnement nommé *Dev Team subscription* pour la section de facture *Development* . Cet abonnement est facturé au profil de facturation *Contoso Billing Profile* et s’affiche dans la section *Development* de la facture correspondante. Utilisez l’étendue de facturation copiée à l’étape précédente : `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+Le modèle ARM suivant crée un abonnement nommé *Dev Team subscription* pour la section de facture *Development*. Cet abonnement est facturé au profil de facturation *Contoso Billing Profile* et s’affiche dans la section *Development* de la facture correspondante. Utilisez l’étendue de facturation copiée à l’étape précédente : `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
 #### <a name="request"></a>Requête
 

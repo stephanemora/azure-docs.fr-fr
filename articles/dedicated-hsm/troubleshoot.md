@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590453"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927836"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Résolution des problèmes du service Azure Dedicated HSM
 
@@ -71,7 +71,7 @@ Quand un tampon ou une région spécifique arrive à saturation, c’est-à-dire
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Comment voir les HSM après provisionnement
 Dedicated HSM étant un service sur liste verte, il est considéré comme un « type masqué » dans le portail Azure. Pour voir les ressources HSM, vous devez cocher la case « Afficher les types masqués » comme indiqué ci-dessous. Étant donné que la ressource de carte réseau suit toujours le HSM, il s’agit d’un bon endroit pour trouver l’adresse IP du HSM avant d’utiliser SSH pour établir la connexion.
 
-![Délégation de sous-réseau](./media/troubleshoot/hsm-provisioned.png)
+![Capture d’écran mettant en évidence la case Afficher les types masqués](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Ressources réseau
 
@@ -85,7 +85,7 @@ Dedicated HSM utilise la passerelle ExpressRoute comme « tunnel » pour la co
 
 Les exemples de modèles fournis pour Dedicated HSM supposent que l’adresse IP de HSM est automatiquement extraite d’une plage de sous-réseau donnée. Vous pouvez spécifier une adresse IP explicite pour le HSM par le biais d’un attribut « NetworkInterfaces » dans le modèle Resource Manager. 
 
-![Délégation de sous-réseau](./media/troubleshoot/private-ip-address.png)
+![Capture d’écran montrant l’exemple de modèle pour HSM dédié.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>Initialisation du HSM
 

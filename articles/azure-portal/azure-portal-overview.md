@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072388"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147043"
 ---
 # <a name="azure-portal-overview"></a>Présentation du portail Azure
 
@@ -42,7 +42,7 @@ Si vous choisissez le mode ancré pour le menu du portail, il sera toujours visi
 
 En tant que nouvel abonné aux services Azure, la première chose que vous voyez après vous être [connecté au portail](https://portal.azure.com) est la page **Accueil Azure**. Cette page compile les ressources qui vous aideront à tirer le meilleur parti de votre abonnement Azure. Nous avons inclus des liens vers des cours en ligne gratuits, de la documentation, des services essentiels et des sites utiles pour rester à jour et gérer les changements pour votre organisation. Pour un accès simple et rapide au travail en cours, nous montrons également la liste des ressources consultées en dernier. Vous ne pouvez pas personnaliser cette page, mais vous pouvez choisir de voir la page **Accueil Azure** ou **Tableau de bord Azure** comme vue par défaut. La première fois que vous vous connectez, une invite en haut de la page vous permet d’enregistrer votre préférence.
 
-![Capture d’écran montrant le sélecteur de la vue par défaut](./media/azure-portal-overview/azure-portal-default-view.png)
+![Capture d’écran montrant où enregistrer vos préférences.](./media/azure-portal-overview/azure-portal-default-view.png)
 
 Le menu du portail Azure et l’affichage par défaut d’Azure peuvent être modifiés dans **Paramètres du portail**. Si vous modifiez votre sélection, la modification est immédiatement appliquée.
 

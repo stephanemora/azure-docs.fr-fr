@@ -1,6 +1,6 @@
 ---
 title: Modèle de métadonnées partagées
-description: Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre leurs pools Spark (préversion), le moteur SQL à la demande (préversion) et les pools SQL.
+description: Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless (préversion), un pool SQL serverless (préversion) et des pools SQL dédiés.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324660"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Métadonnées partagées Azure Synapse Analytics
 
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre leurs pools Spark (préversion) et le moteur SQL à la demande (préversion).
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless (préversion) et un pool SQL serverless (préversion).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ Le modèle de métadonnées partagées prend en charge le modèle d’entrepôt 
 
 2. Les bases de données créées avec Spark et toutes leurs tables sont visibles dans n’importe quelle instance du pool Spark d’espace de travail Azure Synapse et peuvent être utilisées à partir de n’importe quel travail Spark. Cette fonctionnalité est soumise aux [autorisations](#security-model-at-a-glance), dans la mesure où tous les pools Spark d’un espace de travail partagent le même magasin de métadonnées de catalogue sous-jacent.
 
-3. Les bases de données créées avec Spark et leurs tables Parquet sont visibles dans le moteur SQL à la demande de l’espace de travail. Les [bases de données](database.md) sont créées automatiquement dans les métadonnées SQL à la demande, et les [tables externes et gérées](table.md) créées par un travail Spark sont rendues accessibles en tant que tables externes dans les métadonnées SQL à la demande dans le schéma `dbo` de la base de données correspondante. 
+3. Les bases de données créées avec Spark et leurs tables de type Parquet deviennent visibles dans le pool SQL serverless de l’espace de travail. Les [bases de données](database.md) sont créées automatiquement dans les métadonnées du pool SQL serverless, et les [tables externes et gérées](table.md) créées par un travail Spark sont rendues accessibles en tant que tables externes dans les métadonnées du pool SQL serverless dans le schéma `dbo` de la base de données correspondante. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Pour plus d’informations, consultez [Base de données partagée Azure Synapse 
 
 ## <a name="change-maintenance"></a>Maintenance des modifications
 
-Si un objet de métadonnées est supprimé ou modifié avec Spark, les modifications sont récupérées et propagées vers le moteur SQL à la demande. La synchronisation étant asynchrone, les modifications se reflètent dans le moteur SQL au bout d’un bref délai.
+Si un objet de métadonnées est supprimé ou modifié avec Spark, les modifications sont récupérées et propagées dans le pool SQL serverless. La synchronisation étant asynchrone, les modifications se reflètent dans le moteur SQL au bout d’un bref délai.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer une application Python - Azure Cache for Redis'
+title: 'Démarrage rapide : Utiliser Azure Cache pour Redis dans Python'
 description: Ce démarrage rapide explique comment créer une application Python qui utilise Azure Cache pour Redis.
 author: yegu-ms
 ms.author: yegu
@@ -11,14 +11,14 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: aed9be394076b4ef10b8354552d69771ae659eea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87845322"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099434"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Démarrage rapide : Créer une application Python qui utilise le Cache Azure pour Redis
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans Python
 
 Dans cet article, vous allez incorporer le cache Azure pour Redis dans une application Python afin d’avoir accès à un cache sécurisé et dédié accessible à partir de n’importe quelle application dans Azure.
 
@@ -98,8 +98,8 @@ Si vous en avez terminé avec le groupe de ressources et les ressources Azure qu
 
 Pour supprimer le groupe de ressources et son instance Azure Cache pour Redis :
 
-1. Dans le **portail Azure**, recherchez et sélectionnez [Groupes de ressources](https://portal.azure.com).
-1. Dans la zone de texte **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre instance de cache, puis sélectionnez-le dans les résultats de la recherche. 
+1. Dans le **portail Azure** , recherchez et sélectionnez [Groupes de ressources](https://portal.azure.com).
+1. Dans la zone de texte **Filtrer par nom** , entrez le nom du groupe de ressources contenant votre instance de cache, puis sélectionnez-le dans les résultats de la recherche. 
 1. Dans la page de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
 1. Tapez le nom du groupe de ressources, puis sélectionnez **Supprimer**.
    

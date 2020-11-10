@@ -8,14 +8,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 6b475e34c01ca26abd3d8ab1d904521de19f941b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01efb5736d7becf1b46c7c2898c22648b0421dd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944169"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305821"
 ---
-# <a name="create-and-delete-jobs-in-an-azure-stream-analytics-cluster"></a>Créer et supprimer des travaux dans un cluster Azure Stream Analytics
+# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Ajouter ou supprimer des travaux dans un cluster Azure Stream Analytics
 
 Vous pouvez exécuter plusieurs travaux Azure Stream Analytics sur un même cluster Stream Analytics. L'exécution de travaux sur un cluster est un processus simple qui se décompose en deux étapes : l'ajout du travail au cluster et le démarrage du travail. Cet article explique comment ajouter et supprimer des travaux dans un cluster existant. Si nécessaire, suivez le guide de démarrage rapide pour [créer un cluster Stream Analytics](create-cluster.md).
 
@@ -25,7 +25,7 @@ Seuls les travaux Stream Analytics existants peuvent être ajoutés à des clust
 
 1. Sur le portail Azure, recherchez et sélectionnez votre cluster Stream Analytics.
 
-1. Sous **Paramètres**, sélectionnez **Travaux Stream Analytics**. Sélectionnez ensuite **Ajouter un travail existant**.
+1. Sous **Paramètres** , sélectionnez **Travaux Stream Analytics**. Sélectionnez ensuite **Ajouter un travail existant**.
 
 1. Sélectionnez l'abonnement et le travail Stream Analytics que vous souhaitez ajouter au cluster. Seuls les travaux Stream Analytics qui se trouvent dans la même région que le cluster peuvent être ajoutés à celui-ci.
 
@@ -41,7 +41,7 @@ Les travaux Stream Analytics doivent être arrêtés avant de pouvoir être supp
 
 1. Recherchez et sélectionnez votre cluster Stream Analytics.
 
-1. Sous **Paramètres**, sélectionnez **Travaux Stream Analytics**.
+1. Sous **Paramètres** , sélectionnez **Travaux Stream Analytics**.
 
 1. Sélectionnez les travaux que vous souhaitez supprimer du cluster, puis sélectionnez **Supprimer**.
 

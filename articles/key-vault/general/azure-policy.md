@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043763"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927751"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Intégrer Azure Key Vault à Azure Policy
 
@@ -29,9 +29,9 @@ Exemples de scénarios d’utilisation :
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Types d’effets des stratégies et conseils
 
-**Audit** : Lorsque l’effet d’une stratégie est défini sur audit, celle-ci n’entraînera aucun changement cassant sur votre environnement. Elle vous informera simplement du fait que des composants tels que des certificats ne sont pas conformes aux définitions de la stratégie au sein d’une étendue spécifiée, en les marquant comme non conformes dans le tableau de bord de conformité aux stratégies. L’audit est le paramètre par défaut si aucun effet de stratégie n’est sélectionné.
+**Audit**  : Lorsque l’effet d’une stratégie est défini sur audit, celle-ci n’entraînera aucun changement cassant sur votre environnement. Elle vous informera simplement du fait que des composants tels que des certificats ne sont pas conformes aux définitions de la stratégie au sein d’une étendue spécifiée, en les marquant comme non conformes dans le tableau de bord de conformité aux stratégies. L’audit est le paramètre par défaut si aucun effet de stratégie n’est sélectionné.
 
-**Refuser** : Lorsque l’effet d’une stratégie est défini sur refuser, celle-ci bloque la création de nouveaux composants tels que des certificats et bloque les nouvelles versions de composants existants qui ne sont pas conformes à la définition de stratégie. Les ressources non conformes existantes au sein d’un coffre de clés ne sont pas affectées. Les capacités « audit » continuent de fonctionner.
+**Refuser**  : Lorsque l’effet d’une stratégie est défini sur refuser, celle-ci bloque la création de nouveaux composants tels que des certificats et bloque les nouvelles versions de composants existants qui ne sont pas conformes à la définition de stratégie. Les ressources non conformes existantes au sein d’un coffre de clés ne sont pas affectées. Les capacités « audit » continuent de fonctionner.
 
 ## <a name="available-built-in-policy-definitions"></a>Définitions de stratégie « prédéfinies » disponibles
 
@@ -91,9 +91,9 @@ Votre service peut subir une panne si un certificat qui n’est pas surveillé c
 
 Si vous souhaitez vous assurer que vos clés n’ont pas été actives pendant plus qu’un nombre spécifié de jours, vous pouvez utiliser cette stratégie pour auditer la durée pendant laquelle votre clé a été active.
 
-**Si votre clé a une date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
+**Si votre clé a une date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
 
-**Si votre clé n’a pas de date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date de création** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
+**Si votre clé n’a pas de date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date de création** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Les clés doivent être du type de chiffrement spécifié, RSA ou EC (préversion)
 
@@ -139,9 +139,9 @@ Gérez les exigences en matière de conformité de votre organisation en spécif
 
 Si vous souhaitez vous assurer que vos secrets n’ont pas été actifs pendant plus qu’un nombre spécifié de jours, vous pouvez utiliser cette stratégie pour auditer la durée pendant laquelle votre secret a été actif.
 
-**Si votre secret a une date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
+**Si votre secret a une date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
 
-**Si votre secret n’a pas de date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date de création** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
+**Si votre secret n’a pas de date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date de création** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>Les secrets doivent avoir un type de contenu défini (préversion)
 
@@ -165,7 +165,7 @@ Gérez les exigences en matière de conformité de votre organisation en spécif
 
 Vous gérez un coffre de clés utilisé par plusieurs équipes qui contient 100 certificats et vous voulez être sûr qu’aucun des certificats du coffre de clés n’est valide plus de 2 ans.
 
-1. Vous attribuez la stratégie **La période de validité maximale des certificats doit être spécifiée**, spécifiez que la durée de validité maximale d’un certificat est 24 mois, puis définissez l’effet de la stratégie sur « audit ». 
+1. Vous attribuez la stratégie **La période de validité maximale des certificats doit être spécifiée** , spécifiez que la durée de validité maximale d’un certificat est 24 mois, puis définissez l’effet de la stratégie sur « audit ». 
 1. En consultant le [rapport de conformité sur le portail Azure](#view-compliance-results), vous constatez que 20 certificats sont non conformes et valides plus de 2 ans, et que les autres certificats sont conformes. 
 1. Vous contactez les propriétaires de ces certificats et les informez de la nouvelle exigence de sécurité spécifiant que les certificats ne doivent pas être valides plus de 2 ans. Certaines équipes répondent et 15 des certificats sont renouvelés avec une durée de validité maximale de 2 ans ou moins. Les autres équipes ne répondent pas et il reste 5 certificats non conformes dans votre coffre de clés.
 1. Vous remplacez l’effet de la stratégie attribuée par « refuser ». Les 5 certificats non conformes ne sont pas révoqués et continuent à fonctionner. Toutefois, ils ne peuvent pas être renouvelés avec une durée de validité supérieure à 2 ans. 
@@ -177,49 +177,49 @@ Vous gérez un coffre de clés utilisé par plusieurs équipes qui contient 100�
 1. Connectez-vous au portail Azure. 
 1. Recherchez « Stratégie » dans la barre de recherche et sélectionnez **Stratégie**.
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img1.png)
+    ![Capture d’écran montrant la barre de recherche.](../media/policy-img1.png)
 
 1. Dans la fenêtre Stratégie, sélectionnez **Définitions**.
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img2.png)
+    ![Capture d’écran mettant en évidence l’option Définitions.](../media/policy-img2.png)
 
 1. Dans le filtre Catégorie, désélectionnez **Sélectionner tout** et sélectionnez **Key Vault**. 
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img3.png)
+    ![Capture d’écran montrant le filtre Catégorie et la catégorie Key Vault sélectionnée.](../media/policy-img3.png)
 
 1. Vous devriez maintenant voir toutes les stratégies disponibles pour la préversion publique, pour Azure Key Vault. Veillez à lire et comprendre la section sur les conseils de stratégie ci-dessus et sélectionnez la stratégie que vous voulez attribuer à une étendue.  
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img4.png)
+    ![Capture d’écran montrant les stratégies disponibles pour la préversion publique.](../media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Attribuer une stratégie à une étendue 
 
 1. Sélectionnez une stratégie à appliquer. Dans cet exemple, il s’agit de la stratégie **Gérer la durée de validité des certificats**. Cliquez sur le bouton Attribuer dans le coin supérieur gauche.
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img5.png)
+    ![Capture d’écran qui montre la stratégie Gérer la période de validité de certificat.](../media/policy-img5.png)
   
 1. Sélectionnez l’abonnement dans lequel vous voulez appliquer la stratégie. Vous pouvez choisir de restreindre l’étendue à un seul groupe de ressources au sein d’un abonnement. Si vous souhaitez appliquer la stratégie à l’ensemble de l’abonnement et exclure certains groupes de ressources, vous pouvez également configurer une liste d’exclusions. Définissez le sélecteur d’application de stratégie sur **Activé** si vous voulez que l’effet de la stratégie (audit ou refuser) se produise ou sur **Désactivé** pour désactiver l’effet (audit ou refuser). 
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img6.png)
+    ![Capture d’écran montrant où vous pouvez choisir de restreindre l’étendue à un seul groupe de ressources au sein d’un abonnement.](../media/policy-img6.png)
 
 1. Cliquez sur l’onglet des paramètres en haut de l’écran pour indiquer la durée de validité maximale en mois souhaitée. Sélectionnez **audit** ou **refuser** pour l’effet de la stratégie selon les conseils fournis dans les sections précédentes. Sélectionnez ensuite le bouton Vérifier + Créer. 
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img7.png)
+    ![Capture d’écran montrant l’onglet Paramètres où vous pouvez spécifier la durée de validité maximale en mois souhaitée.](../media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Afficher les résultats de conformité
 
 1. Revenez au panneau Stratégie et sélectionnez l’onglet Conformité. Cliquez sur l’attribution de stratégie dont vous voulez afficher les résultats de conformité.
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img8.png)
+    ![Capture d’écran montrant l’onglet Conformité où vous pouvez sélectionner l’attribution de stratégie pour laquelle vous souhaitez afficher les résultats de compatibilité.](../media/policy-img8.png)
 
 1. Sur cette page, vous pouvez filtrer les résultats par coffres conformes et non conformes. Vous pouvez consulter ici une liste des coffres de clés non conformes dans l’étendue de l’attribution de stratégie. Un coffre est jugé non conforme si un ou plusieurs de ses composants (certificats) sont non conformes. Vous pouvez sélectionner un coffre particulier pour afficher les composants (certificats) non conformes. 
 
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img9.png)
+    ![Capture d’écran montrant la liste des coffres de clés non conformes dans l’étendue de l’attribution de stratégie.](../media/policy-img9.png)
 
 1. Afficher le nom des composants non conformes au sein d’un coffre
 
 
-    ![Vue d'ensemble du fonctionnement d'Azure Key Vault](../media/policy-img10.png)
+    ![Capture d’écran montrant où vous pouvez afficher le nom des composants non conformes au sein d’un coffre.](../media/policy-img10.png)
 
 1. Si vous devez vérifier si les utilisateurs se voient refuser la possibilité de créer des ressources dans le coffre de clés, vous pouvez cliquer sur l’onglet **Événements des composants (préversion)** pour afficher une synthèse des opérations de refus de certificat indiquant le demandeur et le timestamp des requêtes. 
 

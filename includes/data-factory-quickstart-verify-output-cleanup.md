@@ -4,26 +4,26 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: c0fcdf1cf69c55f63288138bc7377a78295cb2be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544393"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136204"
 ---
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
 Le pipeline crée automatiquement le dossier de sortie dans le conteneur d’objets blob adftutorial. Ensuite, il copie le fichier emp.txt à partir du dossier d’entrée dans le dossier de sortie. 
 
-1. Dans le portail Azure, dans la page du conteneur **adftutorial**, sélectionnez **Actualiser** pour voir le dossier de sortie. 
+1. Dans le portail Azure, dans la page du conteneur **adftutorial** , sélectionnez **Actualiser** pour voir le dossier de sortie. 
     
-    ![Actualiser](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![Capture d’écran montrant la page du conteneur dans laquelle vous pouvez actualiser la page.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
 2. Dans la liste des dossiers, sélectionnez **output**. 
 
 3. Vérifiez que le fichier **emp.txt** a été copié dans le dossier de sortie. 
 
-    ![Actualiser](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![Capture d’écran montrant le contenu du dossier de sortie.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

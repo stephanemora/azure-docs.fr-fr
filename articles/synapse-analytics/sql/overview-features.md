@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f159e38eb66e1758feaf743c32d8de30c614b234
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288509"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310322"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Fonctionnalités Transact-SQL prises en charge dans Azure Synapse SQL
 
@@ -79,8 +79,8 @@ Synapse SQL vous permet d’utiliser des fonctionnalités de sécurité intégr�
 | **Utilisateurs** |  N/A (seuls les utilisateurs contenus sont pris en charge dans les bases de données) | Oui |
 | **[Utilisateurs contenus](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Oui. **Remarque :** Un seul utilisateur Azure AD peut avoir le rôle d’administrateur non restreint. | Oui |
 | **Authentification par nom d’utilisateur/mot de passe SQL**| Oui | Oui |
-| **Authentification Azure Active Directory (AAD)**| Oui, utilisateurs Azure AD | Oui, connexions et utilisateurs Azure AD |
-| **Authentification directe Azure Active Directory (AAD) pour le stockage** | Oui | Oui |
+| **Authentification Azure Active Directory (Azure AD)**| Oui, utilisateurs Azure AD | Oui, connexions et utilisateurs Azure AD |
+| **Authentification directe Azure Active Directory (Azure AD) pour le stockage** | Oui | Oui |
 | **Authentification par jeton SAS pour le stockage** | Non | Oui, avec [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dans [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) ou avec [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) au niveau de l’instance. |
 | **Authentification par clé d’accès de stockage** | Oui, avec [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dans [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Non |
 | **Authentification par [identité managée](../security/synapse-workspace-managed-identity.md) pour le stockage** | Oui, avec des [informations d’identification Managed Service Identity](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Oui, avec des informations d’identification `Managed Identity`. |
@@ -103,7 +103,7 @@ Synapse SQL vous permet d’utiliser des fonctionnalités de sécurité intégr�
 | **[Règles de pare-feu](../security/synapse-workspace-ip-firewall.md)**| Oui | Oui |
 | **[Point de terminaison privé](../security/synapse-workspace-managed-private-endpoints.md)**| Oui | Oui |
 
-Le pool SQL et SQL à la demande utilisent le langage Transact-SQL standard pour interroger les données. Pour plus d’informations sur ces différences, consultez la [documentation de référence sur le langage Transact-SQL](/sql/t-sql/language-reference).
+Le pool SQL dédie et le pool SQL serverless utilisent le langage Transact-SQL standard pour interroger les données. Pour plus d’informations sur ces différences, consultez la [documentation de référence sur le langage Transact-SQL](/sql/t-sql/language-reference).
 
 ## <a name="tools"></a>Outils
 
@@ -118,7 +118,7 @@ Vous pouvez utiliser divers outils pour vous connecter à Synapse SQL en vue d�
 | **SQL Server Management Studio** | Oui | Oui, version 18.5 ou supérieure |
 
 > [!NOTE]
-> Vous pouvez utiliser SSMS pour vous connecter à SQL à la demande (préversion) et lancer une requête. Il est partiellement pris en charge à partir de la version 18.5 ; vous pouvez l’utiliser pour vous connecter et interroger uniquement.
+> Vous pouvez utiliser SSMS pour vous connecter au pool SQL serverless (préversion) et effectuer des requêtes. Il est partiellement pris en charge à partir de la version 18.5 ; vous pouvez l’utiliser pour vous connecter et interroger uniquement.
 
 La plupart des applications utilisent le langage Transact-SQL standard pour interroger les modèles de consommation provisionnés et serverless de Synapse SQL.
 
@@ -150,7 +150,7 @@ Les données qui sont analysées peuvent être stockées dans différents format
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | Non | Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les bonnes pratiques concernant le pool SQL et SQL à la demande, consultez les articles suivants :
+Pour plus d’informations sur les bonnes pratiques concernant les pools SQL dédiés et les pools SQL serverless, consultez les articles suivants :
 
-- [Bonnes pratiques relatives aux pools SQL](best-practices-sql-pool.md)
-- [Bonnes pratiques relatives à SQL à la demande](best-practices-sql-on-demand.md)
+- [Bonnes pratiques pour les pools SQL dédiés](best-practices-sql-pool.md)
+- [Bonnes pratiques pour les pools SQL serverless](best-practices-sql-on-demand.md)

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096000"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -81,7 +81,7 @@ Votre répertoire a besoin d’au moins autant de licences Azure AD Premium P2
 
 Les licences Azure AD P2 ne sont **pas** nécessaires pour les utilisateurs disposant des rôles Administrateur général ou Administrateur d’utilisateurs qui configurent des révisions d’accès et des paramètres, ou qui appliquent les décisions prises à partir des révisions.
 
-Pour chaque licence Azure AD Premium P2 que vous attribuez à un utilisateur de votre organisation, vous pouvez utiliser Azure AD B2B pour inviter jusqu’à cinq utilisateurs dans le cadre d’une allocation d’utilisateur externe. Ces utilisateurs invités peuvent également utiliser les fonctionnalités d’Azure AD Premium P2. Pour plus d’informations, consultez les conseils sur l’[affectation de licences Azure AD B2B Collaboration](../external-identities/licensing-guidance.md).
+L’accès des utilisateurs invités Azure AD est basé sur un modèle de facturation par utilisateurs actifs mensuels (MAU), qui remplace le modèle de facturation selon le rapport 1:5. Pour plus d’informations, consultez [Tarifs d’Azure AD External Identities](../external-identities/external-identities-pricing.md).
 
 Pour plus d’informations sur les licences, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 

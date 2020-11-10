@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093529"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317276"
 ---
 # <a name="sql-authentication"></a>Authentification SQL
 
@@ -22,14 +22,14 @@ Azure Synapse Analytics compte deux facteurs de forme SQL qui vous permettent de
 
 Pour autoriser l’accès à Synapse SQL, vous pouvez utiliser deux types d’autorisation :
 
-- Autorisation AAD
+- Autorisation Azure Active Directory
 - Autorisation SQL
 
-L’autorisation AAD s’appuie sur Azure Active Directory et vous permet de disposer d’un emplacement unique pour la gestion des utilisateurs. L’autorisation SQL permet aux applications existantes d’utiliser Synapse SQL d’une manière qu’elles connaissent bien.
+Azure Active Directory vous permet de gérer les utilisateurs depuis un seul et même endroit. L’autorisation SQL permet aux applications existantes d’utiliser Synapse SQL d’une manière qu’elles connaissent bien.
 
 ## <a name="administrative-accounts"></a>Comptes d’administration
 
-Il existe deux comptes d’administration (**Administrateur de serveur** et **Administrateur Active Directory**) qui agissent en tant qu’administrateurs. Pour identifier ces comptes d’administrateur pour votre serveur SQL, ouvrez le portail Azure et accédez à l’onglet Propriétés de votre Synapse SQL.
+Il existe deux comptes d’administration ( **Administrateur de serveur** et **Administrateur Active Directory** ) qui agissent en tant qu’administrateurs. Pour identifier ces comptes d’administrateur pour votre serveur SQL, ouvrez le portail Azure et accédez à l’onglet Propriétés de votre Synapse SQL.
 
 ![Administrateurs SQL Server](./media/sql-authentication/sql-admins.png)
 
@@ -41,7 +41,7 @@ Il existe deux comptes d’administration (**Administrateur de serveur** et **Ad
 
   Un compte Azure Active Directory individuel ou de groupe de sécurité peut également être configuré en tant qu’administrateur. La configuration d’un administrateur Azure AD est facultative, mais un administrateur Azure AD **doit** être configuré si vous voulez utiliser les comptes Azure AD pour vous connecter à Synapse SQL.
 
-Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD** présentent les caractéristiques suivantes :
+Les comptes d’ **administrateur de serveur** et d’ **administrateur Azure AD** présentent les caractéristiques suivantes :
 
 - Ce sont les seuls comptes pouvant se connecter automatiquement à n’importe quelle base de données SQL sur le serveur. (Pour se connecter à une base de données utilisateur, vous devez disposer d’un compte de propriétaire de la base de données ou d’un compte d’utilisateur dans la base de données utilisateur.)
 - Ces comptes accèdent aux bases de données utilisateur en tant qu’`dbo` utilisateur et possèdent toutes les autorisations dans les bases de données utilisateur. (Le propriétaire d’une base de données utilisateur accède également à la base de données en tant qu’utilisateur `dbo`.)
@@ -51,18 +51,18 @@ Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD**
 - Ces comptes peuvent ajouter et supprimer des membres aux rôles `dbmanager` et `loginmanager`.
 - Ces comptes peuvent afficher la table système `sys.sql_logins`.
 
-## <a name="sql-on-demand-preview"></a>[SQL à la demande (préversion)](#tab/serverless)
+## <a name="serverless-sql-pool-preview"></a>[Pool SQL serverless (préversion)](#tab/serverless)
 
-Pour gérer les utilisateurs ayant accès à SQL à la demande, vous pouvez utiliser les instructions ci-dessous.
+Pour gérer les utilisateurs ayant accès au pool SQL serverless, vous pouvez utiliser les instructions ci-dessous.
 
-Pour créer une connexion à SQL à la demande, utilisez la syntaxe suivante :
+Pour créer une connexion à un pool SQL serverless, utilisez la syntaxe suivante :
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Une fois la connexion établie, vous pouvez créer des utilisateurs dans les bases de données individuelles, à l’intérieur du point de terminaison SQL à la demande, et accorder les autorisations nécessaires à ces utilisateurs. Pour créer un utilisateur, vous pouvez vous servir de la syntaxe suivante :
+Une fois la connexion établie, vous pouvez créer des utilisateurs dans les bases de données individuelles comprises dans le point de terminaison du pool SQL serverless et accorder les autorisations nécessaires à ces utilisateurs. Pour créer un utilisateur, vous pouvez vous servir de la syntaxe suivante :
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -77,7 +77,7 @@ Dès la connexion et l’utilisateur créés, vous pouvez vous servir de la synt
 
 ### <a name="administrator-access-path"></a>Chemin d’accès administrateur
 
-Lorsque le pare-feu au niveau du serveur est correctement configuré, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. 
+Lorsque le pare-feu au niveau du serveur est correctement configuré, l’ **administrateur de serveur SQL** et l’ **administrateur Azure Active Directory** peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. 
 
 Le diagramme suivant illustre une configuration classique avec deux comptes d’administrateur :
  
@@ -127,7 +127,7 @@ Désormais, l’utilisateur peut se connecter à la base de données `master` et
 
 ### <a name="login-managers"></a>Gestionnaires de connexion
 
-L’autre rôle d’administration est le rôle loginmanager. Les membres de ce rôle peuvent créer des connexions dans la base de données MASTER. Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base de données MASTER. Ce n’est généralement pas nécessaire, car Microsoft recommande d’avoir recours aux utilisateurs de base de données autonome qui s’authentifient au niveau de la base de données plutôt qu’à des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+L’autre rôle d’administration est le rôle loginmanager. Les membres de ce rôle peuvent créer des connexions dans la base de données MASTER. Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager** ) pour permettre aux utilisateurs de créer des connexions dans la base de données MASTER. Ce n’est généralement pas nécessaire, car Microsoft recommande d’avoir recours aux utilisateurs de base de données autonome qui s’authentifient au niveau de la base de données plutôt qu’à des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -158,7 +158,7 @@ Dans Azure SQL Database ou Synapse serverless, utilisez l’instruction `ALTER R
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-Dans le pool SQL, utilisez [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Dans un pool SQL dédié, utilisez [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -187,7 +187,7 @@ Une gestion des accès efficace utilise les autorisations assignées aux groupes
 
 - Lorsque vous utilisez l’authentification SQL Server, créez des utilisateurs de base de données autonome dans la base de données. Placez un ou plusieurs utilisateurs de base de données dans un [rôle de base de données](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), puis attribuez des [autorisations](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) au rôle de base de données.
 
-Les rôles de base de données peuvent être les rôles intégrés, tels que **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** et **db_denydatareader**. **db_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs seulement. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement une base de données simple en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. 
+Les rôles de base de données peuvent être les rôles intégrés, tels que **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** et **db_denydatareader**. **db_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs seulement. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement une base de données simple en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. 
 
 Par exemple, le rôle de base de données fixe **db_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est généralement plus que le minimum nécessaire. 
 
@@ -207,8 +207,8 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
 
 - Vous devez être connecté à la base de données **master** lors de l’exécution des instructions `CREATE/ALTER/DROP DATABASE`.
 - L’utilisateur de base de données correspondant à la connexion **d’administrateur de serveur** ne peut pas être modifié ou supprimé.
-- L’anglais américain est la langue par défaut de la connexion d’**administrateur de serveur**.
-- Seuls les administrateurs (connexion d’**administrateur de serveur** ou administrateur Azure AD) et les membres du rôle de base de données **dbmanager** dans la base de données **Master** sont autorisés à exécuter les instructions `CREATE DATABASE` et `DROP DATABASE`.
+- L’anglais américain est la langue par défaut de la connexion d’ **administrateur de serveur**.
+- Seuls les administrateurs (connexion d’ **administrateur de serveur** ou administrateur Azure AD) et les membres du rôle de base de données **dbmanager** dans la base de données **Master** sont autorisés à exécuter les instructions `CREATE DATABASE` et `DROP DATABASE`.
 - Vous devez être connecté à la base de données master lors de l’exécution des instructions `CREATE/ALTER/DROP LOGIN` . L’utilisation de connexions est toutefois déconseillée. Préférez l’emploi d’utilisateurs de base de données autonome.
 - Pour vous connecter à une base de données utilisateur, vous devez renseigner le nom de la base de données dans la chaîne de connexion.
 - Seule la connexion principale au niveau du serveur et les membres du rôle de base de données **loginmanager** dans la base de données **master** sont autorisés à exécuter les instructions `CREATE LOGIN`, `ALTER LOGIN` et `DROP LOGIN`.

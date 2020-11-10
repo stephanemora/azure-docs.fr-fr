@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer un pool Apache Spark avec le portail Azure'
-description: Créez un pool Apache Spark à l’aide du portail Azure en suivant les étapes de ce guide.
+title: 'Démarrage rapide : Créer un pool Apache Spark serverless avec le portail Azure'
+description: Créez un pool Apache Spark serverless à l’aide du portail Azure en suivant les étapes de ce guide.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260867"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323533"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Démarrage rapide : Création d’un pool Apache Spark avec le portail Azure
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Démarrage rapide : Créer un pool Apache Spark serverless avec le portail Azure
 
 Azure Synapse Analytics propose différents moteurs d’analytique pour vous aider à ingérer, transformer, modéliser, analyser et distribuer vos données. Un pool Apache Spark fournit des fonctionnalités de calcul Big Data open source. Après avoir créé un pool Apache Spark dans votre espace de travail Synapse, vous pouvez charger, modéliser, traiter et distribuer les données pour obtenir plus rapidement des insights.
 
@@ -47,7 +47,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 1. Dans l’espace de travail Synapse où vous souhaitez créer le pool Apache Spark, sélectionnez **Nouveau pool Apache Spark**.
     ![Vue d’ensemble de l’espace de travail Synapse avec, dans un encadré rouge, la commande permettant de créer un pool Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
-2. Sous l’onglet **Général**, entrez les informations suivantes :
+2. Sous l’onglet **Général** , entrez les informations suivantes :
 
     |Paramètre | Valeur suggérée | Description |
     | :------ | :-------------- | :---------- |
@@ -62,7 +62,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
     > Notez que les noms que vous pouvez attribuer aux pools Apache Spark sont soumis à des limitations spécifiques. Les noms doivent contenir uniquement des lettres ou des chiffres, ne doivent pas comporter plus de 15 caractères, doivent commencer par une lettre, ne pas contenir de mots réservés et être uniques dans l’espace de travail.
 
 3. Sélectionnez **Suivant : Paramètres supplémentaires** et passez en revue les paramètres par défaut. Ne modifiez pas les paramètres par défaut.
-    ![Flux de création d’un pool Apache Spark - Onglet Paramètres supplémentaires](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Capture d’écran montrant la page « Créer un pool Apache Spark » avec l’onglet « Paramètres supplémentaires » sélectionné.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
 4. Sélectionnez **Suivant : étiquettes**. N’ajoutez aucune étiquette.
     ![Flux de création d’un pool Apache Spark - Onglet Paramètres supplémentaires](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
@@ -73,7 +73,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
     ![Flux de création d’un pool Apache Spark - Onglet Passer en revue les paramètres](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. À ce stade, le flux de provisionnement des ressources démarre et vous avertit quand l’opération est terminée.
-    ![Flux de création d’un pool Apache Spark - Provisionnement des ressources](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Capture d’écran montrant la page « Vue d’ensemble » avec affichage du message « Votre déploiement a été effectué ».](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. Une fois le provisionnement terminé, une nouvelle entrée apparaît pour le pool Apache Spark créé quand vous revenez à l’espace de travail.
     ![Flux de création d’un pool Apache Spark - Provisionnement des ressources](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -89,7 +89,7 @@ Effectuez les étapes ci-dessous pour supprimer le pool Apache Spark de l’espa
 Si vous souhaitez supprimer le pool Apache Spark, procédez comme suit :
 
 1. Accédez au panneau des pools Apache Spark dans l’espace de travail.
-2. Sélectionnez le pool Apache Spark à supprimer (dans ce cas, **contosospark**).
+2. Sélectionnez le pool Apache Spark à supprimer (dans ce cas, **contosospark** ).
 3. Appuyez sur la touche **Supprimer**.
  ![Liste des pools Apache Spark, avec sélection du pool récemment créé.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confirmez la suppression, puis appuyez sur le bouton **Supprimer**.
@@ -99,4 +99,4 @@ Si vous souhaitez supprimer le pool Apache Spark, procédez comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez [Démarrage rapide : Créer un notebook Apache Spark](quickstart-apache-spark-notebook.md).
-- Consultez [Démarrage rapide : Créer un pool SQL Synapse avec le portail Azure](quickstart-create-sql-pool-portal.md).
+- Consultez [Démarrage rapide : Créer un pool SQL dédié Synapse avec le portail Azure](quickstart-create-sql-pool-portal.md).

@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc5126c0cce89502b0f1d8b17c06519f338fe52
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1709bd42fb77bd4f18b8a5e9d1af6e07be67b6c4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370846"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043070"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -93,7 +93,7 @@ Pour mieux comprendre Azure AD et sa documentation, nous vous recommandons de p
 |Administrateur de comptes|Ce rôle d’administrateur d’abonnement classique est théoriquement le propriétaire du compte de facturation d’un abonnement. Ce rôle a accès au [Centre des comptes Azure](https://account.azure.com/Subscriptions) et vous permet de gérer tous les abonnements d’un compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrateur de services|Ce rôle d’administrateur d’abonnement classique vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle a un droit d’accès équivalent à celui d’un utilisateur qui se voit attribuer le rôle Propriétaire au niveau de l’étendue de l’abonnement. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Propriétaire|Ce rôle vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle est basé sur un système d’autorisation plus récent appelé « contrôle d’accès en fonction du rôle Azure » (Azure RBAC) qui permet de gérer avec précision l’accès aux ressources Azure. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrateur général Azure AD|Ce rôle d’administrateur est automatiquement attribué au créateur du locataire Azure AD. Les administrateurs généraux peuvent effectuer toutes les fonctions d’administration pour Azure AD et tout service fédéré sur Azure AD, comme Exchange Online, SharePoint Online et Skype Entreprise Online. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls les administrateurs généraux peuvent attribuer des rôles d’administrateur (notamment d’autres rôles Administrateur général) aux utilisateurs. Remarque : ce rôle d’administrateur est appelé Administrateur général dans le portail Azure, mais il a pour nom **Administrateur d’entreprise** dans l’API Microsoft Graph et Azure AD PowerShell. Pour plus d’informations sur les différents rôles d’administrateur, consultez [Autorisations de rôle d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).|
+|Administrateur général Azure AD|Ce rôle d’administrateur est automatiquement attribué au créateur du locataire Azure AD. Les administrateurs généraux peuvent effectuer toutes les fonctions d’administration pour Azure AD et tout service fédéré sur Azure AD, comme Exchange Online, SharePoint Online et Skype Entreprise Online. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls les administrateurs généraux peuvent attribuer des rôles d’administrateur (notamment d’autres rôles Administrateur général) aux utilisateurs. Notez que ce rôle d’administrateur est appelé Administrateur général dans le portail Azure, mais il a pour nom **Administrateur d’entreprise** dans l’API Microsoft Graph et Azure AD PowerShell. Pour plus d’informations sur les rôles d’administrateur, consultez [Autorisations de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).|
 |Abonnement Azure| Permet de payer les services cloud Azure. Vous pouvez avoir plusieurs abonnements, lesquels sont liés à une carte de crédit.|
 |Client Azure| Instance dédiée et approuvée d’Azure AD qui est automatiquement créée quand votre organisation souscrit un abonnement à un service cloud Microsoft tel que Microsoft Azure, Microsoft Intune ou Microsoft 365. Un locataire Azure représente une seule organisation.|
 |Locataire unique| Un locataire Azure qui accède à d’autres services dans un environnement dédié est considéré comme un locataire unique.|

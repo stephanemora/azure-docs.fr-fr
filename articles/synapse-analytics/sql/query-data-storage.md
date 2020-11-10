@@ -1,6 +1,6 @@
 ---
-title: Interroger des données dans le stockage avec SQL à la demande (préversion)
-description: Cet article explique comment interroger le stockage Azure à l’aide de la ressource SQL à la demande (préversion) au sein d’Azure Synapse Analytics.
+title: Interroger un stockage de données avec un pool SQL serverless (préversion)
+description: Cet article explique comment interroger Stockage Azure en utilisant la ressource de pool SQL serverless (préversion) au sein d’Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288373"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310956"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Interroger des fichiers de stockage avec des ressources SQL à la demande (préversion) dans Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Interroger des fichiers de stockage avec un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-SQL à la demande (préversion) vous permet d’interroger des données dans votre lac de données. Ce service offre une surface d’exposition de requête T-SQL qui prend en charge les requêtes de données semi-structurées et non structurées. Pour l’interrogation, les aspects T-SQL suivants sont pris en charge :
+Un pool SQL serverless (préversion) vous permet d’interroger des données dans votre lac de données. Ce service offre une surface d’exposition de requête T-SQL qui prend en charge les requêtes de données semi-structurées et non structurées. Pour l’interrogation, les aspects T-SQL suivants sont pris en charge :
 
 - Surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) complète, y compris la majorité des [fonctions et opérateurs SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) crée une [table externe](develop-tables-external-tables.md), puis exporte, en parallèle, les résultats d’une instruction SELECT Transact-SQL vers le stockage Azure.
 
-Pour plus d’informations sur ce qui est et n’est pas pris en charge, consultez l’article [Vue d’ensemble de SQL à la demande](on-demand-workspace-overview.md) ou les articles suivants :
+Pour plus d’informations sur ce qui est pris en charge ou non, consultez l’article [Vue d’ensemble du pool SQL serverless](on-demand-workspace-overview.md) ou les articles suivants :
 - [Développer un accès au stockage](develop-storage-files-overview.md), pour apprendre à utiliser une [table externe](develop-tables-external-tables.md) et la [fonction OPENROWSET](develop-openrowset.md) afin de lire des données à partir du stockage.
 - [Contrôler l’accès au stockage](develop-storage-files-storage-access-control.md), pour voir comment permettre à Synapse SQL d’accéder au stockage à l’aide de l’authentification SAS ou de l’identité managée de l’espace de travail.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Pour faciliter la prise en charge de l’interrogation sur place des données qui se trouvent dans les fichiers du stockage Azure, SQL à la demande utilise la fonction [OPENROWSET](develop-openrowset.md) avec des fonctionnalités supplémentaires :
+Pour faciliter la prise en charge de l’interrogation sur place des données qui se trouvent dans des fichiers de Stockage Azure, le pool SQL serverless utilise la fonction [OPENROWSET](develop-openrowset.md) avec des fonctionnalités supplémentaires :
 
 - [Interroger plusieurs fichiers ou dossiers](#query-multiple-files-or-folders)
 - [Format de fichier PARQUET](#query-parquet-files)
@@ -146,7 +146,7 @@ Le type de données de retour est nvarchar (1024). Pour des performances optimal
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Utiliser des types complexes et des structures de données imbriquées ou répétées
 
-Pour procurer une expérience sans heurts avec les données stockées dans des types de données imbriquées ou répétées, comme dans les fichiers [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), SQL à la demande a ajouté les extensions ci-après.
+Pour faciliter la prise en charge des données stockées dans des types de données imbriqués ou répétés, comme dans des fichiers [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), le pool SQL serverless comprend les extensions suivantes.
 
 #### <a name="project-nested-or-repeated-data"></a>Projeter des données imbriquées ou répétées
 

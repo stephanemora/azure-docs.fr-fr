@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776321"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333084"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Démarrage rapide : Créer une application Java dans Azure App Service
 
@@ -71,17 +71,18 @@ Le processus de déploiement sur Azure App Service utilise vos informations d’
 Exécutez la commande Maven ci-dessous pour configurer le déploiement. Cette commande vous permet de configurer le système d’exploitation App Service, la version de Java et la version de Tomcat.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Web App**, acceptez l’option par défaut `<create>` en appuyant sur Entrée.
-1. Quand vous êtes invité à choisir l’option **OS**, sélectionnez **windows** en entrant `2`.
-1. Utilisez la version de Java par défaut, 1.8, en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Windows** en entrant `3`.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     Le résumé généré ressemble à l’extrait de code ci-dessous.
@@ -92,7 +93,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : java 8
@@ -109,11 +110,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Web App**, acceptez l’option par défaut `<create>` en appuyant sur Entrée.
-1. Quand vous êtes invité à choisir l’option **OS**, sélectionnez **windows** en entrant `2`.
-1. Utilisez la version de Java par défaut, 1.8, en appuyant sur Entrée.
-1. Utilisez le conteneur web par défaut, Tomcat 8.5, en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Windows** en entrant `3`.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
+1. Utilisez le conteneur web par défaut, **Tomcat 8.5** , en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     Le résumé généré ressemble à l’extrait de code ci-dessous.
@@ -124,7 +126,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : tomcat 8.5
@@ -146,10 +148,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Web App**, acceptez l’option par défaut `<create>` en appuyant sur Entrée.
-1. Quand vous êtes invité à choisir l’option **OS**, sélectionnez **linux** en appuyant sur Entrée.
-1. Utilisez la version de Java par défaut, 1.8, en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Linux** en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     ```
@@ -158,7 +161,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : JAVA 8-jre8
     Deploy to slot : false
@@ -174,11 +177,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Web App**, acceptez l’option par défaut `<create>` en appuyant sur Entrée.
-1. Quand vous êtes invité à choisir l’option **OS**, sélectionnez **linux** en appuyant sur Entrée.
-1. Utilisez la version de Java par défaut, 1.8, en appuyant sur Entrée.
-1. Utilisez le conteneur web par défaut, Tomcat 8.5, en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Linux** en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
+1. Utilisez le conteneur web par défaut, **Tomcat 8.5** , en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     ```
@@ -187,7 +191,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : TOMCAT 8.5-jre8
     Deploy to slot : false
@@ -214,9 +218,9 @@ Propriété | Obligatoire | Description | Version
 `<resourceGroup>` | true | Groupe de ressources Azure pour votre application web. | 0.1.0+
 `<appName>` | true | Le nom de votre application web. | 0.1.0+
 `<region>` | true | Spécifie la région où votre application web sera hébergée ; la valeur par défaut est **westeurope**. Toutes les régions valides dans la section [Régions prises en charge](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
-`<pricingTier>` | false | Le niveau tarifaire pour votre application web. La valeur par défaut est **P1V2**.| 0.1.0+
-`<runtime>` | true | La configuration de l’environnement de runtime, dont vous pouvez afficher les détails [ici](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
-`<deployment>` | true | La configuration de déploiement, dont vous pouvez afficher les détails [ici](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
+`<pricingTier>` | false | Le niveau tarifaire pour votre application web. La valeur par défaut est **P1V2** pour une charge de travail de production, tandis que **B2** est la valeur minimale recommandée pour le développement/test Java. [En savoir plus](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | true | La configuration de l’environnement de runtime, dont vous pouvez afficher les détails [ici](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<deployment>` | true | La configuration de déploiement, dont vous pouvez afficher les détails [ici](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
 Soyez attentif aux valeurs `<appName>` et `<resourceGroup>` (`helloworld-1590394316693` et `helloworld-1590394316693-rg` dans la démonstration). Elles seront utilisées ultérieurement.
 
@@ -225,7 +229,7 @@ Soyez attentif aux valeurs `<appName>` et `<resourceGroup>` (`helloworld-1590394
 
 ## <a name="deploy-the-app"></a>Déployer l’application
 
-Le plug-in Maven utilise les informations d’identification du compte provenant d’Azure CLI pour effectuer le déploiement sur App Services. [Connectez-vous à Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) avant de continuer.
+Le plug-in Maven utilise les informations d’identification du compte provenant d’Azure CLI pour effectuer le déploiement sur App Services. [Connectez-vous à Azure CLI](/cli/azure/authenticate-azure-cli) avant de continuer.
 
 ```azurecli
 az login

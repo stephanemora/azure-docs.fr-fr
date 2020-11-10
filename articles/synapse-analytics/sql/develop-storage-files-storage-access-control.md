@@ -1,6 +1,6 @@
 ---
-title: Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
-description: Explique comment SQL à la demande (préversion) accède au stockage Azure et comment vous pouvez contrôler l’accès au stockage pour SQL à la demande dans Azure Synapse Analytics.
+title: Contrôler l’accès au compte de stockage pour un pool SQL serverless (préversion)
+description: Décrit comment un pool SQL serverless (préversion) accède à Stockage Azure et comment vous pouvez contrôler l’accès au stockage pour un pool SQL serverless dans Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,31 +9,31 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315724"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
+# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-Une requête SQL à la demande lit les fichiers directement dans Stockage Azure. Les autorisations d’accès aux fichiers sur le stockage Azure sont contrôlées à deux niveaux :
-- **Niveau de stockage** : l’utilisateur doit avoir l’autorisation d’accéder aux fichiers de stockage sous-jacents. Votre administrateur de stockage doit autoriser le principal Azure AD à lire/écrire des fichiers, ou à générer une clé SAP qui sera utilisée pour accéder au stockage.
-- **Niveau de service SQL** : l’utilisateur doit disposer de l’autorisation `SELECT` pour lire les données d’une [table externe](develop-tables-external-tables.md) ou de l’autorisation `ADMINISTER BULK ADMIN` pour exécuter `OPENROWSET`, ainsi que de l’autorisation d’utiliser des informations d’identification pour accéder au stockage.
+Une requête de pool SQL serverless lit les fichiers directement dans Stockage Azure. Les autorisations d’accès aux fichiers sur le stockage Azure sont contrôlées à deux niveaux :
+- **Niveau de stockage**  : l’utilisateur doit avoir l’autorisation d’accéder aux fichiers de stockage sous-jacents. Votre administrateur de stockage doit autoriser le principal Azure AD à lire/écrire des fichiers, ou à générer une clé SAP qui sera utilisée pour accéder au stockage.
+- **Niveau de service SQL**  : l’utilisateur doit disposer de l’autorisation `SELECT` pour lire les données d’une [table externe](develop-tables-external-tables.md) ou de l’autorisation `ADMINISTER BULK ADMIN` pour exécuter `OPENROWSET`, ainsi que de l’autorisation d’utiliser des informations d’identification pour accéder au stockage.
 
 Cet article décrit les types d’informations d’identification que vous pouvez utiliser et la façon dont la recherche des informations d’identification est appliquée pour les utilisateurs SQL et Azure AD.
 
 ## <a name="supported-storage-authorization-types"></a>Types d’autorisations de stockage pris en charge
 
-Un utilisateur qui s’est connecté à une ressource SQL à la demande doit être autorisé à accéder aux fichiers présents dans le stockage Azure, ainsi qu’à les interroger si les fichiers ne sont pas publiquement disponibles. Vous pouvez utiliser trois types d’autorisation pour accéder au stockage non public : [Identité de l’utilisateur](?tabs=user-identity), [Signature d’accès partagé](?tabs=shared-access-signature) et [Identité managée](?tabs=managed-identity).
+Un utilisateur qui s’est connecté à un pool SQL serverless doit être autorisé à accéder aux fichiers présents dans Stockage Azure et à les interroger si les fichiers ne sont pas publiquement disponibles. Vous pouvez utiliser trois types d’autorisation pour accéder au stockage non public : [Identité de l’utilisateur](?tabs=user-identity), [Signature d’accès partagé](?tabs=shared-access-signature) et [Identité managée](?tabs=managed-identity).
 
 > [!NOTE]
 > Le **pass-through Azure AD** est le comportement qui est utilisé par défaut quand vous créez un espace de travail.
 
 ### <a name="user-identity"></a>[Identité de l’utilisateur](#tab/user-identity)
 
-L’**identité de l’utilisateur** (également appelée « pass-through Azure AD ») est un type d’autorisation avec lequel l’identité de l’utilisateur Azure AD qui s’est connecté à SQL à la demande est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD. Comme indiqué dans le tableau ci-dessous, elle n’est pas prise en charge pour le type d’utilisateur SQL.
+L’ **identité de l’utilisateur** (également appelée « pass-through Azure AD ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD. Comme indiqué dans le tableau ci-dessous, elle n’est pas prise en charge pour le type d’utilisateur SQL.
 
 > [!IMPORTANT]
 > Pour utiliser votre identité afin d’accéder aux données, vous devez disposer d’un rôle de propriétaire, de contributeur ou de lecteur pour les données blob de stockage.
@@ -49,7 +49,7 @@ Une **signature d’accès partagé (SAS)** fournit un accès délégué aux res
 Vous pouvez obtenir un jeton SAS en accédant au **portail Azure -> Compte de stockage -> Signature d’accès partagé -> Configurer les autorisations -> Générer la chaîne de connexion et SAP**.
 
 > [!IMPORTANT]
-> Lorsqu’un jeton SAS est généré, son nom commence par un point d’interrogation (« ? »). Pour utiliser le jeton dans SQL à la demande, vous devez supprimer le point d’interrogation (« ? ») lors de la création des informations d’identification. Par exemple :
+> Lorsqu’un jeton SAS est généré, son nom commence par un point d’interrogation (« ? »). Pour utiliser le jeton dans un pool SQL serverless, vous devez supprimer le point d’interrogation (« ? ») lors de la création des informations d’identification. Par exemple :
 >
 > Jeton SAS : ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
@@ -57,7 +57,7 @@ Pour autoriser l’accès à l’aide du jeton SAP, vous devez créer des inform
 
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
-L’**identité managée** est également connue sous le nom de MSI. Il s’agit d’une fonctionnalité d’Azure Active Directory (Azure AD) qui fournit des services Azure pour SQL à la demande. En outre, elle déploie automatiquement une identité managée dans Azure AD. Cette identité peut être utilisée pour autoriser les demandes d’accès aux données dans le stockage Azure.
+L’ **identité managée** est également connue sous le nom de MSI. Il s’agit d’une fonctionnalité Azure Active Directory (Azure AD) qui fournit des services Azure pour un pool SQL serverless. En outre, elle déploie automatiquement une identité managée dans Azure AD. Cette identité peut être utilisée pour autoriser les demandes d’accès aux données dans le stockage Azure.
 
 Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’identité managée pour accéder aux données. L’octroi d’autorisations à une identité managée s’effectue de la même façon que l’octroi d’une autorisation à un autre utilisateur Azure AD.
 
@@ -95,7 +95,7 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 
 ## <a name="credentials"></a>Informations d'identification
 
-Pour interroger un fichier situé dans Stockage Azure, votre point de terminaison SQL à la demande a besoin d’informations d’identification qui contiennent les informations d’authentification. Deux types d’informations d’identification sont utilisés :
+Pour interroger un fichier situé dans Stockage Azure, votre point de terminaison de pool SQL serverless a besoin d’informations d’identification qui contiennent les informations d’authentification. Deux types d’informations d’identification sont utilisés :
 - Les INFORMATIONS D’IDENTIFICATION au niveau du serveur sont utilisées pour des requêtes ad hoc exécutées à l’aide de la fonction `OPENROWSET`. Le nom des informations d’identification doit correspondre à l’URL de stockage.
 - Les INFORMATIONS D’IDENTIFICATION INCLUSES DANS l’étendue de la base de données sont utilisées pour des tables externes. Une table externe fait référence au paramètre `DATA SOURCE` avec les informations d’identification à utiliser pour accéder au stockage.
 
@@ -144,7 +144,7 @@ Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour
 
 Le script suivant crée des informations d’identification au niveau du serveur que la fonction `OPENROWSET` peut utiliser pour accéder à n’importe quel fichier sur un stockage Azure à l’aide d’un jeton SAP. Créez ces informations d’identification pour permettre au principal SQL qui exécute la fonction `OPENROWSET` de lire des fichiers protégés par la clé SAP sur le stockage Azure qui correspond à l’URL dans le nom des informations d’identification.
 
-Remplacez <*mystorageaccountname*> par le nom de votre compte de stockage, et <*mystorageaccountcontainername* par le nom du conteneur :
+Remplacez < *mystorageaccountname* > par le nom de votre compte de stockage, et < *mystorageaccountcontainername* par le nom du conteneur :
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

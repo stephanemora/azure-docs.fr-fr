@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd45284bfea09935ea48445d816f3b91272f68fc
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055479"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925847"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Démarrer l’analyse de votre application web ASP.NET Core
 
@@ -61,7 +61,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 ## <a name="configure-app-insights-sdk"></a>Configurer le Kit de développement logiciel (SDK) Application Insights
 
-1. Ouvrez votre **projet** d’application web ASP.NET Core dans Visual Studio > cliquez avec le bouton droit de la souris sur l’AppName dans l’**Explorateur de solutions** > sélectionnez **Ajouter** > **Application Insights Telemetry**.
+1. Ouvrez votre **projet** d’application web ASP.NET Core dans Visual Studio > cliquez avec le bouton droit de la souris sur l’AppName dans l’ **Explorateur de solutions** > sélectionnez **Ajouter** > **Application Insights Telemetry**.
 
     ![Ajouter Application Insights Telemetry](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
@@ -73,7 +73,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 5. Sélectionnez **Déboguer** > **Exécuter sans débogage** (Ctrl + F5) pour lancer votre application.
 
-    ![Menu Vue d'ensemble Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![Capture d’écran montrant l’option de menu Démarrer sans débogage.](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > Les données prennent 3 à 5 minutes avant d’apparaître sur le portail. S’il s’agit d’une application de test avec un trafic faible, gardez à l’esprit que la plupart des métriques sont capturées uniquement lorsqu’il existe des demandes ou des opérations actives.
@@ -88,7 +88,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Mise en correspondance d'applications](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Cliquez sur l’icône **Analyse d’application** ![icône Cartographie d’application](./media/dotnetcore-quick-start/006.png) **Voir dans Analytics**. Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
+3. Cliquez sur l’icône **Analyse d’application** ![icône Cartographie d’application](./media/dotnetcore-quick-start/006.png) **Voir dans Analytics**. Vous ouvrez ainsi **Application Insights - Analyses** , qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
    ![Graphique analytique des demandes d’utilisateur au cours d’une période donnée](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -106,8 +106,8 @@ Une fois les tests terminés, vous pouvez supprimer le groupe de ressources et t
 > [!NOTE]
 > Si vous avez utilisé un groupe de ressources existant, les instructions ci-dessous ne s’appliquent pas ; vous devrez simplement supprimer la ressource Application Insights individuelle. N’oubliez pas que lorsque vous supprimez un groupe de ressources, toutes les ressources sous-jacentes qui sont membres de ce groupe sont également supprimées.
 
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur **myResourceGroup**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

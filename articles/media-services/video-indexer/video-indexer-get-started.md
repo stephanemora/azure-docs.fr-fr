@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219788"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147281"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Démarrage rapide : Comment s’inscrire et charger votre première vidéo
 
@@ -27,8 +27,10 @@ Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’
 
 Pour commencer à développer avec Video Indexer, accédez au site web [Video Indexer](https://www.videoindexer.ai/) et inscrivez-vous.
 
+Une fois que vous avez commencé à utiliser Video Indexer, l’ensemble de vos données stockées et du contenu chargé fait l’objet d’un chiffrement à clé gérée (au repos) par Microsoft.
+
 > [!NOTE]
-> Une fois que vous avez commencé à utiliser Video Indexer, l’ensemble de vos données stockées et du contenu chargé fait l’objet d’un chiffrement à clé gérée (au repos) par Microsoft.
+> Prenez connaissance des [changements planifiés relatifs à l’authentification sur le site web Video Indexer](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Charger une vidéo à l’aide du site web Video Indexer
 
@@ -39,7 +41,7 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 ### <a name="upload-a-video"></a>Charger une vidéo
 
 1. Connectez-vous au site web [Video Indexer](https://www.videoindexer.ai/).
-1. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger** .
+1. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger**.
 
     > [!NOTE]
     > Le nom de la vidéo ne doit pas dépasser 80 caractères.
@@ -49,12 +51,12 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 1. Une fois votre vidéo chargée, Video Indexer démarre l’indexation et l’analyse. La progression s’affiche. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Charger":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progression du chargement":::
 1. Au terme de l’analyse réalisée par Video Indexer, vous recevrez un e-mail contenant un lien vers votre vidéo et une brève description du contenu de celle-ci. Par exemple : personnes, mots prononcés et écrits, rubriques et entités nommées.
 1. Vous pouvez retrouver ultérieurement votre vidéo dans la liste des bibliothèques et effectuer différentes opérations. Par exemple : recherche, réindexation, modification.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Charger":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Chargement du téléchargement":::
  
 ## <a name="see-also"></a>Voir aussi
 

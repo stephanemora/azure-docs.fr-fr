@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322575"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagir avec Azure Cosmos DB à l'aide d'Apache Spark dans Azure Synapse Link (préversion)
 
@@ -35,9 +35,9 @@ Avant d'examiner les deux options disponibles pour interroger le magasin analyti
 
 La différence d'expérience réside dans le fait de savoir si les modifications de données sous-jacentes du conteneur Azure Cosmos DB doivent être automatiquement reflétées dans l'analyse effectuée dans Spark. Lorsqu'un DataFrame Spark est enregistré ou qu'une table Spark est créée dans le magasin analytique d'un conteneur, les métadonnées entourant l'instantané actuel des données dans le magasin analytique sont extraites vers Spark pour une transmission efficace de l'analyse ultérieure. Il convient de noter que dans la mesure où Spark suit une stratégie d'évaluation différée, si aucune action n'est appelée sur le DataFrame Spark ou si aucune requête SparkSQL n'est exécutée sur la table Spark, les données réelles ne sont pas extraites du magasin analytique du conteneur sous-jacent.
 
-Dans le cas du **chargement dans un DataFrame Spark**, les métadonnées extraites sont mises en cache pendant toute la durée de vie de la session Spark, et les actions ultérieures appelées sur le DataFrame sont évaluées par rapport à l'instantané du magasin analytique au moment de la création du DataFrame.
+Dans le cas du **chargement dans un DataFrame Spark** , les métadonnées extraites sont mises en cache pendant toute la durée de vie de la session Spark, et les actions ultérieures appelées sur le DataFrame sont évaluées par rapport à l'instantané du magasin analytique au moment de la création du DataFrame.
 
-En revanche, dans le cas de la **création d'une table Spark**, les métadonnées de l'état du magasin analytique ne sont pas mises en cache dans Spark et sont rechargées chaque fois qu'une requête SparkSQL est exécutée sur la table Spark.
+En revanche, dans le cas de la **création d'une table Spark** , les métadonnées de l'état du magasin analytique ne sont pas mises en cache dans Spark et sont rechargées chaque fois qu'une requête SparkSQL est exécutée sur la table Spark.
 
 Par conséquent, le choix entre le chargement dans un DataFrame Spark et la création d'une table Spark dépend du type d'évaluation que vous souhaitez effectuer pour votre analyse Spark : par rapport à un instantané fixe du magasin analytique ou par rapport au dernier instantané du magasin analytique.
 
@@ -209,7 +209,7 @@ Dans cet exemple, vous allez apprendre à référencer des bibliothèques extern
     ]
 }
 ```
-Si vous souhaitez envoyer des définitions de tâches Spark distantes à un pool Synapse Spark, vous pouvez apprendre à référencer des bibliothèques externes en suivant ce [tutoriel](../spark/apache-spark-job-definitions.md).
+Si vous souhaitez envoyer des définitions de tâches Spark distantes à un pool Apache Spark serverless, vous pouvez apprendre à référencer des bibliothèques externes en suivant ce [tutoriel](../spark/apache-spark-job-definitions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

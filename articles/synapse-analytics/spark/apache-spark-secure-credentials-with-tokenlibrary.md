@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249414"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324952"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Sécurisation de vos informations d’identification via les services liés avec la bibliothèque de jetons (TokenLibrary)
 L’accès aux données de sources externes est un modèle courant. À moins que la source de données externe autorise l’accès anonyme, il est probable que vous aurez besoin de sécuriser votre connexion avec des informations d’identification, un secret ou une chaîne de connexion.  
@@ -122,5 +122,5 @@ print(accountKey)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Écrire dans le pool SQL](./synapse-spark-sql-pool-import-export.md)
+- [Écrire dans un pool SQL dédié](./synapse-spark-sql-pool-import-export.md)
 

@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093546"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318405"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consommation de ressources Synapse SQL
 
 Cet article décrit les modèles de consommation des ressources de Synapse SQL (préversion).
 
-## <a name="sql-on-demand"></a>SQL à la demande
+## <a name="serverless-sql-pool"></a>Pool SQL serverless
 
-SQL à la demande est un service de paiement à la requête qui ne vous demande pas de choisir la taille appropriée. Le système s’ajuste automatiquement en fonction de vos besoins, ce qui vous libère de la gestion de votre infrastructure et du choix à faire quant à la taille adaptée pour votre solution.
+Le pool SQL serverless est un service de paiement à la requête qui ne nécessite pas de choisir la taille appropriée. Le système s’ajuste automatiquement en fonction de vos besoins, ce qui vous libère de la gestion de votre infrastructure et du choix à faire quant à la taille adaptée pour votre solution.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Pool SQL - Data Warehouse Units (DWU) et compute Data Warehouse Unit (cDWU)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Pool SQL dédié - Unités DWU (Data Warehouse Unit) et cDWU (compute Data Warehouse Unit)
 
 Suggestions pour choisir le nombre idéal de Data Warehouse Units (DWU) en vue d’optimiser les coûts et les performances, et indications pour changer le nombre d’unités.
 
@@ -50,12 +50,12 @@ Augmentation du nombre de DWU :
 
 L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour Gen2 sont mesurés en unités cDWU (compute Data Warehouse Unit), par exemple DW2000C. Les niveaux de service Gen1 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000.
 
-L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour le pool SQL Gen2 sont mesurés en Data Warehouse Units (DWU), par exemple DW2000c.
+L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour le pool SQL dédié Gen2 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 a récemment ajouté des fonctionnalités de mise à l’échelle supplémentaires pour prendre en charge les niveaux de calcul inférieurs de 100 cDWU. Les entrepôts de données Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine les niveaux de service et de performance de votre pool SQL.
+Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine le niveau de service et le niveau de performance de votre pool SQL dédié.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -127,7 +127,7 @@ Pour modifier les DWU :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com), ouvrez votre base de données, puis sélectionnez **Mettre à l’échelle**.
 
-2. Sous **Mettre à l’échelle**, déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
+2. Sous **Mettre à l’échelle** , déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
 
 3. Sélectionnez **Enregistrer**. Un message de confirmation s’affiche. Sélectionnez **Oui** pour confirmer, ou **Non** pour annuler.
 
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Cette vue de gestion dynamique renvoie des informations sur diverses opérations de gestion de votre pool SQL, comme l’opération et l’état de l’opération, qui a la valeur IN_PROGRESS ou COMPLETED.
+Cette vue de gestion dynamique retourne des informations sur différentes opérations de gestion de votre pool SQL dédié, comme l’opération et l’état de l’opération, qui est IN_PROGRESS ou COMPLETED.
 
 ### <a name="the-scaling-workflow"></a>Flux de travail de mise à l’échelle
 

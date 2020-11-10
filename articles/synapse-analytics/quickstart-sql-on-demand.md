@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Utiliser SQL à la demande'
-description: Dans ce guide de démarrage rapide, vous allez voir et découvrir à quel point il est facile d’interroger différents types de fichiers en utilisant SQL à la demande (préversion).
+title: 'Démarrage rapide : Utiliser un pool SQL serverless'
+description: Dans ce guide de démarrage rapide, vous allez voir et découvrir à quel point il est facile d’interroger différents types de fichiers en utilisant un pool SQL serverless (préversion).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274167"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321686"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Démarrage rapide : Utiliser SQL à la demande
+# <a name="quickstart-use-serverless-sql-pool"></a>Démarrage rapide : Utiliser un pool SQL serverless
 
-SQL Synapse à la demande (préversion) est un service de requête serverless qui vous permet d’exécuter des requêtes SQL sur des fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant SQL à la demande. Les formats pris en charge sont répertoriés dans [OPENROWSET](sql/develop-openrowset.md).
+Le pool SQL serverless Synapse (préversion) est un service de requête serverless qui vous permet d’exécuter des requêtes SQL sur des fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant le pool SQL serverless. Les formats pris en charge sont répertoriés dans [OPENROWSET](sql/develop-openrowset.md).
 
 Ce démarrage rapide montre comment interroger : Fichiers CSV, Apache Parquet et JSON.
 
@@ -34,8 +34,8 @@ Paramètres pour ce guide de démarrage rapide :
 
 | Paramètre                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Adresse de point de terminaison de service SQL à la demande    | Utilisée comme nom de serveur                                   |
-| Région de point de terminaison de service SQL à la demande     | Utilisée pour déterminer le stockage que nous allons utiliser dans les exemples |
+| Adresse du point de terminaison du service de pool SQL serverless    | Utilisée comme nom de serveur                                   |
+| Région du point de terminaison du service de pool SQL serverless     | Utilisée pour déterminer le stockage que nous allons utiliser dans les exemples |
 | Nom d’utilisateur et mot de passe pour l’accès au point de terminaison | Utilisés pour accéder au point de terminaison                               |
 | Base de données utilisée pour créer des vues         | Base de données utilisée comme point de départ dans les exemples       |
 
@@ -44,7 +44,7 @@ Paramètres pour ce guide de démarrage rapide :
 Avant d’utiliser les exemples :
 
 - Créer une base de données pour vos vues (au cas où vous souhaiteriez utiliser des vues)
-- Créer les informations d’identification que devra utiliser SQL à la demande pour accéder aux fichiers dans le stockage
+- Créer les informations d’identification que devra utiliser le pool SQL serverless pour accéder aux fichiers dans le stockage
 
 ### <a name="create-database"></a>Créer une base de données
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Créer une source de données
 
-Pour exécuter des requêtes à l’aide de SQL à la demande, créez une source de données que SQL à la demande peut utiliser pour accéder aux fichiers dans le stockage.
+Pour exécuter des requêtes à l’aide du pool SQL serverless, créez une source de données que le pool peut utiliser pour accéder aux fichiers dans le stockage.
 Exécutez l’extrait de code suivant pour créer une source de données utilisée dans les exemples de cette section :
 
 ```sql
@@ -115,7 +115,7 @@ Pour plus d’exemples, consultez la procédure indiquant comment [interroger de
 L’exemple suivant montre les fonctionnalités d’inférence automatique du schéma pour l’interrogation des fichiers Parquet. Il retourne le nombre de lignes en septembre 2017 sans spécifier de schéma.
 
 > [!NOTE]
-> Vous n’avez pas besoin de spécifier de colonnes dans la clause `OPENROWSET WITH` lors de la lecture de fichiers Parquet. Dans ce cas, SQL à la demande utilise les métadonnées dans le fichier Parquet et lie les colonnes par nom.
+> Vous n’avez pas besoin de spécifier de colonnes dans la clause `OPENROWSET WITH` lors de la lecture de fichiers Parquet. Dans ce cas, le pool SQL serverless utilise les métadonnées dans le fichier Parquet et lie les colonnes par nom.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -133,7 +133,7 @@ Pour plus d’informations sur l’interrogation des fichiers Parquet, cliquez [
 
 ### <a name="json-sample-file"></a>Exemple de fichier JSON
 
-Les fichiers sont stockés dans un dossier *books* au sein d’un conteneur *json*, et contiennent une entrée de livre unique avec la structure suivante :
+Les fichiers sont stockés dans un dossier *books* au sein d’un conteneur *json* , et contiennent une entrée de livre unique avec la structure suivante :
 
 ```json
 {  
@@ -153,7 +153,7 @@ Les fichiers sont stockés dans un dossier *books* au sein d’un conteneur *jso
 
 ### <a name="query-json-files"></a>Interroger des fichiers JSON
 
-La requête suivante montre comment utiliser [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour récupérer des valeurs scalaires (titre, éditeur) à partir d’un livre intitulé *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles* :
+La requête suivante montre comment utiliser [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour récupérer des valeurs scalaires (titre, éditeur) à partir d’un livre intitulé *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*  :
 
 ```sql
 SELECT

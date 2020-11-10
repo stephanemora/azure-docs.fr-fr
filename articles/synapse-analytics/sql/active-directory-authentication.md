@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093410"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311720"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utiliser l’authentification Azure Active Directory pour l’authentification auprès de Synapse SQL
 
@@ -39,7 +39,7 @@ Les étapes de configuration incluent les procédures suivantes pour configurer 
 3. Attribuer un rôle à l’identité Azure Active Directory créée dans l’espace de travail Azure Synapse (préversion)
 4. Se connecter à Synapse Studio au moyen des identités Azure AD
 
-## <a name="aad-pass-through-in-azure-synapse-analytics"></a>Transfert AAD dans Azure Synapse Analytics
+## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Pass-through Azure AD dans Azure Synapse Analytics
 
 Azure Synapse Analytics vous permet d’accéder aux données du lac de données à l’aide de votre identité Azure Active Directory.
 
@@ -49,13 +49,13 @@ Définir des droits d’accès sur les fichiers et les données qui sont respect
 
 Le diagramme général suivant résume l’architecture de la solution utilisant l’authentification Azure AD avec Synapse SQL. Pour prendre en charge les mots de passe d’utilisateurs natifs d’Azure AD, seuls la partie cloud et Azure AD/Synapse SQL sont pris en considération. Pour prendre en charge l’authentification fédérée (ou utilisateur/mot de passe pour les informations d’identification Windows), la communication avec le bloc ADFS est requise. Les flèches indiquent les voies de communication.
 
-![diagramme autorisation aad](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![Diagramme de l’authentification Azure AD](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 Le diagramme suivant indique la fédération, l’approbation et les relations d’hébergement qui autorisent un client à se connecter à une base de données en soumettant un jeton. Le jeton est authentifié par une instance Azure AD, et approuvé par la base de données. 
 
 Le client 1 peut représenter un répertoire Azure Active Directory avec des utilisateurs natifs ou un répertoire Azure AD avec des utilisateurs fédérés. Le client 2 représente une solution possible incluant des utilisateurs importés, qui dans cet exemple proviennent d’un répertoire Azure Active Directory fédéré avec la synchronisation d’ADFS avec Azure Active Directory. 
 
-Il est important de comprendre que l’accès à une base de données à l’aide de l’authentification Azure AD exige que l’abonnement d’hébergement soit associé à Azure AD. Le même abonnement doit être utilisé pour créer le serveur SQL Server hébergeant la base de données Azure SQL ou le pool SQL.
+Il est important de comprendre que l’accès à une base de données à l’aide de l’authentification Azure AD exige que l’abonnement d’hébergement soit associé à Azure AD. Le même abonnement doit être utilisé pour créer le serveur SQL Server hébergeant la base de données Azure SQL ou le pool SQL dédié.
 
 ![relation abonnement](./media/aad-authentication/2-subscription-relationship.png)
 
@@ -109,7 +109,7 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 - Authentification universelle Azure Active Directory avec MFA
 - À l’aide de l’authentification par jeton d’application
 
-Les méthodes d’authentification suivantes sont prises en charge pour les principaux de serveur (connexions) Azure AD (**préversion publique**) :
+Les méthodes d’authentification suivantes sont prises en charge pour les principaux de serveur (connexions) Azure AD ( **préversion publique** ) :
 
 - Mot de passe Azure Active Directory
 - Intégration d’Azure Active Directory
@@ -119,8 +119,8 @@ Les méthodes d’authentification suivantes sont prises en charge pour les prin
 
 - Pour améliorer la facilité de gestion, nous vous conseillons de mettre en service un groupe Azure AD dédié en tant qu’administrateur.
 - Seul un administrateur Azure AD (utilisateur ou groupe) peut être configuré à tout moment pour un pool Synapse SQL.
-  - L’ajout de principaux de serveur (connexions) Azure AD pour SQL à la demande (préversion) permet de créer plusieurs principaux de serveur (connexions) Azure AD pouvant être ajoutés au rôle `sysadmin`.
-- Seul un administrateur Azure AD pour Synapse SQL peut se connecter initialement à l’instance Synapse SQL au moyen d’un compte Azure Active Directory. L’administrateur Active Directory peut configurer les utilisateurs de base de données Azure AD suivants.
+  - L’ajout de principaux de serveur (connexions) Azure AD pour Synapse SQL (préversion) permet de créer plusieurs principaux de serveur (connexions) Azure AD qui peuvent être ajoutés au rôle `sysadmin`.
+- Seul un administrateur Azure AD pour Synapse SQL peut se connecter initialement à Synapse SQL en utilisant un compte Azure Active Directory. L’administrateur Active Directory peut configurer les utilisateurs de base de données Azure AD suivants.
 - Nous vous conseillons de définir l’expiration du délai de connexion à 30 secondes.
 - SQL Server 2016 Management Studio et SQL Server Data Tools pour Visual Studio 2015 (version 14.0.60311.1 d’avril 2016 ou ultérieure) prennent en charge l’authentification Azure Active Directory. (L’authentification Azure AD est prise en charge par le **Fournisseur de données .NET Framework pour SQL Server** ; .NET Framework version 4.6 minimum). Ainsi, les dernières versions de ces outils et applications de la couche Données (DAC et .BACPAC) peuvent utiliser l’authentification Azure AD.
 - À partir de la version 15.0.1, l’[utilitaire sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et l’[utilitaire bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) prennent en charge l’authentification interactive Active Directory avec MFA.

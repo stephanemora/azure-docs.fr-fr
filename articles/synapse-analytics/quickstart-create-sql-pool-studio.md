@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : créer un pool Synapse SQL à l’aide de Synapse Studio'
-description: Créez un pool SQL Synapse à l’aide de Synapse Studio en suivant les étapes décrites dans ce guide.
+title: 'Démarrage rapide : Créer un pool SQL dédié en utilisant Synapse Studio'
+description: Créez un pool SQL dédié à l’aide de Synapse Studio en suivant les étapes décrites dans ce guide.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 806831ac5e965afcd076066f4baa498297a43a3e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740519"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324317"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>Démarrage rapide : créer un pool Synapse SQL à l’aide de Synapse Studio
+# <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Démarrage rapide : Créer un pool SQL dédié en utilisant Synapse Studio
 
-Azure Synapse Analytics propose différents moteurs d’analytique pour vous aider à ingérer, transformer, modéliser et analyser vos données. Un pool SQL offre des fonctionnalités de calcul et de stockage basées sur T-SQL. Après avoir créé un pool SQL dans votre espace de travail Synapse, vous pouvez charger, modéliser, traiter et distribuer les données pour obtenir plus rapidement des insights.
+Azure Synapse Analytics propose différents moteurs d’analytique pour vous aider à ingérer, transformer, modéliser et analyser vos données. Un pool SQL dédié offre des fonctionnalités de calcul et de stockage basées sur T-SQL. Après avoir créé un pool SQL dédié dans votre espace de travail Synapse, vous pouvez charger, modéliser, traiter et distribuer les données pour obtenir plus rapidement des insights.
 
-Ce guide de démarrage rapide décrit les étapes à suivre pour créer un pool SQL dans un espace de travail Synapse à l’aide de Synapse Studio.
+Ce guide de démarrage rapide décrit les étapes à suivre pour créer un pool SQL dédié dans un espace de travail Synapse à l’aide de Synapse Studio.
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de commencer](https://azure.microsoft.com/free/).
 
@@ -36,7 +36,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Accéder à l’espace de travail Synapse
 
-1. Accédez à l’espace de travail Synapse dans lequel vous allez créer le pool SQL en saisissant le nom du service (ou directement le nom de la ressource) dans la barre de recherche.
+1. Accédez à l’espace de travail Synapse dans lequel vous allez créer le pool SQL dédié en tapant le nom du service (ou directement le nom de la ressource) dans la barre de recherche.
 
     ![Barre de recherche du portail Azure contenant le texte « espaces de travail Synapse ».](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
 1. Dans la liste des espaces de travail, saisissez le nom (ou une partie du nom) de l’espace de travail à ouvrir. Pour cet exemple, nous allons utiliser un espace de travail nommé **contosoanalytics**.
@@ -45,11 +45,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 ## <a name="launch-synapse-studio"></a>Lancer Synapse Studio
 
-1. Dans la vue d’ensemble de l’espace de travail, sélectionnez **Lancer Synapse Studio** pour ouvrir l’emplacement où le pool SQL sera créé. Saisissez le nom du service ou de la ressource directement dans la barre de recherche.
+1. Dans la vue d’ensemble de l’espace de travail, sélectionnez l’ **URL web de l’espace de travail** pour lancer Synapse Studio.
 
-    ![Vue d’ensemble de l’espace de travail Synapse du portail Azure avec l’option Lancer Synapse Studio mise en surbrillance.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
+    ![Vue d’ensemble de l’espace de travail Synapse du portail Azure avec mise en évidence de l’URL web.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
-## <a name="create-a-sql-pool-in-synapse-studio"></a>Créer un pool SQL dans Synapse Studio
+## <a name="create-a-dedicated-sql-pool-in-synapse-studio"></a>Créer un pool SQL dédié dans Synapse Studio
 
 1. Sur la page d’accueil de Synapse Studio, accédez au **hub de gestion** dans le volet de navigation gauche en sélectionnant l’icône **Gérer**.
 
@@ -67,12 +67,12 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
     | Paramètre | Valeur suggérée | Description |
     | :------ | :-------------- | :---------- |
-    | **Nom du pool SQL** | contosoedw | Il s’agit du nom du pool SQL. |
+    | **Nom du pool SQL** | contosoedw | Il s’agit du nom du pool SQL dédié. |
     | **Niveau de performances** | DW100c | Définissez ce paramètre sur la plus petite taille pour réduire les coûts de ce guide de démarrage rapide. |
 
     ![Flux de création de pools SQL - Onglet Informations de base.](media/quickstart-create-sql-pool/create-sql-pool-studio-24.png)
     > [!IMPORTANT]
-    > Notez que les noms que vous pouvez attribuer aux pools SQL sont soumis à des limitations spécifiques. Les noms ne peuvent pas contenir de caractères spéciaux, ne doivent pas dépasser 15 caractères, ne doivent pas contenir de mots réservés et doivent être uniques dans l’espace de travail.
+    > Notez que les noms que vous pouvez attribuer aux pools SQL dédiés sont soumis à des limitations spécifiques. Les noms ne peuvent pas contenir de caractères spéciaux, ne doivent pas dépasser 15 caractères, ne doivent pas contenir de mots réservés et doivent être uniques dans l’espace de travail.
 
 4. Dans l’onglet suivant, **Paramètres supplémentaires** , sélectionnez **aucun** pour approvisionner le pool SQL sans données. Laissez le classement par défaut tel quel.
 
@@ -90,24 +90,24 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
     ![Flux de création d’un pool SQL - Provisionnement des ressources.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
 
-1. Une fois le pool SQL créé, vous pouvez l’utiliser dans l’espace de travail pour charger des données, traiter des flux, lire dans le lac, etc.
+1. Une fois le pool SQL dédié créé, vous pouvez l’utiliser dans l’espace de travail pour charger des données, traiter des flux, lire dans le lac, etc.
 
-## <a name="clean-up-sql-pools-using-synapse-studio"></a>Nettoyer un pool SQL à l’aide de Synapse Studio    
+## <a name="clean-up-dedicated-sql-pool-using-synapse-studio"></a>Nettoyer le pool SQL dédié à l’aide de Synapse Studio    
 
-Effectuez les étapes ci-dessous pour supprimer le pool SQL de l’espace de travail à l’aide de Synapse Studio.
+Effectuez les étapes ci-dessous pour supprimer le pool SQL dédié de l’espace de travail à l’aide de Synapse Studio.
 > [!WARNING]
-> La suppression d’un pool SQL supprime le moteur d’analytique de l’espace de travail. Il n’est plus possible de se connecter au pool, et l’ensemble des requêtes, pipelines et scripts qui utilisent ce pool SQL ne fonctionnent plus.
+> La suppression d’un pool SQL dédié supprime le moteur d’analytique de l’espace de travail. Il n’est plus possible de se connecter au pool, et l’ensemble des requêtes, pipelines et scripts qui utilisent ce pool SQL dédié ne fonctionnent plus.
 
-Si vous souhaitez supprimer le pool SQL, procédez comme suit :
+Si vous souhaitez supprimer le pool SQL dédié, procédez comme suit :
 
 1. Accédez aux pools SQL dans le hub de gestion de Synapse Studio.
-1. Sélectionnez les points de suspension dans le pool SQL à supprimer (dans ce cas, **contosoedw** ) pour afficher les commandes du pool SQL :
+1. Sélectionnez les points de suspension dans le pool SQL dédié à supprimer (dans ce cas, **contosoedw** ) pour afficher les commandes du pool SQL dédié :
 
     ![Liste des pools SQL, avec sélection du pool récemment créé.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. Appuyez sur la touche **Supprimer**.
 1. Confirmez la suppression, puis appuyez sur le bouton **Supprimer**.
-1. À la fin du processus, le pool SQL ne figure plus dans la liste des ressources de l’espace de travail.
+1. À la fin du processus, le pool SQL dédié ne figure plus dans la liste des ressources de l’espace de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez [Démarrage rapide : Créer un notebook Apache Spark](quickstart-apache-spark-notebook.md).
-- Consultez [Démarrage rapide : Créer un pool SQL Synapse avec le portail Azure](quickstart-create-sql-pool-portal.md).
+- Consultez [Démarrage rapide : Créer un pool SQL dédié à l’aide du portail Azure](quickstart-create-sql-pool-portal.md).

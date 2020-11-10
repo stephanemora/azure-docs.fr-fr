@@ -1,6 +1,6 @@
 ---
 title: Concepts de base d’Apache Spark
-description: Introduction à Apache Spark dans Azure Synapse Analytics et aux différents concepts.
+description: Introduction aux concepts de base d’Apache Spark dans Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480477"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313396"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark dans Azure Synapse Analytics - Concepts clés
 
@@ -24,7 +24,7 @@ Azure Synapse vous permet de créer et de configurer facilement des fonctionnali
 
 ## <a name="spark-pools-preview"></a>Pools Spark (préversion)
 
-La création d’un pool Spark (préversion) s’effectue dans le portail Azure. Il s’agit de la définition d’un pool Spark qui, quand il est instancié, est utilisé pour créer une instance Spark qui traite des données. Quand un pool Spark est créé, il existe uniquement en tant que métadonnées, et aucune ressource n’est consommée, exécutée ou facturée. Un pool Spark possède une série de propriétés qui contrôlent les caractéristiques d’une instance Spark. Ces caractéristiques incluent entre autres le nom, la taille, le comportement de mise à l’échelle et la durée de vie.
+Un pool Apache Spark serverless (préversion) est créé dans le portail Azure. Il s’agit de la définition d’un pool Spark qui, quand il est instancié, est utilisé pour créer une instance Spark qui traite des données. Quand un pool Spark est créé, il existe uniquement en tant que métadonnées, et aucune ressource n’est consommée, exécutée ou facturée. Un pool Spark possède une série de propriétés qui contrôlent les caractéristiques d’une instance Spark. Ces caractéristiques incluent entre autres le nom, la taille, le comportement de mise à l’échelle et la durée de vie.
 
 Comme aucun coût en euro ou en ressource n’est associé à la création des pools Spark, vous pouvez en créer autant que vous voulez avec autant de configurations différentes que vous le souhaitez. Vous pouvez aussi appliquer des autorisations aux pools Spark, ce qui permet aux utilisateurs d’avoir uniquement accès à certains d’entre eux.
 

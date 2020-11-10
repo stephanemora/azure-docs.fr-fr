@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/25/2020
-ms.openlocfilehash: fa103c39b540c41536e4f231692b4602afe01a3e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/28/2020
+ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91361209"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099186"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Démarrage rapide : Créer et gérer des définitions de workflow d’applications logiques avec Visual Studio Code
 
@@ -20,7 +20,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et Visual Studio C
 
 Même si vous pouvez effectuer ces tâches dans le [portail Azure](https://portal.azure.com) et dans Visual Studio, vous démarrez plus rapidement dans Visual Studio Code lorsque vous êtes familier avec les définitions d’application logique et choisissez de travailler directement avec du code. Par exemple, vous pouvez désactiver, activer, supprimer et actualiser des applications logiques déjà créées. En outre, vous pouvez travailler sur des applications logiques et des comptes d’intégration à partir de n’importe quelle plateforme de développement où Visual Studio Code s’exécute, comme Linux, Windows et Mac.
 
-Pour les besoins de cet article, vous pouvez créer la même application logique à partir de ce [guide de démarrage rapide](../logic-apps/quickstart-create-first-logic-app-workflow.md), qui est axé sur les concepts de base. Dans Visual Studio Code, l’application logique ressemble à cet exemple :
+Pour les besoins de cet article, vous pouvez créer la même application logique à partir de ce [guide de démarrage rapide](../logic-apps/quickstart-create-first-logic-app-workflow.md), qui est axé sur les concepts de base. Vous pouvez aussi [apprendre à créer l’exemple d’application dans Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) et [apprendre à créer et gérer des applications à l’aide de l’interface de ligne de commande Azure (Azure CLI)](quickstart-logic-apps-azure-cli.md). Dans Visual Studio Code, l’application logique ressemble à cet exemple :
 
 ![Exemple de définition de workflow d’application logique](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -58,23 +58,23 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
    ![Sélectionner l’icône Azure dans la barre d’outils de Visual Studio Code](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. Dans la fenêtre Azure, sous **Logic Apps** , sélectionnez **Connexion à Azure** . Quand la page de connexion Microsoft vous y invite, connectez-vous avec votre compte Azure.
+1. Dans la fenêtre Azure, sous **Logic Apps** , sélectionnez **Connexion à Azure**. Quand la page de connexion Microsoft vous y invite, connectez-vous avec votre compte Azure.
 
    ![Sélection de « Connexion à Azure »](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   1. Si la connexion prend plus de temps que d’habitude, Visual Studio Code vous invite à vous connecter via un site web d’authentification Microsoft en vous fournissant un code d’appareil. Pour vous connecter avec le code, sélectionnez **Utiliser le code d’appareil** .
+   1. Si la connexion prend plus de temps que d’habitude, Visual Studio Code vous invite à vous connecter via un site web d’authentification Microsoft en vous fournissant un code d’appareil. Pour vous connecter avec le code, sélectionnez **Utiliser le code d’appareil**.
 
       ![Continuer avec le code d’appareil à la place](./media/quickstart-create-logic-apps-visual-studio-code/use-device-code-prompt.png)
 
-   1. Pour copier le code, sélectionnez **Copier et ouvrir** .
+   1. Pour copier le code, sélectionnez **Copier et ouvrir**.
 
       ![Copier le code pour la connexion à Azure](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-   1. Pour ouvrir une nouvelle fenêtre de navigateur et accéder au site web d’authentification, sélectionnez **Ouvrir le lien** .
+   1. Pour ouvrir une nouvelle fenêtre de navigateur et accéder au site web d’authentification, sélectionnez **Ouvrir le lien**.
 
       ![Confirmer l’ouverture d’un navigateur et l’accès au site web d’authentification](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
 
-   1. Dans la page **Connectez-vous à votre compte** , entrez votre code d’authentification, puis sélectionnez **Suivant** .
+   1. Dans la page **Connectez-vous à votre compte** , entrez votre code d’authentification, puis sélectionnez **Suivant**.
 
       ![Entrer le code d’authentification pour la connexion à Azure](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
@@ -82,7 +82,7 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
    Dans le volet Azure, les sections **Logic Apps** et **Comptes d’intégration** affichent maintenant les abonnements Azure associés à votre compte. Cependant, si vous ne voyez pas les abonnements attendus ou si les sections affichent un trop grand nombre d’abonnements, effectuez ces étapes :
 
-   1. Déplacez votre pointeur sur le libellé **Logic Apps** . Quand la barre d’outils apparaît, sélectionnez **Sélectionner des abonnements** (icône de filtre).
+   1. Déplacez votre pointeur sur le libellé **Logic Apps**. Quand la barre d’outils apparaît, sélectionnez **Sélectionner des abonnements** (icône de filtre).
 
       ![Rechercher ou filtrer des abonnements Azure](./media/quickstart-create-logic-apps-visual-studio-code/find-or-filter-subscriptions.png)
 
@@ -101,7 +101,7 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
 1. Si vous n’êtes pas encore connecté à votre compte et à votre abonnement Azure depuis Visual Studio Code, suivez les [étapes précédentes pour vous y connecter maintenant](#access-azure).
 
-1. Dans Visual Studio Code, sous **Logic Apps** , ouvrez le menu contextuel de votre abonnement, puis sélectionnez **Créer une application logique** .
+1. Dans Visual Studio Code, sous **Logic Apps** , ouvrez le menu contextuel de votre abonnement, puis sélectionnez **Créer une application logique**.
 
    ![Dans le menu de l’abonnement, sélectionner « Créer une application logique »](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -194,7 +194,7 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
 1. Quand vous avez terminé, enregistrez la définition du workflow de votre application logique. (Menu Fichier > Enregistrer, ou appuyez sur Ctrl+S)
 
-1. Quand vous êtes invité à charger votre application logique dans votre abonnement Azure, sélectionnez **Charger** .
+1. Quand vous êtes invité à charger votre application logique dans votre abonnement Azure, sélectionnez **Charger**.
 
    Cette étape publie votre application logique sur le [portail Azure](https://portal.azure.com), ce qui rend votre logique opérationnelle dans Azure.
 
@@ -204,7 +204,7 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
 Dans Visual Studio Code, vous pouvez ouvrir votre application logique dans une vue de conception en lecture seule. Bien que vous ne puissiez pas modifier votre application logique dans le concepteur, vous pouvez vérifier visuellement le workflow de votre application logique avec la vue du concepteur.
 
-Dans la fenêtre Azure, sous **Logic Apps** , ouvrez le menu contextuel de votre application logique, puis sélectionnez **Ouvrir dans le concepteur** .
+Dans la fenêtre Azure, sous **Logic Apps** , ouvrez le menu contextuel de votre application logique, puis sélectionnez **Ouvrir dans le concepteur**.
 
 Le concepteur en lecture seule s’ouvre dans une fenêtre distincte et montre le workflow de votre application logique, par exemple :
 
@@ -230,11 +230,11 @@ Dans Visual Studio Code, si vous modifiez une application logique publiée et qu
 
 1. Dans la fenêtre Azure, sous **Logic Apps** , développez votre abonnement Azure pour voir toutes les applications logiques de cet abonnement.
 
-   1. Pour désactiver l’application logique souhaitée, ouvrez le menu de l’application logique, puis sélectionnez **Désactiver** .
+   1. Pour désactiver l’application logique souhaitée, ouvrez le menu de l’application logique, puis sélectionnez **Désactiver**.
 
       ![Désactiver votre application logique](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
 
-   1. Quand vous êtes prêt à réactiver votre application logique, ouvrez le menu de l’application logique, puis sélectionnez **Activer** .
+   1. Quand vous êtes prêt à réactiver votre application logique, ouvrez le menu de l’application logique, puis sélectionnez **Activer**.
 
       ![Activer votre application logique](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
 
@@ -251,7 +251,7 @@ Dans Visual Studio Code, vous pouvez ouvrir et modifier la définition du workfl
 
 1. Dans la fenêtre Azure, sous **Logic Apps** , développez votre abonnement Azure et sélectionnez l’application logique que vous souhaitez.
 
-1. Ouvrez le menu de votre application logique, puis sélectionnez **Ouvrir dans l’éditeur** . Ou, à côté du nom de l’application logique, sélectionnez l’icône de modification.
+1. Ouvrez le menu de votre application logique, puis sélectionnez **Ouvrir dans l’éditeur**. Ou, à côté du nom de l’application logique, sélectionnez l’icône de modification.
 
    ![Ouverture de l’éditeur pour l’application logique existante](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -263,7 +263,7 @@ Dans Visual Studio Code, vous pouvez ouvrir et modifier la définition du workfl
 
 1. Lorsque vous avez terminé, enregistrez les modifications. (Menu Fichier > Enregistrer, ou appuyez sur Ctrl+S)
 
-1. Quand vous êtes invité à charger vos modifications et à *remplacer* votre application logique existante dans le portail Azure, sélectionnez **Charger** .
+1. Quand vous êtes invité à charger vos modifications et à *remplacer* votre application logique existante dans le portail Azure, sélectionnez **Charger**.
 
    Cette étape publie vos mises à jour sur votre application logique dans le [portail Azure](https://portal.azure.com).
 
@@ -278,7 +278,7 @@ Dans Visual Studio Code, vous pouvez ouvrir et passer en revue les versions ant�
 
 1. Dans la fenêtre Azure, sous **Logic Apps** , développez votre abonnement Azure pour voir toutes les applications logiques de cet abonnement.
 
-1. Sous votre abonnement, développez votre application logique, puis développez **Versions** .
+1. Sous votre abonnement, développez votre application logique, puis développez **Versions**.
 
    La liste **Versions** montre les versions antérieures de votre application logique, s’il en existe.
 
@@ -286,19 +286,19 @@ Dans Visual Studio Code, vous pouvez ouvrir et passer en revue les versions ant�
 
 1. Pour visualiser une version antérieure, choisissez une des actions suivantes :
 
-   * Pour voir la définition JSON, sous **Versions** , sélectionnez le numéro de version de cette définition. Ouvrez le menu contextuel de cette version, puis sélectionnez **Ouvrir dans l’éditeur** .
+   * Pour voir la définition JSON, sous **Versions** , sélectionnez le numéro de version de cette définition. Ouvrez le menu contextuel de cette version, puis sélectionnez **Ouvrir dans l’éditeur**.
 
      Un nouveau fichier s’ouvre sur votre ordinateur local et montre la définition JSON de cette version.
 
-   * Pour visualiser la version dans la vue du concepteur en lecture seule, ouvrez le menu contextuel de cette version, puis sélectionnez **Ouvrir dans le concepteur** .
+   * Pour visualiser la version dans la vue du concepteur en lecture seule, ouvrez le menu contextuel de cette version, puis sélectionnez **Ouvrir dans le concepteur**.
 
 1. Pour promouvoir une version antérieure en version active, effectuez les étapes suivantes :
 
-   1. Sous **Versions** , ouvrez le menu contextuel de la version antérieure, puis sélectionnez **Promouvoir** .
+   1. Sous **Versions** , ouvrez le menu contextuel de la version antérieure, puis sélectionnez **Promouvoir**.
 
       ![Promouvoir une version antérieure](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
 
-   1. Pour continuer après l’invite de confirmation de Visual Studio Code, sélectionnez **Oui** .
+   1. Pour continuer après l’invite de confirmation de Visual Studio Code, sélectionnez **Oui**.
 
       ![Confirmer la promotion d’une version antérieure](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 

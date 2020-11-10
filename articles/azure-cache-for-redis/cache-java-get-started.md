@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Utiliser le cache Azure pour Redis avec Java'
+title: 'Démarrage rapide : Utiliser Azure Cache pour Redis dans Java'
 description: Dans ce guide de démarrage rapide, vous allez créer une application Java qui utilise le cache Azure pour Redis
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87528824"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088112"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Java
+# <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans Java
 
 Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Redis dans une application Java à l’aide du client Redis [Jedis](https://github.com/xetorthio/jedis) pour avoir accès à un cache sécurisé et dédié accessible à partir de n’importe quelle application dans Azure.
 
@@ -46,8 +46,8 @@ export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 
 Remplacez les espaces réservés par les valeurs suivantes :
 
-- `<YOUR_HOST_NAME>`: le nom d’hôte DNS obtenu à partir de la section *Propriétés* de votre ressource Azure Cache pour Redis dans le portail Azure
-- `<YOUR_PRIMARY_ACCESS_KEY>`: la clé d’accès primaire obtenue à partir de la section *Clés d’accès* de votre ressource Azure Cache pour Redis dans le portail Azure
+- `<YOUR_HOST_NAME>` : le nom d’hôte DNS obtenu à partir de la section *Propriétés* de votre ressource Azure Cache pour Redis dans le portail Azure.
+- `<YOUR_PRIMARY_ACCESS_KEY>` : la clé d’accès primaire obtenue à partir de la section *Clés d’accès* de votre ressource Azure Cache pour Redis dans le portail Azure.
 
 ## <a name="create-a-new-java-app"></a>Créer une nouvelle application Java
 
@@ -154,7 +154,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-1. Dans la zone de texte **Filtrer par nom**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
+1. Dans la zone de texte **Filtrer par nom** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
    ![Groupe de ressources Azure supprimé](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 

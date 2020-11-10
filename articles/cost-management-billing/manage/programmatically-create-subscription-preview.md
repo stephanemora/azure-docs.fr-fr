@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c63733a66a2bb4e320a24649dfe82eac259e79ae
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131103"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043303"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Créer des abonnements Azure programmatiquement avec des API en préversion
 
@@ -212,7 +212,7 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 
 - Seuls des abonnements Azure Enterprise peuvent être créés à l’aide de l’API.
-- Il existe une limite de 2 000 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
+- Il existe une limite de 2 000 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription. Les abonnements annulés, supprimés et transférés sont pris en compte dans la limite de 2 000.
 - Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription avec Azure RBAC, ne peuvent pas créer d’abonnements dans le portail Azure.
 - Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

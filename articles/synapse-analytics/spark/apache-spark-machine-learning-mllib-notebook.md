@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369333"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306970"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutoriel : Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
@@ -31,9 +31,9 @@ MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires
 
 ## <a name="understand-classification-and-logistic-regression"></a>Comprendre la classification et la régression logistique
 
-Une *classification*, tâche de Machine Learning très courante, est le processus de tri de données d’entrée par catégories. Un algorithme de classification doit déterminer comment attribuer des *étiquettes* aux données d’entrée que vous fournissez. Par exemple, on peut imaginer un algorithme apprentissage automatique qui accepte des informations de stock en entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
+Une *classification* , tâche de Machine Learning très courante, est le processus de tri de données d’entrée par catégories. Un algorithme de classification doit déterminer comment attribuer des *étiquettes* aux données d’entrée que vous fournissez. Par exemple, on peut imaginer un algorithme apprentissage automatique qui accepte des informations de stock en entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
 
-Une *régression logistique* est un algorithme que vous utilisez pour effectuer une classification. L’API de régression logistique de Spark est utile pour la *classification binaire*ou pour classer les données d’entrée dans un des deux groupes. Pour plus d’informations sur la régression logistique, consultez [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+Une *régression logistique* est un algorithme que vous utilisez pour effectuer une classification. L’API de régression logistique de Spark est utile pour la *classification binaire* ou pour classer les données d’entrée dans un des deux groupes. Pour plus d’informations sur la régression logistique, consultez [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 En résumé, le processus de régression logistique génère une *fonction logistique* qui peut être utilisée pour prédire la probabilité qu’un vecteur d’entrée appartienne à un groupe ou à l’autre.
 
@@ -71,7 +71,7 @@ Dans les étapes suivantes, vous allez développer un modèle pour prédire si u
 
 Étant donné que les données brutes sont au format Parquet, vous pouvez utiliser le contexte Spark pour extraire le fichier en mémoire directement en tant que tramedonnées. Le code ci-dessous utilise les options par défaut, mais il est possible de forcer le mappage des types de données et d’autres attributs de schéma si nécessaire.
 
-1. Exécutez les lignes suivantes pour créer une tramedonnées Spark en collant le code dans une nouvelle cellule. Cela récupère les données via l’API Open Datasets. L’extraction de toutes ces données génère environ 1,5 milliard de lignes. Selon la taille de votre pool Spark (préversion), les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume. L'exemple de code suivant utilise start_date et end_date pour appliquer un filtre qui renvoie un seul mois de données.
+1. Exécutez les lignes suivantes pour créer une tramedonnées Spark en collant le code dans une nouvelle cellule. Cela récupère les données via l’API Open Datasets. L’extraction de toutes ces données génère environ 1,5 milliard de lignes. Selon la taille de votre pool Apache Spark serverless (préversion), les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume. L'exemple de code suivant utilise start_date et end_date pour appliquer un filtre qui renvoie un seul mois de données.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -112,7 +112,7 @@ sampled_taxi_df.createOrReplaceTempView("nytaxi")
 
 ## <a name="understand-the-data"></a>Comprendre les données
 
-En règle générale, à ce stade, vous devez passer par une phase d’*analyse exploratoire des données* afin d’acquérir une compréhension de celles-ci. Le code suivant montre trois visualisations différentes des données relatives aux pourboires, qui conduisent à des conclusions quant à l’état et la qualité de celles-ci.
+En règle générale, à ce stade, vous devez passer par une phase d’ *analyse exploratoire des données* afin d’acquérir une compréhension de celles-ci. Le code suivant montre trois visualisations différentes des données relatives aux pourboires, qui conduisent à des conclusions quant à l’état et la qualité de celles-ci.
 
 ```python
 # The charting package needs a Pandas dataframe or numpy array do the conversion
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Créer un modèle de régression logistique
 
-La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-caractéristique*, où le *vecteur caractéristique* est un vecteur de nombres représentant le point d’entrée. Nous devons donc convertir les colonnes catégoriques en nombres. Les colonnes `trafficTimeBins` et `weekdayString` doivent être converties en représentations sous forme d’entiers. Il existe plusieurs approches de la conversion. Celle adoptée dans cet exemple est l’approche courante *OneHotEncoding*.
+La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-caractéristique* , où le *vecteur caractéristique* est un vecteur de nombres représentant le point d’entrée. Nous devons donc convertir les colonnes catégoriques en nombres. Les colonnes `trafficTimeBins` et `weekdayString` doivent être converties en représentations sous forme d’entiers. Il existe plusieurs approches de la conversion. Celle adoptée dans cet exemple est l’approche courante *OneHotEncoding*.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
