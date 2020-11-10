@@ -12,32 +12,49 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2020
+ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: c55ea0e7753faa6dc21b955d63a57d96e3849f70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992719"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148233"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Activer l'Analyse comportementale des utilisateurs et des entités dans Azure Sentinel 
 
-
+> [!IMPORTANT]
+>
+> - La fonctionnalité UEBA est désormais en **disponibilité générale** dans les régions et zones géographiques Azure Sentinel suivantes :
+>    - Géographie des États-Unis
+>    - Région Europe Ouest
+>    - Géographie de l’Australie
+>
+> - Dans toutes les autres zones géographiques et régions, cette fonctionnalité reste pour le moment en **préversion publique** et est fournie sans accord de niveau de service. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Votre utilisateur doit disposer du rôle d'**Administrateur général** ou d'**Administrateur de la sécurité** dans Azure AD pour pouvoir activer ou désactiver l'Analyse comportementale des utilisateurs et des entités, mais pas pour l'exécuter.
+Pour activer ou désactiver cette fonctionnalité (ces conditions préalables ne sont pas requises pour utiliser la fonctionnalité) :
+
+- Votre utilisateur doit être membre de l’annuaire Azure Active Directory de votre organisation et non un utilisateur invité.
+
+- Les rôles **Administrateur général** ou **Administrateur de sécurité** doivent être attribués à votre utilisateur dans Azure AD.
+
+- Vous devez attribuer au moins l’un des **rôles Azure** suivants à votre utilisateur ([en savoir plus sur Azure RBAC](roles.md)) :
+    - **Contributeur Azure Sentinel** au niveau de l’espace de travail ou du groupe de ressources.
+    - **Contributeur Log Analytics** au niveau du groupe de ressources ou de l’abonnement.
+
+- Aucun verrou de ressource Azure ne doit être appliqué à votre espace de travail. [Apprenez-en davantage sur le verrouillage des ressources Azure](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Activer l'Analyse comportementale des utilisateurs et des entités
 
-1. Dans le menu de navigation d'Azure Sentinel, sélectionnez **Comportement des entités (préversion)** .
+1. Dans le menu de navigation d'Azure Sentinel, sélectionnez **Comportement des entités**.
 
-1. Sous l'en-tête **Activer**, placez le commutateur sur **Activé**.
+1. Sous l'en-tête **Activer** , placez le commutateur sur **Activé**.
 
 1. Cliquez sur le bouton **Sélectionner des sources de données**.
 
-1. Dans le volet **Sélection des sources de données**, cochez les cases situées en regard des sources de données sur lesquelles vous souhaitez activer l'Analyse comportementale des utilisateurs et des entités, puis sélectionnez **Appliquer**.
+1. Dans le volet **Sélection des sources de données** , cochez les cases situées en regard des sources de données sur lesquelles vous souhaitez activer l'Analyse comportementale des utilisateurs et des entités, puis sélectionnez **Appliquer**.
 
     > [!NOTE]
     >

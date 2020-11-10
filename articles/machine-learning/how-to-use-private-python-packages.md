@@ -1,7 +1,7 @@
 ---
 title: Utiliser des packages Python privés
 titleSuffix: Azure Machine Learning
-description: Accédez en toute sécurité aux packages Python privés à partir d'environnements Azure Machine Learning.
+description: Découvrez comment utiliser en toute sécurité aux packages Python privés à partir de vos environnements Azure Machine Learning.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a722746c8e06a691e702b095d3081f1530645de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772632"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318932"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Utiliser des packages Python privés avec Azure Machine Learning
 
@@ -27,16 +27,16 @@ Cet article explique comment utiliser des packages Python privés en toute sécu
 
 L'approche recommandée varie selon que vous disposez d'un petit nombre de packages destinés à un seul espace de travail Azure Machine Learning ou d'un référentiel complet de packages destinés à tous les espaces de travail d'une organisation.
 
-Les packages privés sont utilisés par le biais de la classe [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment). Au sein d'un environnement, vous déclarez les packages Python à utiliser, y compris les packages privés. Pour en savoir plus sur l'utilisation des environnements dans Azure Machine Learning en général, consultez [Utiliser des environnements](how-to-use-environments.md). 
+Les packages privés sont utilisés par le biais de la classe [Environment](/python/api/azureml-core/azureml.core.environment.environment). Au sein d'un environnement, vous déclarez les packages Python à utiliser, y compris les packages privés. Pour en savoir plus sur l'utilisation des environnements dans Azure Machine Learning en général, consultez [Utiliser des environnements](how-to-use-environments.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
- * Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+ * Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
  * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md)
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Utiliser un petit nombre de packages à des fins de développement et de test
 
-Pour un petit nombre de packages privés destinés à un seul espace de travail, utilisez la méthode statique [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-). Cette approche vous permet d'ajouter rapidement un package privé à l'espace de travail et peut parfaitement être utilisée à des fins de développement et de test.
+Pour un petit nombre de packages privés destinés à un seul espace de travail, utilisez la méthode statique [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-). Cette approche vous permet d'ajouter rapidement un package privé à l'espace de travail et peut parfaitement être utilisée à des fins de développement et de test.
 
 Pointez l'argument filepath vers un fichier wheel local et exécutez la commande ```add_private_pip_wheel```. La commande renvoie une URL qui permet de suivre l'emplacement du package dans votre espace de travail. Capturez l'URL de stockage et transmettez-la à la méthode `add_pip_package()`.
 
@@ -52,13 +52,13 @@ En interne, le service Azure Machine Learning remplace l'URL par une URL SAS sé
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Utiliser un référentiel de packages du flux Azure DevOps
 
-Si vous développez activement des packages Python pour votre application de Machine Learning, vous pouvez les héberger dans un référentiel Azure DevOps sous forme d'artefacts et les publier en tant que flux. Cette approche vous permet d'intégrer le flux de travail DevOps pour créer des packages avec votre espace de travail Azure Machine Learning. Pour apprendre à configurer des flux Python à l'aide d'Azure DevOps, consultez la page [Bien démarrer avec les packages Python dans Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops&preserve-view=true).
+Si vous développez activement des packages Python pour votre application de Machine Learning, vous pouvez les héberger dans un référentiel Azure DevOps sous forme d'artefacts et les publier en tant que flux. Cette approche vous permet d'intégrer le flux de travail DevOps pour créer des packages avec votre espace de travail Azure Machine Learning. Pour apprendre à configurer des flux Python à l'aide d'Azure DevOps, consultez la page [Bien démarrer avec les packages Python dans Azure Artifacts](/azure/devops/artifacts/quickstarts/python-packages?preserve-view=true&view=azure-devops).
 
 Cette approche utilise un jeton d'accès personnel pour l'authentification auprès du référentiel. La même approche est applicable à d'autres référentiels avec authentification basée sur un jeton, comme les référentiels GitHub privés. 
 
- 1. [Créez un PAT (jeton d'accès personnel)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) pour votre instance d'Azure DevOps. Définissez l'étendue du jeton sur __Empaquetage > Lire__. 
+ 1. [Créez un PAT (jeton d'accès personnel)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) pour votre instance d'Azure DevOps. Définissez l'étendue du jeton sur __Empaquetage > Lire__. 
 
- 2. Ajoutez l'URL et le PAT Azure DevOps en tant que propriétés de l'espace de travail, en utilisant la méthode [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-).
+ 2. Ajoutez l'URL et le PAT Azure DevOps en tant que propriétés de l'espace de travail, en utilisant la méthode [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-).
 
      ```python
     from azureml.core import Workspace

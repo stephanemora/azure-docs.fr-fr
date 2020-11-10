@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597912"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339476"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Comprendre l’authentification unique basée sur SAML
 
@@ -32,9 +32,9 @@ La [série de guides de démarrage rapide](add-application-portal-setup-sso.md) 
 > [!IMPORTANT] 
 > Dans certains cas, l’option **Authentification unique** n’est pas disponible pour une application sous **Applications d’entreprise**. 
 >
-> Si l’application a été inscrite à l’aide d’**Inscriptions d’applications**, la fonctionnalité d’authentification unique est configurée pour utiliser OIDC OAuth par défaut. Dans ce cas, l’option **Authentification unique** ne s’affiche pas dans le volet de navigation sous **Applications d’entreprise**. Quand vous utilisez **inscriptions d’applications** pour ajouter votre application personnalisée, vous configurez les options dans le fichier du manifeste. Pour en savoir plus sur le fichier manifeste, consultez [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Pour en savoir plus sur les standards SSO, consultez [Authentification et autorisation avec la plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Si l’application a été inscrite à l’aide d’ **Inscriptions d’applications** , la fonctionnalité d’authentification unique est configurée pour utiliser OIDC OAuth par défaut. Dans ce cas, l’option **Authentification unique** ne s’affiche pas dans le volet de navigation sous **Applications d’entreprise**. Quand vous utilisez **inscriptions d’applications** pour ajouter votre application personnalisée, vous configurez les options dans le fichier du manifeste. Pour en savoir plus sur le fichier manifeste, consultez [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Pour en savoir plus sur les standards SSO, consultez [Authentification et autorisation avec la plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
 >
-> D’autres scénarios dans lesquels **l’authentification unique** sera absente de la navigation incluent les cas où une application est hébergée dans un autre locataire ou si votre compte ne dispose pas des autorisations requises (administrateur général, administrateur d’application Cloud, administrateur d’application ou propriétaire du principal de service). Les autorisations peuvent également être à l’origine d’un scénario dans lequel vous pouvez ouvrir **l’authentification unique**, mais vous ne pourrez pas l’enregistrer. En savoir plus sur les rôles d’administration d’Azure AD voir (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+> D’autres scénarios dans lesquels **l’authentification unique** sera absente de la navigation incluent les cas où une application est hébergée dans un autre locataire ou si votre compte ne dispose pas des autorisations requises (administrateur général, administrateur d’application Cloud, administrateur d’application ou propriétaire du principal de service). Les autorisations peuvent également être à l’origine d’un scénario dans lequel vous pouvez ouvrir **l’authentification unique** , mais vous ne pourrez pas l’enregistrer. En savoir plus sur les rôles d’administration d’Azure AD voir (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
 
 ## <a name="basic-saml-configuration"></a>Configuration SAML de base
@@ -85,31 +85,34 @@ Depuis Azure AD, vous pouvez télécharger le certificat actif au format Base64 
 
 Voici quelques éléments courants à contrôler pour vérifier un certificat : 
    - *La date d’expiration correcte.* Vous pouvez configurer une date d’expiration allant jusqu’à trois ans dans le futur.
-   - *L’état actif du certificat approprié.* Si l’état est **inactif**, définissez-le sur **Actif**. Pour changer l’état, cliquez sur la ligne du certificat avec le bouton droit, puis sélectionnez **Définir comme certificat actif**.
+   - *L’état actif du certificat approprié.* Si l’état est **inactif** , définissez-le sur **Actif**. Pour changer l’état, cliquez sur la ligne du certificat avec le bouton droit, puis sélectionnez **Définir comme certificat actif**.
    - *L’option et l’algorithme de signature appropriés.*
    - *Les adresses e-mail de notification correctes.* Lorsque le certificat actif est proche de sa date d’expiration, Azure AD envoie une notification à l’adresse e-mail configurée dans ce champ.
 
-Vous devrez parfois télécharger le certificat. Choisissez l’emplacement d’enregistrement avec prudence. Pour télécharger le certificat, sélectionnez l'une des options suivantes pour le format Base64, le format Raw ou le fichier XML de métadonnées de fédération. Azure AD fournit également l’**URL des métadonnées de fédération de l’application**, où vous pouvez accéder aux métadonnées spécifiques à l’application au format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+Vous devrez parfois télécharger le certificat. Choisissez l’emplacement d’enregistrement avec prudence. Pour télécharger le certificat, sélectionnez l'une des options suivantes pour le format Base64, le format Raw ou le fichier XML de métadonnées de fédération. Azure AD fournit également l’ **URL des métadonnées de fédération de l’application** , où vous pouvez accéder aux métadonnées spécifiques à l’application au format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
-Pour apporter des modifications au certificat, cliquez sur le bouton Modifier. Vous pouvez effectuer plusieurs actions sur la page **Certificat de signature SAML** :
-   - Créer un certificat : sélectionnez **Nouveau certificat**, sélectionnez la **Date d’expiration**, puis sélectionnez **Enregistrer**. Pour activer le certificat, sélectionnez le menu contextuel ( **...** ), puis sélectionnez **Définir comme certificat actif**.
-   - Charger un certificat avec une clé privée et des informations d’identification PFX : sélectionnez **Importer un certificat** et accédez au certificat. Entrez le **Mot de passe PFX**, puis sélectionnez **Ajouter**.  
+> [!NOTE]
+> L’application doit être capable de gérer le marqueur d’ordre d’octet présent dans le fichier XML rendu lors de l’utilisation de https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id}. La marque d’ordre d’octet est représentée sous la forme d’un caractère ASCII non imprimable »¿, et dans Hex, elle est représentée sous la forme EF BB BF lors de la vérification des données XML.
+
+Pour apporter des modifications au certificat, cliquez sur le bouton Modifier. Vous pouvez effectuer plusieurs actions sur la page **Certificat de signature SAML**  :
+   - Créer un certificat : sélectionnez **Nouveau certificat** , sélectionnez la **Date d’expiration** , puis sélectionnez **Enregistrer**. Pour activer le certificat, sélectionnez le menu contextuel ( **...** ), puis sélectionnez **Définir comme certificat actif**.
+   - Charger un certificat avec une clé privée et des informations d’identification PFX : sélectionnez **Importer un certificat** et accédez au certificat. Entrez le **Mot de passe PFX** , puis sélectionnez **Ajouter**.  
    - Configurer la signature de certificat avancée : pour plus d’informations sur ces options, consultez [Options avancées de signature de certificats](certificate-signing-options.md).
    - Avertir d’autres personnes quand le certificat actif est proche de sa date d’expiration : entrez les adresses e-mail dans les champs **Adresses de courrier de notification**.
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Configurer l’application pour utiliser Azure AD
 
-La section **Configurer\<applicationName>** liste les valeurs qui doivent être configurées dans l’application afin d’utiliser Azure AD comme fournisseur d’identité SAML. Vous définissez les valeurs dans la page de configuration du site web des applications. Par exemple, si vous configurez GitHub, vous devez accéder au site github.com et définir les valeurs. Si l’application est déjà préconfigurée et disponible dans la galerie Azure AD, vous trouverez un lien permettant d’**obtenir des instructions pas à pas**. Sinon, vous devrez trouver la documentation de l’application que vous configurez. 
+La section **Configurer\<applicationName>** liste les valeurs qui doivent être configurées dans l’application afin d’utiliser Azure AD comme fournisseur d’identité SAML. Vous définissez les valeurs dans la page de configuration du site web des applications. Par exemple, si vous configurez GitHub, vous devez accéder au site github.com et définir les valeurs. Si l’application est déjà préconfigurée et disponible dans la galerie Azure AD, vous trouverez un lien permettant d’ **obtenir des instructions pas à pas**. Sinon, vous devrez trouver la documentation de l’application que vous configurez. 
 
 Les valeurs **URL de connexion** et **URL de déconnexion** correspondent toutes les deux au même point de terminaison, qui est le point de terminaison de gestion des requêtes SAML pour le locataire Azure AD. 
 
-L’**Identificateur Azure AD** est la valeur de l’**Émetteur** dans le jeton SAML émis pour l’application.
+L’ **Identificateur Azure AD** est la valeur de l’ **Émetteur** dans le jeton SAML émis pour l’application.
 
 ## <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Une fois que vous avez configuré votre application pour utiliser Azure AD en tant que fournisseur d'identité basé sur SAML, vous pouvez tester les paramètres pour vérifier le fonctionnement de la connexion unique avec votre compte. 
 
-Sélectionnez **Test**, puis choisissez d’effectuer un test avec l’utilisateur actuellement connecté ou un autre utilisateur. 
+Sélectionnez **Test** , puis choisissez d’effectuer un test avec l’utilisateur actuellement connecté ou un autre utilisateur. 
 
 Si l’authentification réussit, vous êtes prêt à affecter des utilisateurs et des groupes à votre application SAML. Félicitations !
 

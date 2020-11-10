@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 887e76fb1fa3dc630b12862c49689b3fa923b656
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7cc92c8bfb7dd9cb0328820009828ed0dd22e2a1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92794956"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339459"
 ---
 # <a name="certificate-authorities-used-by-azure-active-directory"></a>Autorités de certification utilisées par Azure Active Directory
 
@@ -31,7 +31,7 @@ Les autorités de certification peuvent être classées en Autorités de certifi
 
 ## <a name="cas-used-in-azure-public-and-azure-us-government-clouds"></a>Autorités de certification utilisées dans les clouds Azure (public) et Azure US Government
 
-Différents services peuvent utiliser des autorités de certification racines ou intermédiaires différentes.
+Différents services peuvent utiliser des autorités de certification racines ou intermédiaires différentes. Par conséquent, toutes les entrées listées ci-dessous peuvent être obligatoires.
 
 ### <a name="digicert-global-root-g2"></a>DigiCert Global Root G2
 
@@ -78,9 +78,8 @@ Différents services peuvent utiliser des autorités de certification racines ou
 | Autorité de certification émettrice et intermédiaire| Numéro de série| Date d’émission Date d’expiration| Empreinte numérique SHA1| URI |
 | - | - | - | - | - |
 | DigiCert SHA2 Secure Server CA| 01fda3eb6eca75c 888438b724bcfbc91| 8 mars 2013 8 mars 2023| 1fb86b1168ec743154062 e8c9cc5b171a4b7ccb4| [AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA.crt)<br>[CDP](http://crl3.digicert.com/ssca-sha2-g6.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| DigiCert SHA2 Secure Server CA |02742eaa17ca8e21 c717bb1ffcfd0ca0 |22 septembre 2020<br>22 septembre 2030|626d44e704d1ceabe3bf 0d53397464ac8080142c|[AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA-2.crt)<br>[CDP](http://crl3.digicert.com/DigiCertSHA2SecureServerCA.crl)<br>[OCSP](http://ocsp.digicert.com/)|
 
-
- 
 
 ## <a name="cas-used-in-azure-china-21vianet-cloud"></a>Autorités de certification utilisées dans le cloud Azure China 21Vianet
 

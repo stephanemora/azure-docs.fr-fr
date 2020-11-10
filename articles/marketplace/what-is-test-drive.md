@@ -7,66 +7,65 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121865"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911134"
 ---
 # <a name="what-is-a-test-drive"></a>Qu'est-ce qu’une version d'évaluation ?
 
-Une version d’évaluation est un bon moyen de présenter votre offre à vos clients potentiels en leur donnant la possibilité de *l’essayer avant de l’acheter*, ce qui se traduit par une hausse du taux de conversion et par la génération de prospects de qualité. Une version d’évaluation donne vie à votre produit dans un scénario d’implémentation réel, tout en générant des prospects de qualité.
+Une version d’évaluation est un bon moyen de présenter votre offre à vos clients potentiels en leur donnant la possibilité de l’essayer avant de l’acheter, ce qui se traduit par la génération de prospects de qualité et par une hausse du taux de conversion. Une version d’évaluation donne vie à votre produit dans un scénario d’implémentation réel. Les clients qui essaient votre produit manifestent une intention claire d'acheter une solution similaire. Utilisez cette approche à votre avantage en suivant les prospects les plus prometteurs.
 
-Les versions d’évaluation sont des instances gérées qui déploient votre solution ou application à la demande pour les clients qui le demandent. Une fois attribuée, l’instance de la version d’évaluation est utilisable pendant un laps de temps défini, puis elle est supprimée afin de céder la place à un autre client.
-
-En tant qu’éditeur, vous gérez et configurez les paramètres de la version d’évaluation dans Espace partenaires. Les détails de la configuration technique varient en fonction du type d’offre avec lequel vous travaillez. Pour obtenir des instructions détaillées, consultez le lien sous [Étape suivante](#next-step) à la fin de cette rubrique.
-
-Les clients potentiels découvrent votre version d’évaluation sur le marketplace commercial. Ils fournissent leurs coordonnées et acceptent les conditions générales et la politique de confidentialité de votre offre, puis accèdent à votre environnement préconfiguré pour l’essayer pendant une période déterminée. Les clients bénéficient d’un essai pratique et autonome des principaux avantages et fonctionnalités de votre produit et vous recevez un prospect de valeur.
+Vos clients bénéficient également d’une version d'évaluation. En les autorisant à essayer au préalable votre produit, vous facilitez le processus d’achat. En outre, la version d'évaluation est préprovisionnée, c’est-à-dire que les clients n’ont pas besoin de télécharger ou configurer le produit.
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-En tant qu’éditeur, vous gérez et configurez les paramètres de la version d’évaluation au sein d’Espace partenaires. Après l’installation, elle devient une instance gérée qui sera déployée à la demande pour le client qui le demande. Une fois attribuée, l’instance de la version d’évaluation est utilisable pendant un laps de temps défini, puis elle est supprimée afin de céder la place à un autre client.
+Les versions d’évaluation sont des instances gérées qui lancent votre solution ou application à la demande pour les clients qui le demandent. Une fois l’instance de version d'évaluation affectée, elle peut être utilisée par ce client pour une période définie. Une fois la période terminée, la version d’évaluation est supprimée afin de libérer de l’espace pour un autre client.
+
+En tant qu’éditeur, vous gérez et configurez les paramètres de la version d’évaluation dans Espace partenaires. Les détails de la configuration technique varient en fonction du type d’offre. Pour obtenir des instructions détaillées, consultez l’article [Configuration technique de la version d’évaluation](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+
+Les clients potentiels découvrent votre version d'évaluation en tant que CTA de votre offre sur [AppSource](https://appsource.microsoft.com/en-US/). Ils fournissent leurs coordonnées et acceptent les conditions générales et la politique de confidentialité de votre offre, puis accèdent à votre environnement préconfiguré pour l’essayer pendant une période déterminée. Les clients bénéficient d’un essai pratique et autonome des principaux avantages et fonctionnalités de votre produit et vous recevez un prospect de valeur.
 
 ## <a name="types-of-test-drives"></a>Types de versions d’évaluation
 
 Différentes versions d’évaluation sont disponibles sur le marketplace commercial pour certaines offres, selon le type de produit, de scénario et de marketplace sur lequel vous vous trouvez :
 
 - Azure Resource Manager
+    - Applications Azure
+    - SaaS
+    - Virtual Machines
 - Version d’évaluation hébergée
-    - Dynamics 365 pour Business Central
+    - Dynamics 365 pour Business central (actuellement non pris en charge)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- Application logique
+- Application logique (en mode de prise en charge uniquement)
 - Power BI
 
-Pour plus d’informations sur la configuration de l’une de ces versions d’évaluation, suivez le lien sous [Étape suivante](#next-step) à la fin de cette rubrique.
+Pour plus d’informations sur la configuration de l’une de ces versions d'évaluation, consultez [Configuration technique de la version d’évaluation](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
 Ce modèle de déploiement contient toutes les ressources Azure constituant votre solution. Les produits adaptés à ce scénario utilisent uniquement des ressources Azure. La version d'évaluation d’Azure Resource Manager est disponible pour ces types d’offre : 
 
 - Applications Azure
-- Dynamics 365 pour Business Central
-- Dynamics 365 for Customer Engagement et PowerApps
-- Dynamics 365 for Operations
 - SaaS
 - Machines virtuelles
 
 >[!NOTE]
 >Il s’agit de la seule option de version d’évaluation pour les offres de machines virtuelles et d’applications Azure.
 
-### <a name="hosted-test-drive"></a>Version d’évaluation hébergée
+### <a name="hosted-test-drive-recommended"></a>Version d'évaluation hébergée (recommandée)
 
-Une version d’évaluation hébergée simplifie la configuration en permettant à Microsoft d’héberger et de gérer le service qui effectue l’approvisionnement, le déploiement et le déprovisionnement de l’utilisateur de la version d’évaluation. Si vous disposez d’une offre sur Microsoft AppSource, créez votre version d’évaluation pour vous connecter à une instance Dynamics AX/CRM ou à toute autre ressource au-delà d’Azure. Utilisez ce type pour les offres AppSource afin de vous connecter à ces offres Dynamics 365 :
+Une version d’évaluation hébergée simplifie la configuration en permettant à Microsoft d’héberger et de gérer le service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation. Si vous disposez d’une offre sur Microsoft AppSource, créez votre version d’évaluation pour vous connecter à une instance Dynamics AX/CRM. Vous pouvez utiliser les types d’offres AppSource suivants :
 
-- Utilisez [Dynamics 365 for Business Central](partner-center-portal/create-new-operations-offer.md) pour un système central de planification des ressources de l’entreprise tel que les finances, les opérations, la chaîne logistique et CRM.
 - Utilisez [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) pour un système d’engagement des clients tel que les ventes, le service, le service de projet et le service sur le terrain.
 - Utilisez [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) pour un système de planification des ressources d’entreprise dans le domaine des finances et des opérations, comme les finances, les opérations, la fabrication et la chaîne logistique.
 
 ### <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 
-Ce type de version d’évaluation n’est pas hébergé par Microsoft. Utilisez-le pour vous connecter à une offre Dynamics 365 ou à une autre ressource personnalisée.
+Ce type de version d'évaluation n’est pas hébergé par Microsoft et utilise des modèles Azure Resource Manager (ARM) pour les types d’offres Dynamics AX/CRM. Vous devrez exécuter le modèle ARM pour créer les ressources requises dans votre abonnement Azure. La version d'évaluation d’application logique est actuellement en mode de prise en charge uniquement et n’est pas recommandée par Microsoft. Pour plus d’informations sur la configuration d’une version d'évaluation d’application logique, consultez [Configuration technique de la version d’évaluation](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
 
 ### <a name="power-bi-test-drive"></a>Version d’évaluation de Power BI
 
@@ -92,7 +91,7 @@ Si vous concluez une affaire avec un prospect ayant utilisé une version d’év
 
 Ressources supplémentaires pour version d’évaluation :
 
-- [Meilleures pratiques techniques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Test drive des meilleures pratiques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Vue d’ensemble](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF ; veillez à désactiver votre bloqueur de fenêtres publicitaires)
 
 ## <a name="next-step"></a>Étape suivante

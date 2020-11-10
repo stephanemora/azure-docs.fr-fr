@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611518"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927921"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Disques de système d’exploitation éphémères pour les machines virtuelles Azure
 
@@ -34,7 +34,7 @@ Différences clés entre les disques de système d’exploitation persistants et
 
 |                             | Disque de système d’exploitation persistant                          | Disque de système d’exploitation éphémère                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Limite de taille du disque de système d’exploitation**      | 2 Tio                                                                                        | Taille du cache pour la taille de la machine virtuelle ou 2 Tio, la valeur la plus faible étant retenue. Pour la **taille du cache en Gio**, consultez [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
+| **Limite de taille du disque de système d’exploitation**      | 2 Tio                                                                                        | Taille du cache pour la taille de la machine virtuelle ou 2 Tio, la valeur la plus faible étant retenue. Pour la **taille du cache en Gio** , consultez [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
 | **Tailles de machines virtuelles prises en charge**          | Tous                                                                                          | Tailles de machine virtuelle prenant en charge le stockage Premium, par exemple, DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS ou M                                               |
 | **Prise en charge du type de disque**           | Disque de système d’exploitation managé et non managé                                                                | Disque de système d’exploitation managé uniquement                                                               |
 | **Prise en charge des régions**              | Toutes les régions                                                                                  | Toutes les régions                              |
@@ -42,7 +42,8 @@ Différences clés entre les disques de système d’exploitation persistants et
 | **État arrêté/libéré**      | Les machines virtuelles et instances de groupe identique peuvent être arrêtées-libérées et redémarrées à partir de l’état arrêté-libéré | Les machines virtuelles et instances de groupe identique ne peuvent pas être arrêtées-libérées                                  |
 | **Prise en charge des disques de système d’exploitation spécialisés** | Oui                                                                                          | Non                                                                                 |
 | **Redimensionnement du disque de système d’exploitation**              | Pris en charge durant la création de la machine virtuelle et une fois que la machine virtuelle est arrêtée-libérée                                | Prise en charge lors de la création d’une machine virtuelle uniquement                                                  |
-| **Redimensionnement des machines virtuelles**   | Les données du disque de système d’exploitation sont conservées                                                                    | Les données sur le disque du système d’exploitation sont supprimées, le système d’exploitation est redéployé                                      |
+| **Redimensionnement des machines virtuelles**   | Les données du disque de système d’exploitation sont conservées                                                                    | Les données sur le disque du système d’exploitation sont supprimées, le système d’exploitation est redéployé       
+| **Emplacement du fichier d’échange**   | Pour Windows, le fichier d’échange est stocké sur le disque de ressources                                              | Pour Windows, le fichier d’échange est stocké sur le disque du système d’exploitation   |
 
 ## <a name="size-requirements"></a>Exigences de taille
 
@@ -93,7 +94,7 @@ Dans le portail Azure, vous pouvez choisir d’utiliser des disques éphémères
 
 Si l’option pour l’utilisation d’un disque éphémère est grisée, vous avez peut-être sélectionné une taille de machine virtuelle qui n’a pas une taille de cache supérieure à l’image du système d’exploitation ou qui ne prend pas en charge le stockage Premium. Revenez à la page **Notions de base** et essayez de choisir une autre taille de machine virtuelle.
 
-Vous pouvez également créer des groupes identiques avec des disques de système d’exploitation éphémères en utilisant le portail. Veillez simplement à sélectionner une taille de machine virtuelle avec une taille de cache suffisamment grande, puis dans **Utiliser un disque du système d’exploitation éphémère**, sélectionnez **Oui**.
+Vous pouvez également créer des groupes identiques avec des disques de système d’exploitation éphémères en utilisant le portail. Veillez simplement à sélectionner une taille de machine virtuelle avec une taille de cache suffisamment grande, puis dans **Utiliser un disque du système d’exploitation éphémère** , sélectionnez **Oui**.
 
 ![Capture d’écran montrant le bouton radio pour choisir d’utiliser un disque de système d’exploitation éphémère pour votre groupe identique](./media/virtual-machines-common-ephemeral/scale-set.png)
 

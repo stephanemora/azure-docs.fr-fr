@@ -3,12 +3,12 @@ title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371441"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913804"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
@@ -68,7 +68,7 @@ Deux types de configurations de pool sont disponibles dans Batch.
 
 La **configuration de machines virtuelles** indique que le pool est composé de machines virtuelles Azure. Ces machines virtuelles peuvent être créées à partir d’images Linux ou Windows.
 
-Lorsque vous créez un pool basé sur la configuration de machine virtuelle, vous devez spécifier la taille des nœuds, mais aussi la source et les images utilisées pour les créer, la **référence d’image de machine virtuelle** et la **référence SKU de l’agent du nœud** à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md). Vous pouvez éventuellement attacher un ou plusieurs disques de données vides au pool de machines virtuelles créé à partir d’images de la Place de Marché, ou inclure des disques de données dans des images personnalisées utilisées pour créer les machines virtuelles. Quand vous incluez des disques de données, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
+L’[agent de nœud de Batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) est un programme qui s’exécute sur chaque nœud dans le pool et fournit l’interface de commande et de contrôle entre le nœud et le service Batch. Il existe différentes implémentations de l’agent de nœud pour différents systèmes d’exploitation, connues sous le nom de références. Lorsque vous créez un pool basé sur la configuration de machine virtuelle, vous devez spécifier la taille des nœuds, mais aussi la source et les images utilisées pour les créer, la **référence d’image de machine virtuelle** et la **référence SKU de l’agent du nœud** à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md). Vous pouvez éventuellement attacher un ou plusieurs disques de données vides au pool de machines virtuelles créé à partir d’images de la Place de Marché, ou inclure des disques de données dans des images personnalisées utilisées pour créer les machines virtuelles. Quand vous incluez des disques de données, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
 
 ### <a name="cloud-services-configuration"></a>Configuration des Services cloud
 

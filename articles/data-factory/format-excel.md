@@ -7,19 +7,19 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 74cfabff22074ee405d7b417e306da62ef69ae19
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636338"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927106"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format Excel dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Suivez cet article lorsque vous souhaitez **analyser les fichiers Excel** . Azure Data Factory prend en charge « .xls » et « .xlsx ».
+Suivez cet article lorsque vous souhaitez **analyser les fichiers Excel**. Azure Data Factory prend en charge « .xls » et « .xlsx ».
 
 Le format Excel est pris en charge pour les connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md). Il est pris en charge en tant que source, mais pas en tant que récepteur. 
 
@@ -31,15 +31,15 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété         | Description                                                  | Obligatoire |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La propriété type du jeu de données doit être définie sur **Excel** .   | Oui      |
+| type             | La propriété type du jeu de données doit être définie sur **Excel**.   | Oui      |
 | location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. | Oui      |
 | sheetName        | Nom de la feuille de calcul Excel pour lire les données.                       | Oui      |
 | range            | Plage de cellules dans la feuille de calcul donnée pour localiser les données sélectives, par exemple :<br>- Non spécifiée : lit l’intégralité de la feuille de calcul en tant que table à partir des premières ligne et colonne non vides<br>- `A3` : lit une table en commençant à la cellule donnée, détecte de façon dynamique toutes les lignes situées en dessous et toutes les colonnes à droite<br>- `A3:H5` : lit cette plage fixe en tant que table<br>- `A3:A3` : lit cette cellule unique | Non       |
 | firstRowAsHeader | Spécifie s’il faut considérer la première ligne dans la feuille de calcul/plage donnée comme une ligne d’en-tête avec les noms des colonnes.<br>Les valeurs autorisées sont **True** et **False** (par défaut). | Non       |
-| nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide** . | Non       |
+| nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide**. | Non       |
 | compression | Groupe de propriétés pour configurer la compression de fichier. Configurez cette section lorsque vous souhaitez effectuer la compression/décompression lors de l’exécution de l’activité. | Non |
-| type<br/>( *sous `compression`* ) | Le codec de compression utilisé pour lire/écrire des fichiers JSON. <br>Les valeurs autorisées sont **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** et **lz4** . La valeur par défaut n’est pas compressée.<br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ».<br>**Remarque** lorsque vous utilisez l’activité de copie pour décompresser un ou plusieurs fichiers **ZipDeflate** et écrire dans le magasin de données du récepteur basé sur fichier, les fichiers sont extraits dans le dossier : `<path specified in dataset>/<folder named as source zip file>/`. | Non.  |
-| level<br/>( *sous `compression`* ) | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest** .<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal**  : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](/dotnet/api/system.io.compression.compressionlevel) . | Non       |
+| type<br/>( *sous `compression`* ) | Le codec de compression utilisé pour lire/écrire des fichiers JSON. <br>Les valeurs autorisées sont **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **Tar** , **snappy** et **lz4**. La valeur par défaut n’est pas compressée.<br>**Remarque :** Pour l’instant, l’activité de copie ne prend pas en charge « snappy » ni « lz4 ». Le flux de données de mappage ne prend pas en charge « ZipDeflate », « TarGzip » ni « Tar ».<br>**Remarque** lorsque vous utilisez l’activité de copie pour décompresser un ou plusieurs fichiers **ZipDeflate** et écrire dans le magasin de données du récepteur basé sur fichier, les fichiers sont extraits dans le dossier : `<path specified in dataset>/<folder named as source zip file>/`. | Non.  |
+| level<br/>( *sous `compression`* ) | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal**  : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
 
 Voici un exemple de jeu de données Excel sur Stockage Blob Azure :
 
@@ -77,7 +77,7 @@ Les propriétés prises en charge dans la section **_\_source\*** * de l’activ
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La propriété type de la source de l’activité de copie doit être définie sur **ExcelSource** . | Oui      |
+| type          | La propriété type de la source de l’activité de copie doit être définie sur **ExcelSource**. | Oui      |
 | storeSettings | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. | Non       |
 
 ```json
@@ -106,7 +106,7 @@ Dans les flux de données de mappage, vous pouvez lire le format Excel dans les
 
 ### <a name="source-properties"></a>Propriétés de source
 
-Le tableau ci-dessous répertorie les propriétés prises en charge par une source Excel. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source** . Lorsque vous utilisez un jeu de données inlined, vous verrez des paramètres de fichier supplémentaires qui sont les mêmes que les propriétés décrites dans la section des [propriétés du jeu de données](#dataset-properties).
+Le tableau ci-dessous répertorie les propriétés prises en charge par une source Excel. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**. Lorsque vous utilisez un jeu de données inlined, vous verrez des paramètres de fichier supplémentaires qui sont les mêmes que les propriétés décrites dans la section des [propriétés du jeu de données](#dataset-properties).
 
 | Nom                      | Description                                                  | Obligatoire | Valeurs autorisées                                            | Propriété du script de flux de données         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |

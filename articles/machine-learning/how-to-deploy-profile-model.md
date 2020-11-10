@@ -1,7 +1,7 @@
 ---
 title: Profiler l’utilisation du processeur et de la mémoire d’un modèle
 titleSuffix: Azure Machine Learning
-description: Découvrez comment profiler l’utilisation du processeur et de la mémoire de votre modèle
+description: Découvrez comment profiler votre modèle avant son déploiement. Le profilage détermine l’utilisation de la mémoire et du processeur de votre modèle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 95f35c2734e0a8dbc39d409847976b8b31716f81
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998776"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320400"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profiler votre modèle pour déterminer l’utilisation des ressources
 

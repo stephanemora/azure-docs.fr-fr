@@ -8,12 +8,12 @@ author: georgewallace
 ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737213"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928057"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Créer un cluster privé Azure Red Hat OpenShift 4
 
@@ -73,7 +73,7 @@ Si vous copiez votre secret d’extraction, ou que vous le référencez dans d�
 
 Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vides.
 
-1. **Définissez les variables suivantes** .
+1. **Définissez les variables suivantes**.
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -104,7 +104,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     }
     ```
 
-2. **Créez un réseau virtuel** .
+2. **Créez un réseau virtuel**.
 
     Les clusters Azure Red Hat OpenShift exécutant OpenShift 4 nécessitent un réseau virtuel avec deux sous-réseaux vides (pour les nœuds principaux et les nœuds worker).
 
@@ -137,7 +137,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     }
     ```
 
-3. **Ajoutez un sous-réseau vide pour les nœuds principaux** .
+3. **Ajoutez un sous-réseau vide pour les nœuds principaux**.
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -148,7 +148,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Ajoutez un sous-réseau vide pour les nœuds worker** .
+4. **Ajoutez un sous-réseau vide pour les nœuds worker**.
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -159,7 +159,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Désactivez les stratégies pour les points de terminaison privés](../private-link/disable-private-link-service-network-policy.md) dans le sous-réseau principal** . Cela est obligatoire pour pouvoir se connecter au cluster et le gérer.
+5. **[Désactivez les stratégies pour les points de terminaison privés](../private-link/disable-private-link-service-network-policy.md) dans le sous-réseau principal**. Cela est obligatoire pour pouvoir se connecter au cluster et le gérer.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -229,7 +229,7 @@ Vous trouverez l’URL de la console de cluster en exécutant la commande suivan
 
 Lancez l’URL de la console dans un navigateur et connectez-vous à l’aide des informations d’identification `kubeadmin`.
 
-![Écran de connexion Azure Red Hat OpenShift](media/aro4-login.png)
+![Capture d’écran montrant l’écran de connexion Azure Red Hat OpenShift.](media/aro4-login.png)
 
 ## <a name="install-the-openshift-cli"></a>Installer l’interface CLI OpenShift
 

@@ -111,7 +111,7 @@
       items:
         - name: Afficher des métriques dans Azure Monitor
           href: troubleshoot-metrics.md
-        - name: Activer les journaux de diagnostic
+        - name: Activer et interroger les journaux de diagnostic
           href: troubleshoot-diagnostics.md
         - name: Activer les alertes
           href: troubleshoot-alerts.md

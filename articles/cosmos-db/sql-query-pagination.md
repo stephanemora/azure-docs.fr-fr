@@ -4,16 +4,18 @@ description: Découvrez les concepts de pagination et les jetons de continuation
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8219611ac2334594dc826db3c8191102d7383835
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485033"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338269"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Pagination dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dans Azure Cosmos DB, les requêtes peuvent comporter plusieurs pages de résultats. Ce document explique les critères que le moteur de requête d’Azure Cosmos DB utilise pour décider s’il faut répartir les résultats de la requête sur plusieurs pages. Vous pouvez éventuellement utiliser des jetons de continuation pour gérer les résultats de requête qui s’étendent sur plusieurs pages.
 
@@ -45,12 +47,13 @@ Voici quelques exemples de traitement des résultats à partir de requêtes avec
 
 ## <a name="continuation-tokens"></a>Jetons de continuation
 
-Dans les kits SDK .NET et Java, vous pouvez éventuellement utiliser des jetons de continuation comme signet pour la progression de votre requête. Les exécutions de requête Azure Cosmos DB sont sans état côté serveur et peuvent reprendre à tout moment à l’aide du jeton de continuation. Les jetons de continuation ne sont pas pris en charge dans les kits SDK Node.js et Python.
+Dans les kits SDK .NET et Java, vous pouvez éventuellement utiliser des jetons de continuation comme signet pour la progression de votre requête. Les exécutions de requête Azure Cosmos DB sont sans état côté serveur et peuvent reprendre à tout moment à l’aide du jeton de continuation. Les jetons de continuation ne sont pas pris en charge dans le kit SDK Node.js. Pour le kit de développement logiciel (SDK) Python, il est pris en charge pour les requêtes à partition unique, et la clé primaire doit être spécifiée dans l’objet d’options, car il n’est pas suffisant dans la requête elle-même.
 
 Voici quelques exemples d’utilisation de jetons de continuation :
 
 - [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [Kit SDK Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Si la requête retourne un jeton de continuation, il existe des résultats de requête supplémentaires.
 

@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881898"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305829"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Sortie Azure Synapse Analytics à partir d’Azure Stream Analytics
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (anciennement SQL Data Warehouse) est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique du Big Data. 
 
-Les tâches Azure Stream Analytics peuvent définir une sortie vers une table de pool SQL dans Azure Stream Analytics et traiter des débits jusqu’à 200 Mo/s. Cela permet de prendre en charge les besoins les plus exigeants en matière d'analytique en temps réel et de traitement des données de chemin réactif pour des charges de travail telles que la création de rapports et de tableaux de bord.  
+Les tâches Azure Stream Analytics peuvent définir une sortie vers une table de pool SQL dédié dans Azure Stream Analytics et traiter des débits jusqu’à 200 Mo/s. Cela permet de prendre en charge les besoins les plus exigeants en matière d'analytique en temps réel et de traitement des données de chemin réactif pour des charges de travail telles que la création de rapports et de tableaux de bord.  
 
-La table de pool SQL doit être présente pour vous permettre de l'ajouter en tant qu'entrée à votre tâche Stream Analytics. Le schéma de table doit correspondre aux champs et aux types dans la sortie de votre travail. 
+La table de pool SQL dédié doit être présente pour vous permettre de l'ajouter en tant qu'entrée à votre tâche Stream Analytics. Le schéma de table doit correspondre aux champs et aux types dans la sortie de votre travail. 
 
 Pour utiliser Azure Synapse en tant que sortie, assurez-vous que le compte de stockage est configuré. Accédez aux paramètres du compte de stockage pour configurer le compte de stockage. Seuls les types de compte de stockage prenant en charge les tables sont autorisés : Usage général V2 et Usage général V1 Sélectionnez le niveau Standard uniquement. Le niveau Premium n’est pas pris en charge.
 
@@ -31,7 +31,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 |Nom de la propriété|Description|
 |-|-|
 |Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette base de données. |
-|Base de données |Nom du pool SQL où vous envoyez votre sortie. |
+|Base de données |Nom du pool SQL dédié où vous envoyez votre sortie. |
 |Nom du serveur |Nom du serveur Azure Synapse.  |
 |Nom d’utilisateur |Nom de l’utilisateur qui a accès en écriture à la base de données. Stream Analytics prend uniquement en charge l’authentification SQL. |
 |Mot de passe |Mot de passe de connexion à la base de données. |

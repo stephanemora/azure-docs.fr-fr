@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dea38705dbb6c2b7abd8a9786ef9adb66ad56ad7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302381"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320444"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publier et suivre des pipelines Machine Learning
 
@@ -38,7 +38,7 @@ Les pipelines Machine Learning sont des flux de travail réutilisables pour les 
 
 Une fois que vous disposez d’un pipeline opérationnel, vous pouvez publier un pipeline pour qu’il s’exécute avec des entrées différentes. Pour que le point de terminaison REST d’un pipeline déjà publié accepte des paramètres, vous devez configurer votre pipeline afin d’utiliser des objets `PipelineParameter` pour les arguments qui varient.
 
-1. Pour créer un paramètre de pipeline, utilisez un objet [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) avec une valeur par défaut.
+1. Pour créer un paramètre de pipeline, utilisez un objet [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) avec une valeur par défaut.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -73,7 +73,10 @@ Une fois que vous disposez d’un pipeline opérationnel, vous pouvez publier un
 
 Tous les pipelines publiés disposent d’un point de terminaison REST. Avec le point de terminaison de pipeline, vous pouvez déclencher une exécution du pipeline à partir de n’importe quel système externe, notamment des clients autres que Python. Ce point de terminaison active la « répétabilité managée » dans les scénarios de scoring et de nouvel apprentissage.
 
-Pour appeler l’exécution du pipeline précédent, vous avez besoin d’un jeton d’en-tête d’authentification Azure Active Directory. L’obtention de ce jeton est décrite dans les informations de référence sur la [classe AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py&preserve-view=true) et dans le notebook [Authentification dans Azure Machine Learning](https://aka.ms/pl-restep-auth).
+> [!IMPORTANT]
+> Si vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès à votre pipeline, [définissez les autorisations pour votre scénario de pipeline (apprentissage ou scoring)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service).
+
+Pour appeler l’exécution du pipeline précédent, vous avez besoin d’un jeton d’en-tête d’authentification Azure Active Directory. L’obtention de ce jeton est décrite dans les informations de référence sur la [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) et dans le notebook [Authentification dans Azure Machine Learning](https://aka.ms/pl-restep-auth).
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -95,9 +98,148 @@ L’argument `json` de la requête POST doit contenir, pour la clé `ParameterAs
 | `DataSetDefinitionValueAssignments` | Dictionnaire utilisé pour modifier des jeux de données sans nouvel apprentissage (voir la discussion ci-dessous) | 
 | `DataPathAssignments` | Dictionnaire utilisé pour modifier des chemins de données sans nouvel apprentissage (voir la discussion ci-dessous) | 
 
+### <a name="run-a-published-pipeline-using-c"></a>Exécuter un pipeline publié à l’aide de C# 
+
+Le code suivant montre comment appeler un pipeline de manière asynchrone à partir de C#. L’extrait de code partiel montre simplement la structure d’appel et ne fait pas partie d’un exemple Microsoft. Il n’affiche pas les classes complètes ou la gestion des erreurs. 
+
+```csharp
+[DataContract]
+public class SubmitPipelineRunRequest
+{
+    [DataMember]
+    public string ExperimentName { get; set; }
+
+    [DataMember]
+    public string Description { get; set; }
+
+    [DataMember(IsRequired = false)]
+    public IDictionary<string, string> ParameterAssignments { get; set; }
+}
+
+// ... in its own class and method ... 
+const string RestEndpoint = "your-pipeline-endpoint";
+
+using (HttpClient client = new HttpClient())
+{
+    var submitPipelineRunRequest = new SubmitPipelineRunRequest()
+    {
+        ExperimentName = "YourExperimentName", 
+        Description = "Asynchronous C# REST api call", 
+        ParameterAssignments = new Dictionary<string, string>
+        {
+            {
+                // Replace with your pipeline parameter keys and values
+                "your-pipeline-parameter", "default-value"
+            }
+        }
+    };
+
+    string auth_key = "your-auth-key"; 
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth_key);
+
+    // submit the job
+    var requestPayload = JsonConvert.SerializeObject(submitPipelineRunRequest);
+    var httpContent = new StringContent(requestPayload, Encoding.UTF8, "application/json");
+    var submitResponse = await client.PostAsync(RestEndpoint, httpContent).ConfigureAwait(false);
+    if (!submitResponse.IsSuccessStatusCode)
+    {
+        await WriteFailedResponse(submitResponse); // ... method not shown ...
+        return;
+    }
+
+    var result = await submitResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+    var obj = JObject.Parse(result);
+    // ... use `obj` dictionary to access results
+}
+```
+
+### <a name="run-a-published-pipeline-using-java"></a>Exécuter un pipeline publié à l’aide de Java
+
+Le code suivant illustre un appel à un pipeline qui requiert une authentification (consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md)). Si votre pipeline est déployé publiquement, vous n’avez pas besoin des appels qui produisent `authKey`. L’extrait de code partiel n’indique pas la classe Java et le texte de gestion des exceptions. Le code utilise `Optional.flatMap` pour le chaînage des fonctions qui peuvent retourner une valeur `Optional`vide. L’utilisation de `flatMap` raccourcit et clarifie le code, mais notez que `getRequestBody()` ingère les exceptions.
+
+```java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
+// JSON library
+import com.google.gson.Gson;
+
+String scoringUri = "scoring-endpoint";
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+String dataToBeScored = "{ \"ExperimentName\" : \"My_Pipeline\", \"ParameterAssignments\" : { \"pipeline_arg\" : \"20\" }}";
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+Optional<String> authBody = getRequestBody(client, tokenAuthenticationRequest);
+Optional<String> authKey = authBody.flatMap(body -> Optional.of(gson.fromJson(body, AuthenticationBody.class).access_token);;
+Optional<HttpRequest> scoringRequest = authKey.flatMap(key -> Optional.of(scoringRequest(key, scoringUri, dataToBeScored)));
+Optional<String> scoringResult = scoringRequest.flatMap(req -> getRequestBody(client, req));
+// ... etc (`scoringResult.orElse()`) ... 
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl)
+{
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(authUrl))
+        .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+        .build();
+    return request;
+}
+
+static HttpRequest scoringRequest(String authKey, String scoringUri, String dataToBeScored)
+{
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(scoringUri))
+        .header("Authorization", String.format("Token %s", authKey))
+        .POST(HttpRequest.BodyPublishers.ofString(dataToBeScored))
+        .build();
+    return request;
+
+}
+
+static Optional<String> getRequestBody(HttpClient client, HttpRequest request) {
+    try {
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() != 200) {
+            System.out.println(String.format("Unexpected server response %d", response.statusCode()));
+            return Optional.empty();
+        }
+        return Optional.of(response.body());
+    }catch(Exception x)
+    {
+        System.out.println(x.toString());
+        return Optional.empty();
+    }
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
 ### <a name="changing-datasets-and-datapaths-without-retraining"></a>Modification de jeux de données et de chemins de données sans nouvel apprentissage
 
-Vous pouvez effectuer l’apprentissage et l’inférence sur différents jeux de données et chemins de données. Par exemple, vous pouvez effectuer l’apprentissage sur un jeu de données plus petit, moins dense, mais l’inférence sur le jeu de données complet. Vous basculez les jeux de données avec la clé `DataSetDefinitionValueAssignments` dans l’argument `json` de la demande. Vous basculez les chemins de données avec `DataPathAssignments`. La technique pour les deux est similaire :
+Vous pouvez effectuer l’apprentissage et l’inférence sur différents jeux de données et chemins de données. Par exemple, vous pouvez effectuer l’apprentissage sur un jeu de données plus petit, mais l’inférence sur le jeu de données complet. Vous basculez les jeux de données avec la clé `DataSetDefinitionValueAssignments` dans l’argument `json` de la demande. Vous basculez les chemins de données avec `DataPathAssignments`. La technique pour les deux est similaire :
 
 1. Dans le script de définition de votre pipeline, créez un `PipelineParameter` pour le jeu de données. Créez une `DatasetConsumptionConfig` ou un `DataPath` à partir du `PipelineParameter` :
 
@@ -155,7 +297,7 @@ Les blocs-notes [Présentation de jeu de données et PipelineParameter](https://
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>Créer un point de terminaison de pipeline en versions gérées
 
-Vous pouvez créer un point de terminaison de pipeline avec plusieurs pipelines publiés derrière. Cela vous procure un point de terminaison REST au moment de l’itération et de la mise à jour de vos pipelines Machine Learning.
+Vous pouvez créer un point de terminaison de pipeline avec plusieurs pipelines publiés derrière. Cette technique vous procure un point de terminaison REST au moment de l’itération et de la mise à jour de vos pipelines Machine Learning.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -218,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Vous pouvez le réactiver avec `p.enable()`. Pour plus d’informations, consultez la référence de la [classe PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py&preserve-view=true).
+Vous pouvez le réactiver avec `p.enable()`. Pour plus d’informations, consultez la référence de la [classe PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Utilisez [ces blocs-notes Jupyter sur GitHub](https://aka.ms/aml-pipeline-readme) pour explorer plus en détail les pipelines Machine Learning.
-- Consultez l’aide relative à la référence SDK des packages [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) et [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true).
+- Consultez l’aide relative à la référence SDK des packages [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) et [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py).
 - Consultez le [guide pratique](how-to-debug-pipelines.md) pour obtenir des conseils sur le débogage et la résolution des problèmes de pipelines.

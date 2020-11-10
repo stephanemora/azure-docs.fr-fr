@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961854"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928006"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Déploiement continu avec Web App pour conteneurs
 
@@ -26,7 +26,7 @@ Dans ce didacticiel, vous allez configurer le déploiement continu d’une image
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez l’option **App Service** sur le côté gauche de la page.
 3. Sélectionnez le nom de l’application pour laquelle vous souhaitez configurer le déploiement continu.
-4. Dans la page **Paramètres de conteneur**, sélectionnez **Conteneur unique**.
+4. Dans la page **Paramètres de conteneur** , sélectionnez **Conteneur unique**.
 5. Sélectionnez **Azure Container Registry**.
 6. Sélectionnez **Déploiement continu > Activé**.
 7. Sélectionnez **Enregistrer** pour activer le déploiement continu.
@@ -35,7 +35,7 @@ Dans ce didacticiel, vous allez configurer le déploiement continu d’une image
 
 Une fois que le déploiement continu a été activé, vous pouvez afficher le webhook qui vient d’être créé sur votre page de webhooks Azure Container Registry.
 
-![Capture d’écran du webhook ACR](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Capture d’écran montrant où vous pouvez afficher le webhook qui vient d’être créé sur votre page de webhooks Azure Container Registry.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 Dans votre registre Container Registry, cliquez sur Webhooks pour afficher les webhooks actifs.
 
@@ -44,7 +44,7 @@ Dans votre registre Container Registry, cliquez sur Webhooks pour afficher les w
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez l’option **App Service** sur le côté gauche de la page.
 3. Sélectionnez le nom de l’application pour laquelle vous souhaitez configurer le déploiement continu.
-4. Dans la page **Paramètres de conteneur**, sélectionnez **Conteneur unique**.
+4. Dans la page **Paramètres de conteneur** , sélectionnez **Conteneur unique**.
 5. Sélectionnez **Docker Hub**.
 6. Sélectionnez **Déploiement continu > Activé**.
 7. Sélectionnez **Enregistrer** pour activer le déploiement continu.

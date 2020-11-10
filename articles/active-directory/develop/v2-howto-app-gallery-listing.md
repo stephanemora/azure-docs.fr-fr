@@ -1,5 +1,5 @@
 ---
-title: Publier votre application dans la galerie d’applications Azure AD
+title: Publication de votre application dans la galerie d'applications Azure Active Directory
 description: Apprendre à lister une application qui prend en charge l’authentification unique dans la galerie d’applications Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275692"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339430"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publier votre application dans la galerie d’applications Azure AD
 
@@ -60,11 +60,28 @@ Les étapes de publication de votre application dans la Galerie d’applications
 5. Envoyez votre application.
 6. Rejoignez le Microsoft Partner Network.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>Qu’est-ce que la galerie d’applications Azure AD ?
+
+- Les clients bénéficient de l’expérience d’authentification unique la meilleure possible.
+- La configuration de l’application est simple et minime.
+- Une recherche rapide permet de trouver votre application dans la galerie.
+- Les clients Azure AD des abonnements Gratuit, De base et Premium peuvent tous utiliser cette intégration.
+- Les clients mutuels obtiennent un tutoriel de configuration pas à pas.
+- Les clients qui utilisent [SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010) (System for Cross-domain Identity Management) peuvent utiliser le provisionnement pour la même application.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Vous avez besoin d’un compte permanent pour les tests avec au moins deux utilisateurs inscrits.
 
+- Pour des applications fédérées (Open ID et SAML/WS-Fed), l’application doit prendre en charge le modèle SaaS (Software as a Service, logiciel en tant que service) pour être répertoriée dans la galerie d’applications Azure AD. Les applications de galerie d’entreprise doivent prendre en charge plusieurs configurations client et non pas un client spécifique.
+- Pour Open ID Connect, l’application doit être mutualisée et l’[infrastructure de consentement Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) doit être correctement implémentée pour l’application. L’utilisateur peut envoyer la demande de connexion à un point de terminaison commun de façon à ce que tout client puisse donner son consentement à l’application. Vous pouvez contrôler l’accès utilisateur en fonction de l’ID de locataire et de l’UPN de l’utilisateur, reçus dans le jeton.
+- Pour SAML 2.0/WS-Fed, votre application doit pouvoir effectuer l’intégration de l’authentification unique SAML/WS-Fed en mode SP ou IDP. Assurez-vous que cette fonctionnalité fonctionne correctement avant d’envoyer la demande.
+- Pour une authentification unique par mot de passe, assurez-vous que votre application prend en charge l’authentification par formulaire de telle sorte que le mot de passe puisse être stocké dans le coffre pour que le travail d’authentification unique fonctionne comme prévu.
+- Vous avez besoin d’un compte permanent pour les tests avec au moins deux utilisateurs inscrits.
+
+**Comment obtenir Azure AD pour développeurs ?**
+
+Vous pouvez obtenir un compte de test gratuit avec toutes les fonctionnalités Azure AD Premium : 90 jours gratuits qui peuvent être étendus tant que vous l’utilisez pour effectuer des tâches de développement : https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Étape 1 : Choisissez la norme d’authentification unique appropriée pour votre application
 
@@ -159,9 +176,9 @@ En guise d’alternative, un locataire Azure AD est fourni avec chaque abonnemen
 
 Une fois que vous avez un locataire, vous devez activer et tester l’accès d’authentification unique. 
 
-**Pour les applications OIDC ou Oath**, [inscrivez votre application](quickstart-register-app.md) comme une application mutualisée. Sous Types de comptes pris en charge, sélectionnez l’option Comptes dans un annuaire organisationnel et comptes personnels Microsoft.
+**Pour les applications OIDC ou Oath** , [inscrivez votre application](quickstart-register-app.md) comme une application mutualisée. Sous Types de comptes pris en charge, sélectionnez l’option Comptes dans un annuaire organisationnel et comptes personnels Microsoft.
 
-**Pour les applications basées sur SAML et WS-Fed**, vous [Configurez des applications avec authentification unique basée sur SAML](../manage-apps/configure-saml-single-sign-on.md) à l’aide d’un modèle SAML générique dans Azure AD.
+**Pour les applications basées sur SAML et WS-Fed** , vous [Configurez des applications avec authentification unique basée sur SAML](../manage-apps/configure-saml-single-sign-on.md) à l’aide d’un modèle SAML générique dans Azure AD.
 
 Vous pouvez également [convertir une application à locataire unique en application mutualisée](howto-convert-app-to-be-multi-tenant.md) si nécessaire.
 
@@ -236,7 +253,7 @@ Si vous souhaitez ajouter votre application à la liste dans la galerie à l’a
 
 ![Listing d’une application OpenID Connect dans la galerie](./media/howto-app-gallery-listing/openid.png)
 
-Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de **SAML 2.0** ou **WS-Fed**, sélectionnez **SAML 2.0/WS-Fed** comme illustré ici.
+Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de **SAML 2.0** ou **WS-Fed** , sélectionnez **SAML 2.0/WS-Fed** comme illustré ici.
 
 ![Listing d’une application SAML 2.0 ou WS-Fed dans la galerie](./media/howto-app-gallery-listing/saml.png)
 
@@ -256,6 +273,16 @@ Vous pouvez mettre à jour ou supprimer une application de galerie existante dan
 
 > [!NOTE]
 > Si vous rencontrez des problèmes d’accès, consultez la section précédente sur la création de votre compte. Si cela ne fonctionne pas, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+### <a name="list-requests-by-customers"></a>Demandes de listing par les clients
+
+Les clients peuvent envoyer une demande pour lister une application en sélectionnant **Demandes d’application par les clients** > **Soumettre une nouvelle demande**.
+
+![Montre la vignette des applications demandées par les clients](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Voici le flux des applications demandées par les clients.
+
+![Montre le flux des applications demandées par les clients](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>Chronologies

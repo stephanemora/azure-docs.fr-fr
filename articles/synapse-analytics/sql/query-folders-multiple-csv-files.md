@@ -1,6 +1,6 @@
 ---
-title: Interroger plusieurs dossiers et fichiers à l’aide de SQL à la demande (préversion)
-description: SQL à la demande (préversion) prend en charge la lecture de plusieurs fichiers ou dossiers en utilisant des caractères génériques similaires à ceux utilisés dans le système d’exploitation Windows.
+title: Interroger plusieurs dossiers et fichiers à l’aide d’un pool SQL serverless (préversion)
+description: Un pool SQL serverless (préversion) prend en charge la lecture de plusieurs fichiers ou dossiers en utilisant des caractères génériques similaires à ceux utilisés dans le système d’exploitation Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288339"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340986"
 ---
 # <a name="query-folders-and-multiple-files"></a>Interroger des dossiers et plusieurs fichiers  
 
-Cet article explique comment écrire une requête à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics.
+Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics.
 
-SQL à la demande prend en charge la lecture de plusieurs fichiers ou dossiers en utilisant des caractères génériques similaires à ceux utilisés dans le système d’exploitation Windows. Toutefois, il offre davantage de flexibilité, car l’utilisation de plusieurs caractères génériques est autorisée.
+Un pool SQL serverless prend en charge la lecture de plusieurs fichiers ou dossiers en utilisant des caractères génériques similaires à ceux utilisés dans le système d’exploitation Windows. Toutefois, il offre davantage de flexibilité, car l’utilisation de plusieurs caractères génériques est autorisée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,8 +29,8 @@ La première étape consiste à **créer la base de données** dans laquelle ser
 Vous allez utiliser le dossier *csv/taxi* pour suivre les exemples de requêtes. Il contient les données d’enregistrements de courses des taxis jaunes de New York couvrant la période de juillet 2016 à juin 2018. Les fichiers du dossier *csv/taxi* sont nommés d'après l'année et le mois en utilisant le modèle suivant : yellow_tripdata_<year>-<month>.csv
 
 ## <a name="read-all-files-in-folder"></a>Lire tous les fichiers dans le dossier
-    
-L’exemple ci-dessous lit tous les fichiers de données NYC Yellow Taxi figurant dans le dossier *csv/taxi*, et retourne le nombre total de passagers et de trajets par an. Il montre également l’utilisation de fonctions d’agrégation.
+
+L’exemple ci-dessous lit tous les fichiers de données NYC Yellow Taxi figurant dans le dossier *csv/taxi* , et retourne le nombre total de passagers et de trajets par an. Il montre également l’utilisation de fonctions d’agrégation.
 
 ```sql
 SELECT 
@@ -135,7 +135,7 @@ ORDER BY
 
 ### <a name="read-all-files-from-multiple-folders"></a>Lire tous les fichiers de plusieurs dossiers
 
-Vous pouvez lire tous les fichiers figurant dans plusieurs dossiers en utilisant un caractère générique. La requête suivante lit tous les fichiers de tous les dossiers figurant dans le dossier *csv*, dont les noms commencent par *t* et se terminent par *i*.
+Vous pouvez lire tous les fichiers figurant dans plusieurs dossiers en utilisant un caractère générique. La requête suivante lit tous les fichiers de tous les dossiers figurant dans le dossier *csv* , dont les noms commencent par *t* et se terminent par *i*.
 
 > [!NOTE]
 > Notez la présence de la barre oblique (/) à la fin du chemin d’accès dans la requête ci-dessous. Elle indique qu’il s’agit d’un dossier. En cas d’omission de la barre oblique (/), la requête cible les fichiers nommés *t&ast;i* à la place.
@@ -180,6 +180,49 @@ ORDER BY
 > Tous les fichiers accessibles avec la fonction OPENROWSET seule doivent présenter la même structure (c’est-à-dire les mêmes nombre de colonnes et types de données).
 
 Étant donné qu’un seul dossier correspond aux critères, le résultat de la requête est le même que celui obtenu avec l’option [Lire tous les fichiers dans le dossier](#read-all-files-in-folder).
+
+## <a name="traverse-folders-recursively"></a>Parcourir les dossiers de manière récursive
+
+Un pool SQL serverless peut parcourir les dossiers de manière récursive si vous spécifiez /** à la fin du chemin d’accès. La requête suivante lit tous les fichiers de tous les dossiers et sous-dossiers figurant dans le dossier *csv*.
+
+```sql
+SELECT
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
+FROM OPENROWSET(
+        BULK 'csv/taxi/**', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
+GROUP BY
+    YEAR(pickup_datetime)
+ORDER BY
+    YEAR(pickup_datetime);
+```
+
+> [!NOTE]
+> Tous les fichiers accessibles avec la fonction OPENROWSET seule doivent présenter la même structure (c’est-à-dire les mêmes nombre de colonnes et types de données).
 
 ## <a name="multiple-wildcards"></a>Plusieurs caractères génériques
 

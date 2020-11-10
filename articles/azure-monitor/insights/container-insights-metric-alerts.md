@@ -2,13 +2,13 @@
 title: Alertes sur les métriques d'Azure Monitor pour conteneurs
 description: Cet article passe en revue les alertes métriques recommandées disponibles dans Azure Monitor pour les conteneurs en préversion publique.
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/28/2020
+ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308639"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927819"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertes métriques recommandées (préversion) d’Azure Monitor pour les conteneurs
 
@@ -24,12 +24,12 @@ Avant de commencer, vérifiez les éléments suivants :
 
 * Les métriques personnalisées sont disponibles dans un sous-ensemble de régions Azure uniquement. La liste des régions prises en charge est disponible dans [Régions prises en charge](../platform/metrics-custom-overview.md#supported-regions).
 
-* Pour prendre en charge les alertes sur les métriques et l'introduction de métriques supplémentaires, la version minimale requise de l'agent est **microsoft/oms:ciprod05262020** pour AKS et **microsoft/oms:ciprod09252020** pour le cluster Kubernetes avec Azure Arc.
+* Pour prendre en charge les alertes sur les métriques et l'introduction de métriques supplémentaires, la version minimale requise de l'agent est **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** pour AKS et **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** pour le cluster Kubernetes avec Azure Arc.
 
     Pour vérifier que votre cluster exécute la version la plus récente de l’agent, vous pouvez :
 
     * Exécuter la commande : `kubectl describe <omsagent-pod-name> --namespace=kube-system`. Dans l’état renvoyé, notez la valeur sous **Image** pour omsagent, dans la section *Containers* de la sortie. 
-    * Sous l’onglet **Nœuds** , sélectionnez le nœud de cluster, puis, dans le volet **Propriétés** à droite, notez la valeur sous **Balise d’image de l’agent** .
+    * Sous l’onglet **Nœuds** , sélectionnez le nœud de cluster, puis, dans le volet **Propriétés** à droite, notez la valeur sous **Balise d’image de l’agent**.
 
     La valeur indiquée pour AKS doit être la version **ciprod05262020** ou une version ultérieure. La valeur indiquée pour le cluster Kubernetes avec Azure Arc doit être la version **ciprod09252020** ou une version ultérieure. Si votre cluster dispose d'une version antérieure, consultez [Comment mettre à niveau l'agent Azure Monitor pour conteneurs](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) afin de connaître les étapes à suivre pour obtenir la dernière version.
 
@@ -114,7 +114,7 @@ Cette section décrit l’activation de l’alerte métrique d’Azure Monitor p
 
 2. Il est possible d’accéder à la fonctionnalité alerte métrique (préversion) d’Azure Monitor pour les conteneurs directement à partir d’un cluster AKS en sélectionnant **Insights** dans le volet gauche du portail Azure.
 
-3. Dans la barre de commandes, sélectionnez **Alertes recommandées** .
+3. Dans la barre de commandes, sélectionnez **Alertes recommandées**.
 
     ![Option Alertes recommandées dans Azure Monitor pour les conteneurs](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
@@ -126,7 +126,7 @@ Cette section décrit l’activation de l’alerte métrique d’Azure Monitor p
 
     ![Activer une règle d’alerte](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Les règles d’alertes ne sont pas associées à un [groupe d’actions](../platform/action-groups.md) pour notifier aux utilisateurs qu’une alerte a été déclenchée. Sélectionnez **No action group assigned** (aucun groupe d’actions affecté), puis, dans la page **Groupes d’actions** , spécifiez un groupe d’actions existant, ou créez un groupe en sélectionnant **Ajouter** ou **Créer** .
+5. Les règles d’alertes ne sont pas associées à un [groupe d’actions](../platform/action-groups.md) pour notifier aux utilisateurs qu’une alerte a été déclenchée. Sélectionnez **No action group assigned** (aucun groupe d’actions affecté), puis, dans la page **Groupes d’actions** , spécifiez un groupe d’actions existant, ou créez un groupe en sélectionnant **Ajouter** ou **Créer**.
 
     ![Sélectionner un groupe d’actions](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -148,15 +148,15 @@ Les étapes de base sont les suivantes :
 
 2. Pour déployer un modèle personnalisé via le portail, sélectionnez **Créer une ressource** , dans le [portail Azure](https://portal.azure.com).
 
-3. Recherchez **modèle** , puis sélectionnez **Déploiement de modèle** .
+3. Recherchez **modèle** , puis sélectionnez **Déploiement de modèle**.
 
 4. Sélectionnez **Create** (Créer).
 
-5. Vous voyez plusieurs options pour créer un modèle, sélectionnez **Créer votre propre modèle dans l’éditeur** .
+5. Vous voyez plusieurs options pour créer un modèle, sélectionnez **Créer votre propre modèle dans l’éditeur**.
 
 6. Sur la page **Modifier le modèle** , sélectionnez **Charger le fichier** , puis sélectionnez le fichier de modèle.
 
-7. Sur la page **Modifier le modèle** , sélectionnez **Enregistrer** .
+7. Sur la page **Modifier le modèle** , sélectionnez **Enregistrer**.
 
 8. Sur la page **Déploiement personnalisé** , spécifiez ce qui suit, puis, lorsque vous avez terminé, sélectionnez **Achat** pour déployer le modèle et créer la règle d’alerte.
 
@@ -200,14 +200,14 @@ Les étapes de base sont les suivantes :
 
 Vous pouvez afficher et gérer les règles d’alerte d’Azure Monitor pour les conteneurs, afin de modifier le seuil, ou configurer un [groupe d’actions](../platform/action-groups.md) pour votre cluster AKS. Si vous pouvez effectuer ces actions à partir du portail Azure et d’Azure CLI, vous pouvez également le faire directement à partir de votre cluster AKS dans Azure Monitor pour les conteneurs.
 
-1. Dans la barre de commandes, sélectionnez **Alertes recommandées** .
+1. Dans la barre de commandes, sélectionnez **Alertes recommandées**.
 
 2. Pour modifier le seuil, dans le volet **Alertes recommandées** , sélectionnez l’alerte activée. Dans **Modifier la règle** , cliquez sur le **Critère d’alerte** que vous souhaitez modifier.
 
-    * Pour modifier le seuil de la règle d’alerte, sélectionnez la **Condition** .
-    * Pour spécifier un groupe d’actions ou en créer un, sélectionnez **Ajouter** ou **Créer** sous **Groupe d’actions** .
+    * Pour modifier le seuil de la règle d’alerte, sélectionnez la **Condition**.
+    * Pour spécifier un groupe d’actions ou en créer un, sélectionnez **Ajouter** ou **Créer** sous **Groupe d’actions**.
 
-Pour afficher les alertes créées pour les règles activées, dans le volet **Alertes recommandées** , sélectionnez **Afficher dans les alertes** . Vous êtes redirigé vers le menu d’alerte pour le cluster AKS, où vous pouvez voir toutes les alertes actuellement créées pour votre cluster.
+Pour afficher les alertes créées pour les règles activées, dans le volet **Alertes recommandées** , sélectionnez **Afficher dans les alertes**. Vous êtes redirigé vers le menu d’alerte pour le cluster AKS, où vous pouvez voir toutes les alertes actuellement créées pour votre cluster.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configurer des métriques alertables dans ConfigMaps
 

@@ -11,25 +11,26 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289167"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321433"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Options de l’instruction GROUP BY dans SQL Synapse
+
 SQL Synapse permet de développer des solutions en implémentant différentes options de l’instruction GROUP BY. 
 
-## <a name="what-does-group-by-do"></a>Action de l’instruction GROUP BY
+## <a name="what-group-by-does"></a>Action de GROUP BY
 
 La clause [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL agrège des données en un ensemble de lignes récapitulatives.
 
-SQL à la demande prend en charge l’ensemble des options de l’instruction GROUP BY. Le pool SQL prend en charge un nombre limité d’options de l’instruction GROUP BY.
+Un pool SQL serverless prend en charge l’ensemble des options de l’instruction GROUP BY. Le pool SQL dédié prend en charge un nombre limité d’options de l’instruction GROUP BY.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>Options de l’instruction GROUP BY prises en charge dans le pool SQL
+## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>Options de l’instruction GROUP BY prises en charge dans le pool SQL dédié
 
-Le pool SQL ne prend pas en charge certaines options de l’instruction GROUP BY. Ces options comportent des solutions de contournement, qui sont les suivantes :
+Le pool SQL dédié ne prend pas en charge certaines options de l’instruction GROUP BY. Ces options comportent des solutions de contournement, qui sont les suivantes :
 
 * GROUP BY avec ROLLUP
 * GROUPING SETS

@@ -1,7 +1,7 @@
 ---
 title: Utiliser un pare-feu
 titleSuffix: Azure Machine Learning
-description: Contrôler l’accès aux espaces de travail Azure Machine Learning avec les pare-feu Azure. Apprenez-en davantage sur les hôtes que vous devez autoriser à traverser le pare-feu pour qu’Azure Machine Learning fonctionne correctement.
+description: Contrôler l’accès aux espaces de travail Azure Machine Learning avec les pare-feu Azure. En savoir plus sur les hôtes que vous devez autoriser via le pare-feu.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 5ba1804630649044d29dd2919ef8375265a69a08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320887"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 

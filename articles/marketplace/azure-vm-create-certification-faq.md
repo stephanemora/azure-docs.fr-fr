@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677872"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339531"
 ---
 # <a name="vm-certification-troubleshooting"></a>Résolution des problèmes de certification de machines virtuelles
 
@@ -81,6 +81,45 @@ Les problèmes de provisionnement peuvent inclure les scénarios d’échec suiv
 > Pour plus d'informations sur la généralisation d'une machine virtuelle, consultez :
 > - [Documentation Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentation Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>Spécifications du disque dur virtuel (VHD)
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Cookie Conectix et autres spécifications du disque dur virtuel
+La chaîne « conectix » fait partie de la spécification du disque dur virtuel et est définie en tant que « cookie » de 8 octets dans le pied de page du disque dur virtuel ci-dessous, qui identifie le créateur du fichier. Tous les fichiers vhd créés par Microsoft possèdent ce cookie. 
+
+Un objet Blob au format VHD doit avoir un pied de page de 512 octets. Voici le format du pied de page du disque dur virtuel :
+
+|Champs du pied de page du disque dur|Taille (en octets)|
+|---|---|
+Cookie|8
+Fonctionnalités|4
+Version de format du fichier|4
+Décalage des données|8
+Horodatage|4
+Application de création|4
+Version de création|4
+Système d’exploitation hôte de création|4
+Taille d'origine|8
+Taille actuelle|8
+Géométrie du disque|4
+Type du disque|4
+Somme de contrôle|4
+ID unique|16
+État enregistré|1
+Réservé|427
+
+
+### <a name="vhd-specifications"></a>Spécifications du disque dur virtuel (VHD)
+Pour garantir une expérience de publication fluide, assurez-vous que le **disque dur virtuel répond aux critères suivants :**
+* Le cookie doit contenir la chaîne « conectix »
+* Le type de disque doit être Fixe
+* La taille virtuelle du disque dur virtuel est d’au moins 20 Mo
+* Le disque dur virtuel est aligné (c’est-à-dire que la taille virtuelle doit être un multiple de 1 Mo)
+* Longueur du blob VHD = taille virtuelle + longueur du pied de page VHD (512)
+
+Vous pouvez télécharger la spécification VHD [ici.](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## <a name="software-compliance-for-windows"></a>Conformité logicielle pour Windows
 

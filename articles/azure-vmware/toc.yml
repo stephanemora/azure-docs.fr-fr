@@ -100,7 +100,7 @@
   items:
     - name: Dépannage
       items:
-        - name: Obtenir de l’aide pour les échecs de provisionnement et de déploiement
+        - name: Ouvrir une demande de support pour les échecs de déploiement
           href: fix-deployment-provisioning-failures.md
     - name: Questions fréquentes (FAQ)
       href: faq.md

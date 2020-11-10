@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998998"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927581"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Utiliser Studio pour déployer des modèles entraînés dans le concepteur
 
@@ -67,14 +67,14 @@ Lorsque vous avez inscrit votre modèle, vous pouvez le retrouver dans la page d
 
 Pour déployer un modèle dans Azure Machine Learning Studio, vous avez besoin des fichiers suivants :
 
-- **Fichier de script d’entrée** : charge le modèle entraîné, traite les données d’entrée des requêtes, effectue des inférences en temps réel et retourne le résultat. Le concepteur génère automatiquement un fichier de script d’entrée `score.py` lors de l’exécution du module **Entraîner le modèle**.
+- **Fichier de script d’entrée**  : charge le modèle entraîné, traite les données d’entrée des requêtes, effectue des inférences en temps réel et retourne le résultat. Le concepteur génère automatiquement un fichier de script d’entrée `score.py` lors de l’exécution du module **Entraîner le modèle**.
 
-- **Fichier de dépendances Conda** : spécifie les packages PIP et Conda dont dépend votre service web. Le concepteur crée automatiquement un fichier `conda_env.yaml` lors de l’exécution du module **Entraîner le modèle**.
+- **Fichier de dépendances Conda**  : spécifie les packages PIP et Conda dont dépend votre service web. Le concepteur crée automatiquement un fichier `conda_env.yaml` lors de l’exécution du module **Entraîner le modèle**.
 
-Vous pouvez télécharger ces deux fichiers dans le volet droit du module **Entraîner le modèle** :
+Vous pouvez télécharger ces deux fichiers dans le volet droit du module **Entraîner le modèle**  :
 
 1. Sélectionnez le module **Entraîner le modèle**.
-1. Sous l’onglet **Sorties + journaux**, sélectionnez le dossier `trained_model_outputs`.
+1. Sous l’onglet **Sorties + journaux** , sélectionnez le dossier `trained_model_outputs`.
 1. Téléchargez le fichier `conda_env.yaml` et le fichier `score.py`.
 
     ![Capture d’écran des fichiers téléchargés pour le déploiement dans le volet droit](./media/how-to-deploy-model-designer/download-artifacts-in-right-pane.png)
@@ -98,7 +98,7 @@ Vous pouvez également télécharger les fichiers à partir de la page de ressou
 
 Une fois que vous avez téléchargé les fichiers nécessaires, vous êtes prêt à déployer le modèle.
 
-1. Dans la page de ressources **Modèles**, sélectionnez le modèle inscrit.
+1. Dans la page de ressources **Modèles** , sélectionnez le modèle inscrit.
 1. Sélectionnez le bouton **Déployer**.
 1. Dans le menu Configuration, entrez les informations suivantes :
 
@@ -108,7 +108,7 @@ Une fois que vous avez téléchargé les fichiers nécessaires, vous êtes prêt
     - Chargez `conda_env.yml` comme fichier de dépendances **Conda**. 
 
     >[!TIP]
-    > Dans le paramètre **Avancé**, vous pouvez définir la capacité de l’UC et de la mémoire et d’autres paramètres pour le déploiement. Ces paramètres sont importants pour certains modèles, tels que les modèles PyTorch, qui consomment une quantité considérable de mémoire (environ 4 Go).
+    > Dans le paramètre **Avancé** , vous pouvez définir la capacité de l’UC et de la mémoire et d’autres paramètres pour le déploiement. Ces paramètres sont importants pour certains modèles, tels que les modèles PyTorch, qui consomment une quantité considérable de mémoire (environ 4 Go).
 
 1. Sélectionnez **Déployer** pour déployer votre modèle en tant que point de terminaison en temps réel.
 
@@ -261,12 +261,12 @@ def run(data):
     return json.dumps(result_df.to_dict("list"))
 ```
 
-Pour les modèles **Wide & Deep recommender** et **Vowpal Wabbit**, vous pouvez configurer le paramètre de mode de notation à l’aide des méthodes suivantes :
+Pour les modèles **Wide & Deep recommender** et **Vowpal Wabbit** , vous pouvez configurer le paramètre de mode de notation à l’aide des méthodes suivantes :
 
 - Les noms de paramètres sont les combinaisons de minuscules et de traits de soulignement composant les noms de paramètres pour [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) et [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md).
 - Les valeurs de paramètre de type de mode sont des chaînes constituées des noms d’options correspondants. Dans le **type de prédiction du générateur de recommandations** dans les codes ci-dessus comme exemple, la valeur peut être `'Rating Prediction'` ou `'Item Recommendation'`. Les autres valeurs ne sont pas autorisées.
 
-Pour le modèle entraîné **SVD recommender**, les noms et valeurs de paramètres peuvent être moins évidents et vous pouvez consulter les tableaux ci-dessous pour décider comment définir des paramètres.
+Pour le modèle entraîné **SVD recommender** , les noms et valeurs de paramètres peuvent être moins évidents et vous pouvez consulter les tableaux ci-dessous pour décider comment définir des paramètres.
 
 | Nom du paramètre dans le modèle [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md)                           | Nom de paramètre dans le fichier de script d’entrée |
 | ------------------------------------------------------------ | --------------------------------------- |
@@ -299,6 +299,7 @@ score_params = dict(
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Entraîner un modèle dans le concepteur](tutorial-designer-automobile-price-train-score.md)
+* [Déployer des modèles avec le SDK Azure Machine Learning](how-to-deploy-and-where.md)
 * [Résoudre des problèmes d’échec de déploiement](how-to-troubleshoot-deployment.md)
 * [Déployer dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md)

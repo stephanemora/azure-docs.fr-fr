@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788602"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321420"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Faire pivoter le protecteur Transparent Data Encryption (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ Cet article décrit la rotation des clés pour un [serveur](logical-servers.md) 
 Ce guide décrit deux options pour faire pivoter le protecteur TDE sur le serveur.
 
 > [!NOTE]
-> Un pool SQL Azure Synapse Analytics mis en pause doit reprendre avant les rotations de clés.
+> Un pool SQL dédié mis en pause dans Azure Synapse Analytics doit reprendre avant les rotations de clés.
 
 > [!IMPORTANT]
 > Ne supprimez pas les versions précédentes de la clé après une substitution. Lorsque les clés sont substituées, certaines données sont toujours chiffrées avec les clés précédentes, comme les anciennes sauvegardes de base de données.

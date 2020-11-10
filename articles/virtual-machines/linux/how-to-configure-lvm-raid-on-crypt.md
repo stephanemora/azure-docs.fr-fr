@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476159"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911815"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurer LVM et RAID sur des appareils chiffrés
 
@@ -46,7 +46,7 @@ De la même façon, l’appareil RAID est créé par-dessus la couche chiffrée 
 
 Nous vous recommandons d’utiliser LVM-on-crypt. RAID est un choix possible lorsque LVM ne peut pas être utilisé en raison de limitations spécifiques de l’application ou de l’environnement.
 
-Vous utiliserez l’option **EncryptFormatAll** . Pour plus d’informations sur cette option, consultez [Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur des machines virtuelles Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Vous utiliserez l’option **EncryptFormatAll**. Pour plus d’informations sur cette option, consultez [Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur des machines virtuelles Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Bien que vous puissiez utiliser cette méthode lorsque vous chiffrez également le système d’exploitation, nous chiffrons uniquement les lecteurs de données ici.
 
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Vérification de la création d’un volume physique](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk** .
+>Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk**.
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Vérifier les informations des volumes physiques
 ```bash
@@ -368,7 +368,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Informations des systèmes de fichiers montés](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Capture d’écran montrant une fenêtre de console avec des systèmes de fichiers montés en tant que data0 et data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 Sur cette variation de **lsblk** , nous répertorions les appareils qui affichent les dépendances dans l’ordre inverse. Cette option permet d’identifier les appareils regroupés par le volume logique à la place des noms d’appareil /dev/sd[disk] d’origine.
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informations du RAID configuré via la commande mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk** .
+>Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk**.
 
 ### <a name="checkmonitor-raid-creation"></a>Vérifier/surveiller la création de RAID
 ```bash
@@ -437,7 +437,7 @@ Vérifiez que le nouveau système de fichiers est monté :
 lsblk -fs
 df -h
 ```
-![Informations des systèmes de fichiers montés](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Capture d’écran montrant une fenêtre de console avec un système de fichiers monté en tant que raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 Il est important de s’assurer que l’option **nofail** est ajoutée aux options de point de montage des volumes RAIS créés par-dessus un appareil chiffré par Azure Disk Encryption. Elle empêche que le système d’exploitation se bloque pendant le processus de démarrage (ou en mode de maintenance).
 

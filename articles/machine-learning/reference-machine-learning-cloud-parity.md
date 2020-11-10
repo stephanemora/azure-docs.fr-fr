@@ -1,7 +1,7 @@
 ---
 title: Parité entre les régions publiques et souveraines
 titleSuffix: Azure Machine Learning
-description: Certaines fonctionnalités d’Azure Machine Learning, telles que les fonctionnalités en préversion publique, peuvent être uniquement disponibles dans les régions du cloud public. Cet article répertorie les fonctionnalités également disponibles dans les régions Azure Government, Azure Allemagne et Azure China 21Vianet.
+description: Cet article répertorie la parité des fonctionnalités entre le cloud public et les régions Azure Government, Azure Germany et Azure China 21Vianet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426519"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305742"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parité du cloud souverain Azure Machine Learning
 

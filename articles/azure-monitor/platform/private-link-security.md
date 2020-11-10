@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 42419247de537f9a166c3cdca2fd5a832ade6a5f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461428"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926799"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -90,18 +90,18 @@ Dans la topologie ci-dessous :
 
 Commencez par créer une ressource d’étendue de liaison privée Azure Monitor.
 
-1. Accédez à **Créer une ressource** dans le portail Azure et recherchez **Étendue de liaison privée Azure Monitor** .
+1. Accédez à **Créer une ressource** dans le portail Azure et recherchez **Étendue de liaison privée Azure Monitor**.
 
    ![Rechercher l’étendue de liaison privée Azure Monitor](./media/private-link-security/ampls-find-1c.png)
 
 2. Cliquez sur **Create** (Créer).
 3. Choisissez un abonnement et un groupe de ressources.
 4. Donnez un nom à l’AMPLS. Il est préférable d’utiliser un nom qui indique clairement à quelle fin et à quelle limite de sécurité l’étendue sera utilisée afin que personne n’arrête accidentellement les limites de sécurité réseau. Par exemple, « AppServerProdTelem ».
-5. Cliquez sur **Revoir + créer** . 
+5. Cliquez sur **Revoir + créer**. 
 
    ![Créer une étendue de liaison privée Azure Monitor](./media/private-link-security/ampls-create-1d.png)
 
-6. Laissez le processus de validation se terminer, puis cliquez sur **Créer** .
+6. Laissez le processus de validation se terminer, puis cliquez sur **Créer**.
 
 ## <a name="connect-azure-monitor-resources"></a>Connecter des ressources Azure Monitor
 
@@ -112,23 +112,26 @@ Vous pouvez connecter votre AMPLS d’abord à des points de terminaison privés
 
     ![Capture d’écran de l’expérience utilisateur Sélectionner une étendue](./media/private-link-security/ampls-select-2.png)
 
+> [!NOTE]
+> Pour supprimer des ressources Azure Monitor, vous devez d’abord les déconnecter des objets AMPLS auxquels elles sont connectées. Vous ne pouvez pas supprimer des ressources connectées à un AMPLS.
+
 ### <a name="connect-to-a-private-endpoint"></a>Se connecter à un point de terminaison privé
 
 Maintenant que vous disposez de ressources connectées à votre AMPLS, créez un point de terminaison privé pour connecter notre réseau. Vous pouvez effectuer cette tâche dans le [centre Azure Private Link sur le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) ou au sein même de votre étendue de liaison privée Azure Monitor, comme dans cet exemple.
 
-1. Dans votre ressource d’étendue, cliquez sur **Connexions de point de terminaison privés** dans le menu gauche de la ressource. Cliquez sur **Point de terminaison privé** pour démarrer le processus de création du point de terminaison. Vous pouvez également approuver ici des connexions qui ont été démarrées dans le centre Azure Private Link en les sélectionnant et en cliquant sur **Approuver** .
+1. Dans votre ressource d’étendue, cliquez sur **Connexions de point de terminaison privés** dans le menu gauche de la ressource. Cliquez sur **Point de terminaison privé** pour démarrer le processus de création du point de terminaison. Vous pouvez également approuver ici des connexions qui ont été démarrées dans le centre Azure Private Link en les sélectionnant et en cliquant sur **Approuver**.
 
     ![Capture d’écran de l’expérience utilisateur Connexions de point de terminaison privés](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
 2. Choisissez l’abonnement, le groupe de ressources et le nom du point de terminaison, ainsi que la région dans laquelle il doit résider. La région doit être la même que celle du réseau virtuel auquel vous allez le connecter.
 
-3. Cliquez sur **Suivant : Ressource** . 
+3. Cliquez sur **Suivant : Ressource**. 
 
 4. Dans l’écran Ressource :
 
    a. Sélectionnez l’ **abonnement** qui contient votre ressource d’étendue de liaison privée Azure Monitor. 
 
-   b. Pour le **type de ressource** , choisissez **Microsoft.insights/privateLinkScopes** . 
+   b. Pour le **type de ressource** , choisissez **Microsoft.insights/privateLinkScopes**. 
 
    c. Dans la liste déroulante des **ressources** , choisissez l’étendue de liaison privée que vous avez créée précédemment. 
 
@@ -140,12 +143,14 @@ Maintenant que vous disposez de ressources connectées à votre AMPLS, créez un
    a.    Choisissez le **réseau virtuel** et le **sous-réseau** que vous souhaitez connecter à vos ressources Azure Monitor. 
  
    b.    Choisissez **Oui** pour **Intégrer à une zone DNS privée** , et laissez-le créer automatiquement une nouvelle zone DNS privée. Les zones DNS réelles peuvent différer de ce que montre la capture d’écran ci-dessous. 
+   > [!NOTE]
+   > Si vous choisissez **Non** et préférez gérer les enregistrements DNS manuellement, commencez par configurer votre liaison privée, y compris ce point de terminaison privé et la configuration AMPLS. Ensuite, configurez votre DNS conformément aux instructions de la rubrique [Configuration DNS des points de terminaison privés Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Veillez à ne pas créer d’enregistrements vides en préparation de votre configuration de liaison privée. Les enregistrements DNS que vous créez peuvent remplacer les paramètres existants et affecter votre connectivité avec Azure Monitor.
  
-   c.    Cliquez sur **Vérifier + créer** .
+   c.    Cliquez sur **Vérifier + créer**.
  
    d.    Laissez le processus de validation se terminer. 
  
-   e.    Cliquez sur **Créer** . 
+   e.    Cliquez sur **Créer**. 
 
     ![Capture d’écran de la sélection Créer un point de terminaison privé2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -185,7 +190,7 @@ Accédez au portail Azure. Dans votre ressource de composant Application Insight
 
 ![Isolement réseau AI](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Tout d’abord, vous pouvez connecter cette ressource Application Insights aux étendues de liaison privée Azure Monitor auxquelles vous avez accès. Cliquez sur **Ajouter** et sélectionnez l’ **étendue de liaison privée Azure Monitor** . Cliquez sur Appliquer pour la connecter. Toutes les étendues connectées s’affichent dans cet écran. Cette connexion permet au trafic des réseaux virtuels connectés d’atteindre ce composant. Elle a le même effet si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources). 
+Tout d’abord, vous pouvez connecter cette ressource Application Insights aux étendues de liaison privée Azure Monitor auxquelles vous avez accès. Cliquez sur **Ajouter** et sélectionnez l’ **étendue de liaison privée Azure Monitor**. Cliquez sur Appliquer pour la connecter. Toutes les étendues connectées s’affichent dans cet écran. Cette connexion permet au trafic des réseaux virtuels connectés d’atteindre ce composant. Elle a le même effet si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources). 
 
 Ensuite, vous pouvez contrôler la façon dont cette ressource peut être atteinte en dehors des étendues de liaison privée mentionnées précédemment. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non** , les machines ou les Kits de développement logiciel (SDK) en dehors des étendues connectées ne peuvent pas charger de données dans ce composant. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non** , les machines en dehors des étendues ne peuvent pas accéder aux données de cette ressource Application Insights. Ces données incluent l’accès aux journaux APM, aux métriques et au flux de métriques en temps réel, ainsi que des expériences basées sur des classeurs, des tableaux de bord, des expériences client basées sur l’API de requête, des informations sur le portail Azure et bien plus encore. 
 

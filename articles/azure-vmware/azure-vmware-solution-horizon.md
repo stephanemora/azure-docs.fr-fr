@@ -3,12 +3,12 @@ title: Déployer Horizon sur Azure VMware Solution
 description: Découvrez comment déployer VMware Horizon sur Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369010"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321360"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Déployer Horizon sur Azure VMware Solution 
 
@@ -211,3 +211,6 @@ Basées sur l'architecture de déploiement standard, les machines virtuelles de 
 | Partage de fichiers Windows               | D4sv3          |         | *Facultatif*                               |
 
 Le coût de la machine virtuelle d’infrastructure est de 0,36 \$ par utilisateur et par mois pour le déploiement de 2 000 bureaux dans l’exemple ci-dessus. Cet exemple utilise la tarification de juin 2020 des instances Azure pour la région USA Est. Votre tarification peut varier en fonction de la région, des options sélectionnées et du moment applicable.
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus concernant VMware Horizon sur Azure VMware Solution, consultez le [FAQ VMware Horizon](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

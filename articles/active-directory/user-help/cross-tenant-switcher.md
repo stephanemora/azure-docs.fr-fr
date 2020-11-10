@@ -12,12 +12,12 @@ ms.date: 10/27/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a8e3b6cfce9bff76ec3989273cadadebb23d6d40
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92794963"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913243"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Basculer des organisations dans un portail
 
@@ -34,7 +34,7 @@ Le changement d’organisation n’est pas disponible pour **Mes connexions** , 
 
 ## <a name="switch-organizations"></a>Changer d’organisations
 
-Voici comment basculer vers une autre organisation. Cet exemple utilise utilise le portail **Mon compte** , mais l’icône du sélecteur et le positionnement sont également similaires sur d’autres portails.
+Voici comment basculer vers une autre organisation. Cet exemple utilise le portail **Mon compte** , mais l’icône du sélecteur et le positionnement sont également similaires sur d’autres portails.
 
 1. Connectez-vous à votre compte professionnel ou scolaire, puis ouvrez la page [Mon compte](https://myaccount.microsoft.com).
 1. Sélectionnez le sélecteur d’organisation :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="L’icône du sélecteur d’organisation"::: en haut de la page, en regard de votre photo de compte.

@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375208"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340305"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensionner un disque de système d’exploitation ayant une partition GPT
 
@@ -177,7 +177,7 @@ Une fois que la machine virtuelle a redémarré, procédez comme suit :
 
 1. Selon le type de système de fichiers, utilisez les commandes appropriées pour le redimensionner.
    
-   Pour **xfs**, utilisez la commande suivante :
+   Pour **xfs** , utilisez la commande suivante :
    
    ```
    #xfs_growfs /
@@ -200,7 +200,7 @@ Une fois que la machine virtuelle a redémarré, procédez comme suit :
    data blocks changed from 7470331 to 12188923
    ```
    
-   Pour **ext4**, utilisez la commande suivante :
+   Pour **ext4** , utilisez la commande suivante :
    
    ```
    #resize2fs /dev/sda4
@@ -231,7 +231,7 @@ Une fois que la machine virtuelle a redémarré, procédez comme suit :
    
    Dans l’exemple précédent, nous pouvons voir que la taille du système de fichiers pour le disque du système d’exploitation a été augmentée.
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-lvm"></a>RHEL LVM
 
 Pour augmenter la taille du disque du système d’exploitation dans RHEL 7.x avec LVM :
 
@@ -351,6 +351,129 @@ Une fois que la machine virtuelle a redémarré, procédez comme suit :
 
 > [!NOTE]
 > Afin d’utiliser la même procédure pour redimensionner tout autre volume logique, modifiez le nom **lv** à l’étape 7.
+
+### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE]
+>Prenez toujours un instantané de la machine virtuelle avant d’agrandir la taille du disque du système d’exploitation.
+
+Pour augmenter la taille du disque du système d’exploitation dans RHEL avec une partition RAW :
+
+Arrêtez la machine virtuelle.
+Augmentez la taille du disque du système d’exploitation à partir du portail.
+Démarrez la machine virtuelle.
+Une fois que la machine virtuelle a redémarré, procédez comme suit :
+
+1. Accédez à votre machine virtuelle en tant qu’utilisateur **racine** à l’aide de la commande suivante :
+ 
+   ```
+   sudo su
+   ```
+
+1. Installez le package **gptfdisk** requis pour augmenter la taille du disque du système d’exploitation.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  Pour voir tous les secteurs disponibles sur le disque, exécutez la commande suivante :
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. Vous verrez les détails indiquant le type de partition. Assurez-vous qu’il s’agit d’une partition GPT. Identifiez la partition racine. Ne modifiez pas ou ne supprimez pas la partition de démarrage (partition de démarrage du BIOS) et la partition système (« partition système EFI »)
+
+1. Utilisez la commande suivante pour démarrer le partitionnement pour la première fois. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. Un message devrait s’afficher, vous demandant de confirmer la prochaine commande ('Command: ? for help'). 
+
+   ```
+   w
+   ```
+
+1. Vous recevrez un avertissement indiquant « Warning! Secondary header is placed too early on the disk! Do you want to correct this problem? (Y/N): ». Vous devez appuyer sur « Y » (Oui)
+
+   ```
+   Y
+   ```
+
+1. Vous devriez voir un message indiquant que les contrôles finaux sont terminés et demandant une confirmation. Appuyez sur « Y » (Oui)
+
+   ```
+   Y
+   ```
+
+1. Vérifiez si tout s’est correctement déroulé à l’aide de la commande partprobe
+
+   ```
+   partprobe
+   ```
+
+1. Les étapes ci-dessus ont permis de s’assurer que l’en-tête GPT secondaire est placé à la fin. La prochaine étape consiste à démarrer le processus de redimensionnement à l’aide de l’outil gdisk. Utilisez la commande suivante.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. Dans le menu de commande, appuyez sur « p » pour afficher la liste des partitions. Identifiez la partition racine (dans les étapes, sda2 est considéré comme la partition racine) et la partition de démarrage (dans les étapes, sda3 est considéré comme la partition de démarrage) 
+
+   ```
+   p
+   ```
+    ![Partition racine et partition de démarrage](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Appuyez sur « d »pour supprimer la partition et sélectionnez le numéro de partition affecté au démarrage (dans cet exemple, il s’agit de « 3 »)
+   ```
+   d
+   3
+   ```
+1. Appuyez sur « d »pour supprimer la partition et sélectionnez le numéro de partition affecté au démarrage (dans cet exemple, il s’agit de « 2 »)
+   ```
+   d
+   2
+   ```
+    ![Supprimer la partition racine et la partition de démarrage](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. Pour recréer la partition racine avec une taille augmentée, appuyez sur « n », entrez le numéro de la partition précédemment supprimée pour la racine (« 2 » dans cet exemple), choisissez le premier secteur comme « valeur par défaut », le dernier secteur comme « valeur du dernier secteur - secteur de démarrage » (dans ce cas, la valeur « 4096 » correspond à un secteur de démarrage de 2 Mo), puis le code hexadécimal « 8300 ».
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. Pour recréer une partition de démarrage, appuyez sur « n », entrez le numéro de la partition précédemment supprimée pour le démarrage (« 3 » dans cet exemple), choisissez le premier secteur comme « valeur par défaut », le dernier secteur comme « valeur par défaut », puis le code hexadécimal « EF02 ».
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Inscrivez les modifications à l’aide de la commande « w » et appuyez sur « Y » pour confirmer
+   ```
+   w
+   Y
+   ```
+1. Exécutez la commande « partprobe » pour vérifier la stabilité du disque
+   ```
+   partprobe
+   ```
+1. Redémarrez la machine virtuelle : la taille de la partition racine aura augmentée
+   ```
+   reboot
+   ```
+
+   ![Nouvelle partition racine et partition de démarrage](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Exécutez la commande xfs_growfs sur la partition pour la redimensionner
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS Grow FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

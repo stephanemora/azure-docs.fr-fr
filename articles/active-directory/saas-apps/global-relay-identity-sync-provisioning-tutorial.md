@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900290"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927989"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutoriel : Configurer Global Relay Identity Sync pour l’approvisionnement automatique d’utilisateurs
 
@@ -33,6 +33,10 @@ Ce tutoriel décrit les étapes à suivre dans Global Relay Identity Sync et Azu
 > * Supprimer des utilisateurs dans Global Relay Identity Sync quand ils n’ont plus besoin d’accéder
 > * Conserver les attributs d’utilisateur synchronisés entre Azure AD et Global Relay Identity Sync
 > * Approvisionner des groupes et des appartenances de groupe dans Global Relay Identity Sync
+
+
+> [!NOTE]
+> Le connecteur Global Relay Identity Sync utilise une méthode d’autorisation SCIM qui n’est plus prise en charge en raison de problèmes de sécurité. Des efforts sont en cours avec Global Relay pour basculer vers une méthode d’autorisation plus sécurisée.
 
 ## <a name="prerequisites"></a>Prérequis
 

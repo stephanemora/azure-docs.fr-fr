@@ -6,27 +6,24 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5873f28fed492f9ef906a9d7c1364d8ae07033a7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370982"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336059"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Créer un disque géré à partir d’une version d’image
 
-Si nécessaire, vous pouvez créer un disque géré à partir d’une version d’image stockée dans une galerie d’images partagées.
+Si nécessaire, vous pouvez exporter le système d’exploitation ou un disque de données unique à partir d’une version d’image en tant que disque géré à partir d’une version d’image stockée dans une galerie d’images partagées.
 
 
 ## <a name="cli"></a>Interface de ligne de commande
 
-Affectez à la variable `source` l’ID de la version de l’image, puis utilisez [az disk create](/cli/azure/disk#az_disk_create) pour créer le disque géré. 
-
-
-Vous pouvez voir une liste de versions d’images à l’aide de [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). Dans cet exemple, nous recherchons toutes les versions d’image qui font partie de la définition d’image *myImageDefinition* dans la galerie d’images *myGallery* .
+Listez les versions d’image dans une galerie avec [az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). Dans cet exemple, nous recherchons toutes les versions d’image qui font partie de la définition d’image *myImageDefinition* dans la galerie d’images *myGallery*.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -36,28 +33,37 @@ az sig image-version list \
    -o table
 ```
 
+Affectez à la variable `source` l’ID de la version de l’image, puis utilisez [az disk create](/cli/azure/disk.md#az_disk_create) pour créer le disque géré. 
 
-Dans cet exemple, nous créons un disque géré nommé *myManagedDisk* , dans la région *EastUS* , dans un groupe de ressources nommé *myResourceGroup* . 
+Dans cet exemple, nous exportons le disque du système d’exploitation de la version d’image pour créer un disque géré nommé *myManagedOSDisk* , dans la région *EastUS* , dans un groupe de ressources nommé *myResourceGroup*. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
 
-az disk create --resource-group myResourceGroup --location EastUS --name myManagedDisk --gallery-image-reference $source 
+az disk create --resource-group myResourceGroup --location EastUS --name myManagedOSDisk --gallery-image-reference $source 
 ```
 
-Si le disque est un disque de données, ajoutez `--gallery-image-reference-lun` pour spécifier le numéro d’unité logique.
+
+
+Si vous souhaitez exporter un disque de données à partir de la version d’image, ajoutez `--gallery-image-reference-lun` pour spécifier l’emplacement LUN du disque de données à exporter. 
+
+Dans cet exemple, nous exportons le disque de données situé sur le LUN 0 de la version d’image pour créer un disque géré nommé *myManagedDataDisk* , dans la région *EastUS* , dans un groupe de ressources nommé *myResourceGroup*. 
+
+```azurecli-interactive
+source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
+
+az disk create --resource-group myResourceGroup --location EastUS --name myManagedDataDisk --gallery-image-reference $source --gallery-image-reference-lun 0
+``` 
 
 ## <a name="powershell"></a>PowerShell
 
-Vous pouvez répertorier toutes les versions de l’image avec [Get-AzResource](/powershell/module/az.resources/get-azresource). 
+Listez les versions d’image dans une galerie avec [Get-AzResource](/powershell/module/az.resources/get-azresource). 
 
 ```azurepowershell-interactive
 Get-AzResource `
    -ResourceType Microsoft.Compute/galleries/images/versions | `
    Format-Table -Property Name,ResourceId,ResourceGroupName
 ```
-
-
 
 Une fois que vous disposez de toutes les informations dont vous avez besoin, vous pouvez utiliser [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) pour obtenir la version de l’image source que vous souhaitez utiliser et l’affecter à une variable. Dans cet exemple, nous obtenons la version d’image `1.0.0`, de la définition `myImageDefinition`, dans la galerie source `myGallery`, dans le groupe de ressources `myResourceGroup`.
 
@@ -69,29 +75,44 @@ $sourceImgVer = Get-AzGalleryImageVersion `
    -Name 1.0.0
 ```
 
-Configurez des variables pour les informations de disque.
+Après avoir défini la variable `source` sur l’ID de la version d’image, utilisez [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) pour créer une configuration de disque, et [New-AzDisk](/powershell/module/az.compute/new-azdisk) pour créer le disque. 
 
-```azurepowershell-interactive
-$location = "East US"
-$resourceGroup = "myResourceGroup"
-$diskName = "myDisk"
-```
+Dans cet exemple, nous exportons le disque du système d’exploitation de la version d’image pour créer un disque géré nommé *myManagedOSDisk* , dans la région *EastUS* , dans un groupe de ressources nommé *myResourceGroup*. 
 
-Créez une configuration de disque, puis le disque, à l’aide de l’ID de version de l’image source. Pour `-GalleryImageReference`, le numéro d’unité logique est nécessaire uniquement si la source est un disque de données.
-
+Créez une configuration de disque.
 ```azurepowershell-interactive
 $diskConfig = New-AzDiskConfig `
-   -Location $location `
+   -Location EastUS `
    -CreateOption FromImage `
-   -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=1}
+   -GalleryImageReference @{Id = $sourceImgVer.Id}
 ```
 
 Créez le disque.
 
 ```azurepowershell-interactive
 New-AzDisk -Disk $diskConfig `
-   -ResourceGroupName $resourceGroup `
-   -DiskName $diskName
+   -ResourceGroupName myResourceGroup `
+   -DiskName myManagedOSDisk
+```
+
+Si vous souhaitez exporter un disque de données sur la version d’image, ajoutez un LUN à la configuration de disque pour spécifier l’emplacement LUN du disque de données à exporter. 
+
+Dans cet exemple, nous exportons le disque de données situé sur le LUN 0 de la version d’image pour créer un disque géré nommé *myManagedDataDisk* , dans la région *EastUS* , dans un groupe de ressources nommé *myResourceGroup*. 
+
+Créez une configuration de disque.
+```azurepowershell-interactive
+$diskConfig = New-AzDiskConfig `
+   -Location EastUS `
+   -CreateOption FromImage `
+   -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=0}
+```
+
+Créez le disque.
+
+```azurepowershell-interactive
+New-AzDisk -Disk $diskConfig `
+   -ResourceGroupName myResourceGroup `
+   -DiskName myManagedDataDisk
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

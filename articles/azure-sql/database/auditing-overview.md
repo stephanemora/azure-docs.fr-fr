@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 5c87344c4cd179beae6502901a23b2dace6591a7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677227"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340033"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -44,8 +44,8 @@ Vous pouvez utiliser l’audit SQL Database pour :
 
 ### <a name="auditing-limitations"></a>Limitations de l’audit
 
-- Le **stockage Premium** n'est actuellement **pas pris en charge** .
-- **L’espace de noms hiérarchique** pour un **compte de stockage Azure Data Lake Storage Gen2** n’est actuellement **pas pris en charge** .
+- Le **stockage Premium** n'est actuellement **pas pris en charge**.
+- **L’espace de noms hiérarchique** pour un **compte de stockage Azure Data Lake Storage Gen2** n’est actuellement **pas pris en charge**.
 - L’activation de l’audit sur une instance **Azure Synapse** interrompue n’est pas prise en charge. Pour activer l’audit, reprenez Azure Synapse.
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Définir une stratégie d’audit au niveau du serveur ou au niveau de la base de données
@@ -54,7 +54,7 @@ Une stratégie d’audit peut être définie pour une base de données spécifiq
 
 - Une stratégie de serveur s’applique aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
-- Si *l’audit du serveur est activé* , il *s’applique toujours à la base de données* . La base de données est auditée, quels que soient les paramètres d’audit de la base de données.
+- Si *l’audit du serveur est activé* , il *s’applique toujours à la base de données*. La base de données est auditée, quels que soient les paramètres d’audit de la base de données.
 
 - L’activation de l’audit dans la base de données, en plus de son activation sur le serveur, ne remplace *pas* et ne modifie pas non plus les paramètres d'audit du serveur. Les deux audits coexistent. En d’autres termes, la base de données est auditée deux fois en parallèle (une fois par la stratégie du serveur et une autre fois par la stratégie de la base de données).
 
@@ -76,19 +76,19 @@ La stratégie d’audit par défaut inclut toutes les actions et l’ensemble su
   
 Vous pouvez configurer l’audit pour différents types d’actions et groupes d’actions à l’aide de PowerShell, comme décrit dans la section [Gérer l’audit de SQL Database avec Azure PowerShell](#manage-auditing).
 
-L’audit Azure SQL Database et Azure Synapse stocke 4 000 caractères de données pour des champs de caractères dans un enregistrement d’audit. Lorsque l’ **instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées** .
+L’audit Azure SQL Database et Azure Synapse stocke 4 000 caractères de données pour des champs de caractères dans un enregistrement d’audit. Lorsque l’ **instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
 La section suivante décrit la configuration de l’audit à l’aide du portail Azure.
 
   > [!NOTE]
-  > L’activation de l’audit sur un pool Synapse SQL suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool Synapse SQL. En savoir plus sur le [pool SQL Synapse](../../synapse-analytics/sql/best-practices-sql-pool.md).
+  > L’activation de l’audit sur un pool SQL dédié suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool SQL dédié. En savoir plus sur le [pool SQL dédié](../..//synapse-analytics/sql/best-practices-sql-pool.md).
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet **SQL Database** ou **SQL Server** .
+2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet **SQL Database** ou **SQL Server**.
 3. Si vous préférez définir une stratégie d’audit de serveur, vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans la page d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur. Les stratégies d’audit de serveur s’appliquent aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
     ![Capture d’écran montrant le lien Afficher les paramètres du serveur mis en évidence sur la page d’audit de la base de données.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
-4. Si vous préférez activer l’audit au niveau base de données, définissez **Audit** sur **ACTIVÉ** . Si l’audit d’objets du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.
+4. Si vous préférez activer l’audit au niveau base de données, définissez **Audit** sur **ACTIVÉ**. Si l’audit d’objets du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.
 
 5. Vous disposez de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux dans un compte de stockage Azure ou dans un espace de travail Log Analytics pour qu’ils soient consommés par des journaux d’activité Azure Monitor (préversion), ou dans un Event Hub pour qu’ils soient consommés par cet Event Hub (préversion). Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
   
@@ -105,9 +105,16 @@ Pour activer l’audit des opérations de Support Microsoft (Préversion), accé
 
 ![Capture d’écran des opérations de Support Microsoft](./media/auditing-overview/support-operations.png)
 
+Pour passer en revue les journaux d’audit des opérations de Support Microsoft dans votre espace de travail Log Analytics, utilisez la requête suivante :
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Écriture des journaux d’audit dans un compte de stockage
 
-Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage** , puis ouvrez **Détails du stockage** . Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention. Cliquez ensuite sur **OK** . Une fois la période de conservation écoulée, les journaux sont supprimés.
+Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage** , puis ouvrez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention. Cliquez ensuite sur **OK**. Une fois la période de conservation écoulée, les journaux sont supprimés.
 
 - La valeur par défaut de la période de conservation est 0 (conservation illimitée). Vous pouvez changer cette valeur en déplaçant le curseur **Rétention (jours)** dans **Paramètres de stockage** lors de la configuration du compte de stockage à des fins d’audit.
   - Si vous remplacez la valeur 0 de la période de rétention (rétention illimitée) par une autre valeur, notez que la rétention s’appliquera uniquement aux journaux écrits après la modification de la valeur de rétention (les journaux écrits au cours de la période pendant laquelle la rétention était définie sur illimité sont conservés, même après activation de la rétention).
@@ -127,7 +134,7 @@ Pour configurer l’écriture des journaux d’audit dans un compte de stockage,
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Écriture des journaux d’audit dans Log Analytics
   
-Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)** , puis ouvrez **Détails de Log Analytics** . Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK** .
+Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)** , puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -135,7 +142,7 @@ Pour plus d’informations sur l’espace de travail Azure Monitor Log Analytics
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Écriture des journaux d’audit dans Event Hub
 
-Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)** , puis ouvrez **Détails du hub d’événements** . Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK** . Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
+Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)** , puis ouvrez **Détails du hub d’événements**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -143,7 +150,7 @@ Pour configurer l’écriture des journaux d’audit dans un hub d’événement
 
 Si vous avez choisi d’écrire les journaux d’audit dans des journaux Azure Monitor :
 
-- Utilisez le [portail Azure](https://portal.azure.com). Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, sélectionnez **Afficher les journaux d’audit** .
+- Utilisez le [portail Azure](https://portal.azure.com). Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, sélectionnez **Afficher les journaux d’audit**.
 
     ![Afficher les journaux d’audit](./media/auditing-overview/auditing-view-audit-logs.png)
 
@@ -161,7 +168,7 @@ Si vous avez choisi d’écrire les journaux d’audit dans des journaux Azure M
 
     ![Insights sur la sécurité Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
-- Vous pouvez également accéder aux journaux d’audit à partir du panneau Log Analytics. Ouvrez votre espace de travail Log Analytics, puis, dans la section **Général** , cliquez sur **Journaux d’activité** . Vous pouvez démarrer par une requête simple, telle que : *search "SQLSecurityAuditEvents"* pour afficher les journaux d’audit.
+- Vous pouvez également accéder aux journaux d’audit à partir du panneau Log Analytics. Ouvrez votre espace de travail Log Analytics, puis, dans la section **Général** , cliquez sur **Journaux d’activité**. Vous pouvez démarrer par une requête simple, telle que : *search "SQLSecurityAuditEvents"* pour afficher les journaux d’audit.
     Vous pouvez également utiliser les [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) pour exécuter des recherches avancées sur les données de votre journal d’audit. Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événements :
@@ -171,24 +178,24 @@ Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événeme
 
 Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage Azure, plusieurs méthodes existent pour afficher les journaux d’activité :
 
-- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs** . Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](./audit-log-format.md).
+- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**. Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](./audit-log-format.md).
 
-- Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit** .
+- Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
     ![Capture d’écran montrant le bouton Afficher les journaux d’audit mis en évidence sur la page d’audit de la base de données.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     La page **Enregistrements d’audit** s’ouvre et vous y voyez les journaux d’activité.
 
-  - Vous pouvez afficher des dates spécifiques en cliquant sur **Filtrer** en haut de la page **Enregistrements d’audit** .
-  - Vous pouvez basculer entre les enregistrements d’audit qui ont été créés par la *stratégie d’audit de serveur* et la *stratégie d’audit de base de données* en choisissant la **Source de l’audit** .
-  - Vous pouvez afficher uniquement les enregistrements d’audit liés aux injections SQL en cochant la case **Afficher uniquement les enregistrements d’audit pour les injections SQL** .
+  - Vous pouvez afficher des dates spécifiques en cliquant sur **Filtrer** en haut de la page **Enregistrements d’audit**.
+  - Vous pouvez basculer entre les enregistrements d’audit qui ont été créés par la *stratégie d’audit de serveur* et la *stratégie d’audit de base de données* en choisissant la **Source de l’audit**.
+  - Vous pouvez afficher uniquement les enregistrements d’audit liés aux injections SQL en cochant la case **Afficher uniquement les enregistrements d’audit pour les injections SQL**.
 
        ![Capture d’écran montrant les options permettant d’afficher les enregistrements d’audit.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - Utilisez la fonction système **sys.fn_get_audit_file** (T-SQL) pour retourner les données du journal d’audit sous un format tabulaire. Pour plus d’informations sur l’utilisation de cette fonction, consultez [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Utilisez **Fusionner les fichiers d’audit** dans SQL Server Management Studio (à partir de SSMS 17) :
-    1. Dans le menu SSMS, sélectionnez **Fichier** > **Ouvrir** > **Fusionner les fichiers d’audit** .
+    1. Dans le menu SSMS, sélectionnez **Fichier** > **Ouvrir** > **Fusionner les fichiers d’audit**.
 
         ![Capture d’écran montrant l’option de menu Fusionner les fichiers d’audit.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. La boîte de dialogue **Ajouter des fichiers d’audit** s’ouvre. Sélectionnez l’une des options **Ajouter** pour choisir de fusionner les fichiers d’audit à partir d’un disque local ou de les importer à partir du stockage Azure. Vous devrez fournir vos informations de stockage Azure et la clé de compte.
@@ -205,9 +212,7 @@ Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage
 - Autres méthodes :
 
   - Après avoir téléchargé plusieurs fichiers (ou un sous-dossier contenant des fichiers journaux), vous pouvez les fusionner localement en suivant les instructions relatives à l’option Fusionner les fichiers d’audit dans SSMS, décrites précédemment.
-  - Affichez des journaux d’activité d’audit d’objets blob par programmation :
-
-    - [Interrogez des fichiers d’événements étendus](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) avec PowerShell.
+  - Affichez des journaux d’activité d’audit d’objets blob par programmation : [Interrogez des fichiers d’événements étendus](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) avec PowerShell.
 
 ## <a name="production-practices"></a><a id="production-practices"></a>Pratiques de production
 
@@ -216,7 +221,7 @@ Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage
 
 Avec les bases de données géorépliquées, lorsque vous activez l’audit dans la base de données primaire, la même stratégie d’audit est appliquée à la base de données secondaire. Il est également possible de configurer l’audit dans la base de données secondaire en activant l’audit dans le **serveur secondaire** , indépendamment de la base de données primaire.
 
-- Au niveau du serveur ( **recommandé** ) : activez l’audit sur le **serveur principal** et le **serveur secondaire** . Les bases de données primaire et secondaire sont auditées, indépendamment l’une de l’autre, en fonction de leur stratégie de niveau serveur respective.
+- Au niveau du serveur ( **recommandé** ) : activez l’audit sur le **serveur principal** et le **serveur secondaire**. Les bases de données primaire et secondaire sont auditées, indépendamment l’une de l’autre, en fonction de leur stratégie de niveau serveur respective.
 - Au niveau de la base de données : l’audit au niveau de la base de données ne peut être configuré pour les bases de données secondaires qu’à partir des paramètres d’audit de la base de données primaire.
   - L’audit doit être activé sur la *base de données primaire elle-même* , et non pas sur le serveur.
   - Une fois que l’audit est activé sur la base de données primaire, il est également activé sur la base de données secondaire.
@@ -228,13 +233,13 @@ Avec les bases de données géorépliquées, lorsque vous activez l’audit dans
 
 Dans un environnement de production, vous allez probablement actualiser périodiquement vos clés de stockage. Si vous écrivez les journaux d’audit dans le stockage Azure, vous devez réenregistrer votre stratégie d’audit lors de l’actualisation de vos clés. Pour ce faire, procédez comme suit :
 
-1. Ouvrez **Détails du stockage** . Dans la zone **Clé d’accès de stockage** , sélectionnez **Secondaire** , puis cliquez sur **OK** . Cliquez ensuite sur **Enregistrer** en haut de la page de configuration de l’audit.
+1. Ouvrez **Détails du stockage**. Dans la zone **Clé d’accès de stockage** , sélectionnez **Secondaire** , puis cliquez sur **OK**. Cliquez ensuite sur **Enregistrer** en haut de la page de configuration de l’audit.
 
     ![Capture d’écran montrant le processus de sélection d’une clé d’accès de stockage secondaire.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Accédez à la page de configuration du stockage, puis regénérez la clé d’accès primaire.
 
     ![Volet de navigation](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)
-3. Revenez à la page de configuration de l’audit, remplacez la clé d’accès de stockage secondaire par la clé primaire, puis cliquez sur **OK** . Cliquez ensuite sur **Enregistrer** en haut de la page de configuration de l’audit.
+3. Revenez à la page de configuration de l’audit, remplacez la clé d’accès de stockage secondaire par la clé primaire, puis cliquez sur **OK**. Cliquez ensuite sur **Enregistrer** en haut de la page de configuration de l’audit.
 4. Revenez à la page de configuration du stockage, puis regénérez la clé d’accès secondaire (en préparation du cycle suivant d’actualisation des clés).
 
 ## <a name="manage-azure-sql-database-auditing"></a><a id="manage-auditing"></a>Gérer l'audit Azure SQL Database

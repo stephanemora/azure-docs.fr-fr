@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287745"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321008"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Résolution des problèmes liés à Azure Synapse Studio (préversion)
 
 Ce guide de résolution des problèmes fournit des instructions sur les informations à fournir lors de l’ouverture d’un ticket de support concernant des problèmes de connectivité réseau. Avec les informations appropriées, nous pouvons peut-être résoudre le problème plus rapidement.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problème de connectivité au service SQL à la demande (préversion)
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problème de connectivité au service du pool SQL serverless (préversion)
 
 ### <a name="symptom-1"></a>Symptôme 1
 
-L’option « SQL à la demande » est grisée dans la liste déroulante « Se connecter à ».
+L’option « Pool SQL serverless » est grisée dans la liste déroulante « Se connecter à ».
 
 ![Symptôme 1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Symptôme 2
 
-L’exécution de la requête contenant « SQL à la demande » génère le message d’erreur « Échec de l’établissement de la connexion au serveur ».
+L’exécution de la requête contenant « Pool SQL serverless » génère le message d’erreur « Échec de l’établissement de la connexion au serveur ».
 
 ![Symptôme 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Ouvrez le panneau « Informations de diagnostic », puis sélectionnez le bout
 
 Pour commencer la résolution des problèmes, réessayez l’opération que vous avez effectuée dans Azure Synapse Studio.
 
-- Pour le symptôme 1, sous l’onglet « Script SQL », sélectionnez le bouton « Actualiser » à droite de la liste déroulante « Utiliser une base de données », et vérifiez si vous pouvez voir « SQL à la demande ».
+- Pour le symptôme 1, sous l’onglet « Script SQL », sélectionnez le bouton « Actualiser » à droite de la liste déroulante « Utiliser une base de données », et vérifiez si vous pouvez voir « pool SQL serverless ».
 - Pour le symptôme 2, essayez de réexécuter la requête pour voir si elle fonctionne correctement.
 
 Si le problème persiste, appuyez sur F12 dans votre navigateur pour ouvrir « Outils de développement » (DevTools).
@@ -61,7 +61,7 @@ Recherchez l’élément dont la colonne URL correspond au modèle suivant :
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Où [*A*] est le nom de votre espace de travail, « -ondemand » pourrait être « -sqlod », et où [*B*] doit être un nom de base de données tel que « master ». Il doit y avoir au plus deux éléments avec la même valeur d’URL, mais des valeurs de méthode différentes : OPTIONS et POST. Vérifiez si ces deux éléments contiennent « 200 » ou « 20x » dans la colonne d’état, où « x » peut être n’importe quel chiffre unique.
+Où [ *A* ] est le nom de votre espace de travail, « -ondemand » pourrait être « -sqlod », et où [ *B* ] doit être un nom de base de données tel que « master ». Il doit y avoir au plus deux éléments avec la même valeur d’URL, mais des valeurs de méthode différentes : OPTIONS et POST. Vérifiez si ces deux éléments contiennent « 200 » ou « 20x » dans la colonne d’état, où « x » peut être n’importe quel chiffre unique.
 
 Si l’un d’eux autre chose que « 20x », et que :
 
@@ -71,7 +71,7 @@ Si l’un d’eux autre chose que « 20x », et que :
 
     - Si vous voyez ERR_NAME_NOT_RESOLVED et avez créé votre espace de travail en 10 minutes, patientez 10 minutes, puis réessayez pour voir si le problème persiste.
     - Si vous voyez ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, cela peut indiquer que la connexion réseau de votre PC rencontre des problèmes. Vérifiez votre connexion réseau, puis retentez l’opération.
-    - Si vous voyez ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou d’autres codes d’erreur contenant « SSL », cela peut indiquer que votre configuration SSL locale rencontre des problèmes ou que votre administrateur réseau a bloqué l’accès au serveur SQL à la demande. Ouvrez un ticket de support et joignez le code d’erreur dans la description.
+    - Si vous voyez ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou d’autres codes d’erreur contenant « SSL », cela peut indiquer que votre configuration SSL locale rencontre des problèmes ou que votre administrateur réseau a bloqué l’accès au serveur du pool SQL serverless. Ouvrez un ticket de support et joignez le code d’erreur dans la description.
     - Si vous voyez ERR_NETWORK_ACCESS_DENIED, vous devrez peut-être vérifier auprès de l’administrateur si la stratégie de votre pare-feu local a bloqué l’accès au domaine *.database.windows.net ou au port distant 1443.
     - Vous pouvez tenter la même opération immédiatement sur un autre ordinateur et/ou un autre environnement réseau pour écarter tout problème de configuration réseau sur votre PC.
 
