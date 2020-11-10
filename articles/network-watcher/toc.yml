@@ -64,6 +64,8 @@
           href: connection-monitor-preview-create-using-portal.md
         - name: Utilisation d’Armclient
           href: connection-monitor-preview-create-using-arm-client.md
+        - name: Utilisation de PowerShell
+          href: connection-monitor-create-using-powershell.md
     - name: Migrer dans le Moniteur de connexion (préversion)
       items:
         - name: Depuis Network Performance Monitor
