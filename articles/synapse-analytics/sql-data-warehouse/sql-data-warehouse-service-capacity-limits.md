@@ -1,6 +1,6 @@
 ---
-title: Limites de capacité - Azure Synapse Analytics (anciennement SQL DW)
-description: Valeurs maximales autorisées pour les différents composants d’un pool SQL Synapse dans Azure Synapse.
+title: Limites de capacité du pool SQL dédié
+description: Valeurs maximales autorisées pour les différents composants d’un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742465"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313142"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacité Azure Synapse Analytics (anciennement SQL DW)
+# <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacité du pool SQL dédié dans Azure Synapse Analytics
 
-Valeurs maximales autorisées pour les différents composants d’Azure Synapse.
+Valeurs maximales autorisées pour les différents composants d’un pool SQL dédié dans Azure Synapse Analytics.
 
 ## <a name="workload-management"></a>Gestion des charges de travail
 
 | Category | Description | Maximale |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour une seule unité de pool SQL (entrepôt de données) | Gen1 : DW6000<br></br>Gen2 : DW30000c |
+| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour une seule unité de pool SQL dédié (entrepôt de données) | Gen1 : DW6000<br></br>Gen2 : DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 5 000 cDW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5 ou le nombre total de cDWU nécessaire par 9,5. Par exemple :<br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>5 000 cDW x 9,5 = 47 500 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
 | Connexion de base de données |Sessions simultanées ouvertes maximales |1 024<br/><br/>Le nombre de sessions simultanées ouvertes peut varier en fonction de l’unité DWU sélectionnée. DWU600c et unités supérieures prennent en charge un maximum de 1 024 sessions ouvertes. DWU500c et unités inférieures peuvent prendre en charge un maximum de 512 sessions ouvertes simultanées. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |

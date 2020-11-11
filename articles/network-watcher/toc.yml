@@ -29,7 +29,7 @@
 - name: Concepts
   items:
     - name: Moniteur de connexion (préversion)
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: Diagnostiquer des problèmes de filtre de trafic réseau sur une machine virtuelle
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnostiquer le filtrage du trafic et les règles de groupe de sécurité réseau
@@ -61,9 +61,9 @@
     - name: Créer un Moniteur de connexion (préversion)
       items:
         - name: En passant par le portail Azure
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Utilisation d’Armclient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: Utilisation de PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: Migrer dans le Moniteur de connexion (préversion)

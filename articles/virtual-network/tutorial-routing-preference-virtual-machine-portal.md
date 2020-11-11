@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2f3635c8280bdd95e8ad1259fe4ae35f8b531a4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687988"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042817"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configurer la préférence de routage pour une machine virtuelle à l’aide du portail Azure
 
@@ -42,8 +42,8 @@ Connectez-vous au [portail Azure](https://preview.portal.azure.com/).
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
-2. Sélectionnez **Calculer**, puis **Machine virtuelle Windows Server 2016** ou le système d’exploitation de votre choix.
-3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
+2. Sélectionnez **Calculer** , puis **Machine virtuelle Windows Server 2016** ou le système d’exploitation de votre choix.
+3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**  :
 
     |Paramètre|Valeur|
     |---|---|
@@ -51,12 +51,12 @@ Connectez-vous au [portail Azure](https://preview.portal.azure.com/).
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|
-    |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
+    |Resource group| Sélectionnez **Utiliser l’existant** , puis **myResourceGroup**.|
     |Emplacement| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
-5. Sous l’onglet **Mise en réseau**, cliquez sur **Créer nouveau** pour **Adresse IP publique**.
-6. Entrez *myPublicIpAddress*, sélectionnez SKU comme **standard**, sélectionnez la préférence de routage **Internet**, puis appuyez sur **OK**, comme indiqué dans l’image suivante :
+5. Sous l’onglet **Mise en réseau** , cliquez sur **Créer nouveau** pour **Adresse IP publique**.
+6. Entrez *myPublicIpAddress* , sélectionnez SKU comme **standard** , sélectionnez la préférence de routage **Internet** , puis appuyez sur **OK** , comme indiqué dans l’image suivante :
 
    ![Sélectionnez statique](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet-new.png)
 
@@ -65,14 +65,15 @@ Connectez-vous au [portail Azure](https://preview.portal.azure.com/).
    ![Sélectionnez un port](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports-new.png)
 
 7. Acceptez les autres valeurs par défaut, puis sélectionnez **OK**.
-8. Dans la page **Résumé**, sélectionnez **Créer**. Le déploiement de la machine virtuelle prend quelques minutes.
+8. Dans la page **Résumé** , sélectionnez **Créer**. Le déploiement de la machine virtuelle prend quelques minutes.
 9. Une fois la machine virtuelle déployée, entrez *myPublicIpAddress* dans la zone de recherche située dans la partie supérieure du portail. Quand **myPublicIpAddress** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
-10. Vous pouvoir identifier l’adresse IP publique qui est attribuée et constater qu’elle est attribuée à la machine virtuelle **myVM**, comme illustré dans l’image suivante :
+10. Vous pouvoir identifier l’adresse IP publique qui est attribuée et constater qu’elle est attribuée à la machine virtuelle **myVM** , comme illustré dans l’image suivante :
 
-    ![Examinez l’adresse IP publique](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![La capture d’écran montre l’adresse IP publique de la carte réseau pour l’interface réseau mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
-11. Sélectionnez **Mise en réseau**, cliquez sur la carte réseau **mynic**, puis sélectionnez l’adresse IP publique pour confirmer que la préférence de routage est **Internet**.
-    ![Examiner l’adresse IP publique](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+11. Sélectionnez **Mise en réseau** , cliquez sur la carte réseau **mynic** , puis sélectionnez l’adresse IP publique pour confirmer que la préférence de routage est **Internet**.
+
+    ![La capture d’écran montre l’adresse IP et la préférence de routage pour une adresse IP publique.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

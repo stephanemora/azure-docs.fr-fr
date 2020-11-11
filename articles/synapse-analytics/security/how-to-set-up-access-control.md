@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341547"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312044"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Sécuriser votre espace de travail Synapse (préversion) 
 
@@ -51,8 +51,6 @@ Créez et remplissez trois groupes de sécurité pour votre espace de travail :
 - **WS1\_WSAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur l’espace de travail.
 - **WS1\_SparkAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects Spark de l’espace de travail.
 - **WS1\_SQLAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects SQL de l’espace de travail.
-- Ajoutez **WS1\_WSAdmins** à **WS1\_SQLAdmins** .
-- Ajoutez **WS1\_WSAdmins** à **WS1\_SparkAdmins** .
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>ÉTAPE 2 : Préparer votre compte Azure Data Lake Storage Gen2.
 
@@ -65,16 +63,16 @@ Identifiez les informations ci-après sur votre stockage :
 
 - Sur le portail Azure, affectez les groupes de sécurité aux rôles suivants sur CNT1 :
 
-  - Affectez **WS1\_WSAdmins** au rôle **Contributeur de données du blob de stockage** .
-  - Affectez **WS1\_SparkAdmins** au rôle **Contributeur de données du blob de stockage** .
-  - Affectez **WS1\_SQLAdmins** au rôle **Contributeur de données du blob de stockage** .
+  - Affectez **WS1\_WSAdmins** au rôle **Contributeur de données du blob de stockage**.
+  - Affectez **WS1\_SparkAdmins** au rôle **Contributeur de données du blob de stockage**.
+  - Affectez **WS1\_SQLAdmins** au rôle **Contributeur de données du blob de stockage**.
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>ÉTAPE 3 : Créer et configurer votre espace de travail Synapse
 
  Dans le portail Azure, créez un espace de travail Synapse :
 
 - Sélectionnez votre abonnement
-- Sélectionnez votre groupe de ressources. Vous devez avoir accès à un groupe de ressources pour lequel vous avez le rôle **Propriétaire** .
+- Sélectionnez votre groupe de ressources. Vous devez avoir accès à un groupe de ressources pour lequel vous avez le rôle **Propriétaire**.
 - Nommez l’espace de travail WS1.
 - Choisissez STG1 pour le compte de stockage. Choisissez CNT1 pour le conteneur utilisé comme « système de fichiers ».
 - Ouvrez WS1 dans Synapse Studio.
@@ -94,11 +92,11 @@ L’espace de travail Synapse a besoin d’accéder à STG1 et CNT1 pour pouvoir
   - Si vous ne le voyez pas affecté, affectez-le.
   - Le MSI porte le même nom que l’espace de travail. Dans ce cas, il s’agit de &quot;WS1&quot;.
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>ÉTAPE 5 : Configurer l’accès administrateur pour les pools SQL
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>ÉTAPE 5 : Configurer l’accès administrateur pour Synapse SQL
 
 - Ouvrez le portail Azure
 - Accédez à WS1.
-- Sous **Paramètres** , sélectionnez **Administrateur SQL Active Directory** .
+- Sous **Paramètres** , sélectionnez **Administrateur SQL Active Directory**.
 - Sélectionnez **Définir l’administrateur** , puis choisissez WS1\_SQLAdmins.
 
 ## <a name="step-6-maintain-access-control"></a>ÉTAPE 6 : Gérer le contrôle d’accès
@@ -116,11 +114,11 @@ Les utilisateurs de chaque rôle doivent suivre les étapes suivantes :
 | Number | Étape | Administrateurs d'espace de travail | Administrateurs Spark | Administrateurs SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Charger un fichier Parquet dans CNT1 | YES | YES | YES |
-| 2 | Lire le fichier parquet à l’aide de SQL à la demande | YES | Non | YES |
-| 3 | Créer un pool Spark | OUI [1] | OUI [1] | Non  |
+| 2 | Lire le fichier parquet avec le pool SQL serverless | YES | Non | YES |
+| 3 | Créer un pool Apache Spark serverless | OUI [1] | OUI [1] | Non  |
 | 4 | Lire le fichier Parquet avec un bloc-notes | YES | YES | Non |
 | 5 | Créer un pipeline à partir du bloc-notes et déclencher l’exécution immédiate du pipeline | YES | Non | Non |
-| 6 | Créer un pool SQL et exécuter un script SQL tel que &quot;SELECT 1&quot; | OUI [1] | Non | OUI [1] |
+| 6 | Créer un pool SQL dédié et exécuter un script SQL tel que &quot;SELECT 1&quot; | OUI [1] | Non | OUI [1] |
 
 > [!NOTE]
 > [1] Pour créer des pools SQL ou Spark, l’utilisateur doit avoir au moins le rôle Contributeur sur l’espace de travail Synapse.
@@ -150,8 +148,8 @@ Synapse Studio se comporte différemment en fonction des rôles d’utilisateur.
 | Hub de données / Afficher les comptes et conteneurs ADLS Gen2 liés | OUI [1] | OUI [1] | OUI [1] |
 | Hub de données / Voir les bases de données | YES | YES | YES |
 | Hub de données / Voir les objets dans les bases de données | YES | YES | YES |
-| Hub de données / Accéder aux données dans les bases de données de pool SQL | YES   | Non   | YES   |
-| Hub de données / Accéder aux données dans les bases de données SQL à la demande | OUI [2]  | Non  | OUI [2]  |
+| Hub de données / Accéder aux données dans les bases de données Synapse SQL | YES   | Non   | YES   |
+| Hub de données / Accéder aux données dans les bases de données de pool SQL serverless | OUI [2]  | Non  | OUI [2]  |
 | Hub de données / Accéder aux données dans les bases de données Spark | OUI [2] | OUI [2] | OUI [2] |
 | Utiliser le hub de développement | YES | YES | YES |
 | Hub de développement / Créer des scripts SQL | YES | Non | YES |
@@ -161,7 +159,7 @@ Synapse Studio se comporte différemment en fonction des rôles d’utilisateur.
 | Utiliser le hub d’orchestration | YES | YES | YES |
 | Hub d’orchestration / Utiliser des pipelines | YES | Non | Non |
 | Utiliser le hub de gestion | YES | YES | YES |
-| Hub de gestion / Pools SQL | YES | Non | YES |
+| Hub de gestion / Synapse SQL | YES | Non | YES |
 | Hub de gestion / Pools Spark | YES | YES | Non |
 | Hub de gestion / Déclencheurs | YES | Non | Non |
 | Hub de gestion / Services liés | YES | YES | YES |

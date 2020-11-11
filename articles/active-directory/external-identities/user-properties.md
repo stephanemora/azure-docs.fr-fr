@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441366"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285858"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration
 
@@ -43,7 +43,7 @@ Selon les besoins de l’organisation qui émet l’invitation, un utilisateur A
 
 ### <a name="before-invitation-redemption"></a>Avant l'utilisation de l'invitation
 
-Les comptes dans l’état 1 et l’état 2 sont le résultat de l’invitation d’utilisateurs invités à collaborer à l’aide des informations d’identification des utilisateurs invités. Quand l’invitation est initialement envoyée à l’utilisateur invité, un compte est créé dans votre annuaire. Ce compte n’est pas associé à des informations d’identification, car l’authentification est effectuée par le fournisseur d’identité de l’utilisateur invité. La propriété **Source** du compte d’utilisateur invité dans votre annuaire est définie avec la valeur **Utilisateur invité** . 
+Les comptes dans l’état 1 et l’état 2 sont le résultat de l’invitation d’utilisateurs invités à collaborer à l’aide des informations d’identification des utilisateurs invités. Quand l’invitation est initialement envoyée à l’utilisateur invité, un compte est créé dans votre annuaire. Ce compte n’est pas associé à des informations d’identification, car l’authentification est effectuée par le fournisseur d’identité de l’utilisateur invité. La propriété **Source** du compte d’utilisateur invité dans votre annuaire est définie avec la valeur **Utilisateur invité**. 
 
 ![Capture d’écran montrant les propriétés de l’utilisateur avant l’acceptation de l’offre](media/user-properties/before-redemption.png)
 
@@ -51,11 +51,11 @@ Les comptes dans l’état 1 et l’état 2 sont le résultat de l’invitatio
 
 Quand l’utilisateur invité accepte l’invitation, la propriété **Source** est mise à jour selon le fournisseur d’identité de l’utilisateur invité.
 
-Pour les utilisateurs invités dans l’état 1, la propriété **Source** a la valeur **Azure Active Directory externe** .
+Pour les utilisateurs invités dans l’état 1, la propriété **Source** a la valeur **Azure Active Directory externe**.
 
 ![Utilisateur invité dans l’état 1 après utilisation de l’offre](media/user-properties/after-redemption-state1.png)
 
-Pour les utilisateurs invités dans l’état 2, la propriété **Source** a la valeur **Compte Microsoft** .
+Pour les utilisateurs invités dans l’état 2, la propriété **Source** a la valeur **Compte Microsoft**.
 
 ![Utilisateur invité dans l’état 2 après l’utilisation de l’offre](media/user-properties/after-redemption-state2.png)
 
@@ -70,6 +70,8 @@ Cette propriété indique la relation de l’utilisateur avec la location hôte.
 
   > [!NOTE]
   > La valeur UserType n’a aucun lien avec le mode de connexion de l’utilisateur, le rôle d’annuaire de l’utilisateur, etc. Cette propriété indique simplement la relation de l’utilisateur avec l’organisation hôte et permet à l’organisation d’appliquer des stratégies qui dépendent de cette propriété.
+
+Pour plus d’informations sur les tarifs, reportez-vous à [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
 ### <a name="source"></a>Source
 Cette propriété indique le mode de connexion de l’utilisateur.

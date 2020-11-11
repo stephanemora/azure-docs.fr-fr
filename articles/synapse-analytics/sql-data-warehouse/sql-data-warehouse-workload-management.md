@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e54e0ed1a3292cee400774d02f61514f54370151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761976741bf794a21182e8f962b274ae32925060
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208533"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324472"
 ---
 # <a name="what-is-workload-management"></a>Qu’est-ce que la gestion des charges de travail ?
 
@@ -42,7 +42,7 @@ Dans le passé, pour Synapse SQL dans Azure Synapse, vous gériez les performanc
 
 Par exemple, l’octroi d’une appartenance à un rôle d’utilisateur ad hoc à smallrc permettait à cet utilisateur de consommer 100 % de la mémoire sur le système.  Avec les classes de ressources, il n’existe aucun moyen de réserver et de garantir la disponibilité des ressources pour les charges de travail critiques.
 
-La gestion des charges de travail du pool SQL Synapse se compose de trois concepts généraux : [Classification des charges de travail](sql-data-warehouse-workload-classification.md), [importance de la charge de travail](sql-data-warehouse-workload-importance.md) et [isolation de la charge de travail](sql-data-warehouse-workload-isolation.md).  Ces fonctionnalités vous permettent de mieux contrôler la façon dont votre charge de travail utilise les ressources système.
+La gestion des charges de travail du pool SQL dédié dans Azure Synapse se compose de trois concepts généraux : [Classification des charges de travail](sql-data-warehouse-workload-classification.md), [importance de la charge de travail](sql-data-warehouse-workload-importance.md) et [isolation de la charge de travail](sql-data-warehouse-workload-isolation.md).  Ces fonctionnalités vous permettent de mieux contrôler la façon dont votre charge de travail utilise les ressources système.
 
 La classification des charges de travail est le concept d’affectation d’une requête à un groupe de charge de travail et de définition de niveaux d’importance.  Historiquement, cette affectation était effectuée via l’appartenance à un rôle à l’aide de [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Cette action peut être à présent exécutée via la fonctionnalité [CRÉER UN CLASSIFICATEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  La fonctionnalité de classification fournit un ensemble plus riche d’options, avec les balises, les sessions et le temps nécessaire pour classer les requêtes.
 

@@ -1,97 +1,129 @@
 ---
-title: Obtenir de l’aide pour les échecs d’approvisionnement ou de déploiement d’Azure VMware Solution
-description: Comment obtenir les informations dont vous avez besoin auprès de votre cloud privé Azure VMware Solution afin de traiter une demande de service pour les échecs de déploiement ou d’approvisionnement d’Azure VMware Solution.
+title: Support pour les échecs de provisionnement ou de déploiement d’Azure VMware Solution
+description: Obtenez les informations dont vous avez besoin à partir de votre cloud privé Azure VMware Solution, et traitez une demande de service pour un échec de déploiement ou de provisionnement d’Azure VMware Solution.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 1f46dde895db417fd2b488a6203d5482e73d3c5e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779490"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349118"
 ---
-# <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenir de l’aide pour les échecs d’approvisionnement ou de déploiement d’Azure VMware Solution
+# <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Ouvrir une demande de support pour un échec de provisionnement ou de déploiement d’Azure VMware Solution
 
-Cet article vous aide à résoudre les problèmes de déploiement et d’approvisionnement d’Azure VMware Solution. Lorsque vous rencontrez des échecs sur votre cloud privé, vous devez ouvrir une [demande de support](https://rc.portal.azure.com/#create/Microsoft.Support) dans le portail Azure. 
+Cet article vous montre comment ouvrir une [demande de support](https://rc.portal.azure.com/#create/Microsoft.Support) et fournir des informations essentielles pour un échec de provisionnement ou de déploiement d’Azure VMware Solution. 
 
-Toutefois, vous devez commencer par collecter des informations clés dans le portail Azure :
+Lorsqu’un échec survient sur votre cloud privé, vous devez ouvrir une demande de support dans le portail Azure. Pour ouvrir une demande de support, commencez par récupérer quelques informations indispensables dans le portail Azure :
 
 - ID de corrélation :
-- ID de circuit ExpressRoute
+- ID de circuit Azure ExpressRoute
+- Messages d’erreur
 
-## <a name="collect-the-correlation-id"></a>Collecter l’ID de corrélation
+## <a name="get-the-correlation-id"></a>Récupérer l’ID de corrélation
  
-Un ID de corrélation est généré lorsque vous créez un cloud privé ou une ressource quelconque dans Azure. Chaque déploiement d’Azure Resource Manager génère également un ID de corrélation. Cet ID permet d’accélérer la création et la résolution d’une demande de service. 
+Lorsque vous créez un cloud privé ou une ressource dans Azure, un ID de corrélation lié à la ressource est automatiquement généré pour cette ressource. Incluez l’ID de corrélation du cloud privé dans votre demande de support pour ouvrir et résoudre plus rapidement la demande.
+
+Dans le portail Azure, vous pouvez obtenir l’ID de corrélation d’une ressource de deux manières :
+
+* Volet **Vue d’ensemble**
+* Journaux de déploiement
  
-Voici un exemple de la sortie d’un déploiement de cloud privé ayant échoué, avec l’ID de corrélation mis en surbrillance.
+ ### <a name="get-the-correlation-id-from-the-resource-overview"></a>Récupérer l’ID de corrélation à partir de la vue d’ensemble des ressources
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Échec du déploiement du cloud privé avec l’ID de corrélation.":::
+Voici un exemple des détails de l’opération d’un déploiement de cloud privé ayant échoué, avec l’ID de corrélation mis en évidence :
 
-Copiez et enregistrez cet ID de corrélation pour l’inclure dans la demande de service. Pour plus d’informations, consultez [Créer votre demande de support](#create-your-support-request) à la fin de cet article.
+:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Capture d’écran montrant un échec de déploiement du cloud privé avec l’ID de corrélation mis en évidence.":::
 
-Si l’échec se produit lors des étapes de prévalidation, aucun ID de corrélation n’est généré. Dans ce cas, vous pouvez fournir les informations que vous avez utilisées lors de la création du cloud privé Azure VMware Solution, à savoir :
+Pour accéder aux résultats du déploiement dans le volet **Vue d’ensemble** du cloud privé :
 
-- Emplacement
-- Resource group
-- Nom de la ressource
+1. Dans le portail Azure, sélectionnez votre cloud privé.
+
+1. Dans le menu de gauche, sélectionnez **Vue d’ensemble**.
+
+Une fois le déploiement initié, les résultats du déploiement s’affichent dans le volet **Vue d’ensemble** du cloud privé.
+
+Copiez et enregistrez l’ID de corrélation du déploiement dans le cloud privé pour l’inclure dans la demande de service.
+
+### <a name="get-the-correlation-id-from-the-deployment-log"></a>Récupérer l’ID de corrélation à partir du journal de déploiement
+
+Vous pouvez obtenir l’ID de corrélation d’un déploiement qui a échoué en effectuant une recherche dans le journal d’activité du déploiement sur le portail Azure.
+
+Pour accéder au journal de déploiement :
+
+1. Dans le portail Azure, sélectionnez votre cloud privé, puis sélectionnez l’icône des notifications.
+
+   :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Capture d’écran montrant l’icône des notifications dans le portail Azure.":::
+
+1. Dans le volet **Notifications** , sélectionnez **Plus d’événements dans le journal d’activité**  :
+
+    :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Capture d’écran montrant dans le volet Notifications la sélection du lien « Plus d’événements dans le journal d’activité ».":::
+
+1. Pour trouver le déploiement qui a échoué et son ID de corrélation, recherchez le nom de la ressource ou d’autres informations que vous avez utilisées pour créer cette ressource. 
+
+    L’exemple suivant montre les résultats de la recherche d’une ressource de cloud privé nommée pc03.
  
-### <a name="collect-a-summary-of-errors"></a>Collecter un résumé des erreurs
-
-Les détails des erreurs peuvent également vous aider à résoudre votre problème. Dans l’écran précédent, sélectionnez le message d’avertissement pour afficher un résumé des erreurs.
+    :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Capture d’écran affichant les résultats de la recherche d’un exemple de ressource de cloud privé et le volet Créer ou mettre à jour un PrivateCloud.":::
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Résumé des options.":::
+1. Dans les résultats de la recherche du volet **Journal d’activité** , sélectionnez le nom d’opération du déploiement qui a échoué.
 
-Recopiez et réenregistrez ce résumé pour l’inclure dans la demande de service.
+1. Dans le volet **Créer ou mettre à jour un PrivateCloud** , sélectionnez l’onglet **JSON** , puis recherchez `correlationId` dans le journal qui s’affiche. Copiez la valeur `correlationId` pour l’inclure dans votre demande de support. 
  
-### <a name="retrieve-past-deployments"></a>Récupérer les déploiements passés
+## <a name="copy-error-messages"></a>Copier les messages d’erreur
 
-Vous pouvez récupérer les déploiements passés, notamment ceux qui ont échoué, en effectuant une recherche dans le journal d’activité de déploiement auquel vous accédez en sélectionnant l’icône des notifications.
-
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Ouvrez les notifications.":::
-
-Dans Notifications, sélectionnez **Plus d’événements dans le journal d’activité**.
-
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Lien : Plus d’événements dans le journal d’activité.":::
-
-Recherchez ensuite le nom de la ressource ou d’autres informations utilisées pour créer la ressource afin de trouver le déploiement qui a échoué et son ID de corrélation. L’exemple suivant montre les résultats de recherche sur une ressource de cloud privé (pc03).
+Pour faciliter la résolution de votre problème de déploiement, incluez tous les messages d’erreur affichés dans le portail Azure. Sélectionnez un message d’avertissement pour consulter un résumé des erreurs :
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Recherchez les déploiements de d’Azure VMware Solution ayant échoué dans le passé.":::
- 
-Si vous sélectionnez le nom d’opération du déploiement qui a échoué, une fenêtre contenant des détails s’ouvre. Sélectionnez l’onglet JSON et recherchez correlationId. Copiez et incluez dans la demande de service. 
- 
-## <a name="collect-the-expressroute-id-uri"></a>Collecter l’ID ExpressRoute (URI)
- 
-Il se peut que vous tentiez de mettre à l’échelle ou d’appairer un cloud privé existant avec le circuit ExpressRoute de cloud privé, et que cela échoue. Dans ce cas, vous avez besoin de l’ID ExpressRoute. 
+:::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Capture d’écran affichant les détails de l’erreur sous l’onglet Résumé du volet Erreurs ; l’icône de copie est sélectionnée.":::
 
-Dans le portail Azure, sélectionnez **Connectivité > ExpressRoute** , puis copiez l’ **ID ExpressRoute** dans le Presse-papiers.
+Pour copier le message d’erreur, sélectionnez l’icône de copie. Enregistrez le message copié à inclure dans votre demande de support.
+ 
+## <a name="get-the-expressroute-id-uri"></a>Récupérer l’ID ExpressRoute (URI)
+ 
+Il se peut que vous tentiez de mettre à l’échelle ou d’appairer un cloud privé existant avec le circuit ExpressRoute de cloud privé, et que cela échoue. Dans ce scénario, vous avez besoin d’inclure l’ID ExpressRoute dans votre demande de support.
+
+Pour copier l’ID ExpressRoute :
+
+1. Dans le portail Azure, sélectionnez votre cloud privé.
+1. Dans le menu de gauche, sous **Gérer** , sélectionnez **Connectivité**. 
+1. Dans le volet droit, sélectionnez l’onglet **ExpressRoute**.
+1. Sélectionnez l’icône de copie pour **ID ExpressRoute** et enregistrez la valeur à utiliser dans votre demande de support.
  
 :::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copiez l’ID ExpressRoute dans le presse-papiers."::: 
  
-> [!NOTE]
-> Les vérifications de prévalidation peuvent échouer avant un déploiement et les seules informations disponibles sont les messages d’erreur et d’échec. Elles peuvent être utiles dans de nombreux cas d’échec, par exemple, pour des problèmes de quota, et il est important d’inclure ces messages dans la demande de support. Pour les collecter, consultez la section précédente, [Collecter un résumé des erreurs](#collect-a-summary-of-errors).
+## <a name="pre-validation-failures"></a>Échecs de prévalidation
+
+Si le contrôle de prévalidation de votre cloud privé a échoué (avant le déploiement), aucun ID de corrélation n’aura été généré. Dans ce scénario, vous pouvez fournir les informations suivantes dans votre demande de support :
+
+- Les messages d’échec et d’erreur. Ces messages peuvent être utiles dans la résolution de nombreuses défaillances, par exemple les problèmes liés aux quotas. Il est important de copier ces messages et de les inclure à la demande de support, comme décrit dans cet article.
+- Les informations que vous avez utilisées pour créer le cloud privé Azure VMware Solution, notamment :
+  - Emplacement
+  - Resource group
+  - Nom de la ressource
 
 ## <a name="create-your-support-request"></a>Créer votre demande de support
 
-Pour obtenir des conseils généraux sur la création d’une demande de support, consultez [Comment créer une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+Pour obtenir des informations générales sur la création d’une demande de support, consultez [Comment créer une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Voici des conseils spécifiques pour la création d’une demande de support pour les échecs d’approvisionnement ou de déploiement d’Azure VMware Solution.
+Pour créer une demande de support relatif à un échec de provisionnement ou de déploiement d’Azure VMware Solution :
 
-1. Sélectionnez l’icône **Aide** puis **+ Nouvelle demande de support**.
+1. Dans le portail Azure, sélectionnez l’icône **Aide** , puis sélectionnez **Nouvelle demande de support**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Collectez un ID ExpressRoute pour votre DS.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Capture d’écran du volet Nouvelle demande de support dans le portail Azure.":::
 
-2. Renseignez tous les champs obligatoires et, sous l’onglet **Informations de base**  :
+1. Entrez ou sélectionnez les informations nécessaires :
 
-    - Pour **Type de problème** , sélectionnez **Problèmes de configuration et d’installation**.
+   1. Sous l’onglet **Général**  :
 
-    - Pour **Sous-type de problème** , sélectionnez **Configurer un cloud privé**.
+      1. Pour **Type de problème** , sélectionnez **Problèmes de configuration et d’installation**.
 
-3. Sous l’onglet **Détails**  :
+      1. Pour **Sous-type de problème** , sélectionnez **Configurer un cloud privé**.
 
-    - Renseignez tous les champs obligatoires.
+   1. Sous l’onglet **Détails**  :
 
-    - Collez votre ID de corrélation ou ExpressRoute dans les champs spécifiques fournis. Si vous ne voyez pas les champs spécifiques, vous pouvez les coller dans la zone de texte sous **Fournissez des détails sur le problème**.
+      1. Entrez ou sélectionnez les informations nécessaires.
 
-    - Collez les détails de l’erreur, notamment le résumé des erreurs que vous avez copié, dans la zone de texte sous **Fournissez des détails sur le problème.**
+      1. Collez votre ID de corrélation ou votre ID ExpressRoute à l’endroit où cette information est demandée. Si vous ne voyez pas de zone de texte spécifique pour ces valeurs, collez-les dans la zone de texte **Fournissez des détails sur le problème.**
 
-4. Vérifiez, puis sélectionnez **Créer** pour créer votre demande de service.
+    1. Collez tous les détails de l’erreur, notamment les messages d’échec ou d’erreur que vous avez copiés, dans la zone de texte **Fournissez des détails sur le problème**.
+
+1. Passez en revue vos entrées, puis sélectionnez **Créer** pour générer votre demande de support.

@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 068fc9dcb9a4f4a62c2dd879bf8144097452f1e0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203192"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099026"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Déployer un conteneur personnalisé sur App Service à l’aide de GitHub Actions
 
@@ -47,13 +47,16 @@ Un profil de publication est une information d’identification au niveau de l�
 
 1. Accédez à votre service d’application dans le portail Azure. 
 
-1. Dans la page **Vue d’ensemble** , sélectionnez **Obtenir le profil de publication** .
+1. Dans la page **Vue d’ensemble** , sélectionnez **Obtenir le profil de publication**.
+
+    > [!NOTE]
+    > À compter d’octobre 2020, les applications web Linux ont besoin que le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` soit défini sur `true` **avant de télécharger le fichier**. Cette condition sera supprimée ultérieurement.
 
 1. Enregistrez le fichier téléchargé. Vous utiliserez le contenu du fichier pour créer un secret GitHub.
 
 # <a name="service-principal"></a>[Principal du service](#tab/service-principal)
 
-Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer** .
+Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -80,7 +83,7 @@ Dans l’exemple, remplacez les espaces réservés par votre ID d’abonnement, 
 
 ## <a name="configure-the-github-secret"></a>Configurer le secret GitHub
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
 
 Collez le contenu de la sortie JSON comme valeur de la variable secrète. Nommez le secret comme `AZURE_CREDENTIALS`.
 
@@ -96,7 +99,7 @@ Quand vous configurez le fichier de flux de travail ultérieurement, vous utilis
 
 # <a name="publish-profile"></a>[Profil de publication](#tab/publish-profile)
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
 
 Pour utiliser les [informations d’identification au niveau de l’application](#generate-deployment-credentials), collez le contenu du fichier de profil de publication téléchargé dans le champ de valeur du secret. Nommez le secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -110,7 +113,7 @@ Quand vous configurez votre workflow GitHub, vous utilisez `AZURE_WEBAPP_PUBLISH
 
 # <a name="service-principal"></a>[Principal du service](#tab/service-principal)
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
 
 Pour utiliser les [informations d’identification au niveau de l’utilisateur](#generate-deployment-credentials), collez l’intégralité de la sortie JSON à partir de la commande Azure CLI dans le champ de valeur du secret. Nommez le secret comme `AZURE_CREDENTIALS`.
 

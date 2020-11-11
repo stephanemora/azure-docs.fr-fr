@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9090c778771436a4fcf60139f3ee59812051057a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436848"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145614"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -42,7 +42,7 @@ Si les revendications facultatives sont prises en charge dans les jetons aux for
 
 ## <a name="v10-and-v20-optional-claims-set"></a>Ensemble de revendications facultatives v1.0 et v2.0
 
-L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous. Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](#configuring-directory-extension-optional-claims) ci-dessous. Lors de l’ajout de revendications au **jeton d’accès**, les revendications s’appliquent aux jetons d’accès demandés *pour* l’application (API web), pas les revendications demandées *par* l’application. Quelle que soit la façon dont le client accède à votre API, les données correctes seront sur le jeton d’accès qu’il utilise pour s’authentifier auprès de votre API.
+L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous. Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](#configuring-directory-extension-optional-claims) ci-dessous. Lors de l’ajout de revendications au **jeton d’accès** , les revendications s’appliquent aux jetons d’accès demandés *pour* l’application (API web), pas les revendications demandées *par* l’application. Quelle que soit la façon dont le client accède à votre API, les données correctes seront sur le jeton d’accès qu’il utilise pour s’authentifier auprès de votre API.
 
 > [!NOTE]
 > La plupart de ces revendications peuvent figurer dans les jetons JWT pour les jetons v1.0 et v2.0, mais pas dans les jetons SAML, sauf indication contraire dans la colonne Type de jeton. Les comptes consommateur prennent en charge un sous-ensemble de ces revendications, indiqué dans la colonne « Type d’utilisateur ».  La plupart des revendications répertoriées ne s’appliquent pas aux utilisateurs consommateurs (comme ils n’ont pas de locataire, `tenant_ctry` n’a pas de valeur).
@@ -67,7 +67,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, Azure AD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Statut du compte utilisateur dans le locataire | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
 | `groups`| Mise en forme facultative des revendications de groupe |JWT, SAML| |Utilisé conjointement avec le paramètre GroupMembershipClaims dans le [manifeste d’application](reference-app-manifest.md) qui doit également être défini. Pour plus d’informations, voir [Revendications de groupe](#configuring-groups-optional-claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, voir [Comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s’agit pas d’un identificateur durable pour l’utilisateur et il ne doit pas être utilisé pour identifier de manière unique les informations utilisateur (par exemple, comme clé de base de données). Utilisez plutôt l’ID d’objet utilisateur (`oid`) comme clé de base de données. Les utilisateurs qui se connectent avec un [autre ID de connexion](/azure/active-directory/authentication/howto-authentication-use-email-signin) ne doivent pas voir leur nom d’utilisateur principal (UPN). Utilisez plutôt les revendications de jeton d’ID suivantes pour afficher l’état de connexion à l’utilisateur : `preferred_username` ou `unique_name` pour les jetons v1 et `preferred_username` pour les jetons v2. Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
 | `idtyp`                    | Type de jeton   | Jetons d’accès JWT | Spécial : uniquement dans les jetons d’accès à l’application uniquement |  La valeur est `app` lorsque le jeton est un jeton uniquement de l’application. Il s’agit de la façon la plus précise pour une API de déterminer si un jeton est un jeton d’application ou un jeton d’application + un jeton d’utilisateur.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Ensemble de revendications facultatives spécifiques à v2.0
@@ -85,7 +85,7 @@ Ces revendications sont toujours incluses dans les jetons Azure AD v1.0, mais pa
 | `in_corp`     | Dans le périmètre du réseau d’entreprise        | Indique si le client se connecte à partir du réseau d’entreprise. Dans le cas contraire, la revendication n’est pas incluse.   |  Basé sur les [adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips) définies dans MFA.    |
 | `family_name` | Nom                       | Fournit le nom de famille de l’utilisateur, tel que défini sur l’objet utilisateur. <br>"family_name":"Miller" | Pris en charge dans MSA et Azure AD. Nécessite l’étendue `profile`.   |
 | `given_name`  | Prénom                      | Fournit le prénom de l’utilisateur, tel que défini sur l’objet utilisateur.<br>"given_name": "Frank"                   | Pris en charge dans MSA et Azure AD.  Nécessite l’étendue `profile`. |
-| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. Nécessite l’étendue `profile`.|
+| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s’agit pas d’un identificateur durable pour l’utilisateur et il ne doit pas être utilisé pour identifier de manière unique les informations utilisateur (par exemple, comme clé de base de données). Utilisez plutôt l’ID d’objet utilisateur (`oid`) comme clé de base de données. Les utilisateurs qui se connectent avec un [autre ID de connexion](/azure/active-directory/authentication/howto-authentication-use-email-signin) ne doivent pas voir leur nom d’utilisateur principal (UPN). Utilisez plutôt les revendications de jeton d’ID suivantes pour afficher l’état de connexion à l’utilisateur : `preferred_username` ou `unique_name` pour les jetons v1 et `preferred_username` pour les jetons v2. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. Nécessite l’étendue `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
 
@@ -125,14 +125,14 @@ Cet objet OptionalClaims retourne au client le jeton d’ID pour y inclure une r
 Vous pouvez configurer des revendications facultatives pour votre application par le biais de l’interface utilisateur ou du manifeste de l’application.
 
 1. Accédez au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
-1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Dans la section **Gérer** , sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
 
 **Configuration de revendications facultatives par le biais de l’interface utilisateur :**
 
 [![Configurer des revendications facultatives dans l'interface utilisateur](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
+1. Dans la section **Gérer** , sélectionnez **Configuration de jetons**.
 1. Sélectionnez **Ajouter une revendication facultative**.
 1. Sélectionnez le type de jeton que vous souhaitez configurer.
 1. Sélectionnez les revendications facultatives à ajouter.
@@ -142,7 +142,7 @@ Vous pouvez configurer des revendications facultatives pour votre application pa
 
 [![montre comment configurer des revendications facultatives à l’aide du manifeste de l’application](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Dans la section **Gérer**, sélectionnez **Manifeste**. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** et modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application. Pour plus d’informations sur le manifeste de l’application, consultez l’[article Connaître le manifeste de l’application Azure AD](reference-app-manifest.md).
+1. Dans la section **Gérer** , sélectionnez **Manifeste**. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** et modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application. Pour plus d’informations sur le manifeste de l’application, consultez l’[article Connaître le manifeste de l’application Azure AD](reference-app-manifest.md).
 
     L’entrée suivante du manifeste de l’application ajoute les revendications facultatives auth_time, ipaddr et upn aux jetons d’ID, d’accès et SAML.
 
@@ -234,11 +234,11 @@ Cette section couvre les options de configuration sous les revendications facult
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
-1. Sous la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Sous la section **Gérer** , sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
+1. Dans la section **Gérer** , sélectionnez **Configuration de jetons**.
 1. Sélectionnez **Ajouter une revendication de groupe**.
-1. Sélectionnez les types de groupes à renvoyer (**Groupes de sécurité** ou **Rôles d'annuaire**, **Tous les groupes** et/ou **Groupes attribués à l'application**). L'option **Groupes attribués à l'application** ne comprend que les groupes attribués à l'application. L'option **Tous les groupes** comprend **SecurityGroup**, **DirectoryRole** et **DistributionList**, mais pas **Groupes attribués à l'application**. 
+1. Sélectionnez les types de groupes à renvoyer ( **Groupes de sécurité** ou **Rôles d'annuaire** , **Tous les groupes** et/ou **Groupes attribués à l'application** ). L'option **Groupes attribués à l'application** ne comprend que les groupes attribués à l'application. L'option **Tous les groupes** comprend **SecurityGroup** , **DirectoryRole** et **DistributionList** , mais pas **Groupes attribués à l'application**. 
 1. Facultatif : sélectionnez les propriétés du type de jeton pour modifier la valeur de la revendication de groupe afin qu’elle contienne les attributs du groupe local, ou pour remplacer la revendication de groupe par une revendication de rôle.
 1. Sélectionnez **Enregistrer**.
 
@@ -248,7 +248,7 @@ Cette section couvre les options de configuration sous les revendications facult
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
-1. Dans la section **Gérer**, sélectionnez **Manifeste**.
+1. Dans la section **Gérer** , sélectionnez **Manifeste**.
 1. Ajoutez l’entrée suivante à l’aide de l’éditeur de manifeste :
 
    Les valeurs valides sont les suivantes :
@@ -367,7 +367,7 @@ Plusieurs options sont disponibles pour mettre à jour les propriétés de confi
 
 **Exemple :**
 
-Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Configuration du jeton**, ainsi que le **manifeste**, pour ajouter des revendications facultatives aux jetons d’accès, d’ID et SAML destinés à votre application. Différentes revendications facultatives seront ajoutées à chaque type de jeton que l’application peut recevoir :
+Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Configuration du jeton** , ainsi que le **manifeste** , pour ajouter des revendications facultatives aux jetons d’accès, d’ID et SAML destinés à votre application. Différentes revendications facultatives seront ajoutées à chaque type de jeton que l’application peut recevoir :
 
 - Les jetons d’ID contiendront désormais l’UPN pour les utilisateurs fédérés au format complet (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
 - Les jetons d’accès demandés par d’autres clients pour cette application incluront désormais la revendication auth_time
@@ -381,19 +381,19 @@ Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Con
 
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 
-1. Sous la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Sous la section **Gérer** , sélectionnez **Inscriptions d’applications**.
 
 1. Dans la liste, recherchez l’application pour laquelle vous souhaitez configurer des revendications facultatives, puis sélectionnez-la.
 
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
+1. Dans la section **Gérer** , sélectionnez **Configuration de jetons**.
 
-1. Sélectionnez **Ajouter une revendication facultative**, sélectionnez ensuite le type de jeton **ID**, puis **upn** dans la liste des revendications. Enfin, sélectionnez **Ajouter**.
+1. Sélectionnez **Ajouter une revendication facultative** , sélectionnez ensuite le type de jeton **ID** , puis **upn** dans la liste des revendications. Enfin, sélectionnez **Ajouter**.
 
-1. Sélectionnez **Ajouter une revendication facultative**, sélectionnez ensuite le type de jeton **Access**, puis **auth_time** dans la liste des revendications. Enfin, sélectionnez **Ajouter**.
+1. Sélectionnez **Ajouter une revendication facultative** , sélectionnez ensuite le type de jeton **Access** , puis **auth_time** dans la liste des revendications. Enfin, sélectionnez **Ajouter**.
 
-1. Dans l’écran de vue d’ensemble « Configuration du jeton », sélectionnez l’icône en forme de crayon à côté d’**upn**, sélectionnez ensuite le bouton bascule **Authentifié en externe**, puis sélectionnez **Enregistrer**.
+1. Dans l’écran de vue d’ensemble « Configuration du jeton », sélectionnez l’icône en forme de crayon à côté d’ **upn** , sélectionnez ensuite le bouton bascule **Authentifié en externe** , puis sélectionnez **Enregistrer**.
 
-1. Sélectionnez **Ajouter une revendication facultative**, puis le type de jeton **SAML** et enfin **extn.skypeID** dans la liste des revendications (applicable uniquement si vous avez créé un objet utilisateur Azure AD appelé skypeID). Sélectionnez ensuite **Ajouter**.
+1. Sélectionnez **Ajouter une revendication facultative** , puis le type de jeton **SAML** et enfin **extn.skypeID** dans la liste des revendications (applicable uniquement si vous avez créé un objet utilisateur Azure AD appelé skypeID). Sélectionnez ensuite **Ajouter**.
 
     [![Revendications facultatives pour le jeton SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
@@ -403,7 +403,7 @@ Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Con
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 1. Dans la liste, recherchez l’application pour laquelle vous souhaitez configurer des revendications facultatives, puis sélectionnez-la.
-1. Dans la section **Gérer**, sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
+1. Dans la section **Gérer** , sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
 1. Vous pouvez modifier directement le manifeste à l’aide de cet éditeur. Le manifeste respecte le schéma de [Application entity](./reference-app-manifest.md) et met automatiquement en forme le manifeste une fois enregistré. Les nouveaux éléments sont ajoutés à la propriété `OptionalClaims`.
 
     ```json

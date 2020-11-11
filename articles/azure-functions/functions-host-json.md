@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167647"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284503"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -116,6 +116,11 @@ L’exemple de fichier *host.json* suivant pour la version 2.x+ contient toutes 
     },
     "managedDependency": {
         "enabled": true
+    },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -349,6 +354,28 @@ La dépendance managée est une fonctionnalité qui est actuellement prise en ch
 ## <a name="queues"></a>queues
 
 Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons de la file d'attente de stockage](functions-bindings-storage-queue-output.md#host-json).  
+
+## <a name="retry"></a>retry
+
+Contrôle les options de [stratégie de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies) pour toutes les exécutions effectuées dans l’application.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------| 
+|strategy|null|Obligatoire. Stratégie de nouvelle tentative à utiliser. Les valeurs valides sont `fixedDelay` ou `exponentialBackoff`.|
+|maxRetryCount|null|Obligatoire. Nombre maximal de nouvelles tentatives autorisées par exécution de fonction. `-1` signifie qu’il faut effectuer ces nouvelles tentatives indéfiniment.|
+|delayInterval|null|Délai qui est utilisé entre les nouvelles tentatives avec une stratégie `fixedDelay`.|
+|minimumInterval|null|Délai minimal de nouvelle tentative lors de l’utilisation de la stratégie `exponentialBackoff`.|
+|maximumInterval|null|Délai maximal de nouvelle tentative lors de l’utilisation de la stratégie `exponentialBackoff`.| 
 
 ## <a name="sendgrid"></a>sendGrid
 

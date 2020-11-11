@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787463"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348591"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 
@@ -50,8 +50,8 @@ Dans Visual Studio, créez une application de console Windows. Les étapes suiva
 1. Sélectionnez **Fichier** > **Nouveau** > **Projet**
 2. Sélectionnez **Plateforme** > **Windows**
 3. Sélectionnez **Application console (.NET Framework)**
-4. Sélectionnez **Suivant** .
-5. Saisissez un nom pour votre application dans le champ **Nom du projet** .
+4. Sélectionnez **Suivant**.
+5. Saisissez un nom pour votre application dans le champ **Nom du projet**.
 6. Sélectionnez **Créer**
 
 Tous les exemples de code figurant dans ce didacticiel peuvent être ajoutés à la méthode **Main()** dans le fichier **Program.cs** de votre application console.
@@ -65,14 +65,14 @@ Vous pouvez utiliser les bibliothèques de client du Stockage Azure dans n’imp
 Pour terminer ce didacticiel, vous devez référencer les quatre packages suivants dans votre projet :
 
 - [Bibliothèque Azure Core pour .NET](https://www.nuget.org/packages/Azure.Core/) : Ce package fournit des primitives, des abstractions et des applications auxiliaires partagées pour les bibliothèques clientes modernes du SDK Azure .NET.
-- [Bibliothèque cliente commune Stockage Azure pour .NET](https://www.nuget.org/packages/Azure.Storage.Common/) : Ce package fournit une infrastructure partagée par les autres bibliothèques clientes Stockage Azure.
+- [Bibliothèque cliente commune Stockage Azure pour .NET](https://www.nuget.org/packages/Azure.Storage.Common/) : Ce package fournit une infrastructure partagée par les autres bibliothèques clientes du stockage Azure.
 - [Bibliothèque du service de File d’attente Stockage Azure pour .NET](https://www.nuget.org/packages/Azure.Storage.Queues/) : Ce package permet d’utiliser le service de File d’attente Stockage Azure pour stocker les messages qui sont accessibles par un client.
 - [Bibliothèque Configuration Manager pour .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/) : Ce package fournit un accès aux fichiers de configuration pour les applications clientes.
 
 Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
-1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet** .
-1. Sélectionnez **Parcourir** .
+1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet**.
+1. Sélectionnez **Parcourir**.
 1. Recherchez « Azure.Storage.Queues » en ligne, puis sélectionnez **Installer** pour installer la bibliothèque cliente Stockage Azure et ses dépendances. Cela aura également pour effet d’installer les bibliothèques Azure.Storage.Common et Azure.Core, qui sont des dépendances de la bibliothèque de file d’attente.
 1. Recherchez « System.Configuration.ConfigurationManager » en ligne, puis sélectionnez **Installer** pour installer Configuration Manager.
 
@@ -86,8 +86,8 @@ Pour terminer ce didacticiel, vous devez référencer les trois packages suivant
 
 Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
-1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet** .
-1. Sélectionnez **Parcourir** .
+1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet**.
+1. Sélectionnez **Parcourir**.
 1. Recherchez « Microsoft.Azure.Storage.Queue » en ligne, puis sélectionnez **Installer** pour installer la bibliothèque de client du Stockage Azure et ses dépendances. Cela installera également la bibliothèque Microsoft.Azure.Storage.Common, qui est une dépendance de la bibliothèque de file d’attente.
 1. Recherchez « Microsoft.Azure.ConfigurationManager » en ligne, puis sélectionnez **Installer** pour installer Azure Configuration Manager.
 
@@ -113,7 +113,7 @@ L’exemple de code a besoin d’autoriser l’accès à votre compte de stockag
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Recherchez votre compte de stockage.
-3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès** . Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
+3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
 4. Recherchez la valeur de **Chaîne de connexion** sous **clé1** , puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion. Vous allez ajouter la valeur de chaîne de connexion dans une variable d’environnement à l’étape suivante.
 
     ![Capture d’écran montrant comment copier une chaîne de connexion à partir du portail Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)

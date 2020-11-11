@@ -1,6 +1,6 @@
 ---
-title: Restaurer un pool SQL supprimé
-description: Guide pratique pour restaurer un pool SQL supprimé.
+title: Restaurer un pool SQL dédié supprimé
+description: Guide pratique de restauration d’un pool SQL supprimé dans Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,34 +11,34 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 879844efdc5c2b40f69ee5f79305d4dfa596fd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29edf6ebd451bf05fe24249eeacb416a70001d56
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460726"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313574"
 ---
-# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Restaurer un pool SQL supprimé à l’aide d’Azure Synapse Analytics
+# <a name="restore-a-deleted-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restaurer un pool SQL dédié supprimé dans Azure Synapse Analytics
 
-Dans cet article, vous allez apprendre à restaurer un pool SQL à l’aide du Portail Azure ou de PowerShell.
+Dans cet article, vous allez apprendre à restaurer un pool SQL dédié à l’aide du portail Azure ou de PowerShell.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Vérifiez votre capacité de DTU.** Chaque pool SQL est hébergé par un [serveur SQL logique](../../azure-sql/database/logical-servers.md) (par exemple, myserver.database.windows.net) qui dispose d'un quota de DTU par défaut.  Vérifiez que le quota de DTU restant sur le serveur est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
+**Vérifiez votre capacité de DTU.** Chaque pool SQL dédié est hébergé par un [serveur SQL logique](../../azure-sql/database/logical-servers.md) (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Vérifiez que le quota de DTU restant sur le serveur est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Restaurer un entrepôt de données supprimé via PowerShell
 
-Pour restaurer un pool SQL supprimé, utilisez la cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Si le serveur correspondant a également été supprimé, vous ne pouvez pas restaurer cet entrepôt de données.
+Pour restaurer un pool SQL dédié supprimé, utilisez l’applet de commande [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Si le serveur correspondant a également été supprimé, vous ne pouvez pas restaurer cet entrepôt de données.
 
 1. Avant de commencer, veillez à [installer Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Ouvrez PowerShell.
 3. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
-4. Sélectionnez l'abonnement contenant le pool SQL supprimé à restaurer.
+4. Sélectionnez l’abonnement qui contient le pool SQL dédié supprimé à restaurer.
 5. Récupérez l’entrepôt de données supprimé spécifique.
-6. Restaurer le pool SQL supprimé
-    1. Pour restaurer le pool SQL supprimé sur un autre serveur, veillez à spécifier le nom du serveur.  Ce serveur peut également se trouver dans un groupe de ressources et une région différents.
+6. Restaurer le pool SQL dédié supprimé
+    1. Pour restaurer le pool SQL dédié supprimé sur un autre serveur, veillez à spécifier le nom de ce serveur.  Ce serveur peut également se trouver dans un groupe de ressources et une région différents.
     1. Pour effectuer une restauration sur un autre abonnement, utilisez le bouton [Déplacer](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) afin de déplacer le serveur vers un autre abonnement.
 7. Vérifiez que l’entrepôt de données restauré est en ligne.
 8. Une fois la restauration terminée, vous pouvez configurer votre entrepôt de données récupéré en suivant [Configurer votre base de données après récupération](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
@@ -87,5 +87,5 @@ $RestoredDatabase.status
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Restaurer un pool SQL existant](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurer à partir d’un pool SQL de géosauvegarde](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restaurer un pool SQL dédié existant](sql-data-warehouse-restore-active-paused-dw.md)
+- [Effectuer une restauration à partir d’un pool SQL dédié de géosauvegarde](sql-data-warehouse-restore-from-geo-backup.md)

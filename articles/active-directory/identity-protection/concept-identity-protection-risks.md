@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327916"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042612"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -24,11 +24,14 @@ Les détections de risques dans Azure AD Identity Protection incluent toutes les
 
 Identity Protection offre aux organisations un accès à des ressources puissantes pour voir et traiter rapidement ces actions suspectes. 
 
+>**Remarque :** Identity Protection génère des détections de risques uniquement quand les informations d’identification correctes sont utilisées. Si des informations d’identification incorrectes sont utilisées sur une connexion, elles ne représentent pas un risque de compromission des informations d’identification.
+
 ![Vue d’ensemble de la sécurité montrant les utilisateurs et les connexions à risque](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
 
 ## <a name="risk-types-and-detection"></a>Types de risques et détection
 
-Il existe deux types d’**utilisateurs** et de **connexions** à risque, ainsi que deux types de détections ou de calculs **en temps réel** et **hors connexion**.
+Il existe deux types d’ **utilisateurs** et de **connexions** à risque, ainsi que deux types de détections ou de calculs **en temps réel** et **hors connexion**.
 
 Les détections en temps réel peuvent ne pas apparaître dans les rapports pendant cinq à dix minutes. Les détections hors connexion peuvent ne pas apparaître dans les rapports pendant 2 à 24 heures.
 

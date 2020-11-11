@@ -1,17 +1,17 @@
 ---
 title: Restauration - Portail Azure - Azure Database pour MySQL - Serveur flexible
 description: Cet article explique comment effectuer des opérations de restauration dans Azure Database pour MySQL à l’aide du portail Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 1c81ddad8a11cbad361ff84caf6f7200a0c010d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929853"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241954"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Restauration à un instant dans le passé d’un serveur flexible Azure Database pour MySQL (préversion)
 
@@ -31,7 +31,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la plus ancienne sauvegarde existante.
 
-1.  Dans le  [portail Azure](https://portal.azure.com/), choisissez le serveur flexible sur lequel vous voulez restaurer la sauvegarde.
+1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à partir duquel vous voulez restaurer la sauvegarde.
 
 2.  Cliquez sur **Vue d’ensemble** dans le panneau gauche.
 
@@ -56,7 +56,7 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la plus ancienne sauvegarde existante.
 
-1.  Dans le  [portail Azure](https://portal.azure.com/), choisissez le serveur flexible sur lequel vous voulez restaurer la sauvegarde.
+1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à partir duquel vous voulez restaurer la sauvegarde.
 
 2.  Dans la page de vue d’ensemble, cliquez sur **Restaurer**.
 
@@ -72,7 +72,7 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 6.  Indiquez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Heure de restauration la plus ancienne":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="vue d’ensemble":::
  
 7.  Cliquez sur **OK**.
 

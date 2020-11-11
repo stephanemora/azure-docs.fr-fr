@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634643"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146107"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Créer et gérer plusieurs tableaux de bord
 
@@ -28,7 +28,7 @@ La capture d’écran suivante montre le tableau de bord dans une application cr
 > [!div class="mx-imgBorder"]
 > ![Tableau de bord des applications basées sur le modèle « Application personnalisée »](media/howto-create-personal-dashboards/dashboard-custom-app.png)
 
-Si vous sélectionnez **+ Nouveau**, l’éditeur de tableau de bord s’ouvre. Celui-ci vous permet de nommer votre tableau de bord et de choisir des éléments dans la bibliothèque. La bibliothèque contient les vignettes et les primitives de tableau de bord que vous pouvez utiliser pour personnaliser le tableau de bord.
+Si vous sélectionnez **+ Nouveau** , l’éditeur de tableau de bord s’ouvre. Celui-ci vous permet de nommer votre tableau de bord et de choisir des éléments dans la bibliothèque. La bibliothèque contient les vignettes et les primitives de tableau de bord que vous pouvez utiliser pour personnaliser le tableau de bord.
 
 > [!div class="mx-imgBorder"]
 > ![Bibliothèque de tableaux de bord](media/howto-create-personal-dashboards/dashboard-library.png)
@@ -51,7 +51,7 @@ Par exemple, vous pouvez ajouter une vignette **Télémétrie** pour la tempéra
 Lorsque vous affichez votre tableau de bord personnel, vous voyez maintenant la nouvelle vignette, qui indique le paramètre **Température** de l’appareil :
 
 > [!div class="mx-imgBorder"]
-> ![Onglet « Tableau de bord » contenant les détails de la vignette Température](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Capture d’écran montrant la nouvelle vignette avec le paramètre Températures de l’appareil.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Vous pouvez explorer d’autres types de mosaïque dans la bibliothèque, afin de découvrir comment personnaliser davantage vos tableaux de bord personnels.
 
@@ -64,7 +64,7 @@ Vous pouvez disposer de plusieurs tableaux de bord personnels et basculer de l�
 > [!div class="mx-imgBorder"]
 > ![Basculer d’un tableau de bord à un autre](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Vous pouvez modifier vos tableaux de bord personnels et supprimer ceux dont vous n’avez plus besoin. Si vous êtes **administrateur**, vous avez également la possibilité de modifier ou de supprimer des tableaux de bord de niveau application.
+Vous pouvez modifier vos tableaux de bord personnels et supprimer ceux dont vous n’avez plus besoin. Si vous êtes **administrateur** , vous avez également la possibilité de modifier ou de supprimer des tableaux de bord de niveau application.
 
 > [!div class="mx-imgBorder"]
 > ![Supprimer des tableaux de bord](media/howto-create-personal-dashboards/delete-dashboards.png)

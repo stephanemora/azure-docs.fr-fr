@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737988"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313536"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics
 
-Les bibliothèques fournissent du code réutilisable que vous pouvez inclure dans vos programmes ou projets. Pour mettre à la disposition de vos applications un code tiers ou construit localement, vous pouvez installer une bibliothèque sur l’un de vos pools Spark (préversion). Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
+Les bibliothèques fournissent du code réutilisable que vous pouvez inclure dans vos programmes ou projets. Pour mettre à la disposition de vos applications un code tiers ou construit localement, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless (préversion). Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
 
 ## <a name="default-installation"></a>Installation par défaut
 Apache Spark dans Azure Synapse Analytics propose une installation complète d’Anacondas, ainsi que de bibliothèques supplémentaires. Pour la liste complète des bibliothèques, consultez la [prise en charge des versions d’Apache Spark](apache-spark-version-support.md). 
@@ -54,7 +54,7 @@ Pour installer des bibliothèques dans un pool Spark (préversion) pendant la cr
    
 1. Accédez à votre espace de travail Azure Synapse Analytics à partir du portail Azure.
    
-2. Sélectionnez **Créer un pool Apache Spark** , puis sélectionnez l’onglet **Paramètres supplémentaires** . 
+2. Sélectionnez **Créer un pool Apache Spark** , puis sélectionnez l’onglet **Paramètres supplémentaires**. 
    
 3. Chargez le fichier de configuration de l’environnement à l’aide du sélecteur de fichiers dans la section **Packages** de la page. 
    
@@ -68,7 +68,7 @@ Pour mettre à jour ou ajouter des bibliothèques supplémentaires à un pool Sp
    
 2.  Lancez votre espace de travail Azure Synapse Analytics à partir du portail Azure.
 
-3.  Sélectionnez **Gérer** à partir du volet de navigation principal, puis sélectionnez **Pools Apache Spark** .
+3.  Sélectionnez **Gérer** à partir du volet de navigation principal, puis sélectionnez **Pools Apache Spark**.
    
 4. Sélectionnez un pool Spark unique et chargez le fichier de configuration de l’environnement à l’aide du sélecteur de fichiers dans la section **Packages** de la page.
 
@@ -106,7 +106,7 @@ Pour mettre à jour ou désinstaller une bibliothèque :
 
 3. Accédez à la section **Packages** et téléchargez un nouveau fichier de configuration d’environnement
    
-4. Une fois que vous avez enregistré vos modifications, vous devez terminer les sessions actives et laisser le pool redémarrer. Si vous le souhaitez, vous pouvez forcer la fin des sessions actives en activant la case **Forcer les nouveaux paramètres** .
+4. Une fois que vous avez enregistré vos modifications, vous devez terminer les sessions actives et laisser le pool redémarrer. Si vous le souhaitez, vous pouvez forcer la fin des sessions actives en activant la case **Forcer les nouveaux paramètres**.
 
     ![Ajouter des bibliothèques Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Ajouter des bibliothèques Python")
    

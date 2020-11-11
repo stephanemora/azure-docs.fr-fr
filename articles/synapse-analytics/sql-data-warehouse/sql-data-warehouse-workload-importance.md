@@ -1,6 +1,6 @@
 ---
 title: Importance des charges de travail
-description: Conseils pour la définition de l’importance des requêtes de pool SQL Synapse dans Azure Synapse Analytics.
+description: Conseils pour la définition de l’importance des requêtes de pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212341"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322125"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importance des charges de travail Azure Synapse Analytics
 
-Cet article explique comment l’importance des charges de travail peut influer sur l’ordre d’exécution des requêtes de pool SQL Synapse dans Azure Synapse.
+Cet article explique comment l’importance des charges de travail peut influer sur l’ordre d’exécution des requêtes de pool SQL dédié dans Azure Synapse.
 
 ## <a name="importance"></a>importance
 
@@ -38,7 +38,7 @@ Au-delà du scénario avec importance de base décrit ci-dessus et portant sur d
 
 ### <a name="locking"></a>Verrouillage
 
-L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](sql-data-warehouse-tables-partition.md) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requièrent des verrous avec élévation de privilèges.  Sans l’importance des charges de travail, un pool SQL Synapse dans Azure Synapse optimise le débit. Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt. L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
+L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](sql-data-warehouse-tables-partition.md) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requièrent des verrous avec élévation de privilèges.  Sans l’importance des charges de travail, un pool SQL dédié dans Azure Synapse optimise le débit. Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt. L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
 
 Prenons l’exemple suivant :
 
@@ -50,7 +50,7 @@ Si Q2 et Q3 présentent la même importance, Q1 continue de s'exécuter et Q3 va
 
 ### <a name="non-uniform-requests"></a>Requêtes non uniformes
 
-Les requêtes soumises avec différentes classes de ressources sont un autre exemple de scénario dans lequel l'importance contribue à répondre aux besoins d'interrogation.  Comme indiqué précédemment, si l’importance est la même, un pool SQL Synapse dans Azure Synapse optimise le débit. Quand des requêtes de tailles différentes (par exemple, smallrc ou mediumrc) sont mises en file d’attente, un pool SQL Synapse choisit la première requête arrivée en fonction des ressources disponibles. Si l’importance des charges de travail est appliquée, la requête présentant la plus haute importance est planifiée ensuite.
+Les requêtes soumises avec différentes classes de ressources sont un autre exemple de scénario dans lequel l'importance contribue à répondre aux besoins d'interrogation.  Comme indiqué précédemment, si l’importance est la même, un pool SQL dédié dans Azure Synapse optimise le débit. Quand des demandes de tailles différentes (par exemple, smallrc ou mediumrc) sont mises en file d’attente, un pool SQL dédié choisit la première demande arrivée en fonction des ressources disponibles. Si l’importance des charges de travail est appliquée, la requête présentant la plus haute importance est planifiée ensuite.
   
 Considérez l'exemple suivant sur DW500c :
 

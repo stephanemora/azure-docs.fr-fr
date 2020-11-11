@@ -9,12 +9,12 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83714217"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145733"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturer une trace de navigateur pour la résolution des problèmes
 
@@ -30,17 +30,17 @@ Google Chrome et Microsoft Edge (Chromium) sont tous les deux basés sur le [pro
 
 1. Dans le portail, accédez à l’action qui a précédé le moment où le problème s’est produit.
 
-1. Appuyez sur F12 ou sélectionnez ![icône pour la capture d’écran des paramètres du navigateur](media/capture-browser-trace/chromium-icon-settings.png) > **More tools (Autres outils)**  > **Developer tools (Outils de développement)** .
+1. Appuyez sur F12 ou sélectionnez ![Capture d’écran affichant l’icône des paramètres du navigateur.](media/capture-browser-trace/chromium-icon-settings.png) > **Autres outils** > **Outils de développement**.
 
 1. Par défaut, le navigateur conserve uniquement les informations de trace de la page actuellement chargée. Définissez les options suivantes pour que le navigateur conserve toutes les informations de trace, même si vos étapes de reproduction nécessitent l’accès à plusieurs pages :
 
     1. Sélectionnez l’onglet **Network** (Réseau), puis sélectionnez **Preserve log** (Conserver le journal).
 
-          ![Capture d’écran de l’option « Preserve log » (Conserver le journal)](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![Capture d’écran mettant en évidence l’option Preserve log sous l’onglet Network.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Sélectionnez l’onglet **Console**, sélectionnez **Console settings** (Paramètres de la console), puis sélectionnez **Preserve Log** (Conserver le journal). Sélectionnez de nouveau **Console settings** (Paramètres de la console) pour fermer le volet des paramètres.
+    1. Sélectionnez l’onglet **Console** , sélectionnez **Console settings** (Paramètres de la console), puis sélectionnez **Preserve Log** (Conserver le journal). Sélectionnez de nouveau **Console settings** (Paramètres de la console) pour fermer le volet des paramètres.
 
-          ![Capture d’écran de l’option « Preserve Log » (Conserver le journal)](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![Capture d’écran faisant ressortir l’option Preserve log sous l’onglet Console.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
 1. Sélectionnez l’onglet **Network** (Réseau), puis sélectionnez **Stop recording network log** (Arrêter l’enregistrement du journal réseau) et **Clear** (Effacer).
 
@@ -48,21 +48,21 @@ Google Chrome et Microsoft Edge (Chromium) sont tous les deux basés sur le [pro
 
 1. Sélectionnez **Record network log** (Enregistrer le journal réseau), puis reproduisez le problème dans le portail.
 
-    ![Capture d’écran de l’option « Start profiling session » (Démarrer la session de profilage)](media/capture-browser-trace/chromium-start-session.png)
+    ![Capture d’écran montrant comment enregistrer le journal réseau.](media/capture-browser-trace/chromium-start-session.png)
 
     Vous devez voir une sortie de session similaire à celle-ci :
 
-    ![Capture d’écran des résultats de la trace du navigateur](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![Capture d’écran montrant la sortie de session.](media/capture-browser-trace/chromium-browser-trace-results.png)
 
 1. Une fois que vous avez reproduit le comportement inattendu du portail, sélectionnez **Stop recording network log** (Arrêter l’enregistrement du journal réseau) et **Export as HAR** (Exporter en tant que HAR), puis enregistrez le fichier.
 
-    ![Capture d’écran de l’option « Export as HAR » (Exporter en tant que HAR)](media/capture-browser-trace/chromium-network-export-har.png)
+    ![Capture d’écran montrant comment exporter HAR sous l’onglet Réseau.](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Arrêtez l’enregistreur d’actions, puis sauvegardez l’enregistrement.
 
 1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console**. Cliquez avec le bouton de droite, sélectionnez **Enregistrer sous...** , puis enregistrez la sortie de la console dans un fichier texte.
 
-    ![Capture d’écran de la sortie de la console](media/capture-browser-trace/chromium-console-select.png)
+    ![Capture d’écran mettant en évidence l’onglet Console et le menu Save as...](media/capture-browser-trace/chromium-console-select.png)
 
 1. Empaquetez le fichier HAR, la sortie de la console et l’enregistrement de l’écran dans un dossier compressé (format .zip, par exemple), puis envoyez-le au support Microsoft.
 
@@ -76,7 +76,7 @@ Les étapes suivantes montrent comment utiliser les outils de développement de 
 
 1. Dans le portail, accédez à l’action qui a précédé le moment où le problème s’est produit.
 
-1. Appuyez sur F12 ou sélectionnez ![icône pour la capture d’écran des paramètres du navigateur](media/capture-browser-trace/edge-icon-settings.png) > **More tools (Autres outils)**  > **Developer tools (Outils de développement)** .
+1. Appuyez sur F12 ou sélectionnez ![Capture d’écran de l’icône des paramètres du navigateur.](media/capture-browser-trace/edge-icon-settings.png) > **Autres outils** > **Outils de développement**.
 
 1. Par défaut, le navigateur conserve uniquement les informations de trace de la page actuellement chargée. Définissez les options suivantes pour que le navigateur conserve toutes les informations de trace, même si vos étapes de reproduction nécessitent l’accès à plusieurs pages :
 
@@ -84,11 +84,11 @@ Les étapes suivantes montrent comment utiliser les outils de développement de 
 
           ![Capture d’écran « Clear entries on navigate » (Supprimer les entrées en naviguant)](media/capture-browser-trace/edge-network-clear-entries.png)
 
-    1. Sélectionnez l’onglet **Console**, puis sélectionnez **Preserve log** (Conserver le journal).
+    1. Sélectionnez l’onglet **Console** , puis sélectionnez **Preserve log** (Conserver le journal).
 
           ![Capture d’écran de l’option « Preserve Log » (Conserver le journal)](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. Sélectionnez l’onglet**Network** (Réseau), puis sélectionnez **Stop profiling session** (Arrêter la session de profilage) et **Clear session** (Effacer la session).
+1. Sélectionnez l’onglet **Network** (Réseau), puis sélectionnez **Stop profiling session** (Arrêter la session de profilage) et **Clear session** (Effacer la session).
 
     ![Capture d’écran des options « Stop profiling session » (Arrêter la session de profilage) et « Clear session » (Effacer la session)](media/capture-browser-trace/edge-stop-clear-session.png)
 
@@ -98,7 +98,7 @@ Les étapes suivantes montrent comment utiliser les outils de développement de 
 
     Vous devez voir une sortie de session similaire à celle-ci :
 
-    ![Capture d’écran des résultats de la trace du navigateur](media/capture-browser-trace/edge-browser-trace-results.png)
+    ![Capture d’écran montrant la sortie de la session de profilage.](media/capture-browser-trace/edge-browser-trace-results.png)
 
 1. Une fois que vous avez reproduit le comportement inattendu du portail, sélectionnez **Stop profiling session** (Arrêter la session de profilage) et **Export as HAR** (Exporter en tant que HAR), puis enregistrez le fichier.
 
@@ -106,9 +106,9 @@ Les étapes suivantes montrent comment utiliser les outils de développement de 
 
 1. Arrêtez l’enregistreur d’actions, puis sauvegardez l’enregistrement.
 
-1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console**, puis développez la fenêtre. Placez le curseur au début de la sortie de la console, puis faites glisser la souris et sélectionnez tout le contenu de la sortie. Cliquez avec le bouton droit, sélectionnez **Copy** (Copier), puis enregistrez la sortie de la console dans un fichier texte.
+1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console** , puis développez la fenêtre. Placez le curseur au début de la sortie de la console, puis faites glisser la souris et sélectionnez tout le contenu de la sortie. Cliquez avec le bouton droit, sélectionnez **Copy** (Copier), puis enregistrez la sortie de la console dans un fichier texte.
 
-    ![Capture d’écran de la sortie de la console](media/capture-browser-trace/edge-console-select.png)
+    ![Capture d’écran mettant en évidence l’option de menu Copy.](media/capture-browser-trace/edge-console-select.png)
 
 1. Empaquetez le fichier HAR, la sortie de la console et l’enregistrement de l’écran dans un dossier compressé (format .zip, par exemple), puis envoyez-le au support Microsoft.
 
@@ -118,11 +118,11 @@ Les étapes suivantes montrent comment utiliser les outils de développement d�
 
 1. Activez les outils de développement dans Apple Safari :
 
-    1. Sélectionnez **Safari**, puis sélectionnez **Préférences**.
+    1. Sélectionnez **Safari** , puis sélectionnez **Préférences**.
 
         ![Capture d’écran des préférences dans Safari](media/capture-browser-trace/safari-preferences.png)
 
-    1. Sélectionnez l’onglet **Avancé**, puis sélectionnez **Afficher le menu Développement dans la barre des menus**.
+    1. Sélectionnez l’onglet **Avancé** , puis sélectionnez **Afficher le menu Développement dans la barre des menus**.
 
         ![Capture d’écran des préférences avancées dans Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
@@ -132,7 +132,7 @@ Les étapes suivantes montrent comment utiliser les outils de développement d�
 
 1. Dans le portail, accédez à l’action qui a précédé le moment où le problème s’est produit.
 
-1. Sélectionnez **Développer**, puis sélectionnez **Afficher Web Inspector**.
+1. Sélectionnez **Développer** , puis sélectionnez **Afficher Web Inspector**.
 
     ![Capture d’écran de « Afficher Web Inspector »](media/capture-browser-trace/safari-show-web-inspector.png)
 
@@ -140,11 +140,11 @@ Les étapes suivantes montrent comment utiliser les outils de développement d�
 
     1. Sélectionnez l’onglet **Network** (Réseau), puis sélectionnez **Preserve log** (Conserver le journal).
 
-          ![Capture d’écran de l’option « Preserve Log » (Conserver le journal)](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Capture d’écran montrant l’option Preserve Log.](media/capture-browser-trace/safari-network-preserve-log.png)
 
-    1. Sélectionnez l’onglet **Console**, puis sélectionnez **Preserve log** (Conserver le journal).
+    1. Sélectionnez l’onglet **Console** , puis sélectionnez **Preserve log** (Conserver le journal).
 
-          ![Capture d’écran de l’option « Preserve Log » (Conserver le journal)](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![Capture d’écran montrant l’option Preserve Log sous l’onglet Console.](media/capture-browser-trace/safari-console-preserve-log.png)
 
 1. Sélectionnez l’onglet **Network** (Réseau), puis sélectionnez **Clear Network Items** (Effacer les éléments réseau).
 
@@ -152,7 +152,7 @@ Les étapes suivantes montrent comment utiliser les outils de développement d�
 
 1. Reproduisez le problème dans le portail. Vous devez voir une sortie de session similaire à celle-ci :
 
-    ![Capture d’écran des résultats de la trace du navigateur](media/capture-browser-trace/safari-browser-trace-results.png)
+    ![Capture d’écran de la sortie après avoir reproduit le problème.](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. Une fois que vous avez reproduit le comportement inattendu du portail, sélectionnez **Export** (Exporter), puis enregistrez le fichier.
 
@@ -160,9 +160,9 @@ Les étapes suivantes montrent comment utiliser les outils de développement d�
 
 1. Arrêtez l’enregistreur d’écran et sauvegardez l’enregistrement.
 
-1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console**, puis développez la fenêtre. Placez le curseur au début de la sortie de la console, puis faites glisser la souris et sélectionnez tout le contenu de la sortie. Appuyez sur les touches Commande-C pour copier la sortie et l’enregistrer dans un fichier texte.
+1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console** , puis développez la fenêtre. Placez le curseur au début de la sortie de la console, puis faites glisser la souris et sélectionnez tout le contenu de la sortie. Appuyez sur les touches Commande-C pour copier la sortie et l’enregistrer dans un fichier texte.
 
-    ![Capture d’écran de la sortie de la console](media/capture-browser-trace/safari-console-select.png)
+    ![Capture d’écran mettant en évidence la façon d’afficher et de copier la sortie.](media/capture-browser-trace/safari-console-select.png)
 
 1. Empaquetez le fichier HAR, la sortie de la console et l’enregistrement de l’écran dans un dossier compressé (format .zip, par exemple), puis envoyez-le au support Microsoft.
 
@@ -180,15 +180,15 @@ Les étapes suivantes montrent comment utiliser les outils de développement dan
 
 1. Par défaut, le navigateur conserve uniquement les informations de trace de la page actuellement chargée. Définissez les options suivantes pour que le navigateur conserve toutes les informations de trace, même si vos étapes de reproduction nécessitent l’accès à plusieurs pages :
 
-    1. Sélectionnez l’onglet **Réseau**, puis sélectionnez **Conserver les journaux**.
+    1. Sélectionnez l’onglet **Réseau** , puis sélectionnez **Conserver les journaux**.
 
-          ![Capture d’écran de « Conserver les journaux »](media/capture-browser-trace/firefox-network-persist-logs.png)
+          ![Capture d’écran mettant en évidence l’option Conserver les journaux.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Sélectionnez l’onglet **Console**, sélectionnez **Paramètres de la console**, puis sélectionnez **Conserver les journaux**.
+    1. Sélectionnez l’onglet **Console** , sélectionnez **Paramètres de la console** , puis sélectionnez **Conserver les journaux**.
 
           ![Capture d’écran de « Conserver les journaux »](media/capture-browser-trace/firefox-console-persist-logs.png)
 
-1. Sélectionnez l’onglet **Réseau**, puis sélectionnez **Effacer**.
+1. Sélectionnez l’onglet **Réseau** , puis sélectionnez **Effacer**.
 
     ![Capture d'écran « Effacer »](media/capture-browser-trace/firefox-clear-session.png)
 
@@ -196,13 +196,13 @@ Les étapes suivantes montrent comment utiliser les outils de développement dan
 
     ![Capture d’écran des résultats de la trace du navigateur](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Une fois que vous avez reproduit le comportement inattendu du portail, sélectionnez **Exporter/Importer HAR**, puis **Tout enregistrer sous HAR**.
+1. Une fois que vous avez reproduit le comportement inattendu du portail, sélectionnez **Exporter/Importer HAR** , puis **Tout enregistrer sous HAR**.
 
     ![Capture d’écran de l’option « Export as HAR » (Exporter en tant que HAR)](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Arrêtez l’enregistreur d’actions sur Windows ou l’enregistrement d’écran sur Mac, puis sauvegardez l’enregistrement.
 
-1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console**. Cliquez avec le bouton de droite, sélectionnez **Exporter le message visible sur**, puis enregistrez la sortie de la console dans un fichier texte.
+1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console**. Cliquez avec le bouton de droite, sélectionnez **Exporter le message visible sur** , puis enregistrez la sortie de la console dans un fichier texte.
 
     ![Capture d’écran de la sortie de la console](media/capture-browser-trace/firefox-console-select.png)
 

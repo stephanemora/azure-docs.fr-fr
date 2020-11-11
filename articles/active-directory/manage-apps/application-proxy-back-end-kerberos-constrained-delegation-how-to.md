@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568727"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042696"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 
@@ -51,7 +51,7 @@ Les connecteurs doivent être positionnés le plus près possible de leurs cible
 
 Quels sont les signes d'un problème de KCD ? Différents signes peuvent révéler un échec de l'authentification unique KCD. Les premiers signes d'un problème apparaissent dans le navigateur.
 
-![Exemple : Erreur de configuration incorrecte de KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Capture d’écran montrant un exemple d’erreur de configuration incorrecte de KCD, avec l’erreur « Incorrect Kerberos constrained delegation... » mise en évidence.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Exemple : Échec dû à des autorisations manquantes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -102,9 +102,9 @@ Consommateur du ticket Kerberos fourni par le connecteur. À ce stade, attendez-
 
 1. À l’aide de l’URL interne de l’application définie sur le portail, vérifiez que l’application est directement accessible à partir du navigateur sur l’hôte de connecteur. Vous pouvez alors vous connecter. Pour plus d’informations, reportez-vous à la page consacrée à la **résolution des problèmes** de connecteur.
 1. Toujours sur l’hôte de connecteur, vérifiez que l’authentification entre le navigateur et l’application se fait à l’aide de Kerberos. Effectuez l'une des opérations suivantes :
-1. Exécutez les outils de développement (**F12**) d'Internet Explorer, ou utilisez [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) à partir de l’hôte de connecteur. Accédez à l’application à l’aide de l’URL interne. Examinez les en-têtes d’autorisation WWW retournés dans la réponse de l’application pour vous assurer que Negotiate ou Kerberos est mentionné.
+1. Exécutez les outils de développement ( **F12** ) d'Internet Explorer, ou utilisez [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) à partir de l’hôte de connecteur. Accédez à l’application à l’aide de l’URL interne. Examinez les en-têtes d’autorisation WWW retournés dans la réponse de l’application pour vous assurer que Negotiate ou Kerberos est mentionné.
 
-   - L’objet blob Kerberos suivant retourné dans la réponse du navigateur à l’application commence par **YII**. Ces lettres indiquent que Kerberos est en cours d'exécution. En revanche, NTLM (Microsoft NT LAN Manager) commence toujours par **TlRMTVNTUAAB**, soit NTLMSSP (NTLM Security Support Provider) lors d’un décodage en Base64. Si **TlRMTVNTUAAB** figure au début de l'objet blob, Kerberos n’est pas disponible. En revanche, si **TlRMTVNTUAAB** y figure, Kerberos est vraisemblablement disponible.
+   - L’objet blob Kerberos suivant retourné dans la réponse du navigateur à l’application commence par **YII**. Ces lettres indiquent que Kerberos est en cours d'exécution. En revanche, NTLM (Microsoft NT LAN Manager) commence toujours par **TlRMTVNTUAAB** , soit NTLMSSP (NTLM Security Support Provider) lors d’un décodage en Base64. Si **TlRMTVNTUAAB** figure au début de l'objet blob, Kerberos n’est pas disponible. En revanche, si **TlRMTVNTUAAB** y figure, Kerberos est vraisemblablement disponible.
 
       > [!NOTE]
       > Si vous utilisez Fiddler, cette méthode nécessite de désactiver temporairement la protection étendue dans la configuration de l’application dans IIS.
@@ -115,7 +115,7 @@ Consommateur du ticket Kerberos fourni par le connecteur. À ce stade, attendez-
 
 1. Supprimez temporairement NTLM de la liste des fournisseurs sur le site IIS. Accédez à l’application directement à partir d’Internet Explorer sur l’hôte de connecteur. NTLM ne figure plus dans la liste des fournisseurs. Vous ne pouvez accéder à l’application qu'à l’aide de Kerberos. Un échec de l'accès peut indiquer qu'il existe un problème de configuration de l’application. L’authentification Kerberos ne fonctionne pas.
 
-   - Si Kerberos n’est pas disponible, vérifiez les paramètres d’authentification de l’application dans IIS. Assurez-vous que **Negotiate** figure en haut, avec NTLM juste en-dessous. En présence de **Not Negotiate**, **Kerberos or Negotiate** ou **PKU2U**, ne continuez que si Kerberos fonctionne.
+   - Si Kerberos n’est pas disponible, vérifiez les paramètres d’authentification de l’application dans IIS. Assurez-vous que **Negotiate** figure en haut, avec NTLM juste en-dessous. En présence de **Not Negotiate** , **Kerberos or Negotiate** ou **PKU2U** , ne continuez que si Kerberos fonctionne.
 
      ![Fournisseurs d’authentification Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 

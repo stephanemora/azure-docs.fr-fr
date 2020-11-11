@@ -1,7 +1,7 @@
 ---
 title: Développement et débogage itératifs dans Azure Data Factory
 description: Apprenez à développer et à déboguer des pipelines Data Factory de façon itérative dans l’expérience utilisateur ADF
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031005"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102066"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Développement et débogage itératifs dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +40,7 @@ Affichez les résultats de vos séries de tests dans la fenêtre **Sortie** du c
 Après la réussite d’une série de tests, ajoutez d’autres activités à votre pipeline et continuez le débogage de façon itérative. Vous pouvez également **Annuler** une série de tests alors qu’elle est en cours d’exécution.
 
 > [!IMPORTANT]
-> En sélectionnant **Déboguer**, le pipeline est exécuté. Par exemple, si le pipeline contient une activité de copie, la série de tests copie des données de la source vers la destination. Par conséquent, nous vous recommandons d’utiliser des dossiers test pour vos activités de copie et autres lors du débogage. Une fois que vous avez débogué le pipeline, basculez vers les dossiers que vous souhaitez utiliser lors des opérations normales.
+> En sélectionnant **Déboguer** , le pipeline est exécuté. Par exemple, si le pipeline contient une activité de copie, la série de tests copie des données de la source vers la destination. Par conséquent, nous vous recommandons d’utiliser des dossiers test pour vos activités de copie et autres lors du débogage. Une fois que vous avez débogué le pipeline, basculez vers les dossiers que vous souhaitez utiliser lors des opérations normales.
 
 ### <a name="setting-breakpoints"></a>Définition de points d’arrêt
 
@@ -52,7 +52,7 @@ Pour définir un point d’arrêt, sélectionnez un élément du canevas du pipe
 
 ![Avant de définir un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-4.png)
 
-Après que vous avez sélectionné l’option *Déboguer jusqu’à*, elle se transforme en un cercle rouge plein pour indiquer que le point d’arrêt est activé.
+Après que vous avez sélectionné l’option *Déboguer jusqu’à* , elle se transforme en un cercle rouge plein pour indiquer que le point d’arrêt est activé.
 
 ![Après avoir défini un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-5.png)
 
@@ -79,11 +79,14 @@ Vous pouvez superviser les sessions de débogage du flux de données qui sont ac
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Débogage d’un pipeline avec une activité de flux de données
 
-Lorsque vous exécutez un débogage avec un flux de données, vous avez deux options de calcul à utiliser. Vous pouvez utiliser un cluster de débogage existant ou créer un nouveau cluster juste-à-temps pour vos flux de données.
+Lorsque vous procédez à l’exécution d’un débogage de pipeline avec un flux de données, vous disposez de deux options de calcul à utiliser. Vous pouvez utiliser un cluster de débogage existant ou créer un nouveau cluster juste-à-temps pour vos flux de données.
 
-L’utilisation d’une session de débogage existante réduira considérablement le temps de démarrage du flux de données puisque le cluster fonctionne déjà, mais elle n’est pas recommandée pour les charges de travail complexes ou parallèles, car elle peut échouer lorsque plusieurs travaux sont exécutés en même temps. 
+L’utilisation d’une session de débogage existante réduira considérablement le temps de démarrage du flux de données puisque le cluster fonctionne déjà, mais cette pratique n’est pas recommandée pour les charges de travail complexes ou parallèles, car elle peut échouer lorsque plusieurs travaux sont exécutés en même temps.
 
-L’utilisation de l’exécution d’activité permettra de créer un nouveau cluster en utilisant les paramètres spécifiés dans le runtime d’intégration de chaque activité de flux de données. Cela permet d’isoler chaque travail ; cette méthode doit être utilisée pour des charges de travail complexes ou des tests de performance.
+L’utilisation de l’exécution d’activité permettra de créer un nouveau cluster en utilisant les paramètres spécifiés dans le runtime d’intégration de chaque activité de flux de données. Cela permet d’isoler chaque travail ; cette méthode doit être utilisée pour des charges de travail complexes ou des tests de performance. Vous pouvez également contrôler le temps jusqu’au dernier octet dans Azure IR, afin que les ressources de cluster utilisées pour le débogage restent disponibles pendant cette période pour traiter des demandes de travaux supplémentaires.
+
+> [!NOTE]
+> Si vous avez un pipeline avec des flux de données s’exécutant en parallèle, choisissez « Use Activity Runtime » (Utiliser le runtime d’activité), afin que Data Factory puisse utiliser le Runtime d’intégration que vous avez sélectionné dans votre activité de flux de données. Les flux de données pourront ainsi s’exécuter sur plusieurs clusters et prendre en charge vos exécutions de flux de données parallèles.
 
 ![Exécution d’un pipeline avec un flux de données](media/iterative-development-debugging/iterative-development-dataflow.png)
 

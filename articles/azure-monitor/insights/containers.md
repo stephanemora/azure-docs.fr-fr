@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326900"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145682"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solution Container Monitoring dans Azure Monitor
 
@@ -476,12 +476,12 @@ Pour déployer l’agent Log Analytics sur votre environnement Linux Kubernetes 
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Pour plus d’informations, consultez [Azure Log Analytics Container Monitoring Solution](https://aka.ms/omscontainerhelm) (Solution de surveillance de conteneur Azure Log Analytics).
@@ -560,25 +560,25 @@ La vignette affiche une vue d’ensemble du nombre de conteneurs présents dans 
 
 Cliquez sur la vignette **Conteneurs**. À partir de là, vous voyez les vues organisées par :
 
-- **Événements de conteneur** : affiche l’état du conteneur et les ordinateurs dont le conteneur a échoué.
-- **Journaux d’activité de conteneur** : affiche un graphique montrant les fichiers journaux de conteneur générés jusqu’à maintenant, ainsi que la liste des ordinateurs contenant le plus grand nombre de fichiers journaux.
-- **Événements Kubernetes** : affiche un graphique montrant les événements Kubernetes générés jusqu’à maintenant, ainsi que la liste des raisons pour lesquelles les pods ont généré ces événements. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
-- **Inventaire des espaces de noms Kubernetes** : indique le nombre d’espaces de noms et de pods, et montre leur hiérarchie. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
-- **Inventaire des nœuds de conteneur** : affiche le nombre de types d’orchestration utilisés sur les nœuds/hôtes de conteneur. Les nœuds/hôtes d’ordinateur sont également répertoriés avec le nombre de conteneurs. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
-- **Inventaire des images de conteneur** : affiche le nombre total des images de conteneur utilisées, ainsi que le nombre de types d’images. Le nombre d’images est également répertorié avec la balise d’image.
-- **État des conteneurs** : affiche le nombre total de nœuds de conteneur/ordinateurs hôtes comprenant des conteneurs en cours d’exécution. Les ordinateurs sont également répertoriés avec le nombre d’ordinateurs hôtes en cours d’exécution.
-- **Processus de conteneur** : affiche un graphique en courbes représentant les processus de conteneur exécutés jusqu’à maintenant. Les conteneurs peuvent également être répertoriés en exécutant la commande /process dans les conteneurs. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
-- **Performances de l’UC du conteneur** : affiche un graphique en courbes représentant l’utilisation moyenne de l’UC jusqu’à maintenant pour les nœuds/hôtes d’ordinateur. Répertorie également les nœuds/hôtes d’ordinateur en fonction de l’utilisation moyenne de l’UC.
-- **Performances de la mémoire du conteneur** : affiche un graphique en courbes représentant l’utilisation de la mémoire jusqu’à maintenant. Répertorie également l’utilisation de la mémoire par l’ordinateur en fonction du nom de l’instance.
-- **Performances de l’ordinateur** : affiche des graphiques en courbes représentant le pourcentage de performance de l’UC, le pourcentage d’utilisation de la mémoire et les mégaoctets d’espace disque libre dans le temps. Vous pouvez pointer sur une ligne du graphique pour afficher plus de détails.
+- **Événements de conteneur**  : affiche l’état du conteneur et les ordinateurs dont le conteneur a échoué.
+- **Journaux d’activité de conteneur**  : affiche un graphique montrant les fichiers journaux de conteneur générés jusqu’à maintenant, ainsi que la liste des ordinateurs contenant le plus grand nombre de fichiers journaux.
+- **Événements Kubernetes**  : affiche un graphique montrant les événements Kubernetes générés jusqu’à maintenant, ainsi que la liste des raisons pour lesquelles les pods ont généré ces événements. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
+- **Inventaire des espaces de noms Kubernetes**  : indique le nombre d’espaces de noms et de pods, et montre leur hiérarchie. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
+- **Inventaire des nœuds de conteneur**  : affiche le nombre de types d’orchestration utilisés sur les nœuds/hôtes de conteneur. Les nœuds/hôtes d’ordinateur sont également répertoriés avec le nombre de conteneurs. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
+- **Inventaire des images de conteneur**  : affiche le nombre total des images de conteneur utilisées, ainsi que le nombre de types d’images. Le nombre d’images est également répertorié avec la balise d’image.
+- **État des conteneurs**  : affiche le nombre total de nœuds de conteneur/ordinateurs hôtes comprenant des conteneurs en cours d’exécution. Les ordinateurs sont également répertoriés avec le nombre d’ordinateurs hôtes en cours d’exécution.
+- **Processus de conteneur**  : affiche un graphique en courbes représentant les processus de conteneur exécutés jusqu’à maintenant. Les conteneurs peuvent également être répertoriés en exécutant la commande /process dans les conteneurs. *Ce jeu de données est utilisé uniquement dans les environnements Linux.*
+- **Performances de l’UC du conteneur**  : affiche un graphique en courbes représentant l’utilisation moyenne de l’UC jusqu’à maintenant pour les nœuds/hôtes d’ordinateur. Répertorie également les nœuds/hôtes d’ordinateur en fonction de l’utilisation moyenne de l’UC.
+- **Performances de la mémoire du conteneur**  : affiche un graphique en courbes représentant l’utilisation de la mémoire jusqu’à maintenant. Répertorie également l’utilisation de la mémoire par l’ordinateur en fonction du nom de l’instance.
+- **Performances de l’ordinateur**  : affiche des graphiques en courbes représentant le pourcentage de performance de l’UC, le pourcentage d’utilisation de la mémoire et les mégaoctets d’espace disque libre dans le temps. Vous pouvez pointer sur une ligne du graphique pour afficher plus de détails.
 
 Chaque zone du tableau de bord est une représentation visuelle d’une recherche exécutée sur des données collectées.
 
-![Tableau de bord Conteneurs](./media/containers/containers-dash01.png)
+![Capture d’écran qui montre un tableau de bord permettant de consulter les données collectées. ](./media/containers/containers-dash01.png)
 
 ![Tableau de bord Conteneurs](./media/containers/containers-dash02.png)
 
-Dans la zone **État du conteneur**, cliquez sur la zone supérieure, comme illustré ci-dessous.
+Dans la zone **État du conteneur** , cliquez sur la zone supérieure, comme illustré ci-dessous.
 
 ![État des conteneurs](./media/containers/containers-status.png)
 
@@ -599,9 +599,9 @@ Log Analytics marque un conteneur comme étant en **Échec** s’il a été ferm
 2. Log Analytics s’ouvre et affiche l’état de vos conteneurs, comme ci-dessous.  
    ![État des conteneurs](./media/containers/containers-log-search.png)
 3. Développez la ligne Failed, puis cliquez sur + pour ajouter ses critères à la requête. Commentez la ligne Summarize dans la requête.
-   ![Conteneurs défectueux](./media/containers/containers-state-failed-select.png)  
+   ![Capture d’écran montrant la ligne qui doit être commentée.](./media/containers/containers-state-failed-select.png)  
 1. Exécutez la requête, puis développez une ligne dans les résultats pour afficher l’ID de l’image.  
-   ![Conteneurs défectueux](./media/containers/containers-state-failed.png)  
+   ![Capture d’écran montrant comment afficher l’ID de l’image.](./media/containers/containers-state-failed.png)  
 1. Tapez ce qui suit dans la requête de journal. `ContainerImageInventory | where ImageID == <ImageID>` pour afficher des détails sur l’image, tels que sa taille ou le nombre d’images arrêtées et en échec.  
    ![Conteneurs défectueux](./media/containers/containers-failed04.png)
 
@@ -609,12 +609,12 @@ Log Analytics marque un conteneur comme étant en **Échec** s’il a été ferm
 
 Lorsque vous résolvez une erreur spécifique, il peut être utile de voir l’emplacement où elle se produit dans votre environnement. Les types de journaux suivants vous aident à créer des requêtes qui retournent les informations souhaitées.
 
-- **ContainerImageInventory** : utilisez ce type de journal lorsque vous recherchez des informations organisées par image, et de consulter des informations sur les images, telles que leurs ID ou tailles.
-- **ContainerInventory** : utilisez ce type de journal lorsque vous recherchez des informations sur l’emplacement des conteneurs, leurs noms et les images qu’ils exécutent.
-- **ContainerLog** : utilisez ce type de journal lorsque vous recherchez des informations et entrées spécifiques du journal des erreurs.
+- **ContainerImageInventory**  : utilisez ce type de journal lorsque vous recherchez des informations organisées par image, et de consulter des informations sur les images, telles que leurs ID ou tailles.
+- **ContainerInventory**  : utilisez ce type de journal lorsque vous recherchez des informations sur l’emplacement des conteneurs, leurs noms et les images qu’ils exécutent.
+- **ContainerLog**  : utilisez ce type de journal lorsque vous recherchez des informations et entrées spécifiques du journal des erreurs.
 - **ContainerNodeInventory_CL** Utilisez ce type lorsque vous souhaitez obtenir les informations sur le nœud ou l’hôte où résident les conteneurs. Il fournit la version Docker, le type d’orchestration, ainsi que des informations relatives au stockage et au réseau.
 - **ContainerProcess_CL** Ce type permet de visualiser rapidement le processus actuellement exécuté dans le conteneur.
-- **ContainerServiceLog** : utilisez ce type de journal lorsque vous recherchez des informations de piste d’audit pour le démon Docker, telles que les commandes de démarrage, d’arrêter, de suppression ou d’extraction.
+- **ContainerServiceLog**  : utilisez ce type de journal lorsque vous recherchez des informations de piste d’audit pour le démon Docker, telles que les commandes de démarrage, d’arrêter, de suppression ou d’extraction.
 - **KubeEvents_CL** Ce type permet d’afficher les événements Kubernetes.
 - **KubePodInventory_CL** Utilisez ce type lorsque vous voulez comprendre les informations de hiérarchie du cluster.
 

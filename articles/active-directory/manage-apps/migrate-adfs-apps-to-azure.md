@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: a07130e55339ed689b65b48e6fd83e65f36d155e
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802699"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280539"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -86,7 +86,7 @@ Mettez à jour la configuration de façon à faire pointer votre instance de tes
 
 Mettez à jour la configuration de votre application de production pour qu’elle pointe vers votre locataire Azure de production.
 
-![Étape de migration 1 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
+![Étape de migration 4 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
 
  Les applications qui s’authentifient avec AD FS peuvent utiliser des groupes Active Directory pour les autorisations. Utilisez la [synchronisation Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) pour synchroniser les données d’identité entre votre environnement local et Azure AD avant de commencer la migration. Vérifiez ces groupes et les appartenances avant la migration afin de pouvoir accorder l’accès aux mêmes utilisateurs lors de la migration de l’application.
 
@@ -257,7 +257,7 @@ Voici quelques exemples de types de règles d’autorisation dans AD FS, ainsi q
 
 L’option Autoriser l’accès à tous les utilisateurs ressemble à ceci dans AD FS :
 
-![Étape de migration 1 ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
+![Capture d’écran montrant la boîte de dialogue Configurer l’authentification unique avec SAML.](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
 
 Cela correspond à Azure AD d’une des manières suivantes :
@@ -279,7 +279,7 @@ Vous devez [activer les groupes dynamiques](https://docs.microsoft.com/azure/act
 Autorisation de groupe explicite dans AD FS :
 
 
-![Règles d’autorisation d’émission ](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
+![Capture d’écran montrant la boîte de dialogue Modifier la règle pour la règle de revendication pour autoriser les administrateurs du domaine.](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
 
 
 Voici comment la règle est mappée sur Azure AD :
@@ -293,7 +293,7 @@ Dans le [portail Azure](https://portal.azure.com/), vous devez d’abord [créer
 
 Autorisation explicite d’un utilisateur dans AD FS :
 
-![Règles d’autorisation d’émission ](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Capture d’écran montrant la boîte de dialogue Modifier la règle pour la règle de revendication pour autoriser les administrateurs du domaine avec le type de revendication entrante « SID principal ».](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 Voici comment la règle est mappée sur Azure AD :
 
@@ -310,7 +310,7 @@ Voici quelques exemples de types de règles d’authentification multifacteur da
 
 Paramètres de la règle d’authentification multifacteur dans AD FS :
 
-![Paramètres d’authentification multifacteur Azure AD](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![Capture d’écran montrant les Conditions pour Azure AD dans le portail Azure.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 
 #### <a name="example-1-enforce-mfa-based-on-usersgroups"></a>Exemple 1 : Appliquer l’authentification multifacteur en fonction des utilisateurs/groupes
@@ -326,7 +326,7 @@ Spécifiez les règles d’authentification multifacteur pour un utilisateur ou 
 
 3. Configurez les options de **contrôle d’accès** comme indiqué ci-dessous :
 
-![Paramètres d’authentification multifacteur AAD](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
+![Capture d’écran montrant le volet Accorder dans lequel vous pouvez accorder l’accès.](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
 
 
  #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Exemple 2 : Appliquer l’authentification multifacteur pour les appareils non inscrits
@@ -339,7 +339,7 @@ Spécifiez les règles d’authentification multifacteur pour les appareils non 
 
 3. Configurez les options de **contrôle d’accès** comme indiqué ci-dessous :
 
-![Paramètres d’authentification multifacteur AAD](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
+![Capture d’écran montrant le volet Accorder dans lequel vous pouvez accorder l’accès et spécifier d’autres restrictions.](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
 
 
 Lorsque vous définissez l’option Pour plusieurs contrôles sur Demander un des contrôles sélectionnés, cela signifie que si l’une des conditions spécifiées par la case à cocher est remplie par l’utilisateur, l’accès à votre application lui est accordé.
@@ -356,7 +356,7 @@ Spécifiez les règles d’authentification multifacteur en fonction de l’empl
 
 1. Configurez des **Règles de conditions**  pour spécifier les emplacements pour lesquels vous souhaitez appliquer l’authentification multifacteur.
 
-![Paramètres d’authentification multifacteur Azure AD](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![Capture d’écran montrant le volet Emplacements pour les règles de Conditions.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 5. Configurez les options de **contrôle d’accès** comme indiqué ci-dessous :
 
@@ -368,14 +368,14 @@ Spécifiez les règles d’authentification multifacteur en fonction de l’empl
 
 Voici un exemple de mappage des attributs dans AD FS :
 
-![Paramètres d’authentification multifacteur Azure AD](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
+![Capture d’écran montrant la boîte de dialogue Modifier la règle pour utiliser les attributs d’émission comme revendications.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
 
 
 Voici comment la règle est mappée sur Azure AD :
 
-Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Applications d’entreprise**, **Authentification unique**, puis ajoutez les **Attributs du jeton SAML** comme indiqué ci-dessous :
+Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Applications d’entreprise** , **Authentification unique** , puis ajoutez les **Attributs du jeton SAML** comme indiqué ci-dessous :
 
-![Paramètres d’authentification multifacteur Azure AD](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
+![Capture d’écran montrant la page Authentification unique de votre application d’entreprise.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
 
 
 
@@ -489,5 +489,8 @@ Une fois le déploiement terminé, vous pouvez envoyer des communications inform
 Communication avec les utilisateurs externes : Ce groupe d’utilisateurs est généralement le plus lourdement affecté en cas de problème. Cela est particulièrement vrai si votre position de sécurité dicte un ensemble différent de règles d’accès conditionnel ou de profils de risque pour les partenaires externes. Assurez-vous que les partenaires externes sont au courant de la planification de la migration cloud et du fait qu’il y aura une plage de temps pendant laquelle ils seront encouragés à participer à un déploiement pilote qui teste tous les flux propres à la collaboration externe. Enfin, assurez-vous qu’ils disposent d’un moyen d’accéder à votre support technique en cas de problème cassant.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Lire [Migrer l’authentification d’application vers Azure AD](https://aka.ms/migrateapps/whitepaper)<p>
 Configurer [l’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) et [l’authentification multifacteur](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+
+Essayez un exemple de code par étapes : [Playbook de migration d’application AD FS vers Azure AD pour les développeurs](https://aka.ms/adfsplaybook)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336511"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312345"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
@@ -85,10 +85,10 @@ Déterminer le type de prédictions que vous souhaitez baser sur l’analyse de 
 Vous pouvez configurer un environnement Azure pour une analyse avancée qui utilise un cluster HDInsight en trois étapes :
 
 1. [Créer un compte de stockage](../../storage/common/storage-account-create.md) : Ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight résident également ici.
-2. [Personnaliser des clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](customize-hadoop-cluster.md). Cette étape crée un cluster Hadoop HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Il existe deux étapes importantes à retenir lors de la personnalisation de votre cluster HDInsight.
+2. [Personnaliser des clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Cette étape crée un cluster Hadoop HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Il existe deux étapes importantes à retenir lors de la personnalisation de votre cluster HDInsight.
    
    * Rappelez-vous de lier le compte de stockage créé à l’étape 1 à votre cluster HDInsight, lorsque vous le créez. Ce compte de stockage accède aux données qui peuvent être traitées au sein du cluster.
-   * Après avoir créé le cluster, activez l’accès à distance au nœud principal du cluster. Accédez à l’onglet **Configuration**, puis sélectionnez **Activation à distance**. Cette étape fournit les informations d'identification d'utilisateur utilisées pour la connexion à distance.
+   * Après avoir créé le cluster, activez l’accès à distance au nœud principal du cluster. Accédez à l’onglet **Configuration** , puis sélectionnez **Activation à distance**. Cette étape fournit les informations d'identification d'utilisateur utilisées pour la connexion à distance.
 3. [Créer un espace de travail Microsoft Azure Machine Learning](../classic/create-workspace.md) : Cet espace de travail vous permet de générer des modèles Machine Learning. Cette tâche est entamée après avoir effectué une exploration de données initiales et une réduction de l’échantillon à l’aide du cluster HDInsight.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Obtenir les données auprès d’une source publique
@@ -99,7 +99,7 @@ Vous pouvez configurer un environnement Azure pour une analyse avancée qui util
 
 Pour copier le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) sur votre machine depuis son emplacement public, utilisez l’une des méthodes décrites dans [Déplacer des données vers et depuis le stockage Blob Azure](move-azure-blob.md).
 
-Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l’utilitaire de ligne de commande AzCopy](../../storage/common/storage-use-azcopy.md).
+Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l’utilitaire de ligne de commande AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
 1. Dans une fenêtre d’invite de commandes, exécutez les commandes AzCopy suivantes en remplaçant *\<path_to_data_folder>* par la destination souhaitée :
 
@@ -117,23 +117,23 @@ Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers conten
 
 Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les valeurs réelles que vous avez spécifiées lors de la création du cluster Hadoop et lors de la décompression des fichiers de données.
 
-* ***\<path_to_data_folder>*** Répertoire (avec le chemin) sur votre machine qui contient les fichiers de données décompressés.  
-* ***\<storage account name of Hadoop cluster>*** Le compte de stockage associé à votre cluster HDInsight.
-* ***\<default container of Hadoop cluster>*** Le conteneur par défaut utilisé par votre cluster. Le nom du conteneur par défaut est généralement le même que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
-* ***\<storage account key>*** La clé du compte de stockage utilisé par votre cluster.
+* * **\<path_to_data_folder>** _ Répertoire (avec le chemin) sur votre machine qui contient les fichiers de données décompressés.  
+_ * **\<storage account name of Hadoop cluster>** _ Compte de stockage associé à votre cluster HDInsight.
+_ * **\<default container of Hadoop cluster>** _ Conteneur par défaut utilisé par votre cluster. Le nom du conteneur par défaut est généralement le même que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
+_ * **\<storage account key>** _ Clé du compte de stockage utilisé par votre cluster.
 
 À partir d’une invite de commandes ou d’une fenêtre Windows PowerShell, exécutez les deux commandes AzCopy suivantes.
 
-Cette commande permet de charger les données relatives aux courses sur le répertoire ***nyctaxitripraw*** dans le conteneur par défaut du cluster Hadoop.
+Cette commande permet de charger les données relatives aux courses dans le répertoire _*_nyctaxitripraw_*_ sur le conteneur par défaut du cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-Cette commande permet de charger les données de prix sur le répertoire ***nyctaxifareraw*** dans le conteneur par défaut du cluster Hadoop.
+Cette commande permet de charger les données de prix dans le répertoire * **nyctaxifareraw** _ sur le conteneur par défaut du cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
 ```
 
 Les données doivent désormais se trouver dans le stockage Blob et prêtes à être utilisées au sein du cluster HDInsight.
@@ -144,7 +144,7 @@ Les données doivent désormais se trouver dans le stockage Blob et prêtes à �
 > 
 > 
 
-Pour accéder au nœud principal du cluster afin d’exécuter une analyse exploratoire des données et une réduction de l’échantillon des données, suivez la procédure décrite dans [Accéder au nœud principal du cluster Hadoop](customize-hadoop-cluster.md).
+Pour accéder au nœud principal du cluster afin d’exécuter une analyse exploratoire des données et une réduction de l’échantillon des données, suivez la procédure décrite dans [Accéder au nœud principal du cluster Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 Dans cette procédure pas à pas, nous utilisons principalement les requêtes écrites dans [Hive](https://hive.apache.org/), un langage de requête similaire à SQL, pour effectuer des explorations de données préliminaires. Les requêtes Hive sont stockées dans des fichiers .hql. Nous réduisons ensuite l’échantillon de ces données à utiliser avec Machine Learning pour la création de modèles.
 
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette procédure pas à pas sur le répertoire local ***C:\temp&#92;*** dans le nœud principal.
+Ces deux commandes téléchargent tous les fichiers .hql nécessaires pour cette procédure pas à pas dans le répertoire local ***C:\temp&#92;** _ du nœud principal.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Créer la base de données Hive et les tables partitionnées par mois
 > [!NOTE]
@@ -182,7 +182,7 @@ cd %hive_home%\bin
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Voici le contenu du fichier **C:\temp\sample\_hive\_create\_db\_and\_tables.hql** qui crée la base de données Hive **nyctaxidb** et les tables **trip** et **fare**.
+Voici le contenu du fichier _ *C:\temp\sample\_hive\_create\_db\_and\_tables.hql* * qui crée la base de données Hive **nyctaxidb** et les tables **trip** et **fare**.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -261,7 +261,7 @@ hive -e "show databases;"
 ```
 
 ### <a name="show-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Afficher les tables Hive dans la base de données **nyctaxidb**
-Pour afficher les tables dans la base de données **nyctaxidb**, exécutez la commande suivante dans la ligne de commande Hadoop :
+Pour afficher les tables dans la base de données **nyctaxidb** , exécutez la commande suivante dans la ligne de commande Hadoop :
 
 ```console
 hive -e "show tables in nyctaxidb;"
@@ -464,7 +464,7 @@ HAVING med_count > 100
 ORDER BY med_count desc;
 ```
 
-Le médaillon dans le jeu de données NYC taxi identifie un seul taxi. Vous pouvez identifier les taxis « occupés » par comparaison en demandant quels taxis ont effectué plus d’un certain nombre d’allers-retours sur une période donnée. L’exemple suivant identifie les taxis qui ont effectué plus d’une centaine de courses durant les trois premiers mois et enregistre les résultats de la requête dans un fichier local,**C:\temp\queryoutput.tsv**.
+Le médaillon dans le jeu de données NYC taxi identifie un seul taxi. Vous pouvez identifier les taxis « occupés » par comparaison en demandant quels taxis ont effectué plus d’un certain nombre d’allers-retours sur une période donnée. L’exemple suivant identifie les taxis qui ont effectué plus d’une centaine de courses durant les trois premiers mois et enregistre les résultats de la requête dans un fichier local, **C:\temp\queryoutput.tsv**.
 
 Voici le contenu du fichier **sample\_hive\_trip\_count\_by\_medallion.hql** pour l’inspection.
 
@@ -491,7 +491,7 @@ hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.
 
 Lors de l'exploration d'un jeu de données, nous devons examiner fréquemment le nombre de distributions des groupes de valeurs. Cette section fournit un exemple de procédure à suivre pour effectuer cette analyse pour les chauffeurs et les taxis.
 
-Le fichier **sample\_hive\_trip\_count\_by\_medallion\_license.hql** regroupe le jeu de données fare sur **medallion** et **hack_license**, et renvoie le nombre de chaque combinaison. Son contenu est présenté ci-dessous :
+Le fichier **sample\_hive\_trip\_count\_by\_medallion\_license.hql** regroupe le jeu de données fare sur **medallion** et **hack_license** , et renvoie le nombre de chaque combinaison. Son contenu est présenté ci-dessous :
 
 ```hiveql
 SELECT medallion, hack_license, COUNT(*) as trip_count
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Les résultats de la requête sont consignés dans neuf blobs Azure **queryoutputdir/000000\_0** à  **queryoutputdir/000008\_0**, situés dans le conteneur par défaut du cluster Hadoop.
+Les résultats de la requête sont consignés dans neuf blobs Azure **queryoutputdir/000000\_0** à  **queryoutputdir/000008\_0** , situés dans le conteneur par défaut du cluster Hadoop.
 
 Pour connaître la taille des objets blob individuels, exécutez la commande suivante à partir de l’invite du répertoire Hive :
 
@@ -647,7 +647,7 @@ Pour connaître la taille des objets blob individuels, exécutez la commande sui
 hdfs dfs -ls wasb:///queryoutputdir
 ```
 
-Pour afficher le contenu d’un fichier donné, par exemple, **000000\_0**, utilisez la commande Hadoop `copyToLocal`.
+Pour afficher le contenu d’un fichier donné, par exemple, **000000\_0** , utilisez la commande Hadoop `copyToLocal`.
 
 ```hiveql
 hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
@@ -669,11 +669,11 @@ Le principal avantage lié au fait que ces données résident dans un objet blob
 Après la phase d’analyse exploratoire des données, nous sommes prêts à réduire l’échantillon des données pour créer des modèles dans Machine Learning. Dans cette section, nous montrons comment utiliser une requête Hive pour réduire l’échantillon des données. Machine Learning y accède ensuite à partir du module [Importer des données][import-data].
 
 ### <a name="down-sampling-the-data"></a>Réduire l’échantillonnage des données
-Il existe deux étapes dans cette procédure. Tout d’abord nous regroupons les tables **nyctaxidb.trip** et **nyctaxidb.fare** sur trois clés présentes dans tous les enregistrements : **medallion**, **hack\_license** et **pickup\_datetime**. Nous générons ensuite une étiquette de classification binaire **avec pourboire** et une étiquette de classification multiclasse, **tip\_class**.
+Il existe deux étapes dans cette procédure. Tout d’abord nous regroupons les tables **nyctaxidb.trip** et **nyctaxidb.fare** sur trois clés présentes dans tous les enregistrements : **medallion** , **hack\_license** et **pickup\_datetime**. Nous générons ensuite une étiquette de classification binaire **avec pourboire** et une étiquette de classification multiclasse, **tip\_class**.
 
 Pour pouvoir utiliser les échantillons de données réduits directement à partir du module [Importer des données][import-data] dans Machine Learning, vous devez stocker les résultats de la requête précédente dans une table Hive interne. Dans ce qui suit, nous créons une table interne Hive et remplissons son contenu avec les données regroupées et à échantillon réduit.
 
-La requête applique des fonctions Hive standard directement pour générer les paramètres de temps suivants dans le champ **pickup\_datetime** :
+La requête applique des fonctions Hive standard directement pour générer les paramètres de temps suivants dans le champ **pickup\_datetime**  :
 - heure de la journée
 - semaine de l’année
 - jour de la semaine (« 1 » pour lundi et « 7 » pour dimanche)
@@ -813,14 +813,14 @@ Pour exécuter cette requête à partir de l’invite du répertoire Hive :
 hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 ```
 
-Nous avons maintenant une table interne **nyctaxidb.nyctaxi_downsampled_dataset**, qui est accessible à l’aide du module [Importer des données][import-data] de Machine Learning. En outre, nous pouvons utiliser ce jeu de données pour créer des modèles Machine Learning.  
+Nous avons maintenant une table interne **nyctaxidb.nyctaxi_downsampled_dataset** , qui est accessible à l’aide du module [Importer des données][import-data] de Machine Learning. En outre, nous pouvons utiliser ce jeu de données pour créer des modèles Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Utiliser le module Importer des données dans Machine Learning pour accéder aux données à échantillon réduit
 Pour générer des requêtes Hive dans le module [Importer des données][import-data] de Machine Learning, vous devez accéder à un espace de travail Machine Learning. Vous avez également besoin d’accéder aux informations d’identification du cluster et à son compte de stockage associé.
 
 Voici certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
-**URI du serveur HCatalog** : si le nom du cluster est **abc123**, utilisez : https:\//abc123.azurehdinsight.net.
+**URI du serveur HCatalog** : si le nom du cluster est **abc123** , utilisez : https:\//abc123.azurehdinsight.net.
 
 **Nom du compte utilisateur Hadoop** : Nom d’utilisateur choisi pour le cluster (et non le nom d’utilisateur de l’accès à distance).
 
@@ -828,9 +828,9 @@ Voici certains détails sur le module [Importer des données][import-data] et le
 
 **Emplacement des données de sortie** : Il s’agit d’un emplacement Azure.
 
-**Nom du compte de Stockage Azure** : Nom du compte de stockage par défaut associé au cluster.
+**Nom du compte de Stockage Azure**  : Nom du compte de stockage par défaut associé au cluster.
 
-**Nom de conteneur Azure** : Nom du conteneur par défaut du cluster. Il correspond généralement à celui du cluster. Pour un cluster nommé **abc123**, le nom est abc123.
+**Nom de conteneur Azure** : Nom du conteneur par défaut du cluster. Il correspond généralement à celui du cluster. Pour un cluster nommé **abc123** , le nom est abc123.
 
 > [!IMPORTANT]
 > Toute table que nous souhaitons interroger à l’aide du module [Importer des données][import-data] dans Machine Learning doit être une table interne.
@@ -862,7 +862,7 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 
   **Apprenant utilisé :** Régression logistique à deux classes
 
-  a. Pour ce problème, l’étiquette (ou classe) cible est **avec pourboire**. Le jeu de données original à l’échantillon réduit dispose de quelques colonnes qui sont des fuites cibles pour cette expérience de classification. En particulier : **tip\_class**, **tip\_amount** et **total\_amount** révèlent des informations sur l’étiquette cible qui ne sont pas disponibles au moment du test. Nous supprimons ces colonnes du compte à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
+  a. Pour ce problème, l’étiquette (ou classe) cible est **avec pourboire**. Le jeu de données original à l’échantillon réduit dispose de quelques colonnes qui sont des fuites cibles pour cette expérience de classification. En particulier : **tip\_class** , **tip\_amount** et **total\_amount** révèlent des informations sur l’étiquette cible qui ne sont pas disponibles au moment du test. Nous supprimons ces colonnes du compte à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
   Le diagramme suivant illustre notre expérience pour prédire si un pourboire a été versé pour une course donnée :
 
@@ -882,7 +882,7 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 
   **Apprenant utilisé :** Régression logistique multiclasse
 
-  a. Pour ce problème, notre cible (ou classe) est **tip\_class**, ce qui peut prendre une des cinq valeurs suivantes (0,1,2,3,4). Comme dans le cas de classification binaire, nous avons quelques colonnes qui sont des fuites cibles pour cette expérience. En particulier : **avec pourboire**, **tip\_amount** et **total\_amount** révèlent des informations sur l’étiquette cible qui ne sont pas disponibles au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
+  a. Pour ce problème, notre cible (ou classe) est **tip\_class** , ce qui peut prendre une des cinq valeurs suivantes (0,1,2,3,4). Comme dans le cas de classification binaire, nous avons quelques colonnes qui sont des fuites cibles pour cette expérience. En particulier : **avec pourboire** , **tip\_amount** et **total\_amount** révèlent des informations sur l’étiquette cible qui ne sont pas disponibles au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
   Le diagramme suivant illustre l’expérience pour prédire dans quel emplacement un pourboire est susceptible de se trouver. Les emplacements sont : classe 0 : pourboire = 0 $, classe 1 : pourboire > 0 $ et pourboire <= 5 $, classe 2 : pourboire > 5 $ et pourboire <= 10 $, classe 3 : pourboire > 10 $ et pourboire <= 20 $, et classe 4 : pourboire > 20 $.
 
@@ -902,7 +902,7 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 
   **Apprenant utilisé :** Arbre de décision optimisé
 
-  a. Pour ce problème, l’étiquette (ou classe) cible est **tip\_amount**. Les fuites cibles dans ce cas sont : **avec pourboire**, **tip\_class** et **total\_amount**. Toutes ces variables révèlent des informations sur le montant du pourboire, qui sont en général indisponibles au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
+  a. Pour ce problème, l’étiquette (ou classe) cible est **tip\_amount**. Les fuites cibles dans ce cas sont : **avec pourboire** , **tip\_class** et **total\_amount**. Toutes ces variables révèlent des informations sur le montant du pourboire, qui sont en général indisponibles au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
   Le diagramme suivant illustre l’expérience pour prédire la quantité de pourboire donné :
 
@@ -935,5 +935,5 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [15]: ./media/hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

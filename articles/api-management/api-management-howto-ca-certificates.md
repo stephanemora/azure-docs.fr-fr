@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852070"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102035"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Guide pratique pour ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure
 
@@ -41,22 +41,22 @@ Suivez les étapes ci-dessous pour charger un nouveau certificat d’autorité d
 
 3. Cliquez sur le bouton **+ Ajouter** .  
 
-    ![Ajouter des certificats d’autorité de certification](media/api-management-howto-ca-certificates/01.png)  
+    ![Capture d’écran montrant le bouton + Ajouter pour l’ajout d’un certificat d’autorité de certification.](media/api-management-howto-ca-certificates/01.png)  
 
 4. Recherchez le certificat, puis choisissez un magasin de certificats. Seule la clé publique doit être fournie. Le mot de passe n’est pas nécessaire.
 
-    ![Ajouter des certificats d’autorité de certification](media/api-management-howto-ca-certificates/02.png)  
+    ![Capture d’écran montrant comment rechercher le certificat.](media/api-management-howto-ca-certificates/02.png)  
 
 5. Cliquez sur **Enregistrer**. Cette opération peut prendre quelques minutes.
 
-    ![Ajouter des certificats d’autorité de certification](media/api-management-howto-ca-certificates/03.png)  
+    ![Capture d’écran montrant comment enregistrer le certificat.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > Vous pouvez charger un certificat d’autorité de certification à l’aide de la commande Powershell `New-AzApiManagementSystemCertificate`.
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Supprimer un certificat client
 
-Pour supprimer un certificat, cliquez sur le menu contextuel **...**, puis sélectionnez **Supprimer** à côté du certificat.
+Pour supprimer un certificat, cliquez sur le menu contextuel **...** , puis sélectionnez **Supprimer** à côté du certificat.
 
 ![Supprimer des certificats d’autorité de certification](media/api-management-howto-ca-certificates/04.png)  
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130933"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour une base de données SQL à l’aide d’Azure Logic Apps
 
@@ -96,9 +96,14 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
    ||||
 
    > [!TIP]
-   > Ces informations se trouvent dans la chaîne de connexion de votre base de données. Par exemple, Dans le Portail Azure, recherchez et ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés** , d’où vous pouvez trouver cette chaîne :
+   > Pour fournir vos informations de base de données et de table, vous disposez des options suivantes :
+   > 
+   > * Trouvez ces informations dans la chaîne de connexion de votre base de données. Par exemple, Dans le Portail Azure, recherchez et ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés** , dans lesquelles vous pouvez trouver cette chaîne :
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * Par défaut, les tables des bases de données système sont filtrées, elles peuvent donc ne pas s’afficher automatiquement lorsque vous sélectionnez une base de données système. Vous pouvez également indiquer manuellement le nom de la table une fois que vous avez sélectionné **Entrer une valeur personnalisée** dans la liste de base de données.
+   >
 
    Cet exemple montre comment ces valeurs peuvent être présentées :
 
@@ -210,6 +215,8 @@ Dans cet exemple, l’application logique commence par le [déclencheur de péri
 
    Cette étape active et publie automatiquement votre application logique dans Azure.
 
+<a name="handle-bulk-data"></a>
+
 ## <a name="handle-bulk-data"></a>Gérer des données en bloc
 
 Parfois, vous manipulez des jeux de résultats tellement volumineux que le connecteur ne peut pas renvoyer tous les résultats en même temps, ou vous souhaitez mieux contrôler la taille et la structure de vos jeux de résultats. Voici quelques façons de gérer ces grands jeux de résultats :
@@ -223,7 +230,9 @@ Parfois, vous manipulez des jeux de résultats tellement volumineux que le conne
   Pour organiser les résultats à votre convenance, vous pouvez créer une procédure stockée qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY**. Cette solution vous permet de déterminer la taille et la structure de vos résultats. Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server. Pour plus d'informations, consultez [SELECT - Clause ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
   > [!NOTE]
-  > Avec ce connecteur, l'exécution d'une procédure stockée est limitée à un [délai d'expiration inférieur à 2 minutes](/connectors/sql/#known-issues-and-limitations). Le délai de traitement et d'achèvement de certaines procédures stockées peut être supérieur à cette limite, ce qui génère une erreur `504 TIMEOUT`. En fait, certains processus de longue durée sont codés en tant que procédures stockées explicitement à cette fin. L'appel de ces procédures à partir d'Azure Logic Apps peut engendrer des problèmes liés à ce délai d'expiration. Bien que le connecteur SQL ne prenne nativement en charge aucun mode asynchrone, vous pouvez simuler un tel mode à l'aide d'un déclencheur d'achèvement SQL, d'une requête SQL directe native, d'une table des états et de travaux côté serveur à l'aide de l'[Agent de travail élastique Azure](../azure-sql/database/elastic-jobs-overview.md).
+  > Le connecteur SQL a une limite de délai d’expiration de procédure stockée qui est [inférieure à 2 minutes](/connectors/sql/#known-issues-and-limitations). Certaines procédures stockées peuvent demander plus de temps que cette limite n’en accorde, entraînant une erreur `504 Timeout`. Vous pouvez contourner ce problème en utilisant un déclencheur d’achèvement SQL, une requête SQL directe native, une table des états et des travaux côté serveur.
+  > 
+  > Concernant cette tâche, vous pouvez utiliser l’[agent de travail élastique Azure](../azure-sql/database/elastic-jobs-overview.md) pour [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Pour ce qui est de [SQL Server local](/sql/sql-server/sql-server-technical-documentation) et d’[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), vous pouvez utiliser le service [SQL Server Agent](/sql/ssms/agent/sql-server-agent). Pour plus d’informations, consultez [Gérer les délais d’attente des procédures stockées de longue durée dans le connecteur SQL pour Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Gérer les données en bloc dynamiques
 

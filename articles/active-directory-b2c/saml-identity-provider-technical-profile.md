@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 956773872babbd30dea1e17a9a3d7ede7a022850
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 9f6df1fb2c83cea5ddf3ad7f21c9a7d28342d373
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041733"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de fournisseur d'identité SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -66,8 +66,8 @@ Pour chiffrer l’assertion de réponse SAML, le fournisseur d’identité utili
 Pour chiffrer l’assertion de réponse SAML :
 
 1. Chargez un certificat X509 valide avec la clé privée (fichier .pfx) vers le magasin de clés de la stratégie Azure AD B2C.
-2. Ajoutez un élément **CryptographicKey** avec `SamlAssertionDecryption` comme identificateur à la collection **CryptographicKeys** du profil technique. Affectez le nom de la clé de stratégie que vous avez créée à l’étape 1 comme valeur de **StorageReferenceId** .
-3. Affectez la valeur `true` à l’élément de métadonnées de profil technique **WantsEncryptedAssertions** .
+2. Ajoutez un élément **CryptographicKey** avec `SamlAssertionDecryption` comme identificateur à la collection **CryptographicKeys** du profil technique. Affectez le nom de la clé de stratégie que vous avez créée à l’étape 1 comme valeur de **StorageReferenceId**.
+3. Affectez la valeur `true` à l’élément de métadonnées de profil technique **WantsEncryptedAssertions**.
 4. Mettez à jour le fournisseur d’identité avec les nouvelles métadonnées de profil technique Azure AD B2C. Vous devez voir le **KeyDescriptor** avec la propriété **use** définie sur `encryption` contenant la clé publique de votre certificat.
 
 L’exemple suivant illustre la section Descripteur de clé des métadonnées SAML utilisées pour le chiffrement :
@@ -85,6 +85,16 @@ L’exemple suivant illustre la section Descripteur de clé des métadonnées SA
 ## <a name="protocol"></a>Protocol
 
 L’attribut **Name** de l’élément Protocol doit être défini sur `SAML2`.
+
+## <a name="input-claims"></a>Revendications d’entrée
+
+L’élément **InputClaims** est utilisé pour envoyer un **NameId** dans l’objet ( **Subject** ) de la demande d’authentification SAML. Pour ce faire, ajoutez une revendication d’entrée avec un type **PartnerClaimType** défini sur `subject`, comme indiqué ci-dessous.
+
+```xml
+<InputClaims>
+    <InputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="subject" />
+</InputClaims>
+```
 
 ## <a name="output-claims"></a>Revendications de sortie
 
@@ -117,16 +127,16 @@ Si les attributs `SPNameQualifier` ou `NameQualifier` ne sont pas présentés da
 
 L’exemple suivant montre les revendications retournées par un fournisseur d’identité SAML :
 
-- La revendication **issuerUserId** est mappée à la revendication **assertionSubjectName** .
-- Revendication **first_name** mappée à la revendication **givenName** .
-- Revendication **last_name** mappée à la revendication **surname** .
-- La revendication **displayName** est mappée à la revendication **name** .
+- La revendication **issuerUserId** est mappée à la revendication **assertionSubjectName**.
+- Revendication **first_name** mappée à la revendication **givenName**.
+- Revendication **last_name** mappée à la revendication **surname**.
+- La revendication **displayName** est mappée à la revendication **name**.
 - La revendication **email** sans mappage de nom.
 
 Le profil technique retourne également des revendications qui ne sont pas retournées par le fournisseur d’identité :
 
 - La revendication **identityProvider** contenant le nom du fournisseur d’identité.
-- La revendication **authenticationSource** avec la valeur par défaut **socialIdpAuthentication** .
+- La revendication **authenticationSource** avec la valeur par défaut **socialIdpAuthentication**.
 
 ```xml
 <OutputClaims>
@@ -151,13 +161,13 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
 | XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer la demande SAML. Ces métadonnées contrôlent la valeur du paramètre **SigAlg** (chaîne de requête ou paramètre d’envoi) dans la demande SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1` (par défaut). Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. |
 | WantsSignedAssertions | Non | Indique si le profil technique exige que toutes les assertions entrantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Si la valeur est `true`, toutes les sections d’assertions `saml:Assertion` envoyées par le fournisseur d’identité à Azure AD B2C doivent être signées. Si la valeur est `false`, le fournisseur d’identité ne doit pas signer les assertions, mais même s’il le fait, Azure AD B2C ne validera pas la signature. Ces métadonnées contrôlent également l’indicateur de métadonnées **WantsAssertionsSigned** , qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Si vous désactivez la validation des assertions, vous pouvez également désactiver la validation de signature de réponse (pour plus d’informations, consultez **ResponsesSigned** ). |
 | ResponsesSigned | Non | Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Si la valeur est `false`, le fournisseur d’identité ne doit pas signer la réponse SAML, mais même s’il le fait, Azure AD B2C ne validera pas la signature. Si la valeur est `true`, la réponse SAML envoyée par le fournisseur d’identité à Azure AD B2C est signée et doit être validée. Si vous désactivez la validation de la réponse SAML, vous pouvez également désactiver la validation de signature d’assertion (pour plus d’informations, consultez **WantsSignedAssertions** ). |
-| WantsEncryptedAssertions | Non | Indique si le profil technique exige que toutes les assertions entrantes soient chiffrées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `false`. Si la valeur est `true`, les assertions envoyées par le fournisseur d’identité à Azure AD B2C doivent être signées et la clé de chiffrement **SamlAssertionDecryption** doit être spécifiée. Si la valeur est `true`, les métadonnées du profil technique Azure AD B2C incluent la section **encryption** . Le fournisseur d’identité lit les métadonnées et chiffre l’assertion de réponse SAML avec la clé publique fournie dans les métadonnées du profil technique Azure AD B2C. Si vous activez le chiffrement des assertions, vous devrez peut-être également désactiver la validation de signature de réponse (pour plus d’informations, consultez **ResponsesSigned** ). |
-| NameIdPolicyFormat | Non | Spécifie les contraintes appliquées à l’identificateur de nom à utiliser pour représenter l’objet demandé. En cas d’omission, tout type d’identificateur pris en charge par le fournisseur d’identité pour l’objet demandé peut être utilisé. Par exemple : `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** peut être utilisé avec **NameIdPolicyAllowCreate** . Pour obtenir des conseils concernant les stratégies d’identificateur de nom prises en charge, consultez la documentation de votre fournisseur d’identité. |
-| NameIdPolicyAllowCreate | Non | Lorsque vous utilisez **NameIdPolicyFormat** , vous pouvez également spécifier la propriété `AllowCreate` de **NameIDPolicy** . La valeur de ces métadonnées est `true` ou `false` pour indiquer si le fournisseur d’identité est autorisé à créer un compte pendant le flux de connexion. Pour obtenir des conseils sur la marche à suivre, consultez la documentation de votre fournisseur d’identité. |
+| WantsEncryptedAssertions | Non | Indique si le profil technique exige que toutes les assertions entrantes soient chiffrées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `false`. Si la valeur est `true`, les assertions envoyées par le fournisseur d’identité à Azure AD B2C doivent être signées et la clé de chiffrement **SamlAssertionDecryption** doit être spécifiée. Si la valeur est `true`, les métadonnées du profil technique Azure AD B2C incluent la section **encryption**. Le fournisseur d’identité lit les métadonnées et chiffre l’assertion de réponse SAML avec la clé publique fournie dans les métadonnées du profil technique Azure AD B2C. Si vous activez le chiffrement des assertions, vous devrez peut-être également désactiver la validation de signature de réponse (pour plus d’informations, consultez **ResponsesSigned** ). |
+| NameIdPolicyFormat | Non | Spécifie les contraintes appliquées à l’identificateur de nom à utiliser pour représenter l’objet demandé. En cas d’omission, tout type d’identificateur pris en charge par le fournisseur d’identité pour l’objet demandé peut être utilisé. Par exemple : `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** peut être utilisé avec **NameIdPolicyAllowCreate**. Pour obtenir des conseils concernant les stratégies d’identificateur de nom prises en charge, consultez la documentation de votre fournisseur d’identité. |
+| NameIdPolicyAllowCreate | Non | Lorsque vous utilisez **NameIdPolicyFormat** , vous pouvez également spécifier la propriété `AllowCreate` de **NameIDPolicy**. La valeur de ces métadonnées est `true` ou `false` pour indiquer si le fournisseur d’identité est autorisé à créer un compte pendant le flux de connexion. Pour obtenir des conseils sur la marche à suivre, consultez la documentation de votre fournisseur d’identité. |
 | AuthenticationRequestExtensions | Non | Éléments d’extension de message de protocole facultatifs convenus entre Azure AD BC et le fournisseur d’identité. L’extension est présentée au format XML. Vous ajoutez les données XML dans l’élément CDATA `<![CDATA[Your IDP metadata]]>`. Pour voir si l’élément d’extensions est pris en charge, consultez la documentation de votre fournisseur d’identité. |
 | IncludeAuthnContextClassReferences | Non | Spécifie une ou plusieurs références d’URI identifiant des classes de contexte d’authentification. Par exemple, pour autoriser un utilisateur à se connecter uniquement avec un nom d’utilisateur et un mot de passe, définissez la valeur sur `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Pour autoriser la connexion avec nom d’utilisateur et mot de passe sur une session protégée (SSL/TLS), spécifiez `PasswordProtectedTransport`. Pour obtenir des conseils concernant les URI **AuthnContextClassRef** pris en charge, consultez la documentation de votre fournisseur d’identité. Spécifiez plusieurs URI sous la forme d’une liste délimitée par des virgules. |
 | IncludeKeyInfo | Non | Indique si la demande d’authentification SAML contient la clé publique ou le certificat lorsque la liaison est définie sur `HTTP-POST`. Valeurs possibles : `true` ou `false`. |
-| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

@@ -1,6 +1,6 @@
 ---
-title: Instructions T-SQL
-description: Liens vers la documentation relative aux instructions T-SQL prises en charge dans le pool SQL Synapse.
+title: Instructions T-SQL dans un pool SQL dédié
+description: Liens vers la documentation relative aux instructions T-SQL prises en charge pour un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a52049dc08b0a8170acc4d15860db69aea44a2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390907eaf529df3f9adfd481e96ff166be543d01
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276445"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324634"
 ---
-# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Instructions T-SQL prises en charge dans le pool SQL Synapse
+# <a name="t-sql-statements-supported-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Instructions T-SQL prises en charge pour un pool SQL dédié dans Azure Synapse Analytics 
 
-Liens vers la documentation relative aux instructions T-SQL prises en charge dans le pool SQL Synapse.
+Liens vers la documentation relative aux instructions T-SQL prises en charge dans un pool SQL dédié.
 
 ## <a name="data-definition-language-ddl-statements"></a>Instructions du langage de définition de données (DDL)
 
@@ -131,4 +131,4 @@ Liens vers la documentation relative aux instructions T-SQL prises en charge dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Éléments de langage T-SQL dans le pool SQL Synapse](sql-data-warehouse-reference-tsql-language-elements.md) et [Vues système dans le pool SQL Synapse](../sql/reference-tsql-system-views.md).
+Pour obtenir plus d’informations de référence, consultez [Éléments de langage T-SQL dans le pool SQL dédié](sql-data-warehouse-reference-tsql-language-elements.md) et [Vues système dans le pool SQL dédié](../sql/reference-tsql-system-views.md).

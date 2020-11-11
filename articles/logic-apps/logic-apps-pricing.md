@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078162"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098482"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -45,9 +45,9 @@ En savoir sur le fonctionnement de la facturation au niveau des [déclencheurs](
 
 Un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) fournit un moyen isolé de créer et d’exécuter des applications logiques pouvant accéder aux ressources dans un réseau virtuel Azure. Les applications logiques qui s’exécutent dans un ISE n’entraînent aucun coût en termes de conservation des données. Lorsque vous créez un environnement ISE, et uniquement lors de la création, vous pouvez choisir un [niveau ISE ou une référence SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), dont les [tarifs](https://azure.microsoft.com/pricing/details/logic-apps) sont différents :
 
-* ISE **Premium** : Cette unité de base de référence SKU dispose d’une capacité fixe, mais si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), pendant ou après la création de l’environnement ISE. Pour connaître les limites d’ISE, consultez [Limites et configuration pour Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+* ISE **Premium**  : Cette unité de base de référence SKU dispose d’une capacité fixe, mais si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), pendant ou après la création de l’environnement ISE. Pour connaître les limites d’ISE, consultez [Limites et configuration pour Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
-* ISE **Developer** : Cette référence SKU n’offre aucune possibilité de montée en puissance, aucun contrat de niveau de service (SLA) et aucune limite publiée. Utilisez cette référence SKU uniquement à des fins d’expérimentation, de développement et de test, pas pour la production ou les tests de performances.
+* ISE **Developer**  : Cette référence SKU n’offre aucune possibilité de montée en puissance, aucun contrat de niveau de service (SLA) et aucune limite publiée. Utilisez cette référence SKU uniquement à des fins d’expérimentation, de développement et de test, pas pour la production ou les tests de performances.
 
 En ce qui concerne les applications logiques créées et exécutées dans un environnement ISE, vous payez un [prix fixe](https://azure.microsoft.com/pricing/details/logic-apps) (et non un tarif à l’utilisation) pour ces fonctionnalités :
 
@@ -61,15 +61,15 @@ En ce qui concerne les applications logiques créées et exécutées dans un env
 
 * Utilisation du [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) sans coût supplémentaire, en fonction de votre [référence SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) :
 
-  * Référence (SKU) de l’ISE **Premium** : Un compte d’intégration unique de [niveau standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * Référence (SKU) de l’ISE **Premium**  : Un compte d’intégration unique de [niveau standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  * Référence (SKU) de l’ISE **Developer** : Un compte d’intégration unique de [niveau Gratuit](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * Référence (SKU) de l’ISE **Developer**  : Un compte d’intégration unique de [niveau Gratuit](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
   Chaque référence SKU ISE est limitée à 5 comptes d’intégration au total. Contre un supplément, vous pouvez avoir plus de comptes d’intégration en fonction de votre référence SKU ISE :
 
-  * Référence (SKU) de l’ISE **Premium** : jusqu’à quatre comptes standard supplémentaires. Aucun compte gratuit ou de base.
+  * Référence (SKU) de l’ISE **Premium**  : jusqu’à quatre comptes standard supplémentaires. Aucun compte gratuit ou de base.
 
-  * Référence (SKU) de l’ISE **Developer** : jusqu’à 4 comptes standard supplémentaires ou jusqu’à 5 comptes standard au total. Aucun compte de base.
+  * Référence (SKU) de l’ISE **Developer**  : jusqu’à 4 comptes standard supplémentaires ou jusqu’à 5 comptes standard au total. Aucun compte de base.
 
   Pour plus d’informations sur les limites des comptes d’intégration, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Vous trouverez plus d’informations sur les [niveaux de comptes d’intégration et leur modèle de tarification](#integration-accounts) plus loin dans cette rubrique.
 
@@ -122,11 +122,11 @@ Si vous avez un [*environnement de service d'intégration* (ISE)](../logic-apps/
 
 Pour choisir un compte d’intégration gratuit, de base ou standard, étudiez ces descriptions de cas d’usage :
 
-* **Gratuit** : Lorsque vous voulez essayer les scénarios exploratoires, pas les scénarios de production. Ce niveau est disponible uniquement pour les régions publiques dans Azure (par exemple, USA Ouest et Asie Sud-Est), mais pas pour [Azure China 21Vianet](/azure/china/overview-operations) ni [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Gratuit**  : Lorsque vous voulez essayer les scénarios exploratoires, pas les scénarios de production. Ce niveau est disponible uniquement pour les régions publiques dans Azure (par exemple, USA Ouest et Asie Sud-Est), mais pas pour [Azure China 21Vianet](/azure/china/overview-operations) ni [Azure Government](../azure-government/documentation-government-welcome.md).
 
-* **De base** : quand vous souhaitez utiliser la gestion des messages ou agir en tant que petite entreprise partenaire ayant une relation de partenariat commercial avec une entité professionnelle plus importante.
+* **De base**  : quand vous souhaitez utiliser la gestion des messages ou agir en tant que petite entreprise partenaire ayant une relation de partenariat commercial avec une entité professionnelle plus importante.
 
-* **Standard** : quand vous avez des relations B2B plus complexes et un nombre croissant d’entités que vous devez gérer.
+* **Standard**  : quand vous avez des relations B2B plus complexes et un nombre croissant d’entités que vous devez gérer.
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ Hormis les applications logiques qui s’exécutent dans un ISE, toutes les entr
 Pour mieux surveiller la consommation de stockage de votre application logique, vous pouvez :
 
 * Affichez le nombre des unités de stockage en Go utilisés mensuellement par votre application logique.
+
 * Affichez les tailles des entrées et sorties d’une action spécifique dans l’historique des exécutions de votre application logique.
 
 <a name="storage-consumption"></a>
@@ -145,11 +146,14 @@ Pour mieux surveiller la consommation de stockage de votre application logique, 
 
 1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
 
-1. Depuis le menu de l’application logique, sous **Surveillance**, sélectionnez **Métriques**.
+1. Depuis le menu de l’application logique, sous **Surveillance** , sélectionnez **Métriques**.
 
-1. Dans le volet à droite, sous **Titre du graphique**, depuis la liste **Métrique**, sélectionnez **Utilisation de la facturation pour les exécutions de consommation du stockage**.
+1. Dans le volet à droite, sous **Titre du graphique** , depuis la liste **Métrique** , sélectionnez **Utilisation de la facturation pour les exécutions de consommation du stockage**.
 
    Cette mesure vous donne le nombre d’unités de consommation de stockage en Go par mois qui sont facturées.
+
+   > [!NOTE]
+   > Les exécutions qui consomment moins de 500 Mo de stockage peuvent ne pas apparaître dans l’affichage de la supervision, mais elles sont quand même facturées.
 
 <a name="input-output-sizes"></a>
 
@@ -159,13 +163,16 @@ Pour mieux surveiller la consommation de stockage de votre application logique, 
 
 1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**.
 
-1. Dans le volet à droite, sous **Historique des exécutions**, sélectionnez l’exécution qui dispose des entrées et des sorties que vous voulez vérifier.
+1. Dans le volet à droite, sous **Historique des exécutions** , sélectionnez l’exécution qui dispose des entrées et des sorties que vous voulez vérifier.
 
-1. Sous **Exécution de l’application logique**, choisissez **Détails de l’exécution**.
+1. Sous **Exécution de l’application logique** , choisissez **Détails de l’exécution**.
 
-1. Dans le volet **Détails de l’exécution de l’application logique**, dans la table des actions qui répertorie la durée et l’état de chaque action, sélectionnez l’action que vous souhaitez afficher.
+1. Dans le volet **Détails de l’exécution de l’application logique** , dans la table des actions qui répertorie la durée et l’état de chaque action, sélectionnez l’action que vous souhaitez afficher.
 
-1. Dans le volet **Action de l’application logique**, trouvez les tailles des entrées et des sorties de l’action pour qu’elles apparaissent sous **Lien des entrées** et **Lien des sorties**.
+1. Dans le volet **Action de l’application logique** , recherchez les tailles des entrées et des sorties de cette action. Sous **Lien d’entrées** et **Lien de sorties** , recherchez les liens vers ces entrées et sorties.
+
+   > [!NOTE]
+   > Pour les boucles, seules les actions de niveau supérieur affichent des tailles pour leurs entrées et sorties. Pour les actions dans les boucles imbriquées, les entrées et les sorties affichent une taille nulle et aucun lien.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

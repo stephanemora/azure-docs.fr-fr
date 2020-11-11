@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: d9881fe91885a9a97b51da176be98a9ed6d007ba
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900761"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309372"
 ---
 # <a name="azure-resource-provider-operations"></a>Opérations de fournisseur de ressources Azure
 
@@ -843,7 +843,6 @@ Service Azure : [Application Gateway](../application-gateway/index.yml), [Azure
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/read | Obtient NetworkRuleCollection de Pare-feu Azure |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/write | Crée ou met à jour NetworkRuleCollection de Pare-feu Azure |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/delete | Supprime NetworkRuleCollection de Pare-feu Azure |
-> | Microsoft.Network/azureWebCategories/read | Obtient les WebCategories Azure |
 > | Microsoft.Network/bastionHosts/read | Obtient un hôte Bastion |
 > | Microsoft.Network/bastionHosts/write | Crée ou met à jour un hôte Bastion |
 > | Microsoft.Network/bastionHosts/delete | Supprime un hôte Bastion |
@@ -1243,8 +1242,6 @@ Service Azure : [Application Gateway](../application-gateway/index.yml), [Azure
 > | Microsoft.Network/virtualHubs/bgpConnections/read | Obtient une ressource enfant d’une connexion BGP de hub d’un hub virtuel |
 > | Microsoft.Network/virtualHubs/bgpConnections/write | Crée ou met à jour une ressource enfant d’une connexion BGP de hub d’un hub virtuel |
 > | Microsoft.Network/virtualHubs/bgpConnections/delete | Supprime une ressource enfant d’une connexion BGP de hub d’un hub virtuel |
-> | Microsoft.Network/virtualHubs/bgpConnections/advertisedRoutes/action | Obtient les itinéraires publiés virtualrouter |
-> | Microsoft.Network/virtualHubs/bgpConnections/learnedRoutes/action | Obtient les itinéraires appris virtualrouter |
 > | Microsoft.Network/virtualHubs/hubRouteTables/read | Obtient une ressource enfant de table de routage d’un hub virtuel |
 > | Microsoft.Network/virtualHubs/hubRouteTables/write | Crée ou met à jour une ressource enfant de table de routage d’un hub virtuel |
 > | Microsoft.Network/virtualHubs/hubRouteTables/delete | Supprime une ressource enfant de table de routage d’un hub virtuel |
@@ -1332,9 +1329,6 @@ Service Azure : [Application Gateway](../application-gateway/index.yml), [Azure
 > | microsoft.network/vpngateways/startpacketcapture/action | Démarre la capture de paquets de la passerelle VPN avec la ressource appropriée |
 > | microsoft.network/vpngateways/stoppacketcapture/action | Arrête la capture de paquets de la passerelle VPN avec sasURL |
 > | microsoft.network/vpngateways/listvpnconnectionshealth/action | Obtient le contrôle d’intégrité de la connexion pour l’ensemble des connexions sur une passerelle VPN, ou seulement un sous-ensemble |
-> | microsoft.network/vpnGateways/natRules/read | Obtient une ressource de règle NAT |
-> | microsoft.network/vpnGateways/natRules/write | Place une ressource de règle NAT |
-> | microsoft.network/vpnGateways/natRules/delete | Supprime une ressource de règle NAT |
 > | microsoft.network/vpnGateways/vpnConnections/read | Obtient une connexion VPN. |
 > | microsoft.network/vpnGateways/vpnConnections/write | Place une connexion VPN. |
 > | microsoft.network/vpnGateways/vpnConnections/delete | Supprime une connexion VPN |
@@ -1522,6 +1516,7 @@ Service Azure : [Stockage](../storage/index.yml)
 > | Microsoft.Storage/locations/usages/read | Retourne la limite et le nombre actuel d’utilisations des ressources dans l’abonnement spécifié. |
 > | Microsoft.Storage/operations/read | Interroge l’état d’une opération asynchrone. |
 > | Microsoft.Storage/skus/read | Répertorie les références prises en charge par Microsoft.Storage. |
+> | Microsoft.Storage/storageAccounts/updateInternalProperties/action |  |
 > | Microsoft.Storage/storageAccounts/hnsonmigration/action | Le client peut abandonner une migration HNS en cours sur le compte de stockage |
 > | Microsoft.Storage/storageAccounts/hnsonmigration/action | Le client peut migrer vers le type de compte HNS |
 > | Microsoft.Storage/storageAccounts/restoreBlobRanges/action | Restaure les plages d’objets blob à l’état de l’heure spécifiée |
@@ -1572,6 +1567,7 @@ Service Azure : [Stockage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/fileServices/shares/read | Liste les partages de fichiers |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/write | Crée ou met à jour un partage de fichiers |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/delete |  |
+> | Microsoft.Storage/storageAccounts/inventoryPolicies/read |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/read |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/write |  |
 > | Microsoft.Storage/storageAccounts/localUsers/delete | Supprime l’utilisateur local |
@@ -2128,18 +2124,19 @@ Service Azure : [Azure SignalR Service](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/SignalR/privateEndpointConnections/read | Lit une connexion de point de terminaison privé |
 > | Microsoft.SignalRService/SignalR/privateLinkResources/read | Répertorie toutes les ressources de liaison privée SignalR |
 > | **DataAction** | **Description** |
-> | Microsoft.SignalRService/SignalR/serverConnection/action | Démarrer une connexion au serveur. |
-> | Microsoft.SignalRService/SignalR/clientConnection/action | Ajouter/supprimer des connexions clientes dans des groupes, ou fermer une connexion cliente. |
-> | Microsoft.SignalRService/SignalR/user/action | Ajouter/supprimer des utilisateurs dans des groupes. |
-> | Microsoft.SignalRService/SignalR/clientConnection/read | Vérifier l’existence de la connexion. |
-> | Microsoft.SignalRService/SignalR/clientConnection/write | Envoyer des messages directement à une connexion cliente. |
-> | Microsoft.SignalRService/SignalR/group/read | Vérifier l’existence du groupe. |
-> | Microsoft.SignalRService/SignalR/group/write | Diffuser des messages aux connexions clientes dans un groupe ou plusieurs groupes. |
-> | Microsoft.SignalRService/SignalR/hub/write | Diffuser des messages à toutes les connexions clientes attachées à ce hub. |
-> | Microsoft.SignalRService/SignalR/service/accessKey/action | Obtenir un AccessKey temporaire pour la signature de ClientTokens. |
-> | Microsoft.SignalRService/SignalR/service/clientToken/action | Obtenir un ClientToken pour démarrer une connexion cliente. |
-> | Microsoft.SignalRService/SignalR/user/read | Vérifier l’existence de l’utilisateur et si celui-ci est membre d’un groupe. |
-> | Microsoft.SignalRService/SignalR/user/write | Envoyer des messages à un utilisateur, qui peut avoir plusieurs connexions clientes. |
+> | Microsoft.SignalRService/SignalR/auth/accessKey/action | Générez un AccessKey temporaire pour la signature de ClientTokens. |
+> | Microsoft.SignalRService/SignalR/auth/clientToken/action | Générez un ClientToken pour démarrer une connexion cliente. |
+> | Microsoft.SignalRService/SignalR/clientConnection/send/action | Envoyer des messages directement à une connexion cliente. |
+> | Microsoft.SignalRService/SignalR/clientConnection/read | Vérifier l’existence de la connexion cliente. |
+> | Microsoft.SignalRService/SignalR/clientConnection/write | Fermez la connexion cliente. |
+> | Microsoft.SignalRService/SignalR/group/send/action | Diffusez le message au groupe. |
+> | Microsoft.SignalRService/SignalR/group/read | Vérifiez l’existence du groupe ou l’existence de l’utilisateur dans le groupe. |
+> | Microsoft.SignalRService/SignalR/group/write | Rejoignez/Quittez le groupe. |
+> | Microsoft.SignalRService/SignalR/hub/send/action | Diffusez des messages à toutes les connexions clientes dans le hub. |
+> | Microsoft.SignalRService/SignalR/serverConnection/write | Démarrer une connexion au serveur. |
+> | Microsoft.SignalRService/SignalR/user/send/action | Envoyer des messages à l’utilisateur, qui peut se composer de plusieurs connexions clientes. |
+> | Microsoft.SignalRService/SignalR/user/read | Vérifiez l’existence d’un utilisateur. |
+> | Microsoft.SignalRService/SignalR/user/write |  |
 
 ### <a name="microsoftweb"></a>microsoft.web
 
@@ -3256,6 +3253,11 @@ Service Azure : [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/linkedServices/read | Affiche le service lié. |
 > | Microsoft.DataFactory/factories/linkedServices/delete | Supprime le service lié. |
 > | Microsoft.DataFactory/factories/linkedServices/write | Crée ou met à jour un service lié |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/read | Lecture d’un réseau virtuel managé. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/write | Création ou mise à jour d’un réseau virtuel managé. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints/read | Lecture d’un point de terminaison privé managé. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints/write | Création ou mise à jour d’un point de terminaison privé managé. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints/delete | Suppression d’un point de terminaison privé managé. |
 > | Microsoft.DataFactory/factories/operationResults/read | Obtient les résultats de l’opération. |
 > | Microsoft.DataFactory/factories/pipelineruns/read | Affiche les exécutions du pipeline. |
 > | Microsoft.DataFactory/factories/pipelineruns/cancel/action | Annule l’exécution du pipeline spécifiée par l’ID d’exécution. |
@@ -3862,6 +3864,8 @@ Service Azure : [Azure SQL Database](../azure-sql/database/index.yml), [Azure S
 > | Microsoft.Sql/instancePools/delete | Supprime un pool d’instances |
 > | Microsoft.Sql/instancePools/usages/read | Obtient les informations d’utilisation d’un pool d’instances |
 > | Microsoft.Sql/locations/read | Obtient les emplacements disponibles pour un abonnement spécifié |
+> | Microsoft.Sql/locations/administratorAzureAsyncOperation/read | Obtient le résultat des opérations de l’administrateur Azure Async de l’instance gérée. |
+> | Microsoft.Sql/locations/administratorOperationResults/read | Obtient le résultat des opérations de l’administrateur de l’instance gérée. |
 > | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | Récupère le résultat de l’opération de configuration de la stratégie d’audit des objets blob de serveur. |
 > | Microsoft.Sql/locations/auditingSettingsOperationResults/read | Récupérer le résultat l’opération de configuration de la stratégie d’audit des objets blob de serveur |
 > | Microsoft.Sql/locations/capabilities/read | Obtient les capacités pour cet abonnement dans un emplacement donné |
@@ -3883,6 +3887,8 @@ Service Azure : [Azure SQL Database](../azure-sql/database/index.yml), [Azure S
 > | Microsoft.Sql/locations/extendedAuditingSettingsOperationResults/read | Récupère le résultat de l’opération de configuration de la stratégie d’audit des objets blob de serveur. |
 > | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | Obtient l’état d’une opération de règle de pare-feu. |
 > | Microsoft.Sql/locations/firewallRulesOperationResults/read | Obtient l’état d’une opération de règle de pare-feu. |
+> | Microsoft.Sql/locations/hybridLinkAzureAsyncOperation/read | Obtient l’état d’une opération asynchrone de lien hybride à long terme sur Azure SQL Managed Instance. |
+> | Microsoft.Sql/locations/hybridLinkOperationResults/read | Obtient l’état d’une opération asynchrone de lien hybride à long terme. |
 > | Microsoft.Sql/locations/instanceFailoverGroups/read | Retourne la liste des groupes de basculement d’instance ou obtient les propriétés du groupe de basculement d’instance spécifié. |
 > | Microsoft.Sql/locations/instanceFailoverGroups/write | Crée un groupe de basculement d’instance avec les paramètres spécifiés ou met à jour les propriétés ou balises pour le groupe de basculement d’instance spécifié. |
 > | Microsoft.Sql/locations/instanceFailoverGroups/delete | Supprime un groupe de basculement d’instance. |
@@ -3998,6 +4004,9 @@ Service Azure : [Azure SQL Database](../azure-sql/database/index.yml), [Azure S
 > | Microsoft.Sql/managedInstances/encryptionProtector/revalidate/action | Met à jour les propriétés pour le protecteur du chiffrement du serveur spécifié. |
 > | Microsoft.Sql/managedInstances/encryptionProtector/read | Retourne la liste des protecteurs de chiffrement de serveur ou obtient les propriétés pour le protecteur du chiffrement du serveur spécifié. |
 > | Microsoft.Sql/managedInstances/encryptionProtector/write | Met à jour les propriétés pour le protecteur du chiffrement du serveur spécifié. |
+> | Microsoft.Sql/managedInstances/hybridLink/read | Retourne la liste de liens hybrides ou obtient les propriétés du groupe de disponibilité distribué spécifié. |
+> | Microsoft.Sql/managedInstances/hybridLink/write | Crée ou met à jour un lien hybride avec les paramètres spécifiés. |
+> | Microsoft.Sql/managedInstances/hybridLink/delete | Supprime un lien hybride avec un groupe de disponibilité distribué spécifié. |
 > | Microsoft.Sql/managedInstances/inaccessibleManagedDatabases/read | Obtient une liste des bases de données managées inaccessibles dans une instance gérée |
 > | Microsoft.Sql/managedInstances/keys/read | Retourne la liste des clés d’instance gérée ou obtient les propriétés de la clé d’instance gérée spécifiée. |
 > | Microsoft.Sql/managedInstances/keys/write | Crée une clé avec les paramètres spécifiés ou met à jour les propriétés ou balises pour la clé d’instance gérée spécifiée. |
@@ -4091,7 +4100,7 @@ Service Azure : [Azure SQL Database](../azure-sql/database/index.yml), [Azure S
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/delete | Supprime une règle de stratégie de masquage de données pour une base de données spécifique |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/read | Retourne les informations de requête de distribution d’entrepôt de données pour l’ID de requête sélectionné. |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read | Retourne les informations d’étape de requête distribuée de la requête de l’entrepôt de données pour l’ID d’étape sélectionné. |
-> | Microsoft.Sql/servers/databases/dataWarehouseUserActivities/read | Récupère les activités d’utilisateur d’une instance SQL Data Warehouse qui inclut les requêtes en cours d’exécution et suspendues |
+> | Microsoft.Sql/servers/databases/dataWarehouseUserActivities/read | Récupère les activités d’utilisateur d’un pool SQL dédié Azure Synapse Analytics qui inclut les requêtes en cours d’exécution et suspendues |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Récupère les détails de la stratégie étendue d’audit d’objets blob configurée dans une base de données spécifique |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/write | Modifie la stratégie étendue d’audit d’objets blob pour une base de données spécifique |
 > | Microsoft.Sql/servers/databases/extensions/read | Obtient une collection d’extensions pour la base de données. |
@@ -6541,6 +6550,9 @@ Service Azure : [Key Vault](../key-vault/index.yml)
 > | Microsoft.KeyVault/vaults/eventGridFilters/read | Avertit Microsoft.KeyVault de la visualisation d’un abonnement EventGrid pour Key Vault |
 > | Microsoft.KeyVault/vaults/eventGridFilters/write | Avertit Microsoft.KeyVault de la création d’un nouvel abonnement EventGrid pour Key Vault |
 > | Microsoft.KeyVault/vaults/eventGridFilters/delete | Avertit Microsoft.KeyVault de la suppression d’un abonnement EventGrid pour Key Vault |
+> | Microsoft.KeyVault/vaults/keys/read | Constitution de la liste des clés d’un coffre spécifié, ou lecture de la version actuelle d’une clé spécifiée. |
+> | Microsoft.KeyVault/vaults/keys/write | Création d’une clé ou mise à jour d’une clé existante. |
+> | Microsoft.KeyVault/vaults/keys/versions/read | Constitution de la liste des versions d’une clé spécifiée, ou lecture de la version spécifiée d’une clé. |
 > | Microsoft.KeyVault/vaults/secrets/read | Afficher les propriétés d’une clé secrète, mais pas sa valeur. |
 > | Microsoft.KeyVault/vaults/secrets/write | Créer une nouvelle clé sécrète ou mettre à jour la valeur d’une clé secrète existante. |
 > | **DataAction** | **Description** |
@@ -8283,6 +8295,7 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SqlDataClassification/read | Lit les données de la table SqlDataClassification |
 > | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Lire les données de la table SQLQueryPerformance |
 > | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | Lit les données de la table SqlVulnerabilityAssessmentResult |
+> | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentScanStatus/read | Lecture des données depuis la table SqlVulnerabilityAssessmentScanStatus |
 > | Microsoft.OperationalInsights/workspaces/query/StorageBlobLogs/read | Lit les données de la table StorageBlobLogs |
 > | Microsoft.OperationalInsights/workspaces/query/StorageFileLogs/read | Lit les données de la table StorageFileLogs |
 > | Microsoft.OperationalInsights/workspaces/query/StorageQueueLogs/read | Lit les données de la table StorageQueueLogs |

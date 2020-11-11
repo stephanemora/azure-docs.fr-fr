@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4ab3bccf281928be2b55eb5a36ae20a0aa8a08a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288713"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324522"
 ---
-# <a name="design-tables-using-synapse-sql"></a>Concevoir des tables à l’aide de SQL Synapse
+# <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Concevoir des tables avec Synapse SQL dans Azure Synapse Analytics
 
-Ce document inclut des concepts clés liés à la conception de tables avec un pool SQL et SQL à la demande (préversion).  
+Ce document inclut des concepts clés liés à l’élaboration de tables avec un pool SQL dédié et un pool SQL serverless (préversion).  
 
-[SQL à la demande (préversion)](on-demand-workspace-overview.md) est un service de requête sur les données de votre lac de données. Il ne dispose pas d’espace de stockage local pour l’ingestion de données. Un [pool SQL](best-practices-sql-pool.md) est une collection de ressources analytiques approvisionnées lors l’utilisation de SQL Synapse. La taille du pool SQL est déterminée par les unités d’entreposage de données (DWU).
+Le [pool SQL serverless (préversion)](on-demand-workspace-overview.md) est un service de requête sur les données de votre lac de données. Il ne dispose pas d’espace de stockage local pour l’ingestion de données. Le [pool SQL dédié](best-practices-sql-pool.md) représente une collection de ressources analytiques en cours de provisionnement quand Synapse SQL est utilisé. La taille du pool SQL dédié est déterminée par les unités d’entreposage de données (DWU).
 
-Le tableau suivant répertorie les rubriques pertinentes pour le pool SQL et  SQL à la demande :
+Le tableau suivant liste les rubriques pertinentes pour le pool SQL dédié et le pool SQL serverless :
 
-| Rubrique                                                        | Pool SQL | SQL à la demande |
+| Rubrique                                                        | Pool SQL dédié | Pool SQL serverless |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Déterminer la catégorie des tables](#determine-table-category)        | Oui                | Non                      |
 | [Noms de schémas](#schema-names)                                | Oui                | Oui                     |
@@ -69,11 +69,11 @@ CREATE SCHEMA wwi;
 
 ## <a name="table-names"></a>Noms de tables
 
-Si vous migrez plusieurs bases de données d’une solution locale vers un pool SQL, la meilleure pratique consiste à migrer toutes les tables de faits, de dimension et d’intégration dans un seul schéma de pool SQL. Par exemple, stockez toutes les tables de l’entrepôt de données [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dans un seul schéma appelé wwi.
+Si vous migrez plusieurs bases de données d’une solution locale vers un pool SQL dédié, la bonne pratique consiste à migrer toutes les tables de faits, de dimension et d’intégration dans un seul schéma de pool SQL. Par exemple, stockez toutes les tables de l’entrepôt de données [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dans un seul schéma appelé wwi.
 
-Pour voir l’organisation des tables dans le pool SQL, vous pouvez utiliser les préfixes fact, dim et int dans les noms de table. La table ci-dessous répertorie quelques noms de schéma et de table pour WideWorldImportersDW.  
+Pour voir l’organisation des tables dans le pool SQL dédié, vous pouvez utiliser les préfixes fact, dim et int dans les noms de table. La table ci-dessous répertorie quelques noms de schéma et de table pour WideWorldImportersDW.  
 
-| Table WideWorldImportersDW  | Type de la table | Pool SQL |
+| Table WideWorldImportersDW  | Type de la table | Pool SQL dédié |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
 | JSON | Fact | wwi.FactOrder |
@@ -92,9 +92,9 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ### <a name="temporary-table"></a>Table temporaire
 
-Une table temporaire existe uniquement pendant la durée de la session. Vous pouvez utiliser une table temporaire pour empêcher d’autres utilisateurs de voir les résultats temporaires. L’utilisation de tables temporaires réduit également le besoin de nettoyage.  Les tables temporaires utilisent un stockage local qui, dans un pool SQL, peut offrir des performances plus rapides.  
+Une table temporaire existe uniquement pendant la durée de la session. Vous pouvez utiliser une table temporaire pour empêcher d’autres utilisateurs de voir les résultats temporaires. L’utilisation de tables temporaires réduit également le besoin de nettoyage.  Les tables temporaires utilisent un stockage local et, dans les pools SQL dédiés, peuvent offrir des performances plus rapides.  
 
-SQL à la demande prend en charge les tables temporaires. Toutefois, son utilisation est limitée car, s’il permet d’opérer une sélection dans une table temporaire, il ne permet pas de la joindre à des fichiers dans le stockage.
+Le pool SQL serverless prend en charge les tables temporaires. Toutefois, son utilisation est limitée car, s’il permet d’opérer une sélection dans une table temporaire, il ne permet pas de la joindre à des fichiers dans le stockage.
 
 Pour plus d’informations, consultez [Tables temporaires](develop-tables-temporary.md).
 
@@ -102,17 +102,17 @@ Pour plus d’informations, consultez [Tables temporaires](develop-tables-tempor
 
 Les [tables externes](develop-tables-external-tables.md) pointent vers des données situées dans Azure Storage Blob ou Azure Data Lake Store.
 
-Importez des données de tables externes dans le pool SQL à l’aide de l’instruction [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Pour obtenir un didacticiel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Importez des données de tables externes dans les pools SQL dédiés à l’aide de l’instruction [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Pour obtenir un didacticiel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Pour SQL à la demande, vous pouvez utiliser [CETAS](develop-tables-cetas.md) pour enregistrer le résultat de la requête dans une table externe dans Stockage Azure.
+Pour un pool SQL serverless, vous pouvez utiliser [CETAS](develop-tables-cetas.md) afin d’enregistrer le résultat de la requête dans une table externe du stockage Azure.
 
 ## <a name="data-types"></a>Types de données
 
-Un pool SQL prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données dans la référence CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) dans l’instruction CREATE TABLE. Pour plus d’informations sur l’utilisation des types de données, consultez [Types de données](../sql/develop-tables-data-types.md).
+Un pool SQL dédié prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données dans la référence CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) dans l’instruction CREATE TABLE. Pour plus d’informations sur l’utilisation des types de données, consultez [Types de données](../sql/develop-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tables distribuées
 
-Une fonctionnalité essentielle du pool SQL est la manière dont il peut stocker et utiliser des tables sur des [distributions](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  Le pool SQL prend en charge trois méthodes pour la distribution de données :
+Une fonctionnalité essentielle du pool SQL dédié est la manière dont il peut stocker et utiliser des tables sur des [distributions](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  Le pool SQL dédié prend en charge trois méthodes pour la distribution de données :
 
 - Tourniquet (par défaut)
 - Hachage
@@ -148,9 +148,9 @@ La catégorie de table détermine souvent l’option optimale pour la distributi
 
 ## <a name="partitions"></a>Partitions
 
-Dans un pool SQL, une table partitionnée stocke les lignes de table et exécute des opérations sur celles-ci en fonction de plages de données. Par exemple, une table peut être partitionnée par jour, mois ou année. Vous pouvez améliorer les performances des requêtes via l’élimination de partition, qui limite l’analyse d’une requête aux seules données contenues dans une partition.
+Dans les pools SQL dédiés, une table partitionnée stocke les lignes de table et exécute des opérations sur celles-ci en fonction de plages de données. Par exemple, une table peut être partitionnée par jour, mois ou année. Vous pouvez améliorer les performances des requêtes via l’élimination de partition, qui limite l’analyse d’une requête aux seules données contenues dans une partition.
 
-Vous pouvez également tenir à jour les données à l’aide du basculement de partition. Comme les données dans un pool SQL sont déjà distribuées, un partitionnement excessif risque de ralentir les requêtes. Pour plus d’informations, consultez [Partitionnement de tables](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
+Vous pouvez également tenir à jour les données à l’aide du basculement de partition. Comme les données dans un pool SQL dédié sont déjà distribuées, un partitionnement excessif risque de ralentir les requêtes. Pour plus d’informations, consultez [Partitionnement de tables](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
 > Lorsque le basculement de partitions se fait vers des partitions de table qui ne sont pas vides, pensez à utiliser l’option TRUNCATE_TARGET dans votre instruction [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) si les données existantes sont le point d’être tronquées.
@@ -161,7 +161,7 @@ Le code ci-dessous convertit les données quotidiennes transformées en une part
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
-Dans SQL à la demande, vous pouvez limiter les fichiers/dossiers (partitions) lus par votre requête. Un partitionnement par chemin d’accès est pris en charge à l’aide des fonctions filepath et fileinfo décrites dans [Interrogation de fichiers de stockage](develop-storage-files-overview.md). L’exemple suivant lit un dossier contenant des données de l’année 2017 :
+Dans un pool SQL serverless, vous pouvez limiter les fichiers/dossiers (partitions) lus par votre requête. Un partitionnement par chemin d’accès est pris en charge à l’aide des fonctions filepath et fileinfo décrites dans [Interrogation de fichiers de stockage](develop-storage-files-overview.md). L’exemple suivant lit un dossier contenant des données de l’année 2017 :
 
 ```sql
 SELECT
@@ -185,7 +185,7 @@ ORDER BY
 
 ## <a name="columnstore-indexes"></a>Index columnstore
 
-Par défaut, le pool SQL stocke une table sous la forme d’un index columnstore en cluster. Ce format de stockage de données permet une compression élevée des données et offre des performances optimales pour les requêtes sur des tables volumineuses.  L’index columnstore cluster est généralement le meilleur choix, mais dans certains cas, un index cluster ou un segment de mémoire est la structure de stockage la plus appropriée.  
+Par défaut, le pool SQL dédié stocke une table sous la forme d’un index columnstore cluster. Ce format de stockage de données permet une compression élevée des données et offre des performances optimales pour les requêtes sur des tables volumineuses.  L’index columnstore cluster est généralement le meilleur choix, mais dans certains cas, un index cluster ou un segment de mémoire est la structure de stockage la plus appropriée.  
 
 > [!TIP]
 > Une table de segments de mémoire peut être particulièrement utile pour le chargement des données temporaires, comme une table de mise en lots qui est transformée en table finale.
@@ -194,38 +194,37 @@ Pour obtenir la liste des fonctionnalités columnstore, consultez [Nouveautés p
 
 ## <a name="statistics"></a>Statistiques
 
-
 L’optimiseur de requête utilise des statistiques au niveau des colonnes quand il crée le plan d’exécution d’une requête. Pour améliorer les performances des requêtes, il est important d’avoir des statistiques sur des colonnes individuelles, en particulier les colonnes utilisées dans les jointures de requête. SQL Synapse prend en charge la création automatique de statistiques. 
 
 La mise à jour statistique ne se fait pas automatiquement. Mettez à jour les statistiques après l’ajout ou la modification d’un nombre significatif de lignes. Par exemple, effectuez une mise à jour des statistiques après un chargement. Pour plus d’informations, consultez l’article sur les [statistiques dans SQL Synapse](develop-tables-statistics.md).
 
 ## <a name="primary-key-and-unique-key"></a>Clé primaire et clé unique
 
-La contrainte PRIMARY KEY est prise en charge seulement si NONCLUSTERED et NOT ENFORCED sont tous les deux utilisés.  La contrainte UNIQUE n’est prise en charge que si NOT ENFORCED est utilisé.  Pour plus d’informations, consultez l’article [Contraintes de table du pool SQL](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour un pool SQL dédié, la contrainte PRIMARY KEY est prise en charge seulement si NONCLUSTERED et NOT ENFORCED sont tous les deux utilisés.  La contrainte UNIQUE n’est prise en charge que si NOT ENFORCED est utilisé.  Pour plus d’informations, consultez l’article [Contraintes de table du pool SQL](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="commands-for-creating-tables"></a>Commandes pour la création de tables
 
-Vous pouvez créer une table à partir d’une nouvelle table vide. Vous pouvez aussi créer une table et la remplir avec les résultats d’une instruction select. Le tableau suivant répertorie les instructions T-SQL disponibles pour la création d’une table.
+Pour un pool SQL dédié, vous pouvez créer une table comme nouvelle table vide. Vous pouvez aussi créer une table et la remplir avec les résultats d’une instruction select. Le tableau suivant répertorie les instructions T-SQL disponibles pour la création d’une table.
 
 | Instruction T-SQL | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crée une table vide en définissant toutes les colonnes et options de la table. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crée une table externe. La définition de la table est stockée dans le pool SQL. Les données de la table sont stockées dans Stockage Blob Azure ou Azure Data Lake Store. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crée une table externe. La définition de la table est stockée dans le pool SQL dédié. Les données de la table sont stockées dans Stockage Blob Azure ou Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crée une table et la remplit avec les résultats d’une instruction select. Les colonnes et les types de données de la table sont basés sur les résultats de l’instruction select. Pour importer des données, cette instruction peut sélectionner les données dans une table externe. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crée une table externe en exportant les résultats d’une instruction select vers un emplacement externe.  L’emplacement est Stockage Blob Azure ou Azure Data Lake Store. |
 
 ## <a name="align-source-data-with-the-data-warehouse"></a>Aligner les données sources avec l’entrepôt de données
 
-Les tables de l’entrepôt de données sont remplies avec les données chargées à partir d’une autre source de données. Pour accomplir un chargement correct, le nombre et les types de données des colonnes dans les données sources doivent être alignés sur la définition de la table dans l’entrepôt de données.
+Les tables du pool SQL dédié sont remplies avec les données chargées à partir d’une autre source de données. Pour accomplir un chargement correct, le nombre et les types de données des colonnes dans les données sources doivent être alignés sur la définition de la table dans l’entrepôt de données.
 
 > [!NOTE]
 > L’alignement des données est parfois l’étape la plus difficile dans la conception des tables.
 
-Si les données proviennent de plusieurs magasins, vous pouvez les porter dans l’entrepôt de données et les stocker dans une table d’intégration. Vous pouvez ensuite effectuer des opérations de transformation sur les données de la table d’intégration en tirant parti de la puissance du pool SQL. Une fois que les données sont préparées, vous pouvez les insérer dans des tables de production.
+Si les données proviennent de plusieurs magasins, vous pouvez les porter dans l’entrepôt de données et les stocker dans une table d’intégration. Vous pouvez ensuite effectuer des opérations de transformation sur les données de la table d’intégration en tirant parti de la puissance du pool SQL dédié. Une fois que les données sont préparées, vous pouvez les insérer dans des tables de production.
 
 ## <a name="unsupported-table-features"></a>Fonctionnalités de table non prises en charge
 
-Le pool SQL prend en charge bon nombre des fonctionnalités de table proposées par d’autres bases de données.  La liste suivante répertorie certaines fonctionnalités de table qui ne sont pas prises en charge dans le pool SQL.
+Le pool SQL dédié prend en charge bon nombre des fonctionnalités de table proposées par d’autres bases de données.  La liste suivante répertorie certaines fonctionnalités de table qui ne sont pas prises en charge dans le pool SQL dédié.
 
 - Clé étrangère, voir [Contraintes de table](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [Colonnes calculées](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
@@ -240,7 +239,7 @@ Le pool SQL prend en charge bon nombre des fonctionnalités de table proposées 
 
 ## <a name="table-size-queries"></a>Requêtes de taille de table
 
-Un moyen simple d’identifier l’espace et les lignes consommées par une table dans chacune des 60 distributions consiste à utiliser [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Dans un pool SQL dédié, un moyen simple d’identifier l’espace et les lignes consommés par une table dans chacune des 60 distributions consiste à utiliser [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -441,4 +440,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé les tables dans votre entrepôt de données, l’étape suivante va être de charger des données dans ces tables.  Pour suivre un tutoriel sur le chargement, consultez [Chargement de données dans un pool SQL](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).
+Après avoir créé les tables dans votre entrepôt de données, l’étape suivante va être de charger des données dans ces tables.  Pour suivre un tutoriel sur le chargement, consultez [Chargement de données dans le pool SQL dédié](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84691337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041906"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
 
@@ -48,9 +48,9 @@ Pour extraire des images clés haute résolution pour votre vidéo, vous devez d
 
 Pour extraire des images clés à l’aide du site web Video Indexer, chargez et indexez votre vidéo. Une fois la tâche d’indexation terminée, cliquez sur le bouton **Télécharger** et sélectionnez **Artefacts (ZIP)** . Cela permet de télécharger le dossier d’artefacts sur votre ordinateur. 
 
-![Images clés](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![Capture d’écran montrant la liste déroulante « Télécharger » avec l’option « Artefacts » sélectionnée.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
-Décompressez et ouvrez le dossier. Dans le dossier *_KeyframeThumbnail*, vous trouverez toutes les images clés qui ont été extraites de votre vidéo. 
+Décompressez et ouvrez le dossier. Dans le dossier *_KeyframeThumbnail* , vous trouverez toutes les images clés qui ont été extraites de votre vidéo. 
 
 #### <a name="with-the-video-indexer-api"></a>Avec l’API Video Indexer
 

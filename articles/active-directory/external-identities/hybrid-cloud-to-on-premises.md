@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131018"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -39,8 +39,8 @@ Effectuez les actions suivantes :
 
 Pour fournir aux utilisateurs B2B l’accès aux applications locales sécurisées avec l’Authentification Windows intégrée et la délégation contrainte Kerberos, vous avez besoin des composants suivants :
 
-- **Authentification via le Proxy d’application Azure AD** . Les utilisateurs B2B doivent être en mesure de s’authentifier sur l’application locale. Pour ce faire, vous devez publier l’application locale via le proxy d’application Azure AD. Pour plus d’informations, consultez [Didacticiel : Ajouter des applications locales pour un accès à distance via le service Proxy d’application](../manage-apps/application-proxy-add-on-premises-application.md).
-- **Autorisation via un objet utilisateur B2B dans le répertoire local** . L’application doit être en mesure d’effectuer des contrôles d’accès utilisateur et d’accorder l’accès aux ressources appropriées. Pour finaliser cette autorisation, IWA et KCD exigent un objet utilisateur dans l’annuaire Windows Server Active Directory. Comme décrit dans [Fonctionnement de l’authentification unique avec KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), le Proxy d’application a besoin de cet objet utilisateur pour emprunter l’identité de l’utilisateur et obtenir un jeton Kerberos pour l’application. 
+- **Authentification via le Proxy d’application Azure AD**. Les utilisateurs B2B doivent être en mesure de s’authentifier sur l’application locale. Pour ce faire, vous devez publier l’application locale via le proxy d’application Azure AD. Pour plus d’informations, consultez [Didacticiel : Ajouter des applications locales pour un accès à distance via le service Proxy d’application](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Autorisation via un objet utilisateur B2B dans le répertoire local**. L’application doit être en mesure d’effectuer des contrôles d’accès utilisateur et d’accorder l’accès aux ressources appropriées. Pour finaliser cette autorisation, IWA et KCD exigent un objet utilisateur dans l’annuaire Windows Server Active Directory. Comme décrit dans [Fonctionnement de l’authentification unique avec KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), le Proxy d’application a besoin de cet objet utilisateur pour emprunter l’identité de l’utilisateur et obtenir un jeton Kerberos pour l’application. 
 
    > [!NOTE]
    > Lorsque vous configurez le proxy d’application Azure AD, assurez-vous que l’option **Identité de connexion déléguée** est définie sur **Nom principal de l’utilisateur** (valeur par défaut) dans la configuration de l’authentification unique pour l’Authentification Windows intégrée (IWA).
@@ -77,7 +77,7 @@ Pour en savoir plus sur l’utilisation de MIM 2016 Service Pack 1 et de l’age
 
 Il existe un script d’exemple PowerShell que vous pouvez utiliser comme point de départ pour créer des objets utilisateur invité dans votre Active Directory local.
 
-Vous pouvez télécharger le script et le fichier Lisezmoi à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=51495). Choisissez le fichier **Script and Readme to pull Azure AD B2B users on-prem.zip** .
+Vous pouvez télécharger le script et le fichier Lisez-moi à partir du site [Connecteurs pour Microsoft Identity Manager 2016 et Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). Dans le package de téléchargement, choisissez le fichier **Script and Readme to pull Azure AD B2B users on-prem.zip**.
 
 Avant d’utiliser le script, passez en revue les conditions préalables et les considérations importantes dans le fichier Lisezmoi associé. Notez par ailleurs que le script mis à disposition est uniquement un exemple. Votre équipe de développement ou un partenaire doit le personnaliser et l’examiner avant de l’exécuter.
 

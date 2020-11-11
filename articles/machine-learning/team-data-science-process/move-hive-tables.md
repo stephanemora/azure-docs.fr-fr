@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080735"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130865"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 
@@ -34,7 +34,7 @@ Si vous avez créé une machine virtuelle Azure en suivant les instructions de l
 
 Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu’elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop.
 
-Si vous souhaitez vous exercer avec l’exemple **NYC Taxi Trip Data**, vous devez :
+Si vous souhaitez vous exercer avec l’exemple **NYC Taxi Trip Data** , vous devez :
 
 * **télécharger** les 24 fichiers [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) (12 fichiers Trip et 12 fichiers Fare),
 * **décompresser** tous les fichiers en fichiers .csv, puis
@@ -101,7 +101,7 @@ hive -e "<hive query>" > <local path in the head node>
 
 Dans l'exemple suivant, la sortie de la requête Hive est consignée dans un fichier `hivequeryoutput.txt` situé dans le répertoire `C:\apps\temp`.
 
-![Sortie de la requête Hive](./media/move-hive-tables/output-hive-results-1.png)
+![Capture d’écran affichant la sortie de la requête Hive dans une fenêtre de ligne de commande Hadoop.](./media/move-hive-tables/output-hive-results-1.png)
 
 **Enregistrer les résultats d’une requête Hive dans un blob Azure**
 
@@ -113,7 +113,7 @@ insert overwrite directory wasb:///<directory within the default container> <sel
 
 Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Une erreur est générée si vous déclarez le nom du répertoire et celui du blob, comme dans `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Sortie de la requête Hive](./media/move-hive-tables/output-hive-results-2.png)
+![Capture d’écran affichant la commande précédente dans la fenêtre de ligne de commande Hadoop.](./media/move-hive-tables/output-hive-results-2.png)
 
 Si vous ouvrez le conteneur par défaut du cluster Hadoop à l’aide d’Azure Storage Explorer, la requête Hive renvoie le résultat affiché dans la figure suivante. Vous pouvez utiliser le filtre (encadré rouge) pour retrouver un blob dont le nom comporte les lettres spécifiées.
 
@@ -147,7 +147,7 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 Voici les descriptions des champs que vous devez renseigner et d’autres opérations de configuration :
 
-* **\<database name\>**  : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête « *create database...*  » peut être omise.
+* **\<database name\>**  : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête «  *create database...*  » peut être omise.
 * **\<table name\>**  : nom de la table que vous souhaitez créer dans la base de données spécifiée. Si vous voulez utiliser la base de données par défaut, la table peut être désignée directement par *\<table name\>* sans \<database name\>.
 * **\<field separator\>**  : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive.
 * **\<line separator\>**  : séparateur qui délimite les lignes dans le fichier de données.

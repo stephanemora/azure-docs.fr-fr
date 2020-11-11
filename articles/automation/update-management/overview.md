@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d26354d8c247f0839bb96564c4e004158743bd88
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 36540de8924a1433f16f942d9aedc059efae05de
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742209"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348676"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
-Vous pouvez utiliser Update Management dans Azure Automation pour gérer les mises à jour du système d’exploitation de vos machines Windows et Linux dans Azure, des environnements locaux et d’autres environnements cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur toutes les machines d’agent et gérer le processus d’installation des mises à jour nécessaires pour les serveurs.
+Vous pouvez utiliser Update Management dans Azure Automation pour gérer les mises à jour du système d’exploitation de vos machines virtuelles Windows et Linux dans Azure, dans des environnements locaux et dans d’autres environnements cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur toutes les machines d’agent et gérer le processus d’installation des mises à jour nécessaires pour les serveurs.
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser de machine configurée avec Update Management pour exécuter des scripts personnalisés à partir d’Azure Automation. Cette machine ne peut exécuter que le script de mise à jour signé par Microsoft.
@@ -25,12 +25,12 @@ Avant de déployer Update Management et d’activer vos machines pour la gestion
 
 ## <a name="about-update-management"></a>À propos d’Update Management
 
-Les machines gérées par Update Management utilisent les configurations suivantes pour effectuer l’évaluation et mettre à jour les déploiements :
+Les machines gérées par Update Management reposent sur les éléments suivants pour effectuer l’évaluation et déployer des mises à jour :
 
-* Agent Log Analytics pour Windows ou Linux
+* [Agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) pour Windows ou Linux
 * PowerShell DSC (Desired State Configuration, configuration d’état souhaité) pour Linux
-* Runbook Worker hybride Automation
-* Services Microsoft Update ou Windows Server Update (WSUS) pour machines Windows
+* Runbook Worker hybride Automation (installé automatiquement quand vous activez Update Management sur la machine)
+* Microsoft Update ou [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) pour les machines Windows
 * Un référentiel de mises à jour privé ou public pour les ordinateurs Linux
 
 Le schéma suivant illustre la façon dont Update Management évalue les mises à jour de sécurité et les applique à tous les serveurs Windows Server et Linux connectés dans un espace de travail :
@@ -64,7 +64,7 @@ L’inscription d’une machine auprès du service Update Management dans plusie
 
 ### <a name="supported-client-types"></a>Types de clients pris en charge
 
-Le tableau suivant liste les systèmes d’exploitation pris en charge pour les évaluations des mises à jour et les mises à jour correctives. Une mise à jour corrective nécessite un Runbook Worker hybride. Pour plus d’informations sur les exigences de Runbook Worker hybride, consultez [Déployer un runbook Worker hybride Windows](../automation-windows-hrw-install.md) et [Déployer un runbook Worker hybride Linux](../automation-linux-hrw-install.md).
+Le tableau suivant liste les systèmes d’exploitation pris en charge pour les évaluations des mises à jour et les mises à jour correctives. Une mise à jour corrective nécessite un runbook Worker hybride, qui est automatiquement installé quand vous activez la machine virtuelle ou le serveur pour la gestion par Update Management. Pour plus d’informations sur la configuration requise pour le runbook Worker hybride, consultez [Déployer un runbook Worker hybride Windows](../automation-windows-hrw-install.md) et [Déployer un runbook Worker hybride Linux](../automation-linux-hrw-install.md).
 
 > [!NOTE]
 > L’évaluation des mises à jour des machines Linux est prise en charge uniquement dans certaines régions, comme listé dans la [table de mappages](../how-to/region-mappings.md#supported-mappings) du compte Automation et de l’espace de travail Log Analytics.
@@ -97,7 +97,7 @@ Les informations suivantes décrivent la configuration du client propre au syst�
 
 #### <a name="windows"></a>Windows
 
-Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS, ou ils nécessitent un accès à Microsoft Update. Pour obtenir des informations sur l’agent Log Analytics, consultez [Vue d’ensemble de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre ordinateur à des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md), puis en utilisant Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous envisagez également de surveiller les ordinateurs avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS, ou ils nécessitent un accès à Microsoft Update. Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre machine à [Azure Arc enabled servers](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 Vous pouvez utiliser Update Management avec Microsoft Endpoint Configuration Manager. Pour en savoir plus sur les scénarios d’intégration, consultez [Intégrer Update Management à Windows Endpoint Configuration Manager](mecmintegration.md). L’[agent Log Analytics pour Windows](../../azure-monitor/platform/agent-windows.md) est nécessaire aux serveurs Windows gérés par les sites dans votre environnement Configuration Manager. 
 
@@ -113,7 +113,7 @@ Pour Linux, la machine demande un accès à un référentiel de mise à jour, pr
 > [!NOTE]
 > L’évaluation des mises à jour des machines Linux est uniquement prise en charge dans certaines régions. Consultez la [table des mappages](../how-to/region-mappings.md#supported-mappings) du compte Automation et de l’espace de travail Log Analytics.
 
-Pour obtenir des informations sur l’agent Log Analytics, consultez [Vue d’ensemble de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Linux en connectant d’abord votre ordinateur à des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md), puis en utilisant Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Linux](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous envisagez de surveiller également les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Linux en connectant d’abord votre machine à [Azure Arc enabled servers](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Linux](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande, disponibles sur la Place de marché Azure, sont inscrites pour accéder à l’[infrastructure RHUI (Red Hat Update Infrastructure)](../../virtual-machines/workloads/redhat/redhat-rhui.md) déployée dans Azure. Toute autre distribution Linux doit être mise à jour à partir du référentiel des fichiers en ligne de la distribution, au moyen des méthodes prises en charge par la distribution.
 
@@ -247,9 +247,11 @@ Voici comment vous pouvez activer Update Management et sélectionner les machine
 
 - À partir de votre [compte Automation](enable-from-automation-account.md) pour une ou plusieurs machines Azure et non-Azure, notamment des serveurs compatibles avec Arc.
 
-- Pour une [machine virtuelle Azure sélectionnée](enable-from-vm.md) sur la page Machine virtuelle du portail Azure. Ce scénario est disponible pour les machines virtuelles Linux et Windows.
+- Utilisation de la méthode de [runbook](enable-from-runbook.md) **Enable-AutomationSolution**.
 
-- Pour [plusieurs machines virtuelles Azure](enable-from-portal.md), sélectionnez-les dans la page Machines virtuelles du Portail Azure.
+- Pour une [machine virtuelle Azure sélectionnée](enable-from-vm.md) dans la page **Machine virtuelle** du portail Azure. Ce scénario est disponible pour les machines virtuelles Linux et Windows.
+
+- Pour [plusieurs machines virtuelles Azure](enable-from-portal.md), sélectionnez-les dans la page **Machines virtuelles** du portail Azure.
 
 > [!NOTE]
 > Update Management vous demande d’établir un lien entre l’espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [Mappages Azure Workspace](../how-to/region-mappings.md). Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région depuis votre compte Automation.

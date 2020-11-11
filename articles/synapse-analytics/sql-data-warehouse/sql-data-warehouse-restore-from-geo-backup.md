@@ -1,6 +1,6 @@
 ---
-title: Restaurer un entrepôt de données géosauvegardé
-description: Guide pratique de géorestauration d'un pool SQL.
+title: Restaurer un pool SQL dédié à partir d’une géosauvegarde
+description: Guide pratique de géorestauration d’un pool SQL dédié dans Azure Synapse Analytics
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,29 +11,29 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7496cedd127182482bccf97909cc0a0a4a78253f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075816"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313420"
 ---
-# <a name="geo-restore-for-sql-pool"></a>Géorestauration pour un pool SQL
+# <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Géo-restaurer un pool SQL dédié dans Azure Synapse Analytics
 
-Dans cet article, vous allez apprendre à restaurer votre pool SQL à partir géosauvegarde via le portail Azure et PowerShell.
+Dans cet article, vous allez apprendre à restaurer votre pool SQL dédié à partir d’une géosauvegarde via le portail Azure et PowerShell.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Vérifiez votre capacité de DTU.** Chaque pool SQL est hébergé par un [serveur SQL logique](../../azure-sql/database/logical-servers.md) (par exemple, myserver.database.windows.net) qui dispose d'un quota de DTU par défaut. Vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
+**Vérifiez votre capacité de DTU.** Chaque pool SQL dédié est hébergé par un [serveur SQL logique](../../azure-sql/database/logical-servers.md) (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
 
 Pour effectuer une restauration à partir d’une sauvegarde géo-redondante, utilisez les cmdlets [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
-> Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000**c**) comme paramètre facultatif.
+> Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000 **c** ) comme paramètre facultatif.
 >
 
 1. Avant de commencer, veillez à [installer Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -74,28 +74,28 @@ La base de données récupérée sera compatible avec le chiffrement transparent
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Restaurer à partir d’une région géographique Azure à l’aide du portail Azure
 
-Suivez les étapes décrites ci-dessous pour restaurer un pool SQL à partir d’une géosauvegarde :
+Suivez les étapes décrites ci-dessous pour restaurer un pool SQL dédié à partir d’une géosauvegarde :
 
 1. Connectez-vous à votre compte [Portail Azure](https://portal.azure.com/).
 2. Cliquez sur **+ Créer une ressource**.
 
    ![Nouveau DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Cliquez sur **Bases de données**, puis sur **Azure Synapse Analytics (anciennement SQL DW)** .
+3. Cliquez sur **Bases de données** , puis sur **Azure Synapse Analytics (anciennement SQL DW)** .
 
    ![Nouveau DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
-4. Renseignez les informations demandées dans l' onglet **Bases**, puis cliquez sur **Suivant : Paramètres supplémentaires**.
+4. Renseignez les informations demandées dans l' onglet **Bases** , puis cliquez sur **Suivant : Paramètres supplémentaires**.
 
    ![Concepts de base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. Pour **utiliser le paramètre de données existant**, sélectionnez **Sauvegarde** et sélectionnez la sauvegarde appropriée dans les options de défilement vers le dessous. Cliquez sur **Revoir + créer**.
+5. Pour **utiliser le paramètre de données existant** , sélectionnez **Sauvegarde** et sélectionnez la sauvegarde appropriée dans les options de défilement vers le dessous. Cliquez sur **Revoir + créer**.
 
    ![sauvegarde](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. Une fois l’entrepôt de données restauré, vérifiez que l'**état** est En ligne.
+6. Une fois l’entrepôt de données restauré, vérifiez que l' **état** est En ligne.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Restaurer un pool SQL existant](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurer un pool SQL supprimé](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurer un pool SQL dédié existant](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurer un pool SQL dédié supprimé](sql-data-warehouse-restore-deleted-dw.md)

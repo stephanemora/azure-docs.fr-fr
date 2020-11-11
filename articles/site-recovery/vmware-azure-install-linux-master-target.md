@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604680"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146470"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -44,11 +44,11 @@ Publiez des commentaires ou des questions à la fin de cet article ou sur la [pa
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Instructions de dimensionnement pour la création du serveur cible maître
 
 Créez le serveur cible maître selon les instructions de dimensionnement suivantes :
-- **RAM** : 6 Go ou plus
-- **Taille du disque de système d’exploitation** : 100 Go ou plus (pour installer le système d’exploitation)
-- **Taille du disque supplémentaire pour le lecteur de conservation** : 1 To
-- **Cœurs de processeur** : 4 cœurs ou plus
-- **Noyau** : 4.16.*
+- **RAM**  : 6 Go ou plus
+- **Taille du disque de système d’exploitation**  : 100 Go ou plus (pour installer le système d’exploitation)
+- **Taille du disque supplémentaire pour le lecteur de conservation**  : 1 To
+- **Cœurs de processeur**  : 4 cœurs ou plus
+- **Noyau**  : 4.16.*
 
 ## <a name="deploy-the-master-target-server"></a>Déployer le serveur cible maître
 
@@ -109,9 +109,9 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 
     ![Sélectionner l’option par défaut](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  Dans la sélection de proxy de configuration, sélectionnez l’option par défaut, puis sélectionnez **Continuer**, et enfin **Entrée**.
+1.  Dans la sélection de proxy de configuration, sélectionnez l’option par défaut, puis sélectionnez **Continuer** , et enfin **Entrée**.
      
-     ![Sélectionner comment gérer les mises à niveau](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Capture d’écran qui montre où sélectionner Continuer, puis Entrée.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Sélectionnez **Aucune mise à jour automatique** dans la sélection pour la gestion des mises à niveau sur votre système, puis sélectionnez **Entrée**.
 
@@ -124,12 +124,12 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 
     ![Sélectionner les logiciels](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Dans la sélection de l'installation du chargeur de démarrage GRUB, sélectionnez **Oui**, puis **Entrée**.
+1. Dans la sélection de l'installation du chargeur de démarrage GRUB, sélectionnez **Oui** , puis **Entrée**.
      
     ![Programme d’installation de démarrage GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Sélectionner l’appareil approprié pour l’installation du chargeur de démarrage (de préférence **/dev/sda**), puis appuyez sur **Entrée**.
+1. Sélectionner l’appareil approprié pour l’installation du chargeur de démarrage (de préférence **/dev/sda** ), puis appuyez sur **Entrée**.
      
     ![Sélectionnez l’appareil approprié](./media/vmware-azure-install-linux-master-target/image21.png)
 
@@ -137,7 +137,7 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 
     ![Terminer l’installation](./media/vmware-azure-install-linux-master-target/image22.png)
 
-1. Une fois l’installation terminée, connectez-vous à la machine virtuelle avec les informations d’identification du nouvel utilisateur. (Consultez l’**étape 10** pour plus d’informations.)
+1. Une fois l’installation terminée, connectez-vous à la machine virtuelle avec les informations d’identification du nouvel utilisateur. (Consultez l’ **étape 10** pour plus d’informations.)
 
 1. Suivez les étapes décrites dans la capture d’écran ci-dessous pour définir le mot de passe de l’utilisateur ROOT. Ensuite, connectez-vous en tant qu’utilisateur ROOT.
 
@@ -162,13 +162,13 @@ Pour obtenir l’ID de chaque disque dur SCSI d’une machine virtuelle Linux, v
 
 5. Vérifiez si une ligne comportant **disk.EnableUUID** existe.
 
-   - Si le paramètre est présent et a pour valeur **False**, remplacez-la par **True**. (Les valeurs ne respectent pas la casse.)
+   - Si le paramètre est présent et a pour valeur **False** , remplacez-la par **True**. (Les valeurs ne respectent pas la casse.)
 
-   - Si le paramètre existe et a pour valeur **True**, sélectionnez **Cancel** (Annuler).
+   - Si le paramètre existe et a pour valeur **True** , sélectionnez **Cancel** (Annuler).
 
    - Si le paramètre n’existe pas, sélectionnez **Add Row** (Ajouter une ligne).
 
-   - Dans la colonne de nom, ajoutez **disk.EnableUUID**, puis définissez la valeur sur **TRUE**.
+   - Dans la colonne de nom, ajoutez **disk.EnableUUID** , puis définissez la valeur sur **TRUE**.
 
      ![Vérification de la présence de disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
@@ -196,7 +196,7 @@ Pour le télécharger avec Linux, tapez :
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> Veillez à télécharger et décompresser le programme d’installation dans le répertoire d’accueil. Si vous le décompressez dans **/usr/Local**, l’installation échoue.
+> Veillez à télécharger et décompresser le programme d’installation dans le répertoire d’accueil. Si vous le décompressez dans **/usr/Local** , l’installation échoue.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Accéder au programme d’installation à partir du serveur de traitement
@@ -352,7 +352,7 @@ Vous pouvez constater que le champ **Version** indique le numéro de version du 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois installé et inscrit, le serveur cible maître apparaît dans la section **Cible maître** de la page **Infrastructure Site Recovery**, sous la vue d’ensemble du serveur de configuration.
+Une fois installé et inscrit, le serveur cible maître apparaît dans la section **Cible maître** de la page **Infrastructure Site Recovery** , sous la vue d’ensemble du serveur de configuration.
 
 Vous pouvez maintenant procéder à la [reprotection](vmware-azure-reprotect.md), puis à la restauration automatique.
 

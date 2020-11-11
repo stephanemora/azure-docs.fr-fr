@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b23b65a0ce1693bcd04d5828fe062f2f43ea73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044224"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348574"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics dans la sortie du stockage Blob Azure
 
@@ -33,7 +33,7 @@ Cet article vous montre comment activer une identité managée pour une ou des s
 
 ## <a name="azure-resource-manager-deployment"></a>Déploiement Azure Resource Manager
 
-L’utilisation d’Azure Resource Manager vous permet d’automatiser entièrement le déploiement de votre travail Stream Analytics. Vous pouvez déployer des modèles Resource Manager à l’aide d’Azure PowerShell ou de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Les exemples suivants utilisent l’interface de ligne de commande Azure.
+L’utilisation d’Azure Resource Manager vous permet d’automatiser entièrement le déploiement de votre travail Stream Analytics. Vous pouvez déployer des modèles Resource Manager à l’aide d’Azure PowerShell ou de l’[interface de ligne de commande Azure](/cli/azure/). Les exemples suivants utilisent l’interface de ligne de commande Azure.
 
 
 1. Vous pouvez créer une ressource **Microsoft.StreamAnalytics/streamingjobs** avec une identité managée en incluant la propriété suivante dans la section ressources de votre modèle Resource Manager :
@@ -158,7 +158,7 @@ Il existe deux niveaux d’accès que vous pouvez choisir pour votre travail Str
 1. **Accès au niveau du conteneur :** cette option autorise le travail à accéder à un conteneur existant spécifique.
 2. **Accès au niveau du compte :** cette option donne au travail un accès général au compte de stockage, notamment la possibilité de créer des conteneurs.
 
-À moins d’avoir besoin du travail pour créer des conteneurs en votre nom, vous devriez choisir l’**accès au niveau du conteneur**, car cette option donne au travail le niveau d’accès minimal requis. Les deux options sont expliquées plus bas pour le Portail Azure et la ligne de commande.
+À moins d’avoir besoin du travail pour créer des conteneurs en votre nom, vous devriez choisir l’ **accès au niveau du conteneur** , car cette option donne au travail le niveau d’accès minimal requis. Les deux options sont expliquées plus bas pour le Portail Azure et la ligne de commande.
 
 ### <a name="grant-access-via-the-azure-portal"></a>Autoriser l’accès via le portail azure
 
@@ -218,9 +218,9 @@ Pour autoriser l’accès à la totalité du compte, exécutez la commande suiva
 
 Lorsque vous configurez les **pare-feu et les réseaux virtuels** de votre compte de stockage, vous pouvez éventuellement autoriser le trafic réseau à partir d’autres services Microsoft approuvés. Lorsque Stream Analytics s’authentifie à l’aide de l’identité managée, il fournit la preuve que la demande provient d’un service approuvé. Vous trouverez ci-dessous des instructions pour activer cette exception d’accès au réseau virtuel.
 
-1.  Accédez au volet « Pare-feu et réseaux virtuels » dans le volet de configuration du compte de stockage.
-2.  Vérifiez que l’option « Autoriser les services Microsoft approuvés à accéder à ce compte de stockage » est activée.
-3.  Si vous l’avez activée, cliquez sur **Enregistrer**.
+1.    Accédez au volet « Pare-feu et réseaux virtuels » dans le volet de configuration du compte de stockage.
+2.    Vérifiez que l’option « Autoriser les services Microsoft approuvés à accéder à ce compte de stockage » est activée.
+3.    Si vous l’avez activée, cliquez sur **Enregistrer**.
 
    ![Activer l’accès au réseau virtuel](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 

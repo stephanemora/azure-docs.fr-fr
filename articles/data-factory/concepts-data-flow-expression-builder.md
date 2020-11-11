@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635369"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145704"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Générer des expressions dans un flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Dans un flux de données de mappage, de nombreuses propriétés de transformation sont entrées en tant qu’expressions. Ces expressions sont composées de valeurs de colonne, de paramètres, de fonctions, d’opérateurs et de littéraux qui correspondent à un type de données Spark au moment de l’exécution. Le mappage des flux de données a une expérience dédiée visant à vous aider à créer ces expressions, appelée **Générateur d’expressions** . Utilisant [IntelliSense](/visualstudio/ide/using-intellisense) pour la mise en surbrillance, la vérification de la syntaxe et la saisie semi-automatique, le générateur d’expressions est conçu pour faciliter la création de flux de données. Cet article explique comment utiliser le générateur d’expressions pour créer efficacement votre logique métier.
+Dans un flux de données de mappage, de nombreuses propriétés de transformation sont entrées en tant qu’expressions. Ces expressions sont composées de valeurs de colonne, de paramètres, de fonctions, d’opérateurs et de littéraux qui correspondent à un type de données Spark au moment de l’exécution. Le mappage des flux de données a une expérience dédiée visant à vous aider à créer ces expressions, appelée **Générateur d’expressions**. Utilisant [IntelliSense](/visualstudio/ide/using-intellisense) pour la mise en surbrillance, la vérification de la syntaxe et la saisie semi-automatique, le générateur d’expressions est conçu pour faciliter la création de flux de données. Cet article explique comment utiliser le générateur d’expressions pour créer efficacement votre logique métier.
 
 ![Générateur d’expressions](media/data-flow/expresion-builder.png "Générateur d’expressions")
 
@@ -30,15 +30,15 @@ Il existe plusieurs points d’entrée pour ouvrir le générateur d’expressio
 
 Dans certaines transformations comme les [filtres](data-flow-filter.md), un clic sur une zone de texte d’expression bleue ouvre le générateur d’expressions. 
 
-![Zone d’expression bleue](media/data-flow/expressionbox.png "Générateur d’expressions")
+![Zone d’expression bleue](media/data-flow/expressionbox.png "Zone d’expression bleue")
 
-Lorsque vous référencez des colonnes dans une correspondance ou un groupe par condition, une expression peut extraire des valeurs des colonnes. Pour créer une expression, sélectionnez **Colonne calculée** .
+Lorsque vous référencez des colonnes dans une correspondance ou un groupe par condition, une expression peut extraire des valeurs des colonnes. Pour créer une expression, sélectionnez **Colonne calculée**.
 
-![Option de colonne calculée](media/data-flow/computedcolumn.png "Générateur d’expressions")
+![Option de colonne calculée](media/data-flow/computedcolumn.png "Option de colonne calculée")
 
 Pour les cas où une expression ou une valeur littérale sont des entrées valides, sélectionnez **Ajout de contenu dynamique** pour générer une expression qui renvoie une valeur littérale.
 
-![Option d’ajout de contenu dynamique](media/data-flow/add-dynamic-content.png "Générateur d’expressions")
+![Option d’ajout de contenu dynamique](media/data-flow/add-dynamic-content.png "Option d’ajout de contenu dynamique")
 
 ## <a name="expression-elements"></a>Éléments d’expression
 
@@ -72,6 +72,16 @@ Quand vous avez des noms de colonnes qui comportent des espaces ou des caractèr
 ### <a name="parameters"></a>Paramètres
 
 Les paramètres sont des valeurs qui sont passées dans un flux de données au moment de l’exécution à partir d’un pipeline. Pour faire référence à un paramètre, cliquez sur le paramètre à partir de la vue **Éléments d’expression** ou référencez-le avec un signe dollar devant son nom. Par exemple, un paramètre appelé parameter1 est référencé par `$parameter1`. Pour plus d’informations, consultez [Paramétrage de flux de données de mappage](parameters-data-flow.md).
+
+### <a name="cached-lookup"></a>Recherche mise en cache
+
+Une recherche mise en cache vous permet d’effectuer une recherche instantanée de la sortie d’un récepteur mis en cache. Deux fonctions peuvent être utilisées sur chaque récepteur, `lookup()` et `outputs()`. La syntaxe permettant de référencer ces fonctions est `cacheSinkName#functionName()`. Pour plus d’informations, consultez les [récepteurs de cache](data-flow-sink.md#cache-sink).
+
+`lookup()` prend les colonnes correspondantes dans la transformation actuelle en tant que paramètres, et retourne une colonne complexe égale à la ligne qui correspond aux colonnes clés du récepteur de cache. La colonne complexe retournée contient une sous-colonne pour chaque colonne mappée dans le récepteur de cache. Par exemple, si vous aviez un récepteur de cache de code d’erreur `errorCodeCache` qui avait une colonne clé correspondant au code, et une colonne appelée `Message`. L’appel à `errorCodeCache#lookup(errorCode).Message` retournerait le message correspondant au code passé. 
+
+`outputs()` n’accepte aucun paramètre et retourne l’intégralité du récepteur de cache sous la forme d’un tableau de colonnes complexes. Cet appel ne peut pas être effectué si des colonnes clés sont spécifiées dans le récepteur et que leur utilisation n’est possible qu’en présence d’un petit nombre de lignes dans le récepteur de cache. Un cas d’usage courant consiste à ajouter la valeur maximale d’une clé d’incrémentation. Si une ligne unique agrégée en cache `CacheMaxKey` contient une colonne `MaxKey`, vous pouvez référencer la première valeur en appelant `CacheMaxKey#outputs()[1].MaxKey`.
+
+![Recherche mise en cache](media/data-flow/cached-lookup-example.png "Recherche mise en cache")
 
 ### <a name="locals"></a>Locals
 

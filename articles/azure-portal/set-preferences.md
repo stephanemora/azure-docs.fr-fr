@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367429"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145937"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gérer les paramètres et les préférences du portail Azure
 
@@ -33,7 +33,7 @@ Vous pouvez modifier l’abonnement qui s’ouvre par défaut lorsque vous vous 
 
 1. Sélectionnez les abonnements que vous souhaitez en tant qu’abonnements par défaut lorsque vous lancez le portail. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtrez la liste des ressources par abonnement."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Sélectionnez les abonnements que vous souhaitez en tant qu’abonnements par défaut lorsque vous lancez le portail."::: 
 
 
 ## <a name="choose-your-default-view"></a>Choisir votre vue par défaut 
@@ -50,7 +50,7 @@ Vous pouvez changer la page qui s’ouvre par défaut lorsque vous vous connecte
 
 Le mode par défaut pour le menu du portail contrôle l’espace occupé par le menu du portail dans la page.
 
-![Capture d’écran montrant les paramètres du portail Azure avec mise en évidence des thèmes](./media/set-preferences/menu-mode.png)
+![Capture d’écran montrant comment définir le mode par défaut pour le menu du portail.](./media/set-preferences/menu-mode.png)
 
 - Quand le menu du portail est en mode **volant** , il est masqué jusqu’à ce que vous en ayez besoin. Sélectionnez l’icône de menu pour ouvrir ou fermer le menu.
 
@@ -68,7 +68,7 @@ Vous pouvez aussi choisir l’un des thèmes à contraste élevé à la place. L
 
 Les notifications sont des messages système liés à votre session active. Elles fournissent des informations telles que votre solde de crédit, la disponibilité des ressources que vous venez de créer ou la confirmation de votre dernière action. Quand les notifications contextuelles sont activées, les messages s’affichent brièvement dans le coin supérieur de l’écran. 
 
-Pour activer ou désactiver les notifications contextuelles, cochez ou décochez **Activer les notifications contextuelles** .
+Pour activer ou désactiver les notifications contextuelles, cochez ou décochez **Activer les notifications contextuelles**.
 
 ![Capture d’écran montrant les paramètres du portail Azure avec mise en évidence des notifications contextuelles](./media/set-preferences/popup-notifications.png)
 
@@ -84,7 +84,7 @@ Le paramètre de délai d’inactivité vous permet de protéger les ressources 
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Modifier le paramètre de délai d’attente individuel (utilisateur)
 
-Sélectionnez la liste déroulante sous **Me déconnecter lorsque je suis inactif** . Choisissez la durée au-delà de laquelle votre session du portail Azure est déconnectée si vous êtes inactif.
+Sélectionnez la liste déroulante sous **Me déconnecter lorsque je suis inactif**. Choisissez la durée au-delà de laquelle votre session du portail Azure est déconnectée si vous êtes inactif.
 
 ![Capture d’écran montrant les paramètres du portail avec mise en évidence des paramètres de délai d’inactivité](./media/set-preferences/inactive-signout-user.png)
 
@@ -100,7 +100,7 @@ Les administrateurs dans le [rôle administrateur général](../active-directory
 
 Si vous êtes administrateur général et que vous voulez appliquer un paramètre de délai d’inactivité pour tous les utilisateurs du portail Azure, effectuez ces étapes :
 
-1. Sélectionnez le texte du lien **Configurer le délai d’inactivité au niveau du répertoire** .
+1. Sélectionnez le texte du lien **Configurer le délai d’inactivité au niveau du répertoire**.
 
     ![Capture d’écran montrant les paramètres du portail avec mise en évidence du texte de lien](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +108,7 @@ Si vous êtes administrateur général et que vous voulez appliquer un paramètr
 
 1. Ensuite, entrez les **heures** et les **minutes** correspondant à la durée maximale durant laquelle un utilisateur peut être inactif avant que sa session ne soit déconnectée automatiquement.
 
-1. Sélectionnez **Appliquer** .
+1. Sélectionnez **Appliquer**.
 
     ![Capture d’écran montrant la page permettant de définir un délai d’inactivité au niveau du répertoire](./media/set-preferences/configure.png)
 
@@ -118,7 +118,7 @@ Pour confirmer que la stratégie de délai d’inactivité est correctement déf
 
 ## <a name="restore-default-settings"></a>Restaurer les paramètres par défaut
 
-Si vous avez apporté des modifications aux paramètres du portail Azure et que vous souhaitez les ignorer, sélectionnez **Restaurer les paramètres par défaut** . Toutes les modifications que vous avez apportées aux paramètres du portail seront perdues. Cette option n’affecte pas les personnalisations des tableaux de bord.
+Si vous avez apporté des modifications aux paramètres du portail Azure et que vous souhaitez les ignorer, sélectionnez **Restaurer les paramètres par défaut**. Toutes les modifications que vous avez apportées aux paramètres du portail seront perdues. Cette option n’affecte pas les personnalisations des tableaux de bord.
 
 ![Capture d’écran montrant la restauration des paramètres par défaut](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,11 +132,11 @@ Les informations sur vos paramètres personnalisés sont stockées dans Azure. V
 
 Nous vous recommandons d’exporter et de vérifier vos paramètres si vous prévoyez de les supprimer. Le recréation des tableaux de bord ou des paramètres peut prendre du temps.
 
-Pour exporter vos paramètres de portail, sélectionnez **Exporter tous les paramètres** .
+Pour exporter vos paramètres de portail, sélectionnez **Exporter tous les paramètres**.
 
 ![Capture d’écran montrant l’exportation des paramètres](./media/set-preferences/useful-links-export-settings.png)
 
-Exporter les paramètres crée un fichier *.json* contenant vos paramètres utilisateur, tels que votre thème, vos favoris et vos tableaux de bord privés. En raison de la nature dynamique des paramètres utilisateur et des risques d’altération des données, vous ne pouvez pas importer de paramètres à partir du fichier *.json* .
+Exporter les paramètres crée un fichier *.json* contenant vos paramètres utilisateur, tels que votre thème, vos favoris et vos tableaux de bord privés. En raison de la nature dynamique des paramètres utilisateur et des risques d’altération des données, vous ne pouvez pas importer de paramètres à partir du fichier *.json*.
 
 ## <a name="delete-user-settings-and-dashboards"></a>Supprimer les paramètres utilisateur et les tableaux de bord
 
@@ -150,7 +150,7 @@ Nous vous recommandons d’exporter et de vérifier vos paramètres avant de les
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Pour supprimer vos paramètres de portail, sélectionnez **Supprimer tous les paramètres et les tableaux de bord privés** .
+Pour supprimer vos paramètres de portail, sélectionnez **Supprimer tous les paramètres et les tableaux de bord privés**.
 
 ![Capture d’écran montrant la suppression des paramètres](./media/set-preferences/useful-links-delete-settings.png)
 

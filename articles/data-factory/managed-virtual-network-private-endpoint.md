@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635777"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317071"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -51,7 +51,7 @@ Les points de terminaison privés managés sont des points de terminaison privé
 
 ![Nouveau point de terminaison privé managé](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory prend en charge les liaisons privées. Une liaison privée vous permet d’accéder aux services Azure (PaaS), tels que le Stockage Azure, Azure Cosmos DB, Azure Synapse Analytics (anciennement Azure SQL Data Warehouse).
+Azure Data Factory prend en charge les liaisons privées. Une liaison privée vous permet d’accéder aux services Azure (PaaS), tels que le Stockage Azure, Azure Cosmos DB, Azure Synapse Analytics (anciennement SQL Data Warehouse).
 
 Quand vous utilisez une liaison privée, le trafic entre vos magasins de données et le réseau virtuel managé transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
 
@@ -81,7 +81,7 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (sans Azure SQL Managed Instance)
-- Azure Synapse Analytics (anciennement Azure SQL Data Warehouse)
+- Azure Synapse Analytics (anciennement SQL Data Warehouse)
 - SQL Azure Cosmos DB
 - Azure Key Vault
 - Service Azure Private Link

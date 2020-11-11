@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: ffda2b1d096b3c84e3f1df10e37c44922bab16ef
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632411"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280174"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Charger des données dans Azure Synapse Analytics à l’aide d’Azure Data Factory
 
@@ -42,7 +42,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Azure Synapse Analytics : l'entrepôt de données conserve les données copiées à partir de SQL Database. Si vous ne disposez pas d’Azure Synapse Analytics, consultez les instructions dans [Créer une instance Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md).
-* Azure SQL Database : ce tutoriel copie les données de l’échantillon de jeu de données Adventure Works LT à Azure SQL Database. Vous pouvez créer cet échantillon de base de données dans SQL Database en suivant les instructions données dans [Création d’un échantillon de base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database : ce tutoriel copie les données de l’exemple de jeu de données Adventure Works LT dans Azure SQL Database. Vous pouvez créer cet échantillon de base de données dans SQL Database en suivant les instructions données dans [Création d’un échantillon de base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Compte Azure Storage : Stockage Azure est utilisé comme objet blob _intermédiaire_ dans l’opération de copie en bloc. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
@@ -113,9 +113,6 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
     d. Sélectionnez le service lié nouvellement créé comme récepteur, puis cliquez sur **Suivant**.
 
 7. Dans la page **Mappage de table** , passez en revue le contenu, puis cliquez sur **Suivant**. Un mappage de table intelligent s’affiche. Les tables source sont mappées sur les tables de destination en fonction des noms de tables. Si une table source n’existe pas dans la destination, Azure Data Factory crée une table de destination par défaut qui porte le même nom. Vous pouvez également mapper une table source sur une table de destination existante.
-
-   > [!NOTE]
-   > La création automatique de table pour le récepteur Azure Synapse Analytics s’applique quand SQL Server ou Azure SQL Database est la source. Si vous copiez des données à partir d’un autre magasin de données source, vous devez précréer le schéma dans le récepteur Azure Synapse Analytics avant d’exécuter la copie des données.
 
    ![Page Mappage de table](./media/load-azure-sql-data-warehouse/table-mapping.png)
 

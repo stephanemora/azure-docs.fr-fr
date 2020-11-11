@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8e751d210ab472d82e4abd613d37069a8c591f52
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013931"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100726"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
@@ -33,14 +33,14 @@ Avant d’exécuter cette tâche, vous devez disposer d’un principal de servic
 Vous pouvez configurer des administrateurs du serveur à l’aide de SQL Server Management Studio (SSMS). Pour effectuer cette tâche, vous devez disposer d’autorisations [Administrateur du serveur](analysis-services-server-admins.md) sur le serveur Azure AS. 
 
 1. Dans SSMS, connectez-vous à votre serveur Azure AS.
-2. Dans **Propriétés du serveur** > **Sécurité**, cliquez sur **Ajouter**.
-3. Dans **Sélectionnez un utilisateur ou un groupe**, recherchez votre application inscrite par nom, sélectionnez, puis cliquez sur **Ajouter**.
+2. Dans **Propriétés du serveur** > **Sécurité** , cliquez sur **Ajouter**.
+3. Dans **Sélectionnez un utilisateur ou un groupe** , recherchez votre application inscrite par nom, sélectionnez, puis cliquez sur **Ajouter**.
 
     ![Rechercher le compte de principal de service](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
 4. Vérifiez l’ID de compte de principal de service, puis cliquez sur **OK**.
     
-    ![Rechercher le compte de principal de service](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Capture d’écran montrant l’ID de compte de principal de service et mettant en évidence le bouton OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
 

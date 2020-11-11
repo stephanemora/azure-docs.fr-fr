@@ -11,21 +11,23 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0b2c03c5c7ea8c65cb1cde3cbdb73b6bb838dc06
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289070"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324462"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Utiliser des étiquettes de requête dans SQL Synapse
+
 Cet article contient des conseils essentiels pour l’utilisation d’étiquettes de requête dans SQL Synapse.
 
 > [!NOTE]
-> SQL à la demande (préversion) ne prend pas en charge l’étiquetage des requêtes.
+> Le pool SQL serverless (préversion) ne prend pas en charge l’étiquetage des requêtes.
 
 ## <a name="what-are-query-labels"></a>Ce que sont les étiquettes de requête
-Un pool SQL prend en charge le concept d’étiquette de requête. Avant de poursuivre l’étude, examinons un exemple :
+
+Le pool SQL dédié prend en charge le concept d’étiquette de requête. Avant de poursuivre l’étude, examinons un exemple :
 
 ```sql
 SELECT *

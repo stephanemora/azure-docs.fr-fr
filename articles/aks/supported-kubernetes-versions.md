@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735072"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042118"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -131,7 +131,7 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>Calendrier des versions d’AKS Kubernetes
 
-Pour connaître l’historique des versions antérieures, cliquez [ici](https://en.wikipedia.org/wiki/Kubernetes#History).
+Pour connaître l’historique des versions antérieures, cliquez sur [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
@@ -139,8 +139,10 @@ Pour connaître l’historique des versions antérieures, cliquez [ici](https://
 | 1.17  | 9 déc. 19  | janvier 2019   | Juil. 2020  | 1.20 GA | 
 | 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | 1.21 GA | 
 | 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA | 
-| 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA | 
-\* En raison des fêtes de fin d’année, AKS reporte la fin de vie de la version 1.16 de novembre 2020 à janvier 2021. En savoir plus [ici](https://github.com/Azure/AKS/releases/tag/2020-10-12)
+| 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA |
+
+\* En raison des fêtes de fin d’année, AKS reporte la fin de vie de la version 1.16 de novembre 2020 à janvier 2021. [En savoir plus](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

@@ -6,18 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
+ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755090"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145954"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
-Découvrez comment utiliser [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) pour exécuter des requêtes Apache Hive sur HDInsight.
+Cet article explique comment utiliser le client [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) de ligne de commande pour créer et exécuter des requêtes Apache Hive sur une connexion SSH.
+
+## <a name="background"></a>Arrière-plan
 
 Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HDInsight. Pour vous connecter au client Beeline installé sur votre cluster HDInsight ou pour installer Beeline localement, consultez [Installer Apache Beeline ou s’y connecter](connect-install-beeline.md). Beeline utilise JDBC pour se connecter à HiveServer2, un service hébergé sur votre cluster HDInsight. Vous pouvez également utiliser Beeline pour accéder à Hive sur HDInsight à distance via internet. Les exemples suivants présentent les chaînes de connexion les plus courantes utilisées pour se connecter à HDInsight à partir de Beeline.
 
@@ -27,9 +29,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
 * Notez le schéma d’URI du stockage principal de votre cluster. Par exemple, `wasb://` pour Stockage Azure, `abfs://` pour Azure Data Lake Storage Gen2 ou `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera `wasbs://`. Pour plus d’informations, consultez l’article dédié au [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md).
 
-* Option 1 : Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). La plupart des étapes décrites dans ce document supposent que vous utilisez Beeline à partir d’une session SSH sur le cluster.
-
-* Option n°2 :  Un client Beeline local.
+* Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). La plupart des étapes décrites dans ce document supposent que vous utilisez Beeline à partir d’une session SSH sur le cluster. Vous pouvez également utiliser un client Beeline local, mais ces étapes ne sont pas traitées dans cet article.
 
 ## <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
@@ -113,7 +113,7 @@ Cet exemple est basé sur l’utilisation du client Beeline à partir d’une co
     |CREATE EXTERNAL TABLE|Crée une table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.|
     |ROW FORMAT|Formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.|
     |STORED AS TEXTFILE LOCATION|Emplacement de stockage des données et format de fichier.|
-    |SELECT|sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette requête renvoie la valeur **3**, car trois lignes contiennent cette valeur.|
+    |SELECT|sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette requête renvoie la valeur **3** , car trois lignes contiennent cette valeur.|
     |INPUT__FILE__NAME LIKE '%.log'|Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.|
 
    > [!NOTE]  
@@ -157,7 +157,7 @@ Cet exemple est basé sur l’utilisation du client Beeline à partir d’une co
 
 Cet exemple constitue la suite du précédent. Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’aide de Beeline.
 
-1. Utilisez la commande suivante pour créer un fichier nommé **query.hql**:
+1. Utilisez la commande suivante pour créer un fichier nommé **query.hql** :
 
     ```bash
     nano query.hql
@@ -181,7 +181,7 @@ Cet exemple constitue la suite du précédent. Utilisez les étapes suivantes po
     > [!NOTE]  
     > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
-1. Pour enregistrer le fichier, utilisez **Ctrl**+**X**, puis, entrez **Y** et enfin appuyez sur **Entrée**.
+1. Pour enregistrer le fichier, utilisez **Ctrl**+**X** , puis, entrez **Y** et enfin appuyez sur **Entrée**.
 
 1. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants :
 

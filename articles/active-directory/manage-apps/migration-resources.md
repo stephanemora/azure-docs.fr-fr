@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 327e59d3fee6f23d2635b846e9fb5ab422e0139e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a49dff0e4ac41670800073c02c5a507eb433c326
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87429030"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280440"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Ressources pour la migration d’applications vers Azure Active Directory
 
@@ -26,6 +26,7 @@ Ressources pour vous aider à migrer l’accès et l’authentification d’appl
 |:-----------|:-------------|
 |[Migration de vos applications vers Azure AD](https://aka.ms/migrateapps/whitepaper) | Ce livre blanc présente les avantages de la migration et explique comment la planifier en quatre phases clairement expliquées : la découverte, la classification, la migration et la gestion continue. Vous serez guidé pour savoir comment penser avec ce processus et diviser votre projet en éléments faciles à utiliser. Le document contient des liens vers des ressources importantes qui vous aideront tout au long du processus. |
 |[Guide de solution : Migration d'applications des services de fédération Active Directory (AD FS) vers Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Ce guide de solution vous guide tout au long des quatre mêmes phases de planification et d’exécution d’un projet de migration d’applications décrit à un niveau supérieur dans le livre blanc sur la migration. Dans ce guide, vous allez apprendre à appliquer ces phases à l’objectif spécifique de déplacement d’une application à partir d’Azure Directory Federated Services (AD FS) vers Azure AD.|
+|[Tutoriel pour développeur : Playbook de migration d’application AD FS vers Azure AD pour les développeurs](https://aka.ms/adfsplaybook) | Cet ensemble d’exemples de code ASP.NET et les tutoriels associés vous permettent de découvrir comment migrer de manière sécurisée vos applications intégrées à Active Directory Federation Services (AD FS) vers Azure Active Directory (Azure AD). Ce tutoriel est destiné aux développeurs qui ont non seulement besoin d’apprendre à configurer des applications à la fois sur AD FS et sur Azure AD, mais aussi de se familiariser avec les changements dont leur codebase a besoin dans ce processus.|
 | [Outil : script de préparation de la migration des services de fédération Active Directory (AD FS)](https://aka.ms/migrateapps/adfstools) | Il s’agit d’un script que vous pouvez exécuter sur votre serveur Active Directory Federation Services (ADFS) local pour déterminer l’état de préparation des applications pour la migration vers Azure AD.|
 | [Plan de déploiement : migration d'AD FS vers la synchronisation de hachage de mot de passe](https://aka.ms/ADFSTOPHSDPDownload) | Avec la synchronisation de hachage de mot de passe, les hachages des mots de passe utilisateur sont synchronisés de votre annuaire Active Directory local vers Azure AD. Cela permet à Azure AD d’authentifier les utilisateurs sans interagir avec l’Active Directory en local.| 
 | [Plan de déploiement : migration d'AD FS vers l'authentification directe](https://aka.ms/ADFSTOPTADPDownload)|L’authentification directe Azure AD permet à vos utilisateurs de se connecter aux applications locales et aux applications cloud à l’aide du même mot de passe. Cette fonctionnalité offre une meilleure expérience aux utilisateurs, car ils n’ont besoin de se souvenir que d’un seul mot de passe. Elle réduit également les coûts du support technique informatique, car les utilisateurs sont moins susceptibles d’oublier comment se connecter lorsqu’ils ne doivent mémoriser qu’un seul mot de passe. Lorsque les utilisateurs se connectent à l’aide d’Azure AD, cette fonctionnalité valide leurs mots de passe directement à partir de l’installation Active Directory locale.|

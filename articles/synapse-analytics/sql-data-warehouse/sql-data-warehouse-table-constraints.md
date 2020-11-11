@@ -1,6 +1,6 @@
 ---
 title: Clés primaires, étrangères et uniques
-description: Prise en charge des contraintes de table du pool SQL Synapse dans Azure Synapse Analytics
+description: Prise en charge des contraintes de table avec un pool SQL dédié dans Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,33 +11,33 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 562e2cce317d8774ecf72971d53be4f66f9c3da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd1d92dd6be47b2bdf6b8ca2f9a99c62e35eb12a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212766"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313055"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Clé primaire, clé étrangère et clé unique dans le pool SQL Synapse
+# <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Clé primaire, clé étrangère et clé unique avec un pool SQL dédié dans Azure Synapse Analytics
 
-Découvrez les contraintes de table dans le pool SQL Synapse, notamment la clé primaire, la clé étrangère et la clé unique.
+Découvrez les contraintes de table dans le pool SQL dédié, notamment la clé primaire, la clé étrangère et la clé unique.
 
 ## <a name="table-constraints"></a>Contraintes de table
 
-Le pool SQL Synapse prend en charge les contraintes de table suivantes : 
+Le pool SQL dédié prend en charge les contraintes de table suivantes : 
 - La contrainte PRIMARY KEY est prise en charge seulement si NONCLUSTERED et NOT ENFORCED sont tous les deux utilisés.    
 - La contrainte UNIQUE est prise en charge seulement si NOT ENFORCED est utilisé.
 
 Pour la syntaxe, cochez [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) et [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-La contrainte FOREIGN KEY n’est pas prise en charge dans le pool SQL Synapse.  
+La contrainte FOREIGN KEY n’est pas prise en charge dans le pool SQL dédié.  
 
 
 ## <a name="remarks"></a>Notes
 
-La présence d’une clé primaire et/ou d’une clé unique permet au moteur du pool SQL Synapse de générer un plan d’exécution optimal pour une requête.  Toutes les valeurs d’une colonne de clé primaire ou d’une colonne de contrainte unique doivent être uniques.
+La présence d’une clé primaire et/ou d’une clé unique permet au moteur du pool SQL dédié de générer un plan d’exécution optimal pour une requête.  Toutes les valeurs d’une colonne de clé primaire ou d’une colonne de contrainte unique doivent être uniques.
 
-Après avoir créé une table avec une contrainte de clé primaire ou unique dans le pool SQL Synapse, les utilisateurs doivent vérifier que toutes les valeurs de ces colonnes sont uniques.  Si cette condition n’est pas respectée, la requête risque de retourner un résultat inexact.  Cet exemple illustre le fait qu’une requête peut retourner un résultat inexact si la colonne de contrainte de clé primaire ou unique contient des valeurs en double.  
+Après avoir créé une table avec une clé primaire ou contrainte unique dans le pool SQL dédié, les utilisateurs doivent vérifier que toutes les valeurs de ces colonnes sont uniques.  Si cette condition n’est pas respectée, la requête risque de retourner un résultat inexact.  Cet exemple illustre le fait qu’une requête peut retourner un résultat inexact si la colonne de contrainte de clé primaire ou unique contient des valeurs en double.  
 
 ```sql
  -- Create table t1
@@ -164,12 +164,13 @@ a1          total
 
 ## <a name="examples"></a>Exemples
 
-Création d’une table de pool SQL Synapse avec une clé primaire : 
+Créez une table de pool SQL dédié avec une clé primaire : 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Création d’une table de pool SQL Synapse avec une contrainte unique :
+
+Créez une table de pool SQL dédié avec une contrainte unique :
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -177,4 +178,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé les tables de votre pool SQL Synapse, vous devez charger des données dans ces tables. Pour suivre un tutoriel sur le chargement, consultez [Chargement de données dans le pool SQL Synapse](load-data-wideworldimportersdw.md).
+Après avoir créé les tables de votre pool SQL dédié, l’étape suivante consiste à charger les données dans ces tables. Pour suivre un tutoriel sur le chargement, consultez [Chargement de données dans le pool SQL dédié](load-data-wideworldimportersdw.md).

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500349"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313631"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Mettre automatiquement à l’échelle des pools Apache Spark d’Azure Synapse Analytics
 
@@ -49,11 +49,11 @@ Pour un scale-down, selon le nombre d’exécuteurs, de maîtres d’application
 
 ## <a name="get-started"></a>Bien démarrer
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Créer un pool Spark avec mise à l’échelle automatique
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>Créer un pool Apache Spark serverless avec mise à l’échelle automatique
 
 Pour activer la fonctionnalité de mise à l’échelle automatique, procédez comme suit dans le cadre du processus normal de création de pool :
 
-1. Sous l’onglet **De base**, cochez la case **Activer la mise à l’échelle automatique**.
+1. Sous l’onglet **De base** , cochez la case **Activer la mise à l’échelle automatique**.
 1. Entrez les valeurs souhaitées pour les propriétés suivantes :  
 
     * Nombre **Minimum** de nœuds.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 699271316eccec1244db886ed2296f87c52f91ae
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488607"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348353"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Créer la page d'accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale
 
@@ -21,7 +21,7 @@ Cet article vous guide tout au long du processus de création d’une page d’a
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Vous pouvez considérer la page d’accueil comme la « salle d’attente » pour votre offre SaaS (software as a service). Une fois que le client a choisi d'obtenir votre application, la Place de marché commerciale le dirige vers la page d’accueil pour activer et configurer son abonnement à votre application SaaS. Lorsque vous créez une offre Software as a service (SaaS), dans l’espace Partenaires, vous pouvez choisir de [vendre via Microsoft](plan-saas-offer.md#listing-options). Si vous souhaitez uniquement répertorier votre offre dans la Place de marché commerciale Microsoft et ne pas vendre via Microsoft, vous pouvez spécifier la manière dont les clients potentiels peuvent interagir avec l’offre. Lorsque vous activez l’option **Obtenir maintenant (gratuit)** ou **Essai gratuit** , vous devez spécifier une URL de page d’accueil permettant à l’utilisateur d’accéder à l’abonnement ou à l’essai gratuit.
+Vous pouvez considérer la page d’accueil comme le « vestibule » de votre offre SaaS (software as a service). Une fois que le client a choisi d'obtenir votre application, la Place de marché commerciale le dirige vers la page d’accueil pour activer et configurer son abonnement à votre application SaaS. Lorsque vous créez une offre Software as a service (SaaS), dans l’espace Partenaires, vous pouvez choisir de [vendre via Microsoft](plan-saas-offer.md#listing-options). Si vous souhaitez uniquement répertorier votre offre dans la Place de marché commerciale Microsoft et ne pas vendre via Microsoft, vous pouvez spécifier la manière dont les clients potentiels peuvent interagir avec l’offre. Lorsque vous activez l’option **Obtenir maintenant (gratuit)** ou **Essai gratuit** , vous devez spécifier une URL de page d’accueil permettant à l’utilisateur d’accéder à l’abonnement ou à l’essai gratuit.
 
 L’objectif de la page d’accueil est simplement de recevoir l’utilisateur afin qu’il puisse activer l’abonnement ou l’essai gratuit. À l’aide d’Azure Active Directory (Azure AD) et de Microsoft Graph, vous allez activer l’authentification unique (SSO) pour l’utilisateur et obtenir des informations importantes sur lui que vous pouvez utiliser pour activer son abonnement ou essai gratuit, notamment son nom, son adresse e-mail et son organisation.
 
@@ -43,23 +43,23 @@ Les sections suivantes de cet article vous guideront tout au long du processus d
 
 ## <a name="create-an-azure-ad-app-registration"></a>Créer une inscription d’application Azure AD
 
-La Place de marché commerciale est entièrement intégrée à Azure AD. Les utilisateurs arrivent sur la Place de marché, authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Après avoir acquis un abonnement ou un essai gratuit par le biais de votre offre à consulter uniquement, l’utilisateur passe de la Place de marché commerciale à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’utilisateur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page de [Configuration technique](plan-saas-offer.md#technical-information) de l’offre.
+La Place de marché commerciale est entièrement intégrée à Azure AD. Les utilisateurs arrivent sur la Place de marché, authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Après avoir acquis un abonnement ou un essai gratuit par le biais de votre offre à consulter uniquement, l’utilisateur passe de la Place de marché commerciale à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’utilisateur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page [Configuration technique](plan-saas-offer.md#technical-information) de l’offre).
 
-La première étape de l’utilisation de l’identité consiste à s’assurer que votre page d’accueil est inscrite en tant qu’application Azure AD. Inscrire l’application vous permet d’utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources utilisateur. Cela peut être considéré comme la définition de l’application, ce qui permet au service de savoir comment émettre des jetons à l’application en fonction des paramètres de l’application.
+La première étape de l’utilisation de l’identité consiste à s’assurer que votre page d’accueil est inscrite en tant qu’application Azure AD. Inscrire l’application vous permet d’utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources utilisateur. Cela peut être considéré comme la définition de l’application, ce qui permet au service de savoir comment émettre des jetons pour l’application en fonction des paramètres de l’application.
 
 ### <a name="register-a-new-application-using-the-azure-portal"></a>Inscrire une nouvelle application à l’aide du Portail Azure
 
-Pour commencer, suivez les instructions pour l’[inscription d’une nouvelle application](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Pour permettre aux utilisateurs d’autres sociétés de consulter l’application, vous devez choisir **Comptes dans un annuaire d'organisation (tout annuaire Azure AD - Multilocataire) et comptes Microsoft personnels (tels que Skype ou Xbox)** lorsqu’ils sont invités à utiliser l’application.
+Pour commencer, suivez les instructions pour l’[inscription d’une nouvelle application](../active-directory/develop/quickstart-register-app.md). Pour permettre aux utilisateurs d’autres sociétés de consulter l’application, vous devez choisir **Comptes dans un annuaire d'organisation (tout annuaire Azure AD - Multilocataire) et comptes Microsoft personnels (tels que Skype ou Xbox)** lorsqu’ils sont invités à utiliser l’application.
 
-Si vous envisagez d’interroger l’API Microsoft Graph, [configurez votre nouvelle application de manière à accéder aux API web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Lorsque vous sélectionnez les autorisations d’API pour cette application, la valeur par défaut **user.Read** suffit pour collecter des informations de base sur l’utilisateur afin de rendre le processus d’intégration lisse et automatique. Ne demandez aucune autorisation d’API nommée **besoin du consentement de l’administrateur** , car cela empêchera tous les utilisateurs non-administrateurs de visiter votre page d’accueil.
+Si vous envisagez d’interroger l’API Microsoft Graph, [configurez votre nouvelle application de manière à accéder aux API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Lorsque vous sélectionnez les autorisations d’API pour cette application, la valeur par défaut **user.Read** suffit pour collecter des informations de base sur l’utilisateur afin de rendre le processus d’intégration lisse et automatique. Ne demandez aucune autorisation d’API nommée **besoin du consentement de l’administrateur** , car cela empêchera tous les utilisateurs non-administrateurs de visiter votre page d’accueil.
 
-Si vous avez besoin d’autorisations élevées dans le cadre de votre processus d’intégration ou de configuration, envisagez d’utiliser la fonctionnalité de [consentement incrémentiel](https://aka.ms/incremental-consent) d’Azure AD afin que tous les utilisateurs envoyés par la Place de marché puissent interagir initialement avec la page d’accueil.
+Si vous avez besoin d’autorisations élevées dans le cadre de votre processus d’intégration ou de configuration, envisagez d’utiliser la fonctionnalité de [consentement incrémentiel](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) d’Azure AD afin que tous les utilisateurs envoyés par la Place de marché puissent interagir initialement avec la page d’accueil.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Utiliser un exemple de code comme point de départ
 
 Microsoft a fourni plusieurs exemples d’applications qui implémentent un site web simple avec la connexion Azure AD activée. Une fois que votre application est inscrite dans Azure AD, le panneau **Démarrage rapide** propose une liste de types d’applications et de piles de développement courants (figure 1). Choisissez ce qui correspond à votre environnement et suivez les instructions de téléchargement et d’installation.
 
-***Figure 1 : Panneau Mobile Démarrage rapide dans le portail Azure***
+**_Figure 1 : Panneau Démarrage rapide dans le portail Azure_* _
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Montre le panneau Démarrage rapide dans le portail Azure.":::
 
@@ -67,7 +67,7 @@ Après avoir téléchargé le code et configuré votre environnement de dévelop
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Lire les informations des revendications encodées dans le jeton d’ID
 
-Dans le cadre du flux [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc), Azure AD ajoute un [jeton d’ID](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) à la demande lorsque l’utilisateur est envoyé à la page d’accueil. Ce jeton contient plusieurs éléments d’informations de base qui peuvent être utiles lors du processus d’activation, notamment les informations affichées dans ce tableau.
+Dans le cadre du flux [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md), Azure AD ajoute un [jeton d’ID](../active-directory/develop/id-tokens.md) à la demande lorsque l’utilisateur est envoyé à la page d’accueil. Ce jeton contient plusieurs éléments d’informations de base qui peuvent être utiles lors du processus d’activation, notamment les informations affichées dans ce tableau.
 
 | Valeur | Description |
 | ------------ | ------------- |
@@ -82,7 +82,7 @@ Dans le cadre du flux [OpenID Connect](https://docs.microsoft.com/azure/active-d
 
 ## <a name="use-the-microsoft-graph-api"></a>Utiliser l’API Microsoft Graph
 
-Le jeton d’ID contient des informations de base pour identifier l’utilisateur, mais votre processus d’activation peut nécessiter des détails supplémentaires, tels que l’entreprise de l’utilisateur, pour finaliser le processus d’intégration. Utilisez l’[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) pour demander ces informations afin de ne pas forcer l’utilisateur à entrer de nouveau ces détails. Les autorisations standard **user.Read** incluent par défaut les informations suivantes :
+Le jeton d’ID contient des informations de base pour identifier l’utilisateur, mais votre processus d’activation peut nécessiter des détails supplémentaires, tels que l’entreprise de l’utilisateur, pour finaliser le processus d’intégration. Utilisez l’[API Microsoft Graph](/graph/use-the-api) pour demander ces informations afin de ne pas forcer l’utilisateur à entrer de nouveau ces détails. Les autorisations standard _ *User.Read* * incluent par défaut les informations suivantes :
 
 | Valeur | Description |
 | ------------ | ------------- |
@@ -91,13 +91,13 @@ Le jeton d’ID contient des informations de base pour identifier l’utilisateu
 | jobTitle | Fonction de l’utilisateur. |
 | mail | Adresse SMTP de l’utilisateur. |
 | mobilePhone | Numéro de portable principal de l’utilisateur. |
-| preferredLanguage | Code ISO 639-1 de la langue par défaut de l'utilisateur. |
+| preferredLanguage | Code ISO 639-1 de la langue par défaut de l’utilisateur. |
 | surname | Nom de l’utilisateur. |
 |||
 
-Des propriétés supplémentaires, telles que le nom de la société de l’utilisateur ou l’emplacement de l’utilisateur (pays), peuvent être sélectionnées pour être incluses dans la demande. Pour plus d’informations, consultez [Propriétés du type de ressource utilisateur](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties).
+Des propriétés supplémentaires, telles que le nom de la société de l’utilisateur ou l’emplacement de l’utilisateur (pays), peuvent être sélectionnées pour être incluses dans la demande. Pour plus d’informations, consultez [Propriétés du type de ressource utilisateur](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties).
 
-La plupart des applications inscrites à Azure AD accordent des autorisations déléguées de lecture des informations de l’utilisateur à partir du locataire Azure AD de son entreprise. Toute demande d’informations de ce type adressée à Microsoft Graph doit être accompagnée d’un jeton d’accès pour authentification. Les étapes spécifiques pour générer le jeton d’accès dépendent de la pile de technologies que vous utilisez, mais l’exemple de code contient un exemple. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](https://docs.microsoft.com/graph/auth-v2-user).
+La plupart des applications inscrites à Azure AD accordent des autorisations déléguées de lecture des informations de l’utilisateur à partir du locataire Azure AD de son entreprise. Toute demande d’informations de ce type adressée à Microsoft Graph doit être accompagnée d’un jeton d’accès pour authentification. Les étapes spécifiques pour générer le jeton d’accès dépendent de la pile de technologies que vous utilisez, mais l’exemple de code contient un exemple. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](/graph/auth-v2-user).
 
 > [!NOTE]
 > Les comptes du locataire MSA (avec ID de locataire `9188040d-6c67-4c5b-b112-36a304b66dad`) ne retourneront pas plus d’informations que ce qui a déjà été collecté avec le jeton d’ID. Vous pouvez donc ignorer cet appel à l’API Graph pour ces comptes.

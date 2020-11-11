@@ -5,16 +5,17 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 10/28/2020
 ms.author: sngun
-ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 18850fafd1f6cb084c9e5fdb9a24e9c4fd8bb4cc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801416"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097564"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Surveillez les données Azure Cosmos DB à l’aide des paramètres de diagnostic dans Azure
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Les paramètres de diagnostic dans Azure sont utilisés pour collecter les journaux des ressources. Les journaux de ressources Azure sont émis par une ressource et fournissent des données riches et fréquentes sur le fonctionnement de cette ressource. Ces journaux sont capturés par requête et sont également appelés « journaux des plans de données ». Les opérations Delete, Insert et readFeed sont des exemples d’opérations de plan de données. Le contenu de ces journaux d’activité varie en fonction du type de ressource.
 
@@ -22,20 +23,20 @@ Les indicateurs de performance de la plateforme et le journal d’activité sont
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Accédez à votre compte Azure Cosmos. Ouvrez le volet des **Paramètres de Diagnostic**, puis sélectionnez l’option **Ajouter le paramètre de diagnostic**.
+1. Accédez à votre compte Azure Cosmos. Ouvrez le volet des **Paramètres de Diagnostic** , puis sélectionnez l’option **Ajouter le paramètre de diagnostic**.
 
-1. Dans le volet **Paramètres de Diagnostic**, remplissez le formulaire avec les détails suivants : 
+1. Dans le volet **Paramètres de Diagnostic** , remplissez le formulaire avec les détails suivants : 
 
-    * **Name** : Entrez un nom pour les journaux d’activité à créer.
+    * **Name**  : Entrez un nom pour les journaux d’activité à créer.
 
-    * Vous pouvez stocker les journaux dans **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**
+    * Vous pouvez stocker les journaux dans **Archiver dans un compte de stockage** , **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**
 
 1. Lorsque vous créez un paramètre de diagnostic, vous spécifiez la catégorie des journaux à collecter. Les catégories de journaux prises en charge par Azure Cosmos DB sont répertoriées ci-dessous, ainsi que l’exemple de journal collecté par ces derniers :
 
- * **DataPlaneRequests** : sélectionnez cette option pour enregistrer les requêtes de back-end pour toutes les API, dont les comptes SQL, Graph, MongoDB, Cassandra et Table API dans Azure Cosmos DB. Les propriétés clés à noter sont les suivantes : `Requestcharge`, `statusCode`, `clientIPaddress`et `partitionID`.
+ * **DataPlaneRequests** : sélectionnez cette option pour enregistrer les requêtes de back-end pour toutes les API, dont les comptes SQL, Graph, MongoDB, Cassandra et Table API dans Azure Cosmos DB. Les propriétés clés à noter sont les suivantes : `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` et `resourceTokenPermissionMode`.
 
     ```json
-    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
 * **MongoRequests** : sélectionnez cette option pour enregistrer les requêtes initiées par l’utilisateur depuis le serveur front-end pour servir des demandes à l’API Azure Cosmos DB pour MongoDB. Ce type de journal n'est pas disponible pour les autres comptes d'API. Les propriétés importantes à noter sont : `Requestcharge`, `opCode`. Lorsque vous activez MongoRequests dans les journaux de diagnostic, veillez à désactiver l'option DataPlaneRequests. Vous verrez un journal pour chaque requête adressée à l'API.
@@ -44,7 +45,7 @@ Les indicateurs de performance de la plateforme et le journal d’activité sont
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **CassandraRequests** : sélectionnez cette option pour enregistrer les requêtes initiées par l'utilisateur depuis le serveur front-end pour servir les requêtes adressées à l'API Azure Cosmos DB pour Cassandra. Ce type de journal n'est pas disponible pour les autres comptes d'API. Les principales propriétés sont les suivantes : `operationName`, `requestCharge`, `piiCommandText`. Lorsque vous activez CassandraRequests dans les journaux de diagnostic, veillez à désactiver l'option DataPlaneRequests. Vous verrez un journal pour chaque requête adressée à l'API.
+* **CassandraRequests**  : sélectionnez cette option pour enregistrer les requêtes initiées par l'utilisateur depuis le serveur front-end pour servir les requêtes adressées à l'API Azure Cosmos DB pour Cassandra. Ce type de journal n'est pas disponible pour les autres comptes d'API. Les principales propriétés sont les suivantes : `operationName`, `requestCharge`, `piiCommandText`. Lorsque vous activez CassandraRequests dans les journaux de diagnostic, veillez à désactiver l'option DataPlaneRequests. Vous verrez un journal pour chaque requête adressée à l'API.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
@@ -62,11 +63,11 @@ Les indicateurs de performance de la plateforme et le journal d’activité sont
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
-* **PartitionKeyRUConsumption**: Ce journal indique la consommation agrégée par seconde RU/s des clés de partition. Actuellement, Azure Cosmos DB signale des clés de partition pour les comptes d’API SQL uniquement et pour les opérations de lecture/écriture de point et de procédure stockée. les autres API et types d’opération ne sont pas pris en charge. Pour les autres API, la colonne clé de partition du tableau du journal de diagnostic est vide. Ce journal contient des données telles que l’ID d’abonnement, le nom de la région, le nom de la base de données, le nom du regroupement, la clé de partition, le type d’opération et les frais de demande. Consultez la section [Résolution des problèmes à l’aide des requêtes de diagnostic Azure](#diagnostic-queries) de cet article. Par exemple, les requêtes qui utilisent « PartitionKeyRUConsumption ». 
+* **PartitionKeyRUConsumption** : Ce journal indique la consommation agrégée par seconde RU/s des clés de partition. Actuellement, Azure Cosmos DB signale des clés de partition pour les comptes d’API SQL uniquement et pour les opérations de lecture/écriture de point et de procédure stockée. les autres API et types d’opération ne sont pas pris en charge. Pour les autres API, la colonne clé de partition du tableau du journal de diagnostic est vide. Ce journal contient des données telles que l’ID d’abonnement, le nom de la région, le nom de la base de données, le nom du regroupement, la clé de partition, le type d’opération et les frais de demande. Consultez la section [Résolution des problèmes à l’aide des requêtes de diagnostic Azure](#diagnostic-queries) de cet article. Par exemple, les requêtes qui utilisent « PartitionKeyRUConsumption ». 
 
-* **ControlPlaneRequests**: Ce journal contient des détails sur les opérations de plan de contrôle telles que la création d’un compte, l’ajout ou la suppression d’une région, la mise à jour des paramètres de réplication de compte, etc. Ce type de journal est disponible pour tous les types d’API qui incluent SQL (Core), MongoDB, Gremlin, Cassandra, API Table.
+* **ControlPlaneRequests** : Ce journal contient des détails sur les opérations de plan de contrôle telles que la création d’un compte, l’ajout ou la suppression d’une région, la mise à jour des paramètres de réplication de compte, etc. Ce type de journal est disponible pour tous les types d’API qui incluent SQL (Core), MongoDB, Gremlin, Cassandra, API Table.
 
-* **Requêtes** : Sélectionnez cette option pour collecter les données de métriques d’Azure Cosmos DB dans les destinations du paramètre de diagnostic. Il s’agit des mêmes données que celles collectées automatiquement dans les métriques Azure. Collectez les données de métriques avec les journaux de ressources pour analyser les deux types de données ensemble et envoyer des données de métrique en dehors d’Azure Monitor.
+* **Requêtes**  : Sélectionnez cette option pour collecter les données de métriques d’Azure Cosmos DB dans les destinations du paramètre de diagnostic. Il s’agit des mêmes données que celles collectées automatiquement dans les métriques Azure. Collectez les données de métriques avec les journaux de ressources pour analyser les deux types de données ensemble et envoyer des données de métrique en dehors d’Azure Monitor.
 
 Pour plus d’informations sur la création d’un paramètre de diagnostic à l’aide du Portail Azure, de l’interface CLI ou de PowerShell, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les indicateurs de performance de la plateforme dans Azure](../azure-monitor/platform/diagnostic-settings.md) article.
 
@@ -228,7 +229,7 @@ Pour plus d’informations sur la création d’un paramètre de diagnostic à l
    by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
  
-1. Comment se procurer les journaux Controlplane ?
+1. Comment se procurer les journaux ControlPlane ?
  
    N’oubliez pas d’activer l’indicateur comme décrit dans l’article [Désactiver l’accès en écriture aux métadonnées basé sur les clés](audit-control-plane-logs.md#disable-key-based-metadata-write-access) et exécutez les opérations en utilisant Azure PowerShell, l’interface CLI Azure ou Azure Resource Manager.
  
@@ -237,7 +238,6 @@ Pour plus d’informations sur la création d’un paramètre de diagnostic à l
    | where Category =="ControlPlaneRequests"
    | summarize by OperationName 
    ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

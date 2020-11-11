@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a24a61e26bdfaba0619e3965e95b1828380a1c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032943"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322105"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Choix de conception et techniques de codage pour les fonctionnalités SQL Synapse dans Azure Synapse Analytics
-Cet article contient une liste de ressources pour le pool SQL et des fonctions SQL à la demande (préversion) de SQL Synapse. Les articles recommandés sont répartis dans deux sections : Principaux choix de conception et techniques de développement et de codage.
+Dans cet article, vous trouverez une liste de ressources pour le pool SQL dédié et les fonctions de pool SQL serverless (préversion) de Synapse SQL. Les articles recommandés sont répartis dans deux sections : Principaux choix de conception et techniques de développement et de codage.
 
 Ces articles ont pour but de vous aider à développer l’approche technique optimale pour les composants SQL Synapse à l’intérieur de Synapse Analytics.
 
 ## <a name="key-design-decisions"></a>Choix de conception clés
 Les articles ci-dessous mettent en évidence les concepts et les choix de conception pour le développement SQL Synapse :
 
-| Article | Pool SQL | SQL à la demande |
+| Article | Pool SQL dédié | Pool SQL serverless |
 | ------- | -------- | ------------- |
 | [Connexions](connect-overview.md)                    | Oui | Oui |
 | [Classes de ressources et concurrence](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Oui    | Non |
@@ -44,7 +44,7 @@ Les articles ci-dessous mettent en évidence les concepts et les choix de concep
 
 Vous trouverez ci-dessous des articles essentiels qui mettent en évidence des techniques de codage, des conseils et des recommandations spécifiques pour le développement :
 
-| Article | Pool SQL | SQL à la demande |
+| Article | Pool SQL dédié | Pool SQL serverless |
 | ------- | -------- | ------------- |
 | [procédures stockées](develop-stored-procedures.md)  | Oui                | Non                      |
 | [Étiquettes](develop-label.md)                           | Oui                | Non                      |

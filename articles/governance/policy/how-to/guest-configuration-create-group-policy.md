@@ -3,25 +3,25 @@ title: Comment créer des définitions de stratégie de configuration d’invit�
 description: Découvrez comment convertir la stratégie de groupe issue de la sécurité de référence du Windows Server 2019 en une définition de politique.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893371"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348642"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Comment créer des définitions de stratégie de configuration d’invité à partir de la stratégie de groupe de référence pour Windows
 
 Avant de créer des définitions de stratégie personnalisées, il est judicieux de lire les informations conceptuelles de la section [Azure Policy Guest Configuration](../concepts/guest-configuration.md). Pour en savoir plus sur la création de politiques Guest Configuration personnalisées pour Linux, consultez la page [Créer des stratégies Guest Configuration pour Linux](./guest-configuration-create-linux.md). Pour en savoir plus sur la création de politiques Guest Configuration personnalisées pour Windows, consultez la page [Créer des stratégies Guest Configuration pour Windows](./guest-configuration-create.md).
 
-Lors de l’audit Windows, Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) pour créer le fichier de configuration. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration est **non conforme**, l’effet de stratégie *auditIfNotExists* est déclenché.
+Lors de l’audit Windows, Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) pour créer le fichier de configuration. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration est **non conforme** , l’effet de stratégie *auditIfNotExists* est déclenché.
 L’[Azure Policy Guest Configuration](../concepts/guest-configuration.md) effectue uniquement un audit des paramètres à l’intérieur de la machine.
 
 > [!IMPORTANT]
-> Les stratégies personnalisées avec Guest Configuration sont une fonctionnalité d’évaluation.
->
-> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur tous les ordinateurs Windows, attribuez les définitions de stratégie suivantes :
+> L’extension Guest Configuration (Configuration d’invité) est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur tous les ordinateurs Windows, attribuez les définitions de stratégie suivantes :
 > - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> N’utilisez pas de secrets ni d’informations confidentielles dans les packages de contenu personnalisés.
 
 La communauté DSC a publié le [module BaselineManagement](https://github.com/microsoft/BaselineManagement) pour convertir les modèles de stratégie de groupe exportés au format DSC. Avec la cmdlet GuestConfiguration, le module BaselineManagement crée un package Azure Policy Guest Configuration pour Windows à partir du contenu de la stratégie de groupe. Pour plus d’informations sur l’utilisation du module BaselineManagement, consultez l’article [Démarrage rapide : Convertir une stratégie de groupe en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
@@ -29,7 +29,7 @@ Dans ce guide, nous allons passer en revue le processus de création d’un pack
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Télécharger la sécurité de base Windows Server 2019 et installer les modules PowerShell associés
 
-Pour installer les modules **DSC**, **GuestConfiguration**, **BaselineManagement**et les modules Azure associés dans PowerShell :
+Pour installer les modules **DSC** , **GuestConfiguration** , **BaselineManagement** et les modules Azure associés dans PowerShell :
 
 1. À partir d’une invite de commandes PowerShell, exécutez la commande suivante :
 
@@ -87,78 +87,12 @@ Ensuite, nous allons convertir la référence Server 2019 téléchargée en un p
 
 ## <a name="create-azure-policy-guest-configuration"></a>Créez une Azure Policy Guest Configuration
 
-L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. 
-
-1. Le script ci-dessous contient une fonction que vous pouvez utiliser pour automatiser cette tâche. Veuillez noter que les commandes utilisées dans la fonction `publish` requièrent le module `Az.Storage`.
+1. L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. La commande `Publish-GuestConfigurationPackage` requiert le module `Az.Storage`.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Créez des paramètres pour définir le groupe de ressources, le compte de stockage et le conteneur uniques. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Utilisez la fonction « publish » avec les paramètres attribués pour publier le package Guest Configuration dans le stockage blob public.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
 1. Une fois qu’un package de stratégie personnalisée Guest Configuration a été créé et chargé, créez la définition de la stratégie Guest Configuration. Utilisez la cmdlet `New-GuestConfigurationPolicy` pour créer la Guest Configuration.
 
    ```azurepowershell-interactive

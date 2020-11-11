@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 12f0af5f051d02945eeb9b1f7d4bfc50ef98f281
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978864"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027633"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Déployer le module de stockage Blob Azure sur IoT Edge vers votre appareil
 
@@ -40,29 +40,29 @@ Le Portail Azure vous aide à créer un manifeste de déploiement et à étendre
 
 ### <a name="configure-a-deployment-manifest"></a>Configurer un manifeste de déploiement
 
-Un manifeste de déploiement est un document JSON qui décrit les modules à déployer, le flux des données entre les modules et les propriétés souhaitées des jumeaux de module. Le portail Azure comprend un Assistant qui vous guide lors de la création du manifeste de déploiement. Le processus comprend trois étapes organisées en onglets : **Modules**, **Itinéraires** et **Vérifier + créer**.
+Un manifeste de déploiement est un document JSON qui décrit les modules à déployer, le flux des données entre les modules et les propriétés souhaitées des jumeaux de module. Le portail Azure comprend un Assistant qui vous guide lors de la création du manifeste de déploiement. Le processus comprend trois étapes organisées en onglets : **Modules** , **Itinéraires** et **Vérifier + créer**.
 
 #### <a name="add-modules"></a>Ajouter des modules
 
-1. Dans la section **Modules IoT Edge** de la page, cliquez sur la liste déroulante **Ajouter**, puis sélectionnez **Module IoT Edge** pour afficher la page **Ajouter un module IoT Edge**.
+1. Dans la section **Modules IoT Edge** de la page, cliquez sur la liste déroulante **Ajouter** , puis sélectionnez **Module IoT Edge** pour afficher la page **Ajouter un module IoT Edge**.
 
-2. Sous l’onglet **Paramètres du module**, fournissez un nom pour le module, puis spécifiez l’URI de l’image conteneur :
+2. Sous l’onglet **Paramètres du module** , fournissez un nom pour le module, puis spécifiez l’URI de l’image conteneur :
 
    Exemples :
   
-   - **Nom du module IoT Edge** : `azureblobstorageoniotedge`
+   - **Nom du module IoT Edge**  : `azureblobstorageoniotedge`
    - **URI de l’image**  : `mcr.microsoft.com/azure-blob-storage:latest`
 
-   ![Paramètres de jumeau de module](./media/how-to-deploy-blob/addmodule-tab1.png)
+   ![Capture d’écran affichant l’onglet Paramètres du module de la page Ajouter un module IoT Edge.](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   Ne sélectionnez pas **Ajouter** tant que vous n’avez pas spécifié de valeurs sous les onglets **Paramètres du module**, **Options de création de conteneur** et **Paramètres de jumeau de module**, comme décrit dans cette procédure.
+   Ne sélectionnez pas **Ajouter** tant que vous n’avez pas spécifié de valeurs sous les onglets **Paramètres du module** , **Options de création de conteneur** et **Paramètres de jumeau de module** , comme décrit dans cette procédure.
 
    > [!IMPORTANT]
-   > Azure IoT Edge respecte la casse lorsque vous effectuez des appels de modules, et le SDK de stockage utilise également des minuscules par défaut. Même si le nom du module dans la [place de marché Azure](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) est **AzureBlobStorageonIoTEdge**, le passage de ce dernier en minuscules permet de s’assurer que vos connexions au module de stockage Blob Azure sur IoT Edge ne sont pas interrompues.
+   > Azure IoT Edge respecte la casse lorsque vous effectuez des appels de modules, et le SDK de stockage utilise également des minuscules par défaut. Même si le nom du module dans la [place de marché Azure](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) est **AzureBlobStorageonIoTEdge** , le passage de ce dernier en minuscules permet de s’assurer que vos connexions au module de stockage Blob Azure sur IoT Edge ne sont pas interrompues.
 
 3. Ouvrez l’onglet **Options de création de conteneur**.
 
-   ![Paramètres de jumeau de module](./media/how-to-deploy-blob/addmodule-tab3.png)
+   ![Capture d’écran affichant l’onglet Options de création de conteneur de la page Ajouter un module IoT Edge.](./media/how-to-deploy-blob/addmodule-tab3.png)
 
    Copiez et collez le code JSON suivant dans la zone afin de fournir des informations sur le compte de stockage et un montage pour le stockage sur votre appareil.
   
@@ -102,9 +102,9 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
      > [!IMPORTANT]
      > Ne modifiez pas la deuxième moitié de la valeur de montage de stockage, qui pointe vers un emplacement spécifique dans le Stockage Blob sur le module IoT Edge. Le montage de stockage doit toujours se terminer par **:/blobroot** pour les conteneurs Linux et **:C:/BlobRoot** pour les conteneurs Windows.
 
-5. Sous l’onglet **Paramètres de jumeau de module**, copiez le code JSON suivant et collez-le dans la zone.
+5. Sous l’onglet **Paramètres de jumeau de module** , copiez le code JSON suivant et collez-le dans la zone.
 
-   ![Paramètres de jumeau de module](./media/how-to-deploy-blob/addmodule-tab4.png)
+   ![Capture d’écran affichant l’onglet Paramètres de jumeau de module de la page Ajouter un module IoT Edge.](./media/how-to-deploy-blob/addmodule-tab4.png)
 
    Configurez chaque propriété avec une valeur appropriée, comme indiqué par les espaces réservés. Si vous utilisez le simulateur IoT Edge, définissez les valeurs sur les variables d’environnement associées pour ces propriétés, telles que décrites par [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) et [ deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
@@ -169,7 +169,7 @@ Azure IoT Edge fournit des modèles dans Visual Studio Code pour vous aider à d
    | Champ | Valeur |
    | ----- | ----- |
    | Sélectionner le dossier | Choisissez l’emplacement sur votre machine de développement pour que Visual Studio Code crée les fichiers de la solution. |
-   | Provide a solution name (Nommer la solution) | Entrez un nom descriptif pour votre solution ou acceptez le nom par défaut (**EdgeSolution**). |
+   | Provide a solution name (Nommer la solution) | Entrez un nom descriptif pour votre solution ou acceptez le nom par défaut ( **EdgeSolution** ). |
    | Select module template (Sélectionner un modèle de module) | Choisissez **Module existant (Entrez l’URL de l’image complète)** . |
    | Provide a module name (Nommer le module) | Entrez un nom en minuscules pour votre module, par exemple **azureblobstorageoniotedge**.<br/><br/>Il est important d’utiliser un nom en minuscules pour le stockage Blob Azure sur le module IoT Edge. IoT Edge respecte la casse lorsque vous faites référence aux modules, et le SDK de stockage figure par défaut en minuscules. |
    | Indiquer une image Docker pour le module | Fournissez l’URI de l’image : **mcr.microsoft.com/azure-blob-storage:latest** |
@@ -178,7 +178,7 @@ Azure IoT Edge fournit des modèles dans Visual Studio Code pour vous aider à d
 
 1. Ouvrez *deployment.template.json* dans l’espace de travail de votre nouvelle solution et recherchez la section **modules**. Modifiez la configuration comme suit :
 
-   1. Supprimez le module **SimulatedTemperatureSensor**, car il est inutile pour ce déploiement.
+   1. Supprimez le module **SimulatedTemperatureSensor** , car il est inutile pour ce déploiement.
 
    1. Copiez et collez le code suivant dans le champ `createOptions` :
 
@@ -282,19 +282,19 @@ En outre, un module de stockage d’objets BLOB requiert également le paramètr
 
 1. Dans la section **Modules IoT Edge** de la page, sélectionnez le module de stockage d’objets BLOB.
 
-1. Sur la page **Mettre à jour le module IoT Edge**, sélectionnez l’onglet **Variables d’environnement**.
+1. Sur la page **Mettre à jour le module IoT Edge** , sélectionnez l’onglet **Variables d’environnement**.
 
 1. Ajoutez `HTTPS_PROXY` pour le **Nom** et votre URL de proxy pour la **Valeur**.
 
-      ![Définir la variable d’environnement HTTPS_PROXY](./media/how-to-deploy-blob/https-proxy-config.png)
+      ![Capture d’écran affichant le volet Mettre à jour le module IoT Edge, dans lequel vous pouvez entrer les valeurs spécifiées.](./media/how-to-deploy-blob/https-proxy-config.png)
 
-1. Cliquez sur **Mettre à jour**, puis sur **Vérifier + créer**.
+1. Cliquez sur **Mettre à jour** , puis sur **Vérifier + créer**.
 
 1. Notez que le proxy est ajouté au module dans le manifeste de déploiement, et sélectionnez **Créer**.
 
 1. Vérifiez le paramètre en sélectionnant le module à partir de la page Détails de l’appareil, puis dans la partie inférieure de la page **Détails des modules IoT Edge** sélectionnez l’onglet **Variables d’environnement**.
 
-      ![Définir la variable d’environnement HTTPS_PROXY](./media/how-to-deploy-blob/verify-proxy-config.png)
+      ![Capture d’écran affichant l’onglet Variables d’environnement.](./media/how-to-deploy-blob/verify-proxy-config.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 59ea0258d6262f652e9ac563bbda5ec89c4c5819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d1ae4da07e159c24970c065d1c39e22b89a29a
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91579231"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280195"
 ---
 # <a name="install-and-use-the-dtdl-authoring-tools"></a>Installer et utiliser les outils de création DTDL
 
@@ -36,9 +36,9 @@ Une fois l’extension installée, utilisez-la pour vous aider à créer des fic
 
 - Utilisez IntelliSense et l’autocomplétion lorsque vous modifiez des modèles DTDL :
 
-    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense.png" alt-text="Validation de modèle dans VS Code":::
+    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense.png" alt-text="Utiliser IntelliSense pour les modèles DTDL dans VS Code":::
 
-- Créez une nouvelle interface DTDL. La commande suivante crée un fichier JSON avec une nouvelle interface. L’interface comprend des exemples de définitions de télémétrie, de propriété et de commande.
+- Créez une nouvelle interface DTDL. La commande **DTDL: Create Interface** crée un fichier JSON avec une nouvelle interface. L’interface comprend des exemples de définitions de télémétrie, de propriété et de commande.
 
 ## <a name="install-and-use-the-visual-studio-extension"></a>Installer et utiliser l’extension Visual Studio
 
@@ -53,11 +53,11 @@ Une fois l’extension installée, utilisez-la pour vous aider à créer des fic
 
 - L’extension fournit la validation de la syntaxe dans les fichiers de modèle DTDL, en mettant en surbrillance les erreurs comme indiqué sur la capture d’écran suivante :
 
-    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-validation-2.png" alt-text="Validation de modèle dans VS Code":::
+    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-validation-2.png" alt-text="Validation de modèles dans Visual Studio":::
 
 - Utilisez IntelliSense et l’autocomplétion lorsque vous modifiez des modèles DTDL :
 
-    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense-2.png" alt-text="Validation de modèle dans VS Code":::
+    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense-2.png" alt-text="Utiliser IntelliSense pour les modèles DTDL dans Visual Studio":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

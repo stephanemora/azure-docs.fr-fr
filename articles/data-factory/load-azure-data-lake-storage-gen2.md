@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 424d5a7ade04c2b72a0bc8ec379a6fad09216f39
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042686"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
 
@@ -42,16 +42,16 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory** :
+1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory**  :
    
    ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. Sur la page **Nouvelle fabrique de données**, fournissez les valeurs des champs suivants :
+2. Sur la page **Nouvelle fabrique de données** , fournissez les valeurs des champs suivants :
  
-    * **Name** : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données *NomDeVotreFabriqueDeDonnées* n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
-    * **Abonnement**: Sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
+    * **Name**  : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données *NomDeVotreFabriqueDeDonnées* n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
+    * **Abonnement** : Sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
     * **Groupe de ressources** : Sélectionnez un groupe de ressources existant dans la liste déroulante ou sélectionnez l’option **Créer** et entrez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).  
-    * **Version** : Sélectionnez **V2**.
+    * **Version**  : Sélectionnez **V2**.
     * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. 
 
 3. Sélectionnez **Create** (Créer).
@@ -64,12 +64,12 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 ## <a name="load-data-into-azure-data-lake-storage-gen2"></a>Charger des données dans Azure Data Lake Storage Gen2
 
-1. Dans la page **Prise en main**, sélectionnez la vignette **Copier les données** pour démarrer l’outil Copier les données.
+1. Dans la page **Prise en main** , sélectionnez la vignette **Copier les données** pour démarrer l’outil Copier les données.
 
-2. Dans la page **Propriétés**, spécifiez **CopyFromAmazonS3ToADLS** dans le champ **Nom de tâche**, puis cliquez sur **Suivant**.
+2. Dans la page **Propriétés** , spécifiez **CopyFromAmazonS3ToADLS** dans le champ **Nom de tâche** , puis cliquez sur **Suivant**.
 
     ![Page Propriétés](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
-3. Dans la page **Banque de données sources**, cliquez sur **+ Créer une connexion**. Sélectionnez **Amazon S3** dans la galerie des connecteurs, puis sélectionnez **Continuer**.
+3. Dans la page **Banque de données sources** , cliquez sur **+ Créer une connexion**. Sélectionnez **Amazon S3** dans la galerie des connecteurs, puis sélectionnez **Continuer**.
     
     ![Page Banque de données sources s3](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
@@ -82,15 +82,15 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
       ![Spécification du compte Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
    4. Vous voyez qu’une nouvelle connexion AmazonS3 est créée. Sélectionnez **Suivant**. 
 
-5. Sur la page de **sélection du fichier ou dossier d’entrée**, accédez au dossier et au fichier sur lesquels effectuer la copie. Sélectionnez le dossier ou le fichier, puis sélectionnez **Choisir**.
+5. Sur la page de **sélection du fichier ou dossier d’entrée** , accédez au dossier et au fichier sur lesquels effectuer la copie. Sélectionnez le dossier ou le fichier, puis sélectionnez **Choisir**.
 
     ![Choisir le fichier ou le dossier d’entrée](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
 
 6. Spécifiez le comportement de copie en cochant les options **Copier les fichiers de façon récursive** et **Copie binaire**. Sélectionnez **Suivant**.
 
-    ![Spécification du dossier de sortie](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
+    ![Capture d’écran affichant la zone Choisir le fichier ou le dossier d’entrée, dans laquelle vous pouvez sélectionner Copie binaire et Copier les fichiers de façon récursive.](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. Sur la page **Banque de données de destination**, cliquez sur **+ Créer une connexion**, puis sélectionnez **Azure Data Lake Storage Gen2** et sélectionnez **Continuer**.
+7. Sur la page **Banque de données de destination** , cliquez sur **+ Créer une connexion** , puis sélectionnez **Azure Data Lake Storage Gen2** et sélectionnez **Continuer**.
 
     ![Page Magasin de données de destination](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 
@@ -101,19 +101,19 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
         ![Indiquer un compte Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 
-9. Dans la page de **sélection du fichier ou dossier de sortie**, saisissez **copyfroms3** dans le champ du nom du dossier de sortie, puis sélectionnez **Suivant**. ADF crée le système de fichiers ADLS Gen2 et les sous-dossiers correspondants pendant la copie s’ils n’existent pas.
+9. Dans la page de **sélection du fichier ou dossier de sortie** , saisissez **copyfroms3** dans le champ du nom du dossier de sortie, puis sélectionnez **Suivant**. ADF crée le système de fichiers ADLS Gen2 et les sous-dossiers correspondants pendant la copie s’ils n’existent pas.
 
-    ![Spécification du dossier de sortie](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
+    ![Capture d’écran représentant le chemin d’accès au dossier que vous entrez.](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
-10. Dans la page **Paramètres**, sélectionnez **Suivant** pour utiliser les paramètres par défaut.
+10. Dans la page **Paramètres** , sélectionnez **Suivant** pour utiliser les paramètres par défaut.
 
     ![Page Paramètres](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
 
-11. Dans la page **Résumé**, vérifiez les paramètres, puis cliquez sur **Suivant**.
+11. Dans la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.
 
     ![Page de résumé](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
 
-12. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche). 
+12. Sur la page **Déploiement** , sélectionnez **Surveiller** pour surveiller le pipeline (tâche). 
  
 13. Lorsque l’exécution du pipeline se termine avec succès, vous voyez une exécution de pipeline qui est déclenchée par un déclencheur manuel. Vous pouvez utiliser les liens sous la colonne **NOM DU PIPELINE** pour voir les détails de l’activité et réexécuter le pipeline.
 

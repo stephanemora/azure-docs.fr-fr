@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 4925f6ffd2383c21f8ff9b0e3196d44fc15bb657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fda41a22c9bd9c66dd691b283ece10ac044db3ed
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652590"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324578"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Prise en charge du déplacement des ressources Azure SQL entre différentes régions Azure
 
@@ -38,7 +38,7 @@ Ces conditions sont résumées dans le tableau suivant.
 **Réglage automatique** | Non pris en charge. | Solution de contournement : Configuration des paramètres de réglage automatique après le déplacement. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning-enable)
 **Alertes de base de données** | Non pris en charge. | Solution de contournement : Configuration des alertes après le déplacement. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal)
 **Instance stretch database Azure SQL Server** | Non pris en charge | Impossible de déplacer les instances stretch database SQL Server avec Resource Mover.
-**Azure Synapse Analytics** | Non pris en charge | Impossible de déplacer Synapse Analytics (anciennement Azure SQL Data Warehouse) avec Resource Mover.
+**Azure Synapse Analytics** | Non pris en charge | Impossible de déplacer Synapse Analytics (anciennement SQL Data Warehouse) avec Resource Mover.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Essayez de déplacer des [ressources Azure SQL](tutorial-move-region-sql.md) vers une autre région avec Resource Mover.

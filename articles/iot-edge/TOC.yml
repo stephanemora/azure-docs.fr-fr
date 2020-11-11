@@ -1,5 +1,7 @@
 - name: Documentation Azure IoT Edge
   href: index.yml
+- name: Versions d’Azure IoT Edge
+  href: version-history.md
 - name: Vue d’ensemble
   items:
     - name: À propos d’Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: Tutoriels
   items:
-    - name: 1. Configurer l’environnement de développement
+    - name: Configurer l’environnement de développement
       items:
         - name: Développer pour des appareils Linux
           href: tutorial-develop-for-linux.md
         - name: Développer pour des appareils Windows
           href: tutorial-develop-for-windows.md
-    - name: 2. Développer des modules de code personnalisés
+    - name: Développer des modules de code personnalisés
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Déployer des services Azure sous forme de modules
+    - name: Déployer des services Azure sous forme de modules
       items:
         - name: Filtrer des données avec Azure Functions
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: Stocker des données localement avec SQL
           href: tutorial-store-data-sql-server.md
-    - name: 4. Exemple complet de machine learning en périphérie
+    - name: Utiliser IoT Edge en tant que passerelle
+      items:
+        - name: Créer des hiérarchies d’appareils IoT Edge
+          href: tutorial-nested-iot-edge.md
+    - name: Exemple complet de machine learning en périphérie
       items:
         - name: Introduction
           href: tutorial-machine-learning-edge-01-intro.md
@@ -187,16 +193,26 @@
           href: how-to-access-built-in-metrics.md
     - name: Utiliser des appareils IoT Edge comme passerelles
       items:
-        - name: Configurer une passerelle transparente
-          href: how-to-create-transparent-gateway.md
-        - name: Authentifier un appareil en aval
-          href: how-to-authenticate-downstream-device.md
-        - name: Connecter un appareil en aval
-          href: how-to-connect-downstream-device.md
-        - name: Passerelle de protocole Modbus
-          href: deploy-modbus-gateway.md
+        - name: Passerelles pour les appareils IoT
+          items:
+            - name: Configurer une passerelle transparente
+              href: how-to-create-transparent-gateway.md
+            - name: Authentifier un appareil en aval
+              href: how-to-authenticate-downstream-device.md
+            - name: Connecter un appareil en aval
+              href: how-to-connect-downstream-device.md
+            - name: Passerelle de protocole Modbus
+              href: deploy-modbus-gateway.md
+        - name: Passerelles pour les appareils IoT Edge
+          items:
+            - name: Configurer des passerelles pour les appareils IoT Edge
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: Configurer le module de proxy d’API
+              href: how-to-configure-api-proxy-module.md
     - name: Configurer une prise en charge de proxy
       href: how-to-configure-proxy-support.md
+    - name: Publier et s’abonner avec IoT Edge
+      href: how-to-publish-subscribe.md
     - name: Stockage d’objets Blob Azure sur IoT Edge
       items:
         - name: Comprendre le Stockage Blob en périphérie

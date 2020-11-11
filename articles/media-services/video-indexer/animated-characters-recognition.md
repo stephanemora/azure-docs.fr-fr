@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018880"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040088"
 ---
 # <a name="animated-character-detection-preview"></a>Détection de personnages animés (préversion)
 
@@ -96,7 +96,7 @@ Procédez comme suit pour connecter votre compte Custom Vision à Video Indexer 
 1. Accédez au site web [Video Indexer](https://vi.microsoft.com/) et connectez-vous.
 1. Cliquez sur le bouton de personnalisation du modèle de contenu en haut à droite de la page.
 
-    ![Personnalisation du modèle de contenu](./media/animated-characters-recognition/content-model-customization.png)
+    ![Capture d’écran montrant la page « Video Indexer » avec le bouton « Personnalisation du modèle de contenu » sélectionné dans l’angle supérieur droit.](./media/animated-characters-recognition/content-model-customization.png)
 1. Accédez à l'onglet **Personnages animés** dans la section de personnalisation du modèle.
 1. Cliquez sur **Ajouter un modèle**.
 1. Nommez votre modèle, puis cliquez sur Entrée pour enregistrer le nom.
@@ -109,7 +109,7 @@ Procédez comme suit pour connecter votre compte Custom Vision à Video Indexer 
 1. Cliquez sur le bouton **Télécharger** dans le menu du haut.
 1. Choisissez une vidéo à télécharger (à partir d’un fichier ou d’une URL).
 1. Cliquez sur **Options avancées**.
-1. Sous **Personnes/Personnages animés**, choisissez **Modèles d’animation**.
+1. Sous **Personnes/Personnages animés** , choisissez **Modèles d’animation**.
 1. Si vous avez un modèle, il est automatiquement choisi, et si vous avez plusieurs modèles, vous pouvez choisir celui qui convient dans le menu déroulant.
 1. Cliquez sur Télécharger.
 1. Une fois la vidéo indexée, les personnages détectés s’affichent dans la section **Personnages animés** du volet **Insights**.
@@ -123,7 +123,7 @@ Procédez comme suit pour connecter votre compte Custom Vision à Video Indexer 
 
     1. Marquez le personnage détecté en modifiant son nom. Une fois qu’un personnage est formé dans le modèle, il est reconnu dans la vidéo suivante indexée avec ce modèle. 
     1. Pour marquer un personnage animé dans votre vidéo, accédez à l'onglet **Insights** et cliquez sur le bouton **Modifier** dans le coin supérieur droit de la fenêtre.
-    1. Dans le volet **Insights**, cliquez sur l’un des personnages animés détectés, puis remplacez son nom, qui devrait actuellement être « Inconnu #X » (ou le nom précédemment affecté au personnage).
+    1. Dans le volet **Insights** , cliquez sur l’un des personnages animés détectés, puis remplacez son nom, qui devrait actuellement être « Inconnu #X » (ou le nom précédemment affecté au personnage).
     1. Après avoir tapé le nouveau nom, cliquez sur l’icône de coche en regard du nouveau nom. Cela enregistre le nouveau nom dans le modèle dans Video Indexer.
     1. Une fois que vous avez fini de modifier tous les noms souhaités, vous devez effectuer la formation du modèle.
 

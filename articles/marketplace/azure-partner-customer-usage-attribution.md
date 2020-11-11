@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282354"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348336"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -33,15 +33,18 @@ L’attribution de l’utilisation de client prend en charge trois options de d�
 >- L’attribution de l’utilisation de client est destinée aux nouveaux déploiements et ne prend PAS en charge le balisage des ressources existantes qui ont déjà été déployées.
 >
 >- L’attribution de l’utilisation de client est obligatoire pour les offres [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) publiées sur la place de marché Azure.
+>
+>- Tous les services Azure ne sont pas compatibles avec l’attribution de l’utilisation du client. Azure Kubernetes Services (AKS) et Virtual Machine Scale Sets présentent actuellement des problèmes connus qui entraînent la production de rapports d’utilisation insuffisants.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>Créer des GUID
 
-Un GUID désigne un identificateur de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://aka.ms/StoragePartners) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
+Un GUID désigne un identificateur de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer un suivi, vous devez utiliser un générateur GUID, par exemple via PowerShell.
 
-> [!NOTE]
-> Nous vous recommandons vivement d’utiliser le [formulaire Générateur de GUID de stockage Azure](https://aka.ms/StoragePartners) pour créer votre GUID. Pour plus d’informations, consultez notre [Forum Aux Questions (FAQ)](#faq).
+```powershell
+[guid]::NewGuid()]
+```
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
 
@@ -67,15 +70,15 @@ Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilis
 
 1. Inscrivez-vous en tant qu’[éditeur de la place de marché commerciale](https://aka.ms/JoinMarketplace).
 
-   * Les partenaires doivent [avoir un profil dans l’Espace partenaires](become-publisher.md). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
+   * Les partenaires doivent [avoir un profil dans l’Espace partenaires](./partner-center-portal/create-account.md). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
    * Les partenaires peuvent inscrire plusieurs GUID.
    * Les partenaires peuvent également enregistrer des GUID pour des modèles et des offres de solutions extérieures à la place de marché.
 
 1. Dans l’angle supérieur droit, sélectionnez l’icône des paramètres (engrenage), puis sélectionnez **Paramètres de développeur**.
 
-1. Sur la page **Paramètres du compte**, sélectionnez **Ajouter un GUID de suivi**.
+1. Sur la page **Paramètres du compte** , sélectionnez **Ajouter un GUID de suivi**.
 
-1. Dans la zone **GUID**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe `pid-`. Dans la zone **Description**, entrez le nom ou la description de l’offre.
+1. Dans la zone **GUID** , entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe `pid-`. Dans la zone **Description** , entrez le nom ou la description de l’offre.
 
 1. Pour inscrire plusieurs GUID, sélectionnez de nouveau **Add Tracking GUID** (Ajouter un GUID de suivi). Des champs supplémentaires apparaissent sur la page.
 
@@ -97,7 +100,7 @@ Pour ajouter un identificateur global unique (GUID), vous devez apporter une mod
 
 1. Ouvrez le modèle Resource Manager.
 
-1. Ajoutez une nouvelle ressource de type [Microsoft. Resources/Deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
+1. Ajoutez une nouvelle ressource de type [Microsoft. Resources/Deployments](/azure/templates/microsoft.resources/deployments) dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json** , et pas dans l’un des modèles imbriqués ou liés.
 
 1. Entrez la valeur du GUID derrière le préfixe `pid-`, en tant que nom de la ressource. Par exemple, si le GUID est eb7927c8-dd66-43e1-b0cf-c346a422063, le nom de la ressource est _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
@@ -110,7 +113,7 @@ Pour ajouter un identificateur global unique (GUID), vous devez apporter une mod
 ### <a name="sample-resource-manager-template-code"></a>Exemple de code de modèle Resource Manager
 
 Pour activer les ressources de suivi pour votre modèle, vous devez ajouter la ressource supplémentaire suivante dans la section des ressources. Veillez à modifier l’exemple de code ci-dessous avec vos propres entrées lorsque vous l’ajoutez au fichier modèle principal.
-Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
+Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json** , et pas dans l’un des modèles imbriqués ou liés.
 
 ```json
 // Make sure to modify this sample code with your own inputs where applicable
@@ -132,7 +135,7 @@ Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.js
 
 ## <a name="use-the-resource-manager-apis"></a>Utiliser les API Resource Manager
 
-Dans certains cas, les partenaires préfèrent effectuer directement des appels d’API REST Resource Manager afin de déployer des services Azure. [Azure prend en charge plusieurs kits SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) pour permettre ces appels. Vous pouvez utiliser l’un des kits SDK ou appeler les API REST directement pour déployer des ressources.
+Dans certains cas, les partenaires préfèrent effectuer directement des appels d’API REST Resource Manager afin de déployer des services Azure. [Azure prend en charge plusieurs kits SDK](../index.yml?pivot=sdkstools) pour permettre ces appels. Vous pouvez utiliser l’un des kits SDK ou appeler les API REST directement pour déployer des ressources.
 
 Si vous utilisez un modèle Resource Manager, vous devez baliser votre solution en vous conformant aux instructions précédentes. Si vous n’utilisez pas un modèle Resource Manager et n’effectuez pas d’appels directs d’API, vous pouvez toujours baliser votre déploiement pour associer l’utilisation des ressources Azure.
 
@@ -156,7 +159,7 @@ Pour Python, utilisez l’attribut **config**. Vous pouvez uniquement ajouter l�
 
 #### <a name="example-the-net-sdk"></a>Exemple : Le kit de développement logiciel (SDK) .NET
 
-Pour .NET, veillez à définir l’agent utilisateur. La bibliothèque [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) peut être utilisée pour définir l’agent utilisateur avec le code suivant (exemple en C#) :
+Pour .NET, veillez à définir l’agent utilisateur. La bibliothèque [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent) peut être utilisée pour définir l’agent utilisateur avec le code suivant (exemple en C#) :
 
 ```csharp
 
@@ -183,7 +186,7 @@ Lorsque vous utilisez Azure CLI pour ajouter votre GUID, définissez la variable
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Go](https://docs.microsoft.com/azure/developer/go/).
+Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Utiliser Terraform
 

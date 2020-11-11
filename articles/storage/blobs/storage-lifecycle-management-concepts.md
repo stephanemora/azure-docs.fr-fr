@@ -1,24 +1,24 @@
 ---
-title: Gestion du cycle de vie de Stockage Azure
-description: Découvrez comment créer des règles de stratégie du cycle de vie pour faire passer les données vieillissantes du niveau de stockage chaud à froid et aux niveaux d’archivage.
+title: Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure
+description: Créez des règles automatisées pour déplacer des données entre les niveaux chaud, froid et archive.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100067"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure
 
-Les jeux de données ont des cycles de vie différents. Tôt dans le cycle de vie, les utilisateurs accèdent souvent à certaines données. Mais à mesure que les données vieillissent, le nombre d’accès diminue considérablement. Certaines données restent inactives dans le cloud et sont rarement sollicitées une fois stockées. Certaines expirent plusieurs jours ou mois après leur création, tandis que d’autres jeux de données sont lus et modifiés de manière active tout au long de leur vie. La gestion du cycle de vie de Stockage Blob Azure offre une stratégie complète basée sur des règles pour les comptes Stockage Blob et GPv2. Utilisez la stratégie pour effectuer la transition de vos données vers les niveaux d’accès appropriés ou pour faire en sorte qu’elles expirent à la fin de leur cycle de vie.
+Les jeux de données ont des cycles de vie différents. Tôt dans le cycle de vie, les utilisateurs accèdent souvent à certaines données. Mais à mesure que les données vieillissent, le nombre d’accès diminue considérablement. Certaines données restent inactives dans le cloud et sont rarement sollicitées une fois stockées. Certaines expirent plusieurs jours ou mois après leur création, tandis que d’autres jeux de données sont lus et modifiés de manière active tout au long de leur vie. La gestion du cycle de vie du stockage Blob Azure offre une stratégie complète basée sur des règles pour les comptes de stockage Blob et GPv2. Utilisez la stratégie pour effectuer la transition de vos données vers les niveaux d’accès appropriés ou pour faire en sorte qu’elles expirent à la fin de leur cycle de vie.
 
 La gestion du cycle de vie vous permet de :
 
@@ -31,12 +31,13 @@ La gestion du cycle de vie vous permet de :
 Considérez un scénario où des données sont sollicitées fréquemment durant les premières étapes du cycle de vie, mais seulement occasionnellement après deux semaines. Au-delà du premier mois, le jeu de données est rarement sollicité. Dans ce scénario, le stockage chaud est préférable durant les premiers temps. Un stockage froid est plus approprié pour un accès occasionnel. L’option Stockage archive est la meilleure une fois que les données ont plus d’un mois. En ajustant les niveaux de stockage en fonction de l’ancienneté des données, vous pouvez concevoir les options de stockage les moins coûteuses par rapport à vos besoins. Pour effectuer cette transition, les règles de stratégie de gestion du cycle de vie permettent de déplacer les données vieillissantes vers des niveaux plus froids.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 >[!NOTE]
 >Si vous avez besoin que les données restent lisibles, par exemple, quand elles sont utilisées par StorSimple, ne définissez pas de stratégie pour déplacer des objets blob vers le niveau Archive.
 
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes Usage général v2 (GPv2), les comptes Stockage Blob, les comptes Stockage Objet blob de blocs Premium et les comptes Azure Data Lake Storage Gen2. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes v2 universels (GPv2), les comptes de stockage Blob, les comptes de stockage Blob de blocs Premium et les comptes Azure Data Lake Storage Gen2. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
 La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont facturés au coût de fonctionnement normal pour les appels d’API [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). L’opération de suppression est gratuite. Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -71,15 +72,15 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 1. Sous **Service Blob** , sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
 
-1. Sélectionnez l’onglet **Mode Liste** .
+1. Sélectionnez l’onglet **Mode Liste**.
 
-1. Sélectionnez **Ajouter une règle** et nommez votre règle dans le formulaire **Détails** . Vous pouvez également définir les l’ **Étendue de la règle** , le **Type d’objet blob** et le **Sous-type d’objet blob** . L’exemple suivant définit l’étendue pour filtrer les objets blob. Cela entraîne l’ajout de l’onglet **Jeu de filtres** .
+1. Sélectionnez **Ajouter une règle** et nommez votre règle dans le formulaire **Détails**. Vous pouvez également définir les l’ **Étendue de la règle** , le **Type d’objet blob** et le **Sous-type d’objet blob**. L’exemple suivant définit l’étendue pour filtrer les objets blob. Cela entraîne l’ajout de l’onglet **Jeu de filtres**.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Gestion du cycle de vie - Ajouter une page Détails de la règle dans le Portail Azure":::
 
 1. Sélectionnez **Objets blob de base** pour définir les conditions de votre règle. Dans l’exemple suivant, les objets BLOB sont déplacés vers le stockage froid s’ils n’ont pas été modifiés depuis 30 jours.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Gestion du cycle de vie - Ajouter une page Détails de la règle dans le Portail Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Page Gestion de cycle de vie des objets blob de base du Portail Microsoft Azure":::
 
    L’option **Dernier accès** est disponible en préversion dans les régions suivantes :
 
@@ -94,7 +95,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 1. Si vous avez sélectionné **Limiter les objets blob avec des filtres** dans la page **Détails** , sélectionnez **Jeu de filtres** pour ajouter un filtre facultatif. L’exemple suivant filtre sur les objets blob dans le conteneur *mylifecyclecontainer* qui commencent par « log ».
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Gestion du cycle de vie - Ajouter une page Détails de la règle dans le Portail Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Page Lifecycle management action set (Jeu de filtres de gestion du cycle de vie) du Portail Microsoft Azure":::
 
 1. Sélectionnez **Ajouter** pour ajouter la stratégie.
 
@@ -105,7 +106,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 1. Sous **Service Blob** , sélectionnez **Gestion du cycle de vie** pour afficher ou modifier votre stratégie.
 
-1. Le code JSON suivant est un exemple de stratégie que vous pouvez coller dans l’onglet **Mode Code** .
+1. Le code JSON suivant est un exemple de stratégie que vous pouvez coller dans l’onglet **Mode Code**.
 
    ```json
    {
@@ -136,7 +137,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
    }
    ```
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 1. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
 
@@ -321,7 +322,7 @@ Les filtres sont les suivants :
 | blobIndexMatch | Un ensemble de valeurs de dictionnaire constitué d’une clé de balise d’index d’objets blob et de conditions de valeur à mettre en correspondance. Chaque règle peut définir jusqu’à 10 conditions de balise d’index d’objets blob. Par exemple, si vous souhaitez mettre en correspondre tous les objets blob avec `Project = Contoso` sous `https://myaccount.blob.core.windows.net/` pour une règle, le blobIndexMatch est `{"name": "Project","op": "==","value": "Contoso"}`. | Si vous ne définissez pas blobIndexMatch, la règle s’applique à tous les objets blob au sein du compte de stockage. | Non |
 
 > [!NOTE]
-> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **Canada Centre** , **Canada Est** , **France Centre** et **France Sud** . Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
+> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **Canada Centre** , **Canada Est** , **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Actions de règle
 
@@ -539,7 +540,7 @@ Certaines données ne doivent expirer que si elles sont marquées explicitement 
 
 ### <a name="manage-versions"></a>Gérer les versions
 
-Pour les données modifiées et consultées régulièrement pendant toute leur durée de vie, vous pouvez activer le contrôle de version du stockage blob pour gérer automatiquement les versions précédentes d’un objet. Vous pouvez créer une stratégie pour hiérarchiser ou supprimer les versions précédentes. L’âge de la version est déterminé en regardant l’heure de création de cette dernière. Cette règle de stratégie hiérarchise les versions précédentes du conteneur `activedata` qui datent de 90 jours ou plus après la création de la version vers le niveau Froid, et supprime les versions antérieures datant de 365 jours ou plus.
+Pour les données modifiées et consultées régulièrement pendant toute leur durée de vie, vous pouvez activer la gestion de versions du stockage Blob afin de gérer automatiquement les versions précédentes d’un objet. Vous pouvez créer une stratégie pour hiérarchiser ou supprimer les versions précédentes. L’âge de la version est déterminé en regardant l’heure de création de cette dernière. Cette règle de stratégie hiérarchise les versions précédentes du conteneur `activedata` qui datent de 90 jours ou plus après la création de la version vers le niveau Froid, et supprime les versions antérieures datant de 365 jours ou plus.
 
 ```json
 {

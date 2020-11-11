@@ -1,7 +1,7 @@
 ---
 title: Modèles de package
 titleSuffix: Azure Machine Learning
-description: Empaqueter un modèle en tant que fichier Dockerfile
+description: Empaquetez un modèle. Les modèles peuvent être empaquetés en tant qu’image Docker à télécharger ensuite, mais vous pouvez aussi créer un Dockerfile et l’utiliser pour générer l’image.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: edaae4f4c06f038d12267e35a2c356af430e1555
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 299eb316b534ddc9d5eee934cc15eae841276038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998832"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312636"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Procédure d’empaquetage d’un modèle inscrit avec Docker
 

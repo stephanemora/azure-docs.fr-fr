@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281063"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042977"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 
@@ -68,11 +68,11 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
 
 1. Ajoutez des valeurs de connexion à votre environnement. 
 
-    Certaines variables qui font partie de l’[environnement](postman-environment.md) **MediaServices** doivent être définies manuellement avant de pouvoir commencer l’exécution d’opérations définies dans la [collection](postman-collection.md).
+    Certaines variables qui font partie de l’ [environnement](postman-environment.md) **MediaServices** doivent être définies manuellement avant de pouvoir commencer l’exécution d’opérations définies dans la [collection](postman-collection.md).
 
     Pour obtenir des valeurs pour les cinq premières variables, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Charger un fichier](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Capture d’écran montrant l’icône « Roue dentée » sélectionnée en haut à droite, et les cinq premières variables sélectionnées à partir de l’onglet « Environnements de gestion ».](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Spécifiez la valeur de la variable d’environnement **MediaFileName**.
 
     Spécifiez le nom du fichier multimédia que vous envisagez de charger. Dans cet exemple, vous allez charger le fichier BigBuckBunny.mp4. 
@@ -90,17 +90,17 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
         ]
     }
     ```
-4. À gauche de la fenêtre **Postman**, cliquez sur **1. Obtenir un jeton d’authentification AAD** -> **Obtenir un jeton Azure AD pour le principal du service**.
+4. À gauche de la fenêtre **Postman** , cliquez sur **1. Obtenir un jeton d’authentification AAD** -> **Obtenir un jeton Azure AD pour le principal du service**.
 
     La partie de l’URL est remplie avec la variable d’environnement **AzureADSTSEndpoint** (plus haut dans ce tutoriel, vous avez défini les valeurs des variables d’environnement prenant en charge la collection).
 
-    ![Charger un fichier](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Capture d’écran montrant la sélection de « 1. Obtenir un jeton d’authentification AAD - Obtenir un jeton Azure AD pour le principal du service » dans la fenêtre « Postman » et la sélection du bouton « Envoyer ».](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. Appuyez sur **Envoyer**.
 
     Vous pouvez voir la réponse qui contient « access_token ». Le script de « test » prend cette valeur et définit la variable d’environnement **AccessToken** (comme décrit ci-dessus). Si vous examinez vos variables d’environnement, vous voyez que cette variable contient à présent la valeur de jeton d’accès (jeton du porteur) qui est utilisée dans le reste des opérations. 
 
-    Si le jeton expire, effectuez à nouveau l’étape « Obtenir un jeton Azure AD pour le principal du service ». 
+    Si le jeton expire, effectuez à nouveau l’étape « Obtenir un jeton Azure AD pour le principal du service ». 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Créer une stratégie d’accès avec autorisation d’écriture
 
@@ -116,7 +116,7 @@ Avant de télécharger des fichiers dans le stockage blob, définissez les droit
 1. Sélectionnez **AccessPolicy** -> **Créer la stratégie d’accès pour le chargement**.
 2. Appuyez sur **Envoyer**.
 
-    ![Charger un fichier](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Capture d’écran montrant la sélection de « AccessPolicy - Créer la stratégie d’accès pour le chargement » dans le menu de gauche, et la sélection du bouton « Envoyer ».](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     Le script de « test » obtient l’ID de stratégie d’accès et définit la variable d’environnement appropriée.
 
@@ -137,7 +137,7 @@ Dans cet exemple, vous allez créer un élément multimédia déchiffré.
 1. Sélectionnez **Éléments multimédias** -> **Créer un élément multimédia**.
 2. Appuyez sur **Envoyer**.
 
-    ![Charger un fichier](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Capture d’écran montrant la sélection de « Éléments multimédias - Créer un élément multimédia » dans le menu « Collections », et le bouton « Envoyer » sélectionné.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     Le script de « test » obtient l’ID d’élément multimédia et définit la variable d’environnement appropriée.
 
@@ -170,7 +170,7 @@ Certaines considérations s’appliquent :
 
     Le script de « test » crée l’URL de chargement en fonction du nom de fichier spécifié et définit la variable d’environnement appropriée.
 
-    ![Charger un fichier](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Capture d’écran montrant la sélection de « Localisateur - Créer un localisateur SAS » dans le menu « Collections », et le bouton « Envoyer » sélectionné.](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Charger un fichier vers le stockage d’objets blob à l’aide de l’URL de chargement
 
@@ -191,13 +191,13 @@ La demande de chargement ne fait pas partie de la collection **AzureMedia**.
 Créer et configurer une nouvelle demande :
 1. Appuyez sur **+** pour créer un onglet de demande.
 2. Sélectionnez l’opération **PUT** et collez **{{UploadURL}}** dans l’URL.
-2. Ne modifiez pas l’onglet **Autorisation** (ne le définissez pas sur **Jetons du porteur**).
-3. Dans l’onglet **En-têtes**, spécifiez : **Clé** : « x-ms-blob-type » et **Valeur** : « BlockBlob ».
-2. Sous l’onglet **Corps**, cliquez sur **Binaire**.
+2. Ne modifiez pas l’onglet **Autorisation** (ne le définissez pas sur **Jetons du porteur** ).
+3. Dans l’onglet **En-têtes** , spécifiez : **Clé**  : « x-ms-blob-type » et **Valeur**  : « BlockBlob ».
+2. Sous l’onglet **Corps** , cliquez sur **Binaire**.
 4. Sélectionnez le fichier portant le nom que vous avez spécifié dans la variable d’environnement **MediaFileName**.
 5. Appuyez sur **Envoyer**.
 
-    ![Charger un fichier](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Capture d’écran montrant l’onglet « (UploadURL) » sélectionné.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Créer des métadonnées dans l’élément multimédia
 

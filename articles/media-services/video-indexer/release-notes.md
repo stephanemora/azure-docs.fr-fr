@@ -10,18 +10,18 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505335"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145750"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
->Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
+>Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
 
 Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -29,6 +29,21 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
+
+## <a name="october-2020"></a>Octobre 2020
+
+### <a name="animated-character-identification-improvements"></a>Améliorations de l’identification des caractères animés  
+
+Video Indexer prend en charge la détection, le regroupement et la reconnaissance de personnages dans le contenu animé via l’intégration à Cognitive Services Custom Vision. Nous avons ajouté à cet algorithme IA une amélioration majeure au niveau de la détection et de la reconnaissance des caractères ; la précision des insights et les caractères identifiés s’en trouvent ainsi considérablement enrichis.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Changements planifiés relatifs à l’authentification sur le site web Video Indexer
+
+À partir du 1er janvier 2021, vous ne pourrez plus vous inscrire ni vous connecter au site web [Video Indexer](https://www.videoindexer.ai/) (offre d’essai) par l’intermédiaire de Facebook ou de LinkedIn.
+
+Votre inscription et votre connexion s’effectueront au moyen de l’un de ces fournisseurs : Azure AD, Microsoft et Google.
+
+> [!NOTE]
+> Nous vous conseillons d’exporter votre contenu avant le 1er janvier 2021, car les comptes connectés à LinkedIn et à Facebook seront supprimés, et le contenu ne sera plus accessible.
 
 ## <a name="august-2020"></a>Août 2020
 
@@ -123,7 +138,7 @@ Dans les semaines à venir, nous changerons cela et renverrons l’URL du [site 
     * remplacer l’URL par une URL pointant vers les API du widget Video Indexer (par exemple, le [widget Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * utiliser le site web de Video Indexer pour générer une nouvelle URL incorporée :
          
-         Appuyez sur **Lire** pour accéder à la page de votre vidéo -> cliquez sur le bouton **&lt;/&gt;Incorporer** -> copiez l’URL dans votre application :
+         Appuyez sur **Lire** pour accéder à la page de votre vidéo -> cliquez sur le bouton **&lt;/&gt;Incorporer**  -> copiez l’URL dans votre application :
    
     Les URL régionales ne sont pas prises en charge et seront bloquées dans les semaines à venir.
 

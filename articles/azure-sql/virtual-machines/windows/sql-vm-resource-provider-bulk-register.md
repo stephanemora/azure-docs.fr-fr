@@ -13,34 +13,34 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761258"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286073"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire plusieurs machines virtuelles SQL dans Azure avec le fournisseur de ressources de machine virtuelle SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Cet article explique comment inscrire en bloc vos machines virtuelles SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL à l’aide de l’applet de commande PowerShell `Register-SqlVMs`.
+Cet article explique comment inscrire en bloc vos machines virtuelles SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL à l’aide de l’applet de commande PowerShell `Register-SqlVMs`. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL installe l’extension [SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md).
 
 Cet article vous apprend à inscrire des machines virtuelles SQL Server en bloc. Vous pouvez également inscrire [toutes les machines virtuelles SQL Server automatiquement](sql-vm-resource-provider-automatic-registration.md) ou [des machines virtuelles SQL Server individuelles](sql-vm-resource-provider-register.md). 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’applet de commande `Register-SqlVMs` peut être utilisée pour inscrire toutes les machines virtuelles d’une liste donnée d’abonnements, de groupes de ressources ou d’une liste de machines virtuelles spécifiques. L’applet de commande inscrira les machines virtuelles en mode de gestion _léger_, puis générera un [rapport et un fichier journal](#output-description). 
+L’applet de commande `Register-SqlVMs` peut être utilisée pour inscrire toutes les machines virtuelles d’une liste donnée d’abonnements, de groupes de ressources ou d’une liste de machines virtuelles spécifiques. L’applet de commande inscrira les machines virtuelles en mode de gestion _léger_ , puis générera un [rapport et un fichier journal](#output-description). 
 
 Le processus d’inscription ne présente aucun risque, n’a pas de temps d’arrêt et ne redémarrera pas SQL Server ou la machine virtuelle. 
 
-Pour plus d’informations sur le fournisseur de ressources, consultez [Fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md). 
+Pour plus d’informations, consultez [Fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources, voici ce dont vous avez besoin : 
 
 - Un [abonnement Azure](https://azure.microsoft.com/free/) qui a été [inscrit auprès du fournisseur de ressources](sql-vm-resource-provider-register.md#register-subscription-with-rp) et contient des machines virtuelles SQL Server non inscrites. 
-- Les informations d’identification du client utilisées pour inscrire les machines virtuelles existent dans chacun des rôles Azure suivants : **Contributeur de machine virtuelle**, **Contributeur** ou **Propriétaire**. 
+- Les informations d’identification du client utilisées pour inscrire les machines virtuelles existent dans chacun des rôles Azure suivants : **Contributeur de machine virtuelle** , **Contributeur** ou **Propriétaire**. 
 - La dernière version d’[Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - La dernière version d’[Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
@@ -227,7 +227,7 @@ Les erreurs sont consignées dans le fichier journal nommé `VMsNotRegisteredDue
 
 Lorsque vous inscrivez des machines virtuelles SQL Server auprès du fournisseur de ressources à l’aide du script fourni, prenez en compte les éléments suivants :
 
-- L’inscription auprès du fournisseur de ressources requiert un agent invité en cours d’exécution sur la machine virtuelle SQL Server. Les images de Windows Server 2008 ne disposent pas d’un agent invité. Par conséquent, ces machines virtuelles échouent et doivent être inscrites manuellement à l’aide du [mode d’administration NoAgent](sql-vm-resource-provider-register.md#management-modes).
+- L’inscription auprès du fournisseur de ressources requiert un agent invité en cours d’exécution sur la machine virtuelle SQL Server. Les images de Windows Server 2008 ne disposent pas d’un agent invité. Par conséquent, ces machines virtuelles échouent et doivent être inscrites manuellement à l’aide du [mode d’administration NoAgent](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - Une logique de nouvelle tentative est intégrée pour surmonter les erreurs transparentes. Si la machine virtuelle est correctement inscrite, il s’agit d’une opération rapide. Toutefois, si l’inscription échoue, chaque machine virtuelle sera retentée.  Par conséquent, vous devez prévoir un temps considérable pour terminer le processus d’inscription, bien que l’exigence de temps réel dépende du type et du nombre d’erreurs. 
 
 ## <a name="full-script"></a>Script complet

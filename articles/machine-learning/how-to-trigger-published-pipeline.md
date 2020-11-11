@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318294"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146260"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Déclencher une exécution d’un pipeline Machine Learning à partir d’une application logique
 
@@ -55,12 +55,12 @@ Une fois que votre application logique a été provisionnée, effectuez les éta
 
 1. Renseignez les informations de connexion pour le compte de stockage Blob que vous voulez superviser pour les ajouts ou modifications d’objets blob. Sélectionnez le conteneur à superviser. 
  
-    Choisissez l’**Intervalle** et la **Fréquence** pour interroger les mises à jour qui vous conviennent.  
+    Choisissez l’ **Intervalle** et la **Fréquence** pour interroger les mises à jour qui vous conviennent.  
 
     > [!NOTE]
     > Ce déclencheur supervisera le conteneur sélectionné, mais pas les sous-dossiers.
 
-1. Ajoutez une action HTTP qui s’exécutera quand un objet blob nouveau ou modifié est détecté. Sélectionnez **+ Nouvelle étape**, puis recherchez et sélectionnez l’action HTTP.
+1. Ajoutez une action HTTP qui s’exécutera quand un objet blob nouveau ou modifié est détecté. Sélectionnez **+ Nouvelle étape** , puis recherchez et sélectionnez l’action HTTP.
 
   > [!div class="mx-imgBorder"]
   > ![Rechercher une action HTTP](media/how-to-trigger-published-pipeline/search-http.png)
@@ -94,6 +94,9 @@ Une fois que votre application logique a été provisionnée, effectuez les éta
     > ![Paramètres HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Sélectionnez **Enregistrer**. Votre planification est maintenant prête.
+
+> [!IMPORTANT]
+> Si vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès à votre pipeline, [définissez les autorisations de votre scénario de pipeline (entraînement ou scoring)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

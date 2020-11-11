@@ -1,6 +1,6 @@
 ---
-title: Éléments de langage T-SQL
-description: Liens vers la documentation relative aux éléments du langage T-SQL pris en charge dans le pool SQL Synapse.
+title: Éléments de langage T-SQL dans le pool SQL dédié
+description: Liens vers la documentation relative aux éléments de langage T-SQL pris en charge pour un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966df3be13eda4450608d42890fcfe2240ac61a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289495"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324650"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Éléments du langage T-SQL pris en charge dans le pool SQL Synapse
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Éléments de langage T-SQL pour le pool SQL dédié dans Azure Synapse Analytics 
 
-Liens vers la documentation relative aux éléments du langage T-SQL pris en charge dans le pool SQL Synapse.
+Liens vers la documentation relative aux éléments de langage T-SQL pris en charge dans le pool SQL dédié.
 
 ## <a name="core-elements"></a>Éléments fondamentaux
 
@@ -290,4 +290,4 @@ Liens vers la documentation relative aux éléments du langage T-SQL pris en cha
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Déclarations de langage T-SQL dans le pool SQL Synapse](sql-data-warehouse-reference-tsql-statements.md) et [Vues système dans le pool SQL Synapse](../sql/reference-tsql-system-views.md).
+Pour obtenir plus d’informations de référence, consultez [Instructions T-SQL dans le pool SQL dédié](sql-data-warehouse-reference-tsql-statements.md) et [Vues système dans le pool SQL dédié](../sql/reference-tsql-system-views.md).

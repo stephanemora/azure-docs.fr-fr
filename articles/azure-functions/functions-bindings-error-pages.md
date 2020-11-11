@@ -1,18 +1,18 @@
 ---
-title: Conseils de gestion des erreurs Azure Functions
-description: Apprenez à gérer les erreurs dans Azure Functions avec des liens vers des erreurs de liaison spécifiques.
+title: Conseils sur la gestion des erreurs et les nouvelles tentatives dans Azure Functions
+description: Apprenez à gérer les erreurs et les événements de nouvelle tentative dans Azure Functions avec des liens vers des erreurs de liaison spécifiques.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096842"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284448"
 ---
-# <a name="azure-functions-error-handling"></a>Gestion d’erreurs d’Azure Functions
+# <a name="azure-functions-error-handling-and-retries"></a>Gestion des erreurs et nouvelles tentatives dans Azure Functions
 
 La gestion des erreurs dans Azure Functions est importante pour éviter des pertes de données, des événements manqués et pour superviser l’intégrité de votre application.
 
@@ -20,7 +20,7 @@ Cet article décrit les stratégies générales de gestion des erreurs, ainsi qu
 
 ## <a name="handling-errors"></a>Gestion des erreurs
 
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-retries.md)]
 
 ## <a name="binding-error-codes"></a>Codes d’erreur de liaison
 

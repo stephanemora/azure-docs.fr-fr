@@ -1,18 +1,18 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers Kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
-ms.date: 10/05/2020
+ms.date: 10/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999898"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146277"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Résoudre les erreurs à l’aide d’Azure Policy
 
-Vous pouvez rencontrer des erreurs lors de la création de définitions de stratégie, de l’utilisation du Kit de développement logiciel (SDK) ou de la configuration du module complémentaire [Azure Policy pour Kubernetes](../concepts/policy-for-kubernetes.md). Cet article décrit différentes erreurs qui peuvent se produire et explique comment les résoudre.
+Vous pouvez rencontrer des erreurs lors de la création de définitions de stratégie, de l’utilisation du Kit de développement logiciel (SDK) ou de la configuration du module complémentaire [Azure Policy pour Kubernetes](../concepts/policy-for-kubernetes.md). Cet article décrit différentes erreurs générales qui peuvent se produire, et explique comment les résoudre.
 
 ## <a name="finding-error-details"></a>Recherche des détails de l’erreur
 
@@ -56,7 +56,7 @@ Tout d’abord, attendez la durée appropriée pour que l’évaluation se termi
 
 #### <a name="issue"></a>Problème
 
-Une ressource n’a pas l’état d’évaluation, _conforme_ ou _non conforme_, qui est attendu pour cette ressource.
+Une ressource n’a pas l’état d’évaluation, _conforme_ ou _non conforme_ , qui est attendu pour cette ressource.
 
 #### <a name="cause"></a>Cause
 
@@ -135,7 +135,7 @@ L’utilisation de fonctions prises en charge, telles que `parameter()` ou `reso
 
 Pour transmettre une fonction afin qu’elle fasse partie d’une définition de stratégie, placez dans une séquence d’échappement la chaîne entière à l’aide du caractère `[` de manière à ce que la propriété ressemble à `[[resourceGroup().tags.myTag]`. Le caractère d’échappement fait que Resource Manager traite la valeur comme une chaîne lors du traitement du modèle. Azure Policy place ensuite la fonction dans la définition de stratégie, ce qui lui permet d’être dynamique comme prévu. Pour plus d’informations, voir [Syntaxe et expressions dans les modèles Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
-## <a name="add-on-installation-errors"></a>Erreurs d’installation du module complémentaire
+## <a name="add-on-for-kubernetes-installation-errors"></a>Module complémentaire pour les erreurs d’installation de Kubernetes
 
 ### <a name="scenario-install-using-helm-chart-fails-on-password"></a>Scénario : L’installation à l’aide du chart Helm échoue sur le mot de passe
 
@@ -187,6 +187,127 @@ Les définitions qui auparavant provoquaient ce problème apparaissent comme \[D
 Pour obtenir une description détaillée, consultez le billet de blog suivant :
 
 [Modification importante publiée pour les stratégies d’audit de Guest Configuration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+
+## <a name="add-on-for-kubernetes-general-errors"></a>Module complémentaire pour les erreurs générales de Kubernetes
+
+### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Scénario : Le module complémentaire ne fonctionne pas avec les clusters AKS sur la version 1.19 (préversion)
+
+#### <a name="issue"></a>Problème
+
+Les clusters de la version 1.19 retournent cette erreur via le contrôleur Gatekeeper et les pods de webhook de la stratégie :
+
+```
+2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
+```
+
+#### <a name="cause"></a>Cause
+
+Les clusters AKS sur la version 1.19 (préversion) ne sont pas encore compatibles avec le module complémentaire Azure Policy.
+
+#### <a name="resolution"></a>Résolution
+
+Évitez d’utiliser Kubernetes 1.19 (préversion) avec le module complémentaire Azure Policy. Le module complémentaire peut être utilisé avec toutes les versions en disponibilité générale prises en charge, telles que 1.16, 1.17 ou 1.18.
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Scénario : Le module complémentaire ne peut pas joindre le point de terminaison du service Azure Policy en raison de restrictions de sortie
+
+#### <a name="issue"></a>Problème
+
+Le module complémentaire ne peut pas joindre le point de terminaison du service Azure Policy et retourne l’une des erreurs suivantes :
+
+- `failed to fetch token, service not reachable`
+- `Error getting file "Get https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml: dial tcp 151.101.228.133.443: connect: connection refused`
+
+#### <a name="cause"></a>Cause
+
+Ce problème se produit lorsqu’une sortie de cluster est verrouillée.
+
+#### <a name="resolution"></a>Résolution
+
+Vérifiez que les domaines et les ports figurant dans les articles suivants sont ouverts :
+
+- [Règles de réseau sortantes et noms FQDN requis pour les clusters AKS](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Installer le module complémentaire Azure Policy pour Kubernetes avec Azure Arc (préversion)](../concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-aad-pod-identity-configuration"></a>Scénario : Le module complémentaire ne peut pas joindre le point de terminaison du service Azure Policy en raison de la configuration aad-pod-identity
+
+#### <a name="issue"></a>Problème
+
+Le module complémentaire ne peut pas joindre le point de terminaison du service Azure Policy et retourne l’une des erreurs suivantes :
+
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
+
+#### <a name="cause"></a>Cause
+
+Cette erreur se produit lorsque _add-pod-identity_ est installé sur le cluster et que les pods _Kube-system_ ne sont pas exclus dans _aad-pod-identity_.
+
+Les pods NMI (Node Managed Identity) du composant _aad-pod-identity_ modifient les iptables des nœuds pour intercepter les appels vers le point de terminaison Azure Instance Metadata. Cette configuration signifie que toutes les requêtes adressées au point de terminaison Metadata sont interceptées par NMI, même si le pod n’utilise pas _aad-pod-identity_.
+La CRD **AzurePodIdentityException** peut être configurée de manière à informer _aad-pod-identity_ que toutes les requêtes adressées au point de terminaison des métadonnées depuis un pod correspondant aux étiquettes définies dans la CRD doivent être envoyées par proxy sans aucun traitement dans NMI.
+
+#### <a name="resolution"></a>Résolution
+
+Excluez les pods système qui disposent de l’étiquette `kubernetes.azure.com/managedby: aks` dans l’espace de noms _kube-system_ dans _aad-pod-identity_ en configurant la CRD **AzurePodIdentityException**.
+
+Pour plus d’informations, consultez [Désactiver AAD Pod Identity pour un pod ou une application spécifique](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+
+Pour configurer une exception, examinez l’exemple suivant :
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: mic-exception
+  namespace: default
+spec:
+  podLabels:
+    app: mic
+    component: mic
+---
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: aks-addon-exception
+  namespace: kube-system
+spec:
+  podLabels:
+    kubernetes.azure.com/managedby: aks
+```
+
+### <a name="scenario-the-resource-provider-isnt-registered"></a>Scénario : Le fournisseur de ressources n’est pas inscrit
+
+#### <a name="issue"></a>Problème
+
+Le module complémentaire peut joindre le point de terminaison du service Azure Policy, mais affiche l’erreur suivante :
+
+```
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+#### <a name="cause"></a>Cause
+
+Le fournisseur de ressources `Microsoft.PolicyInsights` n’est pas inscrit et il doit l’être pour que le module complémentaire récupère les définitions de stratégie et retourne les données de conformité.
+
+#### <a name="resolution"></a>Résolution
+
+Inscrivez le fournisseur de ressources `Microsoft.PolicyInsights`. Pour obtenir des instructions, consultez [Inscrire un fournisseur de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+### <a name="scenario-the-subscript-is-disabled"></a>Scénario : L’indice est désactivé
+
+#### <a name="issue"></a>Problème
+
+Le module complémentaire peut joindre le point de terminaison du service Azure Policy, mais affiche l’erreur suivante :
+
+```
+The subscription '{subId}' has been disabled for azure data-plane policy. Please contact support.
+```
+
+#### <a name="cause"></a>Cause
+
+Cette erreur signifie que l’abonnement a été identifié comme problématique ; l’indicateur de fonctionnalité `Microsoft.PolicyInsights/DataPlaneBlocked` a été ajouté pour bloquer l’abonnement.
+
+#### <a name="resolution"></a>Résolution
+
+Contactez l’équipe des fonctionnalités `azuredg@microsoft.com` pour examiner et résoudre ce problème. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

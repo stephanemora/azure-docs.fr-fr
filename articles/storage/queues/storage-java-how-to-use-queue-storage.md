@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425140"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346007"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Utilisation du stockage de files d'attente à partir de Java
 
@@ -36,7 +36,7 @@ Commencez par vérifier que votre système de développement répond aux conditi
 
 Pour créer une application Java nommée *queues-how-to-v12*  :
 
-1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *queues-how-to-v12* . Tapez la commande **mvn** suivante pour créer un projet Java « Hello World ! ».
+1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *queues-how-to-v12*. Tapez la commande **mvn** suivante pour créer un projet Java « Hello World ! ».
 
    ```bash
     mvn archetype:generate \
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Vous pouvez stocker cette chaîne dans le fichier de configuration du service appelé *ServiceConfiguration.cscfg* . Pour une application exécutée dans un rôle Microsoft Azure, accédez à la chaîne de connexion en appelant **RoleEnvironment.getConfigurationSettings** . Voici un exemple de code permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString*  :
+
+Vous pouvez stocker cette chaîne dans le fichier de configuration du service appelé *ServiceConfiguration.cscfg*. Pour une application exécutée dans un rôle Microsoft Azure, accédez à la chaîne de connexion en appelant **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString*  :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -168,13 +169,13 @@ Les exemples ci-dessous partent du principe que vous avez utilisé un objet **St
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Un objet **QueueClient** contient les opérations permettant d'interagir avec une file d'attente. Le code suivant crée un objet **QueueClient** . Utilisez l'objet **QueueClient** pour créer la file d'attente que vous souhaitez utiliser.
+Un objet **QueueClient** contient les opérations permettant d'interagir avec une file d'attente. Le code suivant crée un objet **QueueClient**. Utilisez l'objet **QueueClient** pour créer la file d'attente que vous souhaitez utiliser.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_CreateQueue":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient** . (Remarque : D’autres méthodes permettent de créer des objets **CloudStorageAccount** . Pour plus d’informations, consultez la section **CloudStorageAccount** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
+Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient** . (Remarque : D’autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d’informations, consultez la section **CloudStorageAccount** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
 
 Utilisez l'objet **CloudQueueClient** pour obtenir une référence pointant vers la file d'attente à utiliser. Si la file d'attente n'existe pas, vous pouvez la créer :
 
@@ -207,13 +208,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Pour insérer un message dans une file d'attente existante, appelez la méthode **sendMessage** . Un message peut être une chaîne (au format UTF-8) ou un tableau d'octets. Le code suivant envoie un message de type chaîne dans la file d'attente.
+Pour insérer un message dans une file d'attente existante, appelez la méthode **sendMessage**. Un message peut être une chaîne (au format UTF-8) ou un tableau d'octets. Le code suivant envoie un message de type chaîne dans la file d'attente.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_AddMessage":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Pour insérer un message dans une file d'attente existante, commencez par créer un **CloudQueueMessage** . Appelez ensuite la méthode **addMessage** . Un **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message « Hello, World ».
+Pour insérer un message dans une file d'attente existante, commencez par créer un **CloudQueueMessage**. Appelez ensuite la méthode **addMessage** . Un **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message « Hello, World ».
 
 ```java
 try
@@ -246,7 +247,7 @@ catch (Exception e)
 
 ## <a name="how-to-peek-at-the-next-message"></a>Procédure : Lecture furtive du message suivant
 
-Vous pouvez lire furtivement le message au début de la file d'attente sans l'enlever de la file d'attente en appelant **peekMessage** .
+Vous pouvez lire furtivement le message au début de la file d'attente sans l'enlever de la file d'attente en appelant **peekMessage**.
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
@@ -436,13 +437,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **receiveMessage** , vous obtenez le message suivant d'une file d'attente. Un message renvoyé par **receiveMessage** devient invisible de tout autre code lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **deleteMessage** . Si votre code ne parvient pas à traiter un message, ce processus en deux étapes vous permet de recevoir le même message et de réessayer. Votre code appelle **deleteMessage** juste après le traitement du message.
+Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **receiveMessage** , vous obtenez le message suivant d'une file d'attente. Un message renvoyé par **receiveMessage** devient invisible de tout autre code lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **deleteMessage**. Si votre code ne parvient pas à traiter un message, ce processus en deux étapes vous permet de recevoir le même message et de réessayer. Votre code appelle **deleteMessage** juste après le traitement du message.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **retrieveMessage** , vous obtenez le message suivant dans une file d'attente. Un message renvoyé par **retrieveMessage** devient invisible de tout autre code lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **deleteMessage** . Si votre code ne parvient pas à traiter un message, ce processus en deux étapes vous permet de recevoir le même message et de réessayer. Votre code appelle **deleteMessage** juste après le traitement du message.
+Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **retrieveMessage** , vous obtenez le message suivant dans une file d'attente. Un message renvoyé par **retrieveMessage** devient invisible de tout autre code lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **deleteMessage**. Si votre code ne parvient pas à traiter un message, ce processus en deux étapes vous permet de recevoir le même message et de réessayer. Votre code appelle **deleteMessage** juste après le traitement du message.
 
 ```java
 try
@@ -522,13 +523,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Pour obtenir la liste des files d'attente en cours, appelez la méthode **QueueServiceClient.listQueues()** , qui renvoie une collection d'objets **QueueItem** .
+Pour obtenir la liste des files d'attente en cours, appelez la méthode **QueueServiceClient.listQueues()** , qui renvoie une collection d'objets **QueueItem**.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ListQueues":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Pour obtenir la liste des files d’attente en cours, appelez la méthode **CloudQueueClient.listQueues()** , qui renvoie une collection d’objets **CloudQueue** .
+Pour obtenir la liste des files d’attente en cours, appelez la méthode **CloudQueueClient.listQueues()** , qui renvoie une collection d’objets **CloudQueue**.
 
 ```java
 try
@@ -561,13 +562,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **delete** sur l'objet **QueueClient** .
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **delete** sur l'objet **QueueClient**.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DeleteMessageQueue":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode **deleteIfExists** sur l’objet **CloudQueue** .
+Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode **deleteIfExists** sur l’objet **CloudQueue**.
 
 ```java
 try
@@ -600,10 +601,10 @@ catch (Exception e)
 
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-* [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]
-* [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Azure Storage Client SDK Reference]
-* [API REST des services d’Azure Storage][Azure Storage Services REST API]
-* [Blog de l'équipe Azure Storage][Azure Storage Team Blog]
+- [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]
+- [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Azure Storage Client SDK Reference]
+- [API REST des services d’Azure Storage][Azure Storage Services REST API]
+- [Blog de l'équipe Azure Storage][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
