@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095439"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381284"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
 
@@ -36,7 +36,7 @@ Cet exemple d’application peut :
 > * Gérer les clés d’abonnement
 > * des erreurs
 
-Pour utiliser cette application, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec des API Recherche Bing.
+Pour utiliser cette application, vous devrez disposer d’un [compte Azure Cognitive Services](../cognitive-services-apis-create-account.md) avec des API Recherche Bing.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -86,7 +86,7 @@ L’élément `index.html` comprend un formulaire qui permet aux utilisateurs de
 
 ## <a name="query-options"></a>Options de requête
 
-Le formulaire HTML inclut des options qui mappent à des paramètres de requête dans [l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Le tableau suivant montre comment les utilisateurs peuvent filtrer les résultats de recherche à l’aide de l’exemple d’application :
+Le formulaire HTML inclut des options qui mappent à des paramètres de requête dans [l’API Recherche Web Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Le tableau suivant montre comment les utilisateurs peuvent filtrer les résultats de recherche à l’aide de l’exemple d’application :
 
 | Paramètre | Description |
 |-----------|-------------|
@@ -99,7 +99,7 @@ Le formulaire HTML inclut des options qui mappent à des paramètres de requête
 | `offset` | Champ masqué. Décalage du premier résultat de recherche dans la requête, qui est utilisé pour la pagination. Il est réinitialisé sur `0` à chaque nouvelle requête. |
 
 > [!NOTE]
-> L’API Recherche Web Bing offre des paramètres de requête supplémentaires pour affiner les résultats de la recherche. Le présent exemple en utilise seulement quelque uns. Pour obtenir la liste complète des paramètres disponibles, consultez les [informations de référence sur l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
+> L’API Recherche Web Bing offre des paramètres de requête supplémentaires pour affiner les résultats de la recherche. Le présent exemple en utilise seulement quelque uns. Pour obtenir la liste complète des paramètres disponibles, consultez les [informations de référence sur l’API Recherche Web Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 La fonction `bingSearchOptions()` convertit ces options pour correspondre au format exigé par l’API Recherche Bing.
 
@@ -303,7 +303,7 @@ Les erreurs sont gérées en appelant `renderErrorMessage()`. Si la réponse ré
 
 ## <a name="display-search-results"></a>Afficher les résultats de la recherche
 
-Il existe des [conditions d’utilisation et d’affichage](useanddisplayrequirements.md) pour les résultats retournés par l’API Recherche Web Bing. Dans la mesure où une réponse peut inclure différents types de résultats, une itération dans la collection de niveau supérieur `WebPages` ne suffit pas. Au lieu de cela, l’exemple d’application utilise `RankingResponse` pour classer les résultats conformément aux spécifications.
+Il existe des [conditions d’utilisation et d’affichage](./use-display-requirements.md) pour les résultats retournés par l’API Recherche Web Bing. Dans la mesure où une réponse peut inclure différents types de résultats, une itération dans la collection de niveau supérieur `WebPages` ne suffit pas. Au lieu de cela, l’exemple d’application utilise `RankingResponse` pour classer les résultats conformément aux spécifications.
 
 > [!NOTE]
 > Si vous voulez seulement un type de résultat unique, utilisez le paramètre de requête `responseFilter`, ou utilisez l’un des autres points de terminaison Recherche Bing, comme Recherche d’images Bing.

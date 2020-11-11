@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f68618c4387bc5105914eccc4e6149650119fd0f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102177"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366075"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Tutoriel : Rechercher des images similaires dans des recherches précédentes à l’aide d’un jeton d’insights d’image
 
@@ -44,7 +44,7 @@ Le code source complet de ce didacticiel est disponible sur [GitHub](https://git
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Obtenir le jeton ImageInsightsToken à partir de la bibliothèque de client Recherche d’images Bing
 
-Cette application utilise un `ImageInsightsToken` obtenu par l’intermédiaire de la [bibliothèque de client Recherche d’images Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Dans une nouvelle application console C#, créez un client pour appeler l’API en utilisant `ImageSearchClient()`. Utilisez ensuite `SearchAsync()` avec votre requête :
+Cette application utilise un `ImageInsightsToken` obtenu par l’intermédiaire de la [bibliothèque de client Recherche d’images Bing](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp). Dans une nouvelle application console C#, créez un client pour appeler l’API en utilisant `ImageSearchClient()`. Utilisez ensuite `SearchAsync()` avec votre requête :
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -129,7 +129,7 @@ L’obtention des URL des images réelles à partir de types d’action nécessi
     }
 ```
 
-Pour plus d’informations sur ces types de données, consultez [Images : Recherche visuelle](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+Pour plus d’informations sur ces types de données, consultez [Images : Recherche visuelle](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 ## <a name="returned-urls"></a>URL retournées
 

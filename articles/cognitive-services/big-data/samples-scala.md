@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90524961"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363270"
 ---
 # <a name="quick-examples"></a>Exemples rapides
 
@@ -49,7 +49,7 @@ val location = "eastus"
 
 ## <a name="text-analytics"></a>Analyse de texte
 
-Le service [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) fournit plusieurs algorithmes permettant d’extraire des insights intelligents à partir d’un texte. Par exemple, nous pouvons trouver le sentiment d’un texte d’entrée donné. Le service retourne un score compris entre `0.0` et `1.0`, où un score faible indique un sentiment négatif et où un score élevé indique un sentiment positif.  L’exemple ci-dessous utilise trois phrases simples et retourne le score de sentiment pour chacune d’elles.
+Le service [Analyse de texte](../text-analytics/index.yml) fournit plusieurs algorithmes permettant d’extraire des insights intelligents à partir d’un texte. Par exemple, nous pouvons trouver le sentiment d’un texte d’entrée donné. Le service retourne un score compris entre `0.0` et `1.0`, où un score faible indique un sentiment négatif et où un score élevé indique un sentiment positif.  L’exemple ci-dessous utilise trois phrases simples et retourne le score de sentiment pour chacune d’elles.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -81,7 +81,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## <a name="computer-vision"></a>Vision par ordinateur
 
-Le service [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyse des images pour identifier une structure comme des visages, des objets et des descriptions en langage naturel.
+Le service [Vision par ordinateur](../computer-vision/index.yml) analyse des images pour identifier une structure comme des visages, des objets et des descriptions en langage naturel.
 Dans cet exemple, nous ajoutons des étiquettes à une liste d’images. Les étiquettes sont des descriptions en un mot des choses figurant sur l’image, comme des objets, des personnes, un paysage et des actions reconnaissables.
 
 ```scala
@@ -118,7 +118,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## <a name="bing-image-search"></a>Recherche d’images Bing
 
-La [Recherche d’images Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) explore le web pour récupérer des images associées à une requête en langage naturel d’un utilisateur. Dans cet exemple, nous utilisons une requête de texte qui recherche des images avec des guillemets. Elle retourne une liste d’URL d’images qui contiennent des photos liées à notre requête.
+La [Recherche d’images Bing](../bing-image-search/overview.md) explore le web pour récupérer des images associées à une requête en langage naturel d’un utilisateur. Dans cet exemple, nous utilisons une requête de texte qui recherche des images avec des guillemets. Elle retourne une liste d’URL d’images qui contiennent des photos liées à notre requête.
 
 
 ```scala
@@ -163,7 +163,7 @@ display(pipeline.fit(df).transform(df))
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
-Le service [Reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) convertit des flux ou des fichiers de contenu audio en texte. Dans cet exemple, nous transcrivons deux fichiers audio. Le premier fichier est facile à comprendre et le second est plus complexe.
+Le service [Reconnaissance vocale](../speech-service/index-speech-to-text.yml) convertit des flux ou des fichiers de contenu audio en texte. Dans cet exemple, nous transcrivons deux fichiers audio. Le premier fichier est facile à comprendre et le second est plus complexe.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -196,7 +196,7 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 ## <a name="anomaly-detector"></a>Le détecteur d’anomalies
 
-Le [Détecteur d’anomalies](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) est idéal pour détecter les irrégularités dans vos données de séries chronologiques. Dans cet exemple, nous utilisons le service pour rechercher des anomalies dans l’ensemble de la série chronologique.
+Le [Détecteur d’anomalies](../anomaly-detector/index.yml) est idéal pour détecter les irrégularités dans vos données de séries chronologiques. Dans cet exemple, nous utilisons le service pour rechercher des anomalies dans l’ensemble de la série chronologique.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

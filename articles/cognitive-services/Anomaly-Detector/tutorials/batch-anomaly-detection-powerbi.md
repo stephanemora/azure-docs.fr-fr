@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017622"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368642"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutoriel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI
 
@@ -48,13 +48,13 @@ Dans la fenêtre principale de Power BI Desktop, cliquez sur le ruban **Accueil*
 
 ![Image du bouton « Obtenir des données » dans Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-Une fois que la boîte de dialogue s’est affichée, accédez au dossier où vous avez téléchargé l’exemple de fichier .xlsx et sélectionnez-le. Quand la boîte de dialogue **Navigateur** s’affiche, cliquez sur **Feuille1**, puis sur **Modifier**.
+Une fois que la boîte de dialogue s’est affichée, accédez au dossier où vous avez téléchargé l’exemple de fichier .xlsx et sélectionnez-le. Quand la boîte de dialogue **Navigateur** s’affiche, cliquez sur **Feuille1** , puis sur **Modifier**.
 
 ![Image de l’écran « Navigateur » de la source de données dans Power BI](../media/tutorials/navigator-dialog-box.png)
 
 Power BI convertit les horodatages dans la première colonne en type de données `Date/Time`. Ces horodatages doivent être convertis en texte afin d’être envoyés à l’API Détecteur d’anomalies. Si l’éditeur Power Query ne s’ouvre pas automatiquement, cliquez sur **Modifier les requêtes** sous l’onglet Accueil.
 
-Cliquez sur le ruban **Transformer** dans l’éditeur Power Query. Dans le groupe **N’importe quelle colonne**, ouvrez le menu déroulant **Type de données :** et sélectionnez **Texte**.
+Cliquez sur le ruban **Transformer** dans l’éditeur Power Query. Dans le groupe **N’importe quelle colonne** , ouvrez le menu déroulant **Type de données :** et sélectionnez **Texte**.
 
 ![Image de la liste déroulante Type de données](../media/tutorials/data-type-drop-down.png)
 
@@ -62,7 +62,7 @@ Quand vous recevez un avis concernant la modification du type de colonne, clique
 
 ## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Créer une fonction pour envoyer les données et mettre en forme la réponse
 
-Pour mettre en forme et envoyer le fichier de données à l’API Détecteur d’anomalies, vous pouvez appeler une requête sur la table créée ci-dessus. Dans l’éditeur Power Query, dans le ruban **Accueil**, ouvrez le menu déroulant **Nouvelle source** et cliquez sur **Requête vide**.
+Pour mettre en forme et envoyer le fichier de données à l’API Détecteur d’anomalies, vous pouvez appeler une requête sur la table créée ci-dessus. Dans l’éditeur Power Query, dans le ruban **Accueil** , ouvrez le menu déroulant **Nouvelle source** et cliquez sur **Requête vide**.
 
 Vérifiez que votre nouvelle requête est sélectionnée, puis cliquez sur **Éditeur avancé**.
 
@@ -112,20 +112,20 @@ Dans l’Éditeur avancé, utilisez l’extrait Power Query M suivant pour extra
  in results
 ```
 
-Appelez la requête sur votre feuille de données en sélectionnant `Sheet1` sous **Entrer un paramètre**, puis cliquez sur **Appeler**.
+Appelez la requête sur votre feuille de données en sélectionnant `Sheet1` sous **Entrer un paramètre** , puis cliquez sur **Appeler**.
 
 ![Image de la fonction Appeler](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Confidentialité de la source de données et authentification
 
 > [!NOTE]
-> Veillez à prendre en compte les stratégies de votre organisation en matière d’accès et de confidentialité des données. Pour plus d’informations, consultez [Niveaux de confidentialité Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels).
+> Veillez à prendre en compte les stratégies de votre organisation en matière d’accès et de confidentialité des données. Pour plus d’informations, consultez [Niveaux de confidentialité Power BI Desktop](/power-bi/desktop-privacy-levels).
 
 Vous pouvez recevoir un message d’avertissement quand vous essayez d’exécuter la requête, car elle utilise une source de données externe.
 
 ![Image montrant un avertissement créé par Power BI](../media/tutorials/blocked-function.png)
 
-Pour résoudre ce problème, cliquez sur **Fichier** et **Options et paramètres**. Ensuite, cliquez sur **Options**. Sous **Fichier actuel**, sélectionnez **Confidentialité** et **Ignorer les niveaux de confidentialité et potentiellement améliorer les performances**.
+Pour résoudre ce problème, cliquez sur **Fichier** et **Options et paramètres**. Ensuite, cliquez sur **Options**. Sous **Fichier actuel** , sélectionnez **Confidentialité** et **Ignorer les niveaux de confidentialité et potentiellement améliorer les performances**.
 
 De plus, vous pouvez recevoir un message vous invitant à spécifier la façon dont vous souhaitez vous connecter à l’API.
 
@@ -137,7 +137,7 @@ Ensuite, cliquez sur **Fermer & appliquer** dans le ruban **Accueil** pour appli
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Visualiser la réponse de l’API Détecteur d’anomalies
 
-Dans l’écran principal de Power BI, commencez à utiliser les requêtes créées ci-dessus pour visualiser les données. Sélectionnez d’abord **Graphique en courbes** dans **Visualisations**. Ensuite, ajoutez l’horodatage de la fonction appelée à l’**axe** du graphique en courbes. Cliquez dessus avec le bouton droit, puis sélectionnez **Timestamp**.
+Dans l’écran principal de Power BI, commencez à utiliser les requêtes créées ci-dessus pour visualiser les données. Sélectionnez d’abord **Graphique en courbes** dans **Visualisations**. Ensuite, ajoutez l’horodatage de la fonction appelée à l’ **axe** du graphique en courbes. Cliquez dessus avec le bouton droit, puis sélectionnez **Timestamp**.
 
 ![Clic droit sur la valeur d’horodatage](../media/tutorials/timestamp-right-click.png)
 
@@ -156,7 +156,7 @@ Après avoir ajouté les champs, cliquez sur le graphique et redimensionnez-le p
 
 ### <a name="display-anomaly-data-points"></a>Afficher les points de données d’anomalie
 
-Sur le côté droit de la fenêtre Power BI, sous le volet **CHAMPS**, cliquez avec le bouton droit sur **Value** sous la **requête de fonction appelée**, puis cliquez sur **Nouvelle mesure rapide**.
+Sur le côté droit de la fenêtre Power BI, sous le volet **CHAMPS** , cliquez avec le bouton droit sur **Value** sous la **requête de fonction appelée** , puis cliquez sur **Nouvelle mesure rapide**.
 
 ![Image du nouvel écran de mesure rapide](../media/tutorials/new-quick-measure.png)
 
@@ -164,7 +164,7 @@ Dans l’écran qui s’affiche, sélectionnez **Valeur filtrée** comme calcul.
 
 ![Deuxième image de l’écran Nouvelle mesure rapide](../media/tutorials/new-quick-measure-2.png)
 
-Après avoir cliqué sur **OK**, vous aurez un champ `Value for True` en bas de la liste de vos champs. Cliquez dessus avec le bouton droit et renommez-le **Anomalie**. Ajoutez-le aux **Valeurs** du graphique. Ensuite, sélectionnez l’outil **Format** et affectez **Catégorie** comme type d’axe X.
+Après avoir cliqué sur **OK** , vous aurez un champ `Value for True` en bas de la liste de vos champs. Cliquez dessus avec le bouton droit et renommez-le **Anomalie**. Ajoutez-le aux **Valeurs** du graphique. Ensuite, sélectionnez l’outil **Format** et affectez **Catégorie** comme type d’axe X.
 
 ![Image de la mise en forme de l’axe des X](../media/tutorials/format-x-axis.png)
 

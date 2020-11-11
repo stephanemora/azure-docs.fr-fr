@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 689de4d9fbd9eafeda54b8c157e5174d200c93da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324566"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338254"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -286,8 +286,8 @@ Dans une nouvelle fenêtre Visual Studio, ouvrez (à partir du dossier de soluti
 Dans le volet *Explorateur de solutions* de cette nouvelle fenêtre Visual Studio, sélectionnez _DeviceSimulator/ **AzureIoTHub.cs**_ pour l’ouvrir dans la fenêtre d’édition. Remplacez les valeurs de chaîne de connexion suivantes par les valeurs que vous venez de collecter :
 
 ```csharp
-connectionString = <Iot-hub-connection-string>
-deviceConnectionString = <device-connection-string>
+iotHubConnectionString = <your-hub-connection-string>
+deviceConnectionString = <your-device-connection-string>
 ```
 
 Enregistrez le fichier .

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527290"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369543"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
@@ -47,7 +47,7 @@ Pour commencer, ouvrez Power BI Desktop et chargez le fichier CSV `FabrikamComme
 > [!NOTE]
 > Power BI peut utiliser les données issues d’une multitude de sources, telles que Facebook ou une base de données SQL. Pour plus d’informations, consultez les pages concernant [l’intégration de Facebook à Power BI](https://powerbi.microsoft.com/integrations/facebook/) et [l’intégration de SQL Server à Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
 
-Dans la fenêtre principale de Power BI Desktop, sélectionnez le ruban **Accueil**. Dans le groupe **Données externes** du ruban, ouvrez le menu déroulant **Obtenir des données**, puis sélectionnez **Texte/CSV**.
+Dans la fenêtre principale de Power BI Desktop, sélectionnez le ruban **Accueil**. Dans le groupe **Données externes** du ruban, ouvrez le menu déroulant **Obtenir des données** , puis sélectionnez **Texte/CSV**.
 
 ![[Bouton Obtenir les données]](../media/tutorials/power-bi/get-data-button.png)
 
@@ -68,7 +68,7 @@ Vous pouvez avoir besoin de transformer vos données dans Power BI Desktop pour 
 
 Les exemples de données contiennent une colonne `subject` et une colonne `comment`. Avec la fonction Fusionner les colonnes de Power BI Desktop, vous pouvez extraire des phrases clés à partir des données de ces deux colonnes, plutôt que de la colonne `comment` uniquement.
 
-Dans Power BI Desktop, sélectionnez le ruban **Accueil**. Dans le groupe **Données externes**, cliquez sur **Modifier les requêtes**.
+Dans Power BI Desktop, sélectionnez le ruban **Accueil**. Dans le groupe **Données externes** , cliquez sur **Modifier les requêtes**.
 
 ![[Groupe Données externes du ruban Accueil]](../media/tutorials/power-bi/edit-queries.png)
 
@@ -103,15 +103,15 @@ Vous pouvez également envisager de filtrer les messages vides en utilisant le f
 Vous êtes désormais prêt à créer la fonction personnalisée qui doit intégrer Power BI et l’API Analyse de texte. La fonction reçoit le texte à traiter sous la forme d’un paramètre. Elle effectue des conversions de données vers et à partir du format JSON, et adresse la requête HTTP à l’API d’extraction des phrases clés. La fonction analyse alors la réponse de l’API et retourne une chaîne contenant une liste de phrases clés extraites, séparées par des virgules.
 
 > [!NOTE]
-> Les fonctions Power BI Desktop personnalisées sont écrites en [langage de formule M Power Query](https://docs.microsoft.com/powerquery-m/power-query-m-reference), abrégé sous l’appellation « M ». M est un langage de programmation fonctionnel basé sur [F#](https://docs.microsoft.com/dotnet/fsharp/). Toutefois, vous n’avez pas besoin d’être programmeur pour terminer ce didacticiel ; le code requis est inclus ci-après.
+> Les fonctions Power BI Desktop personnalisées sont écrites en [langage de formule M Power Query](/powerquery-m/power-query-m-reference), abrégé sous l’appellation « M ». M est un langage de programmation fonctionnel basé sur [F#](/dotnet/fsharp/). Toutefois, vous n’avez pas besoin d’être programmeur pour terminer ce didacticiel ; le code requis est inclus ci-après.
 
-Dans Power BI Desktop, vérifiez que vous vous trouvez toujours dans la fenêtre Éditeur de requête. Si ce n’est pas le cas, sélectionnez le ruban **Accueil**, puis, dans le groupe **Données externes**, cliquez sur **Modifier les requêtes**.
+Dans Power BI Desktop, vérifiez que vous vous trouvez toujours dans la fenêtre Éditeur de requête. Si ce n’est pas le cas, sélectionnez le ruban **Accueil** , puis, dans le groupe **Données externes** , cliquez sur **Modifier les requêtes**.
 
-Sur le ruban **Accueil**, dans le groupe **Nouvelle requête**, ouvrez le menu déroulant **Nouvelle source**, puis sélectionnez **Requête vide**. 
+Sur le ruban **Accueil** , dans le groupe **Nouvelle requête** , ouvrez le menu déroulant **Nouvelle source** , puis sélectionnez **Requête vide**. 
 
 Une nouvelle requête, initialement nommée `Query1`, apparaît dans la liste Requêtes. Double-cliquez sur cette entrée et renommez-la `KeyPhrases`.
 
-À présent, sur le ruban **Accueil**, dans le groupe **Requête**, cliquez sur **Éditeur avancé** pour ouvrir la fenêtre correspondante. Supprimez le code figurant déjà dans cette fenêtre, puis collez le code suivant. 
+À présent, sur le ruban **Accueil** , dans le groupe **Requête** , cliquez sur **Éditeur avancé** pour ouvrir la fenêtre correspondante. Supprimez le code figurant déjà dans cette fenêtre, puis collez le code suivant. 
 
 > [!NOTE]
 > Remplacez l’exemple de point de terminaison ci-dessous (contenant `<your-custom-subdomain>`) par le point de terminaison généré pour votre ressource Analyse de texte. Pour trouver ce point de terminaison, connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/), sélectionnez votre abonnement Analyse de texte, puis sélectionnez `Quick start`.
@@ -139,11 +139,11 @@ Remplacez `YOUR_API_KEY_HERE` par votre clé d’accès Analyse de texte. De mê
 
 À présent, vous pouvez utiliser la fonction personnalisée pour obtenir les phrases clés figurant dans chacun des commentaires clients et pour les stocker dans une nouvelle colonne de la table. 
 
-Dans Power BI Desktop, dans la fenêtre Éditeur de requête, revenez à la requête `FabrikamComments`. Sélectionnez le ruban **Ajouter une colonne**. Dans le groupe **Général**, cliquez sur **Appeler une fonction personnalisée**.
+Dans Power BI Desktop, dans la fenêtre Éditeur de requête, revenez à la requête `FabrikamComments`. Sélectionnez le ruban **Ajouter une colonne**. Dans le groupe **Général** , cliquez sur **Appeler une fonction personnalisée**.
 
 ![[Bouton Appeler une fonction personnalisée]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
-La boîte de dialogue Appeler une fonction personnalisée s’affiche. Dans **Nouveau nom de colonne**, entrez `keyphrases`. Dans **Requête de fonction**, sélectionnez la fonction personnalisée que vous avez créée (`KeyPhrases`).
+La boîte de dialogue Appeler une fonction personnalisée s’affiche. Dans **Nouveau nom de colonne** , entrez `keyphrases`. Dans **Requête de fonction** , sélectionnez la fonction personnalisée que vous avez créée (`KeyPhrases`).
 
 Un nouveau champ s’affiche dans la boîte de dialogue : **Texte (facultatif)** . Dans ce champ, vous devez entrer la colonne que vous souhaitez utiliser dans le but de fournir des valeurs pour le paramètre `text` de l’API d’extraction de phrases clés. N’oubliez pas que vous avez déjà codé en dur les valeurs des paramètres `language` et `id`. Dans le menu déroulant, sélectionnez `Merged` (la colonne que vous avez créée [précédemment](#PreparingData) en fusionnant les champs d’objet et de message).
 
@@ -160,7 +160,7 @@ Une fois que vous avez fermé la boîte de dialogue Appeler une fonction personn
 
 ![[Bannière d’informations d’identification]](../media/tutorials/power-bi/credentials-banner.png)
 
-Cliquez sur **Modifier les informations d’identification**, vérifiez que `Anonymous` est sélectionné dans la boîte de dialogue, puis cliquez sur **Se connecter**. 
+Cliquez sur **Modifier les informations d’identification** , vérifiez que `Anonymous` est sélectionné dans la boîte de dialogue, puis cliquez sur **Se connecter**. 
 
 > [!NOTE]
 > Vous devez sélectionner `Anonymous`, car le service Analyse de texte vous authentifie à l’aide de votre clé d’accès. Par conséquent, Power BI n’a pas besoin de fournir d’informations d’identification pour la requête HTTP proprement dite.
@@ -174,7 +174,7 @@ Ensuite, une bannière peut vous inviter à fournir des informations sur la conf
 
 ![[Bannière de confidentialité]](../media/tutorials/power-bi/privacy-banner.png)
 
-Cliquez sur **Continuer**, puis choisissez `Public` pour chacune des sources de données de la boîte de dialogue. Ensuite, cliquez sur **Enregistrer**.
+Cliquez sur **Continuer** , puis choisissez `Public` pour chacune des sources de données de la boîte de dialogue. Ensuite, cliquez sur **Enregistrer**.
 
 ![[Définition de la confidentialité des sources de données]](../media/tutorials/power-bi/privacy-dialog.png)
 
@@ -296,7 +296,7 @@ Apprenez-en davantage sur le service Analyse de texte, sur le langage de formule
 > [Informations de référence sur l’API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur le langage M Power Query](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Informations de référence sur le langage M Power Query](/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentation Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

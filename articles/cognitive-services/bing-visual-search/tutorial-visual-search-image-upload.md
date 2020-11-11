@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102202"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366126"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutoriel : Charger des images vers l’API Recherche visuelle Bing
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Afficher les informations concernant différentes actions
 
-Les fonctions suivantes affichent des informations pour différentes actions. Elles fournissent une image interactive ou un lien interactif qui vous renvoie à une page Web avec plus d’informations sur l’image. Cette page est hébergée soit par Bing.com, soit sur le site Web d’origine de l’image. Toutes les données des aperçus ne s’affichent pas dans cette application. Pour voir tous les champs disponibles pour un insight, consultez les informations de référence sur [Images - Recherche visuelle](https://aka.ms/bingvisualsearchreferencedoc).
+Les fonctions suivantes affichent des informations pour différentes actions. Elles fournissent une image interactive ou un lien interactif qui vous renvoie à une page Web avec plus d’informations sur l’image. Cette page est hébergée soit par Bing.com, soit sur le site Web d’origine de l’image. Toutes les données des aperçus ne s’affichent pas dans cette application. Pour voir tous les champs disponibles pour un insight, consultez les informations de référence sur [Images - Recherche visuelle](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 > [!NOTE]
 > Une quantité minimale d’informations d’aperçu doit être affichée sur la page. Pour plus d’informations , consultez [Conditions d’utilisation et d’affichage de l’API Recherche Bing](../bing-web-search/use-display-requirements.md).

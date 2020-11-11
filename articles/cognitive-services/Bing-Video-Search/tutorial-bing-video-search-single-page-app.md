@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098993"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379869"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutoriel : Application monopage pour la recherche de vidéos
 
@@ -47,7 +47,7 @@ L’application de ce didacticiel illustre les actions suivantes :
 
 La page du didacticiel est entièrement autonome. Elle n’utilise pas d’infrastructures, de feuilles de style ni de fichiers image externes. Elle a uniquement recours à des fonctionnalités de langage JavaScript largement prises en charge et fonctionne avec les versions actuelles des principaux navigateurs web.
 
-Dans ce didacticiel, nous abordons certaines parties du code source. Le [code source](tutorial-bing-video-search-single-page-app-source.md) complet est disponible. Pour exécuter l’exemple, copiez et collez le code source dans un éditeur de texte et enregistrez le fichier sous `bing.html`.
+Dans ce didacticiel, nous abordons certaines parties du code source. Le [code source]() complet est disponible. Pour exécuter l’exemple, copiez et collez le code source dans un éditeur de texte et enregistrez le fichier sous `bing.html`.
 
 ## <a name="app-components"></a>Composants de l’application
 Comme n’importe quelle application web à page unique, cette application du didacticiel comprend trois parties :

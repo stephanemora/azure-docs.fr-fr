@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777256"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363916"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutoriel : Ajouter Personalizer à une application web .NET
 
@@ -30,7 +30,7 @@ Personnalisez une application web .NET C# à l’aide d’une boucle Personalize
 
 ## <a name="select-the-best-content-for-a-web-app"></a>Sélectionner le meilleur contenu pour une application web
 
-Une application web doit utiliser Personalizer lorsqu’il existe une liste d’_actions_ (un certain type de contenu) sur la page web qui doit être personnalisée pour afficher un seul élément de tête (rewardActionId). Les listes d’actions comprennent par exemple des articles d’actualité, des emplacements de boutons et des choix de mots pour les noms de produits.
+Une application web doit utiliser Personalizer lorsqu’il existe une liste d’ _actions_ (un certain type de contenu) sur la page web qui doit être personnalisée pour afficher un seul élément de tête (rewardActionId). Les listes d’actions comprennent par exemple des articles d’actualité, des emplacements de boutons et des choix de mots pour les noms de produits.
 
 Vous envoyez la liste des actions, ainsi que les caractéristiques contextuelles, à la boucle Personalizer. Personalizer sélectionne la meilleure action, puis votre application web affiche cette action.
 
@@ -158,7 +158,7 @@ L’application web utilise Personalizer pour sélectionner la meilleure action 
 * les **actions** avec leurs fonctionnalités telles que `taste` et `spiceLevel`
 * les **caractéristiques contextuelles** telles que l’heure `time` de la journée, la préférence `taste` de l’utilisateur et les informations de l’agent utilisateur du navigateur, ainsi que les caractéristiques contextuelles
 * les **actions à exclure** telles que le jus
-* **eventId**, qui est différent pour chaque appel à l’API Rank.
+* **eventId** , qui est différent pour chaque appel à l’API Rank.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Fonctionnalités du modèle Personalizer dans une application web
 
@@ -216,7 +216,7 @@ Installez les logiciels suivants :
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) : l’exemple de serveur back-end utilise .NET Core
 * [Node.js](https://nodejs.org/) : le client/serveur frontal dépend de cette application
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [CLI .NET Core](https://docs.microsoft.com/dotnet/core/tools/) : utilisez l’environnement de développement de Visual Studio 2019 ou CLI .NET Core pour générer et exécuter l’application
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [CLI .NET Core](/dotnet/core/tools/) : utilisez l’environnement de développement de Visual Studio 2019 ou CLI .NET Core pour générer et exécuter l’application
 
 ### <a name="set-up-the-sample"></a>Configurer l’exemple
 1. Clonez le référentiel Azure Personalizer Samples.
@@ -235,7 +235,7 @@ Installez les logiciels suivants :
 
 1. Dans le portail Azure, recherchez le `Endpoint` et `Key1` ou `Key2` (les deux fonctionnent) sous l’onglet **Clés et points de terminaison**. Il s’agit de votre `PersonalizerServiceEndpoint` et de votre `PersonalizerApiKey`.
 1. Renseignez `PersonalizerServiceEndpoint` dans **appsettings.json**.
-1. Configurez `PersonalizerApiKey` en tant que [secrets de l’application](https://docs.microsoft.com/aspnet/core/security/app-secrets) de l’une des manières suivantes :
+1. Configurez `PersonalizerApiKey` en tant que [secrets de l’application](/aspnet/core/security/app-secrets) de l’une des manières suivantes :
 
     * Si vous utilisez CLI .NET Core, vous pouvez utiliser la commande `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"`.
     * Si vous utilisez Visual Studio, vous pouvez cliquer avec le bouton droit sur le projet et sélectionner l’option de menu **Gérer les secrets de l’utilisateur** pour configurer les clés Personalizer. Dans ce cas, Visual Studio ouvre un fichier `secrets.json` dans lequel vous pouvez ajouter les clés comme suit :
@@ -283,7 +283,7 @@ Les sections suivantes expliquent les parties du serveur et du client qu’un d�
 
 ## <a name="rank-api-client-application-sends-context-to-server"></a>API de classement : l’application cliente envoie le contexte au serveur
 
-L’application cliente collecte l’_agent utilisateur_ du navigateur de l’utilisateur.
+L’application cliente collecte l’ _agent utilisateur_ du navigateur de l’utilisateur.
 
 > [!div class="mx-imgBorder"]
 > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/user-agent.png)
@@ -340,7 +340,7 @@ namespace HttpRequestFeaturesExample
 
 ### <a name="select-best-action"></a>Sélectionner la meilleure action
 
-Dans le fichier **PersonalizerController.cs** du serveur, l’API de serveur **GenerateRank**résume la préparation pour appeler l’API de classement.
+Dans le fichier **PersonalizerController.cs** du serveur, l’API de serveur **GenerateRank** résume la préparation pour appeler l’API de classement.
 
 * Créer un `eventId` pour l’appel de classement
 * Obtenir la liste des actions

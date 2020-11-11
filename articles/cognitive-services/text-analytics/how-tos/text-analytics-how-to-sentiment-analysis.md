@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166928"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366755"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -23,7 +23,7 @@ La fonctionnalité Analyse des sentiments de l’API Analyse de texte évalue le
 
 Après avoir envoyé une demande d’analyse de sentiments, l’API retourne des étiquettes de sentiment (telles que « negative », « neutral » et « positive ») et des scores de confiance au niveau de la phrase et du document.
 
-Analyse des sentiments prend en charge une large palette de langues, et plus de langues encore en préversion. Pour en savoir plus, consultez [Langages pris en charge](../text-analytics-supported-languages.md).
+Analyse des sentiments prend en charge une large palette de langues, et plus de langues encore en préversion. Pour en savoir plus, consultez [Langages pris en charge](../language-support.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versions et fonctionnalités d’Analyse des sentiments
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 590ddef27315f37719da5b28c68b6c402371e986
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86189316"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363253"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Exemples Python destinés aux services Cognitive Services pour le Big Data
 
@@ -33,7 +33,7 @@ Les exemples de cet article utilisent les services Cognitive Services suivants 
 1. Après avoir créé un notebook dans Azure Databricks, copiez le **code partagé** ci-dessous et collez-le dans une nouvelle cellule de votre notebook.
 1. Choisissez un exemple de service, ci-dessous, puis copiez-le et collez-le dans une deuxième nouvelle cellule de votre notebook.
 1. Remplacez l’un des espaces réservés de clé d’abonnement au service par votre propre clé.
-1. Cliquez sur le bouton Exécuter (icône de triangle) en haut à gauche de la cellule, puis sélectionnez **Exécuter la cellule** .
+1. Cliquez sur le bouton Exécuter (icône de triangle) en haut à gauche de la cellule, puis sélectionnez **Exécuter la cellule**.
 1. Consultez les résultats dans un tableau affiché sous la cellule.
 
 ## <a name="shared-code"></a>Code partagé
@@ -56,7 +56,7 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 
 ## <a name="text-analytics-sample"></a>Exemple d’Analyse de texte
 
-Le service [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) fournit plusieurs algorithmes permettant d’extraire des insights intelligents à partir d’un texte. Par exemple, nous pouvons trouver le sentiment d’un texte d’entrée donné. Le service retourne un score compris entre 0.0 et 1.0, où un score faible indique un sentiment négatif et où un score élevé indique un sentiment positif.  Cet exemple utilise trois phrases simples et retourne le sentiment pour chacune d’elles.
+Le service [Analyse de texte](../text-analytics/index.yml) fournit plusieurs algorithmes permettant d’extraire des insights intelligents à partir d’un texte. Par exemple, nous pouvons trouver le sentiment d’un texte d’entrée donné. Le service retourne un score compris entre 0.0 et 1.0, où un score faible indique un sentiment négatif et où un score élevé indique un sentiment positif.  Cet exemple utilise trois phrases simples et retourne le sentiment pour chacune d’elles.
 
 ```python
 from pyspark.sql.functions import col
@@ -78,20 +78,20 @@ sentiment = (TextSentiment()
     .setLanguageCol("language"))
 
 # Show the results of your text query in a table format
-display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
 ### <a name="expected-result"></a>Résultat attendu
 
 | texte                                      | sentiment                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| I am so happy today, its sunny! (Je suis trop content aujourd’hui, il fait beau !)           | 0.9789592027664185                                    |
-| I am frustrated by this rush hour traffic (Cette circulation aux heures de pointe m’agace) | 0.023795604705810547                                  |
-| The cognitive services on spark aint bad (Les services Cognitive Services sur Spark ne sont pas mal)  | 0.8888956308364868                                    |
+| I am so happy today, its sunny! (Je suis trop content aujourd’hui, il fait beau !)           | positif                                              |
+| I am frustrated by this rush hour traffic (Cette circulation aux heures de pointe m’agace) | négatif                                              |
+| The cognitive services on spark aint bad (Les services Cognitive Services sur Spark ne sont pas mal)  | positif                                              |
 
 ## <a name="computer-vision-sample"></a>API Vision par ordinateur
 
-Le service [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyse des images pour identifier une structure comme des visages, des objets et des descriptions en langage naturel. Dans cet exemple, nous ajoutons des étiquettes à une liste d’images. Les étiquettes sont des descriptions en un mot des choses figurant sur l’image, comme des objets, des personnes, un paysage et des actions reconnaissables.
+Le service [Vision par ordinateur](../computer-vision/index.yml) analyse des images pour identifier une structure comme des visages, des objets et des descriptions en langage naturel. Dans cet exemple, nous ajoutons des étiquettes à une liste d’images. Les étiquettes sont des descriptions en un mot des choses figurant sur l’image, comme des objets, des personnes, un paysage et des actions reconnaissables.
 
 ```python
 
@@ -126,7 +126,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## <a name="bing-image-search-sample"></a>Exemple de Recherche d’images Bing
 
-La [Recherche d’images Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) explore le web pour récupérer des images associées à une demande en langage naturel d’un utilisateur. Dans cet exemple, nous utilisons une demande texte qui recherche des images avec des guillemets. Elle retourne une liste d’URL d’images qui contiennent des photos liées à notre demande.
+La [Recherche d’images Bing](../bing-image-search/overview.md) explore le web pour récupérer des images associées à une demande en langage naturel d’un utilisateur. Dans cet exemple, nous utilisons une demande texte qui recherche des images avec des guillemets. Elle retourne une liste d’URL d’images qui contiennent des photos liées à notre demande.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -171,7 +171,7 @@ display(pipeline.transform(bingParameters))
 
 
 ## <a name="speech-to-text-sample"></a>Exemple de Reconnaissance vocale
-Le service [Reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) convertit des flux ou des fichiers de contenu audio en texte. Dans cet exemple, nous transcrivons deux fichiers audio. Le premier fichier est facile à comprendre et le second est plus complexe.
+Le service [Reconnaissance vocale](../speech-service/index-speech-to-text.yml) convertit des flux ou des fichiers de contenu audio en texte. Dans cet exemple, nous transcrivons deux fichiers audio. Le premier fichier est facile à comprendre et le second est plus complexe.
 
 ```python
 
@@ -205,7 +205,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 ## <a name="anomaly-detector-sample"></a>Exemple de Détecteur d’anomalies
 
-Le [Détecteur d’anomalies](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) est idéal pour détecter les irrégularités dans vos données de séries chronologiques. Dans cet exemple, nous utilisons le service pour rechercher des anomalies dans l’ensemble de la série chronologique.
+Le [Détecteur d’anomalies](../anomaly-detector/index.yml) est idéal pour détecter les irrégularités dans vos données de séries chronologiques. Dans cet exemple, nous utilisons le service pour rechercher des anomalies dans l’ensemble de la série chronologique.
 
 ```python
 from pyspark.sql.functions import lit

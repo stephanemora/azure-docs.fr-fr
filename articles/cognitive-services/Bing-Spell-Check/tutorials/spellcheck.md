@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7abd67ef072303b7f8156a18c2e3ac34758c03dd
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099859"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364732"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutoriel : Générer une page web pour le client de vérification orthographique
 
@@ -332,4 +332,4 @@ Ouvrez la page web dans votre navigateur. À l’invite, entrez votre clé d’a
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Conditions d’utilisation et d’affichage](../UseAndDisplayRequirements.md)
+> [Conditions d’utilisation et d’affichage](../../bing-web-search/use-display-requirements.md)
