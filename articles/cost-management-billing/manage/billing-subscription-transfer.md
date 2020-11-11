@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131919"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408140"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -24,7 +24,7 @@ Cet article décrit les étapes nécessaires pour transférer la propriété de 
 
 Si vous souhaitez conserver votre propriété de facturation mais changer de type d’abonnement, consultez [Changer d’offre pour votre abonnement Azure](switch-azure-offer.md). Pour contrôler qui peut accéder aux ressources de l’abonnement, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
-Si vous êtes client Accord Entreprise (EA), l’administrateur de votre entreprise peut transférer la propriété de facturation de vos abonnements entre les comptes. Pour plus d’informations, consultez [Changer le propriétaire du compte](ea-portal-get-started.md#change-account-owner).
+Si vous êtes client Accord Entreprise (EA), l’administrateur de votre entreprise peut transférer la propriété de facturation de vos abonnements entre les comptes. Pour plus d’informations, consultez [Changer le propriétaire du compte](ea-portal-administration.md#change-account-owner).
 
 Seul l’administrateur de facturation d’un compte peut transférer la propriété d’un abonnement.
 

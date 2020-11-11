@@ -6,14 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/05/2020
 ms.author: banders
-ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371896"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411556"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferts Azure Enterprise
 
@@ -93,21 +94,25 @@ Le Paiement anticipé Azure n’est pas transférable entre les inscriptions. Le
 
 Il n’y a aucun temps d’arrêt lors du transfert d’un compte ou d’une inscription. Il peut être effectué le même jour que votre demande si toutes les informations requises sont fournies.
 
+## <a name="transfer-an-enterprise-subscription-to-a-pay-as-you-go-subscription"></a>Transformer un abonnement Enterprise en abonnement avec paiement à l’utilisation
+
+Pour transformer un abonnement Enterprise en abonnement individuel avec des tarifs de paiement à l’utilisation, vous devez créer une demande de support dans le portail Azure Enterprise. Pour créer une demande de support, sélectionnez **+ Nouvelle demande de support** dans la zone **Aide et support**.
+
 ## <a name="change-account-owner"></a>Changer le propriétaire du compte
 
-Le portail Azure EA peut transférer des abonnements d’un propriétaire de compte à un autre. Pour plus d’informations, consultez [Changer le propriétaire du compte](ea-portal-get-started.md#change-account-owner).
+Le portail Azure EA peut transférer des abonnements d’un propriétaire de compte à un autre. Pour plus d’informations, consultez [Changer le propriétaire du compte](ea-portal-administration.md#change-account-owner).
 
 ## <a name="subscription-transfer-effects"></a>Effets d’un transfert d'abonnement
 
 Lorsqu’un abonnement Azure est transféré vers un compte figurant dans le même locataire Azure Active Directory, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) pour gérer les ressources conservent leur accès.
 
-Pour afficher les utilisateurs disposant d’un accès Azure RBAC à l’abonnement :
+Pour afficher les utilisateurs disposant d’un accès RBAC à l’abonnement :
 
 1. Sur le portail Azure, ouvrez **Abonnements**.
 2. Sélectionnez l’abonnement à visualiser, puis sélectionnez **Contrôle d’accès (IAM)** .
-3. Sélectionnez **Attributions de rôles**. La page des attributions de rôles liste tous les utilisateurs qui disposent d’un accès Azure RBAC à l’abonnement.
+3. Sélectionnez **Attributions de rôles**. La page des attributions de rôles liste tous les utilisateurs qui disposent d’un accès RBAC à l’abonnement.
 
-Si l’abonnement est transféré vers un compte figurant dans un autre locataire Azure AD, tous les utilisateurs, groupes et principaux de service qui disposaient d’un contrôle [Azure RBAC](../../role-based-access-control/overview.md) pour gérer les ressources _perdent_ leur accès. Même si l’accès Azure RBAC n’est pas présent, l’accès à l’abonnement peut être disponible par le biais de mécanismes de sécurité, notamment :
+Si l’abonnement est transféré vers un compte figurant dans un autre locataire Azure AD, tous les utilisateurs, groupes et principaux de service qui disposaient d’un contrôle [RBAC](../../role-based-access-control/overview.md) pour gérer les ressources _perdent_ leur accès. Même si l’accès RBAC n’est pas présent, l’accès à l’abonnement peut être disponible par le biais de mécanismes de sécurité, notamment :
 
 - Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Microsoft Azure](../../cloud-services/cloud-services-certs-create.md).
 - Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../../storage/common/storage-account-overview.md).

@@ -3,21 +3,102 @@ title: Factures d’inscription Azure Entreprise
 description: Cet article explique comment gérer et traiter votre facture Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316135"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410951"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
 Cet article explique comment gérer et traiter votre facture Azure Enterprise Agreement (Azure EA). Il s’agit d’une représentation de votre facture. Vérifiez l’exactitude des informations qu’elle contient. Familiarisez-vous aussi avec d’autres tâches éventuellement nécessaires pour gérer votre facture.
+
+## <a name="view-usage-summary-and-download-reports"></a>Consulter le résumé de l’utilisation et télécharger les rapports
+
+Les administrateurs d’entreprise peuvent voir le récapitulatif de leurs données d’utilisation, l’acompte Azure consommé et les frais associés à l’utilisation supplémentaire dans le portail Azure Enterprise. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
+
+Pour voir l’utilisation détaillée de comptes spécifiques, téléchargez le rapport de détails de l’utilisation :
+
+1. Connectez-vous au portail Azure Enterprise.
+1. Sélectionnez **Rapports**.
+1. Sélectionnez l’onglet **Télécharger l’utilisation**.
+1. Dans la liste des rapports, sélectionnez **Télécharger** à côté du rapport mensuel qui vous intéresse.
+
+   > [!NOTE]
+   > Le rapport des détails de l’utilisation n’inclut pas les taxes applicables.
+   >
+   > Une latence pouvant atteindre huit heures peut être observée entre le moment où l’utilisation est engagée et celui où elle apparaît dans le rapport.
+
+Pour voir les rapports et graphes du résumé de l’utilisation :
+
+1. Connectez-vous au portail Azure Enterprise.
+
+1. Sélectionnez un terme pour l’acompte.
+
+   Pour modifier la plage de dates pour le **Résumé de l’utilisation** , vous pouvez basculer de **M** (mensuel) à **C** (personnalisé) en haut à droite de la page, puis entrer des dates de début et de fin personnalisées.
+
+   ![Créer et afficher un résumé de l’utilisation et télécharger les rapports dans un affichage personnalisé](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Pour afficher des détails supplémentaires, vous pouvez sélectionner une période ou un mois sur le graphe.
+
+   - Le graphe montre l’utilisation par mois, en détaillant l’engagement utilisé, le dépassement des frais de service, les frais facturés séparément et les frais de la place de marché Azure.
+   - Pour le mois sélectionné, vous pouvez utiliser les champs situés sous le graphe pour filtrer par services, comptes et abonnements.
+   - Vous pouvez basculer entre un affichage **Frais par services** et **Frais par hiérarchie**.
+   - Affichez les détails du **service Azure** , des **frais facturés séparément** et de la **place de marché Azure** en développant les sections correspondantes.
+
+Regardez cette vidéo pour voir comment afficher l’utilisation :
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Télécharger les rapports CSV
+
+Les administrateurs d’entreprise utilisent la page de téléchargement de rapport mensuel pour télécharger les rapports suivants dans des fichiers au format CSV :
+
+- Solde et frais
+- Détails de l’utilisation
+- Frais de la place de marché Azure
+- Price sheet
+
+Pour télécharger des rapports :
+
+1. Dans le portail Azure Enterprise, sélectionnez **Rapport**.
+2. Sélectionnez **Télécharger l’utilisation** en haut de la page.
+3. Sélectionnez **Download** (Télécharger) à côté du rapport mensuel qui vous intéresse.
+
+   > [!NOTE]
+   > Une latence pouvant atteindre cinq jours peut être observée entre la date effective de l’utilisation et celle où l’utilisation est indiquée dans les rapports.
+   >
+   > Les utilisateurs qui téléchargent les fichiers CSV dans Excel avec Safari peuvent rencontrer des erreurs de mise en forme. Pour éviter de telles erreurs, ouvrez ces fichiers à l’aide d’un éditeur de texte.
+
+![Exemple de page Download Usage (Télécharger l’utilisation)](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Regardez cette vidéo pour voir comment télécharger les données d’utilisation :
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Téléchargement des rapports avancés
+
+Vous pouvez utiliser le téléchargement de rapports avancés pour obtenir des rapports sur des plages de dates ou des comptes spécifique. Le fichier de sortie est au format CSV pour prendre en charge les jeux d’enregistrements volumineux.
+
+1. Dans le portail Azure Enterprise, sélectionnez **Téléchargement des rapports avancés**.
+1. Sélectionnez une plage de dates appropriée et les comptes appropriés.
+1. Sélectionnez **Request Usage Data** (Demander les données d’utilisation).
+1. Sélectionnez le bouton **Actualiser** jusqu’à ce que l’état du rapport soit **Télécharger**.
+1. Télécharger le rapport.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Télécharger les rapports d’utilisation et les informations de facturation pour une inscription antérieure
+
+Vous pouvez télécharger des rapports d’utilisation et des informations de facturation pour une inscription antérieure après un transfert d’inscription. Les rapports d’historique sont disponibles dans le portail Azure Enterprise et sous la gestion des coûts.
+
+Le portail Azure Enterprise filtre les inscriptions inactives en dehors de l’affichage. Vous devez désactiver la case à cocher **Active** pour afficher les inscriptions transférées inactives.  
+
+![Désactiver la case à cocher active permet à l’utilisateur de voir les inscriptions inactives](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Modifier un numéro de bon de commande pour une facture de dépassement à venir
 
@@ -88,9 +169,9 @@ Pour le dépassement, vous êtes facturé pour l’utilisation ou les réservati
 
 Chaque ligne de la facture affiche les informations suivantes :
 
-- **Montant total** : total des frais
-- **Utilisation de Paiement anticipé** : montant de votre Paiement anticipé utilisé pour couvrir les frais
-- **Montant net** : frais qui dépassent votre Paiement anticipé
+- **Montant total**  : total des frais
+- **Utilisation de Paiement anticipé**  : montant de votre Paiement anticipé utilisé pour couvrir les frais
+- **Montant net**  : frais qui dépassent votre Paiement anticipé
 
 Les taxes applicables sont calculées uniquement sur le montant net qui dépasse votre Paiement anticipé.
 

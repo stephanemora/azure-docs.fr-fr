@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924154"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335466"
 ---
 ::: zone target="docs"
 
@@ -119,7 +119,7 @@ Procédez comme suit pour configurer votre appareil à l’aide de l’interface
 2. Connectez-vous au port MGMT de votre appareil et accédez à l’interface utilisateur web locale à l’adresse https\://192.168.100.10. Une fois l’appareil sous tension, cela peut prendre jusqu'à 5 minutes.
 3. Cliquez sur **Détails** puis **accédez à la page web**.
 
-   ![Connexion à l'interface utilisateur web locale](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Connexion à l'interface utilisateur web locale](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. Vous voyez une page de **connexion** pour l’interface utilisateur web locale. Assurez-vous que le numéro de série de l’appareil correspond dans l’interface utilisateur du portail et l’interface utilisateur web locale. L’appareil est verrouillé à ce stade.
 5. Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -129,7 +129,7 @@ Procédez comme suit pour configurer votre appareil à l’aide de l’interface
     
     
 7. Indiquez le mot de passe que vous avez obtenu à partir du portail Azure à l’étape précédente pour vous connecter à l’interface utilisateur web locale de l’appareil. Cliquez sur **Se connecter**.
-8. Sur le **tableau de bord**, assurez-vous que les interfaces réseau sont configurées. 
+8. Sur le **tableau de bord** , assurez-vous que les interfaces réseau sont configurées. 
    - Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. 
    - Si DHCP n’est pas activé, accédez à **Définir des interfaces réseau** et affectez des adresses IP statiques si nécessaire.
 
