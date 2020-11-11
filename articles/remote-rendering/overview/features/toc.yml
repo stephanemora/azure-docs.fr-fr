@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Rendu en mode contour
   href: outlines.md
+- name: Rendu de shells
+  href: shell-effect.md
 - name: Rendu unilatéral
   href: single-sided-rendering.md
 - name: Requêtes spatiales
