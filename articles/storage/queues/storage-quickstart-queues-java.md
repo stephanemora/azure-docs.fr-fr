@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25b6bdcb293379e3206cc6714fae65fe40f6e6c5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783434"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345599"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Java
 
@@ -21,26 +21,26 @@ Familiarisez-vous avec la bibliothèque cliente Stockage File d’attente Azure 
 
 Utilisez la bibliothèque cliente Stockage File d’attente Azure v12 pour Java afin de :
 
-* Créer une file d’attente
-* Ajouter des messages à une file d’attente
-* Afficher un aperçu des messages d’une file d’attente
-* Mettre à jour un message dans une file d’attente
-* Recevoir et supprimer des messages d’une file d’attente
-* Suppression d'une file d'attente
+- Créer une file d’attente
+- Ajouter des messages à une file d’attente
+- Afficher un aperçu des messages d’une file d’attente
+- Mettre à jour un message dans une file d’attente
+- Recevoir et supprimer des messages d’une file d’attente
+- Suppression d'une file d'attente
 
 Ressources supplémentaires :
 
-* [Documentation de référence de l’API](/java/api/overview/azure/storage-queue-readme)
-* [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
-* [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Exemples](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentation de référence de l’API](/java/api/overview/azure/storage-queue-readme)
+- [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+- [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+- [Exemples](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Kit de développement Java (JDK)](/java/azure/jdk/), version 8 ou ultérieure
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
+- [Kit de développement Java (JDK)](/java/azure/jdk/), version 8 ou ultérieure
+- [Apache Maven](https://maven.apache.org/download.cgi)
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>Configuration
 
@@ -48,9 +48,9 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 ### <a name="create-the-project"></a>Créer le projet
 
-Créez une application Java nommée *queues-quickstart-v12* .
+Créez une application Java nommée *queues-quickstart-v12*.
 
-1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *queues-quickstart-v12* . Tapez la commande **mvn** suivante pour créer un projet Java « Hello World ! ».
+1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *queues-quickstart-v12*. Tapez la commande **mvn** suivante pour créer un projet Java « Hello World ! ».
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart \
@@ -151,9 +151,9 @@ public class App
 
 Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages. La taille maximale d’un message de file d’attente est de 64 Ko. Une file d’attente peut contenir des millions de messages, dans la limite de la capacité totale d’un compte de stockage. Les files d’attente sont couramment utilisées pour créer un backlog de travail à traiter de façon asynchrone. Le Stockage File d’attente offre trois types de ressources :
 
-* Le compte de stockage
-* Une file d’attente dans le compte de stockage
-* Les messages dans la file d’attente
+- Le compte de stockage
+- Une file d’attente dans le compte de stockage
+- Les messages dans la file d’attente
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -161,22 +161,22 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes Java suivantes pour interagir avec ces ressources :
 
-* [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder) : la classe `QueueClientBuilder` configure et instancie un objet `QueueClient`.
-* [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient) : `QueueServiceClient` vous permet de gérer toutes les files d’attente de votre compte de stockage.
-* [QueueClient](/java/api/com.azure.storage.queue.queueclient) : la classe `QueueClient` vous permet de gérer et de manipuler une file d’attente individuelle et ses messages.
-* [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem) : La classe `QueueMessageItem` représente les objets individuels retournés lors de l’appel de [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) dans une file d’attente.
+- [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder) : la classe `QueueClientBuilder` configure et instancie un objet `QueueClient`.
+- [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient) : `QueueServiceClient` vous permet de gérer toutes les files d’attente de votre compte de stockage.
+- [QueueClient](/java/api/com.azure.storage.queue.queueclient) : la classe `QueueClient` vous permet de gérer et de manipuler une file d’attente individuelle et ses messages.
+- [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem) : La classe `QueueMessageItem` représente les objets individuels retournés lors de l’appel de [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) dans une file d’attente.
 
 ## <a name="code-examples"></a>Exemples de code
 
 Ces exemples d’extraits de code vous montrent comment effectuer les actions suivantes avec la bibliothèque cliente Stockage File d’attente Azure pour Java :
 
-* [Obtenir la chaîne de connexion](#get-the-connection-string)
-* [Créer une file d’attente](#create-a-queue)
-* [Ajouter des messages à une file d’attente](#add-messages-to-a-queue)
-* [Afficher un aperçu des messages d’une file d’attente](#peek-at-messages-in-a-queue)
-* [Mettre à jour un message dans une file d’attente](#update-a-message-in-a-queue)
-* [Recevoir et supprimer des messages d’une file d’attente](#receive-and-delete-messages-from-a-queue)
-* [Supprimer une file d’attente](#delete-a-queue)
+- [Obtenir la chaîne de connexion](#get-the-connection-string)
+- [Créer une file d’attente](#create-a-queue)
+- [Ajouter des messages à une file d’attente](#add-messages-to-a-queue)
+- [Afficher un aperçu des messages d’une file d’attente](#peek-at-messages-in-a-queue)
+- [Mettre à jour un message dans une file d’attente](#update-a-message-in-a-queue)
+- [Recevoir et supprimer des messages d’une file d’attente](#receive-and-delete-messages-from-a-queue)
+- [Supprimer une file d’attente](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
 
@@ -202,7 +202,6 @@ Choisissez un nom pour la nouvelle file d’attente. Le code ci-dessous ajoute u
 
 > [!IMPORTANT]
 > Les noms de file d’attente peuvent contenir uniquement des lettres minuscules, des chiffres et des traits d’union, et doivent commencer par une lettre ou un nombre. Chaque trait d’union doit être précédé et suivi d’un caractère autre qu’un tiret. Le nom doit avoir entre 3 et 63 caractères. Pour plus d’informations sur le nommage des files d’attente, consultez [Nommage des files d’attente et des métadonnées](/rest/api/storageservices/naming-queues-and-metadata).
-
 
 Créez une instance de la classe [QueueClient](/java/api/com.azure.storage.queue.queueclient). Ensuite, appelez la méthode [create](/java/api/com.azure.storage.queue.queueclient.create) pour créer la file d’attente dans votre compte de stockage.
 
@@ -266,7 +265,7 @@ System.out.println("\nUpdating the third message in the queue...");
 // Update a message using the result that
 // was saved when sending the message
 queueClient.updateMessage(result.getMessageId(),
-                          result.getPopReceipt(), 
+                          result.getPopReceipt(),
                           "Third message has been updated",
                           Duration.ofSeconds(1));
 ```
@@ -374,4 +373,4 @@ Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d�
 > [!div class="nextstepaction"]
 > [Azure pour les développeurs cloud Java](/azure/developer/java/)
 
-* Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples de bibliothèques clientes SDK Stockage File d’attente Azure V12 pour Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
+- Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples de bibliothèques clientes SDK Stockage File d’attente Azure V12 pour Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

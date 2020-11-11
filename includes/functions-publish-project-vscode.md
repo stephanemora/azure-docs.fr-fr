@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: f4e58f4f510450db13ae13d3beecba4d55e766bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408546"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420986"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publication du projet sur Azure
 
@@ -19,29 +19,21 @@ Dans cette section, vous créez une application de fonction et les ressources as
 > La publication sur une application de fonction existante remplace le contenu de cette application dans Azure.
 
 
-1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions**, choisissez le bouton **Déployer sur une application de fonction**.
+1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions** , choisissez le bouton **Déployer sur une application de fonction**.
 
     ![Publier votre projet sur Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
-    - **Sélectionnez le dossier** : choisissez un dossier dans votre espace de travail ou accédez à un dossier qui contient votre application de fonction. Vous ne verrez pas ceci si vous avez déjà ouvert une application de fonction valide.
+    - **Sélectionnez le dossier**  : choisissez un dossier dans votre espace de travail ou accédez à un dossier qui contient votre application de fonction. Vous ne verrez pas ceci si vous avez déjà ouvert une application de fonction valide.
 
-    - **Sélectionnez l’abonnement** : choisissez l’abonnement à utiliser. Vous ne verrez pas ceci si vous n’avez qu’un seul abonnement.
+    - **Sélectionnez l’abonnement**  : choisissez l’abonnement à utiliser. Vous ne verrez pas ceci si vous n’avez qu’un seul abonnement.
 
-    - **Sélectionnez une application de fonction dans Azure** : Choisissez `- Create new Function App`. (Ne choisissez pas l’option `Advanced`, qui n’est pas abordée dans cet article.)
+    - **Sélectionnez une application de fonction dans Azure**  : Choisissez `- Create new Function App`. (Ne choisissez pas l’option `Advanced`, qui n’est pas abordée dans cet article.)
       
-    - **Entrer un nom global unique pour l’application de fonction** : Tapez un nom valide dans un chemin d’URL. Le système vérifie que le nom que vous tapez est unique dans Azure Functions.
+    - **Entrer un nom global unique pour l’application de fonction**  : Tapez un nom valide dans un chemin d’URL. Le système vérifie que le nom que vous tapez est unique dans Azure Functions.
     
-    ::: zone pivot="programming-language-python"
-    - **Sélectionnez un runtime** : Choisissez la version de Python que vous avez exécutée localement. Vous pouvez utiliser la commande `python --version` pour vérifier votre version.
-    ::: zone-end
-
-    ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    - **Sélectionnez un runtime** : Choisissez la version de Node.js que vous avez exécutée localement. Vous pouvez utiliser la commande `node --version` pour vérifier votre version.
-    ::: zone-end
-
-    - **Sélectionnez un emplacement pour les nouvelles ressources** :  Pour de meilleures performances, choisissez une [région](https://azure.microsoft.com/regions/) proche de vous. 
+    - **Sélectionnez un emplacement pour les nouvelles ressources**  :  Pour de meilleures performances, choisissez une [région](https://azure.microsoft.com/regions/) proche de vous. 
     
 1.  Quand vous avez terminé, les ressources Azure suivantes sont créées dans votre abonnement et leurs noms reposent sur le nom de votre application de fonction :
     

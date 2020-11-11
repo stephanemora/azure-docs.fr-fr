@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342023"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372545"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Présentation d’Azure Defender pour SQL
 
@@ -23,7 +23,7 @@ Azure Defender pour SQL comprend deux plans Azure Defender qui étendent le [pac
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|**Azure Defender pour les serveurs de base de données Azure SQL** – Disponibilité générale (GA)<br>**Azure Defender pour les serveurs SQL Server sur les machines** – Préversion|
+|État de sortie :|**Azure Defender pour les serveurs de base de données Azure SQL** – Disponibilité générale (GA)<br>**Azure Defender pour les serveurs SQL Server sur les machines** – Préversion<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prix :|Les deux plans qui forment **Azure Defender pour SQL** sont facturés conformément aux indications de la [page des tarifs](security-center-pricing.md).|
 |Versions de SQL protégées :|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics (anciennement SQL DW)<br>SQL Server (toutes les versions prises en charge)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
@@ -54,9 +54,9 @@ Ces deux plans comprennent des fonctionnalités qui permettent d’identifier et
 
 Les alertes de sécurité sont déclenchées dans les cas suivants :
 
-- **Attaques potentielles par injection de code SQL**, y compris les vulnérabilités détectées lorsque les applications génèrent une instruction SQL défectueuse dans la base de données
-- **Modèles de requête et d’accès à la base de données anormaux**, par exemple, un nombre anormalement élevé d’échecs de tentatives de connexion avec des informations d’identification différentes (tentative d’attaque par force brute)
-- **Activité suspecte sur la base de données**, par exemple, une modification apportée à la destination de stockage de l’exportation pour une opération d’importation et d’exportation SQL.
+- **Attaques potentielles par injection de code SQL** , y compris les vulnérabilités détectées lorsque les applications génèrent une instruction SQL défectueuse dans la base de données
+- **Modèles de requête et d’accès à la base de données anormaux** , par exemple, un nombre anormalement élevé d’échecs de tentatives de connexion avec des informations d’identification différentes (tentative d’attaque par force brute)
+- **Activité suspecte sur la base de données** , par exemple, une modification apportée à la destination de stockage de l’exportation pour une opération d’importation et d’exportation SQL.
 
 Les alertes fournissent des détails sur l’incident qui les a déclenchées, ainsi que des suggestions pour enquêter et contrer les menaces.
 

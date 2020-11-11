@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123560"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336679"
 ---
 # <a name="what-is-azure-data-box"></a>Qu’est-ce qu’Azure Data Box ?
 
@@ -43,18 +43,18 @@ Voici les différents scénarios où le service Data Box peut être utilisé pou
 
 Voici les différents scénarios où le service Data Box peut être utilisé pour exporter des données à partir d’Azure.
 
-- **Reprise d’activité après sinistre** : quand une copie des données d’Azure est restaurée sur un réseau local. Cela s’effectue généralement dans le cas d’un scénario de reprise d’activité où une grande quantité de données Azure sont exportées vers Data Box. Microsoft envoie ensuite cette Data Box, et les données sont restaurées sur votre site dans un délai très court. 
+- **Reprise d’activité après sinistre**  : quand une copie des données d’Azure est restaurée sur un réseau local. Cela s’effectue généralement dans le cas d’un scénario de reprise d’activité où une grande quantité de données Azure sont exportées vers Data Box. Microsoft envoie ensuite cette Data Box, et les données sont restaurées sur votre site dans un délai très court. 
 
-- **Exigences de sécurité** : quand vous devez être en mesure d’exporter des données à partir d’Azure en raison des exigences gouvernementales ou de sécurité. Par exemple, Stockage Azure est disponible dans les clouds US Secret et Top Secret, et vous pouvez utiliser Data Box pour exporter des données à partir d’Azure. 
+- **Exigences de sécurité**  : quand vous devez être en mesure d’exporter des données à partir d’Azure en raison des exigences gouvernementales ou de sécurité. Par exemple, Stockage Azure est disponible dans les clouds US Secret et Top Secret, et vous pouvez utiliser Data Box pour exporter des données à partir d’Azure. 
 
-- **Remigrer vers le site local ou vers un autre fournisseur de services cloud** : quand vous souhaitez redéplacer toutes les données vers le site local ou vers un autre fournisseur de services cloud, exportez les données par le biais de Data Box pour migrer les charges de travail.
+- **Remigrer vers le site local ou vers un autre fournisseur de services cloud**  : quand vous souhaitez redéplacer toutes les données vers le site local ou vers un autre fournisseur de services cloud, exportez les données par le biais de Data Box pour migrer les charges de travail.
 
 
 ## <a name="benefits"></a>Avantages
 
 Data Box est conçu pour déplacer de grandes quantités de données vers Azure avec peu ou aucun impact sur le réseau. La solution offre les avantages suivants :
 
-- **Vitesse** : Data Box utilise des interfaces réseau 1 Gbit/s ou 10 Gbits/s pour déplacer jusqu’à 80 To de données vers et hors d’Azure.
+- **Vitesse**  : Data Box utilise des interfaces réseau 1 Gbit/s ou 10 Gbits/s pour déplacer jusqu’à 80 To de données vers et hors d’Azure.
 
 - **Sécurité** : Data Box intègre des protections de sécurité pour l’appareil, les données et le service.
   - L’appareil est fourni dans une caisse robuste sécurisée par des vis et des autocollants inviolables. 
@@ -88,14 +88,14 @@ Dans cette version, l’appareil Data Box affiche les caractéristiques suivante
 
 La Data Box inclut les composants suivants :
 
-* **Appareil Data Box** : un appareil physique qui offre un stockage principal, gère la communication avec le stockage cloud et contribue à garantir la sécurité et la confidentialité de toutes les données stockées sur l’appareil. L’appareil Data Box a une capacité de stockage utile de 80 To. 
+* **Appareil Data Box**  : un appareil physique qui offre un stockage principal, gère la communication avec le stockage cloud et contribue à garantir la sécurité et la confidentialité de toutes les données stockées sur l’appareil. L’appareil Data Box a une capacité de stockage utile de 80 To. 
 
-    ![Faces avant et arrière de Data Box](media/data-box-overview/data-box-combined3.png)
+    ![Faces avant et arrière de Data Box](media/data-box-overview/data-box-combined.png)
 
     
 * **Service Data Box** : extension du portail Azure, qui vous permet de gérer un appareil Data Box à partir d’une interface web accessible depuis divers emplacements géographiques. Utilisez le service Data Box pour effectuer l’administration quotidienne de votre appareil Data Box. Les tâches de service incluent la création et la gestion de commandes, l’affichage et la gestion des alertes ainsi que la gestion des partages.  
 
-    ![Le service Data Box dans le portail Azure](media/data-box-overview/data-box-service1.png)
+    ![Le service Data Box dans le portail Azure](media/data-box-overview/data-box-service.png)
 
     Pour plus d’informations, consultez [Utiliser le service Data Box pour gérer votre appareil Data Box](data-box-portal-ui-admin.md).
 
@@ -124,15 +124,15 @@ Tout au long de ce processus, vous êtes averti par courrier électronique de to
 
 Un flux d’exportation type inclut les étapes suivantes :
 
-1. **Commande** : créez une commande d’exportation dans le portail Azure, en indiquant les informations d’expédition et le compte de stockage source Azure de vos données. Si l’appareil est disponible, Azure prépare un appareil. Les données sont copiées à partir de votre compte Stockage Azure vers le Data Box. Une fois la copie des données terminée, Microsoft envoie l’appareil avec un ID de suivi d’expédition.
+1. **Commande**  : créez une commande d’exportation dans le portail Azure, en indiquant les informations d’expédition et le compte de stockage source Azure de vos données. Si l’appareil est disponible, Azure prépare un appareil. Les données sont copiées à partir de votre compte Stockage Azure vers le Data Box. Une fois la copie des données terminée, Microsoft envoie l’appareil avec un ID de suivi d’expédition.
 
 2. **Réception** : une fois l’appareil livré, connectez-le au réseau et à l’alimentation à l’aide des câbles spécifiés. Mettez l’appareil sous tension et connectez-vous à l’appareil. Configurez le réseau de l’appareil et montez les partages sur l’ordinateur hôte sur lequel vous souhaitez copier les données.
 
-3. **Copie des données** : copiez les données à partir des partages Data Box vers les serveurs de données locaux.
+3. **Copie des données**  : copiez les données à partir des partages Data Box vers les serveurs de données locaux.
 
 4. **Retour** : préparez l’appareil, mettez-le hors tension et retournez l’appareil au centre de données Azure.
 
-5. **Effacement des données** : les disques de l’appareil sont effacés de manière sécurisée conformément aux instructions du NIST (National Institute of Standards and Technology).
+5. **Effacement des données**  : les disques de l’appareil sont effacés de manière sécurisée conformément aux instructions du NIST (National Institute of Standards and Technology).
 
 Tout au long du processus d’exportation, vous êtes averti par e-mail de tous les changements d’état. Pour plus d’informations sur le flux détaillé, accédez à [Deploy Data Box in Azure portal](data-box-deploy-export-ordered.md) (Déployer Data Box dans le portail Azure).
 
@@ -142,11 +142,11 @@ Data Box peut transférer des données en fonction de la région dans laquelle l
 
 ### <a name="for-import"></a>Pour l’importation
 
-- **Disponibilité du service** : lors de l’utilisation de Data Box pour les commandes d’importation ou d’exportation, pour plus d’informations sur la disponibilité par région, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). La fonctionnalité d’exportation sur Data Box est actuellement en préversion. 
+- **Disponibilité du service**  : lors de l’utilisation de Data Box pour les commandes d’importation ou d’exportation, pour plus d’informations sur la disponibilité par région, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). La fonctionnalité d’exportation sur Data Box est actuellement en préversion. 
 
     Pour les commandes d’importation, vous pouvez aussi déployer Data Box Disk dans le cloud Azure Government. Pour plus d’informations, consultez [Présentation d’Azure Government](../azure-government/documentation-government-welcome.md). 
 
-- **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure où le service est disponible.
+- **Comptes de stockage de destination**  : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure où le service est disponible.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

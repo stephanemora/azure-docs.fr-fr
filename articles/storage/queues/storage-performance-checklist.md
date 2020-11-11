@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787378"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345752"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check-list des performances et de la scalabilité pour le stockage File d’attente
 
@@ -60,18 +60,17 @@ Si vous atteignez le nombre maximal de comptes de stockage autorisés pour une c
 
 ### <a name="capacity-and-transaction-targets"></a>Objectifs de capacité et de transaction
 
-Si votre application s’approche des objectifs d’extensibilité d’un seul compte de stockage, pensez à appliquer l’une des méthodes suivantes :  
+Si votre application s’approche des objectifs d’extensibilité d’un seul compte de stockage, pensez à appliquer l’une des méthodes suivantes :
 
 - Si les objectifs de scalabilité des files d’attente sont insuffisants pour votre application, utilisez plusieurs files d’attente et répartissez les messages entre elles.
 - Réexaminez la charge de travail à cause de laquelle votre application s’approche de l’objectif d’extensibilité ou le dépasse. Est-il possible de la concevoir différemment pour qu’elle utilise moins de bande passante ou de capacité, ou moins de transactions ?
 - Si votre application doit dépasser l’un des objectifs de scalabilité, vous devez créer plusieurs comptes de stockage et partitionner vos données d’application sur ces comptes de stockage. Si vous optez pour ce modèle, veillez à concevoir votre application de telle sorte que vous puissiez ajouter davantage de comptes de stockage à l’avenir en vue de l’équilibrage de la charge. Aucun coût autre que l’utilisation (données stockées, transactions effectuées, données transférées, etc.) n’est associé à ces comptes de stockage.
-- Si votre application s’approche des objectifs de bande passante, pensez à compresser les données côté client afin de réduire la bande passante nécessaire à l’envoi des données au stockage Azure.
-    Même si la compression des données peut réduire la bande passante et améliorer les performances du réseau, elle présente des inconvénients. Évaluez l’impact sur les performances qu’entraînent les exigences de traitement supplémentaires liées à la compression et à la décompression des données côté client. Gardez à l’esprit que le stockage de données compressées peut compliquer la résolution des problèmes, car il peut être plus difficile de voir les données à l’aide d’outils standard.
+- Si votre application s’approche des objectifs de bande passante, pensez à compresser les données côté client afin de réduire la bande passante nécessaire à l’envoi des données au stockage Azure. Même si la compression des données peut réduire la bande passante et améliorer les performances du réseau, elle présente des inconvénients. Évaluez l’impact sur les performances qu’entraînent les exigences de traitement supplémentaires liées à la compression et à la décompression des données côté client. Gardez à l’esprit que le stockage de données compressées peut compliquer la résolution des problèmes, car il peut être plus difficile de voir les données à l’aide d’outils standard.
 - Si votre application s’approche des objectifs de scalabilité, vérifiez que vous utilisez bien un backoff exponentiel pour les nouvelles tentatives. Il est préférable d’éviter de s’approcher des objectifs de scalabilité en implémentant les recommandations fournies dans cet article. Toutefois, l’utilisation d’un backoff exponentiel pour les nouvelles tentatives va empêcher votre application d’effectuer une nouvelle tentative rapidement, ce qui pourrait compliquer la limitation. Pour plus d’informations, consultez la section intitulée [Erreurs d’expiration de délai et de serveur occupé](#timeout-and-server-busy-errors).
 
 ## <a name="networking"></a>Mise en réseau
 
-Les contraintes de réseau physiques de l’application peuvent avoir un impact majeur sur les performances. Les sections suivantes abordent certaines des limitations auxquelles les utilisateurs peuvent être confrontés.  
+Les contraintes de réseau physiques de l’application peuvent avoir un impact majeur sur les performances. Les sections suivantes abordent certaines des limitations auxquelles les utilisateurs peuvent être confrontés.
 
 ### <a name="client-network-capability"></a>Fonctionnalités réseau du client
 
@@ -83,11 +82,11 @@ Dans le cas de la bande passante, le problème est souvent dû aux capacités du
 
 #### <a name="link-quality"></a>Qualité du lien
 
-Comme c’est le cas pour toute utilisation du réseau, n’oubliez pas que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif.  L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.  
+Comme c’est le cas pour toute utilisation du réseau, n’oubliez pas que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif. L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.
 
 ### <a name="location"></a>Emplacement
 
-Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, si vous disposez d’un site web Azure qui utilise le stockage Azure, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts, puisque l’utilisation de la bande passante dans une seule région était gratuite.  
+Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, si vous disposez d’un site web Azure qui utilise le stockage Azure, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts, puisque l’utilisation de la bande passante dans une seule région était gratuite.
 
 Si des applications clientes accèdent au stockage Azure sans être hébergées dans Azure (c’est le cas, par exemple, des applications pour appareil mobile ou des services d’entreprise locaux), le fait de placer le compte de stockage dans une région proche de ces appareils peut réduire la latence. Si vos clients sont distribués à grande échelle (par exemple, certains en Amérique du Nord et d’autres en Europe), il est conseillé d’utiliser un compte de stockage pour chaque région. Cette méthode est plus facile à implémenter si les données stockées par l’application sont propres à certains utilisateurs, et elle ne nécessite pas de réplication des données entre différents comptes de stockage.
 
@@ -95,17 +94,17 @@ Si des applications clientes accèdent au stockage Azure sans être hébergées 
 
 Supposons que vous deviez autoriser du code, tel que du code JavaScript qui s’exécute dans le navigateur web d’un utilisateur ou dans une application de téléphone mobile, à accéder aux données du stockage Azure. L’une des méthodes possibles consiste à créer une application de service qui serve de proxy. L’appareil de l’utilisateur s’authentifie auprès du service, qui à son tour autorise l’accès aux ressources du stockage Azure. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cette méthode entraîne une surcharge importante pour l’application du service, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le stockage Azure doivent transiter par l’application du service.
 
-Vous pouvez éviter d’utiliser une application de service en tant que proxy pour le stockage Azure en utilisant des signatures d’accès partagé (SAS). Avec les signatures d’accès partagé, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des requêtes au stockage Azure par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite charger une photo vers votre application, votre application de service peut générer une signature d’accès partagé et l’envoyer à l’appareil de l’utilisateur. Le jeton SAS peut accorder l’autorisation d’écrire dans une ressource du stockage Azure pendant un intervalle de temps spécifié, au bout duquel le jeton SAS expire. Pour plus d’informations sur les SAS, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md).  
+Vous pouvez éviter d’utiliser une application de service en tant que proxy pour le stockage Azure en utilisant des signatures d’accès partagé (SAS). Avec les signatures d’accès partagé, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des requêtes au stockage Azure par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite charger une photo vers votre application, votre application de service peut générer une signature d’accès partagé et l’envoyer à l’appareil de l’utilisateur. Le jeton SAS peut accorder l’autorisation d’écrire dans une ressource du stockage Azure pendant un intervalle de temps spécifié, au bout duquel le jeton SAS expire. Pour plus d’informations sur les SAS, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md).
 
 En règle générale, un navigateur web n’autorise pas le code JavaScript d’une page hébergée par un site web d’un domaine à effectuer certaines opérations, telles que les opérations d’écriture, sur un autre domaine. Connue sous le nom de stratégie de même origine, cette stratégie empêche un script malveillant d’une page d’obtenir l’accès aux données d’une autre page web. Toutefois, la stratégie de même origine peut représenter un obstacle lorsque vous créez une solution dans le cloud. Le partage des ressources cross-origin (CORS) est une fonctionnalité de navigateur qui autorise le domaine cible à indiquer au navigateur que vous approuvez les requêtes en provenance du domaine source.
 
-Supposons, par exemple, qu’une application web exécutée dans Azure envoie une requête pour une ressource à un compte de stockage Azure. L’application web est le domaine source, et le compte de stockage est le domaine cible. Vous pouvez configurer le partage des ressources cross-origin pour l’un des services du stockage Azure afin d’indiquer au navigateur web que les requêtes provenant du domaine source sont approuvées par le stockage Azure. Pour plus d’informations sur le partage des ressources cross-origin, consultez [Prise en charge du partage des ressources cross-origin (CORS) pour le stockage Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
-  
-Les signatures d’accès partagé et le partage des ressources cross-origin vous aident à éviter une charge inutile sur votre application web.  
+Supposons, par exemple, qu’une application web exécutée dans Azure envoie une requête pour une ressource à un compte de stockage Azure. L’application web est le domaine source, et le compte de stockage est le domaine cible. Vous pouvez configurer le partage des ressources cross-origin pour l’un des services du stockage Azure afin d’indiquer au navigateur web que les requêtes provenant du domaine source sont approuvées par le stockage Azure. Pour plus d’informations sur le partage des ressources cross-origin, consultez [Prise en charge du partage des ressources cross-origin (CORS) pour le stockage Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
+
+Les signatures d’accès partagé et le partage des ressources cross-origin vous aident à éviter une charge inutile sur votre application web.
 
 ## <a name="net-configuration"></a>Configuration .NET
 
-Si vous utilisez .NET Framework, vous trouverez dans cette section plusieurs paramètres de configuration rapide que vous pouvez appliquer pour améliorer sensiblement les performances.  Si vous utilisez un autre langage, vérifiez si des concepts similaires y sont associés.  
+Si vous utilisez .NET Framework, vous trouverez dans cette section plusieurs paramètres de configuration rapide que vous pouvez appliquer pour améliorer sensiblement les performances. Si vous utilisez un autre langage, vérifiez si des concepts similaires y sont associés.
 
 ### <a name="use-net-core"></a>Utiliser .NET Core
 
@@ -118,17 +117,17 @@ Pour plus d’informations sur les améliorations des performances dans .NET Cor
 
 ### <a name="increase-default-connection-limit"></a>Augmenter la limite de connexions par défaut
 
-Dans .NET, le code suivant augmente la limite de connexions par défaut (qui est généralement de 2 dans un environnement client ou de 10 dans un environnement de serveur) à 100. En règle générale, vous devez définir la valeur sur environ le nombre de threads utilisés par votre application.  
+Dans .NET, le code suivant augmente la limite de connexions par défaut (qui est généralement de 2 dans un environnement client ou de 10 dans un environnement de serveur) à 100. En règle générale, vous devez définir la valeur sur environ le nombre de threads utilisés par votre application.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Définissez la limite de connexions avant d’ouvrir une connexion.  
+Définissez la limite de connexions avant d’ouvrir une connexion.
 
-Pour les autres langages de programmation, voir la documentation correspondante pour savoir comment définir la limite de connexions.  
+Pour les autres langages de programmation, voir la documentation correspondante pour savoir comment définir la limite de connexions.
 
-Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).  
+Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).
 
 ### <a name="increase-minimum-number-of-threads"></a>Augmenter le nombre minimal de threads
 
@@ -138,11 +137,11 @@ Si vous utilisez des appels synchrones avec des tâches asynchrones, vous aurez 
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Pour plus d’informations, consultez la méthode [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).  
+Pour plus d’informations, consultez la méthode [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).
 
 ## <a name="unbounded-parallelism"></a>Parallélisme illimité
 
-Même si le parallélisme peut être très utile pour les performances, soyez prudent lorsque vous utilisez le parallélisme illimité, car il n’existe aucune limite concernant le nombre de threads ou de requêtes parallèles. Veillez à limiter les requêtes parallèles pour charger ou télécharger des données, pour accéder à plusieurs partitions dans un même compte de stockage ou pour accéder à plusieurs éléments d’une même partition. Si vous optez pour un parallélisme illimité, votre application peut dépasser les capacités de l’appareil client ou les objectifs de scalabilité du compte de stockage, ce qui se traduit par des temps de latence plus importants et par une limitation.  
+Même si le parallélisme peut être très utile pour les performances, soyez prudent lorsque vous utilisez le parallélisme illimité, car il n’existe aucune limite concernant le nombre de threads ou de requêtes parallèles. Veillez à limiter les requêtes parallèles pour charger ou télécharger des données, pour accéder à plusieurs partitions dans un même compte de stockage ou pour accéder à plusieurs éléments d’une même partition. Si vous optez pour un parallélisme illimité, votre application peut dépasser les capacités de l’appareil client ou les objectifs de scalabilité du compte de stockage, ce qui se traduit par des temps de latence plus importants et par une limitation.
 
 ## <a name="client-libraries-and-tools"></a>Outils et bibliothèques clientes
 
@@ -154,9 +153,9 @@ Le stockage Azure retourne une erreur lorsque le service ne peut pas traiter une
 
 ### <a name="timeout-and-server-busy-errors"></a>Erreurs d’expiration de délai et de serveur occupé
 
-Le stockage Azure peut limiter votre application si celle-ci s’approche des limites de scalabilité. Dans certains cas, le stockage Azure peut ne pas être en mesure de traiter une requête en raison d’un problème temporaire. Dans les deux cas, le service peut retourner une erreur 503 (Serveur occupé) ou une erreur 500 (Délai expiré). Ces erreurs peuvent également se produire si le service rééquilibre les partitions de données pour permettre un débit plus élevé. L’application cliente doit généralement retenter l’opération qui provoque l’une de ces erreurs. Cependant, si le stockage Azure limite votre application en raison d’un dépassement des objectifs de scalabilité, ou si le service n’a pas été en mesure de répondre à la requête pour une autre raison, le fait d’effectuer des nouvelles tentatives agressives ne fait généralement qu’aggraver le problème. Il est recommandé d’utiliser une stratégie de nouvelle tentative de type backoff exponentiel. Les bibliothèques clientes adopteront par défaut ce comportement. Votre application peut, par exemple, effectuer une nouvelle tentative après 2 secondes, puis 4 secondes, 10 secondes, 30 secondes avant d’abandonner complètement. De cette façon, votre application réduit considérablement la charge sur le service, au lieu d’aggraver un comportement susceptible d’entraîner une limitation.  
+Le stockage Azure peut limiter votre application si celle-ci s’approche des limites de scalabilité. Dans certains cas, le stockage Azure peut ne pas être en mesure de traiter une requête en raison d’un problème temporaire. Dans les deux cas, le service peut retourner une erreur 503 (Serveur occupé) ou une erreur 500 (Délai expiré). Ces erreurs peuvent également se produire si le service rééquilibre les partitions de données pour permettre un débit plus élevé. L’application cliente doit généralement retenter l’opération qui provoque l’une de ces erreurs. Cependant, si le stockage Azure limite votre application en raison d’un dépassement des objectifs de scalabilité, ou si le service n’a pas été en mesure de répondre à la requête pour une autre raison, le fait d’effectuer des nouvelles tentatives agressives ne fait généralement qu’aggraver le problème. Il est recommandé d’utiliser une stratégie de nouvelle tentative de type backoff exponentiel. Les bibliothèques clientes adopteront par défaut ce comportement. Votre application peut, par exemple, effectuer une nouvelle tentative après 2 secondes, puis 4 secondes, 10 secondes, 30 secondes avant d’abandonner complètement. De cette façon, votre application réduit considérablement la charge sur le service, au lieu d’aggraver un comportement susceptible d’entraîner une limitation.
 
-Les erreurs de connectivité ne sont pas dues à une limitation et sont généralement temporaires. Dès lors, de nouvelles tentatives peuvent être effectuées immédiatement.  
+Les erreurs de connectivité ne sont pas dues à une limitation et sont généralement temporaires. Dès lors, de nouvelles tentatives peuvent être effectuées immédiatement.
 
 ### <a name="non-retryable-errors"></a>Erreurs non renouvelables
 
@@ -170,17 +169,17 @@ L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP 
 
 ## <a name="message-size"></a>Taille des messages
 
-Les performances et l’extensibilité des files d’attente diminuent quand la taille de message augmente. Dans un message, incluez uniquement les informations dont le destinataire a besoin.  
+Les performances et l’extensibilité des files d’attente diminuent quand la taille de message augmente. Dans un message, incluez uniquement les informations dont le destinataire a besoin.
 
 ## <a name="batch-retrieval"></a>La récupération par lots
 
-Vous pouvez récupérer jusqu’à 32 messages d’une file d’attente en une seule opération. La récupération par lots contribue à réduire le nombre d’allers-retours avec l’application cliente, ce qui s’avère particulièrement utile pour les environnements où les temps de latence sont élevés, tels que les appareils mobiles.  
+Vous pouvez récupérer jusqu’à 32 messages d’une file d’attente en une seule opération. La récupération par lots contribue à réduire le nombre d’allers-retours avec l’application cliente, ce qui s’avère particulièrement utile pour les environnements où les temps de latence sont élevés, tels que les appareils mobiles.
 
 ## <a name="queue-polling-interval"></a>Intervalle d’interrogation de file d’attente
 
-La plupart des applications interrogent une file d’attente pour les messages, ce qui peut représenter l’une des plus grandes sources de transactions pour cette application. Sélectionnez votre intervalle d’interrogation avec soin : une interrogation trop fréquente pourrait entraîner un rapprochement des objectifs d’extensibilité pour la file d’attente. Toutefois, à 200 000 transactions à 0,01 $ (au moment de la rédaction), un seul processeur interrogeant une fois par seconde pendant un mois reviendrait à moins de 15 cents. Le prix n’est donc généralement pas un facteur qui affecte le choix de l’intervalle d’interrogation.  
+La plupart des applications interrogent une file d’attente pour les messages, ce qui peut représenter l’une des plus grandes sources de transactions pour cette application. Sélectionnez votre intervalle d’interrogation avec soin : une interrogation trop fréquente pourrait entraîner un rapprochement des objectifs d’extensibilité pour la file d’attente. Toutefois, à 200 000 transactions à 0,01 $ (au moment de la rédaction), un seul processeur interrogeant une fois par seconde pendant un mois reviendrait à moins de 15 cents. Le prix n’est donc généralement pas un facteur qui affecte le choix de l’intervalle d’interrogation.
 
-Pour plus d’informations relatives au coût, consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
+Pour plus d’informations relatives au coût, consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="use-update-message"></a>Utiliser l’opération Mise à jour de message
 
@@ -188,10 +187,10 @@ Vous pouvez utiliser l’opération **Mise à jour de message** pour augmenter l
 
 ## <a name="application-architecture"></a>Architecture de l'application
 
-Utilisez des files d’attente pour rendre scalable l’architecture de votre application. Vous trouverez, dans les listes suivantes, les méthodes applicables pour accroître l’extensibilité de votre application :  
+Utilisez des files d’attente pour rendre scalable l’architecture de votre application. Vous trouverez, dans les listes suivantes, les méthodes applicables pour accroître l’extensibilité de votre application :
 
 - Vous pouvez utiliser des files d’attente pour créer des journaux de travaux en souffrance à traiter et éliminer des charges de travail de votre application. Vous pouvez, par exemple, placer en file d’attente des demandes d’utilisateurs portant sur l’exécution de tâches exigeant d’importantes ressources processeur, telles que le redimensionnement d’images téléchargées.
-- Vous pouvez utiliser des files d’attente pour dissocier des parties de votre application, de manière à pouvoir les faire évoluer séparément. Un front-end web peut, par exemple, placer les résultats d’une enquête en file d’attente en vue de les stocker et de les analyser ultérieurement. Vous pouvez ajouter des instances du rôle de travail afin de traiter les données de file d’attente suivant les besoins.  
+- Vous pouvez utiliser des files d’attente pour dissocier des parties de votre application, de manière à pouvoir les faire évoluer séparément. Un front-end web peut, par exemple, placer les résultats d’une enquête en file d’attente en vue de les stocker et de les analyser ultérieurement. Vous pouvez ajouter des instances du rôle de travail afin de traiter les données de file d’attente suivant les besoins.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

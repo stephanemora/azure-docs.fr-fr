@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448993"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372633"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connectez vos comptes GCP à Azure Security Center
 
@@ -36,7 +36,7 @@ Dans la capture d’écran ci-dessous, vous pouvez voir les projets GCP affiché
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|PRÉVERSION|
+|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
 |Rôles et autorisations obligatoires :|**Propriétaire** ou **Contributeur** sur l’abonnement Azure approprié|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
@@ -59,7 +59,7 @@ Lorsque vous activez pour la première fois Security Health Center, plusieurs he
 
 ### <a name="step-2-enable-gcp-security-command-center-api"></a>Étape 2. Activer l’API GCP Security Command Center
 
-1. À partir de la **bibliothèque d’API de Google Cloud Console**, sélectionnez le projet que vous souhaitez connecter à Azure Security Center.
+1. À partir de la **bibliothèque d’API de Google Cloud Console** , sélectionnez le projet que vous souhaitez connecter à Azure Security Center.
 1. Dans la bibliothèque d’API, recherchez et sélectionnez **API Security Command Center**.
 1. Sur la page de l’API, sélectionnez **ACTIVER**.
 
@@ -68,27 +68,27 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Étape 3. Créer un compte de service dédié pour l’intégration de la configuration de la sécurité
 
-1. Dans la **console GCP**, sélectionnez le projet que vous souhaitez connecter à Security Center.
-1. Dans le **menu de navigation**, sous les options **IAM & admin**, sélectionnez **Comptes de service**.
+1. Dans la **console GCP** , sélectionnez le projet que vous souhaitez connecter à Security Center.
+1. Dans le **menu de navigation** , sous les options **IAM & admin** , sélectionnez **Comptes de service**.
 1. Sélectionnez **CRÉER LE COMPTE DE SERVICE**.
 1. Entrez un nom de compte, puis sélectionnez **Créer**.
-1. Spécifiez le **Rôle** comme **Visionneuse d’administration de Security Center**, puis sélectionnez **Continuer**.
+1. Spécifiez le **Rôle** comme **Visionneuse d’administration de Security Center** , puis sélectionnez **Continuer**.
 1. La section **Accorder aux utilisateurs l’accès à ce compte de service** est facultative. Sélectionnez **Terminé**.
 1. Copiez la **valeur E-mail** du compte de service créé, puis enregistrez-la pour une utilisation ultérieure.
-1. Dans le **menu de navigation**, sous les options **IAM & admin**, sélectionnez **IAM**
+1. Dans le **menu de navigation** , sous les options **IAM & admin** , sélectionnez **IAM**
     1. Basculez vers le niveau de l’organisation.
     1. Sélectionnez **AJOUTER**.
-    1. Dans le champ **Nouveaux membres**, collez la **valeur E-mail** que vous avez copiée précédemment.
-    1. Spécifiez le rôle **Visionneuse d’administration de Security Center**, puis sélectionnez Enregistrer.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
+    1. Dans le champ **Nouveaux membres** , collez la **valeur E-mail** que vous avez copiée précédemment.
+    1. Spécifiez le rôle **Visionneuse d’administration de Security Center** , puis sélectionnez Enregistrer.
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Définition les autorisations GCP pertinentes":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Étape 4. Créer une clé privée pour le compte de service dédié
 1. Passez au niveau du projet.
-1. Dans le **menu de navigation**, sous les options **IAM & admin**, sélectionnez **Comptes de service**.
+1. Dans le **menu de navigation** , sous les options **IAM & admin** , sélectionnez **Comptes de service**.
 1. Ouvrez le compte de service dédié et sélectionnez Modifier.
-1. Dans la section **Clés**, sélectionnez **Ajouter une clé**, puis **Créer une nouvelle clé**.
-1. Sur l’écran Créer une clé privée, sélectionnez **JSON**, puis sélectionnez **CRÉER**.
+1. Dans la section **Clés** , sélectionnez **Ajouter une clé** , puis **Créer une nouvelle clé**.
+1. Sur l’écran Créer une clé privée, sélectionnez **JSON** , puis sélectionnez **CRÉER**.
 1. Enregistrez ce fichier JSON pour une utilisation ultérieure.
 
 
@@ -97,9 +97,9 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 1. Sélectionnez Ajouter un compte GCP.
 1. Dans la page d’intégration, effectuez les opérations suivantes, puis sélectionnez **Suivant**.
     1. Validez l’abonnement choisi.
-    1. Dans le champ **Nom d'affichage**, entrez un nom pour le connecteur.
-    1. Dans le champ **ID d’organisation**, entrez l’ID de votre organisation. Si vous ne le connaissez pas, consultez [Création et gestion des organisations](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
-    1. Dans la zone de fichier **Clé privée**, accédez au fichier JSON que vous avez téléchargé à l’étape [l’Étape 4. Créer une clé privée pour le compte de service dédié](#step-4-create-a-private-key-for-the-dedicated-service-account).
+    1. Dans le champ **Nom d'affichage** , entrez un nom pour le connecteur.
+    1. Dans le champ **ID d’organisation** , entrez l’ID de votre organisation. Si vous ne le connaissez pas, consultez [Création et gestion des organisations](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+    1. Dans la zone de fichier **Clé privée** , accédez au fichier JSON que vous avez téléchargé à l’étape [l’Étape 4. Créer une clé privée pour le compte de service dédié](#step-4-create-a-private-key-for-the-dedicated-service-account).
 
 
 ### <a name="step-6-confirmation"></a>Étape 6. Confirmation
@@ -107,7 +107,7 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 Lorsque le connecteur est correctement créé et que le GCP Security Command Center a été configuré correctement :
 
 - La norme CIS GCP s’affiche dans le tableau de bord de conformité réglementaire de Security Center.
-- Les recommandations de sécurité pour vos ressources GCP s’affichent dans le portail Security Center et le tableau de bord de conformité aux réglementations 5-10 minutes après la fin de l’intégration :   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
+- Les recommandations de sécurité pour vos ressources GCP s’affichent dans le portail Security Center et le tableau de bord de conformité aux réglementations 5-10 minutes après la fin de l’intégration :   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Ressources GCP et recommandations sur la page Recommandations de Security Center":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Surveillance de vos ressources GCP
@@ -116,7 +116,7 @@ Comme indiqué ci-dessus, la page Recommandations de sécurité d’Azure Securi
 
 Pour afficher toutes les recommandations actives pour vos ressources par type de ressource, utilisez la page d’inventaire des ressources de Security Center et filtrez sur le type de ressource GCP qui vous intéresse :
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtre de type de ressource de la page d’inventaire des ressources avec les options GCP"::: 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

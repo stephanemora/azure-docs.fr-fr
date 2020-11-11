@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f72d8b332f00b3d298f4d5a1a04937f562647f9e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783417"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347147"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour JavaScript
 
@@ -21,26 +21,26 @@ Familiarisez-vous avec la bibliothèque cliente Stockage File d’attente Azure 
 
 Utilisez la bibliothèque cliente du Stockage File d’attente Azure v12 pour JavaScript pour :
 
-* Créer une file d’attente
-* Ajouter des messages à une file d’attente
-* Afficher un aperçu des messages d’une file d’attente
-* Mettre à jour un message dans une file d’attente
-* Réception des messages d'une file d'attente
-* Supprimer des messages d’une file d’attente
-* Suppression d'une file d'attente
+- Créer une file d’attente
+- Ajouter des messages à une file d’attente
+- Afficher un aperçu des messages d’une file d’attente
+- Mettre à jour un message dans une file d’attente
+- Réception des messages d'une file d'attente
+- Supprimer des messages d’une file d’attente
+- Suppression d'une file d'attente
 
 Ressources supplémentaires :
 
-* [Documentation de référence de l’API](/javascript/api/@azure/storage-queue/)
-* [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-* [Package (Gestionnaire de package Node)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Exemples](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentation de référence de l’API](/javascript/api/@azure/storage-queue/)
+- [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+- [Package (Gestionnaire de package Node)](https://www.npmjs.com/package/@azure/storage-queue)
+- [Exemples](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
-* [Node.js](https://nodejs.org/en/download/) actuel pour votre système d’exploitation.
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
+- [Node.js](https://nodejs.org/en/download/) actuel pour votre système d’exploitation.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -48,7 +48,7 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 ### <a name="create-the-project"></a>Créer le projet
 
-Créez une application Node.js nommée *queues-quickstart-v12* .
+Créez une application Node.js nommée *queues-quickstart-v12*.
 
 1. Dans une fenêtre de console (telle que cmd, PowerShell ou Bash), créez un nouveau répertoire pour le projet.
 
@@ -62,7 +62,7 @@ Créez une application Node.js nommée *queues-quickstart-v12* .
     cd queues-quickstart-v12
     ```
 
-1. Créez un nouveau fichier texte appelé *package.json* . Ce fichier définit le projet Node.js. Enregistrez ce fichier dans le répertoire *queues-quickstart-v12* . Voici le contenu du fichier :
+1. Créez un nouveau fichier texte appelé *package.json*. Ce fichier définit le projet Node.js. Enregistrez ce fichier dans le répertoire *queues-quickstart-v12*. Voici le contenu du fichier :
 
     ```json
     {
@@ -118,7 +118,7 @@ npm install
 
     ```
 
-1. Enregistrez le nouveau fichier sous *queues-quickstart-v12.js* dans le répertoire *queues-quickstart-v12* .
+1. Enregistrez le nouveau fichier sous *queues-quickstart-v12.js* dans le répertoire *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -126,9 +126,9 @@ npm install
 
 Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages. La taille maximale d’un message de file d’attente est de 64 Ko. Une file d’attente peut contenir des millions de messages, dans la limite de la capacité totale d’un compte de stockage. Les files d’attente sont couramment utilisées pour créer un backlog de travail à traiter de façon asynchrone. Le Stockage File d’attente offre trois types de ressources :
 
-* Le compte de stockage
-* Une file d’attente dans le compte de stockage
-* Les messages dans la file d’attente
+- Le compte de stockage
+- Une file d’attente dans le compte de stockage
+- Les messages dans la file d’attente
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -136,22 +136,22 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes JavaScript suivantes pour interagir avec ces ressources :
 
-* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient) : `QueueServiceClient` vous permet de gérer toutes les files d’attente de votre compte de stockage.
-* [QueueClient](/javascript/api/@azure/storage-queue/queueclient) : la classe `QueueClient` vous permet de gérer et de manipuler une file d’attente individuelle et ses messages.
-* [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage) : La classe `QueueMessage` représente les objets individuels retournés lors de l’appel de [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) dans une file d’attente.
+- [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient) : `QueueServiceClient` vous permet de gérer toutes les files d’attente de votre compte de stockage.
+- [QueueClient](/javascript/api/@azure/storage-queue/queueclient) : la classe `QueueClient` vous permet de gérer et de manipuler une file d’attente individuelle et ses messages.
+- [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage) : La classe `QueueMessage` représente les objets individuels retournés lors de l’appel de [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) dans une file d’attente.
 
 ## <a name="code-examples"></a>Exemples de code
 
 Ces exemples d’extraits de code vous montrent comment effectuer les actions suivantes avec la bibliothèque cliente Stockage File d’attente Azure pour JavaScript :
 
-* [Obtenir la chaîne de connexion](#get-the-connection-string)
-* [Créer une file d’attente](#create-a-queue)
-* [Ajouter des messages à une file d’attente](#add-messages-to-a-queue)
-* [Afficher un aperçu des messages d’une file d’attente](#peek-at-messages-in-a-queue)
-* [Mettre à jour un message dans une file d’attente](#update-a-message-in-a-queue)
-* [Recevoir les messages d’une file d’attente](#receive-messages-from-a-queue)
-* [Supprimer des messages d’une file d’attente](#delete-messages-from-a-queue)
-* [Supprimer une file d’attente](#delete-a-queue)
+- [Obtenir la chaîne de connexion](#get-the-connection-string)
+- [Créer une file d’attente](#create-a-queue)
+- [Ajouter des messages à une file d’attente](#add-messages-to-a-queue)
+- [Afficher un aperçu des messages d’une file d’attente](#peek-at-messages-in-a-queue)
+- [Mettre à jour un message dans une file d’attente](#update-a-message-in-a-queue)
+- [Recevoir les messages d’une file d’attente](#receive-messages-from-a-queue)
+- [Supprimer des messages d’une file d’attente](#delete-messages-from-a-queue)
+- [Supprimer une file d’attente](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
 
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>Réception des messages d'une file d'attente
 
-Téléchargez les messages ajoutés en appelant la méthode [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-).  Dans le champ `numberOfMessages`, transmettez le nombre maximal de messages à recevoir pour cet appel.
+Téléchargez les messages ajoutés en appelant la méthode [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-). Dans le champ `numberOfMessages`, transmettez le nombre maximal de messages à recevoir pour cet appel.
 
 Ajoutez ce code à la fin de la fonction `main` :
 
@@ -356,5 +356,5 @@ Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d�
 > [!div class="nextstepaction"]
 > [Documentation Azure pour JavaScript](/azure/developer/javascript/)
 
-* Pour plus d’informations, consultez la [bibliothèque cliente de File d’attente de stockage Azure pour JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
-* Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples JavaScript de bibliothèques clientes Stockage File d’attente Azure V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+- Pour plus d’informations, consultez la [bibliothèque cliente de File d’attente de stockage Azure pour JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
+- Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples JavaScript de bibliothèques clientes Stockage File d’attente Azure V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ee3d9c26d6972da9e528660d034432ce696aa45
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213488"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347197"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Démarrage rapide : Créer une file d’attente et ajouter un message à l’aide du portail Azure
 
@@ -28,7 +28,7 @@ Ce guide de démarrage rapide explique comment utiliser le [portail Azure](https
 Pour créer une file d’attente dans le portail Azure, effectuez les étapes suivantes :
 
 1. Accédez à votre nouveau compte de stockage dans le portail Azure.
-2. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Service de File d’attente**, puis sélectionnez **Files d’attente**.
+2. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Service de File d’attente** , puis sélectionnez **Files d’attente**.
 3. Sélectionnez le bouton **+ File d’attente**.
 4. Entrez un nom pour votre nouvelle file d’attente. Le nom de la file d’attente doit être en minuscules et commencer par une lettre ou un chiffre. Il peut comporter uniquement des lettres, des chiffres et des tirets (-).
 6. Sélectionnez **OK** pour créer la file d’attente.
@@ -55,9 +55,9 @@ Une fois que vous avez ajouté un message, le portail Azure affiche une liste de
 
 ## <a name="dequeue-a-message"></a>Supprimer un message de la file d’attente
 
-Vous pouvez enlever un message du haut de la file d’attente dans le portail Azure. Le message est alors supprimé. 
+Vous pouvez enlever un message du haut de la file d’attente dans le portail Azure. Le message est alors supprimé.
 
-Cette opération d’enlèvement entraîne toujours la suppression du message le plus ancien dans la file d’attente. 
+Cette opération d’enlèvement entraîne toujours la suppression du message le plus ancien dans la file d’attente.
 
 ![Capture d’écran montrant comment enlever un message de la file d’attente dans le portail](media/storage-quickstart-queues-portal/dequeue-message.png)
 

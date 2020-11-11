@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944187"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392076"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Déployer Azure SQL Edge avec Docker
 
@@ -28,7 +28,7 @@ Cette image se compose d’Azure SQL Edge basé sur Ubuntu 18.04. Elle peut êt
 - Pilote de stockage **overlay2** de Docker. Il s’agit de la valeur par défaut pour la plupart des utilisateurs. Si vous n’utilisez pas ce fournisseur de stockage et que vous devez le modifier, consultez les instructions et les avertissements dans la [documentation de Docker pour la configuration d’overlay2](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver).
 - Au moins 10 Go d’espace disque.
 - Au moins 1 Go de RAM.
-- [Configuration matérielle requise pour Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Configuration matérielle requise pour Azure SQL Edge](./features.md#hardware-support).
 
 
 ## <a name="pull-and-run-the-container-image"></a>Extraire et exécuter l’image conteneur
@@ -70,7 +70,7 @@ La commande précédente tire (pull) les images conteneur Azure SQL Edge les plu
     | Paramètre | Description |
     |-----|-----|
     | **-e "ACCEPT_EULA=Y"** |  Définissez la variable **ACCEPT_EULA** sur n’importe quelle valeur pour confirmer que vous acceptez le [Contrat de licence utilisateur final](https://go.microsoft.com/fwlink/?linkid=2139274). Paramètre requis pour l’image Azure SQL Edge. |
-    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Spécifiez votre propre mot de passe fort, qui doit avoir au moins 8 caractères et respecter les [exigences de mot de passe Azure SQL Edge](https://docs.microsoft.com/sql/relational-databases/security/password-policy). Paramètre requis pour l’image Azure SQL Edge. |
+    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Spécifiez votre propre mot de passe fort, qui doit avoir au moins 8 caractères et respecter les [exigences de mot de passe Azure SQL Edge](/sql/relational-databases/security/password-policy). Paramètre requis pour l’image Azure SQL Edge. |
     | **-p 1433:1433** | Mappez un port TCP sur l’environnement hôte (première valeur) à un port TCP dans le conteneur (deuxième valeur). Dans cet exemple, Azure SQL Edge écoute sur TCP 1433 dans le conteneur, mappé au port 1433 sur l’hôte. |
     | **--name azuresqledge** | Spécifiez un nom personnalisé pour le conteneur plutôt qu’un nom généré de manière aléatoire. Si vous exécutez plusieurs conteneurs, vous ne pouvez pas réutiliser le même nom. |
     | **-d** | Exécutez le conteneur en arrière-plan (démon) |
@@ -83,7 +83,7 @@ La commande précédente tire (pull) les images conteneur Azure SQL Edge les plu
     sudo docker ps -a
    ```
 
-4. Si la colonne **ÉTAT** affiche **En cours d’exécution**, Azure SQL Edge est en cours d’exécution dans le conteneur et écoute sur le port spécifié dans la colonne **PORTS**. Si la colonne **ÉTAT** pour votre conteneur Azure SQL Edge affiche **Quitté**, consultez la section Résolution des problèmes de la documentation Azure SQL Edge.
+4. Si la colonne **ÉTAT** affiche **En cours d’exécution** , Azure SQL Edge est en cours d’exécution dans le conteneur et écoute sur le port spécifié dans la colonne **PORTS**. Si la colonne **ÉTAT** pour votre conteneur Azure SQL Edge affiche **Quitté** , consultez la section Résolution des problèmes de la documentation Azure SQL Edge.
 
     Le paramètre `-h` (nom d’hôte) est également utile, mais il n’est pas utilisé dans ce didacticiel pour plus de simplicité. Il permet de changer le nom interne du conteneur en une valeur personnalisée. Il s’agit du nom retourné dans la requête Transact-SQL suivante :
 
@@ -114,7 +114,7 @@ Le compte **SA** est un administrateur système sur l’instance Azure SQL Edge 
 
 ## <a name="connect-to-azure-sql-edge"></a>Se connecter à Azure SQL Edge
 
-La procédure suivante utilise l’outil en ligne de commande Azure SQL Edge, **sqlcmd**, dans le conteneur pour se connecter à Azure SQL Edge.
+La procédure suivante utilise l’outil en ligne de commande Azure SQL Edge, **sqlcmd** , dans le conteneur pour se connecter à Azure SQL Edge.
 
 > [!NOTE]
 > L’outil sqlcmd n’est pas disponible dans la version ARM64 des conteneurs SQL Edge.
@@ -134,7 +134,7 @@ La procédure suivante utilise l’outil en ligne de commande Azure SQL Edge, **
    > [!TIP]
    > Vous pouvez omettre le mot de passe sur la ligne de commande pour être invité à l’entrer.
 
-3. Si l’opération réussit, vous devez accéder à une invite de commandes **sqlcmd** : `1>`.
+3. Si l’opération réussit, vous devez accéder à une invite de commandes **sqlcmd**  : `1>`.
 
 ## <a name="create-and-query-data"></a>Créer et interroger des données
 
@@ -144,7 +144,7 @@ Les sections suivantes vous guident lors de l’utilisation de **sqlcmd** et Tra
 
 La procédure suivante crée une base de données nommée `TestDB`.
 
-1. À partir de l’invite de commandes **sqlcmd**, collez la commande Transact-SQL suivante pour créer une base de données de test :
+1. À partir de l’invite de commandes **sqlcmd** , collez la commande Transact-SQL suivante pour créer une base de données de test :
 
    ```sql
    CREATE DATABASE TestDB
@@ -162,7 +162,7 @@ La procédure suivante crée une base de données nommée `TestDB`.
 
 Créez ensuite une table, `Inventory`, et insérez deux nouvelles lignes.
 
-1. À partir de l’invite de commandes **sqlcmd**, basculez le contexte vers la nouvelle base de données `TestDB` :
+1. À partir de l’invite de commandes **sqlcmd** , basculez le contexte vers la nouvelle base de données `TestDB` :
 
    ```sql
    USE TestDB
@@ -190,7 +190,7 @@ Créez ensuite une table, `Inventory`, et insérez deux nouvelles lignes.
 
 Exécutez maintenant une requête pour retourner des données de la table `Inventory`.
 
-1. Dans l’invite de commandes **sqlcmd**, entrez une requête qui retourne les lignes de la table `Inventory` dont la quantité est supérieure à 152 :
+1. Dans l’invite de commandes **sqlcmd** , entrez une requête qui retourne les lignes de la table `Inventory` dont la quantité est supérieure à 152 :
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -204,7 +204,7 @@ Exécutez maintenant une requête pour retourner des données de la table `Inven
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Quitter l’invite de commandes sqlcmd
 
-1. Pour mettre fin à votre session **sqlcmd**, tapez `QUIT` :
+1. Pour mettre fin à votre session **sqlcmd** , tapez `QUIT` :
 
    ```sql
    QUIT

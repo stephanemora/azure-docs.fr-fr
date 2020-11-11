@@ -1,18 +1,18 @@
 ---
 title: 'Interroger avec l’API Gremlin d’Azure Cosmos DB et la console TinkerPop Gremlin : Didacticiel'
 description: Démarrage rapide d’Azure Cosmos DB pour créer des vertex, des arêtes et des requêtes à l’aide de l’API Gremlin Azure Cosmos DB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099706"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361509"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

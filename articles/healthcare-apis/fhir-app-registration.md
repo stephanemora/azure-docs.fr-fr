@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: 22f31cf3911b5ea24e8798fb226e389071fadd0b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa95dc5cc052fbff6c553de50f4f52dc5df850a5
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87848976"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398111"
 ---
 # <a name="register-the-azure-active-directory-apps-for-azure-api-for-fhir"></a>Inscrire les applications Azure Active Directory pour l’API Azure pour FHIR
 
@@ -31,9 +31,9 @@ Les **applications de ressources** sont des représentations dans Azure AD d’u
 
 Les *applications clientes* sont des inscriptions des clients qui vont demander des jetons. Souvent, dans OAuth 2.0, nous distinguons au moins trois types d’application différents :
 
-1. **Clients confidentiels**, également appelés applications web dans Azure AD. Les clients confidentiels sont des applications qui utilisent le [flux de code d’autorisation](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code) afin d’obtenir un jeton pour le compte d’un utilisateur connecté présentant des informations d’identification valides. Ils sont appelés clients confidentiels, car ils peuvent détenir un secret et le présenter à Azure AD au moment de l’échange du code d’authentification contre un jeton. Dans la mesure où les clients confidentiels peuvent s’authentifier à l’aide du secret client, ils sont plus fiables que les clients publics, ils peuvent avoir des jetons plus longs, et ils peuvent se voir octroyer un jeton d’actualisation. Découvrez comment [inscrire un client confidentiel](register-confidential-azure-ad-client-app.md). Notez qu’il est important d’inscrire l’URL de réponse à laquelle le client reçoit le code d’autorisation.
+1. **Clients confidentiels** , également appelés applications web dans Azure AD. Les clients confidentiels sont des applications qui utilisent le [flux de code d’autorisation](../active-directory/azuread-dev/v1-protocols-oauth-code.md) afin d’obtenir un jeton pour le compte d’un utilisateur connecté présentant des informations d’identification valides. Ils sont appelés clients confidentiels, car ils peuvent détenir un secret et le présenter à Azure AD au moment de l’échange du code d’authentification contre un jeton. Dans la mesure où les clients confidentiels peuvent s’authentifier à l’aide du secret client, ils sont plus fiables que les clients publics, ils peuvent avoir des jetons plus longs, et ils peuvent se voir octroyer un jeton d’actualisation. Découvrez comment [inscrire un client confidentiel](register-confidential-azure-ad-client-app.md). Notez qu’il est important d’inscrire l’URL de réponse à laquelle le client reçoit le code d’autorisation.
 1. **Clients publics**. Il s’agit de clients qui ne peuvent pas conserver un secret. En règle générale, il s’agit d’une application d’appareil mobile ou d’une application JavaScript monopage, où le secret client peut être découvert par un utilisateur. Les clients publics utilisent également le flux de code d’autorisation. Toutefois, ils ne sont pas autorisés à présenter un secret au moment de l’obtention d’un jeton. De plus, ils peuvent avoir des jetons dont la durée de vie est plus courte. Il est possible qu’ils ne disposent d’aucun jeton d’actualisation. Découvrez comment [inscrire un client public](register-public-azure-ad-client-app.md).
-1. Clients de service. Ces clients obtiennent des jetons en leur nom (et non au nom d’un utilisateur) à l’aide du [flux d’informations d’identification du client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). Ils représentent généralement des applications qui accèdent au serveur FHIR de manière non interactive. Le processus d’ingestion en est l’illustration. Durant l’utilisation d’un client de service, il n’est pas nécessaire de démarrer le processus d’obtention d’un jeton par un appel au point de terminaison `/authorize`. Un client de service peut accéder directement au point de terminaison `/token` et présenter l’ID client ainsi que le secret client pour obtenir un jeton. Découvrez comment [inscrire un client de service](register-service-azure-ad-client-app.md)
+1. Clients de service. Ces clients obtiennent des jetons en leur nom (et non au nom d’un utilisateur) à l’aide du [flux d’informations d’identification du client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md). Ils représentent généralement des applications qui accèdent au serveur FHIR de manière non interactive. Le processus d’ingestion en est l’illustration. Durant l’utilisation d’un client de service, il n’est pas nécessaire de démarrer le processus d’obtention d’un jeton par un appel au point de terminaison `/authorize`. Un client de service peut accéder directement au point de terminaison `/token` et présenter l’ID client ainsi que le secret client pour obtenir un jeton. Découvrez comment [inscrire un client de service](register-service-azure-ad-client-app.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

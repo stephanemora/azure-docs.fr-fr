@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296835"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357774"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Vue d’ensemble des clés, secrets et certificats Azure Key Vault
 
@@ -45,10 +46,10 @@ Secrets|/secrets|Pris en charge|Non pris en charge
 Certificats|/certificates|Pris en charge|Non pris en charge
 Clés de compte de stockage|/storageaccount|Pris en charge|Non pris en charge
 |||
-- **Clés de chiffrement** : Prend en charge plusieurs algorithmes et types de clés, et permet l’utilisation de clés protégées par logiciel et par HSM. Pour plus d’informations sur les clés, consultez [À propos des clés](../keys/about-keys.md).
-- **Secrets** : Fournit un stockage sécurisé des secrets, comme les mots de passe et les chaînes de connexion de base de données. Pour plus d’informations, consultez [À propos des secrets](../secrets/about-secrets.md).
-- **Certificats** : Prend en charge les certificats, qui sont basés sur des clés et des secrets, et ajoute une fonctionnalité de renouvellement automatique. Pour plus d’informations, consultez [À propos des certificats](../certificates/about-certificates.md).
-- **Clés de compte Stockage Azure** : Peut gérer pour vous les clés d’un compte Stockage Azure. En interne, Key Vault peut lister (synchroniser) les clés avec un compte Stockage Azure et regénérer (faire tourner) régulièrement les clés. Pour plus d’informations, consultez [Gérer les clés de compte de stockage avec Key Vault](../secrets/overview-storage-keys.md).
+- **Clés de chiffrement**  : Prend en charge plusieurs algorithmes et types de clés, et permet l’utilisation de clés protégées par logiciel et par HSM. Pour plus d’informations sur les clés, consultez [À propos des clés](../keys/about-keys.md).
+- **Secrets**  : Fournit un stockage sécurisé des secrets, comme les mots de passe et les chaînes de connexion de base de données. Pour plus d’informations, consultez [À propos des secrets](../secrets/about-secrets.md).
+- **Certificats**  : Prend en charge les certificats, qui sont basés sur des clés et des secrets, et ajoute une fonctionnalité de renouvellement automatique. Pour plus d’informations, consultez [À propos des certificats](../certificates/about-certificates.md).
+- **Clés de compte Stockage Azure**  : Peut gérer pour vous les clés d’un compte Stockage Azure. En interne, Key Vault peut lister (synchroniser) les clés avec un compte Stockage Azure et regénérer (faire tourner) régulièrement les clés. Pour plus d’informations, consultez [Gérer les clés de compte de stockage avec Key Vault](../secrets/overview-storage-keys.md).
 
 Pour plus d’informations générales sur Key Vault, consultez [À propos d’Azure Key Vault](overview.md). Pour plus d’informations sur les pools de HSM managés, consultez [Qu’est-ce qu’Azure Key Vault Managed HSM ?](../managed-hsm/overview.md)
 
@@ -80,9 +81,9 @@ Pour plus d’informations, consultez [Authentification, requêtes et réponses]
 
 Un identificateur d’objet a le format général suivant (selon le type de conteneur) :  
 
-- **Pour les coffres** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Pour les coffres**  : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **Pour les pools Managed HSM** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Pour les pools Managed HSM**  : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Pour connaître les types d’objets pris en charge par chaque type de conteneur, consultez [Types d’objets](#object-types).

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50f15d041f9bcea66400eda0877e9d7914335d74
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783298"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345718"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Python
 
@@ -21,26 +21,26 @@ Familiarisez-vous avec la bibliothèque cliente Stockage File d’attente Azure 
 
 Utilisez la bibliothèque cliente Stockage File d’attente Azure v12 pour Python afin de :
 
-* Créer une file d’attente
-* Ajouter des messages à une file d’attente
-* Afficher un aperçu des messages d’une file d’attente
-* Mettre à jour un message dans une file d’attente
-* Réception des messages d'une file d'attente
-* Supprimer des messages d’une file d’attente
-* Suppression d'une file d'attente
+- Créer une file d’attente
+- Ajouter des messages à une file d’attente
+- Afficher un aperçu des messages d’une file d’attente
+- Mettre à jour un message dans une file d’attente
+- Réception des messages d'une file d'attente
+- Supprimer des messages d’une file d’attente
+- Suppression d'une file d'attente
 
 Ressources supplémentaires :
 
-* [Documentation de référence de l’API](/python/api/azure-storage-queue/index)
-* [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
-* [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/)
-* [Exemples](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentation de référence de l’API](/python/api/azure-storage-queue/index)
+- [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+- [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/)
+- [Exemples](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
-* [Python](https://www.python.org/downloads/) pour votre système d’exploitation - 2.7, 3.5 ou version ultérieure
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
+- [Python](https://www.python.org/downloads/) pour votre système d’exploitation - 2.7, 3.5 ou version ultérieure
 
 ## <a name="setting-up"></a>Configuration
 
@@ -48,7 +48,7 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 ### <a name="create-the-project"></a>Créer le projet
 
-Créez une application Python nommée *queues-quickstart-v12* .
+Créez une application Python nommée *queues-quickstart-v12*.
 
 1. Dans une fenêtre de console (telle que cmd, PowerShell ou Bash), créez un nouveau répertoire pour le projet.
 
@@ -93,7 +93,7 @@ Cette commande installe la bibliothèque cliente Stockage File d’attente Azure
 
     ```
 
-1. Enregistrez le nouveau fichier sous *queues-quickstart-v12.py* dans le répertoire *queues-quickstart-v12* .
+1. Enregistrez le nouveau fichier sous *queues-quickstart-v12.py* dans le répertoire *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -101,9 +101,9 @@ Cette commande installe la bibliothèque cliente Stockage File d’attente Azure
 
 Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages. La taille maximale d’un message de file d’attente est de 64 Ko. Une file d’attente peut contenir des millions de messages, dans la limite de la capacité totale d’un compte de stockage. Les files d’attente sont couramment utilisées pour créer un backlog de travail à traiter de façon asynchrone. Le Stockage File d’attente offre trois types de ressources :
 
-* Le compte de stockage
-* Une file d’attente dans le compte de stockage
-* Les messages dans la file d’attente
+- Le compte de stockage
+- Une file d’attente dans le compte de stockage
+- Les messages dans la file d’attente
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -111,22 +111,22 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes Python suivantes pour interagir avec ces ressources :
 
-* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient) : `QueueServiceClient` vous permet de gérer toutes les files d’attente de votre compte de stockage.
-* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient) : la classe `QueueClient` vous permet de gérer et de manipuler une file d’attente individuelle et ses messages.
-* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) : La classe `QueueMessage` représente les objets individuels retournés lors de l’appel de [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) dans une file d’attente.
+- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient) : `QueueServiceClient` vous permet de gérer toutes les files d’attente de votre compte de stockage.
+- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient) : la classe `QueueClient` vous permet de gérer et de manipuler une file d’attente individuelle et ses messages.
+- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) : La classe `QueueMessage` représente les objets individuels retournés lors de l’appel de [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) dans une file d’attente.
 
 ## <a name="code-examples"></a>Exemples de code
 
 Ces exemples d’extraits de code vous montrent comment effectuer les actions suivantes avec la bibliothèque cliente Stockage File d’attente Azure pour Python :
 
-* [Obtenir la chaîne de connexion](#get-the-connection-string)
-* [Créer une file d’attente](#create-a-queue)
-* [Ajouter des messages à une file d’attente](#add-messages-to-a-queue)
-* [Afficher un aperçu des messages d’une file d’attente](#peek-at-messages-in-a-queue)
-* [Mettre à jour un message dans une file d’attente](#update-a-message-in-a-queue)
-* [Recevoir les messages d’une file d’attente](#receive-messages-from-a-queue)
-* [Supprimer des messages d’une file d’attente](#delete-messages-from-a-queue)
-* [Supprimer une file d’attente](#delete-a-queue)
+- [Obtenir la chaîne de connexion](#get-the-connection-string)
+- [Créer une file d’attente](#create-a-queue)
+- [Ajouter des messages à une file d’attente](#add-messages-to-a-queue)
+- [Afficher un aperçu des messages d’une file d’attente](#peek-at-messages-in-a-queue)
+- [Mettre à jour un message dans une file d’attente](#update-a-message-in-a-queue)
+- [Recevoir les messages d’une file d’attente](#receive-messages-from-a-queue)
+- [Supprimer des messages d’une file d’attente](#delete-messages-from-a-queue)
+- [Supprimer une file d’attente](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
 
@@ -316,5 +316,5 @@ Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d�
 > [!div class="nextstepaction"]
 > [Azure pour les développeurs Python](/azure/python/)
 
-* Pour plus d’informations, consultez les [bibliothèques Stockage Azure pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-* Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples de bibliothèques clientes Stockage File d’attente Azure V12 pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Pour plus d’informations, consultez les [bibliothèques Stockage Azure pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
+- Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples de bibliothèques clientes Stockage File d’attente Azure V12 pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
