@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: c67ef6ddcd709dea8727a67100607bfc4f8cc8f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 392bb46d481df1f872b9a61beffed9e5b46f4dc5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099842"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379835"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche de vidéos Bing
 
@@ -76,11 +76,10 @@ Bloqué|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Paramètres de requête
 
-- Paramètre de requête `modulesRequested` renommé en [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
+- Paramètre de requête `modulesRequested` renommé en [modules](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Modifications d’objet
 
-- Le champ `nextOffsetAddCount` de [Vidéos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) a été renommé en `nextOffset`. La façon d’utiliser le décalage a également changé. Auparavant, vous devez définir le paramètre de requête de [décalage](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) sur la valeur `nextOffset`, ainsi que la valeur de décalage précédente et le nombre de vidéos dans le résultat. À présent, définissez simplement le paramètre de requête `offset` sur la valeur `nextOffset`.  
+- Le champ `nextOffsetAddCount` de [Vidéos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) a été renommé en `nextOffset`. La façon d’utiliser le décalage a également changé. Auparavant, vous devez définir le paramètre de requête de [décalage](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) sur la valeur `nextOffset`, ainsi que la valeur de décalage précédente et le nombre de vidéos dans le résultat. À présent, définissez simplement le paramètre de requête `offset` sur la valeur `nextOffset`.  
   
-- Changement du type de données du champ `relatedVideos` de `Video[]` à [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (voir [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
-
+- Changement du type de données du champ `relatedVideos` de `Video[]` à [VideosModule](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (voir [VideoDetails](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).

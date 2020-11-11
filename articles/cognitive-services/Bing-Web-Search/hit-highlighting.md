@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078541"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380706"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilisation de marqueurs d’ornement pour mettre en surbrillance un texte
 
@@ -39,7 +39,7 @@ Avant d’afficher le résultat dans votre interface utilisateur, remplacez les 
 
 ## <a name="marker-formatting"></a>Mise en forme des marqueurs
 
-Bing vous offre la possibilité d’utiliser des caractères Unicode ou des balises HTML en tant que marqueurs. Pour spécifier les marqueurs à utiliser, ajoutez le paramètre de requête [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
+Bing vous offre la possibilité d’utiliser des caractères Unicode ou des balises HTML en tant que marqueurs. Pour spécifier les marqueurs à utiliser, ajoutez le paramètre de requête [textFormat](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
 
 | Valeur             | Marqueur                       |
 |-------------------|------------------------------|

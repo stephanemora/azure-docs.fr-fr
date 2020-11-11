@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220854"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369322"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
@@ -92,7 +92,7 @@ Pour mettre à jour les paramètres de déploiement :
 
     ![Capture d’écran mettant en évidence le bouton Mettre à jour pour la mise à jour des paramètres de déploiement.](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Sélectionnez **Update** .
+3.  Sélectionnez **Update**.
 4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)** .
 
     ![Déployer un modèle](media/how-to/how-to-undeploy-model.png)
@@ -102,6 +102,6 @@ Pour mettre à jour les paramètres de déploiement :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Commencez à utiliser votre modèle Custom Translator déployé via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Commencez à utiliser votre modèle Custom Translator déployé via [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).
 - Découvrez [comment gérer les paramètres](how-to-manage-settings.md) pour partager votre espace de travail, gérer la clé d’abonnement.
 - Découvrez [comment migrer votre espace de travail et le projet](how-to-migrate.md) depuis [Microsoft Translator Hub](https://hub.microsofttranslator.com)

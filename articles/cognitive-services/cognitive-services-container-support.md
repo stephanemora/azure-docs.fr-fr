@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: local, Docker, conteneur, Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 56d88b9223a80ea9981e8830cac44bac7c6edb3b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677435"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413035"
 ---
 # <a name="azure-cognitive-services-containers"></a>Conteneurs Azure Cognitive Services
 
@@ -58,7 +58,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 
 | Service | Niveau tarifaire pris en charge | Conteneur | Description |
 |--|--|--|--|
-| [Détecteur d’anomalies][ad-containers] | F0, S0 | **Détecteur d’anomalies** ( [image](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique.<br>[Demander l’accès][request-access] |
+| [Détecteur d’anomalies][ad-containers] | F0, S0 | **Détecteur d’anomalies** ( [image](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique.<br>[Demander l’accès][request-access] |
 | [Vision par ordinateur][cv-containers] | F0, S1 | **Read** OCR ( [image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Le conteneur Read OCR vous permet d’extraire du texte imprimé et manuscrit à partir d’images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](./computer-vision/concept-recognizing-text.md).<br>[Demander l’accès][request-access] |
 | [Visage][fa-containers] | F0, S0 | **Visage** | Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées. |
 | [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. |
@@ -75,7 +75,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 | [Analyse spatiale][spa-containers] | S0 | **Analyse spatiale** | Analyser le flux vidéo en temps réel afin de comprendre les relations spatiales entre les personnes, leurs déplacements et les interactions avec des objets dans des environnements physiques. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 Certains conteneurs sont également pris en charge dans des clés de ressources Cognitive Services d’ [**offre tout-en-un**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne). Vous pouvez créer une ressource Cognitive Services tout-en-un et utiliser la même clé de facturation entre les services pris en charge pour les services suivants :
@@ -132,7 +132,7 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

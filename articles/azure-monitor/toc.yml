@@ -114,15 +114,7 @@
     - name: Sources de données
       href: platform/data-sources.md
     - name: Plateforme de données
-      items:
-        - name: Vue d’ensemble
-          href: platform/data-platform.md
-        - name: Journaux d’activité
-          href: platform/data-platform-logs.md
-        - name: Mesures
-          href: platform/data-platform-metrics.md
-        - name: Envoyer des données en streaming à Event Hubs
-          href: platform/stream-monitoring-data-event-hubs.md
+      href: platform/data-platform.md
     - name: Sécurité des données
       items:
         - name: Données de journal
@@ -188,98 +180,13 @@
               href: app/pricing.md
             - name: Utilisation et coûts des données de journal
               href: platform/manage-cost-storage.md
-    - name: Journaux de plateforme
+    - name: Journaux Azure Monitor
       items:
         - name: Vue d’ensemble
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: Journal d’activité
-          href: platform/activity-log.md
-        - name: Journaux d’activité de ressources
-          href: platform/resource-logs.md
-        - name: Paramètres de diagnostic
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
-      items:
-        - name: Vue d'ensemble
-          displayname: 'Log Analytics, log query, log queries, query, queries'
-          href: log-query/log-query-overview.md
-        - name: Didacticiel
-          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
-          href: log-query/get-started-portal.md
-        - name: Étendue de requête
-          href: log-query/scope.md
-        - name: Interroger avec Azure Data Explorer
-          href: platform/azure-data-explorer-monitor-proxy.md
-        - name: Requêtes dans les journaux
-          items:
-            - name: Colonnes standard
-              href: platform/log-standard-columns.md
-            - name: Auditer des requêtes
-              href: log-query/query-audit.md
-            - name: Optimiser les requêtes
-              href: log-query/query-optimization.md
-            - name: Fonctions
-              href: log-query/functions.md
-            - name: Analyser les données de texte
-              href: log-query/parse-text.md
-            - name: Exemples de requêtes
-              href: log-query/saved-queries.md
-            - name: Groupes d’ordinateurs
-              href: platform/computer-groups.md
-        - name: Langage de requête
-          items:
-            - name: Informations de référence sur KQL
-              href: /azure/data-explorer/kusto/query/
-            - name: Différence avec Azure Data Explorer
-              href: log-query/data-explorer-difference.md
-            - name: Exemples
-              href: log-query/examples.md
-            - name: Exemples d’analytique intelligente
-              href: log-query/smart-analytics.md
-            - name: Leçons
-              items:
-                - name: Opérations de chaîne
-                  href: log-query/string-operations.md
-                - name: Opérations Date/heure
-                  href: log-query/datetime-operations.md
-                - name: Fonctions d’agrégation
-                  href: log-query/aggregations.md
-                - name: Agrégations avancées
-                  href: log-query/advanced-aggregations.md
-                - name: Jointures
-                  href: log-query/joins.md
-                - name: JSON et les structures de données
-                  href: log-query/json-data-structures.md
-                - name: Écriture de requêtes avancée
-                  href: log-query/advanced-query-writing.md
-                - name: Graphiques et diagrammes
-                  href: log-query/charts.md
-                - name: Requêtes de recherche
-                  href: log-query/search-queries.md
-            - name: Aide-mémoires
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-        - name: Requêtes inter-ressources
-          items:
-            - name: Vue d'ensemble
-              href: log-query/cross-workspace-query.md
-            - name: expression de l’application
-              href: log-query/app-expression.md
-            - name: expression de l’espace de travail
-              href: log-query/workspace-expression.md
-            - name: expression de la ressource
-              href: log-query/resource-expression.md
-            - name: Unifier les ressources de données d’application
-              href: log-query/unify-app-resource-data.md
+          displayname: 'Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries'
+          href: platform/data-platform-logs.md
         - name: Espaces de travail et clusters
           items:
-            - name: Concevoir un déploiement d’espace de travail
-              href: platform/design-logs-deployment.md
             - name: Créer un espace de travail
               items:
                 - name: Portail Azure
@@ -288,6 +195,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+            - name: Concevoir un déploiement d’espace de travail
+              href: platform/design-logs-deployment.md
             - name: Superviser un espace de travail
               href: platform/monitor-workspace.md
             - name: Supprimer et récupérer un espace de travail
@@ -301,6 +210,50 @@
               href: platform/service-providers.md
             - name: Clusters dédiés
               href: log-query/logs-dedicated-clusters.md
+        - name: Log Analytics
+          items:
+            - name: Vue d'ensemble
+              displayname: 'Log Analytics, log query, log queries, query, queries'
+              href: log-query/log-analytics-overview.md
+            - name: Didacticiel
+              displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+              href: log-query/log-analytics-tutorial.md
+            - name: Étendue de requête
+              href: log-query/scope.md
+            - name: Exemples de requêtes
+              href: log-query/example-queries.md
+        - name: Requêtes dans les journaux
+          items:
+            - name: Vue d’ensemble
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: Informations de référence sur KQL
+              href: /azure/data-explorer/kusto/query/
+            - name: Exemples de requêtes
+              href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+            - name: Colonnes standard
+              href: platform/log-standard-columns.md
+            - name: Optimiser les requêtes
+              href: log-query/query-optimization.md
+            - name: Fonctions
+              href: log-query/functions.md
+            - name: Analyser les données de texte
+              href: log-query/parse-text.md
+            - name: Groupes d’ordinateurs
+              href: platform/computer-groups.md
+            - name: Requêtes inter-ressources
+              items:
+                - name: Vue d'ensemble
+                  displayname: cross-resource queries
+                  href: log-query/cross-workspace-query.md
+                - name: expression de l’application
+                  href: log-query/app-expression.md
+                - name: expression de l’espace de travail
+                  href: log-query/workspace-expression.md
+                - name: expression de la ressource
+                  href: log-query/resource-expression.md
+                - name: Unifier les ressources de données d’application
+                  href: log-query/unify-app-resource-data.md
         - name: Exportation de données
           items:
             - name: Exportation des données d’un espace de travail
@@ -309,16 +262,33 @@
               href: platform/logs-export-logic-app.md
             - name: Interroger les données exportées avec Data Explorer
               href: platform/azure-data-explorer-query-storage.md
-    - name: Metrics Explorer
+    - name: Métriques Azure Monitor
       items:
-        - name: Bien démarrer avec Metrics Explorer
-          href: platform/metrics-getting-started.md
-        - name: Fonctionnalités avancées de Metrics Explorer
-          href: platform/metrics-charts.md
-        - name: Exemples de graphiques de métriques
-          href: platform/metric-chart-samples.md
-        - name: Dépannage des graphiques de métriques
-          href: platform/metrics-troubleshoot.md
+        - name: Vue d’ensemble
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: Metrics Explorer
+          items:
+            - name: Bien démarrer avec Metrics Explorer
+              href: platform/metrics-getting-started.md
+            - name: Fonctionnalités avancées de Metrics Explorer
+              href: platform/metrics-charts.md
+            - name: Exemples de graphiques de métriques
+              href: platform/metric-chart-samples.md
+            - name: Dépannage des graphiques de métriques
+              href: platform/metrics-troubleshoot.md
+    - name: Journaux de plateforme
+      items:
+        - name: Vue d’ensemble
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: Journal d’activité
+          href: platform/activity-log.md
+        - name: Journaux d’activité de ressources
+          href: platform/resource-logs.md
+        - name: Paramètres de diagnostic
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
     - name: Collecte des données
       items:
         - name: Règles de collecte des données

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: c0129ff25f1df492ab6eba9f49add18d5321a3e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8c0715b3570bf60205c83390ab93b272e49e8733
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88246485"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94372012"
 ---
 Bien démarrer avec la bibliothèque de client Suggestion automatique Bing pour Go Suivez les étapes suivantes pour installer la bibliothèque et essayer nos exemples de tâches de base.
 
@@ -33,7 +33,7 @@ Vous pouvez commencer à utiliser la bibliothèque de client Suggestion automati
 ## <a name="create-environment-variables"></a>Créer des variables d’environnement
 
 >[!NOTE]
-> Les points de terminaison pour les ressources créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
+> Les points de terminaison pour les ressources créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../../../cognitive-services-custom-subdomains.md).
 
 En utilisant votre clé et le point de terminaison de la ressource que vous avez créée, créez deux variables d’environnement pour l’authentification :
 <!-- replace the below variable names with the names expected in the code sample.-->
@@ -155,7 +155,7 @@ Ces exemples de code vous montrent comment effectuer des tâches de base à l’
 ### <a name="authenticate-the-client"></a>Authentifier le client
 
 > [!NOTE]
-> Ce guide de démarrage rapide part du principe que vous avez [créé une variable d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour votre clé Suggestion automatique Bing nommée `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, et une autre pour votre point de terminaison nommée `BING_AUTOSUGGEST_ENDPOINT`.
+> Ce guide de démarrage rapide part du principe que vous avez [créé une variable d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour votre clé Suggestion automatique Bing nommée `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, et une autre pour votre point de terminaison nommée `BING_AUTOSUGGEST_ENDPOINT`.
 
 Dans la fonction `main()`, instanciez un client avec votre point de terminaison et la clé.
 
@@ -171,7 +171,7 @@ client.Endpoint = endpoint
 
 ### <a name="send-an-api-request"></a>Envoyer une requête d’API
 
-Dans la même méthode, utilisez la méthode [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) du client pour envoyer une requête à Bing. Itérez ensuite la réponse [Suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) et affichez la première suggestion.
+Dans la même méthode, utilisez la méthode [AutoSuggestMethodAsync](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) du client pour envoyer une requête à Bing. Itérez ensuite la réponse [Suggestions](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) et affichez la première suggestion.
 
 ```Go
 // This should return the query suggestion "xbox."
@@ -220,4 +220,4 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 ## <a name="see-also"></a>Voir aussi
 
 - [Qu’est-ce que la Suggestion automatique Bing ?](../../get-suggested-search-terms.md)
-- [Informations de référence sur l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Informations de référence sur l’API Suggestion automatique Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

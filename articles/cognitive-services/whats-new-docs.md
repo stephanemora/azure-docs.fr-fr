@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 11/03/2020
-ms.openlocfilehash: 715b02eec7b499afdcffa5e1f31d388e8bc930e7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 239a93c58edd1f02e5e34d974fdc864f3e1cf90f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305241"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369424"
 ---
 # <a name="cognitive-services-whats-new-in-docs-for-october-1-2020---october-31-2020"></a>Cognitive Services : Nouveautés de la documentation du 1er octobre 2020 au 31 octobre 2020
 
@@ -34,39 +34,39 @@ Bienvenue dans l’article consacré aux nouveautés de la documentation Cogniti
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Utiliser Docker Compose pour déployer plusieurs conteneurs](/azure/cognitive-services/containers/docker-compose-recipe.md)
+- [Utiliser Docker Compose pour déployer plusieurs conteneurs](./containers/docker-compose-recipe.md)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Nouveautés de Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [Nouveautés de Form Recognizer](./form-recognizer/whats-new.md)
 
 ## <a name="immersive-reader"></a>Lecteur immersif
 
 ### <a name="new-articles"></a>Nouveaux articles
 
-- [Notes de publication du SDK JavaScript du Lecteur immersif](/azure/cognitive-services/immersive-reader/release-notes.md)
+- [Notes de publication du SDK JavaScript du Lecteur immersif](./immersive-reader/release-notes.md)
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Stocker les préférences de l’utilisateur](/azure/cognitive-services/immersive-reader/how-to-store-user-preferences.md)
-- [Référence SDK JavaScript du lecteur immersif (v1.1)](/azure/cognitive-services/immersive-reader/reference.md)
+- [Stocker les préférences de l’utilisateur](./immersive-reader/how-to-store-user-preferences.md)
+- [Référence SDK JavaScript du lecteur immersif (v1.1)](./immersive-reader/reference.md)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Ajouter des flux de données à partir de différentes sources dans Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Forum Aux Questions sur Metrics Advisor](/azure/cognitive-services/metrics-advisor/faq.md)
+- [Ajouter des flux de données à partir de différentes sources dans Metrics Advisor](./metrics-advisor/data-feeds-from-different-sources.md)
+- [Forum Aux Questions sur Metrics Advisor](./metrics-advisor/faq.md)
 
 ## <a name="text-analytics"></a>Analyse de texte
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Migrer vers la version 3.x de l’API Analyse de texte](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [Migrer vers la version 3.x de l’API Analyse de texte](./text-analytics/migration-guide.md)
+- [Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte](./text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
 
 ## <a name="community-contributors"></a>Contributeurs de la communauté
 

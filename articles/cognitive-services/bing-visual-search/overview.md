@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 50db66d54993a4b5ee8afb4756be6b1f4387a1d0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082043"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369339"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Qu’est-ce que l’API Recherche visuelle Bing ?
 
@@ -53,7 +53,7 @@ Les résultats de Recherche visuelle Bing incluent également des rectangles eng
 
 L’API Recherche visuelle Bing est un service web RESTful et peut donc être facilement appelé à partir de n’importe quel langage de programmation permettant d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Vous pouvez utiliser l’API REST ou le SDK pour le service.
 
-1. Créez un [compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour accéder aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/free/cognitive-services/).
+1. Créez un [compte Cognitive Services](../cognitive-services-apis-create-account.md) pour accéder aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/free/cognitive-services/).
 2. Envoyez une demande à l’API avec une requête de recherche valide.
 3. Traitez la réponse de l’API en analysant le message JSON renvoyé.
 
@@ -74,8 +74,8 @@ Pour configurer rapidement votre première demande, consultez ces guides de dém
 
 ## <a name="see-also"></a>Voir aussi
 
-* Les informations de référence [Images - Recherche visuelle](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) donnent les définitions et des informations sur les points de terminaison, les en-têtes de demande, les réponses et les paramètres de requête que vous pouvez utiliser pour demander des résultats de recherche basée sur des images.
+* Les informations de référence [Images - Recherche visuelle](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) donnent les définitions et des informations sur les points de terminaison, les en-têtes de demande, les réponses et les paramètres de requête que vous pouvez utiliser pour demander des résultats de recherche basée sur des images.
 
 * L’article [Conditions d’utilisation et d’affichage de l’API Recherche Bing](../bing-web-search/use-display-requirements.md) spécifie les utilisations acceptables du contenu et des informations obtenus via les API Recherche Bing.
 
-* Visitez la [page hub de l’API Recherche Bing](../bing-web-search/search-the-web.md) pour explorer les autres API disponibles.
+* Visitez la [page hub de l’API Recherche Bing](../bing-web-search/overview.md) pour explorer les autres API disponibles.

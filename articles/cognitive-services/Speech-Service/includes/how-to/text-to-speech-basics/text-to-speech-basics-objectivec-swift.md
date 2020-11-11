@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
 ms.author: v-demjoh
-ms.openlocfilehash: e2551952b2d70199b73ac7972a6a6934aa34dd2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 213d2a0e6f5c156ee0592a1f1389e1fd6e569b29
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332446"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425152"
 ---
 Vous pouvez synthétiser un discours à partir de texte à l’aide du kit de développement logiciel (SDK) Speech pour Swift et Objective-C.
 
@@ -27,4 +27,4 @@ Le [kit de développement logiciel (SDK) Speech de Cognitive Services](https://g
 * [Synthèse vocale en Swift sur iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech)
 * [Exemples supplémentaires pour Objective-C sur iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios)
 
-Nous fournissons également des [Informations de référence sur le kit de développement logiciel (SDK) Speech en ligne pour Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+Nous fournissons également des [Informations de référence sur le kit de développement logiciel (SDK) Speech en ligne pour Objective-C](/objectivec/cognitive-services/speech/).

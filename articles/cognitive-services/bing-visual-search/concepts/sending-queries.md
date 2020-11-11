@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095116"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369492"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 
@@ -28,7 +28,7 @@ Cet article décrit les paramètres et attributs des requêtes envoyées à l’
 
 Vous pouvez obtenir des insights sur une image de trois façons différentes :
 
-- Avec un jeton Insights que vous obtenez à partir d’une image dans un appel précédent à l’un des points de terminaison de [l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+- Avec un jeton Insights que vous obtenez à partir d’une image dans un appel précédent à l’un des points de terminaison de [l’API Recherche d’images Bing](/rest/api/cognitiveservices/bing-images-api-v7-reference).
 - Envoi de l’URL d’une image.
 - Chargement d’une image (au format binaire).
 

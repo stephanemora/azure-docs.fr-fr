@@ -41,8 +41,6 @@
           href: batch-transcription.md
     - name: Tutoriels
       items:
-        - name: Reconnaître la voix stockée dans Stockage Blob
-          href: quickstarts/from-blob.md
         - name: Améliorer la précision avec des modèles de locataire
           href: tutorial-tenant-model.md
     - name: Personnalisation

@@ -12,6 +12,8 @@
   items:
     - name: Créer un point de terminaison SCIM et configurer le provisionnement
       href: use-scim-to-provision-users-and-groups.md
+    - name: Personnaliser des mappages d’attributs
+      href: customize-application-attributes.md
     - name: Tutoriels sur le provisionnement spécifique aux applications
       href: /azure/active-directory/saas-apps
 - name: Concepts
@@ -30,8 +32,6 @@
   items:
     - name: Configurer le provisionnement pour une application de galerie
       href: configure-automatic-user-provisioning-portal.md
-    - name: Personnaliser des mappages d’attributs
-      href: customize-application-attributes.md
     - name: Inclure ou exclure des utilisateurs et des groupes de l’étendue
       items:
         - name: Étendue des utilisateurs ou des groupes à provisionner

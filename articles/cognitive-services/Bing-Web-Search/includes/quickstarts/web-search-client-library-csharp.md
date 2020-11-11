@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217597"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386566"
 ---
 La bibliothèque de client de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application C#. Dans ce démarrage rapide, vous allez apprendre à instancier un client, envoyer une requête et imprimer la réponse.
 
@@ -36,7 +36,7 @@ Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage r
 > [!TIP]
 > Récupérer le dernier code en tant que solution Visual Studio à partir de [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-La première étape consiste à créer un nouveau projet de console. Si vous avez besoin d’aide pour configurer un projet de console, consultez [Hello World--votre premier programme (Guide de programmation C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Pour utiliser le kit de développement logiciel de l’API Recherche Web Bing dans votre application, vous devrez installer `Microsoft.Azure.CognitiveServices.Search.WebSearch` à l’aide du gestionnaire de package NuGet.
+La première étape consiste à créer un nouveau projet de console. Si vous avez besoin d’aide pour configurer un projet de console, consultez [Hello World--votre premier programme (Guide de programmation C#)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Pour utiliser le kit de développement logiciel de l’API Recherche Web Bing dans votre application, vous devrez installer `Microsoft.Azure.CognitiveServices.Search.WebSearch` à l’aide du gestionnaire de package NuGet.
 
 Le [package du kit de développement Web de l’API Recherche Web Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) installe également :
 
@@ -424,4 +424,3 @@ Lorsque vous avez terminé ce projet, veillez à supprimer votre clé d’abonne
 
 > [!div class="nextstepaction"]
 > [Exemples du SDK Node.js Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

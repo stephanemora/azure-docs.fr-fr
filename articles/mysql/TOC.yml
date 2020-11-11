@@ -471,6 +471,8 @@
               href: flexible-server/concepts-high-availability.md
         - name: Supervision et journaux
           items:
+            - name: Paramètres de serveur
+              href: flexible-server/concepts-server-parameters.md
             - name: Journaux des requêtes lentes
               href: flexible-server/concepts-slow-query-logs.md
             - name: Journaux d’audit

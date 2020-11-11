@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588613"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369509"
 ---
 # <a name="translator-v20"></a>Translator v2.0
 
@@ -25,7 +25,7 @@ ms.locfileid: "83588613"
 Vous pouvez intégrer Translator v2 en toute transparence dans vos applications, sites web, outils ou autres solutions pour offrir une expérience utilisateur multilingue. Vous pouvez l’utiliser sur toute plateforme matérielle et avec tout système d’exploitation pour effectuer la traduction et d’autres opérations liées à la langue, telles que la détection de la langue d’un texte et la synthèse vocale, en fonction des normes industrielles. Pour plus d’informations, consultez [Translator](../translator-info-overview.md).
 
 ## <a name="getting-started"></a>Prise en main
-Pour accéder à Translator, vous devez [vous inscrire à Microsoft Azure](../translator-text-how-to-signup.md).
+Pour accéder à Translator, vous devez [vous inscrire à Microsoft Azure](../translator-how-to-signup.md).
 
 ## <a name="authentication"></a>Authentification 
 Tous les appels à Translator nécessitent une clé d’abonnement pour l’authentification. L’API prend en charge trois méthodes d’authentification :
@@ -607,11 +607,11 @@ L’objet `TranslateOptions` contient les valeurs de la liste suivante. Tous son
 
 * `Category`: Chaîne qui contient la catégorie (le domaine) de la traduction. Par défaut, il s’agit de `general`.
 * `ContentType`: la seule option prise en charge (et donc par défaut) est `text/plain`.
-* `IncludeMultipleMTAlternatives`: indicateur booléen permettant de spécifier si plusieurs alternatives doivent être renvoyées à partir du moteur de traduction automatique. Les valeurs valides sont `true` et `false` (avec respect de la casse). La valeur par défaut est `false`, qui ne retourne qu’une seule alternative. L’affectation de la valeur `true` à l’indicateur permet la création d’alternatives artificielles, entièrement intégrées à l’infrastructure CTF (Collaborative Translation Framework). La fonctionnalité permet de retourner des alternatives pour les phrases qui n’ont pas de traduction dans l’infrastructure CTF en ajoutant des alternatives artificielles à partir de la liste *n*-meilleures valeurs du décodeur.
+* `IncludeMultipleMTAlternatives`: indicateur booléen permettant de spécifier si plusieurs alternatives doivent être renvoyées à partir du moteur de traduction automatique. Les valeurs valides sont `true` et `false` (avec respect de la casse). La valeur par défaut est `false`, qui ne retourne qu’une seule alternative. L’affectation de la valeur `true` à l’indicateur permet la création d’alternatives artificielles, entièrement intégrées à l’infrastructure CTF (Collaborative Translation Framework). La fonctionnalité permet de retourner des alternatives pour les phrases qui n’ont pas de traduction dans l’infrastructure CTF en ajoutant des alternatives artificielles à partir de la liste *n* -meilleures valeurs du décodeur.
     - Notation. Les notes sont appliquées comme suit : 
          - La meilleure traduction automatique obtient une note de 5.
        - Les alternatives de l’infrastructure CTF reflètent l’autorité du réviseur. Elles sont comprises entre -10 et +10.
-       - Les alternatives de traduction générées automatiquement (*n*-meilleures valeurs) ont la note 0 et un degré de correspondance de 100.
+       - Les alternatives de traduction générées automatiquement ( *n* -meilleures valeurs) ont la note 0 et un degré de correspondance de 100.
     - Nombre d’alternatives. Le nombre d’alternatives retournées peut être aussi élevé que la valeur spécifiée dans `maxTranslations`, mais il peut aussi être inférieur.
     - Paires de langues. Cette fonctionnalité n’est pas disponible pour les traductions entre le chinois simplifié et le chinois traditionnel, dans les deux sens. Elle est disponible pour toutes les autres paires de langues que Microsoft Translator prend en charge.
 * `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
@@ -719,11 +719,11 @@ Voici le format du corps de la demande :
 * `Options`: facultatif. Objet `Options` qui contient les valeurs suivantes. Tous sont facultatifs. Par défaut, il s’agit des paramètres les plus courants. Les éléments spécifiés doivent être répertoriés dans l’ordre alphabétique.
     - `Category`: Chaîne qui contient la catégorie (le domaine) de la traduction. Par défaut, il s’agit de `general`.
     - `ContentType`: la seule option prise en charge (et donc par défaut) est `text/plain`.
-    - `IncludeMultipleMTAlternatives`: indicateur booléen permettant de spécifier si plusieurs alternatives doivent être renvoyées à partir du moteur de traduction automatique. Les valeurs valides sont `true` et `false` (avec respect de la casse). La valeur par défaut est `false`, qui ne retourne qu’une seule alternative. L’affectation de la valeur `true` à l’indicateur permet la génération d’alternatives artificielles de traduction, entièrement intégrées à l’infrastructure CTF (Collaborative Translation Framework). La fonctionnalité permet de retourner des alternatives pour les phrases qui n’en ont pas dans l’infrastructure CTF en ajoutant des alternatives artificielles à partir de la liste *n*-meilleures valeurs du décodeur.
+    - `IncludeMultipleMTAlternatives`: indicateur booléen permettant de spécifier si plusieurs alternatives doivent être renvoyées à partir du moteur de traduction automatique. Les valeurs valides sont `true` et `false` (avec respect de la casse). La valeur par défaut est `false`, qui ne retourne qu’une seule alternative. L’affectation de la valeur `true` à l’indicateur permet la génération d’alternatives artificielles de traduction, entièrement intégrées à l’infrastructure CTF (Collaborative Translation Framework). La fonctionnalité permet de retourner des alternatives pour les phrases qui n’en ont pas dans l’infrastructure CTF en ajoutant des alternatives artificielles à partir de la liste *n* -meilleures valeurs du décodeur.
         - Notation. Les notes sont appliquées comme suit :
           - La meilleure traduction automatique obtient une note de 5.
           - Les alternatives de l’infrastructure CTF reflètent l’autorité du réviseur. Elles sont comprises entre -10 et +10.
-          - Les alternatives de traduction générées automatiquement (*n*-meilleures valeurs) ont la note 0 et un degré de correspondance de 100.
+          - Les alternatives de traduction générées automatiquement ( *n* -meilleures valeurs) ont la note 0 et un degré de correspondance de 100.
         - Nombre d’alternatives. Le nombre d’alternatives retournées peut être aussi élevé que la valeur spécifiée dans `maxTranslations`, mais il peut aussi être inférieur.
         - Paires de langues. Cette fonctionnalité n’est pas disponible pour les traductions entre le chinois simplifié et le chinois traditionnel, dans les deux sens. Elle est disponible pour toutes les autres paires de langues que Microsoft Translator prend en charge.
 * `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
@@ -804,5 +804,3 @@ Type de contenu de réponse : application/xml
 
 > [!div class="nextstepaction"]
 > [Migrer vers Translator v3](../migrate-to-v3.md)
-
-

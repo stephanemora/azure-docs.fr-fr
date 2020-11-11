@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 029cb1e59876eb01c609ef8b7ba0412ed35a2a1b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940739"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424758"
 ---
 Dans ce guide de démarrage rapide, vous allez apprendre à convertir du texte en parole à l’aide du service Speech et de cURL.
 
@@ -26,7 +26,7 @@ Depuis une invite de commandes, exécutez la commande suivante. Vous devrez ins�
 - Votre région du service Speech.
 
 Vous pouvez également changer les valeurs suivantes.
-- La valeur d’en-tête `X-Microsoft-OutputFormat`, qui contrôle le format de sortie audio. Vous trouverez la liste des formats de sortie audio pris en charge dans les [informations de référence sur l’API REST de synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs).
+- La valeur d’en-tête `X-Microsoft-OutputFormat`, qui contrôle le format de sortie audio. Vous trouverez la liste des formats de sortie audio pris en charge dans les [informations de référence sur l’API REST de synthèse vocale](../../../rest-text-to-speech.md#audio-outputs).
 - La voix de sortie. Pour obtenir la liste des voix disponibles pour votre point de terminaison Speech, consultez la section suivante.
 - Fichier de sortie. Dans cet exemple, nous dirigeons la réponse du serveur vers un fichier nommé `output.wav`.
 

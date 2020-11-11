@@ -158,6 +158,8 @@
           items:
             - name: Gérer les sauvegardes de machines virtuelles Azure
               href: backup-azure-manage-vms.md
+            - name: Gérer les points de récupération
+              href: manage-recovery-points.md
     - name: Base de données SQL Server sur la sauvegarde de machines virtuelles Azure
       items:
         - name: Vue d’ensemble

@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1a52471240ca80335690568faed7849eabc30baf
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074095"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381063"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Guide pratique pour parcourir les résultats à partir des API Recherche Bing
 
@@ -73,15 +73,15 @@ Host: api.cognitive.microsoft.com
 Lorsque vous utilisez les API Vidéo et Image Bing, vous pouvez utiliser la valeur `nextOffset` pour éviter les résultats de recherche en double. Récupérez la valeur des objets de réponse `Images` ou `Videos` et utilisez-la dans vos requêtes avec le paramètre `offset`.  
 
 > [!NOTE]
-> L’API Recherche web Bing retourne des résultats de recherche qui peuvent inclure des pages web, des images, des vidéos et des actualités. Quand vous parcourez les résultats de la recherche à partir de l’API Recherche web Bing, vous parcourez uniquement [WebPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) et non d’autres types de réponses tels que des images ou des actualités. Les résultats de la recherche dans les objets `WebPage` peuvent inclure des résultats qui s’affichent également dans d’autres types de réponses.
+> L’API Recherche web Bing retourne des résultats de recherche qui peuvent inclure des pages web, des images, des vidéos et des actualités. Quand vous parcourez les résultats de la recherche à partir de l’API Recherche web Bing, vous parcourez uniquement [WebPages](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) et non d’autres types de réponses tels que des images ou des actualités. Les résultats de la recherche dans les objets `WebPage` peuvent inclure des résultats qui s’affichent également dans d’autres types de réponses.
 >
 > Si vous utilisez le paramètre de requête `responseFilter` sans spécifier de valeurs de filtre, n’utilisez pas les paramètres `count` et `offset`. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation des API Recherche web Bing](bing-api-comparison.md)
-* [Référence pour l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [Informations de référence sur l’API Recherche personnalisée Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [Informations de référence sur l’API Recherche d’actualités Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [Informations de référence sur l’API Recherche de vidéos Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [Informations de référence sur l’API Recherche d’images Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Référence pour l’API Recherche Web Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Informations de référence sur l’API Recherche personnalisée Bing v7](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Informations de référence sur l’API Recherche d’actualités Bing v7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Informations de référence sur l’API Recherche de vidéos Bing v7](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Informations de référence sur l’API Recherche d’images Bing v7](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
