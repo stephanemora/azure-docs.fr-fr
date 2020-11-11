@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116816"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371802"
 ---
 Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’un discours, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
 
@@ -42,7 +42,7 @@ Créez un projet dans Visual Studio à l’aide du modèle d’application web A
 
 ### <a name="configure-authentication-values"></a>Configurer les valeurs d’authentification
 
-Cliquez avec le bouton droit sur le projet dans _l’Explorateur de solutions_ et choisissez **Gérer les données secrètes de l’utilisateur** . Cela ouvrira un fichier appelé _secrets.json_ . Ce fichier n’est pas archivé dans le contrôle de code source. En savoir plus [ici](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Remplacez le contenu du fichier _secrets.json_ par le code suivant, en indiquant les valeurs fournies au moment de la création de votre ressource Lecteur immersif.
+Cliquez avec le bouton droit sur le projet dans _l’Explorateur de solutions_ et choisissez **Gérer les données secrètes de l’utilisateur**. Cela ouvrira un fichier appelé _secrets.json_. Ce fichier n’est pas archivé dans le contrôle de code source. En savoir plus [ici](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Remplacez le contenu du fichier _secrets.json_ par le code suivant, en indiquant les valeurs fournies au moment de la création de votre ressource Lecteur immersif.
 
 ```json
 {
@@ -55,7 +55,7 @@ Cliquez avec le bouton droit sur le projet dans _l’Explorateur de solutions_ e
 
 ### <a name="install-active-directory-nuget-package"></a>Installer un package NuGet Active Directory
 
-Le code ci-dessous utilise des objets du package NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory** . Vous devez donc ajouter une référence à ce package dans votre projet.
+Le code ci-dessous utilise des objets du package NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**. Vous devez donc ajouter une référence à ce package dans votre projet.
 
 Ouvrez la console du Gestionnaire de package NuGet dans **Outils -> Gestionnaire de package NuGet -> Console du Gestionnaire de package** et exécutez cette commande :
 
@@ -71,7 +71,7 @@ Ouvrez _Controllers\HomeController.cs_ , puis ajoutez le code suivant après les
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Maintenant, nous allons configurer le contrôleur pour obtenir les valeurs Azure AD du fichier _secrets.json_ . En haut de la classe _HomeController_ , après ```public class HomeController : Controller {```, ajoutez le code suivant.
+Maintenant, nous allons configurer le contrôleur pour obtenir les valeurs Azure AD du fichier _secrets.json_. En haut de la classe _HomeController_ , après ```public class HomeController : Controller {```, ajoutez le code suivant.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -142,7 +142,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## <a name="add-sample-content"></a>Ajouter un contenu exemple
-Tout d’abord, ouvrez _Views\Shared\Layout.cshtml_ . Avant la ligne ```</head>```, ajoutez le code suivant :
+Tout d’abord, ouvrez _Views\Shared\Layout.cshtml_. Avant la ligne ```</head>```, ajoutez le code suivant :
 
 ```html
 @RenderSection("Styles", required: false)
@@ -218,7 +218,7 @@ Notez que tout le texte a un attribut **lang** qui décrit les langues du texte.
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Ajouter JavaScript pour gérer le lancement du Lecteur immersif
 
-La bibliothèque du Lecteur immersif fournit des fonctionnalités telles que le lancement du Lecteur immersif et l’affichage des boutons du Lecteur immersif. En savoir plus [ici](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+La bibliothèque du Lecteur immersif fournit des fonctionnalités telles que le lancement du Lecteur immersif et l’affichage des boutons du Lecteur immersif. En savoir plus [ici](../../reference.md).
 
 En bas du fichier _Views\Home\Index.cshtml_ , ajoutez le code suivant :
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
-ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777239"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363899"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -29,16 +29,16 @@ Avant de commencer, n’hésitez pas à essayer [Personalizer avec cette démons
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Comment Personalizer sélectionne l’élément de contenu le mieux adapté ?
 
-Personalizer utilise l’**apprentissage par renforcement** pour sélectionner l’élément (_action_) le mieux adapté, en fonction du comportement collectif et des scores de récompense de tous les utilisateurs. Les actions sont des éléments de contenu, comme des articles de presse, des films spécifiques ou des produits.
+Personalizer utilise l’ **apprentissage par renforcement** pour sélectionner l’élément ( _action_ ) le mieux adapté, en fonction du comportement collectif et des scores de récompense de tous les utilisateurs. Les actions sont des éléments de contenu, comme des articles de presse, des films spécifiques ou des produits.
 
 L’appel de l’API **Rank** prend l’élément d’action, les caractéristiques de l’action et les caractéristiques de contexte pour sélectionner le premier élément d’action de la liste :
 
-* **Actions avec caractéristiques** : éléments de contenu avec des caractéristiques précises pour chaque élément
-* **Caractéristiques de contexte** : caractéristiques de vos utilisateurs, leur contexte ou leur environnement, lors de l’utilisation de votre application
+* **Actions avec caractéristiques**  : éléments de contenu avec des caractéristiques précises pour chaque élément
+* **Caractéristiques de contexte**  : caractéristiques de vos utilisateurs, leur contexte ou leur environnement, lors de l’utilisation de votre application
 
-L’appel de l’API Rank retourne l’ID de l’élément de contenu (ou __action__) à présenter à l’utilisateur dans le champ **Reward Action ID** (ID de l’action récompensée).
+L’appel de l’API Rank retourne l’ID de l’élément de contenu (ou __action__ ) à présenter à l’utilisateur dans le champ **Reward Action ID** (ID de l’action récompensée).
 
-L’__action__ qui est présentée à l’utilisateur est choisie à l’aide de modèles Machine Learning, qui tentent d’optimiser la quantité totale de récompenses dans le temps.
+L’ __action__ qui est présentée à l’utilisateur est choisie à l’aide de modèles Machine Learning, qui tentent d’optimiser la quantité totale de récompenses dans le temps.
 
 ### <a name="sample-scenarios"></a>Exemples de scénarios
 
@@ -57,9 +57,9 @@ Personalizer a utilisé l’apprentissage par renforcement pour sélectionner la
 
 ## <a name="when-to-use-personalizer"></a>Quand utiliser Personalizer
 
-L’[API](https://go.microsoft.com/fwlink/?linkid=2092082) **Rank** de Personalizer est appelée chaque fois que votre application présente du contenu. Il s’agit d’un **événement**, qui est associé à un _ID d’événement_.
+L’ [API](https://go.microsoft.com/fwlink/?linkid=2092082) **Rank** de Personalizer est appelée chaque fois que votre application présente du contenu. Il s’agit d’un **événement** , qui est associé à un _ID d’événement_.
 
-L’[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Reward** de Personalizer peut être appelée en temps réel ou retardée pour mieux répondre aux besoins de votre infrastructure. Vous déterminez le score de récompense en fonction des besoins de votre entreprise. Le score de récompense est compris entre 0 et 1. Il peut s’agir d’une valeur unique comme 1 pour Bon ou 0 pour Mauvais, ou d’un nombre produit par un algorithme que vous créez en tenant compte de vos objectifs et métriques métier.
+L’ [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Reward** de Personalizer peut être appelée en temps réel ou retardée pour mieux répondre aux besoins de votre infrastructure. Vous déterminez le score de récompense en fonction des besoins de votre entreprise. Le score de récompense est compris entre 0 et 1. Il peut s’agir d’une valeur unique comme 1 pour Bon ou 0 pour Mauvais, ou d’un nombre produit par un algorithme que vous créez en tenant compte de vos objectifs et métriques métier.
 
 ## <a name="content-requirements"></a>Exigences de contenu
 
@@ -87,8 +87,8 @@ Utilisez Personalizer si votre contenu :
 
 1. Ajoutez Personalizer à votre application, site web ou système :
     1. Ajoutez un appel **Rank** à Personalizer dans votre application, votre site web ou votre système afin de déterminer l’élément de _contenu_ le mieux adapté avant que celui-ci ne soit présenté à l’utilisateur.
-    1. Présentez l’élément de _contenu_ le mieux adapté (qui correspond à l’_ID d’action récompensée_) à l’utilisateur.
-    1. Appliquez une _logique métier_ aux informations collectées concernant le comportement de l’utilisateur, afin de déterminer le score de **récompense**, par exemple :
+    1. Présentez l’élément de _contenu_ le mieux adapté (qui correspond à l’ _ID d’action récompensée_ ) à l’utilisateur.
+    1. Appliquez une _logique métier_ aux informations collectées concernant le comportement de l’utilisateur, afin de déterminer le score de **récompense** , par exemple :
 
     |Comportement|Score de récompense calculé|
     |--|--|
@@ -105,7 +105,7 @@ Utilisez Personalizer si votre contenu :
 
 Nous proposons des guides de démarrage rapide en C#, en JavaScript et en Python. Chaque guide de démarrage rapide est conçu pour vous montrer des modèles de conception de base et vous permettre d’exécuter du code en moins de 10 minutes. 
 
-* [Démarrage rapide : Guide pratique pour la bibliothèque de client Personalizer](sdk-learning-loop.md)
+* [Démarrage rapide : Guide pratique pour la bibliothèque de client Personalizer](./quickstart-personalizer-sdk.md)
 
 Une fois que vous avez pu vous familiariser avec le service Personalizer, essayez nos tutoriels et découvrez comment utiliser Personalizer dans des applications web, des chatbots ou un notebook Azure.
 
@@ -115,10 +115,10 @@ Une fois que vous avez pu vous familiariser avec le service Personalizer, essaye
 
 ## <a name="reference"></a>Informations de référence 
 
-* [SDK C#/.NET de Personalizer](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [SDK C#/.NET de Personalizer](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
 * [SDK Go de Personalizer](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [SDK JavaScript de Personalizer](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [SDK Python de Personalizer](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [SDK JavaScript de Personalizer](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
+* [SDK Python de Personalizer](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
 * [API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6f4068ece2b08937188397317844a126a9699aee
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ed2c8b4b6dae8713d3ce1c6755c559cda9a9dfb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102103"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368880"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Utiliser un jeton insights pour obtenir des informations sur une image
 
@@ -262,7 +262,7 @@ namespace VisualSearchInsightsToken
 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Créer une ressource Recherche Bing"  target="_blank">créez une ressource Recherche Bing<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
-* [JDK 7 ou 8](https://aka.ms/azure-jdks) pour compiler et exécuter ce code. Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
+* [JDK 7 ou 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) pour compiler et exécuter ce code. Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
 
 
 ## <a name="run-the-java-application"></a>Exécuter l’application Java
@@ -536,4 +536,4 @@ if __name__ == '__main__':
 [Créer une application web monopage de recherche visuelle](tutorial-bing-visual-search-single-page-app.md)  
 [Qu’est-ce que l’API Recherche visuelle Bing ?](overview.md)  
 [Essayer Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[Images - Recherche visuelle](https://aka.ms/bingvisualsearchreferencedoc)
+[Images - Recherche visuelle](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a27f252f401d0fcf863391a0d45538b01b1141e9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100539"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367282"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Appeler votre instance de Recherche personnalisée Bing à partir du portail
 
@@ -31,7 +31,7 @@ Une fois votre expérience de recherche personnalisée configurée, vous pouvez 
 
 Une fois connecté au [portail](https://customsearch.ai) Recherche personnalisée Bing, sélectionnez votre instance de recherche et cliquez sur l'onglet **Production**. Sous **Points de terminaison** , sélectionnez le point de terminaison d'une API (par exemple, de l'API Web). Les points de terminaison affichés dépendent de votre abonnement.
 
-Pour créer une requête de recherche, entrez les valeurs des paramètres de votre point de terminaison. Notez que les paramètres affichés sur le portail peuvent varier en fonction du point de terminaison choisi. Pour plus d’informations, consultez [Référence sur l’API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters). Pour modifier l’abonnement utilisée par votre instance de recherche, ajoutez la clé d’abonnement appropriée et mettez à jour les paramètres de mise sur le marché et/ou de langue appropriés.
+Pour créer une requête de recherche, entrez les valeurs des paramètres de votre point de terminaison. Notez que les paramètres affichés sur le portail peuvent varier en fonction du point de terminaison choisi. Pour plus d’informations, consultez [Référence sur l’API Recherche personnalisée](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters). Pour modifier l’abonnement utilisée par votre instance de recherche, ajoutez la clé d’abonnement appropriée et mettez à jour les paramètres de mise sur le marché et/ou de langue appropriés.
 
 Les paramètres suivants sont importants :
 
@@ -65,4 +65,4 @@ Vous pouvez modifier l’abonnement associé à votre instance de Recherche pers
 - [Appeler votre vue personnalisée avec NodeJs](./call-endpoint-nodejs.md)
 - [Appeler votre vue personnalisée avec Python](./call-endpoint-python.md)
 
-- [Appeler votre vue personnalisée avec le SDK C#](./sdk-csharp-quick-start.md)
+- [Appeler votre vue personnalisée avec le SDK C#](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)

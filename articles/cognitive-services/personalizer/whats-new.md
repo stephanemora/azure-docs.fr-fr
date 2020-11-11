@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
-ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a62c7dc8238b642aeaa59a7b470266378832e26e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87133076"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363882"
 ---
 # <a name="whats-new-in-personalizer"></a>Nouveautés de Personalizer
 
@@ -31,7 +31,7 @@ Découvrir les nouveautés du service. Ces éléments peuvent inclure des notes 
 
 ### <a name="may-2020---build-conference"></a>Mai 2020 - //Conférence Build
 
-Les fonctionnalités suivantes sont disponibles en **préversion publique** :
+Les fonctionnalités suivantes sont disponibles en **préversion publique**  :
 
  * [Mode apprenti](concept-apprentice-mode.md) en tant que comportement d'apprentissage.
 
@@ -62,5 +62,5 @@ Les fonctionnalités d’évaluation suivantes ont été publiées lors de la co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer une boucle de rétroaction dans C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Démarrage rapide : Créer une boucle de rétroaction dans C#](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Utiliser la démonstration interactive](https://personalizationdemo.azurewebsites.net/)

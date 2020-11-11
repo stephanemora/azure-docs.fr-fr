@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590636"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368812"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Sous-domaines personnalisés pour Cognitive Services
 
-Azure Cognitive Services utilise des noms de sous-domaines personnalisés pour chaque ressource créée à l’aide du [portail Azure](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Contrairement aux points de terminaison régionaux, qui étaient communs à tous les clients dans une région Azure spécifique, les noms de sous-domaines personnalisés sont uniques à la ressource. Des noms de sous-domaines personnalisés sont requis pour activer des fonctionnalités telles que Azure Active Directory (Azure AD) pour l’authentification.
+Azure Cognitive Services utilise des noms de sous-domaines personnalisés pour chaque ressource créée à l’aide du [portail Azure](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) ou [Azure CLI](/cli/azure/install-azure-cli). Contrairement aux points de terminaison régionaux, qui étaient communs à tous les clients dans une région Azure spécifique, les noms de sous-domaines personnalisés sont uniques à la ressource. Des noms de sous-domaines personnalisés sont requis pour activer des fonctionnalités telles que Azure Active Directory (Azure AD) pour l’authentification.
 
 ## <a name="how-does-this-impact-existing-resources"></a>Comment cela affecte-t-il les ressources existantes?
 
@@ -27,7 +27,7 @@ Les ressources Cognitive Services créées avant le 1er juillet 2019 utilisero
 Si vous souhaitez migrer une ressource existante pour tirer parti des noms de sous-domaines personnalisés, afin de pouvoir activer des fonctionnalités telles que Azure AD, suivez ces instructions :
 
 1. Connectez-vous au Portail Azure et recherchez la ressource Cognitive Services à laquelle vous souhaitez ajouter un nom de sous-domaine personnalisé.
-2. Dans le panneau **Vue d’ensemble**, recherchez et sélectionnez **Générer un nom de domaine personnalisé**.
+2. Dans le panneau **Vue d’ensemble** , recherchez et sélectionnez **Générer un nom de domaine personnalisé**.
 3. Cela ouvre un panneau contenant des instructions pour créer un sous-domaine personnalisé unique pour votre ressource.
    > [!WARNING]
    > Une fois que vous avez créé un nom de sous-domaine personnalisé, il ne **peut pas** être modifié.
@@ -98,5 +98,5 @@ Oui. Il s’agit d’une liste de points de terminaison régionaux que vous pouv
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Présentation de Cognitive Services](Welcome.md)
+* [Présentation de Cognitive Services](./what-are-cognitive-services.md)
 * [Authentification](authentication.md)

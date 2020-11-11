@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6b715d4b801159b451957c30ee9ef7b406f3a2f4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ee31eac55298c86a7bdd784ea54c9a0c8caa47a4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095371"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364613"
 ---
 # <a name="what-is-bing-local-business-search"></a>Présentation de Recherche d’entreprises locales Bing
 
@@ -35,7 +35,7 @@ L’API Recherche d’entreprises locales Bing est un service RESTful permettant
 ## <a name="workflow"></a>Workflow
 Appelez l’API Recherche d’entreprises locales Bing à partir de n’importe quel langage de programmation permettant d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Ce service est accessible à l’aide de l’API REST.
  
-1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/cognitive-services/).   
+1. Créez un [compte d’API Cognitive Services](../cognitive-services-apis-create-account.md) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/cognitive-services/).   
 2. Encodez par URL vos termes de recherche pour le paramètre de requête `q=""`. Par exemple, `q=nearby+restaurant` ou `q=nearby%20restaurant`. Définissez également la pagination, si nécessaire. 
 3. Envoyer une [API Recherche d’entreprises locales Bing](quickstarts/local-quickstart.md) 
 4. Analyser la réponse JSON 
@@ -49,4 +49,4 @@ Appelez l’API Recherche d’entreprises locales Bing à partir de n’importe 
 - [Requête et réponse](local-search-query-response.md)
 - [Démarrage rapide de la Recherche d’entreprises locales](quickstarts/local-quickstart.md)
 - [Informations de référence sur l’API Recherche d’entreprises locales](local-search-reference.md)
-- [Conditions d’utilisation et d’affichage](use-display-requirements.md)
+- [Conditions d’utilisation et d’affichage](../bing-web-search/use-display-requirements.md)

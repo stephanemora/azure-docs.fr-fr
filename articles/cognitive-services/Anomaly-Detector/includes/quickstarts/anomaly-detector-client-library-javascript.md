@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
 ms.custom: devx-track-js
-ms.openlocfilehash: 376ad893bf6fee36543e691fe50f369d8a43142c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b970b099d87148d169b2be3b7e72d32c159f5046
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018451"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371565"
 ---
 Découvrez comment commencer à utiliser la bibliothèque de client Détecteur d’anomalies pour JavaScript. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 
@@ -72,11 +72,11 @@ Le fichier `package.json` de votre application sera mis à jour avec les dépend
 
 ## <a name="object-model"></a>Modèle objet
 
-Le client Détecteur d’anomalies est un objet [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) qui s’authentifie auprès d’Azure à l’aide de votre clé. Le client peut effectuer une détection d’anomalie sur un jeu de données entier à l’aide de [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--), ou sur le dernier point de données à l’aide de [LastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). La méthode [ChangePointDetectAsync](https://go.microsoft.com/fwlink/?linkid=2090788) détecte les points qui marquent les changements dans une tendance. 
+Le client Détecteur d’anomalies est un objet [AnomalyDetectorClient](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) qui s’authentifie auprès d’Azure à l’aide de votre clé. Le client peut effectuer une détection d’anomalie sur un jeu de données entier à l’aide de [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--), ou sur le dernier point de données à l’aide de [LastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). La méthode [ChangePointDetectAsync](https://go.microsoft.com/fwlink/?linkid=2090788) détecte les points qui marquent les changements dans une tendance. 
 
-Les données de série chronologique sont envoyées en tant que série de [Points](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) dans un objet [Request](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest). L’objet `Request` contient des propriétés pour décrire les données ([Granularité](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) par exemple) et des paramètres pour la détection d’anomalies. 
+Les données de série chronologique sont envoyées en tant que série de [Points](/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) dans un objet [Request](/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest). L’objet `Request` contient des propriétés pour décrire les données ([Granularité](/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) par exemple) et des paramètres pour la détection d’anomalies. 
 
-La réponse du Détecteur d’anomalies peut être un objet [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest), [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) ou [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788), selon la méthode utilisée. 
+La réponse du Détecteur d’anomalies peut être un objet [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest), [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) ou [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788), selon la méthode utilisée. 
 
 ## <a name="code-examples"></a>Exemples de code 
 
@@ -90,7 +90,7 @@ Ces extraits de code vous montrent comment effectuer les tâches suivantes avec 
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Instanciez un objet [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) avec votre point de terminaison et vos informations d’identification.
+Instanciez un objet [AnomalyDetectorClient](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) avec votre point de terminaison et vos informations d’identification.
 
 [!code-javascript[Authentication](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=authentication)]
 
@@ -103,19 +103,19 @@ Téléchargez l’exemple de données pour ce démarrage rapide à partir de [Gi
 
 Ces données de séries chronologiques sont mises en forme dans un fichier .csv et envoyées à l’API Détecteur d’anomalies.
 
-Lisez votre fichier de données avec la méthode `readFileSync()` de la bibliothèque d’analyse de volume partagé de cluster, puis analysez le fichier avec `parse()`. Pour chaque ligne, envoyez (push) un objet [Point](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) contenant l’horodatage et la valeur numérique.
+Lisez votre fichier de données avec la méthode `readFileSync()` de la bibliothèque d’analyse de volume partagé de cluster, puis analysez le fichier avec `parse()`. Pour chaque ligne, envoyez (push) un objet [Point](/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) contenant l’horodatage et la valeur numérique.
 
 [!code-javascript[Read the data file](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=readFile)]
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>Détecter des anomalies dans un jeu de données entier 
 
-Appelez l’API pour détecter les anomalies dans l’ensemble de la série chronologique en tant que lot avec la méthode [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) du client. Stockez l'objet [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) renvoyé. Itérez dans la liste `isAnomaly` de la réponse et imprimez l'index des valeurs `true`. Ces valeurs correspondent à l’index des points de données anormaux, le cas échéant.
+Appelez l’API pour détecter les anomalies dans l’ensemble de la série chronologique en tant que lot avec la méthode [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) du client. Stockez l'objet [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) renvoyé. Itérez dans la liste `isAnomaly` de la réponse et imprimez l'index des valeurs `true`. Ces valeurs correspondent à l’index des points de données anormaux, le cas échéant.
 
 [!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Détecter l’état d’anomalie du dernier point de données
 
-Appelez l’API Détecteur d’anomalies pour déterminer si votre dernier point de données est une anomalie à l’aide de la méthode [lastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) du client, puis stockez l’objet [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) retourné. La valeur `isAnomaly` de la réponse correspond à une valeur booléenne qui spécifie l’état d'anomalie de ce point.  
+Appelez l’API Détecteur d’anomalies pour déterminer si votre dernier point de données est une anomalie à l’aide de la méthode [lastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) du client, puis stockez l’objet [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) retourné. La valeur `isAnomaly` de la réponse correspond à une valeur booléenne qui spécifie l’état d'anomalie de ce point.  
 
 [!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
 

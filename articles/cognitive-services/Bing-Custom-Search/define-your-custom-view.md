@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090815"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367554"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
@@ -79,16 +79,16 @@ Après l’ajout de sections web à la liste **Active** , le portail Recherche p
 
 ## <a name="search-for-images-and-videos"></a>Rechercher des images et vidéos
 
-Vous pouvez rechercher des images et vidéos de la même façon que du contenu web à l’aide de l’[API Recherche d’images personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou de l’[API Recherche de vidéos personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Vous pouvez afficher ces résultats avec l’[interface utilisateur hébergée](hosted-ui.md) ou les API. 
+Vous pouvez rechercher des images et vidéos de la même façon que du contenu web à l’aide de l’[API Recherche d’images personnalisée Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou de l’[API Recherche de vidéos personnalisée Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Vous pouvez afficher ces résultats avec l’[interface utilisateur hébergée](hosted-ui.md) ou les API. 
 
-Ces API sont similaires aux API [Recherche d’images Bing](../Bing-Image-Search/overview.md) et [Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) non personnalisées, mais recherchent dans l’intégralité du web et ne nécessitent pas le paramètre de requête `customConfig`. Pour plus d’informations sur l’utilisation d’images et de vidéos, voir ces ensembles de documentation. 
+Ces API sont similaires aux API [Recherche d’images Bing](../Bing-Image-Search/overview.md) et [Recherche de vidéos Bing](../bing-video-search/overview.md) non personnalisées, mais recherchent dans l’intégralité du web et ne nécessitent pas le paramètre de requête `customConfig`. Pour plus d’informations sur l’utilisation d’images et de vidéos, voir ces ensembles de documentation. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Tester votre instance de recherche avec le volet de visualisation
 
 Vous pouvez tester votre instance de recherche en utilisant le volet de visualisation situé du côté droit du portail pour soumettre des requêtes de recherche et afficher les résultats. 
 
 1. Sous la zone de recherche, sélectionnez **My instance** (Mon instance). Vous pouvez comparer les résultats de votre expérience de recherche à Bing en sélectionnant **Bing**. 
-2. Sélectionnez un filtre de recherche sécurisée et le marché dans lequel effectuer la recherche (voir [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
+2. Sélectionnez un filtre de recherche sécurisée et le marché dans lequel effectuer la recherche (voir [Paramètres de requête](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Entrez une requête et appuyez sur Entrée ou cliquez sur l’icône de recherche pour afficher les résultats issus de la configuration active. Vous pouvez modifier le type de recherche que vous effectuez en cliquant sur **Web** , **Image** ou **Vidéo** pour obtenir les résultats correspondants. 
 
 <a name="adjustrank"></a>
@@ -165,4 +165,4 @@ Si vous êtes abonné au niveau approprié de la Recherche personnalisée (voir 
 - [Appeler votre recherche personnalisée](./search-your-custom-view.md)
 - [Configurer votre expérience d’interface utilisateur hébergée](./hosted-ui.md)
 - [Utiliser des marqueurs d’ornement pour mettre en surbrillance du texte](../bing-web-search/hit-highlighting.md)
-- [Paginer des pages web](./page-webpages.md)
+- [Paginer des pages web](../bing-web-search/paging-search-results.md)

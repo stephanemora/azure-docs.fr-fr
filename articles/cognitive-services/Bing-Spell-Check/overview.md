@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 905ae56ab8d64f7342c4ee6b9f25d188c907710d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0453fa99376cb6a5dba1e427cdc0deccb3e03de
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084185"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367044"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Qu’est-ce que l’API Vérification orthographique Bing ?
 
@@ -49,4 +49,4 @@ Essayez tout d’abord la [démonstration interactive](https://azure.microsoft.c
 
 Lorsque vous êtes prêt à appeler l’API, créez un [compte d’API Cognitive Services](../../cognitive-services/cognitive-services-apis-create-account.md). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/free/cognitive-services/) gratuitement.
 
-Vous pouvez également consulter la [page hub de l’API Recherche Bing](../bing-web-search/search-the-web.md) pour explorer les autres API disponibles.
+Vous pouvez également consulter la [page hub de l’API Recherche Bing](../bing-web-search/overview.md) pour explorer les autres API disponibles.

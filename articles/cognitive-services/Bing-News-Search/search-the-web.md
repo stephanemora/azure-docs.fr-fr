@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 9ba749d671e24e86e2cd0a299e98ba03e47cf354
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2f793c675b045f995d3f8b208e11b60bc2140ec9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101678"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367146"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Qu’est-ce que l’API Recherche d’actualités Bing ?
 
@@ -27,7 +27,7 @@ ms.locfileid: "93101678"
 
 L’API Recherche d’actualités Bing facilite l’intégration des capacités de recherche d’actualités cognitive de Bing dans vos applications. L’API offre une expérience similaire à [Bing Actualités](https://www.bing.com/news), en vous permettant d’envoyer des requêtes de recherche et de recevoir des articles d’actualité pertinents.
 
-N’oubliez pas que l’API Recherche d’actualités Bing retourne uniquement des actualités dans les résultats de la recherche. Pour rechercher d’autres types de contenus web, utilisez l’[API Recherche Web Bing](../bing-web-search/search-the-web.md), l’[API Recherche de vidéos Bing](../bing-video-search/search-the-web.md) et l’[API Recherche d’images Bing](../bing-image-search/overview.md).
+N’oubliez pas que l’API Recherche d’actualités Bing retourne uniquement des actualités dans les résultats de la recherche. Pour rechercher d’autres types de contenus web, utilisez l’[API Recherche Web Bing](../bing-web-search/overview.md), l’[API Recherche de vidéos Bing](../bing-video-search/overview.md) et l’[API Recherche d’images Bing](../bing-image-search/overview.md).
 
 ## <a name="bing-news-search-api-features"></a>Fonctionnalités de l’API Recherche d’actualités Bing
 
@@ -45,7 +45,7 @@ L’API Recherche d’actualités Bing recherche et retourne naturellement des a
 
 L’API Recherche d’actualités Bing étant un service web RESTful, elle peut être facilement appelée à partir de n’importe quel langage de programmation capable d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Vous pouvez utiliser ce service soit par le biais de l’API REST, soit à l’aide du Kit de développement logiciel (SDK).
 
-1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/free/cognitive-services/) gratuitement.
+1. Créez un [compte d’API Cognitive Services](../cognitive-services-apis-create-account.md) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/free/cognitive-services/) gratuitement.
 2. Envoyez une requête à l’API avec une requête de recherche valide.
 3. Traitez la réponse de l’API en analysant le message JSON renvoyé.
 
@@ -53,10 +53,10 @@ L’API Recherche d’actualités Bing étant un service web RESTful, elle peut 
 
 Commencez par essayer la [démonstration interactive](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/) de l’API Recherche d’actualités Bing. Cette démonstration vous explique comment personnaliser rapidement une requête de recherche et trouver des actualités sur le web.
 
-Pour démarrer rapidement avec votre première requête d’API, suivez un guide de démarrage rapide de l’[API REST](quickstart.md) ou de l’un des [kits SDK](sdk.md).
+Pour démarrer rapidement avec votre première requête d’API, suivez un guide de démarrage rapide de l’[API REST](./csharp.md) ou de l’un des [kits SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp).
 
 ## <a name="see-also"></a>Voir aussi
 
-* La section de référence concernant l’[API Recherche d’actualités Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contient des définitions et des informations sur les points de terminaison, en-têtes, réponses d’API et paramètres de requête que vous pouvez utiliser pour obtenir des actualités dans les résultats de la recherche.
-* L’article [Conditions d’utilisation et d’affichage de l’API Recherche Bing](./useanddisplayrequirements.md) spécifie les utilisations acceptables du contenu et des informations obtenus par le biais des API Recherche Bing.
-* Visitez la [page hub de l’API Recherche Bing](../bing-web-search/search-the-web.md) pour explorer les autres API disponibles.
+* La section de référence concernant l’[API Recherche d’actualités Bing v7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contient des définitions et des informations sur les points de terminaison, en-têtes, réponses d’API et paramètres de requête que vous pouvez utiliser pour obtenir des actualités dans les résultats de la recherche.
+* L’article [Conditions d’utilisation et d’affichage de l’API Recherche Bing](../bing-web-search/use-display-requirements.md) spécifie les utilisations acceptables du contenu et des informations obtenus par le biais des API Recherche Bing.
+* Visitez la [page hub de l’API Recherche Bing](../bing-web-search/overview.md) pour explorer les autres API disponibles.

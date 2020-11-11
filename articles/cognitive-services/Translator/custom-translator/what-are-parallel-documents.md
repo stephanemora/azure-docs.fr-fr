@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ce9f7e922b9a168205ea1d193830dd654691998a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6477432636db9592d9b0d9c1f90f5eee7d6e00db
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510808"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368999"
 ---
 # <a name="what-are-parallel-documents"></a>Que sont des documents parallèles ?
 
@@ -23,7 +23,7 @@ Peu importe quelle langue est marquée comme « source » et quelle langue est
 
 ## <a name="requirements"></a>Spécifications
 
-Vous aurez besoin d’un minimum de 10 000 phrases parallèles et alignées uniques pour entraîner un système. Cette limitation est un filet de sécurité qui garantit que vos phrases parallèles contiendront suffisamment de vocabulaire unique pour entraîner correctement un modèle de traduction. Une bonne pratique consiste à ajouter en permanence plus de contenu parallèle et à répéter l’entraînement afin d’améliorer la qualité de votre système de traduction. Consultez [Alignement de phrases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+Vous aurez besoin d’un minimum de 10 000 phrases parallèles et alignées uniques pour entraîner un système. Cette limitation est un filet de sécurité qui garantit que vos phrases parallèles contiendront suffisamment de vocabulaire unique pour entraîner correctement un modèle de traduction. Une bonne pratique consiste à ajouter en permanence plus de contenu parallèle et à répéter l’entraînement afin d’améliorer la qualité de votre système de traduction. Consultez [Alignement de phrases](./sentence-alignment.md).
 
 Microsoft exige que les documents chargés dans le Custom Translator respectent les droits d’auteur et la propriété intellectuelle d’un tiers. Pour plus d’informations, veuillez consulter les [conditions d’utilisation](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Le chargement d’un document à l’aide du portail ne transfère pas les droits de propriété intellectuelle du document lui-même.

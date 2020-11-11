@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2a9c6b924f564c96c6018fbc395ad226a383280f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095388"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364647"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 
@@ -34,7 +34,7 @@ Pour plus d’informations sur les paramètres de requête que doivent comporter
   
 Pour plus d’informations sur les objets JSON que comporte la réponse, voir [Objets de la réponse](#response-objects).
 
-Pour plus d’informations sur l’utilisation autorisée et l’affichage des résultats, voir [Conditions d’utilisation et d’affichage](use-display-requirements.md).
+Pour plus d’informations sur l’utilisation autorisée et l’affichage des résultats, voir [Conditions d’utilisation et d’affichage](../bing-web-search/use-display-requirements.md).
 
 
   

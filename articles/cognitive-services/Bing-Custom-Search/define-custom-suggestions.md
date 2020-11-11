@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080972"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367588"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurer votre expérience de Suggestion automatique personnalisée
 
@@ -93,6 +93,6 @@ Si l’utilisateur sélectionne une chaîne de requête suggérée dans la liste
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir des suggestions personnalisées](./get-custom-suggestions.md)
+- [Obtenir des suggestions personnalisées]()
 - [Rechercher votre instance personnalisée](./search-your-custom-view.md)
 - [Configurer et consommer l’interface utilisateur hébergée personnalisée](./hosted-ui.md)

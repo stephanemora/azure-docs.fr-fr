@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 79bbdd109d005b7c6de293aebf50433fb7ea1d91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291645"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365005"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenu externe et de la communauté pour l’API Analyse de texte de Cognitive Service
 
@@ -31,11 +31,11 @@ ms.locfileid: "87291645"
 
 + [Analyse des sentiments dans l’application logique à l’aide des données SQL Server (blog TechNet)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
-+ [Analyse des sentiments avec Dynamics 365 CRM Online (blog MSDN)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
++ [Analyse des sentiments avec Dynamics 365 CRM Online (blog MSDN)](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
 + Blog Power BI : extraction des expressions clés à partir des messages de Facebook : [partie 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) et [partie 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ [Identifier les sentiments des commentaires dans un groupe Yammer avec MS Flow (Microsoft Tech Community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [Identifier les sentiments des commentaires dans un groupe Yammer avec MS Flow (Microsoft Tech Community)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 

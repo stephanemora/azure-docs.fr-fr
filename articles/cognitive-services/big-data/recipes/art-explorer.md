@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 0a94c66eb51298db226ceec5da5c86666576052a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a65ff28a38e42e05844063a330c0325f16b2247
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850489"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363287"
 ---
 # <a name="recipe-intelligent-art-exploration-with-the-cognitive-services-for-big-data"></a>Recette : Exploration intelligente d’images avec Cognitive Services pour le Big Data
 
@@ -24,7 +24,7 @@ Dans cet exemple, nous allons utiliser Cognitive Services pour le Big Data afin 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Vous devez disposer d’une clé d’abonnement pour Vision par ordinateur et Recherche cognitive. Suivez les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+* Vous devez disposer d’une clé d’abonnement pour Vision par ordinateur et Recherche cognitive. Suivez les instructions mentionnées dans [Créer un compte Cognitive Services](../../cognitive-services-apis-create-account.md) pour vous abonner à Vision par ordinateur et obtenir votre clé.
   > [!NOTE]
   > Pour obtenir des informations de tarification, consultez [Recherche cognitive Azure](https://azure.microsoft.com/services/search/#pricing).
 
@@ -118,4 +118,3 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment utiliser [Cognitive Services pour le Big Data pour détecter des anomalies](anomaly-detection.md).
-

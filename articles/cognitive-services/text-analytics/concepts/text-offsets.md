@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855645"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363780"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Décalages de texte dans la sortie de l’API Analyse de texte
 
@@ -34,9 +34,9 @@ Chaque fois que des décalages sont renvoyés dans la réponse de l’API, par e
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Extraction de sous-chaînes d’un texte avec des décalages
 
-Les décalages peuvent occasionner des problèmes lors de l’utilisation de méthodes de sous-chaîne basées sur des caractères, par exemple, la méthode .NET [substring()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8). Un problème est qu’un décalage peut avoir pour effet qu’une méthode de sous-chaîne se termine au milieu d’un encodage de graphème de plusieurs caractères plutôt qu’à la fin.
+Les décalages peuvent occasionner des problèmes lors de l’utilisation de méthodes de sous-chaîne basées sur des caractères, par exemple, la méthode .NET [substring()](/dotnet/api/system.string.substring?view=netframework-4.8). Un problème est qu’un décalage peut avoir pour effet qu’une méthode de sous-chaîne se termine au milieu d’un encodage de graphème de plusieurs caractères plutôt qu’à la fin.
 
-Dans .NET, envisagez d’utiliser la classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8), qui vous permet d’utiliser une chaîne comme une série d’éléments textuels, plutôt que d’objets caractères individuels. Vous pouvez également rechercher des bibliothèques de fractionnements de graphèmes dans votre environnement logiciel de prédilection. 
+Dans .NET, envisagez d’utiliser la classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8), qui vous permet d’utiliser une chaîne comme une série d’éléments textuels, plutôt que d’objets caractères individuels. Vous pouvez également rechercher des bibliothèques de fractionnements de graphèmes dans votre environnement logiciel de prédilection. 
 
 L’API Analyse de texte retourne également ces éléments textuels pour des raisons de commodité.
 

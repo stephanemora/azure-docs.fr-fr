@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: dépannage, mise à jour, bogue, Kinect, commentaires, récupération, journalisation, conseils
-ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276798"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356380"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problèmes connus et résolution des problèmes liés à Azure Kinect
 
-Cette page décrit des problèmes connus et des conseils de dépannage relatifs à l’utilisation du Kit de développement logiciel (SDK) de capteur Azure Kinect DK. Pour des problèmes spécifiques du matériel du produit, consultez également les [pages du support technique](https://aka.ms/kinectsupport).
+Cette page décrit des problèmes connus et des conseils de dépannage relatifs à l’utilisation du Kit de développement logiciel (SDK) de capteur Azure Kinect DK. Pour des problèmes spécifiques du matériel du produit, consultez également les [pages du support technique](./index.yml).
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -144,7 +144,7 @@ L’appel de la fonction ```k4a_device_set_color_control``` peut entraîner des 
 
 Si le gestionnaire de périphériques n’énumère pas l’appareil, cela peut être dû au fait qu’il est connecté à un contrôleur USB3 non pris en charge. 
 
-Pour l’appareil Azure Kinect DK sur **Windows, *les seuls contrôleurs hôtes pris en charge* sont Intel**, **Texas Instruments (TI)** et **Renesas**. Le Kit de développement logiciel (SDK) Azure Kinect sous Windows s’appuie sur un ID de conteneur unifié. Celui-ci doit s’étendre aux périphériques USB 2.0 et 3.0 afin que le Kit de développement logiciel (SDK) puisse détecter les périphériques de profondeur, de couleur et audio qui se trouvent physiquement sur le même appareil. Sous Linux, un plus grand nombre de contrôleurs hôtes peuvent être pris en charge, car cette plateforme s’appuie moins sur l’ID de conteneur et davantage sur les numéros de série des appareils. 
+Pour l’appareil Azure Kinect DK sur **Windows, *les seuls contrôleurs hôtes pris en charge* sont Intel** , **Texas Instruments (TI)** et **Renesas**. Le Kit de développement logiciel (SDK) Azure Kinect sous Windows s’appuie sur un ID de conteneur unifié. Celui-ci doit s’étendre aux périphériques USB 2.0 et 3.0 afin que le Kit de développement logiciel (SDK) puisse détecter les périphériques de profondeur, de couleur et audio qui se trouvent physiquement sur le même appareil. Sous Linux, un plus grand nombre de contrôleurs hôtes peuvent être pris en charge, car cette plateforme s’appuie moins sur l’ID de conteneur et davantage sur les numéros de série des appareils. 
 
 La question des contrôleurs hôtes USB se complique encore davantage quand plusieurs contrôleurs hôtes sont installés sur un PC. Lorsque les contrôleurs hôtes sont mélangés, l’utilisateur peut rencontrer des problèmes quand certains ports fonctionnent correctement et d’autres pas du tout. Selon la façon dont les ports sont connectés au boîtier, vous pouvez voir tous les ports frontaux qui rencontrent des problèmes avec Azure Kinect.
 

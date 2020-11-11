@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 20eec55a7a875ff124737069d699e76674b27c3b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ee050759181b5d28577e3a47620cce8b1cf9a847
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084644"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365684"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en utilisant Ruby
 
@@ -150,5 +150,5 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 > [!div class="nextstepaction"]
 > [Créer une application web monopage](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Qu’est-ce que l’API Recherche d’entités Bing ?](../search-the-web.md)
-* [Informations de référence sur l’API Recherche d’entités Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Qu’est-ce que l’API Recherche d’entités Bing ?](../overview.md)
+* [Informations de référence sur l’API Recherche d’entités Bing](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

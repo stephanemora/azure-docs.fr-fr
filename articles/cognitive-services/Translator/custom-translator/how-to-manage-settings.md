@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757025"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368336"
 ---
 # <a name="how-to-manage-settings"></a>Comment gérer les paramètres
 
@@ -33,7 +33,7 @@ Vous devez avoir une clé d’abonnement à Translator associée à votre espace
 
 Si vous n’avez pas d’abonnement, procédez comme suit :
 
-1. Abonnez-vous pour créer une ressource Translator. Suivez la [procédure d’inscription à Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) pour vous abonner et acquérir une clé Translator.
+1. Abonnez-vous pour créer une ressource Translator. Suivez la [procédure d’inscription à Translator](../translator-how-to-signup.md) pour vous abonner et acquérir une clé Translator.
 2. Notez la clé de votre abonnement à Translator. Key1 ou Key2 sont acceptables.
 3. Retournez au portail Custom Translator.
 
@@ -52,7 +52,7 @@ Si vous n’avez pas d’abonnement, procédez comme suit :
     ![Créer une boîte de dialogue d’espace de travail](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->Custom Translator ne prend pas en charge la création d’espace de travail pour la ressource de l’API de traduction de texte Translator Text (ou clé d’abonnement Azure) créée dans [Réseau virtuel activé](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Custom Translator ne prend pas en charge la création d’espace de travail pour la ressource de l’API de traduction de texte Translator Text (ou clé d’abonnement Azure) créée dans [Réseau virtuel activé](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Modifier une clé existante
 

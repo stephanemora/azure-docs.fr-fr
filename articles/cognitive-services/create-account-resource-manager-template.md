@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348222"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363389"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Démarrage rapide : Créer une ressource Cognitive Services avec un modèle ARM
 
@@ -45,7 +45,7 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 Une seule ressource Azure est définie dans le modèle :
-* [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts) : crée une ressource Cognitive Services.
+* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) : crée une ressource Cognitive Services.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -60,7 +60,7 @@ Une seule ressource Azure est définie dans le modèle :
     |Valeur  |Description  |
     |---------|---------|
     | **Abonnement** | Sélectionnez un abonnement Azure. |
-    | **Groupe de ressources** | Sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**. |
+    | **Groupe de ressources** | Sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**. |
     | **Région** | Sélectionnez une région.  Par exemple, **USA Est** |
     | **Nom du service cognitif** | Remplacez la valeur par le nom unique de votre groupe de ressources. Vous aurez besoin de ce nom dans la section suivante quand vous validerez le déploiement. |
     | **Lieu** | Remplacez la valeur par la région utilisée ci-dessus. |
@@ -68,14 +68,14 @@ Une seule ressource Azure est définie dans le modèle :
 
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Écran Création de ressources":::.
 
-3. Sélectionnez **Vérifier + créer**, puis **Créer**. Une fois le déploiement de la ressource terminé, le bouton **Accéder à la ressource** est mis en surbrillance.
+3. Sélectionnez **Vérifier + créer** , puis **Créer**. Une fois le déploiement de la ressource terminé, le bouton **Accéder à la ressource** est mis en surbrillance.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` create requiert Azure CLI version 2.6 ou ultérieure. Pour afficher la version, tapez `az --version`. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/cli/azure/deployment/group).
+> `az deployment group` create requiert Azure CLI version 2.6 ou ultérieure. Pour afficher la version, tapez `az --version`. Pour plus d’informations, consultez la [documentation](/cli/azure/deployment/group).
 
-Exécutez le script suivant à l’aide de l’interface de ligne de commande Azure CLI [sur votre machine locale](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou du bouton **Essayer** dans un navigateur. Entrez un nom et une localisation (par exemple, `centralus`) pour un nouveau groupe de ressources où le modèle ARM déploiera une ressource Cognitive Services. Notez le nom que vous choisissez, car vous en aurez besoin plus tard pour valider le déploiement.
+Exécutez le script suivant à l’aide de l’interface de ligne de commande Azure CLI [sur votre machine locale](/cli/azure/install-azure-cli?view=azure-cli-latest), ou du bouton **Essayer** dans un navigateur. Entrez un nom et une localisation (par exemple, `centralus`) pour un nouveau groupe de ressources où le modèle ARM déploiera une ressource Cognitive Services. Notez le nom que vous choisissez, car vous en aurez besoin plus tard pour valider le déploiement.
 
 
 ```azurecli-interactive
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Authentifier des requêtes auprès d’Azure Cognitive Services](authentication.md)
-* [Qu’est-ce qu’Azure Cognitive Services ?](Welcome.md)
+* [Qu’est-ce qu’Azure Cognitive Services ?](./what-are-cognitive-services.md)
 * [Prise en charge en langage naturel](language-support.md)
 * [Prise en charge des conteneurs Docker](cognitive-services-container-support.md)

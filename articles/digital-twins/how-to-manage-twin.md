@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280385"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360069"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -32,7 +32,7 @@ Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser d
 Pour créer un jumeau, vous utilisez la méthode `CreateOrReplaceDigitalTwinAsync()` sur le client de service comme suit :
 
 ```csharp
-await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myTwinId", initData);
 ```
 
 Pour créer un jumeau numérique, vous devez fournir les éléments suivants :
@@ -55,12 +55,7 @@ Vous pouvez initialiser les propriétés d’un jumeau au moment de sa création
 
 L’API de création de jumeau accepte un objet qui est sérialisé dans une description JSON valide des propriétés du jumeau. Voir [*Concepts : Jumeaux numériques et graphe des jumeaux*](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau. 
 
-Tout d’abord, vous pouvez créer un objet de données pour représenter le jumeau et ses données de propriété, comme ceci :
-
-```csharp
-await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
-```
-Vous pouvez créer un objet de paramètre manuellement ou à l’aide d’une classe d’assistance fournie. Voici un exemple de chaque méthode.
+Tout d’abord, vous pouvez créer un objet de données pour représenter le jumeau et ses données de propriété. Vous pouvez créer un objet de paramètre manuellement ou à l’aide d’une classe d’assistance fournie. Voici un exemple de chaque méthode.
 
 #### <a name="create-twins-using-manually-created-data"></a>Créer des jumeaux à l’aide de données créées manuellement
 

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, microprogramme, mise à jour, récupération
-ms.openlocfilehash: ecfa4a18592d3bc70e3b7cdd66ff6464a54e560d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71557798a584635356cc47fd7c4a0309df4d018a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030682"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356221"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Mettre à jour le microprogramme Azure Kinect DK
 
@@ -82,7 +82,7 @@ Les mises à jour du microprogramme peuvent échouer pour plusieurs raisons. En 
 
 3. Si tout échoue, suivez les étapes de [récupération](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk) pour revenir au microprogramme d’usine, puis réessayez.
 
-Pour tout problème supplémentaire, consultez les [pages de support de Microsoft](https://aka.ms/kinectsupport)
+Pour tout problème supplémentaire, consultez les [pages de support de Microsoft](./index.yml)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

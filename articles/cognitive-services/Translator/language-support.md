@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669624"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364417"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -347,7 +347,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Gallois | `cy` |
 
 ## <a name="speech-translation"></a>Traduction vocale
-La traduction vocale est disponible à l’aide de Translator avec le service Speech de Cognitive Services. Consultez la [documentation du service Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/) pour en savoir plus sur l’utilisation de la traduction vocale et pour afficher toutes les [options de langues disponibles](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+La traduction vocale est disponible à l’aide de Translator avec le service Speech de Cognitive Services. Consultez la [documentation du service Speech](../speech-service/index.yml) pour en savoir plus sur l’utilisation de la traduction vocale et pour afficher toutes les [options de langues disponibles](../speech-service/language-support.md).
 
 ### <a name="speech-to-text"></a>Reconnaissance vocale
 Convertissez la parole en texte afin d’effectuer la traduction dans la langue textuelle de votre choix. La reconnaissance vocale est utilisée pour la traduction de la voix en texte, ou pour traduire la voix en voix lorsqu’elle est utilisée conjointement avec la synthèse vocale.

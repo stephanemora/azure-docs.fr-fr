@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173958"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363865"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
 
@@ -84,7 +84,7 @@ Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services
 Il existe plusieurs façons d’installer et d’exécuter le conteneur. 
 
 - Utilisez le [Portail Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) pour créer une ressource d’Analyse de texte, et utilisez Docker pour obtenir votre conteneur.
-- Utilisez les scripts PowerShell et [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) suivants pour automatiser la configuration du conteneur de déploiement de ressources.
+- Utilisez les scripts PowerShell et [Azure CLI](/cli/azure/?view=azure-cli-latest) suivants pour automatiser la configuration du conteneur de déploiement de ressources.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installer le conteneur à l’aide d’Azure Web App pour conteneurs
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 Vous pouvez également utiliser Azure Container Instance (ACI) pour faciliter le déploiement. ACI est une ressource qui vous permet d’exécuter des conteneurs Docker à la demande dans un environnement Azure serverless géré. 
 
 Consultez [Comment utiliser Azure Container Instances](text-analytics-how-to-use-container-instances.md) pour connaître les étapes de déploiement d’une ressource ACI à l’aide du Portail Azure. Vous pouvez également utiliser le script PowerShell ci-dessous avec Azure CLI, ce qui crée une ACI sur votre abonnement à l’aide de l’image conteneur.  Attendez la fin du script (environ 25 à 30 minutes) avant d’envoyer la première requête.  En raison de la limite du nombre maximal de processeurs par ressource ACI, ne sélectionnez pas cette option si vous envisagez de soumettre plus de 5 documents volumineux (environ 5 000 caractères chacun) par requête.
-Pour plus d’informations sur la disponibilité, consultez l’article [Support régional ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability). 
+Pour plus d’informations sur la disponibilité, consultez l’article [Support régional ACI](../../../container-instances/container-instances-region-availability.md). 
 
 > [!NOTE] 
 > Azure Container Instances n’inclue pas la prise en charge HTTPS pour les domaines intégrés. Si vous avez besoin de HTTPS, vous devez le configurer manuellement, y compris créer un certificat et l’inscription d’un domaine. Vous trouverez des instructions pour effectuer cette opération avec NGINX ci-dessous.
@@ -399,7 +399,7 @@ Fans certains cas, en utilisant la détection de négation, un terme de négatio
 
 ### <a name="relation-extraction-output"></a>Sortie d’extraction de relations
 
-La sortie d’extraction de relations contient des références URI à la *source* de la relation, et sa *cible* . Les entités ayant le rôle de relation de `ENTITY` sont affectées au champ `target`. Les entités ayant le rôle de relation de `ATTRIBUTE` sont affectées au champ `source`. Les relations d’abréviation contiennent des champs `source` et `target` bidirectionnels, et `bidirectional` sera défini sur `true`. 
+La sortie d’extraction de relations contient des références URI à la *source* de la relation, et sa *cible*. Les entités ayant le rôle de relation de `ENTITY` sont affectées au champ `target`. Les entités ayant le rôle de relation de `ATTRIBUTE` sont affectées au champ `source`. Les relations d’abréviation contiennent des champs `source` et `target` bidirectionnels, et `bidirectional` sera défini sur `true`. 
 
 ```json
 "relations": [

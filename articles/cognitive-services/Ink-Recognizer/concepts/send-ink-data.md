@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051098"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365361"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Envoyer des données manuscrites à l’API Ink Recognizer 
 
@@ -64,7 +64,7 @@ L’API Ink Recognizer retourne une réponse d’analyse sur les objets qu’ell
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Formes reconnues par l’API Ink Recognizer
 
-L’API Ink Recognizer peut identifier les formes les plus couramment utilisées dans la prise de notes. L’image ci-dessous montre quelques exemples simples. Pour obtenir la liste complète des formes et des contenus d’entrée manuscrite reconnus par l’API, consultez l’[article sur les informations de référence de l’API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+L’API Ink Recognizer peut identifier les formes les plus couramment utilisées dans la prise de notes. L’image ci-dessous montre quelques exemples simples. Pour obtenir la liste complète des formes et des contenus d’entrée manuscrite reconnus par l’API, consultez l’[article sur les informations de référence de l’API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![Liste des formes reconnues par l’API Ink Recognizer](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Avoir des résultats de reconnaissance à l’avance vous donne des informations
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Intégrer l’API Ink Recognizer dans Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fournit des outils et des technologies qui permettent des expériences d’entrée manuscrite numérique sur divers appareils. Vous pouvez combiner la plateforme Windows Ink avec l’API Ink Recognizer pour créer des applications qui affichent et interprètent les traits d’encre numériques.
+[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) fournit des outils et des technologies qui permettent des expériences d’entrée manuscrite numérique sur divers appareils. Vous pouvez combiner la plateforme Windows Ink avec l’API Ink Recognizer pour créer des applications qui affichent et interprètent les traits d’encre numériques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est-ce que l’API Ink Recognizer ?](../overview.md)
-* [Informations de référence sur l’API REST Ink Recognizer](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Informations de référence sur l’API REST Ink Recognizer](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Commencer à envoyer des données de trait d’encre numérique en :
     * [C#](../quickstarts/csharp.md)

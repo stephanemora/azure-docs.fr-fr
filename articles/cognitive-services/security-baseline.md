@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0837184528582a84d93ab92cde4662b352666f53
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2f3849e052cfc73d3e6e0bafd8b87b088a08266d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150341"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363848"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Ligne de base de la sécurité Azure pour Cognitive Services
 
 La ligne de base de sécurité Azure pour Cognitive Services contient des suggestions qui vous aideront à améliorer la posture de sécurité de votre déploiement.
 
-La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
+La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](../security/benchmarks/overview.md), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
 
-Pour plus d’informations, consultez la [Vue d’ensemble des bases de référence de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Pour plus d’informations, consultez la [Vue d’ensemble des bases de référence de sécurité Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sécurité du réseau
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Sécurité réseau](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Sécurité réseau](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1 : Protéger les ressources Azure au sein des réseaux virtuels
 
@@ -32,9 +32,9 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 Le support du réseau virtuel et du point de terminaison de service pour Cognitive Services est limitée à un ensemble spécifique de régions.
 
-* [Comment configurer des réseaux virtuels Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)
+* [Comment configurer des réseaux virtuels Azure Cognitive Services](./cognitive-services-virtual-networks.md?tabs=portal)
 
-* [Vue d’ensemble des réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Vue d’ensemble des réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -44,9 +44,9 @@ Le support du réseau virtuel et du point de terminaison de service pour Cogniti
 
 **Aide**  : Lorsque des machines virtuelles sont déployées dans le même réseau virtuel que votre conteneur Azure Cognitive Services, vous pouvez utiliser des groupes de sécurité réseau (NSG) pour réduire le risque d’exfiltration des données. Activez les journaux de flux NSG et transférez-les vers un compte de stockage Azure pour l'audit du trafic. Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics et utiliser Traffic Analytics pour fournir des insights sur le flux de trafic dans votre cloud Azure. Parmi les avantages de Traffic Analytics figure la possibilité de visualiser l’activité réseau et d’identifier les zones réactives, d’identifier les menaces de sécurité, de comprendre les modèles de flux de trafic et de repérer les mauvaises configurations du réseau.
 
-* [Guide pratique pour activer les journaux de flux NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Guide pratique pour activer les journaux de flux NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Guide pratique pour activer et utiliser Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -62,7 +62,7 @@ Notez que les conteneurs Cognitive Services sont requis pour envoyer des informa
 
 Notez également que vous devez désactiver l’inspection approfondie des paquets pour votre solution de pare-feu sur les canaux sécurisés que les conteneurs Cognitive Services créent sur des serveurs Microsoft. Dans le cas contraire, le conteneur ne fonctionnera pas correctement.
 
-* [Comprendre la sécurité des conteneurs Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Comprendre la sécurité des conteneurs Azure Cognitive Services](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -77,11 +77,11 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 Si vous utilisez Cognitive Services au sein d’un conteneur, vous pouvez augmenter votre déploiement de conteneur avec une solution de pare-feu d’applications web frontale qui filtre le trafic malveillant et prend en charge le chiffrement TLS de bout en bout, en gardant le point de terminaison du conteneur privé et sécurisé.
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
-* [Comprendre la sécurité des conteneurs Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Comprendre la sécurité des conteneurs Azure Cognitive Services](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -91,9 +91,9 @@ Si vous utilisez Cognitive Services au sein d’un conteneur, vous pouvez augmen
 
 **Aide**  : Lorsque des machines virtuelles sont déployées dans le même réseau virtuel que votre conteneur Azure Cognitive Services, vous pouvez utiliser des groupes de sécurité réseau (NSG) pour réduire le risque d’exfiltration des données. Activez les journaux de flux NSG et transférez-les vers un compte de stockage Azure pour l'audit du trafic. Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics et utiliser Traffic Analytics pour fournir des insights sur le flux de trafic dans votre cloud Azure. Parmi les avantages de Traffic Analytics figure la possibilité de visualiser l’activité réseau et d’identifier les zones réactives, d’identifier les menaces de sécurité, de comprendre les modèles de flux de trafic et de repérer les mauvaises configurations du réseau.
 
-* [Guide pratique pour activer les journaux de flux NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Guide pratique pour activer les journaux de flux NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Guide pratique pour activer et utiliser Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -109,7 +109,7 @@ Notez que les conteneurs Cognitive Services sont requis pour envoyer des informa
 
 Notez également que vous devez désactiver l’inspection approfondie des paquets pour votre solution de pare-feu sur les canaux sécurisés que les conteneurs Cognitive Services créent sur des serveurs Microsoft. Dans le cas contraire, le conteneur ne fonctionnera pas correctement.
 
-* [Comprendre la sécurité des conteneurs Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Comprendre la sécurité des conteneurs Azure Cognitive Services](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
@@ -127,7 +127,7 @@ Notez que les conteneurs Cognitive Services sont requis pour envoyer des informa
 
 Notez également que vous devez désactiver l’inspection approfondie des paquets pour votre solution de pare-feu sur les canaux sécurisés que les conteneurs Cognitive Services créent sur des serveurs Microsoft. Dans le cas contraire, le conteneur ne fonctionnera pas correctement.
 
-* [Comprendre la sécurité des conteneurs Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Comprendre la sécurité des conteneurs Azure Cognitive Services](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -139,9 +139,9 @@ Notez également que vous devez désactiver l’inspection approfondie des paque
 
 Vous pouvez également utiliser des groupes de sécurité d’application (ASG) pour simplifier la configuration de la sécurité complexe. Les groupes de sécurité d’application permettent de configurer la sécurité réseau comme un prolongement naturel de la structure de l’application, et donc de regrouper les machines virtuelles et définir des stratégies de sécurité réseau basés sur ces groupes.
 
-* [Balises de service du réseau virtuel](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Balises de service du réseau virtuel](../virtual-network/service-tags-overview.md)
 
-* [Groupes de sécurité d’application](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+* [Groupes de sécurité d’application](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -153,9 +153,9 @@ Vous pouvez également utiliser des groupes de sécurité d’application (ASG) 
 
 Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Resource Manager, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les stratégies au sein d’une seule définition de blueprint. Appliquez facilement le blueprint aux nouveaux abonnements et environnements, et ajustez le contrôle et la gestion par le biais du versioning.
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Supervision d’Azure Security Center**  : actuellement non disponible
 
@@ -165,7 +165,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 **Aide**  : Utilisez des balises pour les ressources réseau associées à votre déploiement Azure Cognitive Services afin de les organiser logiquement dans une taxonomie.
 
-* [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -175,9 +175,9 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 **Aide**  : Utilisez le journal d’activité Azure pour surveiller les configurations des ressources réseau et détecter les modifications de celles-ci associées à votre conteneur Azure Cognitive Services. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center**  : actuellement non disponible
 
@@ -185,7 +185,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 ## <a name="logging-and-monitoring"></a>Enregistrement et surveillance
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Journalisation et supervision](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Journalisation et supervision](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1 : Utiliser des sources de synchronisation date/heure approuvées
 
@@ -199,7 +199,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 **Conseils**  : activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur votre conteneur Azure Cognitive Services au niveau du plan de contrôle. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos instances Azure Cache pour Redis.
 
-* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -211,9 +211,9 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 En outre, Azure Cognitive Services envoie des événements de diagnostic qui peuvent être collectés et utilisés à des fins d’analyse, d’alerte et de création de rapports. Vous pouvez configurer les paramètres de diagnostic d’un conteneur Cognitive Services via le Portail Azure. Vous pouvez envoyer un ou plusieurs événements de diagnostic à un compte de stockage, un Event Hub ou un espace de travail Log Analytics.
 
-* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
 
-* [Utilisation des paramètres de diagnostic pour Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging)
+* [Utilisation des paramètres de diagnostic pour Azure Cognitive Services](./diagnostic-logging.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -231,7 +231,7 @@ En outre, Azure Cognitive Services envoie des événements de diagnostic qui peu
 
 **Aide**  : Dans Azure Monitor, définissez la période de conservation de votre espace de travail Log Analytics en fonction des obligations réglementaires de votre organisation. Utilisez les comptes de stockage Azure pour le stockage à long terme et l’archivage.
 
-* [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -241,9 +241,9 @@ En outre, Azure Cognitive Services envoie des événements de diagnostic qui peu
 
 **Aide**  : Activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux à un espace de travail Log Analytics. Ces journaux fournissent des informations riches et fréquentes sur l’exploitation d’une ressource et permettent l’identification et le débogage des problèmes. Exécutez des requêtes dans Log Analytics pour rechercher des termes, identifier des tendances, analyser des modèles et fournir de nombreuses autres informations basées sur les données du journal d’activité qui ont pu être collectées pour Azure Cognitive Services.
 
-* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
 
-* [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+* [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/platform/activity-log.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -255,9 +255,9 @@ En outre, Azure Cognitive Services envoie des événements de diagnostic qui peu
 
 Configurez les paramètres de diagnostic pour votre conteneur Azure Cognitive Services et envoyez les journaux dans un espace de travail Log Analytics. Au sein de votre espace de travail Log Analytics, configurez les alertes pour qu’elles se déclenchent lorsqu’un ensemble prédéfini de conditions se produisent. Vous pouvez également activer et intégrer les données dans Azure Sentinel ou une solution SIEM tierce.
 
-* [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+* [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-log.md)
 
 **Supervision Azure Security Center**  : Oui
 
@@ -289,15 +289,15 @@ Configurez les paramètres de diagnostic pour votre conteneur Azure Cognitive Se
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
 **Aide**  : Azure Active Directory (AD) comporte des rôles intégrés qui doivent être explicitement attribués et qui peuvent être interrogés. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
 
-* [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -311,7 +311,7 @@ L’accès du plan de données à Azure Cognitive Services est contrôlé par le
 
 Il n’est pas recommandé de créer des mots de passe par défaut dans votre application. Au lieu de cela, vous pouvez stocker vos mots de passe dans Azure Key Vault, puis utiliser Azure Active Directory pour les récupérer.
 
-* [Comment regénérer les clés d’accès pour Azure Cache Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
+* [Comment regénérer les clés d’accès pour Azure Cache Redis](../azure-cache-for-redis/cache-configure.md#settings)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -326,9 +326,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 - Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 
-* [Utilisation d’Azure Security Center pour superviser l’identité et l’accès (préversion)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Utilisation d’Azure Security Center pour superviser l’identité et l’accès (préversion)](../security-center/security-center-identity-access.md)
 
-* [Utilisation d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -338,9 +338,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Aide**  : Azure Cognitive Services utilise des clés d’accès pour authentifier les utilisateurs et ne prend pas en charge l’authentification unique (SSO) au niveau du plan de données. L’accès au plan de contrôle pour Azure Cognitive Services est disponible via l’API REST et prend en charge l’authentification unique. Pour vous authentifier, définissez l’en-tête d’autorisation pour vos demandes sur un jeton web JSON que vous avez obtenu auprès d’Azure Active Directory.
 
-* [Comprendre l’API REST Azure Cognitive Services](https://docs.microsoft.com/rest/api/cognitiveservices/)
+* [Comprendre l’API REST Azure Cognitive Services](/rest/api/cognitiveservices/)
 
-* [Présentation de l’authentification SSO avec Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Présentation de l’authentification SSO avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -350,9 +350,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Aide**  : Activez l’authentification multifacteur (MFA) Azure Active Directory (AAD) et suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
 
-* [Guide pratique pour activer l’authentification MFA dans Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Guide pratique pour superviser les identités et les accès dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -362,9 +362,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Conseils**  : Utilisez des stations de travail disposant d’un accès privilégié avec Multi-Factor Authentication (MFA) configuré pour vous connecter aux ressources Azure et les configurer.
 
-* [En savoir plus sur les stations de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [En savoir plus sur les stations de travail à accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Guide pratique pour activer l’authentification MFA dans Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -376,9 +376,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 Utilisez également les détections de risque Azure AD pour visualiser les alertes et des rapports sur les comportements à risque des utilisateurs.
 
-* [Déploiement de Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Déploiement de Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Présentation des détections de risques Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -388,7 +388,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 **Aide**  : Configurez des emplacements nommés dans l’accès conditionnel Azure Active Directory (AD) pour autoriser l’accès uniquement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
 
-* [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -400,7 +400,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 Actuellement, seule l’API Vision par ordinateur, l’API Visage, l’API Analyse de texte, le Lecteur immersif, Form Recognizer, le Détecteur d’anomalies et tous les services Bing, à l’exception de Recherche personnalisée Bing, prennent en charge l’authentification à l’aide d’Azure AD.
 
-* [Comment authentifier des requêtes auprès de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-azure-active-directory)
+* [Comment authentifier des requêtes auprès de Cognitive Services](./authentication.md#authenticate-with-azure-active-directory)
 
 **Supervision Azure Security Center**  : Non applicable
 
@@ -412,11 +412,11 @@ Actuellement, seule l’API Vision par ordinateur, l’API Visage, l’API Analy
 
 Le client peut gérer l’inventaire des comptes d’utilisateur de la Gestion des API afin de vérifier l’accès de chacun. Dans Gestion des API Azure, les développeurs sont les utilisateurs des API que vous exposez via Gestion des API. Par défaut, les comptes de développeurs nouvellement créés sont actifs, et sont associés au groupe Développeurs. Les comptes de développeurs dont l’état est Actif peuvent être utilisés pour accéder à toutes les API auxquelles ils sont abonnés.
 
-* [Gestion des comptes d’utilisateur dans Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-create-or-invite-developers)
+* [Gestion des comptes d’utilisateur dans Gestion des API Azure](../api-management/api-management-howto-create-or-invite-developers.md)
 
-* [Obtenir la liste des utilisateurs de la Gestion des API](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Obtenir la liste des utilisateurs de la Gestion des API](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
 
-* [Comment utiliser les révisions d’accès des identités Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Supervision Azure Security Center**  : Non applicable
 
@@ -428,9 +428,9 @@ Le client peut gérer l’inventaire des comptes d’utilisateur de la Gestion d
 
 Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Vous pouvez configurer les alertes de journal souhaitées dans un espace de travail Log Analytics.
 
-* [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Procédure d’intégration d’Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Procédure d’intégration d’Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -440,11 +440,11 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Aide**  : Pour un écart de comportement de connexion de compte, utilisez Azure Active Directory (AAD) Identity Protection et les fonctionnalités de détections de risques pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. Vous pouvez également ingérer des données dans Azure Sentinel pour approfondir votre examen.
 
-* [Guide pratique pour afficher les connexions risquées Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Guide pratique pour afficher les connexions risquées Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Guide pratique pour configurer et activer des stratégies de risque Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Guide pratique pour configurer et activer des stratégies de risque Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervision d’Azure Security Center**  : actuellement non disponible
 
@@ -454,7 +454,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Aide**  : Pas encore disponible ; Customer Lockbox n’est actuellement pas pris en charge pour Azure Cognitive Services.
 
-* [Liste des services pris en charge pour Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Liste des services pris en charge pour Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Supervision d’Azure Security Center**  : actuellement non disponible
 
@@ -462,13 +462,13 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 ## <a name="data-protection"></a>Protection de données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Protection des données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Protection des données](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
 **Conseils**  : Utilisez des étiquettes pour faciliter le suivi des ressources Azure qui stockent ou traitent des informations sensibles.
 
-* [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -478,19 +478,19 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Conseils**  : Implémentez des abonnements et/ou des groupes d’administration distincts pour le développement, les tests et la production. Les ressources doivent être séparées par un réseau virtuel/sous-réseau, marquées correctement et sécurisées par un groupe de sécurité réseau ou un pare-feu Azure. Les ressources de stockage ou de traitement des données sensibles doivent être suffisamment isolées. Pour les machines virtuelles qui stockent ou traitent des données sensibles, implémentez la stratégie et les procédures pour les désactiver lorsqu’elles ne sont pas utilisées.
 
-* [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
-* [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-* [Guide pratique pour créer un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Guide pratique pour créer un réseau virtuel](../virtual-network/quick-create-portal.md)
 
-* [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Guide pratique pour déployer le Pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Guide pratique pour déployer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Configuration des options « Alerter » et « Alerter et refuser » du pare-feu Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Configuration des options « Alerter » et « Alerter et refuser » du pare-feu Azure](../firewall/threat-intel.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -502,7 +502,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 Microsoft gère l’infrastructure sous-jacente d’Azure Cognitive Services et a implémenté des contrôles stricts pour empêcher la perte ou l’exposition de données client.
 
-* [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervision d’Azure Security Center**  : actuellement non disponible
 
@@ -514,7 +514,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Cognitive Services et 
 - Le système d’exploitation client doit prendre en charge TLS 1.2.
 - Le langage (et la plateforme) utilisé pour effectuer l’appel HTTP doit spécifier TLS 1.2 dans le cadre de la requête. (Selon le langage et la plateforme, la spécification de TLS s’effectue implicitement ou explicitement.)
 
-* [Comprendre le protocole TLS pour Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)
+* [Comprendre le protocole TLS pour Azure Cognitive Services](./cognitive-services-security.md)
 
 **Supervision d’Azure Security Center**  : actuellement non disponible
 
@@ -526,7 +526,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Cognitive Services et 
 
 Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite tout le contenu client comme sensible et déploie d'importants efforts pour vous protéger contre la perte et l’exposition des données client. Pour garantir la sécurité des données client dans Azure, Microsoft a implémenté et tient à jour une suite de contrôles et de fonctionnalités de protection des données robustes.
 
-* [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -536,7 +536,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Aide**  : Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès au plan de contrôle d’Azure Cognitive Services (c.-à-d., le portail Azure).
 
-* [Comment configurer Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -548,7 +548,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 Microsoft gère l’infrastructure sous-jacente d’Azure Cognitive Services et a implémenté des contrôles stricts pour empêcher la perte ou l’exposition de données client.
 
-* [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -560,7 +560,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Cognitive Services et 
 
 Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés.
 
-* [Liste des services qui chiffrent les informations au repos](https://docs.microsoft.com/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal)
+* [Liste des services qui chiffrent les informations au repos](./encryption/cognitive-services-encryption-keys-portal.md)
 
 **Supervision d’Azure Security Center**  : actuellement non disponible
 
@@ -570,7 +570,7 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 **Aide**  : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications d’instances de production Azure Cognitive Services et d’autres ressources critiques ou associées.
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -578,7 +578,7 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des vulnérabilités](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des vulnérabilités](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
@@ -590,7 +590,7 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -598,7 +598,7 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -606,7 +606,7 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -622,7 +622,7 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des stocks et des ressources](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des stocks et des ressources](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1 : Utiliser la solution de détection automatisée des ressources
 
@@ -630,11 +630,11 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
-* [Guide pratique pour créer des requêtes avec Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -644,7 +644,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Conseils**  : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
-* [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -658,11 +658,11 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
-* [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
-* [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -684,9 +684,9 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 Utilisez également Azure Resource Graph pour interroger/découvrir des ressources dans les abonnements.
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Guide pratique pour créer des requêtes avec Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -710,7 +710,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -722,9 +722,9 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -732,7 +732,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -742,7 +742,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide**  : Configurez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
 
-* [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -750,7 +750,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -766,15 +766,15 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Configuration sécurisée](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Configuration sécurisée](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
 **Aide**  : Définissez et implémentez des configurations de sécurité standard pour votre conteneur Azure Cognitive Services avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.CognitiveServices » pour créer des stratégies personnalisées d’audit ou d’application de la configuration de vos instances Azure Cache pour Redis.
 
-* [Affichage des alias Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -792,9 +792,9 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide**  : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Présentation des effets d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -812,9 +812,9 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide**  : Si vous utilisez des définitions d’Azure Policy ou des modèles Azure Resource Manager personnalisés pour vos conteneurs Azure Cognitive Services et des ressources associées, utilisez Azure Repos pour stocker et gérer votre code de façon sécurisée.
 
-* [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -822,7 +822,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -832,7 +832,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide**  : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Cache » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -840,7 +840,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -850,7 +850,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide**  : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.CognitiveServices » pour créer des définitions Azure Policy personnalisées pour alerter, auditer ou appliquer des configurations système. Utilisez les stratégies Azure Policy [auditer], [refuser] et [déployer s’il n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Cache pour Redis et les ressources associées.
 
-* [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -858,7 +858,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**Aide**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -868,13 +868,13 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide**  : Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à votre API Azure Cognitive Services, utilisez Managed Service Identity conjointement avec Azure Key Vault pour simplifier et sécuriser la gestion des clés Azure Cognitive Services. Vérifiez que la suppression réversible est activée dans Key Vault.
 
-* [Intégration aux identités managées Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Intégration aux identités managées Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Créer un coffre de clés](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+* [Créer un coffre de clés](../key-vault/secrets/quick-create-portal.md)
 
-* [Comment s’authentifier auprès de Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
 
-* [Comment attribuer une stratégie d’accès Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -886,9 +886,9 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 Utilisez des identités managées pour fournir aux services Azure une identité gérée automatiquement dans Azure Active Directory. Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Azure Key Vault, sans informations d’identification dans votre code.
 
-* [Configurer des identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [Configurer des identités managées](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-* [Intégration aux identités managées Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Intégration aux identités managées Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -906,7 +906,7 @@ Utilisez des identités managées pour fournir aux services Azure une identité 
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Défense contre les programmes malveillants](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Défense contre les programmes malveillants](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1 : Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
@@ -940,7 +940,7 @@ Le logiciel anti-programme malveillant Microsoft est activé sur l’hôte sous-
 
 ## <a name="data-recovery"></a>Récupération de données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Récupération de données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Récupération de données](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : garantir des sauvegardes automatisées régulières
 
@@ -948,11 +948,11 @@ Le logiciel anti-programme malveillant Microsoft est activé sur l’hôte sous-
 
 Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie pour sauvegarder des données dans le niveau de stockage archive. En outre, activez la suppression réversible pour vos sauvegardes stockées dans le compte de stockage.
 
-* [Présentation de la redondance et des contrats de niveau de service Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Présentation de la redondance et des contrats de niveau de service Stockage Azure](../storage/common/storage-redundancy.md)
 
-* [Gérer le cycle de vie du stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
+* [Gérer le cycle de vie du stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md)
 
-* [Suppression réversible pour les objets blob de Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Suppression réversible pour les objets blob de Stockage Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -962,17 +962,17 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 **Conseils**  : Utilisez Azure Resource Manager pour déployer Cognitive Services et des ressources connexes. Azure Resource Manager permet d’exporter des modèles ce qui vous donne la possibilité de redéployer votre solution tout au long du cycle de vie du développement pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Utilisez Azure Automation pour appeler régulièrement l’API d’exportation du modèle Azure Resource Manager. Clés de sauvegarde pré-partagées dans Azure Key Vault.
 
-* [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+* [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/management/overview.md)
 
-* [Comment créer une ressource Cognitive Services à l’aide d’un modèle Azure Resource Manager](https://docs.microsoft.com/azure/cognitive-services/resource-manager-template?tabs=portal)
+* [Comment créer une ressource Cognitive Services à l’aide d’un modèle Azure Resource Manager](./create-account-resource-manager-template.md?tabs=portal)
 
-* [Exportation monoressource ou multiressource vers un modèle sur le portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Exportation monoressource ou multiressource vers un modèle sur le portail Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Groupes de ressources – Exportation du modèle](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+* [Groupes de ressources – Exportation du modèle](/rest/api/resources/resourcegroups/exporttemplate)
 
-* [Présentation d’Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Présentation d’Azure Automation](../automation/automation-intro.md)
 
-* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -982,9 +982,9 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 **Aide**  : Assurez-vous de la capacité d’effectuer régulièrement le déploiement des modèles Azure Resource Manager dans un abonnement isolé, si nécessaire. Testez la restauration des clés pré-partagées sauvegardées.
 
-* [Déployer des ressources avec des modèles ARM et le Portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+* [Déployer des ressources avec des modèles ARM et le Portail Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Guide pratique pour restaurer des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -994,11 +994,11 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 **Aide**  : Utilisez Azure DevOps pour stocker et gérer vos modèles Azure Resource Manager en toute sécurité. Pour protéger les ressources que vous gérez dans Azure DevOps, vous pouvez octroyer ou refuser des autorisations à des utilisateurs spécifiques, à des groupes de sécurité intégrés ou à des groupes définis dans Azure Active Directory (Azure AD) s’ils sont intégrés à Azure DevOps ou à Active Directory s’il est intégré à TFS.  Utilisez le contrôle d’accès en fonction du rôle Azure pour protéger les clés managées par le client. Activez la suppression réversible et la protection contre la purge dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante. 
 
-* [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [À propos des autorisations et des groupes dans Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-* [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervision Azure Security Center**  : Oui
 
@@ -1006,13 +1006,13 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
 **Conseils**  : Créez un guide de réponse aux incidents pour votre organisation. Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui définissent tous les rôles du personnel, ainsi que les phases de gestion des incidents, depuis la détection jusqu’à la revue une fois l’incident terminé.
 
-* [Comment configurer des automatisations de workflow dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Comment configurer des automatisations de workflow dans Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 * [Aide sur la création de votre propre processus de réponse aux incidents de sécurité](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1048,7 +1048,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 **Aide**  : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
-* [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Supervision d’Azure Security Center**  : Oui
 
@@ -1058,9 +1058,9 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 **Conseils**  : Exportez vos alertes et recommandations d’Azure Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour diffuser la sentinelle des alertes.
 
-* [Comment configurer l’exportation continue](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Comment configurer l’exportation continue](../security-center/continuous-export.md)
 
-* [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -1070,7 +1070,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 **Conseils**  : Utilisez la fonctionnalité d’automatisation du workflow dans Azure Security Center pour déclencher automatiquement des réponses via « Logic Apps » sur les alertes et recommandations de sécurité.
 
-* [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Comment configurer l’automatisation des workflows et Logic Apps](../security-center/workflow-automation.md)
 
 **Supervision d’Azure Security Center**  : Non applicable
 
@@ -1078,7 +1078,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Tests d’intrusion et exercices Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Tests d’intrusion et exercices Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1 : Procéder régulièrement à des tests d’intrusion des ressources Azure et veiller à corriger tous les problèmes de sécurité critiques détectés
 
@@ -1092,5 +1092,5 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulter le [benchmark de sécurité Azure](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

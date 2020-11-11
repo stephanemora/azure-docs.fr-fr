@@ -9,17 +9,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510825"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369016"
 ---
 # <a name="what-are-trainings-and-models"></a>Que sont les entraînements et les modèles ?
 
 Un modèle est le système qui fournit une traduction pour une paire de langues spécifique.
-Le résultat d’un entraînement réussi est un modèle. Lors de l’entraînement d’un modèle, trois types de documents mutuellement exclusifs sont nécessaires : entraînement, optimisation et test. Un type de document de dictionnaire peut également être fourni. Consultez [Alignement de phrases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+Le résultat d’un entraînement réussi est un modèle. Lors de l’entraînement d’un modèle, trois types de documents mutuellement exclusifs sont nécessaires : entraînement, optimisation et test. Un type de document de dictionnaire peut également être fourni. Consultez [Alignement de phrases](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 Si seules des données d’entraînement sont fournies lors de la mise en file d’attente d’un entraînement, Custom Translator assemble automatiquement les données d’optimisation et de test. Il utilise un sous-ensemble aléatoire de phrases de vos documents d’entraînement et exclut ces phrases des données d’entraînement elles-mêmes.
 

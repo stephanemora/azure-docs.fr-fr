@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.topic: overview
 ms.date: 06/26/2019
 keywords: azure, kinect, vue d’ensemble, kit de développement, DK, appareil, profondeur, suivi des corps, voix, services cognitifs, kits de développement logiciel, SDK, microprogramme
-ms.openlocfilehash: 6b3215ba6761521214ebffa2a100c5a1a030ab4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d188d37c0247aebb16f51b4404da81d469136468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277808"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359651"
 ---
 # <a name="about-azure-kinect-dk"></a>À propos d’Azure Kinect DK
 
@@ -86,7 +86,7 @@ Le SDK Speech permet d’activer les services vocaux connectés à Azure.
 >[!NOTE]
 >Azure Kinect DK n’est pas équipé de haut-parleurs.
 
-Pour plus d’informations, consultez la [documentation Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Pour plus d’informations, consultez la [documentation Speech Service](../cognitive-services/speech-service/index.yml).
 
 ## <a name="vision-services"></a>Services de vision
 

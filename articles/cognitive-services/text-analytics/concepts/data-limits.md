@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88258273"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363831"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de données et de débit pour l’API Analyse de texte
 <a name="data-limits"></a>
@@ -31,7 +31,7 @@ Découvrez dans cet article les limites de taille et de débit auxquelles vous �
 
 | Limite | Valeur |
 |------------------------|---------------|
-| Taille maximale de document | 5 120 caractères mesurés par [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). S’applique également à l’Analyse de texte pour le conteneur d’intégrité. |
+| Taille maximale de document | 5 120 caractères mesurés par [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). S’applique également à l’Analyse de texte pour le conteneur d’intégrité. |
 | Taille maximale d’une demande | 1 Mo. S’applique également à l’Analyse de texte pour le conteneur d’intégrité. |
 
 Le nombre maximal de documents que vous pouvez envoyer dans une même demande dépend de la version et de la fonctionnalité d’API que vous utilisez.

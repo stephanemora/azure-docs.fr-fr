@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d161c82c087fd86a3774f0d121330260b1574e4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84310697"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366092"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configurer des clés gérées par le client avec Azure Key Vault pour Cognitive Services
 
@@ -38,5 +38,5 @@ Le processus d’activation des clés gérées par le client avec Azure Key Vaul
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)
 * [Formulaire de demande de clé gérée par le client Cognitive Services](https://aka.ms/cogsvc-cmk)
