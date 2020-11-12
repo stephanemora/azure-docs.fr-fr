@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791951"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356805"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Utilisation d’Azure.Search.Documents dans une application .NET C#
 
@@ -60,7 +60,7 @@ Le Kit SDK Azure pour .NET est conforme à [.NET Standard 2.0](/dotnet/standard
 
 ## <a name="example-application"></a>Exemple d’application
 
-Cet article « enseigne par l’exemple » en s’appuyant sur l’exemple de code [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) sur GitHub pour illustrer les concepts fondamentaux de Recherche cognitive Azure, à savoir la création, le chargement et l’interrogation d’un index de recherche.
+Cet article « enseigne par l’exemple » en s’appuyant sur l’exemple de code [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) sur GitHub pour illustrer les concepts fondamentaux de Recherche cognitive Azure, à savoir la création, le chargement et l’interrogation d’un index de recherche.
 
 Pour le reste de l’article, supposons un nouvel index nommé « hotels », comportant quelques documents, avec plusieurs requêtes qui correspondent à des résultats.
 

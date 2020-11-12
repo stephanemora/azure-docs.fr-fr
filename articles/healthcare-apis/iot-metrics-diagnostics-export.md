@@ -8,16 +8,16 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322361"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394252"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exporter les métriques du connecteur Azure IoT pour FHIR (préversion) via les paramètres de diagnostic
 
-Dans cet article, vous allez apprendre à exporter les journaux de métriques du connecteur Azure IoT pour FHIR*. Ce sont les [**paramètres de diagnostic**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) du portail Azure qui permettent d’activer la journalisation des métriques. 
+Dans cet article, vous allez apprendre à exporter les journaux de métriques du connecteur Azure IoT pour FHIR*. Ce sont les [**paramètres de diagnostic**](../azure-monitor/platform/diagnostic-settings.md) du portail Azure qui permettent d’activer la journalisation des métriques. 
 
 > [!TIP]
 > Suivez les instructions décrites dans [Activer la journalisation des diagnostics dans l’API Azure pour FHIR et le connecteur Azure IoT pour FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) pour configurer la journalisation d’audit.
@@ -48,7 +48,7 @@ Dans cet article, vous allez apprendre à exporter les journaux de métriques du
 > [!Note] 
 > L’affichage des premiers journaux de métriques dans le référentiel de votre choix peut demander jusqu’à 15 minutes.  
  
-Pour plus d’informations sur l’utilisation des journaux de diagnostic, consultez la [documentation relative aux journaux de ressources d’Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview).
+Pour plus d’informations sur l’utilisation des journaux de diagnostic, consultez la [documentation relative aux journaux de ressources d’Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="conclusion"></a>Conclusion 
 L’accès aux journaux de métriques est essentiel pour la supervision et la résolution des problèmes.  Le connecteur Azure IoT pour FHIR vous permet d’effectuer ces actions par le biais des journaux de métriques. 

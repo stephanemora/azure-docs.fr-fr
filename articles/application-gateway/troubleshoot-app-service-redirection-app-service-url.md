@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595942"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396887"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Résoudre les problèmes d’App Service dans Application Gateway
 
@@ -80,10 +80,10 @@ Dans l’exemple précédent, notez que l’en-tête de réponse a un code d’�
 
 ## <a name="solution-rewrite-the-location-header"></a>Solution : Réécrire l’en-tête d’emplacement
 
-Définissez le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application. Pour ce faire, créez une [règle de réécriture](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) avec une condition qui détermine si l’en-tête d’emplacement de la réponse contient azurewebsites.net. Elle doit aussi exécuter une action de façon à réécrire l’en-tête d’emplacement et lui attribuer le nom d’hôte de la passerelle d’application. Pour plus d’informations, voir les instructions de [réécriture de l’en-tête d’emplacement](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Définissez le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application. Pour ce faire, créez une [règle de réécriture](./rewrite-http-headers.md) avec une condition qui détermine si l’en-tête d’emplacement de la réponse contient azurewebsites.net. Elle doit aussi exécuter une action de façon à réécrire l’en-tête d’emplacement et lui attribuer le nom d’hôte de la passerelle d’application. Pour plus d’informations, voir les instructions de [réécriture de l’en-tête d’emplacement](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour les [références (SKU) Standard_v2 et WAF_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) d’Application Gateway. Si vous utilisez la référence (SKU) v1, nous vous recommandons de [migrer de v1 vers v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Vous pouvez utiliser la réécriture et d’autres [fonctionnalités avancées](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) disponibles avec la référence (SKU) v2.
+> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour les [références (SKU) Standard_v2 et WAF_v2](./application-gateway-autoscaling-zone-redundant.md) d’Application Gateway. Si vous utilisez la référence (SKU) v1, nous vous recommandons de [migrer de v1 vers v2](./migrate-v1-v2.md). Vous pouvez utiliser la réécriture et d’autres [fonctionnalités avancées](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) disponibles avec la référence (SKU) v2.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Autre solution : Ajouter un nom de domaine personnalisé
 
@@ -93,7 +93,7 @@ L’App Service effectue ensuite la redirection (le cas échéant) sur le même 
 
 Vous devez posséder un domaine personnalisé et procéder comme suit :
 
-- Enregistrez le domaine dans la liste de domaines personnalisés de l’App Service. Vous devez disposer d’un enregistrement CNAME dans votre domaine personnalisé qui pointe vers le nom de domaine complet de l’App Service. Pour plus d’informations, consultez [Mapper un nom DNS personnalisé existant à Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Enregistrez le domaine dans la liste de domaines personnalisés de l’App Service. Vous devez disposer d’un enregistrement CNAME dans votre domaine personnalisé qui pointe vers le nom de domaine complet de l’App Service. Pour plus d’informations, consultez [Mapper un nom DNS personnalisé existant à Azure App Service](//azure/app-service/app-service-web-tutorial-custom-domain).
 
     ![Liste de domaines personnalisés d’App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

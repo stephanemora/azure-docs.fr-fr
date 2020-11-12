@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0d8a030061ef6aa848344152edaa3267ad916e2a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332183"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377936"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Environnement chroot dans une machine virtuelle Linux de secours
 
@@ -34,13 +34,13 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
 
    1. Accédez à votre machine virtuelle en tant qu’utilisateur racine à l’aide de la commande suivante :
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI** :
+   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI**  :
 
       `dmesg | grep SCSI`
 
-      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc** :
+      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc**  :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -53,17 +53,17 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour accéder à l’environnement chroot :
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Résoudre les problèmes liés à l’environnement chroot.
@@ -71,16 +71,16 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour quitter l’environnement chroot :
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -101,13 +101,13 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
 
    1. Accédez à votre machine virtuelle en tant qu’utilisateur racine à l’aide de la commande suivante :
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI** :
+   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI**  :
 
       `dmesg | grep SCSI`
 
-      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc** :
+      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc**  :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -120,17 +120,17 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour accéder à l’environnement chroot :
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Résoudre les problèmes liés à l’environnement chroot.
@@ -138,16 +138,16 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour quitter l’environnement chroot :
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -171,13 +171,13 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
 
    1. Accédez à votre machine virtuelle en tant qu’utilisateur racine à l’aide de la commande suivante :
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI** :
+   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI**  :
 
       `dmesg | grep SCSI`
 
-      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc** :
+      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc**  :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -190,9 +190,9 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez la commande suivante pour activer le groupe de volumes logiques :
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Utilisez la commande `lsblk` pour récupérer les noms LVM :
@@ -221,23 +221,23 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour accéder à l’environnement chroot :
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Résoudre les problèmes liés à l’environnement chroot.
@@ -245,22 +245,22 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour quitter l’environnement chroot :
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -284,13 +284,13 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
 
    1. Accédez à votre machine virtuelle en tant qu’utilisateur racine à l’aide de la commande suivante :
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI** :
+   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI**  :
 
       `dmesg | grep SCSI`
 
-      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc** :
+      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc**  :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -303,9 +303,9 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez la commande suivante pour activer le groupe de volumes logiques :
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Utilisez la commande `lsblk` pour récupérer les noms LVM :
@@ -333,22 +333,22 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour accéder à l’environnement chroot :
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Résoudre les problèmes liés à l’environnement chroot.
@@ -356,21 +356,21 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour quitter l’environnement chroot :
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -391,13 +391,13 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
 
    1. Accédez à votre machine virtuelle en tant qu’utilisateur racine à l’aide de la commande suivante :
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI** :
+   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI**  :
 
       `dmesg | grep SCSI`
 
-      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc** :
+      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc**  :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -410,18 +410,18 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour accéder à l’environnement chroot :
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Résoudre les problèmes liés à l’environnement chroot.
@@ -429,17 +429,17 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour quitter l’environnement chroot :
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -460,13 +460,13 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
 
    1. Accédez à votre machine virtuelle en tant qu’utilisateur racine à l’aide de la commande suivante :
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI** :
+   1. Recherchez le disque à l’aide de `dmesg` (la méthode que vous utilisez pour découvrir votre nouveau disque peut varier). L’exemple suivant utilise **dmesg** pour filtrer les disques **SCSI**  :
 
       `dmesg | grep SCSI`
 
-      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc** :
+      Votre résultat doit ressembler à l’exemple qui suit. Dans cet exemple, nous recherchons le disque **sdc**  :
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -479,18 +479,18 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour accéder à l’environnement chroot :
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Résoudre les problèmes liés à l’environnement chroot.
@@ -498,17 +498,17 @@ Cet article explique comment détecter les problèmes dans l’environnement chr
    1. Utilisez les commandes suivantes pour quitter l’environnement chroot :
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]

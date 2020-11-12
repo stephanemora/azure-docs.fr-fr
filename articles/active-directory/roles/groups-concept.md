@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34c3c20b277a768ba27016f1c76bd782ef05dc36
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d014a901791f16ecdcb9c3d5f0858a8626cc1072
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373153"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379075"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)
 
@@ -28,7 +28,7 @@ Examinez cet exemple : Contoso a recruté des personnes pour toutes les zones g
 
 ## <a name="how-this-feature-works"></a>Principe de la fonctionnalité
 
-Créez un nouveau groupe Microsoft 365 ou un groupe de sécurité dont la propriété « isAssignableToRole » a la valeur « true ». Vous pouvez également activer cette propriété lors de la création d’un groupe dans le portail Azure en activant l’option **Des rôles Azure AD peuvent être attribués au groupe** . Dans les deux cas, vous pouvez affecter le groupe à un ou plusieurs rôles Azure AD de la même façon que vous attribuez des rôles aux utilisateurs. Un maximum de 200 groupes assignables à un rôle peuvent être créés dans une seule organisation (locataire) Azure AD.
+Créez un nouveau groupe Microsoft 365 ou un groupe de sécurité dont la propriété « isAssignableToRole » a la valeur « true ». Vous pouvez également activer cette propriété lors de la création d’un groupe dans le portail Azure en activant l’option **Des rôles Azure AD peuvent être attribués au groupe**. Dans les deux cas, vous pouvez affecter le groupe à un ou plusieurs rôles Azure AD de la même façon que vous attribuez des rôles aux utilisateurs. Un maximum de 200 groupes assignables à un rôle peuvent être créés dans une seule organisation (locataire) Azure AD.
 
 Si vous ne souhaitez pas que les membres du groupe disposent d’un accès permanent au rôle, vous pouvez utiliser Azure AD Privileged Identity Management. Assignez un groupe comme membre éligible d’un rôle Azure AD. Chaque membre du groupe peut alors faire activer son affectation pour le rôle auquel le groupe est assigné. Il peut ensuite activer son attribution de rôle pour une durée déterminée.
 

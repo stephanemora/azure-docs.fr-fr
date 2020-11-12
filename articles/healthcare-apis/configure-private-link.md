@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558791"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398213"
 ---
 # <a name="configure-private-link"></a>Configurer une liaison privée
 
@@ -30,7 +30,7 @@ Avant de créer un point de terminaison privé, vous devez créer certaines ress
 - API Azure pour FHIR : ressource FHIR que vous souhaitez placer derrière un point de terminaison privé.
 - Réseau virtuel : réseau virtuel auquel vos services client et le point de terminaison privé seront connectés.
 
-Pour plus d’informations, consultez la [Documentation sur Liaison privée](https://docs.microsoft.com/azure/private-link/).
+Pour plus d’informations, consultez la [Documentation sur Liaison privée](../private-link/index.yml).
 
 ## <a name="disable-public-network-access"></a>Désactiver l’accès au réseau public
 
@@ -40,7 +40,7 @@ La création d’un point de terminaison privé pour votre ressource FHIR ne dé
 
 ## <a name="create-private-endpoint"></a>Créer un point de terminaison privé
 
-Pour créer un point de terminaison privé, un développeur disposant d’autorisations de RBAC sur la ressource FHIR peut utiliser le portail Azure, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell) ou [Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). Cet article vous guide dans les étapes d’utilisation du portail Azure. L’utilisation du portail Azure est recommandée, car elle automatise la création et la configuration de la zone DNS privé. Pour plus d’informations, consultez les [Guides de démarrage rapide de liaison privée](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Pour créer un point de terminaison privé, un développeur disposant d’autorisations de RBAC sur la ressource FHIR peut utiliser le portail Azure, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md) ou [Azure CLI](../private-link/create-private-endpoint-cli.md). Cet article vous guide dans les étapes d’utilisation du portail Azure. L’utilisation du portail Azure est recommandée, car elle automatise la création et la configuration de la zone DNS privé. Pour plus d’informations, consultez les [Guides de démarrage rapide de liaison privée](../private-link/create-private-endpoint-portal.md).
 
 Vous pouvez créer un point de terminaison privé de deux façons. Le flux d’approbation automatique permet à un utilisateur disposant d’autorisations de RBAC sur la ressource FHIR de créer un point de terminaison privé sans avoir besoin d’approbation. Le flux d’approbation manuelle permet à un utilisateur dépourvu d’autorisation sur la ressource FHIR de demander l’approbation d’un point de terminaison privé par les propriétaires de la ressource FHIR.
 

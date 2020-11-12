@@ -6,20 +6,20 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.date: 04/30/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf41a16975505b76e4b49fdf4e73faeb187ddfe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373434"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378633"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -78,11 +78,11 @@ Après avoir activé Azure AD Privileged Identity Management :
 
 2. Pour sélectionner l’organisation Azure AD dans laquelle vous souhaitez utiliser Privileged Identity Management, sélectionnez votre nom d’utilisateur dans l’angle supérieur droit du portail Azure.
 
-3. Dans le menu du portail Azure, sélectionnez **Tous les services** et filtrez la liste pour **Azure AD Privileged Identity Management** .
+3. Dans le menu du portail Azure, sélectionnez **Tous les services** et filtrez la liste pour **Azure AD Privileged Identity Management**.
 
 4. Ouvrez Privileged Identity Management à partir de la liste **Tous les services** et épinglez-le à votre tableau de bord.
 
-Assurez-vous que la première personne à utiliser PIM au sein votre organisation est affectée aux rôles **Administrateur de la sécurité** et **Administrateur de rôle privilégié** . Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôles d’annuaire Azure AD d’utilisateurs. L’Assistant Sécurité de PIM vous guide tout au long du processus de découverte initiale et d’attribution. Vous pouvez quitter l’Assistant sans apporter de modifications supplémentaires pour l’instant.
+Assurez-vous que la première personne à utiliser PIM au sein votre organisation est affectée aux rôles **Administrateur de la sécurité** et **Administrateur de rôle privilégié**. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôles d’annuaire Azure AD d’utilisateurs. L’Assistant Sécurité de PIM vous guide tout au long du processus de découverte initiale et d’attribution. Vous pouvez quitter l’Assistant sans apporter de modifications supplémentaires pour l’instant.
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identifier et classer les comptes dans des rôles à privilèges élevés
 

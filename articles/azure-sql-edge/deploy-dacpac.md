@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91293898"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392246"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Packages SQL Database DACPAC et BACPAC dans SQL Edge
 
 Azure SQL Edge est un moteur de base de données relationnelle optimisé conçu pour les déploiements IoT et de périphérie. Il repose sur les dernières versions du moteur de base de données Microsoft SQL, qui fournit des fonctionnalités de performances, de sécurité et de traitement des requêtes de pointe. Avec les fonctionnalités de gestion de base de données relationnelle de SQL Server les plus performantes du marché, Azure SQL Edge offre des fonctionnalités de diffusion en continu intégrées pour l’analyse en temps réel et le traitement des événements complexes.
 
-Azure SQL Edge fournit un mécanisme natif vous permettant de déployer un package [SQL Database DACPAC et BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) pendant ou après le déploiement de SQL Edge.
+Azure SQL Edge fournit un mécanisme natif vous permettant de déployer un package [SQL Database DACPAC et BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications) pendant ou après le déploiement de SQL Edge.
 
 Vous pouvez déployer les packages SQL Database dacpac et bacpac sur SQL Edge à l’aide de la variable d’environnement `MSSQL_PACKAGE`. Vous pouvez configurer la variable d’environnement avec l’un des éléments suivants.  
 - Emplacement du dossier local dans le conteneur SQL contenant les fichiers dacpac et bacpac. Ce dossier peut être mappé à un volume hôte à l’aide de points de montage ou de conteneurs de volume de données. 
@@ -35,7 +35,7 @@ Pour déployer (ou importer) un package SQL Database DAC `(*.dacpac)` ou un fich
 
 1. Créez/extrayez un package DAC, ou exportez un fichier Bacpac à l’aide du mécanisme mentionné ci-dessous. 
     - Créez ou extrayez un package DAC SQL Database. Pour savoir comment générer un package DAC pour une base de données SQL Server existante, consultez [Extraire une package DAC d’une base de données](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/).
-    - Exportation d’un package DAC déployé ou d’une base de données. Pour plus d’informations sur la génération d’un fichier babac pour une base de données SQL Server existante, consultez [Exporter une application de la couche données](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/).
+    - Exportation d’un package DAC déployé ou d’une base de données. Pour plus d’informations sur la génération d’un fichier babac pour une base de données SQL Server existante, consultez [Exporter une application de la couche données](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/).
 
 2. Compressez le `*.bacpac` ou le fichier `*.dacpac`, et chargez-le dans un compte de stockage d’objets blob Azure. Pour plus d’informations sur le chargement de fichiers dans Stockage Blob Azure, consultez [Charger, télécharger et lister les objets blob avec le portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -47,19 +47,19 @@ Pour déployer (ou importer) un package SQL Database DAC `(*.dacpac)` ou un fich
 
     2. Dans le volet gauche, sélectionnez **IoT Edge**.
 
-    3. Dans la page **IoT Edge**, recherchez et sélectionnez l’IoT Edge dans lequel le module SQL Edge est déployé.
+    3. Dans la page **IoT Edge** , recherchez et sélectionnez l’IoT Edge dans lequel le module SQL Edge est déployé.
 
-    4. Dans la page **Appareil IoT Edge**, sélectionnez **Définir des modules**.
+    4. Dans la page **Appareil IoT Edge** , sélectionnez **Définir des modules**.
 
-    5. Sur la page **Définir des modules**, cliquez sur le module Azure SQL Edge.
+    5. Sur la page **Définir des modules** , cliquez sur le module Azure SQL Edge.
 
-    6. Dans le volet **Mettre à jour le module IoT Edge**, sélectionnez **Variables d’environnement**. Ajoutez la variable d’environnement `MSSQL_PACKAGE` et spécifiez l’URL SAP générée à l’étape 3 ci-dessus en tant que valeur pour la variable d’environnement. 
+    6. Dans le volet **Mettre à jour le module IoT Edge** , sélectionnez **Variables d’environnement**. Ajoutez la variable d’environnement `MSSQL_PACKAGE` et spécifiez l’URL SAP générée à l’étape 3 ci-dessus en tant que valeur pour la variable d’environnement. 
 
     7. Sélectionnez **Update**.
 
-    8. Sur la page **Définir des modules**, sélectionnez **Vérifier + créer**.
+    8. Sur la page **Définir des modules** , sélectionnez **Vérifier + créer**.
 
-    9. Sur la page **Définir des modules**, sélectionnez **Créer**.
+    9. Sur la page **Définir des modules** , sélectionnez **Créer**.
 
 5. Après la mise à jour du module, les fichiers de package sont téléchargés, décompressés et déployés pour l’instance SQL Edge.
 

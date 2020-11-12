@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424571"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378004"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Vue d’ensemble de l’inscription combinée d’informations de sécurité pour Azure Active Directory
 
@@ -58,7 +58,7 @@ L’inscription combinée prend en charge les méthodes et les actions d’authe
 | Jeton matériel | Non | Non | Oui |
 | Téléphone | Oui | Oui | Oui |
 | Autre téléphone | Oui | Oui | Oui |
-| Téléphone de bureau | Non | Non | Non |
+| Téléphone de bureau | Oui | Oui | Oui |
 | E-mail | Oui | Oui | Oui |
 | Questions de sécurité | Oui | Non | Oui |
 | Mots de passe d'application | Oui | Non | Oui |

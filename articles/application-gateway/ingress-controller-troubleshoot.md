@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168186"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397363"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Résoudre les problèmes courants liés à Ingress Controller
 
@@ -243,7 +243,7 @@ La communauté Kubernetes a établi 9 niveaux de journalisation pour l’outil 
 |  5        | Journalise les objets marshalés ; affiche la configuration JSON expurgée appliquée à ARM |
 
 
-Les niveaux de détail sont ajustables via la variable `verbosityLevel` dans le fichier [helm-config.yaml](#sample-helm-config-file). Augmentez le niveau de détail à `5` pour que la configuration JSON soit envoyée à [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) :
+Les niveaux de détail sont ajustables via la variable `verbosityLevel` dans le fichier [helm-config.yaml](#sample-helm-config-file). Augmentez le niveau de détail à `5` pour que la configuration JSON soit envoyée à [ARM](../azure-resource-manager/management/overview.md) :
   - Ajoutez `verbosityLevel: 5` sur une ligne spécifique dans le fichier [helm-config.yaml](#sample-helm-config-file) et effectuez une réinstallation.
   - Récupérez les journaux avec `kubectl logs <pod-name>`.
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

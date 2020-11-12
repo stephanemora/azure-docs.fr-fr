@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323370"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397550"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 
@@ -30,39 +30,39 @@ Dans cet article, vous apprendrez comment :
 
 - Passerelle d’application : Créez une passerelle applicative sans cible de pool principal. Pour plus d’informations, consultez [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md)
 
-- Service d’application : Si vous n’avez pas encore de service d’application, consultez la [documentation relative à App Service](https://docs.microsoft.com/azure/app-service/).
+- Service d’application : Si vous n’avez pas encore de service d’application, consultez la [documentation relative à App Service](../app-service/index.yml).
 
 ## <a name="add-app-service-as-backend-pool"></a>Ajouter un service d’application comme pool de back-ends
 
 1. Dans le portail Azure, sélectionnez votre passerelle applicative.
 
-2. Sous **Pools principaux**, sélectionnez le pool principal.
+2. Sous **Pools principaux** , sélectionnez le pool principal.
 
-4. Sous **Type de cible**, sélectionnez **App Services**.
+4. Sous **Type de cible** , sélectionnez **App Services**.
 
-5. Sous **Cible**, sélectionnez votre App Service.
+5. Sous **Cible** , sélectionnez votre App Service.
 
    :::image type="content" source="./media/configure-web-app-portal/backend-pool.png" alt-text="Service d’application comme back-end":::
    
    > [!NOTE]
-   > Le menu déroulant ne renseigne que les services d’application figurant dans le même abonnement que votre Application Gateway. Si vous voulez utiliser un service d'application d’un autre abonnement que celui où se trouve Application Gateway, au lieu de choisir **App Services** dans le menu déroulant **Cibles**, choisissez l’option **Adresse IP ou nom d'hôte**, puis entrez le nom d'hôte (example. azurewebsites.net) d’App Service.
+   > Le menu déroulant ne renseigne que les services d’application figurant dans le même abonnement que votre Application Gateway. Si vous voulez utiliser un service d'application d’un autre abonnement que celui où se trouve Application Gateway, au lieu de choisir **App Services** dans le menu déroulant **Cibles** , choisissez l’option **Adresse IP ou nom d'hôte** , puis entrez le nom d'hôte (example. azurewebsites.net) d’App Service.
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="edit-http-settings-for-app-service"></a>Modifier les paramètres HTTP pour App Service
 
-1. Sous **Paramètres HTTP**, sélectionnez le paramètre HTTP existant.
+1. Sous **Paramètres HTTP** , sélectionnez le paramètre HTTP existant.
 
-2. Sous **Remplacer par le nouveau nom d’hôte**, sélectionnez **Oui**.
-3. Sous **Remplacement du nom d’hôte**, sélectionnez **Choisir un nom d’hôte à partir d’une cible de backend**.
+2. Sous **Remplacer par le nouveau nom d’hôte** , sélectionnez **Oui**.
+3. Sous **Remplacement du nom d’hôte** , sélectionnez **Choisir un nom d’hôte à partir d’une cible de backend**.
 4. Sélectionnez **Enregistrer**.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Service d’application comme back-end":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Choisir un nom d’hôte à partir des paramètres HTTP du backend":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuration supplémentaire en cas de redirection vers le chemin relatif d’App Service
 
 Quand App Service envoie une réponse de redirection au client pour le rediriger vers son chemin relatif (par exemple, une redirection de `contoso.azurewebsites.net/path1` vers `contoso.azurewebsites.net/path2`), il utilise le même nom d’hôte dans l’en-tête d’emplacement de sa réponse que celui de la requête reçue de la passerelle applicative. Le client adresse donc la demande directement à `contoso.azurewebsites.net/path2` au lieu de passer par la passerelle applicative (`contoso.com/path2`). Or, il n’est pas souhaitable de contourner la passerelle d’application.
 
-Si dans votre cas d'utilisation, il y a des scénarios où App Service devra envoyer une réponse de redirection au client, exécutez les étapes [supplémentaires pour réécrire l'en-tête d’emplacement](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+Si dans votre cas d'utilisation, il y a des scénarios où App Service devra envoyer une réponse de redirection au client, exécutez les étapes [supplémentaires pour réécrire l'en-tête d’emplacement](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration).
 
 ## <a name="restrict-access"></a>Restriction de l’accès
 
@@ -72,4 +72,4 @@ Une façon de restreindre l’accès à vos applications web consiste à utilise
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur App Service et sur la prise en charge multilocataire avec Application Gateway, consultez [Prise en charge de service multilocataire avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+Pour en savoir plus sur App Service et sur la prise en charge multilocataire avec Application Gateway, consultez [Prise en charge de service multilocataire avec Application Gateway](./application-gateway-web-app-overview.md).

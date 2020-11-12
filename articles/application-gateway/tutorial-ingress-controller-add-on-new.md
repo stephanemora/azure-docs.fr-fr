@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 18c8aa0ff05dababc5a79c5c05b43ce9ebcbf9b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427975"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397091"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutoriel : Activer le module complémentaire Ingress Controller (préversion) pour un cluster AKS existant avec une nouvelle instance Application Gateway
 
@@ -39,17 +39,17 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel nécessite l’exécution d’Azure CLI version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Enregistrez l’indicateur de fonctionnalité *AKS-IngressApplicationGatewayAddon* à l’aide de la commande [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register), comme indiqué dans l’exemple suivant. Vous ne devez effectuer cette opération qu’une seule fois par abonnement, alors que le module complémentaire est toujours en préversion.
+Enregistrez l’indicateur de fonctionnalité *AKS-IngressApplicationGatewayAddon* à l’aide de la commande [az feature register](/cli/azure/feature#az-feature-register), comme indiqué dans l’exemple suivant. Vous ne devez effectuer cette opération qu’une seule fois par abonnement, alors que le module complémentaire est toujours en préversion.
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
 ```
 
-Quelques minutes peuvent être nécessaires avant que l’état apparaisse`Registered`. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :
+Quelques minutes peuvent être nécessaires avant que l’état apparaisse`Registered`. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](/cli/azure/feature#az-feature-register) :
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources Microsoft.ContainerService à l’aide de la commande [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) :
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources Microsoft.ContainerService à l’aide de la commande [az provider register](/cli/azure/provider#az-provider-register) :
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -82,7 +82,7 @@ Déployez ensuite un nouveau cluster AKS avec le module complémentaire AGIC act
 > - Activez le WAF sur Application Gateway via le portail. 
 > - Créez d’abord l’instance WAF_v2 Application Gateway, puis suivez les instructions pour [activer le module complémentaire AGIC avec un cluster AKS existant et une instance Application Gateway existante](tutorial-ingress-controller-add-on-existing.md). 
 
-Dans l’exemple suivant, vous allez déployer un nouveau cluster AKS nommé *myCluster* à l’aide de [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) et [des identités managées](https://docs.microsoft.com/azure/aks/use-managed-identity). Le module complémentaire AGIC sera activé dans le groupe de ressources que vous avez créé, *myResourceGroup* . 
+Dans l’exemple suivant, vous allez déployer un nouveau cluster AKS nommé *myCluster* à l’aide de [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) et [des identités managées](../aks/use-managed-identity.md). Le module complémentaire AGIC sera activé dans le groupe de ressources que vous avez créé, *myResourceGroup*. 
 
 Le déploiement d’un nouveau cluster AKS avec le module complémentaire AGIC activé sans spécifier une instance Application Gateway existante entraînera la création automatique d’une instance Application Gateway SKU Standard_v2. Ainsi, vous spécifierez également le nom et l’espace d’adressage du sous-réseau de l’instance Application Gateway. Le nom de l’instance Application Gateway sera *myApplicationGateway* et l’espace d’adressage de sous-réseau que nous utilisons est 10.2.0.0/16. Assurez-vous d’avoir ajouté ou mis à jour l’extension aks-preview au début de ce tutoriel. 
 
@@ -90,10 +90,10 @@ Le déploiement d’un nouveau cluster AKS avec le module complémentaire AGIC a
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Pour configurer des paramètres supplémentaires dans la commande `az aks create`, consultez ces [informations de référence disponibles](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Pour configurer des paramètres supplémentaires dans la commande `az aks create`, consultez ces [informations de référence disponibles](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 > [!NOTE]
-> Le cluster AKS que vous avez créé apparaît dans le groupe de ressources que vous avez créé, *myResourceGroup* . Toutefois, l’instance Application Gateway créée automatiquement se trouve dans le groupe de ressources de nœud, là où se trouvent les pools d’agents. Le groupe de ressources de nœud est nommé *MC_resource-Group-name_cluster-name_location* par défaut, mais il peut être modifié. 
+> Le cluster AKS que vous avez créé apparaît dans le groupe de ressources que vous avez créé, *myResourceGroup*. Toutefois, l’instance Application Gateway créée automatiquement se trouve dans le groupe de ressources de nœud, là où se trouvent les pools d’agents. Le groupe de ressources de nœud est nommé *MC_resource-Group-name_cluster-name_location* par défaut, mais il peut être modifié. 
 
 ## <a name="deploy-a-sample-application-by-using-agic"></a>Déployer un exemple d’application en utilisant le complément AGIC
 
@@ -138,4 +138,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la désactivation du module complémentaire AGIC](./ingress-controller-disable-addon.md)
-

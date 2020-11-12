@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042488"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398196"
 ---
 # <a name="configure-database-settings"></a>Configuration des paramètres de la base de données 
 
 L’API Azure pour FHIR utilise une base de données pour stocker ses données. Le niveau de performance de la base de données sous-jacente dépend du nombre de RU (unités de requête) sélectionné durant le provisionnement du service ou dans les paramètres de base de données une fois le service provisionné.
 
-L’API Azure pour FHIR emprunte le concept de RU à Cosmos DB (consultez [Unités de requête dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)) au moment de la définition du niveau de performance de la base de données sous-jacente. 
+L’API Azure pour FHIR emprunte le concept de RU à Cosmos DB (consultez [Unités de requête dans Azure Cosmos DB](../cosmos-db/request-units.md)) au moment de la définition du niveau de performance de la base de données sous-jacente. 
 
 Le débit doit être provisionné afin qu’il y ait suffisamment de ressources système disponibles pour votre base de données à tout moment. Le nombre de RU nécessaires à votre application dépend des opérations que vous effectuez. Les opérations peuvent aller de simples lectures et écritures à des requêtes plus complexes. 
 

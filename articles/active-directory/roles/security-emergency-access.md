@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: curtand
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373425"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378752"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -79,7 +79,7 @@ Les organisations doivent surveiller l’activité de connexion et du journal d�
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtenir les ID d’objet des comptes de secours
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte attribué au rôle Administrateur d’utilisateurs.
-1. Sélectionnez **Azure Active Directory** > **Utilisateurs** .
+1. Sélectionnez **Azure Active Directory** > **Utilisateurs**.
 1. Recherchez le compte de secours et sélectionnez le nom de l’utilisateur.
 1. Copiez et enregistrez l’attribut ID d’objet afin de pouvoir l’utiliser ultérieurement.
 1. Répétez les étapes précédentes pour le deuxième compte de secours.
@@ -87,12 +87,12 @@ Les organisations doivent surveiller l’activité de connexion et du journal d�
 ### <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte attribué au rôle Contributeur de surveillance dans Azure Monitor.
-1. Sélectionnez **Tous les services** , entrez « log analytics » dans Rechercher, puis sélectionnez **Espaces de travail Log Analytics** .
+1. Sélectionnez **Tous les services** , entrez « log analytics » dans Rechercher, puis sélectionnez **Espaces de travail Log Analytics**.
 1. Sélectionnez un espace de travail.
-1. Dans votre espace de travail, sélectionnez **Alertes** > **Nouvelle règle d’alerte** .
+1. Dans votre espace de travail, sélectionnez **Alertes** > **Nouvelle règle d’alerte**.
     1. Sous **Ressource** , vérifiez que l’abonnement est celui auquel vous souhaitez associer la règle d’alerte.
-    1. Sous **Condition** , sélectionnez **Ajouter** .
-    1. Sélectionnez **Recherche de journal personnalisée** sous **Nom du signal** .
+    1. Sous **Condition** , sélectionnez **Ajouter**.
+    1. Sélectionnez **Recherche de journal personnalisée** sous **Nom du signal**.
     1. Sous **Requête de recherche** , entrez la requête suivante, en insérant les ID d’objet des deux comptes de secours.
         > [!NOTE]
         > Pour chaque compte de secours supplémentaire que vous souhaitez inclure, ajoutez une autre valeur « or UserId == "ObjectGuid" » à la requête.
@@ -109,29 +109,29 @@ Les organisations doivent surveiller l’activité de connexion et du journal d�
 
         ![logique d’alerte](./media/security-emergency-access/alert-image2.png)
 
-    1. Sélectionnez **Terminé** . Vous pouvez maintenant voir le coût mensuel estimé de cette alerte.
+    1. Sélectionnez **Terminé**. Vous pouvez maintenant voir le coût mensuel estimé de cette alerte.
 1. Sélectionnez un groupe d’actions d’utilisateurs devant être avertis par l’alerte. Si vous souhaitez en créer un, consultez [Créer un groupe d’actions](#create-an-action-group).
-1. Pour personnaliser les notifications par e-mail envoyées aux membres du groupe d’actions, sélectionnez Actions sous **Personnaliser les actions** .
+1. Pour personnaliser les notifications par e-mail envoyées aux membres du groupe d’actions, sélectionnez Actions sous **Personnaliser les actions**.
 1. Sous **Détails de l’alerte** , spécifiez le nom de la règle d’alerte et ajoutez une description facultative.
 1. Définissez le **Niveau de gravité** de l’événement. Nous vous recommandons de le définir sur **Critique(Grav 0)** .
-1. Sous **Activer la règle lors de la création** , conserver la valeur **Oui** .
-1. Pour désactiver les alertes pendant un certain temps, activez la case à cocher **Supprimer les alertes** et entrez la durée d’attente avant que les alertes ne soient à nouveau activées, puis sélectionnez **Enregistrer** .
-1. Cliquez sur **Créer une règle d'alerte** .
+1. Sous **Activer la règle lors de la création** , conserver la valeur **Oui**.
+1. Pour désactiver les alertes pendant un certain temps, activez la case à cocher **Supprimer les alertes** et entrez la durée d’attente avant que les alertes ne soient à nouveau activées, puis sélectionnez **Enregistrer**.
+1. Cliquez sur **Créer une règle d'alerte**.
 
 ### <a name="create-an-action-group"></a>Créer un groupe d’actions
 
-1. Sélectionnez **Créer un groupe d’actions** .
+1. Sélectionnez **Créer un groupe d’actions**.
 
     ![créer un groupe d’actions pour les actions de notification](./media/security-emergency-access/action-group-image3.png)
 
 1. Entrez le nom du groupe d’actions et un nom court.
 1. Vérifiez l’abonnement et le groupe de ressources.
-1. Sous le type d’action, sélectionnez **E-mail/SMS/Push/Voix** .
-1. Entrez un nom d’action, par exemple **Avertir l’administrateur général** .
-1. Sélectionnez le **Type d’action** **E-mail/SMS/Push/Voix** .
+1. Sous le type d’action, sélectionnez **E-mail/SMS/Push/Voix**.
+1. Entrez un nom d’action, par exemple **Avertir l’administrateur général**.
+1. Sélectionnez le **Type d’action** **E-mail/SMS/Push/Voix**.
 1. Sélectionnez **Modifier les détails** pour sélectionner les méthodes de notification que vous souhaitez configurer, puis entrez les coordonnées requises et cliquez sur **OK** pour enregistrer les détails.
 1. Ajoutez toutes les actions supplémentaires que vous souhaitez déclencher.
-1. Sélectionnez **OK** .
+1. Sélectionnez **OK**.
 
 ## <a name="validate-accounts-regularly"></a>Valider régulièrement les comptes
 

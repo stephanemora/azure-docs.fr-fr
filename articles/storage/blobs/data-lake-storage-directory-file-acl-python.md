@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: 98a1fbf30e7b653598aac6b83c0d8155582e2051
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ffdf31d375d41d77b8b06112c83c1f3a0e1e15e5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131477"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358879"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Python pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -96,7 +96,7 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un en appelant la méthode **FileSystemDataLakeServiceClient.create_file_system** .
+Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un en appelant la méthode **FileSystemDataLakeServiceClient.create_file_system**.
 
 Cet exemple crée un conteneur nommé `my-file-system`.
 
@@ -114,7 +114,7 @@ def create_file_system():
 
 ## <a name="create-a-directory"></a>Créer un répertoire
 
-Créez une référence de répertoire en appelant la méthode **FileSystemClient.create_directory** .
+Créez une référence de répertoire en appelant la méthode **FileSystemClient.create_directory**.
 
 Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur. 
 
@@ -129,7 +129,7 @@ def create_directory():
 
 ## <a name="rename-or-move-a-directory"></a>Renommer ou déplacer un répertoire
 
-Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename_directory** . Transmettez un paramètre au chemin d’accès du répertoire souhaité. 
+Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename_directory**. Transmettez un paramètre au chemin d’accès du répertoire souhaité. 
 
 Cet exemple renomme un sous-répertoire avec le nom `my-subdirectory-renamed`.
 
@@ -149,7 +149,7 @@ def rename_directory():
 
 ## <a name="delete-a-directory"></a>Supprimer un répertoire
 
-Supprimez un répertoire en appelant la méthode **DataLakeDirectoryClient.delete_directory** .
+Supprimez un répertoire en appelant la méthode **DataLakeDirectoryClient.delete_directory**.
 
 Cet exemple supprime un répertoire nommé `my-directory`.  
 
@@ -167,7 +167,7 @@ def delete_directory():
 
 ## <a name="upload-a-file-to-a-directory"></a>Charger un fichier dans un répertoire 
 
-Tout d’abord, créez une référence de fichier dans le répertoire cible en créant une instance de la classe **DataLakeFileClient** . Téléchargez un fichier en appelant la méthode **DataLakeFileClient.append_data** . Veillez à effectuer le chargement en appelant la méthode **DataLakeFileClient.flush_data** .
+Tout d’abord, créez une référence de fichier dans le répertoire cible en créant une instance de la classe **DataLakeFileClient**. Téléchargez un fichier en appelant la méthode **DataLakeFileClient.append_data**. Veillez à effectuer le chargement en appelant la méthode **DataLakeFileClient.flush_data**.
 
 Cet exemple charge un fichier texte dans un répertoire nommé `my-directory`.   
 
@@ -193,11 +193,11 @@ def upload_file_to_directory():
 ```
 
 > [!TIP]
-> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à **DataLakeFileClient.append_data** . Utilisez plutôt la méthode **DataLakeFileClient.upload_data** . Vous pourrez ainsi charger la totalité du fichier en un seul appel. 
+> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à **DataLakeFileClient.append_data**. Utilisez plutôt la méthode **DataLakeFileClient.upload_data**. Vous pourrez ainsi charger la totalité du fichier en un seul appel. 
 
 ## <a name="upload-a-large-file-to-a-directory"></a>Charger un fichier volumineux dans un répertoire
 
-Utilisez la méthode **DataLakeFileClient.upload_data** pour charger des fichiers volumineux sans avoir à effectuer plusieurs appels à la méthode **DataLakeFileClient.append_data** .
+Utilisez la méthode **DataLakeFileClient.upload_data** pour charger des fichiers volumineux sans avoir à effectuer plusieurs appels à la méthode **DataLakeFileClient.append_data**.
 
 ```python
 def upload_file_to_directory_bulk():
@@ -275,7 +275,7 @@ Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des
 
 ### <a name="manage-directory-acls"></a>Gérer les ACL de répertoire
 
-Obtenez la liste de contrôle d’accès (ACL) d’un répertoire en appelant la méthode **DataLakeDirectoryClient.get_access_control** et définissez l’ACL en appelant la méthode **DataLakeDirectoryClient.set_access_control** .
+Obtenez la liste de contrôle d’accès (ACL) d’un répertoire en appelant la méthode **DataLakeDirectoryClient.get_access_control** et définissez l’ACL en appelant la méthode **DataLakeDirectoryClient.set_access_control**.
 
 > [!NOTE]
 > Si votre application autorise l’accès en utilisant Azure Active Directory (Azure AD), vérifiez que le [rôle de propriétaire des données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) a été attribué au principal de sécurité utilisé par votre application pour autoriser l’accès. Pour en savoir plus sur l’application des autorisations ACL et les conséquences de leur modification, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -305,11 +305,11 @@ def manage_directory_permissions():
      print(e) 
 ```
 
-Vous pouvez également obtenir et définir la liste de contrôle d’accès du répertoire racine d’un conteneur. Pour récupérer le répertoire racine, appelez la méthode **FileSystemClient._get_root_directory_client** .
+Vous pouvez également obtenir et définir la liste de contrôle d’accès du répertoire racine d’un conteneur. Pour récupérer le répertoire racine, appelez la méthode **FileSystemClient._get_root_directory_client**.
 
 ### <a name="manage-file-permissions"></a>Gérer les autorisations de fichiers
 
-Obtenez la liste de contrôle d’accès (ACL) d’un fichier en appelant la méthode **DataLakeFileClient.get_access_control** et définissez l’ACL en appelant la méthode **DataLakeFileClient.set_access_control** .
+Obtenez la liste de contrôle d’accès (ACL) d’un fichier en appelant la méthode **DataLakeFileClient.get_access_control** et définissez l’ACL en appelant la méthode **DataLakeFileClient.set_access_control**.
 
 > [!NOTE]
 > Si votre application autorise l’accès en utilisant Azure Active Directory (Azure AD), vérifiez que le [rôle de propriétaire des données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) a été attribué au principal de sécurité utilisé par votre application pour autoriser l’accès. Pour en savoir plus sur l’application des autorisations ACL et les conséquences de leur modification, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -341,7 +341,7 @@ def manage_file_permissions():
      print(e) 
 ```
 
-### <a name="set-an-acl-recursively-preview"></a>Définir une liste ACL de manière récursive (préversion)
+### <a name="set-an-acl-recursively"></a>Définir une liste de contrôle d’accès (ACL) de manière récursive
 
 Vous pouvez ajouter, mettre à jour et supprimer des listes ACL de manière récursive au niveau des éléments enfants existants d’un répertoire parent sans avoir à apporter ces modifications individuellement à chaque élément enfant. Pour plus d’informations, consultez [Définir des listes de contrôle d’accès (ACL) de manière récursive pour Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 

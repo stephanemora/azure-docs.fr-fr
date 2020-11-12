@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808153"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397703"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
 
@@ -95,8 +95,8 @@ Le tableau suivant répertorie les valeurs associées à la sonde d’intégrit�
 * Si BackendHttpSetting spécifie un port autre que 80, le site par défaut doit être configuré pour écouter sur ce port.
 * L’appel à `http://127.0.0.1:port` doit renvoyer un code de résultat HTTP 200. Ce code doit être renvoyé dans un délai de 30 secondes.
 * Vérifiez que le port configuré est ouvert et qu’aucune règle de pare-feu ou aucun groupe de sécurité réseau Azure ne bloque le trafic entrant ou sortant sur le port configuré.
-* Si vous utilisez des machines virtuelles Azure classiques ou un service cloud avec un nom de domaine complet ou une adresse IP publique, assurez-vous que le [point de terminaison](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondant est ouvert.
-* Si la machine virtuelle est configurée via Azure Resource Manager et se trouve en dehors du réseau virtuel dans lequel est déployée la passerelle d’application, un [groupe de sécurité réseau](../virtual-network/security-overview.md) doit être configuré pour autoriser l’accès sur le port souhaité.
+* Si vous utilisez des machines virtuelles Azure classiques ou un service cloud avec un nom de domaine complet ou une adresse IP publique, assurez-vous que le [point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) correspondant est ouvert.
+* Si la machine virtuelle est configurée via Azure Resource Manager et se trouve en dehors du réseau virtuel dans lequel est déployée la passerelle d’application, un [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md) doit être configuré pour autoriser l’accès sur le port souhaité.
 
 ## <a name="problems-with-custom-health-probe"></a>Problèmes avec la sonde d’intégrité personnalisée
 
@@ -195,4 +195,3 @@ Assurez-vous que les instances sont intègres et que l’application est correct
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket d’incident](https://azure.microsoft.com/support/options/).
-

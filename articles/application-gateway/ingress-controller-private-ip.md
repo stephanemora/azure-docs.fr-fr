@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be37ed1da0da4da3db43ef4c1cd01ed962f24ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806795"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397306"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Utiliser une adresse IP privée pour le routage interne d'un point de terminaison d'entrée 
 
 Cette fonctionnalité permet d'exposer le point de terminaison d'entrée du `Virtual Network` via une adresse IP privée.
 
 ## <a name="pre-requisites"></a>Conditions préalables  
-Application Gateway avec [configuration d'une adresse IP privée](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Application Gateway avec [configuration d'une adresse IP privée](./configure-application-gateway-with-private-frontend-ip.md)
 
 Il existe deux façons de configurer le contrôleur afin qu'il utilise une adresse IP privée pour l'entrée.
 
@@ -66,4 +66,4 @@ Le contrôleur d'entrée filtre alors les configurations d'adresse IP sur une ad
 AGIC panique et se bloque si `usePrivateIP: true`, et aucune adresse IP privée n'est attribuée.
 
 > [!NOTE]
-> La référence SKU Application Gateway v2 requiert une adresse IP publique. Si vous souhaitez que l'instance d'Application Gateway soit privée, joignez un [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) au sous-réseau de cette dernière pour limiter le trafic.
+> La référence SKU Application Gateway v2 requiert une adresse IP publique. Si vous souhaitez que l'instance d'Application Gateway soit privée, joignez un [`Network Security Group`](../virtual-network/network-security-groups-overview.md) au sous-réseau de cette dernière pour limiter le trafic.

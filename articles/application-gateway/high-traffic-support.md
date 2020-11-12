@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: b96720ead2c7b7bc942efca32a8510f57c2dbcad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48730d03e9a578fb26b691577fa033e5f7bb4d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250246"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397482"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Prendre en charge le trafic élevé avec Application Gateway
 
@@ -24,7 +24,7 @@ Vous pouvez utiliser Application Gateway avec le pare-feu d’applications Web (
 Les suggestions suivantes vous aident à configurer Application Gateway avec WAF pour gérer le trafic supplémentaire.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Utiliser la référence (SKU) v2 plutôt que la v1 pour ses capacités de mise à l’échelle automatiques et ses avantages en matière de performances
-La v2 applique la mise à l’échelle automatique pour s’assurer que votre Application Gateway peut monter en puissance à mesure que le trafic augmente. Elle offre également d’autres avantages significatifs en matière de performances, par exemple des performances 5 fois supérieures de déchargement TLS, des temps de déploiement et de mise à jour plus courts, la redondance de zone, etc., par rapport à la v1. Pour plus d’informations, consultez la [documentation de la v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
+La v2 applique la mise à l’échelle automatique pour s’assurer que votre Application Gateway peut monter en puissance à mesure que le trafic augmente. Elle offre également d’autres avantages significatifs en matière de performances, par exemple des performances 5 fois supérieures de déchargement TLS, des temps de déploiement et de mise à jour plus courts, la redondance de zone, etc., par rapport à la v1. Pour plus d’informations, consultez la [documentation de la v2](./application-gateway-autoscaling-zone-redundant.md). 
 
 ## <a name="set-maximum-instance-count-to-the-maximum-possible-125"></a>Définir le nombre d’instances maximal sur la valeur maximale possible (125)
  
@@ -35,7 +35,7 @@ En supposant que vous disposiez d’une SKU Application Gateway v2, la définiti
 En supposant que vous disposiez d’Application Gateway v2, le processus de montée en charge automatique prend six à sept minutes. Avec un nombre d’instances minimal plus élevé, Application Gateway est mieux en mesure de gérer votre trafic lorsque la charge augmente, car les pics de trafic ne nécessitent pas d’opération de mise à l’échelle automatique.  
 
 ## <a name="alert-if-a-certain-metric-surpasses-75-of-average-cu-utilization"></a>Alerte si une certaine mesure dépasse 75 % de l’utilisation moyenne des unités de capacité 
-Pour obtenir une explication détaillée de nos mesures et d’autres procédures pas à pas, consultez la documentation [Mesures Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization). 
+Pour obtenir une explication détaillée de nos mesures et d’autres procédures pas à pas, consultez la documentation [Mesures Application Gateway](./application-gateway-metrics.md#metrics-visualization). 
 
 ### <a name="example-setting-up-an-alert-on-75-of-average-cu-usage"></a>Exemple : configuration d’une alerte à 75 % de l’utilisation moyenne des unités de capacité
 
@@ -51,13 +51,13 @@ Cet exemple montre comment utiliser le portail Azure pour configurer une alerte 
 > Vous pouvez définir l’alerte pour qu’elle se produise un pourcentage d’utilisation des unités de capacité inférieur ou supérieur, en fonction de la sensibilité que vous souhaitez pour les pics de trafic potentiels.
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Configurer WAF avec le géofiltrage et la protection bot pour bloquer les attaques
-Si vous souhaitez ajouter une couche de sécurité devant votre application, utilisez Application Gateway WAF_v2 pour les fonctionnalités WAF. Vous pouvez configurer la référence v2 pour autoriser uniquement l’accès à vos applications à partir d’un ou plusieurs pays/régions. Vous configurez une règle personnalisée WAF pour autoriser ou bloquer explicitement le trafic en fonction de la géolocalisation. Pour plus d’informations, consultez [Règles personnalisées de géofiltrage](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) et [Comment configurer des règles personnalisées sur Application Gateway WAF_v2 via PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Si vous souhaitez ajouter une couche de sécurité devant votre application, utilisez Application Gateway WAF_v2 pour les fonctionnalités WAF. Vous pouvez configurer la référence v2 pour autoriser uniquement l’accès à vos applications à partir d’un ou plusieurs pays/régions. Vous configurez une règle personnalisée WAF pour autoriser ou bloquer explicitement le trafic en fonction de la géolocalisation. Pour plus d’informations, consultez [Règles personnalisées de géofiltrage](../web-application-firewall/ag/geomatch-custom-rules.md) et [Comment configurer des règles personnalisées sur Application Gateway WAF_v2 via PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
-Activez la protection bot pour bloquer les mauvais robots connus. Cela devrait réduire le volume de trafic qui arrive jusqu’à votre application. Pour plus d’informations, consultez [Protection bot avec instructions de configuration](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Activez la protection bot pour bloquer les mauvais robots connus. Cela devrait réduire le volume de trafic qui arrive jusqu’à votre application. Pour plus d’informations, consultez [Protection bot avec instructions de configuration](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 ## <a name="turn-on-diagnostics-on-application-gateway-and-waf"></a>Activer les diagnostics sur Application Gateway et WAF
 
-Les journaux de diagnostic vous permettent de consulter les journaux de pare-feu, les journaux de performances et les journaux d’accès. Vous pouvez utiliser ces journaux d’activité dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Pour plus d’informations, consultez la [documentation des diagnostics](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging). 
+Les journaux de diagnostic vous permettent de consulter les journaux de pare-feu, les journaux de performances et les journaux d’accès. Vous pouvez utiliser ces journaux d’activité dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Pour plus d’informations, consultez la [documentation des diagnostics](./application-gateway-diagnostics.md#diagnostic-logging). 
 
 ## <a name="set-up-an-tls-policy-for-extra-security"></a>Configurer une stratégie TLS pour plus de sécurité
-Vérifiez que vous utilisez la dernière version de la stratégie TLS ([AppGwSslPolicy20170401S](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview#appgwsslpolicy20170401s)). Cela garantit le chiffrement TLS 1.2 et les chiffrements renforcés. Pour plus d’informations, consultez [Configuration des versions de stratégie TLS et des suites de chiffrement via PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-configure-ssl-policy-powershell).
+Vérifiez que vous utilisez la dernière version de la stratégie TLS ([AppGwSslPolicy20170401S](./application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s)). Cela garantit le chiffrement TLS 1.2 et les chiffrements renforcés. Pour plus d’informations, consultez [Configuration des versions de stratégie TLS et des suites de chiffrement via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).

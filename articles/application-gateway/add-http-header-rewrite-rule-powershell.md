@@ -7,23 +7,23 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: f205b3a604aa38854969f6f62cbce44f46fa7d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808250"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397913"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Réécrire les en-têtes de requête et de réponse HTTP avec Azure Application Gateway - Azure PowerShell
 
-Cet article explique comment utiliser Azure PowerShell pour configurer une instance de la [référence SKU Application Gateway v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) afin de réécrire les en-têtes HTTP des requêtes et des réponses.
+Cet article explique comment utiliser Azure PowerShell pour configurer une instance de la [référence SKU Application Gateway v2](./application-gateway-autoscaling-zone-redundant.md) afin de réécrire les en-têtes HTTP des requêtes et des réponses.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-- Pour suivre la procédure décrite dans cet article, vous devez exécuter Azure PowerShell localement. Vous devez également avoir installé la version 1.0.0 du module Az ou une version ultérieure. Pour déterminer la version que vous avez installée, exécutez `Import-Module Az`, puis `Get-Module Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
-- Vous devez disposer d’une instance de la référence SKU Application Gateway v2. La réécriture des en-têtes n’est pas prise en charge dans la référence SKU v1. Si vous ne disposez pas de la référence SKU v2, créez une instance de [référence SKU Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) avant de commencer.
+- Pour suivre la procédure décrite dans cet article, vous devez exécuter Azure PowerShell localement. Vous devez également avoir installé la version 1.0.0 du module Az ou une version ultérieure. Pour déterminer la version que vous avez installée, exécutez `Import-Module Az`, puis `Get-Module Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
+- Vous devez disposer d’une instance de la référence SKU Application Gateway v2. La réécriture des en-têtes n’est pas prise en charge dans la référence SKU v1. Si vous ne disposez pas de la référence SKU v2, créez une instance de [référence SKU Application Gateway v2](./tutorial-autoscale-ps.md) avant de commencer.
 
 ## <a name="create-required-objects"></a>Créer les objets requis
 
@@ -37,7 +37,7 @@ Pour configurer la réécriture d’en-tête HTTP, vous devez effectuer ces éta
 
    - **ActionSet** : contient les configurations des en-têtes de requête et de réponse spécifiés ci-dessus.
 
-   - **Condition** : configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
+   - **Condition**  : configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
 
      Si vous associez plusieurs conditions à une action, cette dernière ne se produit que lorsque toutes les conditions sont remplies. En d’autres termes, il s’agit d’une opération ET logique.
 
@@ -104,4 +104,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la configuration de certains cas d’usage courants, consultez l’article présentant des [scénarios de réécriture d’en-têtes courants](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Pour plus d’informations sur la configuration de certains cas d’usage courants, consultez l’article présentant des [scénarios de réécriture d’en-têtes courants](./rewrite-http-headers.md).

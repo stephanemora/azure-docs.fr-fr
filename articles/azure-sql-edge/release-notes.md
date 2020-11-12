@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284480"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395034"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notes de publication Azure SQL Edge 
 
@@ -37,9 +37,9 @@ Cet article décrit les nouveautés et les modifications apportées à chaque no
    - Scénarios Activer l’exécution parallèle
 6. Améliorations de l’économie d’énergie pour le mode alimentation basse
 7. Prise en charge en continu de nouvelles fonctionnalités 
-   - [Fenêtres d’instantané](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : nouveau type de fenêtre permettant de regrouper les événements qui arrivent exactement au même moment. 
-   - Activation de [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) et [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) comme fonction analytique. Cela permet de renvoyer les enregistrements classés par colonne de votre choix, sans qu’ils fassent nécessairement partie d’une fenêtre. 
-   - Améliorations apportées à [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+   - [Fenêtres d’instantané](/stream-analytics-query/snapshot-window-azure-stream-analytics) : nouveau type de fenêtre permettant de regrouper les événements qui arrivent exactement au même moment. 
+   - Activation de [TopOne](/stream-analytics-query/topone-azure-stream-analytics) et [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) comme fonction analytique. Cela permet de renvoyer les enregistrements classés par colonne de votre choix, sans qu’ils fassent nécessairement partie d’une fenêtre. 
+   - Améliorations apportées à [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Correctifs
 1. Messages d'erreur supplémentaires et détails pour le dépannage des opérations de diffusion en continu TSQL. 

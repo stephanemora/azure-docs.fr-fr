@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fea0c8b6f3c13c9f462ecbb72611c6659c65d0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595816"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397062"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Créer une passerelle d’application avec un arrêt TLS à l’aide de l’interface CLI Azure
 
-Vous pouvez utiliser Azure CLI pour créer une [passerelle d’application](overview.md) avec un certificat pour la [terminaison TLS](ssl-overview.md). Pour les serveurs principaux, vous pouvez utiliser un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool backend par défaut de la passerelle d’application.
+Vous pouvez utiliser Azure CLI pour créer une [passerelle d’application](overview.md) avec un certificat pour la [terminaison TLS](ssl-overview.md). Pour les serveurs principaux, vous pouvez utiliser un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md). Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool backend par défaut de la passerelle d’application.
 
 Dans cet article, vous apprendrez comment :
 
@@ -90,7 +90,7 @@ az network public-ip create \
 
 Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway) pour créer la passerelle d’application. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. 
 
-La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés. Dans cet exemple, vous associez le certificat que vous avez créé et son mot de passe lorsque vous créez la passerelle d’application. 
+La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress* , que vous avez créés. Dans cet exemple, vous associez le certificat que vous avez créé et son mot de passe lorsque vous créez la passerelle d’application. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -168,7 +168,7 @@ Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de vot
 
 ![Avertissement de sécurité](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
-Pour accepter l’avertissement de sécurité si vous avez utilisé un certificat auto-signé, sélectionnez **Détails**, puis **Atteindre la page web**. Votre site NGINX sécurisé apparaît maintenant comme dans l’exemple suivant :
+Pour accepter l’avertissement de sécurité si vous avez utilisé un certificat auto-signé, sélectionnez **Détails** , puis **Atteindre la page web**. Votre site NGINX sécurisé apparaît maintenant comme dans l’exemple suivant :
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 

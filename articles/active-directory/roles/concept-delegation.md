@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c1d53f15e945788ab6147299ccd59e7e4e947c5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372941"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378361"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Déléguer l’administration dans Azure Active Directory
 
@@ -73,12 +73,12 @@ La prolifération d’applications au sein de votre organisation peut restreindr
 
 Par défaut, tous les utilisateurs peuvent créer des inscriptions d’application. Pour accorder de manière sélective la possibilité de créer des inscriptions d’application :
 
-* Définissez le paramètre **Les utilisateurs peuvent inscrire des applications** sur Non dans **Paramètres utilisateur** .
+* Définissez le paramètre **Les utilisateurs peuvent inscrire des applications** sur Non dans **Paramètres utilisateur**.
 * Affectez l’utilisateur au rôle Développeur d’applications.
 
 Pour accorder de manière sélective la possibilité d’autoriser une application à accéder aux données :
 
-* Définissez le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur Non dans **Paramètres utilisateur** .
+* Définissez le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur Non dans **Paramètres utilisateur**.
 * Affectez l’utilisateur au rôle Développeur d’applications.
 
 Quand un développeur d’applications crée une inscription d’application, il est automatiquement ajouté en tant que premier propriétaire.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723297"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396921"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway
 
@@ -23,7 +23,7 @@ Transport Layer Security (TLS), anciennement appelé Secure Sockets Layer (SSL),
 Application Gateway prend en charge l’arrêt TLS au niveau de la passerelle, après lequel le trafic transite généralement de façon non chiffrée vers les serveurs backend. La terminaison TLS établie au niveau de la passerelle offre un certain nombre d’avantages :
 
 - **Amélioration des performances** – Lors du déchiffrement TLS, la négociation initiale est l’opération qui dégrade le plus les performances. Pour améliorer les performances, le serveur qui effectue le déchiffrement met en cache les ID de session TLS et gère les tickets de session TLS. Si cela est fait au niveau de la passerelle d’application, toutes les requêtes d’un même client peuvent utiliser les valeurs mises en cache. Si cela est fait sur les serveurs principaux, le client doit s’authentifier chaque fois que les requêtes du client sont adressées à un serveur différent. L’utilisation de tickets TLS peut aider à atténuer ce problème, mais ces tickets ne sont pas pris en charge par tous les clients et peuvent être difficiles à configurer et à gérer.
-- **Meilleure utilisation des serveurs principaux**  - Le traitement SSL/TLS nécessite une grande quantité de ressources processeur et, à mesure qu’il s’intensifie, la taille des clés augmente. Ce travail n’est plus dévolu aux serveurs principaux si bien qu’ils peuvent se concentrer sur ce qu’ils savent faire le mieux : diffuser du contenu.
+- **Meilleure utilisation des serveurs principaux**   - Le traitement SSL/TLS nécessite une grande quantité de ressources processeur et, à mesure qu’il s’intensifie, la taille des clés augmente. Ce travail n’est plus dévolu aux serveurs principaux si bien qu’ils peuvent se concentrer sur ce qu’ils savent faire le mieux : diffuser du contenu.
 - **Routage intelligent** – En déchiffrant le trafic, la passerelle d’application a accès au contenu de la requête, comme les en-têtes, l’URI, etc. et peut utiliser ces données pour acheminer les requêtes.
 - **Gestion des certificats** - Il suffit d’acheter et d’installer les certificats sur la passerelle d’application et non sur tous les serveurs principaux. Cela permet d’économiser du temps et de l’argent.
 
@@ -51,10 +51,10 @@ Application Gateway prend en charge les types de certificat suivants :
 - Certificat générique : Ce certificat prend en charge un nombre quelconque de sous-domaines basés sur *.site.com, adresse dans laquelle l’astérisque correspond au sous-domaine. Cependant, il ne prend pas en charge l’adresse site.com ; ainsi, le certificat numérique ne gère pas le cas où un utilisateur accède à votre site web sans avoir saisi « www » au début de l’adresse.
 - Certificats auto-signés : Les navigateurs clients ne font pas confiance à ces certificats et avertiront l’utilisateur que le certificat du service virtuel ne fait pas partie d’une chaîne d’approbation. Les certificats auto-signés conviennent pour les tests ou les environnements dans lesquels les administrateurs contrôlent les clients et peuvent ignorer en toute sécurité les alertes de sécurité du navigateur. Les charges de travail de production ne doivent jamais utiliser de certificats auto-signés.
 
-Pour plus d’informations, consultez [Configurer l’arrêt TLS avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Pour plus d’informations, consultez [Configurer l’arrêt TLS avec Application Gateway](./create-ssl-portal.md).
 
 ### <a name="size-of-the-certificate"></a>Taille du certificat
-Consultez la section [Limites d’Application Gateway](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) pour connaître la taille maximale des certificats TLS/SSL pris en charge.
+Consultez la section [Limites d’Application Gateway](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) pour connaître la taille maximale des certificats TLS/SSL pris en charge.
 
 ## <a name="end-to-end-tls-encryption"></a>Chiffrement TSL de bout en bout
 
@@ -62,7 +62,7 @@ Il se peut que vous ne vouliez pas d’une communication non chiffrée vers les 
 
 Le chiffrement TLS de bout en bout vous permet de chiffrer et transmettre en toute sécurité des données sensibles au serveur principal quand vous utilisez des fonctionnalités d’équilibrage de charge de couche 7 d’Application Gateway. Il s’agit notamment de la fonctionnalité d’affinité basée sur les cookies, du routage basé sur l’URL, de la prise en charge du routage basé sur des sites, de la possibilité de remplacer ou d’injecter des en-têtes X-Forwarded-*.
 
-Quand elle est configurée avec un mode de communication TLS de bout en bout, la passerelle Application Gateway ferme les sessions TLS au niveau de la passerelle et déchiffre le trafic utilisateur. Il applique ensuite les règles configurées pour sélectionner une instance de pool principal appropriée vers laquelle acheminer le trafic. Le service Application Gateway établit ensuite une nouvelle connexion TLS vers le serveur principal, puis chiffre à nouveau les données à l’aide du certificat de clé publique de ce serveur avant de transmettre la requête au serveur principal. Toute réponse du serveur web passe par le même processus vers l’utilisateur final. Pour activer le chiffrement TLS de bout en bout, définissez le [Paramètre HTTP du serveur principal](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) sur HTTPS, qui est ensuite appliqué à un pool de serveurs principaux.
+Quand elle est configurée avec un mode de communication TLS de bout en bout, la passerelle Application Gateway ferme les sessions TLS au niveau de la passerelle et déchiffre le trafic utilisateur. Il applique ensuite les règles configurées pour sélectionner une instance de pool principal appropriée vers laquelle acheminer le trafic. Le service Application Gateway établit ensuite une nouvelle connexion TLS vers le serveur principal, puis chiffre à nouveau les données à l’aide du certificat de clé publique de ce serveur avant de transmettre la requête au serveur principal. Toute réponse du serveur web passe par le même processus vers l’utilisateur final. Pour activer le chiffrement TLS de bout en bout, définissez le [Paramètre HTTP du serveur principal](./configuration-overview.md#http-settings) sur HTTPS, qui est ensuite appliqué à un pool de serveurs principaux.
 
 Pour la référence (SKU) Application Gateway et WAF v1, la stratégie TLS s’applique au trafic frontal et principal. Au niveau frontal, Application Gateway agit en tant que serveur et applique la stratégie. Sur le serveur principal, Application Gateway agit en tant que client et envoie les informations de protocole/chiffrement en tant que préférence pendant la négociation TLS.
 

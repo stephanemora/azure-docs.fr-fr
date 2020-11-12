@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84870869"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398128"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Activer la journalisation des diagnostics dans l’API Azure pour FHIR®
 
-Dans cet article, vous allez apprendre à activer la journalisation des diagnostics dans l’API Azure pour FHIR® et à passer en revue des exemples de requêtes pour ces journaux. L’accès aux journaux de diagnostic est essentiel pour tout service de santé dans lequel la conformité aux exigences réglementaires (telles que HIPAA) est indispensable. La fonctionnalité de l’API Azure pour FHIR® qui active les journaux de diagnostic est le [**Paramètres de diagnostic**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) dans le Portail Azure. 
+Dans cet article, vous allez apprendre à activer la journalisation des diagnostics dans l’API Azure pour FHIR® et à passer en revue des exemples de requêtes pour ces journaux. L’accès aux journaux de diagnostic est essentiel pour tout service de santé dans lequel la conformité aux exigences réglementaires (telles que HIPAA) est indispensable. La fonctionnalité de l’API Azure pour FHIR® qui active les journaux de diagnostic est le [**Paramètres de diagnostic**](../azure-monitor/platform/diagnostic-settings.md) dans le Portail Azure. 
 
 ## <a name="enable-audit-logs"></a>Activer les journaux d’audit
 1. Pour activer la journalisation des diagnostics dans l’API Azure pour FHIR®, sélectionnez votre service Azure API pour FHIR® dans le Portail Azure 
@@ -42,7 +42,7 @@ Dans cet article, vous allez apprendre à activer la journalisation des diagnost
 > [!Note] 
 > L’affichage des premiers journaux dans Log Analytics peut prendre jusqu’à 15 minutes.  
  
-Pour plus d’informations sur l’utilisation des journaux de diagnostic, reportez-vous à la [documentation sur les journaux de ressources d’Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
+Pour plus d’informations sur l’utilisation des journaux de diagnostic, reportez-vous à la [documentation sur les journaux de ressources d’Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="audit-log-details"></a>Détails du journal d'audit
 À ce stade, l’API Azure pour FHIR® service retourne les champs suivants dans le journal d’audit : 
@@ -73,14 +73,14 @@ Pour plus d’informations sur l’utilisation des journaux de diagnostic, repor
 
 Voici quelques requêtes Application Insights simples dont vous pouvez vous servir pour explorer vos données de journal.
 
-Exécutez cette requête pour afficher les **100 journaux les plus récents** :
+Exécutez cette requête pour afficher les **100 journaux les plus récents**  :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-Exécutez cette requête pour regrouper les opérations par **Type de ressource FHIR** :
+Exécutez cette requête pour regrouper les opérations par **Type de ressource FHIR**  :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 

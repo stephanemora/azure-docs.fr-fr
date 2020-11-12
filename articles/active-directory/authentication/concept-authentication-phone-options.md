@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165505"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377749"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Méthodes d’authentification dans Azure Active Directory - Options téléphoniques
 
@@ -23,12 +23,12 @@ Pour une authentification directe à l’aide d’un message texte, vous pouvez 
 
 Les utilisateurs peuvent également s’authentifier à l’aide d’un téléphone mobile ou d’un téléphone de bureau comme forme secondaire d’authentification utilisée lors de l’authentification multifacteur Azure ou de la réinitialisation de mot de passe en libre-service (SSPR).
 
-Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : *+1 4251234567*.
+Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone* , par exemple : *+1 4251234567*.
 
 > [!NOTE]
 > Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
 >
-> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format *+1 4251234567X12345*, les extensions sont supprimées avant l’appel.
+> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format *+1 4251234567X12345* , les extensions sont supprimées avant l’appel.
 
 ## <a name="mobile-phone-verification"></a>Vérification du téléphone mobile
 
@@ -49,8 +49,6 @@ Avec la vérification des SMS dans le cadre de Microsoft Azure Multi-Factor Auth
 Avec la vérification de l’appel téléphonique dans le cadre de Microsoft Azure Multi-Factor Authentication et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à entrer son numéro de PIN suivi de # à l’aide du clavier.
 
 ## <a name="office-phone-verification"></a>Vérification du téléphone de bureau
-
-L’attribut téléphone de bureau est géré par l’administrateur Azure AD et ne peut pas être enregistré par un utilisateur.
 
 Avec la vérification de l’appel téléphonique dans le cadre d’Azure MFA et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à entrer son numéro de PIN suivi de # à l’aide du clavier.
 
@@ -81,7 +79,7 @@ Pour en savoir plus sur les concepts de SSPR, consultez [Fonctionnement de la r�
 
 Pour plus d’informations sur les concepts MFA, consultez [Azure Multi-Factor Authentication : fonctionnement][concept-mfa].
 
-Apprenez-en plus sur la configuration des méthodes d’authentification à l’aide de l’[API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Apprenez-en plus sur la configuration des méthodes d’authentification à l’aide de l’[API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

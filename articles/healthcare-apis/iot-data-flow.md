@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513369"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394864"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Flux de données du Connecteur Azure IoT pour FHIR (préversion)
 
@@ -26,7 +26,7 @@ Le diagramme ci-dessus illustre les flux de données courants utilisant le Conne
 Voici les différentes étapes par lesquelles les données passent une fois que le Connecteur Azure IoT pour FHIR les a reçues.
 
 ## <a name="ingest"></a>Ingérer
-L’ingestion est la première étape où les données d’appareils sont reçues dans le Connecteur Azure IoT pour FHIR. Le point de terminaison d’ingestion pour les données d’appareils est hébergé sur un [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). La plateforme Azure Event Hub prend en charge une échelle et un débit élevés, avec la possibilité de recevoir et de traiter des millions de messages par seconde. Elle permet également au Connecteur Azure IoT pour FHIR de consommer des messages de manière asynchrone, ce qui évite aux appareils d’attendre que les données soient traitées.
+L’ingestion est la première étape où les données d’appareils sont reçues dans le Connecteur Azure IoT pour FHIR. Le point de terminaison d’ingestion pour les données d’appareils est hébergé sur un [Azure Event Hub](../event-hubs/index.yml). La plateforme Azure Event Hub prend en charge une échelle et un débit élevés, avec la possibilité de recevoir et de traiter des millions de messages par seconde. Elle permet également au Connecteur Azure IoT pour FHIR de consommer des messages de manière asynchrone, ce qui évite aux appareils d’attendre que les données soient traitées.
 
 > [!NOTE]
 > JSON est le seul format actuellement pris en charge pour les données d’appareils.

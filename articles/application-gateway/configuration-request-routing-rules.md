@@ -7,22 +7,22 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652648"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397533"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Règles de routage des requêtes Application Gateway
 
-Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez une règle par défaut (*rule1*). Cette règle lie l’écouteur par défaut (*appGatewayHttpListener*) au pool de back-ends par défaut (*appGatewayBackendPool*) et aux paramètres HTTP du back-end par défaut ( *appGatewayBackendHttpSettings*). Après avoir créé la passerelle, vous pouvez modifier les paramètres de la règle par défaut ou créer des règles.
+Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez une règle par défaut ( *rule1* ). Cette règle lie l’écouteur par défaut ( *appGatewayHttpListener* ) au pool de back-ends par défaut ( *appGatewayBackendPool* ) et aux paramètres HTTP du back-end par défaut ( *appGatewayBackendHttpSettings* ). Après avoir créé la passerelle, vous pouvez modifier les paramètres de la règle par défaut ou créer des règles.
 
 ## <a name="rule-type"></a>Type de règle
 
-Quand vous créez une règle, vous choisissez entre le type [*de base* et le type *basé sur un chemin*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
+Quand vous créez une règle, vous choisissez entre le type [*de base* et le type *basé sur un chemin*](./application-gateway-components.md#request-routing-rules).
 
-- Choisissez le type de base pour transférer toutes les demandes sur l’écouteur associé (par exemple, *blog<i></i>.contoso.com/\*)* à un seul pool de back-ends.
+- Choisissez le type de base pour transférer toutes les demandes sur l’écouteur associé (par exemple, *blog <i></i>.contoso.com/\*)* à un seul pool de back-ends.
 - Choisissez le type basé sur un chemin pour router les demandes provenant de chemins d’URL spécifiques vers des pools de back-ends spécifiques. Le modèle de chemin s’applique uniquement au chemin de l’URL, pas à ses paramètres de demande.
 
 ### <a name="order-of-processing-rules"></a>Ordre de traitement des règles

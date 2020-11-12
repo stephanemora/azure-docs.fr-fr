@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: cc258a0e790559cb343bfbf2eda0787962e2063e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e939e3e6eb686894094c77f62ed815d0ebb5a24f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071266"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358437"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -283,7 +283,7 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 - **Sections de la stratégie :** inbound, outbound, backend, on-error
 - **Étendues de la stratégie :** toutes les étendues
 
-### <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remove value from cache
+## <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remove value from cache
 `cache-remove-value` supprime un élément en cache identifié par sa clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
 
 #### <a name="policy-statement"></a>Instruction de la stratégie

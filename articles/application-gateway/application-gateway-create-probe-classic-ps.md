@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088068"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397856"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Créer une sonde personnalisée pour Azure Application Gateway (classique) en utilisant PowerShell
 
@@ -200,7 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez configurer TLS (Transport Layer Security), précédemment connue sous le nom de déchargement SSL (Secure Sockets Layer), consultez [Configurer une passerelle d'application pour le déchargement TLS](application-gateway-ssl.md).
+Si vous souhaitez configurer TLS (Transport Layer Security), précédemment connue sous le nom de déchargement SSL (Secure Sockets Layer), consultez [Configurer une passerelle d'application pour le déchargement TLS](./tutorial-ssl-powershell.md).
 
-Si vous voulez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
-
+Si vous voulez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](./application-gateway-ilb-arm.md).

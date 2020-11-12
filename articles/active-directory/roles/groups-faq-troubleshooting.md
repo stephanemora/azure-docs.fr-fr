@@ -6,25 +6,25 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373150"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377732"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Résoudre les problèmes de rôles attribués aux groupes cloud
 
 Voici quelques questions courantes et des conseils de résolution des problèmes pour l’attribution de rôles à des groupes dans Azure Active Directory (Azure AD).
 
-**Q :** Je suis administrateur de groupes, mais je ne vois pas le commutateur **Des rôles Azure AD peuvent être attribués au groupe** .
+**Q :** Je suis administrateur de groupes, mais je ne vois pas le commutateur **Des rôles Azure AD peuvent être attribués au groupe**.
 
 **R :** Seuls les Administrateurs de rôle privilégié ou les Administrateurs généraux peuvent créer un groupe éligible pour l’attribution de rôle. Seuls les utilisateurs de ces rôles voient ce contrôle.
 
@@ -69,30 +69,30 @@ Utilisateur | Propriétaire de catalogue | Seulement si propriétaire d’un gro
 
 **R :** Cette réponse s’applique uniquement aux organisations Azure AD Premium P1.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory**.
 1. Sélectionnez des utilisateurs et ouvrez un profil utilisateur.
-1. Sélectionnez **Rôles attribués** .
+1. Sélectionnez **Rôles attribués**.
 1. Sélectionnez l’icône d’engrenage. Un volet s’ouvre et peut fournir ces informations. Il y a un bouton « Supprimer » à côté des attributions directes. Pour supprimer une attribution de rôle indirecte, supprimez l’utilisateur du groupe auquel le rôle a été attribué.
 
 **Q :** Comment puis-je voir tous les groupes assignables à un rôle ?
 
 **R :** Procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory** .
-1. Sélectionnez **Groupes** > **Tous les groupes** .
-1. Sélectionnez **Ajouter des filtres** .
-1. Filtrez sur **Assignable à un rôle** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory**.
+1. Sélectionnez **Groupes** > **Tous les groupes**.
+1. Sélectionnez **Ajouter des filtres**.
+1. Filtrez sur **Assignable à un rôle**.
 
 **Q :** Comment savoir quel rôle est attribué directement ou indirectement à un principal ?
 
 **R :** Procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory**.
 1. Sélectionnez des utilisateurs et ouvrez un profil utilisateur.
 1. Sélectionnez **Rôles attribués** , puis :
 
     - Dans les organisations sous licence Azure AD Premium P1 : Sélectionnez l’icône d’engrenage. Un volet s’ouvre et peut fournir ces informations.
-    - Dans les organisations sous licence Azure AD Premium P2 : Vous trouverez des informations sur les licences directes et héritées dans la colonne **Appartenance** .
+    - Dans les organisations sous licence Azure AD Premium P2 : Vous trouverez des informations sur les licences directes et héritées dans la colonne **Appartenance**.
 
 **Q :** Pourquoi la création d’un nouveau groupe cloud est-elle obligatoire pour l’affecter à un rôle ?  
 

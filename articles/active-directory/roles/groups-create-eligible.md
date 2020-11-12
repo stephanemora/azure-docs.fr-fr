@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58aaecaa9f8606399b40fdb1d38a274117ec6a2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373152"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378616"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Créer un groupe avec attribution de rôle dans Azure Active Directory
 
@@ -27,12 +27,12 @@ Vous pouvez attribuer un rôle uniquement à un groupe qui a été créé avec l
 ## <a name="using-azure-ad-admin-center"></a>Utilisation du Centre d’administration Azure AD
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
-1. Sélectionnez **Groupes** > **Tous les groupes** > **Nouveau groupe** .
+1. Sélectionnez **Groupes** > **Tous les groupes** > **Nouveau groupe**.
 
     [![Ouvrez Azure Active Directory et créez un groupe.](./media/groups-create-eligible/new-group.png "Ouvrez Azure Active Directory et créez un groupe.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
 1. Sous l’onglet **Nouveau groupe** , spécifiez un type, un nom et une description pour le groupe.
-1. Activez l’option **Des rôles Azure AD peuvent être attribués au groupe** . Ce commutateur est visible uniquement pour les utilisateurs autorisés à le définir, c’est-à-dire ceux qui ont le rôle Administrateur de rôle privilégié ou Administrateur général.
+1. Activez l’option **Des rôles Azure AD peuvent être attribués au groupe**. Ce commutateur est visible uniquement pour les utilisateurs autorisés à le définir, c’est-à-dire ceux qui ont le rôle Administrateur de rôle privilégié ou Administrateur général.
 
     [![Rendre le nouveau groupe éligible à l’attribution de rôle](./media/groups-create-eligible/eligible-switch.png "Rendre le nouveau groupe éligible à l’attribution de rôle")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
 
@@ -40,7 +40,7 @@ Vous pouvez attribuer un rôle uniquement à un groupe qui a été créé avec l
 
     [![Ajoutez des membres au groupe avec attribution de rôle et attribuez des rôles.](./media/groups-create-eligible/specify-members.png "Ajoutez des membres au groupe avec attribution de rôle et attribuez des rôles.")](./media/groups-create-eligible/specify-members.png#<lightbox>)
 
-1. Quand vous avez spécifié les membres et les propriétaires, sélectionnez **Créer** .
+1. Quand vous avez spécifié les membres et les propriétaires, sélectionnez **Créer**.
 
     [![Le bouton Créer est disponible en bas de la page.](./media/groups-create-eligible/create-button.png "Le bouton Créer est disponible en bas de la page.")](./media/groups-create-eligible/create-button.png#<lightbox>)
 

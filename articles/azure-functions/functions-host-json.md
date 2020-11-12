@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284503"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377120"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -357,7 +357,7 @@ Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons
 
 ## <a name="retry"></a>retry
 
-Contrôle les options de [stratégie de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies) pour toutes les exécutions effectuées dans l’application.
+Contrôle les options de [stratégie de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies-preview) pour toutes les exécutions effectuées dans l’application.
 
 ```json
 {

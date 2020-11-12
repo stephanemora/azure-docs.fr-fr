@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558531"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394235"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modèles de mappage du connecteur Azure IoT pour FHIR (préversion)
 Cet article explique comment configurer le connecteur Azure IoT pour FHIR* à l’aide des modèles de mappage.
 
 Le connecteur Azure IoT pour FHIR requiert deux types de modèles de mappage basés sur JSON. Le premier type, le **mappage d’appareils** , est chargé de mapper les charges utiles d’appareils envoyées au point de terminaison `devicedata` Azure Event Hub. Il extrait les types, les identificateurs d’appareil, les dates et heures de mesure, ainsi que la ou les valeur(s) de mesure. Le second type, le **mappage FHIR** , contrôle le mappage de la ressource FHIR. Il permet de configurer la durée de la période d’observation, le type de données FHIR utilisé pour stocker les valeurs et le ou les code(s) de terminologie. 
 
-Les modèles de mappage sont composés dans un document JSON en fonction de leur type. Ces documents JSON sont ensuite ajoutés à votre connecteur Azure IoT pour FHIR via le Portail Azure. Le document de mappage d’appareils est ajouté via la page **Configurer le mappage d’appareils** et le document de mappage FHIR via la page **Configurer le mappage de FHIR** .
+Les modèles de mappage sont composés dans un document JSON en fonction de leur type. Ces documents JSON sont ensuite ajoutés à votre connecteur Azure IoT pour FHIR via le Portail Azure. Le document de mappage d’appareils est ajouté via la page **Configurer le mappage d’appareils** et le document de mappage FHIR via la page **Configurer le mappage de FHIR**.
 
 > [!NOTE]
 > Les modèles de mappage sont stockés dans un stockage d’objets BLOB sous-jacent et chargés à partir d’un objet BLOB par exécution de calcul. Une fois mis à jour, ils doivent prendre effet immédiatement. 
@@ -254,7 +254,7 @@ JsonPathContentTemplate permet la correspondance et l’extraction des valeurs d
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
 IotJsonPathContentTemplate est similaire à JsonPathContentTemplate, sauf que DeviceIdExpression et TimestampExpression ne sont pas requis.
 
-L’hypothèse de l’utilisation de ce modèle est que les messages en cours d’évaluation ont été envoyés à l’aide des [kits de développement logiciel (SDK) d’appareils Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks). Lors de l’utilisation de ces kits de développement logiciel (SDK), l’identité de l’appareil (en supposant que l’identificateur d’appareil d’Azure IOT Hub/Central est inscrit comme identificateur pour une ressource d’appareil sur le serveur FHIR de destination) et l’horodateur du message sont connus. Si vous utilisez les kits de développement logiciel (SDK) d’appareils Azure IoT Hub, mais que vous utilisez des propriétés personnalisées dans le corps du message pour l’identité de l’appareil ou l’horodatage de mesure, vous pouvez toujours utiliser JsonPathContentTemplate.
+L’hypothèse de l’utilisation de ce modèle est que les messages en cours d’évaluation ont été envoyés à l’aide des [kits de développement logiciel (SDK) d’appareils Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). Lors de l’utilisation de ces kits de développement logiciel (SDK), l’identité de l’appareil (en supposant que l’identificateur d’appareil d’Azure IOT Hub/Central est inscrit comme identificateur pour une ressource d’appareil sur le serveur FHIR de destination) et l’horodateur du message sont connus. Si vous utilisez les kits de développement logiciel (SDK) d’appareils Azure IoT Hub, mais que vous utilisez des propriétés personnalisées dans le corps du message pour l’identité de l’appareil ou l’horodatage de mesure, vous pouvez toujours utiliser JsonPathContentTemplate.
 
 *Remarque : Lors de l’utilisation de IotJsonPathContentTemplate, TypeMatchExpression doit être résolu dans tout le message en tant que JToken. Consultez les exemples ci-dessous.* 
 ##### <a name="examples"></a>Exemples
