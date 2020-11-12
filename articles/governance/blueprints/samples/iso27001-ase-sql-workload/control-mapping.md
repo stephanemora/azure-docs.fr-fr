@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint Charge de travail ASE/SQL ISO 27001
 description: Correspondance des contrôles de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 à Azure Policy et Azure RBAC.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 662e5dce9c58cec3be36c3e492d7231ed0e83939
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929317"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420408"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 
@@ -37,8 +37,6 @@ Le [service d’évaluation des vulnérabilités SQL](../../../../azure-sql/data
 Azure implémente le [contrôle d’accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour gérer qui a accès aux ressources Azure. Ce blueprint vous permet de contrôler l’accès aux ressources Azure en affectant sept définitions [Azure Policy](../../../policy/overview.md). Ces stratégies vérifient l’utilisation des types de ressources et des configurations susceptibles d’accorder un accès plus permissif aux ressources.
 Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider à prendre des actions correctives visant à limiter l’accès aux ressources Azure aux utilisateurs autorisés.
 
-- Déployer les prérequis pour l’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
-- Déployer des prérequis pour auditer les machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
 - Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
 - Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
 - Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
@@ -65,7 +63,6 @@ Ce blueprint affecte trois définitions [Azure Policy](../../../policy/overview.
 - L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture de votre abonnement
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
 - Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
-- Prérequis de déploiement pour l’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revue des droits d’accès utilisateurs
 
@@ -100,11 +97,6 @@ Ce blueprint vous aide à appliquer des mots de passe forts en affectant 10 dé
 - Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
 - Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
 - Afficher les résultats d’audit des machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Stratégie sur l’utilisation des contrôles de chiffrement
 
@@ -114,7 +106,6 @@ Le fait de savoir où vos ressources Azure peuvent avoir des configurations de c
 - Function App ne doit pas être accessible via HTTPS
 - L'application web ne doit pas être accessible via HTTPS
 - L'application API doit uniquement être accessible via HTTPS
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui ne stockent pas les mots de passe à l’aide du chiffrement réversible
 - Afficher les résultats d’audit des machines virtuelles Windows qui ne stockent pas les mots de passe à l’aide du chiffrement réversible
 - Le chiffrement de disque doit être appliqué sur les machines virtuelles
 - Les variables de compte Automation doivent être chiffrées

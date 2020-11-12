@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 73f5dc6bdc976bd0166cfb1f2621f57f558f944c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478590"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333003"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Tutoriel : Concevoir une base de données Azure Database pour PostgreSQL (serveur unique) à l’aide de PowerShell
 
@@ -38,7 +38,7 @@ Si vous choisissez d’utiliser PowerShell localement, cet article vous demande 
 > Tant que le module Az.PostgreSql PowerShell est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.PostgreSql -AllowPrerelease`
 > Une fois que le module Az.PostgreSql PowerShell est en disponibilité générale, il devient partie intégrante des versions futures du module Az PowerShell et est disponible en mode natif dans Azure Cloud Shell.
 
-Si c’est la première fois que vous utilisez le service Azure Database pour PostgreSQL, vous devez inscrire le fournisseur de ressources **Microsoft.DBforPostgreSQL** .
+Si c’est la première fois que vous utilisez le service Azure Database pour PostgreSQL, vous devez inscrire le fournisseur de ressources **Microsoft.DBforPostgreSQL**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
@@ -56,7 +56,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 Créez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) avec l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
 
-L’exemple suivant crée un groupe de ressources nommé **myresourcegroup** dans la région **USA Ouest** .
+L’exemple suivant crée un groupe de ressources nommé **myresourcegroup** dans la région **USA Ouest**.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 Créez un serveur Azure Database pour PostgreSQL avec l’applet de commande `New-AzPostgreSqlServer`. Un serveur peut gérer plusieurs bases de données. En règle générale, une base de données distincte est utilisée pour chaque projet ou pour chaque utilisateur.
 
-L’exemple suivant crée un serveur PostgreSQL dans la région **USA Ouest** nommé **mydemoserver** dans le groupe de ressources **myresourcegroup** avec une connexion d’administrateur de serveur **myadmin** . Il s’agit d’un serveur de génération 5 dans le niveau tarifaire à usage général avec 2 vCores et des sauvegardes géoredondantes activées. Indiquez le mot de passe utilisé sur la première ligne de l’exemple, car il s’agit du mot de passe du compte d’administrateur du serveur PostgreSQL.
+L’exemple suivant crée un serveur PostgreSQL dans la région **USA Ouest** nommé **mydemoserver** dans le groupe de ressources **myresourcegroup** avec une connexion d’administrateur de serveur **myadmin**. Il s’agit d’un serveur de génération 5 dans le niveau tarifaire à usage général avec 2 vCores et des sauvegardes géoredondantes activées. Indiquez le mot de passe utilisé sur la première ligne de l’exemple, car il s’agit du mot de passe du compte d’administrateur du serveur PostgreSQL.
 
 > [!TIP]
 > Un nom de serveur est mappé à un nom DNS et doit être globalement unique dans Azure.
@@ -104,7 +104,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 
 ## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
 
-Pour vous connecter à votre serveur, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès. Utilisez l’exemple suivant pour déterminer les informations de connexion. Notez les valeurs des champs **FullyQualifiedDomainName** et **AdministratorLogin** .
+Pour vous connecter à votre serveur, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès. Utilisez l’exemple suivant pour déterminer les informations de connexion. Notez les valeurs des champs **FullyQualifiedDomainName** et **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -216,6 +216,10 @@ Les valeurs d’emplacement et de niveau tarifaire du serveur restauré restent 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a les mêmes nom de connexion et mot de passe d’administrateur de serveur que ceux valides pour le serveur existant au moment du démarrage de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
 Le nouveau serveur créé lors d’une restauration ne dispose pas des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être configurées séparément pour le nouveau serveur. Les règles de pare-feu du serveur d’origine sont restaurées.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton *Supprimer* dans la page *Vue d’ensemble* de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton *Supprimer*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

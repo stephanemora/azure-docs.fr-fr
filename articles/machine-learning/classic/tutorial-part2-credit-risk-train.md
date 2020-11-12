@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c2782d15d8be82d07f14f7ada5732b1dbef699c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338009"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325688"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutoriel 2 : Former des modèles de risque de crédit - Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **deuxième partie d’une série de tutoriels qui en compte trois**.
@@ -82,9 +82,9 @@ Cette partie de l'expérience ressemble alors à ce qui suit :
 
 Maintenant, vous devez indiquer au module [Former le modèle][train-model] que vous voulez utiliser le modèle pour prédire la valeur Risque de crédit.
 
-1. Sélectionnez le module [Entraîner le modèle][train-model]. Dans le volet **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**.
+1. Sélectionnez le module [Entraîner le modèle][train-model]. Dans le volet **Propriétés** , cliquez sur **Lancer le sélecteur de colonne**.
 
-1. Dans la boîte de dialogue **Sélectionner une seule colonne**, tapez « risque de crédit » dans le champ de recherche sous **Colonnes disponibles**, sélectionnez « Risque de crédit » ci-dessous et cliquez sur la flèche droite ( **>** ) pour déplacer « Risque de crédit » vers **Colonnes sélectionnées**. 
+1. Dans la boîte de dialogue **Sélectionner une seule colonne** , tapez « risque de crédit » dans le champ de recherche sous **Colonnes disponibles** , sélectionnez « Risque de crédit » ci-dessous et cliquez sur la flèche droite ( **>** ) pour déplacer « Risque de crédit » vers **Colonnes sélectionnées**. 
 
     ![Sélectionnez la colonne Risque de crédit pour le module Former le modèle](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -100,7 +100,7 @@ Pour configurer le modèle SVM, procédez comme suit :
 
 1. Recherchez le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine] dans la palette des modules et faites-le glisser sur le canevas.
 
-1. Cliquez avec le bouton droit sur le module [Former le modèle][train-model], sélectionnez **Copier**, puis cliquez avec le bouton droit sur le canevas et sélectionnez **Coller**. La copie du module [Former le modèle][train-model] contient les mêmes colonnes que l’original.
+1. Cliquez avec le bouton droit sur le module [Former le modèle][train-model], sélectionnez **Copier** , puis cliquez avec le bouton droit sur le canevas et sélectionnez **Coller**. La copie du module [Former le modèle][train-model] contient les mêmes colonnes que l’original.
 
 1. Connectez la sortie du module [Machines à vecteurs de support à deux classes][two-class-support-vector-machine] au port d’entrée de gauche du deuxième module [Former le modèle][train-model].
 
@@ -116,9 +116,9 @@ Cette partie de l'expérience ressemble alors à ceci :
 
 Configurez maintenant le module [Normaliser les données][normalize-data] :
 
-1. Cliquez pour sélectionner le module [Normaliser les données][normalize-data]. Dans le volet **Propriétés**, sélectionnez **Tanh** comme paramètre de la **Méthode de transformation**.
+1. Cliquez pour sélectionner le module [Normaliser les données][normalize-data]. Dans le volet **Propriétés** , sélectionnez **Tanh** comme paramètre de la **Méthode de transformation**.
 
-1. Cliquez sur **Lancer le sélecteur de colonne**, sélectionnez « Aucune colonne » pour **Commencer par**, sélectionnez **Inclure** dans la première liste déroulante, **Type de colonne** dans la deuxième, puis **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) sont transformées.
+1. Cliquez sur **Lancer le sélecteur de colonne** , sélectionnez « Aucune colonne » pour **Commencer par** , sélectionnez **Inclure** dans la première liste déroulante, **Type de colonne** dans la deuxième, puis **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) sont transformées.
 
 1. Cliquez sur le signe plus (+) à droite de cette ligne. Cette opération crée une ligne de listes déroulantes. Sélectionnez **Exclure** dans la première liste déroulante, sélectionnez des **noms de colonne** dans la deuxième liste déroulante et entrez « Risque de crédit » dans le champ textuel. Cette opération indique que la colonne Risque de crédit doit être ignorée (en effet, celle-ci étant numérique, elle serait transformée).
 
@@ -224,14 +224,14 @@ Vous êtes maintenant prêt à déployer des modèles pour ces données.
 
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

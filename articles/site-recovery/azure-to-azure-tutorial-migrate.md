@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045344"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394830"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Déplacer des machines virtuelles vers une autre région Azure
 
@@ -68,7 +68,7 @@ Dans ce tutoriel, vous allez apprendre à :
 - Pour des machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle.
 - N’utilisez pas de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
 
-- Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+- Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 - Identifiez la topologie du réseau source et toutes les ressources que vous utilisez actuellement. Cela comprend notamment les équilibreurs de charge, les groupes de sécurité réseau et les adresses IP publiques.
 
@@ -97,12 +97,12 @@ Les étapes suivantes montrent comment préparer la machine virtuelle en vue du 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
 1. Dans Rechercher, tapez Recovery Services > cliquez sur Coffres Recovery Services.
 1. Dans le menu Coffres Recovery Services, cliquez sur +Ajouter.
-1. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
+1. Dans **Nom** , indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 1. Créez le groupe de ressources **ContosoRG**.
 1. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique dans la page de [détails de tarification Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Dans **Coffres Recovery Services**, sélectionnez **ContosoVMVault** > **Éléments répliqués** >  **+Répliquer**.
+1. Dans **Coffres Recovery Services** , sélectionnez **ContosoVMVault** > **Éléments répliqués** >  **+Répliquer**.
 1. Dans la liste déroulante, sélectionnez **Machines virtuelles Azure**.
-1. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
+1. Dans **Emplacement source** , sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 1. Sélectionnez le modèle de déploiement Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.
 1. Sélectionnez **OK** pour enregistrer les paramètres.
 
@@ -111,31 +111,31 @@ Les étapes suivantes montrent comment préparer la machine virtuelle en vue du 
 Site Recovery récupère une liste des machines virtuelles associées à l’abonnement et au groupe de ressources.
 
 1. À l’étape suivante, sélectionnez la machine virtuelle que vous souhaitez déplacer, puis sélectionnez **OK**.
-1. Dans **Paramètres**, sélectionnez **Récupération d’urgence**.
-1. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication.
+1. Dans **Paramètres** , sélectionnez **Récupération d’urgence**.
+1. Dans **Configurer la récupération d’urgence** > **Région cible** , sélectionnez la région cible vers laquelle vous allez effectuer la réplication.
 1. Pour ce didacticiel, acceptez les autres paramètres par défaut.
 1. Sélectionnez **Activer la réplication**. Cette étape démarre un travail consistant à activer la réplication pour la machine virtuelle.
 
-    ![Activer la réplication](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>Déplacer
 
 Les étapes suivantes montrent comment effectuer le déplacement vers la région cible.
 
-1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle, puis **Basculement**.
-2. Dans **Basculement**, sélectionnez **Dernier**.
+1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués** , sélectionnez la machine virtuelle, puis **Basculement**.
+2. Dans **Basculement** , sélectionnez **Dernier**.
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Une fois le travail terminé, vérifiez que la machine virtuelle apparaît bien dans la région Azure cible comme prévu.
 
 
 ## <a name="discard"></a>Abandonner 
 
-Si vous avez vérifié la machine virtuelle déplacée et que vous devez modifier le point de basculement ou que vous souhaitez revenir à un point antérieur, sous **Éléments répliqués**, cliquez sur la machine virtuelle avec le bouton droit, puis sélectionnez **Modifier le point de récupération**. Cette étape vous permet de spécifier un autre point de récupération et de définir le basculement vers celui-ci. 
+Si vous avez vérifié la machine virtuelle déplacée et que vous devez modifier le point de basculement ou que vous souhaitez revenir à un point antérieur, sous **Éléments répliqués** , cliquez sur la machine virtuelle avec le bouton droit, puis sélectionnez **Modifier le point de récupération**. Cette étape vous permet de spécifier un autre point de récupération et de définir le basculement vers celui-ci. 
 
 
 ## <a name="commit"></a>Commit 
 
-Une fois que vous avez vérifié la machine virtuelle déplacée et que vous êtes prêt à valider la modification, sous **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez **Valider**. Cette étape termine le processus de déplacement vers la région cible. Attendez la fin de la tâche de validation.
+Une fois que vous avez vérifié la machine virtuelle déplacée et que vous êtes prêt à valider la modification, sous **Éléments répliqués** , cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez **Valider**. Cette étape termine le processus de déplacement vers la région cible. Attendez la fin de la tâche de validation.
 
 ## <a name="clean-up"></a>Nettoyer
 

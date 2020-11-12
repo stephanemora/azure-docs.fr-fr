@@ -4,18 +4,20 @@ description: 'Tutoriel : Découvrez comment configurer la diffusion mondiale Az
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a9594e8cf3e16e9e7e9a009b8edb7dbbd5a6ca92
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: aacb8d4ffb98d553b17aa52e4c4b11a4837dc1c6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476567"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337862"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutoriel : Configuration de la distribution mondiale Azure Cosmos DB à l’aide de l’API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article montre comment utiliser le portail Azure pour configurer la diffusion mondiale d’Azure Cosmos DB, puis établir une connexion à l’aide de l’API SQL.
 

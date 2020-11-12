@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968772"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360409"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure à l’aide d’informations d’identification SAP
 
@@ -49,7 +49,7 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 Si vous n’en avez pas déjà un, vous allez maintenant créer un compte de stockage.  Vous pouvez également ignorer cette étape, et autoriser votre identité managée affectée par le système de machine virtuelle à accéder aux clés d’un compte de stockage existant. 
 
 1. Cliquez sur le bouton **+/Créer un service** dans l’angle supérieur gauche du portail Azure.
-2. Cliquez sur **Stockage**, puis **Compte de stockage**, et un nouveau panneau « Créer un compte de stockage » s’affiche.
+2. Cliquez sur **Stockage** , puis **Compte de stockage** , et un nouveau panneau « Créer un compte de stockage » s’affiche.
 3. Saisissez un **nom** pour le compte de stockage, vous l’utiliserez ultérieurement.  
 4. **Modèle de déploiement** et **Type de compte** doivent être respectivement définis sur « Gestionnaire de ressources » et « Usage général ». 
 5. Assurez-vous que les champs **Abonnement** et **Groupe de ressources** correspondent à ceux que vous avez spécifiés lorsque vous avez créé votre machine virtuelle à l’étape précédente.
@@ -68,7 +68,7 @@ Plus tard, nous chargerons et téléchargerons un fichier vers le nouveau compte
 
     ![Créer un conteneur de stockage](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Autoriser votre identité managée affectée par le système de machine virtuelle à utiliser une SAP de stockage 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Autoriser votre identité managée affectée par le système de machine virtuelle à utiliser une SAP de stockage
 
 Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode natif.  Toutefois, vous pouvez utiliser une identité managée affectée par le système de machine virtuelle pour récupérer une SAP de stockage à partir de Resource Manager, puis utiliser cette SAP pour accéder au stockage.  Dans cette étape, vous autorisez votre identité managée affectée par le système de machine virtuelle à accéder à la SAP de votre compte de stockage.   
 
@@ -77,8 +77,8 @@ Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode n
 3. Cliquez sur **+ Ajouter une attribution de rôle** en haut de la page pour ajouter une nouvelle attribution de rôle à votre machine virtuelle.
 4. Définissez **Rôle** sur « Contributeur de comptes de stockage » sur le côté droit de la page. 
 5. Dans la liste déroulante suivante, définissez **Attribuer l’accès à** sur la ressource « Machine virtuelle ».  
-6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur « Tous les groupes de ressources ».  
-7. Enfin, sous **Sélectionner**, choisissez votre machine virtuelle Linux dans la liste déroulante, puis cliquez sur **Enregistrer**.  
+6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement** , puis définissez **Groupe de ressources** sur « Tous les groupes de ressources ».  
+7. Enfin, sous **Sélectionner** , choisissez votre machine virtuelle Linux dans la liste déroulante, puis cliquez sur **Enregistrer**.  
 
     ![Texte de remplacement d’image](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
@@ -88,7 +88,7 @@ Pour la suite de ce didacticiel, nous allons utiliser la machine virtuelle que n
 
 Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](/windows/wsl/install-win10). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Dans le portail Azure, accédez à **Machines virtuelles**, accédez à votre machine virtuelle Linux, puis, en haut de la page **Vue d’ensemble**, cliquez sur **Se connecter**. Copiez la chaîne permettant de se connecter à votre machine virtuelle. 
+1. Dans le portail Azure, accédez à **Machines virtuelles** , accédez à votre machine virtuelle Linux, puis, en haut de la page **Vue d’ensemble** , cliquez sur **Se connecter**. Copiez la chaîne permettant de se connecter à votre machine virtuelle. 
 2. Connectez-vous à votre machine virtuelle en utilisant votre client SSH.  
 3. Ensuite, vous serez invité à entrer le **Mot de passe** que vous avez ajouté à la création de la **machine virtuelle Linux**. Vous devez être connecté.  
 4. Utilisez CURL pour obtenir un jeton d’accès à partir de Azure Resource Manager.  

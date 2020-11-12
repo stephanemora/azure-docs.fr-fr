@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e94288b49cd57b59c126c95ca507477f1c56946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913277"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321525"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning (préversion)
 
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Déployer en tant que service web
 
-Avec votre modèle, vous pouvez prédire le risque de décès lors d’une collision. Utilisez Azure ML pour déployer votre modèle en tant que service de prédiction. Dans ce tutoriel, vous allez déployer le service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
+Avec votre modèle, vous pouvez prédire le risque de décès lors d’une collision. Utilisez Azure ML pour déployer votre modèle en tant que service de prédiction. Dans ce tutoriel, vous allez déployer le service web dans [Azure Container Instances](../container-instances/index.yml) (ACI).
 
 ### <a name="register-the-model"></a>Inscrire le modèle
 

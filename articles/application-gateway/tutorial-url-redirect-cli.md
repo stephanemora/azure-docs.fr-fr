@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 66c725e8d6c28137db5c3220e0a6548714da0911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6d02e620c33610770c71f0c0e3ae68e70ee317
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959559"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397040"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutoriel : Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure CLI
 
-Vous pouvez utiliser Azure CLI pour configurer des [règles d’acheminement par chemin d’accès URL](tutorial-url-route-cli.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
+Vous pouvez utiliser Azure CLI pour configurer des [règles d’acheminement par chemin d’accès URL](tutorial-url-route-cli.md) lors de la création d’une [passerelle d’application](./overview.md). Ce didacticiel montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -139,7 +139,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>Ajouter des écouteurs
 
-Ajoutez les écouteurs principaux nommés *backendListener* et *redirectedListener*, nécessaires pour router le trafic en utilisant l’applet de commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener).
+Ajoutez les écouteurs principaux nommés *backendListener* et *redirectedListener* , nécessaires pour router le trafic en utilisant l’applet de commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener).
 
 
 ```azurecli-interactive
@@ -236,7 +236,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Créer des groupes de machines virtuelles identiques
 
-Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools principaux qui ont été créés. Ils sont nommés *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles NGINX sera installé.
+Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools principaux qui ont été créés. Ils sont nommés *myvmss1* , *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles NGINX sera installé.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -318,4 +318,4 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur ce que la passerelle d’application vous permet de faire](application-gateway-introduction.md)
+> [En savoir plus sur ce que la passerelle d’application vous permet de faire](./overview.md)

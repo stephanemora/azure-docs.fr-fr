@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535067"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321280"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutoriel : Entraîner des modèles de classification d’images avec des données MNIST et scikit-learn 
 
@@ -37,7 +37,7 @@ Vous découvrirez comment sélectionner un modèle et le déployer dans la [deux
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
 >[!NOTE]
-> Le code présenté dans cet article a été testé avec le kit [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) version 1.13.0.
+> Le code présenté dans cet article a été testé avec le kit [SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) version 1.13.0.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -159,7 +159,7 @@ Avant d’entraîner un modèle, vous devez comprendre les données que vous uti
 
 ### <a name="download-the-mnist-dataset"></a>Télécharger le jeu de données MNIST
 
-Utilisez Azure Open Datasets pour récupérer les fichiers de données MNIST bruts. Les jeux de données [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) sont des jeux de données publics organisés que vous pouvez utiliser pour ajouter des fonctionnalités spécifiques à des scénarios à des solutions de Machine Learning afin d'obtenir des modèles plus précis. Chaque jeu de données a une classe correspondante, `MNIST` dans ce cas, pour récupérer les données de différentes façons.
+Utilisez Azure Open Datasets pour récupérer les fichiers de données MNIST bruts. Les jeux de données [Azure Open Datasets](../open-datasets/overview-what-are-open-datasets.md) sont des jeux de données publics organisés que vous pouvez utiliser pour ajouter des fonctionnalités spécifiques à des scénarios à des solutions de Machine Learning afin d'obtenir des modèles plus précis. Chaque jeu de données a une classe correspondante, `MNIST` dans ce cas, pour récupérer les données de différentes façons.
 
 Ce code récupère les données sous la forme d’un objet `FileDataset`, qui est une sous-classe de `Dataset`. Un `FileDataset` fait référence à des fichiers uniques ou multiples de différents formats dans vos magasins de fichiers ou vos URL publiques. La classe vous permet de télécharger ou de monter les fichiers dans votre calcul en créant une référence à l’emplacement de la source de données. En outre, vous inscrivez le jeu de données dans votre espace de travail pour faciliter la récupération pendant la formation.
 
@@ -309,7 +309,7 @@ Notez comment le script obtient les données et enregistre les modèles :
 
 ### <a name="configure-the-training-job"></a>Configurer le travail d’entraînement
 
-Créez un objet [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) pour spécifier les détails de configuration de votre travail d’entraînement, y compris votre script d’entraînement, l’environnement à utiliser et la cible de calcul sur laquelle effectuer l’exécution. Configurez le ScriptRunConfig en spécifiant :
+Créez un objet [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) pour spécifier les détails de configuration de votre travail d’entraînement, y compris votre script d’entraînement, l’environnement à utiliser et la cible de calcul sur laquelle effectuer l’exécution. Configurez le ScriptRunConfig en spécifiant :
 
 * Le répertoire qui contient vos scripts. Tous les fichiers dans ce répertoire sont chargés dans les nœuds de cluster pour l’exécution.
 * La cible de calcul. Dans le cas présent, vous utilisez le cluster de calcul Azure Machine Learning que vous avez créé.
@@ -372,17 +372,17 @@ Ce qui se passe pendant que vous attendez :
 
   Cette étape se produit une fois pour chaque environnement Python, puisque le conteneur est mis en cache pour les exécutions suivantes. Lors de la création d’image, les journaux d’activité sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de la création d’image à l’aide de ces journaux d’activité.
 
-- **Mise à l’échelle** : si le cluster distant nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement, des nœuds supplémentaires sont ajoutés automatiquement. En général, la mise à l’échelle prend **environ cinq minutes.**
+- **Mise à l’échelle**  : si le cluster distant nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement, des nœuds supplémentaires sont ajoutés automatiquement. En général, la mise à l’échelle prend **environ cinq minutes.**
 
-- **En cours d’exécution** : Lors de cette étape, les fichiers et les scripts nécessaires sont envoyés à la cible de calcul. Ensuite, les banques de données sont montées ou copiées. Pour finir, **entry_script** est exécuté. Pendant que le travail s’exécute, **stdout** et le répertoire **./logs** sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de l’exécution à l’aide de ces journaux d’activité.
+- **En cours d’exécution**  : Lors de cette étape, les fichiers et les scripts nécessaires sont envoyés à la cible de calcul. Ensuite, les banques de données sont montées ou copiées. Pour finir, **entry_script** est exécuté. Pendant que le travail s’exécute, **stdout** et le répertoire **./logs** sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de l’exécution à l’aide de ces journaux d’activité.
 
-- **Post-traitement** : le répertoire **./outputs** de l’exécution est copié dans l’historique des exécutions de votre espace de travail, afin que vous puissiez accéder à ces résultats.
+- **Post-traitement**  : le répertoire **./outputs** de l’exécution est copié dans l’historique des exécutions de votre espace de travail, afin que vous puissiez accéder à ces résultats.
 
 Vous pouvez vérifier la progression d’un travail en cours d’exécution de plusieurs façons. Ce tutoriel utilise un widget Jupyter et une méthode `wait_for_completion`.
 
 ### <a name="jupyter-widget"></a>Widget Jupyter
 
-Surveillez la progression de l’exécution avec un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée :
+Surveillez la progression de l’exécution avec un [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée :
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ RunDetails(run).show()
 
 ![Widget de bloc-notes](./media/tutorial-train-models-with-aml/widget.png)
 
-Si vous devez annuler une exécution, vous pouvez suivre [ces instructions](https://aka.ms/aml-docs-cancel-run).
+Si vous devez annuler une exécution, vous pouvez suivre [ces instructions](./how-to-manage-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Obtenir des résultats du journal lors de l’achèvement
 

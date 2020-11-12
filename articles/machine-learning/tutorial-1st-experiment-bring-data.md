@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123e55202de8a33bca88afcfd1f0dc0c7edeae77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372565"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320102"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutoriel : Utiliser vos propres données (partie 4 sur 4)
 
@@ -202,7 +202,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 La valeur de `target_path` spécifie le chemin du magasin de données où les données CIFAR10 seront téléchargées.
 
 >[!TIP] 
-> Vous utilisez Azure Machine Learning pour charger les données, mais vous pouvez utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers ad hoc. Si vous avez besoin d’un outil ETL, vous pouvez utiliser [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) pour ingérer vos données dans Azure.
+> Vous utilisez Azure Machine Learning pour charger les données, mais vous pouvez utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers ad hoc. Si vous avez besoin d’un outil ETL, vous pouvez utiliser [Azure Data Factory](../data-factory/introduction.md) pour ingérer vos données dans Azure.
 
 Exécutez le fichier Python pour charger les données. (Le chargement doit normalement être rapide, moins de 60 secondes.)
 
@@ -271,7 +271,7 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      Un [jeu de données](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) est utilisé pour référencer les données que vous avez chargées dans Stockage Blob Azure. Les jeux de données sont une couche d’abstraction au-dessus de vos données, conçue pour améliorer la fiabilité.
+      Un [jeu de données](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) est utilisé pour référencer les données que vous avez chargées dans Stockage Blob Azure. Les jeux de données sont une couche d’abstraction au-dessus de vos données, conçue pour améliorer la fiabilité.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -279,7 +279,7 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) est modifié pour inclure une liste d’arguments qui seront passés dans `train.py`. L’argument `dataset.as_named_input('input').as_mount()` signifie que le répertoire spécifié sera _monté_ sur la cible de calcul.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) est modifié pour inclure une liste d’arguments qui seront passés dans `train.py`. L’argument `dataset.as_named_input('input').as_mount()` signifie que le répertoire spécifié sera _monté_ sur la cible de calcul.
    :::column-end:::
 :::row-end:::
 

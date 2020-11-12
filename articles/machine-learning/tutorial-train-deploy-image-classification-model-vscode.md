@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906704"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321556"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner et déployer un modèle de classification d’images TensorFlow à l’aide de l’extension Azure Machine Learning de Visual Studio Code (préversion)
 
@@ -91,13 +91,13 @@ Pour créer une cible de calcul :
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît. 
 1. Développez votre nœud d’abonnement. 
 1. Développez le nœud **TeamWorkspace**. 
-1. Sous le nœud de l’espace de travail, cliquez avec le bouton droit sur le nœud **Clusters de calcul**, puis choisissez **Créer un calcul**. 
+1. Sous le nœud de l’espace de travail, cliquez avec le bouton droit sur le nœud **Clusters de calcul** , puis choisissez **Créer un calcul**. 
 
     > [!div class="mx-imgBorder"]
     > ![Créer une cible de calcul](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Sélectionnez **Capacité de calcul Azure Machine Learning (AmlCompute)** . Capacité de calcul Azure Machine Learning est une infrastructure de capacité de calcul managée qui permet à l’utilisateur de créer facilement une capacité de calcul à un ou plusieurs nœuds pouvant être utilisée par d’autres utilisateurs dans votre espace de travail.
-1. Choisissez une taille de machine virtuelle. Sélectionnez **Standard_F2s_v2** dans la liste d’options. La taille de votre machine virtuelle a un impact sur la durée nécessaire à l’entraînement de vos modèles. Pour plus d’informations sur les tailles de machine virtuelle, consultez [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+1. Choisissez une taille de machine virtuelle. Sélectionnez **Standard_F2s_v2** dans la liste d’options. La taille de votre machine virtuelle a un impact sur la durée nécessaire à l’entraînement de vos modèles. Pour plus d’informations sur les tailles de machine virtuelle, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/sizes.md).
 1. Nommez votre calcul « TeamWkspc-com » et appuyez sur **Entrée** pour le créer.
 
     Un fichier s’affiche dans VS Code avec un contenu similaire à celui ci-dessous :
@@ -312,7 +312,7 @@ Pour enregistrer votre modèle :
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît.
 1. Développez votre nœud d’abonnement. 
 1. Développez le nœud **TeamWorkspace > Expériences > MNIST**.
-1. Obtenez les sorties de modèle générées à partir de l’entraînement du modèle. Cliquez avec le bouton droit sur le nœud d’exécution **Exécution 1**, puis sélectionnez **Télécharger les sorties**. 
+1. Obtenez les sorties de modèle générées à partir de l’entraînement du modèle. Cliquez avec le bouton droit sur le nœud d’exécution **Exécution 1** , puis sélectionnez **Télécharger les sorties**. 
 
     > [!div class="mx-imgBorder"]
     > ![Télécharger les sorties du modèle](./media/tutorial-train-deploy-image-classification-model-vscode/download-outputs.png)
@@ -362,7 +362,7 @@ Pour déployer un service web en tant qu’ACI :
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît.
 1. Développez votre nœud d’abonnement. 
 1. Développez le nœud **TeamWorkspace > Modèles**. 
-1. Cliquez avec le bouton droit sur **MNIST-TensorFlow-model**, puis sélectionnez **Déployer le service à partir d’un modèle inscrit**.
+1. Cliquez avec le bouton droit sur **MNIST-TensorFlow-model** , puis sélectionnez **Déployer le service à partir d’un modèle inscrit**.
 
     > [!div class="mx-imgBorder"]
     > ![Déployer le modèle](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)
@@ -414,4 +414,3 @@ Pour déployer un service web en tant qu’ACI :
 
 * Pour une procédure détaillée sur l’apprentissage automatique avec Azure Machine Learning en dehors de Visual Studio Code, consultez le [tutoriel : Former des modèles avec Azure Machine Learning](tutorial-train-models-with-aml.md).
 * Pour une procédure détaillée sur la modification, l’exécution et le débogage de code localement, consultez le [tutoriel Python Hello World](https://code.visualstudio.com/docs/Python/Python-tutorial).
-

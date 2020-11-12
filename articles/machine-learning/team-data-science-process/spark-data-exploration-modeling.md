@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027509"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314847"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploration et modélisation des données avec Spark
 
 Découvrez comment utiliser HDInsight Spark pour entraîner des modèles Machine Learning pour la prédiction de tarifs de taxi à l’aide de Spark MLlib.
 
-Cet exemple présente les différentes étapes du processus [TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Un sous-ensemble du jeu de données des courses de taxi de New York et des tarifs 2013 est utilisé pour charger, explorer et préparer des données. Ensuite, à l’aide de Spark MLlib, les modèles de régression et de classification binaire sont entraînés pour prédire si un pourboire sera payé pour la course et estimer le montant de ce pourboire.
+Cet exemple présente les différentes étapes du processus [TDSP (Team Data Science Process)](./index.yml). Un sous-ensemble du jeu de données des courses de taxi de New York et des tarifs 2013 est utilisé pour charger, explorer et préparer des données. Ensuite, à l’aide de Spark MLlib, les modèles de régression et de classification binaire sont entraînés pour prédire si un pourboire sera payé pour la course et estimer le montant de ce pourboire.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -697,7 +697,7 @@ Durée d’exécution de la cellule ci-dessus : 57.61 seconds
 
 **Tracer la courbe ROC.**
 
-*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results*, dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
+*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results* , dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
 
 ```python
 # QUERY RESULTS                              

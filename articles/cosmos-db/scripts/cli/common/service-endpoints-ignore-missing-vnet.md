@@ -4,17 +4,17 @@ description: Connecter un compte Azure Cosmos existant avec des points de termin
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 4fd434fcfcc560a69b1e223730021aa4dd32c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e543e21835b14cc45bcf6f0cac1c8d2b821cc0e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432252"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310905"
 ---
 # <a name="connect-an-existing-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Connecter un compte Azure Cosmos existant à des points de terminaison de service de réseau virtuel avec Azure CLI
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

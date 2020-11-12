@@ -4,18 +4,20 @@ description: Découvrez comment importer ou ingérer des données dans Azure Cos
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981913"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341234"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importer des données en bloc dans un compte d’API SQL Azure Cosmos DB à l’aide du kit SDK .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Ce tutoriel vous montre comment créer une application console .NET qui optimise le débit approvisionné (RU/s) requis pour importer des données dans Azure Cosmos DB. Dans cet article, vous allez lire des données à partir d’un exemple de source de données et les importer dans un conteneur Azure Cosmos.
 Ce tutoriel utilise la [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) du kit de développement logiciel (SDK) .NET Azure Cosmos DB, qui peut être ciblé sur le .NET Framework ou .NET Core.
@@ -84,7 +86,7 @@ L’exemple d’application doit s’authentifier auprès de votre compte Azure 
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 1.  Accédez à votre compte Azure Cosmos.
-1.  Ouvrez le volet **Clés** et copiez l’**URI** et la **CLÉ PRIMAIRE** de votre compte.
+1.  Ouvrez le volet **Clés** et copiez l’ **URI** et la **CLÉ PRIMAIRE** de votre compte.
 
 Si vous utilisez l’émulateur Azure Cosmos DB, obtenez les [informations d’identification à partir de cet article](local-emulator.md#authenticate-requests).
 
