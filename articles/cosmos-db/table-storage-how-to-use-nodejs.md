@@ -9,14 +9,15 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477281"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079697"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Node.js
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -268,7 +269,7 @@ Les opérations ajoutées à un traitement par lot peuvent être inspectées en 
 
 ## <a name="retrieve-an-entity-by-key"></a>Récupération d'une entité par clé
 
-Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey** , utilisez la méthode **retrieveEntity** .
+Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey** , utilisez la méthode **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -299,7 +300,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécuter la requête dans une table, utilisez **queryEntities** . L'exemple suivant utilise cette requête pour renvoyer des entités de « mytable ».
+Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécuter la requête dans une table, utilisez **queryEntities**. L'exemple suivant utilise cette requête pour renvoyer des entités de « mytable ».
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -314,7 +315,7 @@ En cas de réussite, `result.entries` contient un tableau d’entités qui corre
 ### <a name="query-a-subset-of-entity-properties"></a>Interrogation d'un sous-ensemble de propriétés d'entité
 
 Vous pouvez utiliser une requête de table pour extraire uniquement quelques champs d'une entité.
-Ceci permet de réduire la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause **select** et transmettez les noms des champs à renvoyer. Par exemple, la requête suivante renvoie uniquement les champs **description** et **dueDate** .
+Ceci permet de réduire la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause **select** et transmettez les noms des champs à renvoyer. Par exemple, la requête suivante renvoie uniquement les champs **description** et **dueDate**.
 
 ```javascript
 var query = new azure.TableQuery()
@@ -357,7 +358,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Si vous ne savez pas si la table existe, utilisez **deleteTableIfExists** .
+Si vous ne savez pas si la table existe, utilisez **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Utiliser des jetons de liaison
 
@@ -455,7 +456,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-L’exemple suivant obtient la liste de contrôle d’accès actuelle pour la table **hometasks** , puis ajoute les nouvelles stratégies à l’aide de **setTableAcl** . Cette approche permet :
+L’exemple suivant obtient la liste de contrôle d’accès actuelle pour la table **hometasks** , puis ajoute les nouvelles stratégies à l’aide de **setTableAcl**. Cette approche permet :
 
 ```javascript
 var extend = require('extend');

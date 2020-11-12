@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e87432ad4437f41e70d988e7e2b3cd82aa3bd82
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903841"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123385"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines
 Ce tutoriel explique comment configurer l’intégration et le déploiement continus pour un travail Azure Stream Analytics à l’aide d’Azure Pipelines. 
@@ -35,7 +35,7 @@ Avant de commencer, vous devez avoir suivi les étapes ci-dessous :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installez [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) et les charges de travail **Développement Azure** ou **Stockage et traitement de données**.
-* Créez un [projet Stream Analytics dans Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Créez un [projet Stream Analytics dans Visual Studio](./stream-analytics-quick-create-vs.md).
 * Créez une organisation [Azure DevOps](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configurer une dépendance de package NuGet
@@ -54,9 +54,9 @@ Ajoutez **packages.config** au répertoire du projet.
 
 Partagez les fichiers source de votre application dans un projet Azure DevOps pour pouvoir générer des builds.  
 
-1. Créez un référentiel Git local pour votre projet en sélectionnant **Ajouter au contrôle de code source**, puis **Git** dans la barre d’état située dans le coin inférieur droit de Visual Studio. 
+1. Créez un référentiel Git local pour votre projet en sélectionnant **Ajouter au contrôle de code source** , puis **Git** dans la barre d’état située dans le coin inférieur droit de Visual Studio. 
 
-2. Dans la vue **Synchronisation** de **Team Explorer**, sélectionnez le bouton **Publier le référentiel Git** sous **Push sur Azure DevOps Services**.
+2. Dans la vue **Synchronisation** de **Team Explorer** , sélectionnez le bouton **Publier le référentiel Git** sous **Push sur Azure DevOps Services**.
 
    ![Appuyer sur le bouton Publier le référentiel Git dans Azure DevOps Services](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
@@ -64,35 +64,35 @@ Partagez les fichiers source de votre application dans un projet Azure DevOps po
 
    ![Appuyer sur le bouton Publier le référentiel du référentiel Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
-    La publication du référentiel entraîne la création d’un projet dans votre organisation portant le même nom que le référentiel local. Pour créer le référentiel dans un projet existant, cliquez sur **Avancé** en regard de **Nom du référentiel**, puis sélectionnez un projet. Vous pouvez afficher votre code dans le navigateur en sélectionnant **See it on the web** (Le visualiser sur le web).
+    La publication du référentiel entraîne la création d’un projet dans votre organisation portant le même nom que le référentiel local. Pour créer le référentiel dans un projet existant, cliquez sur **Avancé** en regard de **Nom du référentiel** , puis sélectionnez un projet. Vous pouvez afficher votre code dans le navigateur en sélectionnant **See it on the web** (Le visualiser sur le web).
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurer la livraison continue avec Azure DevOps
-Un pipeline de build Azure Pipelines décrit un flux de travail qui se compose d’étapes de génération exécutées séquentiellement. En savoir plus sur [les pipelines de build Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
+Un pipeline de build Azure Pipelines décrit un flux de travail qui se compose d’étapes de génération exécutées séquentiellement. En savoir plus sur [les pipelines de build Azure Pipelines](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts).
 
-Un pipeline de mise en production Azure Pipelines décrit un flux de travail qui déploie un package d’application sur un cluster. Lorsqu’ils sont utilisés ensemble, le pipeline de build et le pipeline de mise en production exécutent le flux de travail dans son ensemble, depuis les fichiers source jusqu’à l’exécution de l’application dans votre cluster. En savoir plus sur les [pipelines de mise en production](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true) Azure Pipelines.
+Un pipeline de mise en production Azure Pipelines décrit un flux de travail qui déploie un package d’application sur un cluster. Lorsqu’ils sont utilisés ensemble, le pipeline de build et le pipeline de mise en production exécutent le flux de travail dans son ensemble, depuis les fichiers source jusqu’à l’exécution de l’application dans votre cluster. En savoir plus sur les [pipelines de mise en production](/azure/devops/pipelines/release/define-multistage-release-process?preserve-view=true&view=vsts) Azure Pipelines.
 
 ### <a name="create-a-build-pipeline"></a>Créer un pipeline de build
 Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Dans l’onglet **Build et mise en production**, sélectionnez **Builds**, puis **+Nouveau**.  Sélectionnez **Azure DevOps Services Git** et **Continuer**.
+1. Dans l’onglet **Build et mise en production** , sélectionnez **Builds** , puis **+Nouveau**.  Sélectionnez **Azure DevOps Services Git** et **Continuer**.
     
     ![Sélectionner une source Git DevOps dans Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
-2. Dans **Sélectionner un modèle**, cliquez sur **Processus vide** pour démarrer avec un pipeline vide.
+2. Dans **Sélectionner un modèle** , cliquez sur **Processus vide** pour démarrer avec un pipeline vide.
     
     ![Sélectionner un processus vide à partir des options de modèle dans DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
-3. Sous **Déclencheurs**, activez l’intégration continue en cochant l’état du déclencheur **Activer l’intégration continue**.  Sélectionnez **Enregistrer et mettre en file d’attente** pour lancer une build manuellement. 
+3. Sous **Déclencheurs** , activez l’intégration continue en cochant l’état du déclencheur **Activer l’intégration continue**.  Sélectionnez **Enregistrer et mettre en file d’attente** pour lancer une build manuellement. 
     
     ![Activer l’état du déclenchement de l’intégration continue](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. Les builds sont également déclenchées au moment de l’archivage ou de l’envoi (push). Pour vérifier la progression de votre build, basculez vers l’onglet **Builds**.  Une fois que vous avez vérifié que la build s’exécute correctement, vous devez définir un pipeline de mise en production assurant le déploiement de votre application sur un cluster. Cliquez avec le bouton droit sur les points de suspension situés en regard de votre pipeline de build, puis sélectionnez **Modifier**.
 
-5.  Dans **Tâches**, entrez « Hébergée » pour **File d’attente d’agents**.
+5.  Dans **Tâches** , entrez « Hébergée » pour **File d’attente d’agents**.
     
     ![Sélectionner la file d’attente d’agents dans le menu Tâches](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
-6. Dans **Phase 1**, cliquez sur **+** et ajoutez une tâche **NuGet**.
+6. Dans **Phase 1** , cliquez sur **+** et ajoutez une tâche **NuGet**.
     
     ![Ajouter une tâche NuGet dans la file d’attente d’agents](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
@@ -100,7 +100,7 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
 
    ![Configurer la tâche de restauration NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
-8. Dans **Phase 1**, cliquez sur **+** et ajoutez une tâche **MSBuild**.
+8. Dans **Phase 1** , cliquez sur **+** et ajoutez une tâche **MSBuild**.
 
    ![Ajouter une tâche MSBuild dans la file d’attente d’agents](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
@@ -112,7 +112,7 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
 
    ![Configurer la tâche MSBuild dans DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
-10. Dans **Phase 1**, cliquez sur **+** et ajoutez une tâche **Déploiement d’un groupe de ressources Azure**. 
+10. Dans **Phase 1** , cliquez sur **+** et ajoutez une tâche **Déploiement d’un groupe de ressources Azure**. 
     
     ![Ajouter une tâche Déploiement d’un groupe de ressources Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
@@ -157,8 +157,8 @@ L’envoi (push) des modifications à Azure DevOps Services déclenche automatiq
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées au cours de ce didacticiel en procédant comme suit :
 
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée.  
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur le nom de la ressource que vous avez créée.  
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

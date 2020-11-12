@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9001d9982a26875f814b635533bebd7579339fa5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5a3eefdb742d847950819fccfd87b9b5501cbefd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079238"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Bien démarrer avec l’API Table d’Azure Cosmos DB et le stockage Table Azure à l’aide du SDK .NET
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
@@ -44,11 +45,11 @@ Vous aurez besoin des éléments suivants pour suivre cet exemple :
 
 Dans Visual Studio, créez une application console .NET. Les étapes suivantes vous montrent comment créer une application console dans Visual Studio 2019. Vous pouvez utiliser la bibliothèque Azure Cosmos DB Table dans n’importe quel type d’application .NET, y compris un service cloud Azure, une application web, une application de bureau ou une application mobile. Dans ce guide, nous utilisons une application console pour plus de simplicité.
 
-1. Sélectionnez **Fichier** > **Nouveau** > **Projet** .
+1. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-1. Choisissez **Application console (.NET Core)** , puis sélectionnez **Suivant** .
+1. Choisissez **Application console (.NET Core)** , puis sélectionnez **Suivant**.
 
-1. Dans le champ **Nom de projet** , entrez un nom pour votre application, tel que **CosmosTableSamples** . Vous pouvez fournir un autre nom.
+1. Dans le champ **Nom de projet** , entrez un nom pour votre application, tel que **CosmosTableSamples**. Vous pouvez fournir un autre nom.
 
 1. Sélectionnez **Create** (Créer).
 
@@ -58,7 +59,7 @@ Tous les exemples de code figurant dans cette démonstration peuvent être ajout
 
 Pour obtenir le package NuGet, effectuez les étapes suivantes :
 
-1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet** .
+1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet**.
 
 1. Recherchez en ligne [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json), [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder), puis sélectionnez **Installer** pour installer la bibliothèque Microsoft Azure Cosmos DB Table.
 
@@ -66,13 +67,13 @@ Pour obtenir le package NuGet, effectuez les étapes suivantes :
 
 1. À partir du [Portail Azure](https://portal.azure.com/), accédez à votre compte Azure Cosmos ou au compte Stockage Table. 
 
-1. Ouvrez le volet **Chaîne de connexion** ou **Clés d’accès** . Utilisez les boutons de copie sur le côté droit de la fenêtre pour copier la **CHAÎNE DE CONNEXION PRINCIPALE** .
+1. Ouvrez le volet **Chaîne de connexion** ou **Clés d’accès**. Utilisez les boutons de copie sur le côté droit de la fenêtre pour copier la **CHAÎNE DE CONNEXION PRINCIPALE**.
 
    :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Consulter et copier la CHAÎNE DE CONNEXION PRINCIPALE dans le volet Chaîne de connexion":::
    
-1. Pour configurer votre chaîne de connexion, à partir de Visual Studio, cliquez avec le bouton droit sur votre projet **CosmosTableSamples** .
+1. Pour configurer votre chaîne de connexion, à partir de Visual Studio, cliquez avec le bouton droit sur votre projet **CosmosTableSamples**.
 
-1. Sélectionnez **Ajouter** , puis **Nouvel élément** . Créez un fichier **Settings.json** avec le type de fichier **config JSON TypeScript** . 
+1. Sélectionnez **Ajouter** , puis **Nouvel élément**. Créez un fichier **Settings.json** avec le type de fichier **config JSON TypeScript**. 
 
 1. Remplacez le code dans le fichier Settings.json par le code suivant et affectez la chaîne de connexion principale :
 
@@ -82,7 +83,7 @@ Pour obtenir le package NuGet, effectuez les étapes suivantes :
    }
    ```
 
-1. Cliquez avec le bouton droit sur votre projet **CosmosTableSamples** . Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **AppSettings.cs** .
+1. Cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **AppSettings.cs**.
 
 1. Ajoutez le code suivant au fichier AppSettings.cs. Ce fichier lit la chaîne de connexion contenue dans le fichier Settings.json et l’affecte au paramètre de configuration :
 
@@ -90,7 +91,7 @@ Pour obtenir le package NuGet, effectuez les étapes suivantes :
 
 ## <a name="parse-and-validate-the-connection-details"></a>Analyser et valider les informations de connexion
 
-1. Cliquez avec le bouton droit sur votre projet **CosmosTableSamples** . Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **Common.cs** . Vous allez écrire le code qui valide les informations de connexion et crée une table au sein de cette classe.
+1. Cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **Common.cs**. Vous allez écrire le code qui valide les informations de connexion et crée une table au sein de cette classe.
 
 1. Définissez une méthode `CreateStorageAccountFromConnectionString` comme indiqué ci-dessous. Cette méthode analyse les informations de la chaîne de connexion et vérifie que le nom et la clé du compte fournis dans le fichier « Settings.json » sont corrects.
 
@@ -112,7 +113,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 Les entités mappent vers les objets C# en utilisant une classe personnalisée dérivée d’une [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). Pour ajouter une entité à une table, créez une classe définissant les propriétés de votre entité.
 
-Cliquez avec le bouton droit sur votre projet **CosmosTableSamples** . Sélectionnez **Ajouter** , **Nouveau dossier** et nommez le dossier **Model** (Modèle). Dans le dossier Model, ajoutez une classe nommée **CustomerEntity.cs** et ajoutez-y le code suivant.
+Cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter** , **Nouveau dossier** et nommez le dossier **Model** (Modèle). Dans le dossier Model, ajoutez une classe nommée **CustomerEntity.cs** et ajoutez-y le code suivant.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
@@ -122,7 +123,7 @@ Ce code définit une classe d’entité où le prénom et le nom de famille du c
 
 L’exemple de code suivant crée un objet entité et l’ajoute à la table. La méthode InsertOrMerge dans la classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) s’utilise pour insérer ou fusionner une entité. La méthode [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) est appelée pour exécuter l’opération. 
 
-Cliquez avec le bouton droit sur votre projet **CosmosTableSamples** . Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **SamplesUtils.cs** . Cette classe stocke tout le code requis pour effectuer des opérations CRUD sur les entités. 
+Cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **SamplesUtils.cs**. Cette classe stocke tout le code requis pour effectuer des opérations CRUD sur les entités. 
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
 
@@ -140,7 +141,7 @@ Il est facile de supprimer une entité après l’avoir récupérée. Il suffit 
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>Exécuter les opérations CRUD sur les exemples de données
 
-Après avoir défini les méthodes pour créer une table et ajouter ou fusionner des entités, exécutez-les sur les exemples de données. Pour ce faire, cliquez avec le bouton droit sur votre projet **CosmosTableSamples** . Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **BasicSamples.cs** , puis ajoutez-y le code suivant. Ce code crée une table et y ajoute des entités.
+Après avoir défini les méthodes pour créer une table et ajouter ou fusionner des entités, exécutez-les sur les exemples de données. Pour ce faire, cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter** , **Nouvel élément** et ajoutez une classe nommée **BasicSamples.cs** , puis ajoutez-y le code suivant. Ce code crée une table et y ajoute des entités.
 
 Si vous ne souhaitez pas supprimer l’entité et la table à la fin du projet, commentez les méthodes `await table.DeleteIfExistsAsync()` et `SamplesUtils.DeleteEntityAsync(table, customer)` dans le code suivant. Il est préférable de commenter ces méthodes et de valider les données avant de supprimer la table.
 
@@ -152,13 +153,13 @@ Dans ce tutoriel, vous avez créé le code nécessaire pour effectuer des opéra
 
 ## <a name="run-the-project"></a>Exécuter le projet
 
-À partir de votre projet **CosmosTableSamples** . Ouvrez la classe nommée **Program.cs** et ajoutez-lui le code suivant pour appeler BasicSamples quand le projet s’exécute.
+À partir de votre projet **CosmosTableSamples**. Ouvrez la classe nommée **Program.cs** et ajoutez-lui le code suivant pour appeler BasicSamples quand le projet s’exécute.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Program.cs":::
 
 Maintenant, générez la solution et appuyez sur F5 pour exécuter le projet. Après l’exécution du projet, vous voyez la sortie suivante dans l’invite de commandes :
 
-:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Consulter et copier la CHAÎNE DE CONNEXION PRINCIPALE dans le volet Chaîne de connexion":::
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Sortie de l’invite de commandes":::
 
 Si vous voyez une erreur indiquant qu’un fichier Settings.json n’a pas été trouvé pendant l’exécution du projet, vous pouvez la résoudre en ajoutant l’entrée XML suivante dans les paramètres du projet. Cliquez avec le bouton droit sur CosmosTableSamples, sélectionnez Modifier CosmosTableSamples.csproj et ajoutez l’élément itemGroup suivant : 
 
@@ -171,7 +172,7 @@ Si vous voyez une erreur indiquant qu’un fichier Settings.json n’a pas été
 ```
 Vous pouvez maintenant vous connecter au portail Azure et vérifier que les données existent bien dans la table. 
 
-:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Consulter et copier la CHAÎNE DE CONNEXION PRINCIPALE dans le volet Chaîne de connexion":::
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Résultats dans le portail":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

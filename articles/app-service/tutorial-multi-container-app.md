@@ -4,15 +4,15 @@ description: Découvrez comment créer et utiliser une application multiconteneu
 keywords: azure app service, application web, Linux, Docker, Compose, multiconteneur, multi-conteneurs, Web App pour conteneurs, plusieurs conteneurs, conteneurs, WordPress, base de données Azure pour MySQL, base de données de production avec des conteneurs
 author: msangapu-msft
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f2f1713866eb06b4b514ff988ef3e010491e1efc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743445"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131341"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutoriel : Créer une application multiconteneur (préversion) dans Web App pour conteneurs
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-Dans Cloud Shell, créez un groupe de ressources avec la commande [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Centre Sud* . Pour afficher tous les emplacements pris en charge pour App Service sous Linux au niveau **Standard** , exécutez la commande [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+Dans Cloud Shell, créez un groupe de ressources avec la commande [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Centre Sud*. Pour afficher tous les emplacements pris en charge pour App Service sous Linux au niveau **Standard** , exécutez la commande [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -151,7 +151,7 @@ Créez un serveur Azure Database pour MySQL avec la commande [`az mysql server c
 Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé _&lt;mysql-server-name>_ (les caractères valides sont `a-z`, `0-9` et `-`). Ce nom fait partie du nom d’hôte du serveur MySQL (`<mysql-server-name>.database.windows.net`) et doit donc être globalement unique.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen5_1 --version 5.7
 ```
 
 La création du serveur peut prendre quelques minutes. Une fois le serveur MySQL créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
@@ -262,14 +262,14 @@ Les modifications suivantes ont été apportées pour Redis (à utiliser dans un
 * [Ajoute le plug-in WordPress Redis Object Cache 1.3.8.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Utilise le paramètre d’application pour le nom d’hôte Redis dans le fichier WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Pour utiliser l’image personnalisée, vous devez mettre à jour votre fichier docker-compose-wordpress.yml. Dans Cloud Shell, tapez `nano docker-compose-wordpress.yml` pour ouvrir l’éditeur de texte nano. Remplacez `image: wordpress` par `image: microsoft/multicontainerwordpress`. Vous n’avez plus besoin du conteneur de base de données. Supprimer les sections `db`, `environment`, `depends_on` et `volumes` du fichier de configuration. Votre fichier doit ressembler au code suivant :
+Pour utiliser l’image personnalisée, vous devez mettre à jour votre fichier docker-compose-wordpress.yml. Dans Cloud Shell, tapez `nano docker-compose-wordpress.yml` pour ouvrir l’éditeur de texte nano. Remplacez `image: wordpress` par `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. Vous n’avez plus besoin du conteneur de base de données. Supprimer les sections `db`, `environment`, `depends_on` et `volumes` du fichier de configuration. Votre fichier doit ressembler au code suivant :
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -345,7 +345,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -401,19 +401,21 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
 
    redis:
-     image: redis:3-alpine
+     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+     environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```
 
 ### <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 
-Pour utiliser Redis, vous devez allez devoir activer ce paramètre, `WP_REDIS_HOST`, dans App Service. Pour que WordPress communique avec l’hôte Redis, ce *paramètre est obligatoire* . Pour faire cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
+Pour utiliser Redis, vous devez allez devoir activer ce paramètre, `WP_REDIS_HOST`, dans App Service. Pour que WordPress communique avec l’hôte Redis, ce *paramètre est obligatoire*. Pour faire cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WP_REDIS_HOST="redis"
@@ -474,7 +476,7 @@ Dans la page des extensions, recherchez **Redis Object Cache** et cliquez sur **
 
 ![Activation de Redis][3]
 
-Cliquez sur **Paramètres** .
+Cliquez sur **Paramètres**.
 
 ![Cliquez sur Settings (Paramètres)][4]
 
@@ -486,7 +488,7 @@ WordPress se connecte au serveur Redis. **L’état** de la connexion apparaît 
 
 ![WordPress se connecte au serveur Redis. **L’état** de la connexion apparaît sur la même page.][6]
 
-**Félicitations** , vous avez connecté WordPress à Redis. L’application prête pour la production utilise maintenant **Azure Database pour MySQL, le stockage persistant et Redis** . Vous pouvez maintenant effectuer un scale-out de votre plan App Service à plusieurs instances.
+**Félicitations** , vous avez connecté WordPress à Redis. L’application prête pour la production utilise maintenant **Azure Database pour MySQL, le stockage persistant et Redis**. Vous pouvez maintenant effectuer un scale-out de votre plan App Service à plusieurs instances.
 
 ## <a name="find-docker-container-logs"></a>Recherche des journaux d’activité de conteneur Docker
 

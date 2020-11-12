@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e167ccf1717c539dc676d85a19eb6eacc3ec0bda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89826eab7b1686ae695a2716a03b2f5d03da277f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021117"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099248"
 ---
 # <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Configurer une base de données distribuée à l’échelle mondiale à l’aide de l’API Azure Cosmos DB pour MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Dans cet article, nous vous montrons comment utiliser le portail Azure pour configurer une base de données distribuée à l’échelle mondiale et vous y connecter à l’aide de l’API Azure Cosmos DB pour MongoDB.
 

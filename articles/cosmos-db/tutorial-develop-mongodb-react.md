@@ -10,14 +10,15 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 06c309de5054887a64e61d61345190c776835709
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cdb8612bb04d52df3603aa4520cad4cbacb661da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476584"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074078"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Créer une application MongoDB avec React et Azure Cosmos DB  
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Ce didacticiel vidéo en plusieurs parties montre comment créer une application de suivi de héros avec un serveur frontal React. L’application se sert de Node et Express pour le serveur, se connecte à la base de données Cosmos configurée avec l’[API d’Azure Cosmos DB pour MongoDB](mongodb-introduction.md), puis connecte le front-end React à la partie serveur de l’application. Le tutoriel montre également comment effectuer une mise à l’échelle de Cosmos DB en pointant et cliquant dans le portail Azure et comment déployer l’application sur Internet pour que tout le monde puisse suivre ses héros préférés. 
 
@@ -91,7 +92,7 @@ Cette vidéo montre comment compléter l’application et terminer le raccordeme
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure. 
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer** .
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

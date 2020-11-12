@@ -3,17 +3,17 @@ title: Envoyer des notifications Push vers iOS avec Azure Notification Hubs et l
 description: Dans ce tutoriel, vous allez découvrir comment utiliser Azure Notification Hubs et Apple Push Notification Service pour envoyer des notifications Push à des appareils iOS.
 author: sethmanheim
 ms.author: sethm
-ms.date: 08/10/2020
+ms.date: 10/30/2020
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 3ec96ff0fdebc0ac862af00c699ec489567a7144
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c920c9b3b28df7f5bf3bf169ef88ab967f23649e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426763"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085375"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des applications iOS avec Azure Notification Hubs
 
@@ -110,7 +110,7 @@ Un certificat est nécessaire pour permettre au hub de notification de fonctionn
 
 - Créez un fichier **.p12** qui peut être chargé directement sur Notification Hubs.
 
-- Créez un certificat **.p8** qui peut être utilisé pour l’[authentification basée sur un jeton](notification-hubs-push-notification-http2-token-authentication.md) (l’approche la plus récente).
+- Créez un certificat **.p8** qui peut être utilisé pour l’ [authentification basée sur un jeton](notification-hubs-push-notification-http2-token-authentication.md) (l’approche la plus récente).
 
 La deuxième option présente un certain nombre d’avantages par rapport à l’utilisation de certificats, comme indiqué dans[Authentification basée sur un jeton (HTTP/2) pour APNS](notification-hubs-push-notification-http2-token-authentication.md). Toutefois, des étapes sont pour les deux approches.
 
@@ -309,4 +309,4 @@ Vous avez maintenant configuré votre hub de notification avec APNS. Vous dispos
 
 Dans ce tutoriel, vous avez créé et configuré un hub de notification dans Azure et vous l’avez configuré pour autoriser l’envoi de notifications à votre application par le biais d’Apple Push Notification Service (APNS). Maintenant, nous allons créer un exemple d’application iOS et intégrer le SDK Azure Notifications Hubs afin de lui permettre de recevoir des notifications Push envoyées par le biais du portail Azure. Passez au tutoriel suivant en fonction du langage de votre choix :
 
-- [Tutoriel : Intégrer avec une application iOS Swift]()
+- [Tutoriel : Envoyer des notifications Push vers des applications iOS avec Azure Notification Hubs](ios-sdk-300.md)

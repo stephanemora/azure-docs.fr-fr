@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: c16d7ccba24680604bc7f083f7242edd53abe102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181af5cf26d19a9f51e8d456e777badf7efa224d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097819"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Générer l’interface utilisateur avec Angular
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Ce tutoriel en plusieurs parties montre comment créer une application écrite en Node.js avec Express et Angular, puis comment la connecter à votre [compte Cosmos configuré avec l’API de Cosmos DB pour MongoDB](mongodb-introduction.md).
 
@@ -55,14 +56,14 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
     Examinons les fichiers qui ont été créés et mis à jour. 
 
-3. Dans Visual Studio Code, dans le volet **Explorateur**, accédez au nouveau dossier **src\app** et ouvrez le nouveau fichier **heroes.component.ts** généré dans le dossier de l’application. Ce fichier de composant TypeScript a été créé par la commande précédente.
+3. Dans Visual Studio Code, dans le volet **Explorateur** , accédez au nouveau dossier **src\app** et ouvrez le nouveau fichier **heroes.component.ts** généré dans le dossier de l’application. Ce fichier de composant TypeScript a été créé par la commande précédente.
 
     > [!TIP]
     > Si le dossier de l’application ne s’affiche pas dans Visual Studio Code, entrez Commande +Maj +P sur Mac ou Ctrl + Maj + P sur Windows pour ouvrir la palette de commandes, puis saisissez *Recharger la fenêtre* pour voir les modifications système.
 
 4. Dans le même dossier, ouvrez le fichier **app.module.ts**. Vous remarquez que `HeroesComponent` a été ajouté aux déclarations dans la ligne 5 et importé dans la ligne 10.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Installation du composant héros":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Ouvrez le fichier app-module.ts":::
 
 5. Revenez au fichier **heroes.component.html** et copiez dans ce code. Le `<div>` est le conteneur pour toute la page. Dans le conteneur, il y a une liste de héros à créer de telle manière que lorsque vous cliquez sur l’un d’eux, vous pouvez le sélectionner pour le modifier ou le supprimer de l’interface utilisateur. L’HTML a été optimisé pour que vous sachiez lequel est sélectionné. Vous pouvez également ajouter un nouveau héros ou modifier un héros existant dans la zone d’édition. 
 
@@ -171,7 +172,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
     }
     ```
 
-8. Dans **Explorateur**, ouvrez le fichier **app/app.module.ts** et mettez à jour la section importations pour ajouter une importation pour un module `FormsModule`. La section importation doit maintenant ressembler à ce qui suit :
+8. Dans **Explorateur** , ouvrez le fichier **app/app.module.ts** et mettez à jour la section importations pour ajouter une importation pour un module `FormsModule`. La section importation doit maintenant ressembler à ce qui suit :
 
     ```
     imports: [
@@ -180,7 +181,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
     ],
     ```
 
-9. Dans le fichier **app/app.module.ts**, ajoutez une importation pour le nouveau module FormsModule dans la ligne 3. 
+9. Dans le fichier **app/app.module.ts** , ajoutez une importation pour le nouveau module FormsModule dans la ligne 3. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -192,7 +193,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
 1. Dans le volet Explorateur, ouvrez le fichier **src/client/styles.scss**.
 
-2. Copiez le code suivant dans le fichier **styles.scss**, et remplacez le contenu existant dans le fichier.
+2. Copiez le code suivant dans le fichier **styles.scss** , et remplacez le contenu existant dans le fichier.
 
     ```css
     /* You can add global styles to this file, and also import other style files */
@@ -353,7 +354,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
 Maintenant que nous avons le composant, comment l’afficher sur l’écran ? Commençons par modifier les composants par défaut dans **app.component.ts**.
 
-1. Dans le volet Explorateur, ouvrez **/app/app.component.ts**, remplacez le titre par Heroes et placez le nom du composant que vous avez créé dans **heroes.components.ts** (app-heroes) pour faire référence à ce nouveau composant. Le contenu du fichier doit maintenant se présenter comme suit : 
+1. Dans le volet Explorateur, ouvrez **/app/app.component.ts** , remplacez le titre par Heroes et placez le nom du composant que vous avez créé dans **heroes.components.ts** (app-heroes) pour faire référence à ce nouveau composant. Le contenu du fichier doit maintenant se présenter comme suit : 
 
     ```ts
     import { Component } from '@angular/core';
@@ -374,13 +375,13 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
 
     ```
 
-2. Nous faisons référence à d’autres composants dans **heroes.components.ts**, comme le composant héros, que nous devons également créer. Dans l’invite de commandes CLI Angular, utilisez la commande suivante pour créer un modèle héros et un fichier nommé **hero.ts**, où g = générer, cl = classe et hero = nom de classe.
+2. Nous faisons référence à d’autres composants dans **heroes.components.ts** , comme le composant héros, que nous devons également créer. Dans l’invite de commandes CLI Angular, utilisez la commande suivante pour créer un modèle héros et un fichier nommé **hero.ts** , où g = générer, cl = classe et hero = nom de classe.
 
     ```bash
     ng g cl hero
     ```
 
-3. Dans le volet Explorateur, ouvrez **src\client\app\hero.ts**. Dans **hero.ts**, remplacez le contenu du fichier par le code suivant, afin d’ajouter une classe héros avec un ID, un nom et un message.
+3. Dans le volet Explorateur, ouvrez **src\client\app\hero.ts**. Dans **hero.ts** , remplacez le contenu du fichier par le code suivant, afin d’ajouter une classe héros avec un ID, un nom et un message.
 
     ```ts
       export class Hero {
@@ -394,7 +395,7 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
 
 5. Cliquez sur le terme `Hero`, et Visual Studio affiche une icône d’ampoule sur le côté gauche du bloc de code. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Installation du composant héros":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Icône Ampoule dans Visual Studio Code":::
 
 6. Cliquez sur l’ampoule, puis cliquez sur **Importer héros depuis « /app/hero ».** ou **Importer héros depuis « ./hero ».** (Le message diffère selon votre configuration)
 
@@ -408,7 +409,7 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
 
 ## <a name="create-the-service"></a>Créer le service
 
-1. Dans l’invite de commandes CLI Angular, entrez la commande suivante pour créer un service héros dans **app.module.ts**, où g = générer, s = service, hero = nom du service, -m = placer dans app.module.
+1. Dans l’invite de commandes CLI Angular, entrez la commande suivante pour créer un service héros dans **app.module.ts** , où g = générer, s = service, hero = nom du service, -m = placer dans app.module.
 
     ```bash
     ng g s hero -m app.module
@@ -466,7 +467,7 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
     ],
     ```
 
-5. Dans **app.module.ts**, ajoutez le module HttpClientModule et importez les instructions de la liste d’importation.
+5. Dans **app.module.ts** , ajoutez le module HttpClientModule et importez les instructions de la liste d’importation.
 
     ```ts
     import { HttpClientModule } from '@angular/common/http';
@@ -490,7 +491,7 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
 
 3. Ouvrez un navigateur internet et accédez à **localhost:3000** pour voir l’application s’exécuter en local.
 
-     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Installation du composant héros":::
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Application héros s’exécutant localement":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

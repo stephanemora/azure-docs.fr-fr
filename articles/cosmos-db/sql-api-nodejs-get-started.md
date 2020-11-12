@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098655"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutoriel : Générer une application console Node.js avec le SDK JavaScript pour gérer des données de l’API SQL Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -85,7 +86,7 @@ Maintenant que votre application existe, vous devez vous assurer qu’elle peut 
 
 1. Ouvrez le fichier *config.js* dans l’éditeur de texte de votre choix.
 
-1. Copiez et collez l’extrait de code ci-dessous dans le fichier *config.js* et attribuez aux propriétés `endpoint` et `key` l’URI de votre point de terminaison Azure Cosmos DB et votre clé primaire. Les noms de base de données et de conteneur sont définis sur **Tâches** et **Éléments** . La clé de partition que vous allez utiliser pour cette application est **/category** .
+1. Copiez et collez l’extrait de code ci-dessous dans le fichier *config.js* et attribuez aux propriétés `endpoint` et `key` l’URI de votre point de terminaison Azure Cosmos DB et votre clé primaire. Les noms de base de données et de conteneur sont définis sur **Tâches** et **Éléments**. La clé de partition que vous allez utiliser pour cette application est **/category**.
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
@@ -93,17 +94,17 @@ Maintenant que votre application existe, vous devez vous assurer qu’elle peut 
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Obtenir des clés à partir de la capture d’écran du portail Azure":::
 
-Le SDK JavaScript utilise les termes génériques *conteneur* et *élément* . Un conteneur peut être une collection, un graphique ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. Dans l’extrait de code précédent, le code `module.exports = config;` est utilisé pour exporter l’objet de configuration, afin que vous puissiez le référencer dans le fichier *app.js* .
+Le SDK JavaScript utilise les termes génériques *conteneur* et *élément*. Un conteneur peut être une collection, un graphique ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. Dans l’extrait de code précédent, le code `module.exports = config;` est utilisé pour exporter l’objet de configuration, afin que vous puissiez le référencer dans le fichier *app.js*.
 
 ## <a name="create-a-database-and-a-container"></a>Créer une base de données et un conteneur
 
 1. Ouvrez le fichier *databaseContext.js* dans l’éditeur de texte de votre choix.
 
-1. Copiez et collez le code suivant dans le fichier *databaseContext.js* . Ce code définit une fonction qui crée la base de données « Tâches » et le conteneur « Éléments » s’ils n’existent pas déjà dans votre compte Azure Cosmos :
+1. Copiez et collez le code suivant dans le fichier *databaseContext.js*. Ce code définit une fonction qui crée la base de données « Tâches » et le conteneur « Éléments » s’ils n’existent pas déjà dans votre compte Azure Cosmos :
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/data/databaseContext.js" id="createDatabaseAndContainer":::
 
-   Une base de données est le conteneur logique d’éléments partitionnés entre les conteneurs. Vous pouvez créer une base de données à l’aide de la fonction `createIfNotExists` ou create de la classe **Databases** . Un conteneur est composé d’éléments (des documents JSON dans le cas de l’API SQL). Vous pouvez créer un conteneur à l’aide de la fonction `createIfNotExists` ou create de la classe **Containers** . Après avoir créé un conteneur, vous pouvez stocker et interroger les données.
+   Une base de données est le conteneur logique d’éléments partitionnés entre les conteneurs. Vous pouvez créer une base de données à l’aide de la fonction `createIfNotExists` ou create de la classe **Databases**. Un conteneur est composé d’éléments (des documents JSON dans le cas de l’API SQL). Vous pouvez créer un conteneur à l’aide de la fonction `createIfNotExists` ou create de la classe **Containers**. Après avoir créé un conteneur, vous pouvez stocker et interroger les données.
 
    > [!WARNING]
    > La création d'un conteneur a des conséquences tarifaires. Pour plus d'informations, rendez-vous sur notre [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
@@ -151,7 +152,7 @@ Un élément peut être créé à l’aide de la fonction create de la classe `I
 
 ## <a name="update-an-item"></a><a id="ReplaceItem"></a>Mettre à jour un élément
 
-Azure Cosmos DB prend en charge le remplacement du contenu d’éléments. Copiez et collez le code suivant dans le fichier *app.js* . Ce code obtient un élément à partir du conteneur et met à jour le champ *isComplete* sur la valeur true.
+Azure Cosmos DB prend en charge le remplacement du contenu d’éléments. Copiez et collez le code suivant dans le fichier *app.js*. Ce code obtient un élément à partir du conteneur et met à jour le champ *isComplete* sur la valeur true.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="UpdateItem":::
 
