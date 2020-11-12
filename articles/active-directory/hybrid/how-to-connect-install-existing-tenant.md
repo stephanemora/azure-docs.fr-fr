@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662248"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420527"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
@@ -34,11 +34,11 @@ Vous pouvez gérer certains utilisateurs en local et d’autres dans le cloud. U
 Si vous avez commencé à gérer des utilisateurs dans Azure AD qui se trouvent également dans un répertoire AD local et que vous souhaitez ultérieurement utiliser Connect, il existe des considérations supplémentaires que vous devez prendre en compte.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchroniser avec les utilisateurs existants dans Azure AD
-Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName**, **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses**, seule la valeur avec **SMTP :** , c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
+Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName** , **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses** , seule la valeur avec **SMTP :** , c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
 
 La correspondance est évaluée uniquement pour les nouveaux objets provenant de Connect. Si vous modifiez un objet existant afin qu’il corresponde à l’un de ces attributs, une erreur s’affiche à la place.
 
-Si AD Azure détecte un objet dans lequel les valeurs d’attribut sont les mêmes pour un objet provenant de Connect et qui est déjà présent dans Azure AD, alors l’objet dans Azure AD est pris en charge par Connect. L’objet précédemment géré dans le cloud est indiqué comme étant géré en local. Tous les attributs dans Azure AD avec une valeur dans le répertoire AD local sont remplacés par la valeur locale. L’exception est lorsqu’un attribut a une valeur **NULL** locale. Dans ce cas, la valeur dans Azure AD est conservée, mais vous pouvez toujours la modifier uniquement en local.
+Si AD Azure détecte un objet dans lequel les valeurs d’attribut sont les mêmes pour un objet provenant de Connect et qui est déjà présent dans Azure AD, alors l’objet dans Azure AD est pris en charge par Connect. L’objet précédemment géré dans le cloud est indiqué comme étant géré en local. Tous les attributs dans Azure AD avec une valeur dans le répertoire AD local sont remplacés par la valeur locale.
 
 > [!WARNING]
 > Étant donné que tous les attributs dans Azure AD vont être remplacés par la valeur locale, assurez-vous que vous disposez de bonnes données locales. Par exemple, si vous avez uniquement une adresse e-mail gérée dans Microsoft 365 et que vous ne l’avez pas conservée à jour dans AD DS en local, alors vous perdrez toutes les valeurs dans Azure AD/Microsoft 365 qui ne figurent pas dans AD DS.

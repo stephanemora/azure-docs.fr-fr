@@ -6,19 +6,19 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a9592d848398c71bc573c073f0b712898f666640
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104867"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422805"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Utiliser Java et Gradle pour créer et publier une fonction sur Azure
 
 Cet article montre comment générer et publier un projet de fonction Java sur Azure Functions avec l’outil en ligne de commande Gradle. Quand vous avez terminé, votre code de fonction s’exécute dans Azure dans un [plan d’hébergement serverless](functions-scale.md#consumption-plan) et est déclenché par une requête HTTP. 
 
 > [!NOTE]
-> Si Gradle n’est pas votre outil de développement préféré, consultez nos tutoriels similaires, destinés aux développeurs Java utilisant [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) et [VS Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
+> Si Gradle n’est pas votre outil de développement préféré, consultez nos tutoriels similaires, destinés aux développeurs Java utilisant [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) et [VS Code](./create-first-function-vs-code-java.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -126,8 +126,8 @@ Cela crée les ressources suivantes dans Azure, en fonction des valeurs du fichi
 
 + Groupe de ressources. Nommé avec le _resourceGroup_ que vous avez fourni.
 + Compte de stockage. Requis par les fonctions. Le nom est généré de façon aléatoire en fonction des exigences du nom de compte de stockage.
-+ Plan App Service. Hébergement de Plan de consommation serverless pour votre application de fonction dans l’_appRegion_ spécifiée. Le nom est généré de façon aléatoire.
-+ Application de fonction. Une application de fonction est l’unité de déploiement et d’exécution de vos fonctions. Le nom est l’_appName_, auquel est ajouté un numéro généré de façon aléatoire. 
++ Plan App Service. Hébergement de Plan de consommation serverless pour votre application de fonction dans l’ _appRegion_ spécifiée. Le nom est généré de façon aléatoire.
++ Application de fonction. Une application de fonction est l’unité de déploiement et d’exécution de vos fonctions. Le nom est l’ _appName_ , auquel est ajouté un numéro généré de façon aléatoire. 
 
 Le déploiement empaquette également les fichiers projet et les déploie dans la nouvelle application de fonction à l’aide de [zip deployment](functions-deployment-technologies.md#zip-deploy), en activant le mode d’exécution à partir du package.
 
@@ -140,9 +140,9 @@ Le paramètre authLevel du déclencheur HTTP de l'exemple de projet est `ANONYMO
 
 Vous pouvez obtenir l’URL requise pour déclencher votre fonction, avec la clé de fonction, à partir du portail Azure. 
 
-1. Accédez au [Azure portal], connectez-vous, tapez l’_appName_ de votre application de fonction dans **Rechercher** en haut de la page, puis appuyez sur Entrée.
+1. Accédez au [Azure portal], connectez-vous, tapez l’ _appName_ de votre application de fonction dans **Rechercher** en haut de la page, puis appuyez sur Entrée.
  
-1. Dans votre application de fonction, sélectionnez **Fonctions**, choisissez votre fonction, puis cliquez sur **</> Obtenir l'URL de fonction** en haut à droite. 
+1. Dans votre application de fonction, sélectionnez **Fonctions** , choisissez votre fonction, puis cliquez sur **</> Obtenir l'URL de fonction** en haut à droite. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copier l'URL de fonction à partir du portail Azure":::
 

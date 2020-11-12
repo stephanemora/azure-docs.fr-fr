@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595843"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360307"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure PowerShell
 
@@ -127,7 +127,7 @@ Créez le premier écouteur à l’aide de [New-AzApplicationGatewayHttpListener
 
 >[!NOTE]
 > À l’aide du niveau tarifaire Application Gateway ou WAF v2, vous pouvez également configurer jusqu’à 5 noms d’hôte par écouteur et utiliser des caractères génériques dans le nom d’hôte. Pour plus d’informations, consultez les informations relatives aux [noms d’hôtes comportant des caractères génériques dans l’écouteur](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
->Pour utiliser plusieurs noms d’hôte et caractères génériques dans un écouteur à l’aide d’Azure PowerShell, vous devez utiliser `-HostNames` au lieu de `-HostName`. Grâce au préfixe « HostNames », vous pouvez spécifier jusqu’à cinq noms d’hôte comme valeurs séparées par des virgules. Par exemple : `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Pour utiliser plusieurs noms d’hôte et caractères génériques dans un écouteur à l’aide d’Azure PowerShell, vous devez utiliser `-HostNames` au lieu de `-HostName`. Grâce au préfixe « HostNames », vous pouvez spécifier jusqu’à cinq noms d’hôte comme valeurs séparées par des virgules. Par exemple : `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

@@ -3,12 +3,12 @@ title: Définir des mots de passe pour des machines virtuelles dans Azure Lab Se
 description: Découvrez comment définir et réinitialiser des mots de passe pour des machines virtuelles (VM) dans les labos de salle de classe de Microsoft Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334070"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379687"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
 Cet article explique comment effectuer les tâches suivantes :
@@ -20,7 +20,7 @@ Cet article explique comment effectuer les tâches suivantes :
 ## <a name="update-the-lab-capacity"></a>Mettre à jour la capacité du labo
 Pour augmenter ou diminuer la capacité du labo (nombre de machines virtuelles dans un laboratoire), procédez comme suit :
 
-1. Dans la page **Pool de machines virtuelles**, sélectionnez **Capacité du labo : &lt;nombre&gt; machines**.
+1. Dans la page **Pool de machines virtuelles** , sélectionnez **Capacité du labo : &lt;nombre&gt; machines**.
 2. Entrez le nouveau **nombre de machines virtuelles** que vous souhaitez dans le laboratoire. Ce nombre doit être supérieur ou égal au nombre d’utilisateurs inscrits dans le labo. 
 3. Sélectionnez ensuite **Enregistrer**. 
 
@@ -53,15 +53,14 @@ De même, vous pouvez arrêter une ou plusieurs machines virtuelles en activant 
 > Lorsqu’un formateur active la machine virtuelle d’un étudiant, le quota de l’étudiant n’est pas affecté. Le quota d’un utilisateur spécifie le nombre d’heures de labo disponibles pour l’utilisateur en dehors des heures de classe planifiées. Pour plus d’informations sur les quotas, consultez [Définir des quotas pour les utilisateurs](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Réinitialiser les machines virtuelles
+
 Pour réinitialiser une ou plusieurs machines virtuelles, sélectionnez-les dans la liste, puis sélectionnez **Réinitialiser** dans la barre d’outils. 
 
 ![Réinitialiser les machines virtuelles sélectionnées](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
 
-Dans la boîte de dialogue **Réinitialiser la ou les machines virtuelles**, sélectionnez **Réinitialiser**. 
+Dans la boîte de dialogue **Réinitialiser la ou les machines virtuelles** , sélectionnez **Réinitialiser**. 
 
 ![Boîte de dialogue Réinitialiser la machine virtuelle](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>Définir un mot de passe pour des machines virtuelles
 Un propriétaire de laboratoire (formateur) peut définir/réinitialiser le mot de passe pour des machines virtuelles au moment de la création du labo (avec l’Assistant de création de labo) ou après l’avoir créé, sur la page **Modèle**. 
@@ -76,7 +75,7 @@ En activant ou désactivant l’option **Use same password for all virtual machi
 ### <a name="reset-password-later"></a>Réinitialiser le mot de passe plus tard
 
 1. Dans la page **Modèle** du laboratoire, sélectionnez **Réinitialiser le mot de passe** dans la barre d’outils. 
-1. Dans la boîte de dialogue **Réinitialiser le mot de passe**, entrez un mot de passe et sélectionnez **Réinitialiser le mot de passe**.
+1. Dans la boîte de dialogue **Réinitialiser le mot de passe** , entrez un mot de passe et sélectionnez **Réinitialiser le mot de passe**.
     
     ![Boîte de dialogue Set Password (Définir un mot de passe)](./media/how-to-set-virtual-machine-passwords/set-password.png)
 

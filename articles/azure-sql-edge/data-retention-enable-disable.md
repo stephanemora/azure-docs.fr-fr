@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902501"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395153"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Activer et désactiver des stratégies de rétention de données
 
@@ -22,7 +22,7 @@ Cette rubrique explique comment activer et désactiver des stratégies de réten
 
 ## <a name="enable-data-retention-for-a-database"></a>Activer la rétention de données pour une base de données
 
-L’exemple suivant indique comment activer le suivi des modifications à l’aide de la commande [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+L’exemple suivant indique comment activer le suivi des modifications à l’aide de la commande [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>Activer la rétention de données pour une table
 
-La rétention de données doit être activée pour chaque table dont vous souhaitez que les données soient purgées automatiquement. Lorsque la rétention de données est activée sur la base de données et la table, une tâche système en arrière-plan analyse périodiquement la table pour identifier et supprimer toutes les lignes obsolètes (anciennes). La rétention de données peut être activée sur une table lors de la création de celle-ci à l’aide de la comment [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) ou de la commande [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+La rétention de données doit être activée pour chaque table dont vous souhaitez que les données soient purgées automatiquement. Lorsque la rétention de données est activée sur la base de données et la table, une tâche système en arrière-plan analyse périodiquement la table pour identifier et supprimer toutes les lignes obsolètes (anciennes). La rétention de données peut être activée sur une table lors de la création de celle-ci à l’aide de la comment [Create Table](/sql/t-sql/statements/create-table-transact-sql) ou de la commande [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).
 
-L’exemple suivant montre comment activer la rétention de données pour une table à l’aide de la commande [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+L’exemple suivant montre comment activer la rétention de données pour une table à l’aide de la commande [Create Table](/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ La partie `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_P
     - DateTimeOffset
 - RETENTION_PERIOD : valeur entière suivie d’un descripteur d’unité. Les unités autorisées sont DAY, DAYS, WEEK, WEEKS, MONTH, MONTHS, YEAR et YEARS.
 
-L’exemple suivant montre comment activer la rétention de données pour une table en utilisant la commande [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+L’exemple suivant montre comment activer la rétention de données pour une table en utilisant la commande [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -101,7 +101,7 @@ Les paramètres de rétention de données définis sur la base de données et la
 
 ## <a name="disable-data-retention-on-a-table"></a>Désactiver la rétention de données sur une table 
 
-La rétention de données peut être désactivée sur une table à l’aide de la commande [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). La commande suivante peut être utilisée pour désactiver la rétention de données sur une table.
+La rétention de données peut être désactivée sur une table à l’aide de la commande [Alter Table](/sql/t-sql/statements/alter-table-transact-sql). La commande suivante peut être utilisée pour désactiver la rétention de données sur une table.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>Désactiver la rétention de données sur une base de données
 
-La rétention de données peut être désactivée sur une table à l’aide de la commande [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). La commande suivante permet de désactiver la rétention de données sur une base de données.
+La rétention de données peut être désactivée sur une table à l’aide de la commande [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options). La commande suivante permet de désactiver la rétention de données sur une base de données.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

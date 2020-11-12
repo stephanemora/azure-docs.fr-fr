@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043114"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422550"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -20,7 +20,7 @@ Si vous êtes développeur Express.js, Node.js ou JavaScript et que vous débute
 
 | Prise en main | Concepts| Apprentissage guidé |
 | -- | -- | -- | 
-| <ul><li>[Fonction Node.js avec Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Fonction Node.js avec le terminal/l’invite de commandes](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guide du développeur](functions-reference.md)</li><li>[Options d’hébergement](functions-scale.md)</li><li>[Fonctions TypeScript](#typescript)</li><li>[Considérations&nbsp; relatives aux performances](functions-best-practices.md)</li></ul> | <ul><li>[Créer des applications serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoriser des API Node.js et Express en API serverless](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Fonction Node.js avec Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Fonction Node.js avec le terminal/l’invite de commandes](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Guide du développeur](functions-reference.md)</li><li>[Options d’hébergement](functions-scale.md)</li><li>[Fonctions TypeScript](#typescript)</li><li>[Considérations&nbsp; relatives aux performances](functions-best-practices.md)</li></ul> | <ul><li>[Créer des applications serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoriser des API Node.js et Express en API serverless](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Principes de base sur les fonctions JavaScript
 
@@ -651,7 +651,7 @@ Dans la version 1.x, le paramètre `languageWorkers:node:arguments` ne fonctionn
 
 ## <a name="typescript"></a>TypeScript
 
-Lorsque vous ciblez la version 2.x du runtime Functions, [Azure Functions pour Visual Studio Code](functions-create-first-function-vs-code.md) et [Azure Functions Core Tools](functions-run-local.md) vous permettent de créer des applications de fonction à l’aide d’un modèle qui prend en charge des projets d’application de fonction TypeScript. Le modèle génère les fichiers de projet `package.json` et `tsconfig.json` qui simplifient la transpilation, l’exécution et la publication de fonctions JavaScript à partir du code TypeScript grâce à ces outils.
+Lorsque vous ciblez la version 2.x du runtime Functions, [Azure Functions pour Visual Studio Code](./create-first-function-cli-typescript.md) et [Azure Functions Core Tools](functions-run-local.md) vous permettent de créer des applications de fonction à l’aide d’un modèle qui prend en charge des projets d’application de fonction TypeScript. Le modèle génère les fichiers de projet `package.json` et `tsconfig.json` qui simplifient la transpilation, l’exécution et la publication de fonctions JavaScript à partir du code TypeScript grâce à ces outils.
 
 Un fichier `.funcignore` généré est utilisé pour indiquer les fichiers exclus lorsqu’un projet est publié dans Azure.  
 

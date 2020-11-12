@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108471"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422533"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -20,7 +20,7 @@ Une Azure Function PowerShell (fonction) est représentée comme un script Power
 
 Comme d’autres types de fonctions, les fonctions de script PowerShell utilisent des paramètres correspondant aux noms de toutes les liaisons d’entrée définies dans le fichier `function.json`. Un paramètre `TriggerMetadata` contenant des informations supplémentaires sur le déclencheur qui a démarré la fonction est également transmis.
 
-Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md). Vous devez également avoir effectué le [démarrage rapide de Functions pour PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) pour créer votre première fonction PowerShell.
+Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md). Vous devez également avoir effectué le [démarrage rapide de Functions pour PowerShell](./create-first-function-vs-code-powershell.md) pour créer votre première fonction PowerShell.
 
 ## <a name="folder-structure"></a>Structure de dossiers
 
@@ -235,7 +235,7 @@ La journalisation dans des fonctions PowerShell fonctionne comme la journalisati
 | ------------- | -------------- |
 | Error | **`Write-Error`** |
 | Avertissement | **`Write-Warning`**  | 
-| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Écrit dans la journalisation du niveau d’_information_. |
+| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Écrit dans la journalisation du niveau d’ _information_. |
 | Débogage | **`Write-Debug`** |
 | Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
@@ -418,7 +418,7 @@ Procédez comme suit pour modifier la version de PowerShell utilisée par votre 
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à une application de fonction.
 
-1. Sous **Paramètres**, sélectionnez **Configuration**. Dans l’onglet **Paramètres généraux**, recherchez la **version de PowerShell**. 
+1. Sous **Paramètres** , sélectionnez **Configuration**. Dans l’onglet **Paramètres généraux** , recherchez la **version de PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Choisir la version de PowerShell utilisée par l’application de fonction"::: 
 

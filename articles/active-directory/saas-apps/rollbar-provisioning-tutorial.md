@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 976bc7f8e36200250f230f7e543dcb181f370663
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 544e01ef96165cd6c96a97761a3e758b93b1b15b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516475"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352691"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Tutoriel : Configurer Rollbar pour l’approvisionnement automatique d’utilisateurs
 
@@ -49,15 +49,15 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 Avant de configurer Rollbar pour l’approvisionnement automatique d’utilisateurs avec Azure AD, vous devez activer l’approvisionnement SCIM sur Rollbar.
 
-1. Connectez-vous à votre [console d’administration Rollbar](https://rollbar.com/login/). Cliquez sur **Paramètres du compte** .
+1. Connectez-vous à votre [console d’administration Rollbar](https://rollbar.com/login/). Cliquez sur **Paramètres du compte**.
 
     ![Console d’administration Rollbar](media/rollbar-provisioning-tutorial/image00.png)
 
-2. Accédez à votre **nom de locataire Rollbar > Fournisseur d’identité** .
+2. Accédez à votre **nom de locataire Rollbar > Fournisseur d’identité**.
 
     ![Fournisseur d’identité Rollbar](media/rollbar-provisioning-tutorial/idp.png)
 
-3. Faites défiler l’affichage jusqu’à **Options d’approvisionnement** . Copiez le jeton d’accès. Cette valeur sera entrée dans le champ **Jeton secret** de l’onglet de provisionnement de votre application Rollbar dans le portail Azure. Cochez la case **Activer le provisionnement des utilisateurs et des équipes** , puis cliquez sur **Enregistrer** .
+3. Faites défiler l’affichage jusqu’à **Options d’approvisionnement**. Copiez le jeton d’accès. Cette valeur sera entrée dans le champ **Jeton secret** de l’onglet de provisionnement de votre application Rollbar dans le portail Azure. Cochez la case **Activer le provisionnement des utilisateurs et des équipes** , puis cliquez sur **Enregistrer**.
 
     ![Jeton d’accès Rollbar](media/rollbar-provisioning-tutorial/token.png)
 
@@ -70,7 +70,7 @@ Ajoutez Rollbar à partir de la galerie d’applications Azure AD pour commence
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quand vous affectez des utilisateurs et des groupes à Rollbar, vous devez sélectionner un rôle différent du rôle **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Quand vous affectez des utilisateurs et des groupes à Rollbar, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -81,33 +81,33 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-rollbar-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Rollbar dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Rollbar** .
+2. Dans la liste des applications, sélectionnez **Rollbar**.
 
     ![Lien Rollbar dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez la valeur du jeton d’accès récupérée plus tôt dans **Jeton secret** . Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Rollbar. Si la connexion échoue, vérifiez que votre compte Rollbar dispose des autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez la valeur du jeton d’accès récupérée plus tôt dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Rollbar. Si la connexion échoue, vérifiez que votre compte Rollbar dispose des autorisations d’administrateur et réessayez.
 
     ![Approvisionnement](./media/rollbar-provisioning-tutorial/admin.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Rollbar** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Rollbar**.
 
 9. Dans la section **Mappage d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Rollbar. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Rollbar pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Rollbar prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -120,7 +120,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |name.givenName|String|
    |emails[type eq "work"]|String|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Rollbar** .
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Rollbar**.
 
 11. Dans la section **Mappage d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Rollbar. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Rollbar dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -132,19 +132,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service d’approvisionnement Azure AD pour Rollbar, affectez la valeur **Activé** au paramètre **Statut d’approvisionnement** dans la section **Paramètres** .
+13. Pour activer le service d’approvisionnement Azure AD pour Rollbar, affectez la valeur **Activé** au paramètre **Statut d’approvisionnement** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou groupes que vous souhaitez provisionner sur Rollbar en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres** .
+14. Définissez les utilisateurs et/ou groupes que vous souhaitez provisionner sur Rollbar en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

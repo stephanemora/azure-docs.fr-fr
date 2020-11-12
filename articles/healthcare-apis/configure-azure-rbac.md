@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cadfad445c76726b1b825b131de4016a57979fa
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839909"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391838"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configurer un RBAC Azure pour FHIR 
 
-Cet article explique comment utiliser un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) pour attribuer l’accès au plan de données de l’API Azure pour FHIR. Un RBAC Azure est la méthode recommandée pour l’attribution de l’accès au plan de données lorsque les utilisateurs du plan de données sont gérés dans le locataire Azure Active Directory associé à votre abonnement Azure. Si vous utilisez un locataire Azure Active Directory externe, consultez la [référence sur l’attribution d’un RBAC local](configure-local-rbac.md).
+Cet article explique comment utiliser un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/index.yml) pour attribuer l’accès au plan de données de l’API Azure pour FHIR. Un RBAC Azure est la méthode recommandée pour l’attribution de l’accès au plan de données lorsque les utilisateurs du plan de données sont gérés dans le locataire Azure Active Directory associé à votre abonnement Azure. Si vous utilisez un locataire Azure Active Directory externe, consultez la [référence sur l’attribution d’un RBAC local](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Confirmer le mode RBAC Azure
 
@@ -25,17 +25,17 @@ Pour utiliser un RBAC Azure, votre API Azure pour FHIR doit être configurée po
 
 :::image type="content" source="media/rbac/confirm-azure-rbac-mode.png" alt-text="Confirmer le mode RBAC Azure":::
 
-L’**Autorité** définie doit être le locataire Azure Active Directory associé à votre abonnement et aucun GUID ne doit figurer dans la zone **ID d’objet autorisés**. Vous remarquerez également que la zone est désactivée et qu’une étiquette indique qu’un RBAC Azure doit être utilisé pour attribuer des rôles de plan de données.
+L’ **Autorité** définie doit être le locataire Azure Active Directory associé à votre abonnement et aucun GUID ne doit figurer dans la zone **ID d’objet autorisés**. Vous remarquerez également que la zone est désactivée et qu’une étiquette indique qu’un RBAC Azure doit être utilisé pour attribuer des rôles de plan de données.
 
 ## <a name="assign-roles"></a>Attribuer des rôles
 
-Pour accorder à des utilisateurs, à des principaux de service ou à des groupes l’accès au plan de données FHIR, cliquez sur **Contrôle d’accès (IAM)** , sur **Attributions de rôles**, puis sur **+ Ajouter** :
+Pour accorder à des utilisateurs, à des principaux de service ou à des groupes l’accès au plan de données FHIR, cliquez sur **Contrôle d’accès (IAM)** , sur **Attributions de rôles** , puis sur **+ Ajouter**  :
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Confirmer le mode RBAC Azure":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Ajouter une attribution de rôle Azure":::
 
-Dans la sélection **Rôle**, recherchez l’un des rôles intégrés pour le plan de données FHIR :
+Dans la sélection **Rôle** , recherchez l’un des rôles intégrés pour le plan de données FHIR :
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Confirmer le mode RBAC Azure":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Rôles de données FHIR intégrés":::
 
 Vous pouvez choisir entre les rôles suivants :
 
@@ -44,9 +44,9 @@ Vous pouvez choisir entre les rôles suivants :
 * Exportateur de données FHIR : peut lire et exporter des données (opérateur `$export`).
 * Contributeur aux données FHIR : peut effectuer toutes les opérations de plan de données.
 
-Si ces rôles ne suffisent pour combler vos besoins, vous pouvez également [créer des rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell).
+Si ces rôles ne suffisent pour combler vos besoins, vous pouvez également [créer des rôles personnalisés](../role-based-access-control/tutorial-custom-role-powershell.md).
 
-Dans la zone **Sélectionner**, recherchez un utilisateur, un principal de service ou un groupe auquel vous souhaitez attribuer le rôle.
+Dans la zone **Sélectionner** , recherchez un utilisateur, un principal de service ou un groupe auquel vous souhaitez attribuer le rôle.
 
 ## <a name="caching-behavior"></a>Comportement de mise en cache
 

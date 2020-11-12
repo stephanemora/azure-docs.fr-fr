@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888227"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395204"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Se connecter à Azure SQL Edge et l’interroger
 
@@ -29,15 +29,15 @@ Après avoir déployé un conteneur Azure SQL Edge, vous pouvez vous connecter a
 
 Vous pouvez vous connecter à une instance Azure SQL Edge à partir de l’un de ces outils courants :
 
-* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) : les outils clients sqlcmd sont déjà inclus dans l'image de conteneur d’Azure SQL Edge. Si vous joignez un conteneur en cours d’exécution avec un interpréteur de commandes Bash interactif, vous pouvez exécuter les outils localement. Les outils clients SQL ne sont PAS disponibles sur la plateforme ARM64, car ils ne sont pas inclus dans la version ARM64 des conteneurs SQL Edge. 
-* [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
-* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
-* [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
+* [sqlcmd](/sql/linux/sql-server-linux-setup-tools) : les outils clients sqlcmd sont déjà inclus dans l'image de conteneur d’Azure SQL Edge. Si vous joignez un conteneur en cours d’exécution avec un interpréteur de commandes Bash interactif, vous pouvez exécuter les outils localement. Les outils clients SQL ne sont PAS disponibles sur la plateforme ARM64, car ils ne sont pas inclus dans la version ARM64 des conteneurs SQL Edge. 
+* [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)
+* [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+* [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 Pour vous connecter à un moteur de base de données Azure SQL Edge à partir d'un ordinateur du réseau, vous devez disposer des éléments suivants :
 
 - **Adresse IP ou nom de réseau de la machine hôte** : Il s’agit de la machine hôte sur laquelle le conteneur Azure SQL Edge est en cours d’exécution.
-- **Mappage du port hôte du conteneur Azure SQL Edge** : Il s’agit du mappage pour le port du conteneur Docker sur un port de l’hôte. Dans le conteneur, Azure SQL Edge est toujours mappé au port 1433. Vous pouvez modifier cette valeur si vous le souhaitez. Pour modifier le numéro de port, mettez à jour les **Options de création de conteneur** pour le module Azure SQL Edge dans Azure IoT Edge. Dans l’exemple suivant, le port 1433 sur le conteneur est mappé au port 1600 sur l’hôte.
+- **Mappage du port hôte du conteneur Azure SQL Edge**  : Il s’agit du mappage pour le port du conteneur Docker sur un port de l’hôte. Dans le conteneur, Azure SQL Edge est toujours mappé au port 1433. Vous pouvez modifier cette valeur si vous le souhaitez. Pour modifier le numéro de port, mettez à jour les **Options de création de conteneur** pour le module Azure SQL Edge dans Azure IoT Edge. Dans l’exemple suivant, le port 1433 sur le conteneur est mappé au port 1600 sur l’hôte.
 
     ```JSON
     {
@@ -55,7 +55,7 @@ Pour vous connecter à un moteur de base de données Azure SQL Edge à partir d'
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Connexion au moteur de base de données depuis le conteneur
 
-Les [outils en ligne de commande SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) sont inclus dans l'image de conteneur d'Azure SQL Edge. Si vous joignez une invite de commandes interactive au conteneur, vous pouvez exécuter les outils localement. Les outils clients SQL ne sont PAS disponibles sur la plateforme ARM64, car ils ne sont pas inclus dans la version ARM64 des conteneurs SQL Edge. 
+Les [outils en ligne de commande SQL Server](/sql/linux/sql-server-linux-setup-tools) sont inclus dans l'image de conteneur d'Azure SQL Edge. Si vous joignez une invite de commandes interactive au conteneur, vous pouvez exécuter les outils localement. Les outils clients SQL ne sont PAS disponibles sur la plateforme ARM64, car ils ne sont pas inclus dans la version ARM64 des conteneurs SQL Edge. 
 
 1. Utilisez la commande `docker exec -it` pour démarrer un interpréteur de commandes bash interactif dans votre conteneur en cours d’exécution. Dans l’exemple suivant, `e69e056c702d` est l’ID de conteneur.
 
@@ -108,14 +108,14 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ```
 
-Pour vous connecter à une instance d’Azure SQL Edge à l'aide de SQL Server Management Studio sur un ordinateur Windows, consultez [SQL Server Management Studio](https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
+Pour vous connecter à une instance d’Azure SQL Edge à l'aide de SQL Server Management Studio sur un ordinateur Windows, consultez [SQL Server Management Studio](/sql/linux/sql-server-linux-manage-ssms).
 
-Pour vous connecter à une instance d’Azure SQL Edge à l'aide de Visual Studio Code sur un ordinateur Windows, Mac ou Linux, consultez [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode).
+Pour vous connecter à une instance d’Azure SQL Edge à l'aide de Visual Studio Code sur un ordinateur Windows, Mac ou Linux, consultez [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode).
 
-Pour vous connecter à une instance d’Azure SQL Edge à l'aide d'Azure Data Studio sur un ordinateur Windows, Mac ou Linux, consultez [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
+Pour vous connecter à une instance d’Azure SQL Edge à l'aide d'Azure Data Studio sur un ordinateur Windows, Mac ou Linux, consultez [Azure Data Studio](/sql/azure-data-studio/quickstart-sql-server).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Se connecter et interroger](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
+[Se connecter et interroger](/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 
-[Installer les outils SQL Server sur Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools)
+[Installer les outils SQL Server sur Linux](/sql/linux/sql-server-linux-setup-tools)

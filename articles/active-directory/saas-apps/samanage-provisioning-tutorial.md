@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2f694c5a089245a29aaf0e493542fc7f4fce46f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675448"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352997"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Tutoriel : Configurer SolarWinds Service Desk (précédemment Samanage) pour l’approvisionnement automatique d’utilisateurs
 
@@ -24,21 +24,21 @@ Ce tutoriel décrit les étapes à effectuer dans SolarWinds Service Desk (ancie
 
 ## <a name="migrate-to-the-new-solarwinds-service-desk-application"></a>Migrer vers la nouvelle application SolarWinds Service Desk
 
-Si vous disposez d’une intégration existante avec SolarWinds Service Desk, consultez la section suivante sur les modifications à venir. Si vous configurez SolarWinds Service Desk pour la première fois, vous pouvez ignorer cette section et passer à la section **Fonctionnalités prises en charge** .
+Si vous disposez d’une intégration existante avec SolarWinds Service Desk, consultez la section suivante sur les modifications à venir. Si vous configurez SolarWinds Service Desk pour la première fois, vous pouvez ignorer cette section et passer à la section **Fonctionnalités prises en charge**.
 
 #### <a name="whats-changing"></a>Ce qui a changé
 
-* Changements du côté Azure AD : La méthode d’autorisation pour provisionner des utilisateurs dans Samanage a été jusqu’à maintenant une **authentification de base** . Bientôt, la méthode d’autorisation utilisée sera remplacée par le **jeton secret à long terme** .
+* Changements du côté Azure AD : La méthode d’autorisation pour provisionner des utilisateurs dans Samanage a été jusqu’à maintenant une **authentification de base**. Bientôt, la méthode d’autorisation utilisée sera remplacée par le **jeton secret à long terme**.
 
 
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Que dois-je faire pour migrer mon intégration personnalisée existante vers la nouvelle application ?
 
-Si vous disposez d’une intégration SolarWinds Service Desk existante avec des informations d’identification d’administrateur valides, **vous n’avez rien à faire** . Nous effectuerons automatiquement la migration des clients vers la nouvelle application. Ce processus aura lieu en arrière-plan. Si les informations d’identification existantes expirent, ou si vous avez besoin d’autoriser l’accès à l’application, vous devez générer un jeton secret à long terme. Pour générer un nouveau jeton, reportez-vous à l’étape 2 de cet article.
+Si vous disposez d’une intégration SolarWinds Service Desk existante avec des informations d’identification d’administrateur valides, **vous n’avez rien à faire**. Nous effectuerons automatiquement la migration des clients vers la nouvelle application. Ce processus aura lieu en arrière-plan. Si les informations d’identification existantes expirent, ou si vous avez besoin d’autoriser l’accès à l’application, vous devez générer un jeton secret à long terme. Pour générer un nouveau jeton, reportez-vous à l’étape 2 de cet article.
 
 
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Comment savoir si mon application a été migrée ? 
 
-Une fois votre application migrée, dans la section **Informations d’identification de l’administrateur** , les champs **Nom d’utilisateur de l’administrateur** et **Mot de passe de l’administrateur** sont remplacés par un seul champ intitulé **Jeton secret** .
+Une fois votre application migrée, dans la section **Informations d’identification de l’administrateur** , les champs **Nom d’utilisateur de l’administrateur** et **Mot de passe de l’administrateur** sont remplacés par un seul champ intitulé **Jeton secret**.
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 
@@ -75,7 +75,7 @@ Ajoutez SolarWinds Service Desk à partir de la galerie d’applications Azure A
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Lorsque vous affectez des utilisateurs et des groupes à SolarWinds Service Desk, vous devez sélectionner un autre rôle qu’ **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Lorsque vous affectez des utilisateurs et des groupes à SolarWinds Service Desk, vous devez sélectionner un autre rôle qu’ **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -86,57 +86,57 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-solarwinds-service-desk-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs sur SolarWinds Service Desk dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **SolarWinds Service Desk** .
+2. Dans la liste des applications, sélectionnez **SolarWinds Service Desk**.
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran montrant l’onglet Approvisionnement sélectionné.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran montrant le Mode d’approvisionnement défini sur Automatique.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.samanage.com` dans **URL de locataire** .  Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret** . Sélectionnez **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à SolarWinds Service Desk. Si la connexion échoue, vérifiez que votre compte SolarWinds Service Desk dispose d’autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.samanage.com` dans **URL de locataire**.  Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Sélectionnez **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à SolarWinds Service Desk. Si la connexion échoue, vérifiez que votre compte SolarWinds Service Desk dispose d’autorisations d’administrateur et réessayez.
 
     ![Capture d’écran montrant le bouton Tester la connexion sélectionné.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec SolarWinds Service Desk** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec SolarWinds Service Desk**.
 
-9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers SolarWinds Service Desk dans la section **Mappages des attributs** . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans SolarWinds Service Desk pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API SolarWinds Service Desk prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers SolarWinds Service Desk dans la section **Mappages des attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans SolarWinds Service Desk pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API SolarWinds Service Desk prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       ![Mappages d’utilisateurs Samanage](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec SolarWinds Service Desk** .
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec SolarWinds Service Desk**.
 
-11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers SolarWinds Service Desk dans la section **Mappages des attributs** . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans SolarWinds Service Desk pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers SolarWinds Service Desk dans la section **Mappages des attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans SolarWinds Service Desk pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       ![Mappages de groupes Samanage](./media/samanage-provisioning-tutorial/group-attributes.png)
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service d’approvisionnement Azure AD pour SolarWinds Service Desk, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres** .
+13. Pour activer le service d’approvisionnement Azure AD pour SolarWinds Service Desk, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur SolarWinds Service Desk en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres** .
+14. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur SolarWinds Service Desk en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Quand vous êtes prêt à effectuer l’approvisionnement, sélectionnez **Enregistrer** .
+15. Quand vous êtes prêt à effectuer l’approvisionnement, sélectionnez **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

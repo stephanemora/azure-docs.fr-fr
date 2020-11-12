@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676738"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353102"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutoriel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
 
@@ -59,13 +59,13 @@ Cette section va vous guider afin de connecter votre instance Azure AD à votre
 
 Cette section décrit comment activer l’approvisionnement des utilisateurs des comptes d’utilisateurs Active Directory sur Salesforce.
 
-1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications** .
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 2. Si vous avez déjà configuré Salesforce pour l’authentification unique, recherchez votre instance de Salesforce à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et effectuer une recherche pour **Salesforce** dans la galerie d’applications. Dans les résultats de la recherche, sélectionnez Salesforce, puis ajoutez-le à votre liste d’applications.
 
-3. Sélectionnez votre instance de Salesforce, puis sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez votre instance de Salesforce, puis sélectionnez l’onglet **Approvisionnement**.
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran montrant la page d’approvisionnement Salesforce, avec le Mode d’approvisionnement défini sur Automatique et d’autres valeurs que vous pouvez définir.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -75,21 +75,21 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
     b. Dans la zone de texte **Mot de passe d’administrateur** , entrez le mot de passe de ce compte.
 
-6. Pour obtenir le jeton de sécurité Salesforce, ouvrez un nouvel onglet et connectez-vous au même compte d’administration Salesforce. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Paramètres** .
+6. Pour obtenir le jeton de sécurité Salesforce, ouvrez un nouvel onglet et connectez-vous au même compte d’administration Salesforce. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Paramètres**.
 
     ![Capture d’écran montrant le lien Paramètres sélectionné.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
-7. Dans le volet de navigation gauche, cliquez sur **Mes informations personnelles** pour développer la section associée, puis sur **Réinitialiser mon jeton de sécurité** .
+7. Dans le volet de navigation gauche, cliquez sur **Mes informations personnelles** pour développer la section associée, puis sur **Réinitialiser mon jeton de sécurité**.
   
     ![Capture d’écran montrant Réinitialiser mon jeton de sécurité sélectionné à partir de Mes informations personnelles.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
-8. Sur la page **Réinitialiser le jeton de sécurité** , cliquez sur **Réinitialiser le jeton de sécurité** .
+8. Sur la page **Réinitialiser le jeton de sécurité** , cliquez sur **Réinitialiser le jeton de sécurité**.
 
     ![La capture d’écran montre la page Jeton de sécurité REST, avec du texte explicatif et l’option de réinitialisation du jeton de sécurité](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
 9. Contrôlez la boîte de réception associée à ce compte d’administrateur. Recherchez un message électronique provenant de Salesforce.com qui contient le nouveau jeton de sécurité.
 
-10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton secret** .
+10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton secret**.
 
 11. L’ **URL de locataire** doit être entrée si l’instance de Salesforce se trouve sur Salesforce Government Cloud. Dans le cas contraire, elle est facultative. Entrez l’URL de locataire en utilisant le format « https://\<your-instance\>.my.salesforce.com », où vous devez remplacer \<your-instance\> par le nom de votre instance Salesforce.
 
@@ -103,7 +103,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 16. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Salesforce. Remarque : Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Salesforce, en vue d’opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
-17. Pour activer le service d’approvisionnement Azure AD pour Salesforce, accédez à la section Paramètres et définissez le **Statut de l’approvisionnement** sur **Activé** .
+17. Pour activer le service d’approvisionnement Azure AD pour Salesforce, accédez à la section Paramètres et définissez le **Statut de l’approvisionnement** sur **Activé**.
 
 18. Cliquez sur **Enregistrer.**
 

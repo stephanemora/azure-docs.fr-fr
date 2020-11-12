@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ca22b3d2c00bfef128455df4ad6b9bb6411f8a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900566"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392110"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Streaming de données dans Azure SQL Edge
 
-Azure SQL Edge fournit une implémentation native des fonctionnalités de diffusion en continu de données appelées diffusion en continu T-SQL. Ce dernier permet le streaming de données en temps réel, l’analytique et le traitement des événements pour analyser et traiter rapidement et simultanément d’importants volumes de données de streaming à partir de plusieurs sources. Le streaming T-SQL repose sur l’utilisation du moteur de streaming haute performance sur lequel s’appuie [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) dans Microsoft Azure. La fonctionnalité prend en charge un ensemble similaire de fonctionnalités offertes par Azure Stream Analytics s’exécutant sur la périphérie.
+Azure SQL Edge fournit une implémentation native des fonctionnalités de diffusion en continu de données appelées diffusion en continu T-SQL. Ce dernier permet le streaming de données en temps réel, l’analytique et le traitement des événements pour analyser et traiter rapidement et simultanément d’importants volumes de données de streaming à partir de plusieurs sources. Le streaming T-SQL repose sur l’utilisation du moteur de streaming haute performance sur lequel s’appuie [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) dans Microsoft Azure. La fonctionnalité prend en charge un ensemble similaire de fonctionnalités offertes par Azure Stream Analytics s’exécutant sur la périphérie.
 
 Comme avec Stream Analytics, le streaming T-SQL reconnaît les modèles et les relations des informations extraites d’un certain nombre de sources d’entrée IoT, parmi lesquelles les appareils, les capteurs et les applications. Vous pouvez utiliser ces modèles pour déclencher des actions et lancer des workflows. Par exemple, vous pouvez créer des alertes, transmettre des informations à une solution de création de rapports ou de visualisation ou stocker les données pour les utiliser ultérieurement. 
 
@@ -31,25 +31,25 @@ Le streaming T-SQL peut vous aider à effectuer les tâches suivantes :
 
 ## <a name="how-does-t-sql-streaming-work"></a>Comment fonctionne le streaming T-SQL ?
 
-Le streaming T-SQL fonctionne exactement de la même façon qu’[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction#how-does-stream-analytics-work). Par exemple, il utilise le concept de streaming de *travaux* pour le traitement de streaming de données en temps réel. 
+Le streaming T-SQL fonctionne exactement de la même façon qu’[Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md#how-does-stream-analytics-work). Par exemple, il utilise le concept de streaming de *travaux* pour le traitement de streaming de données en temps réel. 
 
 Un travail Stream Analytics se compose de ce qui suit :
 
-- **Entrée de flux** : définit les connexions à une source de données à partir de laquelle lire le flux de données. Actuellement, Azure SQL Edge prend en charge les types d’entrée de flux suivants :
+- **Entrée de flux**  : définit les connexions à une source de données à partir de laquelle lire le flux de données. Actuellement, Azure SQL Edge prend en charge les types d’entrée de flux suivants :
     - Hub Edge
     - Kafka (la prise en charge des entrées Kafka est uniquement disponible sur les versions Intel/AMD64 d’Azure SQL Edge.)
 
-- **Sortie de flux** : définit les connexions à une source de données dans laquelle écrire le flux de données. Actuellement, Azure SQL Edge prend en charge les types de sortie de flux suivants :
+- **Sortie de flux**  : définit les connexions à une source de données dans laquelle écrire le flux de données. Actuellement, Azure SQL Edge prend en charge les types de sortie de flux suivants :
     - Hub Edge
     - SQL (La sortie SQL peut être une base de données locale au sein de l’instance d’Azure SQL Edge ou une instance SQL Server ou Azure SQL Database distante.) 
 
-- **Requête de flux** : définit la transformation, les agrégations, le filtrage, le tri et les jointures à appliquer au flux d’entrée avant qu’il ne soit écrit dans la sortie de flux. La requête de flux est basée sur le même langage de requête que celui utilisé par Stream Analytics. Pour plus d’informations, consultez [Langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+- **Requête de flux**  : définit la transformation, les agrégations, le filtrage, le tri et les jointures à appliquer au flux d’entrée avant qu’il ne soit écrit dans la sortie de flux. La requête de flux est basée sur le même langage de requête que celui utilisé par Stream Analytics. Pour plus d’informations, consultez [Langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
 
 > [!IMPORTANT]
-> Contrairement à Stream Analytics, le streaming T-SQL ne prend pas en charge l’[utilisation de données de référence pour les recherches](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data) ou l’[utilisation d’UDF et d’UDA dans un travail de flux](https://docs.microsoft.com/azure/stream-analytics/streaming-technologies#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).
+> Contrairement à Stream Analytics, le streaming T-SQL ne prend pas en charge l’[utilisation de données de référence pour les recherches](../stream-analytics/stream-analytics-use-reference-data.md) ou l’[utilisation d’UDF et d’UDA dans un travail de flux](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).
 
 > [!NOTE]
-> Le streaming T-SQL ne prend en charge qu’un sous-ensemble de la surface d’exposition au langage prise en charge par Stream Analytics. Pour plus d’informations, consultez [Langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+> Le streaming T-SQL ne prend en charge qu’un sous-ensemble de la surface d’exposition au langage prise en charge par Stream Analytics. Pour plus d’informations, consultez [Langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
 
 ## <a name="limitations-and-restrictions"></a>Limitations et restrictions
 

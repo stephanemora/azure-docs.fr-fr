@@ -9,12 +9,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 94696eacd9a75129f493a97bca201ad5ffb3456c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 2526f8a79cb9f9bc312c6338e3a005244a4a901c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131562"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359134"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Java pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -108,7 +108,7 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un en appelant la méthode **DataLakeServiceClient.createFileSystem** .
+Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un en appelant la méthode **DataLakeServiceClient.createFileSystem**.
 
 Cet exemple crée un conteneur nommé `my-file-system`. 
 
@@ -122,7 +122,7 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 ## <a name="create-a-directory"></a>Créer un répertoire
 
-Créez une référence de répertoire en appelant la méthode **DataLakeFileSystemClient.createDirectory** .
+Créez une référence de répertoire en appelant la méthode **DataLakeFileSystemClient.createDirectory**.
 
 Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur, puis ajoute un sous-répertoire nommé `my-subdirectory`. 
 
@@ -142,7 +142,7 @@ static public DataLakeDirectoryClient CreateDirectory
 
 ## <a name="rename-or-move-a-directory"></a>Renommer ou déplacer un répertoire
 
-Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename** . Transmettez un paramètre au chemin d’accès du répertoire souhaité. 
+Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename**. Transmettez un paramètre au chemin d’accès du répertoire souhaité. 
 
 Cet exemple renomme un sous-répertoire avec le nom `my-subdirectory-renamed`.
 
@@ -174,7 +174,7 @@ static public DataLakeDirectoryClient MoveDirectory
 
 ## <a name="delete-a-directory"></a>Supprimer un répertoire
 
-Supprimez un répertoire en appelant la méthode **DataLakeDirectoryClient.deleteWithResponse** .
+Supprimez un répertoire en appelant la méthode **DataLakeDirectoryClient.deleteWithResponse**.
 
 Cet exemple supprime un répertoire nommé `my-directory`.   
 
@@ -190,7 +190,7 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 
 ## <a name="upload-a-file-to-a-directory"></a>Charger un fichier dans un répertoire
 
-Tout d’abord, créez une référence de fichier dans le répertoire cible en créant une instance de la classe **DataLakeFileClient** . Téléchargez un fichier en appelant la méthode **DataLakeFileClient.append** . Veillez à effectuer le chargement en appelant la méthode **DataLakeFileClient.FlushAsync** .
+Tout d’abord, créez une référence de fichier dans le répertoire cible en créant une instance de la classe **DataLakeFileClient**. Téléchargez un fichier en appelant la méthode **DataLakeFileClient.append**. Veillez à effectuer le chargement en appelant la méthode **DataLakeFileClient.FlushAsync**.
 
 Cet exemple télécharge un fichier texte dans un répertoire nommé `my-directory`.
 
@@ -216,13 +216,13 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 ```
 
 > [!TIP]
-> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à la méthode **DataLakeFileClient.append** . Utilisez plutôt la méthode **DataLakeFileClient.uploadFromFile** . Vous pourrez ainsi charger la totalité du fichier en un seul appel. 
+> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à la méthode **DataLakeFileClient.append**. Utilisez plutôt la méthode **DataLakeFileClient.uploadFromFile**. Vous pourrez ainsi charger la totalité du fichier en un seul appel. 
 >
 > Vous en trouverez un exemple dans la section suivante.
 
 ## <a name="upload-a-large-file-to-a-directory"></a>Charger un fichier volumineux dans un répertoire
 
-Utilisez la méthode **DataLakeFileClient.uploadFromFile** pour charger des fichiers volumineux sans avoir à effectuer plusieurs appels à la méthode **DataLakeFileClient.append** .
+Utilisez la méthode **DataLakeFileClient.uploadFromFile** pour charger des fichiers volumineux sans avoir à effectuer plusieurs appels à la méthode **DataLakeFileClient.append**.
 
 ```java
 static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient) 
@@ -350,7 +350,7 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 ```
 
-Vous pouvez également obtenir et définir la liste de contrôle d’accès du répertoire racine d’un conteneur. Pour obtenir le répertoire racine, transmettez une chaîne vide (`""`) dans la méthode **DataLakeFileSystemClient.getDirectoryClient** .
+Vous pouvez également obtenir et définir la liste de contrôle d’accès du répertoire racine d’un conteneur. Pour obtenir le répertoire racine, transmettez une chaîne vide (`""`) dans la méthode **DataLakeFileSystemClient.getDirectoryClient**.
 
 ### <a name="manage-a-file-acl"></a>Gérer la liste ACL d’un fichier
 
@@ -398,6 +398,10 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
 }
 ```
+
+### <a name="set-an-acl-recursively"></a>Définir une liste de contrôle d’accès (ACL) de manière récursive
+
+Vous pouvez ajouter, mettre à jour et supprimer des listes ACL de manière récursive au niveau des éléments enfants existants d’un répertoire parent sans avoir à apporter ces modifications individuellement à chaque élément enfant. Pour plus d’informations, consultez [Définir des listes de contrôle d’accès (ACL) de manière récursive pour Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -4,12 +4,12 @@ description: Découvrez les nouveautés Azure Blockchain Service, comme les dern
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948457"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335024"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Nouveautés Azure Blockchain Service
 
@@ -27,7 +27,7 @@ Azure Blockchain Service bénéficie d’améliorations en continu. Pour vous in
 
 ### <a name="version-upgrades"></a>Mises à niveau de la version
 
-- Mise à niveau de Quorum vers la version 2.6.0. Avec la version 2.6.0, vous pouvez envoyer des transactions privées signées. Pour plus d’informations sur l’envoi de transactions privées, consultez la [documentation relative à l’API Quorum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Mise à niveau de Quorum vers la version 2.6.0. Avec la version 2.6.0, vous pouvez envoyer des transactions privées signées. Pour plus d’informations sur l’envoi de transactions privées, consultez la [documentation relative à l’API Quorum](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Mise à niveau de Tessera vers la version 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Taille du contrat et taille de la transaction augmentée à 128 Ko
@@ -38,7 +38,7 @@ La taille du contrat (MaxCodeSize) a été augmentée à 128 Ko, ce qui vous per
 
 ### <a name="trietimeout-value-reduced"></a>Valeur TrieTimeout réduite
 
-Tapez : Modification de la configuration
+Tapez : Modification de la configuration
 
 La valeur TrieTimeout a été réduite afin que l’état en mémoire soit écrit plus fréquemment sur le disque. La valeur inférieure garantit une récupération plus rapide d’un nœud dans le cas rare d’un incident de nœud.
 
@@ -68,8 +68,8 @@ Les deux phases permettent d’optimiser les scénarios dans lesquels un membre 
 
 Dans Quorum v2.6.0, appeler la fonction *eth.estimateGas* sans fournir le paramètre de *valeur* supplémentaire entraîne une exception de type *Gestionnaire de méthode en panne*. L’équipe de Quorum a été notifiée et un correctif est attendu à la fin du mois de juillet 2020. Vous pouvez utiliser les solutions de contournement suivantes en attendant qu’un correctif soit disponible :
 
-- Évitez d’utiliser *eth.estimateGas*, car cela peut affecter les performances. Pour plus d’informations sur les problèmes de performances liés à eth.estimateGas, consultez [L’appel de la fonction eth.estimateGas diminue les performances](#calling-ethestimategas-function-reduces-performance). Incluez une valeur de gaz pour chaque transaction. La plupart des bibliothèques appellent la fonction eth.estimateGas si aucune valeur de gaz n’est fournie, ce qui entraîne un indicent sur Quorum 2.6.0.
-- Si vous devez appeler *eth.estimateGas*, l’équipe de Quorum suggère de définir le paramètre supplémentaire *valeur* sur *0* comme solution de contournement.
+- Évitez d’utiliser *eth.estimateGas* , car cela peut affecter les performances. Pour plus d’informations sur les problèmes de performances liés à eth.estimateGas, consultez [L’appel de la fonction eth.estimateGas diminue les performances](#calling-ethestimategas-function-reduces-performance). Incluez une valeur de gaz pour chaque transaction. La plupart des bibliothèques appellent la fonction eth.estimateGas si aucune valeur de gaz n’est fournie, ce qui entraîne un indicent sur Quorum 2.6.0.
+- Si vous devez appeler *eth.estimateGas* , l’équipe de Quorum suggère de définir le paramètre supplémentaire *valeur* sur *0* comme solution de contournement.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>L’exploration s’arrête s’il y a moins de quatre nœuds validateurs
 
@@ -127,5 +127,5 @@ Si possible, utilisez une valeur de gaz prudente pour soumettre des transactions
 
 - [Éviter les boucles non liées](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Meilleures pratiques de sécurité pour les contrats intelligents](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Instructions relatives aux contrats intelligents fournies par Quorum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Instructions relatives aux contrats intelligents fournies par Quorum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Instructions concernant les boucles et les limites de gaz fournies par Solidity](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 53707261070e8efbd014614ee700df63a0925ef8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676616"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352725"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutoriel : Configurer l’approvisionnement d’utilisateurs SAP SuccessFactors vers Active Directory 
 L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les utilisateurs de SuccessFactors Employee Central dans Active Directory (AD) et Azure AD, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. 
@@ -106,21 +106,21 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 * Sous Permission settings (Paramètres d’autorisation), cliquez sur **Permission...** , faites défiler la liste des autorisations, puis cliquez sur **Manage Integration Tools** (Gérer les outils d’intégration). Cochez la case **Allow Admin to Access to OData API through Basic Authentication** (Autoriser l’administrateur à accéder à l’API OData via l’authentification de base).
   > [!div class="mx-imgBorder"]
   > ![Gérer les outils d’intégration](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Faites défiler la liste dans la même zone et sélectionnez **Employee Central API** . Ajoutez des autorisations comme indiqué ci-dessous pour lire à l’aide de l’API ODATA et modifier à l’aide de l’API ODATA. Sélectionnez l’option de modification si vous envisagez d’utiliser le même compte pour le scénario de réécriture vers SuccessFactors. 
+* Faites défiler la liste dans la même zone et sélectionnez **Employee Central API**. Ajoutez des autorisations comme indiqué ci-dessous pour lire à l’aide de l’API ODATA et modifier à l’aide de l’API ODATA. Sélectionnez l’option de modification si vous envisagez d’utiliser le même compte pour le scénario de réécriture vers SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Autorisations de lecture-écriture](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >Pour obtenir la liste complète des attributs récupérés par cette application de provisionnement, consultez [Référence des attributs SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-* Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications** .
+* Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Créer un groupe d’autorisations pour l’utilisateur des API
 
 * Dans le centre d’administration SuccessFactors, recherchez *Manage Permission Groups* (Gérer les groupes d’autorisations), puis sélectionnez **Manage Permission Groups** dans les résultats de la recherche.
   > [!div class="mx-imgBorder"]
   > ![Gérer les groupes d’autorisations](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* Dans la fenêtre Manage Permission Groups, cliquez sur **Create New** .
+* Dans la fenêtre Manage Permission Groups, cliquez sur **Create New**.
   > [!div class="mx-imgBorder"]
   > ![Ajouter un nouveau groupe](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Ajoutez un nom pour le nouveau groupe. Ce nom doit indiquer que le groupe est destiné aux utilisateurs des API.
@@ -142,7 +142,7 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 * Passez en revue l’octroi de rôle d’autorisation au groupe d’autorisations. 
   > [!div class="mx-imgBorder"]
   > ![Détails du rôle et du groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Cliquez sur **Enregistrer les modifications** .
+* Cliquez sur **Enregistrer les modifications**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configuration du provisionnement d’utilisateurs de SuccessFactors vers Active Directory
 
@@ -162,9 +162,9 @@ Cette section présente les étapes à suivre pour configurer le provisionnement
 
 2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory**
 
-3. Cliquez sur **Applications d’entreprise** , puis sur **Toutes les applications** .
+3. Cliquez sur **Applications d’entreprise** , puis sur **Toutes les applications**.
 
-4. Sélectionnez **Ajouter une application** , puis sélectionnez la catégorie **Tous** .
+4. Sélectionnez **Ajouter une application** , puis sélectionnez la catégorie **Tous**.
 
 5. Recherchez **SuccessFactors to Active Directory User Provisioning** et ajoutez cette application à partir de la galerie.
 
@@ -204,7 +204,7 @@ Transférez le programme d’installation de l’agent téléchargé sur l’hô
    > [!NOTE]
    > Les informations d'identification de l'administrateur Azure AD sont uniquement utilisées pour la connexion à votre locataire Azure AD. L'agent ne stocke pas les informations d'identification sur le serveur local.
 
-1. Après une authentification réussie auprès d’Azure AD, vous voyez l’écran **Connect Active Directory** (Connecter Active Directory). Entrez alors votre nom de domaine AD, puis cliquez sur le bouton **Ajouter un annuaire** .
+1. Après une authentification réussie auprès d’Azure AD, vous voyez l’écran **Connect Active Directory** (Connecter Active Directory). Entrez alors votre nom de domaine AD, puis cliquez sur le bouton **Ajouter un annuaire**.
 
    ![Ajouter un répertoire](./media/workday-inbound-tutorial/pa_install_screen_4.png "Ajouter un répertoire")
   
@@ -247,7 +247,7 @@ Lors de cette étape, nous allons établir la connectivité avec SuccessFactors 
 
    * **Mot de passe d’administrateur**  : entrez le mot de passe du compte d’utilisateur de l’API SuccessFactors. 
 
-   * **URL du locataire**  : entrez le nom du point de terminaison des services de l’API OData SuccessFactors. Entrez uniquement le nom d’hôte du serveur, sans http ou https. Cette valeur doit ressembler à ceci : **<nom_serveur_API>.successfactors.com** .
+   * **URL du locataire**  : entrez le nom du point de terminaison des services de l’API OData SuccessFactors. Entrez uniquement le nom d’hôte du serveur, sans http ou https. Cette valeur doit ressembler à ceci : **<nom_serveur_API>.successfactors.com**.
 
    * **Forêt Active Directory :** « nom » de votre domaine Active Directory, tel qu'il est inscrit auprès de l'agent. Utilisez le menu déroulant pour sélectionner le domaine cible à approvisionner. Cette valeur correspond généralement à une chaîne de type : *contoso.com*
 
@@ -260,17 +260,17 @@ Lors de cette étape, nous allons établir la connectivité avec SuccessFactors 
     > [!NOTE]
     > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](../app-provisioning/application-provisioning-quarantine-status.md).
 
-   * Cliquez sur le bouton **Tester la connexion** . Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer** , en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification de SuccessFactors et celles d’Active Directory configurées dans le programme d’installation de l’agent sont valides.
+   * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer** , en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification de SuccessFactors et celles d’Active Directory configurées dans le programme d’installation de l’agent sont valides.
     >[!div class="mx-imgBorder"]
     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
-   * Une fois les informations d’identification enregistrées, la section **Mappages** affiche le mappage par défaut **Synchroniser les employés SuccessFactors avec l’instance locale d’Active Directory** .
+   * Une fois les informations d’identification enregistrées, la section **Mappages** affiche le mappage par défaut **Synchroniser les employés SuccessFactors avec l’instance locale d’Active Directory**.
 
 ### <a name="part-4-configure-attribute-mappings"></a>Partie 4 : Configuration des mappages d’attributs
 
 Dans cette section, vous allez configurer le flux des données utilisateur de SuccessFactors vers Active Directory.
 
-1. Sous l’onglet Provisionnement, sous **Mappages** , cliquez sur **Synchroniser les utilisateurs SuccessFactors avec l’instance locale d’Active Directory** .
+1. Sous l’onglet Provisionnement, sous **Mappages** , cliquez sur **Synchroniser les utilisateurs SuccessFactors avec l’instance locale d’Active Directory**.
 
 1. Dans le champ **Portée de l’objet source** , vous pouvez sélectionner les ensembles d’utilisateurs de SuccessFactors concernés par le provisionnement vers AD, en définissant des filtres basés sur des attributs. L’étendue par défaut est « tous les utilisateurs de SuccessFactors ». Exemples de filtres :
 
@@ -340,9 +340,9 @@ Une fois les configurations d’application de provisionnement SuccessFactors ef
 > [!TIP]
 > Par défaut, lorsque vous activez le service d'approvisionnement, il lance les opérations d'approvisionnement pour tous les utilisateurs concernés. En cas d’erreur de mappage ou de problème lié aux données SuccessFactors, le travail de provisionnement peut échouer et être mis en quarantaine. Pour éviter ce genre de problème, nous vous recommandons de configurer le filtre **Portée de l'objet source** et de tester vos mappages d'attributs sur quelques utilisateurs test avant de lancer la synchronisation complète de tous les utilisateurs. Après avoir vérifié que les mappages fonctionnent et qu'ils vous donnent les résultats souhaités, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
-1. Dans l’onglet **Approvisionnement** , définissez **État d’approvisionnement** sur **Activé** .
+1. Dans l’onglet **Approvisionnement** , définissez **État d’approvisionnement** sur **Activé**.
 
-2. Cliquez sur **Enregistrer** .
+2. Cliquez sur **Enregistrer**.
 
 3. Cette opération permet de lancer la synchronisation initiale, dont la durée dépendra du nombre d’utilisateurs du locataire SuccessFactors. Vous pouvez consulter la barre de progression pour suivre la progression du cycle de synchronisation. 
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459388"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutoriel : Intégration d’Azure Active Directory à Jobscience
 
@@ -55,11 +55,11 @@ Pour configurer l’intégration de Jobscience à Azure AD, vous devez ajouter J
 
 **Pour ajouter Jobscience à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** . 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-1. Accédez à **Applications d’entreprise** . Accédez ensuite à **Toutes les applications** .
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Capture d’écran montrant le portail Azure avec Application d'entreprise sélectionné sous Gérer, avec Toutes les applications sélectionné.][2]
     
@@ -67,7 +67,7 @@ Pour configurer l’intégration de Jobscience à Azure AD, vous devez ajouter J
 
     ![Capture d’écran montrant Nouvelle application sélectionnée.][3]
 
-1. Dans la zone de recherche, entrez **Jobscience** .
+1. Dans la zone de recherche, entrez **Jobscience**.
 
     ![Capture d’écran montrant Ajouter à partir de la galerie avec jobscience entré.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
@@ -96,7 +96,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 **Pour configurer l’authentification unique Azure AD avec Jobscience, procédez comme suit :**
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **Jobscience** , cliquez sur **Authentification unique** .
+1. Dans le portail Azure, sur la page d’intégration de l’application **Jobscience** , cliquez sur **Authentification unique**.
 
     ![Capture d’écran montrant Authentification unique sélectionné sous Gérer dans le portail Azure.][4]
 
@@ -121,25 +121,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Capture d’écran montrant le bouton Enregistrer.](./media/jobscience-tutorial/tutorial_general_400.png)
 
-1. Dans la section **Configuration de Jobscience** , cliquez sur **Configurer Jobscience** pour ouvrir la fenêtre **Configurer l’authentification** . Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de Jobscience** , cliquez sur **Configurer Jobscience** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Capture d’écran montrant la fenêtre de configuration de Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
 1. Connectez-vous au site d’entreprise Jobscience en tant qu’administrateur.
 
-1. Accédez à **Setup** .
+1. Accédez à **Setup**.
    
    ![Capture d’écran montrant l’élément Setup pour votre entreprise.](./media/jobscience-tutorial/IC784358.png "Programme d’installation")
 
-1. Dans le volet de navigation gauche, dans la section **Administer** , cliquez sur **Domain Management** pour développer la section associée, puis cliquez sur **My Domain** pour ouvrir la page **My Domain** . 
+1. Dans le volet de navigation gauche, dans la section **Administer** , cliquez sur **Domain Management** pour développer la section associée, puis cliquez sur **My Domain** pour ouvrir la page **My Domain**. 
    
    ![My Domain](./media/jobscience-tutorial/ic767825.png "My Domain")
 
-1. Pour vérifier que votre domaine a été configuré correctement, vérifiez qu’il figure dans **Step 4 Deployed to Users** , puis passez en revue **My Domain Settings** .
+1. Pour vérifier que votre domaine a été configuré correctement, vérifiez qu’il figure dans **Step 4 Deployed to Users** , puis passez en revue **My Domain Settings**.
 
     ![Domaine déployé pour l’utilisateur](./media/jobscience-tutorial/ic784377.png "Domaine déployé pour l’utilisateur")
 
-1. Sur le site d’entreprise Jobscience, cliquez sur **Security Controls** , puis sur **Single Sign-On Settings** .
+1. Sur le site d’entreprise Jobscience, cliquez sur **Security Controls** , puis sur **Single Sign-On Settings**.
     
     ![Capture d’écran montrant Single Sign-On Settings sélectionné dans Security Controls.](./media/jobscience-tutorial/ic784364.png "Security Controls")
 
@@ -147,9 +147,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     ![Paramètres d’authentification unique](./media/jobscience-tutorial/ic781026.png "Paramètres d’authentification unique")
     
-    a. Sélectionnez **SAML Enabled** .
+    a. Sélectionnez **SAML Enabled**.
 
-    b. Cliquez sur **Nouveau** .
+    b. Cliquez sur **Nouveau**.
 
 1. Dans la boîte de dialogue **SAML Single Sign-On Setting Edit** , procédez comme suit :
     
@@ -165,27 +165,27 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Pour **SAML Identity Type (Type d’identité SAML)** , sélectionnez **Assertion contains the Federation ID from the User object (L’assertion contient l’ID de fédération de l’objet utilisateur)** .
 
-    f. Pour **SAML Identity Location** , sélectionnez **Identity is in the NameIdentfier element of the Subject statement** .
+    f. Pour **SAML Identity Location** , sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
 
     g. Dans la zone de texte **Identity Provider Login URL (URL de connexion du fournisseur d’identité)** , collez la valeur **URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
     h. Dans la zone de texte **Identity Provider Logout URL (URL de déconnexion du fournisseur d’identité)** , collez la valeur **URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    i. Cliquez sur **Enregistrer** .
+    i. Cliquez sur **Enregistrer**.
 
-1. Dans le volet de navigation gauche, dans la section **Administer** , cliquez sur **Domain Management** pour développer la section associée, puis cliquez sur **My Domain** pour ouvrir la page **My Domain** . 
+1. Dans le volet de navigation gauche, dans la section **Administer** , cliquez sur **Domain Management** pour développer la section associée, puis cliquez sur **My Domain** pour ouvrir la page **My Domain**. 
     
     ![My Domain](./media/jobscience-tutorial/ic767825.png "My Domain")
 
-1. Dans la section **Login Page Branding** de la page **My Domain** , cliquez sur **Edit** .
+1. Dans la section **Login Page Branding** de la page **My Domain** , cliquez sur **Edit**.
     
     ![Capture d’écran montrant la section Login Page Branding avec le bouton Edit.](./media/jobscience-tutorial/ic767826.png "Personnalisation de la page de connexion")
 
-1. Le nom des  **SAML SSO Settings** s’affiche dans la section **Authentication Service** de la page **Login Page Branding** . Sélectionnez-le, puis cliquez sur **Save** .
+1. Le nom des  **SAML SSO Settings** s’affiche dans la section **Authentication Service** de la page **Login Page Branding**. Sélectionnez-le, puis cliquez sur **Save**.
     
     ![Capture d’écran montrant la section Login Page Branding avec PPE et Save sélectionnés.](./media/jobscience-tutorial/ic784366.png "Personnalisation de la page de connexion")
 
-1. Pour obtenir l’URL d’authentification unique initiée par le fournisseur de services , cliquez sur **Single Sign On settings** dans la section **Security Controls** .
+1. Pour obtenir l’URL d’authentification unique initiée par le fournisseur de services , cliquez sur **Single Sign On settings** dans la section **Security Controls**.
 
     ![Capture d’écran montrant Administer Security Controls avec Single Sign-On Settings sélectionné.](./media/jobscience-tutorial/ic784368.png "Security Controls")
     
@@ -202,11 +202,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **portail Azure** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le panneau de navigation gauche du **portail Azure** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Capture d’écran montrant l’icône Azure AD dans le portail Azure.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes** , puis cliquez sur **Tous les utilisateurs** .
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes** , puis cliquez sur **Tous les utilisateurs**.
     
     ![Capture d’écran montrant Utilisateurs et groupes sélectionné dans le menu Gérer, avec Tous les utilisateurs sélectionné.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
@@ -218,13 +218,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
     ![Capture d’écran montrant la boîte de dialogue Utilisateur où vous pouvez entrer les valeurs à cette étape.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. Dans la zone de texte **Nom** , entrez **BrittaSimon** .
+    a. Dans la zone de texte **Nom** , entrez **BrittaSimon**.
 
     b. Dans la zone de texte **Nom d’utilisateur** , tapez **l’adresse e-mail** de Britta Simon.
 
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe** .
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-jobscience-test-user"></a>Création d’un utilisateur de test Jobscience
 
@@ -241,10 +241,10 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
 1. Accédez à Setup.
    
    ![Capture d’écran montrant l’élément Setup.](./media/jobscience-tutorial/ic784358.png "Programme d’installation")
-1. Accédez à **Manage Users \> Users** .
+1. Accédez à **Manage Users \> Users**.
    
    ![Utilisateurs](./media/jobscience-tutorial/ic784369.png "Utilisateurs")
-1. Cliquez sur **New User** .
+1. Cliquez sur **New User**.
    
    ![Tous les utilisateurs](./media/jobscience-tutorial/ic784370.png "Tous les utilisateurs")
 1. Dans la boîte de dialogue **Edit User** , procédez comme suit :
@@ -263,7 +263,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
 
    f. Dans la zone de texte **Surnom** , entrez le surnom, par exemple Simon.
 
-   g. Cliquez sur **Enregistrer** .
+   g. Cliquez sur **Enregistrer**.
 
     
 > [!NOTE]
@@ -277,27 +277,27 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Jobscience, procédez comme suit :**
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise** , puis cliquez sur **Toutes les applications** .
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise** , puis cliquez sur **Toutes les applications**.
 
     ![Capture d’écran montrant Applications d’entreprise dans le menu du portail Azure avec Toutes les applications sélectionné.][201] 
 
-1. Dans la liste des applications, sélectionnez **Jobscience** .
+1. Dans la liste des applications, sélectionnez **Jobscience**.
 
     ![Capture d’écran montrant Jobscience sélectionné.](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes** .
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Capture d’écran montrant Utilisateurs et groupes sélectionné dans le menu du portail Azure.][202] 
 
-1. Cliquez sur le bouton **Ajouter** . Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation** .
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Capture d’écran montrant le bouton Ajouter, qui permet d’ajouter des affectations.][203]
 
 1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes** .
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation** .
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

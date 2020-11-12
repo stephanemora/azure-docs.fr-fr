@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373143"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379160"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Attribuer un rôle à un groupe à l’aide de Privileged Identity Management
 
@@ -37,7 +37,7 @@ Cet article décrit la procédure d’attribution d’un rôle Azure Active Dire
 
     ![Capture d'écran représentant la page « Ajouter des attributions » dans laquelle les sections « Sélectionner un rôle » et « Sélectionner des membres » sont mises en surbrillance.](./media/groups-pim-eligible/select-member.png)
 
-1. Sélectionnez le paramètre d’appartenance souhaité. Pour les rôles nécessitant une activation, choisissez **éligible** . Par défaut, l’utilisateur est éligible de façon permanente, mais vous pouvez également définir une heure de début et de fin de l’éligibilité de l’utilisateur. Une fois que vous avez terminé, cliquez sur Enregistrer et Ajouter pour terminer l’attribution de rôle.
+1. Sélectionnez le paramètre d’appartenance souhaité. Pour les rôles nécessitant une activation, choisissez **éligible**. Par défaut, l’utilisateur est éligible de façon permanente, mais vous pouvez également définir une heure de début et de fin de l’éligibilité de l’utilisateur. Une fois que vous avez terminé, cliquez sur Enregistrer et Ajouter pour terminer l’attribution de rôle.
 
     ![sélectionner l’utilisateur auquel vous attribuez le rôle](./media/groups-pim-eligible/set-assignment-settings.png)
 

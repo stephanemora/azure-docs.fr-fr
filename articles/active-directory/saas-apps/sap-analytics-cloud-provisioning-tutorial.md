@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7d9f5792fe3da9f47dd1391d1e7cb0162fd36fad
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b87b9d9e7cab0334f1b1996feb99dc69396527b7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670845"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352946"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutoriel : Configurer SAP Analytics Cloud pour le provisionnement automatique d’utilisateurs
 
@@ -52,23 +52,23 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-2-configure-sap-analytics-cloud-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer SAP Analytics Cloud pour prendre en charge le provisionnement avec Azure AD
 
-1. Connectez-vous à la [console d’administration SAP Identity Provisioning](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) avec votre compte d’administrateur, puis sélectionnez **Proxy Systems** .
+1. Connectez-vous à la [console d’administration SAP Identity Provisioning](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) avec votre compte d’administrateur, puis sélectionnez **Proxy Systems**.
 
    ![Systèmes proxy SAP](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png.png)
 
-2. Sélectionner **Propriétés** .
+2. Sélectionner **Propriétés**.
 
    ![Propriétés des systèmes proxy SAP](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems-properties.png)
 
-3. Copiez l’ **URL** et ajoutez-y `/api/v1/scim`. Enregistrez cette URL ; vous la renseignerez plus loin dans le champ **Tenant URL** .
+3. Copiez l’ **URL** et ajoutez-y `/api/v1/scim`. Enregistrez cette URL ; vous la renseignerez plus loin dans le champ **Tenant URL**.
 
    ![URL des propriétés des systèmes proxy SAP](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems-details-url.png)
 
-4. Utilisez [POSTMAN](https://www.postman.com/) pour effectuer un appel POST HTTPS à l’adresse `<Token URL>?grant_type=client_credentials`, où `Token URL` est l’URL indiquée dans le champ **OAuth2TokenServiceURL** . Cette étape est nécessaire pour générer un jeton d’accès à utiliser dans le champ Secret Token lors de la configuration du provisionnement automatique.
+4. Utilisez [POSTMAN](https://www.postman.com/) pour effectuer un appel POST HTTPS à l’adresse `<Token URL>?grant_type=client_credentials`, où `Token URL` est l’URL indiquée dans le champ **OAuth2TokenServiceURL**. Cette étape est nécessaire pour générer un jeton d’accès à utiliser dans le champ Secret Token lors de la configuration du provisionnement automatique.
 
    ![Propriétés des systèmes proxy IP SAP - OAuth](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems-details-oauth.png)
 
-5. Dans Postman, utilisez **Basic Authentication** et définissez l’ID client OAuth comme utilisateur et le secret comme mot de passe. Cet appel retourne un jeton d’accès. Prenez-en note ; vous le renseignerez plus loin dans le champ **Secret Token** .
+5. Dans Postman, utilisez **Basic Authentication** et définissez l’ID client OAuth comme utilisateur et le secret comme mot de passe. Cet appel retourne un jeton d’accès. Prenez-en note ; vous le renseignerez plus loin dans le champ **Secret Token**.
 
    ![Requête POST Postman](./media/sap-analytics-cloud-provisioning-tutorial/postman-post-request.png)
 
@@ -80,7 +80,7 @@ Ajoutez SAP Analytics Cloud à partir de la galerie d’applications Azure AD p
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quand vous provisionnez des utilisateurs et des groupes dans SAP Analytics Cloud, vous devez sélectionner un rôle autre que **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Quand vous provisionnez des utilisateurs et des groupes dans SAP Analytics Cloud, vous devez sélectionner un rôle autre que **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -91,33 +91,33 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-analytics-cloud-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour SAP Analytics Cloud dans Azure AD
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **SAP Analytics Cloud** .
+2. Dans la liste des applications, sélectionnez **SAP Analytics Cloud**.
 
     ![Lien SAP Analytics Cloud dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d'identification Administrateur** , entrez la valeur de l'URL du locataire récupérée précédemment dans **URL du locataire** . Entrez la valeur du jeton d’accès récupérée précédemment dans **Jeton secret** . Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à InVision. Si la connexion échoue, vérifiez que votre compte SAP Analytics Cloud dispose d’autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d'identification Administrateur** , entrez la valeur de l'URL du locataire récupérée précédemment dans **URL du locataire**. Entrez la valeur du jeton d’accès récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à InVision. Si la connexion échoue, vérifiez que votre compte SAP Analytics Cloud dispose d’autorisations d’administrateur et réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/sap-analytics-cloud-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Attribuer les utilisateurs Azure Active Directory** .
+8. Dans la section **Mappages** , sélectionnez **Attribuer les utilisateurs Azure Active Directory**.
 
 9. Dans la section **Mappages des attributs** , passez en revue les attributs d’utilisateurs qui sont synchronisés entre Azure AD et SAP Analytics Cloud. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans SAP Analytics Cloud dans le cadre des opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API SAP Analytics Cloud prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -132,19 +132,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Pour activer le service de provisionnement Azure AD pour SAP Analytics Cloud, définissez le paramètre **État du provisionnement** sur **Activé** dans la section **Paramètres** .
+11. Pour activer le service de provisionnement Azure AD pour SAP Analytics Cloud, définissez le paramètre **État du provisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs et/ou groupes que vous souhaiteriez provisionner dans SAP Analytics Cloud en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres** .
+12. Définissez les utilisateurs et/ou groupes que vous souhaiteriez provisionner dans SAP Analytics Cloud en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

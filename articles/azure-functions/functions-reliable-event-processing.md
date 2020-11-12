@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287233"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379585"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Traitement des événements fiables Azure Functions
 
@@ -50,7 +50,7 @@ Azure Functions consomme les événements Event Hubs en parcourant les étapes s
 
 Ce comportement révèle quelques points importants :
 
-- *Les exceptions non gérées peuvent entraîner une perte de messages.* Les exécutions qui se terminent par une exception continuent à faire avancer le pointeur.  Définir une [stratégie de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies) va retarder la progression du pointeur jusqu’à ce que la totalité de la stratégie de nouvelles tentatives ait été évaluée.
+- *Les exceptions non gérées peuvent entraîner une perte de messages.* Les exécutions qui se terminent par une exception continuent à faire avancer le pointeur.  Définir une [stratégie de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies-preview) va retarder la progression du pointeur jusqu’à ce que la totalité de la stratégie de nouvelles tentatives ait été évaluée.
 - *Functions garantit au minimum une remise.* Votre code et vos systèmes dépendants ont peut-être besoin de [tenir compte du fait que le même message peut être reçu deux fois](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Gestion des exceptions
@@ -59,7 +59,7 @@ En règle générale, chaque fonction doit inclure un [bloc try/catch](./functio
 
 ### <a name="retry-mechanisms-and-policies"></a>Mécanismes et stratégies de nouvelle tentative
 
-Certaines exceptions sont transitoires par nature et ne réapparaissent pas quand une opération est retentée un peu plus tard. C’est la raison pour laquelle la première étape consiste toujours de retenter l’opération.  Vous pouvez exploiter les [stratégies de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies) de l’application de fonction ou la logique de nouvelle tentative d’auteur pendant l’exécution de la fonction.
+Certaines exceptions sont transitoires par nature et ne réapparaissent pas quand une opération est retentée un peu plus tard. C’est la raison pour laquelle la première étape consiste toujours de retenter l’opération.  Vous pouvez exploiter les [stratégies de nouvelles tentatives](./functions-bindings-error-pages.md#retry-policies-preview) de l’application de fonction ou la logique de nouvelle tentative d’auteur pendant l’exécution de la fonction.
 
 L’introduction de comportements de gestion des erreurs dans vos fonctions vous permet de définir des stratégies de nouvelle tentative à la fois basiques et avancées. Par exemple, vous pouvez implémenter une stratégie qui suit un workflow illustré par les règles suivantes :
 

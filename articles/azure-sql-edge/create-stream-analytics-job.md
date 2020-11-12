@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896138"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395170"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Créer une tâche de diffusion en continu de données dans Azure SQL Edge 
 
@@ -24,13 +24,13 @@ Cet article explique comment créer une tâche de diffusion en continu T-SQL dan
 
 T-SQL Streaming utilise la fonctionnalité de source de données externe de SQL Server pour définir les sources de données associées aux entrées et sorties du flux externe de la tâche de streaming. Utilisez les commandes T-SQL suivantes pour créer un objet de sortie ou d’entrée de flux externe :
 
-- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-En outre, si Azure SQL Edge, SQL Server ou Azure SQL Database est utilisé comme flux de sortie, vous avez besoin de [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Cette commande T-SQL définit les informations d’identification pour accéder à la base de données.
+En outre, si Azure SQL Edge, SQL Server ou Azure SQL Database est utilisé comme flux de sortie, vous avez besoin de [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Cette commande T-SQL définit les informations d’identification pour accéder à la base de données.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Sources de données de flux d’entrée et de sortie prises en charge
 
@@ -38,7 +38,7 @@ Actuellement, Azure SQL Edge prend uniquement en charge les sources de données 
 
 | Type de source de données | Entrée | Output | Description |
 |------------------|-------|--------|------------------|
-| Hub Azure IoT Edge | O | O | Source de données pour lire et écrire des données de streaming dans un hub Azure IoT Edge. Pour plus d’informations, consultez l’article [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Hub Azure IoT Edge | O | O | Source de données pour lire et écrire des données de streaming dans un hub Azure IoT Edge. Pour plus d’informations, consultez l’article [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | SQL Database | N | O | Connexion à la source de données pour écrire les données de streaming dans SQL Database. La base de données peut être une base de données locale dans Azure SQL Edge, ou une base de données distante dans SQL Server ou Azure SQL Database.|
 | Kafka | O | N | Source de données pour lire les données de streaming à partir d’une rubrique Kafka. Cet adaptateur n’est actuellement disponible que pour les versions Intel ou AMD d’Azure SQL Edge. Il n’est pas disponible pour la version ARM64 d’Azure SQL Edge.|
 
@@ -103,7 +103,7 @@ L’exemple suivant crée un objet de flux externe dans la base de données loca
 
 3. Créez une source de données externe avec CREATE EXTERNAL DATA SOURCE. L’exemple suivant :
 
-    * Crée une source de données externe pour nommée *LocalSQLOutput* .
+    * Crée une source de données externe pour nommée *LocalSQLOutput*.
     * Identifie la source de données externe (LOCATION = '<vendor>://<server>[:<port>]'). Dans l’exemple, elle pointe vers une instance locale d’Azure SQL Edge.
     * Elle utilise les informations d’identification créées précédemment.
 
@@ -117,7 +117,7 @@ L’exemple suivant crée un objet de flux externe dans la base de données loca
     go
     ```
 
-4. Créez l’objet de flux externe. L’exemple suivant crée un objet de flux externe pointant vers une table *dbo.TemperatureMeasurements* dans la base de données *MySQLDatabase* .
+4. Créez l’objet de flux externe. L’exemple suivant crée un objet de flux externe pointant vers une table *dbo.TemperatureMeasurements* dans la base de données *MySQLDatabase*.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -173,7 +173,7 @@ L’exemple suivant crée un objet de flux externe dans la base de données loca
 Utilisez la procédure stockée système `sys.sp_create_streaming_job` pour définir les requêtes de streaming et créer la tâche de streaming. La procédure stockée `sp_create_streaming_job` prend les paramètres suivants :
 
 - `job_name`: Nom de la tâche de streaming. Les noms des tâches de streaming sont uniques sur l’ensemble de l’instance.
-- `statement`: Instructions de requête de streaming basées sur le [langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+- `statement`: Instructions de requête de streaming basées sur le [langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
 
 L’exemple suivant crée une tâche de streaming simple avec une requête de streaming. Cette requête lit les entrées du hub IoT Edge et les écrit dans `dbo.TemperatureMeasurements` dans la base de données.
 

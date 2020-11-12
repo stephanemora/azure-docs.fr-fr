@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449409"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335874"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -57,9 +57,9 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 
 ## <a name="configuration"></a>Configuration
 
-1. Activez la solution Azure Web Apps Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../insights/solutions.md).
+1. Activez la solution Azure Web Apps Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../insights/solutions.md).
 2. Accédez au [portail Azure](https://portal.azure.com). Sélectionnez **Tous les services** pour ouvrir Application Insights. Recherchez alors Application Insights. 
-3. Sous **Abonnements**, sélectionnez un abonnement qui contient des ressources Application Insights, puis, sous **Nom**, sélectionnez une ou plusieurs applications.
+3. Sous **Abonnements** , sélectionnez un abonnement qui contient des ressources Application Insights, puis, sous **Nom** , sélectionnez une ou plusieurs applications.
 4. Cliquez sur **Enregistrer**.
 
 Après environ 30 minutes, les données deviennent disponibles et la vignette Application Insights est mise à jour avec les données, comme sur l’image suivante :
@@ -113,15 +113,15 @@ Le panneau **Disponibilité** affiche une autre perspective, qui vous permet de 
 
 ![Perspective Disponibilité d’Application Insights](./media/app-insights-connector/availability-blade-drill-search.png)
 
-Lorsque vous cliquez n’importe où dans les panneaux **Requêtes de serveur** ou **Échecs**, les composants de perspective changent afin de vous donner une visualisation associée aux requêtes.
+Lorsque vous cliquez n’importe où dans les panneaux **Requêtes de serveur** ou **Échecs** , les composants de perspective changent afin de vous donner une visualisation associée aux requêtes.
 
 ![Panneau Échecs d’Application Insights](./media/app-insights-connector/server-requests-failures-drill-search.png)
 
-Lorsque vous cliquez n’importe où dans le panneau **Exceptions**, vous voyez une visualisation spécialement adaptée aux exceptions.
+Lorsque vous cliquez n’importe où dans le panneau **Exceptions** , vous voyez une visualisation spécialement adaptée aux exceptions.
 
 ![Panneau Exceptions d’Application Insights](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-Que vous cliquiez ou non sur un élément du tableau de bord **Application Insights Connector**, sur la page **Recherche** proprement dite, toute requête renvoyant des données Application Insights affiche la perspective Application Insights. Par exemple, si vous consultez les données Application Insights, une requête **&#42;** affiche également l’onglet de la perspective comme sur l’image suivante :
+Que vous cliquiez ou non sur un élément du tableau de bord **Application Insights Connector** , sur la page **Recherche** proprement dite, toute requête renvoyant des données Application Insights affiche la perspective Application Insights. Par exemple, si vous consultez les données Application Insights, une requête **&#42;** affiche également l’onglet de la perspective comme sur l’image suivante :
 
 ![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
@@ -154,7 +154,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 Le champ **Sampled Count** (Nombre d’éléments échantillonnés) est présent dans toutes les entrées et indique le nombre de points de données représentés par l’entrée. Si vous activez l’échantillonnage pour votre application Application Insights, la valeur du champ **Sampled Count** (Nombre d’éléments échantillonnés) est supérieure à 1. Pour compter le nombre d’entrées réellement générées par votre application, additionnez les champs **Sampled Count** (Nombre d’éléments échantillonnés).
 
-L’échantillonnage affecte uniquement le nombre total d’entrées générées par votre application. Vous n’avez pas besoin de corriger l’échantillonnage pour les champs de mesure tels que **RequestDuration** ou **AvailabilityDuration**, car ces champs affichent la moyenne des entrées représentées.
+L’échantillonnage affecte uniquement le nombre total d’entrées générées par votre application. Vous n’avez pas besoin de corriger l’échantillonnage pour les champs de mesure tels que **RequestDuration** ou **AvailabilityDuration** , car ces champs affichent la moyenne des entrées représentées.
 
 ## <a name="input-data"></a>Données d’entrée
 
@@ -304,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Ce script nécessite un jeton d’authentification du porteur pour l’authentification auprès d’Azure Active Directory. Une manière de récupérer ce jeton est décrite dans un article du [site de documentation de l’API REST](/rest/api/loganalytics/datasources/createorupdate). Cliquez sur **Essayer** et connectez-vous à votre abonnement Azure. Vous pouvez copier le jeton du porteur à partir de l’**Aperçu de la demande** comme indiqué dans l’image suivante.
+Ce script nécessite un jeton d’authentification du porteur pour l’authentification auprès d’Azure Active Directory. Une manière de récupérer ce jeton est décrite dans un article du [site de documentation de l’API REST](/rest/api/loganalytics/datasources/createorupdate). Cliquez sur **Essayer** et connectez-vous à votre abonnement Azure. Vous pouvez copier le jeton du porteur à partir de l’ **Aperçu de la demande** comme indiqué dans l’image suivante.
 
 
 ![Jeton du porteur](media/app-insights-connector/bearer-token.png)

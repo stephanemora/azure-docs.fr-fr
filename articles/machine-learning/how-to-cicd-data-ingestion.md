@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348557"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358624"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps pour un pipeline d’ingestion des données
 
@@ -211,18 +211,18 @@ Les valeurs du fichier JSON sont les valeurs par défaut configurées dans la d�
 
 Le processus de déploiement continu prend les artefacts et les déploie dans le premier environnement cible. Cela permet de s’assurer que la solution fonctionne en exécutant des tests. En cas de réussite, il continue dans l’environnement suivant. 
 
-Le pipeline Azure de CD est constitué de plusieurs index représentant les environnements. Chaque index contient des [déploiements](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) et des [tâches](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) qui effectuent les étapes suivantes :
+Le pipeline Azure de CD est constitué de plusieurs index représentant les environnements. Chaque index contient des [déploiements](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) et des [tâches](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) qui effectuent les étapes suivantes :
 
 _Déployer un notebook Python dans un espace de travail Azure Databricks
 * Déployer un pipeline de Azure Data Factory 
 * Exécuter le pipeline
 * Vérifier le résultat de l’ingestion des données
 
-Les index du pipeline peuvent être configurés avec des [approbations](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops) et des [portes](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) qui offrent un contrôle supplémentaire sur la façon dont le processus de déploiement évolue dans la chaîne d’environnements.
+Les index du pipeline peuvent être configurés avec des [approbations](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) et des [portes](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) qui offrent un contrôle supplémentaire sur la façon dont le processus de déploiement évolue dans la chaîne d’environnements.
 
 ### <a name="deploy-a-python-notebook"></a>Déployer un notebook Python
 
-L’extrait de code suivant définit un [déploiement](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) de pipeline Azure qui copie un notebook Python sur un cluster Databricks :
+L’extrait de code suivant définit un [déploiement](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) de pipeline Azure qui copie un notebook Python sur un cluster Databricks :
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ L’extrait de code suivant définit un [déploiement](/azure/devops/pipelines/p
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Les artefacts produits par l’intégration continue sont automatiquement copiés vers l’agent de déploiement et sont disponibles dans le dossier `$(Pipeline.Workspace)`. Dans ce cas, la tâche de déploiement fait référence à l’artefact `di-notebooks` contenant le notebook Python. Ce [déploiement](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) utilise l’[extension Databricks Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) pour copier les fichiers du notebook dans l’espace de travail Databricks.
+Les artefacts produits par l’intégration continue sont automatiquement copiés vers l’agent de déploiement et sont disponibles dans le dossier `$(Pipeline.Workspace)`. Dans ce cas, la tâche de déploiement fait référence à l’artefact `di-notebooks` contenant le notebook Python. Ce [déploiement](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) utilise l’[extension Databricks Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) pour copier les fichiers du notebook dans l’espace de travail Databricks.
 
 Le stade `Deploy_to_QA` contient une référence au groupe de variables `devops-ds-qa-vg` défini dans le projet Azure DevOps. Les étapes de ce stade font référence aux variables de ce groupe de variables (par exemple `$(DATABRICKS_URL)` et `$(DATABRICKS_TOKEN)`). L’idée est que le stade suivant (par exemple `Deploy_to_UAT`) fonctionne avec les mêmes noms de variables que ceux définis dans son propre groupe de variables limité à UAT.
 
@@ -339,7 +339,7 @@ Le pipeline CI/CD Azure complet se compose des phases suivantes : _CI
     * Déployer dans Databricks + déployer dans ADF
     * Test d’intégration
 
-Il contient un nombre d’index * **Déployer** _ égal au nombre d’environnements cibles. Chaque index _*_Déployer_*_ contient deux [déploiements](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) qui s’exécutent en parallèle, et un [travail](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) qui s’exécute après les déploiements pour tester la solution sur l’environnement.
+Il contient un nombre d’index * **Déployer** _ égal au nombre d’environnements cibles. Chaque index _*_Déployer_*_ contient deux [déploiements](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) qui s’exécutent en parallèle, et un [travail](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) qui s’exécute après les déploiements pour tester la solution sur l’environnement.
 
 Un exemple d’implémentation du pipeline est assemblé dans l’extrait de code _*_yaml_*_ suivant :
 

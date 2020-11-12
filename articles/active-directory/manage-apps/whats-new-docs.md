@@ -1,7 +1,7 @@
 ---
 title: Nouveautés dans la gestion des applications Azure Active Directory
 description: Gestion des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,34 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428021"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422601"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à la gestion des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière de gestion des applications d’entreprise, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Octobre 2020
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Gestion des applications Azure Active Directory : Nouveautés](whats-new-docs.md)
+- [Comprendre l’authentification unique basée sur OIDC](configure-oidc-single-sign-on.md)
+- [Configurer des classifications d’autorisations](configure-permission-classifications.md)
+- [Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe](configure-user-consent-groups.md)
+- [Gérer les stratégies de consentement des applications](manage-app-consent-policies.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md)
+- [Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md)
+
 
 ## <a name="september-2020"></a>Septembre 2020
 

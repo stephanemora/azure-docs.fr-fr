@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294187"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330323"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutoriel sur l’extension d’Azure AD B2C afin de protéger des applications locales à l’aide de Strata
 
@@ -65,12 +65,10 @@ Le diagramme d’architecture suivant illustre l’implémentation.
 | 4. | Le fournisseur d’identité demande à l’utilisateur ses informations d’identification. Selon le fournisseur d’identité, l’utilisateur peut être tenu d’effectuer une authentification multifacteur (MFA).|
 | 5. | Le fournisseur d’identité renvoie la réponse d’authentification à Azure AD B2C. Si vous le souhaitez, l’utilisateur peut créer un compte local dans l’annuaire Azure AD B2C au cours de cette étape.|
 | 6. | Azure AD B2C envoie la demande de l’utilisateur au point de terminaison spécifié lors de l’inscription de l’application Orchestrator dans le locataire Azure AD B2C.|
-| 7. | L’application Orchestrator évalue les stratégies d’accès et calcule les valeurs d’attribut à inclure dans les en-têtes HTTP transférés à l’application. Au cours de cette étape, l’application Orchestrator peut appeler des fournisseurs d’attributs supplémentaires afin de récupérer les informations nécessaires pour définir correctement les valeurs d’en-tête.|
-| 8. | L’application Orchestrator définit les valeurs d’en-tête et envoie la demande à l’application.|
-| 9. | L’utilisateur est maintenant authentifié et a accès à l’application.|
+| 7. | L’application Orchestrator évalue les stratégies d’accès et calcule les valeurs d’attribut à inclure dans les en-têtes HTTP transférés à l’application. Au cours de cette étape, l’application Orchestrator peut appeler des fournisseurs d’attributs supplémentaires afin de récupérer les informations nécessaires pour définir correctement les valeurs d’en-tête. L’application Orchestrator définit les valeurs d’en-tête et envoie la demande à l’application.|
+| 8. | L’utilisateur est maintenant authentifié et a accès à l’application.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Obtenir Maverics Identity Orchestrator
-
 Pour obtenir le logiciel que vous allez utiliser pour intégrer votre application locale héritée avec Azure AD B2C, contactez [Strata](https://www.strata.io/contact/). Une fois que vous avez obtenu le logiciel, suivez les étapes ci-dessous pour déterminer les conditions préalables spécifiques de l’application Orchestrator, et exécutez les étapes d’installation et de configuration requises.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Configurer votre locataire Azure AD B2C

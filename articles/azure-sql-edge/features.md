@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886534"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392025"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Fonctionnalités prises en charge par Azure SQL Edge 
 
 Azure SQL Edge repose sur la dernière version du moteur de base de données SQL. Il prend en charge une partie des fonctionnalités prises en charge par SQL Server 2019 sur Linux, en plus de certaines fonctionnalités qui ne sont pas prises en charge ou disponibles dans SQL Server 2019 sur Linux (ou dans SQL Server sur Windows).
 
-Pour obtenir la liste complète des fonctionnalités prises en charge dans SQL Server pour Linux, consultez [Éditions et fonctionnalités de SQL Server 2019 pour Linux prises en charge](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Pour obtenir la liste des éditions et fonctionnalités de SQL Server pour Windows prises en charge, consultez [Éditions et fonctionnalités de SQL Server 2019 (15.x) prises en charge](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+Pour obtenir la liste complète des fonctionnalités prises en charge dans SQL Server pour Linux, consultez [Éditions et fonctionnalités de SQL Server 2019 pour Linux prises en charge](/sql/linux/sql-server-linux-editions-and-components-2019). Pour obtenir la liste des éditions et fonctionnalités de SQL Server pour Windows prises en charge, consultez [Éditions et fonctionnalités de SQL Server 2019 (15.x) prises en charge](/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 ## <a name="azure-sql-edge-editions"></a>Éditions d’Azure SQL Edge
 

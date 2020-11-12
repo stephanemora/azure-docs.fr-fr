@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975856"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393385"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Inscrire une ressource d'application dans Azure Active Directory
 
@@ -43,7 +43,7 @@ Si vous utilisez le serveur FHIR open source pour Azure, suivez les étapes ci-d
 
 1. Dans le volet de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
 
-2. Dans le panneau **Azure Active Directory**, cliquez sur **Inscriptions d’applications** :
+2. Dans le panneau **Azure Active Directory** , cliquez sur **Inscriptions d’applications**  :
 
     ![Portail Azure. Nouvelle inscription d’application.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -57,7 +57,7 @@ Renseignez les détails de la nouvelle application. Il n’existe aucune exigenc
 
 ### <a name="set-identifier-uri-and-define-scopes"></a>Définir l’URI de l’identificateur et définir les étendues
 
-Une ressource d'application dispose d’un URI d’identificateur (URI ID d’application), que les clients peuvent utiliser lorsqu’ils demandent l’accès aux ressources. Cette valeur remplit la revendication `aud` du jeton d’accès. Il est recommandé de définir cet URI comme URI de votre serveur FHIR. Pour SMART sur des applications FHIR, nous partons du principe que l’*audience* est l’URI du serveur FHIR.
+Une ressource d'application dispose d’un URI d’identificateur (URI ID d’application), que les clients peuvent utiliser lorsqu’ils demandent l’accès aux ressources. Cette valeur remplit la revendication `aud` du jeton d’accès. Il est recommandé de définir cet URI comme URI de votre serveur FHIR. Pour SMART sur des applications FHIR, nous partons du principe que l’ *audience* est l’URI du serveur FHIR.
 
 1. Cliquer sur **Exposer une API**
 
@@ -71,7 +71,7 @@ Une ressource d'application dispose d’un URI d’identificateur (URI ID d’ap
 
 ### <a name="define-application-roles"></a>Définir les rôles de l’application
 
-L’API Azure pour FHIR et le serveur OSS FHIR pour Azure utilisent des [rôles d’application Azure Active Directory](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) comme contrôle d'accès en fonction du rôle. Pour définir quels rôles doivent être disponibles pour votre API de serveur FHIR, ouvrez le [manifeste](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/) de la ressource d’application :
+L’API Azure pour FHIR et le serveur OSS FHIR pour Azure utilisent des [rôles d’application Azure Active Directory](/azure/architecture/multitenant-identity/app-roles) comme contrôle d'accès en fonction du rôle. Pour définir quels rôles doivent être disponibles pour votre API de serveur FHIR, ouvrez le [manifeste](/azure/active-directory/active-directory-application-manifest/) de la ressource d’application :
 
 1. Cliquez sur **Manifeste** :
 

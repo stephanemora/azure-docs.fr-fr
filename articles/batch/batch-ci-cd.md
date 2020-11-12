@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760561"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337574"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 
@@ -42,8 +42,8 @@ Cet exemple s’appuie fortement sur plusieurs modèles Resource Manager (docume
 La structure du codebase utilisée dans cet exemple ressemble à celle-ci :
 
 * Un dossier **arm-templates** contenant un nombre de modèles Azure Resource Manager. Les modèles sont expliqués dans cet article.
-* Un dossier **client-application**, qui est une copie de l’exemple [Traitement des fichiers Azure Batch .NET avec ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial). Cela n’est pas nécessaire pour cet article.
-* Un dossier **hpc-application**, soit la version Windows 64 bits de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
+* Un dossier **client-application** , qui est une copie de l’exemple [Traitement des fichiers Azure Batch .NET avec ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial). Cela n’est pas nécessaire pour cet article.
+* Un dossier **hpc-application** , soit la version Windows 64 bits de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z).
 * Un dossier **pipelines**. Il contient un fichier YAML décrivant notre processus de génération. Ce sujet est abordé dans cet article.
 
 Cette section part du principe que vous êtes familiarisé avec la gestion de version et la conception de modèles Resource Manager. Si vous n’êtes pas familiarisé avec ces concepts, consultez les pages suivantes pour plus d’informations.
@@ -300,7 +300,7 @@ Il existe quatre sections principales dans ce référentiel :
 * Le dossier **arm-templates** qui stocke notre infrastructure en tant que code
 * Le dossier **hpc-application** qui contient les fichiers binaires pour ffmpeg
 * Le dossier **pipelines** qui contient la définition de notre pipeline de build.
-* **Facultatif** : Le dossier **client-application** qui stocke le code pour l’application .NET. Nous n’utilisons pas cette méthode dans l’exemple, mais dans votre propre projet, vous pouvez lancer les exécutions de l’application par lots HPC via une application cliente.
+* **Facultatif**  : Le dossier **client-application** qui stocke le code pour l’application .NET. Nous n’utilisons pas cette méthode dans l’exemple, mais dans votre propre projet, vous pouvez lancer les exécutions de l’application par lots HPC via une application cliente.
 
 > [!NOTE]
 > Il s’agit d’un exemple d’une structure de codebase. Cette approche est utilisée pour démontrer que l’application, l’infrastructure et le code de pipeline sont stockés dans le même référentiel.
@@ -348,7 +348,7 @@ Dans cet exemple, nous allons nous concentrer sur le dossier **hpc-application**
         targetPath: '$(Build.ArtifactStagingDirectory)/package'
     ```
 
-1. Une fois la build configurée selon les besoins, sélectionnez **Enregistrer et mettre en file d’attente**. Si l’intégration continue avec activée (dans la section **Déclencheurs**), la build se déclenche automatiquement lorsqu’un nouveau commit est créé dans le référentiel, répondant aux conditions définies dans la build.
+1. Une fois la build configurée selon les besoins, sélectionnez **Enregistrer et mettre en file d’attente**. Si l’intégration continue avec activée (dans la section **Déclencheurs** ), la build se déclenche automatiquement lorsqu’un nouveau commit est créé dans le référentiel, répondant aux conditions définies dans la build.
 
     ![Exemple d’un pipeline de build existant](media/batch-ci-cd/existing-build-pipeline.jpg)
 
@@ -374,14 +374,14 @@ Il existe plusieurs étapes dans le processus de déploiement de l’infrastruct
 1. Créez une dépendance sur le pipeline de build pour obtenir la sortie de notre application HPC.
 
     > [!NOTE]
-    > Une fois encore, notez la valeur **Alias Source**, qui sera nécessaire lors de la création de tâches à l’intérieur de la définition de mise en production.
+    > Une fois encore, notez la valeur **Alias Source** , qui sera nécessaire lors de la création de tâches à l’intérieur de la définition de mise en production.
 
     ![Créer un lien d’artefact vers HPCApplicationPackage dans le pipeline de build approprié](media/batch-ci-cd/Release-1.jpg)
 
 1. Créez un lien vers un autre artefact, cette fois un référentiel Azure. Cette action est nécessaire pour accéder aux modèles Resource Manager stockés dans le référentiel. Comme les modèles Resource Manager ne nécessitent pas de compilation, vous n’avez pas besoin de les envoyer via un pipeline de build.
 
     > [!NOTE]
-    > Une fois encore, notez la valeur **Alias Source**, qui sera nécessaire lors de la création de tâches à l’intérieur de la définition de mise en production.
+    > Une fois encore, notez la valeur **Alias Source** , qui sera nécessaire lors de la création de tâches à l’intérieur de la définition de mise en production.
 
     ![Créer un lien d’artefact vers Azure Repos](media/batch-ci-cd/Release-2.jpg)
 
@@ -393,9 +393,9 @@ Il existe plusieurs étapes dans le processus de déploiement de l’infrastruct
     * **batchAccountPoolName** : Nom du pool de machines virtuelles qui exécutent le processus
     * **batchApplicationId** : ID unique de l’application Azure Batch
     * **batchApplicationVersion** : Version sémantique de votre application Batch (autrement dit, les fichiers binaires ffmpeg)
-    * **location** : Emplacement des ressources Azure à déployer
+    * **location**  : Emplacement des ressources Azure à déployer
     * **resourceGroupName** : Nom du groupe de ressources à créer, et l’emplacement vers lequel les ressources seront déployées
-    * **storageAccountName** : Nom du compte de stockage qui contient les modèles Resource Manager liés
+    * **storageAccountName**  : Nom du compte de stockage qui contient les modèles Resource Manager liés
 
     ![Exemple de variables définies pour la version d’Azure Pipelines](media/batch-ci-cd/Release-4.jpg)
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: b34c6fe58873a614ee8502e052c2af5aaed898cd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c1c7ac8fe8b7adf287bcde30a054df5ebaa63d7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547943"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337438"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -29,7 +29,7 @@ La liste suivante affiche les applications publiées :
 |[CDAP for HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP est la première plateforme d’intégration unifiée pour le Big Data à offrir un retour sur investissement accéléré pour Hadoop et à permettre aux équipes informatiques de proposer des données en libre-service. Disponible en open source et extensible, CDAP élimine les obstacles à l’innovation. Conditions requises : 4 nœuds de région, D3 v2 minimum. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |La plateforme évolutive en libre-service de Datameer pour la préparation, l’exploration et la gouvernance des données à des fins d’analytique accélère la transformation des données complexes issues de plusieurs sources en informations utiles prêtes à l’emploi. Vous bénéficiez ainsi d’insights plus rapides et pertinents à l’échelle de l’entreprise. |
 |[Dataiku DSS on HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS est une plateforme de science des données d’entreprise qui permet aux scientifiques des données et aux analyses de données de collaborer plus efficacement sur la conception et l’exécution de nouveaux produits et services de données, convertissant ainsi les données brutes en prédictions percutantes. |
-|[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.wandisco-liveanalytics) |Hadoop, Spark, HBase, Storm, Kafka |Parvenir à garantir la cohérence des données dans un environnement distribué représente un véritable défi au niveau des opérations de données volumineuses. WANdisco Fusion, une plateforme logicielle d’entreprise, résout ce problème en assurant la cohérence des données non structurées au sein de n’importe quel environnement. |
+|[WANdisco Fusion HDI App](https://community.wandisco.com/s/article/Use-WANdisco-Fusion-for-parallel-operation-of-ADLS-Gen1-and-Gen2) |Hadoop, Spark, HBase, Storm, Kafka |Parvenir à garantir la cohérence des données dans un environnement distribué représente un véritable défi au niveau des opérations de données volumineuses. WANdisco Fusion, une plateforme logicielle d’entreprise, résout ce problème en assurant la cohérence des données non structurées au sein de n’importe quel environnement. |
 |[H2O SparklingWater for HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water prend en charge les algorithmes distribués suivants : GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection, Autoencoders. |
 |[Striim for Real-Time Data Integration to HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striim (prononcé « stream ») est une plateforme de bout en bout d’intégration et d’intelligence qui permet l’ingestion, le traitement et l’analyse en continu de flux de données disparates. |
 |[Jumbune Enterprise-Accelerating BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |Globalement, Jumbune aide les entreprises en : 1. accélérant les performances de charge de travail Hive, Java, Scala basées sur le moteur Tez, MapReduce et Spark ; 2. offrant une surveillance proactive des clusters Hadoop ; 3. mettant en place une gestion de la qualité des données sur le système de fichiers DFS. |
@@ -52,12 +52,12 @@ La procédure suivante montre comment installer des applications HDInsight dans 
 **Installer une application HDInsight**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight** .
+2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
 3. Sélectionnez un cluster HDInsight dans la liste.  Si vous ne disposez pas d’un tel cluster, vous devez d’abord en créer un.  Consultez la page [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-4. Sous la catégorie **Paramètres** , sélectionnez **Applications** . Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
+4. Sous la catégorie **Paramètres** , sélectionnez **Applications**. Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
    
     ![Applications HDInsight - menu du portail](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. Dans le menu, sélectionnez **+Ajouter** . La liste des applications disponibles s’affiche.  Si l’option **+Ajouter** est grisée, cela signifie qu’il n’existe aucune application pour cette version du cluster HDInsight.
+5. Dans le menu, sélectionnez **+Ajouter**. La liste des applications disponibles s’affiche.  Si l’option **+Ajouter** est grisée, cela signifie qu’il n’existe aucune application pour cette version du cluster HDInsight.
    
     ![Applications HDInsight - applications disponibles](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. Sélectionnez l’une des applications disponibles, puis suivez les instructions pour accepter les conditions légales.
@@ -66,7 +66,7 @@ Vous pouvez vérifier l’état de l’installation de l’application dans les 
 
 ## <a name="install-applications-during-cluster-creation"></a>Installer des applications lors de la création du cluster
 
-Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster. Au cours du processus, les applications HDInsight sont installées une fois le cluster créé et en cours d’exécution. Pour installer des applications pendant la création du cluster à l’aide du portail Azure, à partir de l’onglet **Configuration + prix** , sélectionnez **+ Ajouter une application** .
+Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster. Au cours du processus, les applications HDInsight sont installées une fois le cluster créé et en cours d’exécution. Pour installer des applications pendant la création du cluster à l’aide du portail Azure, à partir de l’onglet **Configuration + prix** , sélectionnez **+ Ajouter une application**.
 
 ![Portail Azure - Configuration des clusters - Applications](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
@@ -76,9 +76,9 @@ Le portail affiche une liste des applications HDInsight installées pour un clus
 **Répertorier une application HDInsight et afficher des propriétés**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight** .
+2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
 3. Sélectionnez un cluster HDInsight dans la liste.
-4. Sous la catégorie **Paramètres** , sélectionnez **Applications** . Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
+4. Sous la catégorie **Paramètres** , sélectionnez **Applications**. Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
    
     ![Applications HDInsight - applications installées](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Sélectionnez l’une des applications installées pour en afficher la propriété. Listes des propriétés :

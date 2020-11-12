@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85a0618dc5c99b662bbe5520615b5983da5aec91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9330c6d34dcf5a799d65ebba176565ff031cb956
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373136"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376780"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Afficher et assigner des rôles d’administrateur dans Azure Active Directory
 
@@ -26,7 +26,7 @@ Vous pouvez maintenant consulter et gérer tous les membres des rôles d’admin
 
 ## <a name="view-all-roles"></a>Afficher tous les rôles
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Azure Active Directory** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Azure Active Directory**.
 
 1. Sélectionnez **Rôles et administrateurs** pour voir la liste de tous les rôles disponibles.
 
@@ -59,13 +59,13 @@ Lorsque vous affichez les membres d’un rôle, sélectionnez **Description** po
 
 ## <a name="download-role-assignments"></a>Télécharger les attributions de rôle
 
-Pour télécharger toutes les attributions d’un rôle spécifique, dans la page **Rôles et administrateurs** , sélectionnez un rôle, puis sélectionnez **Télécharger les attributions de rôle** . Un fichier CSV qui liste les attributions sur toutes les étendues pour ce rôle est téléchargé.
+Pour télécharger toutes les attributions d’un rôle spécifique, dans la page **Rôles et administrateurs** , sélectionnez un rôle, puis sélectionnez **Télécharger les attributions de rôle**. Un fichier CSV qui liste les attributions sur toutes les étendues pour ce rôle est téléchargé.
 
 ![Télécharger toutes les attributions d’un rôle](./media/manage-roles-portal/download-role-assignments.png)
 
 ## <a name="assign-a-role"></a>Attribuer un rôle
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) avec les autorisations d’administrateur général ou d’administrateur de rôle privilégié, puis sélectionnez **Azure Active Directory** .
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) avec les autorisations d’administrateur général ou d’administrateur de rôle privilégié, puis sélectionnez **Azure Active Directory**.
 
 1. Sélectionnez **Rôles et administrateurs** pour voir la liste de tous les rôles disponibles.
 

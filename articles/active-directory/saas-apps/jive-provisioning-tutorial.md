@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: caeff5be83e02948baab4ecbcf05630eacff74df
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ebee5d986007e07d497056620f0cfc437b2da4d1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459371"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356397"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutoriel : Configurer Jive pour l’approvisionnement automatique d’utilisateurs
 
@@ -55,13 +55,13 @@ Cette section vous guide lors de la connexion de votre instance Azure AD au comp
 Cette section décrit comment activer l’approvisionnement des utilisateurs des comptes d’utilisateurs Active Directory sur Jive.
 Dans le cadre de cette procédure, vous devez fournir un jeton de sécurité à demander sur Jive.com.
 
-1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications** .
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 1. Si vous avez déjà configuré Jive pour l’authentification unique, recherchez votre instance Jive à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Jive** dans la galerie d’applications. Sélectionnez Jive dans les résultats de recherche et ajoutez-le à votre liste d’applications.
 
-1. Sélectionnez votre instance Jive, puis sélectionnez l’onglet **Approvisionnement** .
+1. Sélectionnez votre instance Jive, puis sélectionnez l’onglet **Approvisionnement**.
 
-1. Définissez le **Mode d’approvisionnement** sur **Automatique** . 
+1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
     ![Capture d’écran montrant la page d’approvisionnement Jive, avec le Mode d’approvisionnement défini sur Automatique et d’autres valeurs que vous pouvez définir.](./media/jive-provisioning-tutorial/provisioning.png)
 
@@ -75,7 +75,7 @@ Dans le cadre de cette procédure, vous devez fournir un jeton de sécurité à 
       
       > [!NOTE]
       > L’URL de locataire Jive est celle utilisée par votre organisation pour se connecter à Jive.  
-      > En général, l’URL a le format suivant : **www.\<organization\>.jive.com** .          
+      > En général, l’URL a le format suivant : **www.\<organization\>.jive.com**.          
 
 1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application Jive.
 
@@ -83,7 +83,7 @@ Dans le cadre de cette procédure, vous devez fournir un jeton de sécurité à 
 
 1. Cliquez sur **Enregistrer.**
 
-1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Jive** .
+1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Jive**.
 
 1. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers Jive. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Jive pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 

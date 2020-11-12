@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: e5b008dd3d3a9d2422cca1fe00329543ed6d362f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1b603dc4c31cb608a0840da78a2e987b3edd3c1e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517141"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353592"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutoriel : Configurer MediusFlow pour l’approvisionnement automatique d’utilisateurs
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Enregistrez la configuration.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Capture d’écran de la console d’administration MediusFlow qui illustre la quatrième étape d’intégration. Le bouton Enregistrer la configuration est mis en évidence." border="false":::
 
-5. Sélectionnez Approvisionnement d’utilisateurs et cliquez sur **OK** .
+5. Sélectionnez Approvisionnement d’utilisateurs et cliquez sur **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Capture d’écran de la console d’administration MediusFlow qui illustre la cinquième étape d’intégration. Les boutons Utiliser l’approvisionnement d’utilisateurs et OK sont mis en évidence." border="false":::
 
-6. Cliquez sur **Générer une clé secrète** . Copiez et enregistrez cette valeur. Elle devra être entrée dans le champ **Jeton secret** de l’onglet **Approvisionnement** de votre application MediusFlow dans le portail Azure.
+6. Cliquez sur **Générer une clé secrète**. Copiez et enregistrez cette valeur. Elle devra être entrée dans le champ **Jeton secret** de l’onglet **Approvisionnement** de votre application MediusFlow dans le portail Azure.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Capture d’écran de l’onglet Configuration de l’approvisionnement d’utilisateurs dans la console d’administration MediusFlow. Les boutons Générer la clé secrète et Copier sont mis en évidence." border="false":::
 
-7. Cliquez sur **OK** .
+7. Cliquez sur **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Capture d’écran de la console d’administration MediusFlow avec une notification indiquant aux utilisateurs de cliquer sur OK pour générer une nouvelle clé secrète. Le bouton OK est mis en évidence." border="false":::
 
-8. Pour que les utilisateurs soient importés avec un ensemble prédéfini de rôles, d’entreprises et autres configurations générales dans MediusFlow, vous devez d’abord le configurer. Commencez par ajouter la configuration en cliquant sur **Ajouter une nouvelle configuration** .
+8. Pour que les utilisateurs soient importés avec un ensemble prédéfini de rôles, d’entreprises et autres configurations générales dans MediusFlow, vous devez d’abord le configurer. Commencez par ajouter la configuration en cliquant sur **Ajouter une nouvelle configuration**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Capture d’écran de l’onglet Configuration de l’approvisionnement d’utilisateurs dans la console d’administration MediusFlow. Le bouton Ajouter une nouvelle configuration est mis en évidence." border="false":::
 
 9. Spécifiez les paramètres par défaut pour les utilisateurs. Dans cet affichage, il est possible de définir l’attribut par défaut. Si les paramètres standard sont bons, vous n’aurez qu’à fournir un nom d’entreprise valide. Comme ces paramètres de configuration sont extraits de MediusFlow, ils doivent être configurés en premier. Pour plus d’informations, consultez la section **Prérequis** de cet article.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Capture d’écran de la fenêtre Ajouter une nouvelle configuration de MediusFlow. De nombreux paramètres sont visibles, notamment les paramètres régionaux, un filtre et des rôles utilisateur." border="false":::
 
 10. Cliquez sur le bouton **Enregistrer** pour enregistrer la configuration utilisateur.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Capture d’écran de l’onglet Configuration de l’approvisionnement d’utilisateurs dans la console d’administration MediusFlow. Le bouton Enregistrer est en surbrillance." border="false":::
 
-11. Pour accéder au lien d’approvisionnement d’utilisateur, cliquez sur **Copier le lien SCIM** . Copiez et enregistrez cette valeur. Cette valeur devra être entrée dans le champ **URL du locataire** dans l’onglet **Approvisionnement** de votre application MediusFlow dans le portail Azure.
+11. Pour accéder au lien d’approvisionnement d’utilisateur, cliquez sur **Copier le lien SCIM**. Copiez et enregistrez cette valeur. Cette valeur devra être entrée dans le champ **URL du locataire** dans l’onglet **Approvisionnement** de votre application MediusFlow dans le portail Azure.
  
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Capture d’écran de la console d’administration MediusFlow. La zone Nom du locataire MediusFlow et le bouton S’authentifier sont mis en évidence lors de la première étape d’intégration." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Capture d’écran de l’onglet Configuration de l’approvisionnement d’utilisateurs dans la console d’administration MediusFlow. Le bouton Copier le lien SCIM est mis en évidence." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter MediusFlow à partir de la galerie d’applications Azure AD
 
@@ -114,7 +114,7 @@ Ajoutez MediusFlow à partir de la galerie d’applications Azure AD pour commen
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Lorsque vous affectez des utilisateurs et des groupes à MediusFlow, vous devez sélectionner un autre rôle qu’ **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Lorsque vous affectez des utilisateurs et des groupes à MediusFlow, vous devez sélectionner un autre rôle qu’ **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -125,35 +125,35 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-mediusflow-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour MediusFlow dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **MediusFlow** .
+2. Dans la liste des applications, sélectionnez **MediusFlow**.
 
     ![Lien MediusFlow dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d'identification Administrateur** , entrez la valeur de l'URL du locataire récupérée précédemment dans **URL du locataire** . Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret** . Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à MediusFlow. Si la connexion échoue, vérifiez que votre compte MediusFlow dispose des autorisations administrateur et réessayez.
+5. Dans la section **Informations d'identification Administrateur** , entrez la valeur de l'URL du locataire récupérée précédemment dans **URL du locataire**. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à MediusFlow. Si la connexion échoue, vérifiez que votre compte MediusFlow dispose des autorisations administrateur et réessayez.
 
       ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur MediusFlow** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur MediusFlow**.
 
-9. Passez en revue les attributs utilisateur synchronisés d’Azure AD vers MediusFlow dans la section **Mappages des attributs** . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans MediusFlow pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API MediusFlow prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Passez en revue les attributs utilisateur synchronisés d’Azure AD vers MediusFlow dans la section **Mappages des attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans MediusFlow pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API MediusFlow prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -168,9 +168,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
 
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec MediusFlow** .
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec MediusFlow**.
 
-11. Passez en revue les attributs de groupe synchronisés d’Azure AD vers MediusFlow dans la section **Mappages des attributs** . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans MediusFlow pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Passez en revue les attributs de groupe synchronisés d’Azure AD vers MediusFlow dans la section **Mappages des attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans MediusFlow pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
@@ -180,19 +180,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service d’approvisionnement Azure AD pour MediusFlow, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres** .
+13. Pour activer le service d’approvisionnement Azure AD pour MediusFlow, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou groupes à approvisionner sur MediusFlow en choisissant les valeurs souhaitées dans le champ **Étendue** de la section **Paramètres** .
+14. Définissez les utilisateurs et/ou groupes à approvisionner sur MediusFlow en choisissant les valeurs souhaitées dans le champ **Étendue** de la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

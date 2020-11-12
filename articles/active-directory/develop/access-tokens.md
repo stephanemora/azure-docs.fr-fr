@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740172"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393368"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -33,7 +33,7 @@ Consultez les sections suivantes pour savoir comment une ressource peut valider 
 > [!IMPORTANT]
 > Les jetons d’accès sont créés en fonction de l’ *audience* du jeton, autrement dit l’application qui possède les étendues dans le jeton.  C’est ainsi qu’une ressource qui définit `accessTokenAcceptedVersion` dans le [manifeste de l’application](reference-app-manifest.md#manifest-reference) sur `2` autorise un client qui appelle le point de terminaison v1.0 pour recevoir un jeton d’accès v2.0.  De même, c’est pourquoi changer les [revendications facultatives](active-directory-optional-claims.md) de jeton d’accès pour le client ne permet pas de changer le jeton d’accès reçu lorsqu’un jeton est demandé pour `user.read`, possédé par la ressource.
 >
-> Pour cette même raison, lorsque vous testez votre application client avec une API Microsoft qui prend en charge un compte personnel (par exemple hotmail.com ou outlook.com), vous pouvez constater que le jeton d’accès reçu par votre client est une chaîne opaque. Cela est dû au fait que la ressource consultée utilise des jetons chiffrés et qu’elle ne peut pas être comprise par le client.  Cela est normal et ne doit pas être considéré comme un problème pour votre application. Les applications clientes ne doivent jamais avoir de dépendance sur le format du jeton d’accès. 
+> Pour cette même raison, lorsque vous testez votre application client avec une API Microsoft qui prend en charge un compte personnel (par exemple hotmail.com ou outlook.com), vous pouvez constater que le jeton d’accès reçu par votre client est une chaîne opaque. Cela est dû au fait que la ressource consultée utilise des jetons chiffrés et qu’elle ne peut pas être comprise par le client.  Cela est normal et ne doit pas être considéré comme un problème pour votre application. Les applications clientes ne doivent jamais avoir de dépendance sur le format du jeton d’accès.
 
 ## <a name="sample-tokens"></a>Exemples de jeton
 
@@ -245,7 +245,7 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
 
 ### <a name="token-timeouts"></a>Délais d’expiration des jetons
 
-La durée de vie des jetons d’actualisation peut être modifiée à l’aide de la [configuration de la durée de vie des jetons](active-directory-configurable-token-lifetimes.md).  Il est normal et prévu que certains jetons restent inutilisés (par exemple, l’utilisateur n’ouvre pas l’application pendant trois mois) et expire par conséquent.  Les applications rencontreront des situations où le serveur de connexion rejette un jeton d’actualisation en raison de son âge. 
+La durée de vie des jetons d’actualisation peut être modifiée à l’aide de la [configuration de la durée de vie des jetons](active-directory-configurable-token-lifetimes.md).  Il est normal et prévu que certains jetons restent inutilisés (par exemple, l’utilisateur n’ouvre pas l’application pendant trois mois) et expire par conséquent.  Les applications rencontreront des situations où le serveur de connexion rejette un jeton d’actualisation en raison de son âge.
 
 * MaxInactiveTime : si le jeton d’actualisation n’a pas été utilisé dans le délai défini par MaxInactiveTime, il ne sera plus valide.
 * MaxSessionAge : si MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ont été définis sur une valeur autre que la valeur par défaut (Until-revoked), une réauthentification est nécessaire après l’écoulement du délai défini dans MaxAgeSession*.
@@ -255,7 +255,7 @@ La durée de vie des jetons d’actualisation peut être modifiée à l’aide d
 
 ### <a name="revocation"></a>Révocation
 
-Les jetons d’actualisation peuvent être révoqués par le serveur en raison d’une modification des informations d’identification ou en raison d’une action d’utilisation ou d’administration.  Les jetons d’actualisation se répartissent en deux classes : ceux émis pour les clients confidentiels (colonne la plus à droite) et ceux émis pour les clients publics (toutes les autres colonnes).   
+Les jetons d’actualisation peuvent être révoqués par le serveur en raison d’une modification des informations d’identification ou en raison d’une action d’utilisation ou d’administration.  Les jetons d’actualisation se répartissent en deux classes : ceux émis pour les clients confidentiels (colonne la plus à droite) et ceux émis pour les clients publics (toutes les autres colonnes).
 
 | Modifier | Cookie basé sur un mot de passe | Jeton basé sur un mot de passe | Cookie non basé sur un mot de passe | Jeton non basé sur un mots de passe | Jeton client confidentiel |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -275,12 +275,12 @@ Une connexion *non basée sur mot de passe* est une connexion où l’utilisateu
 - Clé FIDO2
 - SMS
 - Voix
-- PIN 
+- PIN
 
 > [!NOTE]
 > Les jetons d’actualisation principaux (PRT) sur Windows 10 sont séparés en fonction des informations d’identification. Par exemple, Windows Hello et le mot de passe ont leur PRT respectif, chacun isolé l’un de l’autre. Lorsqu’un utilisateur se connecte avec une information d’identification Hello (code confidentiel ou biométrie), puis modifie le mot de passe, le PRT basé sur le mot de passe obtenu précédemment est révoqué. La reconnexion avec un mot de passe invalide l’ancien PRT et demande un nouveau mot de passe.
 >
-> Les jetons d’actualisation ne sont pas invalidés ou révoqués lorsqu’ils sont utilisés pour récupérer un nouveau jeton d’accès et un jeton d’actualisation.  Toutefois, votre application doit ignorer l’ancien dès qu’il est utilisé et le remplacer par le nouveau, car le nouveau jeton possède une nouvelle heure d’expiration. 
+> Les jetons d’actualisation ne sont pas invalidés ou révoqués lorsqu’ils sont utilisés pour récupérer un nouveau jeton d’accès et un jeton d’actualisation.  Toutefois, votre application doit ignorer l’ancien dès qu’il est utilisé et le remplacer par le nouveau, car le nouveau jeton possède une nouvelle heure d’expiration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

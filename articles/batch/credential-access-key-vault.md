@@ -4,12 +4,12 @@ description: Découvrez comment accéder par programmation à vos informations d
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913209"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337489"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Accéder de façon sécurisée à Key Vault avec Batch
 
@@ -67,7 +67,7 @@ Les URL de l’application ne sont pas importantes, car elles ne seront utilisé
 
 ## <a name="grant-rights-to-key-vault"></a>Accorder des droits à Key Vault
 
-Le principal de service créé à l’étape précédente doit avoir l’autorisation de récupérer les secrets de Key Vault. L’autorisation peut être accordée sur le [Portail Azure](/key-vault/general/assign-access-policy-portal.md) ou avec la commande PowerShell ci-dessous.
+Le principal de service créé à l’étape précédente doit avoir l’autorisation de récupérer les secrets de Key Vault. L’autorisation peut être accordée sur le [Portail Azure](/azure/key-vault/general/assign-access-policy-portal) ou avec la commande PowerShell ci-dessous.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'

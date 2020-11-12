@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: c0858c2e5b1ada866d252e45113f0f90b73caaf8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c023d9b79b81257419814c3087b78f65e1cb6dd5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428731"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355972"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>Tutoriel : Configurer OpenText Directory Services pour l’approvisionnement automatique d’utilisateurs
 
@@ -59,7 +59,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
       ![Durée de vie de jeton d’accès](media/open-text-directory-services-provisioning-tutorial/token-life.png)
 
 3. Ne spécifiez pas d’URL de redirection. Ils ne sont pas requis. 
-4. OTDS génère et affiche la **clé secrète client** . Enregistrez l’ **ID client** et la **clé secrète client** dans un emplacement sécurisé.
+4. OTDS génère et affiche la **clé secrète client**. Enregistrez l’ **ID client** et la **clé secrète client** dans un emplacement sécurisé.
 
       ![Clé secrète client](media/open-text-directory-services-provisioning-tutorial/client-secret.png)
 
@@ -78,7 +78,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
       ![Bouton Autorisation](media/open-text-directory-services-provisioning-tutorial/authorization.png)
 
-6. Sélectionnez **client_credentials** pour grant_type, puis cliquez sur **Exécuter** .
+6. Sélectionnez **client_credentials** pour grant_type, puis cliquez sur **Exécuter**.
 
       ![Bouton Exécuter](media/open-text-directory-services-provisioning-tutorial/execute.png)
 
@@ -94,7 +94,7 @@ Ajoutez OpenText Directory Services à partir de la Galerie d’applications Azu
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Lorsque vous affectez des utilisateurs et des groupes à OpenText Directory Services, vous devez sélectionner un autre rôle qu’ **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) pour ajouter des rôles supplémentaires. 
+* Lorsque vous affectez des utilisateurs et des groupes à OpenText Directory Services, vous devez sélectionner un autre rôle qu’ **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -105,19 +105,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-opentext-directory-services-in-azure-ad"></a>Si vous souhaitez configurer l’attribution automatique d’utilisateurs pour OpenText Directory Services dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **OpenText Directory Services** .
+2. Dans la liste des applications, sélectionnez **OpenText Directory Services**.
 
     ![Lien OpenText Directory Services dans la liste Applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Onglet Approvisionnement](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
@@ -129,13 +129,13 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
       ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec OpenText Directory Services** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec OpenText Directory Services**.
 
 9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et OpenText Directory Services. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans OpenText Directory Services à des opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), vous devez vous assurer que l’API OpenText Directory Services prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -164,9 +164,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence| 
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec OpenText Directory Services** .
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec OpenText Directory Services**.
 
-11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers OpenText Directory Services dans la section **Mappages des attributs** . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans OpenText Directory Services pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers OpenText Directory Services dans la section **Mappages des attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans OpenText Directory Services pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
@@ -176,19 +176,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service d’attribution d’utilisateurs Azure AD pour OpenText Directory Services, définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Paramètres** .
+13. Pour activer le service d’attribution d’utilisateurs Azure AD pour OpenText Directory Services, définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer à OpenText Directory Services en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres** .
+14. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer à OpenText Directory Services en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

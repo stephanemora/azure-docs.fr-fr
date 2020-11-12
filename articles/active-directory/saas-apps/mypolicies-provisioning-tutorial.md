@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55f7b64c9ade91bb2923161d60568e3ea14ee034
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850490"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353478"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutoriel : Configurer myPolicies pour l’approvisionnement automatique d’utilisateurs
 
@@ -66,7 +66,7 @@ Avant de configurer myPolicies pour l’approvisionnement automatique d’utilis
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -87,7 +87,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs myPolicies dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -103,24 +103,24 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section**Informations d’identification de l’administrateur**, entrez `https://<myPoliciesCustomDomain>.mypolicies.com/scim` dans **URL du locataire** où `<myPoliciesCustomDomain>` se trouve votre domaine personnalisé myPolicies. Vous pouvez récupérer votre domaine client myPolicies à partir de votre URL.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://<myPoliciesCustomDomain>.mypolicies.com/scim` dans **URL du locataire** où `<myPoliciesCustomDomain>` se trouve votre domaine personnalisé myPolicies. Vous pouvez récupérer votre domaine client myPolicies à partir de votre URL.
 Exemple : `<demo0-qa>`. mypolicies.com.
 
-6. Dans **Jeton secret**, entrez la valeur du jeton que vous avez préalablement récupérée. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à myPolicies. Si la connexion échoue, vérifiez que votre compte myPolicies dispose des autorisations d’administrateur et réessayez.
+6. Dans **Jeton secret** , entrez la valeur du jeton que vous avez préalablement récupérée. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à myPolicies. Si la connexion échoue, vérifiez que votre compte myPolicies dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-7. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+7. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 8. Cliquez sur **Enregistrer**.
 
-9. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur myPolicies**.
+9. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur myPolicies**.
 
     :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec customappsso est visible." border="false":::
 
-10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et myPolicies. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur myPolicies en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+10. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et myPolicies. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur myPolicies en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -141,7 +141,7 @@ Exemple : `<demo0-qa>`. mypolicies.com.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-13. Définissez les utilisateurs et/ou les groupes que vous aimeriez approvisionner dans myPolicies en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
+13. Définissez les utilisateurs et/ou les groupes que vous aimeriez approvisionner dans myPolicies en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
@@ -155,7 +155,7 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
-* myPolicies requiert toujours le**nom d’utilisateur**, **l’e-mail** et **externalId**.
+* myPolicies requiert toujours le **nom d’utilisateur** , **l’e-mail** et **externalId**.
 * myPolicies ne prend pas en charge les suppressions définitives des attributs utilisateur.
 
 ## <a name="change-log"></a>Journal des modifications

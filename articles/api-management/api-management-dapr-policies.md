@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 16788e3f547c5848893ba3867da4291c45b04408
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558395"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335483"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Stratégies d’intégration Dapr de Gestion des API
 
@@ -25,7 +25,7 @@ Cette rubrique est une ressource de référence pour les stratégies de Gestion 
 
 ## <a name="enable-dapr-support-in-the-self-hosted-gateway"></a>Activer la prise en charge de Dapr dans la passerelle auto-hébergée
 
-Pour activer la prise en charge de Dapr dans la passerelle auto-hébergée, ajoutez les [annotations Dapr](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) ci-dessous au [modèle de déploiement Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md) en remplaçant « app-name » par le nom de votre choix. La procédure pas à pas complète de la configuration et de l’utilisation de la Gestion des API avec Dapr est disponible [ici](https://aka.ms/apim/dapr/walkthru).
+Pour activer la prise en charge de Dapr dans la passerelle auto-hébergée, ajoutez les [annotations Dapr](https://github.com/dapr/docs/blob/master/README.md) ci-dessous au [modèle de déploiement Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md) en remplaçant « app-name » par le nom de votre choix. La procédure pas à pas complète de la configuration et de l’utilisation de la Gestion des API avec Dapr est disponible [ici](https://aka.ms/apim/dapr/walkthru).
 ```yml
 template:
     metadata:
@@ -39,9 +39,9 @@ template:
 
 ## <a name="distributed-application-runtime-dapr-integration-policies"></a>Stratégies d’intégration Distributed Application Runtime (Dapr)
 
--  [Envoyer une demande à un service](api-management-dapr-policies.md#invoke) : utilise le runtime Dapr pour localiser et communiquer de manière fiable avec un microservice Dapr. Pour en savoir plus sur l’appel de service dans Dapr, consultez la description fournie dans ce fichier [LISEZMOI](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation).
--  [Envoyer un message à une rubrique Publier/S’abonner](api-management-dapr-policies.md#pubsub) : utilise le runtime Dapr pour publier un message dans une rubrique Publier/S’abonner. Pour plus d’informations sur les messages Publier/S’abonner dans Dapr, consultez la description fournie dans ce fichier [LISEZMOI](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md).
--  [Déclencher la liaison de sortie](api-management-dapr-policies.md#bind) : utilise le runtime Dapr pour appeler un système externe par le biais d’une liaison de sortie. Pour en savoir plus sur les liaisons dans Dapr, consultez la description fournie dans ce fichier [LISEZMOI](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md).
+-  [Envoyer une demande à un service](api-management-dapr-policies.md#invoke) : utilise le runtime Dapr pour localiser et communiquer de manière fiable avec un microservice Dapr. Pour en savoir plus sur l’appel de service dans Dapr, consultez la description fournie dans ce fichier [LISEZMOI](https://github.com/dapr/docs/blob/master/README.md#service-invocation).
+-  [Envoyer un message à une rubrique Publier/S’abonner](api-management-dapr-policies.md#pubsub) : utilise le runtime Dapr pour publier un message dans une rubrique Publier/S’abonner. Pour plus d’informations sur les messages Publier/S’abonner dans Dapr, consultez la description fournie dans ce fichier [LISEZMOI](https://github.com/dapr/docs/blob/master/README.md).
+-  [Déclencher la liaison de sortie](api-management-dapr-policies.md#bind) : utilise le runtime Dapr pour appeler un système externe par le biais d’une liaison de sortie. Pour en savoir plus sur les liaisons dans Dapr, consultez la description fournie dans ce fichier [LISEZMOI](https://github.com/dapr/docs/blob/master/README.md).
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Envoyer une demande à un service
 
@@ -92,8 +92,8 @@ La stratégie `forward-request` est présentée ici par souci de clarté. La str
 | Attribut        | Description                     | Obligatoire | Default |
 |------------------|---------------------------------|----------|---------|
 | id de principal       | Doit être défini sur « dapr »           | Oui      | N/A     |
-| dapr-app-id      | Nom du microservice cible. Correspond au paramètre [appId](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) dans Dapr.| Oui | N/A |
-| dapr-method      | Nom de la méthode ou URL à appeler sur le microservice cible. Correspond au paramètre [method-name](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) dans Dapr.| Oui | N/A |
+| dapr-app-id      | Nom du microservice cible. Correspond au paramètre [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) dans Dapr.| Oui | N/A |
+| dapr-method      | Nom de la méthode ou URL à appeler sur le microservice cible. Correspond au paramètre [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) dans Dapr.| Oui | N/A |
 
 ### <a name="usage"></a>Usage
 
@@ -120,7 +120,7 @@ La stratégie part du principe que le runtime Dapr s’exécute dans un conteneu
 
 #### <a name="example"></a>Exemple
 
-L’exemple suivant montre comment envoyer le corps de la demande actuelle à la [rubrique](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) « new » du [composant](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) Publier/S’abonner d’« orders ». La réponse reçue du runtime Dapr est stockée dans l’entrée « dapr-response » de la collection Variables dans l’objet [contexte](api-management-policy-expressions.md#ContextVariables).
+L’exemple suivant montre comment envoyer le corps de la demande actuelle à la [rubrique](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters) « new » du [composant](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters) Publier/S’abonner d’« orders ». La réponse reçue du runtime Dapr est stockée dans l’entrée « dapr-response » de la collection Variables dans l’objet [contexte](api-management-policy-expressions.md#ContextVariables).
 
 Si le runtime Dapr ne peut pas localiser la rubrique cible, par exemple, et répond avec une erreur, la section « on-error » est déclenchée. La réponse reçue du runtime Dapr est renvoyée au verbatim de l’appelant. Dans le cas contraire, la réponse `200 OK` par défaut est retournée.
 
@@ -159,8 +159,8 @@ La section « backend » est vide et la demande n’est pas transférée au se
 
 | Attribut        | Description                     | Obligatoire | Default |
 |------------------|---------------------------------|----------|---------|
-| pubsub-name      | Nom du composant PubSub cible. Correspond au paramètre [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) dans Dapr. À défaut, la valeur de l’attribut __rubric__ doit se présenter sous la forme `pubsub-name/topic-name`.    | Non       | None    |
-| topic            | Nom de la rubrique. Correspond au paramètre [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) dans Dapr.               | Oui      | N/A     |
+| pubsub-name      | Nom du composant PubSub cible. Correspond au paramètre [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) dans Dapr. À défaut, la valeur de l’attribut __rubric__ doit se présenter sous la forme `pubsub-name/topic-name`.    | Non       | None    |
+| topic            | Nom de la rubrique. Correspond au paramètre [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) dans Dapr.               | Oui      | N/A     |
 | ignore-error     | Si cette valeur est définie sur `true`, elle indique à la stratégie de ne pas déclencher la section [« on-error »](api-management-error-handling-policies.md) lors de la réception d’une erreur du runtime Dapr | Non | `false` |
 | response-variable-name | Nom de l’entrée de collection [Variables](api-management-policy-expressions.md#ContextVariables) à utiliser pour stocker la réponse du runtime Dapr | Non | None |
 | délai d'expiration | Durée (en secondes) d’attente de la réponse du runtime Dapr. Peut être comprise entre 1 et 240 secondes. | Non | 5 |
@@ -176,7 +176,7 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 
 ## <a name="trigger-output-binding"></a><a name="bind"></a> Liaison de sortie du déclencheur
 
-Cette stratégie indique à la passerelle de Gestion des API de déclencher une [liaison](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md) Dapr sortante. La stratégie accomplit cela en adressant une requête HTTP POST à `http://localhost:3500/v1.0/bindings/{{bind-name}}` en remplaçant le paramètre du modèle et en ajoutant le contenu spécifié dans la déclaration de stratégie.
+Cette stratégie indique à la passerelle de Gestion des API de déclencher une [liaison](https://github.com/dapr/docs/blob/master/README.md) Dapr sortante. La stratégie accomplit cela en adressant une requête HTTP POST à `http://localhost:3500/v1.0/bindings/{{bind-name}}` en remplaçant le paramètre du modèle et en ajoutant le contenu spécifié dans la déclaration de stratégie.
 
 La stratégie part du principe que le runtime Dapr s’exécute dans un conteneur sidecar se trouvant dans le même pod que la passerelle. Le runtime Dapr est chargé d’appeler la ressource externe représentée par la liaison.
 
@@ -237,16 +237,16 @@ La section « backend » est vide et la demande n’est pas transférée au se
 | Élément             | Description  | Obligatoire |
 |---------------------|--------------|----------|
 | invoke-dapr-binding | Élément racine | Oui      |
-| metadata            | Liaison de métadonnées spécifiques sous la forme de paires clé/valeur. Correspond à la propriété [metadata](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) dans Dapr. | Non |
-| Données            | Contenu du message. Correspond à la propriété [data](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) dans Dapr. | Non |
+| metadata            | Liaison de métadonnées spécifiques sous la forme de paires clé/valeur. Correspond à la propriété [metadata](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) dans Dapr. | Non |
+| Données            | Contenu du message. Correspond à la propriété [data](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) dans Dapr. | Non |
 
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut        | Description                     | Obligatoire | Default |
 |------------------|---------------------------------|----------|---------|
-| name            | Nom de la liaison cible. Doit correspondre au nom des liaisons [définies](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) dans Dapr.           | Oui      | N/A     |
-| operation       | Nom de l’opération cible (spécifique de la liaison). Correspond à la propriété [operation](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) dans Dapr. | Non | None |
+| name            | Nom de la liaison cible. Doit correspondre au nom des liaisons [définies](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) dans Dapr.           | Oui      | N/A     |
+| operation       | Nom de l’opération cible (spécifique de la liaison). Correspond à la propriété [operation](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) dans Dapr. | Non | None |
 | ignore-error     | Si cette valeur est définie sur `true`, elle indique à la stratégie de ne pas déclencher la section [« on-error »](api-management-error-handling-policies.md) lors de la réception d’une erreur du runtime Dapr | Non | `false` |
 | response-variable-name | Nom de l’entrée de collection [Variables](api-management-policy-expressions.md#ContextVariables) à utiliser pour stocker la réponse du runtime Dapr | Non | None |
 | délai d'expiration | Durée (en secondes) d’attente de la réponse du runtime Dapr. Peut être comprise entre 1 et 240 secondes. | Non | 5 |

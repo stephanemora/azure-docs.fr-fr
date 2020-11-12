@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: Zhchia
-ms.openlocfilehash: 19e4a6b15f32ea9854801bcf6024577a1697c563
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e7f3817a6db288e93b5e0dc99c7b6c9b7bd2e44b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455661"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355734"
 ---
 # <a name="tutorial-configure-code42-for-automatic-user-provisioning"></a>Tutoriel : Configurer Code42 pour l'approvisionnement automatique d'utilisateurs
 
@@ -55,9 +55,9 @@ Cette section explique comment configurer Azure AD en tant que fournisseur d'app
 
 ### <a name="to-create-a-provisioning-provider-in-code42s-console"></a>Pour créer un fournisseur d'approvisionnement à partir de la console de Code42 :
 
-1. Connectez-vous à votre console Code42. Sélectionnez **Administration** pour développer le menu de navigation. Sélectionnez **Paramètres** puis **Gestion des identités** .
-2. Sélectionnez l’onglet **Approvisionnement** . Développez ensuite le menu **Ajouter un fournisseur d'approvisionnement** et sélectionnez **Ajouter un fournisseur SCIM** .
-3. Dans le champ **Nom d'affichage** , entrez un nom unique pour le fournisseur d'approvisionnement. Définissez le **Type d'informations d'identification d'authentification** sur **Jeton OAuth** . Sélectionnez **Suivant** pour générer les informations d'identification.
+1. Connectez-vous à votre console Code42. Sélectionnez **Administration** pour développer le menu de navigation. Sélectionnez **Paramètres** puis **Gestion des identités**.
+2. Sélectionnez l’onglet **Approvisionnement**. Développez ensuite le menu **Ajouter un fournisseur d'approvisionnement** et sélectionnez **Ajouter un fournisseur SCIM**.
+3. Dans le champ **Nom d'affichage** , entrez un nom unique pour le fournisseur d'approvisionnement. Définissez le **Type d'informations d'identification d'authentification** sur **Jeton OAuth**. Sélectionnez **Suivant** pour générer les informations d'identification.
 
 > [!NOTE]
 >* Laissez cette fenêtre ouverte jusqu'à ce que vous soyez invité à fournir l' **URL de base** et le **Jeton** requis dans les étapes suivantes.
@@ -71,7 +71,7 @@ Ajoutez Code42 à partir de la galerie d'applications Azure AD afin de commencer
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Lorsque vous approvisionnez des utilisateurs et des groupes pour Code42, vous devez sélectionner un rôle autre que **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires.
+* Lorsque vous approvisionnez des utilisateurs et des groupes pour Code42, vous devez sélectionner un rôle autre que **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires.
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -82,19 +82,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-code42-in-azure-ad"></a>Pour configurer l'approvisionnement automatique d'utilisateurs pour Code42 dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Code42** .
+2. Dans la liste des applications, sélectionnez **Code42**.
 
     ![Lien Code42 dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Onglet Approvisionnement](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
@@ -102,13 +102,13 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Code42** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Code42**.
 
 9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Code42. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d'utilisateur Code42 en vue de mises à jour ultérieures. Si vous choisissez de modifier l'[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l'API Code42 prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -129,7 +129,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Code42** .
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Code42**.
 
 11. Dans la section **Mappage d'attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Code42. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés afin de faire correspondre les groupes dans Code42 pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -141,19 +141,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service d'approvisionnement Azure AD pour Code42, définissez le paramètre **État d'approvisionnement** sur **Activé** dans la section **Paramètres** .
+13. Pour activer le service d'approvisionnement Azure AD pour Code42, définissez le paramètre **État d'approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur Code42 en choisissant les valeurs souhaitées dans le champ **Étendue** de la section **Paramètres** .
+14. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur Code42 en choisissant les valeurs souhaitées dans le champ **Étendue** de la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution.
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution.
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

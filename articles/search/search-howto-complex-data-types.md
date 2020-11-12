@@ -9,16 +9,16 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1d380a41f5b20c52fefca9e68bb4ed858b3bf3a1
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824478"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422051"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
-Les jeux de données externes utilisés pour remplir un index Recherche cognitive Azure peuvent avoir différentes formes. Ils incluent parfois des sous-structures hiérarchiques ou imbriquées. Des exemples incluent les adresses multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de types de données *complexes*, *composées*, *composites* or *agrégées*. Le terme utilisé par Recherche cognitive Azure pour ce concept est **type complexe**. Dans Recherche cognitive Azure, les types complexes sont modélisés à l’aide de **champs complexes**. Un champ complexe est un champ qui contient des enfants (sous-champs) qui peuvent être des données de n’importe quel type, notamment d’autres types complexes. Ceci fonctionne d’une manière similaire aux types de données structurées dans un langage de programmation.
+Les jeux de données externes utilisés pour remplir un index Recherche cognitive Azure peuvent avoir différentes formes. Ils incluent parfois des sous-structures hiérarchiques ou imbriquées. Des exemples incluent les adresses multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de types de données *complexes* , *composées* , *composites* or *agrégées*. Le terme utilisé par Recherche cognitive Azure pour ce concept est **type complexe**. Dans Recherche cognitive Azure, les types complexes sont modélisés à l’aide de **champs complexes**. Un champ complexe est un champ qui contient des enfants (sous-champs) qui peuvent être des données de n’importe quel type, notamment d’autres types complexes. Ceci fonctionne d’une manière similaire aux types de données structurées dans un langage de programmation.
 
 Les champs complexes représentent un objet unique dans le document ou un tableau d’objets, selon le type de données. Les champs de type `Edm.ComplexType` représentent des objets uniques, alors que des champs de type `Collection(Edm.ComplexType)` représentent des tableaux d’objets.
 
@@ -73,7 +73,7 @@ Cette limite s’applique uniquement aux collections complexes, et non aux types
 
 ## <a name="creating-complex-fields"></a>Création de champs complexes
 
-Comme avec n’importe quelle définition d’index, vous pouvez utiliser le portail, l’[API REST](/rest/api/searchservice/create-index), ou le kit de développement logiciel [ (SDK) .NET](/dotnet/api/microsoft.azure.search.models.index) pour créer un schéma incluant des types complexes. 
+Comme avec n’importe quelle définition d’index, vous pouvez utiliser le portail, l’[API REST](/rest/api/searchservice/create-index), ou le kit de développement logiciel [ (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindex) pour créer un schéma incluant des types complexes. 
 
 L’exemple suivant montre un schéma d’index JSON avec des champs simples, des collections et des types complexes. Notez qu’au sein d’un type complexe, chaque sous-champ a un type et peut avoir des attributs, comme c’est le cas pour les champs de niveau supérieur. Le schéma correspond à l’exemple de données ci-dessus. `Address` est un champ complexe qui n’est pas une collection (un hôtel a une adresse). `Rooms` est un champ de collection complexe (un hôtel a plusieurs chambres).
 

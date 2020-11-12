@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789622"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422788"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutoriel : Implémenter une base de données géo-distribuée (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés 
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
-  > Ce tutoriel utilise l’exemple de base de données *AdventureWorksLT* .
+  > Ce tutoriel utilise l’exemple de base de données *AdventureWorksLT*.
 
 - Java et Maven. Consultez [Générer une application à l’aide de SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), mettez en surbrillance **Java** et sélectionnez votre environnement, puis suivez les étapes.
 
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Vous pouvez également changer les paramètres de géoréplication dans le portail Azure. Pour cela, sélectionnez votre base de données, puis **Paramètres** > **Géoréplication** .
+Vous pouvez également changer les paramètres de géoréplication dans le portail Azure. Pour cela, sélectionnez votre base de données, puis **Paramètres** > **Géoréplication**.
 
 ![Paramètres de géoréplication](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ Vous pouvez également changer les paramètres de géoréplication dans le porta
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Tapez **Y** , puis appuyez sur **Entrée** .
+1. Tapez **Y** , puis appuyez sur **Entrée**.
 
 1. Passez au répertoire du nouveau projet.
 
@@ -182,7 +182,7 @@ Vous pouvez également changer les paramètres de géoréplication dans le porta
    </build>
    ```
 
-1. Enregistrez et fermez le fichier *pom.xml* .
+1. Enregistrez et fermez le fichier *pom.xml*.
 
 1. Ouvrez le fichier *App.java* situé à l’emplacement ..\SqlDbSample\src\main\java\com\sqldbsamples et remplacez son contenu par le code suivant :
 
@@ -290,7 +290,7 @@ Vous pouvez également changer les paramètres de géoréplication dans le porta
    }
    ```
 
-1. Enregistrez et fermez le fichier *App.java* .
+1. Enregistrez et fermez le fichier *App.java*.
 
 1. Dans la console de commandes, exécutez la commande suivante :
 
@@ -333,7 +333,7 @@ Pour tester un basculement :
 1. Démarrer un basculement manuel du groupe de basculement :
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

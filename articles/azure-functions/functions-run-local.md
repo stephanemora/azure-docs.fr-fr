@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 78c6e4dffb35980b73fbc09bdc07d55215e659ae
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164859"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422584"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java utilise un archétype Maven pour créer le projet Functions local, ainsi que votre première fonction déclenchée par HTTP. Utilisez la commande suivante pour créer votre projet Java : `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. Pour obtenir un exemple d’utilisation de l’archétype Maven, consultez le [démarrage rapide par lignes de commande](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
+> Java utilise un archétype Maven pour créer le projet Functions local, ainsi que votre première fonction déclenchée par HTTP. Utilisez la commande suivante pour créer votre projet Java : `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. Pour obtenir un exemple d’utilisation de l’archétype Maven, consultez le [démarrage rapide par lignes de commande](./create-first-function-cli-java.md).  
 
 Lorsque vous fournissez un nom de projet, un nouveau dossier portant ce nom est créé et initialisé. Sinon, le dossier actif est initialisé.  
 Dans la version 3.x/2.x, lorsque vous exécutez la commande, vous devez choisir un runtime pour votre projet. 
@@ -247,10 +247,10 @@ Si aucune chaîne de connexion de stockage valide n’est définie pour [`AzureW
 
 Même si vous utilisez l’Émulateur de stockage Microsoft Azure pour le développement, vous pouvez tester votre configuration avec une connexion de stockage réelle. Si vous avez déjà [créé un compte de stockage](../storage/common/storage-account-create.md), vous pouvez obtenir une chaîne de connexion de stockage valide de l’une des manières suivantes :
 
-- Dans le [Azure portal], recherchez et sélectionnez **Comptes de stockage** . 
+- Dans le [Azure portal], recherchez et sélectionnez **Comptes de stockage**. 
   ![Sélectionner des comptes de stockage à partir du Portail Azure](./media/functions-run-local/select-storage-accounts.png)
   
-  Sélectionnez votre compte de stockage, sélectionnez **Clés d’accès** dans **Paramètres** , puis copiez une des valeurs **Chaîne de connexion** .
+  Sélectionnez votre compte de stockage, sélectionnez **Clés d’accès** dans **Paramètres** , puis copiez une des valeurs **Chaîne de connexion**.
   ![Copier une chaîne de connexion à partir du portail Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
 - Utilisez l’[Explorateur Stockage Azure](https://storageexplorer.com/) pour vous connecter à votre compte Azure. Dans l’ **Explorateur** , développez votre abonnement et **Comptes de stockage** , sélectionnez votre compte de stockage et copiez la chaîne de connexion principale ou secondaire.
@@ -357,7 +357,7 @@ func start
 ```
 func start
 ```
-Cette commande doit être [exécutée dans un environnement virtuel](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+Cette commande doit être [exécutée dans un environnement virtuel](./create-first-function-cli-python.md).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 

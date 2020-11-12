@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689675"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335756"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Atténuer l’impartialité dans les modèles Machine Learning (préversion)
 
 Découvrez l’impartialité dans l’apprentissage automatique et la façon dont le package Python open source [Fairlearn](https://fairlearn.github.io/) peut vous aider à atténuer les problèmes d’impartialité dans les modèles Machine Learning. Si vous ne faites pas l’effort de comprendre les problèmes de partialité et d’évaluer l’impartialité lors de la création de modèles de Machine Learning, vous pourriez créer des modèles qui produisent des résultats injustes.
 
-Le résumé suivant du [guide de l’utilisateur](https://fairlearn.github.io/user_guide/index.html) pour le package open source Fairlearn, décrit comment l’utiliser pour évaluer l’impartialité des systèmes IA que vous générez.  Le package open source Fairlearn peut également fournir des options permettant d’atténuer ou de réduire les problèmes de partialité que vous observez.  Pour activer l’évaluation de l’impartialité de systèmes IA pendant la formation sur Azure Machine Learning, consultez [cette page](how-to-machine-learning-fairness-aml.md) et les [notebooks échantillons](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness).
+Le résumé suivant du [guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/index.html) pour le package open source Fairlearn, décrit comment l’utiliser pour évaluer l’impartialité des systèmes IA que vous générez.  Le package open source Fairlearn peut également fournir des options permettant d’atténuer ou de réduire les problèmes de partialité que vous observez.  Pour activer l’évaluation de l’impartialité de systèmes IA pendant la formation sur Azure Machine Learning, consultez [cette page](how-to-machine-learning-fairness-aml.md) et les [notebooks échantillons](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness).
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>Qu’est-ce que l’impartialité dans les modèles Machine Learning ?
@@ -51,7 +51,7 @@ Ensemble, ces composants permettent aux scientifiques des données et aux dirige
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Évaluer l’impartialité dans les modèles Machine Learning
 
-Dans le package open source Fairlearn, l’impartialité est conceptualisée au travers d’une approche connue sous le nom d’**impartialité de groupe**, qui demande : sur les groupes de personnes exposés à un éventuel préjudice. Les groupes pertinents, également appelés sous-populations, sont définis par des **caractéristiques sensibles** ou attributs sensibles. Les fonctionnalités sensibles sont transmises à un estimateur dans le package open source Fairlearn sous la forme d’un vecteur ou d’une matrice appelée `sensitive_features`. Cette dénomination suggère que le concepteur du système doit être sensible à ces caractéristiques lors de l’évaluation de l’impartialité du groupe. 
+Dans le package open source Fairlearn, l’impartialité est conceptualisée au travers d’une approche connue sous le nom d’ **impartialité de groupe** , qui demande : sur les groupes de personnes exposés à un éventuel préjudice. Les groupes pertinents, également appelés sous-populations, sont définis par des **caractéristiques sensibles** ou attributs sensibles. Les fonctionnalités sensibles sont transmises à un estimateur dans le package open source Fairlearn sous la forme d’un vecteur ou d’une matrice appelée `sensitive_features`. Cette dénomination suggère que le concepteur du système doit être sensible à ces caractéristiques lors de l’évaluation de l’impartialité du groupe. 
 
 Gardez à l’esprit que ces fonctionnalités contiennent des implications en termes de confidentialité en raison de données privées. Le mot « sensible » n’implique cependant pas que ces caractéristiques ne doivent pas être utilisées pour effectuer des prévisions.
 
@@ -108,6 +108,6 @@ Le package open source Fairlearn fournit des algorithmes d’atténuation de pos
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser les différents composants en consultant le [GitHub](https://github.com/fairlearn/fairlearn/), le [guide de l’utilisateur](https://fairlearn.github.io/user_guide/index.html), les [exemples](https://fairlearn.github.io/auto_examples/)et les [exemples de notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
+- Découvrez comment utiliser les différents composants en consultant le [GitHub](https://github.com/fairlearn/fairlearn/), le [guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/index.html), les [exemples](https://fairlearn.github.io/master/auto_examples/)et les [exemples de notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
 - Découvrez [comment](how-to-machine-learning-fairness-aml.md) activer l’évaluation de l’impartialité des modèles de Machine Learning dans Azure Machine Learning.
 - Consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) pour connaître d’autres scénarios d’évaluation de l’impartialité dans Azure Machine Learning. 

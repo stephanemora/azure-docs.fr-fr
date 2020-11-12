@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519603"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422091"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une base de données Cosmos DB à l’aide d’une identité managée
 
@@ -43,19 +43,19 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 1. Dans le portail Azure, accédez au compte Cosmos DB qui contient les données que vous souhaitez indexer.
 2. Sélectionnez **Contrôle d’accès (IAM)**
-3. Sélectionnez **Ajouter** , puis **Ajouter une attribution de rôle** .
+3. Sélectionnez **Ajouter** , puis **Ajouter une attribution de rôle**.
 
     ![Ajouter une attribution de rôle](./media/search-managed-identities/add-role-assignment-cosmos-db.png "Ajouter une attribution de rôle")
 
 4. Sélectionner le **rôle Lecteur de compte Cosmos DB**
-5. Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD** .
-6. Recherchez votre service de recherche, sélectionnez-le, puis sélectionnez **Enregistrer** .
+5. Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD**.
+6. Recherchez votre service de recherche, sélectionnez-le, puis sélectionnez **Enregistrer**.
 
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "Ajouter une attribution de rôle Lecteur et accès aux données")
 
 ### <a name="3---create-the-data-source"></a>3 – Créer la source de données
 
-L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.datasource) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir de Cosmos DB à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
+L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir de Cosmos DB à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
 
 Lorsque vous utilisez des identités managées pour l’authentification, les **informations d’identification** n’incluent pas de clé de compte.
 

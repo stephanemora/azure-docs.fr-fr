@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d283a5bec804696a1243005a37bf73b087677d09
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373177"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377069"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations d’inscription d’application pour les rôles personnalisés dans Azure Active Directory
 
@@ -28,7 +28,7 @@ Cet article contient les autorisations d’inscription d’application actuellem
 
 Lorsque vous choisissez les autorisations pour votre rôle personnalisé, vous avez la possibilité d’accorder l’accès uniquement pour gérer les applications à locataire unique. Les applications monolocataires sont uniquement disponibles pour les utilisateurs de l’organisation Azure AD dans laquelle l’application est inscrite. Les applications monolocataires sont définies comme ayant des **types de comptes pris en charge** définis sur « Comptes dans ce répertoire d’organisation uniquement ». Dans l’API Graph, les applications monolocataires ont la propriété signInAudience définie sur « AzureADMyOrg ».
 
-Pour accorder l’accès uniquement à la gestion des applications à locataire unique, utilisez les autorisations ci-dessous avec le sous-type **applications.myOrganization** . Par exemple, microsoft.directory/applications.myOrganization/basic/update.
+Pour accorder l’accès uniquement à la gestion des applications à locataire unique, utilisez les autorisations ci-dessous avec le sous-type **applications.myOrganization**. Par exemple, microsoft.directory/applications.myOrganization/basic/update.
 
 Consultez la [vue d’ensemble des rôles personnalisés](custom-overview.md) pour obtenir une explication des termes généraux du sous-type, de l’autorisation et du jeu de propriétés. Les informations suivantes sont spécifiques aux inscriptions d’applications.
 
@@ -46,7 +46,7 @@ En attribuant cette autorisation, le créateur n’est pas ajouté en tant que p
 
 Si les deux autorisations sont affectées, l’autorisation /create est prioritaire. Bien que l’autorisation /createAsOwner n’ajoute pas automatiquement le créateur comme premier propriétaire, les propriétaires peuvent être spécifiés lors de la création de l’inscription de l’application lors de l’utilisation des API Graph ou des cmdlets PowerShell.
 
-Les autorisations de création autorisent l’accès à la commande **Nouvelle inscription** .
+Les autorisations de création autorisent l’accès à la commande **Nouvelle inscription**.
 
 [Ces autorisations accordent l’accès à la commande Nouvelle inscription du portail](./media/custom-available-permissions/new-custom-role.png)
 
