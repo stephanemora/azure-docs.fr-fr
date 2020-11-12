@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533901"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410575"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 
@@ -86,11 +86,11 @@ Certaines autres fonctionnalités pour Azure Active Directory incluent :
 
 - Azure AD permet l’authentification unique sur les applications SaaS, quel que soit l’endroit où elles sont hébergées. Certaines applications sont fédérées avec Azure AD, d’autres utilisent le mot de passe de l’authentification unique. Les applications fédérées peuvent également prendre en charge l’approvisionnement d’utilisateurs et la [mise au coffre des mots de passe](https://www.techopedia.com/definition/31415/password-vault).
 
-- L’accès aux données dans [Azure Storage](https://azure.microsoft.com/services/storage/) est contrôlé via l’authentification. Chaque compte de stockage possède une clé primaire ([clé de compte de stockage](../../storage/common/storage-create-storage-account.md) ou SAK) et une clé secrète secondaire (signature d’accès partagé ou SAP).
+- L’accès aux données dans [Azure Storage](https://azure.microsoft.com/services/storage/) est contrôlé via l’authentification. Chaque compte de stockage possède une clé primaire ([clé de compte de stockage](../../storage/common/storage-account-create.md) ou SAK) et une clé secrète secondaire (signature d’accès partagé ou SAP).
 
-- Azure AD fournit l’identité en tant que service par le biais de la fédération en utilisant les [services de fédération Active Directory (AD FS)](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), la synchronisation et la réplication avec les annuaires locaux.
+- Azure AD fournit l’identité en tant que service par le biais de la fédération en utilisant les [services de fédération Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), la synchronisation et la réplication avec les annuaires locaux.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) est le service d’authentification multifacteur qui demande aux utilisateurs de vérifier les connexions à l’aide d’une application mobile, d’un appel téléphonique ou d’un message texte. Ce service est utilisable avec Azure AD afin de sécuriser les ressources locales avec le serveur Azure Multi-Factor Authentication, ainsi qu’avec des applications et annuaires personnalisés à l’aide du Kit de développement logiciel (SDK).
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) est le service d’authentification multifacteur qui demande aux utilisateurs de vérifier les connexions à l’aide d’une application mobile, d’un appel téléphonique ou d’un message texte. Ce service est utilisable avec Azure AD afin de sécuriser les ressources locales avec le serveur Azure Multi-Factor Authentication, ainsi qu’avec des applications et annuaires personnalisés à l’aide du Kit de développement logiciel (SDK).
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) vous permet de joindre des machines virtuelles Azure à un domaine Active Directory sans déployer de contrôleurs de domaine. Vous pouvez vous connecter à ces machines virtuelles avec vos informations d’identification Active Directory d’entreprise, et administrer les machines virtuelles jointes au domaine en utilisant une stratégie de groupe pour appliquer des lignes de base de sécurité sur toutes vos machines virtuelles Azure.
 
@@ -119,7 +119,7 @@ Microsoft Azure propose divers services informatiques cloud qui incluent une lar
 
 ### <a name="dedicated-hosts"></a>Hôtes dédiés
 
-En plus des hôtes isolés décrits dans la section précédente, Azure propose des hôtes dédiés. Les hôtes dédiés dans Azure sont un service qui fournit des serveurs physiques pouvant héberger une ou plusieurs machines virtuelles, qui sont dédiés à un seul abonnement Azure. Les hôtes dédiés assurent l’isolation matérielle au niveau du serveur physique. Aucune autre machine virtuelle ne sera placée sur vos hôtes. Les hôtes dédiés sont déployés dans les mêmes centres de données et partagent les mêmes réseau et infrastructure de stockage sous-jacente que les autres hôtes non isolés. Pour plus d’informations, voir la présentation détaillée des [hôtes dédiés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+En plus des hôtes isolés décrits dans la section précédente, Azure propose des hôtes dédiés. Les hôtes dédiés dans Azure sont un service qui fournit des serveurs physiques pouvant héberger une ou plusieurs machines virtuelles, qui sont dédiés à un seul abonnement Azure. Les hôtes dédiés assurent l’isolation matérielle au niveau du serveur physique. Aucune autre machine virtuelle ne sera placée sur vos hôtes. Les hôtes dédiés sont déployés dans les mêmes centres de données et partagent les mêmes réseau et infrastructure de stockage sous-jacente que les autres hôtes non isolés. Pour plus d’informations, voir la présentation détaillée des [hôtes dédiés Azure](../../virtual-machines/dedicated-hosts.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolation de systèmes d’exploitation racine et Hyper-V entre des machines virtuelles racine et des machines virtuelles invitées
 
@@ -194,7 +194,7 @@ Le **contrôle d’accès dans le stockage Azure** dispose d’un modèle de con
 
 ![Isolation à l’aide du contrôle d’accès de stockage](./media/isolation-choices/azure-isolation-fig9.png)
 
-**L’accès aux données de stockage Azure (y compris aux tables)** peut être contrôlé via un jeton [SAP (signature d’accès partagé)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md), qui accorde un accès étendu. La SAP est créée via un modèle de requête (URL), signé avec la [SAK (clé de compte de stockage)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Cette [URL signée](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) peut être donnée à un autre processus (c.-à-d. déléguée), qui peut ensuite renseigner les détails de la requête et l’envoyer au service de stockage. Une SAP vous permet d’accorder l’accès en fonction du temps aux clients sans révéler la clé secrète du compte de stockage.
+**L’accès aux données de stockage Azure (y compris aux tables)** peut être contrôlé via un jeton [SAP (signature d’accès partagé)](../../storage/common/storage-sas-overview.md), qui accorde un accès étendu. La SAP est créée via un modèle de requête (URL), signé avec la [SAK (clé de compte de stockage)](/previous-versions/azure/reference/ee460785(v=azure.100)). Cette [URL signée](../../storage/common/storage-sas-overview.md) peut être donnée à un autre processus (c.-à-d. déléguée), qui peut ensuite renseigner les détails de la requête et l’envoyer au service de stockage. Une SAP vous permet d’accorder l’accès en fonction du temps aux clients sans révéler la clé secrète du compte de stockage.
 
 La SAP nous permet d’accorder à un client des autorisations limitées à des objets de notre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Nous pouvons accorder ces autorisations limitées sans partager les clés d’accès de votre compte.
 
@@ -225,13 +225,13 @@ Pour de nombreuses organisations, le [chiffrement des données au repos](isolati
 
 - [Storage Service Encryption](../../storage/blobs/security-recommendations.md) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Azure Storage.
 - [Client-side Encryption](../../storage/blobs/security-recommendations.md) fournit également la fonctionnalité de chiffrement au repos.
-- [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS.
+- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) pour les machines virtuelles vous permet de répondre aux exigences de conformité et de sécurité des organisations en chiffrant vos disques de machine virtuelle (y compris les disques d’amorçage et disques de données) avec des clés et stratégies que vous pouvez contrôler dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) pour les machines virtuelles vous permet de répondre aux exigences de conformité et de sécurité des organisations en chiffrant vos disques de machine virtuelle (y compris les disques d’amorçage et disques de données) avec des clés et stratégies que vous pouvez contrôler dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-La solution Disk Encryption pour Windows est basée sur le [chiffrement de lecteur Microsoft BitLocker](https://technet.microsoft.com/library/cc732774.aspx) et la solution Linux est basée sur le chiffrement [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+La solution Disk Encryption pour Windows est basée sur le [chiffrement de lecteur Microsoft BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) et la solution Linux est basée sur le chiffrement [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 La solution prend en charge les scénarios de machines virtuelles IaaS suivants lorsqu’ils sont activés dans Microsoft Azure :
 
@@ -243,7 +243,7 @@ La solution prend en charge les scénarios de machines virtuelles IaaS suivants 
 - Activation du chiffrement sur les machines virtuelles IaaS exécutant le système d’exploitation client Windows
 - Activation du chiffrement sur les volumes avec chemins d’accès de montage
 - Activation du chiffrement sur les machines virtuelles Linux configurées avec entrelacement de disques (RAID) à l’aide de [mdadm](https://en.wikipedia.org/wiki/Mdadm)
-- Activation du chiffrement sur les machines virtuelles Linux à l’aide de [LVM (Gestionnaire de volumes logiques)](https://msdn.microsoft.com/library/windows/desktop/bb540532) pour les disques de données
+- Activation du chiffrement sur les machines virtuelles Linux à l’aide de [LVM (Gestionnaire de volumes logiques)](/windows/win32/fileio/about-volume-management) pour les disques de données
 - Activation du chiffrement sur les machines virtuelles Windows configurées à l’aide d’espaces de stockage
 - Toutes les régions publiques Azure sont prises en charge
 

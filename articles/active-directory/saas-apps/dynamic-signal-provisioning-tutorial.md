@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851218"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359015"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutoriel : Configurer Dynamic Signal pour l’approvisionnement automatique d’utilisateurs
 
@@ -45,7 +45,7 @@ Avant de configurer Dynamic Signal pour l’approvisionnement automatique d’ut
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Avant de configurer Dynamic Signal pour l’approvisionnement automatique d’ut
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Dynamic Signal**, sélectionnez **Dynamic Signal** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Dynamic Signal** , sélectionnez **Dynamic Signal** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Dynamic Signal dans la liste des résultats](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Dynamic Signal dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -102,25 +102,25 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Capture d’écran de la console d’administration Dynamic Signal. Advanced est mis en évidence dans le menu Admin. Le menu Advanced est également visible, avec API mis en évidence." border="false":::
 
-    Copiez **l’URL de l’API SCIM** dans **Tenant URL** (URL de locataire). Cliquez sur **Générer un nouveau jeton** pour générer un **jeton du porteur**, puis copiez la valeur dans **Secret Token** (Jeton secret).
+    Copiez **l’URL de l’API SCIM** dans **Tenant URL** (URL de locataire). Cliquez sur **Générer un nouveau jeton** pour générer un **jeton du porteur** , puis copiez la valeur dans **Secret Token** (Jeton secret).
 
-    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Capture d’écran de la console d’administration Dynamic Signal. Advanced est mis en évidence dans le menu Admin. Le menu Advanced est également visible, avec API mis en évidence." border="false":::
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Capture d’écran de la page Tokens, avec SCIM API URL, Generate new token et Bearer token mis en évidence, et un espace réservé dans la zone Bearer token." border="false":::
 
 7. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Dynamic Signal. Si la connexion échoue, vérifiez que votre compte Dynamic Signal dispose d’autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 9. Cliquez sur **Enregistrer**.
 
-10. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Dynamic Signal** (Synchroniser les utilisateurs Azure Active Directory avec Dynamic Signal).
+10. Dans la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Users to Dynamic Signal** (Synchroniser les utilisateurs Azure Active Directory avec Dynamic Signal).
 
     ![Mappages d’utilisateurs Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Dynamic Signal. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Dynamic Signal pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs** , passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Dynamic Signal. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Dynamic Signal pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs d’utilisateur Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 

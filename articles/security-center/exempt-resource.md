@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 347d5ac9de164f2e96340df71fd3b1b908e607c1
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532548"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372742"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Exempter une ressource des recommandations et du degré de sécurisation
 
@@ -30,7 +30,7 @@ La ressource sera répertoriée comme non applicable, avec le motif « exempté
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|PRÉVERSION|
+|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prix :|Il s’agit d’une fonctionnalité de stratégie Azure Premium proposée sans surcoût aux clients Azure Defender. Pour les autres utilisateurs, des frais peuvent s’appliquer à l’avenir.|
 |Rôles et autorisations obligatoires :|**Propriétaire de l’abonnement** ou **Contributeur de stratégie** pour créer une exemption<br>Pour créer une règle, vous devez disposer de l’autorisation de modifier des stratégies dans Azure Policy.<br>Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
@@ -45,22 +45,22 @@ La ressource sera répertoriée comme non applicable, avec le motif « exempté
 
     Le volet Créer une exemption s’ouvre.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Option Créer une exemption du menu contextuel":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Volet Créer une exemption":::
 
 1. Entrez vos critères, puis sélectionnez la raison pour laquelle cette ressource doit être exemptée :
-    - **Atténuée** : ce problème ne s’applique pas à la ressource, car il a été traité par un outil ou un processus différent de celui suggéré
-    - **Dérogation** : acceptation du risque pour cette ressource
+    - **Atténuée**  : ce problème ne s’applique pas à la ressource, car il a été traité par un outil ou un processus différent de celui suggéré
+    - **Dérogation**  : acceptation du risque pour cette ressource
 1. Sélectionnez **Enregistrer**.
 1. Après un certain temps (jusqu’à 24 heures) :
     - La ressource n’a pas d’impact sur votre degré de sécurisation.
     - La ressource apparaît dans l’onglet **Non applicable** de la page des détails de la recommandation
     - La bande d’informations en haut de la page des détails de la recommandation indique le nombre de ressources exemptées :
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Option Créer une exemption du menu contextuel":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Nombre de ressources exemptées":::
 
 1. Pour passer en revue vos ressources exemptées, ouvrez l’onglet **Non applicable** .
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Option Créer une exemption du menu contextuel":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modification d’une exemption":::
 
     La raison de chaque exemption est spécifiée dans le tableau (1).
 
@@ -71,9 +71,9 @@ La ressource sera répertoriée comme non applicable, avec le motif « exempté
 
 Les règles d’exemption utilisent une stratégie Azure afin de créer une exemption pour la ressource sur l’attribution de stratégie.
 
-Vous pouvez utiliser Azure Policy pour suivre toute votre exemption dans la page **Exemption** :
+Vous pouvez utiliser Azure Policy pour suivre toute votre exemption dans la page **Exemption**  :
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Option Créer une exemption du menu contextuel":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Page d’exemption d’Azure Policy":::
 
 
 

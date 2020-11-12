@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319167"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357213"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutoriel : Configurer 15Five pour l’approvisionnement automatique d’utilisateurs
 
@@ -58,15 +58,15 @@ Avant de configurer 15Five pour l’approvisionnement automatique d’utilisateu
 
 2.  Cliquez sur **SCIM 2.0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Capture d’écran de la console d’administration 15Five. Les intégrations s’affichent sous Fonctionnalités dans un menu, et Fonctionnalités et Intégrations sont mises en évidence." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Capture d’écran de la page Intégrations dans la console d’administration 15Five. Sous Outil, SCIM 2.0 est mis en évidence." border="false":::
 
 3.  Accédez à **Intégration SCIM > Générer un jeton OAuth**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Capture d’écran de la console d’administration 15Five. Les intégrations s’affichent sous Fonctionnalités dans un menu, et Fonctionnalités et Intégrations sont mises en évidence." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Capture d’écran de la page Intégration SCIM dans la console d’administration 15Five. Générer un jeton OAuth est mis en évidence." border="false":::
 
-4.  Copiez les valeurs de l’**URL de base SCIM 2.0** et du **jeton d’accès**. Cette valeur doit être entrée dans les champs **URL de locataire** et **Jeton secret** dans l’onglet Approvisionnement de votre application 15Five dans le Portail Azure.
+4.  Copiez les valeurs de l’ **URL de base SCIM 2.0** et du **jeton d’accès**. Cette valeur doit être entrée dans les champs **URL de locataire** et **Jeton secret** dans l’onglet Approvisionnement de votre application 15Five dans le Portail Azure.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Capture d’écran de la console d’administration 15Five. Les intégrations s’affichent sous Fonctionnalités dans un menu, et Fonctionnalités et Intégrations sont mises en évidence." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Capture d’écran de la page Intégration SCIM. Dans la table Jetons, les valeurs à côté d’URL de base SCIM 2.0 et Jeton d’accès sont mises en évidence." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter 15Five à partir de la galerie d’applications Azure AD
 
@@ -86,7 +86,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-15five-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour 15Five dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -102,19 +102,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5.  Sous la section Informations d’identification de l’administrateur, entrez les valeurs d’**URL de base SCIM 2.0 et de Jeton du porteur** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à 15Five. Si la connexion échoue, vérifiez que votre compte 15Five dispose des autorisations d’administrateur et réessayez.
+5.  Sous la section Informations d’identification de l’administrateur, entrez les valeurs d’ **URL de base SCIM 2.0 et de Jeton du porteur** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à 15Five. Si la connexion échoue, vérifiez que votre compte 15Five dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to 15Five (Synchroniser les utilisateurs Azure Active Directory avec 15Five)** .
+8. Dans la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Users to 15Five (Synchroniser les utilisateurs Azure Active Directory avec 15Five)** .
 
-9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 15Five. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans 15Five pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 15Five. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans 15Five pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
 
    |Attribut|Type|
@@ -131,9 +131,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:location|String|
    |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:startDate|String|
 
-10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec 15Five**.
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec 15Five**.
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et 15Five. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans 15Five dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et 15Five. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans 15Five dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|

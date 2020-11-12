@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5fc5045643c9baf67b61d45188c8a2b6ccbc5c23
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304661"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359814"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutoriel : Configurer Peakon pour le provisionnement automatique d’utilisateurs
 
@@ -74,7 +74,7 @@ Avant de configurer Peakon pour l’approvisionnement automatique d’utilisateu
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -82,7 +82,7 @@ Avant de configurer Peakon pour l’approvisionnement automatique d’utilisateu
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Peakon**, sélectionnez **Peakon** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Peakon** , sélectionnez **Peakon** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Peakon dans la liste des résultats](common/search-new-app.png)
 
@@ -95,7 +95,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-peakon--in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Peakon dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -111,21 +111,21 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs **d’URL SCIM 2.0** et de **Jeton du porteur OAuth** récupérées précédemment dans **URL de locataire** et **Jeton secret**, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Peakon. Si la connexion échoue, vérifiez que votre compte Peakon dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur** , entrez les valeurs **d’URL SCIM 2.0** et de **Jeton du porteur OAuth** récupérées précédemment dans **URL de locataire** et **Jeton secret** , respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Peakon. Si la connexion échoue, vérifiez que votre compte Peakon dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-7. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+7. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 8. Cliquez sur **Enregistrer**.
 
-9. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Peakon**.
+9. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Peakon**.
 
     ![Peakon - Mappages d'utilisateurs](media/Peakon-provisioning-tutorial/Peakon-user-mappings.png)
 
-10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Peakon. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Peakon pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+10. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Peakon. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Peakon pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur Peakon](media/Peakon-provisioning-tutorial/Peakon-user-attributes.png)
 

@@ -3,12 +3,12 @@ title: Concevoir des workflows Azure Policy en tant que code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320610"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359678"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Concevoir des workflows Azure Policy en tant que code
 
@@ -38,8 +38,6 @@ Des exemples de ces formats de fichier sont accessibles dans le [référentiel G
 
 - Définition de stratégie : [Ajouter une étiquette aux ressources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Définition d’initiative : [Étiquettes de facturation](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-Consultez également l’article [Exporter des ressources Azure Policy](../how-to/export-resources.md) pour obtenir vos définitions et attributions existantes dans l’environnement de gestion du code source [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Vue d’ensemble du workflow
 
@@ -74,6 +72,8 @@ Les définitions de stratégies sont créées avec des fichiers JSON et stockée
 
 Lorsqu’une stratégie est mise à jour ou qu’une nouvelle est ajoutée, le workflow doit automatiquement mettre à jour la définition de stratégie dans Azure. Le test de la définition de stratégie ajoutée ou mise à jour sera effectué dans une étape ultérieure.
 
+Consultez également l’article [Exporter des ressources Azure Policy](../how-to/export-resources.md) pour obtenir vos définitions et attributions existantes dans l’environnement de gestion du code source [GitHub](https://www.github.com).
+
 ### <a name="create-and-update-initiative-definitions"></a>Créer et mettre à jour des définitions d’initiatives
 
 De même, les initiatives ont leur propre fichier JSON et les fichiers associés qui doivent être stockés dans le même dossier. La définition de l’initiative exige que la définition de stratégie existe déjà. Vous ne pouvez donc pas la créer ni la mettre à jour tant que la source de la stratégie n’a pas été mise à jour dans le contrôle de code source, puis dans Azure. Nous vous recommandons la structure suivante pour conserver vos définitions d’initiatives dans le contrôle de code source :
@@ -102,7 +102,7 @@ Comme pour les définitions de stratégies, à l’ajout ou la mise à jour d’
 
 ### <a name="test-and-validate-the-updated-definition"></a>Tester et valider la définition mise à jour
 
-Maintenant que l’automatisation s’est occupée des définitions de stratégies ou d’initiatives créées ou mises à jour et a effectué la mise à jour sur l’objet dans Azure, il est temps de tester les modifications apportées. La stratégie ou la (ou les) initiative(s) à laquelle (auxquelles) elle appartient doit ensuite être affectée aux ressources de l’environnement le plus éloigné de la production, généralement _Dev_ .
+Maintenant que l’automatisation s’est occupée des définitions de stratégies ou d’initiatives créées ou mises à jour et a effectué la mise à jour sur l’objet dans Azure, il est temps de tester les modifications apportées. La stratégie ou la (ou les) initiative(s) à laquelle (auxquelles) elle appartient doit ensuite être affectée aux ressources de l’environnement le plus éloigné de la production, généralement _Dev_.
 
 L’affectation doit utiliser [enforcementMode](./assignment-structure.md#enforcement-mode)_disabled_ afin que la création et la mise à jour des ressources ne soient pas bloquées, mais que la conformité des ressources existantes à la définition de stratégie mise à jour soit toujours auditée. Même avec enforcementMode, il est recommandé que l’étendue d’affectation soit un groupe de ressources ou un abonnement servant spécialement à valider des stratégies.
 
@@ -129,7 +129,7 @@ Le fait de tester à la fois les résultats de l’évaluation de la stratégie 
 
 ### <a name="update-to-enforced-assignments"></a>Mettre à jour pour appliquer les affectations
 
-Une fois toutes les épreuves de validation effectuées, mettez à jour l’affectation pour utiliser **enforcementMode**_enabled_ . Il est recommandé d’effectuer cette modification au départ dans le même environnement éloigné de la production. Après la vérification que cet environnement fonctionne comme prévu, la modification doit être étendue de façon à inclure l’environnement suivant, et ainsi de suite, jusqu’à ce que la stratégie soit déployée sur les ressources de production.
+Une fois toutes les épreuves de validation effectuées, mettez à jour l’affectation pour utiliser **enforcementMode**_enabled_. Il est recommandé d’effectuer cette modification au départ dans le même environnement éloigné de la production. Après la vérification que cet environnement fonctionne comme prévu, la modification doit être étendue de façon à inclure l’environnement suivant, et ainsi de suite, jusqu’à ce que la stratégie soit déployée sur les ressources de production.
 
 ## <a name="process-integrated-evaluations"></a>Traiter les évaluations intégrées
 

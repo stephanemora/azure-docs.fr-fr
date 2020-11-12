@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 3f480cb0d478ca60555fa15849d5fcbed6cda684
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fca18a58ccb8d4e2f10b5db606ad01a97c2d5bac
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286112"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359924"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Tutoriel : Configurer SmartFile pour l'approvisionnement automatique d'utilisateurs
 
@@ -72,7 +72,7 @@ Avant de configurer SmartFile pour l'approvisionnement automatique d'utilisateur
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Avant de configurer SmartFile pour l'approvisionnement automatique d'utilisateur
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **SmartFile**, sélectionnez **SmartFile** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l'application.
+4. Dans la zone de recherche, entrez **SmartFile** , sélectionnez **SmartFile** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l'application.
 
     ![SmartFile dans la liste des résultats](common/search-new-app.png)
 
@@ -93,7 +93,7 @@ Cette section vous guide tout au long des étapes de configuration du service d'
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartfile-in-azure-ad"></a>Pour configurer l'approvisionnement automatique d'utilisateurs pour SmartFile dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -109,29 +109,29 @@ Cette section vous guide tout au long des étapes de configuration du service d'
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5.  Dans la section **Informations d’identification de l’administrateur**, entrez `https://<SmartFile sitename>.smartfile.com/ftp/scim` dans **URL de locataire**. Par exemple, `https://demo1test.smartfile.com/ftp/scim`. Entrez la valeur du **Jeton du porteur** (ProductKey: ProductPassword) précédemment récupérée dans le champ **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à SmartFile. Si la connexion échoue, vérifiez que votre compte SmartFile dispose d'autorisations d'administrateur et réessayez.
+5.  Dans la section **Informations d’identification de l’administrateur** , entrez `https://<SmartFile sitename>.smartfile.com/ftp/scim` dans **URL de locataire**. Par exemple, `https://demo1test.smartfile.com/ftp/scim`. Entrez la valeur du **Jeton du porteur** (ProductKey: ProductPassword) précédemment récupérée dans le champ **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à SmartFile. Si la connexion échoue, vérifiez que votre compte SmartFile dispose d'autorisations d'administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec SmartFile**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec SmartFile**.
 
     ![Mappages d'utilisateurs SmartFile](media/smartfile-provisioning-tutorial/usermapping.png)
 
-9. Dans la section **Mappage des attributs**, passez en revue les attributs d'utilisateurs synchronisés entre Azure AD et SmartFile. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d'utilisateur dans SmartFile pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappage des attributs** , passez en revue les attributs d'utilisateurs synchronisés entre Azure AD et SmartFile. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d'utilisateur dans SmartFile pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur SmartFile](media/smartfile-provisioning-tutorial/userattribute.png)
 
-10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec SmartFile**.
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec SmartFile**.
 
     ![Mappages de groupes SmartFile](media/smartfile-provisioning-tutorial/groupmapping.png)
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupes qui sont synchronisés entre Azure AD et SmartFile. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans SmartFile pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs** , passez en revue les attributs de groupes qui sont synchronisés entre Azure AD et SmartFile. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans SmartFile pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs de groupe SmartFile](media/smartfile-provisioning-tutorial/groupattribute.png)
 

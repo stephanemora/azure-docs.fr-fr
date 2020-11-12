@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369792"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413443"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Comment Azure AD permet une gestion gouvernée par le cloud pour les charges de travail locales
 
@@ -77,7 +77,7 @@ De plus en plus, la collaboration entreprise-entreprise nécessite que vous acco
 
 Azure AD peut [créer automatiquement des comptes dans Active Directory pour les utilisateurs invités](../external-identities/hybrid-cloud-to-on-premises.md) en fonction des besoins. Ainsi, les invités peuvent accéder aux applications locales intégrées à Active Directory, sans avoir besoin d’un autre mot de passe. Les entreprises peuvent définir des [stratégies d’authentification multifacteur (MFA) pour les utilisateurs invités](../external-identities/conditional-access.md) afin que les vérifications MFA soient effectuées lors de l’authentification du proxy d’application. En outre, les [révisions d’accès](../governance/manage-guest-access-with-access-reviews.md) qui sont effectuées au sujet des utilisateurs cloud B2B s’appliquent également aux utilisateurs locaux. Par exemple, si l’utilisateur cloud est supprimé via vos stratégies de gestion du cycle de vie, l’utilisateur local est également supprimé.
 
-**Gestion des informations d’identification pour les comptes Active Directory** La réinitialisation de mot de passe en libre-service d’Azure AD permet aux utilisateurs qui ont oublié leur mot de passe de se réauthentifier et de réinitialiser leur mot de passe. Dans ce cas, les mots de passe modifiés sont [écrits dans l’instance locale d’Active Directory](../authentication/concept-sspr-writeback.md). Le processus de réinitialisation du mot de passe peut également utiliser les stratégies de mot de passe de l’instance locale d’Active Directory : Lorsqu’un utilisateur réinitialise son mot de passe, celui-ci est vérifié afin de garantir qu’il répond à la stratégie Active Directory locale avant d’être validé dans l’annuaire. Le [plan de déploiement](https://aka.ms/deploymentplans/sspr) de réinitialisation de mot de passe en libre-service décrit les bonnes pratiques relatives au déploiement d’une telle réinitialisation sur le Web et dans Windows.
+**Gestion des informations d’identification pour les comptes Active Directory** La réinitialisation de mot de passe en libre-service d’Azure AD permet aux utilisateurs qui ont oublié leur mot de passe de se réauthentifier et de réinitialiser leur mot de passe. Dans ce cas, les mots de passe modifiés sont [écrits dans l’instance locale d’Active Directory](../authentication/concept-sspr-writeback.md). Le processus de réinitialisation du mot de passe peut également utiliser les stratégies de mot de passe de l’instance locale d’Active Directory : Lorsqu’un utilisateur réinitialise son mot de passe, celui-ci est vérifié afin de garantir qu’il répond à la stratégie Active Directory locale avant d’être validé dans l’annuaire. Le [plan de déploiement](../authentication/howto-sspr-deployment.md) de réinitialisation de mot de passe en libre-service décrit les bonnes pratiques relatives au déploiement d’une telle réinitialisation sur le Web et dans Windows.
 
 ![Architecture SSPR d’Azure AD](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ Pour commencer la migration des applications fédérées vers Azure AD comme fo
 
 * Le livre blanc [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper) présente les avantages de la migration et explique comment la planifier en quatre phases clairement expliquées : la découverte, la classification, la migration et la gestion continue. Vous serez guidé pour savoir comment penser ce processus et diviser votre projet en éléments faciles à utiliser. Le document contient des liens vers des ressources importantes qui vous aideront tout au long du processus.
 
-* Le guide de solution [Migrating Application Authentication from Active Directory Federation Services to Azure Active Directory](https://aka.ms/migrateapps/adfssolutionguide) explore plus en détail les mêmes quatre phases de planification et d’exécution d’un projet de migration d’application. Dans ce guide, vous allez voir comment appliquer ces phases au déplacement d’une application entre Active Directory Federation Services (AD FS) et Azure AD.
+* Le guide de solution [Migrating Application Authentication from Active Directory Federation Services to Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) explore plus en détail les mêmes quatre phases de planification et d’exécution d’un projet de migration d’application. Dans ce guide, vous allez voir comment appliquer ces phases au déplacement d’une application entre Active Directory Federation Services (AD FS) et Azure AD.
 
 * Le [script de préparation à la migration des services de fédération Active Directory](https://aka.ms/migrateapps/adfstools) peut être exécuté sur des serveurs locaux AD FS existants pour déterminer l’état de préparation des applications en vue de leur migration vers Azure AD.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80811082"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413290"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -63,7 +63,7 @@ Azure prend en charge plusieurs types de contrôle d’accès réseau, tels que 
 Tout déploiement sécurisé requiert certaines mesures de contrôle d’accès réseau. L’objectif du contrôle d’accès réseau est de restreindre les communications des machines virtuelles aux systèmes nécessaires. Les autres tentatives de communication sont bloquées.
 
 > [!NOTE]
-> Les pare-feux de stockage sont détaillés dans l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](storage-overview.md)
+> Les pare-feux de stockage sont détaillés dans l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../storage/blobs/security-recommendations.md)
 
 #### <a name="network-security-rules-nsgs"></a>Règles de sécurité réseau (NSG)
 
@@ -77,11 +77,11 @@ Les groupes de sécurité réseau n’effectuent pas d’inspection de la couche
 
 En savoir plus :
 
-* [Groupes de sécurité réseau](../../virtual-network/security-overview.md)
+* [Groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md)
 
 #### <a name="asc-just-in-time-vm-access"></a>Accès juste-à-temps aux machines virtuelles pour ASC
 
-Le [Centre de sécurité Azure](../../security-center/security-center-intro.md) gère les NSG sur les machines virtuelles et verrouillent l’accès à la machine virtuelle jusqu’à ce qu’un utilisateur avec les permissions de contrôle d’accès en fonction du rôle [(RBAC)](/azure/role-based-access-control/overview) appropriées demande l’accès. Quand l’utilisateur est autorisé avec succès, ASC modifie les NSG pour autoriser l’accès aux ports sélectionnés pendant la durée spécifiée. Passé ce délai, les NSG sont restaurés à leur état sécurisé précédent.
+Le [Centre de sécurité Azure](../../security-center/security-center-introduction.md) gère les NSG sur les machines virtuelles et verrouillent l’accès à la machine virtuelle jusqu’à ce qu’un utilisateur avec les permissions de contrôle d’accès en fonction du rôle [(RBAC)](../../role-based-access-control/overview.md) appropriées demande l’accès. Quand l’utilisateur est autorisé avec succès, ASC modifie les NSG pour autoriser l’accès aux ports sélectionnés pendant la durée spécifiée. Passé ce délai, les NSG sont restaurés à leur état sécurisé précédent.
 
 En savoir plus :
 
@@ -141,7 +141,7 @@ Pare-feu Azure est un service de sécurité réseau informatique géré qui prot
 
 En savoir plus :
 
-* [Présentation du Pare-feu Azure](/azure/firewall/overview)
+* [Présentation du Pare-feu Azure](../../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Accès à distance sécurisé et connectivité intersite
 
@@ -202,7 +202,7 @@ Il est possible d’utiliser plusieurs réseaux virtuels dans vos déploiements.
 
 Une option est de connecter les services d’un réseau virtuel aux services d’un autre réseau virtuel en effectuant un « retour de boucle » via Internet. La connexion part d’un réseau virtuel, passe par Internet, puis revient au réseau virtuel de destination. Cette option expose la connexion aux risques de sécurité inhérents à toute communication Internet.
 
-Une meilleure option consiste à créer un VPN de site à site qui se connecte entre deux réseaux virtuels. Cette méthode utilise le même protocole de [mode de tunneling IPsec](https://technet.microsoft.com/library/cc786385.aspx) que la connexion VPN de site à site mentionnée ci-dessus.
+Une meilleure option consiste à créer un VPN de site à site qui se connecte entre deux réseaux virtuels. Cette méthode utilise le même protocole de [mode de tunneling IPsec](/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) que la connexion VPN de site à site mentionnée ci-dessus.
 
 L’avantage d’utiliser cette approche est que la connexion VPN est établie via l’infrastructure réseau Azure et non via Internet. Vous bénéficiez ainsi d’un meilleur niveau de sécurité par rapport à une connexion VPN de site à site basée sur Internet.
 
@@ -237,7 +237,7 @@ La passerelle Azure Application Gateway vous permet de mettre en place un équil
 
 En savoir plus :
 
-* [Vue d’ensemble d’Application Gateway](/azure/application-gateway/application-gateway-introduction)
+* [Vue d’ensemble d’Application Gateway](../../application-gateway/overview.md)
 
 ### <a name="network-level-load-balancing"></a>Équilibrage de charge au niveau du réseau
 
@@ -252,8 +252,8 @@ Pour bénéficier des avantages de l’équilibrage de charge au niveau du rése
 
 En savoir plus :
 
-* [Équilibrage de charge accessible sur Internet entre plusieurs services ou machines virtuelles](/azure/load-balancer/load-balancer-internet-overview)
-* [Présentation de l’équilibrage de charge interne](/azure/load-balancer/load-balancer-internal-overview)
+* [Équilibrage de charge accessible sur Internet entre plusieurs services ou machines virtuelles](../../load-balancer/load-balancer-overview.md)
+* [Présentation de l’équilibrage de charge interne](../../load-balancer/load-balancer-overview.md)
 
 ### <a name="global-load-balancing"></a>Équilibrage de charge global
 
@@ -315,7 +315,7 @@ En savoir plus :
 ## <a name="azure-ddos-protection"></a>Protection DDoS dans Azure
 
 Les attaques par déni de service distribué (DDoS) représentent certains des problèmes de disponibilité et de sécurité majeurs auxquels sont confrontés les clients qui déplacent leurs applications vers le cloud. Une attaque DDoS tente d’épuiser les ressources d’une application afin de la rendre indisponible aux utilisateurs légitimes. Les attaques DDoS peuvent être ciblées sur n’importe quel point de terminaison qui est publiquement accessible via Internet.
-Microsoft offre une protection DDoS **De base** dans le cadre de la plateforme Azure. Elle est gratuite et comprend la surveillance Always On et l’atténuation en temps réel des attaques courantes au niveau du réseau. Outre les protections incluses avec la protection DDoS **De base**, vous pouvez activer l’option **Standard**. Les fonctionnalités du service Protection DDos Standard sont les suivantes :
+Microsoft offre une protection DDoS **De base** dans le cadre de la plateforme Azure. Elle est gratuite et comprend la surveillance Always On et l’atténuation en temps réel des attaques courantes au niveau du réseau. Outre les protections incluses avec la protection DDoS **De base** , vous pouvez activer l’option **Standard**. Les fonctionnalités du service Protection DDos Standard sont les suivantes :
 
 * **Intégration de la plateforme native :** Intégré en natif dans Azure. Inclut la configuration par le biais du portail Azure. Le service Protection DDos Standard comprend vos ressources et leur configuration.
 * **Protection clés en main :** La configuration simplifiée protège immédiatement toutes les ressources situées sur un réseau virtuel dès que DDoS Protection Standard est activé. Aucune définition ou intervention de l’utilisateur n’est nécessaire. Le service Protection DDoS Standard atténue de façon instantanée et automatique l’attaque une fois que celle-ci est détectée.
@@ -381,7 +381,7 @@ Security Center vous permet d’optimiser et de surveiller la sécurité réseau
 
 En savoir plus :
 
-* [Présentation d’Azure Security Center](../../security-center/security-center-intro.md)
+* [Présentation d’Azure Security Center](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>TAP de réseau virtuel
 

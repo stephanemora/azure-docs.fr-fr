@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b5a22c904d72f09656480be6009e3832fde72b89
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273672"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408632"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -74,7 +74,7 @@ Pour savoir quelle méthode utiliser, effectuez les étapes des sections suivant
 Pour vérifier les paramètres actuels de connexion des utilisateurs :
 
 1. Connectez-vous au [portail Azure](https://aad.portal.azure.com/) en utilisant un compte d’administrateur général.
-2. Dans la section **Connexion utilisateur**, vérifiez les paramètres suivants :
+2. Dans la section **Connexion utilisateur** , vérifiez les paramètres suivants :
    * **Fédération** est défini sur **Activé**.
    * **Authentification unique fluide** est défini sur **Désactivé**.
    * **Authentification directe** est défini sur **Désactivé**.
@@ -84,21 +84,21 @@ Pour vérifier les paramètres actuels de connexion des utilisateurs :
 #### <a name="verify-the-azure-ad-connect-configuration"></a>Vérifier la configuration d’Azure AD Connect
 
 1. Sur votre serveur Azure AD Connect, ouvrez Azure AD Connect. Sélectionnez **Configurer**.
-2. Dans la page **Tâches supplémentaires**, sélectionnez **Afficher la configuration actuelle**, puis sélectionnez **Suivant**.<br />
+2. Dans la page **Tâches supplémentaires** , sélectionnez **Afficher la configuration actuelle** , puis sélectionnez **Suivant**.<br />
 
    ![Capture d’écran de l’option Afficher la configuration actuelle sélectionnée dans la page Tâches supplémentaires](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
-3. Dans la page **Vérification de votre solution**, notez l’état de **Synchronisation de hachage de mot de passe**.<br /> 
+3. Dans la page **Vérification de votre solution** , notez l’état de **Synchronisation de hachage de mot de passe**.<br /> 
 
-   * Si **Synchronisation de hachage de mot de passe** est défini sur **Désactivé**, effectuez les étapes de cet article pour l’activer.
-   * Si **Synchronisation de hachage de mot de passe** est défini sur **Activé**, vous pouvez ignorer la section **Étape 1 : Activer la synchronisation de hachage de mot de passe** de cet article.
-4. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)** .<br />
+   * Si **Synchronisation de hachage de mot de passe** est défini sur **Désactivé** , effectuez les étapes de cet article pour l’activer.
+   * Si **Synchronisation de hachage de mot de passe** est défini sur **Activé** , vous pouvez ignorer la section **Étape 1 : Activer la synchronisation de hachage de mot de passe** de cet article.
+4. Dans la page **Vérification de votre solution** n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)** .<br />
 
    * ‎Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Le processus est détaillé dans la section **Option A : Passer de la fédération à la synchronisation de hachage de mot de passe avec Azure AD Connect**.
    * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option B : Passer de la fédération à la synchronisation de hachage de mot de passe avec Azure AD Connect et PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Documenter les paramètres de fédération actuels
 
-Pour trouver le paramètre de fédération actuel, exécutez l’applet de commande **Get-MsolDomainFederationSettings** :
+Pour trouver le paramètre de fédération actuel, exécutez l’applet de commande **Get-MsolDomainFederationSettings**  :
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
@@ -110,7 +110,7 @@ Exemple :
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-Vérifiez les paramètres qui peuvent avoir été personnalisés pour la conception de votre fédération et la documentation du déploiement. En particulier, recherchez les personnalisations dans **PreferredAuthenticationProtocol**, **SupportsMfa** et **PromptLoginBehavior**.
+Vérifiez les paramètres qui peuvent avoir été personnalisés pour la conception de votre fédération et la documentation du déploiement. En particulier, recherchez les personnalisations dans **PreferredAuthenticationProtocol** , **SupportsMfa** et **PromptLoginBehavior**.
 
 Pour plus d’informations, voir les articles suivants :
 
@@ -118,7 +118,7 @@ Pour plus d’informations, voir les articles suivants :
 * [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Si **SupportsMfa** est défini sur **True**, cela signifie que vous utilisez une solution d’authentification multifacteur locale pour injecter un deuxième facteur dans le flux d’authentification des utilisateurs. Ce programme d’installation ne fonctionne plus pour les scénarios d’authentification Azure AD après conversion de ce domaine de l’authentification fédérée à l’authentification gérée. Après la désactivation de la fédération, vous interrompez la relation avec votre fédération en local, y compris les adaptateurs MFA locaux. 
+> Si **SupportsMfa** est défini sur **True** , cela signifie que vous utilisez une solution d’authentification multifacteur locale pour injecter un deuxième facteur dans le flux d’authentification des utilisateurs. Ce programme d’installation ne fonctionne plus pour les scénarios d’authentification Azure AD après conversion de ce domaine de l’authentification fédérée à l’authentification gérée. Après la désactivation de la fédération, vous interrompez la relation avec votre fédération en local, y compris les adaptateurs MFA locaux. 
 >
 > Au lieu de cela, utilisez le service cloud Azure Multi-Factor Authentication pour la même fonction. Évaluez soigneusement vos besoins d’authentification multifacteur avant de continuer. Avant de convertir vos domaines, veillez à bien comprendre comment utiliser Azure Multi-Factor Authentication, les implications en matière de gestion des licences et le processus d’inscription des utilisateurs.
 
@@ -144,9 +144,9 @@ Avant de passer de l’identité fédérée à l’identité managée, examinez 
 |-|-|
 | Vous prévoyez d’utiliser AD FS avec d’autres applications (autres qu’Azure AD et Microsoft 365). | Après avoir converti vos domaines, vous utiliserez AD FS et Azure AD. Considérez l’expérience utilisateur. Dans certains scénarios, les utilisateurs doivent peut-être s’authentifier deux fois : une fois auprès d’Azure AD (où un utilisateur bénéficie d’un accès avec authentification unique à d’autres applications, comme Microsoft 365), et une deuxième fois dans les applications encore liées à AD FS comme approbation de partie de confiance. |
 | Votre instance d’AD FS est très personnalisée et s’appuie sur des paramètres de personnalisation spécifiques du fichier onload.js (par exemple si vous avez modifié l’expérience de connexion afin que les utilisateurs utilisent seulement un format **SamAccountName** pour leur nom d’utilisateur au lieu d’un nom d’utilisateur principal (UPN), ou si votre organisation a fortement personnalisé l’expérience de connexion). Le fichier onload.js ne peut pas être dupliqué dans Azure AD. | Avant de continuer, vous devez vérifier qu’Azure AD peut répondre à vos spécifications de personnalisation actuelles. Pour plus d’informations et des conseils, consultez les sections relatives à la personnalisation d’AD FS.|
-| Vous utilisez AD FS pour bloquer des versions antérieures des clients d’authentification.| Vous pouvez remplacer les contrôles d’AD FS qui bloquent les versions antérieures des clients d’authentification en utilisant une combinaison de [contrôles d’accès conditionnel](../conditional-access/concept-conditional-access-conditions.md) et de [règles d’accès de client Exchange Online](https://aka.ms/EXOCAR). |
+| Vous utilisez AD FS pour bloquer des versions antérieures des clients d’authentification.| Vous pouvez remplacer les contrôles d’AD FS qui bloquent les versions antérieures des clients d’authentification en utilisant une combinaison de [contrôles d’accès conditionnel](../conditional-access/concept-conditional-access-conditions.md) et de [règles d’accès de client Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
 | Vous obligez les utilisateurs à effectuer une authentification multifacteur via une solution de serveur d’authentification multifacteur locale quand les utilisateurs s’authentifient auprès d’AD FS.| Dans un domaine d’identité managée, vous ne pouvez pas injecter une demande d’authentification multifacteur via la solution d’authentification multifacteur locale dans le flux d’authentification. Vous pouvez cependant utiliser le service Azure Multi-Factor Authentication pour l’authentification multifacteur une fois que le domaine est converti.<br /><br /> Si vos utilisateurs n’utilisent pas actuellement Azure Multi-Factor Authentication, une étape ponctuelle d’inscription des utilisateurs est nécessaire. Vous devez préparer et communiquer l’inscription planifiée à vos utilisateurs. |
-| Vous utilisez actuellement des stratégies de contrôle d’accès (règles AuthZ) dans AD FS pour contrôler l’accès à Microsoft 365.| Vous pouvez envisager de remplacer les stratégies par des [stratégies d’accès conditionnel](../conditional-access/overview.md) et des [règles d’accès du client Exchange Online](https://aka.ms/EXOCAR) d’Azure AD équivalentes.|
+| Vous utilisez actuellement des stratégies de contrôle d’accès (règles AuthZ) dans AD FS pour contrôler l’accès à Microsoft 365.| Vous pouvez envisager de remplacer les stratégies par des [stratégies d’accès conditionnel](../conditional-access/overview.md) et des [règles d’accès du client Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) d’Azure AD équivalentes.|
 
 ### <a name="common-ad-fs-customizations"></a>Personnalisations courantes d’AD FS
 
@@ -238,11 +238,11 @@ Pour cette raison, nous vous recommandons d’effectuer cette étape en amont, e
 Pour activer la synchronisation de hachage de mot de passe :
 
 1. Sur le serveur Azure AD Connect, ouvrez l’Assistant Azure AD Connect, puis sélectionnez **Configurer**.
-2. Sélectionnez **Personnaliser les options de synchronisation**, puis cliquez sur **Suivant**.
-3. Dans la page **Connexion à Azure AD**, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
-4. Dans la page **Connexion de vos annuaires**, cliquez sur **Suivant**.
-5. Dans la page **Filtrage par domaine ou unité d’organisation**, cliquez sur **Suivant**.
-6. Dans la page **Fonctionnalités facultatives**, sélectionnez **Synchronisation de mot de passe**, puis cliquez sur **Suivant**.
+2. Sélectionnez **Personnaliser les options de synchronisation** , puis cliquez sur **Suivant**.
+3. Dans la page **Connexion à Azure AD** , entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
+4. Dans la page **Connexion de vos annuaires** , cliquez sur **Suivant**.
+5. Dans la page **Filtrage par domaine ou unité d’organisation** , cliquez sur **Suivant**.
+6. Dans la page **Fonctionnalités facultatives** , sélectionnez **Synchronisation de mot de passe** , puis cliquez sur **Suivant**.
  
    ![Capture d’écran de l’option Synchronisation de mot de passe sélectionnée dans la page Fonctionnalités facultatives](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image6.png)<br />
 7. Sélectionnez **Suivant** dans les pages restantes. Dans la dernière page, sélectionnez **Configurer**.
@@ -257,8 +257,8 @@ Pour vérifier que la synchronisation de hachage de mot de passe fonctionne corr
 1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option Exécuter en tant qu’administrateur.
 2. Exécutez `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
 3. Lancez l’Assistant Azure AD Connect.
-4. Accédez à la page **Tâches supplémentaires**, sélectionnez **Résoudre les problèmes**, puis sélectionnez **Suivant**.
-5. Dans la page **Résolution des problèmes**, cliquez sur **Lancer** pour ouvrir le menu de dépannage dans PowerShell.
+4. Accédez à la page **Tâches supplémentaires** , sélectionnez **Résoudre les problèmes** , puis sélectionnez **Suivant**.
+5. Dans la page **Résolution des problèmes** , cliquez sur **Lancer** pour ouvrir le menu de dépannage dans PowerShell.
 6. Dans le menu principal, sélectionnez **Résoudre les problèmes de synchronisation de hachage de mot de passe**.
 7. Dans le sous-menu, sélectionnez **La synchronisation du hachage de mot de passe ne fonctionne pas du tout**.
 
@@ -286,11 +286,11 @@ Utilisez cette méthode si vous avez initialement configuré votre environnement
 Changez d’abord la méthode de connexion :
 
 1. Sur le serveur Azure AD Connect, ouvrez l’Assistant Azure AD Connect.
-2. Sélectionnez **Modifier la connexion utilisateur**, puis sélectionnez **Suivant**. 
+2. Sélectionnez **Modifier la connexion utilisateur** , puis sélectionnez **Suivant**. 
 
    ![Capture d’écran de l’option Modifier la connexion utilisateur dans la page Tâches supplémentaires](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image7.png)<br />
-3. Dans la page **Connexion à Azure AD**, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
-4. Dans la page **Connexion utilisateur**, sélectionnez le bouton **Synchronisation de hachage de mot de passe**. Veillez à cocher la case **Ne pas convertir les comptes utilisateur**. L’option est dépréciée. Sélectionnez **Activer l’authentification unique**, puis sélectionnez **Suivant**.
+3. Dans la page **Connexion à Azure AD** , entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
+4. Dans la page **Connexion utilisateur** , sélectionnez le bouton **Synchronisation de hachage de mot de passe**. Veillez à cocher la case **Ne pas convertir les comptes utilisateur**. L’option est dépréciée. Sélectionnez **Activer l’authentification unique** , puis sélectionnez **Suivant**.
 
    ![Capture d’écran de la page Activer l’authentification unique](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)<br />
 
@@ -300,7 +300,7 @@ Changez d’abord la méthode de connexion :
    > [!IMPORTANT]
    > Vous pouvez ignorer les avertissements indiquant que la conversion des utilisateurs et la synchronisation de hachage de mot de passe complète sont des étapes obligatoires pour le passage de la fédération à l’authentification cloud. Notez que ces étapes ne sont plus nécessaires. Si vous voyez toujours ces avertissements, vérifiez que vous exécutez la version la plus récente d’Azure AD Connect ainsi que la dernière version de ce guide. Pour plus d’informations, consultez la section [Mettre à jour Azure AD Connect](#update-azure-ad-connect).
 
-5. Dans la page **Activer l’authentification unique**, entrez les informations d’identification du compte d’administrateur de domaine, puis sélectionnez **Suivant**.
+5. Dans la page **Activer l’authentification unique** , entrez les informations d’identification du compte d’administrateur de domaine, puis sélectionnez **Suivant**.
 
    ![Capture d’écran de la page Activer l’authentification unique dans laquelle vous pouvez entrer les informations d’identification du compte Administrateur de domaine.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
@@ -311,7 +311,7 @@ Changez d’abord la méthode de connexion :
    > 2. La clé de déchiffrement Kerberos du compte d’ordinateur est partagée de façon sécurisée avec Azure AD.
    > 3. Deux noms de principal du service Kerberos sont créés pour représenter les deux URL utilisées lors de la connexion à Azure AD.
 
-6. Dans la page **Prêt à configurer**, vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.
+6. Dans la page **Prêt à configurer** , vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.
 
       ![Capture d’écran de la page Prêt à configurer](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image10.png)<br />
 
@@ -336,9 +336,9 @@ Accédez à [Tests et étapes suivantes](#testing-and-next-steps).
 Utilisez cette option si vous n’avez pas initialement configuré vos domaines fédérés avec Azure AD Connect. Au cours de ce processus, vous activez l’authentification unique fluide et vous faites passer vos domaines de fédérés en managés.
 
 1. Sur le serveur Azure AD Connect, ouvrez l’Assistant Azure AD Connect.
-2. Sélectionnez **Modifier la connexion utilisateur**, puis sélectionnez **Suivant**.
-3. Dans la page **Connexion à Azure AD**, entrez le nom d’utilisateur et le mot de passe pour un compte d’administrateur général.
-4. Dans la page **Connexion utilisateur**, sélectionnez le bouton **Synchronisation de hachage de mot de passe**. Sélectionnez **Activer l’authentification unique**, puis sélectionnez **Suivant**.
+2. Sélectionnez **Modifier la connexion utilisateur** , puis sélectionnez **Suivant**.
+3. Dans la page **Connexion à Azure AD** , entrez le nom d’utilisateur et le mot de passe pour un compte d’administrateur général.
+4. Dans la page **Connexion utilisateur** , sélectionnez le bouton **Synchronisation de hachage de mot de passe**. Sélectionnez **Activer l’authentification unique** , puis sélectionnez **Suivant**.
 
    Avant l’activation de la synchronisation de hachage de mot de passe : ![Capture d’écran montrant l’option Ne pas configurer dans la page Connexion utilisateur](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
@@ -347,7 +347,7 @@ Utilisez cette option si vous n’avez pas initialement configuré vos domaines 
    > [!NOTE]
    > À compter d’Azure AD Connect version 1.1.880.0, la case **Authentification unique fluide** est cochée par défaut.
 
-5. Dans la page **Activer l’authentification unique**, entrez les informations d’identification d’un compte d’administrateur de domaine, puis sélectionnez **Suivant**.
+5. Dans la page **Activer l’authentification unique** , entrez les informations d’identification d’un compte d’administrateur de domaine, puis sélectionnez **Suivant**.
 
    > [!NOTE]
    > Les informations d’identification du compte d’administrateur de domaine sont nécessaires pour activer l’authentification unique fluide. Le processus effectue les actions suivantes, qui nécessitent ces autorisations élevées. Les informations d’identification du compte d’administrateur de domaine ne sont pas stockées dans Azure AD Connect ni dans Azure AD. Les informations d’identification du compte d’administrateur de domaine sont utilisées seulement pour activer la fonctionnalité. Les informations d’identification sont supprimées quand le processus se termine avec succès.
@@ -356,10 +356,10 @@ Utilisez cette option si vous n’avez pas initialement configuré vos domaines 
    > 2. La clé de déchiffrement Kerberos du compte d’ordinateur est partagée de façon sécurisée avec Azure AD.
    > 3. Deux noms de principal du service Kerberos sont créés pour représenter les deux URL utilisées lors de la connexion à Azure AD.
 
-6. Dans la page **Prêt à configurer**, vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.
+6. Dans la page **Prêt à configurer** , vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.
 
    ![Capture d’écran montrant le bouton Configurer sur la page Prêt à configurer](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)<br />
-   Quand vous sélectionnez le bouton **Configurer**, l’authentification unique fluide est configurée comme indiqué dans l’étape précédente. La configuration de synchronisation de hachage de mot de passe n’est pas modifiée, car elle a été activée précédemment.
+   Quand vous sélectionnez le bouton **Configurer** , l’authentification unique fluide est configurée comme indiqué dans l’étape précédente. La configuration de synchronisation de hachage de mot de passe n’est pas modifiée, car elle a été activée précédemment.
 
    > [!IMPORTANT]
    > Aucune modification n’est apportée à la façon dont les utilisateurs se connectent pour l’instant.
@@ -412,7 +412,7 @@ Pour tester la synchronisation de hachage de mot de passe :
 
    ![Capture d’écran montrant la page de connexion où vous entrez un mot de passe](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image19.png)
 
-4. Après avoir entré le mot de passe et sélectionné **Se connecter**, vous êtes redirigé vers le portail Office 365.
+4. Après avoir entré le mot de passe et sélectionné **Se connecter** , vous êtes redirigé vers le portail Office 365.
 
    ![Capture d’écran montrant le portail Office 365](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image20.png)
 
@@ -453,7 +453,7 @@ Consultez la documentation de conception et de déploiement de la fédération p
 
 ### <a name="sync-userprincipalname-updates"></a>Synchroniser les mises à jour de userPrincipalName
 
-Historiquement, les mises à jour de l’attribut **UserPrincipalName**, qui utilise le service de synchronisation à partir de l’environnement local, sont bloquées sauf si les deux conditions suivantes sont remplies :
+Historiquement, les mises à jour de l’attribut **UserPrincipalName** , qui utilise le service de synchronisation à partir de l’environnement local, sont bloquées sauf si les deux conditions suivantes sont remplies :
 
 * L’utilisateur est dans un domaine d’identité (non fédérée) managée.
 * Aucune licence n’a été affectée à l’utilisateur.

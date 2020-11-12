@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094114"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427460"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guide de déploiement de la plateforme SAP BusinessObjects BI pour Linux sur Azure
 
@@ -84,7 +84,7 @@ Les instructions suivantes supposent que vous avez déjà déployé votre [rése
 
 3. Configurez un pool de capacité Azure NetApp Files en suivant les instructions de la page [Configuration d’un pool de capacité Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-   - L’architecture de la plateforme SAP BI présentée dans cet article utilise un seul pool de capacités Azure NetApp Files au niveau de service *Premium* . Pour le serveur de référentiel de fichiers SAP BI sur Azure, nous vous recommandons d’utiliser un [niveau de service](../../../azure-netapp-files/azure-netapp-files-service-levels.md) Azure NetApp Files *Premium* ou *Ultra* .
+   - L’architecture de la plateforme SAP BI présentée dans cet article utilise un seul pool de capacités Azure NetApp Files au niveau de service *Premium*. Pour le serveur de référentiel de fichiers SAP BI sur Azure, nous vous recommandons d’utiliser un [niveau de service](../../../azure-netapp-files/azure-netapp-files-service-levels.md) Azure NetApp Files *Premium* ou *Ultra*.
 
 4. Déléguez un sous-réseau à Azure NetApp Files, comme décrit dans les instructions de la page [Déléguer un sous-réseau à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
@@ -196,7 +196,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
    **Vérifier les paramètres de domaine NFS**
 
-   Assurez-vous que le domaine est configuré en tant que domaine Azure NetApp Files par défaut, c’est-à-dire **defaultv4iddomain.com** , et que le mappage est défini sur **nobody** .
+   Assurez-vous que le domaine est configuré en tant que domaine Azure NetApp Files par défaut, c’est-à-dire **defaultv4iddomain.com** , et que le mappage est défini sur **nobody**.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -210,9 +210,9 @@ Les étapes de cette section utilisent les préfixes suivants :
 
    > [!Important]
    >
-   > Veillez à définir le domaine NFS dans /etc/idmapd.conf sur la machine virtuelle pour qu’il corresponde à la configuration de domaine par défaut sur Azure NetApp Files : **defaultv4iddomain.com** . En cas d’incompatibilité entre la configuration de domaine sur le client NFS (c’est-à-dire, la machine virtuelle) et le serveur NFS, par exemple la configuration Azure NetApp, les autorisations pour les fichiers sur les volumes Azure NetApp montés sur les machines virtuelles s’affichent en tant que « nobody ».
+   > Veillez à définir le domaine NFS dans /etc/idmapd.conf sur la machine virtuelle pour qu’il corresponde à la configuration de domaine par défaut sur Azure NetApp Files : **defaultv4iddomain.com**. En cas d’incompatibilité entre la configuration de domaine sur le client NFS (c’est-à-dire, la machine virtuelle) et le serveur NFS, par exemple la configuration Azure NetApp, les autorisations pour les fichiers sur les volumes Azure NetApp montés sur les machines virtuelles s’affichent en tant que « nobody ».
 
-   Vérifier `nfs4_disable_idmapping` Cette option doit avoir la valeur **Y** . Pour créer la structure de répertoire où se trouve `nfs4_disable_idmapping`, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.
+   Vérifier `nfs4_disable_idmapping` Cette option doit avoir la valeur **Y**. Pour créer la structure de répertoire où se trouve `nfs4_disable_idmapping`, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.
 
    ```bash
    # Check nfs4_disable_idmapping
@@ -274,7 +274,7 @@ Les instructions s’appliquent uniquement si vous utilisez Azure DB pour MySQL.
 
 ### <a name="create-an-azure-database-for-mysql"></a>Créer une base de données Azure pour MySQL
 
-Connectez-vous à Portail Azure et suivez les étapes mentionnées dans ce [guide de démarrage rapide d’Azure Database pour MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Quelques points à noter lors de l’approvisionnement d’Azure Database pour MySQL :
+Connectez-vous à Portail Azure et suivez les étapes mentionnées dans ce [guide de démarrage rapide d’Azure Database pour MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Quelques points à noter lors de l’approvisionnement d’Azure Database pour MySQL :
 
 1. Sélectionnez la même région pour Azure Database pour MySQL que celle où les serveurs d’applications de la plateforme SAP BI s’exécutent.
 
@@ -286,7 +286,7 @@ Connectez-vous à Portail Azure et suivez les étapes mentionnées dans ce [guid
 
 5. Par défaut, la **période de rétention de sauvegarde** est de sept jours, mais vous pouvez [éventuellement la configurer](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) jusqu’à 35 jours.
 
-6. Les sauvegardes d’Azure Database pour MySQL sont localement redondantes par défaut. Par conséquent, si vous souhaitez effectuer des sauvegardes du serveur dans le stockage géoredondant, sélectionnez **Géographiquement redondant** dans **Options de redondance des sauvegardes** .
+6. Les sauvegardes d’Azure Database pour MySQL sont localement redondantes par défaut. Par conséquent, si vous souhaitez effectuer des sauvegardes du serveur dans le stockage géoredondant, sélectionnez **Géographiquement redondant** dans **Options de redondance des sauvegardes**.
 
 > [!NOTE]
 > La modification des [options de redondance des sauvegardes](../../../mysql/concepts-backup.md#backup-redundancy-options) après la création du serveur n’est pas prise en charge.
@@ -296,9 +296,9 @@ Connectez-vous à Portail Azure et suivez les étapes mentionnées dans ce [guid
 Par défaut, le serveur créé est protégé par un pare-feu et n’est pas accessible publiquement. Pour fournir l’accès au réseau virtuel sur lequel les serveurs d’applications de la plateforme SAP BI s’exécutent, procédez comme suit :  
 
 1. Accédez à vos ressources de serveur dans le portail Azure et sélectionnez **Sécurité de la connexion** dans le menu de gauche pour votre ressource de serveur.
-2. Sélectionnez **Oui** pour **Autoriser l’accès aux services Azure** .
-3. Sous Règles de réseau virtuel, sélectionnez **Ajout d’un réseau virtuel existant** . Sélectionnez le réseau virtuel et le sous-réseau du serveur d’applications de la plateforme SAP BI. Vous devez également fournir un accès à Jump Box ou à d’autres serveurs à partir desquels vous pouvez connecter [MySQL Workbench](../../../mysql/connect-workbench.md) à Azure Database pour MySQL. MySQL Workbench sera utilisé pour créer la base de données CMS et audit.
-4. Une fois les réseaux virtuels ajoutés, sélectionnez **Enregistrer** .
+2. Sélectionnez **Oui** pour **Autoriser l’accès aux services Azure**.
+3. Sous Règles de réseau virtuel, sélectionnez **Ajout d’un réseau virtuel existant**. Sélectionnez le réseau virtuel et le sous-réseau du serveur d’applications de la plateforme SAP BI. Vous devez également fournir un accès à Jump Box ou à d’autres serveurs à partir desquels vous pouvez connecter [MySQL Workbench](../../../mysql/connect-workbench.md) à Azure Database pour MySQL. MySQL Workbench sera utilisé pour créer la base de données CMS et audit.
+4. Une fois les réseaux virtuels ajoutés, sélectionnez **Enregistrer**.
 
 ### <a name="create-cms-and-audit-database"></a>Créer une base de données CMS et audit
 

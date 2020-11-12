@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369061"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427783"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -50,7 +50,7 @@ Les clusters dédiés Log Analytics sont des collections d’espaces de travail 
 
 Le niveau de réservation de la capacité du cluster est configuré par programmation avec Azure Resource Manager à l’aide du paramètre `Capacity` sous `Sku`. La `Capacity` est spécifiée en unités de Go et peut avoir des valeurs de 1 000 Go/jour ou plus par incréments de 100 Go/jour. Ceci est expliqué en détail dans [Clé gérée par le client dans Azure Monitor](customer-managed-keys.md#create-cluster). Si votre cluster a besoin d’une réservation supérieure à 2 000 Go/jour, contactez-nous à l’adresse [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Il existe deux modes de facturation pour l’utilisation sur un cluster. Ils peuvent être spécifiés par le paramètre `billingType` lors de la [configuration de votre cluster](customer-managed-keys.md#cmk-management). Les deux modes sont : 
+Il existe deux modes de facturation pour l’utilisation sur un cluster. Ils peuvent être spécifiés par le paramètre `billingType` lors de la [configuration de votre cluster](customer-managed-keys.md#customer-managed-key-operations). Les deux modes sont : 
 
 1. **Cluster**  : dans ce cas (valeur par défaut), la facturation des données ingérées est effectuée au niveau du cluster. Les quantités de données ingérées de chaque espace de travail associé à un cluster sont agrégées pour calculer la facture quotidienne du cluster. Notez que les répartitions par nœud d’[Azure Security Center](../../security-center/index.yml) sont appliquées au niveau de l’espace de travail avant cette agrégation de données agrégées dans tous les espaces de travail du cluster. 
 

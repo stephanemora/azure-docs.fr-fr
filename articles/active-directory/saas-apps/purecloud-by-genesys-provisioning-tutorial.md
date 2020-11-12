@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 46fe93a6ba823a7932d25dcc3fc8cf64cffb389e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: df1b3f81c1d8f9ead6d5773de6b6d1cd9517235e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516532"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357482"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutoriel : Configurer Genesys PureCloud pour l’approvisionnement automatique d’utilisateurs
 
@@ -59,7 +59,7 @@ Ajoutez Genesys PureCloud à partir de la galerie d’applications Azure AD pour
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Lors de l’attribution d’utilisateurs et de groupes à Genesys PureCloud, vous devez sélectionner un rôle différent du rôle **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Lors de l’attribution d’utilisateurs et de groupes à Genesys PureCloud, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -70,33 +70,33 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-purecloud-by-genesys-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Genesys PureCloud dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **PureCloud by Genesys** .
+2. Dans la liste des applications, sélectionnez **PureCloud by Genesys**.
 
     ![Lien PureCloud by Genesys dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez votre URL d’API et votre jeton OAuth Genesys PureCloud respectivement dans les champs **URL du locataire** et **Jeton secret** . L’URL de l’API sera structurée comme suit : `{{API Url}}/api/v2/scim/v2`, en utilisant l’URL de l’API pour votre région PureCloud fournie par le [centre de développement PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Genesys PureCloud. Si la connexion échoue, vérifiez que votre compte Genesys PureCloud dispose des autorisations Administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez votre URL d’API et votre jeton OAuth Genesys PureCloud respectivement dans les champs **URL du locataire** et **Jeton secret**. L’URL de l’API sera structurée comme suit : `{{API Url}}/api/v2/scim/v2`, en utilisant l’URL de l’API pour votre région PureCloud fournie par le [centre de développement PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Genesys PureCloud. Si la connexion échoue, vérifiez que votre compte Genesys PureCloud dispose des autorisations Administrateur, puis réessayez.
 
     ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur, où vous pouvez entrer le jeton secret et l’URL de votre locataire.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Genesys PureCloud** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Genesys PureCloud**.
 
 9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Genesys PureCloud. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Genesys PureCloud pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Genesys PureCloud prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -114,9 +114,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
      
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory sur Genesys PureCloud** .
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory sur Genesys PureCloud**.
 
-11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers Genesys PureCloud dans la section **Mappages d’attributs** . Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Genesys PureCloud dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications. Genesys PureCloud ne prend pas en charge la création ou la suppression de groupes, mais uniquement la mise à jour de groupes.
+11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers Genesys PureCloud dans la section **Mappages d’attributs**. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Genesys PureCloud dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications. Genesys PureCloud ne prend pas en charge la création ou la suppression de groupes, mais uniquement la mise à jour de groupes.
 
       |Attribut|Type|
       |---|---|
@@ -126,19 +126,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service d’approvisionnement Azure AD pour Genesys PureCloud, définissez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres** .
+13. Pour activer le service d’approvisionnement Azure AD pour Genesys PureCloud, définissez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur Genesys PureCloud en choisissant les valeurs souhaitées sous **Étendue** dans la section **Paramètres** .
+14. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur Genesys PureCloud en choisissant les valeurs souhaitées sous **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

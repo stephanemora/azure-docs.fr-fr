@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602368"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410276"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -77,7 +77,7 @@ Détails relatifs aux questions de décision :
    * Connexion à l’aide d’un serveur MFA local.
    * Connexion à l’aide d’une solution d’authentification tierce.
    * Solution d’authentification locale multisite.
-5. Quelle que soit la méthode de connexion choisie, pour générer le rapport *Utilisateurs avec des informations d’identification divulguées*, Azure AD Identity Protection nécessite une synchronisation du hachage de mot de passe. Les organisations peuvent basculer vers une synchronisation du hachage de mot de passe si leur méthode de connexion principale échoue alors qu’elle a été configurée avant l’événement d’échec.
+5. Quelle que soit la méthode de connexion choisie, pour générer le rapport *Utilisateurs avec des informations d’identification divulguées* , Azure AD Identity Protection nécessite une synchronisation du hachage de mot de passe. Les organisations peuvent basculer vers une synchronisation du hachage de mot de passe si leur méthode de connexion principale échoue alors qu’elle a été configurée avant l’événement d’échec.
 
 > [!NOTE]
 > Azure AD Identity Protection nécessite des licences [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -102,7 +102,7 @@ Détails relatifs aux questions de décision :
 * **Considérations**. À l’heure actuelle, la synchronisation de hachage du mot de passe n’applique pas immédiatement les changements aux états des comptes locaux. Cela signifie qu’un utilisateur a accès aux applications cloud jusqu’à ce que l’état du compte utilisateur soit synchronisé avec Azure AD. Pour contourner cette limitation, les organisations peuvent exécuter un nouveau cycle de synchronisation après les mises à jour en bloc effectuées par les administrateurs sur les états des comptes locaux, par exemple la désactivation de comptes.
 
 > [!NOTE]
-> Les états indiquant un mot de passe expiré et un compte verrouillé ne sont pas synchronisés avec Azure AD à l’aide d’Azure AD Connect. Lorsque vous modifiez le mot de passe d’un utilisateur et configurez l’indicateur *L’utilisateur doit changer de mot de passe à la prochaine ouverture de session*, le hachage de mot de passe n’est pas synchronisé avec Azure AD et Azure AD Connect, tant que l’utilisateur n’aura pas modifié son mot de passe.
+> Les états indiquant un mot de passe expiré et un compte verrouillé ne sont pas synchronisés avec Azure AD à l’aide d’Azure AD Connect. Lorsque vous modifiez le mot de passe d’un utilisateur et configurez l’indicateur *L’utilisateur doit changer de mot de passe à la prochaine ouverture de session* , le hachage de mot de passe n’est pas synchronisé avec Azure AD et Azure AD Connect, tant que l’utilisateur n’aura pas modifié son mot de passe.
 
 Pour obtenir les étapes de déploiement, consultez [Implémentation de la synchronisation de hachage du mot de passe](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -221,4 +221,4 @@ Aujourd’hui, les menaces sont présentes 24 heures sur 24 et proviennent de pa
 
 [Démarrez](../fundamentals/active-directory-whatis.md) avec Azure AD et déployez la solution d’authentification adaptée à votre organisation.
 
-Si vous envisagez de passer de l’authentification fédérée à l’authentification cloud, découvrez plus en détail [comment changer la méthode de connexion](../../active-directory/hybrid/plan-connect-user-signin.md). Pour vous aider à planifier et à implémenter la migration, utilisez [ces plans de déploiement de projet](https://aka.ms/deploymentplans) ou envisagez d’utiliser la nouvelle fonctionnalité de [Déploiement intermédiaire](../../active-directory/hybrid/how-to-connect-staged-rollout.md) pour migrer les utilisateurs fédérés vers à l’aide de l’authentification cloud dans une approche intermédiaire.
+Si vous envisagez de passer de l’authentification fédérée à l’authentification cloud, découvrez plus en détail [comment changer la méthode de connexion](../../active-directory/hybrid/plan-connect-user-signin.md). Pour vous aider à planifier et à implémenter la migration, utilisez [ces plans de déploiement de projet](../fundamentals/active-directory-deployment-plans.md) ou envisagez d’utiliser la nouvelle fonctionnalité de [Déploiement intermédiaire](../../active-directory/hybrid/how-to-connect-staged-rollout.md) pour migrer les utilisateurs fédérés vers à l’aide de l’authentification cloud dans une approche intermédiaire.

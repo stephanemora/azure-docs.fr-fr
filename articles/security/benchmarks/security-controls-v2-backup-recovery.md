@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322119"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408938"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Contrôle de sécurité V2 : Sauvegarde et récupération
 
@@ -32,13 +32,13 @@ Pour un niveau plus élevé de protection, vous pouvez activer l’option de sto
 
 - [Continuité d’activité et reprise d’activité à l’échelle de l’entreprise](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-- [Guide pratique pour activer la Sauvegarde Azure](/azure/backup/)
+- [Guide pratique pour activer la Sauvegarde Azure](../../backup/index.yml)
 
-- [Comment activer la restauration inter-région ?](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore)
+- [Comment activer la restauration inter-région ?](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Stratégie et normes](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -60,17 +60,17 @@ Pour une sauvegarde locale à l’aide du service Sauvegarde Azure, le chiffreme
 
 Utilisez le contrôle d’accès en fonction du rôle dans le service Sauvegarde Azure, la solution Azure Key Vault ou d’autres ressources pour protéger les sauvegardes et les clés gérées par le client. En outre, vous pouvez activer des fonctionnalités de sécurité avancées pour exiger une authentification multifacteur avant que les sauvegardes soient modifiées ou supprimées.
 
-- [Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure](/azure/backup/security-overview)
+- [Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure](../../backup/security-overview.md)
 
-- [Chiffrement des données de sauvegarde à l’aide de clés gérées par le client](/azure/backup/encryption-at-rest-with-cmk) 
+- [Chiffrement des données de sauvegarde à l’aide de clés gérées par le client](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-- [Fonctionnalités de sécurité pour la protection de sauvegardes hybrides contre des attaques](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [Fonctionnalités de sécurité pour la protection de sauvegardes hybrides contre des attaques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -86,13 +86,13 @@ Utilisez le contrôle d’accès en fonction du rôle dans le service Sauvegarde
 
 Effectuez régulièrement une restauration des données de votre sauvegarde. Assurez-vous que vous pouvez restaurer les clés gérées par le client sauvegardées.
 
-- [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](/azure/backup/backup-azure-restore-files-from-vm)
+- [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Guide pratique pour restaurer des clés du coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Guide pratique pour restaurer des clés du coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Préparation aux incidents](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -106,15 +106,14 @@ Effectuez régulièrement une restauration des données de votre sauvegarde. Ass
 
 Assurez-vous que vous avez pris les mesures nécessaires pour empêcher la perte de clés et récupérer d’une telle perte. Activez la suppression réversible et la protection contre la purge dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.  
 
-- [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Préparation aux incidents](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Sécurité des données](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397247"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412780"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos Azure
 
@@ -48,7 +48,7 @@ Le chiffrement au repos offre une protection des données pour les données stoc
 
 Le chiffrement au repos est conçu pour empêcher l’attaquant d’accéder aux données non chiffrées en garantissant que les données sont chiffrées quand elles sont sur le disque. Si un attaquant récupère un disque dur comprenant des données chiffrées, mais qu’il ne dispose pas des clés de chiffrement, il doit résoudre le chiffrement pour lire les données. Ce type d’attaque est beaucoup plus complexe et laborieux comparé aux attaques de données non chiffrées sur un disque dur. Pour cette raison, le chiffrement au repos est fortement recommandé et constitue une exigence de haute priorité pour de nombreuses organisations.
 
-Le chiffrement au repos peut également être nécessaire pour les besoins de l’organisation en matière de gouvernance et de conformité des données. Les réglementations publiques et de l’industrie, comme HIPAA, PCI et FedRAMP définissent des protections spécifiques quant aux exigences de protection et de chiffrement des données. Le chiffrement au repos est une mesure obligatoire nécessaire à la conformité avec certaines de ces réglementations. Pour plus d’informations sur l’approche de Microsoft en matière de validation FIPS 140-2, consultez la [publication FIPS (Federal Information Processing Standard) 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2).
+Le chiffrement au repos peut également être nécessaire pour les besoins de l’organisation en matière de gouvernance et de conformité des données. Les réglementations publiques et de l’industrie, comme HIPAA, PCI et FedRAMP définissent des protections spécifiques quant aux exigences de protection et de chiffrement des données. Le chiffrement au repos est une mesure obligatoire nécessaire à la conformité avec certaines de ces réglementations. Pour plus d’informations sur l’approche de Microsoft en matière de validation FIPS 140-2, consultez la [publication FIPS (Federal Information Processing Standard) 140-2](/microsoft-365/compliance/offering-fips-140-2).
 
 Non seulement le chiffrement au repos répond aux exigences de conformité et aux obligations réglementaires, mais il fournit une défense en profondeur. Microsoft Azure fournit une plateforme conforme destinée aux services, aux applications et aux données. Il fournit également une sécurité complète des équipements et des éléments physiques, un contrôle d’accès aux données et des fonctionnalités d’audit. Toutefois, il est important de mettre en œuvre des mesures de sécurité « superposées » supplémentaires en cas de défaillance de l’une des mesures de sécurité principales. Le chiffrement au repos propose une telle mesure de sécurité.
 
@@ -115,22 +115,22 @@ Les services Microsoft Azure prennent chacun en charge un ou plusieurs modèles 
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Tout client utilisant les fonctionnalités IaaS d’Azure peut effectuer le chiffrement au repos pour ses machines virtuelles et ses disques IaaS via Azure Disk Encryption. Pour plus d’informations sur Azure Disk Encryption, consultez la [documentation d’Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
+Tout client utilisant les fonctionnalités IaaS d’Azure peut effectuer le chiffrement au repos pour ses machines virtuelles et ses disques IaaS via Azure Disk Encryption. Pour plus d’informations sur Azure Disk Encryption, consultez la [documentation d’Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md).
 
 #### <a name="azure-storage"></a>Stockage Azure
 
 Tous les services Stockage Azure (Stockage Blob, Stockage File d’attente, Stockage Table et Azure Files) prennent en charge le chiffrement au repos côté serveur ; certains services prennent également en charge les clés gérées par le client et le chiffrement côté client.
 
-- Côté serveur : Tous les services Stockage Azure permettent par défaut le chiffrement côté serveur avec des clés gérées par le service, une opération transparente pour l’application. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](../../storage/common/storage-service-encryption.md). Azure Stockage Blob Azure et Azure Files prennent également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Côté serveur : Tous les services Stockage Azure permettent par défaut le chiffrement côté serveur avec des clés gérées par le service, une opération transparente pour l’application. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](../../storage/common/storage-service-encryption.md). Azure Stockage Blob Azure et Azure Files prennent également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).
 - Côté client : Les objets blob, les tables et les files d’attente Azure prennent en charge le chiffrement côté client. Lors de l’utilisation du chiffrement côté client, les clients chiffrent les données et les chargent sous la forme d’un objet blob chiffré. La gestion des clés est effectuée par le client. Pour plus d’informations, consultez [Chiffrement côté client et Azure Key Vault pour le stockage Microsoft Azure](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database prend actuellement en charge le chiffrement au repos pour les scénarios de chiffrement côté service géré par Microsoft et côté client.
 
-La prise en charge du chiffrement côté serveur est actuellement fournie par la fonctionnalité SQL nommée Transparent Data Encryption. Une fois qu’un client Azure SQL Database active Transparent Data Encryption, les clés sont créées et gérées automatiquement pour lui. Le chiffrement au repos peut être activé au niveau de la base de données et au niveau du serveur. À compter de juin 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) est activé par défaut sur les bases de données nouvellement créées. Azure SQL Database prend également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, voir [Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+La prise en charge du chiffrement côté serveur est actuellement fournie par la fonctionnalité SQL nommée Transparent Data Encryption. Une fois qu’un client Azure SQL Database active Transparent Data Encryption, les clés sont créées et gérées automatiquement pour lui. Le chiffrement au repos peut être activé au niveau de la base de données et au niveau du serveur. À compter de juin 2017, [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) est activé par défaut sur les bases de données nouvellement créées. Azure SQL Database prend également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, voir [Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-Le chiffrement côté client des données Azure SQL Database est pris en charge via la fonctionnalité [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utilise une clé qui est créée et stockée par le client. Les clients peuvent stocker la clé principale dans un magasin de certificats Windows, dans Azure Key Vault ou dans un module de sécurité matériel local. Avec SQL Server Management Studio, les utilisateurs SQL choisissent quelle clé ils veulent utiliser pour quelle colonne.
+Le chiffrement côté client des données Azure SQL Database est pris en charge via la fonctionnalité [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted utilise une clé qui est créée et stockée par le client. Les clients peuvent stocker la clé principale dans un magasin de certificats Windows, dans Azure Key Vault ou dans un module de sécurité matériel local. Avec SQL Server Management Studio, les utilisateurs SQL choisissent quelle clé ils veulent utiliser pour quelle colonne.
 
 ## <a name="conclusion"></a>Conclusion
 

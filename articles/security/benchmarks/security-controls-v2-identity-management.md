@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b21bea924ee8eaed37246ce55feaf8243e3e7d4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757934"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408735"
 ---
 # <a name="security-control-v2-identity-management"></a>Contrôle de sécurité V2 : Gestion des identités
 
@@ -39,13 +39,13 @@ Remarque : Azure AD prend en charge les fournisseurs d’identité externes, qu
 
 - [Définir des locataires Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [Utiliser des fournisseurs d’identité externes pour une application](/azure/active-directory/b2b/identity-providers)
+- [Utiliser des fournisseurs d’identité externes pour une application](../../active-directory/external-identities/identity-providers.md)
 
 - [Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -75,9 +75,9 @@ Pour les services qui ne prennent pas en charge les identités gérées, utilise
 
 Utiliser Azure Key Vault pour l’inscription d’un principal de sécurité : authentication#authorize-a-security-principal-to-access-key-vault
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -95,9 +95,9 @@ Utilisez l’authentification unique Azure AD pour gérer et sécuriser l’acc�
 
 - [Comprendre l’authentification unique d’application avec Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -130,9 +130,9 @@ Remarque : La seule authentification basée sur les informations de mot de pass
 
 - [Éliminer les mauvais mots de passe à l’aide de Protection de mots de passe d’Azure AD](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -163,13 +163,13 @@ Azure Advanced Threat Protection (ATP) est une solution de sécurité qui peut u
 
 - [Rapports d’activité d’audit dans Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Guide pratique pour afficher les connexions risquées Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Guide pratique pour afficher les connexions risquées Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Alertes dans le module de protection de renseignement sur les menaces d’Azure Security Center](/azure/security-center/alerts-reference)
+- [Alertes dans le module de protection de renseignement sur les menaces d’Azure Security Center](../../security-center/alerts-reference.md)
 
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -177,9 +177,9 @@ Azure Advanced Threat Protection (ATP) est une solution de sécurité qui peut u
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité des applications et DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -199,9 +199,9 @@ Utilisez l’accès conditionnel Azure AD pour un contrôle d’accès plus gran
 
 - [Configurer la gestion de session d’authentification avec l’accès conditionnel](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -225,9 +225,9 @@ Pour GitHub, vous pouvez utiliser la fonctionnalité native d’analyse de secre
 
 - [Analyse du secret GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité des applications et DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -249,9 +249,9 @@ Microsoft Cloud App Security est également un service CASB (Cloud Access Securi
 
 - [Meilleures pratiques avec Microsoft Cloud App Security](/cloud-app-security/best-practices)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

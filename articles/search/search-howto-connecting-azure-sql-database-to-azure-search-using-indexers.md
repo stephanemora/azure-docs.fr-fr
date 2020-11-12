@@ -9,16 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530559"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358624"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Se connecter à du contenu Azure SQL et l’indexer à l’aide d’un indexeur Recherche cognitive Azure
 
-Avant d’interroger un [index Recherche cognitive Azure](search-what-is-an-index.md), vous devez le remplir avec vos données. Si les données se trouvent dans Azure SQL Database ou SQL Managed Instance, un **indexeur Recherche cognitive Azure pour Azure SQL Database** (ou **indexeur Azure SQL**) peut automatiser le processus d’indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
+Avant d’interroger un [index Recherche cognitive Azure](search-what-is-an-index.md), vous devez le remplir avec vos données. Si les données se trouvent dans Azure SQL Database ou SQL Managed Instance, un **indexeur Recherche cognitive Azure pour Azure SQL Database** (ou **indexeur Azure SQL** ) peut automatiser le processus d’indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
 
 Cet article décrit l’utilisation des [indexeurs](search-indexer-overview.md), mais aussi les fonctionnalités propres à Azure SQL Database ou SQL Managed Instance (par exemple, le suivi intégré des modifications). 
 
@@ -39,7 +39,7 @@ Un indexeur unique peut utiliser une seule table ou une seule vue, mais vous pou
 Vous pouvez installer et configurer un indexeur SQL Azure avec les outils suivants :
 
 * Assistant Importation de données sur le [Portail Azure](https://portal.azure.com)
-* [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.indexer) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) de Recherche cognitive Azure
 * [API REST](/rest/api/searchservice/indexer-operations) de Recherche cognitive Azure
 
 Dans cet article, nous allons utiliser l’API REST pour créer des **indexeurs** et des **sources de données**.

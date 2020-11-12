@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016076"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413188"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
@@ -373,7 +373,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 Ce groupe est un ensemble d'attributs utilisés comme attributs nécessaires au minimum pour une application ou une charge de travail générique. Il peut être utilisé pour des charges de travail non répertoriées dans une section ou pour une application hors applications Microsoft. Il est utilisé explicitement pour les applications suivantes :
 
 * Yammer (seul l’utilisateur est consommé)
-* [Scénarios de collaboration transorganisationnelle B2B (Business-to-Business) hybride proposés par des ressources comme SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Scénarios de collaboration transorganisationnelle B2B (Business-to-Business) hybride proposés par des ressources comme SharePoint](/sharepoint/create-b2b-extranet)
 
 Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Microsoft 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base. Notez que l’authentification unique ou le provisionnement de certaines applications tierces requièrent la configuration de la synchronisation des attributs en plus des attributs décrits ici. Les spécifications de l’application sont décrites dans le [tutoriel sur l’application SaaS](../saas-apps/tutorial-list.md) pour chaque application.
 

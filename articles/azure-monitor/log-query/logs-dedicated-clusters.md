@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 293a3fc10920a29cd41e4bdb946e5bb06762eb52
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996334"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427494"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
@@ -19,10 +19,10 @@ Les clusters dédiés pour les journaux Azure Monitor sont une option de déploi
 
 Outre la prise en charge d’un volume élevé, l’utilisation de clusters dédiés présente d’autres avantages :
 
-- **Limite de débit** : Un client peut avoir des [limites de taux d’ingestion](../service-limits.md#data-ingestion-volume-rate) supérieures uniquement sur un cluster dédié.
-- **Fonctionnalités** : Certaines fonctionnalités d’entreprise sont uniquement disponibles sur les clusters dédiés, notamment les clés gérées par le client (CMK) et la prise en charge de LockBox. 
-- **Cohérence** : Les clients disposent de leurs propres ressources dédiées. Par conséquent, il n’y a aucune influence des autres clients qui utilisent la même infrastructure partagée.
-- **Rentabilité** : Il peut être plus rentable d’utiliser un cluster dédié, car les niveaux de réservation de capacité affectés prennent en compte toutes les ingestions de cluster et s’appliquent à tous ses espaces de travail, même si certains d’entre eux sont petits et ne peuvent bénéficier de la remise de réservation de capacité.
+- **Limite de débit**  : Un client peut avoir des [limites de taux d’ingestion](../service-limits.md#data-ingestion-volume-rate) supérieures uniquement sur un cluster dédié.
+- **Fonctionnalités**  : Certaines fonctionnalités d’entreprise sont uniquement disponibles sur les clusters dédiés, notamment les clés gérées par le client (CMK) et la prise en charge de LockBox. 
+- **Cohérence**  : Les clients disposent de leurs propres ressources dédiées. Par conséquent, il n’y a aucune influence des autres clients qui utilisent la même infrastructure partagée.
+- **Rentabilité**  : Il peut être plus rentable d’utiliser un cluster dédié, car les niveaux de réservation de capacité affectés prennent en compte toutes les ingestions de cluster et s’appliquent à tous ses espaces de travail, même si certains d’entre eux sont petits et ne peuvent bénéficier de la remise de réservation de capacité.
 - Les requêtes **entre espaces de travail** s’exécutent plus rapidement si tous les espaces de travail se trouvent sur le même cluster.
 
 Les clusters dédiés exigent des clients qu’ils s’engagent à utiliser une capacité d’au moins 1 To d’ingestion des données par jour. La migration vers un cluster dédié est simple. Il n’y a pas de perte de données ni d’interruption de service. 
@@ -47,9 +47,9 @@ Le niveau de réservation de la capacité du cluster est configuré par programm
 
 Il existe deux modes de facturation pour l’utilisation sur un cluster. Ils peuvent être spécifiés par le paramètre `billingType` lors de la configuration de votre cluster. 
 
-1. **Cluster** : dans ce cas (valeur par défaut), la facturation des données ingérées est effectuée au niveau du cluster. Les quantités de données ingérées de chaque espace de travail associé à un cluster sont agrégées pour calculer la facture quotidienne du cluster. 
+1. **Cluster**  : dans ce cas (valeur par défaut), la facturation des données ingérées est effectuée au niveau du cluster. Les quantités de données ingérées de chaque espace de travail associé à un cluster sont agrégées pour calculer la facture quotidienne du cluster. 
 
-2. **Espaces de travail** : les coûts de réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster (après prise en compte des allocations par nœud depuis [Azure Security Center](../../security-center/index.yml) pour chaque espace de travail).
+2. **Espaces de travail**  : les coûts de réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster (après prise en compte des allocations par nœud depuis [Azure Security Center](../../security-center/index.yml) pour chaque espace de travail).
 
 Notez que si votre espace de travail utilise le niveau tarifaire Par nœud hérité, lorsqu’il est lié à un cluster, il sera facturé en fonction des données ingérées par rapport à la réservation de capacité du cluster, et non plus par nœud. Les allocations de données par nœud d’Azure Security Center continuent à être appliquées.
 
@@ -62,12 +62,12 @@ Vous devez d’abord créer des ressources de cluster pour commencer à créer u
 
 Les propriétés suivantes doivent être spécifiées :
 
-- **ClusterName** : Utilisée à des fins d’administration. Les utilisateurs ne sont pas exposés à ce nom.
-- **ResourceGroupName** : Comme pour toutes les ressources Azure, les clusters appartiennent à un groupe de ressources. Nous vous recommandons d’utiliser un groupe central de ressources informatiques, car les clusters sont généralement partagés par de nombreuses équipes dans l’organisation. Pour plus d’informations sur les considérations de conception, consultez [Conception de votre déploiement de journaux Azure Monitor](../platform/design-logs-deployment.md).
+- **ClusterName**  : Utilisée à des fins d’administration. Les utilisateurs ne sont pas exposés à ce nom.
+- **ResourceGroupName**  : Comme pour toutes les ressources Azure, les clusters appartiennent à un groupe de ressources. Nous vous recommandons d’utiliser un groupe central de ressources informatiques, car les clusters sont généralement partagés par de nombreuses équipes dans l’organisation. Pour plus d’informations sur les considérations de conception, consultez [Conception de votre déploiement de journaux Azure Monitor](../platform/design-logs-deployment.md).
 - **Emplacement** : Un cluster se trouve dans une région Azure spécifique. Seuls les espaces de travail situés dans cette région peuvent être liés à ce cluster.
-- **SkuCapacity** : Vous devez spécifier le niveau (SKU) de *réservation de capacité* lors de la création d’une ressource de *cluster*. Le niveau de *réservation de capacité* peut aller de 1 000 à 3 000 Go par jour. Le cas échéant, vous pouvez ultérieurement le mettre à jour par paliers de 100. Si vous avez besoin d’un niveau de réservation de capacité supérieur à 3 000 Go par jour, contactez-nous à l’adresse LAIngestionRate@microsoft.com. Pour plus d’informations sur les coûts de cluster, consultez [Gérer les coûts des clusters Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+- **SkuCapacity**  : Vous devez spécifier le niveau (SKU) de *réservation de capacité* lors de la création d’une ressource de *cluster*. Le niveau de *réservation de capacité* peut aller de 1 000 à 3 000 Go par jour. Le cas échéant, vous pouvez ultérieurement le mettre à jour par paliers de 100. Si vous avez besoin d’un niveau de réservation de capacité supérieur à 3 000 Go par jour, contactez-nous à l’adresse LAIngestionRate@microsoft.com. Pour plus d’informations sur les coûts de cluster, consultez [Gérer les coûts des clusters Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
-Après avoir créé votre ressource de *cluster*, vous pouvez modifier des propriétés supplémentaires telles que *SKU*, *keyVaultProperties ou *billingType*. Pour plus d’informations, voir ci-dessous.
+Après avoir créé votre ressource de *cluster* , vous pouvez modifier des propriétés supplémentaires telles que *SKU* , *keyVaultProperties ou *billingType*. Pour plus d’informations, voir ci-dessous.
 
 > [!WARNING]
 > La création du cluster déclenche l’allocation et l’approvisionnement de la ressource. Cette opération peut prendre une heure. Il est recommandé de l’exécuter de manière asynchrone.
@@ -123,7 +123,7 @@ L’approvisionnement du cluster Log Analytics prend un certain temps. Vous pouv
 
 - Copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions decontrôle de l’état des opérations asynchrones.
 
-- Envoyez une requête GET sur la ressource *cluster*, puis examinez la valeur *provisioningState*. La valeur indique *ProvisioningAccount* pendant l’approvisionnement et *Succeeded* une fois celui-ci terminé.
+- Envoyez une requête GET sur la ressource *cluster* , puis examinez la valeur *provisioningState*. La valeur indique *ProvisioningAccount* pendant l’approvisionnement et *Succeeded* une fois celui-ci terminé.
 
    ```rst
    GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -162,10 +162,10 @@ Le GUID *principalId* est généré par le service d’identité managée pour l
 
 Une fois que vous avez créé votre ressource de *cluster* et qu’elle est entièrement approvisionnée, vous pouvez modifier des propriétés supplémentaires au niveau du cluster à l’aide de PowerShell ou de l’API REST. Outre les propriétés disponibles lors de la création du cluster, d’autres propriétés ne peuvent être définies qu’après l’approvisionnement du cluster :
 
-- **keyVaultProperties** : Utilisée pour configurer le compte Azure Key Vault utilisé pour approvisionner une [clé gérée par le client Azure Monitor](../platform/customer-managed-keys.md#cmk-provisioning-procedure). Il contient les paramètres suivants :  *KeyVaultUri*, *KeyName*, *KeyVersion*. 
-- **billingType** : La propriété *billingType* détermine l’attribution de facturation pour la ressource de *cluster* et ses données :
+- **keyVaultProperties**  : Utilisée pour configurer le compte Azure Key Vault utilisé pour approvisionner une [clé gérée par le client Azure Monitor](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Il contient les paramètres suivants :  *KeyVaultUri* , *KeyName* , *KeyVersion*. 
+- **billingType**  : La propriété *billingType* détermine l’attribution de facturation pour la ressource de *cluster* et ses données :
   - **Cluster** (par défaut) : Les coûts de la réservation de capacité pour votre cluster sont attribués à la ressource de *cluster*.
-  - **Espaces de travail** : Les coûts de la réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster. Une partie de l’utilisation est facturée à la ressource de *cluster* si le total des données ingérées pour la journée est inférieur à la réservation de capacité. Pour en savoir plus sur le modèle de tarification du cluster, consultez [Clusters dédiés Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters). 
+  - **Espaces de travail**  : Les coûts de la réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster. Une partie de l’utilisation est facturée à la ressource de *cluster* si le total des données ingérées pour la journée est inférieur à la réservation de capacité. Pour en savoir plus sur le modèle de tarification du cluster, consultez [Clusters dédiés Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
 > [!NOTE]
 > La propriété *billingType* n’est pas prise en charge dans PowerShell.
@@ -180,7 +180,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 **REST**
 
 > [!NOTE]
-> Vous pouvez mettre à jour les valeurs *sku*, *keyVaultProperties* ou *billingType* de la ressource *Cluster* à l’aide de l’instruction PATCH.
+> Vous pouvez mettre à jour les valeurs *sku* , *keyVaultProperties* ou *billingType* de la ressource *Cluster* à l’aide de l’instruction PATCH.
 
 Par exemple : 
 
@@ -222,7 +222,7 @@ La propagation de l’identificateur de clé prend quelques minutes. Vous pouvez
 
    OR
 
-- Envoyez une requête GET sur la ressource *cluster*, puis examinez les propriétés *KeyVaultProperties*. Les détails de l’identificateur de clé récemment mis à jour doivent être retournés dans la réponse.
+- Envoyez une requête GET sur la ressource *cluster* , puis examinez les propriétés *KeyVaultProperties*. Les détails de l’identificateur de clé récemment mis à jour doivent être retournés dans la réponse.
 
    Une réponse à la demande de récupération sur la ressource de *cluster* doit ressembler à ceci lorsque la mise à jour de l’identificateur de clé est terminée :
 
@@ -261,10 +261,10 @@ Lorsqu’un espace de travail est lié à un cluster dédié, les nouvelles donn
 
 Un cluster peut être lié à jusqu’à 100 espaces de travail. Les espaces de travail liés se trouvent dans la même région que le cluster. Pour protéger le serveur principal système et éviter la fragmentation des données, un espace de travail ne peut pas être lié à un cluster plus de deux fois par mois.
 
-Pour effectuer l’opération de liaison, vous devez disposer des autorisations « d’écriture » pour l’espace de travail et la ressource de *cluster* :
+Pour effectuer l’opération de liaison, vous devez disposer des autorisations « d’écriture » pour l’espace de travail et la ressource de *cluster*  :
 
 - Dans l’espace de travail : *Microsoft.OperationalInsights/workspaces/write*
-- Dans la ressource de *cluster* : *Microsoft.OperationalInsights/clusters/write*
+- Dans la ressource de *cluster*  : *Microsoft.OperationalInsights/clusters/write*
 
 Outre les aspects de facturation, l’espace de travail lié conserve ses propres paramètres, tels que la durée de conservation des données.
 L’espace de travail et le cluster peuvent se trouver dans des abonnements différents. L’espace de travail et le cluster peuvent se trouver dans différents locataires si Azure Lighthouse est utilisé pour les mapper à un seul locataire.

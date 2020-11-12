@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461648"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410009"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -132,7 +132,7 @@ Le certificat doit répondre aux prérequis suivants pour les certificats SSL/TL
 -   Le nom d’objet du certificat doit correspondre au nom de domaine servant à accéder à votre service cloud.
 
     - Obtenez un nom de domaine personnalisé à utiliser pour accéder à votre service cloud.
-    - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__ **.com**, le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__ **.contoso.com**.
+    - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__ **.com** , le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__ **.contoso.com**.
 
     >[!NOTE]
     >Vous ne pouvez pas obtenir de certificat SSL/TLS auprès d’une autorité de certification pour le domaine __cloudapp__ **.net**.
@@ -178,6 +178,6 @@ Azure Service Fabric prend en charge deux types de contrôle d’accès pour les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Liste de contrôle pour la sécurité Service Fabric](service-fabric-checklist.md)
+- [Liste de contrôle pour la sécurité Service Fabric](../../service-fabric/service-fabric-best-practices-security.md)
 - Configurez votre [environnement de développement](../../service-fabric/service-fabric-get-started.md) Service Fabric.
 - Découvrez les [options de support de Service Fabric](../../service-fabric/service-fabric-support.md).

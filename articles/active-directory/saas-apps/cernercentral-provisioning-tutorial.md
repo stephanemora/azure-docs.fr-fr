@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: d82aca50ce57a09697d389197bf2b102bb5df457
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1f82cab1172e7293e2a5910d35280eefb30ed49e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456334"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357451"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cerner Central pour l'approvisionnement automatique d'utilisateurs
 
@@ -82,13 +82,13 @@ Pour approvisionner des comptes d’utilisateur sur Cerner Central, vous devez d
 
 4. Enfin, vous devez acquérir des ID de domaine de liste d’utilisateurs pour le bac à sable et les environnements de production dans Cerner afin de terminer la configuration. Pour plus d’informations sur la procédure d’acquisition, consultez la page : https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
-5. Vous pouvez maintenant configurer Azure AD afin d’approvisionner des comptes d’utilisateur sur Cerner. Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications** .
+5. Vous pouvez maintenant configurer Azure AD afin d’approvisionner des comptes d’utilisateur sur Cerner. Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 6. Si vous avez déjà configuré Cerner Central pour l’authentification unique, recherchez votre instance de Cerner Central à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Cerner Central** dans la galerie d’applications. Sélectionnez Cerner Central dans les résultats de recherche et ajoutez-le à votre liste d’applications.
 
-7. Sélectionnez votre instance de Cerner Central, puis sélectionnez l’onglet **Approvisionnement** .
+7. Sélectionnez votre instance de Cerner Central, puis sélectionnez l’onglet **Approvisionnement**.
 
-8. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+8. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
    ![Approvisionnement Central Cerner](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
@@ -100,19 +100,19 @@ Pour approvisionner des comptes d’utilisateur sur Cerner Central, vous devez d
     > 
     > Production : https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * Dans le champ **Jeton secret** , entrez le jeton du porteur OAuth que vous avez généré à l’étape 3, puis cliquez sur **Tester la connexion** .
+   * Dans le champ **Jeton secret** , entrez le jeton du porteur OAuth que vous avez généré à l’étape 3, puis cliquez sur **Tester la connexion**.
 
    * Une notification de réussite doit s’afficher en haut à droite de votre portail.
 
 1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification** , puis cochez la case se trouvant en dessous.
 
-1. Cliquez sur **Enregistrer** .
+1. Cliquez sur **Enregistrer**.
 
 1. Dans la section **Mappages d’attributs** , passez en revue les attributs d’utilisateur et de groupe qui seront synchronisés entre Azure AD et Cerner Central. Les attributs sélectionnés en tant que propriétés **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur et les groupes dans Cerner Central pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
 1. Afin d’activer le service d’approvisionnement Azure AD pour Cerner Central, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**
 
-1. Cliquez sur **Enregistrer** .
+1. Cliquez sur **Enregistrer**.
 
 Cette commande lance la synchronisation initiale des utilisateurs et/ou groupes assignés à Cerner Central dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application Cerner Central.
 

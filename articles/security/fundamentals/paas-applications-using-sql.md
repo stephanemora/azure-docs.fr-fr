@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462528"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408071"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Bonnes pratiques pour la sécurisation des bases de données PaaS dans Azure
 
@@ -40,7 +40,7 @@ Vous pouvez configurer Azure SQL Database pour utiliser l’un des deux types d�
 
 - **L’authentification Azure Active Directory** utilise des identités gérées par Azure Active Directory et est prise en charge pour les domaines managés et intégrés. Pour utiliser l’authentification Azure Active Directory, vous devez créer un autre administrateur de serveur appelé « administrateur Azure AD », autorisé à gérer les groupes et utilisateurs Active Directory Azure. Cet administrateur peut également effectuer toutes les opérations d’un administrateur de serveur ordinaire.
 
-L’[authentification Azure Active Directory](../../active-directory/develop/authentication-scenarios.md) est un mécanisme qui sert à se connecter à Azure SQL Database et Azure Synapse Analytics à l’aide d’identités se trouvant dans Azure Active Directory (AD). Azure AD fournit une alternative à l’authentification SQL Server. Vous pouvez donc arrêter la prolifération des identités d’utilisateur sur les serveurs de base de données. L’authentification Azure AD vous permet de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations.  
+L’[authentification Azure Active Directory](../../active-directory/develop/authentication-vs-authorization.md) est un mécanisme qui sert à se connecter à Azure SQL Database et Azure Synapse Analytics à l’aide d’identités se trouvant dans Azure Active Directory (AD). Azure AD fournit une alternative à l’authentification SQL Server. Vous pouvez donc arrêter la prolifération des identités d’utilisateur sur les serveurs de base de données. L’authentification Azure AD vous permet de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Avantages de l’utilisation de l’authentification Azure AD plutôt que l’authentification SQL
 
@@ -50,7 +50,7 @@ L’[authentification Azure Active Directory](../../active-directory/develop/aut
 - Utilise les utilisateurs de base de données autonome pour authentifier les identités au niveau de la base de données.
 - Prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Database.
 - Prend en charge la fédération de domaine avec Services ADFS (Active Directory Federation Services) ou l’authentification utilisateur natif/mot de passe pour un répertoire Azure AD local sans synchronisation du domaine.
-- Prend en charge les connexions à partir de SQL Server Management Studio qui utilisent l’authentification universelle Active Directory, notamment [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). MFA comprend une authentification forte avec une gamme d’options de vérification simples (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). Pour plus d’informations, consultez [Authentification universelle avec SQL Database et Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Prend en charge les connexions à partir de SQL Server Management Studio qui utilisent l’authentification universelle Active Directory, notamment [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). MFA comprend une authentification forte avec une gamme d’options de vérification simples (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). Pour plus d’informations, consultez [Authentification universelle avec SQL Database et Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
 
 Pour en savoir plus sur l'authentification Azure AD, consultez :
 

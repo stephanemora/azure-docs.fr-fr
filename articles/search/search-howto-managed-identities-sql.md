@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519569"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358420"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée
 
@@ -94,7 +94,7 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 ### <a name="5---create-the-data-source"></a>5 – Créer la source de données
 
-L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.datasource) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir d’une instance Azure SQL Database à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
+L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir d’une instance Azure SQL Database à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
 
 Lors de la création d’une source de données à l’aide de l’[API REST](/rest/api/searchservice/create-data-source), la source de données doit avoir les propriétés requises suivantes :
 

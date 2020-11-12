@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 98cca99ab0e088bbae047fa64ec52429e531dfed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096071"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358966"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Tutoriel : Configurer AlertMedia pour le provisionnement automatique d’utilisateurs
 
@@ -95,9 +95,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification de l’administrateur** , entrez l’ **URL de votre locataire** AlertMedia comme suit.
-      * (pas de domaine personnalisé) https://docs.gitlab.com/ee/api/scim.html
+      * (pas de domaine personnalisé) https://dashboard.alertmedia.com/api/scim/v3
 
-      * (domaine personnalisé) https://developer.github.com/v3/scim/
+      * (domaine personnalisé) https://subdomain.alertmedia.com/api/scim/v3
 
       Saisissez le **Jeton secret** récupéré à l’étape 2. Cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à AlertMedia. Si la connexion échoue, vérifiez que votre compte AlertMedia dispose des autorisations d’administrateur et réessayez.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479565"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427845"
 ---
 1. À partir du [portail Azure](https://portal.azure.com), dans **Rechercher dans les ressources, services et documents (G+/)** , entrez **Passerelle de réseau virtuel**. Recherchez la **passerelle de réseau virtuel** dans les résultats de la recherche et sélectionnez-la.
 
@@ -52,6 +52,6 @@ ms.locfileid: "92479565"
      * **Activer le mode actif/actif**  : Sélectionnez uniquement **Activer le mode actif / actif** si vous créez une configuration de passerelle active/active. Sinon, laissez ce paramètre **Désactivé**.
      * Laissez l’option **Configurer BGP** définie sur **Désactivé** , sauf si votre configuration exige spécifiquement ce paramètre. Si vous avez besoin de ce paramètre, la valeur par défaut ASN est 65515, bien que vous puissiez la modifier.
 1. Sélectionnez **Vérifier + créer** pour exécuter la validation.
-1. Une fois la validation réussie, sélectionnez **Créer** pour déployer la passerelle VPN. La création et le déploiement complets d’une passerelle peuvent prendre jusqu’à 45 minutes. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle.
+1. Une fois la validation réussie, sélectionnez **Créer** pour déployer la passerelle VPN.
 
-Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît sous la forme d’un appareil connecté.
+La création et le déploiement complets d’une passerelle peuvent prendre jusqu’à 45 minutes. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît sous la forme d’un appareil connecté.

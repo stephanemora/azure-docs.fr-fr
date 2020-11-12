@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eedd19189d1e1ccedd3d505aecf407aca8fca831
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793056"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413358"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Exemple de connexion d’un pont IoT Plug-and-Play s’exécutant sur Linux ou Windows à IoT Hub
 
@@ -176,14 +176,14 @@ cd scripts/linux
  Démarrez l’exemple de pont IoT Plug-and-Play Bridge pour les capteurs environnementaux en accédant au dossier *pnpbridge* et en exécutant la commande suivante dans une invite de commandes :
 
 ```bash
- cd cmake/pnpbridge_x86/src/adaptors/samples/environmental_sensor/
+ cd cmake/pnpbridge_linux/src/adapters/samples/environmental_sensor/
 ./pnpbridge_environmentalsensor
 
 ```
 
 ```cmd
 REM Windows
-cd cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor
+cd cmake\pnpbridge_x86\src\adapters\samples\environmental_sensor
 Debug\pnpbridge_environmentalsensor.exe
 ```
 

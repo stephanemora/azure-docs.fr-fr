@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f968267d4233c765bfd107d81957cf04edace923
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168050"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408513"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="introduction"></a>Introduction
@@ -43,13 +43,13 @@ Azure Operational Security comprend les services, contrôles et fonctionnalités
 Ce livre blanc décrit l’approche de Microsoft en matière de sécurité opérationnelle au sein de la plateforme cloud Microsoft Azure. Il aborde les services ci-dessous :
 1.  [Azure Monitor](../../azure-monitor/index.yml)
 
-2.  [Centre de sécurité Azure](../../security-center/security-center-intro.md)
+2.  [Centre de sécurité Azure](../../security-center/security-center-introduction.md)
 
 3.  [Azure Monitor](../../azure-monitor/overview.md)
 
 4.  [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
 
-5.  [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
+5.  [Azure Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics)
 
 6.  [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 
@@ -100,15 +100,15 @@ Il protège les données de vos applications et les conserve des années durant,
 Les données protégées dans le service Sauvegarde Azure sont stockées dans un archivage de sauvegarde situé dans une zone géographique spécifique. Les données sont répliquées dans la même région et, selon le type d’archivage, peuvent également être répliquées vers une autre région afin d’accroître la résilience.
 
 ### <a name="management-solutions"></a>Solutions de gestion
-[Azure Monitor](../../security-center/security-center-intro.md) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et cloud.
+[Azure Monitor](../../security-center/security-center-introduction.md) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et cloud.
 
 
-Les [solutions de gestion](../../monitoring/monitoring-solutions.md) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion spécifique utilisant un ou plusieurs services Azure Monitor. Microsoft et ses partenaires mettent à votre disposition différentes solutions que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans Azure Monitor. En tant que partenaire, vous pouvez créer vos propres solutions pour prendre en charge vos applications et services et les fournir aux utilisateurs par le biais de la Place de Marché Azure ou des modèles de démarrage rapide.
+Les [solutions de gestion](../../azure-monitor/insights/solutions.md) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion spécifique utilisant un ou plusieurs services Azure Monitor. Microsoft et ses partenaires mettent à votre disposition différentes solutions que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans Azure Monitor. En tant que partenaire, vous pouvez créer vos propres solutions pour prendre en charge vos applications et services et les fournir aux utilisateurs par le biais de la Place de Marché Azure ou des modèles de démarrage rapide.
 
 
 ![Solutions de gestion](./media/operational-security/azure-operational-security-fig4.png)
 
-La [solution Gestion des mises à jour](../../automation/update-management/update-mgmt-overview.md) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise les journaux [Azure Monitor](../../log-analytics/log-analytics-queries.md) pour Windows et Linux afin de collecter les informations relatives aux mises à jour requises sur chaque agent. Elle écrit ces données dans le référentiel des journaux Azure Monitor qui vous permet de les analyser à l’aide du tableau de bord inclus.
+La [solution Gestion des mises à jour](../../automation/update-management/overview.md) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise les journaux [Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) pour Windows et Linux afin de collecter les informations relatives aux mises à jour requises sur chaque agent. Elle écrit ces données dans le référentiel des journaux Azure Monitor qui vous permet de les analyser à l’aide du tableau de bord inclus.
 
 Lorsque vous créez un déploiement, le système utilise les runbooks d’[Azure Automation](../../automation/automation-intro.md) pour installer les mises à jour requises. Vous gérez la totalité de ce processus dans le portail et n’avez pas à vous soucier des détails sous-jacents.
 
@@ -199,7 +199,7 @@ Les journaux de diagnostic diffèrent du [journal d’activité (anciennement ap
 
 ### <a name="metrics"></a>Mesures
 
-Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces [mesures](../../monitoring/monitoring-data-collection.md) pour l’analyse et le dépannage. Les mesures sont une source précieuse de télémétrie et vous permettent d’effectuer les tâches suivantes :
+Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces [mesures](../../azure-monitor/platform/data-platform.md) pour l’analyse et le dépannage. Les mesures sont une source précieuse de télémétrie et vous permettent d’effectuer les tâches suivantes :
 
 -   **Suivre les performances** de votre ressource (par exemple une machine virtuelle, un site web ou une application logique) en traçant ses mesures sur un graphique de portail et en épinglant ce graphique sur un tableau de bord.
 
@@ -225,22 +225,22 @@ L’audit de sécurité de votre réseau est essentiel pour détecter ses vulné
 
 Network Watcher propose actuellement les fonctionnalités suivantes :
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Journaux d’audit</a>** - Les opérations réalisées dans le cadre de la configuration des réseaux sont journalisées. Ces journaux d’activité peuvent être affichés dans le portail Azure ou récupérés à l’aide des outils Microsoft tels que Power BI ou des outils tiers. Les journaux d’audit sont disponibles via le portail, PowerShell, l’interface de ligne de commande et l’API REST. Pour plus d’informations sur les journaux d’audit, consultez la page Afficher les journaux d’activité pour auditer les actions sur les ressources. Les journaux d’audit sont disponibles pour les opérations effectuées sur toutes les ressources réseau.
+-   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Journaux d’audit</a>** - Les opérations réalisées dans le cadre de la configuration des réseaux sont journalisées. Ces journaux d’activité peuvent être affichés dans le portail Azure ou récupérés à l’aide des outils Microsoft tels que Power BI ou des outils tiers. Les journaux d’audit sont disponibles via le portail, PowerShell, l’interface de ligne de commande et l’API REST. Pour plus d’informations sur les journaux d’audit, consultez la page Afficher les journaux d’activité pour auditer les actions sur les ressources. Les journaux d’audit sont disponibles pour les opérations effectuées sur toutes les ressources réseau.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Vérification des flux IP</a>** - Vérifie si un paquet est autorisé ou refusé en fonction des paramètres de paquet des informations à 5 tuples de flux (adresse IP de destination, adresse IP source, port de destination, port source et protocole). Si le paquet est refusé par un groupe de sécurité réseau, la règle et le groupe qui ont refusé le paquet sont renvoyés.
+-   **<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">Vérification des flux IP</a>** - Vérifie si un paquet est autorisé ou refusé en fonction des paramètres de paquet des informations à 5 tuples de flux (adresse IP de destination, adresse IP source, port de destination, port source et protocole). Si le paquet est refusé par un groupe de sécurité réseau, la règle et le groupe qui ont refusé le paquet sont renvoyés.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Tronçon suivant</a>** - Détermine le tronçon suivant pour les paquets routés dans la structure de réseau Azure, vous permettant de diagnostiquer les itinéraires définis par l’utilisateur mal configurés.
+-   **<a href="/azure/network-watcher/network-watcher-next-hop-overview">Tronçon suivant</a>** - Détermine le tronçon suivant pour les paquets routés dans la structure de réseau Azure, vous permettant de diagnostiquer les itinéraires définis par l’utilisateur mal configurés.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Affichage des groupes de sécurité</a>** - Obtient les règles de sécurité appliquées et effectives d’une machine virtuelle.
+-   **<a href="/azure/network-watcher/network-watcher-security-group-view-overview">Affichage des groupes de sécurité</a>** - Obtient les règles de sécurité appliquées et effectives d’une machine virtuelle.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Journalisation des flux de groupe de sécurité réseau</a>** - Les journaux de flux pour les groupes de sécurité réseau vous permettent de capturer les journaux d’activité relatifs au trafic autorisé ou refusé par les règles de sécurité dans le groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
+-   **<a href="/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Journalisation des flux de groupe de sécurité réseau</a>** - Les journaux de flux pour les groupes de sécurité réseau vous permettent de capturer les journaux d’activité relatifs au trafic autorisé ou refusé par les règles de sécurité dans le groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
 
 ## <a name="azure-storage-analytics"></a>Azure Storage Analytics
 
-[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) peut stocker des métriques qui comprennent les statistiques de transactions agrégées et les données de capacité relatives aux demandes adressées à un service de stockage. Les transactions sont indiquées au niveau de l’opération d’API ainsi qu’au niveau du service de stockage, et la capacité est indiquée au niveau du service de stockage. Les données de métriques peuvent être utilisées pour analyser l'utilisation du service de stockage, diagnostiquer les problèmes au niveau des demandes effectuées auprès du service de stockage et améliorer les performances des applications qui utilisent un service.
+[Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics) peut stocker des métriques qui comprennent les statistiques de transactions agrégées et les données de capacité relatives aux demandes adressées à un service de stockage. Les transactions sont indiquées au niveau de l’opération d’API ainsi qu’au niveau du service de stockage, et la capacité est indiquée au niveau du service de stockage. Les données de métriques peuvent être utilisées pour analyser l'utilisation du service de stockage, diagnostiquer les problèmes au niveau des demandes effectuées auprès du service de stockage et améliorer les performances des applications qui utilisent un service.
 
-[L’analyse du stockage Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) effectue la journalisation et fournit les données d’indicateurs de performance d’un compte de stockage. Vous pouvez utiliser ces données pour suivre les demandes, analyser les tendances d'utilisation et diagnostiquer les problèmes liés à votre compte de stockage La journalisation Storage Analytics est disponible pour les [services BLOB, de File d’attente et de Table](../../storage/common/storage-introduction.md). Storage Analytics enregistre des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage.
+[L’analyse du stockage Azure](/rest/api/storageservices/fileservices/storage-analytics) effectue la journalisation et fournit les données d’indicateurs de performance d’un compte de stockage. Vous pouvez utiliser ces données pour suivre les demandes, analyser les tendances d'utilisation et diagnostiquer les problèmes liés à votre compte de stockage La journalisation Storage Analytics est disponible pour les [services BLOB, de File d’attente et de Table](../../storage/common/storage-introduction.md). Storage Analytics enregistre des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage.
 
 Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort. Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison BLOB, mais pas dans ses points de terminaison de Table ou de File d’attente, seuls des journaux d’activité relatifs au service BLOB sont créés.
 
@@ -256,7 +256,7 @@ Les actions suivantes effectuées par Storage Analytics sont facturables :
 -   Demandes de création d'entités de table pour les métriques.
 
 > [!Note]
-> Pour plus d’informations sur les stratégies de facturation et de rétention de données, consultez la page [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing) (Storage Analytics et facturation).
+> Pour plus d’informations sur les stratégies de facturation et de rétention de données, consultez la page [Storage Analytics and Billing](/rest/api/storageservices/fileservices/storage-analytics-and-billing) (Storage Analytics et facturation).
 > Pour des performances optimales, limitez le nombre de disques fortement utilisés attachés à la machine virtuelle pour éviter les limitations possibles. Le compte de stockage peut prendre en charge un plus grand nombre de disques s’ils ne sont pas tous fortement sollicités en même temps.
 
 > [!Note]
@@ -271,7 +271,7 @@ Les types de demandes authentifiées et anonymes suivants sont enregistrés.
 |Demandes ayant échoué, y compris les erreurs de délai d’expiration, limitation, réseau, autorisation et autres erreurs | Demandes utilisant une signature d’accès partagé (SAS), y compris les demandes ayant réussi et ayant échoué |
 | Demandes utilisant une signature d’accès partagé (SAS), y compris les demandes ayant réussi et ayant échoué |Erreurs de délai d’expiration pour le client et le serveur |
 |   Demandes de données d’analyse |    Demandes GET ayant échoué avec le code d’erreur 304 (non modifié) |
-| Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) (Opérations et messages d’état enregistrés Storage Analytics) et [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) (Format de journal de Storage Analytics). |
+| Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics-log-format). | Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) (Opérations et messages d’état enregistrés Storage Analytics) et [Storage Analytics Log Format](/rest/api/storageservices/fileservices/storage-analytics-log-format) (Format de journal de Storage Analytics). |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -281,7 +281,7 @@ Azure AD inclut également une suite complète de fonctionnalités de gestion d�
 
 -   En surveillant l’utilisation des applications et en protégeant votre entreprise contre les menaces avancées, grâce à des fonctionnalités de création de rapports et de surveillance.
 
-Azure Active Directory (Azure AD) comprend des rapports sur la sécurité, les activités et l’audit concernant votre annuaire. [Le rapport d’audit d’Azure Active Directory](../../active-directory/active-directory-reporting-azure-portal.md) permet aux clients d’identifier les actions privilégiées qui se sont produites dans leur Azure Active Directory. Ces actions privilégiées incluent les modifications d'élévation (par exemple la création de rôle ou les réinitialisations de mot de passe), la modification des configurations de stratégie (par exemple les stratégies de mot de passe) ou bien les modifications apportées à la configuration de répertoire (par exemple les modifications apportées aux paramètres de fédération de domaine).
+Azure Active Directory (Azure AD) comprend des rapports sur la sécurité, les activités et l’audit concernant votre annuaire. [Le rapport d’audit d’Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) permet aux clients d’identifier les actions privilégiées qui se sont produites dans leur Azure Active Directory. Ces actions privilégiées incluent les modifications d'élévation (par exemple la création de rôle ou les réinitialisations de mot de passe), la modification des configurations de stratégie (par exemple les stratégies de mot de passe) ou bien les modifications apportées à la configuration de répertoire (par exemple les modifications apportées aux paramètres de fédération de domaine).
 
 Les rapports fournissent l’enregistrement d’audit pour le nom d’événement, l’acteur qui a effectué l’action, la ressource cible affectée par la modification, ainsi que la date et l’heure (UTC). Les clients sont en mesure de récupérer la liste des événements d’audit pour leur annuaire Azure Active Directory par le biais du [portail Azure](https://portal.azure.com/), comme décrit à la page [Afficher vos journaux d’activité d’audit](../../active-directory/reports-monitoring/overview-reports.md). Voici une liste des rapports fournis :
 
@@ -299,14 +299,14 @@ Les rapports fournissent l’enregistrement d’audit pour le nom d’événemen
 
 
 
-Les données de ces rapports peuvent être utiles à vos applications, telles que les systèmes SIEM, l’audit et les outils d’analyse décisionnelle. Les [API](../../active-directory/active-directory-reporting-api-getting-started-azure-portal.md) de création de rapports Azure AD fournissent un accès par programme aux données via un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation.
+Les données de ces rapports peuvent être utiles à vos applications, telles que les systèmes SIEM, l’audit et les outils d’analyse décisionnelle. Les [API](../../active-directory/reports-monitoring/concept-reporting-api.md) de création de rapports Azure AD fournissent un accès par programme aux données via un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation.
 
 Les événements du rapport d’audit d’Azure AD sont conservés pendant 180 jours.
 
 > [!Note]
 > Pour plus d’informations sur la rétention des rapports, consultez la page [Stratégies de rétention des rapports Azure Active Directory](../../active-directory/reports-monitoring/reference-reports-data-retention.md).
 
-Pour les clients intéressés par le stockage de leurs [événements d’audit](../../active-directory/active-directory-reporting-activity-audit-logs.md) pour des périodes de rétention plus longues, l’API de création de rapports peut être utilisée pour extraire régulièrement des événements d’audit dans un magasin de données distinct.
+Pour les clients intéressés par le stockage de leurs [événements d’audit](../../active-directory/reports-monitoring/concept-audit-logs.md) pour des périodes de rétention plus longues, l’API de création de rapports peut être utilisée pour extraire régulièrement des événements d’audit dans un magasin de données distinct.
 
 ## <a name="summary"></a>Résumé
 
@@ -342,4 +342,3 @@ Microsoft place la sécurité au cœur de la conception de ses services et de se
 Utilisez les données et les fonctions d’analyse de sécurité de Microsoft pour une détection des menaces plus intelligente et plus efficace.
 
 - [Guide des opérations et de planification du Centre de sécurité Azure](../../security-center/security-center-planning-and-operations-guide.md) : couvre un ensemble d’étapes et de tâches à suivre pour optimiser votre utilisation du Security Center en fonction des critères de sécurité et du modèle de gestion cloud de votre entreprise.
-

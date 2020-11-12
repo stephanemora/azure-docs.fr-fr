@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395768"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410332"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Présentation de la surveillance et de la gestion de la sécurité Azure
 Cet article présente les fonctionnalités et services de sécurité Azure qui facilitent la gestion et la surveillance des services cloud et des machines virtuelles Azure.
@@ -48,8 +48,8 @@ En savoir plus :
 
 * [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](antimalware.md)
-* [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](../../virtual-machines/extensions/trend.md)
+* [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../../virtual-machines/extensions/symantec.md)
 * [Nouvelles options anti-programmes malveillants pour protéger les machines virtuelles Azure](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
@@ -61,7 +61,7 @@ Azure Multi-Factor Authentication contribue à sécuriser l’accès aux donnée
 En savoir plus :
 
 * [Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Présentation d'Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)
+* [Présentation d'Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Azure Multi-Factor Authentication : fonctionnement](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -112,7 +112,7 @@ En fournissant des notifications et des mises à jour recommandées, Identity Pr
 
 En savoir plus :
 
-* [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
@@ -129,8 +129,8 @@ Security Center vous permet d’optimiser et de surveiller la sécurité de vos 
 
 En savoir plus :
 
-* [Présentation d’Azure Security Center](../../security-center/security-center-intro.md)
-* [Améliorer le degré de sécurisation dans Azure Security Center](../../security-center/security-center-secure-score.md)
+* [Présentation d’Azure Security Center](../../security-center/security-center-introduction.md)
+* [Améliorer le degré de sécurisation dans Azure Security Center](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f83500e539ff5254db290d156dfcf50ea60de14
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461530"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372555"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender pour les serveurs SQL sur les machines 
 
@@ -30,7 +30,7 @@ Vous voyez s’afficher des alertes en cas d’activités de base de données su
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|PRÉVERSION|
+|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prix :|**Azure Defender pour les serveurs SQL Server sur les machines** est facturé comme indiqué sur [la page de tarification](security-center-pricing.md)|
 |Versions de SQL protégées :|Azure SQL Server (toutes les versions couvertes par le support Microsoft)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|

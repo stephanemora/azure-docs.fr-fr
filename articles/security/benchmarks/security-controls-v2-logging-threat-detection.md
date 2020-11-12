@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295462"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408700"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Contrôle de sécurité V2 : Journalisation et détection des menaces
 
@@ -30,7 +30,7 @@ Utilisez la capacité de détection des menaces intégrée à Azure Security Cen
 
 En outre, utilisez Azure Sentinel pour créer des règles d’analyse, qui repèrent des menaces correspondant à des critères spécifiques dans votre environnement. Les règles génèrent des incidents lorsque les critères sont respectés, de sorte que vous pouvez enquêter sur chaque incident. Azure Sentinel peut également importer le renseignement sur les menaces provenant de tiers pour améliorer la capacité de détection des menaces. 
 
-- [Protection contre les menaces dans Azure Security Center](../../security-center/threat-protection.md)
+- [Protection contre les menaces dans Azure Security Center](../../security-center/azure-defender.md)
 
 - [Guide de référence des alertes de sécurité Azure Security Center](../../security-center/alerts-reference.md)
 
@@ -38,9 +38,9 @@ En outre, utilisez Azure Sentinel pour créer des règles d’analyse, qui repè
 
 - [Renseignement sur les menaces informatiques dans Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -73,11 +73,11 @@ Azure Security Center pouvez également alerter en cas de certaines activités s
 
 - [Activer Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Protection contre les menaces dans Azure Security Center](../../security-center/threat-protection.md)
+- [Protection contre les menaces dans Azure Security Center](../../security-center/azure-defender.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -109,9 +109,9 @@ Activez et collectez les journaux de ressources des groupes de sécurité résea
 
 - [Rassemblement d’informations sur votre infrastructure DNS avec la solution DNS Analytics](../../azure-monitor/insights/dns-analytics.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -137,11 +137,9 @@ Vous pouvez utiliser Azure Security Center et Azure Policy pour activer les jour
 
 - [Présentation de la collecte de données Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-- [Activer et configurer la surveillance Antimalware](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
+**Responsabilité**  : Partagé
 
-**Responsabilité** : Partagé
-
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -169,9 +167,9 @@ De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les don
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -195,9 +193,9 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 - [Exportation des alertes et recommandations Azure Security Center](../../security-center/continuous-export.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -223,13 +221,12 @@ Tous les journaux générés par des ressources dans Azure fournissent des horod
 
 - [Comment désactiver le protocole UDP entrant pour les services Azure](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Stratégie et normes](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
 - [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

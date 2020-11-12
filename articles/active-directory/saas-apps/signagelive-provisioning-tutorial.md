@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 10ad06041e8136b5661b1b1ff487cd4d3b0f5153
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255724"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358403"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutoriel : Configurer Signagelive pour l’approvisionnement automatique d’utilisateurs
 
@@ -64,7 +64,7 @@ Avant de configurer Signagelive pour le provisionnement d’utilisateurs automat
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -72,7 +72,7 @@ Avant de configurer Signagelive pour le provisionnement d’utilisateurs automat
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Signagelive**, sélectionnez **Signagelive** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Signagelive** , sélectionnez **Signagelive** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Signagelive    dans la liste des résultats](common/search-new-app.png)
 
@@ -85,7 +85,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-signagelive--in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Signagelive dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -101,28 +101,28 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section Informations d’identification de l’administrateur, entrez ` https://samlapi.signagelive.com/scim/v2` dans **URL de locataire**. Dans le champ **Jeton secret**, entrez la valeur du **Jeton du porteur** fournie par l’équipe de développement. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Signagelive. Si la connexion échoue, vérifiez que votre compte Signagelive dispose des autorisations d’administrateur et réessayez.
+5. Sous la section Informations d’identification de l’administrateur, entrez ` https://samlapi.signagelive.com/scim/v2` dans **URL de locataire**. Dans le champ **Jeton secret** , entrez la valeur du **Jeton du porteur** fournie par l’équipe de développement. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Signagelive. Si la connexion échoue, vérifiez que votre compte Signagelive dispose des autorisations d’administrateur et réessayez.
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Signagelive**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Signagelive**.
 
     ![Capture d’écran de la section Mappages avec l’option Synchroniser les utilisateurs Azure Active Directory avec Signagelive en évidence.](media/signagelive-provisioning-tutorial/usermapping.png)
 
-9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Signagelive. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Signagelive pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Signagelive. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Signagelive pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Capture d’écran de la section Mappages des attributs avec sept mappages affichés.](media/signagelive-provisioning-tutorial/userattribute.png)
 
-10. Dans la section **Mappages**, sélectionnez **Synchroniser le groupe Azure Active Directory sur Signagelive**.
+10. Dans la section **Mappages** , sélectionnez **Synchroniser le groupe Azure Active Directory sur Signagelive**.
 
     ![Capture d’écran de la section Mappages avec l’option Synchroniser le Groupe Azure Active Directory avec Signagelive en évidence.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Signagelive. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes de groupe dans Signagelive pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Signagelive. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes de groupe dans Signagelive pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Capture d’écran de la section Mappages des attributs avec trois mappages affichés.](media/signagelive-provisioning-tutorial/groupattribute.png)
 

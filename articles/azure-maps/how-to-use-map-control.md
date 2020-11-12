@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895441"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413375"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 
@@ -75,7 +75,7 @@ Vous pouvez intégrer une carte dans une page web en utilisant la bibliothèque 
     </style>
    ```
 
-4. Dans le corps de la page, ajoutez un élément `<div>` et attribuez-lui l’`id`**myMap** .
+4. Dans le corps de la page, ajoutez un élément `<div>` et attribuez-lui l’`id`**myMap**.
 
    ```HTML
     <body onload="InitMap()">
@@ -99,8 +99,8 @@ Vous pouvez intégrer une carte dans une page web en utilisant la bibliothèque 
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -120,8 +120,8 @@ Vous pouvez intégrer une carte dans une page web en utilisant la bibliothèque 
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 

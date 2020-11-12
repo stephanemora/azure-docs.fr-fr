@@ -3,12 +3,12 @@ title: Autorisations pour des référentiels dans Azure Container Registry
 description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre Premium pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84509404"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381233"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Créer un jeton avec des autorisations délimitées par le référentiel
 
@@ -61,9 +61,9 @@ L’image suivante illustre la relation entre les jetons et les mappages d’ét
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Azure CLI** : les commandes Azure CLI permettant de créer et gérer des jetons sont disponibles dans la version 2.0.76 ou ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
-* **Docker** : pour vous authentifier auprès du registre afin de tirer (pull) ou d’envoyer (push) des images, vous avez besoin d’une installation locale de Docker. Docker fournit des instructions d’installation pour les systèmes [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
-* **Registre de conteneurs** : créez un registre de conteneurs Premium dans votre abonnement Azure si vous n’en avez pas ou mettez à niveau un registre existant. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Azure CLI**  : les commandes Azure CLI permettant de créer et gérer des jetons sont disponibles dans la version 2.0.76 ou ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+* **Docker**  : pour vous authentifier auprès du registre afin de tirer (pull) ou d’envoyer (push) des images, vous avez besoin d’une installation locale de Docker. Docker fournit des instructions d’installation pour les systèmes [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+* **Registre de conteneurs**  : créez un registre de conteneurs Premium dans votre abonnement Azure si vous n’en avez pas ou mettez à niveau un registre existant. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md). 
 
 ## <a name="create-token---cli"></a>Créer un jeton – CLI
 
@@ -150,7 +150,7 @@ Vous pouvez utiliser le Portail Azure pour créer des jetons et des mappages d�
 L’exemple suivant crée un jeton, puis crée un mappage d’étendue avec les autorisations suivantes sur le référentiel `samples/hello-world` : `content/write` et `content/read`.
 
 1. Dans le portail, accédez à votre registre de conteneurs.
-1. Sous **Autorisations du référentiel**, sélectionnez **Jetons (préversion) > +Ajouter**.
+1. Sous **Autorisations du référentiel** , sélectionnez **Jetons (préversion) > +Ajouter**.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Créer un jeton dans le portail":::
 1. Entrez un nom de jeton.
@@ -159,7 +159,7 @@ L’exemple suivant crée un jeton, puis crée un mappage d’étendue avec les 
     1. Entrez un nom et une description pour le mappage d’étendue. 
     1. Sous **Repositories** (Référentiels), entrez `samples/hello-world` et, sous **Permissions** (Autorisations), sélectionnez `content/read` et `content/write`. Sélectionnez ensuite **+Add** (+Ajouter).  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Créer un jeton dans le portail":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Créer un mappage d’étendue dans le portail":::
 
     1. Après avoir ajouté des référentiels et des autorisations, sélectionnez **Add** (Ajouter) pour ajouter le mappage d’étendue.
 1. Acceptez le **Status** (État) par défaut **Enabled** (Activé) du jeton, puis sélectionnez **Create** (Créer).
@@ -171,12 +171,12 @@ Une fois le jeton validé et créé, les détails du jeton s’affichent dans l�
 Pour utiliser un jeton créé dans le portail, vous devez générer un mot de passe. Vous pouvez générer un ou deux mots de passe et définir une date d’expiration pour chacun d’entre eux. 
 
 1. Dans le portail, accédez à votre registre de conteneurs.
-1. Sous **Autorisations du référentiel**, sélectionnez **Jetons (préversion)** et sélectionnez jeton.
-1. Dans les détails du jeton, sélectionnez **password1** ou **password2**, puis sélectionnez l’icône de génération.
+1. Sous **Autorisations du référentiel** , sélectionnez **Jetons (préversion)** et sélectionnez jeton.
+1. Dans les détails du jeton, sélectionnez **password1** ou **password2** , puis sélectionnez l’icône de génération.
 1. Dans l’écran du mot de passe, définissez éventuellement une date d’expiration pour le mot de passe, puis sélectionnez **Generate** (Générer). Il est recommandé de définir une date d’expiration.
 1. Après avoir généré un mot de passe, copiez-le et enregistrez-le dans un emplacement sûr. Vous ne pouvez pas récupérer un mot de passe généré après avoir fermé l’écran, mais vous pouvez en générer un nouveau.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Créer un jeton dans le portail":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Créer un mot de passe de jeton dans le portail":::
 
 ## <a name="authenticate-with-token"></a>S’authentifier avec un jeton
 
@@ -204,7 +204,7 @@ Pour les exemples suivants, tirez (pull) les images `hello-world` et `alpine` de
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag alpine myregistry.azurecr.io/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Authentifier à l'aide du jeton
@@ -259,7 +259,7 @@ az acr scope-map update \
 Dans le portail Azure :
 
 1. Accédez à votre registre de conteneurs.
-1. Sous **Autorisations de référentiel**, sélectionnez **Mappages d’étendues (préversion)** s, puis sélectionnez le mappage d’étendue à mettre à jour.
+1. Sous **Autorisations de référentiel** , sélectionnez **Mappages d’étendues (préversion)** s, puis sélectionnez le mappage d’étendue à mettre à jour.
 1. Sous **Repositories** (Référentiels), entrez `samples/alpine` et, sous **Permissions** (Autorisations), sélectionnez `content/read` et `content/write`. Sélectionnez ensuite **+Add** (+Ajouter).
 1. Sous **Repositories** (Référentiels), sélectionnez `samples/hello-world` et, sous **Permissions** (Autorisations), désélectionnez `content/write`. Ensuite, sélectionnez **Enregistrer**.
 
@@ -378,7 +378,7 @@ az acr token list --registry myregistry --output table
 
 Si vous n’avez pas généré de mot de passe de jeton ou si vous souhaitez générer de nouveaux mots de passe, exécutez la commande [az acr token credential generate][az-acr-token-credential-generate]. 
 
-L’exemple suivant génère une nouvelle valeur password1 pour le jeton *MyToken*, avec une période d’expiration de 30 jours. Cela stocke le mot de passe dans la variable d’environnement `TOKEN_PWD`. Cet exemple est mis en forme pour l’interpréteur de commandes Bash.
+L’exemple suivant génère une nouvelle valeur password1 pour le jeton *MyToken* , avec une période d’expiration de 30 jours. Cela stocke le mot de passe dans la variable d’environnement `TOKEN_PWD`. Cet exemple est mis en forme pour l’interpréteur de commandes Bash.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \

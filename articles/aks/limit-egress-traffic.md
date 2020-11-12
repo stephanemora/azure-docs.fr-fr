@@ -4,15 +4,14 @@ description: Découvrez les ports et adresses requis pour contrôler le trafic d
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900479"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380209"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -63,7 +62,6 @@ Les noms de domaine complets/règles d’application suivantes sont requis :
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Obligatoire pour la communication Nœud <-> Serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Obligatoire pour l’accès aux images de Microsoft Container Registry (MCR). Ce registre contient des images/graphiques internes (par exemple, CoreDNS), qui sont nécessaires à la création et au bon fonctionnement du cluster, y compris les opérations de scaling et de mise à niveau.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Obligatoire pour le stockage MCR assuré par Azure Content Delivery Network (CDN). |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Obligatoire pour le stockage MCR assuré par Azure Content Delivery Network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Obligatoire pour les opérations Kubernetes sur l’API Azure. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Obligatoire pour l’authentification Azure Active Directory. |
@@ -92,7 +90,6 @@ Les noms de domaine complets/règles d’application suivantes sont requis :
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Obligatoire pour la communication Nœud <-> Serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Obligatoire pour la communication Nœud <-> Serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Obligatoire pour l’accès aux images de Microsoft Container Registry (MCR). Ce registre contient des images/graphiques internes (par exemple, CoreDNS), qui sont nécessaires à la création et au bon fonctionnement du cluster, y compris les opérations de scaling et de mise à niveau. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Obligatoire pour le stockage MCR assuré par Azure Content Delivery Network (CDN). |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Obligatoire pour le stockage MCR assuré par Azure Content Delivery Network (CDN). |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Obligatoire pour les opérations Kubernetes sur l’API Azure. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Obligatoire pour l’authentification Azure Active Directory. |
@@ -119,7 +116,6 @@ Les noms de domaine complets/règles d’application suivantes sont requis :
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Obligatoire pour la communication Nœud <-> Serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Obligatoire pour l’accès aux images de Microsoft Container Registry (MCR). Ce registre contient des images/graphiques internes (par exemple, CoreDNS), qui sont nécessaires à la création et au bon fonctionnement du cluster, y compris les opérations de scaling et de mise à niveau. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Obligatoire pour le stockage MCR assuré par Azure Content Delivery Network (CDN). |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Obligatoire pour le stockage MCR assuré par Azure Content Delivery Network (CDN). |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Obligatoire pour les opérations Kubernetes sur l’API Azure. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Obligatoire pour l’authentification Azure Active Directory. |

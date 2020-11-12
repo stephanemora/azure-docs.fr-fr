@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 204cdc689d5a117df428bb314a81a35081f7b13c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273685"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357638"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Configurer BlueJeans pour l’attribution automatique d’utilisateurs
 
@@ -46,7 +46,7 @@ Avant de configurer BlueJeans pour l’attribution automatique des utilisateurs 
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -54,7 +54,7 @@ Avant de configurer BlueJeans pour l’attribution automatique des utilisateurs 
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **BlueJeans**, sélectionnez **BlueJeans** dans le volet de résultats, puis sélectionnez le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **BlueJeans** , sélectionnez **BlueJeans** dans le volet de résultats, puis sélectionnez le bouton **Ajouter** pour ajouter l’application.
 
     ![BlueJeans dans la liste des résultats](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour BlueJeans dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **BlueJeans**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **BlueJeans**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -97,27 +97,27 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la page Approvisionnement avec les sections Mode d’approvisionnement et Informations d’identification de l’administrateur en évidence.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Nom d’utilisateur de l’administrateur** et le **Mot de passe d’administrateur** de votre compte BlueJeans. Voici des exemples de valeurs :
+5. Dans la section **Informations d’identification de l’administrateur** , entrez le **Nom d’utilisateur de l’administrateur** et le **Mot de passe d’administrateur** de votre compte BlueJeans. Voici des exemples de valeurs :
 
-   * Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur de votre locataire BlueJeans. Exemple : admin@contoso.com.
+   * Dans le champ **Nom d’utilisateur de l’administrateur** , indiquez le nom de l’utilisateur du compte administrateur de votre locataire BlueJeans. Exemple : admin@contoso.com.
 
-   * Dans le champ **Mot de passe d’administrateur**, indiquez le mot de passe correspondant au nom de l’utilisateur administrateur.
+   * Dans le champ **Mot de passe d’administrateur** , indiquez le mot de passe correspondant au nom de l’utilisateur administrateur.
 
 6. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à BlueJeans. Si la connexion échoue, vérifiez que votre compte BlueJeans dispose des autorisations d’administrateur, puis réessayez.
 
     ![Capture d’écran de la section Informations d’identification de l’administrateur avec l’option Tester la connexion en évidence.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+7. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![Capture d’écran de la zone de texte E-mail de notification.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. Cliquez sur **Enregistrer**.
 
-9. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec BlueJeans**.
+9. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec BlueJeans**.
 
     ![Capture d’écran de la section Mappages avec l’option Synchroniser les utilisateurs Azure Active Directory avec BlueJeans mise en évidence.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
-10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et BlueJeans. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur BlueJeans en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+10. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et BlueJeans. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur BlueJeans en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Capture d’écran de la section Mappages des attributs avec sept mappages affichés.](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
@@ -127,7 +127,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la section Paramètres avec l’option État de l’approvisionnement définie sur Activé.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
-13. Définissez les utilisateurs et/ou groupes que vous aimeriez attribuer dans BlueJeans en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
+13. Définissez les utilisateurs et/ou groupes que vous aimeriez attribuer dans BlueJeans en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
 
     ![Capture d’écran du paramètre Étendue avec l’option Synchroniser uniquement les utilisateurs et groupes assignés mise en évidence.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 

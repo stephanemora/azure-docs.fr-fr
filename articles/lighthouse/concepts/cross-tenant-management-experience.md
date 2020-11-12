@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460663"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413120"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -104,7 +104,6 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 [Azure Policy](../../governance/policy/index.yml) :
 
-- Les instantanés de conformité affichent les détails sur les stratégies attribuées au sein d’abonnements délégués
 - Créer et modifier des définitions de stratégie au sein d’abonnements délégués
 - Affecter des définitions de stratégie définies par le client au sein d’abonnements délégués
 - Les clients voient les stratégies créées par le fournisseur de services en même temps que les stratégies qu’ils ont créées eux-mêmes

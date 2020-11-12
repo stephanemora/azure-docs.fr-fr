@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289211"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372606"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs
 
@@ -113,6 +113,9 @@ Pour activer l’analyse de vulnérabilité des images stockées dans un registr
 
 
 ## <a name="disable-specific-findings-preview"></a>Désactivation de certains résultats (préversion)
+
+> [!NOTE]
+> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 Si votre organisation préfère ignorer un résultat, plutôt que de le corriger, vous avez la possibilité de désactiver cette fonction. Les résultats désactivés n’ont pas d’impact sur votre Niveau de sécurité ni ne génèrent de bruit indésirable.
 

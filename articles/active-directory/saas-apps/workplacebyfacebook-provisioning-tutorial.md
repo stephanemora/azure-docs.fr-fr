@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 6415ead09c98d85191440fc8d8fd5900ad44b85e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0113ea684b9b2fb26eac1fb5ceec5b53aef677f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520107"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359746"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
@@ -67,39 +67,39 @@ Ajoutez Workplace by Facebook à partir de la galerie d’applications d’Azure
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Lorsque vous attribuez des utilisateurs et des groupes à Workplace by Facebook, vous devez sélectionner un rôle différent d’ **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Lorsque vous attribuez des utilisateurs et des groupes à Workplace by Facebook, vous devez sélectionner un rôle différent d’ **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Workplace by Facebook** .
+2. Dans la liste des applications, sélectionnez **Workplace by Facebook**.
 
     ![Lien Workplace by Facebook dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , cliquez sur **Autoriser** . Vous serez redirigé vers la page d’autorisation de Workplace by Facebook. Entrez le nom d’utilisateur Workplace by Facebook, puis cliquez sur le bouton **Continuer** . Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Workplace by Facebook. Si la connexion échoue, vérifiez que votre compte Workplace by Facebook dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur** , cliquez sur **Autoriser**. Vous serez redirigé vers la page d’autorisation de Workplace by Facebook. Entrez le nom d’utilisateur Workplace by Facebook, puis cliquez sur le bouton **Continuer**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Workplace by Facebook. Si la connexion échoue, vérifiez que votre compte Workplace by Facebook dispose des autorisations d’administrateur et réessayez.
 
     ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur avec une option Autoriser.](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
     ![autoriser](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser des utilisateurs Azure Active Directory sur Workplace by Facebook** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser des utilisateurs Azure Active Directory sur Workplace by Facebook**.
 
 9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Workplace by Facebook. Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes d’utilisateur dans Workplace by Facebook, en vue d’opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API Workplace by Facebook prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -138,19 +138,19 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Pour activer le service d’approvisionnement Azure AD pour Workplace by Facebook, modifiez le paramètre **État de l’approvisionnement** en spécifiant **Activé** dans la section **Paramètres** .
+11. Pour activer le service d’approvisionnement Azure AD pour Workplace by Facebook, modifiez le paramètre **État de l’approvisionnement** en spécifiant **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs et/ou groupes que vous souhaitez approvisionner sur Workplace by Facebook en choisissant les valeurs souhaitées dans **Étendue** de la section **Paramètres** .
+12. Définissez les utilisateurs et/ou groupes que vous souhaitez approvisionner sur Workplace by Facebook en choisissant les valeurs souhaitées dans **Étendue** de la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

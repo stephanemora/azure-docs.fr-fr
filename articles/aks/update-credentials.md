@@ -5,12 +5,12 @@ description: Découvrir comment mettre à jour ou réinitialiser les information
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871222"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427511"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Pour les autorisations, vous pouvez également utiliser une identité managée a
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Azure CLI version 2.0.65 ou ultérieure doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+Azure CLI version 2.0.65 ou ultérieure doit être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Mise à jour ou création d’un principal de service pour le cluster AKS
 
@@ -82,7 +82,7 @@ Le résultat ressemble à l’exemple qui suit. Prenez note de vos propres valeu
 }
 ```
 
-Définissez maintenant des variables pour l’ID du principal de service et la clé secrète client à l’aide de la sortie de votre propre commande [az ad sp create-for-rbac][az-ad-sp-create], comme indiqué dans l’exemple suivant. *SP_ID* correspond à votre *appId*, et *SP_SECRET* à votre *mot de passe* :
+Définissez maintenant des variables pour l’ID du principal de service et la clé secrète client à l’aide de la sortie de votre propre commande [az ad sp create-for-rbac][az-ad-sp-create], comme indiqué dans l’exemple suivant. *SP_ID* correspond à votre *appId* , et *SP_SECRET* à votre *mot de passe* :
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -104,7 +104,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 La mise à jour des informations d’identification du principal de service dans AKS prend quelques instants pour les clusters de petite taille et de taille moyenne.

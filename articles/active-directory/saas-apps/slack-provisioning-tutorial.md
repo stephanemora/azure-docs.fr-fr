@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515916"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359474"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -53,7 +53,7 @@ Ajoutez Slack à partir de la galerie d’applications Azure AD pour commencer �
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quand vous attribuez des utilisateurs et des groupes à Slack, vous devez sélectionner un rôle différent du rôle **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Quand vous attribuez des utilisateurs et des groupes à Slack, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -63,40 +63,40 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Pour configurer l’approvisionnement automatique de comptes utilisateur vers Slack dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Slack** .
+2. Dans la liste des applications, sélectionnez **Slack**.
 
     ![Lien Slack dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **informations d’identification de l’administrateur** , cliquez sur **Autoriser** . Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur.
+5. Sous la section **informations d’identification de l’administrateur** , cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur.
 
     ![La capture d’écran affiche le bouton Autoriser les informations d’identification administrateur.](media/slack-provisioning-tutorial/authorization.png)
 
 
-6. Dans la nouvelle fenêtre, connectez-vous à Slack à l’aide de votre compte d’administrateur d’équipe. Dans la boîte de dialogue d’autorisation qui s’affiche, sélectionnez l’équipe Slack pour laquelle vous souhaitez activer l’approvisionnement, puis sélectionnez **Autoriser** . Une fois cela terminé, revenez au portail Azure pour terminer la configuration de l’approvisionnement.
+6. Dans la nouvelle fenêtre, connectez-vous à Slack à l’aide de votre compte d’administrateur d’équipe. Dans la boîte de dialogue d’autorisation qui s’affiche, sélectionnez l’équipe Slack pour laquelle vous souhaitez activer l’approvisionnement, puis sélectionnez **Autoriser**. Une fois cela terminé, revenez au portail Azure pour terminer la configuration de l’approvisionnement.
 
     ![Boîte de dialogue d’autorisation](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Slack. Si la connexion échoue, vérifiez que votre compte Slack dispose des autorisations d’administrateur d’équipe et recommencez l’étape « Autoriser ».
 
-8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-9. Sélectionnez **Enregistrer** .
+9. Sélectionnez **Enregistrer**.
 
-10. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Slack** .
+10. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Slack**.
 
 11. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui seront synchronisés d’Azure AD vers Slack. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les comptes d’utilisateur dans Slack pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
@@ -132,7 +132,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
    |urn:scim:schemas:extension:enterprise:1.0.organization|String|
    |urn:scim:schemas:extension:enterprise:1.0.division|String|
 
-12. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Slack** .
+12. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Slack**.
 
 13. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui seront synchronisés d’Azure AD vers Slack. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les groupes dans Slack pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
@@ -147,15 +147,15 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-16. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur Slack en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres** .
+16. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur Slack en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-17. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+17. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-5-monitor-your-deployment"></a>Étape 5. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
@@ -180,7 +180,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 
 * L’attribut **userName** ne doit pas dépasser 21 caractères et sa valeur doit être unique.
 
-* Slack n’autorise que la correspondance avec les attributs **userName** et **email** .  
+* Slack n’autorise que la correspondance avec les attributs **userName** et **email**.  
   
 * Les codes d’erreur courants sont documentés dans la documentation officielle de Slack : https://api.slack.com/scim#errors.
 

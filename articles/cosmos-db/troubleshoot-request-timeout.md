@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9e52acd2f7f594523059b22fefd121314bd77921
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5b188021de30561222f098e2b5782bada25d7ce0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340058"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411250"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-timeout-exceptions"></a>Diagnostiquer et résoudre les problèmes liés à des exceptions d’expiration du délai de demande Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,3 +41,5 @@ Choisissez une clé de partition appropriée qui répartit uniformément le volu
 ## <a name="next-steps"></a>Étapes suivantes
 * [Diagnostiquer et résoudre](troubleshoot-dot-net-sdk.md) des problèmes lors de l'utilisation du kit de développement logiciel (SDK) .NET Azure Cosmos DB.
 * Découvrez les recommandations relatives aux performances pour [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) et [.NET v2](performance-tips.md).
+* [Diagnostiquer et résoudre](troubleshoot-java-sdk-v4-sql.md) des problèmes lors de l'utilisation du SDK Java v4 Azure Cosmos DB.
+* Découvrez les recommandations relatives aux performances pour le [SDK Java v4](performance-tips-java-sdk-v4-sql.md).

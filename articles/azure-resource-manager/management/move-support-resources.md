@@ -2,13 +2,13 @@
 title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627106"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364227"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -792,7 +792,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Oui | Oui |
-> | datafactoryschema | Non | Non |
 > | factories | Oui | Oui |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
@@ -1433,7 +1432,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | privatednszones / virtualnetworklinks | Oui | Oui |
 > | privatednszonesinternal | Non | Non |
 > | privateendpointredirectmaps | Non | Non |
-> | privateendpoints | Oui | Oui |
+> | privateendpoints | Non | Non |
 > | privatelinkservices | Non | Non |
 > | publicipaddresses | Oui - Référence SKU de base<br>Oui - Référence SKU Standard | Oui - Référence SKU de base<br>Non - Référence SKU Standard |
 > | publicipprefixes | Oui | Oui |

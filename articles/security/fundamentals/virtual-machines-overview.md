@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229361"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409788"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
 Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec les machines virtuelles.
@@ -51,11 +51,11 @@ En savoir plus sur [Microsoft Antimalware pour Azure](antimalware.md) et les fon
 Pour en savoir plus sur les logiciels anti-programme malveillant pour protéger vos machines virtuelles :
 
 * [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](../../virtual-machines/extensions/trend.md)
+* [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../../virtual-machines/extensions/symantec.md)
 * [Solutions de sécurité dans Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-Pour une protection encore plus puissante, utilisez [Windows Defender - Protection avancée contre les menaces](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Windows Defender ATP offre les fonctionnalités suivantes :
+Pour une protection encore plus puissante, utilisez [Windows Defender - Protection avancée contre les menaces](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Windows Defender ATP offre les fonctionnalités suivantes :
 
 * [Réduction de la surface d’attaque](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Protection de nouvelle génération](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -75,22 +75,22 @@ En savoir plus :
 
 Une meilleure clé de sécurité permet d’améliorer les protections par chiffrement et authentification. Vous pouvez simplifier la gestion et la sécurité de vos clés et secrets critiques en les stockant dans Azure Key Vault.
 
-Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](/sql/relational-databases/security/encryption/transparent-data-encryption) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 En savoir plus :
 
-* [Qu’est-ce qu’Azure Key Vault ?](/azure/key-vault/key-vault-overview)
-* [Blog Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
+* [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)
+* [Blog Azure Key Vault](/archive/blogs/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Chiffrement du disque de machine virtuelle
 
-Azure Disk Encryption est une nouvelle fonctionnalité de chiffrement de vos disques de machine virtuelle Windows et Linux. Azure Disk Encryption utilise la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows et la fonctionnalité [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données.
+Azure Disk Encryption est une nouvelle fonctionnalité de chiffrement de vos disques de machine virtuelle Windows et Linux. Azure Disk Encryption utilise la fonctionnalité standard [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) Windows et la fonctionnalité [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données.
 
 La solution est intégrée à Azure Key Vault, ce qui vous permet de contrôler et de gérer les clés et les secrets de chiffrement de disque dans votre abonnement Key Vault. Elle garantit que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans le stockage Azure.
 
 En savoir plus :
 
-* [Azure Disk Encryption pour machines virtuelles Iaas](/azure/security/azure-security-disk-encryption-overview)
+* [Azure Disk Encryption pour machines virtuelles Iaas](./azure-disk-encryption-vms-vmss.md)
 * [Démarrage rapide : Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Sauvegarde de machine virtuelle
@@ -99,8 +99,8 @@ Sauvegarde Azure est une solution évolutive qui permet de protéger les donnée
 
 En savoir plus :
 
-* [Qu’est-ce que Sauvegarde Azure ?](/azure/backup/backup-introduction-to-azure-backup)
-* [Service Sauvegarde Azure – Forum aux questions](/azure/backup/backup-azure-backup-faq)
+* [Qu’est-ce que Sauvegarde Azure ?](../../backup/backup-overview.md)
+* [Service Sauvegarde Azure – Forum aux questions](../../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -116,9 +116,9 @@ Site Recovery :
 
 En savoir plus :
 
-* [Qu’est-ce que le service Azure Site Recovery ?](/azure/site-recovery/site-recovery-overview)
-* [Comment Azure Site Recovery fonctionne-t-il ?](/azure/site-recovery/site-recovery-components)
-* [Quelles sont les charges de travail protégées par Azure Site Recovery ?](/azure/site-recovery/site-recovery-workload)
+* [Qu’est-ce que le service Azure Site Recovery ?](../../site-recovery/site-recovery-overview.md)
+* [Comment Azure Site Recovery fonctionne-t-il ?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [Quelles sont les charges de travail protégées par Azure Site Recovery ?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Réseau virtuel
 
@@ -129,7 +129,7 @@ Un réseau virtuel Azure est une construction logique basée sur le réseau phys
 En savoir plus :
 
 * [Vue d’ensemble de la sécurité réseau d’Azure](network-overview.md)
-* [Présentation du réseau virtuel](/azure/virtual-network/virtual-networks-overview)
+* [Présentation du réseau virtuel](../../virtual-network/virtual-networks-overview.md)
 * [Fonctionnalités de mise en réseau et partenariats pour les scénarios d’entreprise](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gestion des stratégies de sécurité et création de rapports
@@ -138,14 +138,14 @@ Azure Security Center vous aide à vous empêcher, détecter et répondre aux me
 
 Security Center vous permet d’optimiser et de surveiller la sécurité de vos machines virtuelles grâce aux opérations suivantes :
 
-* Proposition de [suggestions de sécurité](/azure/security-center/security-center-recommendations) pour les machines virtuelles. Les suggestions de sécurité incluent l’application des mises à jour système, la configuration des points de terminaison ACL, l’activation des logiciels anti-programme malveillant, l’activation des groupes de sécurité réseau et l’application du chiffrement de disque.
+* Proposition de [suggestions de sécurité](../../security-center/security-center-recommendations.md) pour les machines virtuelles. Les suggestions de sécurité incluent l’application des mises à jour système, la configuration des points de terminaison ACL, l’activation des logiciels anti-programme malveillant, l’activation des groupes de sécurité réseau et l’application du chiffrement de disque.
 * Surveillance de l’état de vos machines virtuelles.
 
 En savoir plus :
 
-* [Présentation d’Azure Security Center](/azure/security-center/security-center-intro)
-* [FAQ d’Azure Security Center](/azure/security-center/security-center-faq)
-* [Guide des opérations et de planification d’Azure Security Center](/azure/security-center/security-center-planning-and-operations-guide)
+* [Présentation d’Azure Security Center](../../security-center/security-center-introduction.md)
+* [FAQ d’Azure Security Center](../../security-center/faq-general.md)
+* [Guide des opérations et de planification d’Azure Security Center](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Conformité
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5579a9d96828caa1453547e7c2e11b8f0d717d2a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851150"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359304"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutoriel : Configurer Druva pour le provisionnement automatique d’utilisateurs
 
@@ -62,11 +62,11 @@ Avant de configurer Druva pour le provisionnement automatique d’utilisateurs a
 
 3.  Accédez aux **Paramètres**. Cliquez sur **Generate Token** (Générer un jeton).
 
-    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Capture d’écran de la console d’administration Druva. L’option Manage est mise en évidence et le menu Manage est visible. Dans ce menu, sous Deployments, Users est mis en évidence." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Capture d’écran d’une page dans la console d’administration Druva. Settings est mis en évidence et l’onglet Settings est ouvert. Le bouton Generate token est mis en évidence." border="false":::
 
 4.  Copiez la valeur du **jeton d’authentification**. Cette valeur devra être entrée dans le champ **Jeton secret** dans l’onglet Approvisionnement de votre application Druva dans le Portail Azure.
     
-    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Capture d’écran de la console d’administration Druva. L’option Manage est mise en évidence et le menu Manage est visible. Dans ce menu, sous Deployments, Users est mis en évidence." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Capture d’écran de la page Create token dans la console d’administration Druva. Un lien nommé Copy Token est disponible pour la copie de la valeur du jeton d’authentification." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Ajouter Druva à partir de la galerie
 
@@ -78,7 +78,7 @@ Pour configurer Druva pour le provisionnement automatique d’utilisateurs avec 
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ Pour configurer Druva pour le provisionnement automatique d’utilisateurs avec 
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Druva**, sélectionnez **Druva** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Druva** , sélectionnez **Druva** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Druva dans la liste des résultats](common/search-new-app.png)
 
@@ -99,7 +99,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-druva-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Druva dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -119,17 +119,17 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur de provisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur de provisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Druva**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Druva**.
 
     ![Druva : mappages d’utilisateurs](media/druva-provisioning-tutorial/usermapping.png)
 
-9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Druva. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Druva pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Druva. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Druva pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Druva : attributs utilisateur](media/druva-provisioning-tutorial/userattribute.png)
 
@@ -154,7 +154,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
     
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
-* L’**e-mail** est un attribut obligatoire dans Druva. 
+* L’ **e-mail** est un attribut obligatoire dans Druva. 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

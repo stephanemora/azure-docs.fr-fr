@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f4c6bf8b203f9721436ab3dde1f80837df92234d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b1fbedf45514455f0e19461e5ee0558bb2914c58
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518260"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427715"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Base de référence de sécurité Azure pour Azure Sentinel
 
@@ -55,7 +55,7 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 - [Guide pratique pour activer l’audit dans Azure Sentinel](resources.md)
 
-**Supervision Azure Security Center**  : Oui
+**Supervision d’Azure Security Center**  : Oui
 
 **Responsabilité**  : Customer
 
@@ -341,7 +341,7 @@ En outre, chaque classeur Sentinel constitue une ressource Azure et vous pouvez 
 
 **Aide**  : Actuellement, les espaces de travail Azure Sentinel and Azure Monitor Log Analytics utilisent des clés gérées par Microsoft pour chiffrer les données contenues au repos. La possibilité d’apporter votre propre clé n’est pas encore entièrement prise en charge pour Sentinel, mais le sera prochainement.
 
-- [Présentation des clés gérées par le client dans Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview)
+- [Présentation des clés gérées par le client dans Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Comprendre les clés gérées par le client dans Azure Sentinel (préversion)](customer-managed-keys.md)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8238b9902aafcabc079c551a0eabc7170042209a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255818"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357621"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutoriel : Configurer TheOrgWiki pour l’approvisionnement automatique d’utilisateurs
 
@@ -65,7 +65,7 @@ Avant de configurer TheOrgWiki pour l’approvisionnement automatique d’utilis
 
     ![Capture d’écran de la page Comptes de service dans la console d’administration d’OrgWiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Cliquez sur **+ Compte de service**. Sous **Type de compte de service**, sélectionnez **Basé sur un jeton**. Cliquez sur **Enregistrer**.
+4. Cliquez sur **+ Compte de service**. Sous **Type de compte de service** , sélectionnez **Basé sur un jeton**. Cliquez sur **Enregistrer**.
 
     ![Capture d’écran de la boîte de dialogue Nouveau compte de service avec les options Type de compte de service, Basé sur un jeton et Enregistrer en évidence.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -81,7 +81,7 @@ Avant de configurer TheOrgWiki pour l’approvisionnement automatique d’utilis
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -89,7 +89,7 @@ Avant de configurer TheOrgWiki pour l’approvisionnement automatique d’utilis
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **TheOrgWiki**, puis sélectionnez **TheOrgWiki** dans le volet de résultats. 
+4. Dans la zone de recherche, entrez **TheOrgWiki** , puis sélectionnez **TheOrgWiki** dans le volet de résultats. 
 
     ![TheOrgWiki dans la liste des résultats](common/search-new-app.png)
 
@@ -116,7 +116,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour TheOrgWiki dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -132,28 +132,28 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` dans **URL de locataire**. 
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` dans **URL de locataire**. 
 
     Exemple : `https://test1.theorgwiki.com/api/v2/scim/v2/`
 
 > [!NOTE]
 > La **Valeur de sous-domaine** ne peut être définie qu’au cours du processus d’inscription initial à TheOrgWiki.
  
-6. Entrez la valeur de jeton dans le champ **Jeton secret**, récupérée précédemment sur TheOrgWiki. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à TheOrgWiki. Si la connexion échoue, vérifiez que votre compte TheOrgWiki dispose des autorisations d’administrateur, puis réessayez.
+6. Entrez la valeur de jeton dans le champ **Jeton secret** , récupérée précédemment sur TheOrgWiki. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à TheOrgWiki. Si la connexion échoue, vérifiez que votre compte TheOrgWiki dispose des autorisations d’administrateur, puis réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-7. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+7. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 8. Cliquez sur **Enregistrer**.
 
-9. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur TheOrgWiki**.
+9. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur TheOrgWiki**.
 
     ![Mappages utilisateur TheOrgWiki](media/theorgwiki-provisioning-tutorial/usermapping.png)
 
-10. Dans la section **Mappage d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et TheOrgWiki. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans TheOrgWiki pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+10. Dans la section **Mappage d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et TheOrgWiki. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans TheOrgWiki pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur TheOrgWiki](media/theorgwiki-provisioning-tutorial/userattribute.png).
 

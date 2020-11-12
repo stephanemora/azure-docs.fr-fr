@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91402920"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408871"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Contrôle de sécurité V2 : Sécurité des points de terminaison
 
@@ -34,9 +34,9 @@ Microsoft Defender Advanced Threat Protection propose la capacité EDR dans le c
 
 - [Service Microsoft Defender ATP pour les serveurs non Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -60,11 +60,11 @@ Microsoft Antimalware pour Azure Cloud Services est le logiciel anti-programme m
 
 - [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](../fundamentals/antimalware.md)
 
-- [Solutions de protection des points de terminaison prises en charge](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Solutions de protection des points de terminaison prises en charge](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -86,9 +86,9 @@ Suivez les recommandations faites dans Azure Security Center : « Calcul et app
 
 - [Guide pratique pour déployer Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../fundamentals/antimalware.md)
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security)
 

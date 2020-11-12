@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5f7ed8a905aad873ecfc878979ac32af1e21730
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee656f147bd27ff782121f088a239a7337d81075
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312225"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359763"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>Tutoriel : Configurer Workgrid pour l'approvisionnement automatique d’utilisateurs
 
@@ -56,7 +56,7 @@ Avant de configurer Workgrid pour l’approvisionnement automatique d’utilisat
 
     ![Capture d’écran de l’interface utilisateur de Workgrid avec les options Utilisateurs et Attribution d’utilisateurs en évidence.](media/Workgrid-provisioning-tutorial/user.png)
 
-2. Sous **API de gestion de compte**, cliquez sur **Créer des informations d'identification**.
+2. Sous **API de gestion de compte** , cliquez sur **Créer des informations d'identification**.
 
     ![Capture d’écran de la section API de gestion de compte avec l’option Créer des informations d’identification en évidence.](media/Workgrid-provisioning-tutorial/scim.png)
 
@@ -75,7 +75,7 @@ Pour configurer Workgrid pour l'approvisionnement automatique d’utilisateurs a
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Pour configurer Workgrid pour l'approvisionnement automatique d’utilisateurs a
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Workgrid**, sélectionnez **Workgrid** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Workgrid** , sélectionnez **Workgrid** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Workgrid dans la liste des résultats](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-workgrid--in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour Workgrid dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -116,25 +116,25 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Workgrid**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Workgrid**.
 
     ![Capture d’écran de la section Mappages avec l’option Synchroniser les utilisateurs Azure Active Directory avec Workgrid en évidence.](media/Workgrid-provisioning-tutorial/usermapping.png)
 
-9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Workgrid. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Workgrid pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Workgrid. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Workgrid pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Workgrid - Attributs utilisateur](media/Workgrid-provisioning-tutorial/userattribute.png)
 
-10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Workgrid**
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Workgrid**
 
     ![Capture d’écran de la section Mappages avec l’option Synchroniser les groupes Azure Active Directory avec Workgrid en évidence.](media/Workgrid-provisioning-tutorial/groupmapping.png)
 
-12. Dans la section **Mappages des attributs**, passez en revue les attributs du groupe qui sont synchronisés entre Azure AD et Workgrid. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Workgrid pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+12. Dans la section **Mappages des attributs** , passez en revue les attributs du groupe qui sont synchronisés entre Azure AD et Workgrid. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Workgrid pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Capture d’écran de la section Mappages des attributs avec trois mappages affichés.](media/Workgrid-provisioning-tutorial/groupattribute.png)
 

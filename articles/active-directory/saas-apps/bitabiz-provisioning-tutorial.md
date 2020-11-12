@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849316"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357553"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutoriel : Configurer BitaBIZ pour l’approvisionnement automatique d’utilisateurs
 
@@ -58,9 +58,9 @@ Avant de configurer BitaBIZ pour l’approvisionnement automatique d’utilisate
 
 2.  Accédez à **INTEGRATION**.
 
-    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Capture d’écran de la console d’administration BitaBIZ, avec l’administrateur d’installation mis en surbrillance." border="false":::
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Capture d’écran de la console d’administration BitaBIZ, avec Integration mis en surbrillance." border="false":::
 
-2.  Accédez à **Approvisionnement Microsoft Azure AD**.  Sélectionnez **Activé** dans l’approvisionnement automatique d’utilisateurs. Copiez les valeurs de l’**URL du point de terminaison d’approvisionnement SCIM** et du **Jeton du porteur**. Ces valeurs doivent être entrées dans les champs URL de locataire et Jeton secret dans l’onglet Approvisionnement de votre application BitaBIZ dans le Portail Microsoft Azure.
+2.  Accédez à **Approvisionnement Microsoft Azure AD**.  Sélectionnez **Activé** dans l’approvisionnement automatique d’utilisateurs. Copiez les valeurs de l’ **URL du point de terminaison d’approvisionnement SCIM** et du **Jeton du porteur**. Ces valeurs doivent être entrées dans les champs URL de locataire et Jeton secret dans l’onglet Approvisionnement de votre application BitaBIZ dans le Portail Microsoft Azure.
 
     ![Ajouter un SCIM BitaBIZ](media/bitabiz-provisioning-tutorial/authentication.png)
 
@@ -75,7 +75,7 @@ Pour configurer BitaBIZ pour l’approvisionnement automatique d’utilisateurs 
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Pour configurer BitaBIZ pour l’approvisionnement automatique d’utilisateurs 
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **BitaBIZ**, sélectionnez **BitaBIZ** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **BitaBIZ** , sélectionnez **BitaBIZ** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![BitaBIZ dans la liste des résultats](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-bitabiz-in-azure-ad"></a>Si vous souhaitez configurer l’attribution automatique d’utilisateurs pour BitaBIZ dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -112,21 +112,21 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section Informations d’identification de l’administrateur, entrez les valeurs d’**URL de point de terminaison d’approvisionnement SCIM** et de **Jeton du porteur** récupérées précédemment dans URL de locataire et Jeton secret, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à BitaBIZ. Si la connexion échoue, vérifiez que votre compte BitaBIZ dispose des autorisations d’administrateur, puis réessayez.
+5. Sous la section Informations d’identification de l’administrateur, entrez les valeurs d’ **URL de point de terminaison d’approvisionnement SCIM** et de **Jeton du porteur** récupérées précédemment dans URL de locataire et Jeton secret, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à BitaBIZ. Si la connexion échoue, vérifiez que votre compte BitaBIZ dispose des autorisations d’administrateur, puis réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec BitaBIZ**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec BitaBIZ**.
 
     ![Mappages d’utilisateurs BitaBIZ](media/bitabiz-provisioning-tutorial/usermapping.png)
 
-9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et BitaBIZ. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur BitaBIZ en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et BitaBIZ. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur BitaBIZ en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur BitaBIZ](media/bitabiz-provisioning-tutorial/user-attribute.png)
 
@@ -151,7 +151,7 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
-* BitaBIZ requiert **userName**, **email**, **firstName** et **lastName** comme attributs obligatoires. 
+* BitaBIZ requiert **userName** , **email** , **firstName** et **lastName** comme attributs obligatoires. 
 * BitaBIZ ne prend pas en charge les suppressions matérielles actuellement.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

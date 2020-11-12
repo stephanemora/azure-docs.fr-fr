@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2471aaad4ef10b611ab4ad812c5b1566cc7c4a07
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777103"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412678"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Vue d’ensemble d’Azure Security Benchmark (V2)
 
@@ -21,9 +21,9 @@ Azure Security Benchmark (ASB) prescrit les bonnes pratiques et des recommandati
 
 Ce benchmark fait partie d’un ensemble de principes de sécurité globaux qui incluent aussi :
 
-- **Cloud Adoption Framework** – Conseils de sécurité sur notamment la [stratégie](/azure/cloud-adoption-framework/strategy/define-security-strategy), les [rôles et responsabilités](/azure/cloud-adoption-framework/organize/cloud-security), les [10 premières bonnes pratiques de sécurité Azure](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices) et l’[implémentation de référence](/azure/cloud-adoption-framework/ready/enterprise-scale/).
-- **Azure Well-Architected Framework** – Conseils sur la [sécurisation de vos charges de travail](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) dans Azure.
-- **Bonnes pratiques de sécurité Microsoft** – [Recommandations ](/security/compass/microsoft-security-compass-introduction) avec des exemples sur Azure.
+- **Cloud Adoption Framework** – Conseils de sécurité sur notamment la [stratégie](/azure/cloud-adoption-framework/strategy/define-security-strategy), les [rôles et responsabilités](/azure/cloud-adoption-framework/organize/cloud-security), les [10 premières bonnes pratiques de sécurité Azure](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices) et l’ [implémentation de référence](/azure/cloud-adoption-framework/ready/enterprise-scale/).
+- **Azure Well-Architected Framework** – Conseils sur la [sécurisation de vos charges de travail](/assessments/?mode=pre-assessment&session=local) dans Azure.
+- **Bonnes pratiques de sécurité Microsoft** – [Recommandations](/security/compass/microsoft-security-compass-introduction) avec des exemples sur Azure.
 
  Azure Security Benchmark se concentre sur les zones de contrôle axées sur le cloud. Ces contrôles sont cohérents avec des points de benchmarks de sécurité bien connus, tels que ceux décrits dans la version 7.1 des contrôles CIS (Center for Internet Security) et dans la publication spéciale SP800-53 du NIST (National Institute of Standards and Technology).
 Les contrôles suivants sont inclus dans Azure Security Benchmark :
@@ -46,11 +46,11 @@ Les contrôles suivants sont inclus dans Azure Security Benchmark :
 
 Chaque recommandation comprend les informations suivantes :
 
-- **Identifiant Azure** : Identifiant de benchmark de sécurité Azure correspondant à la recommandation.
-- **ID des contrôles CIS v7.1** : Contrôle(s) CIS v7.1 correspondant à cette recommandation.
-- **ID NIST SP800-53 r4** : Contrôle(s) NIST SP800-53 r4 (modéré(s)) correspondant à cette recommandation.
+- **Identifiant Azure**  : Identifiant de benchmark de sécurité Azure correspondant à la recommandation.
+- **ID des contrôles CIS v7.1**  : Contrôle(s) CIS v7.1 correspondant à cette recommandation.
+- **ID NIST SP800-53 r4**  : Contrôle(s) NIST SP800-53 r4 (modéré(s)) correspondant à cette recommandation.
 - **Détails** : Raisons ayant motivé la recommandation et liens vers des conseils d’implémentation de celle-ci. Si la recommandation est prise en charge par Azure Security Center, l’information est également indiquée.
-- **Responsabilité** : Client, fournisseur de service ou les deux en chargé de l’implémentation de cette recommandation. Les responsabilités en matière de sécurité sont partagées dans le cloud public. Certains contrôles de sécurité étant uniquement accessibles au fournisseur de services cloud, c’est lui qui en est responsable. Ces observations sont d’ordre général. Pour certains services individuels, la responsabilité sera différente de ce qui est indiqué dans le benchmark de sécurité Azure. Ces différences sont décrites dans les recommandations de référence pour les services individuels.
+- **Responsabilité**  : Client, fournisseur de service ou les deux en chargé de l’implémentation de cette recommandation. Les responsabilités en matière de sécurité sont partagées dans le cloud public. Certains contrôles de sécurité étant uniquement accessibles au fournisseur de services cloud, c’est lui qui en est responsable. Ces observations sont d’ordre général. Pour certains services individuels, la responsabilité sera différente de ce qui est indiqué dans le benchmark de sécurité Azure. Ces différences sont décrites dans les recommandations de référence pour les services individuels.
 - **Parties prenantes de la sécurité des clients** : [Fonctions de sécurité](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) dans l’organisation du client qui peuvent être comptables, responsables ou consultées pour le contrôle concerné. Cela peut varier d’une organisation à une autre en fonction de la structure d’organisation de la sécurité de l’entreprise ainsi que des rôles et des responsabilités configurés par rapport à la sécurité Azure.
 
 > [!NOTE]

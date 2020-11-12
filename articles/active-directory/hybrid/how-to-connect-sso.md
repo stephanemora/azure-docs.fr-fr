@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457989"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408003"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -85,7 +85,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
-- [**Plan de déploiement**](https://aka.ms/deploymentplans/sso) : plan de déploiement étape par étape.
+- [**Plan de déploiement**](../manage-apps/plan-sso-deployment.md) : plan de déploiement étape par étape.
 - [**Immersion technique**](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.

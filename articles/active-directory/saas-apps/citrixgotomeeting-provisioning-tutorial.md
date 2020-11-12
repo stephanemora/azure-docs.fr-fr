@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455935"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358897"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Didacticiel : configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs
 
@@ -52,13 +52,13 @@ Cette section explique comment connecter Azure AD à l’API de provisionnement 
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>Pour configurer l’approvisionnement automatique des comptes d’utilisateur :
 
-1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications** .
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 1. Si vous avez déjà configuré GoToMeeting pour l’authentification unique, recherchez votre instance de GoToMeeting à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** , puis recherchez **GoToMeeting** dans la galerie d’applications. Sélectionnez GoToMeeting dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-1. Sélectionnez votre instance de GoToMeeting, puis sélectionnez l’onglet **Approvisionnement** .
+1. Sélectionnez votre instance de GoToMeeting, puis sélectionnez l’onglet **Approvisionnement**.
 
-1. Définissez le **Mode d’approvisionnement** sur **Automatique** . 
+1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
     ![Capture d’écran de l’onglet Approvisionnement pour GoToMeeting dans le portail Azure. Le mode d’approvisionnement est défini sur Automatique et les champs Nom d’utilisateur d’administrateur, Mot de passe et Tester la connexion sont en surbrillance.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
@@ -68,13 +68,13 @@ Cette section explique comment connecter Azure AD à l’API de provisionnement 
 
     b. Dans la zone de texte **Mot de passe de l’admin GoToMeeting** , tapez le mot de passe de l’administrateur.
 
-1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application GoToMeeting. Si la connexion échoue, vérifiez que votre compte GoToMeeting dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur** .
+1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application GoToMeeting. Si la connexion échoue, vérifiez que votre compte GoToMeeting dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur**.
 
 1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification** , puis cochez la case.
 
 1. Cliquez sur **Enregistrer.**
 
-1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec GoToMeeting** .
+1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec GoToMeeting**.
 
 1. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et GoToMeeting. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur GoToMeeting en vue de mises à jour ultérieures. Cliquez sur le bouton Enregistrer pour valider les modifications.
 

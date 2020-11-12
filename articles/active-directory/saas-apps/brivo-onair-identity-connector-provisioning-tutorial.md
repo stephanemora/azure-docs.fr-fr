@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: dd5a0e05b303d6fc7a5cfa012f49fab99828e8a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300069"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357808"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutoriel : Configurer Brivo Onair Identity Connector pour l’approvisionnement automatique d’utilisateurs
 
@@ -54,7 +54,7 @@ Avant de configurer et d’activer l’attribution automatique d’utilisateurs,
 
    ![Console d’administration Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2. Cliquez sur l’onglet **Azure AD**. Dans la page de détails **Azure AD**, entrez à nouveau le mot de passe de votre compte d’administrateur senior. Cliquez sur **Envoyer**.
+2. Cliquez sur l’onglet **Azure AD**. Dans la page de détails **Azure AD** , entrez à nouveau le mot de passe de votre compte d’administrateur senior. Cliquez sur **Envoyer**.
 
    ![Brivo Onair Identity Connector Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
@@ -72,7 +72,7 @@ Avant de configurer Brivo Onair Identity Connector pour l’attribution automati
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Avant de configurer Brivo Onair Identity Connector pour l’attribution automati
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Brivo Onair Identity Connector**, sélectionnez **Brivo Onair Identity Connector** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Brivo Onair Identity Connector** , sélectionnez **Brivo Onair Identity Connector** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Brivo Onair Identity Connector dans la liste des résultats](common/search-new-app.png)
 
@@ -90,7 +90,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-brivo-onair-identity-connector-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs Brivo Onair Identity Connector dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -106,29 +106,29 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://scim.brivo.com/ActiveDirectory/v2/` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Brivo Onair Identity Connector. Si la connexion échoue, vérifiez que votre compte Brivo Onair Identity Connector dispose des autorisations d’administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://scim.brivo.com/ActiveDirectory/v2/` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Brivo Onair Identity Connector. Si la connexion échoue, vérifiez que votre compte Brivo Onair Identity Connector dispose des autorisations d’administrateur, puis réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Brivo Onair Identity Connector**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Brivo Onair Identity Connector**.
 
     ![Mappages d’utilisateurs Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png )
 
-9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Brivo Onair Identity Connector. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Brivo Onair Identity Connector pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Brivo Onair Identity Connector. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Brivo Onair Identity Connector pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs d’utilisateur Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/user-attributes.png)
 
-10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Brivo Onair Identity Connector**.
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Brivo Onair Identity Connector**.
 
     ![Mappages de groupes Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/group-mappings.png)
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Brivo Onair Identity Connector. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Brivo Onair Identity Connector pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Brivo Onair Identity Connector. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Brivo Onair Identity Connector pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs du groupe Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/group-attributes.png)
 

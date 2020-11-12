@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e0edda2a01d6b17aebba3fbe4dbf039bf1d2f2c5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335967"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411114"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -66,7 +66,7 @@ Pour savoir quelle méthode utiliser, effectuez les étapes des sections suivant
 #### <a name="verify-current-user-sign-in-settings"></a>Vérifier les paramètres de connexion utilisateur définis actuellement
 
 1. Connectez-vous au [portail Azure](https://aad.portal.azure.com/) en utilisant un compte d’administrateur général.
-2. Dans la section **Connexion utilisateur**, vérifiez les paramètres suivants :
+2. Dans la section **Connexion utilisateur** , vérifiez les paramètres suivants :
    * **Fédération** est défini sur **Activé**.
    * **Authentification unique fluide** est défini sur **Désactivé**.
    * **Authentification directe** est défini sur **Désactivé**.
@@ -76,17 +76,17 @@ Pour savoir quelle méthode utiliser, effectuez les étapes des sections suivant
 #### <a name="verify-how-federation-was-configured"></a>Vérifier la configuration de la fédération
 
 1. Sur votre serveur Azure AD Connect, ouvrez Azure AD Connect. Sélectionnez **Configurer**.
-2. Dans la page **Tâches supplémentaires**, sélectionnez **Afficher la configuration actuelle**, puis sélectionnez **Suivant**.<br />
+2. Dans la page **Tâches supplémentaires** , sélectionnez **Afficher la configuration actuelle** , puis sélectionnez **Suivant**.<br />
  
    ![Capture d’écran de l’option Afficher la configuration actuelle dans la page Tâches supplémentaires](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. Sous **Tâches supplémentaires > Gérer la fédération**, accédez à **Services Active Directory Federation Services (ADFS)** .<br />
+3. Sous **Tâches supplémentaires > Gérer la fédération** , accédez à **Services Active Directory Federation Services (ADFS)** .<br />
 
    * Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Pour plus d’informations sur le processus, consultez la section **Option A : Configurer l’authentification directe à l’aide d’Azure AD Connect**.
    * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option B : Passer de la fédération à l’authentification directe avec Azure AD Connect et PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Documenter les paramètres de fédération actuels
 
-Pour trouver le paramètre de fédération actuel, exécutez l’applet de commande **Get-MsolDomainFederationSettings** :
+Pour trouver le paramètre de fédération actuel, exécutez l’applet de commande **Get-MsolDomainFederationSettings**  :
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
@@ -98,7 +98,7 @@ Exemple :
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-Vérifiez les paramètres qui peuvent avoir été personnalisés pour la conception de votre fédération et la documentation du déploiement. En particulier, recherchez les personnalisations dans **PreferredAuthenticationProtocol**, **SupportsMfa** et **PromptLoginBehavior**.
+Vérifiez les paramètres qui peuvent avoir été personnalisés pour la conception de votre fédération et la documentation du déploiement. En particulier, recherchez les personnalisations dans **PreferredAuthenticationProtocol** , **SupportsMfa** et **PromptLoginBehavior**.
 
 Pour plus d’informations, voir les articles suivants :
 
@@ -106,7 +106,7 @@ Pour plus d’informations, voir les articles suivants :
 * [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Si **SupportsMfa** est défini sur **True**, cela signifie que vous utilisez une solution d’authentification multifacteur locale pour injecter un deuxième facteur dans le flux d’authentification des utilisateurs. Cette configuration ne fonctionne plus pour les scénarios d’authentification d’Azure AD. 
+> Si **SupportsMfa** est défini sur **True** , cela signifie que vous utilisez une solution d’authentification multifacteur locale pour injecter un deuxième facteur dans le flux d’authentification des utilisateurs. Cette configuration ne fonctionne plus pour les scénarios d’authentification d’Azure AD. 
 >
 > Au lieu de cela, utilisez le service cloud Azure Multi-Factor Authentication pour la même fonction. Évaluez soigneusement vos besoins d’authentification multifacteur avant de continuer. Avant de convertir vos domaines, veillez à bien comprendre comment utiliser Azure Multi-Factor Authentication, les implications en matière de gestion des licences et le processus d’inscription des utilisateurs.
 
@@ -132,9 +132,9 @@ Avant de passer de l’identité fédérée à l’identité managée, examinez 
 |-|-|
 | Vous prévoyez d’utiliser AD FS avec d’autres applications (autres qu’Azure AD et Microsoft 365). | Après avoir converti vos domaines, vous utiliserez AD FS et Azure AD. Considérez l’expérience utilisateur. Dans certains scénarios, les utilisateurs doivent peut-être s’authentifier deux fois : une fois auprès d’Azure AD (où un utilisateur bénéficie d’un accès avec authentification unique à d’autres applications, comme Microsoft 365), et une deuxième fois dans les applications encore liées à AD FS comme approbation de partie de confiance. |
 | Votre instance d’AD FS est très personnalisée et s’appuie sur des paramètres de personnalisation spécifiques du fichier onload.js (par exemple si vous avez modifié l’expérience de connexion afin que les utilisateurs utilisent seulement un format **SamAccountName** pour leur nom d’utilisateur au lieu d’un nom d’utilisateur principal (UPN), ou si votre organisation a fortement personnalisé l’expérience de connexion). Le fichier onload.js ne peut pas être dupliqué dans Azure AD. | Avant de continuer, vous devez vérifier qu’Azure AD peut répondre à vos spécifications de personnalisation actuelles. Pour plus d’informations et des conseils, consultez les sections relatives à la personnalisation d’AD FS.|
-| Vous utilisez AD FS pour bloquer des versions antérieures des clients d’authentification.| Vous pouvez remplacer les contrôles d’AD FS qui bloquent les versions antérieures des clients d’authentification en utilisant une combinaison de [contrôles d’accès conditionnel](../conditional-access/concept-conditional-access-conditions.md) et de [règles d’accès de client Exchange Online](https://aka.ms/EXOCAR). |
+| Vous utilisez AD FS pour bloquer des versions antérieures des clients d’authentification.| Vous pouvez remplacer les contrôles d’AD FS qui bloquent les versions antérieures des clients d’authentification en utilisant une combinaison de [contrôles d’accès conditionnel](../conditional-access/concept-conditional-access-conditions.md) et de [règles d’accès de client Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
 | Vous obligez les utilisateurs à effectuer une authentification multifacteur via une solution de serveur d’authentification multifacteur locale quand les utilisateurs s’authentifient auprès d’AD FS.| Dans un domaine d’identité managée, vous ne pouvez pas injecter une demande d’authentification multifacteur via la solution d’authentification multifacteur locale dans le flux d’authentification. Vous pouvez cependant utiliser le service Azure Multi-Factor Authentication pour l’authentification multifacteur une fois que le domaine est converti.<br /><br /> Si vos utilisateurs n’utilisent pas actuellement Azure Multi-Factor Authentication, une étape ponctuelle d’inscription des utilisateurs est nécessaire. Vous devez préparer et communiquer l’inscription planifiée à vos utilisateurs. |
-| Vous utilisez actuellement des stratégies de contrôle d’accès (règles AuthZ) dans AD FS pour contrôler l’accès à Microsoft 365.| Vous pouvez envisager de remplacer les stratégies par des [stratégies d’accès conditionnel](../conditional-access/overview.md) et des [règles d’accès du client Exchange Online](https://aka.ms/EXOCAR) d’Azure AD équivalentes.|
+| Vous utilisez actuellement des stratégies de contrôle d’accès (règles AuthZ) dans AD FS pour contrôler l’accès à Microsoft 365.| Vous pouvez envisager de remplacer les stratégies par des [stratégies d’accès conditionnel](../conditional-access/overview.md) et des [règles d’accès du client Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) d’Azure AD équivalentes.|
 
 ### <a name="common-ad-fs-customizations"></a>Personnalisations courantes d’AD FS
 
@@ -247,10 +247,10 @@ Utilisez cette méthode si vous avez initialement configuré votre environnement
 Changez d’abord la méthode de connexion :
 
 1. Sur le serveur Azure AD Connect, ouvrez l’Assistant Azure AD Connect.
-2. Sélectionnez **Modifier la connexion utilisateur**, puis sélectionnez **Suivant**. 
-3. Dans la page **Connexion à Azure AD**, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
-4. Dans la page **Connexion utilisateur**, sélectionnez le bouton **Authentification directe**, sélectionnez **Activer l’authentification unique**, puis sélectionnez **Suivant**.
-5. Dans la page **Activer l’authentification unique**, entrez les informations d’identification d’un compte d’administrateur de domaine, puis sélectionnez **Suivant**.
+2. Sélectionnez **Modifier la connexion utilisateur** , puis sélectionnez **Suivant**. 
+3. Dans la page **Connexion à Azure AD** , entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
+4. Dans la page **Connexion utilisateur** , sélectionnez le bouton **Authentification directe** , sélectionnez **Activer l’authentification unique** , puis sélectionnez **Suivant**.
+5. Dans la page **Activer l’authentification unique** , entrez les informations d’identification d’un compte d’administrateur de domaine, puis sélectionnez **Suivant**.
 
    > [!NOTE]
    > Les informations d’identification du compte d’administrateur de domaine sont nécessaires pour activer l’authentification unique fluide. Le processus effectue les actions suivantes, qui nécessitent ces autorisations élevées. Les informations d’identification du compte d’administrateur de domaine ne sont pas stockées dans Azure AD Connect ni dans Azure AD. Les informations d’identification du compte d’administrateur de domaine sont utilisées seulement pour activer la fonctionnalité. Les informations d’identification sont supprimées quand le processus se termine avec succès.
@@ -259,10 +259,10 @@ Changez d’abord la méthode de connexion :
    > 2. La clé de déchiffrement Kerberos du compte d’ordinateur est partagée de façon sécurisée avec Azure AD.
    > 3. Deux noms de principal du service Kerberos sont créés pour représenter les deux URL utilisées lors de la connexion à Azure AD.
 
-6. Dans la page **Prêt à configurer**, vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.<br />
+6. Dans la page **Prêt à configurer** , vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.<br />
 
    ![Capture d’écran de la page Prêt à configurer](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
-7. Dans le Portail Azure AD, sélectionnez **Azure Active Directory**, puis **Azure AD Connect**.
+7. Dans le Portail Azure AD, sélectionnez **Azure Active Directory** , puis **Azure AD Connect**.
 8. Vérifiez ces paramètres :
    * **Fédération** est défini sur **Désactivé**.
    * **Authentification unique fluide** est défini sur **Activé**.
@@ -272,9 +272,9 @@ Changez d’abord la méthode de connexion :
 
 Ensuite, déployez des méthodes d’authentification supplémentaires :
 
-1. Dans le Portail Azure, accédez à **Azure Active Directory** > **Azure AD Connect**, puis sélectionnez **Authentification directe**.
-2. Dans la page **Authentification directe**, sélectionnez le bouton **Télécharger**.
-3. Dans la page **Télécharger l’agent**, sélectionnez **Accepter les conditions et télécharger**.
+1. Dans le Portail Azure, accédez à **Azure Active Directory** > **Azure AD Connect** , puis sélectionnez **Authentification directe**.
+2. Dans la page **Authentification directe** , sélectionnez le bouton **Télécharger**.
+3. Dans la page **Télécharger l’agent** , sélectionnez **Accepter les conditions et télécharger**.
 
    Le téléchargement des agents d’authentification supplémentaires démarre. Installez l’agent d’authentification secondaire sur un serveur joint à un domaine. 
 
@@ -301,10 +301,10 @@ Utilisez cette option si vous n’avez pas initialement configuré vos domaines 
 Activez d’abord l’authentification directe :
 
 1. Sur le serveur Azure AD Connect, ouvrez l’Assistant Azure AD Connect.
-2. Sélectionnez **Modifier la connexion utilisateur**, puis sélectionnez **Suivant**.
-3. Dans la page **Connexion à Azure AD**, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
-4. Dans la page **Connexion utilisateur**, sélectionnez le bouton **Authentification directe**. Sélectionnez **Activer l’authentification unique**, puis sélectionnez **Suivant**.
-5. Dans la page **Activer l’authentification unique**, entrez les informations d’identification d’un compte d’administrateur de domaine, puis sélectionnez **Suivant**.
+2. Sélectionnez **Modifier la connexion utilisateur** , puis sélectionnez **Suivant**.
+3. Dans la page **Connexion à Azure AD** , entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur général.
+4. Dans la page **Connexion utilisateur** , sélectionnez le bouton **Authentification directe**. Sélectionnez **Activer l’authentification unique** , puis sélectionnez **Suivant**.
+5. Dans la page **Activer l’authentification unique** , entrez les informations d’identification d’un compte d’administrateur de domaine, puis sélectionnez **Suivant**.
 
    > [!NOTE]
    > Les informations d’identification du compte d’administrateur de domaine sont nécessaires pour activer l’authentification unique fluide. Le processus effectue les actions suivantes, qui nécessitent ces autorisations élevées. Les informations d’identification du compte d’administrateur de domaine ne sont pas stockées dans Azure AD Connect ni dans Azure AD. Les informations d’identification du compte d’administrateur de domaine sont utilisées seulement pour activer la fonctionnalité. Les informations d’identification sont supprimées quand le processus se termine avec succès.
@@ -313,10 +313,10 @@ Activez d’abord l’authentification directe :
    > 2. La clé de déchiffrement Kerberos du compte d’ordinateur est partagée de façon sécurisée avec Azure AD.
    > 3. Deux noms de principal du service Kerberos sont créés pour représenter les deux URL utilisées lors de la connexion à Azure AD.
 
-6. Dans la page **Prêt à configurer**, vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.<br />
+6. Dans la page **Prêt à configurer** , vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.<br />
 
    ![Capture d’écran montrant la page Prêt à configurer et le bouton Configurer](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)<br />
-   Les étapes suivantes se produisent quand vous sélectionnez **Configurer** :
+   Les étapes suivantes se produisent quand vous sélectionnez **Configurer**  :
 
    1. Le premier agent d’authentification directe est installé.
    2. La fonctionnalité d’authentification directe est activée.
@@ -334,9 +334,9 @@ Activez d’abord l’authentification directe :
 
 Ensuite, déployez les agents d’authentification supplémentaires :
 
-1. Dans le Portail Azure, accédez à **Azure Active Directory** > **Azure AD Connect**, puis sélectionnez **Authentification directe**.
-2. Dans la page **Authentification directe**, sélectionnez le bouton **Télécharger**. 
-3. Dans la page **Télécharger l’agent**, sélectionnez **Accepter les conditions et télécharger**.
+1. Dans le Portail Azure, accédez à **Azure Active Directory** > **Azure AD Connect** , puis sélectionnez **Authentification directe**.
+2. Dans la page **Authentification directe** , sélectionnez le bouton **Télécharger**. 
+3. Dans la page **Télécharger l’agent** , sélectionnez **Accepter les conditions et télécharger**.
  
    Le téléchargement de l’agent d’authentification démarre. Installez l’agent d’authentification secondaire sur un serveur joint à un domaine.
 
@@ -388,7 +388,7 @@ Pour tester l’authentification directe :
 
    ![Capture d’écran montrant la page de connexion où vous entrez un mot de passe](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image28.png)
 
-4. Après avoir entré le mot de passe et sélectionné **Se connecter**, vous êtes redirigé vers le portail Office 365.
+4. Après avoir entré le mot de passe et sélectionné **Se connecter** , vous êtes redirigé vers le portail Office 365.
 
    ![Capture d’écran montrant le portail Office 365](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image29.png)
 
@@ -430,7 +430,7 @@ Consultez la documentation de conception et de déploiement de la fédération p
 
 ### <a name="sync-userprincipalname-updates"></a>Synchroniser les mises à jour de userPrincipalName
 
-Historiquement, les mises à jour de l’attribut **UserPrincipalName**, qui utilise le service de synchronisation à partir de l’environnement local, sont bloquées sauf si les deux conditions suivantes sont remplies :
+Historiquement, les mises à jour de l’attribut **UserPrincipalName** , qui utilise le service de synchronisation à partir de l’environnement local, sont bloquées sauf si les deux conditions suivantes sont remplies :
 
 * L’utilisateur est dans un domaine d’identité (non fédérée) managée.
 * Aucune licence n’a été affectée à l’utilisateur.

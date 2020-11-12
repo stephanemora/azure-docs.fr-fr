@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532498"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358930"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs Recherche cognitive Azure
 
@@ -28,7 +28,7 @@ Quelques situations où les mappages de champs sont utiles :
 * Votre source de données a un champ appelé `_id`, mais la Recherche cognitive Azure n’autorise pas les noms de champs commençant par un trait de soulignement. Un mappage de champ vous permet de renommer un champ.
 * Vous souhaitez remplir plusieurs champs de l’index à partir des données de la même source de données. Par exemple, vous souhaiterez peut-être appliquer différents analyseurs à ces champs.
 * Vous voulez remplir un champ d’index avec des données provenant de plusieurs sources de données, lesquelles utilisent des noms de champs différents.
-* Vous avez besoin d’encoder ou de décoder vos données en Base64. Les mappages de champs prennent en charge plusieurs **fonctions de mappage**, y compris les fonctions d’encodage et de décodage en Base64.
+* Vous avez besoin d’encoder ou de décoder vos données en Base64. Les mappages de champs prennent en charge plusieurs **fonctions de mappage** , y compris les fonctions d’encodage et de décodage en Base64.
 
 > [!NOTE]
 > Les mappages de champs dans les indexeurs sont un moyen simple de mapper des champs de données à des champs d’index, avec une certaine possibilité de conversion de données simples. Les données plus complexes devront peut-être être prétraitées pour être converties dans un format propice à l’indexation. L’une des options que vous pouvez envisager est [Azure Data Factory](../data-factory/index.yml).
@@ -81,7 +81,7 @@ Un champ source peut être référencé dans plusieurs mappages de champs. L’e
 
 ## <a name="map-fields-using-the-net-sdk"></a>Mapper des champs avec le Kit de développement logiciel (SDK) .NET
 
-Vous définissez des mappages de champs dans le Kit de développement logiciel (SDK) .NET à l’aide de la classe [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping), qui possède les propriétés `SourceFieldName` et `TargetFieldName`, ainsi qu’une référence `MappingFunction` en option.
+Vous définissez des mappages de champs dans le Kit de développement logiciel (SDK) .NET à l’aide de la classe [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping), qui possède les propriétés `SourceFieldName` et `TargetFieldName`, ainsi qu’une référence `MappingFunction` en option.
 
 Vous pouvez spécifier des mappages de champs lors de la construction de l’indexeur, ou ultérieurement, en définissant directement la propriété `Indexer.FieldMappings`.
 

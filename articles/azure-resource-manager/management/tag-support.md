@@ -3,12 +3,12 @@ title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370285"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427766"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -284,7 +284,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | Oui | Oui |
+> | configurationStores | Oui | Non |
 > | configurationStores / eventGridFilters | Non | Non |
 > | configurationStores / keyValues | Non | Non |
 

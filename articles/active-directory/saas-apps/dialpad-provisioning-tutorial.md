@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b88e618da3f8a23c0517aaeb251e54bf559fc468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848957"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358471"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutoriel : Configurer Dialpad pour l’attribution automatique d’utilisateurs
 
@@ -58,9 +58,9 @@ Avant de configurer Dialpad pour l’attribution automatique d’utilisateurs av
 
 2. Générez une nouvelle clé en cliquant sur **Add a key** (Ajouter une clé) et en configurant les propriétés du jeton de votre secret.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Capture d’écran de la page API keys (Clés API) de la console d’administration Dialpad. Add a key (Ajouter une clé) est mis en surbrillance." border="false":::
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Capture d’écran de la page Edit API key (Modifier une clé API) de la console d’administration Dialpad. Le bouton Enregistrer est en surbrillance." border="false":::
 
 3. Cliquez sur le bouton **Click to show value** (Cliquer pour afficher la valeur) associé à votre clé API récemment créée et copiez la valeur affichée. Cette valeur devra être entrée dans le champ **Jeton secret** sous l’onglet Provisionnement de votre application Dialpad dans le portail Azure. 
 
@@ -76,7 +76,7 @@ Avant de configurer Dialpad pour l’attribution automatique d’utilisateurs av
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -84,24 +84,24 @@ Avant de configurer Dialpad pour l’attribution automatique d’utilisateurs av
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Dialpad**, puis sélectionnez **Dialpad** dans le volet de résultats.
+4. Dans la zone de recherche, entrez **Dialpad** , puis sélectionnez **Dialpad** dans le volet de résultats.
     ![Dialpad dans la liste des résultats](common/search-new-app.png)
 
-5. Accédez à l’**URL** mise en évidence ci-dessous dans un autre navigateur. 
+5. Accédez à l’ **URL** mise en évidence ci-dessous dans un autre navigateur. 
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Capture d’écran d’une page affichant des informations sur l’application Dialpad. Sous URL, une adresse est répertoriée et mise en surbrillance." border="false":::
 
 6. Dans le coin supérieur droit, sélectionnez **Log In > Use Dialpad online** (Se connecter> Utiliser Dialpad en ligne).
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Capture d’écran du site web de Dialpad. Log in (Se connecter) est mis en surbrillance et l’onglet Log in (Se connecter) est ouvert. Use Dialpad online (Utiliser Dialpad en ligne) est également mis en surbrillance." border="false":::
 
 7. Comme Dialpad est une application OpenIDConnect, choisissez de vous connecter à Dialpad à l’aide de votre compte professionnel Microsoft.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Capture d’écran de la page Start making calls (Commencer à passer des appels) sur le site web de Dialpad. Le bouton Log in with Office 365 (Se connecter avec Office 365) est mis en surbrillance." border="false":::
 
 8. Une fois l’authentification réussie, acceptez l’invite de consentement pour la page de consentement. L’application est alors automatiquement ajoutée à votre locataire et vous serez redirigé vers votre compte Dialpad.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Capture d’écran montrant une page d’authentification Microsoft indiquant que l’application Dialpad a demandé l’accès à certaines données. Le bouton Accept (Accepter) est mis en surbrillance." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configurer l’attribution automatique d’utilisateurs sur Dialpad
 
@@ -109,7 +109,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-dialpad-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour Dialpad dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -125,21 +125,21 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://dialpad.com/scim` dans **URL de locataire**. Entrez la valeur que vous avez récupérée et enregistrée à partir de Dialpad dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Dialpad. Si la connexion échoue, vérifiez que votre compte Dialpad dispose des autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://dialpad.com/scim` dans **URL de locataire**. Entrez la valeur que vous avez récupérée et enregistrée à partir de Dialpad dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Dialpad. Si la connexion échoue, vérifiez que votre compte Dialpad dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Dialpad**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Dialpad**.
 
     ![Dialpad - Mappages d’utilisateur](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
 
-9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Dialpad. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Dialpad dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Dialpad. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Dialpad dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur Dialpad](media/dialpad-provisioning-tutorial/dialpad07.png)
 

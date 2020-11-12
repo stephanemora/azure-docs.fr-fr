@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086436"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366048"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Gérer les problèmes de limitation (429 – erreurs « Trop de requêtes ») dans Azure Logic Apps
 
@@ -35,11 +35,11 @@ Pour rechercher les événements de limitation à ce niveau, consultez le volet 
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Dans le menu de l’application logique, sous **Surveillance**, sélectionnez **Métriques**.
+1. Dans le menu de l’application logique, sous **Surveillance** , sélectionnez **Métriques**.
 
-1. Sous **Titre du graphique**, sélectionnez **Ajouter une métrique** de manière à ajouter une métrique à la métrique existante.
+1. Sous **Titre du graphique** , sélectionnez **Ajouter une métrique** de manière à ajouter une métrique à la métrique existante.
 
-1. Dans la première barre de métrique, dans la liste **MÉTRIQUE**, sélectionnez **Événements limités d’action**. Dans la deuxième barre de métrique, dans la liste **MÉTRIQUE**, sélectionnez **Événements limités de déclenchement**.
+1. Dans la première barre de métrique, dans la liste **MÉTRIQUE** , sélectionnez **Événements limités d’action**. Dans la deuxième barre de métrique, dans la liste **MÉTRIQUE** , sélectionnez **Événements limités de déclenchement**.
 
 Pour gérer la limitation à ce niveau, les options suivantes s’offrent à vous :
 
@@ -51,7 +51,7 @@ Pour gérer la limitation à ce niveau, les options suivantes s’offrent à vou
 
 * Activer le mode de débit élevé.
 
-  Une application logique a une [limite par défaut pour le nombre d’actions pouvant s’exécuter à un intervalle de roulement de 5 minutes](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour augmenter cette limite au nombre d’actions maximal, activez [mode de débit élevé](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) sur votre application logique.
+  Une application logique a une [limite par défaut pour le nombre d’actions pouvant s’exécuter à un intervalle de roulement de 5 minutes](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour augmenter cette limite au nombre d’actions maximal, activez [mode de débit élevé](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) sur votre application logique.
 
 * Désactivez le comportement de décomposition du tableau (« fractionner sur ») dans les déclencheurs.
 
@@ -59,7 +59,7 @@ Pour gérer la limitation à ce niveau, les options suivantes s’offrent à vou
 
 * Refactoriser les actions en applications logiques plus petites.
 
-  Comme mentionné précédemment, une application logique est limitée à un [nombre par défaut d’actions pouvant être exécutées sur une période de 5 minutes](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Même si vous pouvez augmenter cette limite en activant le [mode de débit élevé](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), vous pouvez également envisager de répartir les actions de votre application logique en applications logiques plus petites afin que le nombre d’actions exécutées dans chaque application logique reste inférieur à la limite. Ceci vous permet de réduire la charge pesant sur une seule ressource d’application logique et de répartir la charge sur plusieurs applications logiques. Cette solution fonctionne mieux pour les actions qui gèrent des jeux de données volumineux ou lancent un grand nombre d’actions exécutées simultanément, pour les itérations de boucle ou pour les actions au sein de chaque itération de boucle qui dépassent la limite d’exécution des actions.
+  Comme mentionné précédemment, une application logique est limitée à un [nombre par défaut d’actions pouvant être exécutées sur une période de 5 minutes](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Même si vous pouvez augmenter cette limite en activant le [mode de débit élevé](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode), vous pouvez également envisager de répartir les actions de votre application logique en applications logiques plus petites afin que le nombre d’actions exécutées dans chaque application logique reste inférieur à la limite. Ceci vous permet de réduire la charge pesant sur une seule ressource d’application logique et de répartir la charge sur plusieurs applications logiques. Cette solution fonctionne mieux pour les actions qui gèrent des jeux de données volumineux ou lancent un grand nombre d’actions exécutées simultanément, pour les itérations de boucle ou pour les actions au sein de chaque itération de boucle qui dépassent la limite d’exécution des actions.
 
   Par exemple, cette application logique effectue tout le travail pour obtenir des tables à partir d’une base de données SQL Server et obtient les lignes de chaque table. La boucle **Pour chaque** itère simultanément dans chaque table afin que l’action **Obtenir des lignes** retourne les lignes de chaque table. Selon les quantités de données contenues dans ces tables, ces actions peuvent dépasser la limite des actions exécutées.
 

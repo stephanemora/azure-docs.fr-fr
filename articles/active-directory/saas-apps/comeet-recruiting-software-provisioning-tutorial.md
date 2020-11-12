@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 37a446d721b7353c647d7d7e26de79e7038d1a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299923"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357060"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutoriel : Configurer l’approvisionnement automatique d’utilisateurs sur Comeet Recruiting Software
 
@@ -45,7 +45,7 @@ Avant de configurer Comeet Recruiting Software pour l’approvisionnement automa
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Avant de configurer Comeet Recruiting Software pour l’approvisionnement automa
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Comeet Recruiting Software**, sélectionnez **Comeet Recruiting Software** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Comeet Recruiting Software** , sélectionnez **Comeet Recruiting Software** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Comeet Recruiting Software dans la liste des résultats](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Comeet Recruiting Software dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -96,7 +96,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez les valeurs **URL de locataire** et **Jeton secret** de votre compte Comeet Recruiting Software, comme cela est décrit dans l’étape 6.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez les valeurs **URL de locataire** et **Jeton secret** de votre compte Comeet Recruiting Software, comme cela est décrit dans l’étape 6.
 
 6. Dans la [console d’administration de Comeet Recruiting Software](https://app.comeet.co/), accédez à **Comeet > Paramètres > Authentification > Microsoft Azure** et copiez la valeur **Secret Token for your company** (Jeton secret pour votre entreprise) dans le champ **Jeton secret** dans Azure AD.
 
@@ -106,13 +106,13 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![par jeton](common/provisioning-testconnection-token.png)
 
-8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 9. Cliquez sur **Enregistrer**.
 
-10. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Comeet** (Synchroniser les utilisateurs Azure Active Directory avec Comeet).
+10. Dans la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Users to Comeet** (Synchroniser les utilisateurs Azure Active Directory avec Comeet).
 
     ![Mappages d’utilisateur Comeet Recruiting Software](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 

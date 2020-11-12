@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a00dc5beb2bde02f71b40f6eb374502136c37c67
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019730"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410485"
 ---
 # <a name="data-encryption-models"></a>Modèles de chiffrement des données
 
@@ -91,7 +91,7 @@ Quand le chiffrement côté serveur avec des clés gérées par le service est u
 
 Dans les scénarios où les données doivent être chiffrées au repos et les clés de chiffrement doivent être contrôlées, les clients peuvent utiliser le chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault. Certains services peuvent stocker seulement la clé de chiffrement des clés racine dans Azure Key Vault et stocker la clé de chiffrement des données chiffrée à un emplacement interne plus proche des données. Dans ce scénario, les clients peuvent apporter leurs propres clés au coffre de clés (BYOK, Bring Your Own Key), ou en générer de nouvelles et les utiliser pour chiffrer les ressources souhaitées. Quand le fournisseur de ressources effectue les opérations de chiffrement et de déchiffrement, il utilise la clé de chiffrement de la clé configurée comme clé racine pour toutes les opérations de chiffrement.
 
-La perte de clés de chiffrement de clé signifie la perte de données. Pour cette raison, les clés ne doivent pas être supprimées. Les clés doivent être sauvegardées chaque fois qu’elles sont créées ou pivotées. [La suppression réversible](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) doit être activée sur tout coffre stockant des clés de chiffrement de clé. Au lieu de supprimer une clé, affectez à l’activé la valeur false ou définissez la date d’expiration.
+La perte de clés de chiffrement de clé signifie la perte de données. Pour cette raison, les clés ne doivent pas être supprimées. Les clés doivent être sauvegardées chaque fois qu’elles sont créées ou pivotées. [La suppression réversible](../../key-vault/general/soft-delete-overview.md) doit être activée sur tout coffre stockant des clés de chiffrement de clé. Au lieu de supprimer une clé, affectez à l’activé la valeur false ou définissez la date d’expiration.
 
 ### <a name="key-access"></a>Accès aux clés
 

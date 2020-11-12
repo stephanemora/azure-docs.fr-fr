@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: Zhchia
-ms.openlocfilehash: 00adf8f1559d01d6ba17692e1166c93c93fcbf8f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5ba9adbc8553e92eb76a4d3327681f798db19218
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516645"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359100"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutoriel : Configurer Promapp pour l’approvisionnement automatique d’utilisateurs
 
@@ -50,15 +50,15 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
 ## <a name="setup-promapp-for-provisioning"></a>Configurer Promapp pour l’approvisionnement
 
-1. Connectez-vous à votre [Console d’administration Promapp](https://freetrial.promapp.com/axelerate/Login.aspx). Sous le nom d’utilisateur, accédez à **Mon profil** .
+1. Connectez-vous à votre [Console d’administration Promapp](https://freetrial.promapp.com/axelerate/Login.aspx). Sous le nom d’utilisateur, accédez à **Mon profil**.
 
     ![Promapp – Console d’administration](media/promapp-provisioning-tutorial/admin.png)
 
-2.  Sous **Jetons d’accès** , cliquez sur le bouton **Créer un jeton** .
+2.  Sous **Jetons d’accès** , cliquez sur le bouton **Créer un jeton**.
 
     ![Promapp – Ajouter SCIM](media/promapp-provisioning-tutorial/addtoken.png)
 
-3.  Indiquez un nom dans le champ **Description** et sélectionnez **Scim** dans le menu déroulant **Étendue** . Cliquez sur l’icône Enregistrer.
+3.  Indiquez un nom dans le champ **Description** et sélectionnez **Scim** dans le menu déroulant **Étendue**. Cliquez sur l’icône Enregistrer.
 
     ![Promapp – Ajouter un nom](media/promapp-provisioning-tutorial/addname.png)
 
@@ -72,11 +72,11 @@ Avant de configurer Promapp pour l’approvisionnement automatique d’utilisate
 
 **Pour ajouter Promapp à partir de la galerie d’applications Azure AD, effectuez les étapes suivantes :**
 
-1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory** .
+1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -97,33 +97,33 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Promapp dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Promapp** .
+2. Dans la liste des applications, sélectionnez **Promapp**.
 
     ![Lien Promapp dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.promapp.com/api/scim` dans **URL de locataire** . Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret** . Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Promapp. Si la connexion échoue, vérifiez que votre compte Promapp dispose des autorisations Administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.promapp.com/api/scim` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Promapp. Si la connexion échoue, vérifiez que votre compte Promapp dispose des autorisations Administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Cliquez sur **Enregistrer** .
+7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Promapp** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Promapp**.
 
     ![Promapp – Mappages d’utilisateurs](media/promapp-provisioning-tutorial/usermappings.png)
 
@@ -133,19 +133,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 11. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Pour activer le service d’approvisionnement Azure AD pour Promapp, définissez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres** .
+12. Pour activer le service d’approvisionnement Azure AD pour Promapp, définissez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-13. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur Promapp en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres** .
+13. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur Promapp en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-14. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+14. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres** . La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service d’approvisionnement Azure AD sur Promapp.
+Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service d’approvisionnement Azure AD sur Promapp.
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 

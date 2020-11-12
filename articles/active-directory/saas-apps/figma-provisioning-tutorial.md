@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850875"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357026"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutoriel : Configurer Figma pour le provisionnement automatique d’utilisateurs
 
@@ -57,19 +57,19 @@ Avant de configurer Figma pour l’approvisionnement automatique d’utilisateur
 
 2. Accédez à **Général > Mettre à jour les paramètres de connexion**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Capture d’écran de l’onglet General de la console d’administration Figma. Sous Log in and provisioning, Update log in settings est mis en évidence." border="false":::
 
 3. Copiez **l’ID de locataire**. Cette valeur sera utilisée pour construire l’URL de point de terminaison SCIM à entrer dans le champ **URL de locataire** dans l’onglet Approvisionnement de votre application Figma dans le portail Azure.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Capture d’écran de la section SAMLSSO dans la console d’administration Figma. Une étiquette d’ID de locataire et un lien adjacent indiquant Copy sont mis en évidence." border="false":::
 
 4. Défilez vers le bas, puis cliquez sur **Générer un jeton d’API**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Capture d’écran de la section de provisionnement SCIM dans la console d’administration Figma. Un lien intitulé Generate API token est mis en évidence." border="false":::
 
 5. Copiez la valeur du **Jeton d’API**. Cette valeur devra être entrée dans le champ **Jeton secret** dans l’onglet Approvisionnement de votre application Figma dans le portail Azure. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Capture d’écran d’une page dans la console d’administration Figma. Sous Your provisioning API token, un espace réservé pour le jeton est mis en évidence." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Ajouter Figma depuis la galerie
 
@@ -79,7 +79,7 @@ Avant de configurer Figma pour le provisionnement automatique d’utilisateurs a
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -87,7 +87,7 @@ Avant de configurer Figma pour le provisionnement automatique d’utilisateurs a
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Figma**, sélectionnez **Figma** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Figma** , sélectionnez **Figma** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Figma dans la liste des résultats](common/search-new-app.png)
 
@@ -100,7 +100,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-figma--in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Figma dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -116,21 +116,21 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification administrateur**, entrez `https://www.figma.com/scim/v2/<TenantID>` dans **URL de locataire**, où **TenantID** est la valeur que vous avez récupérée à partir de Figma. Entrez la valeur du **jeton d’API** dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Figma. Si la connexion échoue, vérifiez que votre compte Figma dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification administrateur** , entrez `https://www.figma.com/scim/v2/<TenantID>` dans **URL de locataire** , où **TenantID** est la valeur que vous avez récupérée à partir de Figma. Entrez la valeur du **jeton d’API** dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Figma. Si la connexion échoue, vérifiez que votre compte Figma dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 9. Cliquez sur **Enregistrer**.
 
-10. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Figma**.
+10. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Figma**.
 
     ![Figma - Mappages d’utilisateurs](media/Figma-provisioning-tutorial/figma05.png)
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Figma. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Figma pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Figma. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Figma pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur Figma](media/Figma-provisioning-tutorial/figma06.png)
 

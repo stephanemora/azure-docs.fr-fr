@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ea7211ea895c5f6db3e84e382632737468898fb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25767a7ddb83acf3ad10698f9f2ff8949a0ad55f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319090"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357196"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutoriel : Configurer 8x8 pour l’approvisionnement automatique d’utilisateurs
 
@@ -58,7 +58,7 @@ Cette section vous guide tout au long des étapes de configuration de 8x8 pour l
 
    ![Afficher l’attribution d’utilisateurs](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
-3. Copiez les valeurs d’**URL de 8x8** et **Jeton d’API 8x8**. Ces valeurs doivent être entrées respectivement dans les champs **Tenant URL** (URL de locataire) et **Secret Token** (Jeton secret) sous l’onglet Provisioning (Approvisionnement) de votre application 8x8 dans le portail Azure.
+3. Copiez les valeurs d’ **URL de 8x8** et **Jeton d’API 8x8**. Ces valeurs doivent être entrées respectivement dans les champs **Tenant URL** (URL de locataire) et **Secret Token** (Jeton secret) sous l’onglet Provisioning (Approvisionnement) de votre application 8x8 dans le portail Azure.
 
    ![Copier l’URL et le jeton](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
@@ -82,7 +82,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-8x8-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour 8x8 dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](./media/8x8-provisioning-tutorial/enterprise-applications.png)
 
@@ -102,19 +102,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, copiez la l’**URL de 8x8** de Configuration Manager vers **URL du locataire**. Copiez la valeur de **Jeton d’API 8x8** de Configuration Manager vers **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à 8x8. Si la connexion échoue, vérifiez que votre compte 8x8 dispose d’autorisations d’administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , copiez la l’ **URL de 8x8** de Configuration Manager vers **URL du locataire**. Copiez la valeur de **Jeton d’API 8x8** de Configuration Manager vers **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à 8x8. Si la connexion échoue, vérifiez que votre compte 8x8 dispose d’autorisations d’administrateur, puis réessayez.
 
-    ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur, où vous pouvez entrer le jeton secret et l’URL de votre locataire.](./media/8x8-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/8x8-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Provisionner les utilisateurs Azure Active Directory**.
+8. Dans la section **Mappages** , sélectionnez **Provisionner les utilisateurs Azure Active Directory**.
 
-9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 8x8. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur 8x8 en vue de mises à jour ultérieures. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API 8x8 prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 8x8. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur 8x8 en vue de mises à jour ultérieures. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API 8x8 prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|Notes|
    |---|---|---|

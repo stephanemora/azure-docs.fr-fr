@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342091"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372657"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Supprimer les alertes d’Azure Defender
 
@@ -23,7 +23,7 @@ Cette page explique comment utiliser les règles de suppression d’alerte pour 
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|PRÉVERSION|
+|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prix :|Gratuit<br>(La plupart des alertes de sécurité sont uniquement disponibles avec Azure Defender)|
 |Rôles et autorisations obligatoires :|**L’Administrateur de la sécurité** et le **Propriétaire** peuvent créer/supprimer des règles.<br>Le **Lecteur de sécurité** et le **Lecteur** peuvent consulter les règles.|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
@@ -70,10 +70,10 @@ Pour créer une règle directement sur le Portail Azure :
 
 1. Dans le volet de nouvelle règle de suppression, entrez les détails de la nouvelle règle.
     - Votre règle peut ignorer l’alerte sur **toutes les ressources** ; vous ne recevrez alors plus aucune alerte de ce type.     
-    - Votre règle peut ignorer l'alerte **selon des critères spécifiques**, c’est-à-dire lorsqu’elle est associée à une adresse IP, un nom de processus, un compte d’utilisateur, une ressource Azure ou un emplacement spécifique.
+    - Votre règle peut ignorer l'alerte **selon des critères spécifiques** , c’est-à-dire lorsqu’elle est associée à une adresse IP, un nom de processus, un compte d’utilisateur, une ressource Azure ou un emplacement spécifique.
 
     > [!TIP]
-    > Si vous avez ouvert la page de nouvelle règle à partir d’une alerte spécifique, l’alerte et l’abonnement sont automatiquement configurés dans la nouvelle règle. Si vous avez utilisé le lien **Créer une règle de suppression**, les abonnements sélectionnés correspondent au filtre actuel sur le portail.
+    > Si vous avez ouvert la page de nouvelle règle à partir d’une alerte spécifique, l’alerte et l’abonnement sont automatiquement configurés dans la nouvelle règle. Si vous avez utilisé le lien **Créer une règle de suppression** , les abonnements sélectionnés correspondent au filtre actuel sur le portail.
 
     [![Volet de création d’une règle de suppression](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Entrez les détails de la règle :
@@ -127,9 +127,9 @@ Vous pouvez utiliser l’API REST de Security Center pour créer, afficher ou su
 
 Les méthodes HTTP de l’API REST adaptées aux règles de suppression sont les suivantes :
 
-- **PUT** : Pour créer ou mettre à jour une règle de suppression dans un abonnement spécifié.
+- **PUT**  : Pour créer ou mettre à jour une règle de suppression dans un abonnement spécifié.
 
-- **GET** :
+- **GET**  :
 
     - Pour lister toutes les règles configurées pour un abonnement spécifié. Cette méthode retourne le tableau des règles applicables.
 
@@ -137,7 +137,7 @@ Les méthodes HTTP de l’API REST adaptées aux règles de suppression sont les
 
     - Pour simuler l’impact d’une règle de suppression encore en phase de conception. Cet appel identifie les alertes existantes qui auraient été ignorées si la règle avait été active.
 
-- **DELETE** : Pour supprimer une règle existante (sans modifier l’état des alertes déjà ignorées par celle-ci).
+- **DELETE**  : Pour supprimer une règle existante (sans modifier l’état des alertes déjà ignorées par celle-ci).
 
 Pour plus d’informations et des exemples d’utilisation, consultez la [documentation de l’API](/rest/api/securitycenter/). 
 

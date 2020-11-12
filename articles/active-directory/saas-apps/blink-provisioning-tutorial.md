@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: eb04b17db94a2abf0ab11d9b9baff65e764e472a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 717500050aff89964ff959a4741aed01533ada70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457040"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357128"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutoriel : Configurer Blink pour le provisionnement automatique d’utilisateurs
 
@@ -52,7 +52,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
 1. Ouvrez un [dossier de support](https://support.joinblink.com) ou envoyez un e-mail au **Support technique Blink** à l’adresse support@joinblink.com pour demander un jeton SCIM. .
 
-2.  Copiez le **jeton d’authentification SCIM** . Vous devez entrer cette valeur dans le champ Jeton secret de l’onglet Provisionnement de votre application Blink dans le portail Azure.
+2.  Copiez le **jeton d’authentification SCIM**. Vous devez entrer cette valeur dans le champ Jeton secret de l’onglet Provisionnement de votre application Blink dans le portail Azure.
 
 ## <a name="add-blink-from-the-gallery"></a>Ajouter Blink à partir de la galerie
 
@@ -60,11 +60,11 @@ Avant de configurer Blink pour le provisionnement automatique d’utilisateurs a
 
 **Pour ajouter Blink à partir de la galerie d’applications Azure AD, effectuez les étapes suivantes :**
 
-1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory** .
+1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -85,33 +85,33 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Blink dans Azure AD
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Blink** .
+2. Dans la liste des applications, sélectionnez **Blink**.
 
     ![Lien Blink dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.joinblink.com/scim` dans **URL de locataire** . Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret** . Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Blink. Si la connexion échoue, vérifiez que votre compte Blink dispose des autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.joinblink.com/scim` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Blink. Si la connexion échoue, vérifiez que votre compte Blink dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Cliquez sur **Enregistrer** .
+7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Blink** .
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Blink**.
 
     ![Mappages d’utilisateurs Blink](media/blink-provisioning-tutorial/User_mappings.png)
 
@@ -121,19 +121,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Pour activer le service de provisionnement Azure AD pour Blink, affectez la valeur **Activé** au paramètre **État de l’approvisionnement** dans la section **Paramètres** .
+11. Pour activer le service de provisionnement Azure AD pour Blink, affectez la valeur **Activé** au paramètre **État de l’approvisionnement** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs que vous souhaitez provisionner sur Blink en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres** .
+12. Définissez les utilisateurs que vous souhaitez provisionner sur Blink en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs définis sous **Étendue** dans la section **Paramètres** . La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour superviser la progression et suivre les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD sur Blink.
+Cette opération démarre la synchronisation initiale de tous les utilisateurs définis sous **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour superviser la progression et suivre les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD sur Blink.
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 

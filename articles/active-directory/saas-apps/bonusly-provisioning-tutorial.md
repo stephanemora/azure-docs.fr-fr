@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33329fc30d1c20b4e20901d06a061accb2aeceb0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d8c3f64e5cb5269bfe7e555615f874ac3443c6eb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456897"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357825"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutoriel : Configurer Bonusly pour l’attribution automatique d’utilisateurs
 
@@ -42,11 +42,11 @@ Avant de configurer Bonusly pour l’attribution automatique d’utilisateurs av
 
 **Pour ajouter Bonusly à partir de la galerie d’applications Azure AD, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -81,73 +81,73 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Si vous souhaitez configurer l’attribution automatique d’utilisateurs pour Bonusly dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Bonusly** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Bonusly**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Bonusly** .
+2. Dans la liste des applications, sélectionnez **Bonusly**.
 
     ![Lien Bonusly dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Capture d’écran montrant une zone de liste du mode d’approvisionnement, avec Automatique sélectionné et mis en surbrillance." border="false":::
 
 5. Sous la section **Informations d’identification de l’administrateur** , entrez le **jeton secret** de votre compte Bonusly, comme expliqué à l’étape 6.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Capture d’écran de la section Informations d’identification de l’administrateur. La zone Jeton secret est vide, mais la zone est mise en surbrillance." border="false":::
 
 6. Le **jeton secret** de votre compte se trouve dans **Admin > Company > Integrations** (Admin > Société > Intégrations). Dans la section **If you want to code** (Si vous souhaitez programmer), cliquez sur **API > Create New API Access Token** (API > Créer un jeton d’accès d’API) pour créer un jeton secret.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Capture d’écran du menu Bonusly. Sous Admin, Company (Société) est mis en surbrillance. Sous Company (Société), Integrations (Intégrations) est mis en surbrillance." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Capture d’écran de la section If you want to code (Si vous souhaitez programmer) du site Bonusly, avec API mis en surbrillance." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Capture d’écran du site Bonusly. L’onglet Services est ouvert. Sous Your API access tokens (Vos jetons d’accès d’API), Create new API access token (Créer un jeton d’accès d’API) est mis en surbrillance." border="false":::
 
 7. Dans l’écran suivant, tapez un nom pour le jeton d’accès dans la zone de texte fournie, puis appuyez sur **Create Api Key** (Créer la clé d’API). Le nouveau jeton d’accès s’affiche pendant quelques secondes dans une fenêtre contextuelle.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Capture d’écran de la page New access token (Nouveau jeton d’accès) du site Bonusly. Une zone sans étiquette contient My Token (Mon jeton), et le bouton Create API key (Créer une clé d’API) est mis en surbrillance." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Capture d’écran du site Bonusly. Une notification indiquant qu’un nouveau jeton d’accès est créé s’affiche, suivi d’un jeton indéchiffrable." border="false":::
 
 8. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Bonusly. Si la connexion échoue, vérifiez que votre compte Bonusly dispose des autorisations d’administrateur, puis réessayez.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Capture d’écran de la section Informations d’identification de l’administrateur du portail Azure. Le bouton Tester la connexion est mis en surbrillance." border="false":::
 
-9. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance** .
+9. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Capture d’écran montrant une boîte de messagerie de notification vide. Une option intitulée Envoyer une notification par e-mail en cas de défaillance s’affiche lorsqu’une défaillance se produit." border="false":::
 
-10. Cliquez sur **Enregistrer** .
+10. Cliquez sur **Enregistrer**.
 
-11. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Bonusly** .
+11. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Bonusly**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec Bonusly est mis en surbrillance." border="false":::
 
 12. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Bonusly. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Bonusly en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Capture d’écran de la page Mappages des attributs. Un tableau répertorie les attributs Azure Active Directory, les attributs Bonusly correspondants et l’état de correspondance." border="false":::
 
 13. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Pour activer le service de provisionnement Azure AD pour Bonusly, définissez le paramètre **État de la configuration** sur **Activé** dans la section **Paramètres** .
+14. Pour activer le service de provisionnement Azure AD pour Bonusly, définissez le paramètre **État de la configuration** sur **Activé** dans la section **Paramètres**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Capture d’écran de la page Paramètres. Le bouton bascule État de la configuration est défini sur Désactivé." border="false":::
 
-15. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer à Bonusly en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres** .
+15. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer à Bonusly en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Capture d’écran montrant la zone de liste Étendue. Synchroniser uniquement les utilisateurs et groupes assignés est sélectionné dans la zone." border="false":::
 
-16. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+16. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Capture d’écran de Bonusly - onglet Approvisionnement. Sous Gérer, Approvisionnement est mis en surbrillance." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Capture d’écran de la page Bonusly - Approvisionnement, avec le bouton Enregistrer mis en surbrillance." border="false":::
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres** . La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD dans Bonusly.
+Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD dans Bonusly.
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 

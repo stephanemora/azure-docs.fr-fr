@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369775"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412372"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -147,7 +147,7 @@ De même, le [rapport de gestion des mots de passe en libre-service](../authenti
 
 ### <a name="self-service-app-management"></a>Gestion des applications en libre-service
 
-Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis leur panneau d’accès, vous devez activer l’option d’[accès aux applications en libre-service](../manage-apps/access-panel-manage-self-service-access.md) pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès. L’accès aux applications en libre-service est un excellent moyen pour permettre aux utilisateurs de découvrir eux-mêmes des applications et éventuellement de permettre au groupe d’entreprise d’approuver l’accès à ces applications. Vous pouvez autoriser le groupe d’entreprise à gérer les informations d’identification affectées à ces utilisateurs dans le cadre d’une [authentification unique par mot de passe](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app), directement depuis leurs panneaux d’accès.
+Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis leur panneau d’accès, vous devez activer l’option d’[accès aux applications en libre-service](../manage-apps/access-panel-manage-self-service-access.md) pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès. L’accès aux applications en libre-service est un excellent moyen pour permettre aux utilisateurs de découvrir eux-mêmes des applications et éventuellement de permettre au groupe d’entreprise d’approuver l’accès à ces applications. Vous pouvez autoriser le groupe d’entreprise à gérer les informations d’identification affectées à ces utilisateurs dans le cadre d’une [authentification unique par mot de passe](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app), directement depuis leurs panneaux d’accès.
 
 ### <a name="self-service-group-management"></a>Gestion des groupes en libre service
 
@@ -267,6 +267,6 @@ Nous vous recommandons d’imprimer la liste de contrôle suivante pour référe
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment vous pouvez augmenter votre sécurité à l’aide des fonctionnalités d’Azure Active Directory et de cette liste de contrôle en cinq étapes, [Cinq étapes pour sécuriser votre infrastructure d’identité](https://aka.ms/securitysteps).
+Découvrez comment vous pouvez augmenter votre sécurité à l’aide des fonctionnalités d’Azure Active Directory et de cette liste de contrôle en cinq étapes, [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md).
 
-Découvrez comment les fonctionnalités d’identité dans Azure AD peuvent vous aider à accélérer votre migration vers une gestion gouvernée par le cloud en fournissant les solutions et fonctionnalités qui permettent aux organisations d’adopter rapidement et de migrer davantage leur gestion des identités entre des systèmes locaux traditionnels et Azure AD, [Comment Azure AD offre une gestion gouvernée par le cloud pour les charges de travail locales](https://aka.ms/cloudgoverned).
+Découvrez comment les fonctionnalités d’identité dans Azure AD peuvent vous aider à accélérer votre migration vers une gestion gouvernée par le cloud en fournissant les solutions et fonctionnalités qui permettent aux organisations d’adopter rapidement et de migrer davantage leur gestion des identités entre des systèmes locaux traditionnels et Azure AD, [Comment Azure AD offre une gestion gouvernée par le cloud pour les charges de travail locales](./cloud-governed-management-for-on-premises.md).

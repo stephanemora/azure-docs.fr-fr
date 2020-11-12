@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: e229fdd44bb6d634d83ddfaf1173c02b65336537
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: feb661a5f0a22350d9660669c18209e7b1fd878d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519246"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358522"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutoriel : Configurer Webroot Security Awareness Training pour le provisionnement automatique d’utilisateurs
 
@@ -59,13 +59,13 @@ Pour connecter votre site à Azure AD, vous devez obtenir un **jeton secret**  p
 
     ![Icône d’engrenage](./media/webroot-security-awareness-training-provisioning-tutorial/gear-icon.png)
 
-3. Cliquez sur le bouton **Configure Azure AD Integration** .
+3. Cliquez sur le bouton **Configure Azure AD Integration**.
 
     ![Bouton Configure Azure AD Integration](./media/webroot-security-awareness-training-provisioning-tutorial/configure-azure-ad-integration.png)
 
-4. Copiez et enregistrez le **jeton secret** . Cette valeur sera entrée dans le champ Jeton secret de l’onglet Provisionnement de votre application Webroot Security Awareness Training dans le portail Azure.
+4. Copiez et enregistrez le **jeton secret**. Cette valeur sera entrée dans le champ Jeton secret de l’onglet Provisionnement de votre application Webroot Security Awareness Training dans le portail Azure.
 
-5. Cliquez sur **Done** .
+5. Cliquez sur **Done**.
 
     ![Copier le jeton secret](./media/webroot-security-awareness-training-provisioning-tutorial/copy-secret-token.png)
 
@@ -77,7 +77,7 @@ Ajoutez Webroot Security Awareness Training à partir de la galerie d’applicat
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quand vous attribuez des utilisateurs et des groupes à Webroot Security Awareness Training, vous devez sélectionner un rôle différent du rôle **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Quand vous attribuez des utilisateurs et des groupes à Webroot Security Awareness Training, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -88,33 +88,33 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-webroot-security-awareness-training-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Webroot Security Awareness Training dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Webroot Security Awareness Training** .
+2. Dans la liste des applications, sélectionnez **Webroot Security Awareness Training**.
 
     ![Lien Webroot Security Awareness Training dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement** .
+3. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://awarenessapi.webrootanywhere.com/api/v2/scim` dans **URL de locataire** . Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret** . Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Webroot Security Awareness Training. Si la connexion échoue, vérifiez que votre compte Webroot Security Awareness Training dispose d’autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://awarenessapi.webrootanywhere.com/api/v2/scim` dans **URL de locataire**. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Webroot Security Awareness Training. Si la connexion échoue, vérifiez que votre compte Webroot Security Awareness Training dispose d’autorisations d’administrateur et réessayez.
 
-    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance** .
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Sélectionnez **Enregistrer** .
+7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Attribuer les utilisateurs Azure Active Directory** .
+8. Dans la section **Mappages** , sélectionnez **Attribuer les utilisateurs Azure Active Directory**.
 
 9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Webroot Security Awareness Training. Les attributs sélectionnés comme propriétés de **Correspondance** servent à faire correspondre les comptes d’utilisateur dans Webroot Security Awareness Training pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API Webroot Security Awareness Training prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -125,7 +125,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |name.familyName|String|
    |emails[type eq "work"].value|String|
 
-10. Dans la section **Mappages** , sélectionnez **Attribuer les groupes Azure Active Directory** .
+10. Dans la section **Mappages** , sélectionnez **Attribuer les groupes Azure Active Directory**.
 
 11. Dans la section **Mappages d’attributs** , passez en revue les attributs de groupe qui sont synchronisés à partir d’Azure AD vers Webroot Security Awareness Training. Les attributs sélectionnés comme propriétés de **Correspondance** servent à faire correspondre les groupes dans Webroot Security Awareness Training pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -137,19 +137,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service de provisionnement Azure AD pour Webroot Security Awareness Training, définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Paramètres** .
+13. Pour activer le service de provisionnement Azure AD pour Webroot Security Awareness Training, définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou groupes que vous souhaitez provisionner sur Webroot Security Awareness Training en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres** .
+14. Définissez les utilisateurs et/ou groupes que vous souhaitez provisionner sur Webroot Security Awareness Training en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres** . Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :

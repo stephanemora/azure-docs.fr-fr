@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 397aab743da25da3882c66d0fdf32c4c4d202586
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850499"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356992"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutoriel : Configurer iPass SmartConnect pour l’approvisionnement automatique d’utilisateurs
 
@@ -65,7 +65,7 @@ Avant de configurer iPass SmartConnect pour l’approvisionnement automatique d�
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -73,7 +73,7 @@ Avant de configurer iPass SmartConnect pour l’approvisionnement automatique d�
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **iPass SmartConnect**, sélectionnez **iPass SmartConnect** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **iPass SmartConnect** , sélectionnez **iPass SmartConnect** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![iPass SmartConnect dans la liste des résultats](common/search-new-app.png)
 
@@ -86,7 +86,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour iPass SmartConnect dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -102,32 +102,32 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://openmobile.ipass.com/moservices/scim/v1` dans **URL de locataire**. Entrez le jeton du porteur récupéré précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à iPass SmartConnect. Si la connexion échoue, vérifiez que votre compte iPass SmartConnect dispose des autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://openmobile.ipass.com/moservices/scim/v1` dans **URL de locataire**. Entrez le jeton du porteur récupéré précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à iPass SmartConnect. Si la connexion échoue, vérifiez que votre compte iPass SmartConnect dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur iPass SmartConnect**.
+8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur iPass SmartConnect**.
 
     :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec iPass SmartConnect est visible." border="false":::
 
 9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers iPass SmartConnect dans la section **Mappage d’attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans iPass SmartConnect pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec iPass SmartConnect est visible." border="false":::
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Capture d’écran de la page Mappages d’attributs. Un tableau liste les attributs Azure Active Directory et iPass SmartConnect et la priorité de correspondance." border="false":::
 
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Pour activer le service d’approvisionnement Azure AD pour iPass SmartConnect, accédez à la section **Paramètres** et définissez l’**État de l’approvisionnement** sur **Activé**.
+11. Pour activer le service d’approvisionnement Azure AD pour iPass SmartConnect, accédez à la section **Paramètres** et définissez l’ **État de l’approvisionnement** sur **Activé**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner dans iPass SmartConnect en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
+12. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner dans iPass SmartConnect en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

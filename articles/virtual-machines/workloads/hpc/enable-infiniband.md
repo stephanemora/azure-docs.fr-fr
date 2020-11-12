@@ -4,15 +4,15 @@ description: Découvrez comment activer InfiniBand avec des machines virtuelles 
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/01/2020
+ms.date: 11/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b5f4cbd2fc09b2c42c232eafd63edb1217e4dacb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 264cfd98e69ad7bdd2fb8d5f9f98eb1eb1fd8f6c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996317"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358352"
 ---
 # <a name="enable-infiniband"></a>Activer InfiniBand
 
@@ -60,7 +60,7 @@ Pour Windows, téléchargez et installez les [pilotes Mellanox OFED pour Windows
 Si vous envisagez d’exécuter des travaux MPI, vous n’avez généralement pas besoin de l’IPoIB. La bibliothèque MPI utilise l’interface de verbes pour la communication IB (à moins que vous n’utilisiez explicitement le canal TCP/IP de la bibliothèque MPI). Toutefois, si vous disposez d’une application qui utilise TCP/IP pour la communication et que vous souhaitez exécuter sur IB, vous pouvez utiliser IPoIB sur l’interface IB. Utilisez les commandes suivantes (pour RHEL/CentOS) pour activer IP sur InfiniBand.
 
 ```bash
-sudo sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
+sudo sed -i -e 's/# OS.EnableRDMA=n/OS.EnableRDMA=y/g' /etc/waagent.conf
 sudo systemctl restart waagent
 ```
 

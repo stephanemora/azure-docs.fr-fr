@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911390"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409890"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Prévention des entrées DNS non résolues et de l’acquisition de sous-domaine
 
@@ -27,7 +27,7 @@ Cet article décrit la menace de sécurité courante que représente l’acquisi
 
 ## <a name="what-is-subdomain-takeover"></a>Qu’est-ce que l’acquisition de sous-domaine ?
 
-Les acquisitions de sous-domaines constituent une menace courante et de gravité élevée pour les organisations qui créent et suppriment régulièrement de nombreuses ressources. Une prise de contrôle de sous-domaine peut se produire quand un [enregistrement DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) pointe vers une ressource Azure déprovisionnée. Ces enregistrements DNS sont également appelés entrées « DNS non résolues ». Les enregistrements CNAME sont particulièrement vulnérables à cette menace. Les prises de contrôle de sous-domaines permettent à des acteurs malveillants de rediriger le trafic destiné au domaine d’une organisation vers un site effectuant une activité malveillante.
+Les acquisitions de sous-domaines constituent une menace courante et de gravité élevée pour les organisations qui créent et suppriment régulièrement de nombreuses ressources. Une prise de contrôle de sous-domaine peut se produire quand un [enregistrement DNS](../../dns/dns-zones-records.md#dns-records) pointe vers une ressource Azure déprovisionnée. Ces enregistrements DNS sont également appelés entrées « DNS non résolues ». Les enregistrements CNAME sont particulièrement vulnérables à cette menace. Les prises de contrôle de sous-domaines permettent à des acteurs malveillants de rediriger le trafic destiné au domaine d’une organisation vers un site effectuant une activité malveillante.
 
 Voici un cas de figure courant d’acquisition de sous-domaine :
 

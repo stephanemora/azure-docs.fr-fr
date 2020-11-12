@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314315"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408920"
 ---
 # <a name="security-control-v2-data-protection"></a>Contrôle de sécurité V2 : Protection des données
 
@@ -32,11 +32,11 @@ Vous pouvez utiliser Azure SQL Information Protection pour faciliter la classifi
 
 - [Étiqueter des informations sensibles à l’aide d’Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [Guide pratique pour implémenter la recherche de données Azure SQL](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Guide pratique pour implémenter la recherche de données Azure SQL](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -60,9 +60,9 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 - [Présentation de la protection des données client dans Azure](../fundamentals/protection-customer-data.md)
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -86,11 +86,11 @@ Si cela est nécessaire pour la conformité de la protection contre la perte de 
 
 - [Activer ATP pour Azure SQL](../../azure-sql/database/threat-detection-overview.md)
 
-- [Activer ATP pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Activer ATP pour Stockage Azure](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ Par défaut, Azure assure le chiffrement des données en transit entre les centr
 
 - [Double chiffrement pour les données Azure en transit](../fundamentals/double-encryption.md#data-in-transit)
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -140,15 +140,15 @@ Par défaut, Azure assure un chiffrement des données au repos. Pour les donnée
 
 - [Présentation du chiffrement au repos dans Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [Guide pratique pour configurer des clés de chiffrement gérées par le client](../../storage/common/storage-encryption-keys-portal.md)
+- [Guide pratique pour configurer des clés de chiffrement gérées par le client](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Modèle de chiffrement et table de gestion des clés](../fundamentals/encryption-models.md)
 
 - [Double chiffrement des données au repos dans Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
-**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -157,4 +157,3 @@ Par défaut, Azure assure un chiffrement des données au repos. Pour les donnée
 - [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Sécurité des données](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: de4962326a06080ff2bf81954cf85d3b6bbfefd5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104782"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutoriel : Intégration d’Azure Active Directory à Printix
 
@@ -71,7 +71,7 @@ Pour configurer l’intégration de Printix à Azure AD, vous devez ajouter Prin
 
     ![Capture d’écran montrant la recherche de Printix dans la boîte de dialogue Ajouter à partir de la galerie.](./media/printix-tutorial/tutorial_printix_search.png)
 
-1. Dans le panneau des résultats, sélectionnez **Printix**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau des résultats, sélectionnez **Printix** , puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Capture d’écran montre l’option Printix sélectionnée.](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
@@ -96,24 +96,24 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 **Pour configurer l’authentification unique Azure AD avec Printix, procédez comme suit :**
 
-1. Dans le Portail Azure, sur la page d’intégration de l’application **Printix**, cliquez sur **Authentification unique**.
+1. Dans le Portail Azure, sur la page d’intégration de l’application **Printix** , cliquez sur **Authentification unique**.
 
     ![Capture d’écran montrant Authentification unique sélectionné sous Gérer dans le portail Azure.][4]
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique** , pour le **Mode** , sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Capture d’écran montrant le mode Authentification basée sur SAML sélectionné.](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
-1. Dans la section **Domaine et URL Printix**, procédez comme suit :
+1. Dans la section **Domaine et URL Printix** , procédez comme suit :
 
     ![Capture d’écran montrant la section Domaine et URL Printix où vous pouvez spécifier une URL pour l’authentification.](./media/printix-tutorial/tutorial_printix_url.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.printix.net`
+    Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<subdomain>.printix.net`
 
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Printix](mailto:support@printix.net). 
  
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML** , cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Capture d’écran montrant le volet Certificat de signature SAML dans lequel vous pouvez télécharger un certificat.](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Connectez-vous à votre client Printix en tant qu’administrateur.
 
-1. Dans le menu situé en haut, cliquez sur l’icône dans le coin supérieur droit et sélectionnez**Authentification**(Authentification).
+1. Dans le menu situé en haut, cliquez sur l’icône dans le coin supérieur droit et sélectionnez **Authentification** (Authentification).
    
     ![Capture d’écran montre l’authentification sélectionnée dans le menu.](./media/printix-tutorial/tutorial_printix_06.png)
 
@@ -131,13 +131,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Capture d’écran montrant la page Printix.net où vous pouvez sélectionner Activer l’authentification Azure/Office 365.](./media/printix-tutorial/tutorial_printix_07.png)
 
-1. Sous l’onglet **Azure**, entrez l’URL des métadonnées de fédération dans la zone de texte **Federation metadata document** (Document de métadonnées de fédération). 
+1. Sous l’onglet **Azure** , entrez l’URL des métadonnées de fédération dans la zone de texte **Federation metadata document** (Document de métadonnées de fédération). 
 
     Envoyez le fichier XML de métadonnées que vous avez téléchargé sur Azure AD à [l’équipe de support Printix](mailto:support@printix.net). Elle charge alors le fichier XML et vous fournit une URL des métadonnées de fédération.
    
     ![Capture d’écran montrant la page Printix.net où vous pouvez spécifier un document de métadonnées de fédération.](./media/printix-tutorial/tutorial_printix_08.png)
    
-1. Cliquez sur le bouton **Test**, puis sur le bouton **OK** si le test a réussi.
+1. Cliquez sur le bouton **Test** , puis sur le bouton **OK** si le test a réussi.
    
      La page Azure Active Directory s’affiche après que vous avez cliqué sur le bouton **Test**. Le message « Test réussi » signifie qu’après avoir entré les informations d’identification de votre compte test Azure, le message « Paramètres testés correctement » s’affiche. Cliquez alors sur le bouton **OK**.
    
@@ -147,7 +147,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise** , cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -157,25 +157,25 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le panneau de navigation gauche du **portail Azure** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Capture d’écran affichant le nom et le nom d’utilisateur à créer.](./media/printix-tutorial/create_aaduser_01.png) 
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes** , puis cliquez sur **Tous les utilisateurs**.
     
     ![Capture d’écran montrant l’icône Azure AD dans le portail Azure.](./media/printix-tutorial/create_aaduser_02.png) 
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur** , cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Capture d’écran montrant Utilisateurs et groupes sélectionné dans le menu Gérer, avec Tous les utilisateurs sélectionné.](./media/printix-tutorial/create_aaduser_03.png) 
 
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur** , procédez comme suit :
  
     ![Capture d’écran montrant la boîte de dialogue Utilisateur où vous pouvez entrer les valeurs décrites.](./media/printix-tutorial/create_aaduser_04.png) 
 
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+    a. Dans la zone de texte **Nom** , entrez **BrittaSimon**.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+    b. Dans la zone de texte **Nom d’utilisateur** , tapez **l’adresse e-mail** de Britta Simon.
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
@@ -199,7 +199,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Printix, procédez comme suit :**
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise** , puis cliquez sur **Toutes les applications**.
 
     ![Capture d’écran montrant l’option Applications d’entreprise sélectionnée sous Gérer, avec Toutes les applications sélectionné.][201] 
 
@@ -215,7 +215,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Capture d’écran affichant le bouton Ajouter et la page Ajouter une attribution où vous pouvez sélectionner des utilisateurs et des groupes.][203]
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
 1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 

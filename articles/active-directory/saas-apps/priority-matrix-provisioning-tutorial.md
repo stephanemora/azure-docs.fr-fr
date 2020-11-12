@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325995"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357859"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutoriel : Configurer Priority Matrix pour l’approvisionnement automatique d’utilisateurs
 
@@ -71,7 +71,7 @@ Avant de configurer Priority Matrix pour l’approvisionnement automatique d’u
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Avant de configurer Priority Matrix pour l’approvisionnement automatique d’u
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Priority Matrix**, puis sélectionnez **Priority Matrix** dans le volet de résultats. 
+4. Dans la zone de recherche, entrez **Priority Matrix** , puis sélectionnez **Priority Matrix** dans le volet de résultats. 
 
     ![Priority Matrix dans la liste des résultats](common/search-new-app.png)
 
@@ -104,7 +104,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-priority-matrix-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour Priority Matrix dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -120,21 +120,21 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://sync.appfluence.com/scim/v2/` dans **URL de locataire**. Entrez la valeur que vous avez récupérée et enregistrée précédemment de Priority Matrix, dans **Secret Token** (Jeton secret). Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Priority Matrix. Si la connexion échoue, vérifiez que votre compte Priority Matrix dispose des autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://sync.appfluence.com/scim/v2/` dans **URL de locataire**. Entrez la valeur que vous avez récupérée et enregistrée précédemment de Priority Matrix, dans **Secret Token** (Jeton secret). Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Priority Matrix. Si la connexion échoue, vérifiez que votre compte Priority Matrix dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Priority Matrix** (Synchroniser les utilisateurs Azure Active Directory avec Priority Matrix).
+8. Dans la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Users to Priority Matrix** (Synchroniser les utilisateurs Azure Active Directory avec Priority Matrix).
 
     ![Mappages d’utilisateur Priority Matrix](media/priority-matrix-provisioning-tutorial/usermappings.png)
 
-9. Dans la section **Mappage d’attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Priority Matrix. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Priority Matrix pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappage d’attributs** , passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Priority Matrix. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Priority Matrix pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs d’utilisateur Priority Matrix](media/priority-matrix-provisioning-tutorial/userattributes.png)
 
