@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098754"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490353"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB serverless (préversion)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Pour plus d’informations sur la façon de choisir l’offre qui correspond le 
 ## <a name="using-serverless-resources"></a>Utilisation de ressources serverless
 
 Le serverless est un nouveau type de compte Azure Cosmos, ce qui signifie que vous devez choisir entre un **débit approvisionné** et le **serverless** lors de la création d’un compte. Vous devez créer un nouveau compte serverless pour commencer à utiliser le serverless. Pendant la préversion, le seul moyen pris en charge de créer un nouveau compte serverless consiste à [utiliser le portail Azure](create-cosmosdb-resources-portal.md). La migration de comptes existants vers/à partir du mode serverless n’est pas prise en charge actuellement.
-
-> [!NOTE]
-> Le serverless est actuellement pris en charge sur l’API Azure Cosmos DB Core (SQL) uniquement.
 
 Tout conteneur créé dans un compte serverless est un conteneur serverless. Les conteneurs serverless exposent les mêmes fonctionnalités que les conteneurs créés en mode de débit approvisionné, ce qui vous permet de lire, d’écrire et d’interroger vos données exactement de la même façon. Toutefois, les comptes et les conteneurs serverless ont également des caractéristiques spécifiques :
 

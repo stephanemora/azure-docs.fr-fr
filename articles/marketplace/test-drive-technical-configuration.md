@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125680"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504830"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -93,14 +93,10 @@ L’option **Liste des versions d’évaluation** disponible sous l’onglet **V
 
 Si vous êtes en train de créer votre version d'évaluation dans l’Espace partenaires, sélectionnez **Enregistrer le brouillon** avant de continuer.
 
+## <a name="additional-resources"></a>Ressources supplémentaires
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Test drive des meilleures pratiques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Vue d’ensemble](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF ; veillez à désactiver votre bloqueur de fenêtres publicitaires)
 - [Mettre à jour une offre existante dans la Place de marché commerciale](partner-center-portal/update-existing-offer.md)
-
-## <a name="additional-resources"></a>Ressources supplémentaires
-
-## <a name="feedback"></a>Commentaires
-
-Envoyer et afficher des commentaires pour [ce produit](https://feedback.azure.com/forums/216369-azure-marketplace)

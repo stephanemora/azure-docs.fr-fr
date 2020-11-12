@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816789"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517204"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurer et personnaliser les tâches de build
 
@@ -39,7 +39,7 @@ Dans la zone de liste **Type** de la capture d'écran, l'option **De base** est 
 
 Windows Defender utilise le client Windows Update pour télécharger et installer les signatures. Si la mise à jour de la signature échoue sur votre agent de build, le code d’erreur **HRESULT** provient probablement de Windows Update.
 
-Pour plus d’informations sur les erreurs de Windows Update et leur atténuation, consultez [, Codes d'erreur de Windows Update par composant](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) et l'article TechNet [Agent Windows Update - Codes d'erreur](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+Pour plus d’informations sur les erreurs de Windows Update et leur atténuation, consultez [, Codes d'erreur de Windows Update par composant](/windows/deployment/update/windows-update-error-reference) et l'article TechNet [Agent Windows Update - Codes d'erreur](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
 Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour les logiciels anti-programme malveillant](yaml-configuration.md#anti-malware-scanner-task)
 
@@ -56,9 +56,9 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 
 - Définissez la configuration de build sur Debug pour produire des fichiers de débogage .pdb. BinSkim utilise ces fichiers pour mapper les problèmes des fichiers binaires de sortie vers le code source.
 - Pour éviter de rechercher et de créer votre propre ligne de commande :
-     - Dans la liste **Type**, sélectionnez **De base**.
-     - Dans la liste **Fonction**, sélectionnez **Analyser**.
-- Dans **Cible**, entrez un ou plusieurs spécificateurs pour un modèle de fichier, de répertoire ou de filtre. Ces spécificateurs se résolvent en un ou plusieurs fichiers binaires à analyser :
+     - Dans la liste **Type** , sélectionnez **De base**.
+     - Dans la liste **Fonction** , sélectionnez **Analyser**.
+- Dans **Cible** , entrez un ou plusieurs spécificateurs pour un modèle de fichier, de répertoire ou de filtre. Ces spécificateurs se résolvent en un ou plusieurs fichiers binaires à analyser :
     - Les cibles multiples spécifiées doivent être séparées par un point-virgule (;).
     - Un spécificateur peut être un seul fichier ou contenir des caractères génériques.
     - Les spécifications de répertoire doivent toujours se terminer par \\*.
@@ -70,7 +70,7 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
 ```
 
-- Si vous sélectionnez **Ligne de commande** dans la liste **Type**, vous devez exécuter binskim.exe :
+- Si vous sélectionnez **Ligne de commande** dans la liste **Type** , vous devez exécuter binskim.exe :
      - Vérifiez que les premiers arguments de binskim.exe correspondent au verbe **analyser** suivi d’une ou plusieurs spécifications de chemin d’accès. Chaque chemin d’accès peut correspondre à un chemin d’accès complet ou à un chemin d’accès relatif au répertoire source.
      - Plusieurs chemins d’accès cibles doivent être séparés par un espace.
      - Vous pouvez omettre l'option **/o** ou **/output**. La valeur de sortie est ajoutée pour vous ou remplacée.
@@ -96,19 +96,19 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 
 Les options disponibles sont les suivantes :
   - **Nom d’affichage** : Nom de la tâche Azure DevOps. La valeur par défaut est Exécuter Credential Scanner
-  - **Version principale de l'outil** : Les valeurs disponibles sont **CredScan v2**, **CredScan v1**. Nous recommandons aux clients d’utiliser la version **CredScan v2**.
-  - **Format de sortie** : Les valeurs disponibles incluent **TSV**, **CSV**, **SARIF** et **PREfast**.
-  - **Version de l'outil** : Nous vous recommandons de sélectionner **La plus récente**.
-  - **Dossier d'analyse** : Dossier de référentiel à analyser.
-  - **Type de fichier des chercheurs** : Options pour localiser le fichier des chercheurs utilisé pour l’analyse.
-  - **Fichier des suppressions** : Un fichier [JSON](https://json.org/) peut supprimer des problèmes dans le journal de sortie. Pour plus d’informations sur les scénarios de suppression, consultez la section FAQ de cet article.
-  - **Sortie détaillée** : Explicite.
-  - **Taille du lot** : Nombre de threads simultanés utilisés pour exécuter Credential Scanner. La valeur par défaut est 20. Les valeurs possibles sont comprises entre 1 et 2,147,483,647.
-  - **Délai d’attente d’une correspondance** : Quantité de temps à passer à essayer une mise en correspondance d’un chercheur avant d’abandonner la vérification.
-  - **Taille de la mémoire tampon de lecture de l’analyse des fichiers** : Taille en octets de la mémoire tampon pour la lecture du contenu. La valeur par défaut est 524 288.  
-  - **Nombre maximal d’octets lus pour l’analyse des fichiers** : Nombre maximal d’octets à lire dans un fichier donné lors de l’analyse du contenu. La valeur par défaut 104,857,600.
-  - **Options de contrôle** > **Exécuter cette tâche** : Spécifie le moment où la tâche s'exécutera. Sélectionnez **Conditions personnalisées** pour spécifier des conditions plus complexes.
-  - **Version** : Version de la tâche de build dans Azure DevOps. Cette option n’est pas fréquemment utilisée.
+  - **Version principale de l'outil**  : Les valeurs disponibles sont **CredScan v2** , **CredScan v1**. Nous recommandons aux clients d’utiliser la version **CredScan v2**.
+  - **Format de sortie**  : Les valeurs disponibles incluent **TSV** , **CSV** , **SARIF** et **PREfast**.
+  - **Version de l'outil**  : Nous vous recommandons de sélectionner **La plus récente**.
+  - **Dossier d'analyse**  : Dossier de référentiel à analyser.
+  - **Type de fichier des chercheurs**  : Options pour localiser le fichier des chercheurs utilisé pour l’analyse.
+  - **Fichier des suppressions**  : Un fichier [JSON](https://json.org/) peut supprimer des problèmes dans le journal de sortie. Pour plus d’informations sur les scénarios de suppression, consultez la section FAQ de cet article.
+  - **Sortie détaillée**  : Explicite.
+  - **Taille du lot**  : Nombre de threads simultanés utilisés pour exécuter Credential Scanner. La valeur par défaut est 20. Les valeurs possibles sont comprises entre 1 et 2,147,483,647.
+  - **Délai d’attente d’une correspondance**  : Quantité de temps à passer à essayer une mise en correspondance d’un chercheur avant d’abandonner la vérification.
+  - **Taille de la mémoire tampon de lecture de l’analyse des fichiers**  : Taille en octets de la mémoire tampon pour la lecture du contenu. La valeur par défaut est 524 288.  
+  - **Nombre maximal d’octets lus pour l’analyse des fichiers**  : Nombre maximal d’octets à lire dans un fichier donné lors de l’analyse du contenu. La valeur par défaut 104,857,600.
+  - **Options de contrôle** > **Exécuter cette tâche**  : Spécifie le moment où la tâche s'exécutera. Sélectionnez **Conditions personnalisées** pour spécifier des conditions plus complexes.
+  - **Version**  : Version de la tâche de build dans Azure DevOps. Cette option n’est pas fréquemment utilisée.
 
 Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour Credential Scanner](yaml-configuration.md#credential-scanner-task)
 
@@ -124,10 +124,10 @@ Les détails de configuration des tâches sont affichés dans la liste et la rem
 
 Les options disponibles sont les suivantes :
 
-- **Ruleset** : Les valeurs correspondent à **SDL obligatoire**, **SDL recommandé** ou votre propre ensemble de règles personnalisées.
-- **Version des analyseurs** : Nous vous recommandons de sélectionner **La plus récente**.
-- **Fichier des suppressions des avertissements du compilateur** : Fichier texte avec la liste des ID des avertissements supprimés.
-- **Options de contrôle** > **Exécuter cette tâche** : Spécifie le moment où la tâche s'exécutera. Sélectionnez **Conditions personnalisées** pour spécifier des conditions plus complexes.
+- **Ruleset**  : Les valeurs correspondent à **SDL obligatoire** , **SDL recommandé** ou votre propre ensemble de règles personnalisées.
+- **Version des analyseurs**  : Nous vous recommandons de sélectionner **La plus récente**.
+- **Fichier des suppressions des avertissements du compilateur**  : Fichier texte avec la liste des ID des avertissements supprimés.
+- **Options de contrôle** > **Exécuter cette tâche**  : Spécifie le moment où la tâche s'exécutera. Sélectionnez **Conditions personnalisées** pour spécifier des conditions plus complexes.
 
 > [!NOTE]
 >
@@ -143,7 +143,7 @@ Les options disponibles sont les suivantes :
 >
 >   Si la nouvelle tâche s’exécute sur le même agent que la tâche d’origine, la sortie de la nouvelle tâche remplace la sortie de la tâche d'origine dans le dossier de sources *s*. Bien que la sortie de la build soit la même, nous vous conseillons d’exécuter MSBuild, de copier la sortie dans le répertoire intermédiaire des artefacts, puis d’exécuter les analyseurs Roslyn.
 
-Pour obtenir des ressources supplémentaires pour la tâche Analyseurs Roslyn, consultez [Analyseurs Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) sur Microsoft Docs.
+Pour obtenir des ressources supplémentaires pour la tâche Analyseurs Roslyn, consultez [Analyseurs Roslyn](/dotnet/standard/analyzers/api-analyzer) sur Microsoft Docs.
 
 Pour connaître le package de l’analyseur installé et utilisé par cette tâche de build, consultez la page NuGet [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
@@ -164,9 +164,9 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 
 ![Configuration de la tâche de build Publier les journaux d’analyse de la sécurité](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Nom de l’artefact** : N’importe quel identificateur de chaîne.
-- **Type d’artefact** : Selon votre sélection, vous pouvez publier des journaux sur votre Azure DevOps Server ou sur un fichier partagé accessible à l’agent de build.
-- **Outils** : Vous pouvez choisir de conserver les journaux pour des outils spécifiques ou sélectionner **Tous les outils** pour conserver tous les journaux.
+- **Nom de l’artefact**  : N’importe quel identificateur de chaîne.
+- **Type d’artefact**  : Selon votre sélection, vous pouvez publier des journaux sur votre Azure DevOps Server ou sur un fichier partagé accessible à l’agent de build.
+- **Outils**  : Vous pouvez choisir de conserver les journaux pour des outils spécifiques ou sélectionner **Tous les outils** pour conserver tous les journaux.
 
 Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour la tâche Publier des journaux de sécurité](yaml-configuration.md#publish-security-analysis-logs-task)
 
@@ -176,10 +176,10 @@ Les détails de configuration du rapport de sécurité sont affichés dans la ca
 
 ![Configuration de la tâche de build Rapport de sécurité](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Rapports** : Sélectionnez un des formats suivants : **Console pipeline**, **Fichier TSV** et **Fichier Html**. Un fichier de rapport est créé pour chaque format sélectionné.
-- **Outils** : Sélectionnez les outils de votre définition de build pour lesquels vous souhaitez obtenir un résumé des problèmes détectés. Pour chaque outil sélectionné, il peut y avoir une option pour choisir si vous souhaitez voir dans le rapport seulement les erreurs, ou bien les erreurs et les avertissements.
-- **Options avancées** : S'il n’existe pas de journal pour un des outils sélectionnés, vous pouvez choisir de consigner un avertissement ou une erreur. Si vous consignez une erreur, la tâche échoue.
-- **Dossier des journaux de base** : Vous pouvez personnaliser le dossier des journaux de base où les journaux doivent se trouver. Cette option n'est cependant pas courante.
+- **Rapports**  : Sélectionnez un des formats suivants : **Console pipeline** , **Fichier TSV** et **Fichier Html**. Un fichier de rapport est créé pour chaque format sélectionné.
+- **Outils**  : Sélectionnez les outils de votre définition de build pour lesquels vous souhaitez obtenir un résumé des problèmes détectés. Pour chaque outil sélectionné, il peut y avoir une option pour choisir si vous souhaitez voir dans le rapport seulement les erreurs, ou bien les erreurs et les avertissements.
+- **Options avancées**  : S'il n’existe pas de journal pour un des outils sélectionnés, vous pouvez choisir de consigner un avertissement ou une erreur. Si vous consignez une erreur, la tâche échoue.
+- **Dossier des journaux de base**  : Vous pouvez personnaliser le dossier des journaux de base où les journaux doivent se trouver. Cette option n'est cependant pas courante.
 
 Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour les rapports de sécurité](yaml-configuration.md#security-report-task)
 
@@ -189,9 +189,9 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 
 ![Configuration de la tâche de build Post-analyse](./media/security-tools/a-post-analysis600.png)
 
-- **Outils** : Sélectionnez les outils de votre définition de build pour lesquels vous souhaitez injecter sous condition un arrêt de la build. Pour chaque outil sélectionné, il peut y avoir une option pour choisir si vous souhaitez interrompre seulement pour les erreurs, ou bien pour les erreurs et les avertissements.
-- **Rapport** : Vous pouvez écrire les résultats qui provoquent l’arrêt de la build. Les résultats sont écrits dans la fenêtre de la console Azure DevOps et dans le fichier journal.
-- **Options avancées** : S'il n’existe pas de journal pour un des outils sélectionnés, vous pouvez choisir de consigner un avertissement ou une erreur. Si vous consignez une erreur, la tâche échoue.
+- **Outils**  : Sélectionnez les outils de votre définition de build pour lesquels vous souhaitez injecter sous condition un arrêt de la build. Pour chaque outil sélectionné, il peut y avoir une option pour choisir si vous souhaitez interrompre seulement pour les erreurs, ou bien pour les erreurs et les avertissements.
+- **Rapport**  : Vous pouvez écrire les résultats qui provoquent l’arrêt de la build. Les résultats sont écrits dans la fenêtre de la console Azure DevOps et dans le fichier journal.
+- **Options avancées**  : S'il n’existe pas de journal pour un des outils sélectionnés, vous pouvez choisir de consigner un avertissement ou une erreur. Si vous consignez une erreur, la tâche échoue.
 
 Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour l’analyse postérieure](yaml-configuration.md#post-analysis-task)
 

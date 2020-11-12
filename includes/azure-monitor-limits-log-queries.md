@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83e046ca97ceee249e707e30f478fad89345f4de
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064862"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504116"
 ---
 ### <a name="general-query-limits"></a>Limites générales concernant les requêtes
 
 | Limite | Description |
 |:---|:---|
 | Langage de requête | Azure Monitor utilise le même [langage de requête Kusto](/azure/kusto/query/) qu’Azure Data Explorer. Consultez [Différences propres au langage de requête de journal d’Azure Monitor](../articles/azure-monitor/log-query/data-explorer-difference.md) pour les éléments du langage KQL non pris en charge dans Azure Monitor. |
-| Régions Azure | Les requêtes sur les journaux peuvent connaître une surcharge excessive quand des données concernent des espaces de travail Log Analytics dans plusieurs régions Azure. Pour plus d’informations, consultez [Limites des requêtes](../articles/azure-monitor/log-query/scope.md#query-limits). |
+| Régions Azure | Les requêtes sur les journaux peuvent connaître une surcharge excessive quand des données concernent des espaces de travail Log Analytics dans plusieurs régions Azure. Pour plus d’informations, consultez [Limites des requêtes](../articles/azure-monitor/log-query/scope.md#query-scope-limits). |
 | Requêtes inter-ressources | Nombre maximal de ressources Application Insights et d’espaces de travail Log Analytics dans une requête unique limitée à 100.<br>Les requêtes inter-ressources ne sont pas prises en charge dans le Concepteur de vue.<br>Les requêtes inter-ressources des alertes de journal sont prises en charge par la nouvelle API scheduledQueryRules.<br>Pour plus de détails, voir [Limites de requête inter-ressources](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits). |
 
 ### <a name="user-query-throttling"></a>Limitation de requêtes utilisateur

@@ -2,14 +2,14 @@
 title: Utiliser Azure Event Grid avec des événements dans le schéma CloudEvents
 description: Décrit comment utiliser le schéma CloudEvents pour les événements dans Azure Event Grid. Le service prend en charge les événements dans l’implémentation JSON de CloudEvents.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 51e3f5477cad39b48b441122cf17599f7d25ccf8
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d794996a699bdd1bb63e7a894346128aa108e95c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747292"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504371"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Utiliser le schéma CloudEvents v1.0 avec Event Grid
 En plus de son [schéma d’événement par défaut](event-schema.md), Azure Event Grid prend en charge en mode natif les événements dans l’[implémentation JSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) et la [liaison de protocole HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) est une [spécification ouverte](https://github.com/cloudevents/spec/blob/v1.0/spec.md) qui décrit les données d’événement.
@@ -153,15 +153,15 @@ L’exemple de code C# suivant pour un déclencheur HTTP simule le comportement 
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-    if (req.Method == "OPTIONS")
+    if (req.Method == HttpMethod.Options)
     {
         // If the request is for subscription validation, send back the validation code
         
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
+        response.Headers.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
 
         return response;
     }

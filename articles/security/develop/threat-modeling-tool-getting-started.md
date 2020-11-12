@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913022"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515725"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
 
 Microsoft Threat Modeling Tool 2018 a été publié par GA en septembre 2018 sous forme de **[téléchargement](https://aka.ms/threatmodelingtool)** gratuit. La modification du mécanisme de livraison nous permet de transmettre les dernières améliorations et correctifs de bogues pour les clients chaque fois qu’ils ouvrent l’outil, rendant ainsi la gestion et l’utilisation plus facile.
 Cet article vous guide tout au long du processus de mise en route avec l’approche de modélisation des menaces SDL Microsoft et vous montre comment utiliser l’outil pour développer d’excellents modèles de menaces comme structure fondamentale de votre processus de sécurité.
 
-Cet article s’appuie sur les connaissances existantes de l’approche de modélisation des menaces SDL. Pour une vérification rapide, reportez-vous à **[Applications Web de la modélisation des menaces](https://msdn.microsoft.com/library/ms978516.aspx)** et une version archivée de l’article MSDN **[Découvrir des failles de sécurité à l’aide de l’approche STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publiée en 2006.
+Cet article s’appuie sur les connaissances existantes de l’approche de modélisation des menaces SDL. Pour une vérification rapide, reportez-vous à **[Applications Web de la modélisation des menaces](/previous-versions/msp-n-p/ff648006(v=pandp.10))** et une version archivée de l’article MSDN **[Découvrir des failles de sécurité à l’aide de l’approche STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publiée en 2006.
 
 En résumé, l’approche implique la création d’un diagramme, l’identification des menaces, leur atténuation et la validation de chaque atténuation. Voici un diagramme qui met en évidence ce processus :
 

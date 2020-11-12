@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: f6fbd963966dd1a5c433a97cb8d37ae22998be4c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079336"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491186"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Comment choisir entre le mode débit approvisionné et le mode serverless
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -19,9 +19,6 @@ ms.locfileid: "93079336"
 Azure Cosmos DB est disponible en deux modes de capacité différents : [débit approvisionné](set-throughput.md) et [serverless](serverless.md). Vous pouvez effectuer exactement les mêmes opérations de base de données dans les deux modes, mais la façon dont vous êtes facturé pour ces opérations est radicalement différente. La vidéo suivante explique les principales différences entre ces modes, et la façon dont ils s’adaptent aux différents types de charges de travail :
 
 > [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]
-
-> [!NOTE]
-> Le mode serverless n’est actuellement pris en charge que sur l’API Azure Cosmos DB Core (SQL).
 
 ## <a name="detailed-comparison"></a>Comparaison détaillée
 

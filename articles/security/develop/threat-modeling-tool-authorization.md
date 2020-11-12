@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299998"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517561"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/Service | Article |
@@ -147,7 +147,7 @@ Un éventuel intrus ne peut désormais plus altérer ni modifier l’opération 
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Hiérarchie d’autorisations SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [Éléments sécurisables SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **Informations de référence**              | [Hiérarchie d’autorisations SQL](/sql/relational-databases/security/permissions-hierarchy-database-engine), [Éléments sécurisables SQL](/sql/relational-databases/security/securables) |
 | **Étapes** | Des comptes avec des privilèges minimum doivent être utilisés pour se connecter à la base de données. La connexion d’application doit être limitée dans la base de données et ne doit exécuter que des procédures stockées sélectionnées. La connexion de l’application ne doit pas disposer d’un accès direct à la table. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implémenter la sécurité au niveau des lignes (RLS) pour empêcher les locataires d’accéder aux données des autres
@@ -158,7 +158,7 @@ Un éventuel intrus ne peut désormais plus altérer ni modifier l’opération 
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | SQL Azure, local |
 | **Attributs**              | Version SQL - V12, Version SQL - MsSQL2016 |
-| **Informations de référence**              | [SQL Server - Sécurité au niveau des lignes (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
+| **Informations de référence**              | [SQL Server - Sécurité au niveau des lignes (RLS)](/sql/relational-databases/security/row-level-security) |
 | **Étapes** | <p>La sécurité au niveau des lignes permet aux clients de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution).</p><p>La sécurité au niveau des lignes simplifie la conception et codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données d’un client aux données relatives à son entreprise uniquement.</p><p>La logique de la restriction d'accès est située dans la couche de base de données plutôt que loin des données d'une autre couche Application. Le système de base de données applique les restrictions d'accès chaque fois que cet accès aux données est tenté à partir d'une couche quelconque. Le système de sécurité est ainsi plus fiable et plus robuste en réduisant la surface d’exposition du système de sécurité.</p><p>|
 
 Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalité de base de données prête à l’emploi, s’applique uniquement à SQL Server à partir de la version 2016, à Azure SQL Database et à Azure SQL Managed Instance. Si la fonctionnalité RLS prête à l’emploi n’est pas implémentée, assurez-vous que l’accès aux données est limité à l’aide de vues et de procédures
@@ -171,7 +171,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Hiérarchie d’autorisations SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [Éléments sécurisables SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **Informations de référence**              | [Hiérarchie d’autorisations SQL](/sql/relational-databases/security/permissions-hierarchy-database-engine), [Éléments sécurisables SQL](/sql/relational-databases/security/securables) |
 | **Étapes** | Les membres du rôle serveur fixe SysAdmin doivent être très limités et ne doivent jamais contenir des comptes utilisés par des applications.  Veuillez consulter la liste des utilisateurs du rôle et supprimer les comptes inutiles|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Se connecter à la passerelle de cloud à l’aide de jetons avec des privilèges minimum
@@ -182,7 +182,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Choix de passerelle - Azure IoT Hub |
-| **Informations de référence**              | [Contrôle d’accès IOT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
+| **Informations de référence**              | [Contrôle d’accès IOT Hub](../../iot-hub/iot-hub-devguide.md) |
 | **Étapes** | Accordez des autorisations avec des privilèges minimum à divers composants qui se connectent à la passerelle de cloud (IoT Hub). Un exemple typique est le composant de gestion des appareils/d’approvisionnement qui utilise registryread/write et Event Processor (ASA) qui utilise Service Connect. Les appareils individuels se connectent à l’aide d’informations d’identification d’appareil|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>Utiliser une clé SAP d’autorisations d’envoi seulement pour générer des jetons d’appareil
@@ -193,7 +193,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Étapes** | Une clé SAP est utilisée pour générer des jetons d’appareils individuels. Utiliser une clé SAP d’autorisations d’envoi seulement pendant la génération du jeton d’appareil pour un éditeur donné|
 
 ## <a name="do-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>Ne pas utiliser des jetons d’accès qui fournissent un accès direct au concentrateur d’événement
@@ -204,7 +204,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Étapes** | Un jeton qui accorde un accès direct au concentrateur d’événement ne doit pas être fourni à l’appareil. L’utilisation d’un jeton avec des privilèges minimum pour l’appareil, qui n’accorde l’accès qu’à un éditeur, permet d’identifier et d’interdire un appareil s’il est jugé non fiable ou compromis.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Se connecter au concentrateur d’événement à l’aide des clés SAP qui disposent des autorisations minimales requises
@@ -215,7 +215,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Étapes** | Accordez des autorisations avec des privilèges minimum à diverses applications principales qui se connectent au concentrateur d’événement. Générez des clés SAP distinctes pour chaque application principale et n’accordez que les autorisations requises (envoi, réception ou gestion).|
 
 ## <a name="use-resource-tokens-to-connect-to-cosmos-db-whenever-possible"></a><a id="resource-docdb"></a>Utiliser des jetons de ressource pour se connecter à Azure Cosmos DB le cas échéant
@@ -237,7 +237,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
+| **Informations de référence**              | [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md)  |
 | **Étapes** | Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. L’utilisation de RBAC vous permet de n’accorder que les droits d’accès dont les utilisateurs ont besoin pour effectuer leur travail.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Restreindre l’accès client aux opérations de cluster à l’aide de RBAC
@@ -248,7 +248,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Environnement - Azure |
-| **Informations de référence**              | [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
+| **Informations de référence**              | [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Étapes** | <p>Azure Service Fabric prend en charge deux types de contrôle d’accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certaines opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.</p><p>Les administrateurs ont un accès complet aux fonctions de gestion (y compris les fonctionnalités de lecture/écriture). Les utilisateurs, par défaut, ont uniquement un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête) et la capacité à résoudre les applications et les services.</p><p>Vous spécifiez les deux rôles clients (client et administrateur) au moment de la création du cluster en fournissant des certificats séparés pour chacun.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Effectuer la modélisation de sécurité et utiliser la sécurité au niveau des champs si nécessaire
@@ -281,7 +281,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | StorageType - Table |
-| **Informations de référence**              | [Comment déléguer l’accès aux objets dans votre compte de stockage Azure à l’aide de SAP](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
+| **Informations de référence**              | [Comment déléguer l’accès aux objets dans votre compte de stockage Azure à l’aide de SAP](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Étapes** | Dans certains scénarios d’entreprise, Azure Table Storage peut être nécessaire pour stocker des données sensibles répondant aux besoins des différentes parties. Par exemple, les données sensibles relatives aux différents pays ou différentes régions. Dans ce cas, les signatures SAP peuvent être créées en spécifiant les plages de clés de partitions et de lignes, de sorte qu’un utilisateur puisse accéder aux données spécifiques à un pays ou à une région en particulier.| 
 
 ## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Activer le contrôle d’accès en fonction du rôle (RBAC) sur le compte de stockage Azure à l’aide d’Azure Resource Manager
@@ -292,7 +292,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **Informations de référence**              | [Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)](../../storage/blobs/security-recommendations.md) |
 | **Étapes** | <p>Lorsque vous créez un compte de stockage, vous sélectionnez un modèle de déploiement Classique ou Azure Resource Manager. Le modèle classique de création de ressources dans Azure autorise seulement un accès « tout ou rien » à l’abonnement et, à tour de rôle, au compte de stockage.</p><p>Avec le modèle Azure Resource Manager, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implémenter la libération implicite ou la détection du rootage
@@ -314,7 +314,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique, NET Framework 3 |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **Informations de référence**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Étapes** | <p>Le système utilise une référence de classe faible, permettant ainsi à une personne malveillante d’exécuter du code non autorisé. Le programme fait référence à une classe définie par l’utilisateur qui n’est pas identifiée de manière unique. Lorsque .NET charge cette classe identifiée de manière faible, le chargeur de type CLR recherche la classe dans les emplacements suivants, dans l’ordre indiqué :</p><ol><li>Si le type de l’assembly est connu, le chargeur recherche les emplacements de redirection du fichier de configuration, GAC, l’assembly actuel à l’aide d’informations de configuration et le répertoire de base d’application</li><li>Si l’assembly est inconnu, le chargeur recherche l’assembly actuel, mscorlib et l’emplacement renvoyé par le gestionnaire d’événements TypeResolve</li><li>Cet ordre de recherche CLR peut être modifié avec des raccordements tels que le mécanisme de transfert de type et l’événement AppDomain.TypeResolve</li></ol><p>Si une personne malveillante exploite l’ordre de recherche CLR en créant une autre classe portant le même nom et en la plaçant dans un emplacement autre que l’emplacement de chargement CLR initial, le CLR exécutera involontairement le code fourni par la personne malveillante</p>|
 
 ### <a name="example"></a>Exemple
@@ -351,7 +351,7 @@ L’élément `<behaviorExtensions/>` du fichier de configuration WCF ci-dessous
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique, NET Framework 3 |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **Informations de référence**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Étapes** | <p>Ce service n’utilise pas un contrôle d’autorisation. Lorsqu’un client appelle un service WCF particulier, WCF fournit divers schémas d’autorisation qui vérifient que l’appelant est autorisé à exécuter la méthode de service sur le serveur. Si les contrôles d’autorisation ne sont pas activés pour les services WCF, un utilisateur authentifié peut obtenir une élévation des privilèges.</p>|
 
 ### <a name="example"></a>Exemple

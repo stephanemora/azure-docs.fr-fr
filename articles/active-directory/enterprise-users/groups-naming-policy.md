@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373074"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489452"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms à des groupes Microsoft 365 dans Azure Active Directory
 
@@ -91,20 +91,20 @@ Certains administrateurs peuvent être exemptés de ces stratégies dans toutes 
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Afficher ou modifier la stratégie d’attribution de suffixes/préfixes
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Stratégie de noms de groupes** .
+1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Stratégie de noms de groupes**.
 1. Vous pouvez afficher ou modifier individuellement les stratégies actuelles d'attribution de suffixes/préfixes en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d'attribution de noms.
-1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer** . Plusieurs éléments peuvent être supprimés en même temps.
-1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer** .
+1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
+1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer**.
 
 ### <a name="edit-custom-blocked-words"></a>Modifier les mots bloqués personnalisés
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Mots bloqués** .
+1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Mots bloqués**.
 
     ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords.png)
 
-1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger** .
+1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**.
 1. Chargez la nouvelle liste de mots bloqués personnalisés en sélectionnant l'icône de fichier.
-1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer** .
+1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer**.
 
 ## <a name="install-powershell-cmdlets"></a>Installer les applets de commande PowerShell
 
@@ -123,7 +123,7 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
    Install-Module AzureADPreview
    ```
 
-   Si vous êtes invité à accéder à un référentiel non approuvé, entrez **Y** . L’installation du nouveau module peut prendre quelques minutes.
+   Si vous êtes invité à accéder à un référentiel non approuvé, entrez **Y**. L’installation du nouveau module peut prendre quelques minutes.
 
 ## <a name="configure-naming-policy-in-powershell"></a>Configurer une stratégie d’attribution de noms dans PowerShell
 
@@ -136,7 +136,7 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
    Connect-AzureAD
    ```
 
-   Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter** .
+   Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
 
 1. Si vous souhaitez créer des paramètres de groupe pour cette organisation, suivez les étapes fournies dans [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../enterprise-users/groups-settings-cmdlets.md).
 
@@ -206,7 +206,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Supprimer la stratégie d’attribution de noms à l’aide du portail Azure
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Supprimer une stratégie** .
+1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Supprimer une stratégie**.
 1. Une fois la suppression confirmée, la stratégie d'attribution de noms est supprimée, de même que toutes les stratégies d'attribution de suffixes/préfixes et tous les mots bloqués personnalisés.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Supprimer la stratégie d’attribution de noms à l’aide d’Azure AD PowerShell
@@ -249,7 +249,6 @@ Application mobile Groups | Les groupes créés dans l’application mobile Grou
 Planner | Planner est conforme à la stratégie de nommage. Planner affiche un aperçu de la stratégie de nommage au moment où le nom du plan est entré. Quand un utilisateur entre un mot bloqué personnalisé, un message d’erreur s’affiche pendant la création du plan.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement est conforme à la stratégie de nommage. Dynamics 365 affiche le nom appliqué de la stratégie d’appellation quand l’utilisateur tape un nom de groupe ou un alias d’e-mail de groupe. Quand l’utilisateur entre un mot bloqué personnalisé, un message d’erreur s’affiche avec le mot bloqué pour qu’il puisse le supprimer.
 School Data Sync (SDS) | Les groupes créés via SDS sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement. Les administrateurs SDS doivent ajouter les préfixes et les suffixes aux noms de classes pour lesquels des groupes doivent être créés puis chargés dans SDS. À défaut, la création ou la modification de groupe échoue.
-Outlook Customer Manager (OCM) | Outlook Customer Manager est conforme à la stratégie de nommage, qui est appliquée automatiquement au groupe créé dans Outlook Customer Manager. Si un mot bloqué personnalisé est détecté, la création de groupe dans OCM est bloquée, et l’utilisateur ne peut pas utiliser l’application OCM.
 Application Classroom | Les groupes créés dans l’application Classroom sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement et l’aperçu de la stratégie de nommage n’est pas présenté aux utilisateurs quand ils entrent un nom de groupe de classe. Les utilisateurs doivent entrer le nom de groupe de classe appliqué avec les préfixes et les suffixes. Dans le cas contraire, l’opération de création ou de modification du groupe de classe échoue avec des erreurs.
 Power BI | Les espaces de travail Power BI sont conformes à la stratégie de nommage.    
 Yammer | Lorsqu’un utilisateur connecté à Yammer avec son compte Azure Active Directory crée un groupe ou modifie un nom de groupe, le nom de groupe doit respecter la stratégie d’affectation de noms. Cela s’applique à la fois aux groupes connectés à Microsoft 365 et à tous les autres groupes Yammer.<br>Si un groupe connecté à Microsoft 365 a été créé avant que la stratégie de nommage ne soit en place, le nom de groupe ne suit pas automatiquement les stratégies de nommage. Lorsqu’un utilisateur modifie le nom de groupe, il est invité à ajouter le préfixe et le suffixe.

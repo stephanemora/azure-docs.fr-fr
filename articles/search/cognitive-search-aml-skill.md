@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924709"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445453"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Compétence AML dans un pipeline d’enrichissement Recherche cognitive Azure
 
@@ -58,9 +58,9 @@ Les paramètres respectent la casse. Les paramètres que vous choisissez d’uti
 
 Les paramètres de compétence AML requis dépendent de l’authentification utilisée par votre service AML, le cas échéant. Les services AML fournissent trois options d’authentification :
 
-* [Authentification basée sur une clé](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). Une clé statique est fournie pour authentifier les demandes de scoring des compétences AML
+* [Authentification basée sur une clé](../machine-learning/how-to-authenticate-web-service.md#key-based-authentication). Une clé statique est fournie pour authentifier les demandes de scoring des compétences AML
   * Utiliser les paramètres _uri_ et _key_
-* [Authentification basée sur un jeton](../machine-learning/concept-enterprise-security.md#authentication). Le service AML est [déployé à l’aide de l’authentification basée sur un jeton](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). L’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) du service Recherche cognitive Azure reçoit le [rôle Lecteur](../machine-learning/how-to-assign-roles.md) dans l’espace de travail du service AML. La compétence AML utilise ensuite l’identité managée du service Recherche cognitive Azure pour s’authentifier auprès du service AML, sans qu’aucune clé statique soit nécessaire.
+* [Authentification basée sur un jeton](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). Le service AML est [déployé à l’aide de l’authentification basée sur un jeton](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). L’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) du service Recherche cognitive Azure reçoit le [rôle Lecteur](../machine-learning/how-to-assign-roles.md) dans l’espace de travail du service AML. La compétence AML utilise ensuite l’identité managée du service Recherche cognitive Azure pour s’authentifier auprès du service AML, sans qu’aucune clé statique soit nécessaire.
   * Utiliser le paramètre _resourceId_
   * Si le service Recherche cognitive Azure se trouve dans une autre région que celle de l’espace de travail AML, utilisez le paramètre _region_ pour définir la région dans laquelle le service AML a été déployé.
 * Aucune authentification. Aucune authentification n’est requise pour utiliser le service AML

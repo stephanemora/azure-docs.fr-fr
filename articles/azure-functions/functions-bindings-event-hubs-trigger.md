@@ -6,12 +6,12 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ffec1b0e5fd57a19c5b5c940ec921b43970387e8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: efc785c96c76cca5deeadbd30fa962becb18d25b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372138"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491509"
 ---
 # <a name="azure-event-hubs-trigger-for-azure-functions"></a>Déclencheur Azure Event Hubs pour Azure Functions
 
@@ -23,4 +23,4 @@ Pour plus d’informations sur les détails d’installation et de configuration
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Écrire des événements dans un flux d’événements (liaison de sortie)](./functions-bindings-storage-blob-output.md)
+- [Écrire des événements dans un flux d’événements (liaison de sortie)](./functions-bindings-event-hubs-output.md)

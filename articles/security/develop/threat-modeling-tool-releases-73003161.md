@@ -6,12 +6,12 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
-ms.openlocfilehash: 39963e9dadca0ee0be7bb8ad0ebf824c287bfee0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e182d40d20529b5743fa9105c68108a8ae55d943
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317903"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516898"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Version mise à jour de Threat Modeling Tool 7.3.00316.1 – 22/03/2020
 
@@ -49,7 +49,7 @@ Une nouvelle fonctionnalité DiagramReader a été ajoutée dans le menu princip
 
 ## <a name="documentation-and-feedback"></a>Documentation et commentaires
 
-- La documentation de Threat Modeling Tool se trouve sur [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) et contient des informations [sur l’utilisation de l’outil](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- La documentation de Threat Modeling Tool se trouve sur [docs.microsoft.com](./threat-modeling-tool.md) et contient des informations [sur l’utilisation de l’outil](./threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

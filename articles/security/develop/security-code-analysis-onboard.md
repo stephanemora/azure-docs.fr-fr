@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543025"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517068"
 ---
 # <a name="onboarding-and-installing"></a>Intégration et installation
 
@@ -75,7 +75,7 @@ Une fois l’extension installée, les tâches de build de développement sécur
 1. À partir de votre organisation Azure DevOps, ouvrez votre projet d’équipe.
 1. Sélectionnez **Pipelines** > **Builds**.
 1. Sélectionnez le pipeline auquel vous voulez ajouter les tâches de build de l’extension :
-   - Nouveau pipeline : Sélectionnez **Nouveau**, puis suivez les étapes détaillées pour créer un pipeline.
+   - Nouveau pipeline : Sélectionnez **Nouveau** , puis suivez les étapes détaillées pour créer un pipeline.
    - Modifier le pipeline : Sélectionnez un pipeline, puis sélectionner **Modifier** pour commencer à le modifier.
 1. Sélectionnez **+** , puis accédez au volet **Ajouter des tâches**.
 1. Dans la liste ou via la zone de recherche, recherchez la tâche de build à ajouter. Sélectionnez **Ajouter**.
@@ -90,7 +90,7 @@ Une fois l’extension installée, les tâches de build de développement sécur
 > - Activez toujours l’option **Continuer en cas d’erreur** pour les tâches de build de développement sécurisé. Même si l’un des outils échoue, les autres peuvent s’exécuter. Il n’y a aucune interdépendance entre les outils.
 > - Les tâches de build de Microsoft Security Code Analysis échouent uniquement en cas d’échec d’exécution d’un outil. Mais elles fonctionnent même si un outil identifie des problèmes dans le code. Vous pouvez configurer votre build pour qu’elle échoue quand un outil identifie des problèmes dans le code en utilisant la tâche de build Post-analyse.
 > - Certaines tâches de build d’Azure DevOps ne sont pas prises en charge quand elles sont exécutées via un pipeline de mise en production. Plus précisément, Azure DevOps ne prend pas en charge les tâches qui publient des artefacts à partir d’un pipeline de mise en production.
-> - Pour obtenir la liste des variables prédéfinies dans Azure DevOps Team Build que vous pouvez spécifier en tant que paramètres, voir [Variables de build d’Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Pour obtenir la liste des variables prédéfinies dans Azure DevOps Team Build que vous pouvez spécifier en tant que paramètres, voir [Variables de build d’Azure DevOps](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

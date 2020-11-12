@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3af3307892e82ecd0697124954e99837ad5eb9e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031243"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515691"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>À propos de Microsoft Security Code Analysis
 
@@ -39,7 +39,7 @@ L'ajout d'outils Microsoft Security Code Analysis à votre pipeline Azure DevOps
 
 ### <a name="clean-builds"></a>Des builds propres
 
-Après avoir résolu les problèmes initiaux signalés par les outils, vous pouvez configurer l’extension pour interrompre les builds en cas de nouveaux problèmes. La configuration de builds d'intégration continue sur chaque demande de tirage (pull request) est simple.
+Après avoir résolu les problèmes initiaux signalés par les outils, vous pouvez configurer l’extension pour interrompre les builds en cas de nouveaux problèmes.  La configuration de builds d'intégration continue sur chaque demande de tirage (pull request) est simple.
 
 ### <a name="set-it-and-forget-it"></a>Définissez-la, puis oubliez-la
 
@@ -73,7 +73,7 @@ Les mots de passe et autres secrets stockés dans le code source constituent un 
 
 ### <a name="roslyn-analyzers"></a>Analyseurs Roslyn
 
-Roslyn Analyzers est un outil intégré au compilateur de Microsoft qui permet une analyse statique du code C# et Visual Basic managé. Pour plus d'informations, consultez [Analyseurs basés sur Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
+Roslyn Analyzers est un outil intégré au compilateur de Microsoft qui permet une analyse statique du code C# et Visual Basic managé. Pour plus d'informations, consultez [Analyseurs basés sur Roslyn](/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
 ### <a name="tslint"></a>TSLint
 

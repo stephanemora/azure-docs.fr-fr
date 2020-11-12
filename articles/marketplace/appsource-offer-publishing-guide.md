@@ -4,21 +4,21 @@ description: Guide pas à pas et check-lists pour publier des applications dans 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b500a87613dee094c63e71fc76fb751d72aa049
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484814"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491152"
 ---
 # <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Guide de publication des offres Microsoft 365, Dynamics 365, Power Apps et Power BI
 
 Microsoft AppSource comprend des offres ou des extensions des produits Dynamics 365, Microsoft 365, Power BI et Power Apps. Chacun de ces produits dispose d’une documentation spécifique pour vous guider dans le processus de publication. 
 
-AppSource dispose d’offres payantes, de liste et d’essai avec les options de référencement *Obtenir maintenant*, *Me contacter* et *Essayer maintenant*.
+AppSource dispose d’offres payantes, de liste et d’essai avec les options de référencement *Obtenir maintenant* , *Me contacter* et *Essayer maintenant*.
 
 ## <a name="product-specific-guides"></a>Guides spécifiques aux produits
 

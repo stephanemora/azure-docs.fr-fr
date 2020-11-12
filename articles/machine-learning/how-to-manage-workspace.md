@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312549"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445623"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -193,7 +193,7 @@ Azure Security Center fournit des fonctionnalités unifiées de gestion de la s�
 
 Par défaut, les métriques et les métadonnées de l’espace de travail sont stockées dans une instance d’Azure Cosmos DB gérée par Microsoft. Les données sont chiffrées avec des clés managées par Microsoft.
 
-Pour limiter les données que Microsoft collecte sur votre espace de travail, sélectionnez l’espace de travail __HBI (High Business Impact)__ dans le portail, ou définissez `hbi_workspace=true ` dans Python. Pour plus d’informations sur ce paramètre, consultez [Chiffrement au repos](concept-enterprise-security.md#encryption-at-rest).
+Pour limiter les données que Microsoft collecte sur votre espace de travail, sélectionnez l’espace de travail __HBI (High Business Impact)__ dans le portail, ou définissez `hbi_workspace=true ` dans Python. Pour plus d’informations sur ce paramètre, consultez [Chiffrement au repos](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]  
 > Sélectionner High Business Impact ne peut être effectué que lors de la création d’un espace de travail. Vous ne pouvez pas modifier ce paramètre une fois l’espace de travail créé.   

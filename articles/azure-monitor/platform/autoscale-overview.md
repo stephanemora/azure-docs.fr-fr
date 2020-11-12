@@ -4,12 +4,12 @@ description: Mise à l’échelle automatique dans Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567262"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505835"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
@@ -64,7 +64,7 @@ La mise à l’échelle automatique utilise la terminologie et la structure suiv
   - Un **profil de mise à l’échelle automatique** est la combinaison des éléments suivants :
 
     - Un **paramètre de capacité** indiquant les valeurs minimum, maximum et par défaut pour le nombre d’instances.
-    - Un **ensemble de règles**, comprenant chacun un déclencheur (heure ou métrique) et une action de mise à l’échelle (augmentation ou réduction).
+    - Un **ensemble de règles** , comprenant chacun un déclencheur (heure ou métrique) et une action de mise à l’échelle (augmentation ou réduction).
     - Une **périodicité** indiquant le moment auquel une mise à l’échelle automatique doit appliquer ce profil.
 
       Vous pouvez avoir plusieurs profils, ce qui vous permet de prendre en charge des exigences différentes qui se chevauchent. Vous pouvez avoir des profils de mise à l’échelle automatique différents pour différentes heures de la journée ou jours de la semaine, par exemple.
@@ -102,7 +102,7 @@ Vous pouvez configurer la mise à l’échelle automatique via
 | Machines virtuelles : Classique |[Mise à l’échelle de groupes à haute disponibilité de machines virtuelles classiques](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Machines virtuelles : Groupes identiques Windows |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Machines virtuelles : Groupes identiques Linux |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Machines virtuelles : Exemple Windows |[Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Machines virtuelles : Exemple Windows |[Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](autoscale-virtual-machine-scale-sets.md) |
 | Azure App Service |[Montez une application en puissance dans Azure App Service](../../app-service/manage-scale-up.md)|
 | Service Gestion des API|[Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](../../api-management/api-management-howto-autoscale.md)
 | Clusters Azure Data Explorer|[Gérer la mise à l’échelle des clusters Azure Data Explorer pour prendre en compte les fluctuations de la demande](/azure/data-explorer/manage-cluster-horizontal-scaling)|

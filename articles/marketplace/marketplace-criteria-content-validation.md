@@ -4,15 +4,15 @@ description: Cet article explique les exigences et les recommandations relatives
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126105"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491492"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 

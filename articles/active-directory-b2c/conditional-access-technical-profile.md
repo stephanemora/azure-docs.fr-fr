@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042612"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488276"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique d’accès conditionnel dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -130,7 +130,7 @@ L’élément **InputClaimsTransformations** peut contenir une collection d’é
 
 ### <a name="output-claims"></a>Revendications de sortie
 
-Le fournisseur du protocole d’accès conditionnel ne retournant pas d’élément **OutputClaims**, il n’est pas nécessaire de spécifier des revendications de sortie. Vous pouvez toutefois inclure des revendications non retournées par le fournisseur du protocole d’accès conditionnel, à condition de définir l’attribut `DefaultValue`.
+Le fournisseur du protocole d’accès conditionnel ne retournant pas d’élément **OutputClaims** , il n’est pas nécessaire de spécifier des revendications de sortie. Vous pouvez toutefois inclure des revendications non retournées par le fournisseur du protocole d’accès conditionnel, à condition de définir l’attribut `DefaultValue`.
 
 L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
 
@@ -428,7 +428,7 @@ Ajoutez un parcours utilisateur utilisant les nouvelles revendications, comme da
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Ajoutez un parcours utilisateur utilisant les nouvelles revendications, comme da
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

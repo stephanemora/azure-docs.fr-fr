@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151148"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445062"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -174,7 +174,7 @@ Les utilisateurs peuvent éventuellement activer un mode de fonctionnement dans 
 
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-Créez un objet **ClientSideEncryptionOptions** et définissez-le sur la création du client à l’aide de **SpecializedBlobClientOptions** . Vous ne pouvez pas définir des options de chiffrement par API. Tout le reste est géré par la bibliothèque cliente en interne.
+Créez un objet **ClientSideEncryptionOptions** et définissez-le sur la création du client à l’aide de **SpecializedBlobClientOptions**. Vous ne pouvez pas définir des options de chiffrement par API. Tout le reste est géré par la bibliothèque cliente en interne.
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -207,7 +207,7 @@ MemoryStream outputStream = new MemoryStream();
 blob.DownloadTo(outputStream);
 ```
 
-Un **BlobServiceClient** n’est pas nécessaire pour appliquer des options de chiffrement. Elles peuvent également être passées dans les constructeurs **BlobContainerClient**/**BlobClient** qui acceptent les objets **BlobClientOptions** .
+Un **BlobServiceClient** n’est pas nécessaire pour appliquer des options de chiffrement. Elles peuvent également être passées dans les constructeurs **BlobContainerClient**/**BlobClient** qui acceptent les objets **BlobClientOptions**.
 
 Si un objet **BlobClient** souhaité existe déjà mais sans options de chiffrement côté client, il existe une méthode d’extension pour créer une copie de cet objet avec le **ClientSideEncryptionOptions** donné. Cette méthode d’extension évite la surcharge liée à la construction d’un nouvel objet **BlobClient** à partir de zéro.
 
@@ -247,7 +247,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### <a name="queue-service-encryption"></a>Chiffrement du service de File d’attente
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-Créez un objet **ClientSideEncryptionOptions** et définissez-le sur la création du client à l’aide de **SpecializedQueueClientOptions** . Vous ne pouvez pas définir des options de chiffrement par API. Tout le reste est géré par la bibliothèque cliente en interne.
+Créez un objet **ClientSideEncryptionOptions** et définissez-le sur la création du client à l’aide de **SpecializedQueueClientOptions**. Vous ne pouvez pas définir des options de chiffrement par API. Tout le reste est géré par la bibliothèque cliente en interne.
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -277,7 +277,7 @@ queue.SendMessage("Hello, World!");
 QueueMessage[] queue.ReceiveMessages(); 
 ```
 
-Un **QueueServiceClient** n’est pas nécessaire pour appliquer des options de chiffrement. Elles peuvent également être passées dans les constructeurs **QueueClient** qui acceptent les objets **QueueClientOptions** .
+Un **QueueServiceClient** n’est pas nécessaire pour appliquer des options de chiffrement. Elles peuvent également être passées dans les constructeurs **QueueClient** qui acceptent les objets **QueueClientOptions**.
 
 Si un objet **QueueClient** souhaité existe déjà mais sans options de chiffrement côté client, il existe une méthode d’extension pour créer une copie de cet objet avec le **ClientSideEncryptionOptions** donné. Cette méthode d’extension évite la surcharge liée à la construction d’un nouvel objet **QueueClient** à partir de zéro.
 
@@ -292,7 +292,7 @@ ClientSideEncryptionOptions encryptionOptions;
 QueueClient clientSideEncryptionQueue = plaintextQueue.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-Certains utilisateurs peuvent avoir des files d’attente où tous les messages reçus ne peuvent pas être déchiffrés correctement et la clé ou le programme de résolution doit lever une exception. La dernière ligne de l’exemple ci-dessus lèvera dans ce cas, et aucun des messages reçus ne sera accessible. Dans ces scénarios, la sous-classe **QueueClientSideEncryptionOptions** peut être utilisée pour fournir des options de chiffrement aux clients. Il expose un événement **DecryptionFailed** qui se déclenche chaque fois qu’un message de file d’attente ne peut pas être déchiffré, tant qu’au moins un appel a été ajouté à l’événement. Les messages ayant échoué individuellement peuvent être traités de cette manière, et ils sont filtrés à partir du dernier **QueueMessage []** retourné par **ReceiveMessages** .
+Certains utilisateurs peuvent avoir des files d’attente où tous les messages reçus ne peuvent pas être déchiffrés correctement et la clé ou le programme de résolution doit lever une exception. La dernière ligne de l’exemple ci-dessus lèvera dans ce cas, et aucun des messages reçus ne sera accessible. Dans ces scénarios, la sous-classe **QueueClientSideEncryptionOptions** peut être utilisée pour fournir des options de chiffrement aux clients. Il expose un événement **DecryptionFailed** qui se déclenche chaque fois qu’un message de file d’attente ne peut pas être déchiffré, tant qu’au moins un appel a été ajouté à l’événement. Les messages ayant échoué individuellement peuvent être traités de cette manière, et ils sont filtrés à partir du dernier **QueueMessage []** retourné par **ReceiveMessages**.
 
 ```csharp
 // Create your encryption options using the sub-class.
@@ -383,7 +383,7 @@ En plus de créer une stratégie de chiffrement et de la définir dans les optio
 ```
 
 #### <a name="using-attributes"></a>Utilisation des attributs
-Comme mentionné ci-dessus, si l’entité implémente TableEntity, les propriétés peuvent être décorées avec l’attribut [EncryptProperty] au lieu de spécifier un **EncryptionResolver** .
+Comme mentionné ci-dessus, si l’entité implémente TableEntity, les propriétés peuvent être décorées avec l’attribut [EncryptProperty] au lieu de spécifier un **EncryptionResolver**.
 
 ```csharp
 [EncryptProperty]

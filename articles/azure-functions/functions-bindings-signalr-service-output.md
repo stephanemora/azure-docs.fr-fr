@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323326"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491458"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Liaisons de sortie SignalR Service pour Azure Functions
 
@@ -47,7 +47,7 @@ public static Task SendMessage(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 Exemple de fichier function.json :
 
@@ -82,7 +82,7 @@ public static Task Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 Exemple de fichier function.json :
 
@@ -109,14 +109,14 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 Exemple de fichier function.json :
 
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -126,9 +126,9 @@ Exemple de fichier function.json :
 Voici le code Python :
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -156,7 +156,7 @@ public SignalRMessage sendMessage(
 
 ## <a name="send-to-a-user"></a>Envoyer à un utilisateur
 
-Vous ne pouvez envoyer un message qu’aux connexions qui ont été authentifiées comme un utilisateur en définissant l’*ID d’utilisateur* du message SignalR.
+Vous ne pouvez envoyer un message qu’aux connexions qui ont été authentifiées comme un utilisateur en définissant l’ *ID d’utilisateur* du message SignalR.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -241,14 +241,14 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 Exemple de fichier function.json :
 
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -258,9 +258,9 @@ Exemple de fichier function.json :
 Voici le code Python :
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -376,14 +376,14 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici les données de liaison dans le fichier *function.json*  :
 
 Exemple de fichier function.json :
 
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -393,9 +393,9 @@ Exemple de fichier function.json :
 Voici le code Python :
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',

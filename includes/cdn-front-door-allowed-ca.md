@@ -5,15 +5,15 @@ services: multiple
 author: sharad4u
 ms.service: multiple
 ms.topic: include
-ms.date: 05/09/2019
+ms.date: 10/30/2020
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 68d0459153fbdb34216c1313f70e292119b93a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931d9d6da8ac0f8400aa0ec8918901e5e337439f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269798"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482671"
 ---
 Les autorités de certification suivantes sont autorisées pour créer son propre certificat :
 
@@ -32,6 +32,7 @@ Les autorités de certification suivantes sont autorisées pour créer son propr
 - D-TRUST Root Class 3 CA 2 2009
 - DigiCert Cloud Services CA-1
 - DigiCert Global Root CA
+- DigiCert Global Root G2
 - DigiCert High Assurance CA-3
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 Extended Validation Server CA

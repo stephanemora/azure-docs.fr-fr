@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376636"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491441"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Déclencheur Stockage File d’attente Azure pour Azure Functions
 
@@ -19,7 +19,7 @@ Le déclencheur de stockage de file d’attente exécute une fonction lorsque de
 
 ## <a name="encoding"></a>Encodage
 
-Les fonctions attendent une chaîne codée en *base64*. Tout ajustement du type d’encodage (afin de préparer les données sous forme de chaîne codée en *base64*) doit être effectué dans le service appelant.
+Les fonctions attendent une chaîne codée en *base64*. Tout ajustement du type d’encodage (afin de préparer les données sous forme de chaîne codée en *base64* ) doit être effectué dans le service appelant.
 
 ## <a name="example"></a>Exemple
 
@@ -44,9 +44,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-L’exemple suivant montre une liaison de déclencheur de file d’attente dans un fichier *function.json*, ainsi que le code du [script C# (.csx)](functions-reference-csharp.md) qui utilise cette liaison. La fonction interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
+L’exemple suivant montre une liaison de déclencheur de file d’attente dans un fichier *function.json* , ainsi que le code du [script C# (.csx)](functions-reference-csharp.md) qui utilise cette liaison. La fonction interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
 
-Voici le fichier *function.json* :
+Voici le fichier *function.json*  :
 
 ```json
 {
@@ -101,7 +101,7 @@ La section [utilisation](#usage) explique `myQueueItem`, qui est nommé par la p
 
 L’exemple suivant montre une liaison de déclencheur de file d’attente dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
 
-Voici le fichier *function.json* :
+Voici le fichier *function.json*  :
 
 ```json
 {
@@ -146,7 +146,7 @@ La section [utilisation](#usage) explique `myQueueItem`, qui est nommé par la p
 
 L’exemple suivant montre comment lire un message de file d’attente passé à une fonction via un déclencheur.
 
-Un déclencheur de file d’attente de stockage est défini dans *function.json*, où *Type* est défini sur `queueTrigger`.
+Un déclencheur de file d’attente de stockage est défini dans *function.json* , où *Type* est défini sur `queueTrigger`.
 
 ```json
 {
@@ -408,7 +408,7 @@ Le fichier [host.json](functions-host-json.md#queues) contient les paramètres q
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Écrire des messages de stockage Blob (liaison de sortie)](./functions-bindings-storage-blob-output.md)
+- [Écrire des messages de stockage de file d’attente (liaison de sortie)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

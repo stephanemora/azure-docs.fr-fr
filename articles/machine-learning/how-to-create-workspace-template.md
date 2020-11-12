@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305480"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442053"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -34,7 +34,7 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
 * Dans certains scénarios, vous devez ouvrir un ticket de support. Ces scénarios sont les suivants :
 
-    * __Espace de travail activé pour Azure Private Link avec une clé gérée par le client (CMK)__
+    * __Espace de travail avec Private Link activé avec une clé gérée par le client__
     * __Azure Container Registry de l’espace de travail derrière votre réseau virtuel__
 
     Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
@@ -170,7 +170,7 @@ L’exemple de modèle suivant montre comment créer un espace de travail avec t
 > [!IMPORTANT]
 > Une fois l'espace de travail créé, vous ne pouvez pas modifier les paramètres des données confidentielles, du chiffrement, de l’ID du coffre de clés ou des identificateurs de clés. Pour modifier ces valeurs, vous devez créer un espace de travail à l’aide des nouvelles valeurs.
 
-Pour plus d'informations, consultez [Chiffrement au repos](concept-enterprise-security.md#encryption-at-rest).
+Pour plus d'informations, consultez [Chiffrement au repos](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > Pour pouvoir utiliser ce modèle, l’abonnement doit satisfaire à certaines exigences :
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-Lors de l’utilisation d’une clé gérée par le client, Azure Machine Learning crée un groupe de ressources secondaire qui contient l’instance Cosmos DB. Pour plus d’informations, consultez [Chiffrement au repos - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+Lors de l’utilisation d’une clé gérée par le client, Azure Machine Learning crée un groupe de ressources secondaire qui contient l’instance Cosmos DB. Pour plus d’informations, consultez [Chiffrement au repos - Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 Définir le paramètre **confidential_data** sur **true** constitue une configuration supplémentaire que vous pouvez fournir pour vos données. Cette opération effectue les actions suivantes :
 
@@ -264,7 +264,7 @@ Définir le paramètre **confidential_data** sur **true** constitue une configur
     > [!IMPORTANT]
     > Une fois l'espace de travail créé, vous ne pouvez pas modifier les paramètres des données confidentielles, du chiffrement, de l’ID du coffre de clés ou des identificateurs de clés. Pour modifier ces valeurs, vous devez créer un espace de travail à l’aide des nouvelles valeurs.
 
-  Pour plus d’informations, consultez [Chiffrement au repos](concept-enterprise-security.md#encryption-at-rest).
+  Pour plus d’informations, consultez [Chiffrement au repos](concept-data-encryption.md#encryption-at-rest).
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Déployer un espace de travail derrière un réseau virtuel
 
