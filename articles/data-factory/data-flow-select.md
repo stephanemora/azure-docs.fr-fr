@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322088"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040242"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Transformation de sélection dans le flux de données de mappage
 
@@ -46,11 +46,11 @@ Si vous voulez mapper plusieurs colonnes à la fois ou passer des colonnes déri
 
 Pour ajouter un mappage basé sur les règles, cliquez sur **Ajouter un mappage** et sélectionnez **Mappage basé sur les règles**.
 
-![Mappage basé sur les règles](media/data-flow/rule2.png "Mappage basé sur des règles")
+![Capture d’écran montrant l’option Mappage basé sur les règles sélectionnée dans Ajouter un mappage.](media/data-flow/rule2.png "Mappage basé sur des règles")
 
 Chaque mappage basé sur des règles nécessite deux entrées : la condition à rechercher et le nom de chaque colonne mappée. Les deux valeurs sont entrées par l’intermédiaire du [générateur d’expressions](concepts-data-flow-expression-builder.md). Dans la zone d’expression de gauche, entrez votre condition de correspondance booléenne. Dans la zone d’expression de droite, indiquez ce à quoi la colonne correspondante sera mappée.
 
-![Mappage basé sur les règles](media/data-flow/rule-based-mapping.png "Mappage basé sur des règles")
+![Capture d’écran montrant un mappage.](media/data-flow/rule-based-mapping.png "Mappage basé sur des règles")
 
 Utilisez la syntaxe `$$` pour référencer le nom d’entrée d’une colonne correspondante. Prenons l’image ci-dessus comme exemple et imaginons qu’un utilisateur souhaite faire correspondre toutes les colonnes de chaîne dont les noms ont moins de six caractères. Si une colonne entrante a été nommée `test`, l’expression `$$ + '_short'` renomme la colonne en `test_short`. Si c’est le seul mappage qui existe, toutes les colonnes qui ne répondent pas à la condition sont supprimées des données générées.
 
@@ -60,7 +60,7 @@ Les modèles correspondent à la fois aux colonnes dérivées et définies. Pour
 
 Si vous cliquez sur l’icône du chevron pointant vers le bas, vous pouvez spécifier une condition de mappage regex. Une condition de mappage regex correspond à tous les noms de colonne qui correspondent à la condition regex spécifiée. Elle peut être utilisée en association avec les mappages standard basés sur des règles.
 
-![Mappage basé sur les règles](media/data-flow/regex-matching.png "Mappage basé sur des règles")
+![Capture d’écran montrant la condition regex-mapping avec des correspondances de niveau de hiérarchie et de nom.](media/data-flow/regex-matching.png "Mappage basé sur des règles")
 
 L’exemple ci-dessus correspond au modèle regex `(r)` ou à tout nom de colonne qui contient un r minuscule. À l’instar du mappage standard basé sur des règles, toutes les colonnes correspondantes sont modifiées par la condition à droite à l’aide de la syntaxe `$$`.
 
@@ -70,7 +70,7 @@ Si vous avez plusieurs correspondances regex dans votre nom de colonne, vous pou
 
 Si votre projection définie a une hiérarchie, vous pouvez utiliser le mappage basé sur des règles pour mapper les sous-colonnes de hiérarchies. Spécifiez une condition de correspondance et la colonne complexe dont vous souhaitez mapper les sous-colonnes. Chaque sous-colonne correspondante est générée à l’aide de la règle « Nommer » spécifiée à droite.
 
-![Mappage basé sur les règles](media/data-flow/rule-based-hierarchy.png "Mappage basé sur des règles")
+![Capture d’écran montrant un mappage basé sur les règles et utilisant une hiérarchie.](media/data-flow/rule-based-hierarchy.png "Mappage basé sur des règles")
 
 L’exemple ci-dessus correspond à toutes les sous-colonnes de la colonne complexe `a`. `a` contient deux sous-colonnes `b` et `c`. Le schéma de sortie inclut deux colonnes `b` et `c`, car la condition « Nommer » est `$$`.
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330362"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323764"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -61,7 +61,7 @@ if spec is None:
 > Le module Exécuter un script Python ne prend pas en charge l’installation de packages qui dépendent de bibliothèques natives supplémentaires avec une commande telle que « apt-obten », par exemple, Java, PyODBC, etc. Cela est dû au fait que ce module est exécuté dans un environnement simple avec uniquement Python préinstallé et une autorisation non administrateur.  
 
 ## <a name="upload-files"></a>Charger des fichiers
-Le module Exécuter un script Python prend en charge le chargement de fichiers à l’aide du [kit SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+Le module Exécuter un script Python prend en charge le chargement de fichiers à l’aide du [kit SDK Azure Machine Learning Python](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 L’exemple suivant montre comment charger un fichier image dans le module Exécuter un script Python :
 
@@ -106,30 +106,33 @@ Une fois l’exécution du pipeline terminée, vous pouvez voir un aperçu de l�
 
 ## <a name="how-to-configure-execute-python-script"></a>Comment configurer le module Exécuter un script Python
 
-Le module Exécuter un script Python contient un exemple de code Python que vous pouvez utiliser comme point de départ. Pour configurer le module Exécuter un script Python, fournissez un ensemble d’entrées et de code Python à exécuter dans la zone de texte **Script Python** .
+Le module Exécuter un script Python contient un exemple de code Python que vous pouvez utiliser comme point de départ. Pour configurer le module Exécuter un script Python, fournissez un ensemble d’entrées et de code Python à exécuter dans la zone de texte **Script Python**.
 
 1. Ajoutez le module **Exécuter un script Python** à votre pipeline.
 
-2. À partir du concepteur, ajoutez et connectez dans **Jeu de données 1** tous les jeux de données que vous souhaitez utiliser pour l’entrée. Référencez ce jeu de données dans votre script Python sous le nom **DataFrame1** .
+2. À partir du concepteur, ajoutez et connectez dans **Jeu de données 1** tous les jeux de données que vous souhaitez utiliser pour l’entrée. Référencez ce jeu de données dans votre script Python sous le nom **DataFrame1**.
 
     L’utilisation d’un jeu de données est facultative. Utilisez-en un si vous souhaitez générer des données à l’aide de Python ou utiliser du code Python pour importer les données directement dans le module.
 
-    Ce module prend en charge l’ajout d’un second jeu de données, **Dataset2** . Référencez ce second jeu de données dans votre script Python sous le nom **DataFrame2** .
+    Ce module prend en charge l’ajout d’un second jeu de données, **Dataset2**. Référencez ce second jeu de données dans votre script Python sous le nom **DataFrame2**.
 
     Les jeux de données stockés dans Azure Machine Learning sont automatiquement convertis en dataframes pandas lorsqu’ils sont chargés avec ce module.
 
     ![Mappage des entrées de l’exécution d’un script Python](media/module/python-module.png)
 
-4. Pour inclure du code ou de nouveaux packages Python, connectez le fichier compressé qui contient ces ressources personnalisées au port **Script bundle** . Si la taille de votre script est supérieure à 16 Ko, vous pouvez également utiliser le port **Script Bundle** pour éviter des erreurs comme *La ligne de commande dépasse la limite de 16597 caractères* . 
+4. Pour inclure du code ou de nouveaux packages Python, connectez le fichier compressé qui contient ces ressources personnalisées au port **Script bundle**. Si la taille de votre script est supérieure à 16 Ko, vous pouvez également utiliser le port **Script Bundle** pour éviter des erreurs comme *La ligne de commande dépasse la limite de 16597 caractères*. 
 
     
     1. Regroupez le script et d'autres ressources personnalisées dans un fichier zip.
     1. Chargez le fichier zip en tant que **jeu de données** dans Studio. 
     1. Faites glisser le module du jeu de données de la liste *Jeux de données* vers le volet de module de gauche sur la page de création du concepteur. 
-    1. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R** .
+    1. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R**.
     
     Tous les fichiers qui figurent dans l’archive zip chargée sont utilisables lors de l’exécution du pipeline. Si l’archive est contenue dans une structure de répertoires, la structure est conservée.
-    
+ 
+    > [!WARNING]
+    > **N’utilisez pas** **app** comme nom de dossier ou de script, car **app** est un mot réservé pour les services intégrés. Toutefois, vous pouvez utiliser d’autres espaces de noms comme `app123`.
+   
     Voici un exemple de regroupement de scripts, qui contient un fichier de script Python et un fichier txt :
       
     > [!div class="mx-imgBorder"]
@@ -182,7 +185,7 @@ Le module Exécuter un script Python contient un exemple de code Python que vous
     Deux jeux de données peuvent être renvoyés au concepteur, ce qui doit constituer une séquence de type `pandas.DataFrame`. Vous pouvez créer d’autres sorties dans votre code Python et les écrire directement dans le service Stockage Azure.
 
     > [!WARNING]
-    > Il n’est **pas** recommandé de se connecter à une base de données ou à d’autres stockages externes dans le **Module Exécuter un script Python** . Vous pouvez utiliser le [Module Importer des données](./import-data.md) et le [Module Exporter les données](./export-data.md)     
+    > Il n’est **pas** recommandé de se connecter à une base de données ou à d’autres stockages externes dans le **Module Exécuter un script Python**. Vous pouvez utiliser le [Module Importer des données](./import-data.md) et le [Module Exporter les données](./export-data.md)     
 
 6. Envoyez le pipeline.
 
@@ -312,4 +315,4 @@ Les packages préinstallés sont les suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

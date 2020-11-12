@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715984"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075124"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Résoudre les problèmes liés à Azure Files sous Windows (SMB)
 
-Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales.
+Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolutions présentées dans cet article, vous pouvez aussi utiliser [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) pour être sûr que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales.
 
 > [!IMPORTANT]
 > Le contenu de cet article s’applique uniquement aux partages SMB. Pour plus d’informations sur les partages NFS, consultez [Résoudre les problèmes des partages de fichiers NFS Azure](storage-troubleshooting-files-nfs.md).
@@ -177,23 +177,82 @@ Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliqu
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
-Lorsque vous tentez de supprimer un fichier, il se peut que le message d’erreur suivant s’affiche :
+L’un des principaux objectifs d’un partage de fichiers est que plusieurs utilisateurs et applications puissent interagir simultanément avec les fichiers et les répertoires du partage. Pour faciliter cette interaction, les partages de fichiers offrent plusieurs moyens de négocier l’accès aux fichiers et aux répertoires.
 
-La ressource spécifiée est marquée pour suppression par un client SMB.
+Lorsque vous ouvrez un fichier à partir d’un partage de fichiers Azure monté via SMB, votre application/système d’exploitation demande un descripteur de fichier, qui est une référence au fichier. Entre autres choses, votre application spécifie un mode de partage de fichiers lorsqu’elle demande un descripteur de fichier, qui spécifie le niveau d’exclusivité de votre accès au fichier appliqué par Azure Files : 
 
-### <a name="cause"></a>Cause
-Ce problème se produit généralement quand le fichier ou le répertoire a un descripteur ouvert. 
+- `None` : vous disposez d’un accès exclusif. 
+- `Read` : d’autres utilisateurs peuvent lire le fichier alors que vous l’avez ouvert.
+- `Write` : d’autres utilisateurs peuvent écrire dans le fichier alors que vous l’avez ouvert. 
+- `ReadWrite` : combinaison des modes de partage `Read` et `Write`.
+- `Delete` : d’autres utilisateurs peuvent supprimer le fichier alors que vous l’avez ouvert. 
 
-### <a name="solution"></a>Solution
+Bien qu’il s’agisse d’un protocole sans état, le protocole FileREST n’a pas de concept de descripteurs de fichiers. Il fournit un mécanisme similaire pour assurer l’accès aux fichiers et dossiers que votre script, application ou service peut utiliser : les baux de fichiers. Lorsqu’un fichier est loué, il est traité comme l’équivalent d’un descripteur de fichier avec le mode de partage de fichiers `None`. 
 
-Si les clients SMB ont fermé tous les descripteurs ouverts et que le problème persiste, effectuez les étapes suivantes :
+Bien que les descripteurs de fichiers et les baux jouent un rôle important, il peut arriver que les descripteurs de fichiers et les baux soient orphelins. Dans ce cas, cela peut entraîner des problèmes lors de la modification ou de la suppression de fichiers. Vous pouvez voir des messages d’erreur tels que :
 
-- Utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts.
+- Le processus ne peut pas accéder au fichier car ce fichier est utilisé par un autre processus.
+- L’action ne peut pas être effectuée, car le fichier est ouvert dans un autre programme.
+- Le document est verrouillé pour modification par un autre utilisateur.
+- La ressource spécifiée est marquée pour suppression par un client SMB.
 
-- Utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) pour fermer les descripteurs ouverts. 
+La résolution de ce problème varie selon qu’il est dû à un descripteur de fichier ou à un bail orphelin. 
+
+### <a name="cause-1"></a>Cause 1
+Un descripteur de fichier empêche la modification ou la suppression d’un fichier/répertoire. Vous pouvez utiliser la cmdlet PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts. 
+
+Si tous les clients SMB ont fermé leurs descripteurs ouverts sur un fichier/répertoire et que le problème persiste, vous pouvez forcer la fermeture d’un descripteur de fichier.
+
+### <a name="solution-1"></a>Solution 1
+Pour forcer la fermeture d’un descripteur de fichier, utilisez la cmdlet PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle). 
 
 > [!Note]  
 > Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### <a name="cause-2"></a>Cause 2
+Un bail de fichier empêche la modification ou la suppression d’un fichier. Vous pouvez vérifier si un fichier dispose d’un bail à l’aide de la commande PowerShell suivante, en remplaçant `<resource-group>`, `<storage-account>`, `<file-share>` et `<path-to-file>` par les valeurs appropriées pour votre environnement :
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+Si un fichier a un bail, l’objet retourné doit contenir les propriétés suivantes :
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>Solution 2
+Pour supprimer un bail d’un fichier, vous pouvez libérer ou rompre le bail. Pour libérer le bail, vous avez besoin du LeaseId du bail, que vous définissez lors de sa création. Vous n’avez pas besoin du LeaseId pour rompre le bail.
+
+L’exemple suivant montre comment rompre le bail pour le fichier indiqué en cause 2 (cet exemple continue avec les variables PowerShell de la cause 2) :
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files sous Windows

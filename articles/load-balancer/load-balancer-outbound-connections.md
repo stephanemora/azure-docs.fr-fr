@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 422f8106ac52c85f0680d54e420d0f1b4d326910
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017690"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241767"
 ---
 # <a name="outbound-proxy-azure-load-balancer"></a>Utilisation d’un équilibreur de charge Azure en tant que proxy sortant
 
@@ -62,13 +62,13 @@ Imaginez que plusieurs navigateurs vont vers https://www.microsoft.com, à savoi
 
 Sans ports de destination différents pour le trafic de retour (le port SNAT utilisé pour établir la connexion), le client n’a aucun moyen de séparer le résultat d’une requête d’un autre.
 
-Le nombre de connexions sortantes peut augmenter rapidement. L’instance back-end risque de se retrouver en manque de ports. Si la **réutilisation des connexions** n’est pas activée, le risque d’**épuisement des ports** SNAT augmente.
+Le nombre de connexions sortantes peut augmenter rapidement. L’instance back-end risque de se retrouver en manque de ports. Si la **réutilisation des connexions** n’est pas activée, le risque d’ **épuisement des ports** SNAT augmente.
 
 Un épuisement des ports provoque l’échec des nouvelles connexions sortantes vers une adresse IP de destination. Les connexions sont correctement établies lorsqu’un port est disponible. Cet épuisement se produit lorsque les 64 000 ports à partir d’une adresse IP sont répartis sur de nombreuses instances back-end. Pour obtenir des conseils sur l’atténuation de l’épuisement des ports SNAT, consultez ce [guide de résolution des problèmes](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection).  
 
 Pour les connexions TCP, l’équilibreur de charge utilise un seul port SNAT pour chaque adresse IP et port de destination. Ce multiusage permet plusieurs connexions à la même adresse IP de destination avec le même port SNAT. Ce multiusage est limité si la connexion ne dirige pas vers différents ports de destination.
 
-Pour les connexions UDP, l’équilibreur de charge utilise un algorithme nommé « **port-restricted cone NAT** » (ou « NAT à cône restrictif sur les ports »), qui consomme un port SNAT par adresse IP de destination, quel que soit le port de destination. 
+Pour les connexions UDP, l’équilibreur de charge utilise un algorithme nommé «  **port-restricted cone NAT**  » (ou « NAT à cône restrictif sur les ports »), qui consomme un port SNAT par adresse IP de destination, quel que soit le port de destination. 
 
 Cela permet de réutiliser un port pour un nombre illimité de connexions. Le port est réutilisé uniquement si l’adresse IP ou le port de destination est différent.
 
@@ -92,7 +92,7 @@ Le tableau suivant <a name="snatporttable"></a>présente les préaffectations de
 | 801-1 000 | 32 | 
 
 >[!NOTE]
-> Si la taille maximale de votre pool back-end est de 6, chaque instance peut avoir 64 000 / 10 = 6 400 ports si vous définissez une règle de trafic sortant explicite. Selon le tableau ci-dessus, chaque instance n’aura que 1 024 ports si vous choisissez l’allocation automatique.
+> Si la taille maximale de votre pool back-end est de 10, chaque instance peut avoir 64 000 / 10 = 6 400 ports si vous définissez une règle de trafic sortant explicite. Selon le tableau ci-dessus, chaque instance n’aura que 1 024 ports si vous choisissez l’allocation automatique.
 
 ## <a name="outbound-rules-and-virtual-network-nat"></a><a name="outboundrules"></a> Règles de trafic sortant et NAT de réseau virtuel
 

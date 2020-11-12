@@ -3,12 +3,12 @@ title: Azure Event Grid - Guide de résolution des problèmes
 description: Cet article fournit une liste de codes d’erreur avec les messages d’erreur correspondants, leur description et les actions recommandées.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041400"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Résoudre les erreurs liées à Azure Event Grid
 Cet article fournit une liste de codes d’erreur relatifs à Azure Event Grid, avec les messages d’erreur correspondants, leur description et les actions recommandées si vous rencontrez ces erreurs. 
@@ -16,8 +16,8 @@ Cet article fournit une liste de codes d’erreur relatifs à Azure Event Grid, 
 ## <a name="error-code-400"></a>Code d’erreur : 400
 | Code d'erreur | Message d’erreur | Description | Recommandation |
 | ---------- | ------------- | ----------- | -------------- | 
-| HttpStatusCode.BadRequest<br/>400 | Le nom de la rubrique doit compter 3 à 50 caractères. | La longueur du nom de la rubrique personnalisée doit être comprise entre 3 et 50 caractères. Seuls les caractères alphanumériques, les chiffres et le caractère « - » sont autorisés dans le nom de la rubrique. De plus, le nom ne doit pas commencer par les mots réservés suivants : <ul><li>Microsoft</li><li>EventGrid</li><li>Système</li></ul> | Choisissez un autre nom conforme aux exigences relatives aux noms de rubrique. |
-| HttpStatusCode.BadRequest<br/>400 | Le nom de domaine doit compter 3 à 50 caractères. | La longueur du nom de domaine doit être comprise entre 3 et 50 caractères. Seuls les caractères alphanumériques, les chiffres et le caractère « - » sont autorisés dans le nom de la rubrique. De plus, le nom ne doit pas commencer par les mots réservés suivants :<ul><li>Microsoft</li><li>EventGrid</li><li>Système</li> | Choisissez un autre nom conforme aux exigences relatives aux noms de domaine. |
+| HttpStatusCode.BadRequest<br/>400 | Le nom de la rubrique doit compter 3 à 50 caractères. | La longueur du nom de la rubrique personnalisée doit être comprise entre 3 et 50 caractères. Seuls les caractères alphanumériques, les chiffres et le caractère « - » sont autorisés dans le nom de la rubrique. De plus, le nom ne doit pas commencer par les mots réservés suivants : <ul><li>Microsoft-</li><li>EventGrid-</li><li>System-</li></ul> | Choisissez un autre nom conforme aux exigences relatives aux noms de rubrique. |
+| HttpStatusCode.BadRequest<br/>400 | Le nom de domaine doit compter 3 à 50 caractères. | La longueur du nom de domaine doit être comprise entre 3 et 50 caractères. Seuls les caractères alphanumériques, les chiffres et le caractère « - » sont autorisés dans le nom de domaine. De plus, le nom ne doit pas commencer par les mots réservés suivants :<ul><li>Microsoft-</li><li>EventGrid-</li><li>System-</li> | Choisissez un autre nom conforme aux exigences relatives aux noms de domaine. |
 | HttpStatusCode.BadRequest<br/>400 | Délai d’expiration non valide. | Le délai d’expiration de l’abonnement aux événements détermine à quel moment l’abonnement aux événements sera mis hors service. Cette valeur doit être une valeur DateHeure valide dans le futur.| Assurez-vous que le délai d’expiration de l’abonnement aux événements respecte un format DateHeure valide et qu’il est défini dans le futur. |
 
 ## <a name="error-code-409"></a>Code d’erreur : 409

@@ -1,6 +1,6 @@
 ---
-title: Interroger des types imbriqués Parquet à l’aide de SQL à la demande (préversion)
-description: Cet article vous explique comment interroger des types imbriqués Parquet à l’aide de SQL à la demande (préversion).
+title: Interroger des types imbriqués Parquet à l’aide d’un pool SQL serverless (préversion)
+description: Cet article vous explique comment interroger des types imbriqués Parquet à l’aide du pool SQL serverless (préversion).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288254"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311999"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Interroger des types imbriqués dans des fichiers Parquet et JSON à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Interroger des types imbriqués dans des fichiers Parquet et JSON à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-Cet article explique comment écrire une requête à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics. La requête va lire des types imbriqués Parquet.
+Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics. La requête va lire des types imbriqués Parquet.
 Les types imbriqués sont des structures complexes qui représentent des objets ou des tableaux. Les types imbriqués peuvent être stockés dans : 
 - [Parquet](query-parquet-files.md) où vous pouvez avoir plusieurs colonnes complexes qui contiennent des tableaux et des objets.
 - [Fichiers JSON](query-json-files.md) hiérarchiques où vous pouvez lire un document JSON complexe en tant que colonne unique.
 - Collections Azure Cosmos DB (actuellement en préversion publique contrôlée) où chaque document peut contenir des propriétés imbriquées complexes.
 
-Azure Synapse SQL à la demande met en forme tous les types imbriqués en tant qu’objets et tableaux JSON. Vous pouvez [extraire ou modifier des objets complexes à l’aide de fonctions JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analyser des données JSON à l’aide de la fonction OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Le pool SQL serverless met en forme tous les types imbriqués en tant qu’objets et tableaux JSON. Vous pouvez [extraire ou modifier des objets complexes à l’aide de fonctions JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analyser des données JSON à l’aide de la fonction OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Voici un exemple de requête qui extrait des valeurs scalaires et d’objets du fichier de jeu de données JSON [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) qui contient des objets imbriqués : 
 

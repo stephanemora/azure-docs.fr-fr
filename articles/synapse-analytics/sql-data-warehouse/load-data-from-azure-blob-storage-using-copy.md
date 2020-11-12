@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371522"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025933"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutoriel : Charger le jeu de données de New York Taxicab
 
@@ -50,9 +50,9 @@ Pour créer une base de données vide, procédez comme suit.
 
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 
-2. Sélectionnez **Bases de données** dans la page **Nouveau**, puis sélectionnez **Azure Synapse Analytics** sous **Sélection** dans la page **Nouveau**.
+2. Sélectionnez **Bases de données** dans la page **Nouveau** , puis sélectionnez **Azure Synapse Analytics** sous **Sélection** dans la page **Nouveau**.
 
-    ![créer un entrepôt de données](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![Capture d’écran montrant SQL Data Warehouse sélectionné dans Bases de données sur le portail Azure.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. Renseignez le formulaire avec les informations suivantes :
 
@@ -63,7 +63,7 @@ Pour créer une base de données vide, procédez comme suit.
    | **Groupe de ressources** | myResourceGroup       | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Conventions d’affectation de nom). |
    | **Sélectionner une source**  | Base de données vide        | Indique de créer une base de données vide. Notez qu’un entrepôt de données est un type de base de données. |
 
-    ![créer un entrepôt de données](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![Capture d’écran montrant le volet SQL Data Warehouse dans lequel vous pouvez entrer ces valeurs.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Sélectionnez **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes :
 
@@ -100,7 +100,7 @@ Un pare-feu au niveau du serveur empêche les outils et applications externes de
 > [!NOTE]
 > Azure Synapse Analytics communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur, sauf si votre service informatique ouvre le port 1433.
 
-1. Une fois le déploiement terminé, sélectionnez **Bases de données SQL** dans le menu de gauche, puis **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20180430.database.windows.net**) et fournit des options pour poursuivre la configuration.
+1. Une fois le déploiement terminé, sélectionnez **Bases de données SQL** dans le menu de gauche, puis **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20180430.database.windows.net** ) et fournit des options pour poursuivre la configuration.
 
 2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants. Sélectionnez ensuite le nom du serveur pour ouvrir les paramètres de celui-ci.
 
@@ -118,7 +118,7 @@ Un pare-feu au niveau du serveur empêche les outils et applications externes de
 
 6. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle, ce qui ouvre le port 1433 sur le serveur.
 
-7. Sélectionnez **OK**, puis fermez la page **Paramètres de pare-feu**.
+7. Sélectionnez **OK** , puis fermez la page **Paramètres de pare-feu**.
 
 Vous pouvez maintenant vous connecter au serveur et à ses entrepôts de données à l’aide de cette adresse IP. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte ServerAdmin que vous avez créé précédemment.  
 
@@ -141,7 +141,7 @@ Cette section utilise SSMS ([SQL Server Management Studio](/sql/ssms/download-sq
 
 1. Ouvrez SQL Server Management Studio.
 
-2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
+2. Dans la fenêtre **Se connecter au serveur** , entrez les valeurs suivantes :
 
     | Paramètre        | Valeur suggérée                            | Description                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
@@ -198,7 +198,7 @@ Il est préférable de créer une connexion et un utilisateur dédiés au charge
 
 La première étape du chargement des données consiste à se connecter sous LoaderRC20.  
 
-1. Dans l’Explorateur d’objets, sélectionnez le menu déroulant **Se connecter**, puis **Moteur de base de données**. La boîte de dialogue **Se connecter au serveur** s’affiche.
+1. Dans l’Explorateur d’objets, sélectionnez le menu déroulant **Se connecter** , puis **Moteur de base de données**. La boîte de dialogue **Se connecter au serveur** s’affiche.
 
     ![Se connecter avec le nouvelle connexion](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
@@ -511,7 +511,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 4. Pour supprimer le serveur que vous avez créé, sélectionnez **mynewserver-20180430.database.windows.net** dans l’image précédente, puis **Supprimer**.  N’oubliez pas que la suppression du serveur supprime toutes les bases de données attribuées au serveur.
 
-5. Pour supprimer le groupe de ressources, sélectionnez **myResourceGroup**, puis **Supprimer le groupe de ressources**.
+5. Pour supprimer le groupe de ressources, sélectionnez **myResourceGroup** , puis **Supprimer le groupe de ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

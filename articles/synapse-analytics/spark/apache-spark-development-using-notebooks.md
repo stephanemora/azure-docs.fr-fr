@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738741"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311138"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio (préversion) dans Azure Synapse Analytics
 
@@ -86,7 +86,7 @@ L’image suivante illustre la façon d’écrire une requête PySpark avec la c
 
 Vous ne pouvez pas référencer des données ou variables directement dans différents langages dans un bloc-notes Synapse Studio. Dans Spark, une table temporaire peut être référencée dans plusieurs langages. Voici un exemple de lecture d’une tramedonnées `Scala` en `PySpark` et `SparkSQL` en utilisant une table temporaire Spark comme solution de contournement.
 
-1. Dans la cellule 1, lisez une tramedonnées à partir du connecteur de pool SQL en utilisant Scala, puis créez une table temporaire.
+1. Dans la cellule 1, lisez une tramedonnées à partir du connecteur de pool SQL en utilisant Scala, puis créez une table temporaire.
 
    ```scala
    %%scala
@@ -112,7 +112,7 @@ Vous ne pouvez pas référencer des données ou variables directement dans diff�
 
 Des blocs-notes Azure Synapse Studio sont intégrés avec l’éditeur de Monaco pour intégrer IntelliSense de style IDE à l’éditeur de cellule. Une mise en évidence de la syntaxe, un marqueur d’erreurs et des saisies semi-automatiques de code vous aident à écrire le code et à identifier les problèmes plus rapidement.
 
-Les fonctionnalités IntelliSense sont à des niveaux de maturité différents pour les différents langages. Utilisez le tableau ci-dessous pour voir ce qui est pris en charge.
+Les fonctionnalités IntelliSense sont à des niveaux de maturité différents pour les différents langages. Utilisez le tableau suivant pour voir ce qui est pris en charge.
 
 |Languages| Mise en évidence de la syntaxe | Marqueur d’erreur de syntaxe  | Saisie semi-automatique de code de syntaxe | Saisie semi-automatique de code variable| Saisie semi-automatique de code de fonction système| Saisie semi-automatique de code de fonction utilisateur| Mise en retrait intelligente | Pliage de code|
 |--|--|--|--|--|--|--|--|--|
@@ -203,7 +203,7 @@ Un état d’exécution de cellule pas à pas est affiché sous la cellule pour 
 
 ### <a name="spark-progress-indicator"></a>Indicateur de progression Spark
 
-Le bloc-notes Azure Synapse Studio est entièrement basé sur Spark. Les cellules de code sont exécutées sur le pool Spark à distance. Un indicateur de progression du travail Spark est fourni avec une barre de progression en temps réel qui s’affiche pour vous aider à comprendre l’état d’exécution du travail.
+Le bloc-notes Azure Synapse Studio est entièrement basé sur Spark. Les cellules de code sont exécutées sur le pool Apache Spark serverless à distance. Un indicateur de progression du travail Spark est fourni avec une barre de progression en temps réel qui s’affiche pour vous aider à comprendre l’état d’exécution du travail.
 Le nombre de tâches par travail ou index vous aide à identifier le niveau parallèle de votre travail Spark. Vous pouvez également explorer plus en profondeur l’IU Spark pour un travail (ou index) spécifique en sélectionnant le lien hypertexte du nom du travail (ou de l’index).
 
 
@@ -294,7 +294,7 @@ Vous pouvez utiliser <code>display(df, summary = True)</code> pour vérifier le 
 
 ### <a name="render-html-or-interactive-libraries"></a>Afficher des bibliothèques HTML ou interactives
 
-Vous pouvez restituer du code HTML, notamment, des bibliothèques JavaScript, CSS, D3 ou interactives telles que **bokeh** , en utilisant la commande **displayHTML()** .
+Vous pouvez restituer du code HTML, notamment, des bibliothèques JavaScript, CSS, D3 ou interactives telles que **bokeh** , en utilisant la fonction **displayHTML()** .
 
 L’image suivante est un exemple de traçage de glyphes sur une carte en utilisant **bokeh**.
 

@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548407"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128877"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Surveillance d’Azure IoT Hub
 
@@ -23,7 +23,9 @@ La page **Vue d’ensemble** sur le portail Azure pour chaque hub IoT inclut des
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Graphiques des métriques par défaut sur la page récapitulative du hub IoT.":::
 
-Ces informations sont utiles, mais elles ne constituent qu’une petite quantité des données de supervision disponibles pour un hub IoT. Certaines données de surveillance sont collectées automatiquement et peuvent être analysées dès que vous créez le hub IoT. Vous pouvez activer d’autres types de collecte de données avec une certaine configuration.
+Sachez que la valeur du nombre de messages peut être retardée d’une minute et que, pour des raisons liées à l’infrastructure de service IoT Hub, la valeur peut parfois rebondir entre des valeurs supérieures et inférieures lors de l’actualisation. Ce compteur ne doit être incorrect que pour les valeurs accumulées au cours de la dernière minute.
+
+Les informations présentées dans le volet Vue d’ensemble sont utiles, mais elles ne constituent qu’une petite quantité des données de supervision disponibles pour un hub IoT. Certaines données de surveillance sont collectées automatiquement et peuvent être analysées dès que vous créez le hub IoT. Vous pouvez activer d’autres types de collecte de données avec une certaine configuration.
 
 ## <a name="what-is-azure-monitor"></a>Qu’est-ce qu’Azure Monitor ?
 
@@ -54,11 +56,14 @@ Les métriques de plateforme et le journal d’activité sont collectés et stoc
 
 Les journaux de ressources ne sont pas collectés ni stockés tant que vous n’avez pas créé un paramètre de diagnostic et que vous ne les acheminez pas vers un ou plusieurs emplacements.
 
-Les métriques et les journaux peuvent être routés vers un espace de travail Log Analytics, où ils peuvent être analysés à l’aide des journaux Azure Monitor ; vers le stockage Azure pour l’archivage et l’analyse hors connexion ; ou vers un point de terminaison Event Hubs où ils peuvent être lus par des applications externes, par exemple des outils SIEM tiers.
+Les métriques et les journaux peuvent être acheminés vers plusieurs emplacements, notamment :
+- Le magasin Journaux Azure Monitor via un espace de travail Log Analytics associé. Ils peuvent y être analysés à l’aide de Log Analytics.
+- Stockage Azure pour l’archivage et l’analyse hors connexion 
+- Un point de terminaison Event Hubs dans lequel ils peuvent être lus par des applications externes, par exemple des outils SIEM tiers.
 
 Sur le portail Azure, vous pouvez sélectionner **Paramètres de diagnostic** sous **Surveillance** dans le volet de gauche de votre hub IoT, puis **Ajouter un paramètre de diagnostic** pour créer des paramètres de diagnostic étendus aux métriques de journaux et de plateforme émises par votre hub IoT.
 
-La capture d’écran suivante montre un paramètre de diagnostic pour le routage des opérations de connexion dans les journaux de ressources et de toutes les métriques de plateforme vers un espace de travail Log Analytics.
+La capture d’écran suivante montre un paramètre de diagnostic pour le routage du type de journal de ressources *Opérations de connexion* et de toutes les métriques de plateforme vers un espace de travail Log Analytics.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Volet Paramètres de diagnostic pour un hub IoT.":::
 
@@ -82,11 +87,11 @@ Pour obtenir la liste des métriques de plateforme collectées pour Azure IoT Hu
 
 Pour les métriques de la plateforme IoT Hub qui sont collectées à l’unité, certaines agrégations peuvent ne pas être disponibles ou utilisables. Pour plus d’informations, consultez [Agrégations prises en charge dans les informations de référence des données de surveillance Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
-Certaines mesures IoT Hub, comme les [métriques de routage](monitor-iot-hub-reference.md#routing-metrics), sont multidimensionnelles. Pour ces métriques, vous pouvez appliquer des [filtres](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) et un [fractionnement](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) sur vos graphiques en fonction d’une dimension.
+Certaines mesures IoT Hub, comme les [métriques de routage](monitor-iot-hub-reference.md#routing-metrics), sont multidimensionnelles. Pour ces métriques, vous pouvez appliquer des [filtres](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) et un [fractionnement](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) sur vos graphiques en fonction d’une dimension.
 
 ## <a name="analyzing-logs"></a>Analyse des journaux d’activité
 
-Les données des journaux Azure Monitor sont stockées dans des tables, chacune ayant son propre ensemble de propriétés uniques. Pour en savoir plus sur Azure Monitor Logs, consultez [Vue d’ensemble d’Azure Monitor Logs](/azure/azure-monitor/platform/data-platform-logs) dans la documentation Azure Monitor. 
+Les données des journaux Azure Monitor sont stockées dans des tables, chacune ayant son propre ensemble de propriétés uniques. Les données de ces tables sont associées à un espace de travail Log Analytics et peuvent être interrogées dans Log Analytics. Pour en savoir plus sur Azure Monitor Logs, consultez [Vue d’ensemble d’Azure Monitor Logs](/azure/azure-monitor/platform/data-platform-logs) dans la documentation Azure Monitor. 
 
 Pour router des données vers Azure Monitor Logs, vous devez créer un paramètre de diagnostic pour envoyer les journaux de ressources ou les métriques de plateforme à un espace de travail Log Analytics. Pour plus d’informations, consultez [Collecte et routage](#collection-and-routing).
 

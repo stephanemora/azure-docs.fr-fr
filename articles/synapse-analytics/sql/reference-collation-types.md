@@ -1,6 +1,6 @@
 ---
 title: Prise en charge du classement
-description: Types de classements pris en charge dans Azure Synapse SQL.
+description: Prise en charge des types de classements pour Synapse SQL dans Azure Synapse Analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
@@ -8,25 +8,25 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288067"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311919"
 ---
-# <a name="database-collation-support-for-synapse-sql"></a>Prise en charge des classements de base de données pour SQL Synapse
+# <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Prise en charge du classement de bases de données pour Synapse SQL dans Azure Synapse Analytics 
 
 Les classements fournissent les règles de paramètres régionaux, de page de codes, d’ordre de tri et de respect des caractères pour les types de données basés sur des caractères. Une fois que vous avez effectué votre sélection, toutes les colonnes et expressions nécessitant des informations de classement héritent du classement choisi dans le paramètre de base de données. L’héritage par défaut peut être substitué en déclarant explicitement un classement différent pour un type de données basé sur des caractères.
 
-Vous pouvez modifier le classement par défaut de base de données du portail Azure lorsque vous créez une base de données de pool SQL. Grâce à cette fonctionnalité, il est encore plus facile de créer une base de données à l’aide de l’un des 3800 classements de base de données pris en charge.
+Sur le Portail Azure, il est possible de modifier le classement par défaut d’une base de données de pool SQL dédié lors de sa création. Grâce à cette fonctionnalité, il est encore plus facile de créer une base de données à l’aide de l’un des 3800 classements de base de données pris en charge.
 
-Vous pouvez spécifier le classement par défaut de la base de données SQL Synapse à la demande au moment de sa création à l’aide de l’instruction CREATE DATABASE.
+Vous pouvez spécifier le classement par défaut de la base de données de pools SQL serverless au moment de sa création à l’aide de l’instruction CREATE DATABASE.
 
 ## <a name="change-collation"></a>Modifier le classement
-Pour changer le classement par défaut de la base de données de pool SQL, vous devez mettre à jour le champ Classement dans l’expérience de provisionnement. Par exemple, si vous souhaitez modifier le classement par défaut en respectant la casse, vous devez renommer le classement SQL_Latin1_General_CP1_CI_AS en SQL_Latin1_General_CP1_CS_AS. 
+Pour changer le classement par défaut de la base de données de pools SQL dédiés, vous devez mettre à jour le champ Classement dans l’expérience d’approvisionnement. Par exemple, si vous souhaitez modifier le classement par défaut en respectant la casse, vous devez renommer le classement SQL_Latin1_General_CP1_CI_AS en SQL_Latin1_General_CP1_CS_AS. 
 
-Pour modifier le classement par défaut de la base de données SQL à la demande, vous pouvez utiliser l’instruction ALTER DATABASE.
+Pour modifier le classement par défaut de la base de données de pools SQL serverless, vous pouvez utiliser l’instruction ALTER DATABASE.
 
 ## <a name="list-of-unsupported-collation-types"></a>Liste des types de classement pris en charge
 *    Japanese_Bushu_Kakusu_140_BIN
@@ -98,7 +98,7 @@ Pour modifier le classement par défaut de la base de données SQL à la demande
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-De plus, le pool SQL ne prend pas en charge les types de classements suivants :
+De plus, le pool SQL dédié ne prend pas en charge les types de classements suivants :
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
@@ -113,9 +113,9 @@ Quand « Classement » est transmis en tant que paramètre de propriété, la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les bonnes pratiques concernant le pool SQL et SQL à la demande, consultez les articles suivants :
+Pour plus d’informations sur les bonnes pratiques concernant les pools SQL dédiés et les pools SQL serverless, consultez les articles suivants :
 
-- [Bonnes pratiques relatives aux pools SQL](best-practices-sql-pool.md)
-- [Bonnes pratiques relatives à SQL à la demande](best-practices-sql-on-demand.md)
+- [Bonnes pratiques pour les pools SQL dédiés](best-practices-sql-pool.md)
+- [Bonnes pratiques pour les pools SQL serverless](best-practices-sql-on-demand.md)
 
 

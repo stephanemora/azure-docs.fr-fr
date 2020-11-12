@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490626"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129641"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Le document suivant est conçu pour fournir des recommandations de modélisation des données de graphe. Cette étape est essentielle afin de garantir la scalabilité et les performances d’un système de base de données de graphe à mesure que les données évoluent. Un modèle de données efficace est particulièrement important avec des graphes à grande échelle.
 
@@ -30,18 +31,18 @@ Le processus décrit dans ce guide est basé sur les hypothèses suivantes :
 Une solution de base de données de graphe peut être appliquée de façon optimale si les entités et les relations dans un domaine de données ont une des caractéristiques suivantes : 
 
 * Les entités sont **fortement connectées** via des relations descriptives. L’avantage dans ce scénario est le fait que les relations sont conservées dans le stockage.
-* Il existe des **relations cycliques** ou des **entités auto-référencées** . Ce modèle représente souvent un certain défi lors de l’utilisation de bases de données relationnelles ou de documents.
+* Il existe des **relations cycliques** ou des **entités auto-référencées**. Ce modèle représente souvent un certain défi lors de l’utilisation de bases de données relationnelles ou de documents.
 * Il existe des **relations évoluant dynamiquement** entre les entités. Ce modèle s’applique en particulier à des données structurées en arborescence ou de façon hiérarchique avec de nombreux niveaux.
 * Il existe des **relations plusieurs-à-plusieurs** entre les entités.
-* Il existe des **exigences d’écriture et de lecture sur les entités et les relations** . 
+* Il existe des **exigences d’écriture et de lecture sur les entités et les relations**. 
 
-Si les critères ci-dessus sont remplis, il est probable qu’une approche de base de données de graphe fournira des avantages pour la **complexité des requêtes** , la **scalabilité du modèle de données** et les **performances des requêtes** .
+Si les critères ci-dessus sont remplis, il est probable qu’une approche de base de données de graphe fournira des avantages pour la **complexité des requêtes** , la **scalabilité du modèle de données** et les **performances des requêtes**.
 
 L’étape suivante consiste à déterminer si le graphe va être utilisé à des fins analytiques ou transactionnelles. Si le graphe est destiné à être utilisé pour des calculs intensifs et des charges de travail importantes de traitement des données, il peut être utile d’explorer le [connecteur Spark Cosmos DB](./spark-connector.md) et l’utilisation de la [bibliothèque GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Comment utiliser des objets de graphe
 
-Le [standard des graphes de propriétés Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) définit deux types d’objets : les **sommets** et les **arêtes** . 
+Le [standard des graphes de propriétés Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) définit deux types d’objets : les **sommets** et les **arêtes**. 
 
 Voici les bonnes pratiques pour les propriétés dans les objets de graphe :
 
@@ -67,7 +68,7 @@ Voici un ensemble de recommandations sur l’approche de la modélisation des do
 
 ### <a name="modeling-vertices-and-properties"></a>Modélisation des sommets et des propriétés 
 
-La première étape pour un modèle de données de graphe consiste à mapper chaque entité identifiée à un **objet sommet** . Un mappage un-à-un de toutes les entités aux sommets doit être une étape initiale et est sujet à modification.
+La première étape pour un modèle de données de graphe consiste à mapper chaque entité identifiée à un **objet sommet**. Un mappage un-à-un de toutes les entités aux sommets doit être une étape initiale et est sujet à modification.
 
 Un piège courant est de mapper les propriétés d’une même entité en tant que sommet distinct. Prenons l’exemple ci-dessous, où la même entité est représentée de deux manières différentes :
 
@@ -77,7 +78,7 @@ Un piège courant est de mapper les propriétés d’une même entité en tant q
 
 * **Sommet avec des propriétés incorporées**  : Cette approche tire parti de la liste de paires clé-valeur pour représenter toutes les propriétés de l’entité à l’intérieur d’un sommet. Cette approche aboutit à une complexité réduite du modèle, ce qui permet des requêtes plus simples et des traversées moins consommatrices de ressources.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modèle d’entité avec des sommets pour les propriétés." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagramme montrant le sommet Luis du diagramme précédent avec ID, étiquette et propriétés." border="false":::
 
 > [!NOTE]
 > Les exemples ci-dessus montrent un modèle de graphe simplifié seulement pour comparer les deux méthodes de division des propriétés de l’entité.
@@ -88,7 +89,7 @@ Il existe cependant des scénarios où faire référence à une propriété peut
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Modélisation des relations avec les sens des arêtes
 
-Une fois les sommets modélisés, les arêtes peuvent être ajoutées pour indiquer les relations entre ceux-ci. Le premier aspect qui doit être évalué est le **sens de la relation** . 
+Une fois les sommets modélisés, les arêtes peuvent être ajoutées pour indiquer les relations entre ceux-ci. Le premier aspect qui doit être évalué est le **sens de la relation**. 
 
 Les objets arête ont un sens par défaut qui est suivi par une traversée lors de l’utilisation de la fonction `out()` ou `outE()`. L’utilisation de cette direction naturelle aboutit à un fonctionnement efficace, car tous les sommets sont stockés avec leurs arêtes sortantes. 
 
@@ -105,7 +106,7 @@ L’utilisation d’étiquettes de relation descriptives peut améliorer l’eff
 * Utilisez des termes non génériques pour étiqueter une relation.
 * Associez l’étiquette du sommet source à l’étiquette du sommet cible avec le nom de la relation.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modèle d’entité avec des sommets pour les propriétés." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exemples d’étiquetage des relations." border="false":::
 
 Plus l’étiquette utilisée par la traversée pour filtrer les arêtes sera spécifique, meilleur sera le résultat. Cette décision peut également avoir un impact significatif sur le coût des requêtes. Vous pouvez évaluer le coût des requêtes à tout moment [en utilisant l’étape executionProfile](graph-execution-profile.md).
 

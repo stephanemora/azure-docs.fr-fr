@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908051"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323793"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -30,7 +30,7 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 
 
 > [!TIP]
-> Si vous ne connaissez pas l’évaluation du modèle, nous vous recommandons la série de vidéos du Dr. Stephen Elston, dans le cadre du [cours de Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) à partir d’EdX. 
+> Si vous ne connaissez pas l’évaluation du modèle, nous vous recommandons la série de vidéos du Dr. Stephen Elston, dans le cadre du [cours de Machine Learning](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) à partir d’EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Comment utiliser le modèle Evaluate
@@ -39,6 +39,14 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
     > Si vous utilisez des modules tels que « Sélectionner des colonnes dans le jeu de données » pour sélectionner une partie du jeu de données d’entrée, vérifiez que la colonne « Étiquette réelle » (utilisée dans l’apprentissage), la colonne « Probabilités notées » et la colonne « Étiquettes notées » existent pour calculer les métriques telles que l’AUC, la précision pour la classification binaire et la détection des anomalies.
     > Les colonnes « Étiquette réelle » et « Étiquettes notées » existent pour calculer les métriques pour la classification/régression multiclasse.
     > Les colonnes « Attributions », « DistancesToClusterCenter no.X » (X est l’index des centroïdes, qui est compris entre 0, ..., le nombre de centroïdes-1) existent pour calculer les métriques de clustering.
+
+    > [!IMPORTANT]
+    > + Pour évaluer les résultats, le jeu de données de sortie doit contenir des noms de colonnes de score spécifiques, qui répondent aux exigences du module Evaluate Model (Évaluer le modèle).
+    > + La colonne `Labels` sera considérée comme des étiquettes réelles.
+    > + Pour la tâche de régression, le jeu de données à évaluer doit avoir une colonne, nommée `Regression Scored Labels`, qui représente les étiquettes associées à un score.
+    > + Pour la tâche de classification binaire, le jeu de données à évaluer doit avoir deux colonnes, nommées `Binary Class Scored Labels`,`Binary Class Scored Probabilities`, qui représentent respectivement les étiquettes associées à un score et les probabilités.
+    > + Pour la tâche de classification multiple, le jeu de données à évaluer doit avoir une colonne, nommée `Multi Class Scored Labels`, qui représente les étiquettes associées à un score.
+    > Si les sorties du module en amont ne contiennent pas ces colonnes, vous devez les modifier conformément à la configuration requise ci-dessus.
 
 2. [Facultatif] Connectez la sortie du **Jeu de données noté** du module [Noter un modèle](./score-model.md) ou la sortie du Jeu de données de résultats du module Attribuer des données à des clusters au port d’entrée du second modèle de **droite** du module **Évaluer le modèle**. Vous pouvez facilement comparer les résultats de deux modèles différents sur les mêmes données. Les deux algorithmes d'entrée doivent être du même type. Vous pouvez également comparer les scores de deux exécutions différentes sur les mêmes données avec des paramètres différents.
 
@@ -49,14 +57,14 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 
 ## <a name="results"></a>Résultats
 
-Après avoir exécuté **Évaluer le modèle**, sélectionnez le module pour ouvrir le volet de navigation **Évaluer le modèle** à droite.  Ensuite, choisissez l’onglet **Sorties + journaux**, puis, sous cet onglet, la section **Sorties de données** comporte plusieurs icônes. L’icône **Visualiser** contient une icône de graphique à barres et est une première façon de voir les résultats.
+Après avoir exécuté **Évaluer le modèle** , sélectionnez le module pour ouvrir le volet de navigation **Évaluer le modèle** à droite.  Ensuite, choisissez l’onglet **Sorties + journaux** , puis, sous cet onglet, la section **Sorties de données** comporte plusieurs icônes. L’icône **Visualiser** contient une icône de graphique à barres et est une première façon de voir les résultats.
 
-Pour la classification binaire, après avoir cliqué sur l’icône **Visualiser**, vous pouvez visualiser la matrice de confusion binaire.
+Pour la classification binaire, après avoir cliqué sur l’icône **Visualiser** , vous pouvez visualiser la matrice de confusion binaire.
 Pour la multiclassification, vous trouverez le fichier de tracé de la matrice de confusion sous l’onglet **Sorties + journaux** comme suit :
 > [!div class="mx-imgBorder"]
 > ![Aperçu de l’image chargée](media/module/multi-class-confusion-matrix.png)
 
-Si vous connectez des jeux de données aux deux entrées du module **Évaluer le modèle**, les résultats contiennent des métriques pour les deux jeux de données ou les deux modèles.
+Si vous connectez des jeux de données aux deux entrées du module **Évaluer le modèle** , les résultats contiennent des métriques pour les deux jeux de données ou les deux modèles.
 Le modèle ou les données associés au port de gauche apparaissent en premier dans le rapport, suivis des métriques pour le jeu de données ou le modèle associé au port de droite.  
 
 Par exemple, l’image suivante représente une comparaison des résultats de deux modèles de clustering qui ont été créés sur les mêmes données, mais avec des paramètres différents.  
@@ -78,7 +86,7 @@ Cette section décrit les métriques retournées pour les types spécifiques de 
 
 Les métriques suivantes sont rapportées lors de l’évaluation de modèles de classification binaire.
   
--   L’**exactitude** mesure l’adéquation d’un modèle de classification sous forme de proportion de résultats réels sur le nombre total de cas.  
+-   L’ **exactitude** mesure l’adéquation d’un modèle de classification sous forme de proportion de résultats réels sur le nombre total de cas.  
   
 -   La **précision** correspond à la proportion de résultats réels sur tous les résultats positifs. Précision = TP/(TP+FP)  
   
@@ -95,17 +103,17 @@ Les métriques retournées pour les modèles de régression sont conçues pour e
   
  Les métriques suivantes sont rapportées lors de l’évaluation de modèles de régression.
   
-- L’**erreur absolue moyenne (MAE)** mesure la précision des prédictions par rapport aux résultats réels ; un score inférieur est donc préférence.  
+- L’ **erreur absolue moyenne (MAE)** mesure la précision des prédictions par rapport aux résultats réels ; un score inférieur est donc préférence.  
   
 - La **racine carrée de l’erreur quadratique moyenne (RMSE)** crée une valeur unique qui résume l’erreur dans le modèle. En mettant la différence au carré, la métrique ne tient pas compte de la différence entre sur-prédiction et sous-prédiction.  
   
-- L’**erreur absolue relative (RAE)** est la différence absolue relative entre valeurs prévues et réelles ; elle est relative car la différence moyenne est divisée par la moyenne arithmétique.  
+- L’ **erreur absolue relative (RAE)** est la différence absolue relative entre valeurs prévues et réelles ; elle est relative car la différence moyenne est divisée par la moyenne arithmétique.  
   
-- L’**erreur quadratique relative (RSE)** normalise de manière similaire l’erreur quadratique totale des valeurs prévues en divisant par l’erreur quadratique totale des valeurs réelles.  
+- L’ **erreur quadratique relative (RSE)** normalise de manière similaire l’erreur quadratique totale des valeurs prévues en divisant par l’erreur quadratique totale des valeurs réelles.  
   
 
   
-- Le **coefficient de détermination**, généralement appelé R<sup>2</sup>, représente la puissance prédictive du modèle sous la forme d’une valeur comprise entre 0 et 1. Zéro signifie que le modèle est aléatoire ; 1 signifie qu’il convient parfaitement. Soyez toutefois vigilant dans l’interprétation de valeurs R<sup>2</sup> car des valeurs faibles peuvent être totalement normales et des valeurs élevées peuvent être suspectes.
+- Le **coefficient de détermination** , généralement appelé R <sup>2</sup>, représente la puissance prédictive du modèle sous la forme d’une valeur comprise entre 0 et 1. Zéro signifie que le modèle est aléatoire ; 1 signifie qu’il convient parfaitement. Soyez toutefois vigilant dans l’interprétation de valeurs R<sup>2</sup> car des valeurs faibles peuvent être totalement normales et des valeurs élevées peuvent être suspectes.
 
 ###  <a name="metrics-for-clustering-models"></a>Mesures pour les modèles de clustering
 
@@ -134,4 +142,4 @@ Les mesures suivantes sont rapportées lors de l’évaluation de modèles de cl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

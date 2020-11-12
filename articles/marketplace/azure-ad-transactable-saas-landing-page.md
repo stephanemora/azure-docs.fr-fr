@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378795"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348302"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Créer la page d'accueil de votre offre SaaS à vendre dans le Marketplace commercial
 
@@ -21,7 +21,7 @@ Cet article vous guide tout au long du processus de création d’une page d’a
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Vous pouvez considérer la page d’accueil comme la « salle d’attente » pour votre offre SaaS (software as a service). Une fois que l’acheteur s’est abonné à une offre, le Marketplace commercial le dirige vers la page d’accueil pour activer et configurer son abonnement à votre application SaaS. Considérez ceci comme une étape de confirmation de commande qui permet à l’acheteur de voir ce qu’il a acheté et de confirmer les détails de son compte. À l’aide d’Azure Active Directory (Azure AD) et de Microsoft Graph, vous allez activer l’authentification unique (SSO) pour l’acheteur et obtenir des informations importantes sur lui que vous pouvez utiliser pour confirmer et activer son abonnement, notamment son nom, son adresse e-mail et son organisation.
+Vous pouvez considérer la page d’accueil comme le « vestibule » de votre offre SaaS (software as a service). Une fois que l’acheteur s’est abonné à une offre, le Marketplace commercial le dirige vers la page d’accueil pour activer et configurer son abonnement à votre application SaaS. Considérez ceci comme une étape de confirmation de commande qui permet à l’acheteur de voir ce qu’il a acheté et de confirmer les détails de son compte. À l’aide d’Azure Active Directory (Azure AD) et de Microsoft Graph, vous allez activer l’authentification unique (SSO) pour l’acheteur et obtenir des informations importantes sur lui que vous pouvez utiliser pour confirmer et activer son abonnement, notamment son nom, son adresse e-mail et son organisation.
 
 Étant donné que les informations nécessaires pour activer l’abonnement sont limitées et fournies par Azure AD et Microsoft Graph, il ne devrait pas être nécessaire de demander des informations qui nécessitent plus que le consentement de base. Si vous avez besoin de détails sur l’utilisateur qui nécessitent un consentement supplémentaire pour votre application, vous devriez demander ces informations une fois l’activation de l’abonnement terminée. Ceci permet l’activation fluide de l’abonnement pour l’acheteur et diminue le risque d’abandon.
 
@@ -46,23 +46,23 @@ Les sections suivantes vous guideront tout au long du processus de création d�
 
 ## <a name="create-an-azure-ad-app-registration"></a>Créer une inscription d’application Azure AD
 
-Le marketplace commercial est entièrement intégrée à Azure AD. Les acheteurs arrivent sur le marketplace authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Après l’achat, l’acheteur passe du marketplace commercial à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’acheteur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page de [Configuration technique](plan-saas-offer.md#technical-information) de l’offre.
+Le marketplace commercial est entièrement intégrée à Azure AD. Les acheteurs arrivent sur le marketplace authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Après l’achat, l’acheteur passe du marketplace commercial à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’acheteur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page [Configuration technique](plan-saas-offer.md#technical-information) de l’offre).
 
-La première étape de l’utilisation de l’identité consiste à s’assurer que votre page d’accueil est inscrite en tant qu’application Azure AD. Inscrire l’application vous permet d’utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources utilisateur. Cela peut être considéré comme la définition de l’application, ce qui permet au service de savoir comment émettre des jetons à l’application en fonction des paramètres de l’application.
+La première étape de l’utilisation de l’identité consiste à s’assurer que votre page d’accueil est inscrite en tant qu’application Azure AD. Inscrire l’application vous permet d’utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources utilisateur. Cela peut être considéré comme la définition de l’application, ce qui permet au service de savoir comment émettre des jetons pour l’application en fonction des paramètres de l’application.
 
 ### <a name="register-a-new-application-using-the-azure-portal"></a>Inscrire une nouvelle application à l’aide du Portail Azure
 
-Pour commencer, suivez les instructions pour l’[inscription d’une nouvelle application](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Pour permettre aux utilisateurs d’autres entreprise de visiter l’application, vous devez choisir l’une des options multilocataires lorsqu’il vous est demandé qui peut utiliser l’application.
+Pour commencer, suivez les instructions pour l’[inscription d’une nouvelle application](../active-directory/develop/quickstart-register-app.md). Pour permettre aux utilisateurs d’autres entreprise de visiter l’application, vous devez choisir l’une des options multilocataires lorsqu’il vous est demandé qui peut utiliser l’application.
 
-Si vous envisagez d’interroger l’API Microsoft Graph, [configurez votre nouvelle application de manière à accéder aux API web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Lorsque vous sélectionnez les autorisations d’API pour cette application, la valeur par défaut **user.Read** suffit pour collecter des informations de base sur l’acheteur afin de rendre le processus d’intégration lisse et automatique. Ne demandez aucune autorisation d’API nommée **besoin du consentement de l’administrateur** , car cela empêchera tous les utilisateurs non-administrateurs de visiter votre page d’accueil.
+Si vous envisagez d’interroger l’API Microsoft Graph, [configurez votre nouvelle application de manière à accéder aux API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Lorsque vous sélectionnez les autorisations d’API pour cette application, la valeur par défaut **user.Read** suffit pour collecter des informations de base sur l’acheteur afin de rendre le processus d’intégration lisse et automatique. Ne demandez aucune autorisation d’API nommée **besoin du consentement de l’administrateur** , car cela empêchera tous les utilisateurs non-administrateurs de visiter votre page d’accueil.
 
-Si vous avez besoin d’autorisations élevées dans le cadre de votre processus d’intégration ou de configuration, envisagez d’utiliser la fonctionnalité de [consentement incrémentiel](https://aka.ms/incremental-consent) d’Azure AD afin que tous les acheteurs envoyés par le marketplace puissent interagir initialement avec la page d’accueil.
+Si vous avez besoin d’autorisations élevées dans le cadre de votre processus d’intégration ou de configuration, envisagez d’utiliser la fonctionnalité de [consentement incrémentiel](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) d’Azure AD afin que tous les acheteurs envoyés par le marketplace puissent interagir initialement avec la page d’accueil.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Utiliser un exemple de code comme point de départ
 
 Nous avons fourni plusieurs exemples d’applications qui implémentent un site web simple avec la connexion Azure AD activée. Une fois que votre application est inscrite dans Azure AD, le panneau **Démarrage rapide** propose une liste de types d’applications et de piles de développement courants, comme le montre la figure 1. Choisissez ce qui correspond à votre environnement et suivez les instructions de téléchargement et d’installation.
 
-***Figure 1 : Panneau Mobile Démarrage rapide dans le portail Azure***
+**_Figure 1 : Panneau Démarrage rapide dans le portail Azure_* _
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Montre le panneau de démarrage rapide dans le portail Azure.":::
 
@@ -75,7 +75,7 @@ Cet article présente une version simplifiée de l’architecture permettant d�
 - Tout d’abord, l’application de page d’accueil multilocataire décrite jusqu’à présent, à l’exception de la fonctionnalité permettant de contacter les API de traitement SaaS. Cette fonctionnalité sera déchargée vers une autre application, comme décrit ci-dessous.
 - Deuxièmement, une application qui possède les communications avec les API de traitement SaaS. Cette application doit être un locataire unique, utilisée uniquement par votre organisation, et une liste de contrôle d’accès peut être établie pour que l’accès aux API soit possible uniquement à partir de cette application.
 
-Cela permet à la solution de fonctionner dans des scénarios qui observent le principe de [séparation des préoccupations](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns). Par exemple, la page d’accueil utilise la première application Azure AD inscrite pour se connecter à l’utilisateur. Une fois que l’utilisateur est connecté, la page d’accueil utilise la deuxième application Azure AD pour demander un jeton d’accès afin d’appeler l’API de traitement SaaS et l’opération de résolution.
+Cela permet à la solution de fonctionner dans des scénarios qui observent le principe de [séparation des préoccupations](/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns). Par exemple, la page d’accueil utilise la première application Azure AD inscrite pour se connecter à l’utilisateur. Une fois que l’utilisateur est connecté, la page d’arrivée utilise la deuxième application Azure AD pour demander un jeton d’accès afin d’appeler celui de l’API de traitement SaaS et appeler l’opération de résolution.
 
 ## <a name="resolve-the-marketplace-purchase-identification-token"></a>Résoudre le jeton d’identification d’achat du marketplace
 
@@ -94,7 +94,7 @@ Les API de traitement SaaS implémentent le point de terminaison [résoudre](./p
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Lire les informations des revendications encodées dans le jeton d’ID
 
-Dans le cadre du flux [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc), Azure AD ajoute un [jeton d’ID](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) à la demande lorsque l’acheteur est envoyé à la page d’accueil. Ce jeton contient plusieurs éléments d’informations de base qui peuvent être utiles lors du processus d’activation, notamment les informations affichées dans ce tableau.
+Dans le cadre du flux [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md), Azure AD ajoute un [jeton d’ID](../active-directory/develop/id-tokens.md) à la demande lorsque l’acheteur est envoyé à la page d’accueil. Ce jeton contient plusieurs éléments d’informations de base qui peuvent être utiles lors du processus d’activation, notamment les informations affichées dans ce tableau.
 
 | Valeur | Description |
 | ------------ | ------------- |
@@ -109,7 +109,7 @@ Dans le cadre du flux [OpenID Connect](https://docs.microsoft.com/azure/active-d
 
 ## <a name="use-the-microsoft-graph-api"></a>Utiliser l’API Microsoft Graph
 
-Le jeton d’ID contient des informations de base pour identifier l’acheteur, mais votre processus d’activation peut nécessiter des détails supplémentaires, tels que l’entreprise de l’acheteur, pour finaliser le processus d’intégration. Utilisez l’[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) pour demander ces informations afin de ne pas forcer l’utilisateur à entrer de nouveau ces détails. Les autorisations standard **user.Read** incluent par défaut les informations suivantes.
+Le jeton d’ID contient des informations de base pour identifier l’acheteur, mais votre processus d’activation peut nécessiter des détails supplémentaires, tels que l’entreprise de l’acheteur, pour finaliser le processus d’intégration. Utilisez l’[API Microsoft Graph](/graph/use-the-api) pour demander ces informations afin de ne pas forcer l’utilisateur à entrer de nouveau ces détails. Les autorisations standard _ *User.Read* * incluent par défaut les informations suivantes.
 
 | Valeur | Description |
 | ------------ | ------------- |
@@ -118,13 +118,13 @@ Le jeton d’ID contient des informations de base pour identifier l’acheteur, 
 | jobTitle | Fonction de l’utilisateur. |
 | mail | Adresse SMTP de l’utilisateur. |
 | mobilePhone | Numéro de portable principal de l’utilisateur. |
-| preferredLanguage | Code ISO 639-1 de la langue par défaut de l'utilisateur. |
+| preferredLanguage | Code ISO 639-1 de la langue par défaut de l’utilisateur. |
 | surname | Nom de l’utilisateur. |
 |||
 
-Des propriétés supplémentaires, telles que le nom de la société de l’utilisateur ou l’emplacement de l’utilisateur (pays), peuvent être sélectionnées pour être incluses dans la demande. Pour plus d’informations, consultez [propriétés du type de ressource utilisateur](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties).
+Des propriétés supplémentaires, telles que le nom de la société de l’utilisateur ou l’emplacement de l’utilisateur (pays), peuvent être sélectionnées pour être incluses dans la demande. Pour plus d’informations, consultez [propriétés du type de ressource utilisateur](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties).
 
-La plupart des applications inscrites à Azure AD accordent des autorisations déléguées de lecture des informations de l’utilisateur à partir du locataire Azure AD de son entreprise. Toute demande d’informations de ce type adressée à Microsoft Graph doit être accompagnée d’un jeton d’accès pour l’authentification. Les étapes spécifiques pour générer le jeton d’accès dépendent de la pile de technologies que vous utilisez, mais l’exemple de code contient un exemple. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](https://docs.microsoft.com/graph/auth-v2-user).
+La plupart des applications inscrites à Azure AD accordent des permissions déléguées de lecture des informations de l’utilisateur à partir du locataire Azure AD de son entreprise. Toute demande d’informations de ce type adressée à Microsoft Graph doit être accompagnée d’un jeton d’accès pour l’authentification. Les étapes spécifiques pour générer le jeton d’accès dépendent de la pile de technologies que vous utilisez, mais l’exemple de code contient un exemple. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](/graph/auth-v2-user).
 
 > [!NOTE]
 > Les comptes du locataire MSA (avec ID de locataire ``9188040d-6c67-4c5b-b112-36a304b66dad``) ne retourneront pas plus d’informations que ce qui a déjà été collecté avec le jeton d’ID. Vous pouvez donc ignorer cet appel à l’API Graph pour ces comptes.

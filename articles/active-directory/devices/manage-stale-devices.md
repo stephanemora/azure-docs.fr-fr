@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825974"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083182"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -55,11 +55,11 @@ Vous pouvez récupérer la valeur du timestamp d’activité de deux façons :
 
 - Colonne **Activité** de la [page des appareils](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) dans le Portail Azure
 
-    ![Timestamp d’activité](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Capture d’écran d’une page du portail Azure répertoriant le nom, le propriétaire et d’autres informations sur les appareils. Une colonne répertorie le timestamp de l’activité." border="false":::
 
 - Cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    ![Timestamp d’activité](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Capture d’écran montrant la sortie de la ligne de commande. Une ligne est mise en évidence et répertorie un timestamp pour la valeur ApproximateLastLogonTimeStamp." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planifier le nettoyage de vos appareils obsolètes
 
@@ -98,7 +98,7 @@ Vos appareils joints à une version hybride d’Azure AD doivent respecter vos s
 Pour nettoyer l’environnement Azure AD :
 
 - **Appareils Windows 10** : désactivez ou supprimez les appareils Windows 10 dans votre environnement AD local, et laissez Azure AD Connect synchroniser l’état modifié des appareils sur Azure AD.
-- **Windows 7/8** : commencez par désactiver ou supprimer les appareils Windows 7/8 dans votre service AD local. Vous ne pouvez pas utiliser Azure AD Connect pour désactiver ou supprimer des appareils Windows 7/8 dans Azure AD. Au lieu de cela, quand vous apportez la modification à votre service local, vous devez désactiver/supprimer les appareils dans Azure AD.
+- **Windows 7/8**  : commencez par désactiver ou supprimer les appareils Windows 7/8 dans votre service AD local. Vous ne pouvez pas utiliser Azure AD Connect pour désactiver ou supprimer des appareils Windows 7/8 dans Azure AD. Au lieu de cela, quand vous apportez la modification à votre service local, vous devez désactiver/supprimer les appareils dans Azure AD.
 
 > [!NOTE]
 >* La suppression d’appareils dans votre service AD local ou Azure AD ne supprime pas l’inscription sur le client. Elle empêche uniquement d’accéder aux ressources en utilisant l’appareil en tant qu’identité (accès conditionnel, par exemple). Pour plus d’informations, reportez-vous à la section sur la [suppression de l’inscription sur le client](faq.md#hybrid-azure-ad-join-faq).

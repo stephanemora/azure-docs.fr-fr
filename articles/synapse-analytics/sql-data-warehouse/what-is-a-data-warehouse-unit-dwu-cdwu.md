@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfcd9c6430deea948804ba8c1d37e404b1897c5f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461984"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311884"
 ---
 # <a name="data-warehouse-units-dwus"></a>Data Warehouse Units (DWUs)
 
@@ -24,7 +24,7 @@ Suggestions pour choisir le nombre idéal de Data Warehouse Units (DWU) en vue d
 
 ## <a name="what-are-data-warehouse-units"></a>Que sont les Data Warehouse Units ?
 
-Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) représente une collection de ressources analytiques en cours d’approvisionnement. Les ressources analytiques sont définies comme une combinaison d’UC, de mémoire et d’E/S.
+Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) représente une collection de ressources analytiques en cours d’approvisionnement. Les ressources analytiques sont définies comme une combinaison d’UC, de mémoire et d’E/S.
 
 Ces trois ressources sont regroupées dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances.
 
@@ -34,8 +34,8 @@ Pour un meilleur niveau de performance, vous pouvez augmenter le nombre de DWU. 
 
 Les performances des DWU sont basées sur les métriques de charge de travail d’entrepôt de données suivantes :
 
-- À quelle vitesse une requête de pool SQL standard peut analyser un grand nombre de lignes avant d’effectuer une agrégation complexe. C’est une opération très gourmande en E/S et en UC.
-- À quelle vitesse un pool SQL peut ingérer des données provenant d’Azure Storage Blob ou d’Azure Data Lake. C’est une opération très gourmande en réseau et en UC.
+- À quelle vitesse une requête de pool SQL dédié standard peut analyser un grand nombre de lignes avant d’effectuer une agrégation complexe. C’est une opération très gourmande en E/S et en UC.
+- À quelle vitesse un pool SQL dédié peut ingérer des données provenant d’Azure Storage Blob ou d’Azure Data Lake. C’est une opération très gourmande en réseau et en UC.
 - Rapidité avec laquelle la commande T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) peut copier une table. Cette opération implique la lecture des données sur le système de stockage, leur distribution entre les nœuds de l’appliance et la réécriture dans le système de stockage. Cette opération est très gourmande en UC, E/S et réseau.
 
 Augmentation du nombre de DWU :
@@ -48,12 +48,12 @@ Augmentation du nombre de DWU :
 
 L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour Gen2 sont mesurés en unités cDWU (compute Data Warehouse Unit), par exemple DW2000C. Les niveaux de service Gen1 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000.
 
-L’objectif de niveau de service (SLO) est le paramètre de scalabilité qui détermine le coût et le niveau de performance de votre pool SQL. Les niveaux de service pour le pool SQL Gen2 sont mesurés en Data Warehouse Units (DWU), par exemple DW2000c.
+L’objectif de niveau de service est le paramètre de scalabilité qui détermine le coût et le niveau de performance de votre pool SQL dédié. Les niveaux de service pour le pool SQL dédié Gen2 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 a récemment ajouté des fonctionnalités de mise à l’échelle supplémentaires pour prendre en charge les niveaux de calcul inférieurs de 100 cDWU. Les entrepôts de données Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine les niveaux de service et de performance de votre pool SQL.
+Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine le niveau de service et le niveau de performance de votre pool SQL dédié.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -88,7 +88,7 @@ Le nombre idéal de DWU dépend en grande partie de votre charge de travail et d
 2. Surveillez les performances de votre application pendant le test des charges de données dans le système, en observant notamment le nombre de DWU sélectionné.
 3. Identifiez des besoins supplémentaires pour les périodes ponctuelles de pics d’activité. Les charges de travail présentant d'importantes variations d'activité doivent être fréquemment mises à l’échelle.
 
-Le pool SQL est un système de Scale-out qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données.
+Le pool SQL dédié est un système de Scale-out qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données.
 
 Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élevé de DWU, nous vous recommandons d’effectuer la mise à l’échelle de l’ensemble de données en vous assurant que vous disposez de suffisamment de données pour alimenter les UC. Pour le test de mise à l’échelle, nous recommandons d’utiliser au moins 1 To.
 
@@ -98,7 +98,7 @@ Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élev
 
 ## <a name="permissions"></a>Autorisations
 
-La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Les rôles intégrés Azure, comme Contributeur de base de données SQL et Contributeur de SQL Server, peuvent changer les paramètres des DWU.
 
@@ -127,7 +127,7 @@ Pour modifier les DWU :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com), ouvrez votre base de données, puis cliquez sur **Mettre à l’échelle**.
 
-2. Sous **Mettre à l’échelle**, déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
+2. Sous **Mettre à l’échelle** , déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
 
 3. Cliquez sur **Enregistrer**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
 
@@ -150,7 +150,7 @@ Avec T-SQL, vous pouvez afficher les paramètres actuels de DWU, les modifier et
 Pour modifier les unités DWU :
 
 1. Connectez-vous à la base de données MASTER associée à votre serveur.
-2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW.
+2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -204,7 +204,7 @@ FROM      sys.databases
     ;
     ```
 
-Cette vue de gestion dynamique renvoie des informations sur diverses opérations de gestion de votre pool SQL, comme l’opération et l’état de l’opération, qui a la valeur IN_PROGRESS ou COMPLETED.
+Cette vue de gestion dynamique retourne des informations sur différentes opérations de gestion de votre pool SQL dédié, comme l’opération et l’état de l’opération, qui est IN_PROGRESS ou COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>Flux de travail de mise à l’échelle
 

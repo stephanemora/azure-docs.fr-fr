@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130542"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Blob Azure pour gérer les prospects de la Place de marché commerciale
 
@@ -33,7 +33,7 @@ ms.locfileid: "86121909"
 3. Dans le portail Microsoft Azure, créez un compte de stockage à l’aide de la procédure suivante.  
     1. Dans la barre de menus de gauche, sélectionnez **+ Créer une ressource**.  Le volet **Nouveau** (panneau) est affiché sur la droite.
     2. Sélectionnez **Stockage** dans le volet **Nouveau**.  Une liste **Sélection** est affichée sur la droite.
-    3. Sélectionnez le **Compte de stockage** pour commencer à créer un compte.  Suivez les instructions de l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    3. Sélectionnez le **Compte de stockage** pour commencer à créer un compte.  Suivez les instructions de l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Procédure de création d’un compte Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -43,23 +43,23 @@ ms.locfileid: "86121909"
 
     ![Accéder à votre compte de stockage Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-access.png)
 
-5. Dans le volet de votre compte de stockage, sélectionnez **Clés d’accès**, puis copiez la valeur *Chaîne de connexion* pour la clé. Enregistrez cette valeur, car il s’agit de la valeur de *Chaîne de connexion de compte de stockage* que vous devez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché.
+5. Dans le volet de votre compte de stockage, sélectionnez **Clés d’accès** , puis copiez la valeur *Chaîne de connexion* pour la clé. Enregistrez cette valeur, car il s’agit de la valeur de *Chaîne de connexion de compte de stockage* que vous devez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché.
 
-     Voici un exemple de chaîne de connexion :
+     Voici un exemple de chaîne de connexion :
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Clé de stockage Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Capture d’écran montrant la page « Clés d’accès » avec la zone de texte « Chaîne de connexion » en évidence.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
 6. Dans la page de votre compte de stockage, sélectionnez **Objets blob**.
 
-   ![Clé de stockage Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Capture d’écran de la page du compte de stockage Azure avec l’option Blobs sélectionnée.](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Une fois sur la page des objets blob, sélectionnez le bouton **+ Conteneur**.
 
-8. Entrez un **nom** pour votre nouveau conteneur. Le nom du conteneur doit être en minuscules, commencer par une lettre ou un chiffre, et peut comporter uniquement des lettres, des chiffres et des tirets (-). Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+8. Entrez un **nom** pour votre nouveau conteneur. Le nom du conteneur doit être en minuscules, commencer par une lettre ou un chiffre, et peut comporter uniquement des lettres, des chiffres et des tirets (-). Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
     Enregistrez cette valeur, car il s’agit de la valeur de *Nom du conteneur* que vous devez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché.
 
@@ -74,7 +74,7 @@ ms.locfileid: "86121909"
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre sur le portail de publication, procédez comme suit :
 
 1. Accédez à la page **Configuration de l'offre** de votre offre.
-2. Dans la section **Prospects**, sélectionnez **Se connecter**.
+2. Dans la section **Prospects** , sélectionnez **Se connecter**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Prospects":::
 
@@ -91,5 +91,3 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 
     > [!NOTE]
     > Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.
-
-

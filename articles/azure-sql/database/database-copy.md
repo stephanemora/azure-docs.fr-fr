@@ -10,13 +10,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
-ms.date: 07/29/2020
-ms.openlocfilehash: 7a80f6ef918ac42f43eee2ccc8acae09c5008129
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/30/2020
+ms.openlocfilehash: 53e62d790514bd3fb5bef93788fa78944db28c2c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748884"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127737"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database propose plusieurs méthodes pour créer une copie d’une [ba
 Une copie de base de données est un instantané cohérent d’un point de vue transactionnel de la base de données source au moment où la demande de copie est lancée. Vous pouvez sélectionner le même serveur ou un autre serveur pour la copie. Vous pouvez aussi conserver la redondance de sauvegarde, le niveau de service et la taille de calcul de la base de données source ou utiliser une redondance de stockage de sauvegarde et une taille de calcul différentes au sein du même ou d’un autre niveau de service. Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations dans la base de données copiée sont gérés indépendamment de la base de données source. La copie est créée à l’aide de la technologie de géoréplication. Une fois l’amorçage du réplica terminé, le lien de géoréplication prend fin automatiquement. Toutes les exigences relatives à l’utilisation de la géoréplication s’appliquent à l’opération de copie de base de données. Pour plus d’informations, consultez [Présentation de la géoréplication active](active-geo-replication-overview.md).
 
 > [!NOTE]
-> La redondance configurable du stockage de sauvegarde Azure SQL Database est actuellement généralement disponible dans la région Azure Asie Sud-Est uniquement. Dans la préversion, si la base de données source est créée avec une redondance de stockage de sauvegarde localement redondante ou redondante interzone, la copie de la base de données sur un serveur dans une région Azure différente n’est pas prise en charge. 
+> La redondance configurable du stockage de sauvegarde Azure SQL Database est actuellement disponible uniquement en préversion publique dans la région Brésil Sud et mise à la disposition générale dans la région Azure Asie Sud-Est. Dans la préversion, si la base de données source est créée avec une redondance de stockage de sauvegarde localement redondante ou redondante interzone, la copie de la base de données sur un serveur dans une région Azure différente n’est pas prise en charge. 
 
 ## <a name="logins-in-the-database-copy"></a>Connexions dans la copie de la base de données
 

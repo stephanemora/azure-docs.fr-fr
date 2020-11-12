@@ -3,23 +3,41 @@ title: Guide pratique pour configurer les écritures multirégions dans Azure Co
 description: Découvrez comment configurer les fonctionnalités multirégions pour vos applications en utilisant différents SDK dans Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2b1ca8434c40eca610f95a3031e677782866e04
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486138"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342005"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multirégions dans les applications qui utilisent Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Une fois qu’un compte a été créé avec plusieurs régions d’écriture activées, vous devez apporter deux modifications à votre application pour que ConnectionPolicy et DocumentClient activent les écritures multirégions et les fonctionnalités multihébergement dans Azure Cosmos DB. Dans ConnectionPolicy, définissez UseMultipleWriteLocations sur true et passez le nom de la région où l’application est déployée à SetCurrentLocation. Cela remplira la propriété PreferredLocations en fonction de la géo-proximité à partir de l’emplacement transmis. Si une nouvelle région est ultérieurement ajoutée au compte, l’application n’aura pas à être mise à jour ou redéployée ; elle détectera automatiquement la région la plus proche et se repliera automatiquement dessus en cas d’événement régional.
 
 > [!Note]
 > Les comptes Cosmos initialement configurés avec une seule région d’écriture peuvent être configurés pour plusieurs régions d’écriture avec un temps de non-disponibilité égal à zéro. Pour en savoir plus, consultez [Configurer plusieurs régions d’écriture](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> Portail Azure
+
+Procédez comme suit pour activer les écritures multirégions à partir du portail Azure :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
+1. Accédez à votre compte Azure Cosmos et, dans le menu, ouvrez le volet **Répliquer les données globalement**.
+
+1. Sous l’option **Écritures multirégions** , choisissez **Activer**. Cela ajoute automatiquement les régions existantes aux régions en lecture et en écriture.
+
+1. Vous pouvez ajouter des régions supplémentaires en sélectionnant les icônes sur la carte ou en sélectionnant le bouton **Ajouter une région**. Toutes les régions que vous ajoutez seront disponibles en lecture et en écriture.
+
+1. Après avoir mis à jour la liste des régions, sélectionnez **Enregistrer** pour appliquer les modifications.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Capture d’écran pour permettre les écritures multirégions à l’aide du portail Azure" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>Kit SDK .NET v2
 

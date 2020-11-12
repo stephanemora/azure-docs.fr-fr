@@ -1,6 +1,6 @@
 ---
-title: Interroger des fichiers JSON à l’aide de SQL à la demande (préversion)
-description: Cette section explique comment lire des fichiers JSON à l’aide de SQL à la demande dans Azure Synapse Analytics.
+title: Interroger des fichiers JSON à l’aide d’un pool SQL serverless (préversion)
+description: Cette section explique comment lire des fichiers JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930847"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310616"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Interroger des fichiers JSON à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Interroger des fichiers JSON à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
-Cet article explique comment écrire une requête à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics. L’objectif de la requête est de lire des fichiers JSON avec [OPENROWSET](develop-openrowset.md). 
+Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics. L’objectif de la requête est de lire des fichiers JSON avec [OPENROWSET](develop-openrowset.md). 
 - Fichiers JSON standard où plusieurs documents JSON sont stockés sous la forme d’un tableau JSON.
 - Fichiers JSON délimités par des lignes où les documents JSON sont séparés par un caractère de nouvelle ligne. Les extensions courantes pour ces types de fichiers sont `jsonl`, `ldjson` et `ndjson`.
 

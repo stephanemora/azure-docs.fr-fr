@@ -5,17 +5,18 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/28/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb06fda43590198f1b2643c8362f774a031eaef9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096275"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informations de référence sur les données de monitoring Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Cet article fournit des informations de référence sur les données de journal et de métriques collectées pour analyser les performances et la disponibilité d’Azure Cosmos DB. Pour plus d’informations sur la collecte et l’analyse des données de surveillance pour Azure Cosmos DB, consultez l’article [Surveiller Azure Cosmos DB](monitor-cosmos-db.md).
 
@@ -27,7 +28,7 @@ Le tableau suivant répertorie les propriétés des journaux de ressources dans 
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Date et heure (UTC) de l’opération. |
 | **resourceId** | **Ressource** | Le compte Azure Cosmos DB pour lequel les journaux d’activité sont activés.|
-| **category** | **Catégorie** | Pour Azure Cosmos DB, les types de journaux disponibles sont **DataPlaneRequests** , **MongoRequests** , **QueryRuntimeStatistics** , **PartitionKeyStatistics** , **PartitionKeyRUConsumption** et **ControlPlaneRequests** . |
+| **category** | **Catégorie** | Pour Azure Cosmos DB, les types de journaux disponibles sont **DataPlaneRequests** , **MongoRequests** , **QueryRuntimeStatistics** , **PartitionKeyStatistics** , **PartitionKeyRUConsumption** et **ControlPlaneRequests**. |
 | **operationName** | **OperationName** | Nom de l’opération. Le nom de l’opération peut être `Create`, `Update`, `Read`, `ReadFeed`, `Delete`, `Replace`, `Execute`, `SqlQuery`, `Query`, `JSQuery`, `Head`, `HeadFeed` ou `Upsert`.   |
 | **properties** | n/a | Le contenu de ce champ est décrit dans les lignes suivantes. |
 | **activityId** | **activityId_g** | GUID unique de l’opération journalisée. |
@@ -41,13 +42,15 @@ Le tableau suivant répertorie les propriétés des journaux de ressources dans 
 | **duration** | **duration_d** | Durée de l’opération en millisecondes. |
 | **requestLength** | **requestLength_s** | Longueur de la demande, en octets. |
 | **responseLength** | **responseLength_s** | Longueur de la réponse, en octets.|
+| **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | Cette propriété indique l’ID d’autorisation du jeton de ressource que vous avez spécifié. Pour en savoir plus sur les autorisations, consultez l’article [Sécuriser l’accès à vos données](./secure-access-to-data.md#permissions). |
+| **resourceTokenPermissionMode** | **resourceTokenPermissionMode_s** | Cette propriété indique le mode d’autorisation que vous avez défini lors de la création du jeton de ressource. Elle peut avoir différentes valeurs, notamment « all » et « read ». Pour en savoir plus sur les autorisations, consultez l’article [Sécuriser l’accès à vos données](./secure-access-to-data.md#permissions). |
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Cette valeur n’est pas vide lorsque des [jetons de ressource](./secure-access-to-data.md#resource-tokens) sont utilisés pour l’authentification. La valeur pointe vers l’ID de ressource de l’utilisateur. |
 | **responseLength** | **responseLength_s** | Longueur de la réponse, en octets.|
 
 Pour obtenir la liste de toutes les catégories Azure Monitor et des liens vers les schémas associés, consultez la section consacrée aux [catégories et schémas Azure Monitor](../azure-monitor/platform/resource-logs-schema.md). 
 
 ## <a name="metrics"></a>Mesures
-Les tableaux suivants répertorient les métriques de plateforme collectées pour Azure CosmOS DB. Toutes les métriques se trouvent dans l’espace de noms **Métriques standard Cosmos DB** .
+Les tableaux suivants répertorient les métriques de plateforme collectées pour Azure CosmOS DB. Toutes les métriques se trouvent dans l’espace de noms **Métriques standard Cosmos DB**.
 
 Pour obtenir la liste de toutes les métriques de prise en charge d’Azure Monitor (y compris Azure Cosmos DB), consultez [Métriques prises en charge avec Azure Monitor](../azure-monitor/platform/metrics-supported.md). 
 

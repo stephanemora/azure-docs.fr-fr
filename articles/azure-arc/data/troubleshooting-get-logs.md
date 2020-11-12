@@ -1,6 +1,6 @@
 ---
-title: Obtenir les journaux pour résoudre les problèmes liés au contrôleur de données activé pour Azure Arc
-description: Obtenez les journaux d’activité de service pour résoudre des problèmes de contrôleur de données activé par Azure Arc.
+title: Obtenir les journaux pour résoudre les problèmes liés aux services de données Azure Arc
+description: Découvrez comment obtenir des fichiers journaux à partir d’un contrôleur de données pour résoudre les problèmes liés aux services de données Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,27 +9,27 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320198"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234039"
 ---
-# <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenir les journaux des services de données activés pour Azure Arc
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obtenir les journaux pour résoudre les problèmes liés aux services de données Azure Arc
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de continuer, vous avez besoin des éléments suivants :
+Avant de continuer, vérifiez que vous disposez des éléments suivants :
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instructions d’installation](./install-client-tools.md).
-* Un compte administrateur pour se connecter au contrôleur de services de données activés pour Azure Arc.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Pour plus d’informations, consultez [Installer les outils clients pour le déploiement et la gestion des services de données activés par Azure Arc](./install-client-tools.md).
+* Un compte administrateur pour se connecter au contrôleur de données activé par Azure Arc.
 
-## <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenir les journaux des services de données activés pour Azure Arc
+## <a name="get-log-files"></a>Obtenir les fichiers journaux
 
-Vous pouvez obtenir les journaux des services de données activés pour Azure Arc pour l’ensemble des pods ou pour des pods spécifiques à des fins de dépannage. Pour ce faire, vous pouvez utiliser les outils Kubernetes standard, comme la commande `kubectl logs`, mais, dans cet article, vous allez utiliser l’outil [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], qui permet d’obtenir plus facilement tous les journaux en même temps.
+Vous pouvez obtenir les journaux de service pour l’ensemble des pods ou pour des pods spécifiques à des fins de dépannage. L’une des méthodes consiste à utiliser les outils Kubernetes standard, tels que la commande `kubectl logs`. Dans cet article, vous allez utiliser l’outil [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], qui facilite l’extraction de tous les journaux en même temps.
 
 1. Connectez-vous au contrôleur de données avec un compte administrateur.
 
@@ -53,27 +53,27 @@ Le contrôleur de données crée les fichiers journaux dans le répertoire de tr
 
 ## <a name="options"></a>Options
 
-`azdata arc dc debug copy-logs` fournit les options suivantes pour gérer la sortie.
+La commande `azdata arc dc debug copy-logs` fournit les options suivantes pour gérer la sortie :
 
 * Sortie des fichiers journaux dans un autre répertoire en utilisant le paramètre `--target-folder`.
 * Compression des fichiers en omettant le paramètre `--skip-compress`.
-* Déclenchement et inclusion des images mémoire en omettant le paramètre `--exclude-dumps`. Cette méthode n’est pas recommandée, sauf si Support Microsoft a demandé les images mémoire. Pour collecter l’image mémoire, le paramètre `allowDumps` du contrôleur de données doit être défini sur `true` lors de la création du contrôleur de données.
+* Déclenchement et inclusion des images mémoire en omettant le paramètre `--exclude-dumps`. Nous ne recommandons pas cette méthode, sauf si Support Microsoft a demandé les images mémoire. Pour collecter une image mémoire, le paramètre `allowDumps` du contrôleur de données doit être défini sur `true` lors de la création du contrôleur de données.
 * Filtre pour collecter uniquement les journaux d’un pod (`--pod`) ou d’un conteneur (`--container`) spécifique par nom.
-* Filtre pour collecter les journaux d’une ressource personnalisée spécifique en transmettant les paramètres `--resource-kind` et `--resource-name`. La valeur du paramètre `resource-kind` doit être l’un des noms de définition de ressource personnalisée que la commande `kubectl get customresourcedefinition` peut récupérer.
+* Filtre pour collecter les journaux d’une ressource personnalisée spécifique en transmettant les paramètres `--resource-kind` et `--resource-name`. La valeur du paramètre `resource-kind` doit être l’un des noms de définition de ressource personnalisée. Vous pouvez récupérer ces noms à l’aide de la commande `kubectl get customresourcedefinition`.
 
-Avec ces paramètres, vous pouvez remplacer les `<parameters>` dans l’exemple suivant. 
+Avec ces paramètres, vous pouvez remplacer les `<parameters>` dans l’exemple suivant : 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-Par exemple
+Par exemple :
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exemple de hiérarchie de dossiers. L’arborescence des dossiers est organisée par nom de pod, puis par conteneur, et enfin par arborescence de répertoires au sein du conteneur.
+L’arborescence des dossiers suivante est un exemple. Elle est organisée par nom de pod, puis par conteneur, et enfin par arborescence de répertoires au sein du conteneur.
 
 ```output
 <export directory>

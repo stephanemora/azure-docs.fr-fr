@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074248"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protection des données dans Azure Stream Analytics 
 
@@ -67,12 +67,33 @@ Utilisez les étapes suivantes pour configurer votre compte de stockage pour des
 
 1. Renseignez la page de la tâche Stream Analytics avec les détails nécessaires, tels que le nom, la région et l’échelle. 
 
-1. Activez la case à cocher *Sécuriser tous les actifs de données privés nécessaires à ce travail dans mon compte de stockage* .
+1. Activez la case à cocher *Sécuriser tous les actifs de données privés nécessaires à ce travail dans mon compte de stockage*.
 
 1. Sélectionnez un compte de stockage dans votre abonnement. Notez qu’il n’est pas possible de modifier ce paramètre pendant le cycle de vie de la tâche. 
 
    ![Paramètres du compte de stockage de données privées](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>Ressources de données privées stockées
+
+Toutes les données privées requises que Stream Analytics doit conserver son stockées dans votre compte de stockage. Voici quelques exemples de ressources de données privées : 
+
+* Requêtes que vous avez créées et configurations associées  
+
+* Fonctions définies par l’utilisateur 
+
+* Points de contrôle nécessaires au runtime Stream Analytics
+
+* Captures instantanées de données de référence 
+
+Les détails de connexion de vos ressources, que votre tâche Stream Analytics utilise, sont également stockés. Chiffrez votre compte de stockage pour sécuriser toutes vos données. 
+
+Pour vous aider à répondre à vos obligations de conformité dans n’importe quel secteur ou environnement réglementé, apprenez-en davantage sur les [offres de conformité de Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="enables-data-residency"></a>Active la résidence des données 
+Vous pouvez utiliser cette fonctionnalité pour appliquer les exigences en matière de résidence des données que vous pouvez avoir en fournissant un compte de stockage en conséquence.
+
+## <a name="known-issues"></a>Problèmes connus
+Il existe un problème connu où un travail qui utilise une clé gérée par le client connaît des échecs lors de l’utilisation d’une identité managée pour s’authentifier auprès de toutes les entrées ou sorties. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

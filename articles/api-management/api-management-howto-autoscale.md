@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071300"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095949"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Mettre à l’échelle automatiquement une instance du service Gestion des API Azure  
 
@@ -66,7 +66,7 @@ Suivez les étapes ci-dessous pour configurer la mise à l’échelle automatiqu
 
     ![Activer la mise à l’échelle automatique dans Azure Monitor](media/api-management-howto-autoscale/03.png)
 
-6. Dans la section **Règles**, cliquez sur **+ Ajouter une règle**.
+6. Dans la section **Règles** , cliquez sur **+ Ajouter une règle**.
 
     ![Ajouter une règle de mise à l’échelle automatique dans Azure Monitor](media/api-management-howto-autoscale/04.png)
 
@@ -125,7 +125,7 @@ Suivez les étapes ci-dessous pour configurer la mise à l’échelle automatiqu
     > [!NOTE]
     > Le scale-out d’une instance du service Gestion des API Azure est limité quant au nombre d’unités. La limite dépend d’un niveau de service.
 
-    ![Règle de scale-in dans Azure Monitor](media/api-management-howto-autoscale/07.png)
+    ![Capture d’écran indiquant où définir le nombre maximal d’unités du service Gestion des API Azure.](media/api-management-howto-autoscale/07.png)
 
 13. Cliquez sur **Enregistrer**. Votre mise à l’échelle automatique a été configurée.
 

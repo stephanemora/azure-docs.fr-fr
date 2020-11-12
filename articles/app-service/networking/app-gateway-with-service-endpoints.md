@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746201"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127822"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Intégration d’Application Gateway par des points de terminaison de service
 Il existe trois variantes d’App Service qui nécessitent une configuration légèrement différente de l’intégration avec Azure Application Gateway. Les variantes incluent la version normale d’App Service, également appelée multilocataire, App Service Environment (ASE) Load Balancer interne (ILB) et ASE externe. Cet article explique comment le configurer avec App Service (multilocataire) et aborde les considérations relatives aux ASE ILB et externe.
@@ -27,7 +27,7 @@ Il existe trois variantes d’App Service qui nécessitent une configuration lé
 ## <a name="integration-with-app-service-multi-tenant"></a>Intégration à App Service (multilocataire)
 App Service (multilocataire) dispose d’un point de terminaison public accessible sur Internet. À l’aide des [points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md), vous pouvez autoriser le trafic uniquement à partir d’un sous-réseau spécifique au sein d’un réseau virtuel Azure et bloquer tout le reste. Dans le scénario suivant, nous allons utiliser cette fonctionnalité pour nous assurer qu’une instance App Service peut uniquement recevoir le trafic d’une instance Application Gateway spécifique.
 
-![Intégration d’Application Gateway avec App Service](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![Diagramme montrant le flux Internet qui se dirige vers une passerelle applicative dans un réseau virtuel Azure et, de là, traverse une icône de pare-feu pour continuer vers des instances d’applications dans App Service.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
 Cette configuration comprend deux parties, en plus de la création des instances App Service et Application Gateway. La première partie consiste à activer des points de terminaison de service dans le sous-réseau du réseau virtuel sur lequel Application Gateway est déployé. Les points de terminaison de service garantissent que tout le trafic qui quitte le sous-réseau vers App Service sera marqué avec l’ID spécifique du sous-réseau. La deuxième partie consiste à définir une restriction d’accès de l’application web spécifique pour garantir que seul le trafic marqué avec cet ID de sous-réseau spécifique est autorisé. Vous pouvez le configurer à l’aide de différents outils, selon vos préférences.
 
@@ -40,7 +40,7 @@ Avec Portail Azure, vous suivez quatre étapes pour approvisionner et configurer
 
 Vous pouvez maintenant accéder au App Service via Application Gateway, mais si vous essayez d’y accéder directement, vous devriez recevoir une erreur HTTP 403 indiquant que le site web est arrêté.
 
-![Intégration d’Application Gateway avec App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Capture d’écran montrant le texte d’une erreur 403 : Cette application web est arrêtée.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
 Le [modèle de déploiement Resource Manager][template-app-gateway-app-service-complete] fournira un scénario complet. Le scénario se compose d’une instance App Service verrouillée par des points de terminaison de service et une restriction d’accès pour recevoir uniquement le trafic provenant d’Application Gateway. Le modèle comprend de nombreuses valeurs Smart Defaults et des suffixes uniques ajoutés aux noms des ressources pour qu’ils soient simples. Pour les remplacer, vous devez cloner le référentiel ou télécharger le modèle pour le modifier. 

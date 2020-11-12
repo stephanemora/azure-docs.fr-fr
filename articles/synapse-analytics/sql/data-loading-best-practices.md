@@ -1,6 +1,6 @@
 ---
 title: Bonnes pratiques pour le chargement de données
-description: Recommandations et optimisation des performances pour le chargement de données dans SQL Synapse
+description: Recommandations et optimisation des performances pour le chargement de données dans un pool SQL dédié Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289229"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321501"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Bonnes pratiques de chargement de données pour l’entreposage de données
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Meilleures pratiques pour le chargement de données dans un pool SQL dédié Azure Synapse Analytics
 
 Cet article présente des recommandations et des optimisations des performances pour le chargement de données.
 
 ## <a name="prepare-data-in-azure-storage"></a>Préparer les données dans le Stockage Azure
 
-Afin de réduire la latence, colocalisez votre couche de stockage et votre entrepôt de données.
+Pour réduire la latence, colocalisez votre couche de stockage et votre pool SQL dédié.
 
 Lorsque vous exportez des données dans un format de fichier ORC, vous pouvez obtenir des erreurs Java de mémoire insuffisante lorsqu’il existe des colonnes de texte de grande taille. Pour contourner cette limitation, exportez uniquement un sous-ensemble de ces colonnes.
 
@@ -36,7 +36,7 @@ Fractionnez les fichiers compressés volumineux en plusieurs petits fichiers com
 
 ## <a name="run-loads-with-enough-compute"></a>Exécution de charges avec suffisamment de ressources de calcul
 
-Pour une vitesse de chargement plus élevée, exécutez un seul travail de chargement à la fois. Si cela n’est pas possible, exécutez simultanément un nombre minimal de charges. Si vous prévoyez un travail de chargement volumineux, envisagez l’augmentation de l’échelle de votre pool SQL avant le chargement.
+Pour une vitesse de chargement plus élevée, exécutez un seul travail de chargement à la fois. Si cela n’est pas possible, exécutez simultanément un nombre minimal de charges. Si vous prévoyez un travail de chargement volumineux, envisagez d’effectuer un scale-up de votre pool SQL dédié avant le chargement.
 
 Pour exécuter des charges avec des ressources de calcul appropriées, créez des utilisateurs de chargement désignés pour cette tâche. Attribuez chaque utilisateur de chargement à une classe de ressources ou à un groupe de charge de travail spécifique. Pour exécuter une charge, connectez-vous en tant qu’utilisateur de chargement, puis exécutez la charge. La charge s’exécute avec la classe de ressources de l’utilisateur.  Cette méthode est plus simple que d’essayer de modifier la classe de ressources d’un utilisateur pour répondre au besoin de la classe de ressources actuelle.
 

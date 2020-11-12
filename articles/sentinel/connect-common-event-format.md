@@ -1,6 +1,6 @@
 ---
 title: Connecter des données CEF à Azure Sentinel en préversion | Microsoft Docs
-description: Connectez une solution externe qui envoie des messages CEF (Common Event format) à Azure Sentinel en utilisant une machine Linux en tant que proxy.
+description: Connectez une solution externe qui envoie des messages CEF (Common Event Format) à Azure Sentinel en utilisant une machine Linux en tant que redirecteur de journaux.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747909"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347605"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
 
@@ -50,40 +50,49 @@ Pour utiliser la communication TLS entre la source Syslog et le redirecteur Sysl
  
 ## <a name="prerequisites"></a>Prérequis
 
-Assurez-vous que la machine Linux que vous utilisez en tant que proxy exécute l’un des systèmes d’exploitation suivants :
+Assurez-vous que la machine Linux que vous utilisez en tant que redirecteur de journaux exécute l’un des systèmes d’exploitation suivants :
 
 - 64 bits
-  - CentOS 7 et les sous-versions, et les versions ultérieures (pas la version 6)
+  - CentOS 7 et 8, y compris les sous-versions (pas la version 6)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 et les sous-versions, et les versions ultérieures (pas la version 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 et 8, y compris les sous-versions (pas la version 6)
   - Debian GNU/Linux 8 et 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12 et15
+
 - 32 bits
-   - CentOS 7
-   - Oracle Linux 7
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 et 9
-   - Ubuntu Linux 14.04 LTS et 16.04 LTS
+  - CentOS 7 et 8, y compris les sous-versions (pas la version 6)
+  - Oracle Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 et 8, y compris les sous-versions (pas la version 6)
+  - Debian GNU/Linux 8 et 9
+  - Ubuntu Linux 14.04 LTS et 16.04 LTS
  
- - Versions du démon
-   - Syslog-ng : 2.1 - 3.22.1
-   - Rsyslog : v8
+- Versions du démon
+  - Syslog-ng : 2.1 - 3.22.1
+  - Rsyslog : v8
   
- - RFC Syslog pris en charge
-   - RFC Syslog 3164
-   - RFC Syslog 5424
+- RFC Syslog pris en charge
+  - RFC Syslog 3164
+  - RFC Syslog 5424
  
 Assurez-vous que votre machine répond également aux exigences suivantes : 
+
 - Autorisations
-    - Vous devez disposer d’autorisations élevées (sudo) sur votre machine. 
+  - Vous devez disposer d’autorisations élevées (sudo) sur votre machine. 
+
 - Configuration logicielle requise
-    - Vérifiez que Python 2.7 est en cours d’exécution sur votre machine.
+  - Vérifiez que Python 2.7 est en cours d’exécution sur votre machine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous avez appris à connecter les appliances CEF à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+Dans ce document, vous avez découvert la façon dont Azure Sentinel collecte les journaux CEF des appliances et des solutions de sécurité. Pour savoir comment connecter votre solution à Azure Sentinel, consultez les articles suivants :
+
+- ÉTAPE 1 : [Connecter CEF en déployant un redirecteur Syslog/CEF](connect-cef-agent.md)
+- ÉTAPE 2 : [Effectuez les étapes spécifiques à la solution](connect-cef-solution-config.md)
+- ÉTAPE 3 : [Vérifiez la connectivité](connect-cef-verify.md)
+
+Pour en savoir plus sur la procédure à suivre avec les données que vous avez collectées dans Azure Sentinel, consultez les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
 

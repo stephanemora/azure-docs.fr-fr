@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676290"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322059"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Créer des flux de travail avec état ou sans état dans Visual Studio Code avec l’extension Azure Logic Apps (préversion)
 
@@ -106,7 +106,7 @@ Pour cette préversion publique, ces fonctionnalités ne sont pas disponibles ou
 
 * Pour démarrer votre flux de travail, utilisez le [déclencheur de demande, HTTP, Event Hubs ou Service Bus intégré](../connectors/apis-list.md) qui s’exécute en mode natif avec le runtime Logic Apps. Actuellement, les [connecteurs entreprise](../connectors/apis-list.md#enterprise-connectors), les [déclencheurs de passerelle de données locale](../connectors/apis-list.md#on-premises-connectors), les déclencheurs basés sur webhook, le déclencheur de fenêtre glissante, les [connecteurs personnalisés](../connectors/apis-list.md#custom-apis-and-connectors), les comptes d’intégration, leurs artefacts et [leurs connecteurs](../connectors/apis-list.md#integration-account-connectors) ne sont pas pris en charge dans cette préversion. La capacité « appeler une fonction Azure » n’est pas disponible. Pour l’instant, utilisez l’ *action* HTTP pour appeler l’URL de requête pour la fonction Azure.
 
-  À l’exception des déclencheurs spécifiés précédemment, les workflows *avec état* peuvent utiliser des déclencheurs et des actions pour les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors) déployés dans Azure. Actuellement, les flux de travail *sans état* prennent uniquement en charge les *actions* pour des connecteurs managés, pas pour des déclencheurs. Bien que vous ayez la possibilité d’activer des connecteurs dans Azure pour votre flux de travail sans état, le concepteur n’affiche aucun déclencheur de connecteur managé à sélectionner.
+  À l’exception des déclencheurs spécifiés précédemment, les workflows *avec état* peuvent utiliser des déclencheurs et des actions pour les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors) déployés dans Azure par opposition aux déclencheurs et actions intégrés qui s’exécutent en mode natif avec le runtime Logic Apps. Actuellement, les flux de travail *sans état* prennent uniquement en charge les *actions* pour des connecteurs managés, pas pour des déclencheurs. Bien que vous puissiez activer des connecteurs dans Azure pour votre workflow sans état, le concepteur n’affiche aucun déclencheur de connecteur managé à sélectionner.
 
 * Vous pouvez déployer le nouveau type de ressource **Application logique (préversion)** uniquement dans un [plan d’hébergement Premium ou App Service dans Azure](#publish-azure) ou dans un [conteneur Docker](#deploy-docker), et non dans des [environnements de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Les plans d’hébergement dits **de consommation** ne sont pas pris en charge ni disponibles pour le déploiement de ce type de ressource.
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065479"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323133"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Créer un point de terminaison privé managé pour votre source de données (version préliminaire)
 
@@ -21,12 +21,11 @@ Cet article explique comment créer un point de terminaison privé managé pour 
 
 ## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Étape 1 : Ouvrir votre espace de travail Azure Synapse dans le portail Azure
 
-Vous pouvez créer un point de terminaison privé managé pour votre source de données à partir d’Azure Synapse Studio. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble**, puis sélectionnez **Lancer Synapse Studio**.
-![Lancer Azure Synapse Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+Vous pouvez créer un point de terminaison privé managé pour votre source de données à partir d’Azure Synapse Studio. Sélectionnez l’onglet **Vue d’ensemble** dans Portail Azure et sélectionnez **Ouvrir** sur la carte Ouvrir Synapse Studio dans la section Démarrage.
 
 ## <a name="step-2-navigate-to-the-managed-virtual-networks-tab-in-synapse-studio"></a>Étape 2 : Accéder à l’onglet Réseaux virtuels gérés dans Synapse Studio
 
-Dans Azure Synapse Studio, dans le volet de navigation gauche, sélectionnez l’onglet **Gérer**. Sélectionnez **Réseaux virtuels gérés**, puis **+ nouveau**.
+Dans Azure Synapse Studio, dans le volet de navigation gauche, sélectionnez l’onglet **Gérer**. Sélectionnez **Points de terminaison privés gérés** puis sélectionnez **+ Nouveau**.
 ![Créer un point de terminaison privé managé](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## <a name="step-3-select-the-data-source-type"></a>Étape 3 : Sélectionner le type de source de données
@@ -43,7 +42,7 @@ Dans la fenêtre suivante, entrez les informations relatives à la source de don
 
 Une fois la demande envoyée, son état s’affiche. Pour vérifier que la création de votre point de terminaison privé managé a été correctement créée, vérifiez son *État d’approvisionnement*. Il se peut que vous deviez attendre 1 minute et sélectionner **Actualiser** pour mettre à jour l’état d’approvisionnement. Vous pouvez voir que le point de terminaison privé managé pour le compte ADLS Gen2 a été correctement créé.
 
-Vous pouvez également voir que l’*État d’approbation* est *En attente*. Le propriétaire de la ressource cible peut approuver ou refuser la demande de connexion du point de terminaison privé. Si le propriétaire approuve la demande de connexion du point de terminaison privé, un lien privé est établi. En cas de refus, aucun lien privé n’est établi.
+Vous pouvez également voir que l’ *État d’approbation* est *En attente*. Le propriétaire de la ressource cible peut approuver ou refuser la demande de connexion du point de terminaison privé. Si le propriétaire approuve la demande de connexion du point de terminaison privé, un lien privé est établi. En cas de refus, aucun lien privé n’est établi.
 ![État de la demande de création de point de terminaison privé managé](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes

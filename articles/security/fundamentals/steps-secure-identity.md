@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127057"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -145,7 +145,7 @@ Azure Active Directory comporte de nombreuses fonctionnalités qui interceptent 
 
 Le risque utilisateur indique la probabilité que l'identité d'un utilisateur ait été compromise et est calculé en fonction des [détections de risque utilisateur](../../active-directory/identity-protection/overview.md) associées à l'identité d'un utilisateur. Une stratégie en matière de risque des utilisateurs est une stratégie d’accès conditionnel qui évalue le niveau de risque pour un groupe ou un utilisateur spécifique. Selon un niveau de risque Faible, Moyen ou Élevé, une stratégie peut être configurée pour bloquer l’accès ou exiger une modification du mot de passe sécurisée à l’aide de l’authentification multifacteur. La recommandation de Microsoft est d’exiger une modification du mot de passe sécurisée pour les utilisateurs présentant un risque élevé.
 
-![Utilisateurs associés à un indicateur de risque](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Capture d’écran montrant des utilisateurs portant un indicateur de risque, avec un utilisateur sélectionné.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Mettre en œuvre une stratégie en matière de risque à la connexion à l’aide d’Azure AD Identity Protection
 
@@ -175,7 +175,7 @@ Azure AD Identity Protection fournit deux rapports importants que vous devez sur
 1. Les rapports sur les connexions à risque mettent en avant les activités de connexion d’utilisateurs que vous devriez examiner parce qu’il est possible que la connexion n’ait pas été établie par le propriétaire légitime.
 2. Les rapports sur les utilisateurs à risque mettent l’accent sur des comptes d’utilisateurs qui ont pu être compromis, par exemple, parce qu’une fuite des informations d’identification a été détectée ou que l’utilisateur s’est connecté à partir de différents emplacements alors qu’un déplacement était objectivement impossible.
 
-![Utilisateurs associés à un indicateur de risque](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Capture d’écran montrant le volet Azure AD Identity Protection avec les utilisateurs et leur niveau de risque.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Applications d’audit et autorisations accordées
 

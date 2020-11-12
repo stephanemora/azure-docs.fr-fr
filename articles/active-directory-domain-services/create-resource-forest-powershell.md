@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: joflore
-ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 32ec3eface215330aba9e40b46e45b97b5c07091
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960947"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041112"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Créer une forêt de ressources Azure Active Directory Domain Services et une approbation de forêt sortante vers un domaine local à l’aide d’Azure PowerShell
 
@@ -51,7 +51,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Installez et configurez Azure AD PowerShell.
     * Si nécessaire, suivez les instructions pour [installer le module Azure AD PowerShell et vous connecter à Azure AD](/powershell/azure/active-directory/install-adv2).
     * Veillez à vous connecter à votre locataire Azure AD à l’aide de l’applet de commande [Connect-AzureAD][Connect-AzureAD].
-* Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
+* Vous devez disposer des privilèges d’ *Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
 * Vous avez besoin de privilèges de *Contributeur* dans votre abonnement Azure pour créer les ressources Azure AD DS nécessaires.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
@@ -74,12 +74,12 @@ Avant de commencer, assurez-vous de comprendre les [considérations relatives au
 
 Azure AD DS nécessite un principal de service pour synchroniser les données depuis Azure AD. Ce principal doit être créé dans votre tenant Azure AD avant la création de la forêt de ressources de domaine managée.
 
-Créez un principal du service Azure AD pour permettre à Azure AD DS de communiquer et de s’authentifier. Un ID d’application spécifique est utilisé. Il se nomme *Domain Controller Services* et son ID est *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Ne modifiez pas cet ID d’application.
+Créez un principal du service Azure AD pour permettre à Azure AD DS de communiquer et de s’authentifier. Un ID d’application spécifique est utilisé. Il se nomme *Domain Controller Services* et son ID est *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Ne modifiez pas cet ID d’application.
 
 Créez un principal du service Azure AD à l’aide de l’applet de commande [New-AzureADServicePrincipal][New-AzureADServicePrincipal] :
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 ## <a name="create-a-managed-domain-resource-forest"></a>Créer une forêt de ressources de domaine managé
@@ -221,8 +221,8 @@ Add-AaddsResourceForestTrust `
 Pour résoudre correctement le domaine managé à partir de l’environnement local, vous serez peut-être amené à ajouter des redirecteurs aux serveurs DNS existants. Si vous n’avez pas configuré l’environnement local de manière à ce qu’il communique avec le domaine managé, effectuez les étapes suivantes à partir d’une station de travail de gestion pour le domaine AD DS local :
 
 1. Sélectionnez **Démarrer | Outils d'administration | DNS**.
-1. Cliquez avec le bouton droit sur le serveur DNS, comme *myAD01*, sélectionnez **Propriétés**.
-1. Sélectionnez **Redirecteurs**, puis **Modifier** pour ajouter des redirecteurs supplémentaires.
+1. Cliquez avec le bouton droit sur le serveur DNS, comme *myAD01* , sélectionnez **Propriétés**.
+1. Sélectionnez **Redirecteurs** , puis **Modifier** pour ajouter des redirecteurs supplémentaires.
 1. Ajoutez les adresses IP du domaine managé, telles que *10.0.1.4* et *10.0.1.5*.
 1. À partir d’une invite de commandes locale, validez la résolution de noms à l’aide de **nslookup** du nom de domaine managé de la forêt de ressources de domaine managé. Par exemple, `Nslookup aaddscontoso.com` doit retourner les deux adresse IP pour la forêt de ressources de domaine managé.
 
@@ -233,12 +233,12 @@ Le domaine AD DS local nécessite une approbation de forêt entrante pour le dom
 Pour configurer l’approbation entrante sur le domaine AD DS local, procédez comme suit à partir d’une station de travail de gestion pour le domaine AD DS local :
 
 1. Sélectionnez **Démarrer | Outils d'administration | Domaines et approbations Active Directory**
-1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com*, sélectionnez **Propriétés**.
-1. Sélectionnez l'onglet **Approbations**, puis **Nouvelle approbation**.
-1. Entrez le nom du domaine managé, tel que *aaddscontoso.com*, puis sélectionnez **Suivant**
-1. Sélectionnez l’option permettant de créer une **approbation de forêt**, puis une approbation **unidirectionnelle : entrante**.
+1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com* , sélectionnez **Propriétés**.
+1. Sélectionnez l'onglet **Approbations** , puis **Nouvelle approbation**.
+1. Entrez le nom du domaine managé, tel que *aaddscontoso.com* , puis sélectionnez **Suivant**
+1. Sélectionnez l’option permettant de créer une **approbation de forêt** , puis une approbation **unidirectionnelle : entrante**.
 1. Choisissez de créer l’approbation pour **ce domaine uniquement**. À l’étape suivante, vous allez créer l’approbation dans le portail Azure pour le domaine managé.
-1. Choisissez d’utiliser l'**authentification à l'échelle de la forêt**, puis entrez et confirmez un mot de passe d’approbation. Ce même mot de passe est également entré dans le portail Azure à la section suivante.
+1. Choisissez d’utiliser l' **authentification à l'échelle de la forêt** , puis entrez et confirmez un mot de passe d’approbation. Ce même mot de passe est également entré dans le portail Azure à la section suivante.
 1. Parcourez les fenêtres suivantes avec les options par défaut, puis sélectionnez l’option pour **Non, ne pas confirmer l'approbation sortante**. Vous ne pouvez pas valider la relation d’approbation, car votre compte administrateur délégué à la forêt de ressources de domaine managé ne dispose pas des autorisations requises. Ce comportement est normal.
 1. Sélectionnez **Terminer**.
 
@@ -288,21 +288,21 @@ Vous devez avoir une machine virtuelle Windows Server jointe à la forêt de res
     > [!TIP]
     > Pour vous connecter en toute sécurité à vos machines virtuelles jointes à Azure AD Domain Services, vous pouvez utiliser le [service hôte Azure Bastion](../bastion/bastion-overview.md) dans les régions Azure prises en charge.
 
-1. Ouvrez **Paramètres Windows**, puis recherchez et sélectionnez **Centre Réseau et partage**.
+1. Ouvrez **Paramètres Windows** , puis recherchez et sélectionnez **Centre Réseau et partage**.
 1. Sélectionnez l’option permettant de **modifier les paramètres de partage avancés**.
-1. Sous **Profil du domaine**, sélectionnez **Activer le partage de fichiers et d'imprimantes**, puis **Enregistrer les modifications**.
+1. Sous **Profil du domaine** , sélectionnez **Activer le partage de fichiers et d'imprimantes** , puis **Enregistrer les modifications**.
 1. Fermez **Centre Réseau et partage**.
 
 #### <a name="create-a-security-group-and-add-members"></a>Créer un groupe de sécurité et ajouter des membres
 
 1. Ouvrez **Utilisateurs et ordinateurs Active Directory**.
-1. Cliquez avec le bouton droit sur le nom de domaine, sélectionnez **Nouveau**, puis **Unité d'organisation**.
-1. Dans la zone de nom, entrez *LocalObjects*, puis sélectionnez **OK**.
-1. Sélectionnez et cliquez avec le bouton droit sur **LocalObjects** dans le volet de navigation. Sélectionnez **Nouveau**, puis **Groupe**.
-1. Entrez *FileServerAccess* dans la zone **Nom du groupe**. Pour **Étendue du groupe**, sélectionnez **Domaine local**, puis **OK**.
-1. Dans le volet de contenu, double-cliquez sur **FileServerAccess**. Sélectionnez **Membres**, **Ajouter**, puis **Emplacements**.
-1. Sélectionnez votre instance Active Directory locale dans l'affichage **Emplacement**, puis **OK**.
-1. Entrez *Utilisateurs du domaine* dans la zone **Entrer les noms des objets à sélectionner**. Sélectionnez **Vérifier les noms**, fournissez les informations d’identification de l'instance Active Directory locale, puis sélectionnez **OK**.
+1. Cliquez avec le bouton droit sur le nom de domaine, sélectionnez **Nouveau** , puis **Unité d'organisation**.
+1. Dans la zone de nom, entrez *LocalObjects* , puis sélectionnez **OK**.
+1. Sélectionnez et cliquez avec le bouton droit sur **LocalObjects** dans le volet de navigation. Sélectionnez **Nouveau** , puis **Groupe**.
+1. Entrez *FileServerAccess* dans la zone **Nom du groupe**. Pour **Étendue du groupe** , sélectionnez **Domaine local** , puis **OK**.
+1. Dans le volet de contenu, double-cliquez sur **FileServerAccess**. Sélectionnez **Membres** , **Ajouter** , puis **Emplacements**.
+1. Sélectionnez votre instance Active Directory locale dans l'affichage **Emplacement** , puis **OK**.
+1. Entrez *Utilisateurs du domaine* dans la zone **Entrer les noms des objets à sélectionner**. Sélectionnez **Vérifier les noms** , fournissez les informations d’identification de l'instance Active Directory locale, puis sélectionnez **OK**.
 
     > [!NOTE]
     > La relation d'approbation étant unidirectionnelle, vous devez fournir les informations d’identification. Cela veut dire que les utilisateurs du domaine managé ne peuvent pas accéder aux ressources ni rechercher des utilisateurs ou des groupes dans le domaine (local) approuvé.
@@ -313,25 +313,25 @@ Vous devez avoir une machine virtuelle Windows Server jointe à la forêt de res
 
 1. Sur la machine virtuelle Windows Server jointe à la forêt de ressources de domaine managé, créez un dossier et donnez-lui un nom, tel que *CrossForestShare*.
 1. Cliquez avec le bouton droit sur le dossier, puis sélectionnez **Propriétés**.
-1. Sélectionnez l'onglet **Sécurité**, puis **Modifier**.
-1. Dans la boîte de dialogue *Autorisations pour CrossForestShare*, sélectionnez **Ajouter**.
-1. Entrez *FileServerAccess* dans **Entrer les noms des objets à sélectionner**, puis sélectionnez **OK**.
-1. Sélectionnez *FileServerAccess* dans la liste **Noms des groupes ou des utilisateurs**. Dans la liste **Autorisations pour FileServerAccess**, sélectionnez *Autoriser* pour les autorisations **Modifier** et **Écrire**, puis **OK**.
-1. Sélectionnez l’onglet **Partage**, puis **Partage avancé…**
-1. Sélectionnez **Partager ce dossier**, puis entrez un nom de partage de fichiers facile à retenir dans **Nom du partage**, par exemple *CrossForestShare*.
-1. Sélectionnez **Autorisations**. Dans la liste **Autorisations pour tous**, sélectionnez **Autoriser** pour l'autorisation **Modifier**.
+1. Sélectionnez l'onglet **Sécurité** , puis **Modifier**.
+1. Dans la boîte de dialogue *Autorisations pour CrossForestShare* , sélectionnez **Ajouter**.
+1. Entrez *FileServerAccess* dans **Entrer les noms des objets à sélectionner** , puis sélectionnez **OK**.
+1. Sélectionnez *FileServerAccess* dans la liste **Noms des groupes ou des utilisateurs**. Dans la liste **Autorisations pour FileServerAccess** , sélectionnez *Autoriser* pour les autorisations **Modifier** et **Écrire** , puis **OK**.
+1. Sélectionnez l’onglet **Partage** , puis **Partage avancé…**
+1. Sélectionnez **Partager ce dossier** , puis entrez un nom de partage de fichiers facile à retenir dans **Nom du partage** , par exemple *CrossForestShare*.
+1. Sélectionnez **Autorisations**. Dans la liste **Autorisations pour tous** , sélectionnez **Autoriser** pour l'autorisation **Modifier**.
 1. Sélectionnez **OK** deux fois, puis **Fermer**.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Valider l’authentification inter-forêts sur une ressource
 
 1. Connectez-vous à un ordinateur Windows joint à votre instance Active Directory locale à l’aide d’un compte d’utilisateur de votre instance Active Directory locale.
-1. À l’aide de l'**Explorateur Windows**, connectez-vous au partage que vous avez créé à l’aide du nom d’hôte complet et le partage, par exemple `\\fs1.aaddscontoso.com\CrossforestShare`.
-1. Pour valider l’autorisation d’écriture, cliquez avec le bouton droit dans le dossier, sélectionnez **Nouveau**, puis **Document texte**. Utilisez le nom par défaut **Nouveau document texte**.
+1. À l’aide de l' **Explorateur Windows** , connectez-vous au partage que vous avez créé à l’aide du nom d’hôte complet et le partage, par exemple `\\fs1.aaddscontoso.com\CrossforestShare`.
+1. Pour valider l’autorisation d’écriture, cliquez avec le bouton droit dans le dossier, sélectionnez **Nouveau** , puis **Document texte**. Utilisez le nom par défaut **Nouveau document texte**.
 
     Si les autorisations d’écriture sont correctement définies, un nouveau document texte est créé. Les étapes suivantes permettent d'ouvrir, de modifier et de supprimer le fichier, selon vos besoins.
 1. Pour valider l’autorisation de lecture, ouvrez **Nouveau document texte**.
 1. Pour valider l’autorisation de modification, ajoutez du texte au fichier et fermez le **Bloc-notes**. Lorsque vous êtes invité à enregistrer les modifications, sélectionnez **Enregistrer**.
-1. Pour valider l’autorisation de suppression, cliquez avec le bouton droit sur **Nouveau document texte**, puis sélectionnez **Supprimer**. Sélectionnez **Oui** pour confirmer la suppression du fichier.
+1. Pour valider l’autorisation de suppression, cliquez avec le bouton droit sur **Nouveau document texte** , puis sélectionnez **Supprimer**. Sélectionnez **Oui** pour confirmer la suppression du fichier.
 
 ## <a name="update-or-remove-outbound-forest-trust"></a>Mettre à jour ou supprimer l’approbation de la forêt sortante
 
@@ -388,9 +388,9 @@ Si vous n’avez plus besoin d’une approbation de forêt sortante unidirection
 Pour supprimer l’approbation entrante unidirectionnelle de la forêt AD DS locale, connectez-vous à un ordinateur de gestion avec accès à la forêt AD DS locale et procédez comme suit :
 
 1. Sélectionnez **Démarrer | Outils d'administration | Domaines et approbations Active Directory**
-1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com*, sélectionnez **Propriétés**.
-1. Choisissez l’onglet **Approbation**, puis sélectionnez l’approbation entrante existante de votre forêt de domaine managé.
-1. Sélectionnez **Supprimer**, puis confirmez que vous souhaitez supprimer l’approbation entrante.
+1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com* , sélectionnez **Propriétés**.
+1. Choisissez l’onglet **Approbation** , puis sélectionnez l’approbation entrante existante de votre forêt de domaine managé.
+1. Sélectionnez **Supprimer** , puis confirmez que vous souhaitez supprimer l’approbation entrante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

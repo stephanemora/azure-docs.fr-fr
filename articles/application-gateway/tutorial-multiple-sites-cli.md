@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e72a98ddd5219662c8850326b4f43b25e545177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595837"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348149"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) pour créer la passerelle d’application. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés. 
+Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) pour créer la passerelle d’application. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress* , que vous avez créés. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -124,7 +124,7 @@ Ajoutez les écouteurs nécessaires pour acheminer le trafic à l’aide de la c
 
 >[!NOTE]
 > À l’aide du niveau tarifaire Application Gateway ou WAF v2, vous pouvez également configurer jusqu’à 5 noms d’hôte par écouteur et utiliser des caractères génériques dans le nom d’hôte. Pour plus d’informations, consultez les informations relatives aux [noms d’hôtes comportant des caractères génériques dans l’écouteur](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
->Pour utiliser plusieurs noms d’hôte et caractères génériques dans un écouteur à l’aide d’Azure CLI, vous devez utiliser `--host-names` au lieu de `--host-name`. Grâce au préfixe « host-names », vous pouvez spécifier jusqu’à cinq noms d’hôte comme valeurs séparées par des virgules. Par exemple : `--host-names "*.contoso.com,*.fabrikam.com"`
+>Pour utiliser plusieurs noms d’hôte et caractères génériques dans un écouteur à l’aide d’Azure CLI, vous devez utiliser `--host-names` au lieu de `--host-name`. Grâce au préfixe « host-names », vous pouvez spécifier jusqu’à cinq noms d’hôte comme valeurs séparées par une espace. Par exemple : `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -175,7 +175,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Créer des groupes de machines virtuelles identiques
 
-Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools backend dans la passerelle d’application. Ils sont nommés *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles IIS sera installé.
+Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools backend dans la passerelle d’application. Ils sont nommés *myvmss1* , *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles IIS sera installé.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

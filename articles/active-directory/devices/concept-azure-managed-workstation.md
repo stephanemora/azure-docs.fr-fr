@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6837bbdb63caf0fb1ecb3f6e520d5f3623483b44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093308"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083233"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Comprendre les stations de travail sécurisées gérées par Azure
 
@@ -94,12 +94,15 @@ Essentielle pour une station de travail sécurisée : une solution de chaîne d�
 
 Pour cette solution, la racine de confiance est déployée avec la technologie [Microsoft AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) avec du matériel qui répond aux conditions techniques modernes requises. Pour sécuriser une station de travail, Autopilot vous permet d’utiliser des appareils Windows 10 Microsoft OEM optimisés. Ces appareils sont fournis par le fabricant dans un état correct connu. Au lieu de réimager l’image d’un appareil potentiellement non sécurisé, Autopilot peut faire passer un appareil Windows à l’état « prêt à l’emploi ». Il applique des paramètres et des stratégies, installe des applications et modifie même l’édition de Windows 10. Par exemple, Autopilot peut changer l’installation de Windows d’un appareil de Windows 10 Professionnel vers Windows 10 Entreprise pour qu’il puisse utiliser les fonctionnalités avancées.
 
-![Niveaux de station de travail sécurisée](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="Diagramme montrant le cycle de vie d’une station de travail sécurisée." border="false":::
+En haut du diagramme, un fournisseur d’appareils est représenté. Les flèches pointent de ce fournisseur à un client qui a acheté la station de travail et à un camion étiqueté « Traiter et livrer ». À partir du camion, une flèche pointe vers une image nommée Déployer qui représente une personne utilisant une station de travail. Une flèche intitulée « Expérience en libre-service » s’étend de cette personne à un écran intitulé « Prêt à l’emploi ». Sous cet écran, les icônes étiquetées Géré et Sécurisé sont représentées. Une flèche Utilisation avec état stable, Gérer et conserver l’appareil actuel pointe de l’écran jusqu’à une icône de fin de vie et à une icône Couvert par la garantie de réparation et d’assistance et Réinitialisation. Une flèche finale ferme la boucle de l’icône Couvert par la garantie de réparation et d’assistance à l’écran Prêt pour l’emploi.
+:::image-end:::
 
 ## <a name="device-roles-and-profiles"></a>Rôles et profils des appareils
 
-Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aider à créer des solutions plus sécurisées pour les utilisateurs, les développeurs et le personnel informatique. Ces profils équilibrent facilité d’utilisation et risques pour les utilisateurs courants qui peuvent profiter d’une station de travail sécurisée ou améliorée. Les configurations de paramètres fournies ici sont basées sur les normes du secteur. Ce guide explique comment renforcer Windows 10 et réduire les risques associés aux appareils ou utilisateurs compromis. Pour tirer parti de la technologie matérielle moderne et de l’appareil de racine de confiance, nous allons utiliser l’[Attestation d’intégrité de l’appareil](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), qui est activée à partir du profil **Haute sécurité**. Cette fonctionnalité permet de s’assurer que les attaquants ne peuvent pas être persistants lors du démarrage anticipé d’un appareil. Il fait appel aux stratégies et à la technologie pour gérer les risques et les fonctionnalités de sécurité.
-![Niveaux de station de travail sécurisée](./media/concept-azure-managed-workstation/seccon-levels.png)
+Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aider à créer des solutions plus sécurisées pour les utilisateurs, les développeurs et le personnel informatique. Ces profils équilibrent facilité d’utilisation et risques pour les utilisateurs courants qui peuvent profiter d’une station de travail sécurisée ou améliorée. Les configurations de paramètres fournies ici sont basées sur les normes du secteur. Ce guide explique comment renforcer Windows 10 et réduire les risques associés aux appareils ou utilisateurs compromis. Pour tirer parti de la technologie matérielle moderne et de l’appareil de racine de confiance, nous allons utiliser l’ [Attestation d’intégrité de l’appareil](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), qui est activée à partir du profil **Haute sécurité**. Cette fonctionnalité permet de s’assurer que les attaquants ne peuvent pas être persistants lors du démarrage anticipé d’un appareil. Il fait appel aux stratégies et à la technologie pour gérer les risques et les fonctionnalités de sécurité.
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="Tableau énumérant les rôles, tels que les utilisateurs et les développeurs, les profils, tels que de base et amélioré, et les contrôles de sécurité, tels que les applications, les actions et les fonctionnalités." border="false":::
 
 * **Sécurité de base** – Une station de travail standard gérée constitue un bon point de départ pour la plupart des utilisations à domicile et dans les petites entreprises. Ces appareils sont inscrits dans Azure AD et gérés avec Intune. Ce profil permet aux utilisateurs d’exécuter toutes les applications et de naviguer sur tous les sites web. Une solution anti-programme malveillant comme [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) doit être activée.
 

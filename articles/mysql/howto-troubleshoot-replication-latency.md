@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791577"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087024"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Résoudre les problèmes de latence de réplication dans Azure Database pour MySQL
 
@@ -35,7 +35,7 @@ Dans cet article, vous allez apprendre à résoudre les problèmes de latence de
 
 Lorsqu’un journal binaire est activé, le serveur source écrit les transactions validées dans le journal binaire. Le journal binaire est utilisé pour la réplication. Il est activé par défaut pour tous les serveurs nouvellement approvisionnés qui prennent en charge jusqu’à 16 To de stockage. Sur les serveurs de réplication, deux threads s’exécutent sur chaque serveur de réplication. Un thread est *le thread d’e/s* et l’autre est le *thread SQL*  :
 
-- Le thread d’E/S se connecte au serveur source et demande les journaux binaires mis à jour. Ce thread reçoit les mises à jour des journaux binaires. Ces mises à jour sont enregistrées sur un serveur de réplication, dans un journal local appelé le *journal de relais* .
+- Le thread d’E/S se connecte au serveur source et demande les journaux binaires mis à jour. Ce thread reçoit les mises à jour des journaux binaires. Ces mises à jour sont enregistrées sur un serveur de réplication, dans un journal local appelé le *journal de relais*.
 - Le thread SQL lit le journal de relais, puis applique les modifications de données sur les serveurs de réplication.
 
 ## <a name="monitoring-replication-latency"></a>Surveillance de la latence de réplication
@@ -236,6 +236,9 @@ Dans Azure Database pour MySQL, par défaut, la réplication est optimisée pour
 Le paramètre binlog_group_commit_sync_delay contrôle le nombre de microsecondes pendant lesquelles la validation du journal binaire attend avant de synchroniser le fichier journal binaire. L’avantage de ce paramètre est qu’au lieu d’appliquer immédiatement chaque transaction validée, le serveur source envoie les mises à jour binaires du journal en bloc. Ce délai réduit les e/s sur le réplica et contribue à améliorer les performances. 
 
 Il peut être utile de définir le paramètre binlog_group_commit_sync_delay sur 1000 ou environ. Ensuite, surveillez la latence de réplication. Définissez ce paramètre avec prudence et utilisez-le uniquement pour les charges de travail à fort accès concurrentiel. 
+
+> [!IMPORTANT] 
+> Dans le serveur de réplication, il est recommandé que le paramètre binlog_group_commit_sync_delay ait la valeur 0. Cela est recommandé, car, contrairement au serveur source, le serveur de réplication n’a pas d’accès concurrentiel élevé et l’augmentation de la valeur de binlog_group_commit_sync_delay sur le serveur de réplication peut entraîner l’augmentation du décalage de la réplication.
 
 Pour les charges de travail de faible concurrence qui incluent de nombreuses transactions Singleton, le paramètre binlog_group_commit_sync_delay peut augmenter la latence. La latence peut augmenter, car le thread d’e/s attend des mises à jour en bloc des journaux binaires, même si seules quelques transactions sont validées. 
 

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 74656401d7b0ef12cf509674921a6a5153ce992d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282916"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027123"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilisation de modèles de colonne dans les flux de données de mappage
 
@@ -29,19 +29,19 @@ Les modèles de colonne sont actuellement disponibles dans les transformations d
 
 Pour ajouter un modèle de colonne dans une transformation de colonne, agrégation ou fenêtre dérivée, cliquez sur **Ajouter** au-dessus de la liste des colonnes ou sur l’icône plus en regard d’une colonne dérivée existante. Choisissez **Ajouter un modèle de colonne**.
 
-![modèles de colonne](media/data-flow/add-column-pattern.png "Modèles de colonne")
+![Capture d’écran montrant l’icône plus pour ajouter un modèle de colonne.](media/data-flow/add-column-pattern.png "Modèles de colonne")
 
 Utilisez le [Générateur d’expressions](concepts-data-flow-expression-builder.md) pour entrer la condition de correspondance. Créez une expression booléenne correspondant aux colonnes basée sur les valeurs `name`, `type`, `stream`, `origin` et `position` de la colonne. Le modèle affecte toute colonne, dérivée ou définie, où la condition retourne la valeur true.
 
 Les deux zones d’expression sous la condition de correspondance indiquent les nouveaux noms et les valeurs des colonnes affectées. Utilisez `$$` pour référencer la valeur existante du champ correspondant. La zone d’expression de gauche définit le nom, et la zone d’expression de droite précise la valeur.
 
-![modèles de colonne](media/data-flow/edit-column-pattern.png "Modèles de colonne")
+![Capture d’écran montrant l’onglet Paramètres de la colonne dérivée.](media/data-flow/edit-column-pattern.png "Modèles de colonne")
 
 Le modèle de colonne ci-dessus associe chaque colonne de type double et crée une colonne dérivée par correspondance. En indiquant `$$` comme champ de nom de colonne, chaque colonne correspondante est mise à jour avec le même nom. La valeur de chaque colonne correspond à la valeur existante arrondie à deux décimales.
 
-Pour vérifier que votre condition de correspondance est correcte, vous pouvez valider le schéma de sortie des colonnes définies dans l’onglet **Inspecter**, ou obtenir une capture instantanée des données dans l’onglet **Aperçu des données**. 
+Pour vérifier que votre condition de correspondance est correcte, vous pouvez valider le schéma de sortie des colonnes définies dans l’onglet **Inspecter** , ou obtenir une capture instantanée des données dans l’onglet **Aperçu des données**. 
 
-![modèles de colonne](media/data-flow/columnpattern3.png "Modèles de colonne")
+![Capture d’écran montrant l’onglet Schéma de sortie.](media/data-flow/columnpattern3.png "Modèles de colonne")
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mappage basé sur les règles dans la sélection et le récepteur
 
@@ -49,11 +49,11 @@ Lorsque vous mappez des colonnes dans les transformations de source et de sélec
 
 Pour ajouter un mappage basé sur les règles, cliquez sur **Ajouter un mappage** et sélectionnez **Mappage basé sur les règles**.
 
-![Mappage basé sur les règles](media/data-flow/rule2.png "Mappage basé sur des règles")
+![Capture d’écran montrant l’option Mappage basé sur les règles sélectionnée dans Ajouter un mappage.](media/data-flow/rule2.png "Mappage basé sur des règles")
 
 Chaque mappage basé sur des règles nécessite deux entrées : la condition à rechercher et le nom de chaque colonne mappée. Les deux valeurs sont entrées par l’intermédiaire du [générateur d’expressions](concepts-data-flow-expression-builder.md). Dans la zone d’expression de gauche, entrez votre condition de correspondance booléenne. Dans la zone d’expression de droite, indiquez ce à quoi la colonne correspondante sera mappée.
 
-![Mappage basé sur les règles](media/data-flow/rule-based-mapping.png "Mappage basé sur des règles")
+![Capture d’écran montrant un mappage.](media/data-flow/rule-based-mapping.png "Mappage basé sur des règles")
 
 Utilisez la syntaxe `$$` pour référencer le nom d’entrée d’une colonne correspondante. Prenons l’image ci-dessus comme exemple et imaginons qu’un utilisateur souhaite faire correspondre toutes les colonnes de chaîne dont les noms ont moins de six caractères. Si une colonne entrante a été nommée `test`, l’expression `$$ + '_short'` renomme la colonne en `test_short`. Si c’est le seul mappage qui existe, toutes les colonnes qui ne répondent pas à la condition sont supprimées des données générées.
 
@@ -63,7 +63,7 @@ Les modèles correspondent à la fois aux colonnes dérivées et définies. Pour
 
 Si vous cliquez sur l’icône du chevron pointant vers le bas, vous pouvez spécifier une condition de mappage regex. Une condition de mappage regex correspond à tous les noms de colonne qui correspondent à la condition regex spécifiée. Elle peut être utilisée en association avec les mappages standard basés sur des règles.
 
-![Mappage basé sur les règles](media/data-flow/regex-matching.png "Mappage basé sur des règles")
+![Capture d’écran montrant la condition regex-mapping avec des correspondances de niveau de hiérarchie et de nom.](media/data-flow/regex-matching.png "Mappage basé sur des règles")
 
 L’exemple ci-dessus correspond au modèle regex `(r)` ou à tout nom de colonne qui contient un r minuscule. À l’instar du mappage standard basé sur des règles, toutes les colonnes correspondantes sont modifiées par la condition à droite à l’aide de la syntaxe `$$`.
 
@@ -71,7 +71,7 @@ L’exemple ci-dessus correspond au modèle regex `(r)` ou à tout nom de colonn
 
 Si votre projection définie a une hiérarchie, vous pouvez utiliser le mappage basé sur des règles pour mapper les sous-colonnes de hiérarchies. Spécifiez une condition de correspondance et la colonne complexe dont vous souhaitez mapper les sous-colonnes. Chaque sous-colonne correspondante est générée à l’aide de la règle « Nommer » spécifiée à droite.
 
-![Mappage basé sur les règles](media/data-flow/rule-based-hierarchy.png "Mappage basé sur des règles")
+![Capture d’écran montrant un mappage basé sur les règles et utilisant une hiérarchie.](media/data-flow/rule-based-hierarchy.png "Mappage basé sur des règles")
 
 L’exemple ci-dessus correspond à toutes les sous-colonnes de la colonne complexe `a`. `a` contient deux sous-colonnes `b` et `c`. Le schéma de sortie inclut deux colonnes `b` et `c`, car la condition « Nommer » est `$$`.
 

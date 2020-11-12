@@ -9,29 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 10/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503774"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077419"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
 
-Vous pouvez spécifier la durée de vie d’un jeton émis par la Plateforme d’identité Microsoft. Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation. Cependant, nous ne prenons pas en charge actuellement la configuration des durées de vie des jetons pour les [principaux de service d’identité managée](../managed-identities-azure-resources/overview.md).
-
 > [!IMPORTANT]
-> Après le 30 janvier 2021, les locataires ne seront plus en mesure de configurer la durée de vie des jetons d’actualisation et de session, et Azure Active Directory cessera d’honorer la configuration existante des jetons d’actualisation et de session dans les stratégies après cette date. Vous pourrez toujours configurer la durée de vie des jetons d’accès après la mise hors service.
-> Nous avons implémenté les  [capacités de gestion des sessions d’authentification](../conditional-access/howto-conditional-access-session-lifetime.md)  dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion. L’accès conditionnel est une fonctionnalité Azure AD Premium P1 qui vous permet de déterminer si la version Premium est adaptée à votre organisation sur la [page de tarification Premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
-> 
-> Pour les locataires qui n’utilisent pas la gestion des sessions d’authentification dans l’accès conditionnel après la date de mise hors service, ils peuvent s’attendre à ce qu’Azure AD honore la configuration par défaut décrite dans la section suivante.
+> Après le 30 janvier 2021, les locataires ne seront plus en mesure de configurer la durée de vie des jetons d’actualisation et de session, et Azure Active Directory cessera d’honorer la configuration des jetons d’actualisation et de session dans les stratégies.
+>
+> Si vous devez continuer à définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau, configurez la fréquence de connexion dans Accès conditionnel. Pour en savoir plus sur l’accès conditionnel, consultez la [page de tarification Azure AD](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+>
+> Pour les locataires qui ne souhaitent pas utiliser l’accès conditionnel après la date de mise hors service, ils peuvent s’attendre à ce qu’Azure AD honore la configuration par défaut décrite dans la section suivante.
 
 ## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propriétés des durées de vie des jetons configurables après la mise hors service
-La configuration des jetons d’actualisation et de session est affectée par les propriétés suivantes et leurs valeurs définies respectives. Après la mise hors service de la configuration des jetons d’actualisation et de session, Azure AD honorera uniquement la valeur par défaut décrite ci-dessous, que les stratégies aient des valeurs personnalisées configurées ou non.  
+La configuration des jetons d’actualisation et de session est affectée par les propriétés suivantes et leurs valeurs définies respectives. Après la mise hors service de la configuration des jetons d’actualisation et de session, Azure AD honorera uniquement la valeur par défaut décrite ci-dessous, que les stratégies aient des valeurs personnalisées configurées ou non. Vous pourrez toujours configurer la durée de vie des jetons d’accès après la mise hors service. 
 
 |Propriété   |Chaîne de propriété de stratégie    |Éléments affectés |Default |
 |----------|-----------|------------|------------|
@@ -41,13 +40,34 @@ La configuration des jetons d’actualisation et de session est affectée par le
 |Âge maximal de jeton de session à facteur unique  |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants)  |Jusqu’à révocation |
 |Âge maximal de jeton de session multifacteur  |MaxAgeSessionMultiFactor  |Jetons de session (persistants et non persistants)  |180 jours |
 
-Vous pouvez utiliser l’applet de commande [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) pour identifier les stratégies de durée de vie des jetons dont les valeurs de propriété diffèrent de celles par défaut d’Azure AD.
+## <a name="identify-configuration-in-scope-of-retirement"></a>Identifier la configuration dans le cadre de la mise hors service
 
-Pour mieux comprendre comment vos stratégies sont utilisées dans votre locataire, vous pouvez utiliser l’applet de commande [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) pour identifier les applications et les principaux de service liés à vos stratégies. 
+Pour commencer, suivez les étapes ci-dessous :
 
-Si votre locataire a des stratégies qui définissent des valeurs personnalisées pour les propriétés de configuration des jetons d’actualisation et de session, Microsoft vous recommande de mettre à jour ces stratégies dans l’étendue avec des valeurs qui reflètent les valeurs par défaut décrites ci-dessus. Si aucune modification n’est apportée, Azure AD honorera automatiquement les valeurs par défaut.  
+1. Téléchargez la dernière [version préliminaire publique du module Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Exécutez la commande `Connect` pour vous connecter à votre compte Administrateur Azure AD. Exécutez cette commande chaque fois que vous démarrez une nouvelle session.
+
+    ```powershell
+    Connect-AzureAD -Confirm
+    ```
+
+1. Pour afficher toutes les stratégies qui ont été créées dans votre organisation, exécutez la cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true).  Tout résultat ayant une valeur de propriété définie qui diffère des valeurs par défaut indiquées ci-dessus relève du champ d’application de la mise hors service.
+
+    ```powershell
+    Get-AzureADPolicy -All
+    ```
+
+1. Pour déterminer les applications et les principaux de service liés à une stratégie spécifique, vous avez identifié la cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) en remplaçant **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** par l’un de vos ID de stratégie. Vous pouvez ensuite décider s’il faut configurer la fréquence de connexion de l’accès conditionnel ou conserver les valeurs Azure AD par défaut.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
+
+Si votre locataire a des stratégies qui définissent des valeurs personnalisées pour les propriétés de configuration des jetons d’actualisation et de session, Microsoft vous recommande de mettre à jour ces stratégies avec des valeurs qui reflètent les valeurs par défaut décrites ci-dessus. Si aucune modification n’est apportée, Azure AD honorera automatiquement les valeurs par défaut.  
 
 ## <a name="overview"></a>Vue d'ensemble
+
+Vous pouvez spécifier la durée de vie d’un jeton émis par la Plateforme d’identité Microsoft. Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation. Cependant, nous ne prenons pas en charge actuellement la configuration des durées de vie des jetons pour les [principaux de service d’identité managée](../managed-identities-azure-resources/overview.md).
 
 Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation. Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
@@ -77,7 +97,7 @@ La valeur NotOnOrAfter de la confirmation d’objet spécifiée dans l’éléme
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
 
-Lorsqu’un client acquiert un jeton d’accès pour accéder à une ressource protégée, il reçoit aussi un jeton d’actualisation. Le jeton d’actualisation permet d’obtenir de nouvelles paires de jetons d’accès/actualisation à l’expiration du jeton d’accès actuel. Un jeton d’actualisation est lié à une combinaison d’utilisateur et de client. Un jeton d’actualisation peut être [révoqué à tout moment](access-tokens.md#token-revocation), et la validité du jeton est vérifiée à chaque fois qu’il est utilisé.  Les jetons d’actualisation ne sont pas révoqués lorsqu’ils sont utilisés pour récupérer de nouveaux jetons d’accès. Il est cependant fortement recommandé de supprimer l’ancien jeton lorsque vous en obtenez un nouveau. 
+Lorsqu’un client acquiert un jeton d’accès pour accéder à une ressource protégée, il reçoit aussi un jeton d’actualisation. Le jeton d’actualisation permet d’obtenir de nouvelles paires de jetons d’accès/actualisation à l’expiration du jeton d’accès actuel. Un jeton d’actualisation est lié à une combinaison d’utilisateur et de client. Un jeton d’actualisation peut être [révoqué à tout moment](access-tokens.md#token-revocation), et la validité du jeton est vérifiée à chaque fois qu’il est utilisé.  Les jetons d’actualisation ne sont pas révoqués lorsqu’ils sont utilisés pour récupérer de nouveaux jetons d’accès. Il est cependant fortement recommandé de supprimer l’ancien jeton lorsque vous en obtenez un nouveau.
 
 Il est important de distinguer les clients confidentiels des clients publics, car cela a un impact sur la durée d’utilisation des jetons d’actualisation. Pour plus d’informations sur les différents types de client, consultez [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

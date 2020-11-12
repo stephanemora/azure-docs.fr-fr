@@ -11,7 +11,7 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
-- name: Didacticiels
+- name: Tutoriels
   items:
     - name: Création d’une stratégie d’attestation
       href: author-sign-policy.md
@@ -42,7 +42,11 @@
     - name: REST
       href: /rest/api/attestation/
     - name: Azure PowerShell
-      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+      href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
+    - name: Azure CLI
+      href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
+    - name: Terraform
+      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/attestation'
     - name: Bibliothèque Azure DCAP pour Windows
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Bibliothèque Azure DCAP pour Linux

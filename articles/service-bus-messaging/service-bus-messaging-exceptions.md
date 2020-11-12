@@ -3,12 +3,12 @@ title: Azure Service Bus - exceptions de la messagerie | Microsoft Docs
 description: Cet article fournit la liste des exceptions de messagerie Azure Service Bus et les actions suggérées à entreprendre quand une exception se produit.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4813ad7386af3d9dd730b74e6b815ff173cfe809
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45f18d16aaeee0017bd4d219b6dc9e6beab515af
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885739"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027514"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceptions de la messagerie Service Bus
 Cet article répertorie les exceptions .NET générées par les API .NET Framework. 
@@ -33,9 +33,10 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) |Un ou plusieurs des arguments fournis à la méthode ne sont pas valides.<br /> L’URI fourni à [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Ceate](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contient un ou plusieurs segments de chemin d’accès.<br /> Le schéma d’URI fourni à [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Ceate](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) n’est pas valide. <br />La valeur de la propriété est supérieure à 32 ko. |Vérifiez le code appelant et assurez-vous que les arguments sont corrects. |La nouvelle tentative ne résout pas le problème. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |L’entité associée à l’opération n’existe pas ou a été supprimée. |Assurez-vous que l'entité existe. |La nouvelle tentative ne résout pas le problème. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Tentative de réception d'un message avec un numéro de séquence spécifique. Ce message est introuvable. |Vérifiez que le message n’a pas déjà été reçu. Vérifiez la file d'attente de lettres mortes pour voir si le message a été désactivé. |La nouvelle tentative ne résout pas le problème. |
-| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Le client ne peut pas établir de connexion à Service Bus. |Assurez-vous que le nom d'hôte fourni est correct et que l'hôte est accessible. |Une nouvelle tentative peut aider en cas de problèmes de connectivité intermittents. |
+| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Le client ne peut pas établir de connexion à Service Bus. |Assurez-vous que le nom d'hôte fourni est correct et que l'hôte est accessible. <p>Si votre code s’exécute dans un environnement avec un pare-feu/proxy, assurez-vous que le trafic vers le domaine Service Bus/l’adresse IP et les ports n’est pas bloqué.
+</p>|Une nouvelle tentative peut aider en cas de problèmes de connectivité intermittents. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Le service n’est pas en mesure de traiter la demande pour l’instant. |Le client peut attendre pendant une période de temps, puis recommencer l'opération. |Le client peut réessayer après un certain temps. Si une nouvelle tentative provoque une exception différente, vérifiez le comportement de nouvelle tentative de cette exception. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Exception de messagerie générique qui peut être levée dans les cas suivants :<p>une tentative est effectuée pour créer un [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) à l’aide d’un nom ou d’un chemin d’accès qui appartient à un autre type d’entité (par exemple, une rubrique).</p><p>Une tentative est effectuée pour envoyer un message de taille supérieure à 256 Ko. </p>Le serveur ou le service a rencontré une erreur lors du traitement de la demande. Consultez le message de l'exception pour obtenir plus d'informations. Il s’agit généralement d’une exception temporaire.</p><p>La demande a été arrêtée parce que l’entité est limitée. Code d’erreur : 50001, 50002, 50008. </p> | Vérifiez le code et assurez-vous que seuls les objets sérialisables sont utilisés dans le corps du message (ou utilisez un sérialiseur personnalisé). <p>Consultez la documentation pour connaître les types de valeurs des propriétés pris en charge et utilisez uniquement les types pris en charge.</p><p> Vérifiez la propriété [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si sa valeur est **true**, vous pouvez réessayer d’effectuer l’opération. </p>| Si l’exception est due à une limitation, attendez quelques secondes, puis réessayez l’opération. Le comportement de la nouvelle tentative n’est pas défini et peut ne pas être utile dans d’autres scénarios.|
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Exception de messagerie générique qui peut être levée dans les cas suivants :<p>une tentative est effectuée pour créer un [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) à l’aide d’un nom ou d’un chemin d’accès qui appartient à un autre type d’entité (par exemple, une rubrique).</p><p>Une tentative est effectuée pour envoyer un message de taille supérieure à 256 Ko. </p>Le serveur ou le service a rencontré une erreur lors du traitement de la demande. Consultez le message de l'exception pour obtenir plus d'informations. Il s’agit généralement d’une exception temporaire.</p><p>La demande a été arrêtée parce que l’entité est limitée. Code d’erreur : 50001, 50002, 50008. </p> | Vérifiez le code et assurez-vous que seuls les objets sérialisables sont utilisés dans le corps du message (ou utilisez un sérialiseur personnalisé). <p>Consultez la documentation pour connaître les types de valeurs des propriétés pris en charge et utilisez uniquement les types pris en charge.</p><p> Vérifiez la propriété [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si sa valeur est **true** , vous pouvez réessayer d’effectuer l’opération. </p>| Si l’exception est due à une limitation, attendez quelques secondes, puis réessayez l’opération. Le comportement de la nouvelle tentative n’est pas défini et peut ne pas être utile dans d’autres scénarios.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Tentative de création d'une entité dont le nom est déjà utilisé par une autre entité de l'espace de noms de ce service. |Supprimez l'entité existante ou choisissez un autre nom pour l'entité à créer. |La nouvelle tentative ne résout pas le problème. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |L’entité de messagerie a atteint sa taille maximale autorisée, ou le nombre maximal de connexions à un espace de noms a été dépassé. |Créez de l’espace dans l’entité en recevant des messages à partir de l’entité ou de ses files d’attente secondaires. Consultez [QuotaExceededException](#quotaexceededexception). |Une nouvelle tentative peut aider si des messages ont été supprimés entre-temps. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |Service Bus renvoie cette exception si vous essayez de créer une action de règle non valide. Service Bus associe cette exception à un message désactivé si une erreur se produit lors du traitement de l'action de règle pour ce message. |Vérifiez que l'action de règle est correcte. |La nouvelle tentative ne résout pas le problème. |
@@ -45,8 +46,8 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |Demande d'une opération d'exécution sur une entité désactivée. |Activez l'entité. |Une nouvelle tentative peut aider si l'entité a été activée entre-temps. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |Service Bus renvoie cette exception si vous envoyez un message à une rubrique avec le filtre préalable activé et si aucun des filtres ne correspond. |Assurez-vous qu'au moins un filtre correspond. |La nouvelle tentative ne résout pas le problème. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Une charge utile de message dépasse la limite de 256 Ko. La limite de 256 Ko correspond à la taille totale du message, qui peut inclure des propriétés système et toute surcharge .NET. |Réduisez la taille de la charge utile de message, puis recommencez l'opération. |La nouvelle tentative ne résout pas le problème. |
-| [TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true) |La transaction ambiante (*Transaction.Current*) n'est pas valide. Elle a peut-être été terminée ou annulée. Une exception en interne peut fournir des informations supplémentaires. | |La nouvelle tentative ne résout pas le problème. |
-| [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception?view=netcore-3.1&preserve-view=true) |Une opération est tentée sur une transaction incertaine, ou une tentative est faite pour valider la transaction et la transaction devient incertaine. |Votre application doit gérer cette exception (comme un cas spécial), car la transaction a peut-être déjà été validée. |- |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception) |La transaction ambiante ( *Transaction.Current* ) n'est pas valide. Elle a peut-être été terminée ou annulée. Une exception en interne peut fournir des informations supplémentaires. | |La nouvelle tentative ne résout pas le problème. |
+| [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception) |Une opération est tentée sur une transaction incertaine, ou une tentative est faite pour valider la transaction et la transaction devient incertaine. |Votre application doit gérer cette exception (comme un cas spécial), car la transaction a peut-être déjà été validée. |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indique que le quota d’une entité spécifique a été dépassé.
@@ -106,11 +107,11 @@ Le verrou sur un message peut expirer pour diverses raisons :
 
 ### <a name="resolution"></a>Résolution
 
-En cas d’exception **MessageLockLostException**, l’application cliente ne peut plus traiter le message. Elle peut éventuellement envisager de journaliser l’exception pour analyse, mais le client *doit* supprimer le message.
+En cas d’exception **MessageLockLostException** , l’application cliente ne peut plus traiter le message. Elle peut éventuellement envisager de journaliser l’exception pour analyse, mais le client *doit* supprimer le message.
 
 Étant donné que le verrou sur le message a expiré, celui-ci retourne à la file d’attente (ou à l’abonnement) et peut être traité par l’application cliente suivante qui appelle Receive.
 
-En cas de dépassement de la valeur **MaxDeliveryCount**, le message peut être déplacé vers la file d’attente **DeadLetterQueue**.
+En cas de dépassement de la valeur **MaxDeliveryCount** , le message peut être déplacé vers la file d’attente **DeadLetterQueue**.
 
 ## <a name="sessionlocklostexception"></a>SessionLockLostException
 
@@ -125,7 +126,7 @@ Le verrou sur une session peut expirer pour différentes raisons :
 
 ### <a name="resolution"></a>Résolution
 
-En cas d’exception **SessionLockLostException**, l’application cliente ne peut plus traiter les messages de la session. Elle peut envisager de journaliser l’exception pour analyse, mais le client *doit* supprimer le message.
+En cas d’exception **SessionLockLostException** , l’application cliente ne peut plus traiter les messages de la session. Elle peut envisager de journaliser l’exception pour analyse, mais le client *doit* supprimer le message.
 
 Étant donné que le verrou sur la session a expiré, celle-ci retourne à la file d’attente (ou à l’abonnement) et peut être verrouillée par l’application cliente suivante qui l’accepte. Étant donné que le verrou de session est détenu par une seule application cliente à un moment donné, le traitement dans l’ordre est garanti.
 
@@ -159,7 +160,7 @@ Aliases:  <mynamespace>.servicebus.windows.net
 
 Si le nom ci-dessus **n’est pas résolu** en adresse IP et en l’alias d’espace de noms, demandez à l’administrateur réseau d’effectuer des recherches plus poussées. La résolution de noms s’effectue au travers d’un serveur DNS qui est généralement une ressource du réseau du client. Si la résolution DNS est effectuée par Azure DNS, contactez le support Azure.
 
-Si la résolution de noms **fonctionne comme prévu**, vérifiez si les connexions à Azure Service Bus sont autorisées [ici](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues).
+Si la résolution de noms **fonctionne comme prévu** , vérifiez si les connexions à Azure Service Bus sont autorisées [ici](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues).
 
 
 ## <a name="messagingexception"></a>MessagingException
@@ -180,7 +181,7 @@ Si la résolution de noms **fonctionne comme prévu**, vérifiez si les connexio
 
 Les étapes de résolution dépendent de la cause de la levée de l’exception **MessagingException**.
 
-   * Pour des **problèmes temporaires** (où ***isTransient*** a la valeur ***true***) ou des **problèmes de limitation**, une nouvelle tentative d’exécution de l’opération peut les résoudre. La stratégie de nouvelle tentative par défaut du Kit de développement logiciel (SDK) peut être utile à cette fin.
+   * Pour des **problèmes temporaires** (où **_isTransient_ *_ a la valeur _* _true_ *_) ou des _* problèmes de limitation** , une nouvelle tentative d’exécution de l’opération peut les résoudre. La stratégie de nouvelle tentative par défaut du Kit de développement logiciel (SDK) peut être utile à cette fin.
    * Pour les autres problèmes, les détails de l’exception indiquent que les étapes du problème et de sa résolution peuvent être déduits de l’exception.
 
 ## <a name="next-steps"></a>Étapes suivantes

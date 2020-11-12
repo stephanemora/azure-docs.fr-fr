@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211559"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025950"
 ---
 # <a name="monitor-workload---azure-portal"></a>Superviser une charge de travail dans le portail Azure
 
@@ -32,9 +32,9 @@ Accéder au panneau de navigation des espaces de travail Log Analytics et créer
 
 ![Espaces de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Ajouter un espace de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Capture d’écran montrant les espaces de travail Log Analytics où vous pouvez sélectionner Ajouter.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Ajouter un espace de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Capture d’écran montrant l’espace de travail Log Analytics où vous pouvez entrer des valeurs.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
 Pour plus d’informations sur les espaces de travail, consultez cette [documentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 

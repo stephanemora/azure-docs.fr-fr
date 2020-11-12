@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790880"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308327"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -156,7 +156,7 @@ Il peut arriver qu’une personne disposant de droits d’accès suffisants au c
 
 - en supprimant l’identité managée du serveur dans Azure Active Directory
 
-En savoir plus sur [les causes courantes pour que la base de données devienne inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+En savoir plus sur [les causes courantes pour que la base de données devienne inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>Surveillance de TDE managé par le client
 
@@ -179,7 +179,7 @@ Si la clé nécessaire à la restauration d’une sauvegarde n’est plus dispon
 
 Pour l’atténuer, exécutez la cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) pour le serveur cible ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) pour l’instance gérée cible afin de retourner la liste des clés disponibles et d’identifier celles qui sont manquantes. Pour garantir la restauration possible de toutes les sauvegardes, vérifiez que le serveur cible pour la sauvegarde dispose d’un accès à toutes les clés nécessaires. Ces clés n’ont pas besoin d’être marquées comme protecteur TDE.
 
-Afin d’en savoir plus sur la récupération d’une sauvegarde pour SQL Database, consultez [Récupérer une base de données dans SQL Database](recovery-using-backups.md). Pour en savoir plus sur la récupération d’une sauvegarde de pool SQL, consultez [Récupérer un pool SQL](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Pour la sauvegarde/restauration native de SQL Server avec SQL Managed Instance, consultez [Démarrage rapide : Restaurer une base de données sur SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
+Afin d’en savoir plus sur la récupération d’une sauvegarde pour SQL Database, consultez [Récupérer une base de données dans SQL Database](recovery-using-backups.md). Pour en savoir plus sur la récupération de sauvegarde pour un pool SQL dédié dans Azure Synapse Analytics, consultez [Récupérer un pool SQL dédié](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Pour la sauvegarde/restauration native de SQL Server avec SQL Managed Instance, consultez [Démarrage rapide : Restaurer une base de données sur SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Attention particulière pour les fichiers journaux : Les fichiers journaux sauvegardés restent chiffrés avec le protecteur TDE d’origine, même s’il a subi une rotation et si la base de données utilise maintenant un nouveau protecteur TDE.  Lors d’une restauration, les deux clés seront nécessaires pour restaurer la base de données.  Si le fichier journal utilise un protecteur TDE stocké dans Azure Key Vault, cette clé sera nécessaire lors de la restauration, même si entretemps la base de données est passée à un TDE managé par le service.
 

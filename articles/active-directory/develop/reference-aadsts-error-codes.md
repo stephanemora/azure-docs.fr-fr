@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115099"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241325"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -156,7 +156,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS50136 | RedirectMsaSessionToApp : une seule session MSA est détectée. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken : la session n’est pas valide en raison d’un jeton d’actualisation externe manquant. |
 | AADSTS50140 | KmsiInterrupt : cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
-| AADSTS50143 | Incompatibilité de session : la session n’est pas valide, car le client de l’utilisateur ne correspond pas à l’indication de domaine en raison d’une différence entre les ressources. Pour plus d’informations,  [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) en précisant l’ID de corrélation, l’ID de demande et le code d’erreur. |
+| AADSTS50143 | Incompatibilité de session. La session n’est pas valide, car le locataire de l’utilisateur ne correspond pas à l’indicateur de domaine en raison d’une ressource différente. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword : Le mot de passe Active Directory de l’utilisateur est arrivé à expiration. Générez un nouveau mot de passe pour l’utilisateur ou demandez à l’utilisateur d’utiliser l’outil de réinitialisation en libre-service pour le réinitialiser. |
 | AADSTS50146 | MissingCustomSigningKey : cette application doit être configurée avec une clé de signature spécifique. Elle n’est configuré avec aucune clé, ou la clé a expiré ou n’est pas encore valide. |
 | AADSTS50147 | MissingCodeChallenge : la taille du paramètre de vérification du code n’est pas valide. |
@@ -200,7 +200,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS70007 | UnsupportedResponseMode : l’application a renvoyé une valeur non prise en charge pour `response_mode` lors de la requête d’un jeton.  |
 | AADSTS70008 | ExpiredOrRevokedGrant : le jeton d’actualisation a expiré en raison d’une inactivité. Le jeton a été émis le XXX et il était inactif pendant un certain laps de temps. |
 | AADSTS70011 | InvalidScope : la portée demandée par l’application n’est pas valide. |
-| AADSTS70012 | MsaServerError : une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Réessayez. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
+| AADSTS70012 | MsaServerError : une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Réessayez. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS70016 | AuthorizationPending : erreur de flux d’appareil d’OAuth 2.0. Une autorisation est en attente. L’appareil va réessayer l’interrogation de la requête. |
 | AADSTS70018 | BadVerificationCode : le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée. |
 | AADSTS70019 | CodeExpired : le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter. |
@@ -251,7 +251,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS90051 | InvalidNationalCloudId : l’identificateur de cloud national contient un identificateur de cloud non valide. |
 | AADSTS90055 | TenantThrottlingError : il y a un trop grand nombre de requêtes entrantes. Cette exception est levée pour les locataires bloqués. |
 | AADSTS90056 | BadResourceRequest : pour utiliser le code pour un jeton d’accès, l’application doit envoyer une requête POST au point de terminaison `/token`. En outre, avant cela, vous devez fournir un code d’autorisation et l’envoyer dans la requête POST au point de terminaison `/token`. Consultez cet article pour une vue d’ensemble du flux du code d’autorisation OAuth 2.0 : [../azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md). Dirigez l’utilisateur vers le point de terminaison `/authorize`, qui retournera un code d’autorisation. En publiant une requête pour le point de terminaison `/token`, l’utilisateur obtient le jeton d’accès. Ouvrez une session dans le portail Azure et vérifiez **Inscriptions d'applications > Points de terminaison** pour confirmer que les deux points de terminaison ont été configurés correctement. |
-| AADSTS90072 | PassThroughUserMfaError : le compte externe avec lequel l’utilisateur se connecte n’existe pas sur le locataire auquel il s’était connecté ; par conséquent, l’utilisateur ne peut pas remplir les exigences d’authentification multifacteur pour le locataire. Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous puis reconnectez-vous avec un autre compte d’utilisateur Azure AD. |
+| AADSTS90072 | PassThroughUserMfaError : le compte externe avec lequel l’utilisateur se connecte n’existe pas sur le locataire auquel il s’était connecté ; par conséquent, l’utilisateur ne peut pas remplir les exigences d’authentification multifacteur pour le locataire. Cette erreur peut également se produire si les utilisateurs sont synchronisés, mais qu’il existe une incompatibilité dans l’attribut ImmutableID (sourceAnchor) entre Active Directory et Azure AD. Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous puis reconnectez-vous avec un autre compte d’utilisateur Azure AD. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid : une erreur s’est produite lorsque le service a tenté de traiter un message WS-Federation. Le message n'est pas valide. |
 | AADSTS90082 | OrgIdWsFederationNotSupported : la stratégie d’authentification sélectionnée pour la demande n’est pas prise en charge actuellement. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed : les comptes invités ne sont pas autorisés pour ce site. |
@@ -320,6 +320,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS1000000 | UserNotBoundError : l’API Bind nécessite que l’utilisateur Azure AD s’authentifie également auprès d’un fournisseur d’identité externe, ce qui n’a pas encore été effectué. |
 | AADSTS1000002 | BindCompleteInterruptError : la liaison s’est terminée correctement, mais l’utilisateur doit être informé. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled : l’application est désactivée. |
+| AADSTS7000114| L’application « appIdentifier » n’est pas autorisée à effectuer des appels au nom de l’application.|
 | AADSTS7500529 | La valeur « SAMLId-GUID » n’est pas un ID SAML valide - Azure AD utilise cet attribut pour remplir l’attribut InResponseTo de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, id6c1c178c166d486687be4aaf5e482730 est un ID valide. |
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131052"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
@@ -149,7 +149,7 @@ Vous pouvez accéder aux rapports sur les détections d’événements à risque
 
 J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et tous les enregistrements correspondant à la période choisie n’apparaissent pas. Pourquoi ? 
 
- ![Signalement](./media/troubleshoot-missing-data-download/01.png)
+ ![Capture d’écran montrant le bouton Télécharger dans le rapport d’activité.](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Cause
 
@@ -165,7 +165,7 @@ Vous pouvez tirer parti des [API de création de rapports Azure AD](concept-repo
 
 J’ai réalisé certaines actions dans le portail Azure et je pensais pouvoir consulter les journaux d’audit associés dans le panneau `Activity logs > Audit Logs`, mais je ne les trouve pas.
 
- ![Signalement](./media/troubleshoot-missing-audit-data/01.png)
+ ![Capture d’écran montrant le rapport d’activité.](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Cause
 
@@ -186,7 +186,7 @@ Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent d
 
 Je me suis connecté récemment au portail Azure et je pensais pouvoir consulter les journaux d’activité de connexion associés dans le panneau `Activity logs > Sign-ins`, mais je ne les trouve pas.
 
- ![Signalement](./media/troubleshoot-missing-audit-data/02.png)
+ ![Capture d’écran montrant les connexions pour Azure Active Directory.](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Cause
 
@@ -207,7 +207,7 @@ Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent d
 
 Je n’arrive pas à afficher plus de 30 jours de données de connexion et d’audit dans le portail Azure. Pourquoi ? 
 
- ![Signalement](./media/troubleshoot-missing-audit-data/03.png)
+ ![Capture d’écran montrant le menu Date.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Cause
 

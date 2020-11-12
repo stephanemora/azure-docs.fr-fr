@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28186a7dcced47a42b3249f1f74b13e969b41978
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970082"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041364"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utiliser l’éditeur Video Indexer pour créer des projets
 
@@ -35,7 +35,7 @@ Cet article explique comment créer un projet à partir de zéro, mais égalemen
 1. Sélectionnez l’onglet **Projets**. Si vous avez créé des projets avant, vous les verrez tous à cet endroit.
 1. Cliquez sur **Créer un projet**.  
 
-    ![Nouveau projet](./media/video-indexer-view-edit/new-project.png)
+    ![Capture d’écran montrant la page « Video Indexer » avec l’onglet « Projets » sélectionné.](./media/video-indexer-view-edit/new-project.png)
 1. Nommez votre projet en cliquant sur l’icône de crayon. Remplacez le texte « Projet sans titre » par le nom de votre projet, puis cliquez sur la coche.
 
     ![Nouveau projet](./media/video-indexer-view-edit/new-project3.png)
@@ -117,7 +117,7 @@ Pensez à enregistrer votre projet lorsque vous apportez des modifications en s�
 
 1. Vous pouvez accéder à des projets enregistrés depuis l’onglet **Projets**. 
 
-    Si vous sélectionnez ce projet, vous voyez toutes les informations et la chronologie de ce projet. Si vous sélectionnez **Éditeur de vidéo**, vous pouvez continuer à apporter des modifications à ce projet. Les modifications incluent l’ajout ou la suppression de vidéos et de clips ou le renommage du projet.
+    Si vous sélectionnez ce projet, vous voyez toutes les informations et la chronologie de ce projet. Si vous sélectionnez **Éditeur de vidéo** , vous pouvez continuer à apporter des modifications à ce projet. Les modifications incluent l’ajout ou la suppression de vidéos et de clips ou le renommage du projet.
 
     ![Éditeur de vidéo](./media/video-indexer-view-edit/video-editor.png)
      

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91707980"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126717"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questions courantes concernant la place de marché commerciale Microsoft
 
@@ -46,7 +46,7 @@ Pour en savoir plus, accédez au [hub de la Place de marché commerciale Microso
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Existe-t-il des frais de listing pour Place de marché commerciale Microsoft ?
 
-Non, il n’y a aucun coût de publication des offres dans notre marketplace commercial. Nous conservons un petit pourcentage de la vente, à titre de frais de transaction, et l’investissons dans le programme Marketplace Rewards, l’innovation de la plateforme et les opérations du marketplace commercial. Ces frais de transaction sont réduits pour les offres incitatives de [co-vente Azure IP](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) et les offres SaaS payantes sur AppSource associées à une application Microsoft Teams ou au moins deux compléments Microsoft 365 (Excel, PowerPoint, Word, Outlook et SharePoint).
+Non, il n’y a aucun coût de publication des offres dans notre marketplace commercial. Nous conservons un petit pourcentage de la vente, à titre de frais de transaction, et l’investissons dans le programme Marketplace Rewards, l’innovation de la plateforme et les opérations du marketplace commercial. Ces frais de transaction sont réduits pour les offres incitatives de [co-vente Azure IP](./marketplace-co-sell.md) et les offres SaaS payantes sur AppSource associées à une application Microsoft Teams ou au moins deux compléments Microsoft 365 (Excel, PowerPoint, Word, Outlook et SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Comment m’inscrire pour être un éditeur sur Place de marché commerciale Microsoft ?
 
@@ -99,14 +99,14 @@ Oui, Place de marché Azure Government est disponible dans les régions Azure Go
 
 Quatre rôles pertinents régissent l’accès à l’espace partenaires.
 
-- *Manager* : Fournit des autorisations pour gérer les utilisateurs de l’espace partenaires dans l’annuaire et créer et mettre à jour des offres.
-- *Développeur* : Autorise un utilisateur à créer et mettre à jour des offres.
-- *Contributeur financier* : Fournit des autorisations pour afficher les rapports de paiement.
+- *Manager*  : Fournit des autorisations pour gérer les utilisateurs de l’espace partenaires dans l’annuaire et créer et mettre à jour des offres.
+- *Développeur*  : Autorise un utilisateur à créer et mettre à jour des offres.
+- *Contributeur financier*  : Fournit des autorisations pour afficher les rapports de paiement.
 - *Propriétaire* : Peut configurer le compte de paiement et le profil fiscal. L’utilisateur qui a accepté le contrat d’éditeur devient le propriétaire par défaut.
 
-Les autorisations d’*administrateur général* d’Azure Active Directory (Azure AD) sont nécessaires pour créer de nouveaux comptes d’utilisateur ou pour inviter des comptes d’invité dans le répertoire sous-jacent. Espace partenaires s’appuie sur Azure AD pour le modèle d’identité, et l’instance Azure AD d’une organisation est souvent gérée et contrôlée par ses équipes informatiques ou de sécurité.
+Les autorisations d’ *administrateur général* d’Azure Active Directory (Azure AD) sont nécessaires pour créer de nouveaux comptes d’utilisateur ou pour inviter des comptes d’invité dans le répertoire sous-jacent. Espace partenaires s’appuie sur Azure AD pour le modèle d’identité, et l’instance Azure AD d’une organisation est souvent gérée et contrôlée par ses équipes informatiques ou de sécurité.
 
-Pour plus d’informations, consultez [Attribuer des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview).
+Pour plus d’informations, consultez [Attribuer des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>Les clients ont-ils besoin d’un abonnement pour Microsoft Azure Cloud Services ?
 
@@ -118,7 +118,7 @@ Les éditeurs du marketplace commercial sont responsables de l’assistance rela
 
 ### <a name="whats-the-process-of-validating-the-end-to-end-purchase-and-setup-flow"></a>Quel est le processus de validation du flux d’achat et d’installation de bout en bout ?
 
-Pendant le processus de publication, vous aurez accès à une préversion de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifié sous l’onglet **Préversion**, et l’offre ne peut être consultée par personne d’autre. Vous pouvez acheter une préversion pour tester le processus ; cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
+Pendant le processus de publication, vous aurez accès à une préversion de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifié sous l’onglet **Préversion** , et l’offre ne peut être consultée par personne d’autre. Vous pouvez acheter une préversion pour tester le processus ; cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
 
 Pour effectuer un achat à moindre coût, nous vous conseillons de publier un plan privé que vous seul pouvez consulter et dont vous pourrez accepter le prix comme coût du test. Un prix de 0 $ est accepté, mais ne reflètera pas l’expérience complète, comme le ferait un abonnement payant. Nous vous recommandons donc de fixer le prix à 1 $.
 
@@ -303,7 +303,7 @@ Pour plus d’informations, consultez [Configurer votre compte de paiement et vo
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Les retours et les remboursements sont-ils pris en charge sur la Place de marché commerciale ?
 
-Pour recevoir des remboursements, les clients peuvent annuler des abonnements dans un laps de temps spécifié. Pour les abonnements mensuels, il s’agit de 24 heures, et pour les abonnements annuels, il est de 14 jours. Les offres qui sont facturées en fonction de la consommation après l’utilisation d’une solution ne sont pas éligibles à un remboursement.
+Des remboursements sont disponibles pour les clients sous certaines conditions et pour certains frais. Les demandes de remboursement des frais récurrents facturés mensuellement doivent être reçues dans les 24 heures suivant l’achat ou le renouvellement. De même, les demandes de remboursement des frais récurrents facturés annuellement doivent être reçues dans les 14 jours suivant l’achat ou le renouvellement. Ce type de remboursement ne s’applique pas aux frais résultant de l’utilisation (qu’il s’agisse d’offres de machines virtuelles ou de facturation au compteur).
 
 ## <a name="resources"></a>Ressources
 

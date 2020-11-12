@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f24eb64a5418a9963fd58611314ccbc6b72ec4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968461"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077657"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la protection par mot de passe Azure AD en local
 
@@ -32,9 +32,9 @@ Les conseils de Microsoft sur ce sujet se trouvent sur le lien suivant :
 
 **Q : La protection par mot de passe Azure AD en local est-elle prise en charge sur les clouds non publics ?**
 
-Non. La protection par mot de passe Azure AD en local est prise en charge uniquement sur le cloud public. Aucune date n’a été annoncée concernant la disponibilité sur les clouds non publics.
+La protection par mot de passe Azure AD en local est prise en charge sur le cloud public et le cloud Arlington. Aucune date n’a été annoncée concernant la disponibilité sur d’autres clouds.
 
-Le portail Azure AD autorise la modification de la configuration spécifique en local « Protection par mot de passe pour Windows Server Active Directory », même dans les clouds non publics. Ces modifications sont rendues persistantes, sans quoi elles ne prennent pas effet. L’inscription d’agents proxys ou de forêts en local n’est pas prise en charge lorsque des informations d’identification de cloud non publics sont utilisées, ce qui entraîne l’échec de toute tentative d’inscription.
+Le portail Azure AD autorise la modification de la configuration spécifique en local « Protection par mot de passe pour Windows Server Active Directory », même dans les clouds non pris en charge. Ces modifications sont rendues persistantes, sans quoi elles ne prennent pas effet. L’inscription d’agents proxys ou de forêts en local n’est pas prise en charge dans les clouds non pris en charge, ce qui entraîne l’échec de toute tentative d’inscription.
 
 **Q : Comment puis-je appliquer des avantages de la protection par mot de passe Azure AD à un sous-ensemble de mes utilisateurs en local ?**
 

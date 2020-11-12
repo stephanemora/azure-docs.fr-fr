@@ -3,12 +3,12 @@ title: Nouveautés d’Azure Site Recovery
 description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0c35c8e041e47f02d53c680b5812b10d25d75a67
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2e85ee19012f6ae13c18e26b3aa0b5ae28bcaade
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425717"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341346"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -31,6 +31,7 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 
 [En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
 
+## <a name="updates-october-2020"></a>Mises à jour (octobre 2020)
 
 ### <a name="update-rollup-51"></a>Correctif cumulatif 51
 
@@ -41,7 +42,9 @@ Le [correctif cumulatif 51](https://support.microsoft.com/help/4590304/update-r
 **Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery comme décrit dans le correctif cumulatif.
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations comme détaillé dans le cumul, y compris la nouvelle prise en charge de Linux pour le service Mobility.
 
-## <a name="update-september-2020"></a>Mise à jour (septembre 2020)
+## <a name="updates-september-2020"></a>Mises à jour (septembre 2020)
+
+### <a name="update-rollup-50"></a>Correctif cumulatif 50
 
 Le [correctif cumulatif 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) fournit les mises à jour suivantes :
 

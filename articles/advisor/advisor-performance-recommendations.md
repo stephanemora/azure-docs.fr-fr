@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Advisor
 description: Utilisez les recommandations d’Azure Advisor en matière de performances pour optimiser la vitesse et la réactivité de vos applications stratégiques.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077811"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308687"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Améliorer les performances des applications Azure à l’aide d’Azure Advisor
 
@@ -22,7 +22,7 @@ Azure Advisor identifie les profils Traffic Manager dont la TTL configurée est 
 
 ## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Améliorer les performances de la base de données à l’aide de SQL Database Advisor (temporairement désactivé)
 
-Azure Advisor offre une vue cohérente et consolidée des recommandations pour toutes vos ressources Azure. Il s’intègre à SQL Database Advisor pour vous proposer des recommandations en vue d’améliorer les performances de vos bases de données. SQL Database Advisor évalue les performances de vos bases de données en analysant votre historique d'utilisation. Il propose alors les recommandations les plus adaptées pour exécuter la charge de travail standard de la base de données.
+Azure Advisor offre une vue cohérente et consolidée des recommandations pour toutes vos ressources Azure. Il s’intègre à SQL Database Advisor pour vous proposer des recommandations en vue d’améliorer les performances de vos bases de données.  SQL Database Advisor évalue les performances de vos bases de données en analysant votre historique d'utilisation. Il propose alors les recommandations les plus adaptées pour exécuter la charge de travail standard de la base de données.
 
 > [!NOTE]
 > Avant de pouvoir obtenir des recommandations, votre base de données doit être utilisée pendant environ une semaine et, au cours de cette semaine, une certaine activité doit être assurée de manière cohérente. SQL Database Advisor peut plus facilement optimiser les modèles de requête cohérents que les pics d’activité aléatoires.
@@ -108,7 +108,7 @@ Advisor détecte si vous pouvez améliorer les performances et le débit de la c
 
 ## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>Colocaliser le compte de stockage dans la même région pour réduire la latence pendant le chargement
 
-Advisor détecte si vous effectuez le chargement à partir d’une région différente de celle de votre pool SQL. Envisagez de charger à partir d’un compte de stockage qui se trouve dans la même région que votre pool SQL pour réduire la latence lors du chargement des données. Cette modification permettra de réduire la latence et d’améliorer les performances de charge.
+Advisor détecte si vous effectuez le chargement à partir d’une région différente de celle de votre pool SQL dédié. Envisagez de charger à partir d’un compte de stockage qui se trouve dans la même région que votre pool SQL dédié pour réduire la latence lors du chargement des données. Cette modification permettra de réduire la latence et d’améliorer les performances de charge.
 
 ## <a name="use-a-supported-kubernetes-version"></a>Utiliser une version de Kubernetes prise en charge
 
@@ -120,17 +120,17 @@ Advisor détecte les versions non prises en charge de Kubernetes.
 Une utilisation intense du processeur pendant une période prolongée peut ralentir les performances des requêtes pour votre charge de travail. L’augmentation de la taille du processeur aide à optimiser l’exécution des requêtes de base de données, ainsi qu’à améliorer les performances globales. Advisor identifie les serveurs faisant une utilisation intense de processeur qui exécutent probablement des charges de travail limitées par celui-ci et recommande une mise à l’échelle de votre capacité de calcul.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Réduire les contraintes de mémoire sur les serveurs Azure Database for MariaDB, Azure Database pour MySQL et Azure Database pour PostgreSQL ou passer à une référence SKU à mémoire optimisée
-Un taux d’accès au cache faible peut ralentir les performances de requête et augmenter les IOPS. Cette condition peut être due à un mauvais plan de requête ou à une charge de travail gourmande en mémoire. Une correction du plan de requête ou une  [augmentation de la mémoire](../postgresql/concepts-pricing-tiers.md) du serveur Azure Database for MariaDB, Azure Database pour MySQL ou Azure Database pour PostgreSQL permet d’optimiser l’exécution de la charge de travail de la base de données. Azure Advisor identifie les serveurs concernés par cette forte attrition du pool de mémoires tampons. Il vous recommande d’effectuer l’une des actions suivantes : 
+Un taux d’accès au cache faible peut ralentir les performances de requête et augmenter les IOPS. Cette condition peut être due à un mauvais plan de requête ou à une charge de travail gourmande en mémoire. Une correction du plan de requête ou une [augmentation de la mémoire](../postgresql/concepts-pricing-tiers.md) du serveur Azure Database for MariaDB, Azure Database pour MySQL ou Azure Database pour PostgreSQL permet d’optimiser l’exécution de la charge de travail de la base de données. Azure Advisor identifie les serveurs concernés par cette forte attrition du pool de mémoires tampons. Il vous recommande d’effectuer l’une des actions suivantes : 
 - Corriger le plan de requête
 - Passer à une référence SKU dotée de plus de mémoire 
 - Augmentez la taille de stockage pour obtenir davantage d’IOPS.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Utiliser un réplica en lecture Azure Database pour MySQL ou Azure Database pour PostgreSQL afin d’effectuer un scale-out des charges de travail dont les accès en lecture sont intensifs
-Advisor utilise des méthodes heuristiques basées sur la charge de travail, telles que le ratio lectures/écritures sur le serveur au cours des sept derniers jours, pour identifier les charges de travail dont les accès en lecture sont intensifs. Une ressource Azure Database pour PostgreSQL ou Azure Database pour MySQL avec un ratio lectures/écritures élevé peut entraîner des contentions de processeur ou de mémoire et un ralentissement des performances de requête. L’ajout d’un  [réplica](../postgresql/howto-read-replicas-portal.md) vous aide à effectuer un scale-out des lectures vers le serveur réplica et à éviter les contraintes de processeur ou de mémoire sur le serveur principal. Advisor identifie les serveurs traitant des charges de travail dont les accès en lectures sont intensifs et vous recommande d’ajouter un  [réplica en lecture](../postgresql/concepts-read-replicas.md) pour alléger certaines charges de travail en lecture.
+Advisor utilise des méthodes heuristiques basées sur la charge de travail, telles que le ratio lectures/écritures sur le serveur au cours des sept derniers jours, pour identifier les charges de travail dont les accès en lecture sont intensifs. Une ressource Azure Database pour PostgreSQL ou Azure Database pour MySQL avec un ratio lectures/écritures élevé peut entraîner des contentions de processeur ou de mémoire et un ralentissement des performances de requête. L’ajout d’un [réplica](../postgresql/howto-read-replicas-portal.md) vous aide à effectuer un scale-out des lectures vers le serveur réplica et à éviter les contraintes d’UC ou de mémoire sur le serveur principal. Advisor identifie les serveurs traitant des charges de travail dont les accès en lectures sont intensifs et vous recommande d’ajouter un [réplica en lecture](../postgresql/concepts-read-replicas.md) pour alléger certaines charges de travail en lecture.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Mettre à l’échelle le serveur Azure Database pour MySQL, Azure Database pour PostgreSQL ou Azure Database for MariaDB vers une référence SKU de niveau supérieur afin d’empêcher les contraintes de connexion
-Chaque nouvelle connexion à votre serveur de base de données monopolise de la mémoire. Les performances du serveur de base de données se dégradent si les connexions à votre serveur échouent en raison d’une  [limite supérieure](../postgresql/concepts-limits.md) de la mémoire. Azure Advisor identifie les serveurs qui rencontrent un grand nombre d’échecs de connexion. Il recommande de mettre à niveau les limites de connexion de votre serveur pour lui fournir plus de mémoire en effectuant l’une des actions suivantes :
+Chaque nouvelle connexion à votre serveur de base de données monopolise de la mémoire. Les performances du serveur de base de données se dégradent si les connexions à votre serveur échouent en raison d’une [limite supérieure](../postgresql/concepts-limits.md) de la mémoire. Azure Advisor identifie les serveurs qui rencontrent un grand nombre d’échecs de connexion. Il recommande de mettre à niveau les limites de connexion de votre serveur pour lui fournir plus de mémoire en effectuant l’une des actions suivantes :
 - Effectuer un scale-up de la capacité de calcul. 
 - Utiliser des références SKU à mémoire optimisée, qui ont davantage de capacité de calcul par cœur.
 

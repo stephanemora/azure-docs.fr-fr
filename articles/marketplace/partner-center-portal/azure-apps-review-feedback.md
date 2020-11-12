@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320100"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095670"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Gestion des commentaires de révision pour les offres d’applications Azure
 
-Cet article explique comment accéder aux commentaires de l’équipe de révision de la Place de marché Microsoft Azure dans [Azure DevOps](https://azure.microsoft.com/services/devops/). Si vous trouvez des problèmes critiques dans votre offre d’application Azure pendant l’étape de **révision Microsoft**, vous pouvez vous connecter à ce système pour afficher des informations détaillées sur ces problèmes (commentaires de révision). Après avoir résolu tous les problèmes, vous devez resoumettre votre offre pour continuer à la publier sur la Place de marché Azure. Le diagramme suivant illustre le lien entre ce processus de commentaires et le processus de publication.
+Cet article explique comment accéder aux commentaires de l’équipe de révision de la Place de marché Microsoft Azure dans [Azure DevOps](https://azure.microsoft.com/services/devops/). Si vous trouvez des problèmes critiques dans votre offre d’application Azure pendant l’étape de **révision Microsoft** , vous pouvez vous connecter à ce système pour afficher des informations détaillées sur ces problèmes (commentaires de révision). Après avoir résolu tous les problèmes, vous devez resoumettre votre offre pour continuer à la publier sur la Place de marché Azure. Le diagramme suivant illustre le lien entre ce processus de commentaires et le processus de publication.
 
 ![Processus de révision des commentaires](./media/review-feedback-process.png)
 
@@ -39,11 +39,11 @@ Utilisez la procédure suivante pour passer en revue les problèmes décrits dan
     [![Page d’accueil de la demande de tirage (pull request)](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Cliquez sur cette image pour la développer.*
 
-1. (Facultatif) Sur le côté droit de la fenêtre, dans la section **Stratégies**, sélectionnez le message du problème (dans cet exemple : **Échec de la validation de la stratégie**) pour examiner les détails du problème, notamment les fichiers journaux associés. Les erreurs sont généralement affichées en bas des fichiers journaux.
+1. (Facultatif) Sur le côté droit de la fenêtre, dans la section **Stratégies** , sélectionnez le message du problème (dans cet exemple : **Échec de la validation de la stratégie** ) pour examiner les détails du problème, notamment les fichiers journaux associés. Les erreurs sont généralement affichées en bas des fichiers journaux.
 
 1. Dans le menu sur le côté gauche de la page d’accueil, sélectionnez **Fichiers** pour afficher les fichiers qui composent les ressources techniques pour cette offre. Les réviseurs de Microsoft doivent avoir ajoutés des commentaires décrivant les problèmes critiques détectés. Dans l’exemple suivant, deux problèmes ont été détectés.
 
-    [![Page d’accueil de la demande de tirage (pull request)](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Capture d’écran mettant en évidence Fichiers et les deux problèmes qui ont été découverts.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Cliquez sur cette image pour la développer.*
 
 1. Sélectionnez chaque nœud de commentaire dans l’arborescence de gauche pour accéder au commentaire dans le contexte du code environnant. Corrigez votre code source dans le projet de votre équipe pour corriger le problème décrit par le commentaire.

@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057754"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075787"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accéder à Stockage Azure en tant que partage réseau à partir d’un conteneur dans App Service
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Accéder à Stockage Azure (préversion) en tant que partage réseau à partir d’un conteneur dans App Service
 
 ::: zone pivot="container-windows"
 
 Ce guide montre comment attacher des fichiers Stockage Azure en tant que partage réseau à un conteneur Windows dans App Service. Seuls les [partages de fichiers Azure](../storage/files/storage-how-to-use-files-cli.md) et [partages de fichiers Premium](../storage/files/storage-how-to-create-premium-fileshare.md) sont pris en charge. Les avantages sont multiples : sécurisation et portabilité du contenu, accès à plusieurs applications et multiplication des méthodes de transfert.
+
+> [!NOTE]
+>Stockage Azure dans App Service est **en préversion** et **non pris en charge** pour les **scénarios de production**.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 Ce guide montre comment attacher le Stockage Azure à un conteneur Linux dans App Service. Les avantages sont multiples : sécurisation et portabilité du contenu, stockage persistant, accès à plusieurs applications et méthodes de transfert multiples.
+
+> [!NOTE]
+>Stockage Azure dans App Service est en **préversion** pour App Service sur Linux et Web App pour conteneurs. Elle **n’est pas prise en charge** pour les **scénarios de production**.
 
 ::: zone-end
 
@@ -53,7 +59,6 @@ Ce guide montre comment attacher le Stockage Azure à un conteneur Linux dans Ap
 
 ::: zone pivot="container-windows"
 
-- Stockage Azure dans App Service est **en préversion** et **non pris en charge** pour les **scénarios de production**.
 - Stockage Azure dans App Service n’est actuellement **pas pris en charge** pour les scénarios de type Apportez votre propre code (applications Windows non conteneurisées).
 - Stockage Azure dans App Service **ne prend pas en charge** l’utilisation de la configuration **Storage Firewall** en raison des restrictions liées à l’infrastructure.
 - Stockage Azure avec App Service vous permet de spécifier **jusqu’à cinq** points de montage par application.
@@ -63,7 +68,6 @@ Ce guide montre comment attacher le Stockage Azure à un conteneur Linux dans Ap
 
 ::: zone pivot="container-linux"
 
-- Stockage Azure dans App Service est en **préversion** pour App Service sur Linux et Web App pour conteneurs. Elle **n’est pas prise en charge** pour les **scénarios de production**.
 - Stockage Azure dans App Service prend en charge le montage de **conteneurs Azure Files** (lecture/écriture) et de **conteneurs blob Azure** (lecture seule)
 - Stockage Azure dans App Service vous permet de spécifier **jusqu’à cinq** points de montage par application.
 - Le stockage Azure monté sur une application n’est pas accessible via des points de terminaison FTP/FTPS App Service. Utiliser [l’explorateur de stockage Azure](https://azure.microsoft.com/features/storage-explorer/).

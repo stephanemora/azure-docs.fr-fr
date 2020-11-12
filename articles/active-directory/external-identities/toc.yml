@@ -10,6 +10,8 @@
           href: what-is-b2b.md
         - name: "Qu’est-ce qu’Azure AD B2C\_?"
           href: ../../active-directory-b2c/overview.md
+        - name: Nouveautés dans la documentation
+          href: whats-new-docs.md
     - name: Démarrages rapides
       items:
         - name: Ajouter des utilisateurs invités dans le portail
@@ -152,5 +154,5 @@
           href: 'https://azure.microsoft.com/updates/?product=active-directory'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Vidéos
+        - name: Videos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

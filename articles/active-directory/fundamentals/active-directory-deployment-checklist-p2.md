@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371900"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077963"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -35,7 +35,7 @@ Des informations de licence supplémentaires sont disponibles dans les pages sui
 * [Gestion des licences Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Entreprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Guide des licences Azure AD B2B](../external-identities/licensing-guidance.md)
+* [Tarification d’Azure AD External Identities](../external-identities/external-identities-pricing.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>Phase 1 : Créer la base de la sécurité
 
@@ -70,7 +70,7 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 | [Implémenter l’écriture différée du mot de passe](../authentication/tutorial-enable-sspr-writeback.md) | Autorisez la réécriture des changements de mot de passe dans le cloud vers un environnement local Windows Server Active Directory. | Azure AD Premium P1 |
 | [Implémenter Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Activez la supervision des principales statistiques d’intégrité pour vos serveurs Azure AD Connect, vos serveurs AD FS et vos contrôleurs de domaine. | Azure AD Premium P1 |
 | [Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Économisez du temps et des efforts en créant des groupes de licences qui activent ou désactivent des fonctionnalités par groupe et non par utilisateur. | |
-| [Créer un plan pour l’accès des utilisateurs invités](../external-identities/what-is-b2b.md) | Collaborez avec les utilisateurs invités en les autorisant à se connecter à vos applications et services avec leur propre identité professionnelle, scolaire ou de réseau social. | [Guide des licences Azure AD B2B](../external-identities/licensing-guidance.md) |
+| [Créer un plan pour l’accès des utilisateurs invités](../external-identities/what-is-b2b.md) | Collaborez avec les utilisateurs invités en les autorisant à se connecter à vos applications et services avec leur propre identité professionnelle, scolaire ou de réseau social. | [Tarification d’Azure AD External Identities](../external-identities/external-identities-pricing.md) |
 | [Décider de la stratégie de gestion des appareils](../devices/overview.md) | Choisissez la stratégie de votre organisation concernant les appareils. Inscription ou jointure, BYOD (apportez votre propre appareil) ou appareil fourni par l’entreprise. | |
 | [Déployer Windows Hello Entreprise dans votre organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Utilisez Windows Hello pour une authentification sans mot de passe | |
 | [Déployer de nouvelles méthodes d’authentification sans mot de passe pour vos utilisateurs](../authentication/concept-authentication-passwordless.md) | Fournir aux utilisateurs des méthodes d’authentification pratiques, sans mot de passe | Azure AD Premium P1 |

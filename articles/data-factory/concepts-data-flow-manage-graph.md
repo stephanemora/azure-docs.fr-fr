@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
-ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4a0ea78ef169480d4494683cb929cfefd16f2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420092"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026970"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>Gérer le graphique des flux de données de mappage
 
@@ -47,11 +47,11 @@ Lorsque le graphique est masqué, vous pouvez vous déplacer entre les transform
 
 Pour trouver rapidement une transformation dans votre graphique, cliquez sur l'icône **Rechercher** au-dessus du paramètre de zoom.
 
-![action](media/data-flow/search-1.png "Graphique de recherche")
+![Capture d’écran montrant le bouton Rechercher.](media/data-flow/search-1.png "Graphique de recherche")
 
 Pour accéder à une transformation, vous pouvez effectuer une recherche par nom de transformation ou par description.
 
-![action](media/data-flow/search-2.png "Graphique de recherche")
+![Capture d’écran montrant la zone de texte de recherche.](media/data-flow/search-2.png "Graphique de recherche")
 
 ## <a name="hide-reference-nodes"></a>Masquer les nœuds de référence
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627370"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079017"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -55,7 +55,7 @@ Cet article vous fournit des conseils sur la façon de résoudre les problèmes 
 
 Cette commande affiche une boîte de dialogue qui vous donne des détails sur l’état de la jonction.
 
-![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/01.png" alt-text="Capture d’écran de la boîte de dialogue Workplace Join for Windows. Le texte qui contient une adresse e-mail indique qu’un certain appareil est joint à un espace de travail." border="false":::
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Étape 2 : Évaluer l’état de la jointure Azure AD hybride 
 
@@ -65,7 +65,7 @@ Si l’appareil n’a pas été joint par Azure AD Hybride, vous pouvez tenter d
 
 - Une mauvaise configuration d’AD FS ou d’Azure AD, ou des problèmes de réseau
 
-    ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Capture d’écran de la boîte de dialogue Workplace Join for Windows. Le texte signale qu’une erreur s’est produite lors de l’authentification du compte." border="false":::
     
    - Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Cela peut être dû à l’absence ou à une mauvaise configuration d’AD FS (pour les domaines fédérés) ou de l’authentification unique transparente d’Azure AD (pour les domaines managés), ou encore à des problèmes de réseau. 
    - Le problème peut être lié au fait que l’authentification multifacteur (MFA) est activée/configurée pour l’utilisateur, alors que le paramètre WIAORMUTLIAUTHN n’est pas configuré sur le serveur AD FS. 
@@ -76,7 +76,7 @@ Si l’appareil n’a pas été joint par Azure AD Hybride, vous pouvez tenter d
    - Votre organisation utilise l’authentification unique Azure AD sans interruption, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` ne sont pas présents dans les paramètres intranet Internet Explorer de l’appareil et l’option **Autoriser les mises à jour de la barre d’état via le script** n’est pas activée pour la zone Intranet.
 - Vous n’êtes pas connecté en tant qu’utilisateur du domaine
 
-   ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Capture d’écran de la boîte de dialogue Workplace Join for Windows. Le texte signale qu’une erreur s’est produite lors de la vérification du compte." border="false":::
 
    Cette situation peut se produire pour différentes raisons :
 
@@ -84,11 +84,11 @@ Si l’appareil n’a pas été joint par Azure AD Hybride, vous pouvez tenter d
    - Le client ne peut pas se connecter à un contrôleur de domaine.    
 - Un quota a été atteint.
 
-    ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Capture d’écran de la boîte de dialogue Workplace Join for Windows. Le texte signale une erreur, car l’utilisateur a atteint le nombre maximal d’appareils joints." border="false":::
 
 - Le service ne répond pas. 
 
-    ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Capture d’écran de la boîte de dialogue Workplace Join for Windows. Le texte signale qu’une erreur s’est produite parce que le serveur n’a pas répondu." border="false":::
 
 Vous pouvez aussi trouver ces informations dans le journal des événements, sous : **Applications and Services Log\Microsoft-Workplace Join**
   

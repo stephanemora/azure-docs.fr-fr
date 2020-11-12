@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329089"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346041"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utiliser Azure RBAC pour l’autorisation Kubernetes (préversion)
 
@@ -72,9 +72,9 @@ az extension update --name aks-preview
 - Nécessite l’[intégration managée d’Azure AD](managed-aad.md).
 - Vous ne pouvez pas intégrer Azure RBAC pour l’autorisation Kubernetes dans les clusters existants durant la phase de préversion, mais vous serez en mesure de le faire au moment de la mise à disposition générale.
 - Utilisez [kubectl v1.18.3+][az-aks-install-cli].
-- Durant la phase de préversion, vous pouvez uniquement ajouter des autorisations au *niveau de l’espace de noms* par le biais d’Azure CLI.
 - Si vous avez des définitions CRD et que vous créez des définitions de rôle personnalisées, le seul moyen actuellement de couvrir les CRD est de spécifier `Microsoft.ContainerService/managedClusters/*/read`. AKS travaille actuellement à fournir des autorisations plus précises pour les définitions CRD. Pour les autres objets, vous pouvez utiliser les groupes d’API spécifiques, par exemple : `Microsoft.ContainerService/apps/deployments/read`.
 - Les nouvelles attributions de rôles peuvent prendre jusqu’à 5 min pour se propager et être mises à jour par le serveur d’autorisation.
+- Nécessite que le locataire Azure AD configuré pour l’authentification soit le même que le locataire de l’abonnement qui contient le cluster AKS. 
 
 ## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Créer un cluster en utilisant Azure RBAC et l’intégration managée d’Azure AD
 

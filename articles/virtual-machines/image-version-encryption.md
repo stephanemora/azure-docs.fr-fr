@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e0534fa6eaccbfb9318369e0a4224d84fa8de7c8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048081"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347707"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
 
@@ -25,7 +25,7 @@ Le chiffrement côté serveur à l’aide de clés gérées par le client utilis
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article nécessite que vous disposiez déjà d’un jeu de chiffrement de disque à utiliser pour votre image.
+Cet article nécessite que vous disposiez déjà d’un chiffrement de disque défini dans chaque région vers laquelle vous souhaitez répliquer votre image.
 
 - Pour utiliser uniquement une clé gérée par le client, consultez **Activer les clés gérées par le client avec un chiffrement côté serveur** à l’aide du [portail Azure](./disks-enable-customer-managed-keys-portal.md) ou de [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -134,7 +134,7 @@ Pour les disques de données, vous devez ajouter le paramètre `-DiskEncryptionS
 
 ## <a name="cli"></a>Interface de ligne de commande 
 
-Pour la préversion publique, vous devez d’abord vous inscrire à la fonctionnalité.
+Pour la préversion publique, vous devez d’abord vous inscrire à la fonctionnalité. L’inscription prend environ 30 minutes.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption
@@ -209,13 +209,13 @@ Lorsque vous créez votre version d’image dans le portail, vous pouvez utilise
 > Pour utiliser le double chiffrement, vous devez utiliser ce lien [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) pour accéder au portail Azure. Le double chiffrement au repos n’est actuellement pas visible dans le portail Azure public sans utiliser le lien.
 
 
-1. Dans la page **Créer une version d’image**, sélectionnez l’onglet **Chiffrement**.
-2. Dans **Type de chiffrement**, sélectionnez **Chiffrement au repos avec une clé gérée par le client** ou **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**. 
+1. Dans la page **Créer une version d’image** , sélectionnez l’onglet **Chiffrement**.
+2. Dans **Type de chiffrement** , sélectionnez **Chiffrement au repos avec une clé gérée par le client** ou **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**. 
 3. Pour chaque disque de l’image, sélectionnez le **jeu de chiffrement de disque** à utiliser dans la liste déroulante. 
 
 ### <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Vous pouvez créer une machine virtuelle à partir d’une version d’image et utiliser des clés gérées par le client pour chiffrer les disques. Lorsque vous créez la machine virtuelle dans le portail, sous l’onglet **Disques**, sélectionnez **Chiffrement au repos avec des clés gérées par le client** ou sur **Double chiffrement avec les clés gérées par la plateforme et gérées par le client** pour le **Type de chiffrement**. Vous pouvez ensuite sélectionner le jeu de chiffrement dans la liste déroulante.
+Vous pouvez créer une machine virtuelle à partir d’une version d’image et utiliser des clés gérées par le client pour chiffrer les disques. Lorsque vous créez la machine virtuelle dans le portail, sous l’onglet **Disques** , sélectionnez **Chiffrement au repos avec des clés gérées par le client** ou sur **Double chiffrement avec les clés gérées par la plateforme et gérées par le client** pour le **Type de chiffrement**. Vous pouvez ensuite sélectionner le jeu de chiffrement dans la liste déroulante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

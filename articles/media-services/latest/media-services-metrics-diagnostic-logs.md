@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296649"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309068"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Surveiller les métriques et journaux de diagnostic Media Services via Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Surveiller les métriques et journaux de diagnostic Media Services via Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -67,8 +67,10 @@ Les métriques de [points de terminaison de streaming](/rest/api/media/streaming
 |Demandes|Demandes|Fournit le nombre total de requêtes HTTP traitées par le point de terminaison de streaming.|
 |Sortie|Sortie|Nombre total d’octets de sortie par minute par point de terminaison de streaming.|
 |SuccessE2ELatency|Latence de réussite de bout en bout|Durée à partir de laquelle le point de terminaison de streaming a reçu la requête lorsque le dernier octet de la réponse a été envoyé.|
+|Utilisation de l’UC| Utilisation de l’UC pour les points de terminaison de streaming Premium. Ces données ne sont pas disponibles pour les points de terminaison de streaming Standard. |
+|Bande passante en sortie | Sortie de la bande passante en bits par seconde.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Pourquoi utiliser des métriques ?
+### <a name="metrics-are-useful"></a>Utilité des métriques
 
 Voici quelques exemples de la façon dont la surveillance de métriques Media Services peut vous aider à comprendre le fonctionnement de vos applications. Voici quelques questions qui peuvent être traitées avec les métriques Media Services :
 
@@ -80,7 +82,9 @@ Voici quelques exemples de la façon dont la surveillance de métriques Media Se
 * Comment voir combien de demandes TLS ou DASH sont extraites du packager ?
 * Comment définir une alerte pour savoir quand la valeur seuil du nombre de requêtes ayant échoué a été atteinte ?
 
-### <a name="example"></a> Exemple
+L’accès concurrentiel devient une préoccupation pour le nombre de points de terminaison de streaming utilisés dans un seul compte dans le temps. Vous devez garder à l’esprit la relation entre le nombre de flux simultanés et les paramètres de publication complexes tels que l’empaquetage dynamique sur plusieurs protocoles, plusieurs chiffrements DRM, etc. Chaque stream en direct publié supplémentaire vient s’ajouter à l’UC et à la bande passante en sortie sur le point de terminaison de streaming. En tenant compte de cela, vous devez utiliser Azure Monitor pour observer attentivement l’utilisation du point de terminaison de streaming (capacité d’UC et de sortie) afin de vous assurer que vous le mettez à l’échelle de manière appropriée (ou fractionnez le trafic entre plusieurs points de terminaison de streaming si vous obtenez une concurrence très élevée).
+
+### <a name="example"></a>Exemple
 
 Consultez [Surveiller les métriques Media Services](media-services-metrics-howto.md).
 
@@ -107,7 +111,7 @@ Voici quelques éléments que vous pouvez examiner avec les journaux de diagnost
 * Voir les erreurs par type de DRM ou de stratégie.
 * Voir le nombre de requêtes de licence non autorisées émises par les clients.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 Consultez [Comment surveiller les journaux de diagnostic Media Services](media-services-diagnostic-logs-howto.md).
 

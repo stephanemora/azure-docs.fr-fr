@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425373"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081227"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -162,6 +162,14 @@ Une autre façon d’améliorer votre score et de vous assurer que vos utilisate
 
 Le tableau ci-dessous liste les contrôles de sécurité d’Azure Security Center. Pour chaque contrôle, vous pouvez voir le nombre maximal de points que vous pouvez ajouter à votre degré de sécurisation si vous appliquez *toutes* les recommandations indiquées dans le contrôle, pour *toutes* vos ressources. 
 
+L’ensemble de recommandations de sécurité fournies par Security Center est adapté aux ressources disponibles dans l’environnement de chaque organisation. Les recommandations peuvent être personnalisées davantage en [désactivant les stratégies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) et en [exemptant des ressources spécifiques d’une recommandation](exempt-resource.md). 
+ 
+Nous recommandons à chaque organisation d’examiner attentivement les initiatives Azure Policy qui lui ont été attribuées. 
+
+> [!TIP]
+> Pour plus d’informations sur l’examen et la modification de vos initiatives, consultez [Utilisation de stratégies de sécurité](tutorial-security-policy.md). 
+
+Bien que l’initiative de sécurité par défaut de Security Center soit basée sur les meilleures pratiques et les normes du secteur, il existe des scénarios dans lesquels les recommandations intégrées répertoriées ci-dessous peuvent ne pas être entièrement adaptées à votre organisation. Par conséquent, il est parfois nécessaire d’ajuster l’initiative par défaut (sans compromettre la sécurité) pour s’assurer qu’elle est alignée sur les propres stratégies de votre organisation, les normes du secteur, les normes réglementaires et les benchmarks que vous êtes tenu de respecter.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>
@@ -182,7 +190,7 @@ Le tableau ci-dessous liste les contrôles de sécurité d’Azure Security Cent
     <td class="tg-lboi"; width=55%>- Les ports de gestion des machines virtuelles doivent être protégés par un contrôle d’accès réseau juste-à-temps<br>- Les machines virtuelles doivent être associées à un groupe de sécurité réseau<br>- Les ports de gestion doivent être fermés sur vos machines virtuelles</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Appliquer des mises à jour système (score maximal de 6)</p></strong>Les mises à jour système offrent aux organisations la possibilité de maintenir l’efficacité opérationnelle, de réduire les vulnérabilités de sécurité et de fournir un environnement plus stable aux utilisateurs finaux. Si vous n’appliquez pas de mises à jour, les vulnérabilités et les résultats des environnements qui sont susceptibles d’être attaqués ne sont pas corrigés. Ces vulnérabilités peuvent être exploitées et entraîner une perte de données, une exfiltration des données, un rançongiciel et un abus de ressources. Pour déployer ces mises à jour système, vous pouvez utiliser la <a href="/azure/automation/automation-update-management">solution Update Management pour gérer les mises à jour et les correctifs</a> pour vos machines virtuelles. La gestion des mises à jour consiste à contrôler le déploiement et la maintenance des versions logicielles.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Appliquer des mises à jour système (score maximal de 6)</p></strong>Les mises à jour système offrent aux organisations la possibilité de maintenir l’efficacité opérationnelle, de réduire les vulnérabilités de sécurité et de fournir un environnement plus stable aux utilisateurs finaux. Si vous n’appliquez pas de mises à jour, les vulnérabilités et les résultats des environnements qui sont susceptibles d’être attaqués ne sont pas corrigés. Ces vulnérabilités peuvent être exploitées et entraîner une perte de données, une exfiltration des données, un rançongiciel et un abus de ressources. Pour déployer ces mises à jour système, vous pouvez utiliser la <a href="/azure/automation/update-management/overview">solution Update Management pour gérer les mises à jour et les correctifs</a> pour vos machines virtuelles. La gestion des mises à jour consiste à contrôler le déploiement et la maintenance des versions logicielles.</td>
     <td class="tg-lboi"; width=55%>- Les problèmes d’intégrité de l’agent d’analyse doivent être résolus sur vos machines<br>- L’agent d’analyse doit être installé sur des groupes de machines virtuelles identiques<br>- L’agent d’analyse doit être installé sur vos machines<br>- La version du système d’exploitation doit être mise à jour pour vos rôles de service cloud<br>- Les mises à jour système sur les groupes de machines virtuelles identiques doivent être installées<br>- Les mises à jour système doivent être installées sur vos machines<br>- Vos machines doivent être redémarrées pour appliquer les mises à jour système<br>- Les services Kubernetes doivent être mis à niveau vers une version non vulnérable de Kubernetes<br>- L’agent d’analyse doit être installé sur vos machines virtuelles<br>- L’agent Log Analytics doit être installé sur vos machines Azure Arc basées sur Windows (préversion)<br>- L’agent Log Analytics doit être installé sur vos machines Azure Arc basées sur Linux (préversion)</td>
   </tr>
   <tr>

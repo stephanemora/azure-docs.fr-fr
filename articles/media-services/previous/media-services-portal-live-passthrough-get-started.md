@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266729"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040724"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Effectuer un streaming en direct avec des encodeurs locaux à l’aide du portail Azure
 
@@ -112,7 +112,7 @@ Cette section explique comment utiliser l’option **Création rapide** pour cr�
 Pour plus d’informations sur les canaux directs, consultez [Streaming en direct avec des encodeurs locaux qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
-2. Dans la fenêtre **Paramètres**, cliquez sur **Diffusion en continu**. 
+2. Dans la fenêtre **Paramètres** , cliquez sur **Diffusion en continu**. 
    
     ![Prise en main](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
@@ -133,7 +133,7 @@ Pour plus d’informations sur les canaux directs, consultez [Streaming en direc
 ## <a name="get-ingest-urls"></a>Obtenir les URL de réception
 Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous devez fournir à l’encodeur dynamique. L’encodeur utilise ces URL pour entrer un flux dynamique.
 
-![Date de création](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Capture d’écran montrant la page « Streaming en direct » avec un canal sélectionné et le volet du canal affiché.](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>Regarder l’événement
 Pour visionner l’événement, cliquez sur **Watch** (Visionner) dans le portail Azure ou copiez l’URL de diffusion en continu et utilisez le lecteur de votre choix. 

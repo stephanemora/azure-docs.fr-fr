@@ -1,6 +1,6 @@
 ---
-title: Ressources à utiliser pour développer un pool SQL Synapse dans Azure Synapse Analytics
-description: Concepts de développement, choix de conception, recommandations et techniques de codage pour Azure Synapse Analytics.
+title: Ressources à utiliser pour développer un pool SQL dédié dans Azure Synapse Analytics
+description: Concepts de développement, choix de conception, recommandations et techniques de codage pour un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,20 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f158655cd7aeba647480325966c7f0cfcf65b13c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460607"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322142"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Choix de conception et techniques de codage pour un pool SQL Synapse dans Azure Synapse Analytics 
- Cet article fournit des ressources supplémentaires qui vous aideront à mieux comprendre les principaux choix de conception, recommandations et techniques de codage relatifs à un pool SQL dans Azure Synapse.
+# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Choix de conception et techniques de codage pour un pool SQL dédié dans Azure Synapse Analytics 
+
+ Cet article fournit des ressources supplémentaires qui vous aideront à mieux comprendre les principaux choix de conception, les recommandations et les techniques de codage relatifs à un pool SQL dédié dans Azure Synapse.
 
 ## <a name="key-design-decisions"></a>Choix de conception clés
-Les articles suivants mettent en évidence les concepts et choix de conception relatifs au développement d’un entrepôt de données distribué à l’aide de la capacité de pool SQL dans Azure Synapse :
+
+Les articles suivants mettent en évidence les concepts et choix de conception relatifs au développement d’un entrepôt de données distribué à l’aide de la capacité de pool SQL dédié dans Azure Synapse :
 
 * [connexions](../sql/connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
@@ -34,7 +36,8 @@ Les articles suivants mettent en évidence les concepts et choix de conception r
 * [statistiques](sql-data-warehouse-tables-statistics.md)
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recommandations pour le développement et techniques de codage
-Les articles suivants présentent des techniques de codage, conseils et recommandations spécifiques pour le développement d’un pool SQL :
+
+Les articles suivants présentent des techniques de codage, des conseils et des recommandations spécifiques pour le développement d’un pool SQL dédié :
 
 * [procédures stockées](sql-data-warehouse-develop-stored-procedures.md)
 * [étiquettes](sql-data-warehouse-develop-label.md)
@@ -46,4 +49,5 @@ Les articles suivants présentent des techniques de codage, conseils et recomman
 * [attribution de variables](sql-data-warehouse-develop-variable-assignment.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d'informations, consultez [Instructions T-SQL](sql-data-warehouse-reference-tsql-statements.md).

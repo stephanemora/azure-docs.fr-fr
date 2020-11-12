@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387351"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341038"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Utiliser Synapse Studio pour surveiller vos applications Apache Spark
 
@@ -37,49 +37,33 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
 - Un pool Apache Spark.
 
-## <a name="monitor-running-apache-spark-application"></a>Superviser l’exécution d’applications Apache Spark
-
-Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark en cours d’exécution, sélectionnez l’application Apache Spark concernée et affichez les détails. Si l’application Apache Spark est toujours en cours d’exécution, vous pouvez surveiller la progression.
-
-  ![sélectionner une tâche en cours d’exécution](./media/how-to-monitor-spark-applications/select-running-job.png)
-
-1. Consultez **Tâches terminées**, **Statut** et **Durée totale**.
-
-2. Annulez l’exécution de l’application Apache Spark.
-
-3. Actualisez la requête de journal.
-
-4. Affichez le graphique.
-
-5. Vérifiez les informations dans **Résumé**.
-
-6. Consultez les **Journaux**. Les informations du journal sont vides au cours de l’exécution.
-
-    ![afficher la tâche en cours d’exécution](./media/how-to-monitor-spark-applications/view-running-job.png)
+## <a name="view-apache-spark-applications"></a>Afficher les applications Apache Spark 
+Vous pouvez afficher toutes les applications Apache Spark à partir de **Superviser** -> **Applications Apache Spark**.
+   ![applications Apache Spark](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## <a name="view-completed-apache-spark-application"></a>Afficher une application Apache Spark terminée
 
-Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark terminées, sélectionnez l’application Apache Spark concernée.
+Ouvrez **Superviser** , puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark terminées, sélectionnez l’application Apache Spark concernée.
 
   ![sélectionner la tâche terminée](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
-1. Consultez **Tâches terminées**, **Statut** et **Durée totale**.
+1. Consultez **Tâches terminées** , **Statut** et **Durée totale**.
 
 2. Actualisez la requête de journal.
 
 3. Ouvrez le lien vers le serveur d’historique Apache Spark en cliquant sur **Serveur d’historique Spark**.
 
-4. Consultez les informations dans **Résumé** en cliquant sur l’icône du graphique.
+4. Vérifiez les informations dans **Résumé**.
 
-5. Consultez les **Journaux**. Vous pouvez sélectionner différents types de journaux dans la liste déroulante. vous pouvez télécharger les informations du journal en cliquant sur **Télécharger les journaux**.
+5. Consultez les **Journaux**. Vous pouvez sélectionner différents types de journaux dans la liste déroulante, télécharger les informations du journal en cliquant sur **Télécharger les journaux** et activer la case à cocher **Filtrer les erreurs et les avertissements** pour filtrer les erreurs et les avertissements dont vous avez besoin.
 
 6. Vous pouvez voir une vue d’ensemble de votre travail dans le graphique du travail ainsi généré. Par défaut, le graphique affiche tous les travaux. Vous pouvez filtrer cet affichage par **ID de travail**.
 
-7. Par défaut, l’affichage **Progress** (Progression) est sélectionné. Vous pouvez vérifier le flux de données en sélectionnant **Read** (Lues) ou **Written** (Écrites) dans le menu déroulant **Display** (Affichage).
+7. Par défaut, l’affichage **Progress** (Progression) est sélectionné. Vous pouvez vérifier le flux de données en sélectionnant **Progression**/**Lecture**/**Écriture**/**Durée** dans le menu déroulant **Affichage**.
 
-8. Pour lire la tâche, sélectionnez **Playback** (Lecture). Vous pouvez sélectionner **Stop** (Arrêter) à tout moment.
+8. Pour lire le travail, cliquez sur le bouton **Lire**. Vous pouvez cliquer sur le bouton **Arrêter** à tout moment pour arrêter.
 
-9. Utilisez la molette de la souris pour effectuer un zoom avant/arrière du graphe de travail, ou sélectionnez **Zoom to fit** (Zoom d’ajustement) pour l’adapter à la taille de l’écran.
+9. Utilisez le défilement de la souris ou la barre de défilement pour effectuer un zoom avant et un zoom arrière sur le graphique des travaux. Vous pouvez également sélectionner **Zoom ajusté** pour l’ajuster à l’écran.
 
 10. Le nœud de graphique du travail affiche les informations suivantes de chaque phase :
 
@@ -89,7 +73,7 @@ Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour af
 
     * Nombre total de tâches.
 
-    * lecture de données : somme de la taille d’entrée et de la taille de lecture aléatoire ;
+    * Lecture de données : somme de la taille d’entrée et de la taille de lecture aléatoire.
 
     * Écriture de données : somme de la taille de sortie et de la taille des écritures aléatoires.
 
@@ -101,43 +85,70 @@ Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour af
 
      ![afficher la tâche terminée](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
-11. Cliquez sur le graphique pour que les détails de l’index s’affichent.
+11. Cliquez sur **Afficher les détails** dans le graphique pour que les détails de l’index s’affichent.
 
-   ![détails de l’index](./media/how-to-monitor-spark-applications/details-for-stage.png)
+    ![détails de l’index](./media/how-to-monitor-spark-applications/details-for-stage.png)
+
+
+## <a name="monitor-running-apache-spark-application"></a>Superviser l’exécution d’applications Apache Spark
+
+Ouvrez **Superviser** , puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark en cours d’exécution, sélectionnez l’application Apache Spark concernée et affichez les détails. Si l’application Apache Spark est toujours en cours d’exécution, vous pouvez surveiller la progression.
+
+   ![sélectionner une tâche en cours d’exécution](./media/how-to-monitor-spark-applications/select-running-job.png)
+
+1. Consultez **Tâches terminées** , **Statut** et **Durée totale**.
+
+2. **Annulez** l’exécution de l’application Apache Spark.
+
+3. **Actualisez** la requête de journal.
+
+4. Cliquez sur le bouton **Interface utilisateur Spark** pour accéder à la page Travail Spark.
+
+5. Affichez le graphique. Vous pouvez voir une vue d’ensemble de votre travail dans le graphique du travail ainsi généré. Reportez-vous aux étapes 6, 7, 8, 9 et 10 de la section [Afficher une application Apache Spark terminée](#view-completed-apache-spark-application).
+
+6. Vérifiez les informations dans **Résumé**.
+
+7. Vérifiez les diagnostics dans l’onglet **Diagnostic**.
+
+8. Vérifiez les **journaux** dans cet onglet. Vous pouvez sélectionner différents types de journaux dans la liste déroulante, télécharger les informations du journal en cliquant sur **Télécharger les journaux** et activer la case à cocher **Filtrer les erreurs et les avertissements** pour filtrer les erreurs et les avertissements dont vous avez besoin.
+
+    ![afficher la tâche en cours d’exécution](./media/how-to-monitor-spark-applications/view-running-job.png)
 
 ## <a name="view-canceled-apache-spark-application"></a>Afficher une application Apache Spark annulée
 
-Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark annulées, sélectionnez l’application Apache Spark concernée.
+Ouvrez **Superviser** , puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark annulées, sélectionnez l’application Apache Spark concernée.
 
  ![sélectionner une tâche annulée](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
-1. Consultez **Tâches terminées**, **Statut** et **Durée totale**.
+1. Consultez **Tâches terminées** , **Statut** et **Durée totale**.
 
 2. Actualisez la requête de journal.
 
 3. Ouvrez le lien vers le serveur d’historique Apache en cliquant sur **Serveur d’historique Spark**.
 
-4. Affichez le graphique.
+4. Affichez le graphique. Vous pouvez voir une vue d’ensemble de votre travail dans le graphique du travail ainsi généré. Reportez-vous aux étapes 6, 7, 8, 9 et 10 de la section [Afficher une application Apache Spark terminée](#view-completed-apache-spark-application).
 
 5. Vérifiez les informations dans **Résumé**.
 
-6. Consultez les **Journaux**. Vous pouvez sélectionner différents types de journaux dans la liste déroulante. vous pouvez télécharger les informations du journal en cliquant sur **Télécharger les journaux**.
+6. Consultez les **Journaux**. Vous pouvez sélectionner différents types de journaux dans la liste déroulante, télécharger les informations du journal en cliquant sur **Télécharger les journaux** et activer la case à cocher **Filtrer les erreurs et les avertissements** pour filtrer les erreurs et les avertissements dont vous avez besoin.
+
+7. Cliquez sur **Afficher les détails** dans le graphique pour que les détails de l’index s’affichent.
 
    ![afficher une tâche annulée](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
 ## <a name="debug-failed-apache-spark-application"></a>Déboguer une application Apache Spark défaillante
 
-Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark ayant échoué, sélectionnez l’application Apache Spark concernée.
+Ouvrez **Superviser** , puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark ayant échoué, sélectionnez l’application Apache Spark concernée.
 
 ![sélectionner une tâche ayant échoué](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
-1. Consultez **Tâches terminées**, **Statut** et **Durée totale**.
+1. Consultez **Tâches terminées** , **Statut** et **Durée totale**.
 
 2. Actualisez la requête de journal.
 
 3. Ouvrez le lien vers le serveur d’historique Apache Spark en cliquant sur **Serveur d’historique Spark**.
 
-4. Affichez le graphique.
+4. Affichez le graphique. Vous pouvez voir une vue d’ensemble de votre travail dans le graphique du travail ainsi généré. Reportez-vous aux étapes 6, 7, 8, 9 et 10 de la section [Afficher une application Apache Spark terminée](#view-completed-apache-spark-application).
 
 5. Vérifiez les informations dans **Résumé**.
 

@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255239"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235895"
 ---
 Cette fonctionnalité est facile à configurer, mais il est possible que vous rencontriez des problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console du Portail Azure. Pour accéder à la console Kudu à partir de votre application, accédez à **Outils** > **Kudu**. Vous pouvez également accéder à la console Kudo via le site [nom du site].scm.azurewebsites.net. Une fois le site chargé, accédez à l’onglet **Console de débogage**. Pour accéder à la console hébergée par le Portail Azure à partir de votre application, accédez à **Outils** > **Console**.
 
 #### <a name="tools"></a>Outils
-Dans les applications Windows natives, les outils **ping**, **nslookup** et **tracert** ne fonctionnent pas dans la console en raison de contraintes de sécurité (ils fonctionnent dans des [conteneurs Windows personnalisés](../articles/app-service/quickstart-custom-container.md)). Deux outils distincts ont été ajoutés pour les remplacer. Pour tester les fonctionnalités DNS, nous avons ajouté un outil nommé **nameresolver.exe**. La syntaxe est :
+Dans les applications Windows natives, les outils **ping** , **nslookup** et **tracert** ne fonctionnent pas dans la console en raison de contraintes de sécurité (ils fonctionnent dans des [conteneurs Windows personnalisés](../articles/app-service/quickstart-custom-container.md)). Deux outils distincts ont été ajoutés pour les remplacer. Pour tester les fonctionnalités DNS, nous avons ajouté un outil nommé **nameresolver.exe**. La syntaxe est :
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -26,7 +26,7 @@ Vous pouvez utiliser nameresolver pour vérifier les noms d’hôte dont dépend
 > nameresolver.exe ne fonctionne pas actuellement dans les conteneurs Windows personnalisés.
 >
 
-Vous pouvez utiliser l’outil suivant pour tester la connectivité TCP avec une combinaison hôte-port. Il s’agit de l’outil **tcpping**, dont la syntaxe est la suivante :
+Vous pouvez utiliser l’outil suivant pour tester la connectivité TCP avec une combinaison hôte-port. Il s’agit de l’outil **tcpping** , dont la syntaxe est la suivante :
 
 ```console
 tcpping.exe hostname [optional: port]
@@ -46,7 +46,7 @@ Si ces éléments ne suffisent pas à résoudre vos problèmes, commencez par vo
 * Votre destination est-elle une adresse non RFC1918 alors que la valeur de WEBSITE_VNET_ROUTE_ALL n’est pas 1 ?
 * Y a-t-il un groupe de sécurité réseau qui bloque la sortie de votre sous-réseau d’intégration ?
 * Si elle transite par Azure ExpressRoute ou un VPN, votre passerelle locale est-elle configurée pour réacheminer le trafic vers Azure ? Si vous pouvez accéder à des points de terminaison dans votre réseau virtuel, mais pas en local, vérifiez vos routes.
-* Disposez-vous d’autorisations suffisantes pour définir la délégation sur le sous-réseau d’intégration ? Durant la configuration de l’intégration au réseau virtuel régional, votre sous-réseau d’intégration est délégué à Microsoft.Web. L’interface utilisateur de l’intégration au réseau virtuel délègue automatiquement le sous-réseau à Microsoft.Web. Si votre compte ne dispose pas d’autorisations de mise en réseau suffisantes pour définir la délégation, vous devez demander à une personne autorisée de configurer les attributs de votre sous-réseau d’intégration de manière à déléguer celui-ci. Pour déléguer manuellement le sous-réseau d’intégration, accédez à l’interface utilisateur du sous-réseau du service Réseau virtuel Azure et définissez la délégation sur Microsoft.Web.
+* Disposez-vous d’autorisations suffisantes pour définir la délégation sur le sous-réseau d’intégration ? Durant la configuration de l’intégration au réseau virtuel régional, votre sous-réseau d’intégration est délégué à Microsoft.Web/serverFarms. L’interface utilisateur de l’intégration au réseau virtuel délègue automatiquement le sous-réseau à Microsoft.Web/serverFarms. Si votre compte ne dispose pas d’autorisations de mise en réseau suffisantes pour définir la délégation, vous devez demander à une personne autorisée de configurer les attributs de votre sous-réseau d’intégration de manière à déléguer celui-ci. Pour déléguer manuellement le sous-réseau d’intégration, accédez à l’interface utilisateur du sous-réseau de Réseau virtuel Microsoft Azure et définissez la délégation sur Microsoft.Web/serverFarms.
 
 **Intégration au réseau virtuel avec passerelle obligatoire**
 * La plage d’adresses de point à site se trouve-t-elle dans les plages RFC 1918 (10.0.0.0 à 10.255.255.255, 172.16.0.0 à 172.31.255.255 ou 192.168.0.0 à 192.168.255.255) ?

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363689"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041121"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -34,13 +34,13 @@ L’attribution d’utilisateurs jette les bases d’une gouvernance des identit
 
 Les principaux avantages de l’activation de l’attribution automatique d’utilisateurs sont les suivants :
 
-* **Accroissement de la productivité** . Vous pouvez gérer les identités utilisateur sur les applications SaaS avec une seule interface de gestion de l’attribution d’utilisateurs. Cette interface dispose d’un ensemble unique de stratégies d’attribution.
+* **Accroissement de la productivité**. Vous pouvez gérer les identités utilisateur sur les applications SaaS avec une seule interface de gestion de l’attribution d’utilisateurs. Cette interface dispose d’un ensemble unique de stratégies d’attribution.
 
-* **Gestion des risques** . Vous pouvez augmenter la sécurité en automatisant les changements, en fonction du statut des employés ou des appartenances aux groupes qui définissent les rôles et/ou les accès.
+* **Gestion des risques**. Vous pouvez augmenter la sécurité en automatisant les changements, en fonction du statut des employés ou des appartenances aux groupes qui définissent les rôles et/ou les accès.
 
-* **Respect de la gouvernance et de la conformité** . Azure AD prend en charge les journaux d’audit natifs de chaque requête d’attribution d’utilisateurs. Les requêtes sont exécutées dans les systèmes source et cible. Vous pouvez ainsi effectuer le suivi des personnes qui ont accès aux applications à partir d’un seul écran.
+* **Respect de la gouvernance et de la conformité**. Azure AD prend en charge les journaux d’audit natifs de chaque requête d’attribution d’utilisateurs. Les requêtes sont exécutées dans les systèmes source et cible. Vous pouvez ainsi effectuer le suivi des personnes qui ont accès aux applications à partir d’un seul écran.
 
-* **Réduction des coûts** . L’attribution automatique d’utilisateurs réduit les coûts tout en évitant l’inefficacité et les erreurs humaines qui sont inhérents à l’attribution manuelle. Elle diminue la nécessité de recourir à des journaux d’audit, des scripts et des solutions d’attribution d’utilisateurs personnalisées.
+* **Réduction des coûts**. L’attribution automatique d’utilisateurs réduit les coûts tout en évitant l’inefficacité et les erreurs humaines qui sont inhérents à l’attribution manuelle. Elle diminue la nécessité de recourir à des journaux d’audit, des scripts et des solutions d’attribution d’utilisateurs personnalisées.
 
 ### <a name="licensing"></a>Licence
 
@@ -99,7 +99,7 @@ Dans cet exemple, les utilisateurs et/ou les groupes sont créés dans une base 
 
 Dans cet exemple, la création d’utilisateurs a lieu dans Azure AD tandis que le service de provisionnement Azure AD gère le provisionnement automatique d’utilisateurs dans les applications (SaaS) cibles.
 
-![Image 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagramme illustrant le processus de création d’utilisateurs/de groupes d’une application RH locale aux applications SaaS cibles, en passant par le service d’approvisionnement Azure AD.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Description du workflow :**
 

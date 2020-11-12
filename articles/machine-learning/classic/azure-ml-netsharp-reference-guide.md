@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367952"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311969"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 NET# est un langage développé par Microsoft et utilisé pour définir des architectures de réseaux neuronaux complexes, comme les réseaux neuronaux profonds ou les convolutions de dimensions arbitraires. Vous pouvez utiliser des structures complexes pour améliorer l’entraînement à partir de données telles que des images, des sons ou des vidéos.
 
 Vous pouvez utiliser une spécification d’architecture Net# dans les contextes suivants :
 
-+ Tous les modules de réseau neuronal dans Microsoft Azure Machine Learning Studio (classique) : [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) et [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Les fonctions de réseau neuronal dans Microsoft ML Server : [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) et [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)pour le langage R, et [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) pour Python.
++ Tous les modules de réseau neuronal dans Microsoft Azure Machine Learning Studio (classique) : [Multiclass Neural Network](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](/azure/machine-learning/studio-module-reference/two-class-neural-network) et [Neural Network Regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Les fonctions de réseau neuronal dans Microsoft ML Server : [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) et [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)pour le langage R, et [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) pour Python.
 
 
 Cet article décrit les concepts de base et la syntaxe nécessaire au développement d’un réseau neuronal personnalisé à l’aide de Net # :
@@ -44,7 +44,7 @@ Chaque couche apte à l’apprentissage (couche masquée ou de sortie) présente
 
 Net# prend en charge différents types de faisceau de connexions, qui vous permettent de personnaliser la façon dont les entrées sont mappées aux couches masquées et aux sorties.
 
-Le faisceau par défaut ou standard est un **faisceau complet**, dans lequel chaque nœud de la couche source est connecté à tous les nœuds de la couche de destination.
+Le faisceau par défaut ou standard est un **faisceau complet** , dans lequel chaque nœud de la couche source est connecté à tous les nœuds de la couche de destination.
 
 En outre, Net# prend en charge les quatre types de faisceaux de connexions avancés suivants :
 
@@ -80,7 +80,7 @@ Pour des exemples de définition de réseaux neuronaux pour certaines tâches st
 
 ## <a name="structure-specifications"></a>Spécifications de structures
 
-Une spécification de structure de réseau neuronal se compose de trois sections : la **déclaration de constante**, la **déclaration de couche** et la **déclaration de connexion**. Il existe également une section de **déclaration de partage**, qui est facultative. Ces sections peuvent être définies dans n'importe quel ordre.
+Une spécification de structure de réseau neuronal se compose de trois sections : la **déclaration de constante** , la **déclaration de couche** et la **déclaration de connexion**. Il existe également une section de **déclaration de partage** , qui est facultative. Ces sections peuvent être définies dans n'importe quel ordre.
 
 ## <a name="constant-declaration"></a>Déclaration de constante
 
@@ -150,11 +150,11 @@ Immédiatement après avoir défini la couche entraînable, vous devez déclarer
 
 À ce jour, cinq types de faisceau de connexions sont pris en charge :
 
-+ Faisceau **complet**, signalé par le mot clé `all`
-+ Faisceau **filtré**, signalé par le mot clé `where`, suivi par une expression de prédicat
-+ Faisceau **convolutionnel**, signalé par le mot clé `convolve`, suivi des attributs de convolution
-+ Faisceau de **regroupement**, signalé par les mots clés **max pool** ou **mean pool**
-+ Faisceau de **normalisation de réponse**, signalé par le mot clé **response norm**
++ Faisceau **complet** , signalé par le mot clé `all`
++ Faisceau **filtré** , signalé par le mot clé `where`, suivi par une expression de prédicat
++ Faisceau **convolutionnel** , signalé par le mot clé `convolve`, suivi des attributs de convolution
++ Faisceau de **regroupement** , signalé par les mots clés **max pool** ou **mean pool**
++ Faisceau de **normalisation de réponse** , signalé par le mot clé **response norm**
 
 ## <a name="full-bundles"></a>Faisceaux complets
 
@@ -192,7 +192,7 @@ Les faisceaux convolutionnels prennent en charge les attributs suivants :
 
 **InputShape** définit la dimensionnalité de la couche source pour ce faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs. Le produit de ces entiers doit être égal au nombre de nœuds de la couche source, mais ne doit pas forcément correspondre à la dimensionnalité déclarée pour celle-ci. La longueur de ce tuple devient la valeur **arity** (arité) du faisceau convolutionnel. En général, l’arité fait référence au nombre d’arguments ou d’opérandes qu’une fonction peut accepter.
 
-Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape**, **Stride**, **Padding**, **LowerPad** et **UpperPad** :
+Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape** , **Stride** , **Padding** , **LowerPad** et **UpperPad** :
 
 + **KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l’élément **InputShape**.
 
@@ -214,14 +214,14 @@ Il existe deux ensembles de propriétés contrôlant le remplissage, qui s'exclu
 
     Si la valeur d’une dimension correspond à False, les noyaux sont définis de façon que le nombre de nœuds omis soit le même de chaque côté (une différence de 1 au maximum est tolérée). La valeur par défaut de cet attribut est un tuple dont tous les éléments ont la valeur False.
 
-+ **UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important :** ces attributs peuvent être définis si et seulement si la propriété **Padding** ci-dessus n’est ***pas*** définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de la dimension est déterminé respectivement par **LowerPad**[i] et **UpperPad**[i].
++ **UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important :** ces attributs peuvent être définis si et seulement si la propriété **Padding** ci-dessus n’est **_pas_ *_ définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de chaque dimension est déterminé respectivement par _* LowerPad** [i] et **UpperPad** [i].
 
     Afin de veiller à ce que les noyaux correspondent à des nœuds « réels » et non « factices », les conditions suivantes doivent être respectées :
   - Chaque élément de **LowerPad** doit être strictement inférieur à `KernelShape[d]/2`.
   - Chaque élément de **UpperPad** ne doit pas être supérieur à `KernelShape[d]/2`.
   - La valeur par défaut de ces attributs est un tuple dont tous les éléments sont égaux à 0.
 
-    Le paramètre **Padding** = true permet d’obtenir le remplissage requis pour maintenir le « centre » du noyau à l’intérieur de l’entrée « réelle ». Cela modifie un peu le calcul de la taille de sortie. En règle générale, la taille de sortie *D* est calculée comme suit : `D = (I - K) / S + 1`, où `I` est la taille d’entrée, `K` est la taille du noyau, `S` est le stride, et `/` est la division d’entier (arrondi vers zéro). Si vous définissez UpperPad = [1, 1], la taille d’entrée `I` est effectivement 29 et, ainsi, `D = (29 - 5) / 2 + 1 = 13`. Toutefois, quand **Padding** = true, `I` est essentiellement augmenté de `K - 1` ; donc `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. En spécifiant des valeurs pour **UpperPad** et **LowerPad**, vous obtenez un meilleur contrôle sur le remplissage que si vous définissez simplement **Padding** = true.
+    Le paramètre **Padding** = true permet d’obtenir le remplissage requis pour maintenir le « centre » du noyau à l’intérieur de l’entrée « réelle ». Cela modifie un peu le calcul de la taille de sortie. En règle générale, la taille de sortie *D* est calculée comme suit : `D = (I - K) / S + 1`, où `I` est la taille d’entrée, `K` est la taille du noyau, `S` est le stride, et `/` est la division d’entier (arrondi vers zéro). Si vous définissez UpperPad = [1, 1], la taille d’entrée `I` est effectivement 29 et, ainsi, `D = (29 - 5) / 2 + 1 = 13`. Toutefois, quand **Padding** = true, `I` est essentiellement augmenté de `K - 1` ; donc `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. En spécifiant des valeurs pour **UpperPad** et **LowerPad** , vous obtenez un meilleur contrôle sur le remplissage que si vous définissez simplement **Padding** = true.
 
 Pour plus d’informations sur les réseaux convolutionnels et leurs applications, consultez les articles suivants :
 
@@ -230,7 +230,7 @@ Pour plus d’informations sur les réseaux convolutionnels et leurs application
 
 ## <a name="pooling-bundles"></a>Faisceaux de regroupement
 
-Un **faisceau de regroupement** applique une géométrie similaire à la connectivité convolutionnelle, mais utilise des fonctions prédéfinies pour dériver les valeurs du nœud source vers la valeur du nœud de destination. De ce fait, les faisceaux de regroupement n’ont pas d’état entraînable (poids ou biais). Ils prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
+Un **faisceau de regroupement** applique une géométrie similaire à la connectivité convolutionnelle, mais utilise des fonctions prédéfinies pour dériver les valeurs du nœud source vers la valeur du nœud de destination. De ce fait, les faisceaux de regroupement n’ont pas d’état entraînable (poids ou biais). Ils prennent en charge tous les attributs convolutionnels, hormis **Sharing** , **MapCount** et **Weights**.
 
 En général, les noyaux résumés par des unités de regroupement adjacentes ne se chevauchent pas. Si Stride[d] est égal à KernelShape[d] dans chaque dimension, la couche obtenue est la couche de regroupement locale traditionnelle, qui est généralement employée dans les réseaux neuronaux convolutionnels. Chaque nœud de destination calcule le maximum ou la moyenne des activités de son noyau dans la couche source.
 
@@ -260,15 +260,15 @@ Pour plus d’informations sur les couches de regroupement, consultez les articl
 
 La **normalisation de réponse** est un schéma de normalisation local initialement proposé par Geoffrey Hinton et al. dans le document [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-La normalisation de réponse permet de contribuer à la généralisation dans les réseaux neuronaux. Lorsqu’un neurone s’active à un niveau très élevé, la couche de normalisation de réponse locale supprime le niveau d’activation des neurones alentour. Cette opération s’effectue à l’aide de trois paramètres (`α`, `β` et `k`) et d’une structure convolutionnelle (ou forme de voisinage). Chaque neurone **y** de la couche de destination correspond à un neurone **x** de la couche source. Le niveau de l’activation de l’élément **y** est calculé via la formule suivante, où `f` correspond au niveau de l’activation d’un neurone et `Nx` au noyau (ou à l’ensemble qui contient les neurones dans le voisinage de l’élément **x**), comme défini par la structure convolutionnelle suivante :
+La normalisation de réponse permet de contribuer à la généralisation dans les réseaux neuronaux. Lorsqu’un neurone s’active à un niveau très élevé, la couche de normalisation de réponse locale supprime le niveau d’activation des neurones alentour. Cette opération s’effectue à l’aide de trois paramètres (`α`, `β` et `k`) et d’une structure convolutionnelle (ou forme de voisinage). Chaque neurone **y** de la couche de destination correspond à un neurone **x** de la couche source. Le niveau de l’activation de l’élément **y** est calculé via la formule suivante, où `f` correspond au niveau de l’activation d’un neurone et `Nx` au noyau (ou à l’ensemble qui contient les neurones dans le voisinage de l’élément **x** ), comme défini par la structure convolutionnelle suivante :
 
 ![formule de la structure convolutionnelle](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Les faisceaux de normalisation de réponse prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
+Les faisceaux de normalisation de réponse prennent en charge tous les attributs convolutionnels, hormis **Sharing** , **MapCount** et **Weights**.
 
-+ Si le noyau contient des neurones de la même signature que ***x***, le schéma de normalisation est appelé **normalisation de même signature**. Pour définir une normalisation de ce type, la première coordonnée de **InputShape** doit avoir la valeur 1.
++ Si le noyau contient des neurones de la même signature que **_x_ *_, le schéma de normalisation est appelé _* normalisation de même signature**. Pour définir une normalisation de ce type, la première coordonnée de **InputShape** doit avoir la valeur 1.
 
-+ Si le noyau contient des neurones dans la même position spatiale que ***x***, mais situés dans d’autres signatures, le schéma de normalisation est appelé **normalisation intersignature**. Ce type de normalisation de réponse implémente une forme d'inhibition latérale inspirée par le type trouvé dans les vrais neurones et qui crée une compétition pour des niveaux d'activation élevés entre les sorties neuronales calculées sur différentes signatures. Pour définir une normalisation intersignature, la première coordonnée doit être un entier supérieur à 1 et inférieur ou égal au nombre de signatures. Les coordonnées restantes doivent avoir la valeur 1.
++ Si le noyau contient des neurones dans la même position spatiale que **_x_ *_, mais situés dans d’autres signatures, le schéma de normalisation est appelé _* normalisation intersignature**. Ce type de normalisation de réponse implémente une forme d'inhibition latérale inspirée par le type trouvé dans les vrais neurones et qui crée une compétition pour des niveaux d'activation élevés entre les sorties neuronales calculées sur différentes signatures. Pour définir une normalisation intersignature, la première coordonnée doit être un entier supérieur à 1 et inférieur ou égal au nombre de signatures. Les coordonnées restantes doivent avoir la valeur 1.
 
 Les faisceaux de normalisation de réponse appliquant une fonction prédéfinie aux valeurs de nœud source pour déterminer la valeur du nœud de destination, ils n’ont pas d’état entraînable (poids ou biais).
 
@@ -463,4 +463,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Remerciements
 
-Le langage Net # pour la personnalisation de l'architecture des réseaux neuronaux a été développée chez Microsoft par Shon Katzenberger (architecte, Machine Learning) et Alexey Kamenev (ingénieur logiciel, Microsoft Research). Il est utilisé en interne pour l'apprentissage de projets et d'applications allant de la détection d'images à l'analyse de texte. Pour plus d'informations, consultez [Réseaux neuronaux dans Azure Machine Learning Studio - Présentation de Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx).
+Le langage Net # pour la personnalisation de l'architecture des réseaux neuronaux a été développée chez Microsoft par Shon Katzenberger (architecte, Machine Learning) et Alexey Kamenev (ingénieur logiciel, Microsoft Research). Il est utilisé en interne pour l'apprentissage de projets et d'applications allant de la détection d'images à l'analyse de texte. Pour plus d'informations, consultez [Réseaux neuronaux dans Azure Machine Learning Studio - Présentation de Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net).

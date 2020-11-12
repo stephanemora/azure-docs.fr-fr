@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370910"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027599"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flux de données de mappage dans Azure Data Factory
 
@@ -27,7 +27,7 @@ Le flux de données de mappage fournit une expérience entièrement visuelle san
 
 ## <a name="getting-started"></a>Prise en main
 
-Les flux de données sont créés à partir du volet Ressources de la fabrique, comme les pipelines et jeux de données. Pour créer un flux de données, sélectionnez le signe plus (+) en regard de **Ressources Factory**, puis sélectionnez **Flux de données**. 
+Les flux de données sont créés à partir du volet Ressources de la fabrique, comme les pipelines et jeux de données. Pour créer un flux de données, sélectionnez le signe plus (+) en regard de **Ressources Factory** , puis sélectionnez **Flux de données**. 
 
 ![Nouveau flux de données](media/data-flow/new-data-flow.png "nouveau flux de données")
 
@@ -37,13 +37,13 @@ Vous accédez au canevas du flux de données dans lequel vous pouvez créer votr
 
 Le flux de données de mappage a un canevas de création unique conçu pour faciliter la création de logique de transformation. Le canevas de flux de données est divisé en trois parties : la barre supérieure, le graphe et le panneau de configuration. 
 
-![Canevas](media/data-flow/canvas1.png "Canevas")
+![Capture d’écran montrant le canevas du flux de données avec la barre supérieure, le graphique et le panneau de configuration étiquetés.](media/data-flow/canvas1.png "Canevas")
 
 ### <a name="graph"></a>Graph
 
 Le graphe affiche le flux de transformation. Il montre la traçabilité des données sources à mesure qu’elles sont transmises à un ou plusieurs récepteurs. Pour ajouter une nouvelle source, sélectionnez **Ajouter une source**. Pour ajouter une nouvelle transformation, sélectionnez le signe plus (+) situé dans la partie inférieure droite d’une transformation existante. Apprenez à [gérer le graphique des flux de données](concepts-data-flow-manage-graph.md).
 
-![Canevas](media/data-flow/canvas2.png "Canevas")
+![Capture d’écran montrant la partie graphique du canevas avec une zone de texte de recherche.](media/data-flow/canvas2.png "Canevas")
 
 ### <a name="configuration-panel"></a>Panneau de configuration
 

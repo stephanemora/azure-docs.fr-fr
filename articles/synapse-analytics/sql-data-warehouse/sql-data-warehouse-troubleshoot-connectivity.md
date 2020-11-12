@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes de connectivité
-description: Résolution des problèmes de connectivité dans le pool SQL Synapse.
+description: Résolution des problèmes de connectivité dans le pool SQL dédié.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82b9f988ef4a7f4a53cd0b451da28642b53bcb65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362178"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308374"
 ---
-# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Résolution des problèmes de connectivité dans le pool SQL Synapse
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool"></a>Résolution des problèmes de connectivité dans le pool SQL dédié
 
-Cet article répertorie les techniques de résolution des problèmes courantes relatives à la connexion à votre base de données du pool SQL.
+Cet article répertorie les techniques courantes de résolution des problèmes relatifs à la connexion à votre base de données du pool SQL dédié.
 
 ## <a name="check-service-availability"></a>Vérifier la disponibilité du service
 
-Vérifiez si le service est disponible. Dans le Portail Azure, accédez au pool SQL auquel vous essayez de vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
+Vérifiez si le service est disponible. Dans le portail Azure, accédez au pool SQL dédié auquel vous essayez de vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
 
 ![Sélectionner l’intégrité des ressources](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-L’état de votre pool SQL s’affiche ici. Si le service ne s’affiche pas comme étant **disponible**, vérifiez d’autres étapes.
+L’état de votre pool SQL dédié s’affiche ici. Si le service ne s’affiche pas comme étant **disponible** , vérifiez d’autres étapes.
 
 ![Service disponible](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Si l’intégrité de vos ressources indique que votre instance de pool SQL est interrompue ou mise à l’échelle, suivez les instructions permettant de reprendre l’exécution de votre instance.
+Si l’intégrité de vos ressources indique que votre instance de pool SQL dédié est interrompue ou mise à l’échelle, suivez les instructions permettant de reprendre l’exécution de votre instance.
 
 ![Capture d’écran montrant une instance d’entrepôt de données SQL suspendue ou en cours de mise à l’échelle.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Des informations supplémentaires relatives à l’intégrité des ressources sont disponibles ici.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Vérifier les opérations de mise à l’échelle ou interrompues
 
-Dans le portail, vérifiez si votre instance de pool SQL est interrompue ou mise à l’échelle.
+Dans le portail, vérifiez si votre instance de pool SQL dédié est interrompue ou mise à l’échelle.
 
 ![Capture d’écran montrant comment vérifier si un entrepôt de données est suspendu.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, pour la *Vue d’ensemble* de votre pool SQL, vous voyez la planification de maintenance sélectionnée.
+Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, pour la *Vue d’ensemble* de votre pool SQL dédié, vous voyez la planification de maintenance sélectionnée.
 
 ![Vue d’ensemble du programme de maintenance](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’instance du pool SQL, suivez [ces étapes](pause-and-resume-compute-portal.md).
+Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’instance du pool SQL dédié, suivez [ces étapes](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Vérifier les paramètres de pare-feu
 
-La base de données du pool SQL communique par le biais du port 1433.  Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre [serveur logique](../../azure-sql/database/logical-servers.md), sauf si votre service informatique ouvre le port 1433. Vous trouverez plus d’informations sur les configurations de pare-feu [ici](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+La base de données du pool SQL dédié communique par le biais du port 1433.  Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre [serveur logique](../../azure-sql/database/logical-servers.md), sauf si votre service informatique ouvre le port 1433. Vous trouverez plus d’informations sur les configurations de pare-feu [ici](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Vérifiez les paramètres de point de terminaison de service/du réseau virtuel
 
@@ -61,7 +61,7 @@ Si vous recevez des erreurs 40914 et 40615, consultez la documentation [Résolut
 
 ### <a name="software"></a>Logiciel
 
-Vérifiez que vous utilisez bien les outils les plus récents pour vous connecter à votre pool SQL :
+Vérifiez que vous utilisez bien les outils les plus récents pour vous connecter à votre pool SQL dédié :
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problèmes de connexion intermittente
 
-Vérifiez si vous constatez une charge importante sur le serveur avec un grand nombre de requêtes en file d’attente. Vous devrez peut-être effectuer un scale-up de votre pool SQL pour obtenir des ressources supplémentaires.
+Vérifiez si vous constatez une charge importante sur le serveur avec un grand nombre de requêtes en file d’attente. Vous devrez peut-être effectuer un scale-up de votre pool SQL dédié pour obtenir des ressources supplémentaires.
 
 ## <a name="common-error-messages"></a>Messages d’erreur courants
 

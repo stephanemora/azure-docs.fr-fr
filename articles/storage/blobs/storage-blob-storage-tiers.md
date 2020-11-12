@@ -1,21 +1,21 @@
 ---
-title: Niveaux d’accès chaud, froid et archive pour les objets blob - Stockage Azure
+title: 'Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive'
 description: En savoir plus sur les niveaux d’accès chaud, froid et archive pour Stockage Blob Azure. Examinez les comptes de stockage qui prennent en charge la hiérarchisation. Comparez les options de stockage d’objets blob de blocs.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/28/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 771b48c36a409654a1d1586590811c81e5c2340a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460728"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086752"
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
+# <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive
 
 Le Stockage Azure propose différents niveaux d’accès qui vous permettent de stocker vos objets blob de la manière la plus économique. Les niveaux d’accès disponibles incluent les suivants :
 
@@ -32,15 +32,15 @@ Les considérations suivantes s’appliquent aux différents niveaux de stockage
 
 Les données stockées dans le cloud connaissent une croissance exponentielle. Pour gérer les coûts liés à vos besoins de stockage en pleine expansion, il est utile d’organiser vos données selon des attributs tels que la fréquence d’accès et la période de rétention prévue pour optimiser les coûts. Les données stockées dans le cloud peuvent être différentes selon le mode de génération, de traitement et d’accès tout au long de leur durée de vie. Certaines données sont activement sollicitées et modifiées tout au long de leur durée de vie. Certaines sont fréquemment sollicitées au début de leur durée de vie, puis les accès se raréfient considérablement à mesure qu’elles deviennent plus anciennes. D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées après avoir été stockées.
 
-Chacun des scénarios d’accès aux données peut bénéficier des avantages d’un niveau d’accès différent, gage d’optimisation pour un modèle d’accès particulier. Les niveaux d’accès chaud, froid et archive permettent au stockage Blob Azure de répondre à ce besoin de niveaux d’accès différenciés avec des modèles de tarification distincts.
+Chacun des scénarios d’accès aux données peut bénéficier des avantages d’un niveau d’accès différent, gage d’optimisation pour un modèle d’accès particulier. Les niveaux d’accès chaud, froid et archive permettent à Stockage Blob Azure de répondre à ce besoin de niveaux d’accès différenciés avec des modèles de tarification distincts.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="storage-accounts-that-support-tiering"></a>Comptes de stockage prenant en charge la hiérarchisation
 
-La hiérarchisation des données de stockage d’objets entre les niveaux d’accès chaud, froid et archive est pris en charge uniquement sur des comptes de stockage d’objets blob ou à usage général v2 (GPv2). Les comptes Usage général v1 (GPv1) ne prennent pas en charge la hiérarchisation. Les clients peuvent facilement convertir leurs comptes de stockage GPv1 ou d’objets blob en des comptes GPv2 depuis le Portail Azure. GPv2 offre de nouveaux prix et fonctionnalités pour les objets blob, les fichiers et les files d’attente. Certaines fonctionnalités et prix sont proposés uniquement dans les comptes GPv2. Évaluez à l’aide de comptes GPv2 après avoir vérifié la tarification. Certaines charges de travail peuvent être plus coûteuses sur GPv2 que sur GPv1. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
+La hiérarchisation des données de stockage d’objets entre les niveaux d’accès chaud, froid et archive est pris en charge uniquement sur des comptes Stockage Blob ou Usage général v2 (GPv2). Les comptes Usage général v1 (GPv1) ne prennent pas en charge la hiérarchisation. Les clients peuvent facilement convertir leurs comptes Stockage Blob ou GPv1 en comptes GPv2 depuis le portail Azure. GPv2 offre de nouveaux prix et fonctionnalités pour les objets blob, les fichiers et les files d’attente. Certaines fonctionnalités et prix sont proposés uniquement dans les comptes GPv2. Évaluez à l’aide de comptes GPv2 après avoir vérifié la tarification. Certaines charges de travail peuvent être plus coûteuses sur GPv2 que sur GPv1. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
-Les comptes de stockage d’objets blob et GPv2 exposent l’attribut **Niveau d’accès** au niveau du compte. Cet attribut vous permet de spécifier le niveau d’accès par défaut pour tous les objets blob ne disposant pas déjà d’un niveau établi au niveau de l’objet. Le niveau du compte ne s’applique pas aux objets disposant d’un niveau établi au niveau de l’objet. Le niveau d’accès archive ne peut être appliqué qu’au niveau de l’objet. Vous pouvez passer d’un niveau d’accès à un autre à tout moment.
+Les comptes Stockage Blob et GPv2 exposent l’attribut **Niveau d’accès** au niveau du compte. Cet attribut vous permet de spécifier le niveau d’accès par défaut pour tous les objets blob ne disposant pas déjà d’un niveau établi au niveau de l’objet. Le niveau du compte ne s’applique pas aux objets disposant d’un niveau établi au niveau de l’objet. Le niveau d’accès archive ne peut être appliqué qu’au niveau de l’objet. Vous pouvez passer d’un niveau d’accès à un autre à tout moment.
 
 ## <a name="hot-access-tier"></a>Niveau d’accès chaud
 
@@ -55,7 +55,7 @@ Le niveau d’accès froid possède des coûts de stockage plus faibles et des c
 
 - Sauvegarde à court terme et récupération d’urgence de jeux de données.
 - Ancien contenu multimédia qui n’est plus consulté fréquemment mais qui est censé être disponible immédiatement lors d’un accès.
-- Jeux de données volumineux qui doivent être stockés de manière économique tout en permettant la collecte de plus de données à des fins de traitement ultérieur. (*Par exemple*, le stockage à long terme de données scientifiques, les données de télémétrie brute d’un site de production)
+- Jeux de données volumineux qui doivent être stockés de manière économique tout en permettant la collecte de plus de données à des fins de traitement ultérieur. ( *Par exemple* , le stockage à long terme de données scientifiques, les données de télémétrie brute d’un site de production)
 
 ## <a name="archive-access-tier"></a>Niveau d’accès archive
 
@@ -76,7 +76,7 @@ Voici quelques exemples de scénarios d’utilisation pour le niveau d’accès 
 
 Les objets blob des trois niveaux d’accès peuvent coexister au sein d’un même compte. Tout objet blob ne disposant pas d’un niveau explicitement attribué déduit le niveau à partir du paramètre de niveau d’accès du compte. Si le niveau d’accès émane du compte, vous voyez la propriété de l’objet blob **Niveau d’accès déduit** définie sur la valeur « True », et la propriété de l’objet blob **Niveau d’accès** correspond au niveau du compte. Dans le portail Azure, la propriété du _niveau d’accès déduit_ est affichée avec le niveau d’accès des objets blob comme **Chaud (déduit)** ou **Froid (déduit)** .
 
-La modification du niveau d’accès du compte s’applique à tous les objets de _niveau d’accès déduit_ stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Si vous passez le niveau du compte de chaud à froid, vous serez facturé pour les opérations d’écriture (par 10 000) de tous les objets blobs n’ayant aucun niveau configuré dans les comptes GPv2 uniquement. Ce changement n’est pas facturé dans les comptes de stockage Blob. Vous serez facturé pour les opérations d’écriture (par 10 000) et d’extraction de données (par Go), si vous passez votre compte de stockage d’objets blob ou GPv2 de froid à chaud.
+La modification du niveau d’accès du compte s’applique à tous les objets de _niveau d’accès déduit_ stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Si vous passez le niveau du compte de chaud à froid, vous serez facturé pour les opérations d’écriture (par 10 000) de tous les objets blobs n’ayant aucun niveau configuré dans les comptes GPv2 uniquement. Ce changement n’est pas facturé dans les comptes Stockage Blob. Vous serez facturé pour les opérations de lecture (par 10 000) et d’extraction de données (par Go) si vous passez votre compte Stockage Blob ou GPv2 d’un stockage froid à chaud.
 
 ## <a name="blob-level-tiering"></a>Hiérarchisation au niveau de l’objet blob
 
@@ -89,7 +89,7 @@ L’heure de la dernière modification du niveau de l’objet blob est exposée 
 
 ### <a name="blob-lifecycle-management"></a>Gestion de cycle de vie des objets blob
 
-La gestion du cycle de vie du Stockage Blob offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Consultez [Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md) pour en savoir plus.  
+La gestion du cycle de vie du Stockage Blob offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Consultez [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md) pour en savoir plus.  
 
 > [!NOTE]
 > Pour le moment, les données stockées dans le niveau d’accès d’objets blob de blocs (performance Premium) ne peuvent pas être déplacées dans le niveau chaud, froid ou archive avec [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) ou à l’aide de la gestion du cycle de vie du Stockage Blob Azure.
@@ -112,7 +112,7 @@ Lorsqu’un objet blob est déplacé vers un niveau plus chaud (archive->froid, 
 
 Les objets blob déplacés vers le niveau d’accès froid (comptes GPv2 uniquement) sont soumis à une période de suppression anticipée du niveau d’accès froid de 30 jours. Les objets blob déplacés vers le niveau archive sont soumis à une période de suppression anticipée de 180 jours. Ces charges sont calculées au prorata. Par exemple, si un objet blob est déplacé vers le niveau archive puis supprimé ou déplacé vers le niveau d’accès chaud après 45 jours, des frais de suppression anticipée équivalents à 135 (180 moins 45) jours de stockage de cet objet blob dans le niveau archive vous seront facturés.
 
-Vous pouvez calculer la suppression anticipée en utilisant la propriété blob, **Last-Modified**, s’il n’y a pas eu de changement de niveau d’accès. Sinon, vous pouvez l’utiliser lorsque le niveau d’accès a été défini sur froid ou archive en affichant la propriété blob : **access-tier-change-time**. Pour plus d’informations sur les propriétés de l’objet blob, consultez [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
+Vous pouvez calculer la suppression anticipée en utilisant la propriété blob, **Last-Modified** , s’il n’y a pas eu de changement de niveau d’accès. Sinon, vous pouvez l’utiliser lorsque le niveau d’accès a été défini sur froid ou archive en affichant la propriété blob : **access-tier-change-time**. Pour plus d’informations sur les propriétés de l’objet blob, consultez [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparing-block-blob-storage-options"></a>Comparaison des options de stockage d’objets blob de blocs
 
@@ -127,12 +127,12 @@ Le tableau suivant présente une comparaison du stockage d’objets blob de bloc
 | **Durée de stockage minimale**              | N/A                       | N/A          | 30 jours<sup>1</sup> | 180 jours
 | **Latence** <br> **(Temps jusqu’au premier octet)** | Millisecondes à un chiffre | millisecondes | millisecondes        | heures<sup>2</sup> |
 
-<sup>1</sup> Les objets du niveau froid sur des comptes GPv2 ont une durée de rétention minimale de 30 jours. Les comptes de stockage d’objets blob n’ont pas de durée de rétention minimale pour le niveau d’accès froid.
+<sup>1</sup> Les objets du niveau froid sur des comptes GPv2 ont une durée de rétention minimale de 30 jours. Les comptes Stockage Blob n’ont pas de durée de rétention minimale pour le niveau d’accès froid.
 
 <sup>2</sup> Stockage archive prend actuellement en charge 2 priorités de réalimentation, haute et standard, offrant différentes latences de récupération. Pour plus d’informations, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
 
 > [!NOTE]
-> Les comptes de stockage d’objets blob présentent les mêmes objectifs de performance et d’évolutivité que les comptes de stockage à usage général v2. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le stockage d’objets blob](scalability-targets.md).
+> Les comptes Stockage Blob présentent les mêmes objectifs de performance et de scalabilité que les comptes de stockage à usage général v2. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour Stockage Blob](scalability-targets.md).
 
 ## <a name="quickstart-scenarios"></a>Scénarios de démarrage rapide
 
@@ -141,7 +141,7 @@ Dans cette section, les scénarios suivants sont présentés en utilisant le por
 - Comment changer le niveau d’accès de compte par défaut d’un compte de stockage GPv2 ou d’objets blob.
 - Comment changer le niveau d’un objet blob dans un compte de stockage GPv2 ou d’objets blob.
 
-### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’accès de compte par défaut d’un compte de stockage GPv2 ou d’objets blob
+### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’accès de compte par défaut d’un compte Stockage Blob ou GPv2
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -150,7 +150,7 @@ Dans cette section, les scénarios suivants sont présentés en utilisant le por
 
 1. Sélectionnez votre compte de stockage.
 
-1. Dans **Paramètres**, cliquez su **Configuration** pour afficher et modifier la configuration du compte.
+1. Dans **Paramètres** , cliquez su **Configuration** pour afficher et modifier la configuration du compte.
 
 1. Sélectionnez le niveau d’accès adapté à vos besoins : Affectez la valeur **Froid** ou **Chaud** au **Niveau d’accès**.
 
@@ -170,7 +170,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ```
 ---
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’un objet blob dans un compte de stockage GPv2 ou d’objets blob
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’un blob dans un compte Stockage Blob ou GPv2
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -180,9 +180,9 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Sélectionnez votre conteneur, puis sélectionnez votre objet blob.
 
-1. Dans **Propriétés de l’objet blob**, sélectionnez **Modifiez le niveau**.
+1. Dans **Propriétés de l’objet blob** , sélectionnez **Modifiez le niveau**.
 
-1. Sélectionnez le niveau d’accès **Chaud**, **Froid** ou **Archive**. Si votre objet blob est actuellement dans le niveau archive et que vous souhaitez le réalimenter dans un niveau en ligne, vous pouvez également sélectionner une priorité de réalimentation **Standard** ou **Élevée**.
+1. Sélectionnez le niveau d’accès **Chaud** , **Froid** ou **Archive**. Si votre objet blob est actuellement dans le niveau archive et que vous souhaitez le réalimenter dans un niveau en ligne, vous pouvez également sélectionner une priorité de réalimentation **Standard** ou **Élevée**.
 
 1. Sélectionnez **Enregistrer** en bas.
 
@@ -213,11 +213,11 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 Tous les comptes de stockage utilisent un modèle tarifaire pour le stockage d’objet blob de blocs basé sur le niveau de chaque objet blob. Gardez à l’esprit les conditions de facturation suivantes :
 
-- **Coûts de stockage** : Les coûts de stockage des données varient en fonction de la quantité de données stockées et du niveau d’accès. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
-- **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux d’accès froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
-- **Coûts de transaction** : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
-- **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
-- **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
+- **Coûts de stockage**  : Les coûts de stockage des données varient en fonction de la quantité de données stockées et du niveau d’accès. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
+- **Coûts d’accès aux données**  : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux d’accès froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
+- **Coûts de transaction**  : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
+- **Coûts de transfert de données de géoréplication**  : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
+- **Coûts de transfert de données sortantes**  : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
 - **Modification du niveau d’accès** : La modification du niveau d’accès du compte entraîne des frais de modification de niveau pour les objets blob de _niveau d’accès déduit_ stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Pour plus d’informations sur la modification du niveau d’accès pour un objet blob unique, reportez-vous à [Facturation de la hiérarchisation au niveau de l’objet blob](#blob-level-tiering-billing).
 
     Le changement du niveau d’accès pour un objet blob lorsque la gestion des versions des objets blob est activée, ou si l’objet blob a des instantanés, peut donner lieu à des frais supplémentaires. Pour plus d’informations sur la facturation appliquée quand la gestion des versions des objets blob est activée et que vous changez explicitement le niveau d’un objet blob, consultez [Tarification et facturation](versioning-overview.md#pricing-and-billing) dans la documentation relative à la gestion des versions des objets blob. Pour plus d’informations sur la facturation appliquée quand un objet blob a des instantanés et que vous changez explicitement le niveau d’un objet blob, consultez [Tarification et facturation](snapshots-overview.md#pricing-and-billing) dans la documentation relative aux instantanés d’objets blob.
@@ -239,7 +239,7 @@ Oui. L’attribut **Niveau d’accès** configuré au niveau du compte est le ni
 
 **Puis-je modifier le niveau d’accès par défaut de mon compte de stockage GPv2 ou d’objets blob ?**
 
-Oui, vous pouvez modifier le niveau de compte par défaut en définissant l’attribut **Niveau d’accès** du compte de stockage. La modification du niveau de compte s’applique à tous les objets stockés dans le compte et ne possédant pas un ensemble de niveau explicite (par exemple, **Chaud (déduit)** ou **Froid (déduit)** ). Passer du niveau de compte chaud au niveau froid implique des opérations d’écriture (par 10 000) pour tous les objets blob sans niveau défini dans les comptes GPv2 uniquement, tandis que le passage du niveau froid au niveau chaud entraîne des opérations de lecture (par 10 000) et des frais d’extraction de données (par Go) pour tous les objets blob dans des comptes de stockage GPv2 et d’objets blob.
+Oui, vous pouvez modifier le niveau de compte par défaut en définissant l’attribut **Niveau d’accès** du compte de stockage. La modification du niveau de compte s’applique à tous les objets stockés dans le compte et ne possédant pas un ensemble de niveau explicite (par exemple, **Chaud (déduit)** ou **Froid (déduit)** ). Passer du niveau de compte chaud au niveau froid implique des opérations d’écriture (par 10 000) pour tous les blobs sans niveau défini dans les comptes GPv2 uniquement, tandis que le passage du niveau froid au niveau chaud entraîne des frais d’opérations de lecture (par 10 000) et d’extraction de données (par Go) pour tous les blobs dans des comptes Stockage Blob et GPv2.
 
 **Puis-je configurer le niveau d’accès par défaut de mon compte sur Archive ?**
 
@@ -255,7 +255,7 @@ Les niveaux à chaud et à froid prennent en charge toutes les options de redond
 
 **Les objets blob au niveau d’accès froid se comportent-ils différemment de ceux se trouvant au niveau d’accès chaud ?**
 
-Les objets blob au niveau d’accès chaud ont la même latence que les objets blob des comptes de stockage d’objets blob, GPv1 et GPv2. Les objets blob au niveau d’accès froid ont une latence similaire (en millisecondes) à celle des objets blob des comptes de stockage d’objets blob, GPv1 et GPv2. Les objets blob au niveau d’accès archive ont plusieurs heures de latence dans les comptes de stockage d’objets blob, GPv1 et GPv2.
+Les blobs au niveau d’accès chaud ont la même latence que les blobs des comptes Stockage Blob, GPv1 et GPv2. Les blobs au niveau d’accès froid ont une latence similaire (en millisecondes) à celle des blobs des comptes Stockage Blob, GPv1 et GPv2. Les blobs au niveau d’accès archive ont plusieurs heures de latence dans les comptes Stockage Blob, GPv1 et GPv2.
 
 Les objets blob au niveau d’accès froid ont un contrat de niveau de service SLA de disponibilité légèrement inférieur à celui des objets blob stockés au niveau d’accès chaud. Pour plus d’informations, consultez la page [Contrat SLA pour le stockage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
@@ -285,10 +285,10 @@ Le stockage des données ainsi que d’autres limites sont établis à partir du
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Évaluer les niveaux chaud, froid et archive dans les comptes de stockage d’objets blob GPv2
+Évaluez les niveaux chaud, froid et archive dans les comptes Stockage Blob et GPv2.
 
 - [Vérifier la disponibilité de niveau chaud, froid et archive par région](https://azure.microsoft.com/regions/#services)
-- [Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)
+- [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md)
 - [Découvrir comment réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md)
 - [Déterminer si les performances de l’édition Premium peuvent tirer parti de votre application](storage-blob-performance-tiers.md)
 - [Évaluer l’utilisation des comptes de stockage actuels en activant les métriques Azure Storage](../common/storage-enable-and-view-metrics.md)

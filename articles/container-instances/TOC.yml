@@ -72,7 +72,7 @@
           href: container-instances-vnet.md
         - name: Déployer depuis Azure Container Registry
           href: container-instances-using-azure-container-registry.md
-        - name: Déployer avec GitHub Actions (préversion)
+        - name: Déployer avec GitHub Actions
           href: container-instances-github-action.md
         - name: Chiffrer les données de déploiement
           href: container-instances-encrypt-data.md
@@ -170,7 +170,7 @@
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
     - name: Questions fréquentes (FAQ)
       href: container-instances-faq.md

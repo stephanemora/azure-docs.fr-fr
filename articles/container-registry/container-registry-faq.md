@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148534"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346993"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -262,7 +262,8 @@ Le contrôle des images est une fonctionnalité d’évaluation d’ACR. Vous po
 La configuration d’un registre de conteneurs Azure pour l’accès par tirage (pull) anonyme (public) est actuellement une fonctionnalité en préversion. Si vous avez [des ressources de jeton ou de mappage d’étendue (utilisateur)](./container-registry-repository-scoped-permissions.md) dans votre registre, supprimez-les avant de déclencher un ticket de support (les mappages d’étendue système peuvent être ignorés). Pour activer l’accès public, veuillez ouvrir un ticket de support à https://aka.ms/acr/support/create-ticket. Pour plus d’informations, consultez le [Forum de commentaires Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Seules les API requises pour extraire une image connue sont accessibles de façon anonyme. Aucune autre API destinée à des opérations comme une liste d’étiquettes ou une liste de référentiels n’est accessible de manière anonyme.
+> * Seules les API requises pour extraire une image connue sont accessibles de façon anonyme. Aucune autre API destinée à des opérations comme une liste d’étiquettes ou une liste de référentiels n’est accessible de manière anonyme.
+> * Avant de tenter une opération d’extraction anonyme, exécutez `docker logout` pour vous assurer que vous effacez les informations d’identification existantes de Docker.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostics et contrôles d’intégrité
 

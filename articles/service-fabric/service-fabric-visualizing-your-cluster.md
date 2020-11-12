@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357214"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085171"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 
@@ -117,7 +117,7 @@ EventStore est une fonctionnalité proposée par la plateforme qui fournit les �
 ## <a name="image-store-viewer"></a>Image Store Viewer
 Image Store Viewer est une fonctionnalité proposée si vous utilisez Native Image Store qui permet d’afficher le contenu actuel du magasin d’images, d’obtenir des informations sur les fichiers et dossiers et de supprimer les fichiers et dossiers.
 
-![Mappage de cluster de Service Fabric Explorer][sfx-imagestore]
+![Capture d’écran montrant la page Image Store Viewer.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 Service Fabric Explorer offre la possibilité d’interagir avec [Sauvegarde et de restauration](./service-fabric-reliable-services-backup-restore.md). Pour afficher les fonctionnalités de sauvegarde et de restauration dans SFX, vous devez activer le mode avancé.

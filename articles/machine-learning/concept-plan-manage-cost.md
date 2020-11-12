@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704726"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322988"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planifier et gérer les coûts d’Azure Machine Learning
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur l’attribution de l’accès aux données Azure 
 
 ## <a name="estimate-costs"></a>Estimer les coûts
 
-Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer les ressources dans un compte Azure Machine Learning. Sur la gauche, sélectionnez **AI + Machine Learning**, puis sélectionnez **Azure Machine Learning** pour commencer.  
+Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer les ressources dans un compte Azure Machine Learning. Sur la gauche, sélectionnez **AI + Machine Learning** , puis sélectionnez **Azure Machine Learning** pour commencer.  
 
 La capture d’écran suivante montre l’estimation des coûts effectuée par la calculatrice :
 
@@ -53,15 +53,17 @@ Pour plus d’informations, consultez [Tarifs Azure Machine Learning](https://az
 
 ## <a name="get-cost-alerts"></a>Obtenir des alertes de coût
 
-Créez des [budgets](../cost-management/tutorial-acm-create-budgets.md) pour gérer les coûts et créez des [alertes](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) permettant d’avertir automatiquement les parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût. Les budgets et les alertes sont créés pour les abonnements et les groupes de ressources Azure : ils sont donc utiles dans le cadre d’une stratégie globale de supervision des coûts. Les budgets et les alertes peuvent cependant avoir des fonctionnalités limitées pour gérer les coûts de services Azure individuels, car ils sont conçus pour suivre les coûts à un niveau supérieur.
+Créez des [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md) pour gérer les coûts et créez des [alertes](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) permettant d’avertir automatiquement les parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût. Les budgets et les alertes sont créés pour les abonnements et les groupes de ressources Azure : ils sont donc utiles dans le cadre d’une stratégie globale de supervision des coûts. Les budgets et les alertes peuvent cependant avoir des fonctionnalités limitées pour gérer les coûts de services Azure individuels, car ils sont conçus pour suivre les coûts à un niveau supérieur.
 
 ## <a name="monitor-costs"></a>Superviser les coûts
 
-À mesure que vous utilisez des ressources avec Azure Machine Learning, vous générez des coûts. Les coûts unitaires d’utilisation des ressources Azure varient en fonction d’intervalles de temps (secondes, minutes, heures et jours) ou en fonction de l’utilisation d’unités de requête. Dès que vous commencez à utiliser Azure Machine Learning, des coûts sont générés. Visualisez ces coûts dans le volet d’[analyse des coûts](../cost-management/quick-acm-cost-analysis.md) du portail Azure.
+À mesure que vous utilisez des ressources avec Azure Machine Learning, vous générez des coûts. Les coûts unitaires d’utilisation des ressources Azure varient en fonction d’intervalles de temps (secondes, minutes, heures et jours) ou en fonction de l’utilisation d’unités de requête. Dès que vous commencez à utiliser Azure Machine Learning, des coûts sont générés. Visualisez ces coûts dans le volet d’[analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md) du portail Azure.
 
 Vous pouvez afficher les coûts dans des graphes et des tables pour différents intervalles de temps. Vous pouvez également voir les coûts par rapport aux budgets et aux coûts prévus. Passez à des vues sur des périodes plus longues pour identifier les tendances des dépenses et déterminer où des dépenses excessives ont pu se produire. S vous avez créé des budgets, notez où ils ont été dépassés.  
 
-Vous ne verrez pas une zone de service distincte pour Machine Learning.  Au lieu de cela, vous verrez les différentes ressources que vous avez ajoutées à vos espaces de travail Machine Learning.
+Vous ne verrez pas une zone de service distincte pour Machine Learning.  Au lieu de cela, vous verrez les différentes ressources que vous avez ajoutées à vos espaces de travail Machine Learning. 
+
+Notez que, si l’espace de travail Machine Learning lui-même n’a pas de coût direct, vous êtes facturé sur les ressources de calcul gérées. Par conséquent, si vous avez ajouté des étiquettes aux espaces de travail, puisqu’il n’y a pas de coût direct dessus, le volet d’analyse des coûts en tiendra compte pour l’espace de travail. Pour une gestion précise des coûts au moyen des étiquettes, vous devez étiqueter les ressources de calcul associées.  
 
 ## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Utiliser le cluster de calcul Azure Machine Learning (AmlCompute)
 
@@ -84,7 +86,7 @@ Vous pouvez également configurer la durée d’inactivité du nœud avant l’e
 + Si vous effectuez une expérimentation moins itérative, réduisez ce délai pour réduire les coûts.
 + Si vous effectuez une expérimentation de développement/test hautement itérative, vous devrez peut-être augmenter la durée pour ne pas avoir à payer des mises à l’échelle constantes après chaque modification apportée à votre environnement ou script d’entraînement.
 
-Les clusters AmlCompute peuvent être configurés pour répondre aux besoins fluctuants de votre charge de travail dans le portail Azure, à l’aide de la [classe SDK AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) et de l’interface [CLI AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute) avec les [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Les clusters AmlCompute peuvent être configurés pour répondre aux besoins fluctuants de votre charge de travail dans le portail Azure, à l’aide de la [classe SDK AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) et de l’interface [CLI AmlCompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute) avec les [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -94,7 +96,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 AmlCompute est fourni avec une [configuration de quota (ou limite)](how-to-manage-quotas.md#azure-machine-learning-compute). Ce quota est défini par famille de machines virtuelles (par exemple, la série Dv2, la série NCv3) et varie selon la région pour chaque abonnement. Les abonnements commencent par des valeurs par défaut réduites pour vous aider, mais utilisez ce paramètre pour contrôler la quantité de ressources AmlCompute pouvant être mises en service dans votre abonnement. 
 
-Configurez également un [quota au niveau de l’espace de travail par famille de machines virtuelles](how-to-manage-quotas.md#workspace-level-quota) pour chaque espace de travail d’un abonnement. Cela vous permet d’avoir un contrôle plus précis sur les coûts que chaque espace de travail peut potentiellement générer, et de restreindre certaines familles de machines virtuelles. 
+Configurez également un [quota au niveau de l’espace de travail par famille de machines virtuelles](how-to-manage-quotas.md#workspace-level-quotas) pour chaque espace de travail d’un abonnement. Cela vous permet d’avoir un contrôle plus précis sur les coûts que chaque espace de travail peut potentiellement générer, et de restreindre certaines familles de machines virtuelles. 
 
 Pour définir des quotas au niveau de l’espace de travail, commencez dans le [portail Azure](https://portal.azure.com).  Sélectionnez un espace de travail quelconque dans votre abonnement, puis sélectionnez **Utilisations + quotas** dans le volet gauche. Sélectionnez ensuite l’onglet **Configurer les quotas** pour afficher les quotas. Vous avez besoin de privilèges dans l’étendue de l’abonnement pour définir ce quota, car il s’agit d’un paramètre qui affecte plusieurs espaces de travail.
 

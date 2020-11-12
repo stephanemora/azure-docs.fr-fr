@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127635"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Tester une tâche Azure Stream Analytics sur le portail
 
@@ -27,7 +27,7 @@ Azure Stream Analytics récupère automatiquement les événements à partir de 
 
 2. Localisez votre tâche Stream Analytics existante et sélectionnez-la.
 
-3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche**, sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête. 
+3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche** , sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête. 
 
 4. Pour afficher un exemple de liste d’événements entrants, sélectionnez l’icône d’entrée avec un fichier et les exemples d’événements s’affichent automatiquement dans **l’aperçu d’entrée**.
 
@@ -37,11 +37,11 @@ Azure Stream Analytics récupère automatiquement les événements à partir de 
     
    c. Si les données qui apparaissent ne sont pas à jour, sélectionnez **Actualiser** pour afficher les événements les plus récents.
 
-   Voici un exemple de données au **format tableau** :
+   Voici un exemple de données au **format tableau**  :
 
    ![Exemple d’entrée Azure Stream Analytics au format tableau](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   Voici un exemple de données au **format brut** :
+   Voici un exemple de données au **format brut**  :
 
    ![Exemple d’entrée Azure Stream Analytics au format brut](./media/stream-analytics-test-query/asa-sample-raw.png)
 
@@ -61,7 +61,7 @@ Azure Stream Analytics récupère automatiquement les événements à partir de 
 
    ![Afficher les résultats du test Azure Stream Analytics](./media/stream-analytics-test-query/asa-view-test-results.png)
 
-9. Sélectionnez **Réinitialiser** pour voir l’exemple de liste d’événements entrants. Si vous sélectionnez **Réinitialiser**, votre sélection d’intervalle de temps sera perdue. Sélectionnez **Tester la requête** pour tester votre requête et passez en revue les résultats dans l’onglet **Résultats du test**.
+9. Sélectionnez **Réinitialiser** pour voir l’exemple de liste d’événements entrants. Si vous sélectionnez **Réinitialiser** , votre sélection d’intervalle de temps sera perdue. Sélectionnez **Tester la requête** pour tester votre requête et passez en revue les résultats dans l’onglet **Résultats du test**.
 
 10. Lorsque vous apportez des modifications à votre requête, sélectionnez **Enregistrer la requête** pour tester la nouvelle logique de requête. Cela vous permet de modifier de manière itérative votre requête et de la tester à nouveau pour voir comment la sortie change.
 
@@ -75,17 +75,17 @@ Au lieu d’utiliser des données actives, vous pouvez utiliser des exemples de 
    
 2. Localisez votre tâche Stream Analytics existante et sélectionnez-la.
 
-3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche**, sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête.
+3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche** , sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête.
 
 4. Pour tester votre requête avec un fichier local, sélectionnez **Charger un exemple d’entrée** dans l’onglet **Aperçu d’entrée**. 
 
-   ![Charger un exemple de fichier Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![Capture d’écran montrant l’option Charger un exemple d’entrée.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
 5. Chargez votre fichier local pour tester la requête. Vous pouvez uniquement charger des fichiers au format JSON, CSV ou AVRO. Sélectionnez **OK**.
 
-   ![Charger un exemple de fichier Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![Capture d’écran montrant la boîte de dialogue Charger un exemple de données dans laquelle vous pouvez sélectionner un fichier.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
-6. Dès que vous chargez le fichier, vous pouvez également voir le contenu du fichier sous la forme d’un tableau ou au format brut. Si vous sélectionnez **Réinitialiser**, les exemples de données retournent vers les données d’entrée entrantes expliquées dans la section précédente. Vous pouvez charger n’importe quel autre fichier pour tester la requête à tout moment.
+6. Dès que vous chargez le fichier, vous pouvez également voir le contenu du fichier sous la forme d’un tableau ou au format brut. Si vous sélectionnez **Réinitialiser** , les exemples de données retournent vers les données d’entrée entrantes expliquées dans la section précédente. Vous pouvez charger n’importe quel autre fichier pour tester la requête à tout moment.
 
 7. Sélectionnez **Tester la requête** pour tester votre requête par rapport à l’exemple de fichier chargé.
 
@@ -113,9 +113,9 @@ Au lieu d’utiliser des données actives, vous pouvez utiliser des exemples de 
 5.  Le machine learning n’est pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Créer une solution IoT à l'aide de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics) : ce tutoriel vous aidera à créer une solution de bout en bout avec un générateur de données qui simulera le trafic à un poste de péage.
+* [Créer une solution IoT à l'aide de Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md) : ce tutoriel vous aidera à créer une solution de bout en bout avec un générateur de données qui simulera le trafic à un poste de péage.
 
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Exemples de requête pour les modes d’utilisation courants dans Stream Analytics](stream-analytics-stream-analytics-query-patterns.md)
 

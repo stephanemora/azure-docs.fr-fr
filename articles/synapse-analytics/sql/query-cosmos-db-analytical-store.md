@@ -1,6 +1,6 @@
 ---
 title: Interroger des données d’Azure Cosmos DB à l’aide d’un pool SQL serverless dans Azure Synapse Link (préversion)
-description: Cet article explique comment interroger Azure Cosmos DB à l’aide de SQL à la demande dans Azure Synapse Link (préversion).
+description: Cet article explique comment interroger Azure Cosmos DB à l’aide d’un pool SQL serverless dans Azure Synapse Link (préversion).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310305"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Interroger des données d’Azure Cosmos DB avec un pool SQL serverless dans Azure Synapse Link (préversion)
 
 Un pool Synapse SQL serverless vous permet d’analyser les données figurant dans vos conteneurs Azure Cosmos DB activés avec [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) en quasi-temps réel, sans que cela affecte les performances de vos charges de travail transactionnelles. Il offre une syntaxe T-SQL familière pour interroger les données du [magasin analytique](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), et une connectivité intégrée à un vaste éventail d’outils décisionnels et d’interrogation ad hoc via l’interface T-SQL.
 
-Pour l’interrogation d’Azure Cosmos DB, tout la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) est prise en charge via la fonction [OPENROWSET](develop-openrowset.md), y compris la majorité des [fonctions et opérateurs SQL](overview-features.md). Vous pouvez également stocker les résultats de la requête qui lit des données d’Azure Cosmos DB ainsi que des données du Stockage Blob Azure ou d’Azure Data Lake Storage à l’aide de la commande [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). Actuellement, vous ne pouvez pas stocker les résultats d’une requête de pool SQL serverless dans Azure Cosmos DB à l’aide de [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Pour l’interrogation d’Azure Cosmos DB, tout la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) est prise en charge via la fonction [OPENROWSET](develop-openrowset.md), y compris la majorité des [fonctions et opérateurs SQL](overview-features.md). Vous pouvez également stocker les résultats de la requête qui lit des données d’Azure Cosmos DB ainsi que des données du Stockage Blob Azure ou d’Azure Data Lake Storage à l’aide de la commande [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool). Actuellement, vous ne pouvez pas stocker les résultats d’une requête de pool SQL serverless dans Azure Cosmos DB à l’aide de CETAS. 
 
 Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless, qui interrogera les données de conteneurs Azure Cosmos DB pour lesquels la fonctionnalité Synapse Link est activée. [Ce tutoriel](./tutorial-data-analyst.md) fournit également des informations supplémentaires sur la création de vues de pool SQL serverless sur des conteneurs Azure Cosmos DB, et leur connexion à des modèles Power BI. 
 
@@ -358,6 +358,6 @@ Vous pouvez nous faire part de vos suggestions et signaler des problèmes dans l
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Utiliser Power BI et un pool Synapse SQL serverless avec Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
-- [Comment créer et utiliser des vues dans SQL à la demande](create-use-views.md) 
-- [Tutoriel sur la création de vues SQL à la demande sur Azure Cosmos DB et leur connexion à des modèles Power BI via DirectQuery](./tutorial-data-analyst.md)
+- [Utiliser Power BI et un pool SQL serverless avec Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
+- [Comment créer et utiliser des vues dans un pool SQL serverless](create-use-views.md) 
+- [Tutoriel sur la création de vues de pools SQL serverless sur Azure Cosmos DB et leur connexion à des modèles Power BI via DirectQuery](./tutorial-data-analyst.md)

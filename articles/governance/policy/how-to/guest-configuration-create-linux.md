@@ -4,12 +4,12 @@ description: Découvrez comment créer une stratégie Guest Configuration pour d
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676632"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346874"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -24,7 +24,11 @@ La [configuration d’invité Azure Policy](../concepts/guest-configuration.md) 
 Utilisez les actions suivantes pour créer votre propre configuration pour la validation de l’état d’une machine Azure ou non-Azure.
 
 > [!IMPORTANT]
+> Les définitions de stratégie personnalisées avec la configuration invité dans les environnements Azure Government et Azure Chine sont des fonctionnalités d’évaluation.
+>
 > L’extension Guest Configuration (Configuration d’invité) est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez la définition de stratégie suivante : `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> N’utilisez pas de secrets ni d’informations confidentielles dans les packages de contenu personnalisés.
 
 ## <a name="install-the-powershell-module"></a>Installer le module PowerShell
 
@@ -49,7 +53,9 @@ Systèmes d’exploitation sur lesquels le module peut être installé :
 - Windows
 
 > [!NOTE]
-> La cmdlet « test-GuestConfigurationPackage » requiert OpenSSL version 1,0, en raison d’une dépendance d’OMI. Cela provoque une erreur sur tout environnement avec OpenSSL 1.1 ou version ultérieure.
+> La cmdlet `Test-GuestConfigurationPackage` requiert OpenSSL version 1.0 en raison d’une dépendance d’OMI. Cela provoque une erreur sur tout environnement avec OpenSSL 1.1 ou version ultérieure.
+>
+> L’exécution de la cmdlet `Test-GuestConfigurationPackage` est prise en charge uniquement sur Windows pour le module Guest Configuration version 2.1.0.
 
 Le module de ressource Guest Configuration nécessite les logiciels suivants :
 
@@ -160,7 +166,7 @@ La cmdlet `New-GuestConfigurationPackage` crée le package. Paramètres de la cm
 - **Name**  : Nom du package Guest Configuration.
 - **Configuration**  : Chemin d’accès complet au document de configuration compilé.
 - **Chemin d’accès**  : Chemin d’accès au dossier de sortie. Ce paramètre est facultatif. S’il n’est pas spécifié, le package est créé dans le répertoire actif.
-- **ChefProfilePath** : Chemin d’accès complet au profil InSpec. Ce paramètre est pris en charge uniquement lors de la création de contenu pour auditer Linux.
+- **ChefInspecProfilePath**  : Chemin d’accès complet au profil InSpec. Ce paramètre est pris en charge uniquement lors de la création de contenu pour auditer Linux.
 
 Exécutez la commande suivante pour créer un package à l’aide de la configuration fournie à l’étape précédente :
 
@@ -191,7 +197,7 @@ Test-GuestConfigurationPackage `
 La cmdlet prend aussi en charge l’entrée depuis le pipeline PowerShell. Dirige la sortie de la cmdlet `New-GuestConfigurationPackage` vers la cmdlet `Test-GuestConfigurationPackage`.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 L’étape suivante consiste à publier le fichier dans Stockage Blob Azure.  La commande `Publish-GuestConfigurationPackage` requiert le module `Az.Storage`.
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Cycle de vie de la stratégie
 
-Pour publier une mise à jour de la définition de stratégie, deux champs sont importants.
+Pour publier une mise à jour de la définition de stratégie, trois champs sont importants.
 
-- **Version**  : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié. Cette propriété met à jour la version de l’attribution Guest Configuration pour que l’agent reconnaisse le package mis à jour.
+> [!NOTE]
+> La propriété `version` de l’affectation de configuration invité n’a d’influence que sur les packages qui sont hébergés par Microsoft. La meilleure pratique pour le contenu personnalisé du contrôle de version consiste à inclure la version dans le nom de fichier.
+
+- **Version**  : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.
+- **contentUri**  : Lorsque vous exécutez la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un URI vers l’emplacement du package. L’inclusion d’une version de package dans le nom de fichier garantit que la valeur de cette propriété change dans chaque version.
 - **contentHash** : Cette propriété est automatiquement mise à jour par l’applet de commande `New-GuestConfigurationPolicy`. Il s’agit d’une valeur de hachage du package créé par `New-GuestConfigurationPackage`. Cette propriété doit être correcte pour le fichier `.zip` que vous publiez. Si seule la propriété **contentUri** est mise à jour, l’extension n’accepte pas le package de contenu.
 
 Le moyen le plus simple de publier un package mis à jour consiste à répéter le processus décrit dans cet article et à fournir un numéro de version mis à jour. Ce processus garantit que toutes les propriétés ont été correctement mises à jour.
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrage des stratégies Guest Configuration à l’aide de balises
 

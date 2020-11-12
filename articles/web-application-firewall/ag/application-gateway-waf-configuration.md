@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84752474"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040248"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -38,10 +38,10 @@ Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'u
 
 Voici les opérateurs de critères de correspondance pris en charge :
 
-- **Est égal à** :  cet opérateur est utilisé pour une correspondance exacte. Par exemple, pour sélectionner l’en-tête **bearerToken**, utilisez l’opérateur d’égalité avec le sélecteur défini sur **bearerToken**.
-- **Commence par** : cet opérateur correspond à tous les champs qui commencent par la valeur de sélecteur spécifiée.
-- **Se termine par** :  cet opérateur correspond à tous les champs de demande qui se terminent par la valeur de sélecteur spécifiée.
-- **Contient** : cet opérateur correspond à tous les champs de demande qui se contiennent la valeur de sélecteur spécifiée.
+- **Est égal à**  :  cet opérateur est utilisé pour une correspondance exacte. Par exemple, pour sélectionner l’en-tête **bearerToken** , utilisez l’opérateur d’égalité avec le sélecteur défini sur **bearerToken**.
+- **Commence par**  : cet opérateur correspond à tous les champs qui commencent par la valeur de sélecteur spécifiée.
+- **Se termine par**  :  cet opérateur correspond à tous les champs de demande qui se terminent par la valeur de sélecteur spécifiée.
+- **Contient**  : cet opérateur correspond à tous les champs de demande qui se contiennent la valeur de sélecteur spécifiée.
 - **Est égal à** : Cet opérateur correspond à tous les champs de la requête. * sera la valeur du sélecteur.
 
 Dans tous les cas, la correspondance respecte la casse, et les expressions régulières ne sont pas autorisées en guise de sélecteurs.
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Par conséquent, si l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` est transmise au WAF, elle n'évaluera pas la chaîne **fdafdasfda**, mais évaluera toujours le nom de paramètre **user%281%29**. 
+Par conséquent, si l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` est transmise au WAF, elle n'évaluera pas la chaîne **fdafdasfda** , mais évaluera toujours le nom de paramètre **user%281%29**. 
 
 ## <a name="waf-request-size-limits"></a>Limites de la taille des demandes adressées au WAF
 
@@ -89,7 +89,7 @@ Par conséquent, si l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` est t
 
 Le pare-feu d’applications web vous permet de configurer des limites maximale et minimale de la taille des demandes. Les configurations de limites à deux tailles suivantes sont disponibles :
 
-- Le champ de la taille maximale du corps de la requête est spécifié en kilo-octets et contrôle la limite globale de la taille de la requête à l’exclusion de tout chargement de fichier. La valeur de ce champ peut varier de 1 Ko à 128 Ko. La valeur par défaut pour la taille du corps de la demande est de 128 Ko.
+- Le champ de la taille maximale du corps de la requête est spécifié en kilo-octets et contrôle la limite globale de la taille de la requête à l’exclusion de tout chargement de fichier. La valeur de ce champ est comprise entre 1 ko et 128 ko. La valeur par défaut pour la taille du corps de la demande est de 128 Ko.
 - Le champ de la limite de chargement de fichier est spécifié en Mo et régit la taille maximale autorisée pour la limite de chargement de fichier. Ce champ peut avoir une valeur minimale de 1 Mo et les valeurs maximales suivantes :
 
    - 100 Mo pour les passerelles v1 WAF moyennes

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 922f4a2785a0b7260bcd0aae19c0172a2fa7a782
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bc5e98484560fcc15e0ea3e289069c84687f158c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283080"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040582"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Comment créer des plans pour une offre de machine virtuelle
 
@@ -30,8 +30,8 @@ Une fois que vous avez créé vos plans, sélectionnez l’onglet **Vue d’ense
 
 Les actions disponibles dans le volet **Vue d’ensemble du plan** varient en fonction de l’état actuel de votre plan.
 
-- Si l’état du plan est Brouillon, sélectionnez **Supprimer le brouillon** .
-- Si l’état du plan est Publié, sélectionnez **Arrêter la vente du plan** ou **Synchroniser le public privé** .
+- Si l’état du plan est Brouillon, sélectionnez **Supprimer le brouillon**.
+- Si l’état du plan est Publié, sélectionnez **Arrêter la vente du plan** ou **Synchroniser le public privé**.
 
 ## <a name="create-a-new-plan"></a>Créer un plan
 
@@ -40,9 +40,9 @@ Sélectionnez **Créer un plan** en haut de la page. La boîte de dialogue **Nou
 Dans la zone **ID du plan** , créez un ID de plan unique pour chaque plan contenu dans cette offre. Cet ID sera visible par les clients dans l’adresse web du produit. Utilisez uniquement des lettres minuscules et des chiffres, des tirets ou des traits de soulignement, dans la limite de 50 caractères.
 
 > [!NOTE]
-> L’ID de plan ne peut pas être changé une fois que vous avez sélectionné **Créer** .
+> L’ID de plan ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-Dans la zone **Nom du plan** , entrez un nom pour ce plan. Les clients voient ce nom quand ils décident du plan à sélectionner dans votre offre. Créez un nom unique qui identifie clairement les différences entre chaque plan. Par exemple, vous pouvez entrer **Windows Server** avec des plans *Paiement à l’utilisation* , *BYOL (apportez votre propre licence)* , *Avancé* et *Entreprise* .
+Dans la zone **Nom du plan** , entrez un nom pour ce plan. Les clients voient ce nom quand ils décident du plan à sélectionner dans votre offre. Créez un nom unique qui identifie clairement les différences entre chaque plan. Par exemple, vous pouvez entrer **Windows Server** avec des plans *Paiement à l’utilisation* , *BYOL (apportez votre propre licence)* , *Avancé* et *Entreprise*.
 
 Sélectionnez **Create** (Créer).
 
@@ -52,7 +52,7 @@ Définissez la configuration générale du type de plan, indiquez si le plan ré
 
 ### <a name="reuse-a-technical-configuration"></a>Réutiliser une configuration technique
 
-Si vous avez plusieurs plans du même type et que les packages qu’ils utilisent sont identiques, vous pouvez sélectionner l’option pour que **ce plan réutilise la configuration technique d’un autre plan** . Cette option vous permet de sélectionner l’un des autres plans du même type pour cette offre et de réutiliser sa configuration technique.
+Si vous avez plusieurs plans du même type et que les packages qu’ils utilisent sont identiques, vous pouvez sélectionner l’option pour que **ce plan réutilise la configuration technique d’un autre plan**. Cette option vous permet de sélectionner l’un des autres plans du même type pour cette offre et de réutiliser sa configuration technique.
 
 > [!NOTE]
 > Si vous réutilisez la configuration technique d’un autre plan, l’onglet **Configuration technique** ne s’affiche plus pour ce plan. Les paramètres de la configuration technique de l’autre plan, y compris les mises à jour effectuées ultérieurement, seront également appliqués à ce plan. Ce paramètre n’est plus modifiable après la publication du plan.
@@ -138,7 +138,7 @@ Vous pouvez concevoir chaque plan pour qu’il soit visible par tous les utilisa
 **Public privé**  : votre plan ne peut être consulté que par un public présélectionné. Une fois votre plan publié en tant que plan privé, vous pouvez mettre à jour le public visé ou rendre le plan public. Une fois que vous avez rendu un plan public, il doit rester public. Vous ne pouvez pas le reconvertir en plan privé.
 
 > [!NOTE]
-> Un public privé ou restreint est différent du public de préversion que vous avez défini dans le volet **Préversion** . Un public de préversion peut accéder à votre offre _avant_ sa publication sur la Place de marché Azure. La sélection d’un public privé ne s’applique qu’à un plan spécifique, tandis que le public de préversion peut voir tous les plans privés et publics dans le cadre de la validation.
+> Un public privé ou restreint est différent du public de préversion que vous avez défini dans le volet **Préversion**. Un public de préversion peut accéder à votre offre _avant_ sa publication sur la Place de marché Azure. La sélection d’un public privé ne s’applique qu’à un plan spécifique, tandis que le public de préversion peut voir tous les plans privés et publics dans le cadre de la validation.
 
 **Audience restreinte (ID d’abonnement Azure)**  : définissez le public qui aura accès à ce plan privé au moyen d’ID d’abonnements Azure. Le cas échéant, incluez une description de chaque ID d’abonnement Azure que vous avez attribué. Ajoutez jusqu’à 10 ID d’abonnements manuellement, ou jusqu’à 20 000 ID si vous importez une feuille de calcul CSV. Les ID d’abonnements Azure sont représentés par des GUID, où toutes les lettres doivent être en minuscules.
 
@@ -159,13 +159,13 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 Fournissez les images et autres propriétés techniques associées à ce plan. Pour plus d’informations, consultez [configurer les détails de la liste des offres de machines virtuelles](azure-vm-create-listing.md).
 
 > [!NOTE]
-> L’onglet **Configuration technique** ne s’affiche pas si vous avez configuré ce plan pour réutiliser les packages d’un autre plan sous l’onglet **Configuration du plan** .
+> L’onglet **Configuration technique** ne s’affiche pas si vous avez configuré ce plan pour réutiliser les packages d’un autre plan sous l’onglet **Configuration du plan**.
 
 ### <a name="operating-system"></a>Système d’exploitation
 
 Dans le volet **Système d’exploitation** , effectuez les étapes suivantes :
 
-- Pour **Famille de systèmes d’exploitation** , sélectionnez le système d’exploitation **Windows** ou **Linux** .
+- Pour **Famille de systèmes d’exploitation** , sélectionnez le système d’exploitation **Windows** ou **Linux**.
 - Pour **Mise en production** ou **Fournisseur** , sélectionnez la mise en production Windows ou le fournisseur Linux.
 - Pour **Nom convivial du système d’exploitation** , entrez un nom de système d’exploitation convivial. Ce nom est visible par les clients.
 
@@ -185,6 +185,30 @@ Pour **Option de déploiement de disque** , sélectionnez le type de déploiemen
 
 Pour **Prendre en charge l’accélération réseau** , indiquez si votre machine virtuelle prend en charge l’ [accélération réseau](https://go.microsoft.com/fwlink/?linkid=2124513).
 
+### <a name="generations"></a>Générations
+
+La génération d’une machine virtuelle définit le matériel virtuel qu’elle utilise. En fonction des besoins de votre client, vous pouvez publier une machine virtuelle de 1re génération, une machine virtuelle de 2e génération, ou les deux.
+
+1. Lors de la création d’une offre, sélectionnez un **type de génération** et entrez les détails de l’image demandés :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="Vue du menu déroulant Génération.":::
+
+2. Pour ajouter une autre génération à un plan, sélectionnez **Ajouter une génération**  :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="Vue du lien « Ajouter une génération ».":::
+
+    Entrez ensuite les détails de la génération :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="Vue de la fenêtre des détails de la génération.":::
+
+    L’ **ID de génération** que vous choisissez sera visible pour les clients par exemple dans les URL de produits et les modèles Resource Manager (le cas échéant). Utilisez uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement ; il ne peut pas être modifié une fois publié.
+
+3. Pour mettre à jour une machine virtuelle existante pour laquelle une machine de 1re génération a déjà été publiée, modifiez simplement les détails sur la page **Configuration technique**  :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Vue de la page Configuration technique du plan.":::
+
+Pour en savoir plus sur les différences entre les capacités de la 1re génération et de la 2e génération, consultez [Prise en charge des machines virtuelles de génération 2 dans Azure](../virtual-machines/generation-2.md).
+
 ### <a name="vm-images"></a>Images de machine virtuelle
 
 Spécifiez une version de disque et l’URI de signature d’accès partagé (SAS) pour les images de machine virtuelle. Ajoutez jusqu’à 16 disques de données pour chaque image de machine virtuelle. Spécifiez une seule nouvelle version d’image par plan à chaque envoi. Quand une image a été publiée, vous ne pouvez pas la modifier, mais vous pouvez la supprimer. La suppression d’une version empêche les utilisateurs nouveaux et existants de déployer une nouvelle instance de la version supprimée.
@@ -196,7 +220,7 @@ Spécifiez une version de disque et l’URI de signature d’accès partagé (SA
 
 Quel que soit le système d’exploitation que vous utilisez, ajoutez uniquement le nombre minimal de disques de données dont la solution a besoin. Pendant le déploiement, les clients ne peuvent pas supprimer les disques qui font partie d’une image, mais ils peuvent toujours ajouter des disques pendant ou après le déploiement.
 
-Sélectionnez **Enregistrer le brouillon** avant de continuer, puis revenez à la **vue d’ensemble du plan** .
+Sélectionnez **Enregistrer le brouillon** avant de continuer, puis revenez à la **vue d’ensemble du plan**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

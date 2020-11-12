@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071113"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077183"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 
@@ -44,7 +44,7 @@ Suivez les étapes ci-dessous pour charger un nouveau certificat client. Si vous
 1. Accédez à votre instance de service Gestion des API Azure dans le Portail Azure.
 2. Sélectionnez **Certificats** dans le menu.
 3. Cliquez sur le bouton **+ Ajouter** .
-    ![Ajouter des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+    ![Capture d’écran mettant en évidence le bouton + Ajouter.](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Recherchez le certificat et indiquez son ID et mot de passe.
 5. Cliquez sur **Créer**.
 
@@ -71,9 +71,9 @@ Si le certificat est en cours d'utilisation par une API, un écran d'avertisseme
 1. Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis recherchez l’API.
     ![Activer des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. Dans l’onglet **Conception**, cliquez sur l’icône de crayon de la section **Principal**.
+2. Dans l’onglet **Conception** , cliquez sur l’icône de crayon de la section **Principal**.
 3. Modifiez la valeur de **Gateway credentials** (Informations d’identification de passerelle) pour la définir sur **Client cert** (Certi client) et sélectionnez votre certificat dans la liste déroulante.
-    ![Activer des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+    ![Capture d’écran montrant où modifier les informations d’identification de la passerelle et sélectionner votre certificat.](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
 4. Cliquez sur **Enregistrer**.
 

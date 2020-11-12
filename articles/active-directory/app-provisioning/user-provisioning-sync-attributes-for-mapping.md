@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84781071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040977"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronisez un attribut à partir d’un répertoire Active Directory local vers Azure AD pour la configuration vers une application donnée
 
@@ -33,7 +33,7 @@ Si les données dont vous avez besoin pour la configuration se trouvent dans Act
  
 2. Connectez-vous en tant qu’Administrateur général Azure AD. 
 
-3. Sur la page **Fonctionnalités facultatives**, sélectionnez **Synchronisation des attributs des extensions d’annuaire**.
+3. Sur la page **Fonctionnalités facultatives** , sélectionnez **Synchronisation des attributs des extensions d’annuaire**.
  
    ![Page Fonctionnalités facultatives de l’Assistant Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
@@ -41,7 +41,7 @@ Si les données dont vous avez besoin pour la configuration se trouvent dans Act
    > [!NOTE]
    > La recherche **Attributs disponibles** respecte la casse.
 
-   ![Page de sélection des extensions d’annuaire de l’Assistant Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![Capture d’écran montrant la page de sélection « Extensions d’annuaire »](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
 5. Terminez l’Assistant Azure AD Connect et autorisez l’exécution d’un cycle de synchronisation complète. Lorsque le cycle est terminé, le schéma est étendu et les nouvelles valeurs sont synchronisées entre votre répertoire AD local et Azure AD.
  

@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539127"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027157"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -40,6 +40,28 @@ Les kits de développement logiciel les plus récents (SDK [Application Insights
 Lorsque les SDK n'implémentent pas la pré-agrégation (ce qui est le cas avec les anciennes versions des SDK Application Insights ou pour l'instrumentation du navigateur), le serveur principal d'Application Insights continue à renseigner les nouvelles métriques en agrégeant les événements reçus par le point de terminaison de collecte des événements d'Application Insights. Ainsi, même si vous ne bénéficiez pas de la réduction du volume de données transmises sur le réseau, vous pouvez utiliser les métriques pré-agrégées et profiter de performances et d'une prise en charge améliorées de la génération d'alertes dimensionnelles quasiment en temps réel avec des kits de développement logiciel (SDK) qui ne pré-agrègent pas les métriques pendant la collecte.
 
 Notez par ailleurs que le point de terminaison de collecte pré-agrège les événements avant l’échantillonnage d’ingestion, ce qui signifie que [l’échantillonnage d’ingestion](./sampling.md) n’a pas d’impact sur la précision des métriques pré-agrégées, quelle que soit la version du SDK que vous utilisez pour votre application.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Tableau des métriques pré-agrégées prises en charge par le Kit de développement logiciel (SDK)
+
+| SDK de production actuels | Métriques standard (pré-agrégation du SDK) | Métriques personnalisées (sans pré-agrégation du SDK) | Métriques personnalisées (avec pré-agrégation du SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core et .NET Framework | Prises en charge (v2.13.1 et ultérieures)| Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Prises en charge (v2.7.2 et ultérieure) via [GetMetric](get-metric.md) |
+| Java                         | Non pris en charge       | Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non pris en charge                           |
+| Node.js                      | Non pris en charge       | Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non pris en charge                           |
+| Python                       | Non pris en charge       | Prise en charge                                 | Prises en charge via [OpenCensus.stats](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tableau des métriques pré-agrégées prises en charge sans code
+
+| SDK de production actuels | Métriques standard (pré-agrégation du SDK) | Métriques personnalisées (sans pré-agrégation du SDK) | Métriques personnalisées (avec pré-agrégation du SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Prises en charge<sup>1<sup>    | Non pris en charge                             | Non pris en charge                           |
+| ASP.NET Core            | Prises en charge<sup>2<sup>    | Non pris en charge                             | Non pris en charge                           |
+| Java                    | Non pris en charge            | Non pris en charge                             | [Pris en charge](java-in-process-agent.md#metrics) |
+| Node.js                 | Non pris en charge            | Non pris en charge                             | Non pris en charge                           |
+
+1. L’attachement sans code d’ASP.NET sur App Service émet uniquement des métriques en mode d’analyse « Full ». L’attachement sans code d’ASP.NET sur App Service, VM/VMSS et localement émet des métriques standard sans dimensions. Le Kit de développement logiciel (SDK) est requis pour toutes les dimensions.
+2. L’attachement sans code d’ASP.NET Core sur App Service émet des métriques standard sans dimensions. Le Kit de développement logiciel (SDK) est requis pour toutes les dimensions.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Utilisation de la pré-agrégation avec des métriques personnalisées Application Insights
 

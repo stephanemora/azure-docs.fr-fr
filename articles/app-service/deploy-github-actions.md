@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783077"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095558"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Déployer sur App Service à l’aide de GitHub Actions
 
@@ -46,12 +46,12 @@ Le fichier comporte trois sections :
 Vous pouvez rapidement commencer à utiliser GitHub Actions à l’aide du centre de déploiement App Service. Cela génère automatiquement un fichier de workflow basé sur votre pile d’applications et le valide dans votre référentiel GitHub dans le répertoire approprié.
 
 1. Accédez à votre application web dans le portail Azure.
-1. Sur le côté gauche, cliquez sur **Centre de déploiement** .
-1. Sous **Déploiement continu (CI/CD)** , sélectionnez **GitHub** .
-1. Ensuite, sélectionnez **GitHub Actions** .
+1. Sur le côté gauche, cliquez sur **Centre de déploiement**.
+1. Sous **Déploiement continu (CI/CD)** , sélectionnez **GitHub**.
+1. Ensuite, sélectionnez **GitHub Actions**.
 1. Utilisez les listes déroulantes pour sélectionner votre référentiel GitHub, votre branche et votre pile d’applications.
     - Si la branche sélectionnée est protégée, vous pouvez toujours continuer à ajouter le fichier de workflow. Assurez-vous de vérifier les protections de votre branche avant de continuer.
-1. Sur le dernier écran, vous pouvez passer en revue vos sélections et afficher un aperçu du fichier de workflow qui sera validé dans le référentiel. Si les sélections sont correctes, cliquez sur **Terminer** .
+1. Sur le dernier écran, vous pouvez passer en revue vos sélections et afficher un aperçu du fichier de workflow qui sera validé dans le référentiel. Si les sélections sont correctes, cliquez sur **Terminer**.
 
 Cette action validera le fichier de workflow dans le référentiel. Le workflow de génération et de déploiement de votre application démarrera immédiatement.
 
@@ -71,13 +71,16 @@ Un profil de publication est une information d’identification au niveau de l�
 
 1. Accédez à votre service d’application dans le portail Azure. 
 
-1. Dans la page **Vue d’ensemble** , sélectionnez **Obtenir le profil de publication** .
+1. Dans la page **Vue d’ensemble** , sélectionnez **Obtenir le profil de publication**.
 
 1. Enregistrez le fichier téléchargé. Vous utiliserez le contenu du fichier pour créer un secret GitHub.
 
+> [!NOTE]
+> À compter d’octobre 2020, les applications web Linux ont besoin que le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` soit défini sur `true` **avant de télécharger le profil de publication**. Cette condition sera supprimée ultérieurement.
+
 # <a name="service-principal"></a>[Principal du service](#tab/userlevel)
 
-Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer** .
+Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -107,7 +110,7 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
 
 # <a name="publish-profile"></a>[Profil de publication](#tab/applevel)
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
 
 Pour utiliser les [informations d’identification au niveau de l’application](#generate-deployment-credentials), collez le contenu du fichier de profil de publication téléchargé dans le champ de valeur du secret. Nommez le secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -121,7 +124,7 @@ Quand vous configurez votre workflow GitHub, vous utilisez `AZURE_WEBAPP_PUBLISH
 
 # <a name="service-principal"></a>[Principal du service](#tab/userlevel)
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
 
 Pour utiliser les [informations d’identification au niveau de l’utilisateur](#generate-deployment-credentials), collez l’intégralité de la sortie JSON à partir de la commande Azure CLI dans le champ de valeur du secret. Nommez le secret `AZURE_CREDENTIALS`.
 

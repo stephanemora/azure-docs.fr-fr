@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0ab17e5c0a024fec938f1b588cc4ce69bf16a878
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278854"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083250"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -111,7 +111,7 @@ Vous pouvez utiliser un ID d’appareil pour vérifier les informations d’ID d
   
 ### <a name="view-or-copy-bitlocker-keys"></a>Afficher ou copier des clés BitLocker
 
-Vous pouvez afficher et copier les clés BitLocker pour permettre aux utilisateurs de récupérer leurs lecteurs chiffrés. Ces clés sont uniquement disponibles pour les appareils Windows chiffrés dont les clés sont stockées dans Azure AD. Vous pouvez trouver ces clés lors de l’accès aux détails d’un appareil en sélectionnant **Afficher la clé de récupération**. La sélection d’**Afficher la clé de récupération** génère un journal d’audit que vous pouvez trouver dans la catégorie `KeyManagement`.
+Vous pouvez afficher et copier les clés BitLocker pour permettre aux utilisateurs de récupérer leurs lecteurs chiffrés. Ces clés sont uniquement disponibles pour les appareils Windows chiffrés dont les clés sont stockées dans Azure AD. Vous pouvez trouver ces clés lors de l’accès aux détails d’un appareil en sélectionnant **Afficher la clé de récupération**. La sélection d’ **Afficher la clé de récupération** génère un journal d’audit que vous pouvez trouver dans la catégorie `KeyManagement`.
 
 ![Afficher les clés BitLocker](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
@@ -135,7 +135,7 @@ Auparavant, vous pouviez uniquement filtrer la liste des appareils par activité
 - Système d’exploitation
 - Type d’appareil (imprimantes, machines virtuelles sécurisées, appareils partagés, appareils inscrits)
 
-Pour activer la fonctionnalité de filtrage en préversion dans la vue **Tous les appareils** :
+Pour activer la fonctionnalité de filtrage en préversion dans la vue **Tous les appareils**  :
 
 ![Activer la fonctionnalité de filtrage en préversion](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
@@ -143,7 +143,7 @@ Pour activer la fonctionnalité de filtrage en préversion dans la vue **Tous le
 1. Accédez à **Azure Active Directory** > **Appareils**.
 1. Sélectionnez la bannière qui indique : **Essayez les améliorations apportées au filtrage des appareils. Cliquez pour activer la préversion.**
 
-Vous avez maintenant la possibilité d’**Ajouter des filtres** à votre vue **Tous les appareils**.
+Vous avez maintenant la possibilité d’ **Ajouter des filtres** à votre vue **Tous les appareils**.
 
 ## <a name="configure-device-settings"></a>Configurer les paramètres de l’appareil
 
@@ -164,13 +164,13 @@ Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, v
 > Le paramètre **Les utilisateurs peuvent joindre des appareils à Azure AD** s’applique uniquement à Azure AD Join sous Windows 10.
 
 - **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** : vous pouvez sélectionner les utilisateurs qui peuvent disposer de droits d’administrateur local sur un appareil. Ces utilisateurs sont ajoutés au rôle *Administrateurs d’appareils* dans Azure AD. Les administrateurs généraux Azure AD et les propriétaires d’appareils bénéficient de droits d’administrateur local par défaut. Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite).
-- **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android et macOS dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Microsoft 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
+- **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**  : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android et macOS dans Azure AD. Si vous sélectionnez **Aucun** , les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Microsoft 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
 - **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent fournir un facteur d’authentification supplémentaire lorsqu’ils veulent joindre leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
 > Le paramètre **Exiger Multi-factor Auth pour joindre des appareils** s'applique aux appareils joints à Azure AD ou inscrits à Azure AD. Ce paramètre ne s’applique pas aux appareils hybrides joints à Azure AD.
 
-- **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**.
+- **Nombre maximal d’appareils par utilisateur**  : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**.
 
 > [!NOTE]
 > Le paramètre **Nombre maximal d’appareils par utilisateur** s’applique aux appareils joints à Azure AD ou inscrits à Azure AD. Ce paramètre ne s’applique pas aux appareils hybrides joints à Azure AD.
@@ -194,11 +194,11 @@ Un journal d’audit inclut une vue Liste par défaut, qui indique les informati
 - L’initiateur/intervenant d’une activité (qui)
 - L’activité (quoi)
 
-![Journaux d’audit](./media/device-management-azure-portal/63.png)
+:::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Capture d’écran d’un tableau dans la section Activité de la page Appareils qui répertorie la date, la cible, l’acteur et l’activité pour quatre journaux d’audit." border="false":::
 
 Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la barre d’outils.
 
-![Journaux d’audit](./media/device-management-azure-portal/64.png)
+:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Capture d’écran montrant la barre d’outils de la page Appareils. L’élément Colonnes est mis en évidence." border="false":::
 
 Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données d’audit à l’aide des champs suivants :
 
@@ -211,7 +211,7 @@ Pour limiter les données transmises à un niveau qui vous convient, vous pouvez
 
 Vous pouvez filtrer les entrées, mais également rechercher des entrées spécifiques.
 
-![Journaux d’audit](./media/device-management-azure-portal/65.png)
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Capture d’écran des contrôles de filtre de données d’audit, avec les champs Catégorie, Type de ressource d’activité, Activité, Plage de dates, Cible et Acteur et un champ de recherche." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,17 +1,17 @@
 ---
 title: Concepts de serveur - Serveur flexible Azure Database pour MySQL
 description: Cette rubrique propose des considérations et des instructions relatives à l’utilisation de serveurs flexibles Azure Database pour MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7217817e9add6214c2da8362a2769cad0c2cf330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930222"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240747"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de serveur dans le serveur flexible (préversion) Azure Database pour MySQL
 
@@ -44,12 +44,12 @@ Dans un serveur flexible Azure Database pour MySQL, vous pouvez créer une ou pl
 
 ## <a name="stopstart-an-azure-database-for-mysql-flexible-server"></a>Arrêter/Démarrer un serveur flexible Azure Database pour MySQL
 
-Le serveur flexible Azure Database pour MySQL vous donne la possibilité d’**arrêter** le serveur en cas de non utilisation et de le **démarrer** lorsque vous reprenez l’activité. Cela permet essentiellement de réduire les coûts sur les serveurs de base de données et de payer uniquement la ressource en cours d’utilisation. Cela devient encore plus important pour les charges de travail de développement et de test, et lorsque vous utilisez uniquement le serveur pour une partie de la journée. Lorsque vous arrêtez le serveur, toutes les connexions actives sont supprimées. Plus tard, lorsque vous souhaitez remettre le serveur en ligne, vous pouvez utiliser le [portail Azure](how-to-stop-start-server-portal.md) ou l’interface de ligne de commande.
+Le serveur flexible Azure Database pour MySQL vous donne la possibilité d’ **arrêter** le serveur en cas de non utilisation et de le **démarrer** lorsque vous reprenez l’activité. Cela permet essentiellement de réduire les coûts sur les serveurs de base de données et de payer uniquement la ressource en cours d’utilisation. Cela devient encore plus important pour les charges de travail de développement et de test, et lorsque vous utilisez uniquement le serveur pour une partie de la journée. Lorsque vous arrêtez le serveur, toutes les connexions actives sont supprimées. Plus tard, lorsque vous souhaitez remettre le serveur en ligne, vous pouvez utiliser le [portail Azure](how-to-stop-start-server-portal.md) ou l’interface de ligne de commande.
 
-Lorsque le serveur se trouve à l’état **Arrêté**, le calcul du serveur n’est pas facturé. Toutefois, le stockage continue à être facturé tant que le stockage du serveur est conservé pour s’assurer que les fichiers de données sont disponibles lors du redémarrage du serveur.
+Lorsque le serveur se trouve à l’état **Arrêté** , le calcul du serveur n’est pas facturé. Toutefois, le stockage continue à être facturé tant que le stockage du serveur est conservé pour s’assurer que les fichiers de données sont disponibles lors du redémarrage du serveur.
 
 > [!IMPORTANT]
-> Lorsque vous **arrêtez** le serveur, il reste dans cet état durant les 7 jours suivants. Si vous ne le **démarrez** pas manuellement pendant cette période, le serveur sera automatiquement démarré à la fin des 7 jours. Vous pouvez choisir de l’**arrêter** de nouveau si vous n’utilisez pas le serveur.
+> Lorsque vous **arrêtez** le serveur, il reste dans cet état durant les 7 jours suivants. Si vous ne le **démarrez** pas manuellement pendant cette période, le serveur sera automatiquement démarré à la fin des 7 jours. Vous pouvez choisir de l’ **arrêter** de nouveau si vous n’utilisez pas le serveur.
 
 Pendant l’arrêt du serveur, aucune opération de gestion ne peut être effectuée sur le serveur. Afin de modifier les paramètres de configuration sur le serveur, vous devez [démarrer le serveur](how-to-stop-start-server-portal.md). Reportez-vous aux [contraintes liées à l’arrêt et au démarrage](./concepts-limitations.md#stopstart-operation).
 
@@ -59,6 +59,6 @@ Vous pouvez gérer un serveur flexible Azure Database pour MySQL à l’aide du 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   En savoir plus sur [Créer un serveur](./quickstart-create-server-portal.md)
+-   En savoir plus sur [Créer un serveur](./quickstart-create-server-portal.md)
 -   En savoir plus sur [Supervision et alertes](./how-to-alert-on-metric.md)
 

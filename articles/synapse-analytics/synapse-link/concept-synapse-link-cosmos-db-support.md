@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: fa05f8a8b05a0acddae906a93c90c42424466969
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127009"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322593"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Fonctionnalités prises en charge par Azure Synapse Link (préversion) pour Azure Cosmos DB
 
@@ -34,13 +34,13 @@ Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse
 | Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Prise en charge à l’exécution** |Runtime Azure Synapse pris en charge pour accéder à Azure Cosmos DB| ✓ | ✓ |
-| **Prise en charge de l’API Azure Cosmos DB** : | Type d’API Azure Cosmos DB pris en charge | SQL / MongoDB | SQL / MongoDB |
+| **Prise en charge de l’API Azure Cosmos DB**  : | Type d’API Azure Cosmos DB pris en charge | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Possibilité de créer des objets (tels qu’une table), qui pointent directement vers le conteneur Azure Cosmos DB| DataFrame, Affichage, Table | Affichage |
 | **Lire**    | Type de conteneur Azure Cosmos DB qui peut être lu | OLTP / HTAP | HTAP  |
 | **Écrire**   | Le runtime Azure Synapse peut-il être utilisé pour écrire des données dans un conteneur Azure Cosmos DB | Oui | Non |
 
 * Si vous écrivez des données dans un conteneur Azure Cosmos DB à partir de Spark, ce processus s’effectuera via le magasin transactionnel d’Azure Cosmos DB. Ce processus aura un impact sur les performances transactionnelles d’Azure Cosmos DB, puisqu’il consommera des unités de requête.
-* L’intégration de pool SQL par le biais de tables externes n’est pas prise en charge actuellement.
+* L’intégration d’un pool SQL dédié par le biais de tables externes n’est pas prise en charge actuellement.
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Actions générées par le code prises en charge pour Spark
 
@@ -64,4 +64,4 @@ Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrir comment se connecter à Synapse Link pour Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Découvrir comment interroger un magasin analytique avec Spark](how-to-query-analytical-store-spark.md)
+* [Découvrir comment interroger le magasin analytique Cosmos DB avec Spark](how-to-query-analytical-store-spark.md)

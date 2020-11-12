@@ -1,6 +1,6 @@
 ---
-title: Concevoir une stratégie de chargement de données PolyBase pour un pool SQL
-description: Au lieu d’ETL, concevez un processus d’extraction, de chargement et de transformation (ELT) pour charger les données ou un pool SQL.
+title: Concevoir une stratégie de chargement de données PolyBase pour un pool SQL dédié
+description: Au lieu d’ETL, concevez un processus d’extraction, de chargement et de transformation (ELT) pour charger les données avec un pool SQL dédié.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474663"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308746"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Concevoir une stratégie de chargement de données PolyBase pour un pool Azure Synapse SQL
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Concevoir une stratégie de chargement de données PolyBase pour un pool SQL dédié dans Azure Synapse Analytics
 
 Les entrepôts de données SMP traditionnels utilisent un processus d’extraction, transformation et chargement (ETL) pour le chargement des données. Un pool Azure SQL est une architecture de traitement massivement parallèle (MPP) qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage. L'utilisation d'un processus ELT permet de tirer parti des capacités de traitement de requêtes distribuées intégrées et d'éliminer les ressources nécessaires à la transformation des données avant le chargement.
 
@@ -29,12 +29,12 @@ Bien que le pool SQL prenne en charge de nombreuses méthodes de chargement, not
 
 ELT (Extract, Load, and Transform - Extraire, charger et transformer) est un processus par lequel des données sont extraites d’un système source, chargées dans un entrepôt de données, puis transformées.
 
-Les étapes de base pour implémenter un processus ELT PolyBase pour un pool SQL sont les suivantes :
+Les étapes de base pour implémenter un processus ELT PolyBase pour un pool SQL dédié sont les suivantes :
 
 1. Extrayez les données sources dans des fichiers texte.
 2. Placez les données dans le stockage Blob Azure ou Azure Data Lake Store.
 3. Préparez les données pour le chargement.
-4. Chargez les données dans les tables de mise en lots du pool SQL à l’aide de PolyBase.
+4. Chargez les données dans les tables de mise en lots du pool SQL dédié à l’aide de PolyBase.
 5. Transformez les données.
 6. Insérez les données dans des tables de production.
 
@@ -85,11 +85,11 @@ Voici des outils et services que vous pouvez utiliser pour déplacer des donnée
 
 - Le service [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) améliore le débit, les performances et la prévisibilité du réseau. ExpressRoute est un service qui achemine vos données via une connexion privée dédiée vers Azure. Les connexions ExpressRoute n’acheminent pas vos données via le réseau Internet public. Elles offrent davantage de fiabilité, des vitesses supérieures, des latences inférieures et une sécurité renforcée par rapport aux connexions publiques sur Internet.
 - L’[utilitaire AZCopy](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) déplace les données vers le stockage Azure via l’Internet public. Il fonctionne si la taille de vos données ne dépasse pas les 10 To. Pour effectuer des chargements réguliers avec AZCopy, testez la vitesse du réseau pour voir si elle est acceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) dispose d’une passerelle que vous pouvez installer sur votre serveur local. Ensuite, vous pouvez créer un pipeline pour déplacer des données à partir de votre serveur local vers le stockage Azure. Pour utiliser Data Factory avec le pool SQL, consultez [Charger des données dans un pool SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) dispose d’une passerelle que vous pouvez installer sur votre serveur local. Ensuite, vous pouvez créer un pipeline pour déplacer des données à partir de votre serveur local vers le stockage Azure. Pour utiliser Data Factory avec le pool SQL dédié, consultez [Charger des données dans un pool SQL dédié](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Préparer les données pour le chargement
 
-Avant de pouvoir charger les données de votre compte de stockage dans le pool SQL, vous devrez peut-être les préparer et les nettoyer. Vous pouvez préparer vos données pendant qu’elles sont dans la source, pendant que vous exportez les données dans des fichiers texte ou une fois que les données se trouvent dans le stockage Azure.  Plus vous les préparez tôt, plus ce sera facile.  
+Avant de pouvoir charger les données de votre compte de stockage dans le pool SQL dédié, vous devrez peut-être les préparer et les nettoyer. Vous pouvez préparer vos données pendant qu’elles sont dans la source, pendant que vous exportez les données dans des fichiers texte ou une fois que les données se trouvent dans le stockage Azure.  Plus vous les préparez tôt, plus ce sera facile.  
 
 ### <a name="define-external-tables"></a>Définir des tables externes
 
@@ -110,7 +110,7 @@ Pour formater les fichiers texte :
 - Formatez les données dans le fichier texte pour les aligner avec les types de colonnes et de données dans la table de destination du pool SQL. Un décalage entre les types de données dans les fichiers texte externes et la table de l’entrepôt de données cause le rejet des lignes lors du chargement.
 - Séparez les champs dans le fichier texte à l’aide d’une marque de fin.  Assurez-vous d’utiliser un caractère ou une séquence de caractères qui ne se trouve pas dans votre source de données. Utilisez la marque de fin que vous avez spécifiée avec l’instruction [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Charger les données dans les tables de mise en lots du pool SQL à l’aide de PolyBase
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. Charger les données dans les tables de mise en lots du pool SQL dédié à l’aide de PolyBase
 
 Il est recommandé de charger des données dans une table de mise en lots. Les tables de mise en lots vous permettent de gérer les erreurs sans interférer avec les tables de production. Une table de mise en lots vous donne également la possibilité d'utiliser les capacités de traitement des requêtes distribuées intégrées au pool SQL pour transformer les données avant de les insérer dans des tables de production.
 
@@ -125,7 +125,7 @@ Pour charger des données avec PolyBase, vous pouvez utiliser l’une des option
 
 ### <a name="non-polybase-loading-options"></a>Options de chargement non-PolyBase
 
-Si vos données ne sont pas compatibles avec PolyBase, vous pouvez utiliser l’outil [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ou l’[API SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). L’outil bcp charge directement dans le pool SQL sans passer par Stockage Blob Azure et est destiné uniquement aux petits chargements. Notez que les performances de chargement de ces options sont beaucoup plus lentes qu’avec PolyBase.
+Si vos données ne sont pas compatibles avec PolyBase, vous pouvez utiliser l’outil [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ou l’[API SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). L’outil bcp charge directement dans le pool SQL dédié sans passer par Stockage Blob Azure et est destiné uniquement aux petits chargements. Notez que les performances de chargement de ces options sont beaucoup plus lentes qu’avec PolyBase.
 
 ## <a name="5-transform-the-data"></a>5. Transformer les données
 

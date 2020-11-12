@@ -10,17 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: fe00d7f107911e2245041419c20f86e2e32a0480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289257"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321499"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Meilleures pratiques de développement pour SQL Synapse
+
 Cet article fournit des conseils et décrit les bonnes pratiques à adopter quand vous développez votre solution d’entrepôt de données. 
 
-## <a name="sql-pool-development-best-practices"></a>Meilleures pratiques du développement de pools SQL
+## <a name="dedicated-sql-pool-development-best-practices"></a>Meilleures pratiques du développement de pools SQL dédiés
 
 ### <a name="reduce-cost-with-pause-and-scale"></a>Réduire les coûts avec les opérations de suspension et de mise à l’échelle
 
@@ -55,12 +56,12 @@ Consultez les liens suivants pour des explications plus détaillées sur la faç
 Voir aussi [Vue d’ensemble des tables](develop-tables-overview.md), [Distribution de tables](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Sélection d’une distribution de tables](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Ne pas créer trop de partitions
-Bien que le partitionnement des données peut être efficace pour mettre à jour vos données grâce au basculement de partitions ou à l’optimisation des analyses avec élimination des partitions, avoir un trop grand nombre de partitions peut ralentir vos requêtes.  Souvent une stratégie de partitionnement à granularité élevée qui peut fonctionner correctement sur SQL Server peut poser des problèmes sur un pool SQL.  
+Bien que le partitionnement des données peut être efficace pour mettre à jour vos données grâce au basculement de partitions ou à l’optimisation des analyses avec élimination des partitions, avoir un trop grand nombre de partitions peut ralentir vos requêtes.  Souvent une stratégie de partitionnement à granularité élevée qui peut fonctionner correctement sur SQL Server peut poser des problèmes sur un pool SQL dédié.  
 
 > [!NOTE]
-> Souvent une stratégie de partitionnement à granularité élevée qui peut fonctionner correctement sur SQL Server peut poser des problèmes sur un pool SQL.  
+> Souvent une stratégie de partitionnement à granularité élevée qui peut fonctionner correctement sur SQL Server peut poser des problèmes sur un pool SQL dédié.  
 
-Un trop grand nombre de partitions peut également réduire l’efficacité des index columnstore en cluster si chaque partition possède moins d’1 million de lignes. Le pool SQL partitionne vos données pour vous en 60 bases de données. 
+Un trop grand nombre de partitions peut également réduire l’efficacité des index columnstore en cluster si chaque partition possède moins d’1 million de lignes. Le pool SQL dédié partitionne vos données pour vous en 60 bases de données. 
 
 Ainsi, si vous créez une table contenant 100 partitions, vous obtenez 6000 bases de données.  Chaque charge de travail est différente ; par conséquent, le meilleur conseil serait d’expérimenter le partitionnement pour voir ce qui fonctionne le mieux pour votre charge de travail.  
 
@@ -95,7 +96,7 @@ Voir aussi [Vue d’ensemble des tables](develop-tables-overview.md), [Types de 
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Optimiser les tables columnstore en clusters
 
-Les index columnstore en cluster sont l’une des méthodes les plus efficaces pour stocker vos données dans le pool SQL.  Par défaut, les tables dans le pool SQL sont créées en tant que ColumnStore en cluster.  
+Les index columnstore en cluster sont l’une des méthodes les plus efficaces pour stocker vos données dans un pool SQL dédié.  Par défaut, les tables du pool SQL dédié sont créées en tant que ColumnStore en cluster.  
 
 Pour obtenir les meilleures performances pour les requêtes sur les tables columnstore, la qualité du segment est importante.  Lorsque les lignes sont écrites dans les tables columnstore avec une mémoire insuffisante, la qualité du segment columnstore peut être affectée.  
 
@@ -103,7 +104,7 @@ La qualité du segment peut être mesurée par le nombre de lignes dans un group
 
 Étant donné que la qualité des segments columnstore est importante, nous vous conseillons d’utiliser des ID d’utilisateurs qui se trouvent dans la classe de ressource de moyenne ou grande taille pour le chargement des données. L’utilisation d’[unités DWU (Data Warehouse Unit)](resource-consumption-models.md) inférieures signifie que vous souhaitez assigner une classe de ressource plus grande à votre utilisateur de chargement.
 
-Étant donné que les tables columnstore ne transmettent généralement pas de données dans un segment columnstore compressé s’il existe moins de 1 million de lignes par table et si chaque table du pool SQL est partitionnée en 60 tables, les tables columnstore ne tireront aucun avantage d’une requête, sauf si la table comporte plus de 60 millions de lignes.  
+Étant donné que les tables columnstore ne transmettent généralement pas de données dans un segment columnstore compressé s’il existe moins de 1 million de lignes par table et si chaque table du pool SQL dédié est partitionnée en 60 tables, les tables columnstore ne tireront aucun avantage d’une requête, sauf si la table comporte plus de 60 millions de lignes.  
 
 > [!TIP]
 > Pour les tables contenant moins de 60 millions lignes, il se peut qu’un index columnstore ne soit pas la solution optimale.  
@@ -116,23 +117,23 @@ Lorsque vous interrogez une table columnstore, les requêtes s’exécutent plus
 
 Consultez également [Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Guide des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et [Reconstruction des index columnstore](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## <a name="sql-on-demand-development-best-practices"></a>Meilleures pratiques de développement pour SQL à la demande
+## <a name="serverless-sql-pool-development-best-practices"></a>Meilleures pratiques du développement de pools SQL serverless
 
 ### <a name="general-considerations"></a>Considérations d’ordre général
 
-SQL à la demande vous permet d’interroger des fichiers dans vos comptes de stockage Azure. Il ne dispose pas de capacités de stockage ou d’ingestion locales, ce qui signifie que tous les fichiers que la requête cible sont externes à SQL à la demande. Par conséquent, tout ce qui est lié à la lecture de fichiers à partir du stockage peut avoir un impact sur les performances des requêtes.
+Un pool SQL serverless vous permet d’interroger des fichiers dans vos comptes de stockage Azure. Il ne dispose pas de capacités de stockage ou d’ingestion locales, ce qui signifie que tous les fichiers que la requête cible sont externes au pool SQL serverless. Par conséquent, tout ce qui est lié à la lecture de fichiers à partir du stockage peut avoir un impact sur les performances des requêtes.
 
-### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Colocaliser le compte Stockage Azure et SQL à la demande
+### <a name="colocate-azure-storage-account-and-serverless-sql-pool"></a>Colocaliser un compte Stockage Azure et un pool SQL serverless
 
-Pour réduire la latence, colocalisez votre compte de stockage Azure et votre point de terminaison SQL à la demande. Les comptes de stockage et les points de terminaison approvisionnés lors de la création de l’espace de travail se trouvent dans la même région.
+Pour réduire la latence, colocalisez votre compte de stockage Azure et le point de terminaison de votre pool SQL serverless. Les comptes de stockage et les points de terminaison approvisionnés lors de la création de l’espace de travail se trouvent dans la même région.
 
-Pour optimiser les performances, si vous accédez à d’autres comptes de stockage avec SQL à la demande, assurez-vous qu’ils se trouvent dans la même région. Autrement, vous obtiendrez une latence accrue pour le transfert réseau des données de la région distante vers la région du point de terminaison.
+Pour optimiser les performances, si vous accédez à d’autres comptes de stockage avec le pool SQL serverless, assurez-vous qu’ils se trouvent dans la même région. Autrement, vous obtiendrez une latence accrue pour le transfert réseau des données de la région distante vers la région du point de terminaison.
 
 ### <a name="azure-storage-throttling"></a>Limitation de Stockage Azure
 
-Plusieurs applications et services peuvent accéder à votre compte de stockage. Lorsque les IOPS ou le débit combinés générés par des applications, services et charges de travail SQL à la demande dépassent les limites du compte de stockage, une limitation du stockage se produit. Celle-ci a un impact négatif substantiel sur les performances des requêtes.
+Plusieurs applications et services peuvent accéder à votre compte de stockage. Lorsque les IOPS ou le débit combinés générés par des applications, des services et la charge de travail du pool SQL serverless dépassent les limites du compte de stockage, une limitation du stockage se produit. Celle-ci a un impact négatif substantiel sur les performances des requêtes.
 
-Quand une limitation est détectée, SQL à la demande dispose d’une fonction intégrée pour la gestion de ce scénario. SQL à la demande ralentit la fréquence des demandes adressées au stockage jusqu’à ce que la limitation soit résolue. 
+Une fois la limitation détectée, le pool SQL serverless gère ce scénario de manière intégrée. Le pool SQL serverless ralentit la fréquence des demandes adressées au stockage jusqu’à ce que la limitation soit résolue. 
 
 Toutefois, pour optimiser l’exécution des requêtes, il est recommandé de ne pas solliciter le compte de stockage avec d’autres charges de travail lors de l’exécution de la requête.
 
@@ -140,7 +141,7 @@ Toutefois, pour optimiser l’exécution des requêtes, il est recommandé de ne
 
 Si possible, vous pouvez préparer les fichiers pour améliorer les performances :
 
-- Convertir CSV en Parquet – Parquet est un format en colonnes. Dans la mesure où il est compressé, les fichiers sont de plus petite taille que des fichiers CSV contenant les mêmes données, et SQL à la demande a besoin de moins de temps et de demandes de stockage pour le lire.
+- Convertir CSV en Parquet – Parquet est un format en colonnes. Dans la mesure où il est compressé, les fichiers sont de plus petite taille que des fichiers CSV contenant les mêmes données, et le pool SQL serverless a besoin de moins de temps et de demandes de stockage pour le lire.
 - Si une requête cible un seul fichier volumineux, il est avantageux de fractionner celui-ci en fichiers plus petits.
 - Essayez de conserver une taille de fichier CSV inférieure à 10 Go.
 - Il est préférable d’avoir des fichiers de taille identique pour un chemin d’accès OPENROWSET unique ou un emplacement de table externe.
@@ -148,17 +149,17 @@ Si possible, vous pouvez préparer les fichiers pour améliorer les performances
 
 ### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Utiliser les fonctions filename et filepath pour cibler des partitions spécifiques
 
-Les données sont souvent organisées en partitions. Vous pouvez donner pour instruction à SQL à la demande d’interroger des dossiers et fichiers particuliers. Cela contribue à réduire le nombre de fichiers et la quantité de données que la requête doit lire et traiter. 
+Les données sont souvent organisées en partitions. Vous pouvez demander au pool SQL serverless d’interroger des dossiers et fichiers particuliers. Cela contribue à réduire le nombre de fichiers et la quantité de données que la requête doit lire et traiter. 
 
 Par conséquent, vous obtiendrez de meilleures performances. Pour plus d’informations, consultez les fonctions [filename](query-data-storage.md#filename-function) et [filepath](query-data-storage.md#filepath-function), ainsi que les exemples montrant comment [interroger des fichiers spécifiques](query-specific-files.md).
 
 Si vos données dans le stockage ne sont pas partitionnées, envisagez de les partitionner afin de pouvoir utiliser ces fonctions pour optimiser les requêtes ciblant ces fichiers.
 
-Lorsque vous [interrogez des tables externes partitionnées Apache Spark pour Azure Synapse](develop-storage-files-spark-tables.md) à partir de SQL à la demande, la requête ne cible automatiquement que les fichiers nécessaires.
+Lorsque vous [interrogez des tables externes partitionnées Apache Spark pour Azure Synapse](develop-storage-files-spark-tables.md) à partir d’un pool SQL serverless, la requête ne cible automatiquement que les fichiers nécessaires.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Utiliser CETAS pour améliorer les performances des requêtes et les jointures
 
-[CETAS](develop-tables-cetas.md) est l’une des fonctionnalités les plus importantes disponibles dans SQL à la demande. CETAS est une opération parallèle qui crée des métadonnées de table externe et exporte le résultat de la requête SELECT vers un ensemble de fichiers dans votre compte de stockage.
+[CETAS](develop-tables-cetas.md) est l’une des fonctionnalités les plus importantes disponibles dans le pool SQL serverless. CETAS est une opération parallèle qui crée des métadonnées de table externe et exporte le résultat de la requête SELECT vers un ensemble de fichiers dans votre compte de stockage.
 
 Vous pouvez utiliser CETAS pour stocker dans un nouveau jeu de fichiers des parties de requêtes souvent utilisées, telles des tables de référence jointes. Par la suite, vous pouvez joindre une telle table externe au lieu de répéter des jointures communes dans plusieurs requêtes. 
 
@@ -166,7 +167,7 @@ Comme CETAS génère des fichiers Parquet, les statistiques sont automatiquement
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin d’informations non fournies dans cet article, utilisez la fonction **Recherche de documents** sur le côté gauche de cette page pour effectuer une recherche dans tous les documents du pool SQL.  La [page de questions Microsoft Q&A sur le pool SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit pool SQL.  
+Si vous avez besoin d’informations non fournies dans cet article, utilisez la fonction **Recherche de documents** sur le côté gauche de cette page pour effectuer une recherche dans tous les documents du pool SQL.  La [page de questions Microsoft Q&A sur Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) a été créée pour vous permettre de poser des questions à d’autres utilisateurs et au groupe de produits Azure Synapse Analytics. Nous suivons activement ce forum pour vous assurer que vos questions sont traitées par un autre utilisateur ou un membre de notre équipe.  
 
-Nous suivons activement ce forum pour vous assurer que vos questions sont traitées par un autre utilisateur ou un membre de notre équipe.  Si vous préférez poser vos questions sur Stack Overflow, nous avons également un [Forum Stack Overflow sur le pool SQL Azure](https://stackoverflow.com/questions/tagged/azure-sqldw).
+Si vous préférez poser vos questions sur Stack Overflow, nous avons également un [Forum Stack Overflow sur Azure Synapse Analytics](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

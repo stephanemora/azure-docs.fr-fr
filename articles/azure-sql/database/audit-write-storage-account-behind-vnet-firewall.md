@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677249"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348251"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Écrire un audit sur un compte de stockage situé derrière un réseau virtuel et un pare-feu
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -41,18 +41,18 @@ Pour que l’audit écrive dans un compte de stockage situé derrière un résea
 >
 > * Un compte de stockage universel v2. Si vous disposez d’un compte de stockage universel v1 ou d’un compte de stockage blob, [mettez-les à niveau vers un compte de stockage universel v2](../../storage/common/storage-account-upgrade.md). Pour plus d’informations, consultez [Types de comptes de stockage](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
 > * Le compte de stockage doit se trouver sur le même abonnement et au même emplacement que le [serveur SQL logique](logical-servers.md).
-> * Le compte Stockage Azure requiert `Allow trusted Microsoft services to access this storage account`. Définissez ce paramètre sur le compte de stockage **Pare-feu et réseaux virtuels** .
+> * Le compte Stockage Azure requiert `Allow trusted Microsoft services to access this storage account`. Définissez ce paramètre sur le compte de stockage **Pare-feu et réseaux virtuels**.
 > * Vous devez disposer de l’autorisation `Microsoft.Authorization/roleAssignments/write` sur le compte de stockage sélectionné. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Configurer dans le portail Azure
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre abonnement. Accédez au groupe de ressources et au serveur.
 
-1. Cliquez sur **Audit** sous le titre Sécurité. Sélectionnez **Activé** .
+1. Cliquez sur **Audit** sous le titre Sécurité. Sélectionnez **Activé**.
 
-2. Sélectionnez **Stockage** . Sélectionnez le compte de stockage dans lequel les journaux seront enregistrés. Le compte de stockage doit respecter les conditions requises indiquées dans [Conditions préalables](#prerequisites).
+2. Sélectionnez **Stockage**. Sélectionnez le compte de stockage dans lequel les journaux seront enregistrés. Le compte de stockage doit respecter les conditions requises indiquées dans [Conditions préalables](#prerequisites).
 
-3. Ouvrez **Détails du stockage** .
+3. Ouvrez **Détails du stockage**.
 
   > [!NOTE]
   > Si le compte de stockage sélectionné se trouve derrière un réseau virtuel, le message suivant s’affiche :
@@ -61,7 +61,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre abonnemen
   >
   >Si vous ne voyez pas ce message, cela signifie que le compte de stockage ne se trouve pas derrière un réseau virtuel.
 
-4. Sélectionnez le nombre de jours pour la période de rétention. Cliquez ensuite sur **OK** . Une fois la période de conservation écoulée, les journaux sont supprimés.
+4. Sélectionnez le nombre de jours pour la période de rétention. Cliquez ensuite sur **OK**. Une fois la période de conservation écoulée, les journaux sont supprimés.
 
 5. Sélectionnez **Enregistrer** sur vos paramètres d’audit.
 
@@ -77,7 +77,7 @@ Les exemples de scripts de cette section vous obligent à mettre à jour le scri
 |:-----|:-----|
 |`<subscriptionId>`| ID d’abonnement Azure|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| Nom du serveur|
+|`<logical SQL Server>`| Nom du serveur|
 |`<administrator login>`| Compte d’administrateur |
 |`<complex password>`| Mot de passe complexe pour le compte Administrateur|
 
@@ -114,10 +114,11 @@ Pour configurer l’audit SQL afin d’écrire dans un compte de stockage situ�
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
-2. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à votre compte de stockage. Recherchez **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle** . Attribuez le rôle Azure **Contributeur aux données blob du stockage** au serveur hébergeant la base de données que vous avez inscrite auprès d’Azure Active Directory (Azure AD) comme à l’étape précédente.
+2. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à votre compte de stockage. Recherchez **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**. Attribuez le rôle Azure **Contributeur aux données blob du stockage** au serveur hébergeant la base de données que vous avez inscrite auprès d’Azure Active Directory (Azure AD) comme à l’étape précédente.
 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir différents rôles intégrés Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
@@ -153,7 +154,7 @@ Vous pouvez configurer l’audit pour écrire des événements de base de donné
 > [!IMPORTANT]
 > Pour utiliser le compte de stockage derrière le réseau virtuel et le pare-feu, vous devez définir le paramètre **isStorageBehindVnet** sur true
 
-- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans un stockage d’objets BLOB](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans un stockage Blob](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
 
 > [!NOTE]
 > Les exemples liés se trouvent sur un référentiel public externe et sont fournis « en l’état », sans garantie et ne sont pas pris en charge dans n’importe quel service/programme de support Microsoft.

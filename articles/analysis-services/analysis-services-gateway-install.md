@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081142"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 
-Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales.  Bien que la passerelle que vous installez soit identique à celle utilisée par d’autres services tels que Power BI, Power Apps et Logic Apps, lors de son installation pour Azure Analysis Services, vous devez effectuer certaines étapes supplémentaires. Cet article sur l’installation est spécifique d’**Azure Analysis Services**. 
+Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales.  Bien que la passerelle que vous installez soit identique à celle utilisée par d’autres services tels que Power BI, Power Apps et Logic Apps, lors de son installation pour Azure Analysis Services, vous devez effectuer certaines étapes supplémentaires. Cet article sur l’installation est spécifique d’ **Azure Analysis Services**. 
 
 Pour en savoir plus sur le fonctionnement d’Azure Analysis Services avec la passerelle, voir [Connexion à des sources de données locales](analysis-services-gateway.md). Pour en savoir plus sur les scénarios d’installation avancée et la passerelle en général, voir la [Documentation sur les passerelles de données locales](/data-integration/gateway/service-gateway-onprem).
 
@@ -73,7 +73,7 @@ Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’inst
 
 1.  Sélectionnez **Inscrivez une nouvelle passerelle sur cet ordinateur**.
 
-    ![Inscrire](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Capture d’écran mettant en évidence l’option Inscrivez une nouvelle passerelle sur cet ordinateur.](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Saisissez un nom et une clé de récupération pour votre passerelle. Par défaut, la passerelle utilise la région par défaut de votre abonnement. Si vous souhaitez choisir une autre région, sélectionnez **Changer la région**.
 
@@ -87,23 +87,23 @@ Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’inst
 
 Une fois que vous avez installé et inscrit votre passerelle, vous devez créer une ressource de passerelle dans Azure. Connectez-vous à Azure avec le même compte que celui utilisé lors de l’inscription de la passerelle.
 
-1. Dans portail Azure, cliquez sur **Créer une ressource**, recherchez **Passerelle de données locale**, puis cliquez sur **Créer**.
+1. Dans portail Azure, cliquez sur **Créer une ressource** , recherchez **Passerelle de données locale** , puis cliquez sur **Créer**.
 
    ![Créer une ressource de passerelle](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
-2. Dans **Créer une passerelle connexion**, entrez les paramètres suivants:
+2. Dans **Créer une passerelle connexion** , entrez les paramètres suivants:
 
-   * **Name** : entrez un nom pour votre ressource de passerelle. 
+   * **Name**  : entrez un nom pour votre ressource de passerelle. 
 
-   * **Abonnement**: sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
+   * **Abonnement** : sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
    
      L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter.
 
-   * **Groupe de ressources** : Sélectionnez un groupe de ressources existant ou créez-en un.
+   * **Groupe de ressources**  : Sélectionnez un groupe de ressources existant ou créez-en un.
 
    * **Emplacement** : sélectionnez la région dans laquelle vous avez inscrit votre passerelle.
 
-   * **Nom de l’installation** : si votre installation de passerelle n’est pas encore sélectionnée, sélectionnez la passerelle que vous installée sur votre ordinateur et inscrite. 
+   * **Nom de l’installation**  : si votre installation de passerelle n’est pas encore sélectionnée, sélectionnez la passerelle que vous installée sur votre ordinateur et inscrite. 
 
      Une fois ces opérations effectuées, cliquez sur **Créer**.
 

@@ -3,12 +3,12 @@ title: Authentification multiregistre à partir d’une tâche ACR
 description: Configurez une tâche Azure Container Registry (Tâche ACR) pour accéder à un autre registre de conteneurs Azure privé avec une identité managée pour les ressources Azure.
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057351"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026256"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification multiregistre dans une tâche ACR à l’aide d’une identité managée par Azure 
 
@@ -39,16 +39,12 @@ Si vous n’avez pas encore les registres de conteneurs Azure requis, consultez 
 
 ## <a name="prepare-base-registry"></a>Préparer le registre de base
 
-Tout d’abord, créez un répertoire de travail, puis un fichier nommé Dockerfile avec le contenu suivant. Cet exemple simple crée une image de base Node.js à partir d’une image publique dans Docker Hub.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+À des fins de démonstration, dans le cadre d’une opération unique, exécutez [az acr import][az-acr-import] pour importer une image Node.js publique de Docker Hub vers votre registre de base. Dans la pratique, une autre équipe ou un autre processus de l’organisation peut conserver des images dans le registre de base.
 
-Dans le répertoire actif, exécutez la commande [az acr build][az-acr-build] pour générer et transmettre l’image de base vers le registre de base. Dans la pratique, une autre équipe ou un autre processus de l’organisation peut conserver le registre de base.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Définir des étapes de tâche dans le fichier YAML
@@ -223,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Exécutez la commande [az acr repository show-tags][az-acr-repository-show-tags] pour vérifier que l’image générée a été correctement transmise vers *myregistry* :
+Exécutez la commande [az acr repository show-tags][az-acr-repository-show-tags] pour vérifier que l’image générée a été correctement transmise vers *myregistry*  :
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

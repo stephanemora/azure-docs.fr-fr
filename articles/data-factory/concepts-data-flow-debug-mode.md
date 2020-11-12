@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085091"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026987"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -77,15 +77,15 @@ Lors du test unitaire des transformations de jointure, de recherche ou Exists, v
 
 Une fois que vous voyez l’aperçu des données, vous pouvez générer une transformation rapide pour convertir en typecast, supprimer ou modifier une colonne. Cliquez sur l’en-tête de colonne, puis sélectionnez l’une des options dans la barre d’outils d’aperçu des données.
 
-![Actions rapides](media/data-flow/quick-actions1.png "Actions rapides")
+![Capture d’écran montrant la barre d’outils d’aperçu des données avec les options : Typecast, Modifier, Statistiques et Supprimer.](media/data-flow/quick-actions1.png "Actions rapides")
 
 Une fois que vous avez sélectionné une modification, l’aperçu des données est immédiatement actualisé. Cliquez sur **Confirmer** dans le coin supérieur droit pour générer une nouvelle transformation.
 
-![Actions rapides](media/data-flow/quick-actions2.png "Actions rapides")
+![Capture d’écran montrant le bouton Confirmer.](media/data-flow/quick-actions2.png "Actions rapides")
 
 **Typecast** et **Modifier** permettent de générer une transformation de colonne dérivée et **Supprimer** de générer une transformation de sélection (Select).
 
-![Actions rapides](media/data-flow/quick-actions3.png "Actions rapides")
+![Capture d’écran montrant les paramètres de la colonne dérivée.](media/data-flow/quick-actions3.png "Actions rapides")
 
 > [!NOTE]
 > Si vous modifiez votre flux de données, vous devez extraire à nouveau l’aperçu des données avant d’ajouter une transformation rapide.

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/03/2020
 ms.author: jgao
-ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a04377289b78c23a83fc696ebebb9b5808e904c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89667503"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321649"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -77,7 +77,7 @@ La ressource de script de déploiement n'est disponible que dans les régions o�
 - **Azure PowerShell** ou **Azure CLI**. Consultez la liste des versions de [Azure PowerShell prises en charge](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consultez la liste des versions de [Azure CLI prises en charge](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
     >[!IMPORTANT]
-    > Le script de déploiement utilise les images CLI disponibles à partir de Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour le script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Si une version non prise en charge est utilisée, le message d’erreur répertorie les versions prises en charge.
+    > Le script de déploiement utilise les images CLI disponibles à partir de Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour le script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si une version non prise en charge est utilisée, le message d’erreur répertorie les versions prises en charge.
 
     Vous n’avez pas besoin de ces versions pour déployer des modèles. Par contre, ces versions sont nécessaires pour tester les scripts de déploiement localement. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Vous pouvez utiliser une image Docker préconfigurée.  Consultez [Configurer l’environnement de développement](#configure-development-environment).
 
@@ -135,13 +135,13 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
 
 Détails des valeurs de propriété :
 
-- **Identité** : le service de script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
-- **kind** : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
-- **forceUpdateTag** : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Utilisez la fonction newGuid() ou utcNow() qui doit être définie comme defaultValue d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
-- **containerSettings** : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure.  **containerGroupName** est pour spécifier le nom du groupe de conteneurs.  S’il n’est pas spécifié, le nom du groupe est généré automatiquement.
-- **storageAccountSettings**: Spécifiez les paramètres pour utiliser un compte de stockage existant. S’il n’est pas spécifié, un compte de stockage est créé automatiquement. Consultez [Utiliser un compte de stockage existant](#use-existing-storage-account).
-- **azPowerShellVersion**/**azCliVersion** : spécifie la version du module à utiliser. Pour obtenir la liste des versions prises en charge de PowerShell et de l’interface CLI, consultez les [conditions préalables](#prerequisites).
-- **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
+- **Identité**  : le service de script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
+- **kind**  : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
+- **forceUpdateTag**  : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Utilisez la fonction newGuid() ou utcNow() qui doit être définie comme defaultValue d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
+- **containerSettings**  : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure.  **containerGroupName** est pour spécifier le nom du groupe de conteneurs.  S’il n’est pas spécifié, le nom du groupe est généré automatiquement.
+- **storageAccountSettings** : Spécifiez les paramètres pour utiliser un compte de stockage existant. S’il n’est pas spécifié, un compte de stockage est créé automatiquement. Consultez [Utiliser un compte de stockage existant](#use-existing-storage-account).
+- **azPowerShellVersion**/**azCliVersion**  : spécifie la version du module à utiliser. Pour obtenir la liste des versions prises en charge de PowerShell et de l’interface CLI, consultez les [conditions préalables](#prerequisites).
+- **arguments**  : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
 
     Les scripts de déploiement fractionnent les arguments en un tableau de chaînes en appelant l’appel système [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). Cela est nécessaire, car les arguments sont passés en tant que [propriété de commande](/rest/api/container-instances/containergroups/createorupdate#containerexec) à l’instance de conteneur Azure, et la propriété de commande est un tableau de chaîne.
 
@@ -155,13 +155,13 @@ Détails des valeurs de propriété :
 
     Pour afficher un exemple de modèle, sélectionnez [ici](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
-- **environmentVariables** : spécifie les variables d'environnement à transmettre au script. Pour plus d'informations, consultez [Développer des scripts de déploiement](#develop-deployment-scripts).
-- **scriptContent** : précise le contenu du script. Pour exécuter un script externe, utilisez plutôt `primaryScriptUri`. Pour obtenir des exemples, consultez [Utiliser un script inclus](#use-inline-scripts) et [Utiliser un script externe](#use-external-scripts).
-- **primaryScriptUri** : spécifie une URL accessible publiquement pour le script de déploiement principal avec les extensions de fichier prises en charge.
-- **supportingScriptUris** : spécifie un tableau d’URL accessibles publiquement pour les fichiers de prise en charge qui seront appelés dans `ScriptContent` ou `PrimaryScriptUri`.
-- **timeout** : précise la durée d’exécution maximale autorisée du script, définie au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
-- **cleanupPreference** : indique la préférence de nettoyage des ressources de déploiement lorsque l’exécution du script arrive à un état terminal. Le paramètre par défaut est **Always**, ce qui signifie que les ressources sont supprimées malgré l’état terminal (Succeeded, Failed, Canceled). Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
-- **retentionInterval** : spécifie l’intervalle pendant lequel le service conserve les ressources du script de déploiement une fois que l’exécution du script a atteint un état terminal. Les ressources de script de déploiement sont supprimées à la fin de cette durée. La durée est basée sur le [modèle ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**, ce qui signifie un jour. Cette propriété est utilisée lorsque cleanupPreference a la valeur *OnExpiration*. La propriété *OnExpiration* n’est pas activée actuellement. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
+- **environmentVariables**  : spécifie les variables d'environnement à transmettre au script. Pour plus d'informations, consultez [Développer des scripts de déploiement](#develop-deployment-scripts).
+- **scriptContent**  : précise le contenu du script. Pour exécuter un script externe, utilisez plutôt `primaryScriptUri`. Pour obtenir des exemples, consultez [Utiliser un script inclus](#use-inline-scripts) et [Utiliser un script externe](#use-external-scripts).
+- **primaryScriptUri**  : spécifie une URL accessible publiquement pour le script de déploiement principal avec les extensions de fichier prises en charge.
+- **supportingScriptUris**  : spécifie un tableau d’URL accessibles publiquement pour les fichiers de prise en charge qui seront appelés dans `ScriptContent` ou `PrimaryScriptUri`.
+- **timeout**  : précise la durée d’exécution maximale autorisée du script, définie au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
+- **cleanupPreference**  : indique la préférence de nettoyage des ressources de déploiement lorsque l’exécution du script arrive à un état terminal. Le paramètre par défaut est **Always** , ce qui signifie que les ressources sont supprimées malgré l’état terminal (Succeeded, Failed, Canceled). Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
+- **retentionInterval**  : spécifie l’intervalle pendant lequel le service conserve les ressources du script de déploiement une fois que l’exécution du script a atteint un état terminal. Les ressources de script de déploiement sont supprimées à la fin de cette durée. La durée est basée sur le [modèle ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L’intervalle de rétention est compris entre 1 et 26 heures (PT26H). Cette propriété est utilisée lorsque cleanupPreference a la valeur *OnExpiration*. La propriété *OnExpiration* n’est pas activée actuellement. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Exemples supplémentaires
 
@@ -287,7 +287,7 @@ Pour spécifier un compte de stockage existant, ajoutez le code json suivant à 
 },
 ```
 
-- **storageAccountName** : spécifiez le nom du compte de stockage.
+- **storageAccountName**  : spécifiez le nom du compte de stockage.
 - **storageAccountKey "** : spécifiez l’une des clés de compte de stockage. Vous pouvez utiliser la fonction [`listKeys()`](./template-functions-resource.md#listkeys) pour récupérer la clé. Par exemple :
 
     ```json
@@ -331,7 +331,7 @@ Une fois que vous avez déployé une ressource de script de déploiement, la res
 
 ![Présentation du portail pour un script de déploiement de modèle Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
 
-La page de présentation affiche des informations importantes sur la ressource, telles que l’**État d’approvisionnement**, le **Compte de stockage**, l’**Instance de conteneur**et les **Journaux**.
+La page de présentation affiche des informations importantes sur la ressource, telles que l’ **État d’approvisionnement** , le **Compte de stockage** , l’ **Instance de conteneur** et les **Journaux**.
 
 Dans le menu de gauche, vous pouvez afficher le contenu du script de déploiement, les arguments passés au script et la sortie.  Vous pouvez également exporter un modèle pour le script de déploiement, y compris le script de déploiement.
 
@@ -375,10 +375,10 @@ Timeout             : PT1H
 
 À l’aide de Azure CLI, vous pouvez gérer les scripts de déploiement au niveau de l’abonnement ou de l’étendue du groupe de ressources :
 
-- [supprimer les scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete) : Supprimez un script de déploiement.
-- [lister des scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list) : Listez tous les scripts de déploiement.
-- [montrer les scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show) : Récupérez un script de déploiement.
-- [journal des scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log) : Affichez les journaux de script de déploiement.
+- [supprimer les scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-delete) : Supprimez un script de déploiement.
+- [lister des scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-list) : Listez tous les scripts de déploiement.
+- [montrer les scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-show) : Récupérez un script de déploiement.
+- [journal des scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-lates&preserve-view=truet#az-deployment-scripts-show-log) : Affichez les journaux de script de déploiement.
 
 La sortie de la commande de liste ressemble à ce qui suit :
 
@@ -519,7 +519,7 @@ L’API REST suivante retourne le journal :
 
 Elle fonctionne uniquement avant la suppression des ressources de script de déploiement.
 
-Pour afficher la ressource deploymentScripts dans le portail, sélectionnez **Afficher les types masqués** :
+Pour afficher la ressource deploymentScripts dans le portail, sélectionnez **Afficher les types masqués**  :
 
 ![Portail d’un script de déploiement de modèle Resource Manager avec l’option Afficher les types masqués](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
@@ -529,13 +529,13 @@ Un compte de stockage et une instance de conteneur sont nécessaires pour l’ex
 
 Le cycle de vie de ces ressources est contrôlé par les propriétés suivantes dans le modèle :
 
-- **cleanupPreference** : nettoie la préférence lorsque l’exécution du script arrive à un état terminal. Les valeurs prises en charge sont les suivantes :
+- **cleanupPreference**  : nettoie la préférence lorsque l’exécution du script arrive à un état terminal. Les valeurs prises en charge sont les suivantes :
 
-  - **Always** : Supprimez les ressources créées automatiquement une fois que l’exécution du script a atteint un état terminal. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers créé dans le compte de stockage. Étant donné que la ressource deploymentScripts peut encore être présente après le nettoyage des ressources, le service de script conserve les résultats de l’exécution du script (par exemple, stdout, résultats, valeur renvoyée, etc.) avant la suppression des ressources.
-  - **OnSuccess** : Supprimez les ressources créées automatiquement uniquement lorsque l’exécution du script est réussie. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers uniquement en cas de réussite de l’exécution du script. Vous pouvez toujours accéder aux ressources pour rechercher les informations de débogage.
-  - **OnExpiration** : Supprimez les ressources créées automatiquement uniquement si le paramètre **retentionInterval** a expiré. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers, mais conserve le compte de stockage.
+  - **Always**  : Supprimez les ressources créées automatiquement une fois que l’exécution du script a atteint un état terminal. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers créé dans le compte de stockage. Étant donné que la ressource deploymentScripts peut encore être présente après le nettoyage des ressources, le service de script conserve les résultats de l’exécution du script (par exemple, stdout, résultats, valeur renvoyée, etc.) avant la suppression des ressources.
+  - **OnSuccess**  : Supprimez les ressources créées automatiquement uniquement lorsque l’exécution du script est réussie. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers uniquement en cas de réussite de l’exécution du script. Vous pouvez toujours accéder aux ressources pour rechercher les informations de débogage.
+  - **OnExpiration**  : Supprimez les ressources créées automatiquement uniquement si le paramètre **retentionInterval** a expiré. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers, mais conserve le compte de stockage.
 
-- **retentionInterval** : spécifie l’intervalle de temps pendant lequel une ressource de script est conservée, et après lequel elle expire et est supprimée.
+- **retentionInterval**  : spécifie l’intervalle de temps pendant lequel une ressource de script est conservée, et après lequel elle expire et est supprimée.
 
 > [!NOTE]
 > Il n’est pas recommandé d’utiliser le compte de stockage et l’instance de conteneur qui sont générés par le service de script à d’autres fins. Les deux ressources peuvent être supprimées en fonction du cycle de vie du script.

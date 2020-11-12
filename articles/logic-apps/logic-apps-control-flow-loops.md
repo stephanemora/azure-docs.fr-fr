@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657480"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348064"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
-Pour traiter un tableau dans votre application logique, vous pouvez créer une [boucle « Foreach »](#foreach-loop). Cette boucle répète une ou plusieurs actions sur chaque élément du tableau. Pour connaître les limites applicables au nombre d’éléments de tableau que des boucles « Foreach » peuvent traiter, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+Pour traiter un tableau dans votre application logique, vous pouvez créer une [boucle « Foreach »](#foreach-loop). Cette boucle répète une ou plusieurs actions sur chaque élément du tableau. Pour connaître la limite du nombre d’éléments de tableau qu’une boucle « Foreach » peut traiter, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites applicables au nombre de boucles « Until » dans une exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître la limite du nombre de boucles « Until » que l’exécution d’une application logique peut avoir, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,6 +33,8 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 ## <a name="foreach-loop"></a>Boucle « Foreach »
 
 Une boucle « Foreach » répète une ou plusieurs actions sur chaque élément du tableau et fonctionne uniquement sur les tableaux. Voici quelques considérations liées à l’utilisation des boucles « Foreach » :
+
+* La boucle « Foreach » peut traiter un nombre limité d’éléments de tableau. Pour connaître cette limite, consultez [Limites de concurrence, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * Par défaut, les itérations dans une boucle « Foreach » s’exécutent simultanément, ou parallèlement. Ce comportement diffère de [la boucle **Appliquer à chaque** de Power Automate](/power-automate/apply-to-each) où les itérations s’exécutent l’une après l’autre, ou séquentiellement. Toutefois, vous pouvez [configurer des itérations de boucle « Foreach » séquentielles](#sequential-foreach-loop). Par exemple, si vous souhaitez suspendre l’itération suivante dans une boucle « Foreach » à l’aide de l’[Action Retarder](../connectors/connectors-native-delay.md), vous devez définir la boucle pour qu’elle s’exécute de façon séquentielle.
 
@@ -58,7 +60,7 @@ Cet exemple d’application logique envoie un résumé quotidien pour le flux RS
 
       ![Ajouter une boucle « for each »](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. Générez maintenant la boucle. Sous **Sélectionner une sortie des étapes précédentes**, après que la liste **Ajouter contenu dynamique** s’affiche, sélectionnez le tableau **Liens du flux**, qui sort du déclencheur RSS. 
+3. Générez maintenant la boucle. Sous **Sélectionner une sortie des étapes précédentes** , après que la liste **Ajouter contenu dynamique** s’affiche, sélectionnez le tableau **Liens du flux** , qui sort du déclencheur RSS. 
 
    ![Sélectionner depuis la liste de contenu dynamique](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -126,7 +128,7 @@ Par défaut, les cycles dans une boucle « Foreach » s’exécutent en parall
 
    ![Dans la boucle « Foreach », choisissez « ... » > « Paramètres »](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Sous **Contrôle d’accès concurrentiel**, affectez la valeur **On** au paramètre **Contrôle d’accès concurrentiel**. Déplacez le curseur **Degré de parallélisme** sur **1**, puis choisissez **Terminé**.
+1. Sous **Contrôle d’accès concurrentiel** , affectez la valeur **On** au paramètre **Contrôle d’accès concurrentiel**. Déplacez le curseur **Degré de parallélisme** sur **1** , puis choisissez **Terminé**.
 
    ![Activer le contrôle d’accès concurrentiel](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -150,7 +152,7 @@ Si vous travaillez avec la définition JSON de votre application logique, vous p
 
 ## <a name="until-loop"></a>Boucle « Until »
   
-Pour exécuter et répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, placez ces actions dans une boucle « Until ». Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète.
+Pour exécuter et répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, placez ces actions dans une boucle « Until ». Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître la limite du nombre de boucles « Until » que l’exécution d’une application logique peut avoir, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle « Until » :
 
@@ -196,7 +198,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
    | **Valeur** | 0 | Valeur de départ de votre variable | 
    |||| 
 
-1. Sous l’action **Initialiser la variable**, choisissez **Nouvelle étape**. 
+1. Sous l’action **Initialiser la variable** , choisissez **Nouvelle étape**. 
 
 1. Sous la zone de recherche, choisissez **Tout**. Recherchez « until », puis sélectionnez cette action : **Until - Contrôle**
 
@@ -213,7 +215,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
    ![Ajouter une action pour incrémenter une variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. Comme **Nom**, sélectionnez la variable **Limite**. Comme **Valeur**, entrez « 1 ». 
+1. Comme **Nom** , sélectionnez la variable **Limite**. Comme **Valeur** , entrez « 1 ». 
 
      ![Incrémenter la variable « Limite » de 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 

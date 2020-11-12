@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: abf2a274b61c0f209f8ceaecdf1754536c9f53f4
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787480"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347231"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du service Stockage File d'attente Azure
 
@@ -22,11 +22,11 @@ Consultez [Supervision du stockage Azure](monitor-queue-storage.md) pour plus d�
 
 ## <a name="metrics"></a>Mesures
 
-Les tableaux suivants répertorient les métriques de plateforme collectées pour le stockage Azure. 
+Les tableaux suivants répertorient les métriques de plateforme collectées pour le stockage Azure.
 
 ### <a name="capacity-metrics"></a>Métriques de capacité
 
-Les valeurs de mesures de capacité sont envoyées à Azure Monitor toutes les heures. Les valeurs sont actualisées tous les jours. Le fragment de temps définit l’intervalle de temps pour lequel des valeurs de mesures sont présentées. Le fragment de temps pris en charge pour toutes les mesures de capacité est d’une heure (PT1H).
+Les valeurs de métriques de capacité sont actualisées quotidiennement (jusqu’à 24 heures). Le fragment de temps définit l’intervalle de temps pour lequel des valeurs de mesures sont présentées. Le fragment de temps pris en charge pour toutes les mesures de capacité est d’une heure (PT1H).
 
 Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
@@ -61,7 +61,7 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 ## <a name="resource-logs-preview"></a>Journaux de ressources (préversion)
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Pour vous inscrire dans la préversion, consultez [cette page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Cette préversion active les journaux pour les objets blob (y compris Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Pour vous inscrire dans la préversion, consultez [cette page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Cette préversion active les journaux pour les objets blob (y compris Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
 
 Le tableau suivant liste les propriétés des journaux de ressources de stockage Azure lorsqu’elles sont collectées dans les journaux Azure Monitor ou dans le Stockage Azure. Ces propriétés décrivent l’opération, le service et le type d’autorisation qui ont servi à effectuer l’opération.
 

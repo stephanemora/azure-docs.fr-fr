@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/05/2020
-ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/30/2020
+ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675306"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131358"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -50,7 +50,7 @@ Pour une base de données SQL, la redondance du stockage de sauvegarde peut êtr
 > Pour le moment, le stockage redondant interzone est uniquement disponible dans [certaines régions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> La redondance configurable du stockage de sauvegarde pour Azure SQL Database est actuellement généralement disponible dans la région Azure Asie Sud-Est uniquement. Le niveau Hyperscale ne propose pas encore cette fonctionnalité. 
+> La redondance configurable du stockage de sauvegarde pour Azure SQL Database est actuellement disponible uniquement en préversion publique dans la région Brésil Sud et mise à la disposition générale dans la région Azure Asie Sud-Est. Le niveau Hyperscale ne propose pas encore cette fonctionnalité. 
 
 ### <a name="backup-usage"></a>Utilisation de la sauvegarde
 
@@ -190,9 +190,9 @@ Pour connaître la tarification du stockage de sauvegarde, consultez la page [Ta
 
 ### <a name="monitor-costs"></a>Superviser les coûts
 
-Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion des coûts + Facturation** dans le portail Azure, sélectionnez **Gestion des coûts** , puis sélectionnez **Analyse du coût** . Sélectionnez l’abonnement souhaité comme **Étendue** , puis filtrez la période et le service qui vous intéressent.
+Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion des coûts + Facturation** dans le portail Azure, sélectionnez **Gestion des coûts** , puis sélectionnez **Analyse du coût**. Sélectionnez l’abonnement souhaité comme **Étendue** , puis filtrez la période et le service qui vous intéressent.
 
-Ajoutez un filtre pour **Nom de service** , puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool de bases de données élastique, sélectionnez **stockage de sauvegarde PITR pour pool élastique/unique** . Pour une instance gérée, sélectionnez **stockage de sauvegarde PITR pour instance gérée** . Les sous-catégories **Stockage** et **Calcul** peuvent vous également intéresser, mais elles ne sont pas associées à des coûts de stockage de sauvegarde.
+Ajoutez un filtre pour **Nom de service** , puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool de bases de données élastique, sélectionnez **stockage de sauvegarde PITR pour pool élastique/unique**. Pour une instance gérée, sélectionnez **stockage de sauvegarde PITR pour instance gérée**. Les sous-catégories **Stockage** et **Calcul** peuvent vous également intéresser, mais elles ne sont pas associées à des coûts de stockage de sauvegarde.
 
 ![Analyse du coût du stockage de sauvegarde](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -371,7 +371,7 @@ Pour plus d’informations, consultez [API REST de conservation des sauvegardes]
 ## <a name="configure-backup-storage-redundancy"></a>Configuration de la redondance du stockage de sauvegarde
 
 > [!NOTE]
-> La redondance de stockage configurable pour les sauvegardes de SQL Managed Instance ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour SQL Database, la préversion publique de cette fonctionnalité est actuellement disponible uniquement dans la région Azure Asie Sud-Est. 
+> La redondance de stockage configurable pour les sauvegardes de SQL Managed Instance ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour SQL Database, la préversion publique de cette fonctionnalité est actuellement disponible dans la région Brésil Sud ; la version est en disponibilité générale dans la région Azure Asie Sud-Est. 
 
 La redondance d’un stockage de sauvegarde d'une instance gérée ne peut être réglé que lors de la création de l'instance. Pour une base de données SQL, elle peut être définie lors de la création de la base de données ou être mise à jour pour une base de données existante. La valeur par défaut est le stockage géo-redondant (RA-GRS). Pour connaître les différences de tarification entre le stockage de sauvegarde redondant localement (LRS), redondant dans une zone (ZRS) et géo-redondant (RA-GRS), consultez la page [Tarification Managed instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -379,7 +379,7 @@ La redondance d’un stockage de sauvegarde d'une instance gérée ne peut être
 
 #### <a name="sql-database"></a>[Base de données SQL](#tab/single-database)
 
-Dans Portail Azure, vous pouvez configurer la redondance du stockage de sauvegarde dans le panneau **Créer une base de données SQL** . L’option est disponible sous la section Redondance du stockage de sauvegarde. 
+Dans Portail Azure, vous pouvez configurer la redondance du stockage de sauvegarde dans le panneau **Créer une base de données SQL**. L’option est disponible sous la section Redondance du stockage de sauvegarde. 
 ![Open Create SQL Database blade](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
@@ -387,7 +387,7 @@ Dans Portail Azure, vous pouvez configurer la redondance du stockage de sauvegar
 Dans le Portail Azure, l’option de modification de la redondance du stockage de sauvegarde se trouve dans le panneau **Calcul + Stockage** , accessible à partir de l’option **Configurer Managed Instance** de l’onglet **Basique** lors de la création de votre SQL Managed Instance.
 ![Ouvrir le panneau Calcul + Stockage](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
-Recherchez l’option permettant de sélectionner la redondance de stockage de sauvegarde dans le panneau **Calcul + Stockage** .
+Recherchez l’option permettant de sélectionner la redondance de stockage de sauvegarde dans le panneau **Calcul + Stockage**.
 ![Configurer la redondance du stockage de sauvegarde](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
 
 ---

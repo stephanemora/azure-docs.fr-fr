@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324346"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027480"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dérive de schéma dans le flux de données de mappage
 
@@ -43,7 +43,7 @@ Dans une transformation de source, la dérive de schéma est définie sous forme
 
 ![Dérive de schéma - source](media/data-flow/schemadrift001.png "Dérive de schéma - source")
 
-Quand la dérive de schéma est autorisée, tous les champs entrants sont lus à partir de votre source pendant l’exécution et transmis au récepteur via l’ensemble du flux. Par défaut, toutes les colonnes nouvellement détectées (*colonnes dérivées*) arrivent en tant que type de données chaîne. Si vous souhaitez que votre flux de données déduise automatiquement les types de données des colonnes dérivées, cochez la case **Déduire les types des colonnes dérivées** dans les paramètres de la source.
+Quand la dérive de schéma est autorisée, tous les champs entrants sont lus à partir de votre source pendant l’exécution et transmis au récepteur via l’ensemble du flux. Par défaut, toutes les colonnes nouvellement détectées ( *colonnes dérivées* ) arrivent en tant que type de données chaîne. Si vous souhaitez que votre flux de données déduise automatiquement les types de données des colonnes dérivées, cochez la case **Déduire les types des colonnes dérivées** dans les paramètres de la source.
 
 ## <a name="schema-drift-in-sink"></a>Dérive de schéma dans le récepteur
 
@@ -69,11 +69,11 @@ Pour plus d’informations sur la façon d’implémenter des modèles de colonn
 
 Pour référencer explicitement des colonnes dérivées, vous pouvez générer rapidement des mappages pour ces colonnes à l’aide d’une action rapide d’aperçu des données. Une fois le [mode débogage](concepts-data-flow-debug-mode.md) activé, accédez à l’onglet Aperçu des données, puis cliquez sur **Actualiser** pour obtenir un aperçu des données. Si la fabrique de données détecte l’existence de colonnes dérivées, vous pouvez cliquer sur **Mapper les éléments dérivés** et générer une colonne dérivée qui vous permet de référencer toutes les colonnes dérivées dans des vues de schéma en aval.
 
-![Mapper les éléments dérivés](media/data-flow/mapdrifted1.png "Mapper les éléments dérivés")
+![Capture d’écran affichant l’onglet Aperçu des données avec l’option Mapper les éléments dérivés en évidence.](media/data-flow/mapdrifted1.png "Mapper les éléments dérivés")
 
-Dans la transformation de colonne dérivée générée, chaque colonne dérivée est mappée au nom et au type de données correspondants détectés. Dans l’aperçu des données ci-dessus, la colonne « movieId » est détectée en tant qu’entier. Une fois que vous avez cliqué sur **Mapper les éléments dérivés**, movieId est défini dans la colonne dérivée comme `toInteger(byName('movieId'))` et inclus dans les vues de schéma des transformations en aval.
+Dans la transformation de colonne dérivée générée, chaque colonne dérivée est mappée au nom et au type de données correspondants détectés. Dans l’aperçu des données ci-dessus, la colonne « movieId » est détectée en tant qu’entier. Une fois que vous avez cliqué sur **Mapper les éléments dérivés** , movieId est défini dans la colonne dérivée comme `toInteger(byName('movieId'))` et inclus dans les vues de schéma des transformations en aval.
 
-![Mapper les éléments dérivés](media/data-flow/mapdrifted2.png "Mapper les éléments dérivés")
+![Capture d’écran montrant l’onglet Paramètres de la colonne dérivée.](media/data-flow/mapdrifted2.png "Mapper les éléments dérivés")
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans l’article sur le [langage d’expression de flux de données](data-flow-expression-functions.md), vous trouverez des fonctionnalités supplémentaires pour les modèles de colonnes et la dérive de schéma, notamment « byName » et « byPosition ».

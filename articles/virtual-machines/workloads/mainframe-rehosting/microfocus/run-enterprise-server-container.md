@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34767c160c8229eb5b63806924926a46ea00cc2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319994"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127193"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Azure
 
@@ -54,9 +54,9 @@ Avant de commencer, consultez les prérequis suivants :
 
     2.  Sélectionnez la **région** et le **groupe de ressources** sur lesquels vous souhaitez effectuer le déploiement.
 
-    3.  Pour les **options de disponibilité**, utilisez le paramètre par défaut.
+    3.  Pour les **options de disponibilité** , utilisez le paramètre par défaut.
 
-    4.  Pour le **nom d’utilisateur**, saisissez le compte administrateur que vous souhaitez utiliser et le mot de passe.
+    4.  Pour le **nom d’utilisateur** , saisissez le compte administrateur que vous souhaitez utiliser et le mot de passe.
 
     5.  Assurez-vous que le **port 3389 RDP** est ouvert. Seul ce port doit être exposé publiquement pour que vous puissiez vous connecter à la machine virtuelle. Acceptez ensuite toutes les valeurs par défaut, puis cliquez sur **Vérifier + créer**.
 
@@ -75,7 +75,7 @@ Avant de commencer, consultez les prérequis suivants :
     > [!Note]    
     > N’utilisez pas vos informations d’identification d’entreprise pour vous connecter. (Le client RDP suppose que vous souhaitez les utiliser. Mais vous ne le voulez pas.)
 
-9.  Sélectionnez **Autres choix**, puis sélectionnez les informations d’identification de votre machine virtuelle.
+9.  Sélectionnez **Autres choix** , puis sélectionnez les informations d’identification de votre machine virtuelle.
 
 À ce stade, la machine virtuelle est en cours d’exécution et est jointe via RDP. Vous êtes connecté et prêt pour l’étape suivante.
 
@@ -129,7 +129,7 @@ Avant de commencer, consultez les prérequis suivants :
 
 2.  Obtenez l’adresse IP du conteneur acctdemo pour que Docker puisse agir comme un serveur DHCP pour les conteneurs qu’il gère :
 
-    1.  Obtenez l’ID du conteneur en cours d’exécution. Saisissez **Docker ps** à l’invite de commandes et notez l’ID (**22a0fe3159d0** dans cet exemple). Notez-le pour l’étape suivante.
+    1.  Obtenez l’ID du conteneur en cours d’exécution. Saisissez **Docker ps** à l’invite de commandes et notez l’ID ( **22a0fe3159d0** dans cet exemple). Notez-le pour l’étape suivante.
 
     2.  Pour obtenir l’adresse IP du conteneur acctdemo, utilisez l’ID de conteneur de l’étape précédente comme suit :
 
@@ -157,11 +157,11 @@ Avant de commencer, consultez les prérequis suivants :
 
 8. Pour lancer l’application acctdemo, saisissez **ACCT**. L’écran initial de l’application s’affiche.
 
-     ![Capture d’écran de la démonstration de compte](./media/run-image-7.png)
+     ![Capture d’écran représentant une fenêtre de console qui affiche l’application.](./media/run-image-7.png)
 
 9. Faites des essais avec les types de compte d’affichage. Par exemple, saisissez **D** pour la requête et **11111** pour le **compte**. D’autres numéros de comptes à essayer sont 22222, 33333 et ainsi de suite.
 
-    ![Capture d’écran de la démonstration de compte](./media/run-image-8.png)
+    ![Capture d’écran montrant comment modifier différentes valeurs dans l’application.](./media/run-image-8.png)
 
 10. Pour afficher la console d’administration d’Enterprise Server, accédez à l’invite de commandes et tapez **start http:172.19.202.52:86**.
 

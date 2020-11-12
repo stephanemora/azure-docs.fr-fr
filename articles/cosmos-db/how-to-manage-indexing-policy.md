@@ -3,18 +3,20 @@ title: Gérer les stratégies d’indexation dans Azure Cosmos DB
 description: Découvrir comment gérer les stratégies d’indexation, inclure ou exclure une propriété de l’indexation et définir l’indexation à l’aide de différents Kits de développement logiciel (SDK) Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491034"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341312"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dans Azure Cosmos DB, les données sont indexées suivant les [stratégies d’indexation](index-policy.md) définies pour chaque conteneur. La stratégie d’indexation par défaut pour les conteneurs nouvellement créés applique des index de plage pour les chaînes ou les nombres. Vous pouvez remplacer cette stratégie par votre propre stratégie d’indexation personnalisée.
 
@@ -46,7 +48,7 @@ Voici quelques exemples de stratégies d’indexation au [format JSON](index-pol
     }
 ```
 
-Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous pouvez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus).
+Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous devez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus).
 
 ```json
     {
@@ -100,7 +102,7 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
     }
 ```
 
-Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous pouvez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus).
+Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous devez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus).
 
 ```json
     {
@@ -142,7 +144,7 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
 ```
 
 > [!NOTE]
-> Il est généralement recommandé d’utiliser une stratégie d’indexation de **refus** pour permettre à Azure Cosmos DB d’indexer de manière proactive toute nouvelle propriété qui peut être ajoutée à votre modèle.
+> Il est généralement recommandé d’utiliser une stratégie d’indexation de **refus** pour permettre à Azure Cosmos DB d’indexer de manière proactive toute nouvelle propriété qui peut être ajoutée à votre modèle de données.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Utilisation d’un index spatial uniquement sur un chemin de propriété spécifique
 
@@ -176,7 +178,7 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
 
 ## <a name="composite-indexing-policy-examples"></a>Exemples de stratégies d’indexation composite
 
-En plus d’inclure ou d’exclure des chemins pour les propriétés individuelles, vous pouvez également spécifier un index composite. Si vous souhaitez effectuer une requête qui a une `ORDER BY` clause pour plusieurs propriétés, un [index composite](index-policy.md#composite-indexes) sur ces propriétés est requis. De plus, les index composites présentent un avantage en matière de performances pour les requêtes qui ont un filtre et dont la clause ORDER BY spécifie des propriétés différentes.
+En plus d’inclure ou d’exclure des chemins pour les propriétés individuelles, vous pouvez également spécifier un index composite. Si vous souhaitez effectuer une requête qui a une `ORDER BY` clause pour plusieurs propriétés, un [index composite](index-policy.md#composite-indexes) sur ces propriétés est requis. De plus, les index composites présentent un avantage en matière de performances pour les requêtes qui ont des filtres multiples ou un filtre et une clause ORDER BY à la fois.
 
 > [!NOTE]
 > Un chemin composite a un `/?` implicite, car seule la valeur scalaire sur ce chemin est indexée. Le caractère générique `/*` n’est pas pris en charge dans les chemins composites. Vous ne devez pas spécifier `/?` ou `/*` dans un chemin composite.
@@ -313,7 +315,7 @@ Il est facultatif de spécifier l’ordre. S’il n’est pas spécifié, l’or
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Exclusion de tous les chemins de propriété mais maintien de l’indexation active
 
-Cette stratégie peut être utilisée dans les situations où la [fonctionnalité de durée de vie (TTL)](time-to-live.md) est active, mais aucun index secondaire n’est nécessaire (pour utiliser Azure Cosmos DB comme un magasin de clés-valeurs pur).
+Cette stratégie peut être utilisée dans les situations où la [fonctionnalité de durée de vie (TTL)](time-to-live.md) est active, mais où aucun index supplémentaire n’est nécessaire (pour utiliser Azure Cosmos DB comme magasin de clés-valeurs pur).
 
 ```json
     {
@@ -359,7 +361,7 @@ Les conteneurs Azure Cosmos stockent leur stratégie d’indexation sous la form
 
 1. Ouvrez le volet **Explorateur de données** , puis sélectionnez le conteneur avec lequel vous voulez travailler.
 
-1. Cliquez sur **Mise à l’échelle et paramètres** .
+1. Cliquez sur **Mise à l’échelle et paramètres**.
 
 1. Modifiez le document JSON de stratégie d’indexation (voir les exemples [ci-dessous](#indexing-policy-examples)).
 
@@ -373,7 +375,7 @@ Pour créer un conteneur avec une stratégie d’indexation personnalisée, voir
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
 
-Pour créer un conteneur avec une stratégie d’indexation personnalisée, voir [Créer un conteneur avec une stratégie d’index personnalisée à l’aide de PowerShell](manage-with-powershell.md#create-container-custom-index)
+Pour créer un conteneur avec une stratégie d’indexation personnalisée, consultez [Créer un conteneur avec une stratégie d’index personnalisée à l’aide de PowerShell](manage-with-powershell.md#create-container-custom-index).
 
 ## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a>Utiliser le kit de développement logiciel (SDK) .NET
 

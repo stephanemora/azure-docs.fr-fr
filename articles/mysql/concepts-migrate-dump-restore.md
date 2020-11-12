@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/27/2020
-ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/30/2020
+ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484591"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128961"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
 
@@ -20,6 +20,8 @@ ms.locfileid: "92484591"
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL.
 - Sauvegarder et restaurer à partir de la ligne de commande (en utilisant mysqldump)
 - Sauvegarder et restaurer à l’aide de PHPMyAdmin
+
+Vous pouvez également consulter le [guide relatif à la migration de base de données](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) pour obtenir des informations détaillées et des cas d’usage sur la migration de base de données vers Azure Database pour MySQL. Ce guide fournit des conseils pour réussir la planification et l’exécution d’une migration MySQL vers Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour parcourir ce guide pratique, vous aurez besoin des éléments suivants :
@@ -168,5 +170,5 @@ Pour les problèmes connus, les trucs et astuces, nous vous recommandons de cons
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Connecter des applications à Azure Database pour MySQL](./howto-connection-string.md).
-- Pour plus d’informations sur la migration de bases de données vers Azure Database pour MySQL, consultez le [Guide de migration des bases de données](https://aka.ms/datamigration).
+- Pour plus d’informations sur la migration de bases de données vers Azure Database pour MySQL, consultez le [Guide de migration des bases de données](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - Si vous souhaitez migrer des bases de données volumineuses avec des tailles de base de données supérieures à 1 To, vous pouvez utiliser des outils de la communauté comme **mydumper/myloader** prenant en charge l’exportation et l’importation parallèles. Découvrez [Comment migrer des bases de données MySQL volumineuses](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

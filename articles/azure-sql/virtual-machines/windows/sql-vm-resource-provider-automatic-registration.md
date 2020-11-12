@@ -9,39 +9,42 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d4a2d9e43dadc53008c04b44ea1dda9cb337da99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996894"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308353"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Inscription automatique avec le fournisseur de ressources de machine virtuelle SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Activez la fonctionnalité d’inscription automatique dans le Portail Azure pour inscrire automatiquement tous les SQL Server actuels et futurs sur les machines virtuelles Azure avec le fournisseur de ressources de machine virtuelle SQL en mode allégé.
+Activez la fonctionnalité d’inscription automatique dans le portail Azure pour inscrire automatiquement tous les serveurs SQL actuels et futurs sur les machines virtuelles Azure avec le fournisseur de ressources de machine virtuelle SQL en mode allégé. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL installe l’extension [SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md).
 
 Cet article vous apprend à activer la fonctionnalité d’inscription automatique. Vous pouvez également [inscrire une seule machine virtuelle](sql-vm-resource-provider-register.md) ou [inscrire vos machines virtuelles en bloc](sql-vm-resource-provider-bulk-register.md) à l’aide du fournisseur de ressources de machine virtuelle SQL. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Le [fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md#overview) vous permet de gérer votre machine virtuelle SQL Server à partir du Portail Azure. En outre, le fournisseur de ressources active un ensemble de fonctionnalités robustes, notamment [la mise à jour corrective automatisée](automated-patching.md), [la sauvegarde automatisée](automated-backup.md), ainsi que des fonctionnalités de surveillance et de gestion. De même, cela facilite la gestion des [licences](licensing-model-azure-hybrid-benefit-ahb-change.md) et des [éditions](change-sql-server-edition.md). Auparavant, ces fonctionnalités étaient uniquement accessibles aux images de machine virtuelle SQL Server déployées à partir de la Place de marché Azure. 
+Le fait d’inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL installe l’[extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). 
 
-La fonctionnalité d’inscription automatique permet aux clients d’inscrire automatiquement toutes les machines virtuelles SQL Server actuelles et futures dans leur abonnement Azure avec le fournisseur de ressources de machine virtuelle SQL. Cela diffère de l’inscription manuelle, qui se concentre uniquement sur les machines virtuelles SQL Server actuelles. 
+Lorsque l’inscription automatique est activée, un travail est exécuté quotidiennement pour détecter si SQL Server est installé ou non sur toutes les machines virtuelles non inscrites de l’abonnement. Pour ce faire, copiez les fichiers binaires de l’extension SQL IaaS Agent sur la machine virtuelle, puis exécutez un utilitaire ponctuel qui recherche la ruche du registre SQL Server. Si la ruche SQL Server est détectée, la machine virtuelle est inscrite auprès du [fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md) en mode allégé. Si aucune ruche SQL Server n’existe dans le registre, les fichiers binaires sont supprimés.
 
-L’inscription automatique inscrit vos machines virtuelles SQL Server en mode allégé. Vous devez toujours [mettre à niveau manuellement vers le mode de gestion complet](sql-vm-resource-provider-register.md#upgrade-to-full) pour tirer parti de l’ensemble complet de fonctionnalités. 
+Une fois l’inscription automatique activée pour un abonnement, toutes les machines virtuelles actuelles et futures sur lesquelles SQL Server est installé sont inscrites auprès du fournisseur de ressources de machine virtuelle SQL en mode allégé. Vous devez toujours [mettre à niveau manuellement vers le mode de gestion complet](sql-vm-resource-provider-register.md#upgrade-to-full) pour tirer parti de l’ensemble complet de fonctionnalités. 
+
+> [!IMPORTANT]
+> L’extension SQL IaaS Agent collecte des données dans le seul but de fournir d’autres avantages aux clients lors de l’utilisation de SQL Server dans Machines virtuelles Azure. Microsoft n’utilisera pas ces données pour les audits de gestion des licences sans le consentement préalable du client. Pour plus d’informations, consultez l’[Avenant à la déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources, voici ce dont vous avez besoin : 
 
-- Un [abonnement Azure](https://azure.microsoft.com/free/).
-- Un modèle de ressource Azure de [machine virtuelle Windows](../../../virtual-machines/windows/quick-create-portal.md) avec [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) déployée dans le Cloud public ou Azure Government. 
+- Un [abonnement Azure](https://azure.microsoft.com/free/) et, au minimum, les autorisations du [rôle Contributeur](../../../role-based-access-control/built-in-roles.md#all).
+- Une [machine virtuelle Windows Server 2008 R2 (ou ultérieure)](../../../virtual-machines/windows/quick-create-portal.md) de modèle de ressource Azure avec [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) déployé sur le cloud public ou sur le cloud Azure Government. Windows Server 2008 n’est pas pris en charge. 
 
 
 ## <a name="enable"></a>Activer
 
-Pour activer l’inscription automatique de vos machines virtuelles SQL Server dans le Portail Azure, suivez ces étapes :
+Pour activer l’inscription automatique de vos machines virtuelles SQL Server dans le portail Azure, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Accédez à la page de ressource [**machines virtuelles SQL**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
@@ -67,7 +70,7 @@ Pour désactiver l’inscription automatique à l’aide d’Azure CLI, exécute
 az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Pour désactiver l’inscription automatique à l’aide d’Azure PowerShell, exécutez la commande suivante : 
 

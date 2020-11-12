@@ -1,18 +1,18 @@
 ---
 title: Gérer la haute disponibilité redondante interzone - Portail Azure - Serveur flexible Azure Database pour MySQL
 description: Cet article explique comment activer ou désactiver la haute disponibilité redondante interzone dans le serveur flexible Azure Database pour MySQL à l’aide du Portail Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 09cd7428519cbf84c785efa16b61b9507a3c0b94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930728"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241733"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gérer la haute disponibilité redondante interzone dans le serveur flexible (préversion) Azure Database pour MySQL
 
@@ -32,7 +32,7 @@ Cette page fournit des instructions sur la façon d’activer ou de désactiver 
 
 Cette section fournit des détails spécifiques pour les champs à haute disponibilité. Vous pouvez suivre ces étapes pour déployer la haute disponibilité lors de la création de votre serveur flexible.
 
-1.  Dans le [Portail Azure](https://portal.azure.com/), choisissez Serveur flexible, puis cliquez sur **Créer**.  Pour plus d’informations sur la façon de remplir les champs tels que **Abonnement**, **Groupe de ressources**, **Nom du serveur**, **Région**, etc., consultez la documentation relative à la création de serveur.
+1.  Dans le [portail Azure](https://portal.azure.com/), choisissez Serveur flexible, puis cliquez sur **Créer**.  Pour plus d’informations sur la façon de remplir les champs tels que **Abonnement** , **Groupe de ressources** , **Nom du serveur** , **Région** , etc., consultez la documentation relative à la création de serveur.
 
 2.  Activez la case à cocher **Haute disponibilité redondante interzone** dans l’option Disponibilité.
 
@@ -41,9 +41,9 @@ Cette section fournit des détails spécifiques pour les champs à haute disponi
 4.  Si l’option haute disponibilité est cochée, le niveau modulable ne sera pas un choix possible. Vous pouvez choisir les niveaux de calcul **Usage général** ou **Mémoire optimisée**.
 
     > [!IMPORTANT]
-    > Nous prenons uniquement en charge la haute disponibilité redondante interzone pour le niveau tarifaire ***Usage général*** et ***Mémoire optimisée***.
+    > Nous prenons uniquement en charge la haute disponibilité redondante interzone pour les niveaux tarifaires * *_Usage général_* _ et _*_Mémoire optimisée_*_.
 
-5.  Dans la liste déroulante, sélectionnez la **taille de calcul** de votre choix.
+5.  Dans la liste déroulante, sélectionnez la _ *taille de calcul* * de votre choix.
 
 6.  Sélectionnez **Taille de stockage** dans Gio à l’aide de la barre glissante, puis **Période de rétention des sauvegardes** comprise entre 7 et 35 jours.   
 
@@ -51,11 +51,11 @@ Cette section fournit des détails spécifiques pour les champs à haute disponi
 
 Suivez ces étapes pour désactiver la haute disponibilité de votre serveur flexible qui est déjà configuré avec la redondance de zone.
 
-1.  Dans le  [portail Azure](https://portal.azure.com/), sélectionnez votre serveur flexible Azure Database pour MySQL existant.
+1.  Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur flexible Azure Database pour MySQL.
 
-2.  Sur la page du serveur flexible, cliquez sur **Haute disponibilité** dans le panneau avant pour ouvrir la page de haute disponibilité.
+2.  Dans la page du serveur flexible, cliquez sur **Haute disponibilité** dans le panneau avant pour ouvrir la page de haute disponibilité.
 
-3.  Cliquez sur la case à cocher **Haute disponibilité redondante interzone** pour désactiver l’option, puis sur **Enregistrer** pour enregistrer la modification.
+3.  Cliquez sur la case à cocher **Haute disponibilité redondante interzone** pour désactiver l’option, puis sur **Enregistrer** pour enregistrer la modification.
 
 4.  Une boîte de dialogue de confirmation s’affiche, dans laquelle vous pouvez confirmer la désactivation de la haute disponibilité.
 
@@ -66,4 +66,4 @@ Suivez ces étapes pour désactiver la haute disponibilité de votre serveur fle
 ## <a name="next-steps"></a>Étapes suivantes
 
 -   En savoir plus sur la [continuité de l’activité](./concepts-business-continuity.md)
--   En savoir plus sur la [haute disponibilité redondante interzone](./concepts-high-availability.md)
+-   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)

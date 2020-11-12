@@ -11,12 +11,12 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4d66a1174b1b4adc94b24c6aecd55b2b8679f2f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211882"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026800"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Procédure de surveillance du cache Gen2
 
@@ -26,15 +26,15 @@ L’architecture de stockage Gen2 nivelle automatiquement vos segments columnsto
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Résolution des problèmes à l’aide du portail Azure
 
-Vous pouvez utiliser Azure Monitor pour afficher les mesures du cache Gen2 afin de résoudre les problèmes de performances des requêtes. Commencez par accéder au portail Microsoft Azure et cliquez sur **Superviser**, **Métriques** et **+ Sélectionner une étendue** :
+Vous pouvez utiliser Azure Monitor pour afficher les mesures du cache Gen2 afin de résoudre les problèmes de performances des requêtes. Commencez par accéder au portail Microsoft Azure et cliquez sur **Superviser** , **Métriques** et **+ Sélectionner une étendue**  :
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Capture d’écran montrant l’option Sélectionner une étendue sélectionnée dans Métriques sur le portail Azure.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
 Utilisez les barres de recherche et de liste déroulante pour rechercher votre entrepôt de données. Sélectionnez ensuite Appliquer.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![Capture d’écran montrant le volet Sélectionner une étendue dans lequel vous pouvez sélectionner votre entrepôt de données.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-Les métriques clés pour la résolution des problèmes du cache Gen2 sont **Pourcentage d’accès au cache** et **Pourcentage de cache utilisé**. Sélectionnez **Pourcentage d’accès au cache**, puis utilisez le bouton **Ajouter une métrique** pour ajouter **Pourcentage de cache utilisé**. 
+Les métriques clés pour la résolution des problèmes du cache Gen2 sont **Pourcentage d’accès au cache** et **Pourcentage de cache utilisé**. Sélectionnez **Pourcentage d’accès au cache** , puis utilisez le bouton **Ajouter une métrique** pour ajouter **Pourcentage de cache utilisé**. 
 
 ![Métriques du cache](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

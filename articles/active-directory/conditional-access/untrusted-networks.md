@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144993"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077674"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procédure : Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
 
@@ -48,17 +48,17 @@ En règle générale, une organisation possède au moins une plage d’adresses,
 Pour configurer un emplacement nommé :
 
 - Spécifiez cette plage (199.30.16.0/28) 
-- Attribuez un nom descriptif, par exemple, **Réseau d’entreprise** . 
+- Attribuez un nom descriptif, par exemple, **Réseau d’entreprise**. 
 
 Au lieu de tenter de définir tous les emplacements non approuvés, vous pouvez :
 
 - Inclure n’importe quel emplacement 
 
-   ![Accès conditionnel](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Capture d’écran du volet Emplacements Azure AD, avec l’option Configurer définie sur Oui, l’onglet Inclure visible et l’option N’importe quel emplacement sélectionnée et mise en évidence." border="false":::
 
 - Exclure tous les emplacements approuvés 
 
-   ![Accès conditionnel](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Capture d’écran du volet Emplacements Azure AD, avec l’option Configurer définie sur Oui, l’onglet Exclure visible et l’option Tous les emplacements approuvés sélectionnée." border="false":::
 
 ## <a name="policy-deployment"></a>Déploiement de stratégie
 

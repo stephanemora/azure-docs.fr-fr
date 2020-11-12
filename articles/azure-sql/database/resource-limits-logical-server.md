@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780782"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308835"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de ressources pour les serveurs Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -131,7 +131,7 @@ La gouvernance des ressources Azure SQL Database est hiérarchique par nature. D
 
 La gouvernance des E/S de données est un processus d’Azure SQL Database utilisé pour limiter les E/S physiques en lecture et en écriture sur les fichiers de données d’une base de données. Les limites IOPS sont définies pour chaque niveau de service afin de réduire l’effet de « voisinage bruyant », d’assurer une allocation des ressources équitable dans le service multilocataire et de rester dans les limites des capacités du matériel et du stockage sous-jacents.
 
-Pour les bases de données uniques, les limites des groupes de charge de travail sont appliquées à toutes les E/S de stockage par rapport à la base de données, tandis que les limites des listes de ressources partagées s’appliquent à toutes les E/S de stockage pour toutes les bases de données sur le même pool SQL, notamment la base de données `tempdb`. Pour les pools élastiques, les limites des groupes de charge de travail s’appliquent à chaque base de données dans le pool, tandis que la limite des listes de ressources partagées s’applique à l’ensemble du pool élastique, y compris la base de données `tempdb`, qui est partagée entre toutes les bases de données du pool. En général, les limites des listes de ressources partagées peuvent ne pas être réalisables par la charge de travail sur une base de données (unique ou en pool), car les limites des groupes de charge de travail sont inférieures à celles des listes de ressources partagées et restreignent l’IOPS ou le débit plus tôt. Toutefois, les limites du pool peuvent être atteintes par la charge de travail combinée sur plusieurs bases de données pour le même pool.
+Pour les bases de données uniques, les limites des groupes de charge de travail sont appliquées à toutes les E/S de stockage par rapport à la base de données, tandis que les limites des listes de ressources partagées s’appliquent à toutes les E/S de stockage pour toutes les bases de données sur le même pool SQL dédié, notamment la base de données `tempdb`. Pour les pools élastiques, les limites des groupes de charge de travail s’appliquent à chaque base de données dans le pool, tandis que la limite des listes de ressources partagées s’applique à l’ensemble du pool élastique, y compris la base de données `tempdb`, qui est partagée entre toutes les bases de données du pool. En général, les limites des listes de ressources partagées peuvent ne pas être réalisables par la charge de travail sur une base de données (unique ou en pool), car les limites des groupes de charge de travail sont inférieures à celles des listes de ressources partagées et restreignent l’IOPS ou le débit plus tôt. Toutefois, les limites du pool peuvent être atteintes par la charge de travail combinée sur plusieurs bases de données pour le même pool.
 
 Par exemple, si une requête génère 1000 IOPS sans gouvernance des ressources d’E/S, mais que la limite IOPS maximale du groupe de charge de travail est définie sur 900 IOPS, la requête ne peut pas générer plus de 900 IOPS. Toutefois, si la limite IOPS maximale de la liste de ressources partagées est définie sur 1 500 IOPS et que le nombre total d’E/S de tous les groupes de charge de travail associés à la liste de ressources partagées dépasse 1 500 IOPS, les E/S de la même requête peuvent être réduites sous la limite du groupe de travail de 900 IOPS.
 

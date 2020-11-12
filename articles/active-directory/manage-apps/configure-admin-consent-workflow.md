@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763616"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027242"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurer le workflow du consentement administrateur (préversion)
 
@@ -35,9 +35,9 @@ Pour activer le workflow de consentement de l’administrateur et choisir les r�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Cliquez sur **All services** (Tous les services) en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
-3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
+3. Dans la zone de recherche de filtre, tapez «  **Azure Active Directory**  », puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**. 
-5. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
+5. Sous **Gérer** , sélectionnez **Paramètres utilisateur**.
 6. Sous **Demandes de consentement d’administrateur (préversion)** , définissez **Les utilisateurs peuvent demander le consentement d’administrateur pour les applications qu’ils ne peuvent pas accepter** sur **Oui**.
 
    ![Configurer les paramètres de workflow de consentement administrateur](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
@@ -62,11 +62,11 @@ Une fois le workflow de consentement de l’administrateur activé, les utilisat
 
 2. Le message **Approbation requise** s’affiche. L’utilisateur indique pourquoi il a besoin d’accéder à l’application, puis sélectionne la **requête d’approbation**.
 
-   ![Demande et justification de l’utilisateur du consentement de l’administrateur](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Capture d’écran affichant une boîte de dialogue Approbation requise dans laquelle vous pouvez demander une approbation.](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. Un message **Demande envoyée** confirme que la demande a été envoyée à l’administrateur. Si l’utilisateur envoie plusieurs requêtes, seule la première est envoyée à l’administrateur.
 
-   ![Demande et justification de l’utilisateur du consentement de l’administrateur](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Capture d’écran affichant la confirmation Demande envoyée.](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. L’utilisateur reçoit une notification par courrier électronique lorsque sa requête est approuvée, refusée ou bloquée. 
 
@@ -76,9 +76,9 @@ Pour passer en revue les demandes de consentement de l’administrateur et prend
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que réviseur inscrit du workflow de consentement administrateur.
 2. Sélectionnez **Tous les services** en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
-3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
+3. Dans la zone de recherche de filtre, tapez «  **Azure Active Directory**  », puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**.
-5. Sous **Activité**, sélectionnez **Demandes de consentement d’administrateur (préversion)** .
+5. Sous **Activité** , sélectionnez **Demandes de consentement d’administrateur (préversion)** .
 
    > [!NOTE]
    > Les réviseurs ne verront que les demandes d’administrateur qui ont été créées après qu’ils ont été désignés réviseurs.

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310695"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utiliser .NET pour Apache Spark avec Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Les ingénieurs de données, chercheurs de données, analystes d’entreprise et
 
 Lorsque vous créez un bloc-notes, vous choisissez un noyau de langage pour exprimer votre logique métier. La prise en charge du noyau est disponible pour plusieurs langages, dont C#.
 
-Pour utiliser .NET pour Apache Spark dans votre bloc-notes Azure Synapse Analytics, sélectionnez **.NET Spark (C#)** en tant que noyau, puis attachez le bloc-notes à un pool Spark existant.
+Pour utiliser .NET pour Apache Spark dans votre notebook Azure Synapse Analytics, sélectionnez **.NET Spark (C#)** en tant que noyau, puis attachez le notebook à un pool Apache Spark serverless existant.
 
 Le bloc-notes .NET Spark est basé sur des expériences .NET interactives et fournit des expériences C# interactives avec la possibilité d’utiliser .NET pour Spark sans configuration avec la variable de session Spark `spark` prédéfinie.
 

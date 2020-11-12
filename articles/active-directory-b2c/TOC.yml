@@ -7,6 +7,8 @@
       href: overview.md
     - name: Vue d’ensemble technique et des fonctionnalités
       href: technical-overview.md
+    - name: Nouveautés dans la documentation
+      href: whats-new-docs.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -524,5 +526,5 @@
     - name: Support
       href: support-options.md
       displayName: technical
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'

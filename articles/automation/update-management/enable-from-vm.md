@@ -2,19 +2,19 @@
 title: Activer Azure Automation Update Management à partir d’une machine virtuelle Azure
 description: Cet article explique comment activer Update Management à partir d’une machine virtuelle Azure.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 2d81b822986f641e64b9211300f83e3b254f316d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221654"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347078"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Activer Update Management à partir d’une machine virtuelle Azure
 
-Cet article explique comment utiliser une machine virtuelle Azure pour activer la fonctionnalité [Update Management](overview.md) sur d’autres machines. Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle existante à l’aide d’Update Management.
+Cet article explique comment activer la fonctionnalité [Update Management](overview.md) sur une ou plusieurs machines virtuelles Azure. Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle Azure existante en utilisant Update Management.
 
 > [!NOTE]
 > Lors de l’activation d’Update Management, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation. Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de régions pour un compte Automation et un espace de travail Log Analytics](../how-to/region-mappings.md).
@@ -31,11 +31,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="enable-the-feature-for-deployment"></a>Activer la fonctionnalité pour le déploiement
 
-1. Dans le [Portail Azure](https://portal.azure.com), sélectionnez **Machines virtuelles**, ou recherchez et sélectionnez **Machines virtuelles** sur la page d’accueil.
+1. Dans le [Portail Azure](https://portal.azure.com), sélectionnez **Machines virtuelles** , ou recherchez et sélectionnez **Machines virtuelles** sur la page d’accueil.
 
 2. Sélectionnez la machine virtuelle pour laquelle vous souhaitez activer Update Management. Les machines virtuelles peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation. Vous
 
-3. Sur la page de la machine virtuelle, sous **Opérations**, sélectionnez **Mises à jour de l’hôte et de l’invité**.
+3. Sur la page de la machine virtuelle, sous **Opérations** , sélectionnez **Mises à jour de l’hôte et de l’invité**.
 
     ![Sélectionner Mises à jour de l’hôte et de l’invité dans le volet de gauche](media/enable-from-vm/select-guest-and-os-updates.png)
 

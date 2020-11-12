@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317821"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074795"
 ---
 # <a name="overview-of-the-developer-portal"></a>Présentation du portail des développeurs
 
@@ -48,9 +48,9 @@ Votre service de gestion des API intègre un portail des développeurs **géré*
 Si vous avez besoin de l’étendre avec une logique personnalisée, ce qui n’est pas pris en charge par défaut, vous pouvez modifier sa base de code. La base de code du portail est [disponible dans un référentiel GitHub][1]. Par exemple, vous pouvez implémenter un nouveau widget, qui s’intègre à un système de prise en charge tiers. Lorsque vous implémentez de nouvelles fonctionnalités, vous pouvez choisir l’une des options suivantes :
 
 - **L’auto-hébergement** du portail résultant en dehors de votre service de gestion des API. Lorsque vous auto-hébergez le portail, vous êtes responsable de sa maintenance et de ses mises à niveau. L’assistance du Support Azure est limitée à la configuration de base des portails auto-hébergés, comme décrit dans la [section Wiki du référentiel][2].
-- Ouvrez une demande de tirage (pull request) pour l’équipe de gestion des API afin de fusionner les nouvelles fonctionnalités dans la base de code du portail **géré** .
+- Ouvrez une demande de tirage (pull request) pour l’équipe de gestion des API afin de fusionner les nouvelles fonctionnalités dans la base de code du portail **géré**.
 
-Pour obtenir plus de détails et d’instructions sur l’extensibilité, reportez-vous au [référentiel GitHub][1] et aux [didacticiels sur l’implémentation d’un widget][3]. Le [tutoriel de personnalisation du portail](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, commun aux versions **auto-hébergée** et **managée** .
+Pour obtenir plus de détails et d’instructions sur l’extensibilité, reportez-vous au [référentiel GitHub][1] et aux [didacticiels sur l’implémentation d’un widget][3]. Le [tutoriel de personnalisation du portail](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, commun aux versions **auto-hébergée** et **managée**.
 
 ## <a name="frequently-asked-questions"></a><a name="faq"></a> Forum aux questions
 
@@ -62,7 +62,7 @@ Lors du lancement initial de la préversion du portail des développeurs, vous a
 
 Si vous avez fortement personnalisé votre portail en fonction de la préversion du contenu, vous pouvez continuer à l’utiliser tel quel et placer de nouveaux widgets manuellement dans les pages du portail. Dans le cas contraire, nous vous recommandons de remplacer le contenu de votre portail par le nouveau contenu par défaut.
 
-Pour réinitialiser le contenu d’un portail managé, sélectionnez **Réinitialiser le contenu** dans la section de menu **Opérations** . Cette opération supprimera tout le contenu du portail et provisionnera le nouveau contenu par défaut. Vous perdrez toutes les personnalisations et modifications apportées au portail des développeurs. **Vous ne pouvez pas annuler cette action** .
+Pour réinitialiser le contenu d’un portail managé, sélectionnez **Réinitialiser le contenu** dans la section de menu **Opérations**. Cette opération supprimera tout le contenu du portail et provisionnera le nouveau contenu par défaut. Vous perdrez toutes les personnalisations et modifications apportées au portail des développeurs. **Vous ne pouvez pas annuler cette action**.
 
 ![Réinitialiser le contenu du portail](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -126,15 +126,15 @@ La console interactive effectue une requête d’API côté client à partir du 
 
 Vous pouvez vérifier l’état de la stratégie CORS dans la section **Vue d’ensemble du portail** de votre service Gestion des API dans le Portail Azure. Une zone d’avertissement indique une stratégie absente ou mal configurée.
 
-![Portail des développeurs Gestion des API](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Capture d’écran montrant où vous pouvez vérifier l’état de votre stratégie CORS.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
-Appliquez automatiquement la stratégie CORS en cliquant sur le bouton **Activer CORS** .
+Appliquez automatiquement la stratégie CORS en cliquant sur le bouton **Activer CORS**.
 
 Vous pouvez également activer CORS manuellement.
 
 1. Sélectionnez le lien **L’appliquer manuellement au niveau global** pour afficher le code de stratégie généré.
 2. Accédez à **Toutes les API** dans la section **API** de votre service Gestion des API dans le Portail Azure.
-3. Sélectionnez l’icône **</>** dans la section **Traitement entrant** .
+3. Sélectionnez l’icône **</>** dans la section **Traitement entrant**.
 4. Insérez la stratégie dans la section **<inbound>** du fichier XML. Assurez-vous que la valeur **<origin>** correspond au domaine de votre portail des développeurs.
 
 > [!NOTE]

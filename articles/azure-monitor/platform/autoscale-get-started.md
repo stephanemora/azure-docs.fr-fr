@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369265"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342213"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -131,7 +131,7 @@ Les équipes de développement des grandes entreprises doivent souvent adhérer 
 
 ### <a name="behavior"></a>Comportement
 
-Lorsque le chemin du contrôle d’intégrité est fourni, App Service effectue un test ping du chemin toutes les instances. Si un code de réponse correct n’est pas reçu après 5 tests ping, cette instance est considérée comme « non saine ». La ou les instances non saines seront exclues de la rotation de l’équilibreur de charge. En outre, lorsque vous effectuez un scaling up ou un scaling out, App Service effectue un test ping du chemin du contrôle d’intégrité pour s’assurer que les nouvelles instances sont prêtes à recevoir des requêtes.
+Lorsque le chemin du contrôle d’intégrité est fourni, App Service effectue un test ping du chemin toutes les instances. Si un code de réponse correct n’est pas reçu après 5 tests ping, cette instance est considérée comme « non saine ». La ou les instances non saines seront exclues de la rotation de l’équilibreur de charge. Vous pouvez configurer le nombre requis de tests Ping ayant échoué avec le paramètre d’application `WEBSITE_HEALTHCHECK_MAXPINGFAILURES`. Ce paramètre d’application peut être défini sur n’importe quel entier compris entre 2 et 10. Par exemple, si cette valeur est définie sur `2`, vos instances seront supprimées de l’équilibreur de charge après deux échecs de test Ping. En outre, lorsque vous effectuez un scale-up ou un scale-out, App Service effectue un test Ping sur le chemin du contrôle d’intégrité pour s’assurer que les nouvelles instances sont prêtes à recevoir des requêtes avant d’être ajoutées à l’équilibreur de charge.
 
 Les instances saines restantes peuvent subir une augmentation de charge. Pour éviter de submerger les instances restantes, jusqu’à la moitié de vos instances sera exclue. Par exemple, si un scale-out du plan d’App Service vers 4 instances dont 3 qui ne sont pas saines est effectué, au moins 2 instances seront exclues de la rotation exclu de la rotation de LoadBalancer. Les 2 autres instances (1 saine et 1 non saine) continueront de recevoir des requêtes. Dans le pire des cas où toutes les instances sont non saines, aucune ne sera exclue. Si vous souhaitez remplacer ce comportement, vous pouvez définir le paramètre d’application `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` sur une valeur comprise entre `0` et `100`. Si vous attribuez une valeur plus élevée, vous supprimez les instances non saines (la valeur par défaut est 50).
 

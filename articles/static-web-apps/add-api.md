@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128502"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
 
@@ -41,9 +41,9 @@ Les étapes suivantes montrent comment créer un référentiel et cloner les fic
 Une fois votre projet créé, copiez l’URL dans votre navigateur pour le nouveau dépôt. Vous utilisez cette URL dans Visual Studio Code pour cloner le dépôt Git.
 
 1. Appuyez sur **F1** pour ouvrir la commande dans la palette de commandes
-1. Collez l’URL dans l’invite _Git: Clone_, puis appuyez sur **Entrée**.
+1. Collez l’URL dans l’invite _Git: Clone_ , puis appuyez sur **Entrée**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Cloner un projet GitHub à l’aide de Visual Studio Code":::
 
     Suivez les invites pour sélectionner un emplacement de dépôt auquel cloner le projet.
 
@@ -51,7 +51,7 @@ Une fois votre projet créé, copiez l’URL dans votre navigateur pour le nouve
 
 Ensuite, vous créez un projet Azure Functions en tant qu’API de l’application. 
 
-1. Dans le projet _my-vanilla-api_, créez un sous-dossier nommé **api**.
+1. Dans le projet _my-vanilla-api_ , créez un sous-dossier nommé **api**.
 1. Appuyez sur **F1** pour ouvrir la palette de commandes
 1. Entrez **Azure Functions : Create New Project...** (Créer un projet...)
 1. Appuyez sur **Entrée**
@@ -59,14 +59,14 @@ Ensuite, vous créez un projet Azure Functions en tant qu’API de l’applicati
 1. Sélectionner le dossier **api** comme répertoire de votre espace de travail de projet
 1. Choisissez **Select** (Sélectionner)
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Capture d’écran montrant le dossier API et le bouton Sélectionner.":::
 
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
-    - _Sélectionnez un langage_ : Choisir **JavaScript**
-    - _Sélectionner un modèle pour la première fonction de votre projet_ : Choisir **HTTP trigger** (Déclencheur HTTP)
-    - _Fournir un nom de fonction_ : Entrez **GetMessage**.
-    - _Niveau d’autorisation_ : Choisissez l’option **Anonymous** (Anonyme), qui permet à quiconque d’appeler le point de terminaison de votre fonction.
+    - _Sélectionnez un langage_  : Choisir **JavaScript**
+    - _Sélectionner un modèle pour la première fonction de votre projet_  : Choisir **HTTP trigger** (Déclencheur HTTP)
+    - _Fournir un nom de fonction_  : Entrez **GetMessage**.
+    - _Niveau d’autorisation_  : Choisissez l’option **Anonymous** (Anonyme), qui permet à quiconque d’appeler le point de terminaison de votre fonction.
         - Pour en savoir plus sur les niveaux d’autorisation, consultez [Clés d’autorisation](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 Visual Studio Code génère un projet Azure Functions avec un fonction déclenchée HTTP.
@@ -145,13 +145,13 @@ Visual Studio Code s’intègre à [Azure Functions Core Tools](../azure-functio
 
     Core Tools montre la sortie de l’application en cours d’exécution dans le panneau _Terminal_. Dans la sortie, vous pouvez voir le point de terminaison de l’URL de votre fonction déclenchée par HTTP en train de s’exécuter localement.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Capture d’écran montrant l’onglet TERMINAL dans lequel vous pouvez voir l’URL.":::
 
 1. Avec Core Tools en cours d’exécution, accédez à l’URL suivante pour vérifier que l’API s’exécute correctement : `http://localhost:7071/api/message`.
 
    La réponse figurant dans le navigateur doit ressembler à l’exemple suivant :
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Capture d’écran montrant une réponse texte dans un navigateur.":::
 
 1. Pour arrêter la session de débogage, appuyez sur **Maj+F5**.
 
@@ -193,13 +193,13 @@ Lors du déploiement sur Azure, les demandes envoyées à l’API sont automatiq
    </html>
    ```
 
-1. Appuyez sur **F5** pour démarrer le projet d’API.
+1. Appuyez sur  **F5** pour démarrer le projet d’API.
 
 1. Appuyez sur **F1** et choisissez **Live Server : Ouvrir avec Live Server**.
 
     Vous devez maintenant voir le message de l’API dans la page web.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Capture d’écran montrant le message API dans un navigateur.":::
 
    > [!NOTE]
    > Vous pouvez utiliser d’autres serveurs ou proxys HTTP pour servir le fichier `index.html`. L’accès au fichier `index.html` n’est pas possible à l’aide de `file:///`.
@@ -241,21 +241,21 @@ Ensuite, ajoutez les détails de build suivants.
 
 1. Entrez **/** dans _App location_ (Emplacement de l’application).
 1. Entrez **api** dans _App location_.
-1. Désactivez la valeur par défaut de l’_emplacement de l’artefact d’application_ en laissant la zone vide.
+1. Désactivez la valeur par défaut de l’ _emplacement de l’artefact d’application_ en laissant la zone vide.
 1. Cliquez sur **Vérifier + créer**.
 1. Cliquez sur le bouton **Créer**
 
-    Une fois que vous avez cliqué sur le bouton _Créer_, Azure effectue deux opérations. Tout d’abord, les services cloud sous-jacents sont créés pour prendre en charge l’application. Ensuite, un processus en arrière-plan commence à créer et à déployer l’application.
+    Une fois que vous avez cliqué sur le bouton _Créer_ , Azure effectue deux opérations. Tout d’abord, les services cloud sous-jacents sont créés pour prendre en charge l’application. Ensuite, un processus en arrière-plan commence à créer et à déployer l’application.
 
 1. Cliquez sur le bouton **Accéder à la ressource** pour accéder à la page _Vue d’ensemble_ de l’application web.
 
     Lorsque l’application est générée en arrière-plan, vous pouvez cliquer sur la bannière qui contient un lien pour afficher l’état de la build.
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Workflow GitHub":::
 
 1. Une fois le déploiement terminé, vous pouvez accéder à l’application web en cliquant sur le lien _URL_ situé dans la page _Vue d’ensemble_.
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Accéder à l’URL de l’application statique à partir du Portail Azure":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -265,7 +265,7 @@ Si vous ne souhaitez pas conserver cette application pour une utilisation ultér
 1. Dans la barre de recherche supérieure, taper **Groupes de ressources**
 1. Cliquer sur **Groupes de ressources**
 1. Sélectionner **myResourceGroup**
-1. Dans la page _myResourceGroup_, assurez-vous que les ressources répertoriées sont bien celles que vous souhaitez supprimer.
+1. Dans la page _myResourceGroup_ , assurez-vous que les ressources répertoriées sont bien celles que vous souhaitez supprimer.
 1. Sélectionnez **Supprimer**.
 1. Taper **myResourceGroup** dans la zone de texte
 1. Sélectionnez **Supprimer**.

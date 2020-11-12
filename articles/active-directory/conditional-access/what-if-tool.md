@@ -11,28 +11,28 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631424"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077640"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Détecter un problème à l’aide de l’outil What If dans l’accès conditionnel
 
-L’[accès conditionnel](./overview.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Comment savoir ce que vous pouvez attendre des stratégies d’accès conditionnel dans votre environnement ? Pour répondre à cette question, vous pouvez utiliser l’**outil de simulation d’accès conditionnel**.
+L’[accès conditionnel](./overview.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Comment savoir ce que vous pouvez attendre des stratégies d’accès conditionnel dans votre environnement ? Pour répondre à cette question, vous pouvez utiliser l’ **outil de simulation d’accès conditionnel**.
 
 Cet article explique comment vous pouvez utiliser cet outil pour tester vos stratégies d’accès conditionnel.
 
 ## <a name="what-it-is"></a>Présentation
 
-L’**outil de simulation d’accès conditionnel** vous permet de comprendre l’impact de vos stratégies d’accès conditionnel sur votre environnement. Au lieu de tester vos stratégies en effectuant manuellement plusieurs connexions, cet outil vous permet d’évaluer une simulation de connexion d’un utilisateur. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation. Le rapport répertorie non seulement les stratégies d’accès conditionnel appliquées, mais aussi les [stratégies classiques](policy-migration.md#classic-policies) si elles existent.    
+L’ **outil de simulation d’accès conditionnel** vous permet de comprendre l’impact de vos stratégies d’accès conditionnel sur votre environnement. Au lieu de tester vos stratégies en effectuant manuellement plusieurs connexions, cet outil vous permet d’évaluer une simulation de connexion d’un utilisateur. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation. Le rapport répertorie non seulement les stratégies d’accès conditionnel appliquées, mais aussi les [stratégies classiques](policy-migration.md#classic-policies) si elles existent.    
 
 L’outil de **simulation** permet de déterminer rapidement les stratégies qui s’appliquent à un utilisateur spécifique. Vous pouvez utiliser ces informations, par exemple, si vous avez besoin de résoudre un problème.    
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Dans l’**outil de simulation d’accès conditionnel**, vous devez tout d’abord configurer les paramètres du scénario de connexion que vous souhaitez simuler. Ces paramètres comprennent ce qui suit :
+Dans l’ **outil de simulation d’accès conditionnel** , vous devez tout d’abord configurer les paramètres du scénario de connexion que vous souhaitez simuler. Ces paramètres comprennent ce qui suit :
 
 - L’utilisateur que vous souhaitez tester 
 - Les applications cloud auxquelles l’utilisateur tente d’accéder
@@ -48,7 +48,7 @@ Vous pouvez trouver l’outil de **simulation** sur la page **[Accès conditionn
 
 Pour démarrer l’outil, cliquez sur **Scénarios** dans la barre d’outils au-dessus de la liste des stratégies.
 
-![What If](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Capture d’écran de la page Accès conditionnel – Stratégies dans le portail Azure. Dans la barre d’outils, l’élément What If est mis en évidence." border="false":::
 
 Avant de pouvoir exécuter une évaluation, vous devez configurer les paramètres.
 
@@ -56,7 +56,7 @@ Avant de pouvoir exécuter une évaluation, vous devez configurer les paramètre
 
 Cette section fournit des informations sur les paramètres d’une simulation.
 
-![What If](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Capture d’écran de la page What If du portail Azure, avec des champs pour un utilisateur, des applications cloud, une adresse IP, une plateforme d’appareil, une application cliente et un risque de connexion." border="false":::
 
 ### <a name="user"></a>Utilisateur
 
@@ -90,7 +90,7 @@ Ce paramètre reproduit la [condition de risque de connexion](concept-conditiona
 
 Vous démarrez une évaluation en cliquant sur **Scénarios**. Le résultat d’évaluation vous fournit un rapport qui se compose de ce qui suit : 
 
-![What If](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Capture d’écran d’un rapport d’évaluation. Le texte indique qu’au moins une stratégie classique est configurée. Les onglets sont disponibles pour l’affichage des stratégies." border="false":::
 
 - Un indicateur précisant si des stratégies classiques existent dans votre environnement
 - Les stratégies qui s’appliquent à votre utilisateur
