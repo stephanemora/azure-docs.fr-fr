@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760391"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369254"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Récupération d’urgence du HSM managé
 
@@ -48,7 +48,7 @@ Vous devez fournir les entrées suivantes pour créer une ressource de HSM manag
 - L’emplacement Azure.
 - La liste des administrateurs initiaux.
 
-L’exemple ci-dessous crée un HSM nommé **ContosoMHSM** dans le groupe de ressources **ContosoResourceGroup** qui réside à l’emplacement **USA Est 2**, avec l’**utilisateur actuellement connecté** comme seul administrateur.
+L’exemple ci-dessous crée un HSM nommé **ContosoMHSM** dans le groupe de ressources **ContosoResourceGroup** qui réside à l’emplacement **USA Est 2** , avec l’ **utilisateur actuellement connecté** comme seul administrateur.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 La sortie de cette commande affiche les propriétés du HSM managé que vous avez créé. Les deux propriétés les plus importantes sont :
 
-* **nom** : Dans l’exemple, son nom est ContosoMHSM. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
-* **hsmUri** : Dans l’exemple, l’URI est « https://contosohsm.managedhsm.azure.net  ». les applications qui utilisent votre HSM via son API REST doivent utiliser cet URI.
+* **nom**  : Dans l’exemple, son nom est ContosoMHSM. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
+* **hsmUri**  : Dans l’exemple, l’URI est « https://contosohsm.managedhsm.azure.net  ». les applications qui utilisent votre HSM via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce HSM managé. À l’heure actuelle, personne d’autre n’y est autorisé.
 
@@ -86,7 +86,7 @@ La commande `az keyvault security-domain upload` effectue les opérations suivan
 - Crée un objet blob de chargement de domaine de sécurité chiffré à partir de la clé d’échange de domaine de sécurité que nous avons téléchargée à l’étape précédente
 - Charge l’objet blob de chargement de domaine de sécurité dans le HSM pour effectuer la récupération du domaine de sécurité
 
-Dans l’exemple ci-dessous, nous utilisons le domaine de **ContosoMHSM** ainsi que les deux clés privées correspondantes, puis nous les chargeons dans **ContosoMHSM2**, qui attend de recevoir un domaine de sécurité. 
+Dans l’exemple ci-dessous, nous utilisons le domaine de **ContosoMHSM** ainsi que les deux clés privées correspondantes, puis nous les chargeons dans **ContosoMHSM2** , qui attend de recevoir un domaine de sécurité. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -102,11 +102,12 @@ Pour créer une sauvegarde HSM, vous aurez besoin des éléments suivants :
 - Un compte de stockage dans lequel stocker la sauvegarde
 - Un conteneur Stockage Blob situé dans ce compte de stockage, dans lequel le processus de sauvegarde créera un nouveau dossier où stocker les sauvegardes chiffrées
 
-Nous appliquons la commande `az keyvault backup` à la sauvegarde du HSM dans le conteneur de stockage **mhsmbackupcontainer**, qui se trouve dans le compte de stockage **ContosoBackup** pour l’exemple ci-dessous. Nous créons un jeton SAS qui expire au bout de 30 minutes et nous le fournissons au HSM managé pour l’écriture de la sauvegarde.
+Nous appliquons la commande `az keyvault backup` à la sauvegarde du HSM dans le conteneur de stockage **mhsmbackupcontainer** , qui se trouve dans le compte de stockage **ContosoBackup** pour l’exemple ci-dessous. Nous créons un jeton SAS qui expire au bout de 30 minutes et nous le fournissons au HSM managé pour l’écriture de la sauvegarde.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

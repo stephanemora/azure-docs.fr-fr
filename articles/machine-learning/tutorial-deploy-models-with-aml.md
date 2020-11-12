@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel sur la classification d’images : Déployer des modèles'
 titleSuffix: Azure Machine Learning
-description: Ce tutoriel, qui est le deuxième d’une série de deux, montre comment utiliser Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Python.
+description: Ce tutoriel montre comment utiliser Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896579"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532781"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutoriel : Déployer un modèle de classification d’images dans Azure Container Instances
 
@@ -358,6 +358,6 @@ service.delete()
 
 + Découvrez toutes les [options de déploiement d’Azure Machine Learning](how-to-deploy-and-where.md).
 + Découvrez comment [créer des clients pour le service web](how-to-consume-web-service.md).
-+  [Effectuez des prédictions sur de grandes quantités de données](how-to-use-parallel-run-step.md) de façon asynchrone.
++  [Effectuez des prédictions sur de grandes quantités de données](./tutorial-pipeline-batch-scoring-classification.md) de façon asynchrone.
 + Supervisez vos modèles Azure Machine Learning avec [Application Insights](how-to-enable-app-insights.md).
-+ Suivez le tutoriel [Sélection automatique d’un algorithme](tutorial-auto-train-models.md). 
++ Suivez le tutoriel [Sélection automatique d’un algorithme](tutorial-auto-train-models.md).

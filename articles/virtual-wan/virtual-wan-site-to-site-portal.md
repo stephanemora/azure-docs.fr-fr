@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057907"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359525"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
@@ -41,13 +41,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
-* Vous avez un réseau virtuel auquel vous souhaitez vous connecter. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le portail Azure, consultez le [guide de démarrage rapide](../virtual-network/quick-create-portal.md).
-
-* Votre réseau virtuel n’a pas de passerelle de réseau virtuel. Si votre réseau virtuel dispose d’une passerelle (VPN ou ExpressRoute), vous devez supprimer toutes les passerelles. Cette configuration nécessite que les réseaux virtuels soient connectés à la passerelle hub Virtual WAN.
-
-* Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Elle ne peut pas non plus chevaucher vos plages d’adresses auxquelles vous vous connectez en local. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
-
-* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Créer un WAN virtuel
 
@@ -80,7 +74,7 @@ Au cours de cette étape, vous connectez votre site VPN au hub.
 Utilisez la configuration de périphérique VPN pour configurer votre périphérique VPN local.
 
 1. Dans la page de votre réseau étendu virtuel, cliquez sur **Vue d’ensemble**.
-2. En haut de la page **Hub ->VPNSite**, cliquez sur **Télécharger la configuration VPN**. Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[emplacement] », où emplacement est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
+2. En haut de la page **Hub ->VPNSite** , cliquez sur **Télécharger la configuration VPN**. Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[emplacement] », où emplacement est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
 3. Une fois que le fichier a terminé la création, vous pouvez cliquer sur le lien pour le télécharger.
 4. Appliquez la configuration à votre périphérique VPN local.
 
@@ -107,7 +101,7 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Détails de configuration de connexion de passerelle VPN**, comme BGP, une clé prépartagée, etc. La clé PSK est la clé prépartagée automatiquement générée pour vous. Vous pouvez toujours modifier la connexion dans la page Vue d’ensemble pour une clé PSK personnalisée.
+    * **Détails de configuration de connexion de passerelle VPN** , comme BGP, une clé prépartagée, etc. La clé PSK est la clé prépartagée automatiquement générée pour vous. Vous pouvez toujours modifier la connexion dans la page Vue d’ensemble pour une clé PSK personnalisée.
   
 ### <a name="example-device-configuration-file"></a>Exemple de fichier de configuration de périphérique
 
@@ -233,14 +227,14 @@ Vous pouvez afficher et configurer les paramètres de votre passerelle VPN à to
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Capture d’écran montrant la page « VPN (site à site) » avec une flèche pointant vers l’action « Afficher/configurer »." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
-Sur la page **Modifier la passerelle VPN**, vous pouvez voir les paramètres suivants :
+Sur la page **Modifier la passerelle VPN** , vous pouvez voir les paramètres suivants :
 
 * Adresse IP publique de la passerelle VPN (affectée par Azure)
 * Adresse IP privée de la passerelle VPN (affectée par Azure)
 * Adresse IP BGP par défaut de la passerelle VPN (affectée par Azure)
 * Option de configuration de l’adresse IP BGP personnalisée : Ce champ est réservé à APIPA (Automatic Private IP Addressing). Azure prend en charge l’adresse IP BGP dans les plages 169.254.21.* et 169.254.22.*. Azure accepte les connexions BGP dans ces plages, mais établit la connexion avec l’adresse IP BGP par défaut.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Capture d’écran montrant la page « VPN (site à site) » avec une flèche pointant vers l’action « Afficher/configurer »." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Afficher la configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Supprimer des ressources
 

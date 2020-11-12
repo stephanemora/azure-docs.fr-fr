@@ -3,17 +3,19 @@ title: 'Tutoriel : Outil de migration de base de données pour Azure Cosmos DB'
 description: 'Tutoriel : Découvrez comment utiliser l’outil de migration de données open source Azure Cosmos DB pour importer des données dans Azure Cosmos DB depuis différentes sources, y compris des fichiers MongoDB, SQL Server, Stockage Table, Amazon DynamoDB, CSV et JSON. Conversion CSV vers JSON.'
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 8613d3b02d396f16008ee771cdff25fe8b2e2f10
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7823c63cf618808cb1ab4400c39f4bc64b7af338
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490643"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427545"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutoriel : Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Ce tutoriel explique comment utiliser l’outil de migration de données Azure Cosmos DB pour importer des données dans des conteneurs Azure Cosmos DB à partir de différentes sources. Vous pouvez importer à partir de fichiers JSON, de fichiers CSV, de SQL, de MongoDB, d’un stockage Table Azure, d’Amazon DynamoDB et même de collections d’API SQL Azure Cosmos DB. Vous migrez ces données vers des collections et des tables en vue de les utiliser avec Azure Cosmos DB. L’outil de migration de données peut également être utilisé pour migrer des données à partir d’une collection à partition unique vers une collection à plusieurs partitions pour l’API SQL.
 
@@ -340,7 +342,7 @@ dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;Ac
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:singleCollection /t.CollectionThroughput:2500
 
 #Export an Azure Cosmos container to a JSON file
-dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
+dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite
 ```
 
 > [!TIP]

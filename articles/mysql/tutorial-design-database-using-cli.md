@@ -1,19 +1,19 @@
 ---
 title: 'Tutoriel : Concevoir un serveur - Azure CLI - Azure Database pour MySQL'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database pour MySQL avec Azure CLI depuis la ligne de commande.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 06d8b7cdd6edb6ae3dad27a8a5f50443e3fc8969
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543948"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533597"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -27,6 +27,8 @@ Azure Database pour MySQL est un service de base de données relationnelle dans 
 > * Interroger des données
 > * Mettre à jour des données
 > * Restaurer des données
+
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -85,7 +87,7 @@ Pour vous connecter à votre serveur, vous devez fournir des informations sur l�
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin** .
+Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -175,9 +177,9 @@ Imaginez que vous avez supprimé cette table par erreur. Il s’agit de quelque 
 Pour effectuer la restauration, vous avez besoin des informations suivantes :
 
 - Point de restauration : sélectionnez un point dans le temps avant la modification du serveur. Doit être supérieure ou égale à la plus ancienne valeur de sauvegarde de la base de données source.
-- Serveur cible : indiquez le nom du nouveau serveur sur lequel vous souhaitez effectuer la restauration
+- Serveur cible : spécifiez un nouveau nom de serveur sur lequel vous souhaitez effectuer la restauration
 - Serveur source : indiquez le nom du serveur à partir duquel vous voulez effectuer la restauration
-- Localisation : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source
+- Emplacement : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
@@ -196,12 +198,25 @@ La restauration d’un serveur à un point antérieur dans le temps entraîne la
 
 La commande est synchrone ; elle est renvoyée après la restauration du serveur. Une fois la restauration terminée, recherchez le serveur créé. Vérifiez que les données ont été restaurées comme prévu.
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Si vous n’avez pas besoin de ces ressources pour un autre guide de démarrage rapide ou didacticiel, vous pouvez les supprimer en exécutant la commande suivante : 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+Si vous souhaitez simplement supprimer le serveur nouvellement créé, vous pouvez exécuter la commande [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Création d’un serveur Azure Database pour MySQL
 > * Configurer le pare-feu du serveur
-> * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) pour créer une base de données
+> * Utiliser l’outil en ligne de commande mysql pour créer une base de données
 > * Charger un exemple de données
 > * Interroger des données
 > * Mettre à jour des données

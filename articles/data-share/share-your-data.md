@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216587"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489469"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutoriel : Partagez des données avec Azure Data Share  
 
@@ -58,7 +58,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 * Accès au pare-feu SQL Server de l’adresse IP du client. Pour ce faire, procédez comme suit : 
     1. Dans SQL Server, dans le portail Azure, accédez à *Pare-feux et réseaux virtuels*
     1. Cliquez sur le bouton **activer** pour autoriser l’accès à Azure Services.
-    1. Cliquez sur **+ Ajouter une adresse IP de client**, puis cliquez sur **Enregistrer**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP. 
+    1. Cliquez sur **+ Ajouter une adresse IP de client** , puis cliquez sur **Enregistrer**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP. 
 
 ### <a name="share-from-azure-data-explorer"></a>Partager depuis Azure Data Explorer
 * Un cluster Azure Data Explorer avec des bases de données que vous voulez partager.
@@ -137,8 +137,15 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Sous l’onglet Review + Create (Revoir + Créer), passez en revue le contenu du package, les paramètres, les destinataires ainsi que les paramètres de synchronisation. Sélectionnez **Create** (Créer).
 
-Votre partage Azure Data Share est désormais créé. Le destinataire de votre partage Data Share est maintenant prêt à accepter votre invitation. 
+Votre partage Azure Data Share est désormais créé. Le destinataire de votre partage Data Share est maintenant prêt à accepter votre invitation.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Lorsque la ressource n’est plus nécessaire, accédez à la page **Vue d’ensemble du partage de données** , puis sélectionnez **Supprimer** pour la supprimer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer un partage Azure Data Share et à inviter des destinataires. Pour découvrir comment un consommateur de données peut accepter et recevoir un partage de données, passez au tutoriel [Accepter et recevoir des données](subscribe-to-data-share.md).
+Dans ce tutoriel, vous avez appris à créer un partage Azure Data Share et à inviter des destinataires. Pour découvrir comment un consommateur de données peut accepter et recevoir un partage de données, passez au tutoriel Accepter et recevoir des données.
+
+> [!div class="nextstepaction"]
+> [Tutoriel : Accepter et recevoir des données avec Azure Data Share](subscribe-to-data-share.md)
