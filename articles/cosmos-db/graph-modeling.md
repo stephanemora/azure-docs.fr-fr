@@ -1,18 +1,18 @@
 ---
 title: Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 description: Découvrez comment modéliser une base de données de graphe avec l’API Gremlin d’Azure Cosmos DB. Cet article explique à quel moment utiliser une base de données de graphe et précise les bonnes pratiques de modélisation des entités et des relations.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129641"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357043"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

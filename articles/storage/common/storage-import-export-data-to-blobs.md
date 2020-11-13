@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234118"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490880"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -71,7 +71,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 7. Pour préparer le disque, exécutez la commande suivante. **Selon la taille des données, l’opération peut durer plusieurs heures, voire plusieurs jours.**
 
     ```powershell
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
     Un fichier journal est créé dans le même dossier où vous avez exécuté l’outil. Deux autres fichiers sont également créés : un fichier *.xml* (dossier où vous exécutez l’outil) et un fichier *drive-manifest.xml* (dossier où se trouvent les données).

@@ -1,7 +1,7 @@
 ---
 title: Former un modèle à l’aide d’une image Docker personnalisée
 titleSuffix: Azure Machine Learning
-description: Apprenez à former des modèles avec des images Docker personnalisées dans Azure Machine Learning.
+description: Apprenez à utiliser vos propres images Docker ou celles de Microsoft et à effectuer l’apprentissage de modèles dans Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 4b4a1e601a5a0dbf5e56fc1d930e14150f27fee3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329115"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398230"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Former un modèle à l’aide d’une image Docker personnalisée
 
@@ -29,11 +29,11 @@ Exécutez le code sur l’un de ces environnements :
 
 * Instance de calcul Azure Machine Learning (ni téléchargement ni installation nécessaires) :
   * Pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel, effectuez[la configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
-  * Dans le [référentiel d’exemples](https://github.com/Azure/azureml-examples) d’Azure Machine Learning, recherchez un bloc-notes terminé en accédant au répertoire : **notebooks** > **fastai** > **train-pets-resnet34.ipynb** . 
+  * Dans le [référentiel d’exemples](https://github.com/Azure/azureml-examples) d’Azure Machine Learning, recherchez un bloc-notes terminé en accédant au répertoire : **notebooks** > **fastai** > **train-pets-resnet34.ipynb**. 
 * Votre propre serveur de Jupyter Notebook :
   * Créer un [fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
-  * Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-  * Créez un [registre de conteneurs Azure](/azure/container-registry) ou autre registre Docker accessible sur Internet.
+  * Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+  * Créez un [registre de conteneurs Azure](../container-registry/index.yml) ou autre registre Docker accessible sur Internet.
 
 ## <a name="set-up-a-training-experiment"></a>Configurer une expérience de formation
 
@@ -41,7 +41,7 @@ Dans cette section, vous allez configurer votre expérience de formation en init
 
 ### <a name="initialize-a-workspace"></a>Initialiser un espace de travail
 
-L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous offre un emplacement centralisé pour travailler avec tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
+L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous offre un emplacement centralisé pour travailler avec tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
 
 Créez un objet `Workspace` à partir du fichier config.son que vous avez créé en tant que [prérequis](#prerequisites).
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>Configurer votre tâche d’entraînement
 
-Pour ce tutoriel, utilisez le script de formation *train.py* sur [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). Dans la pratique, vous pouvez utiliser n’importe quel script de formation personnalisé et l’exécuter, comme c’est le cas, avec Azure Machine Learning.
+Pour ce tutoriel, utilisez le script de formation *train.py* sur [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/train/fastai/pets-resnet34/train.py). Dans la pratique, vous pouvez utiliser n’importe quel script de formation personnalisé et l’exécuter, comme c’est le cas, avec Azure Machine Learning.
 
 Créez `ScriptRunConfig` une ressource pour configurer votre travail en vue de son exécution sur la[cible de calcul](how-to-set-up-training-targets.md)souhaitée.
 
@@ -163,7 +163,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. Au lieu de cela, accédez à vos données à l’aide d’un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
+> Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. Au lieu de cela, accédez à vos données à l’aide d’un [magasin de données](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez formé un modèle à l’aide d’une image Docker personnalisée. Pour en savoir plus sur Azure Machine Learning, consultez les articles suivants :

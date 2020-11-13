@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521507"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377885"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -46,14 +46,12 @@ Les fonctionnalités suivantes font partie du service Speech. Pour en savoir plu
 
 Pour les étapes suivantes, vous devez disposer d'un compte Microsoft et d’un compte Azure. Si vous n’avez pas de compte Microsoft, vous pouvez vous inscrire gratuitement sur le [portail de compte Microsoft](https://account.microsoft.com/account). Sélectionnez **Se connecter avec Microsoft** puis, à l’invite de connexion, sélectionnez **Créer un compte Microsoft**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
 
-Lorsque vous disposez d’un compte Microsoft, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), sélectionnez **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft.
+Lorsque vous disposez d’un compte Microsoft, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), sélectionnez **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft. Voici une vidéo montrant [comment s’inscrire pour obtenir un compte gratuit Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> Le service Speech propose deux niveaux de service, gratuit et abonnement, chacun présentant des limitations et des avantages différents. Lorsque vous vous inscrivez pour obtenir un compte Azure gratuit, celui-ci est fourni avec 200 $ de crédit de service que vous pouvez utiliser pour un abonnement au service Speech payant, valide pendant 30 jours.
+> Quand vous vous inscrivez pour obtenir un compte Azure gratuit, celui-ci est fourni avec 200 $ de crédit de service que vous pouvez utiliser pour un abonnement au service Speech payant, valide pendant 30 jours. Vos services Azure sont désactivés dès que vous avez épuisé tous vos crédits ou que les crédits arrivent à expiration à la fin des 30 jours. Pour continuer à utiliser les services Azure, vous devez alors mettre à niveau votre compte. Pour plus d’informations, consultez [Guide pratique pour mettre à niveau votre compte gratuit Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
 >
-> Si vous utilisez le niveau de service Speech gratuit à faible volume, vous pouvez conserver cet abonnement gratuit, même après l’expiration de votre évaluation gratuite ou de votre crédit de service.
->
-> Pour plus d’informations, consultez [Tarifs de Cognitive Services - Service Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Le service Speech propose deux niveaux de service, gratuit (f0) et abonnement (s0), chacun présentant des limitations et des avantages différents. Si vous utilisez le niveau de service Speech gratuit à faible volume, vous pouvez conserver cet abonnement gratuit, même après l’expiration de votre évaluation gratuite ou de votre crédit de service. Pour plus d’informations, consultez [Tarifs de Cognitive Services - Service Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="create-the-azure-resource"></a>Créer une ressource Azure
 
@@ -72,11 +70,11 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 1. Sélectionnez **Créer** , puis :
 
    - Donnez un nom unique à votre nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements liés au même service.
-   - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
-   - Choisissez la [région](regions.md) où la ressource sera utilisée.
-   - Choisissez soit un niveau tarifaire payant (S0) ou gratuit (F0). Pour obtenir des informations complètes sur la tarification et les quotas d’utilisation pour chaque niveau, sélectionnez **Afficher tous les détails de la tarification**. Pour connaître les limites des ressources que vous pouvez créer pour chaque abonnement, consultez [Limites d’Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
+   - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés. Voici la présentation de la [marche à suivre pour créer un abonnement Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) dans le portail Azure.
+   - Choisissez la [région](regions.md) où la ressource sera utilisée. Azure est une plateforme cloud mondiale, disponible dans de nombreuses régions du monde. Pour obtenir des performances optimales, sélectionnez la région la plus proche de vous ou l’endroit où votre application s’exécute. Les disponibilités du service Speech varient selon les régions. Veillez à créer votre ressource dans une région prise en charge. Consultez la [prise en charge des régions pour les services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Choisissez soit un niveau tarifaire payant (S0) ou gratuit (F0). Pour obtenir des informations complètes sur les tarifs et les quotas d’utilisation pour chaque niveau, sélectionnez **Afficher tous les détails de la tarification** ou consultez les [tarifs des services vocaux](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Pour connaître les limites des ressources, consultez [Limites d’Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
-   - Sélectionnez **Create** (Créer). Cela vous permet d’atteindre la vue d’ensemble du déploiement et d’afficher les messages de progression de ce dernier.
+   - Sélectionnez **Create** (Créer). Cela vous permet d’atteindre la vue d’ensemble du déploiement et d’afficher les messages de progression de ce dernier.  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.

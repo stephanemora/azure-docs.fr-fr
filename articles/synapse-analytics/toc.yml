@@ -130,6 +130,8 @@
             - name: Résoudre les problèmes de connectivité de Synapse Studio
               href: troubleshoot/troubleshoot-synapse-studio-powershell.md
               displayname: powershell
+            - name: Résoudre les problèmes de connectivité entre Synapse Studio et Stockage
+              href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
     - name: Guides pratiques
       items:
         - name: Sécuriser

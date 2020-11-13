@@ -3,15 +3,17 @@ title: Surveiller les performances des applications web Java sur Linux - Azure |
 description: Surveillance étendue des performances des applications de votre site web Java avec le plug-in collectd pour Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761020"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379007"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd : métriques de performances Linux dans Application Insights
 
+> [!IMPORTANT]
+> L’approche recommandée pour surveiller des applications Java consiste à utiliser l’instrumentation automatique sans modifier le code. Suivez les instructions pour l’[agent Application Insights agent Java 3.0](./java-in-process-agent.md).
 
 Pour explorer les métriques de performances d’un système Linux dans [Application Insights](./app-insights-overview.md), installez [collectd](https://collectd.org/) et son plug-in Application Insights. Cette solution open source rassemble diverses statistiques concernant le système et le réseau.
 

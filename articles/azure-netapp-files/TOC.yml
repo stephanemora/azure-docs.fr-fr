@@ -11,8 +11,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Configurer Azure NetApp Files et créer un volume NFS - Modèle ARM
-      displayName: Resource Manager
+    - name: Configurer Azure NetApp Files et créer un volume NFS
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Concepts
   items:
@@ -114,8 +113,6 @@
           href: develop-rest-api-powershell.md
         - name: 'Kits SDK, outils CLI et modèles ARM'
           href: azure-netapp-files-sdk-cli.md
-        - name: Corriger les erreurs du fournisseur de ressources Azure NetApp Files
-          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Résoudre les problèmes
       items:
         - name: Résoudre les problèmes de pools de capacités
@@ -126,6 +123,8 @@
           href: troubleshoot-dual-protocol-volumes.md
         - name: Résoudre les problèmes de stratégies d’instantanés
           href: troubleshoot-snapshot-policies.md
+        - name: Résoudre les erreurs de fournisseur de ressources
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Informations de référence
   items:
     - name: REST
@@ -140,5 +139,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'
     - name: Contrat SLA
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
-    - name: Vidéos
+    - name: Videos
       href: azure-netapp-files-videos.md

@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7d969392c3245eb81ed07889bd956d2b8e8fb82f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 859325bffe1db9cd6a7afc7e5013681c88209eff
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234090"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491781"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -97,7 +97,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 5. Utilisez l’option `PrepImport` pour copier et préparer des données sur le lecteur de disque. Pendant la première session de copie, pour copier des répertoires et/ou des fichiers dans une nouvelle session de copie, exécutez la commande suivante :
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    Voici un exemple d’importation.

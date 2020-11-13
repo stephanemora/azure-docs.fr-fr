@@ -48,6 +48,22 @@
           href: tutorial-dr-drill-azure.md
         - name: Basculer vers Azure
           href: vmware-azure-tutorial-failover-failback.md
+    - name: Reprise d’activité Azure VMware Solution sur Azure
+      items:
+        - name: Préparer Azure
+          href: avs-tutorial-prepare-azure.md
+        - name: Préparer Azure VMware Solution
+          href: avs-tutorial-prepare-avs.md
+        - name: Configurer la réplication
+          href: avs-tutorial-replication.md
+        - name: Exécuter une simulation de récupération d'urgence
+          href: avs-tutorial-dr-drill-azure.md
+        - name: Basculer vers Azure
+          href: avs-tutorial-failover.md
+        - name: Reprotéger des machines virtuelles
+          href: avs-tutorial-reprotect.md
+        - name: Effectuer une restauration automatique à partir d’Azure
+          href: avs-tutorial-failback.md
     - name: Récupération d’urgence de machine virtuelle Hyper-V vers Azure
       items:
         - name: Préparer Azure

@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936088"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329491"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
-Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
+Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’ **Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. Si aucune colonne de limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables. Si ces limites ont été augmentées par le support dans le passé et si vous ne voyez pas les limites mises à jour dans les tables suivantes, vous pouvez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/templates/error-resource-quota.md)
@@ -55,6 +55,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresse IP publique<sup>1</sup> | 10 pour De base. | Contactez le support technique. |
 | Adresses IP publiques statiques<sup>1</sup> | 10 pour De base. | Contactez le support technique. |
 | Adresses IP publiques standard<sup>1</sup> | 10 | Contactez le support technique. |
+| [Adresses IP publiques par groupe de ressources](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contactez le support technique. | 
 | Préfixes d’adresses IP publiques | Limités par le nombre d’adresses IP publiques standard dans un abonnement | Contactez le support technique. |
 | Taille de préfixe d’adresse IP publique | /28 | Contactez le support technique. |
 
@@ -106,6 +107,6 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Itinéraires définis par l’utilisateur par table d’itinéraire |400 |400 |
 | Adresses IP publiques (dynamiques) |500 |500 |
 | Adresses IP publiques réservées |500 |500 |
-| Adresse IP virtuelle publique par déploiement |5 |Contacter le support technique |
-| Adresses IP virtuelles privées (équilibrage de charge interne) par déploiement |1 |1 |
+| IP publique par déploiement |5 |Contacter le support technique |
+| IP privée (équilibrage de charge interne) par déploiement |1 |1 |
 | Listes de contrôle d’accès (ACL) par point de terminaison |50 |50 |

@@ -451,6 +451,8 @@
           href: copy-activity-fault-tolerance.md
         - name: Vérification de la cohérence des données
           href: copy-activity-data-consistency.md
+        - name: Journal d’activité de copie
+          href: copy-activity-log.md
         - name: Prise en charge du format et de la compression (héritée)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Transformer les données

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322059"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410553"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Créer des flux de travail avec état ou sans état dans Visual Studio Code avec l’extension Azure Logic Apps (préversion)
 
@@ -109,8 +109,6 @@ Pour cette préversion publique, ces fonctionnalités ne sont pas disponibles ou
   À l’exception des déclencheurs spécifiés précédemment, les workflows *avec état* peuvent utiliser des déclencheurs et des actions pour les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors) déployés dans Azure par opposition aux déclencheurs et actions intégrés qui s’exécutent en mode natif avec le runtime Logic Apps. Actuellement, les flux de travail *sans état* prennent uniquement en charge les *actions* pour des connecteurs managés, pas pour des déclencheurs. Bien que vous puissiez activer des connecteurs dans Azure pour votre workflow sans état, le concepteur n’affiche aucun déclencheur de connecteur managé à sélectionner.
 
 * Vous pouvez déployer le nouveau type de ressource **Application logique (préversion)** uniquement dans un [plan d’hébergement Premium ou App Service dans Azure](#publish-azure) ou dans un [conteneur Docker](#deploy-docker), et non dans des [environnements de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Les plans d’hébergement dits **de consommation** ne sont pas pris en charge ni disponibles pour le déploiement de ce type de ressource.
-
-* Dans le portail Azure, vous ne pouvez pas créer d’applications logiques avec le nouveau type de ressource **Application logique (préversion)** . Vous ne pouvez créer ces applications logiques que dans Visual Studio Code. Toutefois, une fois que vous avez déployé des applications logiques avec ce type de ressource à partir de Visual Studio Code vers Azure, vous pouvez [ajouter de nouveaux flux de travail à ces applications logiques](#add-workflows).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -774,12 +772,7 @@ Dans Visual Studio Code, vous pouvez afficher toutes les applications logiques d
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Rechercher et gérer les applications logiques déployées dans le portail
 
-Dans le portail Azure, vous pouvez afficher toutes les applications logiques déployées qui se trouvent dans votre abonnement Azure, qu’il s’agisse du type de ressource **Logic Apps** d’origine ou du type de ressource **Logic Apps (préversion)** . Actuellement, chaque type de ressource est organisé et géré en tant que catégorie distincte dans Azure.
-
-> [!NOTE]
-> Pour la préversion publique, vous pouvez uniquement afficher les ressources **Logic Apps (préversion)** déployées dans le portail Azure, pas en créer. Vous ne pouvez créer ces applications logiques que dans Visual Studio Code. Toutefois, vous pouvez [ajouter des flux de travail](#add-workflows) à des applications logiques déployées avec ce type de ressource.
-
-Pour rechercher les applications logiques dont le type de ressource est **Logic Apps (préversion)** , procédez comme suit :
+Dans le portail Azure, vous pouvez afficher toutes les applications logiques déployées qui se trouvent dans votre abonnement Azure, qu’il s’agisse du type de ressource **Logic Apps** d’origine ou du type de ressource **Logic Apps (préversion)** . Actuellement, chaque type de ressource est organisé et géré en tant que catégorie distincte dans Azure. Pour rechercher les applications logiques dont le type de ressource est **Logic Apps (préversion)** , procédez comme suit :
 
 1. Dans la zone de recherche du portail Azure, entrez `logic app preview`. Lorsque la liste des résultats s’affiche, sous **Services** , sélectionnez **Logic Apps (préversion)** .
 

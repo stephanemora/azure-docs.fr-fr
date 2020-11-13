@@ -4,16 +4,16 @@ description: Fichier Include
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132883"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386482"
 ---
 Ce guide de démarrage rapide basé sur Postman vous aide à obtenir une réponse de votre base de connaissances.
 
@@ -28,6 +28,8 @@ Ce guide de démarrage rapide basé sur Postman vous aide à obtenir une répons
 > Quand vous êtes prêt à générer une réponse à une question issue de votre base de connaissances, vous devez [entraîner](../Quickstarts/create-publish-knowledge-base.md#save-and-train) et [publier](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) votre base de connaissances. Une fois votre base de connaissances publiée, la page **Publier** affiche les paramètres de requête HTTP pour générer une réponse. L’onglet **Postman** présente les paramètres nécessaires pour générer une réponse.
 
 ## <a name="set-up-postman-for-requests"></a>Configurer Postman pour les requêtes
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Ce guide de démarrage rapide utilise les mêmes paramètres pour la requête **POST** Postman, puis configure le JSON du corps POST envoyé au service en fonction de ce que vous essayez d’interroger.
 
@@ -44,6 +46,25 @@ Utilisez cette procédure pour configurer Postman, puis lisez chaque section sui
     ||`{"question":"<Your question>"}`|Corps de la requête POST sous forme d’objet JSON. Cette valeur est modifiée dans chaque section suivante en fonction de ce que la requête est censée faire.|
 
 1. Ouvrez Postman et créez un requête **POST** de base avec les paramètres de votre base de connaissances publiée. Dans les sections suivantes, modifiez le JSON du corps POST pour changer la requête adressée à votre base de connaissances.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Ce guide de démarrage rapide utilise les mêmes paramètres pour la requête **POST** Postman, puis configure le JSON du corps POST envoyé au service en fonction de ce que vous essayez d’interroger.
+
+Utilisez cette procédure pour configurer Postman, puis lisez chaque section suivante pour configurer le JSON du corps POST.
+
+1. À partir de la page **Paramètres** de la base de connaissances, sélectionnez l’onglet **Postman** pour voir la configuration utilisée pour générer une réponse de la base de connaissances. Copiez les informations suivantes à utiliser dans Postman.
+
+    |Nom|Paramètre|Objectif et valeur|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Il s’agit de la méthode HTTP et de la route de l’URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Il s’agit de l’hôte de l’URL. Concaténez les valeurs Host et Post pour obtenir l’URL generateAnswer complète.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Valeur d’en-tête nécessaire pour autoriser votre requête. |
+    |`Content-type`|`application/json`|Valeur d’en-tête de votre contenu.|
+    ||`{"question":"<Your question>"}`|Corps de la requête POST sous forme d’objet JSON. Cette valeur est modifiée dans chaque section suivante en fonction de ce que la requête est censée faire.|
+
+1. Ouvrez Postman et créez un requête **POST** de base avec les paramètres de votre base de connaissances publiée. Dans les sections suivantes, modifiez le JSON du corps POST pour changer la requête adressée à votre base de connaissances.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Utiliser des métadonnées pour filtrer la réponse
 

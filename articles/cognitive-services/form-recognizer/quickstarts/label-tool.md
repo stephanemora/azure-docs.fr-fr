@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976145"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360868"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -32,11 +32,19 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 * Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="créez une ressource Form Recognizer"  target="_blank">créer une ressource Form Recognizer<span class="docon docon-navigate-external x-hidden-focus"></span></a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Form Recognizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-* Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip*). Chargez les fichiers d’apprentissage à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure offrant un niveau de performance standard.
+* Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip* ). Chargez les fichiers d’apprentissage à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure offrant un niveau de performance standard.
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>Faire un essai
+
+Pour essayer en ligne l’outil d’étiquetage des exemples Form Recognizer, accédez au [site web FOTT](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Outil d’étiquetage des exemples Form Recognizer](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurer l’outil d’étiquetage des exemples
 
@@ -121,7 +129,7 @@ Pour créer une connexion, cliquez sur l’icône **Nouvelles connexions** (fich
 Renseignez les champs avec les valeurs suivantes :
 
 * **Display Name** (nom d’affichage) : nom d’affichage de la connexion.
-* **Description** : description de votre projet.
+* **Description**  : description de votre projet.
 * **SAS URL** (URL SAS) : URL de signature d’accès partagé (SAS) de votre conteneur Stockage Blob Azure. Pour récupérer l’URL SAS, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Définissez le délai d’expiration sur une heure à laquelle vous aurez fini d’utiliser le service. Assurez-vous que les autorisations **Read** (Lecture), **Write** (Écriture), **Delete** (Suppression) et **List** (Listage) sont cochées, puis cliquez sur **Create** (Créer). Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
@@ -137,9 +145,9 @@ Dans l’outil d’étiquetage des exemples, les projets stockent vos configurat
 * **Folder Path** (Chemin du dossier) : (facultatif) Si vos formulaires sources se trouvent dans un dossier sur le conteneur d’objets blob, spécifiez le nom du dossier ici.
 * **Form Recognizer Service Uri** (URI du service Form Recognizer) : votre URL de point de terminaison Form Recognizer.
 * **API Key** (Clé API) : votre clé d’abonnement Form Recognizer.
-* **Description** : (facultatif) Description du projet
+* **Description**  : (facultatif) Description du projet
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Page de nouveau projet dans l’outil d’étiquetage des exemples.":::
 
 ## <a name="label-your-forms"></a>Étiqueter vos formulaires
 
@@ -155,7 +163,7 @@ Cliquez sur **Run OCR on all files** (Exécuter l’OCR sur tous les fichiers) d
 
 Il indique aussi les tables qui ont été automatiquement extraites. Cliquez sur l’icône de table/grille à gauche du document pour voir la table extraite. Dans ce démarrage rapide, le contenu des tables étant automatiquement extrait, nous n’étiquèterons pas le contenu des tables et ferons confiance à l’extraction automatisée.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualisation d’une table dans l’outil d'étiquetage des exemples.":::
 
 ### <a name="apply-labels-to-text"></a>Appliquer des étiquettes à du texte
 
@@ -201,7 +209,7 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Fenêtre principale de l’éditeur de l’outil d’étiquetage des exemples.":::
 
 
 Effectuez les étapes ci-dessus pour étiqueter au moins cinq de vos formulaires.
@@ -251,12 +259,12 @@ Les types et variantes de valeurs suivants sont actuellement pris en charge :
 
 Dans le volet gauche, cliquez sur l’icône d’entraînement (wagon) pour ouvrir la page Training (Entraînement). Cliquez ensuite sur le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
 
-* **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sûr. Vous en aurez besoin si vous souhaitez effectuer des appels de prédiction via l’[API REST](./curl-train-extract.md) pi une [bibliothèque de client](./client-library.md).
-* **Average Accuracy** : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires et d’ajouter des formulaires en fonction des besoins.
+* **Model ID**  : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sûr. Vous en aurez besoin si vous souhaitez effectuer des appels de prédiction via l’[API REST](./curl-train-extract.md) pi une [bibliothèque de client](./client-library.md).
+* **Average Accuracy**  : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires et d’ajouter des formulaires en fonction des besoins.
 * Liste des étiquettes et justesse estimée par étiquette.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vue de l’entraînement.":::
 
 Une fois l’entraînement terminé, examinez la valeur **Average Accuracy**. Si cette valeur est petite, vous devez ajouter d’autres documents d’entrée et répéter les étapes ci-dessus. Les documents que vous avez déjà étiquetés sont conservés dans l’index du projet.
 
@@ -275,7 +283,7 @@ Avec Model Compose (Composition de modèles), vous pouvez composer jusqu’à 10
 
 Pour composer des modèles dans l’outil d’étiquetage des exemples, cliquez sur l’icône Model Compose (flèche de fusion) à gauche. À gauche, sélectionnez les modèles que vous souhaitez composer ensemble. Les modèles présentant une icône de flèche sont déjà des modèles composés. Cliquez sur le bouton « Compose » (Composer). Dans la fenêtre contextuelle, nommez votre nouveau modèle composé, puis cliquez sur « Compose » (Composer). Une fois l’opération terminée, le nouveau modèle composé apparaît dans la liste. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Vue UX de composition de modèles.":::
 
 ---
 

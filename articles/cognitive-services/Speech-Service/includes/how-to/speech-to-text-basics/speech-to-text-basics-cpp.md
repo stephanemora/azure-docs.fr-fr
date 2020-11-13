@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 6240cdb184e0e226e5d407c8d24fed7395a285c2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 434548d7d00468605ad0f1a52af99fbc4278adc1
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136207"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482702"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -31,7 +31,7 @@ Avant de pouvoir faire quoi que ce soit, vous devez installer le SDK Speech. Sui
 
 ## <a name="create-a-speech-configuration"></a>Créer une configuration Speech
 
-Pour appeler le service Speech à l’aide du SDK Speech, vous devez créer une classe [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig). Celle-ci comprend des informations sur votre abonnement, telles que votre clé et la région, le point de terminaison, l’hôte ou le jeton d’autorisation associés. Créez une [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) à l’aide de votre clé et de votre région. Consultez la page de [prise en charge des régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) pour rechercher l’identificateur de votre région.
+Pour appeler le service Speech à l’aide du SDK Speech, vous devez créer une classe [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig). Celle-ci comprend des informations sur votre abonnement, telles que votre clé et la région, le point de terminaison, l’hôte ou le jeton d’autorisation associés. Créez une [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) à l’aide de votre clé et de votre région. Consultez la page [Rechercher les clés et la région](../../../overview.md#find-keys-and-region) pour rechercher votre paire clé-région.
 
 ```cpp
 using namespace std;
@@ -40,7 +40,7 @@ using namespace Microsoft::CognitiveServices::Speech;
 auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 ```
 
-Vous pouvez initialiser une [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) de plusieurs autres façons :
+Vous pouvez initialiser une [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) de plusieurs autres façons :
 
 * Avec un point de terminaison : transmettez un point de terminaison de service Speech. Une clé ou un jeton d’autorisation est facultatif.
 * Avec un hôte : transmettez une adresse d’hôte. Une clé ou un jeton d’autorisation est facultatif.
@@ -51,7 +51,7 @@ Vous pouvez initialiser une [`SpeechConfig`](https://docs.microsoft.com/cpp/cogn
 
 ## <a name="recognize-from-microphone"></a>Reconnaître la voix provenant d’un microphone
 
-Pour reconnaître la voix à l’aide du microphone de votre appareil, créez une `AudioConfig` en utilisant `FromDefaultMicrophoneInput()`. Initialisez ensuite un [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), en transmettant vos `audioConfig` et `config`.
+Pour reconnaître la voix à l’aide du microphone de votre appareil, créez une `AudioConfig` en utilisant `FromDefaultMicrophoneInput()`. Initialisez ensuite un [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer), en transmettant vos `audioConfig` et `config`.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -68,7 +68,7 @@ Si vous souhaitez utiliser un périphérique d’entrée audio *spécifique* , v
 
 ## <a name="recognize-from-file"></a>Reconnaître la voix à partir d’un fichier
 
-Si vous souhaitez reconnaître la voix à partir d’un fichier audio au lieu d’utiliser un microphone, vous devez quand même créer un objet `AudioConfig`. Toutefois, quand vous créez l’objet [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), au lieu d’appeler `FromDefaultMicrophoneInput()`, vous appelez `FromWavFileInput()` et transmettez le chemin du fichier.
+Si vous souhaitez reconnaître la voix à partir d’un fichier audio au lieu d’utiliser un microphone, vous devez quand même créer un objet `AudioConfig`. Toutefois, quand vous créez l’objet [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig), au lieu d’appeler `FromDefaultMicrophoneInput()`, vous appelez `FromWavFileInput()` et transmettez le chemin du fichier.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -82,17 +82,17 @@ cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 
 ## <a name="recognize-speech"></a>Reconnaissance vocale
 
-La [classe SpeechRecognizer](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) pour le SDK Speech pour C++ expose quelques méthodes que vous pouvez utiliser pour la reconnaissance vocale.
+La [classe SpeechRecognizer](/cpp/cognitive-services/speech/speechrecognizer) pour le SDK Speech pour C++ expose quelques méthodes que vous pouvez utiliser pour la reconnaissance vocale.
 
 ### <a name="single-shot-recognition"></a>Reconnaissance unique
 
-La reconnaissance unique reconnaît de manière asynchrone un énoncé unique. La fin d’un énoncé unique est déterminée par la détection du silence à la fin, ou après que 15 secondes d’audio ont été traitées. Voici un exemple de reconnaissance asynchrone unique à l’aide de [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) :
+La reconnaissance unique reconnaît de manière asynchrone un énoncé unique. La fin d’un énoncé unique est déterminée par la détection du silence à la fin, ou après que 15 secondes d’audio ont été traitées. Voici un exemple de reconnaissance asynchrone unique à l’aide de [`RecognizeOnceAsync`](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) :
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();
 ```
 
-Vous devrez écrire du code pour gérer le résultat. Cet exemple évalue [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason) :
+Vous devrez écrire du code pour gérer le résultat. Cet exemple évalue [`result->Reason`](/cpp/cognitive-services/speech/recognitionresult#reason) :
 
 * Imprime le résultat de la reconnaissance : `ResultReason::RecognizedSpeech`
 * S’il n’existe aucune correspondance de reconnaissance, informez l’utilisateur : `ResultReason::NoMatch`
@@ -126,9 +126,9 @@ switch (result->Reason)
 
 ### <a name="continuous-recognition"></a>Reconnaissance continue
 
-La reconnaissance continue est un peu plus complexe que la reconnaissance unique. Pour obtenir les résultats de la reconnaissance, vous devez vous abonner aux événements `Recognizing`, `Recognized` et `Canceled`. Pour arrêter la reconnaissance, vous devez appeler [StopContinuousRecognitionAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Voici un exemple de reconnaissance continue sur un fichier d’entrée audio.
+La reconnaissance continue est un peu plus complexe que la reconnaissance unique. Pour obtenir les résultats de la reconnaissance, vous devez vous abonner aux événements `Recognizing`, `Recognized` et `Canceled`. Pour arrêter la reconnaissance, vous devez appeler [StopContinuousRecognitionAsync](/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Voici un exemple de reconnaissance continue sur un fichier d’entrée audio.
 
-Commençons par définir l’entrée et initialiser un [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) :
+Commençons par définir l’entrée et initialiser un [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer) :
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -141,12 +141,12 @@ Ensuite, nous allons créer une variable pour gérer l’état de la reconnaissa
 promise<void> recognitionEnd;
 ```
 
-Nous allons nous abonner aux événements envoyés à partir du [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
+Nous allons nous abonner aux événements envoyés à partir du [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer).
 
-* [`Recognizing`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizing) : signal pour les événements contenant des résultats de reconnaissance intermédiaires.
-* [`Recognized`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognized) : signal pour les événements contenant des résultats de reconnaissance finaux (indiquant une tentative de reconnaissance réussie).
-* [`SessionStopped`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped) : signal pour les événements indiquant la fin d’une session de reconnaissance (opération).
-* [`Canceled`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#canceled) : signal pour les événements contenant des résultats de reconnaissance annulés (indiquant une tentative de reconnaissance qui a été annulée suite une requête d’annulation directe ou à un échec de transport ou de protocole).
+* [`Recognizing`](/cpp/cognitive-services/speech/asyncrecognizer#recognizing) : signal pour les événements contenant des résultats de reconnaissance intermédiaires.
+* [`Recognized`](/cpp/cognitive-services/speech/asyncrecognizer#recognized) : signal pour les événements contenant des résultats de reconnaissance finaux (indiquant une tentative de reconnaissance réussie).
+* [`SessionStopped`](/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped) : signal pour les événements indiquant la fin d’une session de reconnaissance (opération).
+* [`Canceled`](/cpp/cognitive-services/speech/asyncrecognizer#canceled) : signal pour les événements contenant des résultats de reconnaissance annulés (indiquant une tentative de reconnaissance qui a été annulée suite une requête d’annulation directe ou à un échec de transport ou de protocole).
 
 ```cpp
 recognizer->Recognizing.Connect([](const SpeechRecognitionEventArgs& e)
@@ -187,7 +187,7 @@ recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
     });
 ```
 
-Tout étant configuré, nous pouvons maintenant appeler [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync).
+Tout étant configuré, nous pouvons maintenant appeler [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync).
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
@@ -204,7 +204,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 
 Quand vous utilisez la reconnaissance continue, vous pouvez activer le traitement de la dictée en utilisant la fonction « enable dictation » correspondante. Dans ce mode, l’instance de configuration vocale interprète les descriptions verbales de structures de phrase comme la ponctuation. Par exemple, l’énoncé « Habitez-vous en ville point d’interrogation » donne le texte « Habitez-vous en ville ? ».
 
-Pour activer le mode dictée, utilisez la méthode [`EnableDictation`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation) sur votre [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+Pour activer le mode dictée, utilisez la méthode [`EnableDictation`](/cpp/cognitive-services/speech/speechconfig#enabledictation) sur votre [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig).
 
 ```cpp
 config->EnableDictation();
@@ -212,13 +212,13 @@ config->EnableDictation();
 
 ## <a name="change-source-language"></a>Changer la langue source
 
-Une tâche courante pour la reconnaissance vocale consiste à spécifier la langue d’entrée (ou source). Examinons comment choisir l’allemand comme langue d’entrée. Dans votre code, recherchez votre [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), puis ajoutez cette ligne directement en dessous.
+Une tâche courante pour la reconnaissance vocale consiste à spécifier la langue d’entrée (ou source). Examinons comment choisir l’allemand comme langue d’entrée. Dans votre code, recherchez votre [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig), puis ajoutez cette ligne directement en dessous.
 
 ```cpp
 config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) est un paramètre qui prend une chaîne comme argument. Vous pouvez fournir n’importe quelle valeur figurant dans la liste des [paramètres régionaux/langues](../../../language-support.md) pris en charge.
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) est un paramètre qui prend une chaîne comme argument. Vous pouvez fournir n’importe quelle valeur figurant dans la liste des [paramètres régionaux/langues](../../../language-support.md) pris en charge.
 
 ## <a name="improve-recognition-accuracy"></a>Améliorer la justesse de la reconnaissance
 
@@ -227,9 +227,9 @@ Il existe plusieurs façons d’améliorer la justesse de la reconnaissance avec
 > [!IMPORTANT]
 > La fonctionnalité Listes d’expressions est disponible uniquement en anglais.
 
-Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar), puis ajoutez des mots et des expressions spécifiques avec [`AddPhrase`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
+Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar), puis ajoutez des mots et des expressions spécifiques avec [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
 
-Les modifications apportées à [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar) prennent effet lors de la reconnaissance suivante ou après une reconnexion au service Speech.
+Les modifications apportées à [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) prennent effet lors de la reconnaissance suivante ou après une reconnexion au service Speech.
 
 ```cpp
 auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);

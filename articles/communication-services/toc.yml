@@ -72,10 +72,12 @@
       href: concepts/call-flows.md
     - name: Bibliothèques de client et API REST
       href: concepts/sdk-options.md
-    - name: Modèle de tarification
+    - name: Modèle tarifaire
       href: concepts/pricing.md
     - name: Confidentialité
       href: concepts/privacy.md
+    - name: Modèle d’identité
+      href: concepts/identity-model.md
     - name: Authentification
       href: concepts/authentication.md
     - name: Gestion des événements
