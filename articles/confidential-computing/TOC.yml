@@ -69,7 +69,7 @@
     - name: Consortium sur l’informatique confidentielle
       href: 'https://confidentialcomputing.io/'
     - name: Machines virtuelles sur Azure
-      href: 'https://docs.microsoft.com/azure/virtual-machines/'
+      href: ../virtual-machines/index.yml
     - name: Tarifs
       href: 'https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2'
     - name: Régions

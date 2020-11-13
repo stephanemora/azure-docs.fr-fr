@@ -106,8 +106,10 @@
           href: concept-disaster-recovery.md
 - name: Guides pratiques
   items:
-    - name: Activer une fonctionnalité pour une partie des utilisateurs
+    - name: Activer une fonctionnalité pour un pourcentage d’utilisateurs
       href: howto-feature-filters-aspnet-core.md
+    - name: Activer une fonctionnalité pour des utilisateurs/groupes spécifiés
+      href: howto-targetingfilter-aspnet-core.md
     - name: Utiliser des étiquettes pour la configuration par environnement
       href: howto-labels-aspnet-core.md
     - name: Importer ou exporter des données de configuration
