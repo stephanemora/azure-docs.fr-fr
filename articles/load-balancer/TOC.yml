@@ -67,9 +67,9 @@
       href: load-balancer-ha-ports-overview.md
     - name: Plusieurs serveurs frontaux
       href: load-balancer-multivip-overview.md
-    - name: Proxy sortant
+    - name: SNAT pour les connexions sortantes vers Internet
       href: load-balancer-outbound-connections.md
-    - name: Règles de trafic sortant
+    - name: Configuration de règles de trafic sortant
       href: outbound-rules.md
     - name: Réinitialisation du protocole TCP pendant le délai d’inactivité
       href: load-balancer-tcp-reset.md
