@@ -28,8 +28,6 @@
       items:
         - name: Changer la langue source de la reconnaissance vocale
           href: how-to-specify-source-language.md
-        - name: Améliorer la précision avec Custom Speech
-          href: how-to-custom-speech.md
         - name: Utiliser des formats d’entrée audio compressés
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: Personnalisation
       items:
+        - name: "Qu’est-ce que Custom Speech\_?"
+          href: custom-speech-overview.md
         - name: Tester un modèle avec des fichiers audio dans Speech Studio
           href: quickstarts/speech-studio-test-model.md
         - name: Préparer des données pour Custom Speech
           href: how-to-custom-speech-test-and-train.md
         - name: Inspecter des données Custom Speech
           href: how-to-custom-speech-inspect-data.md
-        - name: Évaluer la précision de Custom Speech
+        - name: Évaluer et améliorer la justesse de Custom Speech
           href: how-to-custom-speech-evaluate-data.md
-        - name: Améliorer la justesse de Custom Speech
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Entraîner un modèle pour Custom Speech
+        - name: Entraîner et déployer un modèle Custom Speech
           href: how-to-custom-speech-train-model.md
-        - name: Déployer un modèle personnalisé
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD pour Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Créer des transcriptions étiquetées par l’homme
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Exporter votre application Commandes personnalisées en tant que compétence
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: Mettre à jour une commande à partir de l’application cliente
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Mettre à jour une commande à partir d’un point de terminaison web
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Déployer
                   items:
                     - name: Déploiement continu avec Azure DevOps
