@@ -8,7 +8,6 @@
     - name: Magasins de données pris en charge
       href: supported-data-stores.md
 - name: Démarrages rapides
-  expanded: true
   items:
     - name: Partager les données - Portail Azure
       href: share-your-data-portal.md
@@ -16,6 +15,7 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Tutoriels
+  expanded: true
   items:
     - name: Partager des données
       href: share-your-data.md
