@@ -143,10 +143,12 @@
               href: azure-vm-create-properties.md
             - name: Configurer l’annonce d’une offre de machine virtuelle
               href: azure-vm-create-listing.md
-            - name: Créer des plans de machine virtuelle
-              href: azure-vm-create-plans.md
             - name: Ajouter un public pour la préversion
               href: azure-vm-create-preview.md
+            - name: Créer des plans de machine virtuelle
+              href: azure-vm-create-plans.md
+            - name: Revendre via des fournisseurs de solutions cloud
+              href: azure-vm-create-resell-csp.md
             - name: Créer des ressources techniques pour les machines virtuelles
               items:
                 - name: Créer une machine virtuelle à partir d’une base approuvée

@@ -36,6 +36,10 @@
       href: front-door-quickstart-template-samples.md
 - name: Concepts
   items:
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Pools de serveurs principaux et de serveur principal
       href: front-door-backend-pool.md
     - name: Mise en cache avec Front Door

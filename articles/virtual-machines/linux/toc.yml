@@ -45,7 +45,7 @@
     - name: 13 - Superviser les machines virtuelles
       href: tutorial-monitor.md
     - name: 14 - Gérer la sécurité des machines virtuelles
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15a - Générer avec Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 15b - Intégrer Jenkins avec Azure DevOps
@@ -194,7 +194,7 @@
           href: ../generation-2.md
         - name: Usage général
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../sizes-general.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: "Série\_Av2"
               href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -214,7 +214,7 @@
               href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Optimisé pour le calcul
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../sizes-compute.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Série Fsv2
               href: ../fsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -627,7 +627,7 @@
               href: disk-encryption-faq.md
             - name: Chiffrement de disque - version précédente
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   href: disk-encryption-overview-aad.md
                 - name: Coffre de clés pour Azure Disk Encryption
                   href: disk-encryption-key-vault-aad.md
@@ -687,7 +687,15 @@
         - name: Synchronisation de l’heure
           href: time-sync.md
         - name: Ajouter des balises à une machine virtuelle
-          href: tag.md
+          items:
+            - name: Interface de ligne de commande
+              href: ../tag-cli.md
+            - name: Portail
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: Modèle
+              href: ../tag-template.md
         - name: Exécuter des scripts sur une machine virtuelle
           href: run-scripts-in-vm.md
           items:
@@ -728,7 +736,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../maintenance-notifications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
