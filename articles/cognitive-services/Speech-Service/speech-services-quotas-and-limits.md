@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567160"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345395"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quotas et limites des services de reconnaissance vocale
 
@@ -24,20 +24,35 @@ Cet article contient une référence rapide et la **description détaillée** de
 ## <a name="quotas-and-limits-quick-reference"></a>Référence rapide sur les quotas et limites
 Passer à [Quotas et limites de la synthèse vocale](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Quotas et limites de reconnaissance vocale par ressource vocale
-Dans le tableau ci-dessous, les paramètres sans ligne « Réglable » ne sont **pas** réglables, quel que soit le niveau de prix.
+Dans les tableaux ci-dessous, les paramètres sans ligne « Réglable » ne sont **pas** réglables, quel que soit le niveau de prix.
+
+#### <a name="online-transcription"></a>Transcription en ligne
 
 | Quota | Gratuit (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Limite de demandes simultanées de transcription en ligne (modèles de base et personnalisés)** |  |  |
-| Valeur par défaut | 1 | 20 |
+| **Limite des requêtes simultanées (modèles de base et personnalisés)** | 1 | 20 (valeur par défaut) |
 | Réglable | Non <sup>2</sup> | Oui<sup>2</sup> |
-| **Limite de demande d’API REST (points de terminaison de [Gestion des API](../../api-management/api-management-key-concepts.md))** | 100 demandes par 10 secondes | 100 demandes par 10 secondes |
-| **Taille maximale de fichier de jeu de données pour l’importation de données** | 2 Go | 2 Go |
-| **Taille maximale de blob d’entrée pour la transcription par lot** | N/A | 2,5 Go |
-| **Taille maximale de conteneur d’objets blob pour la transcription par lot** | N/A | 5 Go |
-| **Nombre maximal de blobs par conteneur pour la transcription par lot** | N/A | 10000 |
-| **Demande Nombre maximal de fichiers par demande de transcription pour la transcription par lots (en cas d’utilisation de plusieurs URL de contenu en entrée)** | N/A | 1 000  |
-| **Nombre maximal de travaux s’exécutant simultanément pour la transcription par lot** | N/A | 2000  |
+
+#### <a name="batch-transcription"></a>Transcription par lot
+| Quota | Gratuit (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| Limite d’API REST | La transcription Batch n’est pas disponible pour F0 | 300 requêtes par minute |
+| Taille maximale de fichier d’entrée audio | N/A | 1 Go |
+| Taille maximale de blob d’entrée (peut contenir plusieurs fichiers, par exemple, dans une archive zip ; veillez à noter la limite de taille de fichier indiquée ci-dessus). | N/A | 2,5 Go |
+| Taille maximale de conteneur blob | N/A | 5 Go |
+| Nombre maximal de blobs par conteneur | N/A | 10000 |
+| Requête Nombre maximal de fichiers par transcription (en cas d’utilisation de plusieurs URL de contenu en entrée) | N/A | 1 000  |
+| Nombre maximal de travaux exécutés simultanément | N/A | 2000  |
+
+#### <a name="model-customization"></a>Personnalisation des modèles
+| Quota | Gratuit (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| Limite d’API REST | 300 requêtes par minute | 300 requêtes par minute |
+| Nombre maximal de jeux de données vocaux | 2 | 500 |
+| Taille maximale de fichier de jeu de données acoustiques pour l’importation de données | 2 Go | 2 Go |
+| Taille maximale de fichier de jeu de données linguistiques pour l’importation de données | 200 Mo | 1,5 Go |
+| Taille maximale de fichier de jeu de données de prononciation pour l’importation de données | 1 Ko | 1 Mo |
+| Taille maximale de texte en cas d’utilisation du paramètre `text` dans une requête d’API de [création de modèle](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) | 200 Ko | 500 Ko |
 
 <sup>1</sup> Pour le niveau tarifaire **gratuit (F0)** , consultez également les allocations mensuelles sur la [page de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> Consultez les [explications supplémentaires](#detailed-description-quota-adjustment-and-best-practices), les [meilleures pratiques](#general-best-practices-to-mitigate-throttling-during-autoscaling) et les [instructions d’ajustement](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -57,7 +72,7 @@ Dans le tableau ci-dessous, les paramètres sans ligne « Réglable » ne sont
 | **Quotas spécifiques de WebSocket** |  |  |
 |Longueur maximale de l’audio produit par tour | 10 min | 10 min |
 |Taille maximale des messages SSML par tour |64 Ko |64 Ko |
-| **Limite de demandes d’API REST** | 20 demandes par minute | 25 demandes par 5 secondes |
+| **Limite d’API REST** | 20 demandes par minute | 25 demandes par 5 secondes |
 
 
 <sup>3</sup> Pour le niveau tarifaire **gratuit (F0)** , consultez également les allocations mensuelles sur la [page de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

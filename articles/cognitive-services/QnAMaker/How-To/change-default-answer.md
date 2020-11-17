@@ -4,27 +4,37 @@ description: La réponse par défaut est retournée quand il n’existe aucune c
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 07/13/2020
-ms.openlocfilehash: 14954f89fcdcbbc1ef4b8654582a3274f4bb0923
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: ceff3127eba724ba9aa9bc8f9398d0f27ba687eb
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776814"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376607"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Modifier la réponse par défaut pour une ressource QnA Maker
 
-La réponse par défaut d’une base de connaissances doit être retournée quand aucune réponse n’a été trouvée. Si vous utilisez une application cliente, telle que le [service Azure Bot](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs#calling-qna-maker-from-your-bot), celle-ci peut également avoir sa propre réponse par défaut, indiquant qu’aucune réponse n’a atteint le seuil de score.
+La réponse par défaut d’une base de connaissances doit être retournée quand aucune réponse n’a été trouvée. Si vous utilisez une application cliente, telle que le [service Azure Bot](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna), celle-ci peut également avoir sa propre réponse par défaut, indiquant qu’aucune réponse n’a atteint le seuil de score.
 
 ## <a name="types-of-default-answer"></a>Types de réponses par défaut
 
 Il existe deux types de réponses par défaut dans votre base de connaissances. Il est important de comprendre comment et quand chacune d’entre elles est retournée par une requête de prédiction :
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
-|Type de question|Description de la réponse|
+|Types de réponses par défaut|Description de la réponse|
 |--|--|
 |Réponse de la base de connaissances lorsqu’aucune réponse n’est déterminée|`No good match found in KB.` : lorsque l’[API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) ne trouve aucune réponse correspondante à la question, le paramètre `DefaultAnswer` du service d’application est retourné. Toutes les bases de connaissances de la même ressource QnA Maker partagent le même texte de réponse par défaut.<br>Vous pouvez gérer le paramètre dans le portail Azure, via le service d’application ou à l’aide des API REST pour [obtenir](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) ou [mettre à jour](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) le paramètre.|
 |Texte d’instruction de l’invite de suivi|Lorsque vous utilisez une invite de suivi dans un flux de conversation, il se peut que vous n’ayez pas besoin d’une réponse dans la paire question/réponse, car vous souhaitez que l’utilisateur choisisse parmi les invites de suivi. Dans ce cas, paramétrez un texte spécifique en définissant le texte de réponse par défaut, qui est retourné avec chaque prédiction pour les invites de suivi. Le texte est destiné à s’afficher sous la forme d’un texte d’instruction pour la sélection des invites de suivi. Un exemple de ce texte de réponse par défaut est `Please select from the following choices`. Cette configuration est expliquée dans les sections suivantes de ce document. Peut également être défini dans le cadre de la définition de la base de connaissances de `defaultAnswerUsedForExtraction` à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+|Types de réponses par défaut|Description de la réponse|
+|--|--|
+|Réponse de la base de connaissances lorsqu’aucune réponse n’est déterminée|`No good match found in KB.` - Lorsque l’[API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) ne trouve aucune réponse correspondante à la question, elle affiche une réponse texte par défaut. Dans QnA Maker managé (préversion), vous pouvez définir ce texte dans les **paramètres** de votre base de connaissances. <br><br> ![Définir la réponse par défaut dans QnA Maker managé (préversion)](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|Texte d’instruction de l’invite de suivi|Lorsque vous utilisez une invite de suivi dans un flux de conversation, il se peut que vous n’ayez pas besoin d’une réponse dans la paire question/réponse, car vous souhaitez que l’utilisateur choisisse parmi les invites de suivi. Dans ce cas, paramétrez un texte spécifique en définissant le texte de réponse par défaut, qui est retourné avec chaque prédiction pour les invites de suivi. Le texte est destiné à s’afficher sous la forme d’un texte d’instruction pour la sélection des invites de suivi. Un exemple de ce texte de réponse par défaut est `Please select from the following choices`. Cette configuration est expliquée dans les sections suivantes de ce document. Vous pouvez aussi le définir dans le cadre d’une définition de base de connaissances avec `defaultAnswerUsedForExtraction` à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+
+---
 
 ### <a name="client-application-integration"></a>Intégration d’applications clientes
 

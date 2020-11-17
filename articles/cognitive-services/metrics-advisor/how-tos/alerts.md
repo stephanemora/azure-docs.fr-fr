@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046789"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420918"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Procédure : Configurer des alertes et obtenir des notifications à l’aide d’un hook
 
@@ -28,7 +28,7 @@ Metrics Advisor prend en charge trois types de hooks différents : les hooks pa
 ### <a name="email-hook"></a>Hook par e-mail
 
 > [!Note]
-> Avant que des alertes d’anomalie ne puissent être envoyées, les administrateurs de ressources de Metrics Advisor doivent configurer les paramètres de messagerie et entrer les informations relatives à SMTP dans Metrics Advisor. L’administrateur du groupe de ressources ou l’administrateur des abonnements doit attribuer au moins un rôle *Administrateur Metrics Advisor Cognitive Services* dans l’onglet Contrôle d’accès de la ressource Metrics Advisor. 
+> Avant que des alertes d’anomalie ne puissent être envoyées, les administrateurs de ressources de Metrics Advisor doivent configurer les paramètres de messagerie et entrer les informations relatives à SMTP dans Metrics Advisor. L’administrateur du groupe de ressources ou l’administrateur des abonnements doit attribuer au moins un rôle *Administrateur Metrics Advisor Cognitive Services* dans l’onglet Contrôle d’accès de la ressource Metrics Advisor. [Découvrez-en plus sur la configuration des paramètres de messagerie](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 Pour créer un hook d’e-mail, les paramètres suivants sont disponibles : 
 
@@ -88,11 +88,11 @@ Pour créer un hook Azure DevOps, vous devrez ajouter les informations suivantes
 Accédez à la page de détails des métriques pour y rechercher la section **Paramètres d’alerte** en bas à gauche. Elle répertorie tous les paramètres d’alerte qui s’appliquent à la configuration de détection sélectionnée. Lorsqu’une nouvelle configuration de détection est créée, il n’existe aucun paramètre d’alerte et aucune alerte n’est envoyée.  
 Vous pouvez utiliser les icônes **Ajouter**, **Modifier** et **Supprimer** pour modifier les paramètres d’alerte.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="fenêtre de création de webhook.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Élément de menu Paramètres d’alerte.":::
 
 Cliquez sur le bouton **ajouter** ou **Modifier** pour obtenir une fenêtre permettant d’ajouter ou de modifier vos paramètres d’alerte.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="fenêtre de création de webhook.":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Ajouter ou modifier des paramètres d’alerte":::
 
 **Nom du paramètre d’alerte** : nom du paramètre d’alerte. Il s’affichera dans le titre de l’e-mail d’alerte.
 
@@ -134,7 +134,7 @@ Le sélecteur d’**Opérateur** est la relation logique de chaque section pour 
 |AND     | Envoyer une alerte uniquement si une série correspond à chaque section d’alerte et que tous les points de données sont des anomalies. Si les métriques ont des noms de dimensions différents, une alerte ne sera jamais déclenchée.         |
 |OU     | Envoyer l’alerte si au moins une section contient des anomalies.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="fenêtre de création de webhook.":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Section Opérateur pour plusieurs paramètres d’alerte":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

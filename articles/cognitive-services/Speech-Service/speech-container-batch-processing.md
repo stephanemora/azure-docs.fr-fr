@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425795"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356703"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de traitement par lots pour des conteneurs Speech
 
@@ -106,7 +106,7 @@ Le kit de traitement par lots propose trois modes, à l’aide du paramètre `--
 
 Le mode `ONESHOT` retranscrit un seul lot de fichiers audio (à partir d’un répertoire d’entrée et d’une liste de fichiers facultative) dans un dossier de sortie.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagramme montrant un exemple de flux de travail de conteneurs de kits par lots.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagramme montrant les fichiers de traitement de conteneur de kit par lot en mode OneShot.":::
 
 1. Définissez les points de terminaison de conteneur Speech que le client par lot utilisera dans le fichier `config.yaml`. 
 2. Placez les fichiers audio pour transcription dans un répertoire d’entrée.  
@@ -121,7 +121,7 @@ Le mode `ONESHOT` retranscrit un seul lot de fichiers audio (à partir d’un r�
 
 Le mode `DAEMON` configure les fichiers existants dans un dossier donné et retranscrit en permanence les nouveaux fichiers audio à mesure qu’ils sont ajoutés.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagramme montrant un exemple de flux de travail de conteneurs de kits par lots.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagramme montrant les fichiers de traitement de conteneur de kit par lot en mode Démon.":::
 
 1. Définissez les points de terminaison de conteneur Speech que le client par lot utilisera dans le fichier `config.yaml`. 
 2. Appelez le conteneur sur un répertoire d’entrée. Le client par lot commence à analyser le répertoire pour les fichiers entrants. 
@@ -134,7 +134,7 @@ Le mode `DAEMON` configure les fichiers existants dans un dossier donné et retr
 
 Le mode `REST` est un mode de serveur d’API qui fournit un ensemble de base de points de terminaison HTTP pour l’envoi par lots de fichiers audio, la vérification de l’état et l’interrogation longue. Active également la consommation de programmatique à l’aide d’une extension de module Python ou l’importation en tant que sous-module.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagramme montrant un exemple de flux de travail de conteneurs de kits par lots.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagramme montrant les fichiers de traitement de conteneur de kit par lot en mode REST.":::
 
 1. Définissez les points de terminaison de conteneur Speech que le client par lot utilisera dans le fichier `config.yaml`. 
 2. Envoyer une requête de requête HTTP à l’un des points de terminaison du serveur d’API. 

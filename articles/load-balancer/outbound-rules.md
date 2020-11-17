@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 51810876e3636b7023ce9c9318a071636bb00c4c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 947ecaa2efbfb013f1f3e8203d1c4296b9ca329f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002605"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422159"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Règles de trafic sortant Azure Load Balancer
 
-Les règles de trafic sortant vous permettent de configurer la SNAT (traduction d’adresses réseau source) sortante publiques dans Standard Load Balancer. Cette configuration vous permet d’utiliser la ou les adresses IP publique(s) de votre équilibreur de charge en tant que proxy.
+Les règles de trafic sortant vous permettent de définir explicitement la traduction d’adresses réseau sources (source network address translation, SNAT) pour un équilibreur de charge standard public. Cette configuration vous permet d’utiliser les adresses IP publiques de votre équilibreur de charge pour fournir une connectivité Internet sortante pour vos instances de serveur principal.
 
 Cette configuration permet :
 
@@ -37,14 +37,14 @@ Les règles de trafic sortant vous permettent de déterminer :
 
 * **Quelles machines virtuelles doivent être traduites vers quelles adresses IP publiques.**
      * Deux règles : le pool principal A utilise l’adresse IP A et B, le pool principal B utilise l’adresse IP C et D.
-* **Comment les ports SNAT de trafic sortant sont fournis.**
+* **Comment les ports SNAT de trafic sortant sont alloués.**
      * Le pool principal B est le seul pool effectuant des connexions sortantes, attribuez au pool principal B tous les ports SNAT et aucun au pool principal A.
 * **Les protocoles qui fournissent la traduction sortante.**
      * Le pool principal B a besoin de ports UDP pour le trafic sortant. Le pool principal A a besoin de TCP. Donnez les ports TCP à A et les ports UDP à B.
 * **La durée à utiliser comme délai d’inactivité des connexions sortantes ( 4 à 120 minutes).**
      * S’il existe des connexions de longue durée avec les KeepAlive, réservez les ports inactifs pour les connexions de longue durée pendant jusqu’à 120 minutes. Supposer que les connexions obsolètes sont abandonnées et les mettre en production les ports en 4 minutes pour les nouvelles connexions 
 * **La réinitialisation TCP au terme du délai d’inactivité.**
-     * lors du délai d’expiration des connexions inactives, est-ce que nous envoyons un RST TCP au client et au serveur afin qu’ils sachent que le flux est abandonné ?
+     * Lors de l’expiration des connexions inactives, est-ce que nous envoyons un RST TCP au client et au serveur afin qu’ils sachent que le flux est abandonné ?
 
 ## <a name="outbound-rule-definition"></a>Définition de règle de trafic sortant
 
@@ -98,6 +98,147 @@ Quand vous appliquez un groupe de sécurité réseau à une machine virtuelle à
 Assurez-vous que la machine virtuelle peut recevoir des demandes de sonde d’intégrité d’Azure Load Balancer.
 
 Si un groupe de sécurité réseau bloque les demandes de sonde d’intégrité depuis la balise par défaut AZURE_LOADBALANCER, votre sonde d’intégrité de la machine virtuelle échoue et la machine virtuelle est marquée comme non disponible. L’équilibreur de charge arrête l’envoi de nouveaux flux vers cette machine virtuelle.
+
+## <a name="scenarios-with-outbound-rules"></a>Scénarios avec règles de trafic sortant
+        
+
+### <a name="outbound-rules-scenarios"></a>Scénarios de règles de trafic sortant
+
+
+* Configurer des connexions sortantes pour un ensemble spécifique d’adresses IP publiques ou un préfixe d’adresse IP publique.
+* Modifier l’allocation de ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources).
+* Activer le trafic sortant uniquement.
+* NAT de trafic sortant pour les machines virtuelles uniquement (pas pour le trafic entrant).
+* NAT de trafic sortant pour un équilibreur de charge standard interne.
+* Activer les protocoles TCP et UDP pour la NAT de trafic sortant avec un équilibreur de charge standard public.
+
+
+### <a name="scenario-1-configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>Scénario 1 : Configurer des connexions sortantes pour un ensemble spécifique d’adresses IP publiques ou un préfixe d’adresse IP publique
+
+
+#### <a name="details"></a>Détails
+
+
+Utilisez ce scénario pour adapter les connexions sortantes à l’origine d’un ensemble d’adresses IP publiques. Ajoutez des adresses IP publiques ou des préfixes à une liste verte ou rouge en fonction de l’origine.
+
+
+Cette adresse IP publique ou ce préfixe d’adresse IP publique peuvent être les mêmes que ceux utilisés par une règle d’équilibrage de charge. 
+
+
+Pour utiliser une adresse IP publique ou un préfixe adresse IP publique différents de ceux utilisés par une règle d’équilibrage de charge : 
+
+
+1. Créez un préfixe d’adresse IP publique ou une adresse IP publique.
+2. Créez un équilibreur de charge standard public. 
+3. Créez un serveur frontal référençant le préfixe d’adresse IP publique ou l’adresse IP publique que vous souhaitez utiliser. 
+4. Réutilisez ou créez un pool principal, et placez les machines virtuelles dans un pool principal de l’équilibreur de charge public.
+5. Configurez une règle de trafic sortant sur l’équilibreur de charge public pour permettre à la NAT de trafic sortant pour les machines virtuelles d’utiliser le serveur frontal. Il n’est pas recommandé d’utiliser une règle d’équilibrage de charge pour le trafic sortant. Désactivez la SNAT de trafic sortant sur la règle d’équilibrage de charge.
+
+
+### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Scénario 2 : Modifier l’allocation de ports de la [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources)
+
+
+#### <a name="details"></a>Détails
+
+
+Vous pouvez utiliser des règles de trafic sortant pour paramétrer [l’allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports). 
+
+
+Si la SNAT est insuffisante, augmentez le nombre de ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) par rapport à leur nombre par défaut de 1 024. 
+
+
+Chaque adresse IP publique offre jusqu’à 64 000 ports éphémères. Le nombre de machines virtuelles dans le pool principal détermine le nombre de ports distribués à chaque machine virtuelle. Une machine virtuelle du pool principal a accès au nombre maximal de 64 000 ports. Pour deux machines virtuelles, un maximum de 32 000 ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) peuvent être alloués avec une règle de trafic sortant (2 x 32 000 = 64 000). 
+
+
+Vous pouvez utiliser des règles de trafic sortant pour paramétrer les ports SNAT alloués par défaut. Vous allouez plus ou moins de ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) que l’allocation par défaut. Chaque adresse IP publique de serveur frontal d’une règle de trafic sortant offre jusqu’à 64 000 ports éphémères utilisables en tant que ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources). 
+
+
+L’équilibreur de charge alloue des ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) par multiples de 8. Si vous indiquez une valeur non divisible par huit, l’opération de configuration est rejetée. Chaque règle d’équilibrage de charge et règle NAT de trafic entrant utilise une plage de 8 ports. Si une règle d’équilibrage de charge ou une règle NAT de trafic entrant partage la plage de 8 avec une autre, aucun port supplémentaire n’est utilisé.
+
+
+Si vous essayez d’allouer plus de ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) qu’il n’en est de disponibles compte tenu du nombre d’adresses IP publiques, l’opération de configuration est rejetée. Par exemple, si vous allouez 10 000 ports par machine virtuelle et que sept machines virtuelles d’un pool principal partagent une même adresse IP publique, la configuration est rejetée. Le produit de sept fois 10 000 dépasse la limite de 64 000 ports. Pour permettre le scénario, ajoutez des adresses IP publiques au serveur frontal de la règle de trafic sortant. 
+
+
+Rétablissez l’[allocation de ports par défaut](load-balancer-outbound-connections.md#preallocatedports) en spécifiant 0 comme nombre de ports. Les 50 premières instances de machine virtuelle obtiendront 1 024 ports, et les instances de machine virtuelle 51 à 100 en obtiendront 512 jusqu’au nombre maximal d’instances. Pour plus d’informations sur l’allocation de ports SNAT par défaut, consultez [Table d’allocation de ports SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+
+
+### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>Scénario 3 : Activer pour le trafic sortant uniquement
+
+
+#### <a name="details"></a>Détails
+
+
+Utilisez un équilibreur de charge standard public afin de fournir la NAT de trafic sortant pour un groupe de machines virtuelles. Dans ce scénario, utilisez une seule règle de trafic sortant, sans autre règle configurée.
+
+
+> [!NOTE]
+> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles sans nécessiter d’équilibreur de charge. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-overview.md).
+
+### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>Scénario 4 : NAT de trafic sortant pour les machines virtuelles uniquement (pas en entrée)
+
+
+> [!NOTE]
+> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles sans nécessiter d’équilibreur de charge. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-overview.md).
+
+#### <a name="details"></a>Détails
+
+
+Pour ce scénario : Les règles de trafic sortant de l’équilibreur de charge Azure et le service NAT de réseau virtuel sont des options disponibles pour la sortie à partir d’un réseau virtuel.
+
+
+1. Créez une adresse IP publique ou un préfixe d’adresse IP publique.
+2. Créez un équilibreur de charge standard public. 
+3. Créez un serveur frontal associé à l’adresse IP publique ou au préfixe d’adresse IP publique dédié pour le trafic sortant.
+4. Créez un pool principal pour les machines virtuelles.
+5. Placez les machines virtuelles dans le pool principal.
+6. Configurez une règle de trafic sortant pour activer la NAT de trafic sortant.
+
+
+
+Utilisez un préfixe ou une adresse IP publique pour mettre à l’échelle les ports [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources). Ajoutez la source des connexions sortantes à une liste verte ou rouge.
+
+
+
+### <a name="scenario-5-outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>Scénario 5 : NAT de trafic sortant pour équilibreur de charge standard interne
+
+
+> [!NOTE]
+> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles utilisant un équilibreur de charge standard interne. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-overview.md).
+
+#### <a name="details"></a>Détails
+
+
+Aucune connectivité sortante n’est disponible pour un équilibreur de charge standard interne tant que celui-ci n’a pas été explicitement déclaré via des adresses IP publiques au niveau de l’instance ou une NAT de réseau virtuel, ou en associant les membres du pool principal à une configuration d’équilibreur de charge en sortie uniquement. 
+
+
+Pour plus d’informations, consultez [Configuration de l’équilibreur de charge en sortie uniquement](https://docs.microsoft.com/azure/load-balancer/egress-only).
+
+
+
+
+### <a name="scenario-6-enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>Scénario 6 : Activer les protocoles TCP et UDP pour la NAT de trafic sortant avec un équilibreur de charge standard public
+
+
+#### <a name="details"></a>Détails
+
+
+Quand vous utilisez un équilibreur de charge standard public, la NAT de trafic sortant automatique fournie correspond au protocole de transport de la règle d’équilibrage de charge. 
+
+
+1. Désactivez la [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) de trafic sortant sur la règle d’équilibrage de charge. 
+2. Configurez une règle de trafic sortant sur le même équilibreur de charge.
+3. Réutilisez le pool backend de vos machines virtuelles. 
+4. Spécifiez "protocol": "All" dans la définition de la règle de trafic sortant. 
+
+
+Si vous utilisez uniquement des règles de NAT de trafic entrant, aucune NAT de trafic sortant n’est fournie. 
+
+
+1. Placez les machines virtuelles dans un pool backend.
+2. Définissez une ou plusieurs configurations d’adresse IP frontale avec une ou plusieurs adresses IP publiques ou un préfixe d’adresse IP publique. 
+3. Configurez une règle de trafic sortant sur le même équilibreur de charge. 
+4. Spécifiez "protocol": "All" dans la définition de la règle de trafic sortant
+
 
 ## <a name="limitations"></a>Limites
 

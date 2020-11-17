@@ -4,19 +4,21 @@ description: Le test de votre base de connaissances QnA Maker est une partie imp
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776831"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376143"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Tester votre base de connaissances dans QnA Maker
 
 Le test de votre base de connaissances QnA Maker est une partie importante d’un processus itératif afin d’améliorer la précision des réponses retournées. Vous pouvez tester la base de connaissances via une interface de conversation améliorée qui vous permet également d’apporter des modifications.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Tester de manière interactive dans le portail QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 1. Accédez à votre base de connaissances en sélectionnant son nom dans la page **Mes bases de connaissances**.
 1. Pour accéder au panneau déroulant Test, sélectionnez **Test** dans le panneau supérieur de votre application.
@@ -37,7 +39,7 @@ Vous inspectez les détails du résultat du test dans le panneau Inspecter.
 
 1.  Avec le panneau déroulant Test ouvert, sélectionnez **Inspecter** pour obtenir plus d’informations sur cette réponse.
 
-    ![Inspecter des réponses](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspecter des réponses](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  Le panneau Inspection s’affiche. Le panneau inclut l’intention de score la plus élevée, ainsi que toutes les entités identifiées. Le panneau affiche le résultat de l’énoncé sélectionné.
 
@@ -45,13 +47,13 @@ Vous inspectez les détails du résultat du test dans le panneau Inspecter.
 
 Si la réponse avec le score le plus élevé est incorrecte, sélectionnez la réponse correcte dans la liste et sélectionnez **Enregistrer et former**.
 
-![Corriger la réponse avec le score le plus élevé](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Corriger la réponse avec le score le plus élevé](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Ajouter des questions alternatives
 
-Vous pouvez ajouter des formes alternatives d’une question à une réponse donnée. Tapez les réponses alternatives dans la zone de texte et cliquez sur Entrée pour les ajouter. Sélectionnez **Enregistrer et former** pour stocker les mises à jour.
+Vous pouvez ajouter des formes alternatives d’une question à une réponse donnée. Tapez les réponses alternatives dans la zone de texte et sélectionnez Entrée pour les ajouter. Sélectionnez **Enregistrer et former** pour stocker les mises à jour.
 
-![Ajouter des questions alternatives](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Ajouter des questions alternatives](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### <a name="add-a-new-answer"></a>Ajouter une nouvelle réponse
 
@@ -64,11 +66,62 @@ Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouve
 > [!NOTE]
 > Toutes les modifications apportées à votre base de connaissances ne sont enregistrées que lorsque vous appuyez sur le bouton **Enregistrer et former**.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+1. Accédez à votre base de connaissances en sélectionnant son nom dans la page **Mes bases de connaissances**.
+1. Pour accéder au panneau déroulant Test, sélectionnez **Test** dans le panneau supérieur de votre application. 
+1. Vous allez voir une case à cocher en haut nommée **Display short answer** (Afficher une réponse brève), qui est sélectionnée par défaut. Cette option permet d’activer la détection de l’étendue des réponses basée sur MRC dans votre volet de test. 
+1. Entrez une question dans la zone de texte, puis sélectionnez Entrée. 
+1. Pour chaque requête, s’il existe une réponse précise/brève dans le passage de la réponse, ainsi que dans le passage de la réponse le mieux adapté, présent dans la base de connaissances, vous aurez également une réponse brève pour votre requête.
+    ![Volet de test activé (version managée)](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Si vous décochez **Display short answer** (Afficher une réponse brève), seul le passage de la réponse le mieux adapté issu de la base de connaissances est retourné en tant que réponse.
+
+### <a name="clear-test-panel"></a>Effacer le panneau Test
+
+Pour effacer toutes les questions de test entrées et leurs résultats de la console de test, sélectionnez **Recommencer** dans l’angle supérieur gauche du panneau Test.
+
+### <a name="close-test-panel"></a>Fermer le panneau Test
+
+Pour fermer le panneau Test, sélectionnez le bouton **Test** à nouveau. Tant que le panneau Test est ouvert, vous ne pouvez pas modifier le contenu de la base de connaissances.
+
+### <a name="inspect-score"></a>Inspecter le score
+
+Vous inspectez les détails du résultat du test dans le panneau Inspecter.
+
+1.  Avec le panneau déroulant Test ouvert, sélectionnez **Inspecter** pour obtenir plus d’informations sur cette réponse.
+
+    ![Inspecter les réponses (préversion)](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
+
+2.  Le panneau Inspection s’affiche. Le panneau inclut l’intention de score la plus élevée, ainsi que toutes les entités identifiées. Le panneau affiche le résultat de l’énoncé sélectionné.
+3. Le panneau indique le score de confiance du passage de la réponse et le score de l’étendue des réponses détectée.
+
+### <a name="correct-the-top-scoring-answer"></a>Corriger la réponse avec le score le plus élevé
+
+Si la réponse avec le score le plus élevé est incorrecte, sélectionnez la réponse correcte dans la liste et sélectionnez **Enregistrer et former**.
+
+![Corriger la réponse avec le score le plus élevé (préversion)](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+
+### <a name="add-alternate-questions"></a>Ajouter des questions alternatives
+
+Vous pouvez ajouter des formes alternatives d’une question à une réponse donnée. Tapez les réponses alternatives dans la zone de texte et sélectionnez Entrée pour les ajouter. Sélectionnez **Enregistrer et former** pour stocker les mises à jour.
+
+![Ajouter des questions alternatives (préversion)](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+
+### <a name="add-a-new-answer"></a>Ajouter une nouvelle réponse
+
+Vous pouvez ajouter une nouvelle réponse si les réponses existantes qui ont été mises en correspondance sont incorrectes ou si la réponse n’existe pas dans la base de connaissances (aucune bonne correspondance trouvée dans la base de connaissances).
+
+En bas de la liste de réponses, utilisez la zone de texte pour entrer une nouvelle réponse, et appuyez sur Entrée pour l’ajouter.
+
+Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouvelle paire question/réponse a maintenant été ajoutée à votre base de connaissances.
+
+---
+
 ### <a name="test-the-published-knowledge-base"></a>Tester la base de connaissances publiée
 
 Vous pouvez tester la version publiée de la base de connaissances dans le volet de test. Une fois que vous avez publié la base de connaissances, sélectionnez la zone **Base de connaissances publiée** et envoyez une requête pour obtenir des résultats à partir de la base de connaissances publiée.
 
-![Tester par rapport à une base de connaissances publiée](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Tester par rapport à une base de connaissances publiée](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## <a name="batch-test-with-tool"></a>Test par lot avec l’outil
 
@@ -130,7 +183,7 @@ Pour pouvoir utiliser l’outil de test par lot, créez un fichier sous le nom `
 |--|--|--|
 |ID de base de connaissances|ID de votre base de connaissances figurant dans la page Publish (Publier). Testez plusieurs bases de connaissances dans le même service en une seule opération dans un même fichier en utilisant différents ID de base de connaissances dans un seul fichier.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (chaîne de 36 caractères figurant dans `POST`) |
 |Question|Texte de la question entré par un utilisateur. 1 000 caractères au maximum.|`How do I sign out?`|
-|Balises de métadonnées|facultatif|`topic:power` utilise le format _clé:valeur_|
+|Balises de métadonnées|facultatif|`topic:power` utilise le format `key:value`|
 |Meilleur paramètre|facultatif|`25`|
 |ID de la réponse attendue|facultatif|`13`|
 
@@ -192,7 +245,7 @@ Aidez-vous du tableau suivant pour savoir comment trouver les valeurs de champs 
 
 |Numéro de colonne|Colonne facultative|Emplacement des données|
 |--|--|--|
-|3|metadata|Exportez la base de connaissances existante pour les paires _clé:valeur_ existantes.|
+|3|metadata|Exportez la base de connaissances existante pour les paires `key:value` existantes.|
 |4|top|La valeur par défaut `25` est recommandée.|
 |5|Question and answer set ID|Exportez la base de connaissances existante pour obtenir les valeurs d’ID. Notez aussi que les ID ont été retournés dans le fichier de sortie.|
 

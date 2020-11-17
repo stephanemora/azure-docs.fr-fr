@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496073"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357094"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procédure : Déployer une application web de comptage de personnes
 
@@ -64,6 +64,8 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Déployer le conteneur sur Azure IoT Edge sur l’ordinateur hôte
 
 Déployez le conteneur d’analyse spatiale comme un module IoT sur l’ordinateur hôte, à l’aide de l’interface de ligne de commande Azure. Le processus de déploiement requiert un fichier manifeste de déploiement qui présente les conteneurs, les variables et les configurations nécessaires pour votre déploiement. Vous pouvez trouver un exemple de [manifeste de déploiement spécifique à Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/), ainsi qu’un [manifeste de déploiement non spécifique à Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) sur GitHub, qui incluent une configuration de déploiement de base pour le conteneur *spatial-analysis*. 
+
+Vous pouvez également utiliser les extensions Azure IoT pour Visual Studio Code afin d’effectuer des opérations avec votre hub IoT. Accédez à [Déployer des modules Azure IoT Edge à partir de Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) pour plus d’informations.
 
 > [!NOTE] 
 > Les conteneurs *spatial-analysis-telegraf* et *spatial-analysis-diagnostics* sont facultatifs. Vous pouvez choisir de les supprimer du fichier *DeploymentManifest.json*. Pour plus d’informations, consultez l’[article relatif à la télémétrie et au dépannage](./spatial-analysis-logging.md). Vous trouverez deux exemples de fichiers *DeploymentManifest.json* sur GitHub, soit pour des [appareils Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), soit pour un autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json).
@@ -170,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Pour installer le conteneur, créez une nouvelle Web App pour conteneurs Azure et renseignez les paramètres requis. Accédez ensuite à l’onglet **Docker** et sélectionnez **Conteneur unique** , puis **Azure Container Registry**. Utilisez l’instance Azure Container Registry à laquelle vous avez envoyé l’image ci-dessus.
+Pour installer le conteneur, créez une nouvelle Web App pour conteneurs Azure et renseignez les paramètres requis. Accédez ensuite à l’onglet **Docker** et sélectionnez **Conteneur unique**, puis **Azure Container Registry**. Utilisez l’instance Azure Container Registry à laquelle vous avez envoyé l’image ci-dessus.
 
 ![Entrer les détails de l’image](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -190,6 +192,9 @@ Une fois ces 2 paramètres ajoutés, cliquez sur **Enregistrer**. Cliquez ensuit
 Accédez à l’application web Azure et vérifiez que le déploiement a réussi et que l’application web est en cours d’exécution. Accédez à l’URL configurée : `<yourapp>.azurewebsites.net` pour afficher l’application en cours d’exécution.
 
 ![test du déploiement](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>Obtenir le code source PersonCount
+Si vous voulez afficher ou modifier le code source de cette application, vous pouvez le trouver [sur GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

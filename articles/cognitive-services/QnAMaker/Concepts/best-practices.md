@@ -4,13 +4,13 @@ description: Suivez ces bonnes pratiques pour améliorer votre base de connaissa
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777018"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376755"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -116,11 +116,17 @@ Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la pro
 Les [métadonnées](../How-To/edit-knowledge-base.md) ajoutent à une application cliente la possibilité de savoir qu’elle ne doit pas récupérer toutes les réponses, mais réduire les résultats d’une requête utilisateur en fonction des balises de métadonnées. La réponse de la base de connaissances peut varier en fonction du mot clé de métadonnées, même si la requête est la même. Par exemple, dans le cas d’une chaîne de restaurants, la question *« Où se trouve le parking ? »* peut donner une réponse différente en fonction du lieu du restaurant (ici, les métadonnées sont *Location: Seattle* et *Location: Redmond*.)
 
 ### <a name="use-synonyms"></a>Utiliser des synonymes
-Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes sont ajoutés au niveau du service QnA Maker et partagés par toutes les bases de connaissances du service.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes sont ajoutés au niveau du service QnA Maker et **partagés par toutes les bases de connaissances du service**.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes dans QnA Maker managé (préversion) sont **ajoutés par base de connaissances**.
 
 |Mot d’origine|Synonymes|
 |--|--|
 |buy|purchase<br>net-banking<br>net banking|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Utiliser des mots distincts pour différencier les questions
 L’algorithme de classement de QnA Maker, qui recherche une correspondance entre une requête utilisateur et les questions de la base de connaissances, retourne de meilleurs résultats si chaque question répond à un besoin différent. La répétition du même mot défini entre les questions réduit la probabilité de sélection de la réponse appropriée pour une requête utilisateur qui contient ces mots.

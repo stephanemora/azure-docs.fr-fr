@@ -93,6 +93,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Base de référence de sécurité pour le Pare-feu Azure
       href: ../../firewall/security-baseline.md
+    - name: Base de référence de la sécurité Azure Front Door
+      href: ../../frontdoor/security-baseline.md
     - name: Base de référence de sécurité pour Azure Functions
       href: ../../azure-functions/security-baseline.md
     - name: Base de référence de la sécurité pour Azure IoT Hub
@@ -139,6 +141,8 @@
       href: ../../container-registry/security-baseline.md
     - name: "Base de référence de la sécurité Cosmos\_DB"
       href: ../../cosmos-db/security-baseline.md
+    - name: Base de référence de la sécurité Cost Management
+      href: ../../cost-management-billing/security-baseline.md
     - name: Base de référence de la sécurité Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Base de référence de sécurité pour Data Lake Analytics

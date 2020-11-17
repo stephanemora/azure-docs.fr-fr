@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055309"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410774"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Service Speech : nouveautés dans la documentation
 
@@ -23,9 +23,10 @@ Bienvenue ! Cette page traite des nouveautés dans la documentation du service 
 
 ### <a name="service-updates"></a>Mises à jour de service
 
-Si vous souhaitez en savoir plus sur les mises à jour du service Speech, du Kit de développement logiciel (SDK) Speech, du Kit de développement logiciel (SDK) Speech Devices ou de la CLI Speech, consultez :
+Si vous souhaitez en savoir plus sur les mises à jour du service Speech, du SDK Speech, du SDK Speech Devices, de la CLI Speech ou des conteneurs Speech, consultez :
 * [Notes de publication du SDK Speech](releasenotes.md).
 * [Notes de publication du SDK Speech Devices](devices-sdk-release-notes.md)
+* [Notes de publication du conteneur Cognitive Services](../containers/container-image-tags.md)
 
 ## <a name="may-2020"></a>Mai 2020
 

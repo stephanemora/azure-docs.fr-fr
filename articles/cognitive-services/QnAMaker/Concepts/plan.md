@@ -4,13 +4,13 @@ description: Découvrez comment planifier votre application QnA Maker. Comprenez
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/2/2020
-ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776933"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376675"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planifier votre application QnA Maker
 
@@ -20,6 +20,8 @@ Pour planifier votre application QnA Maker, vous devez comprendre comment QnA Ma
 
 Chaque [ressource Azure](azure-resources.md#resource-purposes) créée avec QnA Maker a une utilité précise. Chaque ressource a sa propre finalité, ses propres limites et son propre [niveau tarifaire](azure-resources.md#pricing-tier-considerations). Il est important de comprendre la fonction de ces ressources afin de pouvoir utiliser cette connaissance dans votre processus de planification.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
 | Ressource | Objectif |
 |--|--|
 | Ressource [QnA Maker](azure-resources.md#qna-maker-resource) | Création et prédiction de requêtes |
@@ -27,6 +29,14 @@ Chaque [ressource Azure](azure-resources.md#resource-purposes) créée avec QnA�
 | [Ressource App Service et plan App Service](azure-resources.md#app-service-and-app-service-plan) | Interroger le point de terminaison de prédiction |
 | Ressource [Application Insights](azure-resources.md#application-insights) | Données de télémétrie concernant la prédiction des requêtes |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+| Ressource | Objectif |
+|--|--|
+| Ressource [QnA Maker](azure-resources.md#qna-maker-resource) | Création, point de terminaison de prédiction de requête et télémétrie|
+| Ressource [Recherche cognitive](azure-resources.md#cognitive-search-resource) | Stockage et recherche de données |
+
+---
 ### <a name="resource-planning"></a>Planification des ressources
 
 Le niveau gratuit, `F0`, de chaque ressource fonctionne et peut fournir une expérience de création et de prédiction de requêtes. Vous pouvez utiliser ce niveau pour apprendre à créer et à prédire des requêtes. Lorsque vous passez à un scénario de production ou à un scénario dynamique, vous devez réévaluer votre choix de ressources.
@@ -65,9 +75,22 @@ Une base de connaissances est directement liée à sa ressource QnA Maker. Elle 
 
 ### <a name="language-considerations"></a>Observations relatives au langage
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
 C’est la première base de connaissances créée dans votre ressource QnA Maker qui détermine la langue de la ressource. Vous ne pouvez définir qu’une seule langue pour une ressource QnA Maker.
 
 Vous pouvez structurer vos ressources QnA Maker en fonction de la langue ou utiliser [Traducteur](../../translator/translator-info-overview.md) pour traduire une requête dans la langue de la base de connaissances avant de l’envoyer au point de terminaison de prédiction des requêtes.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Vous pouvez à présent avoir des bases de connaissances dans différentes langues au sein d’une même ressource QnA Maker. Quand vous créez la première base de connaissances, vous pouvez choisir d’utiliser la ressource pour des bases de connaissances dans une seule langue ou dans plusieurs langues.
+
+![Sélection de la base de connaissances multilingue QnA Maker managé (préversion)](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+> [!NOTE]
+> Si vous activez des paramètres de langue par base de connaissances, vous ne pouvez pas créer autant de bases de connaissances dans votre ressource QnA Maker. Voici [plus d’informations sur les limitations relatives aux paramètres de langue](./azure-resources.md).
+
+---
 
 ### <a name="ingest-data-sources"></a>Ingestion de sources de données
 
@@ -125,7 +148,7 @@ Dans un tel scénario d’[architecture partagée](../choose-natural-language-pr
 
 ### <a name="active-learning-from-a-client-application"></a>Apprentissage actif à partir d’une application cliente
 
-QnA Maker utilise l’_apprentissage actif_pour améliorer la qualité de votre base de connaissances en suggérant des questions alternatives pour votre réponse. L’application cliente est responsable en partie de cet [apprentissage actif](active-learning-suggestions.md). Par le biais d’invites conversationnels, l’application cliente peut détecter que la base de connaissances a renvoyé une réponse qui n’est pas utile à l’utilisateur et peut déterminer une meilleure réponse. L’application cliente doit [renvoyer ces informations à la base de connaissances](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) pour améliorer la qualité de la prédiction.
+QnA Maker utilise l’_apprentissage actif_ pour améliorer la qualité de votre base de connaissances en suggérant des questions alternatives pour votre réponse. L’application cliente est responsable en partie de cet [apprentissage actif](active-learning-suggestions.md). Par le biais d’invites conversationnels, l’application cliente peut détecter que la base de connaissances a renvoyé une réponse qui n’est pas utile à l’utilisateur et peut déterminer une meilleure réponse. L’application cliente doit [renvoyer ces informations à la base de connaissances](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) pour améliorer la qualité de la prédiction.
 
 ### <a name="providing-a-default-answer"></a>Fournir une réponse par défaut
 
@@ -152,7 +175,15 @@ Il existe un [classement des réponses en deux phases](query-knowledge-base.md#h
 
 ### <a name="service-updates"></a>Mises à jour de service
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
 Appliquez les [dernières mises à jour du runtime](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) pour gérer automatiquement les mises à jour de service.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Dans QnA Maker managé (préversion), le runtime est managé par le service QnA Maker lui-même. Les mises à jour de service ne sont donc pas applicables.
+
+---
 
 ### <a name="scaling-throughput-and-resiliency"></a>Mise à l’échelle, débit et résilience
 
@@ -160,7 +191,16 @@ La mise à l’échelle, le débit et la résilience sont déterminés par les [
 
 ### <a name="analytics-with-application-insights"></a>Analytique avec Application Insights
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
 Toutes les requêtes de votre base de connaissances sont stockées dans Application Insights. Utilisez nos [requêtes les plus fréquentes](../how-to/get-analytics-knowledge-base.md) pour comprendre vos métriques.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Dans le déploiement manage, la télémétrie est proposée par le biais du [service Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Utilisez nos [requêtes les plus fréquentes](../how-to/get-analytics-knowledge-base.md) pour comprendre vos métriques.
+
+
+---
 
 ## <a name="development-lifecycle"></a>Cycle de vie de développement
 

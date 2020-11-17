@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843139"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369373"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
@@ -154,7 +154,7 @@ Vous pouvez gérer les règles d’accès réseau par défaut pour les ressource
         --default-action Allow
     ```
 
-***
+**_
 
 ## <a name="grant-access-from-a-virtual-network"></a>Accorder l’accès à partir d’un réseau virtuel
 
@@ -166,7 +166,7 @@ Chaque ressource Cognitive Services prend en charge jusqu’à 100 règles de r
 
 ### <a name="required-permissions"></a>Autorisations requises
 
-Pour appliquer une règle de réseau virtuel à une ressource Cognitive Services, l’utilisateur doit disposer des autorisations appropriées pour les sous-réseaux à ajouter. L’autorisation nécessaire correspond au rôle *Contributeur* par défaut ou au rôle *Contributeur Cognitive Services*. Les autorisations nécessaires peuvent également être ajoutées à des définitions de rôle personnalisées.
+Pour appliquer une règle de réseau virtuel à une ressource Cognitive Services, l’utilisateur doit disposer des autorisations appropriées pour les sous-réseaux à ajouter. L’autorisation nécessaire correspond au rôle _Contributeur* par défaut ou au rôle *Contributeur Cognitive Services*. Les autorisations nécessaires peuvent également être ajoutées à des définitions de rôle personnalisées.
 
 La ressource Cognitive Services et les réseaux virtuels auxquels l’accès est accordé peuvent se trouver dans des abonnements différents, y compris des abonnements appartenant à un autre locataire Azure AD.
 
@@ -322,10 +322,10 @@ Vous pouvez gérer les règles de réseau virtuel pour les ressources Cognitive 
         --subnet $subnetid
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
+> Veillez à [définir la règle par défaut](#change-the-default-network-access-rule) sur _*Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Accorder l’accès à partir d’une plage d’adresses IP Internet
 
@@ -472,10 +472,10 @@ Vous pouvez gérer les règles de réseau IP pour les ressources Cognitive Servi
         --ip-address "16.17.18.0/24"
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
+> Veillez à [définir la règle par défaut](#change-the-default-network-access-rule) sur _*Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 ## <a name="use-private-endpoints"></a>Utiliser des points de terminaison privés
 
@@ -532,8 +532,8 @@ Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doi
 
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
 
-* [Résolution de noms pour des ressources dans les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [Configuration DNS pour les points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Résolution de noms pour des ressources dans les réseaux virtuels Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [Configuration DNS pour les points de terminaison privés](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### <a name="pricing"></a>Tarifs
 
@@ -541,5 +541,5 @@ Pour plus d’informations sur les tarifs, consultez [Tarification Liaison priv�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Explorer les offres [Azure Cognitive Services](welcome.md)
+* Explorer les offres [Azure Cognitive Services](./what-are-cognitive-services.md)
 * En savoir plus sur les [points de terminaison de service de réseau virtuel Azure](../virtual-network/virtual-network-service-endpoints-overview.md)

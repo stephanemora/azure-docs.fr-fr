@@ -7,44 +7,76 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 09/24/2019
-ms.openlocfilehash: c990b6980dea871679b0b301e293e4fb94748db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650902"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375638"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Prise en charge linguistique pour une ressource QnA Maker et bases de connaissances
+
+Cet article décrit les options de prise en charge linguistique pour les ressources QnA Maker et les bases de connaissances. 
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 La langue du service est sélectionnée lorsque vous créez la première base de connaissances dans la ressource. Toutes les bases de connaissances supplémentaires de la ressource doivent être dans la même langue. 
 
 La langue détermine la pertinence des résultats que QnA Maker fournit en réponse aux requêtes de l’utilisateur. La ressource QnA Maker et toutes les bases de connaissances à l’intérieur de celle-ci prennent en charge une seule langue. L’unilinguisme est nécessaire pour produire des résultats de réponse optimaux à une requête.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Dans QnA Maker managé, vous pouvez choisir de créer des paramètres de langue au niveau de la base de connaissances individuelle. Ce paramètre peut être activé uniquement avec la base de connaissances du service. Une fois vous avez défini les paramètres de langue, vous ne pouvez pas les changer pour le service. 
+
+Si vous choisissez des paramètres de langue spécifiques selon la base de connaissances, vous êtes autorisé à créer des bases de connaissances de différentes langues dans le service lui-même. 
+
+---
+
 ## <a name="single-language-per-resource"></a>Une seule langue par ressource
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Tenez compte des éléments suivants :
 
 * Un service QnA Maker et toutes ses bases de connaissances ne prennent en charge qu’une seule langue.
 * La langue est définie explicitement lors de la création de la première base de connaissances du service.
 * La langue est déterminée à partir des fichiers et URL ajoutés lors de la création de la base de connaissances.
+* Il n’est pas possible de changer la langue pour d’autres bases de connaissances du service.
+* Les services Recherche cognitive (ranker n° 1) et QnA Maker (ranker n° 2) utilisent la langue pour générer la meilleure réponse à une requête.
+
+# <a name="qnamaker-managed-preview"></a>[QnA Maker managé (préversion)](#tab/v2)
+![Paramètre de langue dans QnA Maker managé](../media/language-support/language-setting-managed.png)
+
+Si vous **ne cochez pas la case pour activer le paramètre de langue par base de connaissances**, prenez en compte les points suivants : 
+* Un service QnA Maker et toutes ses bases de connaissances ne prennent en charge qu’une seule langue.
+* La langue est définie explicitement lors de la création de la première base de connaissances du service.
+* La langue est déterminée à partir des fichiers et URL ajoutés lors de la création de la base de connaissances.
 * Il n’est pas possible de modifier la langue pour d’autres bases de connaissances du service.
 * Les services Recherche cognitive (ranker #1) et QnA Maker (ranker #2) utilisent la langue pour générer la meilleure réponse à une requête.
 
-## <a name="supporting-multiple-languages"></a>Prise en charge multilingue
+---
+
+## <a name="supporting-multiple-languages-in-one-qna-maker-resource"></a>Prise en charge de plusieurs langues dans une seule ressource QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+Cette fonctionnalité n’est pas prise en charge dans notre version stable en disponibilité générale (GA). Consultez QnA Maker managé pour tester cette fonctionnalité. 
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+* Quand vous créez la première base de connaissances dans votre service, vous pouvez choisir d’activer le paramètre de langue par base de connaissances. Cochez la case pour créer des bases de connaissances appartenant à des langues différentes au sein d’un même service.
+* L’option du paramètre de langue n’est pas modifiable pour le service, une fois la première base de connaissances créée.
+* Si vous activez des paramètres de langue propres à chaque base de connaissances, au lieu d’avoir un seul index de test pour le service, vous aurez un index de test par base de connaissances. 
+
+![Paramètre de langue dans QnA Maker managé](../media/language-support/language-setting-managed.png)
+
+---
+
+## <a name="supporting-multiple-languages-in-one-knowledge-base"></a>Prise en charge de plusieurs langues dans une seule base de connaissances
 
 Pour prendre en charge un système de base de connaissances comprenant plusieurs langues, vous pouvez :
 
 * Utiliser le [service Translator](../../translator/translator-info-overview.md) pour traduire une question dans une langue individuelle avant de l’envoyer à votre base de connaissances. Cela vous permet de vous concentrer sur la qualité d’une seule langue et la qualité des autres questions et réponses.
 * Créez une ressource QnA Maker, ainsi qu’une base de connaissances à l’intérieur de cette ressource, pour chaque langue. Cela vous permet de gérer d’autres questions et du texte de réponse plus nuancé pour chaque langue. Vous bénéficiez ainsi d’une flexibilité sensiblement accrue, mais devez exposer des frais de maintenance bien plus élevés lorsque les questions ou réponses changent dans toutes les langues.
-
-Voir [langues prises en charge](../overview/language-support.md) pour QnA Maker.
-
-### <a name="support-each-language-with-a-qna-maker-resource"></a>Prendre en charge chaque langue avec une ressource QnA Maker
-
-* Créez une ressource QnA Maker pour chaque langue.
-* Ajoutez uniquement des fichiers et URL pour cette langue.
-* Utilisez une convention d’affectation de noms pour la ressource afin d’identifier la langue. Un exemple de cela est `qna-maker-fr` pour toutes les bases de connaissances pour les documents français.
 
 
 ## <a name="languages-supported"></a>Langues prises en charge

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: cad20f589bb5a6d3e73481081d9fe532381ab647
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 3fd1d9e708a5f1a500440f20c2947ddfe4bc7460
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827392"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368914"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure
 
@@ -64,9 +64,9 @@ La solution Azure Cognitive Services correspond à des services cloud avec des A
     | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Vérification orthographique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Suggestion automatique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
-    ***
+    **_
 
-3. Sur la page **Créer**, renseignez les informations suivantes :
+3. Dans la page _ *Créer**, renseignez les informations suivantes :
 
     #### <a name="multi-service-resource"></a>[Ressource multiservice](#tab/multiservice)
 
@@ -96,13 +96,13 @@ La solution Azure Cognitive Services correspond à des services cloud avec des A
 
     Cliquez sur **Créer**.
 
-    ***
+    **_
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenir les clés pour votre ressource
 
-1. Une fois votre ressource déployée avec succès, cliquez sur **Accéder à la ressource** sous **Étapes suivantes**.
+1. Une fois votre ressource déployée avec succès, cliquez sur _ *Accéder à la ressource** sous **Étapes suivantes**.
 
     ![Rechercher Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
@@ -123,7 +123,7 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 ## <a name="see-also"></a>Voir aussi
 
 * [Authentifier des requêtes auprès d’Azure Cognitive Services](authentication.md)
-* [Qu’est-ce qu’Azure Cognitive Services ?](Welcome.md)
+* [Qu’est-ce qu’Azure Cognitive Services ?](./what-are-cognitive-services.md)
 * [Créer des ressources à l’aide de la bibliothèque de client du portail de gestion Microsoft Azure](.\cognitive-services-apis-create-account-client-library.md)
 * [Prise en charge en langage naturel](language-support.md)
 * [Prise en charge des conteneurs Docker](cognitive-services-container-support.md)

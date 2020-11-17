@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331700"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489146"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
@@ -59,7 +59,7 @@ L’[appel de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="the-get-read-results-call"></a>L’appel Obtenir les résultats de lecture
 
-La deuxième étape consiste à appeler l’opération [Obtenir les résultats de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750). Cette opération prend en entrée l’ID d’opération créé par l’opération de lecture. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded** . Utilisez un intervalle de 1 à 2 secondes pour éviter de dépasser le taux de requêtes par seconde (RPS).
+La deuxième étape consiste à appeler l’opération [Obtenir les résultats de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750). Cette opération prend en entrée l’ID d’opération créé par l’opération de lecture. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 1 à 2 secondes pour éviter de dépasser le taux de requêtes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -71,7 +71,10 @@ La deuxième étape consiste à appeler l’opération [Obtenir les résultats d
 > [!NOTE]
 > Le niveau gratuit limite le taux de requêtes à 20 appels par minute. Le niveau payant autorise un taux de 10 requêtes par seconde (RPS) qui peut être augmenté sur demande. Utilisez le canal de support Azure ou votre équipe de compte pour demander un taux de requêtes par seconde (RPS) supérieur.
 
-Lorsque le champ **État** a la valeur **succeeded** , la réponse JSON contient le contenu du texte extrait de votre image ou document. La réponse JSON conserve les regroupements de lignes d’origine des mots reconnus. Elle comprend les lignes de texte extraites et les coordonnées de leur cadre englobant. Chaque ligne de texte inclut tous les mots extraits avec leurs coordonnées et des scores de confiance.
+Lorsque le champ **État** a la valeur **succeeded**, la réponse JSON contient le contenu du texte extrait de votre image ou document. La réponse JSON conserve les regroupements de lignes d’origine des mots reconnus. Elle comprend les lignes de texte extraites et les coordonnées de leur cadre englobant. Chaque ligne de texte inclut tous les mots extraits avec leurs coordonnées et des scores de confiance.
+
+> [!NOTE]
+> Les données soumises à l’opération `Read` sont temporairement chiffrées et stockées au repos, puis supprimées dans un délai de 48 heures. Cela permet à vos applications de récupérer le texte extrait dans le cadre de la réponse du service.
 
 ## <a name="sample-json-output"></a>Exemple de sortir JSON
 
@@ -87,7 +90,6 @@ Voici un exemple de réponse JSON correcte :
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,
@@ -129,7 +131,7 @@ Voici un exemple de réponse JSON correcte :
 }
 ```
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Lire 3.2 en préversion ajoute un style de ligne de texte (langues latines uniquement)
-L’ [API Lire 3.2 en préversion](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) génère un objet **appearence** qui classe chaque ligne de texte selon le style (écriture d’imprimerie ou manuscrite), avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
+L’[API Lire 3.2 en préversion](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) génère un objet **appearence** qui classe chaque ligne de texte selon le style (écriture d’imprimerie ou manuscrite), avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
 
 Commencez par les [Démarrages rapides du SDK OCR Lire Vision par ordinateur](./quickstarts-sdk/client-library.md) et les [Démarrages rapides de l’API REST Lire](./QuickStarts/CSharp-hand-text.md) pour commencer à intégrer des fonctionnalités OCR à vos applications.
 

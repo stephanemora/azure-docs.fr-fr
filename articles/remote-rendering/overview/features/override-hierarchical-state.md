@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207731"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445152"
 ---
 # <a name="hierarchical-state-override"></a>Remplacement d’état hiérarchique
 
@@ -40,14 +40,21 @@ Voici l’ensemble fixe d’états qui peuvent être remplacés :
   > [!IMPORTANT]
   > L’effet semi-transparent ne fonctionne qu’avec le [mode de rendu](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
+* **`Shell`**  : La géométrie est rendue sous la forme d’un châssis désaturé transparent. Ce mode permet de faire disparaître les parties peu importantes d’une scène tout en conservant un sens de la forme et du positionnement relatif. Pour modifier l’apparence du rendu de châssis, utilisez l’état [ShellRenderingSettings](shell-effect.md). Reportez-vous à l’image suivante pour observer le modèle de voiture entièrement rendu en tant que châssis, à l’exception des ressorts bleus :
+
+  ![Mode de châssis utilisé pour faire disparaître des objets spécifiques](./media/shell.png)
+
+  > [!IMPORTANT]
+  > L’effet de châssis ne fonctionne qu’avec le [mode de rendu](../../concepts/rendering-modes.md) *TileBasedComposition*.
+
 * **`Selected`**  : La géométrie est rendue avec un [contour de sélection](outlines.md).
 
   ![Option de contour utilisée pour mettre en surbrillance une partie sélectionnée](./media/selection-outline.png)
 
 * **`DisableCollision`**  : La géométrie est exempte de [requêtes spatiales](spatial-queries.md). Comme l'indicateur **`Hidden`** n'affecte pas l'indicateur d'état des collisions, ces deux indicateurs sont souvent définis ensemble.
 
-* **`UseCutPlaneFilterMask`**  : Utilisez un masque de bits de filtre individuel pour contrôler la sélection du plan de coupe. Cet indicateur détermine si le masque de filtre individuel doit être utilisé ou hérité de son parent. Le masque de bits de filtre lui-même est défini via la propriété `CutPlaneFilterMask`. Pour plus d’informations sur le fonctionnement du filtrage, reportez-vous au paragraphe [Plans de coupe sélectifs](cut-planes.md#selective-cut-planes).
-![Plans de coupe sélectifs](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`**  : Utilisez un masque de bits de filtre individuel pour contrôler la sélection du plan de coupe. Cet indicateur détermine si le masque de filtre individuel doit être utilisé ou hérité de son parent. Le masque de bits de filtre lui-même est défini via la propriété `CutPlaneFilterMask`. Pour plus d’informations sur le fonctionnement du filtrage, reportez-vous au paragraphe [Plans de coupe sélectifs](cut-planes.md#selective-cut-planes). Dans l’exemple suivant, seul le pneu et la jante sont coupés, tandis que le reste de la scène reste inchangé.
+![Plans de coupe sélectifs](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +108,7 @@ Le remplacement de `tint color` est légèrement spécial en ce sens qu'il exist
 
 Une instance de `HierarchicalStateOverrideComponent` n’ajoute pas beaucoup de surcharge d’exécution en elle-même. Toutefois, il est toujours conseillé de limiter le nombre de composants actifs. Par exemple, pour implémenter un système de sélection qui met en surbrillance l’objet choisi, il est recommandé de supprimer le composant lorsque la mise en surbrillance est supprimée. Si les composants sont conservés avec des fonctionnalités neutres, le nombre de composants peut vite grimper.
 
-Le rendu transparent place davantage de charge de travail sur les GPU du serveur que le rendu standard. Si une grande partie du graphe de la scène passe en mode *semi-transparent*, avec de nombreuses couches de géométrie visibles, il peut en résulter un goulot d’étranglement au niveau des performances. Il en est de même pour les objets avec [contours de sélection](../../overview/features/outlines.md#performance).
+Le rendu transparent place davantage de charge de travail sur les GPU du serveur que le rendu standard. Si une grande partie du graphe de la scène passe en mode *semi-transparent*, avec de nombreuses couches de géométrie visibles, il peut en résulter un goulot d’étranglement au niveau des performances. Il en est de même pour les objets avec des [contours de sélection](../../overview/features/outlines.md#performance) et pour le [rendu de châssis](../../overview/features/shell-effect.md#performance). 
 
 ## <a name="api-documentation"></a>Documentation de l’API
 

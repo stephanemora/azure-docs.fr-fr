@@ -6,75 +6,78 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 8e24dd6cb8a1fa90f1a6caf9117ab3c344c00b12
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 06341f8630684519a456d5ef89144ae3c0934b23
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913872"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423145"
 ---
-# <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Gérer un serveur flexible Azure Database pour PostgreSQL à l’aide d’Azure CLI
+# <a name="manage-an-azure-database-for-postgresql---flexible-server-by-using-the-azure-cli"></a>Gérer une instance Azure Database pour PostgreSQL – Serveur flexible à l’aide d’Azure CLI
 
 > [!IMPORTANT]
-> Azure Database pour PostgreSQL – Serveur flexible est en préversion
+> Azure Database pour PostgreSQL – Serveur flexible est disponible en préversion.
 
-Cet article vous explique comment gérer votre serveur flexible déployé sur Azure. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation de mot de passe et l’affichage des informations relatives au serveur.
+Cet article explique comment gérer un serveur flexible déployé sur Azure. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation de mot de passe et l’affichage des informations relatives au serveur.
 
 ## <a name="prerequisites"></a>Prérequis
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer. Cet article nécessite que vous exécutiez localement Azure CLI version 2.0 ou ultérieure. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id** , qui fait référence à l’ **ID d’abonnement** pour votre compte Azure.
+Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer. 
+
+Vous devez exécuter Azure CLI version 2.0 ou ultérieure localement. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+
+Connectez-vous à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). 
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Notez la valeur **id** issue de la commande **az login**  ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
+Sélectionnez votre abonnement à l’aide de la commande [az account set](/cli/azure/account). Notez la valeur **id** issue de la sortie **az login**. Vous devez vous en servir comme valeur pour l’argument **subscription** dans la commande suivante. Si vous avez plusieurs abonnements, sélectionnez celui sur lequel la ressource doit être facturée. Pour identifier tous vos abonnements, utilisez la commande [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
 ```
 
 > [!Important]
-> Si vous n’avez pas encore créé de serveur flexible, créez-en un pour vous familiariser avec ce guide.
+> Si vous n’avez pas encore créé de serveur flexible, vous devez le faire pour suivre ce guide pratique.
 
 ## <a name="scale-compute-and-storage"></a>Mettre à l’échelle le calcul et le stockage
 
-Vous pouvez facilement effectuer un scale-up de votre niveau de calcul, de vos vCores et de votre stockage à l’aide de la commande suivante. Vous pouvez voir toutes les opérations de serveur que vous pouvez effectuer en exécutant [az postgres flexible-server server overview](https://docs.microsoft.com/cli/azure/postgres/flexible-server).
+Vous pouvez facilement effectuer un scale-up de votre niveau de calcul, de vos vCores et de votre stockage à l’aide de la commande suivante. Pour obtenir la liste de toutes les opérations de serveur que vous pouvez effectuer, consultez la vue d’ensemble de la commande [az postgres flexible-server](https://docs.microsoft.com/cli/azure/postgres/flexible-server).
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
 ```
 
-Voici les détails des arguments ci-dessus :
+Voici les détails des arguments dans le code précédent :
 
 **Paramètre** | **Exemple de valeur** | **Description**
 ---|---|---
-name | mydemoserver | Entrez un nom unique pour votre serveur. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
+name | mydemoserver | Entrez un nom unique pour votre serveur. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
 resource-group | myResourceGroup | Indiquez le nom du groupe de ressources Azure.
-sku-name|Standard_D4ds_v3|Entrez le nom du niveau de calcul et de la taille. Respecte la convention Standard_ {taille de machine virtuelle} en abrégé. Pour plus d’informations, consultez les [niveaux tarifaires](../concepts-pricing-tiers.md).
-storage-size | 6144 | Capacité de stockage du serveur (en mégaoctets). 5120 minimum et augmente par incrément de 1024.
+sku-name|Standard_D4ds_v3|Entrez le nom du niveau de calcul et de la taille. La valeur respecte la convention *Standard_{taille de machine virtuelle}* en abrégé. Pour plus d’informations, consultez les [niveaux tarifaires](../concepts-pricing-tiers.md).
+storage-size | 6144 | Entrez la capacité de stockage du serveur en mégaoctets. La valeur minimale est 5120. Elle peut être augmentée par incréments de 1 024.
 
 > [!IMPORTANT]
-> Le stockage ne peut pas faire l’objet d’un scale-down. 
+> Vous ne pouvez pas effectuer un scale-down du stockage. 
 
 ## <a name="manage-postgresql-databases-on-a-server"></a>Gérer des bases de données PostgreSQL sur un serveur
 
-Vous pouvez utiliser différentes applications pour vous connecter à votre serveur de base de données Azure pour PostgreSQL. Si votre ordinateur client a PostgreSQL installé, vous pouvez utiliser une instance locale de [psql](https://www.postgresql.org/docs/current/static/app-psql.html) pour vous connecter à un serveur Azure PostgreSQL. Nous allons maintenant utiliser l’utilitaire de ligne de commande psql pour nous connecter au serveur Azure pour PostgreSQL.
+Vous pouvez utiliser différentes applications pour vous connecter à votre serveur de base de données Azure pour PostgreSQL. Si PostgreSQL est installé sur votre ordinateur client, vous pouvez utiliser une instance locale de [psql](https://www.postgresql.org/docs/current/static/app-psql.html). Nous allons maintenant utiliser l’outil de ligne de commande psql pour nous connecter au serveur Azure Database pour PostgreSQL.
 
-1. Exécutez la commande psql suivante pour vous connecter à un serveur Azure Database pour PostgreSQL
+1. Exécutez la commande **psql** suivante :
 
    ```bash
    psql --host=<servername> --port=<port> --username=<user> --dbname=<dbname>
    ```
 
-   Par exemple, la commande suivante se connecte à la base de données par défaut appelée **postgres** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** à l’aide des informations d’identification d’accès. Saisissez le `<server_admin_password>` que vous avez choisi à l’invite de mot de passe.
+   Par exemple, la commande suivante se connecte à la base de données par défaut appelée **postgres** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** en utilisant vos informations d’identification d’accès. Lorsque vous y êtes invité, entrez le `<server_admin_password>` que vous avez choisi.
   
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
 
-   Une fois connecté, l’utilitaire psql affiche une invite postgres dans laquelle vous pouvez taper des commandes sql. Il est possible qu’un avertissement s’affiche au niveau de la sortie de connexion initiale, car la version de l’utilitaire psql que vous utilisez peut être différente de celle du serveur Azure Database pour PostgreSQL.
+   Une fois la connexion établie, l’outil psql affiche une invite **postgres** dans laquelle vous pouvez taper des commandes SQL. Un avertissement s’affiche dans la sortie de la connexion initiale si la version de psql que vous utilisez est différente de la version installée sur le serveur Azure Database pour PostgreSQL.
 
    Exemple de sortie psql :
 
@@ -91,39 +94,44 @@ Vous pouvez utiliser différentes applications pour vous connecter à votre serv
    > [!TIP]
    > Si le pare-feu n’est pas configuré pour autoriser l’adresse IP de votre client, l’erreur suivante se produit :
    >
-   > « psql: FATAL: aucune entrée pg_hba.conf pour l’hôte `<IP address>`, utilisateur « myadmin », base de données « postgres », SSL sur FATAL : Connexion SSL obligatoire. Spécifiez les options SSL puis réessayez.
+   > « psql: FATAL: aucune entrée pg_hba.conf pour l’hôte `<IP address>`, utilisateur « myadmin », base de données « postgres », SSL sur FATAL : Connexion SSL obligatoire. Spécifiez les options SSL puis réessayez. »
    >
-   > Confirmez que l'adresse IP de votre client est autorisée à l’étape des règles de pare-feu ci-dessus.
+   > Confirmez que l’adresse IP de votre client est autorisée dans les règles de pare-feu.
 
-2. Créez une base de données vide nommée « postgresdb » à l’invite en tapant la commande suivante :
+2. Créez une base de données vide nommée **postgresdb** à l’invite en tapant la commande suivante :
 
     ```bash
     CREATE DATABASE postgresdb;
     ```
 
-3. À l’invite, exécutez la commande suivante pour basculer la connexion sur la nouvelle base de données **postgresdb**  :
+3. À l’invite, exécutez la commande suivante pour basculer les connexions sur la nouvelle base de données **postgresdb** :
 
     ```bash
     \c postgresdb
     ```
 
-4. Tapez `\q`, puis sélectionnez la touche Entrée pour quitter psql.
+4. Tapez `\q`, puis sélectionnez Entrée pour quitter psql.
 
-Vous vous êtes connecté au serveur Azure Database pour PostgreSQL via psql, et vous avez créé une base de données utilisateur vide.
+Dans cette section, vous vous êtes connecté au serveur Azure Database pour PostgreSQL via psql, et avez créé une base de données utilisateur vide.
 
-## <a name="reset-admin-password"></a>Réinitialiser le mot de passe administrateur
-Vous pouvez changer le mot de passe du rôle d’administrateur avec cette commande.
+## <a name="reset-the-admin-password"></a>Réinitialiser le mot de passe d’administrateur
+
+Vous pouvez modifier le mot de passe du rôle Administrateur avec la commande suivante :
+
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
 ```
 
 > [!IMPORTANT]
-> Assurez-vous que le mot de passe compte huit caractères minimum et 128 caractères maximum.
-> Le mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
+> Choisissez un mot de passe d’une longueur comprise entre 8 et 128 caractères. Le mot de passe doit contenir des caractères de trois des catégories suivantes : 
+> - Lettres majuscules de l’alphabet anglais
+> - Lettres minuscules de l’alphabet
+> - Nombres
+> - Caractères non alphanumériques
 
 ## <a name="delete-a-server"></a>Supprimer un serveur
 
-Si vous souhaitez simplement supprimer le serveur flexible PostgreSQL, vous pouvez exécuter la commande [az postgres flexible-server delete](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete).
+Pour supprimer le serveur flexible Azure Database pour PostgreSQL, exécutez la commande [az postgres flexible-server delete](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete).
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

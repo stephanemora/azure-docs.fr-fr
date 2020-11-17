@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201781"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445606"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utiliser l’API REST de conversion de modèle
 
@@ -130,6 +130,21 @@ Retourne un document JSON avec un champ « status » qui peut avoir les valeur
 - « Failure »
 
 Si l’état est « Failure » (échec), il y a un champ « error » supplémentaire avec un sous-champ « message » contenant les informations sur l’erreur. Des journaux supplémentaires sont chargés sur votre conteneur de sortie.
+
+## <a name="list-conversions"></a>Lister les conversions
+
+Pour obtenir la liste de toutes les conversions d’un compte, utilisez l’interface :
+
+| Point de terminaison | Méthode |
+|-----------|:-----------|
+| /v1/accounts/**accountID**/conversions?skiptoken=**skipToken** | GET |
+
+| Paramètre | Obligatoire |
+|-----------|:-----------|
+| accountID | Oui |
+| skiptoken | Non |
+
+Retourne un document json qui contient un tableau des conversions et leurs détails. Cette requête retourne un maximum de 50 conversions à la fois. S’il y a plus de conversions à récupérer, la réponse contient une propriété **nextLink** contenant le skipToken interrogeable pour récupérer le jeu suivant de résultats.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

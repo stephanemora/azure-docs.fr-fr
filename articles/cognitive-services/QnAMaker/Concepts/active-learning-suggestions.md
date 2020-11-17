@@ -4,13 +4,13 @@ description: Les suggestions d’apprentissage actif vous permettent d’amélio
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: e8cdb1d471ceef2aef790c426424b9224faac5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: d39e34bd85c4524a6f28d188f977a7ab37eecc58
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777035"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445011"
 ---
 # <a name="active-learning-suggestions"></a>Suggestions d’apprentissage actif
 
@@ -37,10 +37,18 @@ Une fois les questions suggérées dans le portail QnA Maker, vous pouvez examin
 
 ## <a name="turn-on-active-learning"></a>Activation de l’apprentissage actif
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
 Par défaut, l’apprentissage actif est **désactivé**.
 Pour utiliser l’apprentissage actif :
 * Vous devez [activer l’apprentissage actif](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) afin que QnA Maker collecte des d’autres questions pour votre base de connaissances.
 * Pour voir les autres questions suggérées, [utilisez les options Affichage](../How-To/improve-knowledge-base.md#view-suggested-questions) sur la page Modifier.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Par défaut, l’apprentissage actif est **activé** dans QnA Maker managé (préversion). Pour voir les autres questions suggérées, [utilisez les options Affichage](../How-To/improve-knowledge-base.md#view-suggested-questions) sur la page Modifier.
+
+---
 
 ## <a name="how-qna-makers-implicit-feedback-works"></a>Fonctionnement des commentaires implicites de QnA Maker
 
@@ -129,7 +137,7 @@ QnA Maker a besoin de commentaires explicites pour savoir quelles réponses sont
 * La logique métier, par exemple déterminer une plage de score acceptable.
 * Une combinaison des commentaires des utilisateurs et de la logique métier.
 
-Utilisez l’[API Train](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) pour envoyer la réponse correcte à QnA Maker une fois que l’utilisateur l’a sélectionnée.
+Utilisez l’[API Train](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) pour envoyer la réponse correcte à QnA Maker une fois que l’utilisateur l’a sélectionnée.
 
 ## <a name="next-step"></a>Étape suivante
 
