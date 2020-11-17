@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 78e230453e256e90803b3607fa02904f90774881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 523f28cdd32c5176160587a8531aa66c0621d5a7
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325056"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330671"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -64,7 +64,7 @@ Dans la page d’accueil Azure Data Factory, sélectionnez **Set up Code Reposit
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Méthode de configuration 2 : Zone de travail de création
 
-Dans la zone de travail de création de l’expérience en matière d’interface utilisateur Azure Data Factory, sélectionnez le menu déroulant **Data Factory** , puis **Set up Code Repository** (Configurer le dépôt de code).
+Dans la zone de travail de création de l’expérience en matière d’interface utilisateur Azure Data Factory, sélectionnez le menu déroulant **Data Factory**, puis **Set up Code Repository** (Configurer le dépôt de code).
 
 ![Configurer les paramètres du référentiel de code à partir de la création](media/author-visually/configure-repo-2.png)
 
@@ -203,11 +203,11 @@ Une fois ces étapes effectuées, votre fabrique est en mesure de se connecter a
 
 ## <a name="version-control"></a>Gestion de versions
 
-Les systèmes de contrôle de version (également appelé _contrôle du code source_ ) permettent aux développeurs de collaborer sur le code et de suivre les modifications apportées à la base de code. Le contrôle du code source est un outil essentiel pour les projets impliquant plusieurs développeurs.
+Les systèmes de contrôle de version (également appelé _contrôle du code source_) permettent aux développeurs de collaborer sur le code et de suivre les modifications apportées à la base de code. Le contrôle du code source est un outil essentiel pour les projets impliquant plusieurs développeurs.
 
 ### <a name="creating-feature-branches"></a>Création de branches de fonctionnalités
 
-Chaque dépôt Azure Repos Git associé à une fabrique de données comporte une branche de collaboration. (`master` est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. Une fois le volet de la nouvelle branche affiché, entrez le nom de votre branche de fonctionnalités.
+Chaque dépôt Azure Repos Git associé à une fabrique de données comporte une branche de collaboration. (`main` est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. Une fois le volet de la nouvelle branche affiché, entrez le nom de votre branche de fonctionnalités.
 
 ![Créer une branche](media/author-visually/new-branch.png)
 
