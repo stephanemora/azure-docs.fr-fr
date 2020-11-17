@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534792"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355982"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtres dans la Recherche cognitive Azure 
 
@@ -138,11 +138,11 @@ Pour obtenir des instructions complètes sur des cas d’usage spécifiques, con
 
 Dans l’API REST, la propriété filterable (filtrable) est *activée* par défaut pour les champs simples. Les champs filtrables augmentent la taille de l’index. Veillez à définir `"filterable": false` pour les champs que vous ne prévoyez pas réellement d’utiliser dans un filtre. Pour plus d’informations sur les paramètres des définitions de champ, voir [Create Index](/rest/api/searchservice/create-index) (Créer un index).
 
-Dans le Kit de développement logiciel (SDK) .NET, la propriété filterable (filtrable) est *désactivée* par défaut. Vous pouvez rendre un champ filtrable en définissant la [propriété IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable) de l’objet [Champ](/dotnet/api/microsoft.azure.search.models.field) correspondant sur `true`. Vous pouvez aussi effectuer cette opération de façon déclarative à l’aide de [l’attribut IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). Dans l’exemple ci-dessous, l’attribut est défini sur la propriété `BaseRate` d’une classe de modèle mappant vers la définition d’index.
+Dans le Kit de développement logiciel (SDK) .NET, la propriété filterable (filtrable) est *désactivée* par défaut. Vous pouvez rendre un champ filtrable en définissant la [propriété IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) de l’objet [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) correspondant sur `true`. Dans l’exemple ci-dessous, l’attribut est défini sur la propriété `BaseRate` d’une classe de modèle mappant vers la définition d’index.
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>Rendre filtrable un champ existant
@@ -202,4 +202,4 @@ Pour utiliser d’autres exemples, voir [Syntaxe d’expression de filtre OData 
 + [API REST de recherche de documents](/rest/api/searchservice/search-documents)
 + [Syntaxe de requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Syntaxe de requête Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Types de données prises en charge](/rest/api/searchservice/supported-data-types)
++ [Types de données pris en charge](/rest/api/searchservice/supported-data-types)

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611175"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413001"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -139,9 +139,9 @@ Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Comment fonctionnent les caractères génériques dans un nom de domaine complet cible d’une règle d’application ?
 
-Les caractères génériques ne peuvent être utilisés que sur le côté gauche du FQDN. Par exemple, * **.contoso.com** et ***contoso.com**.
+Les caractères génériques ne peuvent être utilisés que sur le côté gauche du FQDN. Par exemple, **_.contoso.com_* et **_contoso.com_*.
 
-Si vous configurez * **.contoso.com**, cela autorise *anyvalue*.contoso.com, mais pas contoso.com (le domaine apex). Si vous souhaitez autoriser le domaine apex, vous devez explicitement le configurer en tant que nom de domaine complet cible.
+Si vous configurez **_.contoso.com_*, cela autorise *toutevaleur*.contoso.com, mais pas contoso.com (l’apex de domaine). Si vous souhaitez autoriser le domaine apex, vous devez explicitement le configurer en tant que nom de domaine complet cible.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Que signifie l’*état d’approvisionnement : Échec* ?
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Pourquoi un test Ping TCP et des outils similaires peuvent-ils se connecter à un nom de domaine complet cible même si aucune règle n’autorise ce trafic sur le Pare-feu Azure ?
 
-Un test Ping TCP ne se connecte pas réellement au nom de domaine complet cible. En effet, le proxy transparent du Pare-feu Azure écoute le trafic sortant sur le port 80/443. Le test Ping TCP établit une connexion avec le pare-feu, qui supprime ensuite le paquet et consigne la connexion. Ce comportement n’a aucun impact sur la sécurité. Toutefois, pour éviter toute confusion, nous étudions la possibilité de modifier ce comportement.
+Un test Ping TCP ne se connecte pas réellement au nom de domaine complet cible. En effet, le proxy transparent du Pare-feu Azure écoute le trafic sortant sur le port 80/443. Le test Ping TCP établit une connexion avec le pare-feu, qui supprime ensuite le paquet. Ce comportement n’a aucun impact sur la sécurité. Toutefois, pour éviter toute confusion, nous étudions la possibilité de modifier ce comportement.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Le nombre d’adresses IP prises en charge par les groupes IP est-il limité ?
 

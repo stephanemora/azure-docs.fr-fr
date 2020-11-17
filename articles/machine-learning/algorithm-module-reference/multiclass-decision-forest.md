@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: e22881a904ed33214e90604d71489d8691fe820b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be66bdd8a1cf25a32ad3102d770078c904c4b6c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883255"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376823"
 ---
 # <a name="multiclass-decision-forest-module"></a>Module Forêt d’arbres de décision multiclasse
 
@@ -59,13 +59,13 @@ Le classifieur de forêt d’arbres de décision dans Azure Machine Learning est
 
 5. **Nombre d’arbres de décision** : saisissez le nombre maximal d’arbres de décision qui peuvent être créés dans l’ensemble. En créant plusieurs arbres de décision, vous pouvez obtenir une meilleure couverture, mais cette opération peut augmenter la durée de la formation.
 
-    Cette valeur contrôle également le nombre d’arbres affichés dans les résultats lorsque vous examinez le modèle entraîné. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, cela signifie qu’un seul arbre peut être généré (celui avec le jeu de paramètres initial) et aucune autre itération n’est effectuée.
+    Toutefois, si vous définissez la valeur sur 1, cela signifie qu’un seul arbre peut être généré (celui qui inclut le jeu de paramètres initial) et qu’aucune autre itération supplémentaire n’est effectuée.
 
 6. **Profondeur maximale des arbres de décision** : saisissez un nombre destiné à limiter la profondeur maximale de n’importe quel arbre de décision. Le fait d’augmenter la profondeur de l’arbre est susceptible d’améliorer la précision, au prix d’un risque de surajustement et d’augmentation du temps d’apprentissage.
 
 7. **Nombre de fractionnements aléatoires par nœud** : saisissez le nombre de fractionnements à utiliser lors de la génération de chaque nœud de l’arbre. Le *fractionnement* consiste à diviser de manière aléatoire les fonctionnalités à chaque niveau de l’arbre (nœud).
 
-8.  **Minimum number of samples per leaf node** (Nombre minimal d’échantillons par nœud terminal) : indiquez le nombre minimal de cas requis pour créer un nœud terminal (feuille) dans un arbre. Plus cette valeur est grande, plus le seuil de création de règles augmente.
+8. **Minimum number of samples per leaf node** (Nombre minimal d’échantillons par nœud terminal) : indiquez le nombre minimal de cas requis pour créer un nœud terminal (feuille) dans un arbre. Plus cette valeur est grande, plus le seuil de création de règles augmente.
 
     Par exemple, la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si la valeur passe à 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.
 

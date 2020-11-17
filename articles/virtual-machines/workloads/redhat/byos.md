@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3a597b6454b3fb738ca192fa7750ca94fdb873ab
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993340"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372793"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Images Gold BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux dans Azure
 
@@ -28,7 +28,7 @@ Les images RHEL (Red Hat Enterprise Linux) sont disponibles dans Azure sous la f
 - Les stratégies de support standard s’appliquent aux machines virtuelles créées à partir de ces images.
 - Les machines virtuelles provisionnées à partir d’images Red Hat Gold ne sont pas soumises aux redevances RHEL associées aux images RHEL Paiement à l’utilisation.
 - Les images ne sont pas autorisées. Vous devez donc utiliser Red Hat Subscription-Manager pour vous inscrire et vous abonner aux machines virtuelles afin d’obtenir directement les mises à jour auprès de Red Hat.
-- Il n’est actuellement pas possible de basculer dynamiquement entre les modèles de facturation BYOS et Paiement à l’utilisation pour les images Linux. Pour changer de modèle de facturation, vous devez redéployer la machine virtuelle à partir de l’image correspondante.
+- Il est possible de passer d’images assortie d’un paiement à l’utilisation à une stratégie BYOS à l’aide d’[Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). En revanche, il n’est pas possible de passer d’une stratégie BYOS déployée initialement à un modèle de facturation de paiement à l’utilisation pour des images Linux. Pour changer de modèle de facturation afin de passer d’une stratégie BYOS au paiement à l’utilisation, vous devez redéployer la machine virtuelle à partir de l’image correspondante.
 
 >[!NOTE]
 > Les images BYOS RHEL génération 2 ne sont actuellement pas disponibles via l’offre de la Place de marché. Si vous avez besoin d’une image BYOS RHEL génération 2, consultez le tableau de bord Cloud Access dans Red Hat Subscription Management. Pour plus d’informations, consultez la [documentation de Red Hat](https://access.redhat.com/articles/4847681).

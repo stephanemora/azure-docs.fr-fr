@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d3e856256e02e2c1914aeec493a87ffe992bbf13
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e8f71b277a4f4b538d501b1fa825bc6ec43428c8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740315"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359389"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -200,8 +200,8 @@ Le tableau suivant répertorie des paramètres du modèle Resource Manager pour 
 | vmName | Nom de la machine virtuelle d’exécution de l’opération de chiffrement. |
 | keyVaultName | Nom du coffre de clés où la clé de chiffrement doit être chargée. Vous pouvez l’obtenir avec l’applet de commande `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou la commande Azure CLI `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
 | keyVaultResourceGroup | Nom du groupe de ressources qui contient le coffre de clés. |
-|  keyEncryptionKeyURL | URL de la clé de chiffrement principale utilisée pour chiffrer la clé de chiffrement. Ce paramètre est facultatif si vous sélectionnez **nokek** dans la liste déroulante UseExistingKek. Si vous sélectionnez **kek** dans la liste déroulante UseExistingKek, vous devez entrer la valeur _keyEncryptionKeyURL_ . |
-| volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs valides sont _Système d’exploitation_ , _Données_ et _Tous_ . 
+|  keyEncryptionKeyURL | URL de la clé de chiffrement principale utilisée pour chiffrer la clé de chiffrement. Ce paramètre est facultatif si vous sélectionnez **nokek** dans la liste déroulante UseExistingKek. Si vous sélectionnez **kek** dans la liste déroulante UseExistingKek, vous devez entrer la valeur _keyEncryptionKeyURL_. |
+| volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs valides sont _Système d’exploitation_, _Données_ et _Tous_. 
 | forceUpdateTag | Passez à une valeur unique comme un GUID chaque fois que l’opération doit être exécutée de force. |
 | location | Emplacement pour toutes les ressources. |
 
@@ -415,6 +415,7 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
 - Application d’ADE à une machine virtuelle qui possède des disques chiffrés avec un [chiffrement côté serveur avec des clés gérées par le client](disk-encryption.md) (SSE + CMK). L’application de SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE est également un scénario non pris en charge.
 - Migration d’une machine virtuelle chiffrée par ADE ou n’a **jamais** été chiffrée avec ADE, pour un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
+- [Tailles de machine virtuelle Azure sans disque temporaire local](../azure-vms-no-temp-disk.md) ; spécifiquement, Dv4, Dsv4, Ev4 et Esv4.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929812"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366721"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Concepts de haute disponibilité dans Azure Database pour PostgreSQL – Serveur flexible
 
@@ -43,7 +43,7 @@ L’intégrité de la configuration de haute disponibilité est surveillée et s
 
 Les applications clientes PostgreSQL sont connectées au serveur primaire à l’aide du nom du serveur BDD. Les lectures d’application sont servies directement à partir du serveur primaire, tandis que les validations et les écritures sont confirmées à l’application uniquement une fois les données conservées tant sur le serveur primaire que sur le réplica de secours. En raison de cette exigence d’aller-retour supplémentaire, les applications peuvent s’attendre à une latence élevée pour les écritures et les validations. Vous pouvez surveiller l’intégrité de la haute disponibilité sur le portail.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Haute disponibilité redondante interzone"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Haute disponibilité redondante interzone – État stable"::: 
 
 1. Les clients se connectent au serveur flexible et effectuent des opérations d’écriture.
 2. Les modifications sont répliquées sur le site de secours.
@@ -64,7 +64,7 @@ Pour les autres opérations initiées par l’utilisateur, telles que la mise à
 
 Les interruptions non planifiées incluent des bogues logiciels ou des défaillances de composants d’infrastructure ayant un impact sur la disponibilité de la base de données. En cas d’indisponibilité du serveur détectée par le système de surveillance, la réplication vers le serveur réplica de secours est interrompue, et le serveur réplica de secours est activé pour en faire le serveur de base de données primaire. Les clients peuvent se reconnecter au serveur de base de données à l’aide de la même chaîne de connexion et reprendre leurs opérations. Le basculement global est censé prendre entre 60 et 120 secondes. Toutefois, en fonction de l’activité sur le serveur de base de données primaire au moment du basculement, par exemple, si les transactions et temps de récupération sont conséquents, le basculement peut prendre plus de temps.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Haute disponibilité redondante interzone"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Haute disponibilité redondante interzone – Basculement"::: 
 
 1. Le serveur de base de données primaire est à l’arrêt et les clients perdent la connexion à la base de données. 
 2. Le serveur de secours est activé pour devenir le nouveau serveur primaire. Le client se connecte au nouveau serveur primaire en utilisant la même chaîne de connexion. Le fait que l’application cliente se trouve dans la même zone que le serveur de base de données primaire réduit la latence et améliore les performances.
@@ -101,20 +101,22 @@ Des serveurs flexibles configurés avec une haute disponibilité répliquent les
 -   La haute disponibilité est prise en charge uniquement dans les régions où plusieurs zones sont disponibles.
 -   En raison de la réplication synchrone vers une autre zone de disponibilité, les applications peuvent rencontrer une latence d’écriture et de validation élevée.
 
--   Un réplica de secours ne peut pas être utilisé pour des requêtes en lecture seule.
+-   Un réplica de secours ne peut pas être utilisé pour des requêtes en lecture.
 
--   En fonction de l’activité sur le serveur primaire au moment du basculement, le basculement peut prendre jusqu’à deux minutes, voire davantage.
+-   En fonction de la charge de travail et de l’activité sur le serveur principal, le processus de basculement peut prendre plus de 120 secondes.
 
--   Un redémarrage du serveur de base de données primaire pour récupérer les modifications de paramètres statiques a également pour effet de redémarrer le serveur réplica de secours.
+-   Le redémarrage du serveur de base de données primaire redémarre également le réplica de secours. 
 
 -   La configuration de réplicas en lecture supplémentaires n’est pas prise en charge.
 
 -   La configuration des tâches de gestion lancées par le client ne peut pas être planifiée pendant la fenêtre de maintenance gérée.
 
--   Des événements planifiés, tels que la mise à l’échelle du calcul et du stockage, se produisent d’abord sur le serveur de secours, puis sur le serveur primaire. Le service n’est pas basculé. 
+-   Des événements planifiés, tels que la mise à l’échelle du calcul et du stockage, se produisent d’abord sur le serveur de secours, puis sur le serveur primaire. Le serveur n’a pas basculé pour ces opérations planifiées. 
+
+-  Si le décodage logique ou la réplication logique sont configurés avec un serveur flexible configuré pour la haute disponibilité, en cas de basculement vers le serveur de secours, les emplacements de réplication logique ne sont pas copiés sur le serveur de secours.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   Découvrez la [continuité de l’activité](./concepts-business-continuity.md)
+-   Découvrir la [continuité de l’activité](./concepts-business-continuity.md)
 -   Découvrez comment [gérer la haute disponibilité](./how-to-manage-high-availability-portal.md)
--   Découvrez la [sauvegarde et la récupération](./concepts-backup-restore.md)
+-   Découvrir [la sauvegarde et la récupération](./concepts-backup-restore.md)

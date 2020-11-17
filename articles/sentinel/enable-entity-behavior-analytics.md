@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148233"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425777"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Activer l'Analyse comportementale des utilisateurs et des entités dans Azure Sentinel 
 
 > [!IMPORTANT]
 >
-> - La fonctionnalité UEBA est désormais en **disponibilité générale** dans les régions et zones géographiques Azure Sentinel suivantes :
+> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans les régions et zones géographiques Azure Sentinel suivantes :
 >    - Géographie des États-Unis
 >    - Région Europe Ouest
 >    - Géographie de l’Australie
 >
-> - Dans toutes les autres zones géographiques et régions, cette fonctionnalité reste pour le moment en **préversion publique** et est fournie sans accord de niveau de service. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - Dans toutes les autres zones géographiques et régions, ces fonctionnalités restent actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,11 +50,11 @@ Pour activer ou désactiver cette fonctionnalité (ces conditions préalables ne
 
 1. Dans le menu de navigation d'Azure Sentinel, sélectionnez **Comportement des entités**.
 
-1. Sous l'en-tête **Activer** , placez le commutateur sur **Activé**.
+1. Sous l'en-tête **Activer**, placez le commutateur sur **Activé**.
 
 1. Cliquez sur le bouton **Sélectionner des sources de données**.
 
-1. Dans le volet **Sélection des sources de données** , cochez les cases situées en regard des sources de données sur lesquelles vous souhaitez activer l'Analyse comportementale des utilisateurs et des entités, puis sélectionnez **Appliquer**.
+1. Dans le volet **Sélection des sources de données**, cochez les cases situées en regard des sources de données sur lesquelles vous souhaitez activer l'Analyse comportementale des utilisateurs et des entités, puis sélectionnez **Appliquer**.
 
     > [!NOTE]
     >

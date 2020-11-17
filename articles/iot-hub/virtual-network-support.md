@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 11/09/2020
 ms.author: jlian
-ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427856"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413392"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Prise en charge par IoT Hub des réseaux virtuels avec Private Link et Managed Identity
 
@@ -50,17 +50,17 @@ Avant de commencer, assurez-vous que les conditions préalables suivantes sont r
 
 Un point de terminaison privé fonctionne pour des API d’appareil IoT Hub (comme des messages appareil-à-cloud), ainsi que des API de service (comme la création et la mise à jour d’appareils).
 
-1. Sur le Portail Azure, sélectionnez **Mise en réseau** , **Connexion des points de terminaison privés** , puis cliquez sur **+ Point de terminaison privé**.
+1. Sur le Portail Azure, sélectionnez **Mise en réseau**, **Connexion des points de terminaison privés**, puis cliquez sur **+ Point de terminaison privé**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Capture d’écran montrant où ajouter un point de terminaison privé pour IoT Hub":::
 
 1. Indiquez l’abonnement, le groupe de ressources, le nom et la région dans laquelle sera créé le nouveau point de terminaison privé. Idéalement, il doit s’agir de la même région que celle de votre hub.
 
-1. Cliquez sur **Suivant : Ressource** , précisez l’abonnement de votre ressource IoT Hub, puis sélectionnez le type de ressource **Microsoft.Devices/IotHubs** , le nom de votre hub IoT comme **ressource** et la sous-ressource cible **iotHub**.
+1. Cliquez sur **Suivant : Ressource**, précisez l’abonnement de votre ressource IoT Hub, puis sélectionnez le type de ressource **Microsoft.Devices/IotHubs**, le nom de votre hub IoT comme **ressource** et la sous-ressource cible **iotHub**.
 
 1. Cliquez sur **Suivant : Configuration** et indiquez le réseau virtuel et le sous-réseau où le point de terminaison privé sera créé. Sélectionnez l'option d'intégration dans zone DNS privée Azure, si vous le souhaitez.
 
-1. Cliquez sur **Suivant : Balises** , et spécifiez si nécessaire les balises de votre ressource.
+1. Cliquez sur **Suivant : Balises**, et spécifiez si nécessaire les balises de votre ressource.
 
 1. Cliquez sur **Vérifier + Créer** pour créer votre ressource de liaison privée.
 
@@ -90,7 +90,7 @@ Votre hub IoT doit disposer d’une identité managée affectée par le système
 
 1. Accédez à **Identité** sur votre portail IoT Hub.
 
-1. Sous **État** , sélectionnez **Activé** , puis cliquez sur **Enregistrer**.
+1. Sous **État**, sélectionnez **Activé**, puis cliquez sur **Enregistrer**.
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Capture d’écran montrant comment activer l’identité managée pour IoT Hub":::
 
@@ -174,9 +174,9 @@ IoT Hub peut router les messages vers un compte de stockage détenu par le clien
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de votre compte de stockage, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 
-2. Sélectionnez **Contributeur aux données Blob du stockage** ( [et *non* Contributeur ou Contributeur de compte de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) comme **rôle** , **Utilisateur, groupe ou principal du service Azure AD** comme **Attribution de l’accès à** , puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
+2. Sélectionnez **Contributeur aux données Blob du stockage** ([et *non* Contributeur ou Contributeur de compte de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) comme **rôle**, **Utilisateur, groupe ou principal du service Azure AD** comme **Attribution de l’accès à**, puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
-3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de votre compte de stockage, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions** , cochez la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**. Cliquez sur le bouton **Enregistrer** .
+3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de votre compte de stockage, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions**, cochez la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**. Cliquez sur le bouton **Enregistrer** .
 
 4. Sur la page des ressources de votre hub IoT, accédez à l'onglet **Routage de messages**.
 
@@ -192,15 +192,15 @@ IoT Hub peut être configuré pour router les messages vers un espace de noms de
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de vos hubs d’événements, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 
-2. Sélectionnez **Expéditeur de données Azure Event Hubs** comme **rôle** , **Utilisateur, groupe ou principal du service Azure AD** comme option **Attribution de l’accès aux applications** , puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
+2. Sélectionnez **Expéditeur de données Azure Event Hubs** comme **rôle**, **Utilisateur, groupe ou principal du service Azure AD** comme option **Attribution de l’accès aux applications**, puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
-3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de vos hubs d’événements, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions** , cochez la case **Autoriser les services Microsoft approuvés à accéder aux hubs d’événements**. Cliquez sur le bouton **Enregistrer** .
+3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de vos hubs d’événements, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions**, cochez la case **Autoriser les services Microsoft approuvés à accéder aux hubs d’événements**. Cliquez sur le bouton **Enregistrer** .
 
 4. Sur la page des ressources de votre hub IoT, accédez à l'onglet **Routage de messages**.
 
 5. Accédez à la section **Points de terminaison personnalisés** et cliquez sur **Ajouter**. Sélectionnez **Hubs d’événements** comme type de point de terminaison.
 
-6. Sur la page qui s'affiche, nommez votre point de terminaison, sélectionnez l'espace de noms et l'instance de vos hubs d'événements, puis cliquez sur le bouton **Créer**.
+6. Sur la page qui s’affiche, entrez un nom pour votre point de terminaison, et sélectionnez l’espace de noms et l’instance de vos hubs d’événements. Sélectionnez **Basée sur l’identité** comme **Type d’authentification**, puis cliquez sur le bouton **Créer**.
 
 Votre point de terminaison de hubs d’événements personnalisé est maintenant configuré pour utiliser l'identité attribuée par le système à votre hub, et il est autorisé à accéder à votre ressource de hubs d’événements malgré les restrictions de son pare-feu. Vous pouvez maintenant utiliser ce point de terminaison pour définir une règle de routage.
 
@@ -210,15 +210,15 @@ IoT Hub peut être configuré pour router les messages vers un espace de noms Se
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de Service Bus, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 
-2. Sélectionnez **Expéditeur de données Azure Service Bus** comme **rôle** , **Utilisateur, groupe ou principal du service Azure AD** comme option **Attribution de l’accès aux applications** , puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
+2. Sélectionnez **Expéditeur de données Azure Service Bus** comme **rôle**, **Utilisateur, groupe ou principal du service Azure AD** comme option **Attribution de l’accès aux applications**, puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
-3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de Service Bus, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions** , cochez la case **Autoriser les services Microsoft approuvés à accéder à Service Bus**. Cliquez sur le bouton **Enregistrer** .
+3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de Service Bus, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions**, cochez la case **Autoriser les services Microsoft approuvés à accéder à Service Bus**. Cliquez sur le bouton **Enregistrer** .
 
 4. Sur la page des ressources de votre hub IoT, accédez à l'onglet **Routage de messages**.
 
 5. Accédez à la section **Points de terminaison personnalisés** et cliquez sur **Ajouter**. Sélectionnez **File d'attente Service Bus** ou **Rubrique Service Bus** (selon le cas) comme type de point de terminaison.
 
-6. Sur la page qui s'affiche, nommez votre point de terminaison, sélectionnez l'espace de noms ainsi que la file d'attente ou la rubrique Service Bus (selon le cas). Cliquez sur le bouton **Créer**.
+6. Sur la page qui s'affiche, nommez votre point de terminaison, sélectionnez l'espace de noms ainsi que la file d'attente ou la rubrique Service Bus (selon le cas). Sélectionnez **Basée sur l’identité** comme **Type d’authentification**, puis cliquez sur le bouton **Créer**.
 
 Votre point de terminaison Service Bus personnalisé est maintenant configuré pour utiliser l'identité attribuée par le système à votre hub, et il est autorisé à accéder à votre ressource Service Bus malgré les restrictions de son pare-feu. Vous pouvez maintenant utiliser ce point de terminaison pour définir une règle de routage.
 
@@ -230,13 +230,13 @@ La fonction de chargement de fichiers d’IoT Hub permet aux appareils de charge
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de votre compte de stockage, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 
-2. Sélectionnez **Contributeur aux données Blob du stockage** ( [et *non* Contributeur ou Contributeur de compte de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) comme **rôle** , **Utilisateur, groupe ou principal du service Azure AD** comme **Attribution de l’accès à** , puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
+2. Sélectionnez **Contributeur aux données Blob du stockage** ([et *non* Contributeur ou Contributeur de compte de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) comme **rôle**, **Utilisateur, groupe ou principal du service Azure AD** comme **Attribution de l’accès à**, puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
-3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de votre compte de stockage, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions** , cochez la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**. Cliquez sur le bouton **Enregistrer** .
+3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de votre compte de stockage, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions**, cochez la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**. Cliquez sur le bouton **Enregistrer** .
 
 4. Sur la page des ressources de votre hub IoT, accédez à l'onglet **Chargement de fichiers**.
 
-5. Sur la page qui s'affiche, sélectionnez le conteneur que vous comptez utiliser dans votre Stockage Blob, puis configurez les options **Paramètres de notification de fichier** , **Durée de vie SAS** , **Durée de vie par défaut** et **Nombre maximal de distributions** comme vous le souhaitez. Sélectionnez **Basée sur l'identité** comme **type d'authentification** de votre point de terminaison de stockage. Cliquez sur le bouton **Créer**. Si vous recevez une erreur à cette étape, configurez temporairement votre compte de stockage afin d’autoriser l’accès à partir de **tous les réseaux** , puis réessayez. Vous pouvez configurer le pare-feu sur le compte de stockage une fois la configuration du chargement de fichiers terminée.
+5. Sur la page qui s'affiche, sélectionnez le conteneur que vous comptez utiliser dans votre Stockage Blob, puis configurez les options **Paramètres de notification de fichier**, **Durée de vie SAS**, **Durée de vie par défaut** et **Nombre maximal de distributions** comme vous le souhaitez. Sélectionnez **Basée sur l'identité** comme **type d'authentification** de votre point de terminaison de stockage. Cliquez sur le bouton **Créer**. Si vous recevez une erreur à cette étape, configurez temporairement votre compte de stockage afin d’autoriser l’accès à partir de **tous les réseaux**, puis réessayez. Vous pouvez configurer le pare-feu sur le compte de stockage une fois la configuration du chargement de fichiers terminée.
 
 Votre point de terminaison de stockage pour chargement de fichiers est maintenant configuré pour utiliser l'identité attribuée par le système à votre hub, et il est autorisé à accéder à votre ressource de stockage malgré les restrictions de son pare-feu.
 
@@ -248,9 +248,9 @@ Cette fonctionnalité nécessite une connectivité entre IoT Hub et le compte de
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de votre compte de stockage, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 
-2. Sélectionnez **Contributeur aux données Blob du stockage** ( [et *non* Contributeur ou Contributeur de compte de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) comme **rôle** , **Utilisateur, groupe ou principal du service Azure AD** comme **Attribution de l’accès à** , puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
+2. Sélectionnez **Contributeur aux données Blob du stockage** ([et *non* Contributeur ou Contributeur de compte de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) comme **rôle**, **Utilisateur, groupe ou principal du service Azure AD** comme **Attribution de l’accès à**, puis sélectionnez le nom de la ressource de votre hub IoT dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
-3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de votre compte de stockage, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions** , cochez la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**. Cliquez sur le bouton **Enregistrer** .
+3. Accédez à l'onglet **Pare-feux et réseaux virtuels** de votre compte de stockage, puis activez l'option **Autoriser l'accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions**, cochez la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**. Cliquez sur le bouton **Enregistrer** .
 
 Il est maintenant possible d’utiliser les API REST Azure IoT pour [créer des travaux d'importation/exportation](/rest/api/iothub/service/jobs/getimportexportjobs) et obtenir des informations sur l’utilisation de la fonctionnalité d'importation/exportation en bloc. Vous devrez indiquer `storageAuthenticationType="identityBased"` dans le corps de votre demande et utiliser respectivement `inputBlobContainerUri="https://..."` et `outputBlobContainerUri="https://..."` comme URL d'entrée et de sortie de votre compte de stockage.
 

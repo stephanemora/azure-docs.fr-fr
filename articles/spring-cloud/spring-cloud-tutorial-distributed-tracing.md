@@ -8,12 +8,12 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a78aec8c18f3b89629bbf696de3a097397ac59bc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088633"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337914"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Utiliser le suivi distribué avec Azure Spring Cloud
 
@@ -28,14 +28,18 @@ Pour suivre ces procédures, vous avez besoin d’une application Steeltoe déj�
 
 ## <a name="dependencies"></a>Dépendances
 
-Installer les packages NuGet suivants
+Pour Steeltoe 2.4.4, ajoutez les packages NuGet suivants :
 
 * [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 * [Steeltoe.Management.ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
 
+Pour Steeltoe 3.0.0, ajoutez le package NuGet suivant :
+
+* [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+
 ## <a name="update-startupcs"></a>Mettre à jour Startup.cs
 
-1. Dans la méthode `ConfigureServices`, appelez les méthode `AddDistributedTracing` et `AddZipkinExporter`.
+1. Pour Steeltoe 2.4.4, appelez `AddDistributedTracing` et `AddZipkinExporter` dans la méthode `ConfigureServices`.
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -45,14 +49,29 @@ Installer les packages NuGet suivants
    }
    ```
 
-1. Dans la méthode `Configure`, appelez la méthode `UseTracingExporter`.
+   Pour Steeltoe 3.0.0, appelez `AddDistributedTracing` dans la méthode `ConfigureServices`.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration, builder => builder.UseZipkinWithTraceOptions(services));
+   }
+   ```
+
+1. Pour Steeltoe 2.4.4, appelez `UseTracingExporter` dans la méthode `Configure`.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
         app.UseTracingExporter();
    }
    ```
+
+   Pour Steeltoe 3.0.0, aucune modification n’est requise dans la méthode `Configure`.
 
 ## <a name="update-configuration"></a>Mettre à jour la configuration
 

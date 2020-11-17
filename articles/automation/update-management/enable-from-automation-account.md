@@ -2,15 +2,15 @@
 title: Activer Azure Automation Update Management à partir d’un compte Automation
 description: Cet article explique comment activer Update Management à partir d’un compte Automation.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348829"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380536"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Activer Update Management à partir d’un compte Automation
 
@@ -49,7 +49,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="enable-non-azure-vms"></a>Activer les machines virtuelles non-Azure
 
-Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement.
+Pour des ordinateurs ou serveurs hébergés en dehors d’Azure, y compris ceux inscrits auprès de serveurs avec Azure Arc, procédez comme suit pour les activer avec Update Management.  
 
 1. Dans votre compte Automation, sélectionnez **Update Management** sous **Gestion des mises à jour**.
 
@@ -74,7 +74,7 @@ Les machines installées manuellement ou celles déjà connectées à votre espa
 
 5. Le cas échéant, vous pouvez rajouter la configuration d’étendue en ajoutant à nouveau la requête de recherche enregistrée initiale. Pour plus d’informations, consultez [Limiter l’étendue du déploiement d’Update Management](scope-configuration.md).
 
-6. Pour activer la fonctionnalité sur une ou plusieurs machines, sélectionnez **Activer sur les machines sélectionnées** , puis sélectionnez **Ajouter** en regard de chaque machine. Cette tâche ajoute le nom des machines sélectionnées à la requête de recherche enregistrée de groupe d’ordinateurs pour la fonctionnalité.
+6. Pour activer la fonctionnalité sur une ou plusieurs machines, sélectionnez **Activer sur les machines sélectionnées**, puis sélectionnez **Ajouter** en regard de chaque machine. Cette tâche ajoute le nom des machines sélectionnées à la requête de recherche enregistrée de groupe d’ordinateurs pour la fonctionnalité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

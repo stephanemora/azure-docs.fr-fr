@@ -5,24 +5,27 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708609"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421807"
 ---
 # <a name="logical-decoding"></a>Décodage logique
  
+> [!NOTE]
+> Le décodage logique est en préversion publique sur Azure Database pour PostgreSQL – Serveur unique.
+
 Le [décodage logique dans PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) vous permet de diffuser en continu des changements de données vers des contrôles serveur consommateurs externes. Le décodage logique est couramment utilisé pour la diffusion en continu d’événements et les scénarios de capture des changements de données.
 
-Le décodage logique utilise un plug-in de sortie pour convertir les journaux d’écriture anticipée (WAL, Write Ahead Log) de Postgres dans un format lisible. Azure Database pour PostgreSQL fournit les plug-ins de sortie [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) et pgoutput. pgoutput est rendu disponible par Postgres à partir de Postgres version 10.
+Le décodage logique utilise un plug-in de sortie pour convertir les journaux d’écriture anticipée (WAL, Write Ahead Log) de Postgres dans un format lisible. Azure Database pour PostgreSQL fournit les plug-ins de sortie [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) et pgoutput. pgoutput est rendu disponible par PostgresSQL à partir de PostgresSQL version 10.
 
 Pour obtenir une vue d’ensemble du fonctionnement du décodage logique postgres, [visitez notre blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
-> Le décodage logique est en préversion publique sur Azure Database pour PostgreSQL – Serveur unique.
+> Une réplication logique à l’aide d’une publication ou d’un abonnement PostgreSQL n’est pas prise en charge avec Azure Database pour PostgreSQL – Serveur unique.
 
 
 ## <a name="set-up-your-server"></a>Configurer votre serveur 
@@ -39,14 +42,15 @@ Le serveur doit être redémarré après une modification de ce paramètre. En i
 ### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 
 1. Définissez azure.replication_support sur `logical`.
-   ```
+   ```azurecli-interactive
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. Redémarrez le serveur pour appliquer les modifications.
-   ```
+   ```azurecli-interactive
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. Si vous exécutez Postgres 9.5 ou 9.6, et utilisez un accès réseau public, ajoutez la règle de pare-feu pour inclure l’adresse IP publique du client à partir duquel vous allez exécuter la réplication logique. Le nom de la règle de pare-feu doit inclure **_replrule**. Par exemple, *test_replrule*. Pour créer une règle de pare-feu sur le serveur, exécutez la commande [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule). 
 
 ### <a name="using-azure-portal"></a>En passant par le portail Azure
 
@@ -56,8 +60,11 @@ Le serveur doit être redémarré après une modification de ce paramètre. En i
 
 2. Redémarrez le serveur pour appliquer le changement en sélectionnant **Oui**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database pour PostgreSQL - Réplication - Prise en charge de la réplication Azure":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database pour PostgreSQL - Réplication - Confirmer le redémarrage":::
 
+3. Si vous exécutez Postgres 9.5 ou 9.6, et utilisez un accès réseau public, ajoutez la règle de pare-feu pour inclure l’adresse IP publique du client à partir duquel vous allez exécuter la réplication logique. Le nom de la règle de pare-feu doit inclure **_replrule**. Par exemple, *test_replrule*. Ensuite, cliquez sur **Enregistrer**.
+
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Azure Database pour PostgreSQL – Réplication – Ajouter une règle de pare-feu":::
 
 ## <a name="start-logical-decoding"></a>Démarrer le décodage logique
 

@@ -3,12 +3,12 @@ title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950242"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412929"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -285,7 +285,11 @@ Pour connaître les limites spécifiques à Media Services v2 (hérité), consul
 
 ### <a name="virtual-network-gateway-limits"></a>Limites de la passerelle de réseau virtuel
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>Limites de NAT Gateway
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Limites de Virtual WAN
 

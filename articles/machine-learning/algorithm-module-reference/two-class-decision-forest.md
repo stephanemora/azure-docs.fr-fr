@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
-ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c303a7640454ba0cb6622b21fd161354266068
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907722"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375923"
 ---
 # <a name="two-class-decision-forest-module"></a>Module Forêt d’arbres décisionnels à deux classes
 
@@ -72,7 +72,7 @@ Pour plus d’informations, voir [Arbres de décision](https://go.microsoft.com/
 4.  Dans le champ **Nombre d’arbres de décision**, saisissez le nombre maximal d’arbres de décision qui peuvent être créés dans l’ensemble. Plus il y en a, meilleure peut être la couverture, mais plus le temps d’apprentissage augmente.  
   
     > [!NOTE]
-    >  Cette valeur contrôle également le nombre d’arbres qui s’affichent dans la visualisation du modèle entraîné. Si vous souhaitez voir ou imprimer un seul arbre, vous pouvez définir la valeur sur 1. Toutefois, un seul arbre sera produit (l’arbre avec le jeu de paramètres initial) sans qu’aucune autre itération soit effectuée.
+    >  Si vous définissez la valeur sur 1. Toutefois, un seul arbre sera produit (l’arbre avec le jeu de paramètres initial) sans qu’aucune autre itération soit effectuée.
   
 5.  Dans le champ **Profondeur maximale des arbres de décision**, tapez un nombre pour limiter la profondeur de chacun des arbres de décision. Le fait d’augmenter la profondeur de l’arbre est susceptible d’améliorer la précision, au prix d’un risque de surajustement et d’augmentation du temps d’apprentissage.
   

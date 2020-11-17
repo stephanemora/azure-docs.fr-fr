@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5c45c01e34c4663657dbeee803fe0bb5cdae6a3c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143081"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380570"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -19,7 +19,7 @@ Le plan de contrôle ou le serveur d’API se trouve dans un abonnement Azure g�
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Les clusters privés sont disponibles dans les régions publiques où [AKS est pris en charge](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Le cluster privé est disponible dans les régions public Azure Government et Azure China 21Vianet où [AKS est pris en charge](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
 > [!NOTE]
 > Les sites Azure Government sont pris en charge. Cependant, US Gov Texas n’est pas pris en charge pour le moment, en raison de l’absence de prise en charge du service Liaison privée.
@@ -43,7 +43,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Où *--enable-private-cluster* est un indicateur obligatoire pour un cluster privé. 
+Où `--enable-private-cluster` est un indicateur obligatoire pour un cluster privé. 
 
 ### <a name="advanced-networking"></a>Mise en réseau avancée  
 
@@ -59,14 +59,14 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Où *--enable-private-cluster* est un indicateur obligatoire pour un cluster privé. 
+Où `--enable-private-cluster` est un indicateur obligatoire pour un cluster privé. 
 
 > [!NOTE]
 > Si le CIDR d’adresse de pont Docker (172.17.0.1/16) est en conflit avec le CIDR de sous-réseau, changez l’adresse de pont Docker en conséquence.
 
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Options de connexion au cluster privé
 
-Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. Pour gérer le serveur d’API, vous devez utiliser une machine virtuelle qui a accès au réseau virtuel Azure (VNet) du cluster AKS. Il existe plusieurs options pour établir une connectivité réseau avec le cluster privé.
+Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. Pour gérer le serveur d’API, vous devez utiliser une machine virtuelle qui a accès au réseau virtuel (VNet) Azure du cluster AKS. Il existe plusieurs options pour établir une connectivité réseau avec le cluster privé.
 
 * Créez une machine virtuelle dans le même réseau virtuel Azure (VNet) que le cluster AKS.
 * Utilisez une machine virtuelle dans un réseau distinct et configurez l'[appairage de réseaux virtuels][virtual-network-peering].  Pour plus d'informations sur cette option, consultez la section ci-dessous.
@@ -80,13 +80,13 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
     
 1. Accédez au groupe de ressources du nœud dans le portail Azure.  
 2. Sélectionnez la zone DNS privée.   
-3. Dans le volet de gauche, sélectionnez le lien **Réseau virtuel** .  
+3. Dans le volet de gauche, sélectionnez le lien **Réseau virtuel**.  
 4. Créez un lien permettant d’ajouter le réseau virtuel de la machine virtuelle à la zone DNS privée. Il faut quelques minutes pour que le lien de zone DNS soit disponible.  
 5. Dans le portail Azure, accédez au groupe de ressources contenant le réseau virtuel de votre cluster.  
 6. Dans le volet de droite, sélectionnez le réseau virtuel. Le nom du réseau virtuel se présente au format *aks-vnet-\** .  
-7. Dans le volet de gauche, sélectionnez **Appairages** .  
-8. Sélectionnez **Ajouter** , ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
-9. Accédez au réseau virtuel sur lequel se trouve la machine virtuelle, sélectionnez **Appairages** , sélectionnez le réseau virtuel AKS, puis créez l’appairage. Si les plages d’adresses sur le réseau virtuel AKS et le réseau virtuel de la machine virtuelle sont en conflit, l’appairage échoue. Pour plus d’informations, consultez [Appairage de réseaux virtuels][virtual-network-peering].
+7. Dans le volet de gauche, sélectionnez **Appairages**.  
+8. Sélectionnez **Ajouter**, ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
+9. Accédez au réseau virtuel sur lequel se trouve la machine virtuelle, sélectionnez **Appairages**, sélectionnez le réseau virtuel AKS, puis créez l’appairage. Si les plages d’adresses sur le réseau virtuel AKS et le réseau virtuel de la machine virtuelle sont en conflit, l’appairage échoue. Pour plus d’informations, consultez [Appairage de réseaux virtuels][virtual-network-peering].
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hub-and-spoke avec DNS personnalisé
 
@@ -94,7 +94,7 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 
 ![Hub-and-spoke de cluster privé](media/private-clusters/aks-private-hub-spoke.png)
 
-1. Par défaut, lorsqu’un cluster privé est approvisionné, un point de terminaison privé (1) et une zone DNS privée (2) sont créés dans le groupe de ressources managées par le cluster. Le cluster utilise un enregistrement A dans la zone privée pour résoudre l’adresse IP du point de terminaison privé pour la communication avec le serveur d’API.
+1. Par défaut, lorsqu’un cluster privé est approvisionné, un point de terminaison privé (1) et une zone DNS privée (2) sont créés dans le groupe de ressources managé par le cluster. Le cluster utilise un enregistrement A dans la zone privée pour résoudre l’adresse IP du point de terminaison privé pour la communication avec le serveur d’API.
 
 2. La zone DNS privée est liée uniquement au réseau virtuel auquel les nœuds de cluster sont attachés (3). Cela signifie que le point de terminaison privé peut uniquement être résolu par les hôtes de ce réseau virtuel lié. Dans les scénarios où aucun DNS personnalisé n’est configuré sur le réseau virtuel (par défaut), cela fonctionne sans problème, car les hôtes pointent vers l’adresse 168.63.129.16 pour le DNS qui peut résoudre les enregistrements dans la zone DNS privée en raison de la liaison.
 

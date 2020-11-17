@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784216"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330289"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -61,8 +61,8 @@ La modification du mode de réplication de votre compte de stockage n’entraîn
 Pour modifier l’option de redondance de votre compte de stockage dans le Portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage dans le portail Azure.
-1. Sélectionnez le paramètre **Configuration** .
-1. Mettez à jour le paramètre **Réplication** .
+1. Sélectionnez le paramètre **Configuration**.
+1. Mettez à jour le paramètre **Réplication**.
 
 ![Capture d’écran montrant comment modifier l’option de réplication dans le portail](media/redundancy-migration/change-replication-option.png)
 
@@ -123,26 +123,26 @@ Vous devez effectuer une migration manuelle si :
 
 Vous pouvez demander une migration dynamique via le [portail du Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). À partir du portail, sélectionnez le compte de stockage que vous souhaitez convertir en ZRS.
 
-1. Sélectionnez **Nouvelle demande de support** .
+1. Sélectionnez **Nouvelle demande de support**.
 2. Fournissez les informations **De base** de votre compte : 
-    - **Type de problème**  : Sélectionnez **Technique** .
-    - **Service**  : Sélectionnez **Mes services** et **Gestion des comptes de stockage** .
-    - **Ressource**  : Sélectionnez la ressource à convertir en ZRS.
-3. Sélectionnez **Suivant** .
-4. Dans la section **Problème** , spécifiez les valeurs suivantes :
+    - **Type de problème** : Sélectionnez **Technique**.
+    - **Service** : Sélectionnez **Mes services** et **Gestion des comptes de stockage**.
+    - **Ressource** : Sélectionnez la ressource à convertir en ZRS.
+3. Sélectionnez **Suivant**.
+4. Dans la section **Problème**, spécifiez les valeurs suivantes :
     - **Gravité** : conservez la valeur par défaut.
-    - **Type de problème**  : sélectionnez **Migration des données** .
-    - **Catégorie**  : Sélectionnez **Migrer vers ZRS** .
-    - **Titre**  : tapez un titre descriptif tel que **Migration de compte ZRS** .
-    - **Détails** : tapez des détails supplémentaires dans la zone **Détails** , par exemple, « Je souhaite migrer vers ZRS à partir de [LRS, GRS] dans la région \_\_ ».
-5. Sélectionnez **Suivant** .
+    - **Type de problème** : sélectionnez **Migration des données**.
+    - **Catégorie** : Sélectionnez **Migrer vers ZRS**.
+    - **Titre** : tapez un titre descriptif tel que **Migration de compte ZRS**.
+    - **Détails** : tapez des détails supplémentaires dans la zone **Détails**, par exemple, « Je souhaite migrer vers ZRS à partir de [LRS, GRS] dans la région \_\_ ».
+5. Sélectionnez **Suivant**.
 6. Vérifiez que les informations de contact dans le panneau **Informations de contact** sont correctes.
 7. Sélectionnez **Create** (Créer).
 
 Une personne du support technique vous contactera pour vous apporter l’aide dont vous aurez besoin.
 
 > [!NOTE]
-> La migration dynamique n’est actuellement pas prise en charge pour les partages de fichiers Premium. Seuls la copie ou le déplacement manuels des données sont actuellement pris en charge.
+> Les partages de fichiers Premium (comptes FileStorage) sont disponibles uniquement pour LRS et ZRS.
 >
 > Les comptes de stockage GZRS ne prennent pas en charge le niveau archive pour le moment. Pour plus d’informations, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 >
@@ -165,7 +165,7 @@ Vous pouvez également mettre à niveau votre compte de stockage ZRS classique v
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
-Pour mettre à niveau vers ZRS via le Portail Azure, accédez aux paramètres **Configuration** du compte, puis choisissez **Mettre à niveau**  :
+Pour mettre à niveau vers ZRS via le Portail Azure, accédez aux paramètres **Configuration** du compte, puis choisissez **Mettre à niveau** :
 
 ![Mettre à niveau ZRS classique vers ZRS via le portail](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 

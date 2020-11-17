@@ -4,16 +4,16 @@ description: Comment utiliser la nouvelle exportation de données pour exporter 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126701"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413171"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exporter des données IoT vers des destinations cloud à l'aide des fonctionnalités d'exportation de données
 
@@ -135,6 +135,7 @@ Maintenant que vous disposez d'une destination vers laquelle exporter vos donné
     |  Télémétrie | Exportez des messages de télémétrie à partir d’appareils en quasi-temps réel. Chaque message exporté contient le contenu complet du message d'origine de l'appareil, normalisé.   |  [Format du message de télémétrie](#telemetry-format)   |
     | Modifications de la propriété | Exportez les modifications apportées aux propriétés de l’appareil et du cloud en quasi-temps réel. Pour les propriétés en lecture seule de l'appareil, les modifications apportées aux valeurs signalées sont exportées. Pour les propriétés en lecture-écriture, les valeurs signalées et souhaitées sont exportées. | [Format du message de modification de la propriété](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Vous pouvez également ajouter des filtres pour réduire la quantité de données exportées. Différents types de filtres sont disponibles pour chaque type d'exportation de données :
 
     Pour filtrer les données de télémétrie, vous pouvez :
@@ -145,6 +146,7 @@ Maintenant que vous disposez d'une destination vers laquelle exporter vos donné
 
     Pour filtrer les modifications apportées aux propriétés, utilisez un **filtre de capacité**. Sélectionnez un élément de propriété dans la liste déroulante. Le flux exporté ne contient que les modifications apportées à la propriété sélectionnée remplissant la condition de filtre.
 
+<a name="DataExportEnrichmnents"></a>
 1. Si vous le souhaitez, vous pouvez également enrichir les messages exportés avec des métadonnées supplémentaires dans les paires clé-valeur. Les enrichissements suivants sont disponibles pour les types d'exportation de données de télémétrie et de modification de propriétés :
 
     - **Chaîne personnalisée** : Ajoute une chaîne statique personnalisée à chaque message. Entrez n’importe quelle clé, puis entrez une valeur de chaîne.
@@ -156,7 +158,9 @@ Maintenant que vous disposez d'une destination vers laquelle exporter vos donné
     - **Type de destination** : choisissez le type de destination. Si vous n'avez pas encore configuré votre destination, consultez [Configurer une destination d'exportation](#set-up-export-destination).
     - Pour Azure Event Hubs, ou pour une file d'attente ou une rubrique Azure Service Bus, collez la chaîne de connexion de votre ressource et, si nécessaire, entrez le nom de l'instance d'Event Hubs, de la file d'attente ou de la rubrique en respectant la casse.
     - Pour le Stockage Blob Azure, collez la chaîne de connexion de votre ressource et, si nécessaire, entrez le nom du conteneur en respectant la casse.
-    - Pour Webhook, collez l’URL de rappel de votre point de terminaison webhook.
+    - Pour Webhook, collez l’URL de rappel de votre point de terminaison webhook. Vous pouvez éventuellement configurer une autorisation de webhook (OAuth 2.0 et le jeton d’autorisation) et ajouter des en-têtes personnalisés. 
+        - Pour OAuth 2.0, seul le flux d’informations d’identification du client est pris en charge. Une fois la destination enregistrée, IoT Central communique avec votre fournisseur OAuth pour récupérer un jeton d’autorisation. Ce jeton sera attaché à l’en-tête « Authorization » pour chaque message envoyé à cette destination.
+        - Pour le jeton d’autorisation, vous pouvez spécifier une valeur de jeton qui sera directement attachée à l’en-tête « Authorization » pour chaque message envoyé à cette destination.
     - Sélectionnez **Create** (Créer).
 
 1. Sélectionnez **+ Destination** et choisissez une destination dans la liste déroulante. Vous pouvez ajouter cinq destinations par exportation.

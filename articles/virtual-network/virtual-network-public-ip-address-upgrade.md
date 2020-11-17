@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 791c9e8ea8f7c8ffbf9268af2b3a93f592a77f9e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629740"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353354"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Mettre à niveau des adresses IP publiques
 
@@ -100,7 +100,7 @@ Pour tirer parti des nouvelles fonctionnalités d’Azure Resource Manager, vous
 
 L’exemple suivant suppose qu’une adresse IP réservée Azure classique **myReservedIP** a été créée auparavant dans **myResourceGroup**. Autre prérequis pour la migration, l’abonnement Azure Resource Manager doit être inscrit pour la migration. Ce sujet est traité en détail dans les étapes 3 et 4 de [cette page](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
 
-Pour procéder à la migration de l’adresse IP réservée, exécutez les commandes ci-dessous à l’aide de PowerShell.  Notez que si l’adresse IP n’est associée à aucun service (dans l’exemple ci-dessous il y en a un, appelé **myService** ), vous pouvez passer cette étape.
+Pour procéder à la migration de l’adresse IP réservée, exécutez les commandes ci-dessous à l’aide de PowerShell.  Notez que si l’adresse IP n’est associée à aucun service (dans l’exemple ci-dessous il y en a un, appelé **myService**), vous pouvez passer cette étape.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -118,13 +118,13 @@ La commande précédente affiche les avertissements et erreurs qui bloquent la m
 Move-AzureReservedIP -ReservedIPName $name -Prepare
 Move-AzureReservedIP -ReservedIPName $name -Commit
 ```
-Un nouveau groupe de ressources dans Azure Resource Manager est créé à l’aide du nom de l’adresse IP réservée qui a été migrée (dans l’exemple ci-dessus, il s’agit du groupe de ressources **myReservedIP-Migrated** ).
+Un nouveau groupe de ressources dans Azure Resource Manager est créé à l’aide du nom de l’adresse IP réservée qui a été migrée (dans l’exemple ci-dessus, il s’agit du groupe de ressources **myReservedIP-Migrated**).
 
 # <a name="reserved-to-basic---cli"></a>[**Réservé à De base - CLI**](#tab/option-migrate-cli)
 
 L’exemple suivant suppose qu’une adresse IP réservée Azure classique **myReservedIP** a été créée auparavant dans **myResourceGroup**. Autre prérequis pour la migration, l’abonnement Azure Resource Manager doit être inscrit pour la migration. Ce sujet est traité en détail dans les étapes 3 et 4 de [cette page](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli).
 
-Pour procéder à la migration de l’adresse IP réservée, exécutez les commandes ci-dessous à l’aide d’Azure CLI.  Notez que si l’adresse IP n’est associée à aucun service (dans l’exemple ci-dessous il y a un service, appelé **myService** , et un déploiement, **myDeployment** ), vous pouvez passer cette étape.
+Pour procéder à la migration de l’adresse IP réservée, exécutez les commandes ci-dessous à l’aide d’Azure CLI.  Notez que si l’adresse IP n’est associée à aucun service (dans l’exemple ci-dessous il y a un service, appelé **myService**, et un déploiement, **myDeployment**), vous pouvez passer cette étape.
 
 ```azurecli-interactive
 ## Variables for the command ##
@@ -142,7 +142,7 @@ La commande précédente affiche les avertissements et erreurs qui bloquent la m
 azure network reserved-ip prepare-migration $name
 azure network reserved-ip commit-migration $name
 ```
-Un nouveau groupe de ressources dans Azure Resource Manager est créé à l’aide du nom de l’adresse IP réservée qui a été migrée (dans l’exemple ci-dessus, il s’agit du groupe de ressources **myReservedIP-Migrated** ).
+Un nouveau groupe de ressources dans Azure Resource Manager est créé à l’aide du nom de l’adresse IP réservée qui a été migrée (dans l’exemple ci-dessus, il s’agit du groupe de ressources **myReservedIP-Migrated**).
 
 ---
 
@@ -154,11 +154,18 @@ Centre-Nord des États-Unis<br>
 USA Ouest<br>
 USA Ouest 2<br>
 Norvège Est<br>
+Afrique du Sud Nord<br>
 USA Est<br>
+Europe Nord<br>
+Centre de la Corée<br>
+Inde Centre<br>
 USA Est 2<br>
 Suisse Nord<br>
 Inde Ouest<br>
-Allemagne Nord
+Allemagne Nord<br>
+Centre du Canada<br>
+France Sud<br>
+Inde Ouest
 
 * Pour pouvoir mettre à niveau une adresse IP publique De base, celle-ci ne doit être associée à aucune ressource Azure.  Consultez [cette page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) pour en savoir plus sur la façon de dissocier des adresses IP publiques.  De même, pour pouvoir migrer une adresse IP réservée, celle-ci ne doit être associée à aucun service cloud.  Consultez [cette page](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) pour en savoir plus sur la façon de dissocier des adresses IP réservées.  
 * Les adresses IP publiques mises à niveau d’une référence SKU De base à Standard n’ont toujours aucune [zone de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) et, par conséquent, ne peuvent pas être associées à une ressource Azure redondante interzone ou zonale.  Notez que cela s’applique uniquement aux régions qui proposent des zones de disponibilité.

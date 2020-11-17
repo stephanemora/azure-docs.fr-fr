@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664943fc5535883b3df77b2795383e5c0586a71c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898843"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375327"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Module de régression d’arbre de décision boosté
 
@@ -73,7 +73,7 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
 
 6. **Number of trees constructed** (Nombre d’arbres construits) : indiquez le nombre total d’arbres de décision à créer dans l’ensemble. Plus il y en a, meilleure peut être la couverture, mais plus le temps d’apprentissage augmente.
 
-    Cette valeur contrôle également le nombre d’arbres qui s’affichent dans la visualisation du modèle entraîné. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, un seul arbre est produit (celui avec le jeu de paramètres initial) et aucune itération n’est effectuée.
+    Toutefois, si vous définissez la valeur sur 1, un seul arbre est généré (l’arbre avec le jeu de paramètres initial), et aucune autre itération n’est effectuée.
 
 7. **Random number seed** (Valeur de départ aléatoire) : saisissez un entier non négatif facultatif à utiliser comme la valeur de départ aléatoire. La spécification d’une valeur de départ garantit la reproductibilité entre les exécutions qui présentent les mêmes données et paramètres.
 

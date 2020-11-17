@@ -2,13 +2,13 @@
 title: Lier des modèles pour déploiement
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369312"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366335"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -283,7 +283,7 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
 
 ## <a name="linked-template"></a>Modèle lié
 
-Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété **templateLink**, spécifiez l’URI du modèle à inclure. L’exemple suivant établit un lien vers un modèle qui déploie un nouveau compte de stockage.
+Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété **templateLink**, spécifiez l’URI du modèle à inclure. L’exemple suivant établit un lien vers un modèle qui se trouve dans un compte de stockage.
 
 ```json
 {
@@ -310,13 +310,17 @@ Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/m
 }
 ```
 
-Lors du référencement d’un modèle lié, la valeur de `uri` ne doit pas être un fichier local ou un fichier disponible uniquement sur votre réseau local. Vous devez fournir une valeur d’URI téléchargeable utilisant le protocole **http** ou **https**.
+Lors du référencement d’un modèle lié, la valeur de `uri` ne peut pas être un fichier local ou un fichier disponible uniquement sur votre réseau local. Azure Resource Manager doit être en mesure d’accéder au modèle. Fournissez une valeur d’URI téléchargeable utilisant le protocole **http** ou **https**. 
 
-> [!NOTE]
->
-> Vous pouvez référencer des modèles à l’aide de paramètres qui, en fin de compte, sont résolus en une solution qui utilise **http** ou **https**, par exemple, à l’aide du paramètre `_artifactsLocation`, comme suit : `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+Vous pouvez référencer des modèles à l’aide de paramètres qui incluent **http** ou **https**. Par exemple, un modèle courant consiste à utiliser le paramètre `_artifactsLocation`. Vous pouvez définir le modèle lié avec une expression telle que la suivante :
 
-Resource Manager doit être en mesure d’accéder au modèle. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+Si vous établissez un lien vers un modèle dans GitHub, utilisez l’URL brute. Le format du lien est le suivant : `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. Pour obtenir le lien brut, sélectionnez **Brut**.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Sélectionner une URL brute":::
 
 ### <a name="parameters-for-linked-template"></a>Paramètres du modèle lié
 

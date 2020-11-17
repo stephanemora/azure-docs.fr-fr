@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013642"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369237"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Résoudre les problèmes de pools de capacités
 
@@ -34,11 +34,14 @@ Cet article décrit les résolutions des problèmes que vous pouvez rencontrer l
 | Échec de la création ou de la modification du volume avec l’erreur `Requested throughput not available` | Le débit disponible pour un volume est déterminé par la taille et le niveau de service de son pool de capacités. Si vous ne disposez pas d’un débit suffisant, vous devez augmenter la taille du pool ou ajuster le débit du volume existant. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>Problèmes relatifs au déplacement d’un pool de capacités 
+
+> [!IMPORTANT] 
+> L’inscription à la préversion publique de [Changer dynamiquement le niveau de service d’un volume](dynamic-change-volume-service-level.md) est en attente jusqu’à nouvel ordre.
+
 |     État d’erreur    |     Résolution    |
 |-|-|
 | La modification du pool de capacités pour un volume n’est pas autorisée. | Vous n’êtes peut-être pas encore autorisé à utiliser cette fonctionnalité. <br> La fonctionnalité de déplacement d’un volume vers un autre pool de capacité est actuellement disponible en préversion. Si vous utilisez cette fonctionnalité pour la première fois, vous devez commencer par l’inscrire et définir `-FeatureName ANFTierChange`. Consultez les étapes d’inscription dans [Changer dynamiquement le niveau de service d’un volume](dynamic-change-volume-service-level.md). |
 | La taille du pool de capacités est trop petite pour la taille totale du volume. |  L’erreur est due au fait que le pool de capacités de destination n’a pas la capacité disponible pour le volume qui est déplacé.  <br> Augmentez la taille du pool de destination ou choisissez un autre pool plus grand.  Voir [Redimensionner un pool de capacités ou un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
-| Impossible de déplacer un volume lorsque le pool de capacités de destination a un type de chiffrement différent de celui du pool de capacités d’origine.  Par exemple, vous passez d’un chiffrement double à un chiffrement unique, ou vice versa.  | Sélectionnez un pool de capacités de destination avec le même type de chiffrement que le pool de capacités source.   |
 |  La modification du pool ne peut pas être effectuée, car un volume appelé `'{source pool name}'` existe déjà dans le pool cible `'{target pool name}'`. | Cette erreur se produit parce qu’un volume portant le même nom existe déjà dans le pool de capacités cible.  Sélectionnez un autre pool de capacités qui n’a pas de volume portant le même nom.   | 
 
 ## <a name="next-steps"></a>Étapes suivantes  

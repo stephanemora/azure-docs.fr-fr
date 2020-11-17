@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348336"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337897"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -43,7 +43,7 @@ L’attribution de l’utilisation de client prend en charge trois options de d�
 Un GUID désigne un identificateur de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer un suivi, vous devez utiliser un générateur GUID, par exemple via PowerShell.
 
 ```powershell
-[guid]::NewGuid()]
+[guid]::NewGuid()
 ```
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
@@ -76,9 +76,9 @@ Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilis
 
 1. Dans l’angle supérieur droit, sélectionnez l’icône des paramètres (engrenage), puis sélectionnez **Paramètres de développeur**.
 
-1. Sur la page **Paramètres du compte** , sélectionnez **Ajouter un GUID de suivi**.
+1. Sur la page **Paramètres du compte**, sélectionnez **Ajouter un GUID de suivi**.
 
-1. Dans la zone **GUID** , entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe `pid-`. Dans la zone **Description** , entrez le nom ou la description de l’offre.
+1. Dans la zone **GUID**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe `pid-`. Dans la zone **Description**, entrez le nom ou la description de l’offre.
 
 1. Pour inscrire plusieurs GUID, sélectionnez de nouveau **Add Tracking GUID** (Ajouter un GUID de suivi). Des champs supplémentaires apparaissent sur la page.
 
@@ -100,7 +100,7 @@ Pour ajouter un identificateur global unique (GUID), vous devez apporter une mod
 
 1. Ouvrez le modèle Resource Manager.
 
-1. Ajoutez une nouvelle ressource de type [Microsoft. Resources/Deployments](/azure/templates/microsoft.resources/deployments) dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json** , et pas dans l’un des modèles imbriqués ou liés.
+1. Ajoutez une nouvelle ressource de type [Microsoft. Resources/Deployments](/azure/templates/microsoft.resources/deployments) dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
 
 1. Entrez la valeur du GUID derrière le préfixe `pid-`, en tant que nom de la ressource. Par exemple, si le GUID est eb7927c8-dd66-43e1-b0cf-c346a422063, le nom de la ressource est _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
@@ -113,7 +113,7 @@ Pour ajouter un identificateur global unique (GUID), vous devez apporter une mod
 ### <a name="sample-resource-manager-template-code"></a>Exemple de code de modèle Resource Manager
 
 Pour activer les ressources de suivi pour votre modèle, vous devez ajouter la ressource supplémentaire suivante dans la section des ressources. Veillez à modifier l’exemple de code ci-dessous avec vos propres entrées lorsque vous l’ajoutez au fichier modèle principal.
-Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json** , et pas dans l’un des modèles imbriqués ou liés.
+Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
 
 ```json
 // Make sure to modify this sample code with your own inputs where applicable
@@ -311,10 +311,6 @@ Les clients peuvent effectuer le suivi de leur utilisation des ressources indivi
 **Est-ce que cette méthode est similaire au partenaire de référence numérique (DPOR) ?**
 
 Cette nouvelle méthode de connexion du déploiement et de l’utilisation à la solution d’un partenaire fournit un mécanisme permettant de lier une solution de partenaire à l’utilisation d’Azure. Le partenaire de référence numérique (DPOR) est destiné à associer un partenaire de conseil (intégrateur de systèmes) ou de gestion (fournisseur de services managés) à l’abonnement Azure d’un client.
-
-**Quel avantage y a-t-il à utiliser le formulaire Générateur de GUID de Stockage Azure ?**
-
-Le formulaire Générateur de GUID de Stockage Azure est l’assurance de générer un GUID au format adéquat. De plus, si vous utilisez l’une des méthodes de suivi de plan de données de Stockage Azure, vous pouvez utiliser le même GUID pour le suivi de plan de contrôle de la Place de marché. Cela vous permet d’exploiter un même GUID unifié pour l’attribution Partenaire sans avoir à gérer plusieurs GUID.
 
 **Puis-je utiliser un disque dur virtuel privé personnalisé dans le cadre d’une offre de modèle de solution sur la Place de marché Azure ?**
 

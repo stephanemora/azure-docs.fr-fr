@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934920"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421717"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
 Cet article explique comment obtenir une réponse à une requête qui renvoie le nombre total de documents correspondants, les résultats paginés, les résultats triés et les termes mis en surbrillance.
 
-La structure d’une réponse est déterminée par les paramètres de la requête : [Search Document](/rest/api/searchservice/Search-Documents) dans l’API REST, ou [DocumentSearchResult Class](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) dans le Kit de développement logiciel (SDK) .NET.
+La structure d’une réponse est déterminée par les paramètres de la requête : [Search Document](/rest/api/searchservice/Search-Documents) dans l’API REST, ou [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) dans le Kit de développement logiciel (SDK) .NET.
 
 ## <a name="result-composition"></a>Composition des résultats
 
@@ -52,7 +52,7 @@ Pour retourner un nombre différent de documents correspondants, ajoutez les par
 + Retournez le deuxième jeu, en ignorant les 15 premiers pour obtenir les 15 suivants : `$top=15&$skip=15`. Procédez de la même façon pour le troisième jeu de 15 : `$top=15&$skip=30`
 
 Il n’est pas garanti que les résultats des requêtes paginées soient stables si l’index sous-jacent est modifié. La pagination modifie la valeur de `$skip` pour chaque page, mais chaque requête est indépendante et opère sur l’affichage actuel des données telles qu’elles existent dans l’index au moment de la requête. En d’autres termes, il n’y a aucune mise en cache ni capture instantanée des résultats, comme c’est le cas dans une base de données à usage général.
- 
+ 
 Voici un exemple de la façon dont vous pouvez obtenir des doublons. Imaginons un index avec quatre documents :
 
 ```text
@@ -61,21 +61,21 @@ Voici un exemple de la façon dont vous pouvez obtenir des doublons. Imaginons u
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Supposons à présent que vous souhaitiez que les résultats soient retournés par deux, classés par évaluation. Vous exécuterez cette requête pour obtenir la première page des résultats, `$top=2&$skip=0&$orderby=rating desc`, et vous obtenez les résultats suivants :
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 Sur le service, supposez qu’un cinquième document est ajouté à l’index entre les appels de requête : `{ "id": "5", "rating": 4 }`.  Peu de temps après, vous exécutez une requête pour extraire la deuxième page, `$top=2&$skip=2&$orderby=rating desc`, et vous obtenez ces résultats :
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Notez que le document 2 est extrait 2 fois. Cela est dû au fait que le nouveau document 5 a une plus grande valeur d’évaluation. Il est donc trié avant le document 2 et atterrit sur la première page. Bien que ce comportement puisse être inattendu, c’est généralement ainsi qu’un moteur de recherche se comporte.
 
 ## <a name="ordering-results"></a>Classement des résultats

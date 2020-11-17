@@ -1,7 +1,7 @@
 ---
 title: 'Importance de la fonctionnalité de permutation : sur le module Modifier les métadonnées'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Importance de la fonctionnalité de permutation dans Azure Machine Learning pour calculer les scores d’importance des fonctionnalités de permutation des variables de fonctionnalité en fonction d’un modèle formé et d’un jeu de données de test.
+description: Découvrez comment utiliser le module Importance de la fonctionnalité de permutation dans le concepteur pour calculer les scores d’importance des fonctionnalités de permutation des variables de fonctionnalité.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319395"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421241"
 ---
 # <a name="permutation-feature-importance"></a>Importance de la fonctionnalité de permutation
 
@@ -40,7 +40,7 @@ La génération d’un ensemble de scores de fonctionnalités exige que vous dis
 
      Une valeur de départ est facultative, mais vous devez fournir une valeur si vous souhaitez que la reproductibilité s’effectue entre les exécutions du même pipeline.  
 
-5.  Pour **Métrique pour la mesure des performances** , sélectionnez une métrique unique à utiliser lors du calcul de la qualité du modèle après la permutation.  
+5.  Pour **Métrique pour la mesure des performances**, sélectionnez une métrique unique à utiliser lors du calcul de la qualité du modèle après la permutation.  
 
      Le concepteur Azure Machine Learning prend en charge les métriques suivantes, selon que vous évaluez un modèle de classification ou de régression :  
 

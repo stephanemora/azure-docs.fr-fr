@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e810a31fab4457e47329e37f54b16e6f488c9da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630608"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337625"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Résolution des problèmes de routage courants
 
@@ -103,5 +103,26 @@ Ce symptôme peut avoir plusieurs causes :
             * Les *Protocoles acceptés* sont HTTP et HTTPS. Le *Protocole de transfert* est HTTP. La mise en correspondance de la requête ne fonctionnera pas, car HTTPS est un protocole autorisé et si une requête est arrivée sous la forme HTTPS, Front Door tentera de la transférer en utilisant HTTPS.
 
             * Les *Protocoles acceptés* sont HTTP. La valeur de *Protocole de transfert* est soit la correspondance de la requête, soit HTTP.
-
     - Le champ *Réécriture d’URL* est désactivé par défaut. Ce champ n’est utilisé que si vous voulez limiter l’étendue des ressources que vous souhaitez rendre disponibles et qui sont hébergées par le back-end. Quand il est désactivé, Front Door transfère le même chemin de requête que celui qu’il reçoit. Il est possible de configurer ce champ de façon incorrecte. Ainsi, lorsque Front Door demande une ressource du back-end qui n’est pas disponible, un code d’état HTTP 404 est retourné.
+
+## <a name="request-to-frontend-host-name-returns-411-status-code"></a>Une demande à un nom d’hôte frontal retourne le code d’état 411
+
+### <a name="symptom"></a>Symptôme
+
+Vous avez créé une porte d’entrée et configuré un hôte frontend, un pool de backends contenant au moins un backend, ainsi qu’une règle de routage qui connecte l’hôte frontend au pool de backends. Votre contenu ne semble pas être disponible quand une demande est envoyée à l’hôte frontal configuré, car un code d’état HTTP 411 est retourné.
+
+Les réponses à ces demandes peuvent également contenir une page d’erreur HTML dans le corps de la réponse, qui inclut une déclaration d’explication. Par exemple : `HTTP Error 411. The request must be chunked or have a content length`
+
+### <a name="cause"></a>Cause
+
+Ce symptôme peut avoir plusieurs causes. Toutefois, la raison est généralement que votre requête HTTP n’est pas entièrement conforme au RFC. 
+
+Un exemple de non-conformité est une demande `POST` envoyée sans en-tête `Content-Length` ou `Transfer-Encoding` (par exemple, à l’aide de `curl -X POST https://example-front-door.domain.com`). Cette demande ne répond pas aux exigences du [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) et serait bloquée par votre Front Door avec une réponse HTTP 411.
+
+Ce comportement est indépendant de la fonctionnalité WAF de Front Door. Actuellement, il n’existe aucun moyen de désactiver ce comportement. Toutes les requêtes HTTP doivent répondre aux exigences, même si la fonctionnalité WAF n’est pas utilisée.
+
+### <a name="troubleshooting-steps"></a>Étapes de dépannage
+
+- Vérifiez que vos demandes sont conformes aux exigences des RFC applicables.
+
+- Notez tout corps de message HTML retourné en réponse à votre demande, car celui-ci explique souvent précisément *pourquoi* votre demande n’est pas conforme.

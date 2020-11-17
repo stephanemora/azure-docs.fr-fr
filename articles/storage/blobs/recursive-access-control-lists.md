@@ -9,19 +9,16 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0323bed627fd622471724b20677914736c564d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: efa434959df1d0310e390e78cee2ada726f61827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319907"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427533"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Définir des listes de contrôle d’accès (ACL) pour Azure Data Lake Storage Gen2
 
 L’héritage des listes ACL est déjà disponible pour les nouveaux éléments enfants créés sous un répertoire parent. Maintenant, vous pouvez également ajouter, mettre à jour et supprimer des listes ACL de manière récursive pour les éléments enfants existants d’un répertoire parent sans avoir à apporter ces modifications individuellement à chaque élément enfant.
-
-> [!NOTE]
-> La possibilité de définir des listes ACL de manière récursive est en préversion publique et disponible dans toutes les régions.  
 
 [Bibliothèques](#libraries) | [Exemples](#code-samples) | [Meilleures pratiques](#best-practice-guidelines) | [Envoyer des commentaires](#provide-feedback)
 
@@ -29,7 +26,7 @@ L’héritage des listes ACL est déjà disponible pour les nouveaux éléments 
 
 - Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- Un compte de stockage doté d’un espace de noms hiérarchique (HNS) activé. Pour créer un test, suivez [ces](data-lake-storage-quickstart-create-account.md) instructions.
+- Un compte de stockage doté d’un espace de noms hiérarchique (HNS) activé. Pour créer un test, suivez [ces](create-data-lake-storage-account.md) instructions.
 
 - Autorisations appropriées pour exécuter le processus ACL récursif. L’autorisation correcte comprend l’un des éléments suivants : 
 
@@ -414,7 +411,9 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 ```
 
 > [!NOTE]
-> Si vous souhaitez définir une entrée de liste de contrôle d’accès **par défaut** , utilisez le paramètre **-DefaultScope** quand vous exécutez la commande **Set-AzDataLakeGen2ItemAclObject**. Par exemple : `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+> Si vous souhaitez définir une entrée de liste de contrôle d’accès **par défaut**, utilisez le paramètre **-DefaultScope** quand vous exécutez la commande **Set-AzDataLakeGen2ItemAclObject**. Par exemple : `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+
+Pour voir un exemple qui définit des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’article de référence [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -427,13 +426,13 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 ```
 
 > [!NOTE]
-> Si vous souhaitez définir une entre ACL **par défaut** , ajoutez le préfixe `default:` à chaque entrée. Par exemple, `default:user::rwx` ou `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`. 
+> Si vous souhaitez définir une entre ACL **par défaut**, ajoutez le préfixe `default:` à chaque entrée. Par exemple, `default:user::rwx` ou `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
 Définissez une liste de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.SetAccessControlRecursiveAsync**. Transmettez à cette méthode une [Liste](/dotnet/api/system.collections.generic.list-1) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Chaque [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) définit une entrée de liste de contrôle d’accès. 
 
-Si vous souhaitez définir une entrée de liste de contrôle d’accès **par défaut** , vous pouvez définir la propriété [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) sur **true**. 
+Si vous souhaitez définir une entrée de liste de contrôle d’accès **par défaut**, vous pouvez définir la propriété [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) sur **true**. 
 
 Cet exemple définit la liste ACL d’un répertoire nommé `my-parent-directory`. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut définir la liste de contrôle d’accès par défaut. Ce paramètre est utilisé dans le constructeur de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Ces entrées de la liste de contrôle d'accès donnent à l’utilisateur propriétaire des autorisations de lecture, d’écriture et d’exécution et donnent uniquement au groupe propriétaire des autorisations de lecture et d’exécution. Les autres groupes ne reçoivent aucun accès. La dernière entrée de la liste de contrôle d’accès dans cet exemple donne à un utilisateur spécifique avec l’ID d’objet « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx » des autorisations de lecture et d’exécution.
 
@@ -471,11 +470,13 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool is
 
 ```
 
+Pour voir un exemple qui définit des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) .NET.
+
 ### <a name="java"></a>[Java](#tab/java)
 
 Définissez une liste de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.setAccessControlRecursive**. Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès. 
 
-Si vous souhaitez définir une entrée de contrôle d’accès **par défaut** , vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**. 
+Si vous souhaitez définir une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**. 
 
 Cet exemple définit la liste ACL d’un répertoire nommé `my-parent-directory`. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut définir la liste de contrôle d’accès par défaut. Ce paramètre est utilisé chaque fois que la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) est appelée. Ces entrées de la liste de contrôle d'accès donnent à l’utilisateur propriétaire des autorisations de lecture, d’écriture et d’exécution et donnent uniquement au groupe propriétaire des autorisations de lecture et d’exécution. Les autres groupes ne reçoivent aucun accès. La dernière entrée de la liste de contrôle d’accès dans cet exemple donne à un utilisateur spécifique avec l’ID d’objet « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx » des autorisations de lecture et d’exécution.
 
@@ -546,7 +547,7 @@ static public void SetACLRecursively(DataLakeFileSystemClient fileSystemClient, 
 
 Définissez une liste de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.set_access_control_recursive**.
 
-Si vous souhaitez définir une entrée de liste de contrôle d’accès **par défaut** , ajoutez la chaîne `default:` au début de chaque chaîne d’entrée de liste de contrôle d’accès. 
+Si vous souhaitez définir une entrée de liste de contrôle d’accès **par défaut**, ajoutez la chaîne `default:` au début de chaque chaîne d’entrée de liste de contrôle d’accès. 
 
 Cet exemple définit la liste ACL d’un répertoire nommé `my-parent-directory`. 
 
@@ -572,6 +573,8 @@ def set_permission_recursively(is_default_scope):
     except Exception as e:
      print(e)
 ```
+
+Pour voir un exemple qui traite des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Python .
 
 ---
 
@@ -601,7 +604,9 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 ```
 
 > [!NOTE]
-> Si vous souhaitez mettre à jour une entrée de liste de contrôle d’accès **par défaut** , utilisez le paramètre **-DefaultScope** lors de l’exécution de la commande **Set-AzDataLakeGen2ItemAclObject**. Par exemple : `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
+> Si vous souhaitez mettre à jour une entrée de liste de contrôle d’accès **par défaut**, utilisez le paramètre **-DefaultScope** lors de l’exécution de la commande **Set-AzDataLakeGen2ItemAclObject**. Par exemple : `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
+
+Pour voir un exemple qui met à jour des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’article de référence [Update-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -614,13 +619,13 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Si vous souhaitez mettre à jour une entrée ACL **par défaut** , ajoutez le préfixe `default:` à chaque entrée. Par exemple, `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
+> Si vous souhaitez mettre à jour une entrée ACL **par défaut**, ajoutez le préfixe `default:` à chaque entrée. Par exemple, `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
 Mettez à jour une liste de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.UpdateAccessControlRecursiveAsync**.  Transmettez à cette méthode une [Liste](/dotnet/api/system.collections.generic.list-1) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Chaque [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) définit une entrée de liste de contrôle d’accès. 
 
-Si vous souhaitez mettre à jour une entrée de liste de contrôle d’accès **par défaut** , vous pouvez définir la propriété [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) sur **true**. 
+Si vous souhaitez mettre à jour une entrée de liste de contrôle d’accès **par défaut**, vous pouvez définir la propriété [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) sur **true**. 
 
 Cet exemple met à jour une entrée de liste de contrôle d’accès avec l’autorisation d’écriture. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut mettre à jour la liste de contrôle d’accès par défaut. Ce paramètre est utilisé dans le constructeur de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
@@ -647,11 +652,13 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, boo
 }
 ```
 
+Pour voir un exemple qui met à jour des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) .NET.
+
 ### <a name="java"></a>[Java](#tab/java)
 
 Mettez à jour une liste de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.updateAccessControlRecursive**.  Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès. 
 
-Si vous souhaitez mettre à jour une entrée de contrôle d’accès **par défaut** , vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**. 
+Si vous souhaitez mettre à jour une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**. 
 
 Cet exemple met à jour une entrée de liste de contrôle d’accès avec l’autorisation d’écriture. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut mettre à jour la liste de contrôle d’accès par défaut. Ce paramètre est utilisé à chaque appel de la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). 
 
@@ -683,7 +690,7 @@ static public void UpdateACLRecursively(DataLakeFileSystemClient fileSystemClien
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Mettez à jour une liste de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.update_access_control_recursive**. Si vous souhaitez mettre à jour une entrée de liste de contrôle d’accès **par défaut** , ajoutez la chaîne `default:` au début de chaque chaîne d’entrée de liste de contrôle d’accès. 
+Mettez à jour une liste de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.update_access_control_recursive**. Si vous souhaitez mettre à jour une entrée de liste de contrôle d’accès **par défaut**, ajoutez la chaîne `default:` au début de chaque chaîne d’entrée de liste de contrôle d’accès. 
 
 Cet exemple met à jour une entrée de liste de contrôle d’accès avec l’autorisation d’écriture.
 
@@ -712,6 +719,8 @@ def update_permission_recursively(is_default_scope):
      print(e)
 ```
 
+Pour voir un exemple qui traite des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Python .
+
 ---
 
 ## <a name="remove-acl-entries-recursively"></a>Supprimer des entrées de liste de contrôle d’accès (ACL) de manière récursive
@@ -736,7 +745,9 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 ```
 
 > [!NOTE]
-> Si vous souhaitez supprimer une entrée de liste de contrôle d’accès **par défaut** , utilisez le paramètre **-DefaultScope** lors de l’exécution de la commande **Set-AzDataLakeGen2ItemAclObject**. Par exemple : `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
+> Si vous souhaitez supprimer une entrée de liste de contrôle d’accès **par défaut**, utilisez le paramètre **-DefaultScope** lors de l’exécution de la commande **Set-AzDataLakeGen2ItemAclObject**. Par exemple : `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
+
+Pour voir un exemple qui supprime des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’article de référence [Remove-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -749,13 +760,13 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Si vous souhaitez supprimer une entre ACL **par défaut** , ajoutez le préfixe `default:` à chaque entrée. Par exemple, `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+> Si vous souhaitez supprimer une entre ACL **par défaut**, ajoutez le préfixe `default:` à chaque entrée. Par exemple, `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
 Supprimez des entrées de liste de contrôle d’accès en appelant la méthode **DataLakeDirectoryClient.RemoveAccessControlRecursiveAsync**. Transmettez à cette méthode une [Liste](/dotnet/api/system.collections.generic.list-1) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Chaque [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) définit une entrée de liste de contrôle d’accès. 
 
-Si vous souhaitez supprimer une entrée de liste de contrôle d’accès **par défaut** , vous pouvez définir la propriété [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) sur **true**. 
+Si vous souhaitez supprimer une entrée de liste de contrôle d’accès **par défaut**, vous pouvez définir la propriété [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) sur **true**. 
 
 Cet exemple supprimer une entrée de liste de contrôle d’accès dans la liste ACL du répertoire nommé `my-parent-directory`. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut supprimer l’entrée de la liste de contrôle d’accès par défaut. Ce paramètre est utilisé dans le constructeur de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
@@ -779,11 +790,13 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isD
 }
 ```
 
+Pour voir un exemple qui supprime des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) .NET.
+
 ### <a name="java"></a>[Java](#tab/java)
 
 Supprimez des entrées de liste de contrôle d’accès en appelant la méthode **DataLakeDirectoryClient.removeAccessControlRecursive**. Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès. 
 
-Si vous souhaitez supprimer une entrée de contrôle d’accès **par défaut** , vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**.  
+Si vous souhaitez supprimer une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**.  
 
 Cet exemple supprimer une entrée de liste de contrôle d’accès dans la liste ACL du répertoire nommé `my-parent-directory`. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut supprimer l’entrée de la liste de contrôle d’accès par défaut. Ce paramètre est utilisé à chaque appel de la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html).
 
@@ -816,7 +829,7 @@ static public void RemoveACLRecursively(DataLakeFileSystemClient fileSystemClien
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Supprimez des entrées de liste de contrôle d’accès en appelant la méthode **DataLakeDirectoryClient.remove_access_control_recursive**. Si vous souhaitez supprimer une entrée de liste de contrôle d’accès **par défaut** , ajoutez la chaîne `default:` au début de la chaîne d’entrée de liste de contrôle d’accès. 
+Supprimez des entrées de liste de contrôle d’accès en appelant la méthode **DataLakeDirectoryClient.remove_access_control_recursive**. Si vous souhaitez supprimer une entrée de liste de contrôle d’accès **par défaut**, ajoutez la chaîne `default:` au début de la chaîne d’entrée de liste de contrôle d’accès. 
 
 Cet exemple supprimer une entrée de liste de contrôle d’accès dans la liste ACL du répertoire nommé `my-parent-directory`. Cette méthode accepte un paramètre booléen nommé `is_default_scope` qui spécifie s’il faut supprimer l’entrée de la liste de contrôle d’accès par défaut. Si la valeur de ce paramètre est `True`, l’entrée de la liste de contrôle d'accès mise à jour est précédée de la chaîne `default:`. 
 
@@ -839,6 +852,8 @@ def remove_permission_recursively(is_default_scope):
      print(e)
 ```
 
+Pour voir un exemple qui traite des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Python .
+
 ---
 
 ## <a name="recover-from-failures"></a>Récupérer suite à des échecs
@@ -847,42 +862,23 @@ Vous pouvez rencontrer des erreurs d’exécution ou d’autorisation. Pour les 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cet exemple définit des listes de contrôle d’accès par lots. Chaque appel à **Set-AzDataLakeGen2AclRecursive** retourne un jeton de continuation jusqu’à ce que toutes les listes de contrôle d'accès soient définies. Cet exemple définit une variable nommée `$ContinueOnFailure` sur `$false` pour indiquer que le processus ne doit pas continuer à définir des listes de contrôle d’accès en cas d’erreur d’autorisation. Le jeton de continuation est stocké dans la variable `&token`. En cas de défaillance, ce jeton peut être utilisé pour reprendre le processus à partir du point de défaillance.
+Cet exemple retourne des résultats à la variable, puis canalise les entrées ayant échoué vers une table mise en forme.
 
 ```powershell
-$ContinueOnFailure = $false
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+$result
+$result.FailedEntries | ft 
+```
 
-$token = $null
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-do
-{
-    if ($ContinueOnFailure)
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
-    }
-    else
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
-    }
-    echo $result
-    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
-    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
-    $totalFailure += $result.TotalFailureCount
-    $FailedEntries += $result.FailedEntries
-    $token = $result.ContinuationToken
-} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
-echo ""
-echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
-echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
-echo "FailedEntries:"$($FailedEntries | ft)
+En fonction de la sortie du tableau, vous pouvez corriger les erreurs d’autorisation, puis reprendre l’exécution à l’aide du jeton de continuation.
 
+```powershell
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinuationToken $result.ContinuationToken
+$result
 
 ```
+
+Pour voir un exemple qui définit des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’article de référence [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -924,6 +920,8 @@ public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
 
 }
 ```
+
+Pour voir un exemple qui définit des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) .NET.
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -985,48 +983,27 @@ def resume_set_acl_recursive(continuation_token):
      return continuation_token
 ```
 
+Pour voir un exemple qui traite des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Python .
+
 ---
 
 Si vous souhaitez que le processus se termine sans être interrompu par des erreurs d’autorisation, vous pouvez le spécifier.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cet exemple définit la variable `$ContinueOnFailure` sur `$true` pour indiquer que le processus doit continuer à définir des listes de contrôle d’accès en cas d’erreur d’autorisation. 
+Cet exemple utilise le paramètre `ContinueOnFailure` pour que l’exécution continue même si l’opération rencontre une erreur d’autorisation. 
 
 ```powershell
-$ContinueOnFailure = $true
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
 
-$token = $null
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-do
-{
-    if ($ContinueOnFailure)
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
-    }
-    else
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
-    }
-    echo $result
-    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
-    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
-    $totalFailure += $result.TotalFailureCount
-    $FailedEntries += $result.FailedEntries
-    $token = $result.ContinuationToken
-} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
-echo ""
 echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
-echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
-echo "FailedEntries:"$($FailedEntries | ft)
-
-
+echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
+echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
+echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
+
+Pour voir un exemple qui définit des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’article de référence [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -1064,6 +1041,8 @@ public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
         counters.FailedChangesCount.ToString());
 }
 ```
+
+Pour voir un exemple qui définit des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) .NET.
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -1122,6 +1101,8 @@ def continue_on_failure():
     except Exception as e:
      print(e)
 ```
+
+Pour voir un exemple qui traite des ACL de manière récursive dans des lots en spécifiant une taille de lot, consultez l’[exemple](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Python .
 
 ---
 

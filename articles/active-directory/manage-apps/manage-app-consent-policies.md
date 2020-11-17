@@ -12,18 +12,18 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486920"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442257"
 ---
 # <a name="manage-app-consent-policies"></a>Gérer les stratégies de consentement des applications
 
 Avec Azure AD PowerShell, vous pouvez voir et gérer les stratégies de consentement des applications.
 
-Une stratégie de consentement d’application se compose d’un ou plusieurs ensembles de conditions d’inclusion et de zéro ou plusieurs ensembles de conditions d’exclusion. Pour qu’un événement soit pris en compte dans une stratégie de consentement d’application, il doit correspondre à *au moins* un ensemble de conditions d’inclusion et ne doit pas correspondre à *un* des ensembles de conditions d’exclusion.
+Une stratégie de consentement d’application se compose d’un ou plusieurs ensembles de conditions d’inclusion et de zéro ou plusieurs ensembles de conditions d’exclusion. Pour qu’un événement soit pris en compte dans une stratégie de consentement d’application, il doit correspondre à *au moins* un ensemble de conditions d’inclusion et ne doit pas correspondre à *un* ensemble de conditions d’exclusion.
 
 Chaque ensemble de conditions est constitué de plusieurs conditions. Pour qu’un événement corresponde à un ensemble de conditions, *toutes* les conditions de l’ensemble de conditions doivent être remplies.
 
@@ -133,7 +133,7 @@ Le tableau suivant fournit la liste des conditions prises en charge pour les str
 | Condition | Description|
 |:---------------|:----------|
 | PermissionClassification | La [classification des autorisations](configure-permission-classifications.md) pour l’autorisation accordée, ou « All » pour correspondre à toute classification d’autorisation (y compris les autorisations qui ne sont pas classées). La valeur par défaut est « All ». |
-| PermissionType | Type d’autorisation de l’autorisation accordée. Utilisez « application » pour les autorisations de l’application (par exemple, les rôles d’application) ou « delegated » pour les autorisations déléguées. <br><br>**Remarque**  : La valeur « delegatedUserConsentable » indique des autorisations déléguées qui n’ont pas été configurées par le serveur de publication de l’API pour exiger le consentement de l’administrateur. Cette valeur peut être utilisée dans les stratégies d’autorisations intégrées, mais ne peut pas être utilisée dans les stratégies d’autorisation personnalisées. Obligatoire. |
+| PermissionType | Type d’autorisation de l’autorisation accordée. Utilisez « application » pour les autorisations de l’application (par exemple, les rôles d’application) ou « delegated » pour les autorisations déléguées. <br><br>**Remarque** : La valeur « delegatedUserConsentable » indique des autorisations déléguées qui n’ont pas été configurées par le serveur de publication de l’API pour exiger le consentement de l’administrateur. Cette valeur peut être utilisée dans les stratégies d’autorisations intégrées, mais ne peut pas être utilisée dans les stratégies d’autorisation personnalisées. Obligatoire. |
 | ResourceApplication | **AppId** de l’application de ressource (par exemple, l’API) pour laquelle une autorisation est accordée, ou « any » pour correspondre à n’importe quelle application ou API de ressources. La valeur par défaut est « any ». |
 | Autorisations | Liste des ID d’autorisation pour les autorisations spécifiques de correspondance ou une liste avec la valeur unique « all » pour toutes les autorisations. La valeur par défaut est la seule valeur « tout ». <ul><li>Les ID d’autorisations déléguées se trouvent dans la propriété **OAuth2Permissions** de l’objet ServicePrincipal de l’API.</li><li>Les ID d’autorisations d’application se trouvent dans la propriété **AppRoles** de l’objet ServicePrincipal de l’API.</li></ol> |
 | ClientApplicationIds | Liste de valeurs **AppId** auxquelles les applications clientes doivent correspondre ou liste avec la valeur unique « all » pour correspondre à n’importe quelle application cliente. La valeur par défaut est la seule valeur « tout ». |

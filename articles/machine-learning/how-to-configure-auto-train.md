@@ -1,7 +1,7 @@
 ---
 title: Créer des expériences de machine learning automatisé
 titleSuffix: Azure Machine Learning
-description: Le machine learning automatisé choisit un algorithme pour vous et génère un modèle prêt pour le déploiement. Découvrez les options que vous pouvez utiliser pour configurer les expériences de machine learning automatisé.
+description: Découvrez comment définir des sources de données, des calculs et des paramètres de configuration pour vos expériences de Machine Learning automatisé.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 09fe93d4e3ba50ced6c8f07d6fe25ace2376c388
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python,contperfq1, automl
+ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320521"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352572"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -46,7 +46,7 @@ Pour cet article, vous avez besoin des éléments suivants :
     Pour installer le kit de développement logiciel (SDK), vous pouvez : 
     * Créer une instance de calcul, qui installe automatiquement le kit de développement logiciel (SDK) et est préconfigurée pour les flux de travail ML. Consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md) pour plus d’informations. 
 
-    * [Installer vous-même le kit de développement logiciel (SDK)](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). Veillez simplement à inclure le `automl` supplémentaire. 
+    * [Installez vous-même le package `automl`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), qui comprend l’[installation par défaut](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py#default-install&preserve-view=true) du Kit de développement logiciel (SDK).
 
 ## <a name="select-your-experiment-type"></a>Sélectionner le type de votre expérience
 
@@ -69,7 +69,7 @@ Configuration requise pour les données de formation :
 - Les données doivent être sous forme tabulaire.
 - La valeur à prédire, la colonne cible, doit figurer dans les données.
 
-**Pour les expériences à distance** , les données d’entraînement doivent être accessibles à partir de la ressource de calcul distante. AutoML accepte uniquement [TabularDatasets Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) lors de l’utilisation d’un calcul distant. 
+**Pour les expériences à distance**, les données d’entraînement doivent être accessibles à partir de la ressource de calcul distante. AutoML accepte uniquement [TabularDatasets Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) lors de l’utilisation d’un calcul distant. 
 
 Les jeux de données Azure Machine Learning exposent les fonctionnalités suivantes :
 
@@ -83,7 +83,7 @@ from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-**Pour les expériences de calcul locales** , nous recommandons les dataframes pandas pour accélérer les temps de traitement.
+**Pour les expériences de calcul locales**, nous recommandons les dataframes pandas pour accélérer les temps de traitement.
 
   ```python
   import pandas as pd
@@ -103,7 +103,7 @@ Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cr
 |Formation sur la taille des&nbsp;données&nbsp;| Technique de validation |
 |---|-----|
 |**Contient plus&nbsp;de&nbsp;20 000&nbsp;lignes**| Le fractionnement des données de formation/validation est appliqué. La valeur par défaut consiste à prendre 10 % du jeu de données d’apprentissage initial en tant que jeu de validation. Ce jeu de validation est ensuite utilisé pour le calcul des métriques.
-|**Contient moins&nbsp;de&nbsp;20 000&nbsp;lignes**| L’approche de validation croisée est appliquée. Le nombre de plis par défaut dépend du nombre de lignes. <br> **Si le jeu de données est inférieur à 1 000 lignes** , 10 plis sont utilisés. <br> **S’il y a entre 1 000 et 20 000 lignes** , trois plis sont utilisés.
+|**Contient moins&nbsp;de&nbsp;20 000&nbsp;lignes**| L’approche de validation croisée est appliquée. Le nombre de plis par défaut dépend du nombre de lignes. <br> **Si le jeu de données est inférieur à 1 000 lignes**, 10 plis sont utilisés. <br> **S’il y a entre 1 000 et 20 000 lignes**, trois plis sont utilisés.
 
 À ce stade, vous devez fournir vos propres **données de test** pour l’évaluation du modèle. Pour obtenir un exemple de code d’intégration de vos propres données de test pour l’évaluation du modèle, consultez la section **Test** de [ce notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
@@ -111,13 +111,13 @@ Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cr
 
 Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une expérience de machine learning automatisé peut s’exécuter sur les options de calcul suivantes. Découvrez [les avantages et les inconvénients des options de calcul locales et distantes](concept-automated-ml.md#local-remote). 
 
-* Votre machine **locale** , comme un poste de travail local ou un ordinateur portable : en général, quand vous avez un petit jeu de données et que vous êtes toujours dans la phase d’exploration. Consultez [ce notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) pour un exemple de calcul local. 
+* Votre machine **locale**, comme un poste de travail local ou un ordinateur portable : en général, quand vous avez un petit jeu de données et que vous êtes toujours dans la phase d’exploration. Consultez [ce notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) pour un exemple de calcul local. 
  
 * Une machine **distante** dans le cloud : la [capacité de calcul managée Azure Machine Learning](concept-compute-target.md#amlcompute) est un service managé qui permet d’entraîner des modèles de machine learning sur des clusters de machines virtuelles Azure. 
 
     Consultez [ce notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) pour obtenir un exemple distant utilisant le calcul managé Azure Machine Learning. 
 
-* Un **cluster Azure Databricks** dans votre abonnement Azure. Vous trouverez plus de détails ici : [Configurer le cluster Azure Databricks pour ML automatisé](how-to-configure-environment.md#aml-databricks). Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) pour voir des exemples de notebooks avec Azure Databricks.
+* Un **cluster Azure Databricks** dans votre abonnement Azure. Pour plus de détails, consultez [Configurer un cluster Azure Databricks pour ML automatisé](how-to-configure-databricks-automl-environment.md). Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) pour voir des exemples de notebooks avec Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -261,12 +261,12 @@ Plusieurs arguments par défaut peuvent être fournis en tant que `kwargs` dans 
 > [!IMPORTANT]
 >  Les paramètres suivants ne sont pas des paramètres explicites de la classe AutoMLConfig. 
 
-* `ensemble_download_models_timeout_sec`: Pendant la génération des modèles **VotingEnsemble** et **StackEnsemble** , plusieurs modèles ajustés des exécutions enfants précédentes sont téléchargés. Si vous rencontrez cette erreur : `AutoMLEnsembleException: Could not find any models for running ensembling`, vous devrez peut-être prévoir plus de temps pour le téléchargement des modèles. La valeur par défaut est de 300 secondes pour le téléchargement de ces modèles en parallèle et il n’y a pas de limite maximale pour le délai d’expiration. Si plus de temps est nécessaire, configurez ce paramètre avec une valeur supérieure à 300 secondes. 
+* `ensemble_download_models_timeout_sec`: Pendant la génération des modèles **VotingEnsemble** et **StackEnsemble**, plusieurs modèles ajustés des exécutions enfants précédentes sont téléchargés. Si vous rencontrez cette erreur : `AutoMLEnsembleException: Could not find any models for running ensembling`, vous devrez peut-être prévoir plus de temps pour le téléchargement des modèles. La valeur par défaut est de 300 secondes pour le téléchargement de ces modèles en parallèle et il n’y a pas de limite maximale pour le délai d’expiration. Si plus de temps est nécessaire, configurez ce paramètre avec une valeur supérieure à 300 secondes. 
 
   > [!NOTE]
   >  Si le délai d’expiration est atteint et que des modèles sont téléchargés, l’ensemble se poursuit avec autant de modèles qu’il a téléchargés. Il n’est pas nécessaire que tous les modèles soient téléchargés pour terminer dans ce délai.
 
-Les paramètres suivants s’appliquent uniquement aux modèles **StackEnsemble**  : 
+Les paramètres suivants s’appliquent uniquement aux modèles **StackEnsemble** : 
 
 * `stack_meta_learner_type` : ce modèle est entraîné avec la sortie de modèles hétérogènes individuels. Les méta-learners par défaut sont `LogisticRegression` pour les tâches de classification (ou `LogisticRegressionCV`, si la validation croisée est activée) et `ElasticNet` pour les tâches de régression/prévision (ou `ElasticNetCV`, si la validation croisée est activée). Ce paramètre peut correspondre à l’une des chaînes suivantes : `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` ou `LinearRegression`.
 

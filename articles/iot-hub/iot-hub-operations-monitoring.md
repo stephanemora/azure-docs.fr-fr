@@ -1,20 +1,20 @@
 ---
 title: Surveillance des opérations Azure IoT Hub (déconseillé) | Microsoft Docs
 description: Découvrez comment utiliser la surveillance des opérations Azure IoT Hub pour surveiller l’état des opérations sur votre hub IoT en temps réel.
-author: nberdy
-manager: briz
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: nberdy
+ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538491"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408122"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Surveillance des opérations IoT Hub (déconseillé)
 
@@ -48,7 +48,7 @@ IoT Hub surveille six catégories d’événements :
     ![Configurer la surveillance des opérations sur votre IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
-> Si vous sélectionnez la surveillance **détaillée** dans la catégorie **Connexions** , IoT Hub génère des messages de diagnostic supplémentaires. Pour toutes les autres catégories, le paramètre **Détaillée** modifie la quantité d’informations qu’IoT Hub inclut dans chaque message d’erreur.
+> Si vous sélectionnez la surveillance **détaillée** dans la catégorie **Connexions**, IoT Hub génère des messages de diagnostic supplémentaires. Pour toutes les autres catégories, le paramètre **Détaillée** modifie la quantité d’informations qu’IoT Hub inclut dans chaque message d’erreur.
 
 ## <a name="event-categories-and-how-to-use-them"></a>Catégories d’événements et utilisation respective
 
@@ -197,11 +197,11 @@ Pour vous connecter au point de terminaison de surveillance, vous avez besoin d�
 
 1. Dans le portail, accédez à votre panneau de ressources IoT Hub.
 
-2. Sélectionnez **Surveillance des opérations** , notez les valeurs du **Nom compatible Event Hub** et du **Point de terminaison compatible Event Hub**  :
+2. Sélectionnez **Surveillance des opérations**, notez les valeurs du **Nom compatible Event Hub** et du **Point de terminaison compatible Event Hub** :
 
     ![Valeurs du point de terminaison compatible Event Hub](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Sélectionnez **Stratégies d’accès partagé** , puis **service**. Prenez note de la valeur de **Clé primaire**  :
+3. Sélectionnez **Stratégies d’accès partagé**, puis **service**. Prenez note de la valeur de **Clé primaire** :
 
     ![Clé primaire de la stratégie d’accès partagé du service](./media/iot-hub-operations-monitoring/service-key.png)
 
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour explorer davantage les capacités de IoT Hub, consultez :
+Pour approfondir l’exploration de l’utilisation d’Azure Monitor pour surveiller IoT Hub, consultez :
 
-* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
+* [Superviser avec IoT Hub](monitor-iot-hub.md)
 
-* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/quickstart-linux.md)
+* [Migrer de la Surveillance des opérations IoT Hub vers Azure Monitor](iot-hub-migrate-to-diagnostics-settings.md)

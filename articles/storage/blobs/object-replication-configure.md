@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055968"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427596"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurer la réplication d’objets pour des objets blob de blocs
 
@@ -65,19 +65,19 @@ Pour créer une stratégie de réplication dans le portail Azure, procédez comm
 
     L’illustration suivante montre des filtres qui limitent les blobs qui sont copiés dans le cadre d’une règle de réplication.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Capture d’écran montrant des règles de réplication dans Portail Azure":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Capture d’écran montrant des filtres pour une règle de réplication":::
 
 1. Par défaut, l’étendue de copie est définie pour copier uniquement les nouveaux objets. Pour copier tous les objets dans le conteneur ou pour copier les objets à partir d’une date et d’une heure personnalisées, sélectionnez le lien **Modifier** et configurez l’étendue de copie pour la paire de conteneurs.
 
     L’illustration suivante montre une étendue de copie personnalisée qui copie les objets à partir d’une date et d’une heure spécifiées.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Capture d’écran montrant des règles de réplication dans Portail Azure":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Capture d’écran montrant l’étendue de copie personnalisée pour la réplication d’objets":::
 
 1. Sélectionnez **Enregistrer et appliquer** pour créer la stratégie de réplication et démarrer la réplication des données.
 
 Une fois que vous avez configuré la réplication d’objet, le portail Azure affiche la stratégie et les règles de réplication, comme illustré dans l’image suivante.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Capture d’écran montrant des règles de réplication dans Portail Azure":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Capture d’écran montrant la stratégie de réplication d’objet dans le portail Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -284,7 +284,7 @@ Pour configurer la réplication d’objets sur le compte de destination avec un 
 1. Sélectionnez **Charger les règles de réplication**.
 1. Téléchargez le fichier JSON. Le portail Azure affiche la stratégie et les règles qui seront créées, comme illustré dans l’image suivante.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Capture d’écran montrant des règles de réplication dans Portail Azure":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Capture d’écran montrant comment charger un fichier JSON pour définir une stratégie de réplication":::
 
 1. Sélectionnez **Télécharger** pour créer la stratégie de réplication sur le compte de destination.
 
@@ -293,7 +293,7 @@ Vous pouvez ensuite télécharger un fichier JSON contenant la définition de st
 1. Accédez aux paramètres de **Réplication d’objets** pour le compte de destination dans le portail Azure.
 1. Sélectionnez le bouton **Plus** en regard de la stratégie que vous souhaitez télécharger, puis sélectionnez **Télécharger les règles**, comme illustré dans l’image suivante.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Capture d’écran montrant des règles de réplication dans Portail Azure":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Capture d’écran montrant comment télécharger des règles de réplication dans un fichier JSON":::
 
 1. Enregistrez le fichier JSON sur votre ordinateur local pour le partager avec un autre utilisateur afin de configurer la stratégie sur le compte source.
 
@@ -361,7 +361,7 @@ Pour vérifier l’état de réplication d’un objet blob dans le compte source
 1. Localisez le conteneur qui contient l’objet blob source.
 1. Sélectionnez l’objet blob pour afficher ses propriétés. Si l’objet blob a été correctement répliqué, vous verrez dans la section **Réplication d’objet** que l’état est défini sur *Terminé*. L’ID de la stratégie de réplication et l’ID de la règle régissant la réplication d’objets pour ce conteneur sont également répertoriés.
 
-:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Capture d’écran montrant des règles de réplication dans Portail Azure":::
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Capture d’écran illustrant l’état de réplication d’un objet blob dans le compte source":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -391,6 +391,12 @@ az storage blob show \
 ```
 
 ---
+
+Si l’état de réplication d’un blob dans le compte source indique un échec, examinez les causes possibles suivantes :
+
+- Assurez-vous que la stratégie de réplication d’objet est configurée sur le compte de destination.
+- Vérifiez que le conteneur de destination existe toujours.
+- Si le blob source a été chiffré à l’aide d’une clé fournie par le client dans le cadre d’une opération d’écriture, la réplication d’objet échoue. Pour plus d’informations sur les clés fournies par le client, consultez [Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob](encryption-customer-provided-keys.md).
 
 ## <a name="remove-a-replication-policy"></a>Supprimer une stratégie de réplication
 

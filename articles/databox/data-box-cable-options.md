@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744166"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334599"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Options de câblage de votre Azure Data Box
 
@@ -80,8 +80,8 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 
    - **Adresse IP** 192.168.100.5
    - **Sous-réseau** 255.255.255.0.
-
-     ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-with-static-ip.png)
+  
+   ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse : 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 4. Identifiez les adresses IP assignées au serveur DHCP.
@@ -126,6 +126,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 1. Utilisez un câble RJ45 ou SFP+ via un commutateur (où le serveur DHCP est accessible) sur le serveur.
 
     ![Configuration à deux ports avec un commutateur 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
+
 2. Utilisez un serveur DHCP ou un serveur DNS pour identifier l’adresse IP.
 3. À partir d’un serveur sur le même réseau, accédez à l’interface utilisateur web locale de l’appareil à l’aide de l’adresse IP assignée par le serveur DHCP. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 

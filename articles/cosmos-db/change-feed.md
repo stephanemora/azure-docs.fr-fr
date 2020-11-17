@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
-ms.custom: seodec18
-ms.openlocfilehash: 6d0ae81177ca8488c410e40ca56642199694c08c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: seodec18, "seo-nov-2020"
+ms.openlocfilehash: c8c479050b434904de57397e5e7d73594090e031
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072641"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336129"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Flux de modification dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Dans Azure Cosmos DB, le flux de modification écoute les modifications apportées à un conteneur Azure Cosmos. Il renvoie ensuite la liste chronologique de documents qui ont été modifiés, dans l’ordre dans lequel ils ont été modifiés. Les modifications sont conservées et peuvent être traitées de manière asynchrone et incrémentielle, puis réparties sur un ou plusieurs consommateurs pour un traitement en parallèle.
+Le flux de modification dans Azure Cosmos DB est un enregistrement persistant des modifications apportées à un conteneur dans l’ordre dans lequel elles se produisent. Dans Azure Cosmos DB, le flux de modification écoute les modifications apportées à un conteneur Azure Cosmos. Il renvoie ensuite la liste chronologique de documents qui ont été modifiés, dans l’ordre dans lequel ils ont été modifiés. Les modifications conservées peuvent être traitées de manière asynchrone et incrémentielle, puis réparties sur un ou plusieurs consommateurs pour un traitement en parallèle.
 
 Apprenez-en davantage sur les [modèles de conception de flux de modification](change-feed-design-patterns.md).
 

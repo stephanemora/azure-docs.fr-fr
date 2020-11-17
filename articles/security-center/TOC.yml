@@ -87,7 +87,7 @@
       href: security-center-powershell-onboarding.md
     - name: Activer Security Center pour un groupe d’administration
       href: onboard-management-group.md
-    - name: Configurer la collecte de données
+    - name: Configurer le provisionnement automatique
       href: security-center-enable-data-collection.md
     - name: Configurer les notifications par e-mail
       href: security-center-provide-security-contact-details.md

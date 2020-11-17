@@ -1,14 +1,14 @@
 ---
 title: Activer l’extension de machine virtuelle à l’aide du modèle Azure Resource Manager
 description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs avec Azure Arc s’exécutant dans des environnements cloud hybrides à l’aide d’un modèle Azure Resource Manager.
-ms.date: 10/22/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 935fa38fbb98622f2da7d2ce9e1d166b12a32e44
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d5c7f5055f3e41a91fa00e1e3ad08e7686145b9e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491204"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353864"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Activer les extensions de machine virtuelle Azure à l’aide d’un modèle ARM
 
@@ -623,8 +623,85 @@ Pour utiliser l’extension d’Azure Monitor Dependency Agent, l’exemple suiv
 }
 ```
 
+## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Déployer une extension de machine virtuelle Azure Key Vault (préversion)
+
+L’extrait JSON suivant illustre le schéma de l’extension de machine virtuelle Key Vault (préversion). L’extension ne nécessite pas de paramètres protégés, car tous ses paramètres sont considérés comme des informations publiques. L’extension requiert une liste de certificats surveillés, une fréquence d’interrogation et le magasin de certificats de destination. Plus précisément :
+
+### <a name="template-file-for-linux"></a>Fichier de modèle pour Linux
+
+```json
+{
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "KeyVaultForLinux",
+      "apiVersion": "2019-07-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+          "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "certificateStoreName": <ingnored on linux>,
+          "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          }
+      }
+     }
+}
+```
+
+### <a name="template-file-for-windows"></a>Fichier de modèle pour Windows
+
+```json
+{
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "KVVMExtensionForWindows",
+      "apiVersion": "2019-07-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForWindows",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        },
+        "authenticationSettings": {
+                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
+                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
+      }
+     }
+}
+```
+
+> [!NOTE]
+> Vos URL de certificats observés doivent être de la forme `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> 
+> Cela est dû au fait que le chemin `/secrets` retourne le certificat complet, y compris la clé privée, contrairement au chemin `/certificates`. Vous trouverez plus d’informations sur les certificats ici : [Certificats Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
+
+Enregistrez le fichier de modèle sur disque. Vous pouvez ensuite installer l’extension sur toutes les machines connectées au sein d’un groupe de ressources avec la commande suivante.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous pouvez déployer et supprimer une extension à l’aide d’Azure CLI ou de PowerShell.
+* Vous pouvez déployer, gérer et supprimer des extensions de machine virtuelle à l’aide d’[Azure PowerShell](manage-vm-extensions-powershell.md), du [portail Azure](manage-vm-extensions-portal.md) ou d’[Azure CLI](manage-vm-extensions-cli.md).
 
 * Des informations de dépannage sont accessibles dans le [guide Résoudre les problèmes liés aux extensions de machine virtuelle](troubleshoot-vm-extensions.md).

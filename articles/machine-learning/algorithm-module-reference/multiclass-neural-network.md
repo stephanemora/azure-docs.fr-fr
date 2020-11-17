@@ -1,7 +1,7 @@
 ---
 title: 'Réseau neuronal multiclasse : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Multiclass Neural Network (Réseau neuronal multiclasse) dans Azure Machine Learning pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant plusieurs valeurs.
+description: Découvrez comment utiliser le module Réseau neuronal multiclasse dans le concepteur Azure Machine Learning pour prédire une cible ayant des valeurs multiclasses.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1b5ccc9deb3c11d847cd194992d7972f82a5c160
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f7f8a7793f31ffbf2099cbfb314fc5097319f5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905284"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421258"
 ---
 # <a name="multiclass-neural-network-module"></a>Module Multiclass Neural Network (Réseau neuronal à multiclasse)
 

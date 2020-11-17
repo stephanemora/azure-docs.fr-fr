@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173280"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427732"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -35,7 +35,7 @@ Apprenez-en davantage sur [ce que vous pouvez sauvegarder](backup-overview.md) e
 
 ## <a name="where-is-data-backed-up"></a>Où les données sont-elles sauvegardées ?
 
-Sauvegarde Azure stocke les données sauvegardées dans des coffres Recovery Services et des coffres de sauvegarde. Un coffre est une entité de stockage en ligne dans Azure qui permet de conserver des données telles que des copies de sauvegarde, des points de récupération et des stratégies de sauvegarde.
+Le service Sauvegarde Azure stocke les données sauvegardées dans des coffres Recovery Services et de sauvegarde. Un coffre est une entité de stockage en ligne dans Azure qui permet de conserver des données telles que des copies de sauvegarde, des points de récupération et des stratégies de sauvegarde.
 
 Les coffres présentent les fonctionnalités suivantes :
 
@@ -87,7 +87,7 @@ La consommation du stockage, l’objectif de délai de récupération (RTO) et l
 
 - La source de données A est composée de 10 blocs de stockage A1-A10, qui sont sauvegardés mensuellement.
 - Les blocs A2, A3, A4 et A9 ont changé lors du premier mois et le bloc A5 a changé lors du mois suivant.
-- Pour les sauvegardes différentielles, lors du deuxième mois, les blocs A2, A3, A4 et A9 qui ont changé sont sauvegardés. Lors du troisième mois, ces mêmes blocs sont à nouveau sauvegardés, ainsi que le bloc A5 qui a changé. Les blocs modifiés continuent d’être sauvegardés jusqu’à la prochaine sauvegarde complète.
+- Pour les sauvegardes différentielles, le deuxième mois, les blocs A2, A3, A4 et A9 qui ont changé sont sauvegardés. Lors du troisième mois, ces mêmes blocs sont à nouveau sauvegardés, ainsi que le bloc A5 qui a changé. Les blocs modifiés continuent d’être sauvegardés jusqu’à la prochaine sauvegarde complète.
 - Pour les sauvegardes incrémentielles, le deuxième mois, les blocs A2, A3, A4 et A9 sont marqués comme modifiés et transférés. Lors du troisième mois, seul le bloc A5 qui a changé est marqué et transféré.
 
 ![Illustration montrant des comparaisons entre méthodes de sauvegarde](./media/backup-architecture/backup-method-comparison.png)
@@ -123,6 +123,12 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
 - La rétention pour les points de sauvegarde « mensuelle » et « annuelle » est appelée rétention à long terme (LTR, Long Term Retention).
 - Lors de la création d’un coffre, une « DefaultPolicy » est également créée, qui peut être utilisé pour sauvegarder des ressources.
 - Toutes les modifications apportées à la période de rétention d’une stratégie de sauvegarde sont appliquées de manière rétroactive à tous les anciens points de récupération en plus des nouveaux.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Impact du changement de stratégie sur les points de récupération
+
+- **Durée de rétention allongée ou raccourcie :** en cas de modification de la durée de rétention, la nouvelle durée est également appliquée aux points de récupération existants. Par conséquent, certains points de récupération sont nettoyés. En cas d’allongement de la période de rétention, la durée de rétention des points de récupération existants est également allongée.
+- **Passage de la fréquence quotidienne à la fréquence hebdomadaire :** quand la fréquence des sauvegardes planifiées passe de quotidienne à hebdomadaire, les points de récupération quotidiens existants sont nettoyés.
+- **Passage de la fréquence hebdomadaire à la fréquence quotidienne :** les sauvegardes hebdomadaires existantes seront conservées en fonction du nombre de jours restants en vertu de la stratégie de rétention actuelle.
 
 ### <a name="additional-reference"></a>Références supplémentaires
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380420"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368693"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Comment configurer les détails du référencement de votre offre SaaS
 
@@ -24,7 +24,7 @@ Les informations que vous fournissez sur la page **Référencement de l’offre*
 
 ## <a name="marketplace-details"></a>Détails de la Place de marché
 
-Dans la page **Référencement de l’offre**, sous de **Détails de la Place de marché**, procédez comme suit. Pour en savoir plus sur ces détails requis, consultez [Détails du référencement de l’offre](plan-saas-offer.md#offer-listing-details).
+Dans la page **Référencement de l’offre**, sous de **Détails de la Place de marché**, procédez comme suit. Pour en savoir plus sur ces détails requis, consultez [Détails du référencement de l’offre](plan-azure-application-offer.md#offer-listing-details).
 
 1. La zone **Nom** est préremplie avec le nom que vous avez entré précédemment dans la boîte de dialogue **Nouvelle offre**. Vous pouvez modifier le nom à tout moment.
 1. Dans la zone **Résumé des résultats de recherche**, entrez jusqu’à 50 caractères de texte. Ce résumé est utilisé dans les résultats de recherche dans les référencements de la place de marché commerciale.
@@ -33,7 +33,9 @@ Dans la page **Référencement de l’offre**, sous de **Détails de la Place de
 1. (Facultatif) Dans les zones **Mots clés de recherche**, entrez jusqu’à trois mots clés de recherche que les clients peuvent utiliser pour trouver votre offre dans la place de marché commerciale. Vous n’avez pas besoin d’inclure le **Nom** et la **Description** l’offre : ce texte est inclus automatiquement dans la recherche.
 1. Dans la zone **Lien de la politique de confidentialité**, entrez un lien (commençant par https) vers la politique de confidentialité de votre organisation. Vous devez veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité, et à proposer une politique de confidentialité conforme.
 
-## <a name="add-links-to-supplemental-online-documentation-optional"></a>Ajouter des liens vers une documentation en ligne supplémentaire (facultatif)
+## <a name="add-supplemental-links-optional"></a>Ajouter des liens (facultatif)
+
+Suivez ces étapes pour ajouter des liens vers une documentation en ligne supplémentaire.
 
 1. Pour ajouter des documents en ligne supplémentaires facultatifs concernant votre application ou les services connexes, sous **Liens utiles**, sélectionnez **Ajouter un lien**.
 1. Dans les champs qui s’affichent, entrez un titre (jusqu’à 255 caractères) et le lien (commençant par https) vers le document en ligne.
@@ -76,7 +78,7 @@ Ces trois tailles de logo sont utilisées dans différents emplacements des maga
 - Le logo **Moyen** s’affiche lorsque vous créez une ressource dans Microsoft Azure.
 - Le **Grand** logo s’affiche sur la page de référencement de votre offre dans la Place de marché Azure et Microsoft AppSource.
 - Le **Petit** logo s’affiche dans les résultats de recherche de la Place de marché Azure et sur la page principale ainsi que sur la page des résultats de recherche de Microsoft AppSource.
-   
+
 ### <a name="add-screenshots"></a>Ajouter des captures d’écran
 
 Vous devez ajouter au minimum une et au maximum cinq captures d’écran illustrant votre offre. Chacune image doit avoir une taille de 1280 x 720 pixels et être au format .PNG.
@@ -96,7 +98,7 @@ Vous pouvez ajouter des liens vers des vidéos YouTube ou Vimeo illustrant votre
 4. Pour ajouter une autre vidéo, répétez les étapes 1 à 3.
 
 > [!TIP]
-> Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service [ **https://upload.xboxlive.com** ](https://upload.xboxlive.com/) utilisé par l’Espace partenaires.
+> Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service [ **https://upload.xboxlive.com**](https://upload.xboxlive.com/) utilisé par l’Espace partenaires.
 
 Avant de passer à l’onglet suivant, sélectionnez **Enregistrer le brouillon** : Public de la préversion.
 

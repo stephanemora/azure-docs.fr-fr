@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123713"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336426"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy
 
@@ -34,11 +34,11 @@ Pour annuler une commande, procédez comme suit.
 
 1.  Accédez à **Vue d’ensemble > Annuler**.
 
-    ![Annulation de commande 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Commande Annuler sous l’onglet Vue d’ensemble d’une commande](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Indiquez un motif d’annulation de la commande.  
 
-    ![Annulation de commande 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Boîte de dialogue Annuler la commande](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Une fois que la commande est annulée, le portail met à jour l’état de la commande et l’affiche en tant que **Annulée**.
 
@@ -53,7 +53,7 @@ Effectuez les opérations suivantes pour cloner une commande d’importation.
 
 1.  Accédez à **Vue d’ensemble > Cloner**. 
 
-    ![Clonage de commande 1](media/data-box-portal-admin/clone-order1.png)
+    ![Commande Cloner sous l’onglet Vue d’ensemble d’une commande](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Tous les détails de la commande restent inchangés. Le nom de la commande est le nom de la commande d’origine, suivi de *-Clone*. Cochez la case pour confirmer que vous avez lu les informations sur la confidentialité des données. Cliquez sur **Créer**.
 
@@ -70,7 +70,7 @@ Vous pouvez uniquement supprimer des commandes qui sont terminées ou annulées.
 
 2. Cliquez sur la commande que vous souhaitez supprimer et accédez à **Vue d’ensemble**. Dans la barre de commandes, cliquez sur **Supprimer**.
 
-    ![Suppression de la commande Data Box 1](media/data-box-portal-admin/delete-order1.png)
+    ![Commande Supprimer dans l’onglet Vue d’ensemble d’une commande](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Entrez le nom de la commande lorsque vous êtes invité à confirmer la suppression de la commande. Cliquez sur **Supprimer**.
 
@@ -82,11 +82,11 @@ Procédez comme suit pour télécharger une étiquette d’expédition.
 
 1.  Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition**. Cette option est disponible uniquement une fois que l’appareil a été expédié. 
 
-    ![Télécharger une étiquette d’expédition](media/data-box-portal-admin/download-shipping-label.png)
+    ![Télécharger une étiquette d’expédition](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  L’étiquette de retour suivante est alors téléchargée. Enregistrez puis imprimez l’étiquette. Pliez et insérez l’étiquette dans la pochette transparente accolée à l’appareil. Vérifiez que l’étiquette est visible. Retirez les éventuels autocollants qui ont été accolés à l’appareil lors de la précédente expédition.
 
-    ![Exemple d’étiquette d’expédition](media/data-box-portal-admin/example-shipping-label.png)
+    ![Exemple d’étiquette d’expédition](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Modifier l’adresse de livraison
 
@@ -96,11 +96,11 @@ Pour modifier la commande, procédez comme suit.
 
 1. Accédez à **Détails de la commande > Modifier l’adresse de livraison**.
 
-    ![Modification de l’adresse de livraison 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Commande Modifier l’adresse d’expédition dans Détails de la commande](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Modifiez et validez l’adresse de livraison, puis enregistrez les modifications.
 
-    ![Modification de l’adresse de livraison 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Boîte de dialogue Modifier l’adresse d’expédition](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Modifier les détails de notification
 
@@ -110,11 +110,11 @@ Pour modifier les détails de modification, procédez comme suit.
 
 1. Accédez à **Détails de la commande > Modifier les détails de notification**.
 
-    ![Modification des détails de notification 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Commande Modifier les détails de notification dans Détails de la commande](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Vous pouvez maintenant modifier les détails de notification et enregistrer les modifications.
  
-    ![Modification des détails de notification 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Boîte de dialogue Modifier les détails de notification](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Télécharger l’historique des commandes
@@ -125,7 +125,7 @@ Procédez comme suit pour télécharger l’historique des commandes.
 
 1. Dans votre commande Data Box, accédez à **Vue d’ensemble**. Vérifiez que la commande est terminée. Si la commande est terminée ainsi que le nettoyage de l’appareil, accédez à **Order details** (Détails de la commande). L’option **Download order history** (Télécharger l’historique des commandes) est disponible.
 
-    ![Télécharger l’historique des commandes](media/data-box-portal-admin/download-order-history-1.png)
+    ![Télécharger l’historique des commandes](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Cliquez sur **Télécharger l’historique des commandes**. Dans l’historique téléchargé, vous verrez un enregistrement des journaux d’activité de suivi de l’opérateur. Il existe deux ensembles de journaux correspondant aux deux nœuds présents sur un Data Box Heavy. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
     
@@ -198,11 +198,11 @@ Procédez comme suit pour télécharger l’historique des commandes.
 
     Vous pouvez ensuite accéder à votre compte de stockage, puis afficher les journaux d’activité de copie.
 
-![Journaux d’activité dans les comptes de stockage](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Journaux de copie pour un compte de stockage](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-Vous pouvez également afficher les journaux d’activité de chaîne de responsabilité qui incluent les journaux d’audit et les fichiers de nomenclature.
+   Vous pouvez également afficher les journaux d’activité de chaîne de responsabilité qui incluent les journaux d’audit et les fichiers de nomenclature.
 
-![Journaux d’activité dans les comptes de stockage 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Journaux d’activité de chaîne de responsabilité pour un compte de stockage](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Afficher l’état de la commande
 

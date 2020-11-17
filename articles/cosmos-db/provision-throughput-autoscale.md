@@ -6,21 +6,20 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: seo-nov-2020
+ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097343"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337540"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Créer des conteneurs et des bases de données Azure Cosmos en débit de mise à l’échelle automatique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB vous permet de définir le débit approvisionné standard (manuel) ou approvisionné en mode de mise à l’échelle automatique sur vos bases de données et conteneurs. Cet article décrit les avantages et les cas d’usage du débit approvisionné en mode de mise à l’échelle automatique. 
+Dans Azure Cosmos DB, vous pouvez configurer un débit approvisionné standard (manuel) ou approvisionné en mode de mise à l’échelle automatique sur vos bases de données et conteneurs. Le débit approvisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB vous permet de **mettre à l’échelle le débit (RU/s) de votre base de données ou conteneur automatiquement et instantanément**. Le débit est mis à l’échelle en fonction de l’utilisation, sans impact sur la disponibilité, la latence, le débit ou les performances de la charge de travail.
 
-Le débit approvisionné en mode de mise à l’échelle automatique est adapté aux charges de travail stratégiques qui ont des modèles de trafic variables ou imprévisibles et qui nécessitent des contrats SLA sur des performances et une mise à l’échelle élevées. 
-
-Avec la mise à l’échelle automatique, Azure Cosmos DB **met à l’échelle automatiquement et instantanément le débit (unité de requête par seconde (RU/s))** de votre base de données ou conteneur en fonction de l’utilisation, sans affecter la disponibilité, la latence, le débit ni les performances de la charge de travail. 
+Le débit approvisionné en mode de mise à l’échelle automatique est adapté aux charges de travail stratégiques qui ont des modèles de trafic variables ou imprévisibles et qui nécessitent des contrats SLA sur des performances et une mise à l’échelle élevées. Cet article décrit les avantages et les cas d’usage du débit approvisionné en mode de mise à l’échelle automatique.
 
 ## <a name="benefits-of-autoscale"></a>Avantages de la mise à l’échelle automatique
 

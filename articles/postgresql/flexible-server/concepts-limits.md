@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930710"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366636"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -73,10 +73,12 @@ Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoi
 - Les règles de pare-feu ne sont pas prises en charge sur le réseau virtuel. Des groupes de sécurité réseau peuvent être utilisés à la place.
 - Les serveurs de base de données à accès public peuvent se connecter à l’Internet public, par exemple par le biais de `postgres_fdw`, et cet accès ne peut pas être restreint. Les serveurs basés sur des réseaux virtuels peuvent disposer d’un accès sortant limité à l’aide de groupes de sécurité réseau.
 
-### <a name="high-availability"></a>Haute disponibilité
+### <a name="high-availability-ha"></a>Haute disponibilité (HA)
 
 - La haute disponibilité avec redondance interzone n’est pas prise en charge actuellement pour les serveurs expansibles.
 - L’adresse IP du serveur de base de données change lorsque votre serveur bascule vers le serveur de secours HA. Veillez à utiliser l’enregistrement DNS à la place de l’adresse IP du serveur.
+- Si la réplication logique est configurée avec un serveur flexible configuré pour la haute disponibilité, en cas de basculement vers le serveur de secours, les emplacements de réplication logique ne sont pas copiés sur le serveur de secours. 
+- Pour plus d’informations sur la haute disponibilité redondante interzone, y compris les limitations, consultez la page [Concepts – Documentation haute disponibilité](concepts-high-availability.md).
 
 ### <a name="availability-zones"></a>Zones de disponibilité
 

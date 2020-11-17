@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547688"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410689"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -69,7 +69,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 
    Enfin, si la taille de votre charge utile est comprise entre 156 Ko et 160 Ko, vous ne pouvez effectuer qu’un seul appel par seconde par unité dans votre hub avant d’atteindre la limite de 160 Ko/s/unité.
 
-*  Pour les *opérations d’appareil de travaux (mise à jour de la représentation, appel de la méthode directe)* pour le niveau S2, 50/s/unité s’applique uniquement lorsque vous appelez des méthodes à l’aide de travaux. Si vous appelez directement des méthodes directes, la limitation d’origine de 24 Mo/s/unité (pour S2) s’applique.
+*  Pour les *opérations d’appareil de travaux (mise à jour de la représentation, appel de la méthode directe)* pour le niveau S3, 50/s/unité s’applique uniquement lorsque vous appelez des méthodes à l’aide de travaux. Si vous appelez directement des méthodes directes, la limitation d’origine de 24 Mo/s/unité (pour S3) s’applique.
 
 *  Le **quota** est le nombre total de messages que vous pouvez envoyer dans votre hub *par jour*. Vous trouverez la limite de quota de votre hub sous la colonne **Nombre total de messages/jour** sur la [page de tarification IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 

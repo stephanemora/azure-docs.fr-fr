@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9b3353d3ba1af572b118001691e38af497f6f1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290039"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372376"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des données Cosmos DB avec un indexeur dans Recherche cognitive Azure 
 
@@ -32,7 +32,7 @@ Cet article vous montre comment configurer l’[indexeur](search-indexer-overvie
 
 L’indexeur Cosmos DB dans Recherche cognitive Azure peut analyser les [éléments d’Azure Cosmos DB](../cosmos-db/databases-containers-items.md#azure-cosmos-items) accessibles via différents protocoles. 
 
-+ Pour l’[API SQL](../cosmos-db/sql-query-getting-started.md), qui est en disponibilité générale, vous pouvez utiliser le [portail](#cosmos-indexer-portal), l’[API REST](/rest/api/searchservice/indexer-operations) ou le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.indexer) pour créer la source de données et l’indexeur.
++ Pour l’[API SQL](../cosmos-db/sql-query-getting-started.md), qui est en disponibilité générale, vous pouvez utiliser le [portail](#cosmos-indexer-portal), l’[API REST](/rest/api/searchservice/indexer-operations) ou le [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) pour créer la source de données et l’indexeur.
 
 + Pour l’[API MongoDB (préversion)](../cosmos-db/mongodb-introduction.md), vous pouvez utiliser le [portail](#cosmos-indexer-portal) ou l’[API REST version 2020-06-30-Preview](search-api-preview.md) pour créer la source de données et l’indexeur.
 
@@ -307,16 +307,16 @@ Pour plus d’informations sur la définition des planifications de l’indexeur
 
 Le kit de développement logiciel (SDK) .NET mis à la disposition générale offre une parité complète avec l’API REST mise à la disposition générale. Nous vous recommandons de consulter la section précédente de l’API REST pour découvrir les concepts, les workflows et les exigences. Vous pouvez alors vous référer à la documentation de référence des API .NET suivante pour implémenter un indexeur JSON dans du code managé.
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype)
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index)
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents.indexes.models.searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents.indexes.models.searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype)
++ [azure.search.documents.indexes.models.searchindex](/dotnet/api/azure.search.documents.indexes.models.searchindex)
++ [azure.search.documents.indexes.models.searchindexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="DataChangeDetectionPolicy"></a>
 
 ## <a name="indexing-changed-documents"></a>Indexation des documents modifiés
 
-L'objectif d'une stratégie de détection des changements de données est d'identifier efficacement les données modifiées. La seule stratégie actuellement prise en charge est la [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) qui utilise la propriété `_ts` (timestamp) fournie par Azure Cosmos DB, définie ainsi :
+L'objectif d'une stratégie de détection des changements de données est d'identifier efficacement les données modifiées. La seule stratégie actuellement prise en charge est la [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) qui utilise la propriété `_ts` (timestamp) fournie par Azure Cosmos DB, définie ainsi :
 
 ```http
     {

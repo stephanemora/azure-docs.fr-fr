@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447201"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357757"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight sous Linux
 
@@ -64,7 +64,7 @@ Le script `install-updates-schedule-reboots` accepte deux paramètres numérique
 
 | Paramètre | Valeurs acceptées | Définition |
 | --- | --- | --- |
-| Type de mises à jour à installer | 0, 1 ou 2 | La valeur 0 installe uniquement les mises à jour du noyau. La valeur 1 installe toutes les mises à jour et la valeur 2 installe uniquement les mise à jour du noyau et les mises à jour de sécurité. Si aucun paramètre n’est fourni, la valeur par défaut est 0. |
+| Type de mises à jour à installer | 0, 1 ou 2 | La valeur 0 installe uniquement les mises à jour du noyau. La valeur 1 installe le noyau et les mises à jour de sécurité, et la valeur 2 installe toutes les mises à jour. Si aucun paramètre n’est fourni, la valeur par défaut est 0. |
 | Type de redémarrage à effectuer | 0, 1 ou 2 | La valeur 0 désactive le redémarrage. La valeur 1 active le redémarrage planifié et la valeur 2 active le redémarrage immédiat. Si aucun paramètre n’est fourni, la valeur par défaut est 0. L’utilisateur doit modifier le paramètre 1 pour entrer le paramètre 2. |
 
 > [!NOTE]

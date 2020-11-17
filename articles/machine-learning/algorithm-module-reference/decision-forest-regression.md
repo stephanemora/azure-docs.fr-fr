@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fd09b5e2c2540cbc1608558800e7897a6cf839
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898531"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375354"
 ---
 # <a name="decision-forest-regression-module"></a>Module Régression de forêt d’arbres de décision
 
@@ -67,7 +67,7 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
 4. Dans le champ **Number of trees constructed** (Nombre d’arbres construits), indiquez le nombre total d’arbres de décision à créer dans l’ensemble. En créant plusieurs arbres de décision, vous pouvez obtenir une meilleure couverture, mais cette opération augmente la durée d’apprentissage.
 
     > [!TIP]
-    > Cette valeur contrôle également le nombre d’arbres qui s’affichent dans la visualisation du modèle entraîné. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, cela signifie qu’un seul arbre est généré (celui qui inclut le jeu de paramètres initial) et qu’aucune autre itération n’est effectuée.
+    > Toutefois, si vous définissez la valeur sur 1, cela signifie qu’un seul arbre est généré (celui qui inclut le jeu de paramètres initial) et qu’aucune autre itération n’est effectuée.
 
 5. Dans le champ **Profondeur maximale des arbres de décision**, tapez un nombre pour limiter la profondeur de chacun des arbres de décision. Le fait d’augmenter la profondeur de l’arbre est susceptible d’améliorer la précision, au prix d’un risque de surajustement et d’augmentation du temps d’apprentissage.
 
@@ -78,15 +78,15 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
      Plus cette valeur est grande, plus le seuil de création de règles augmente. Par exemple, la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si la valeur passe à 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.
 
 
-9. Effectuez l’apprentissage du modèle :
+9. Entraînez le modèle :
 
     + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    + Si vous définissez **Créer un mode d’apprentissage** sur **Plage de paramètres**, connectez un jeu de données avec balises et effectuez l’apprentissage du modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
-    > Si vous transmettez une plage de paramètres au module [Entraîner le modèle](train-model.md), il utilise uniquement la valeur par défaut dans la liste des paramètres uniques.  
+    > Si vous transmettez une plage de paramètres à [Entraîner le modèle](train-model.md), elle utilise uniquement la valeur par défaut dans la liste de paramètres unique.  
     > 
     > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
     > 

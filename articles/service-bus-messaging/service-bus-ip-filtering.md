@@ -3,12 +3,12 @@ title: Configurer des règles de pare-feu IP pour Azure Service Bus
 description: Utilisation des règles de pare-feu pour autoriser les connexions à Azure Service Bus à partir d’adresses IP spécifiques.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 561ee90fb6d1e25123d15a09bbf143aef59bcf6f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 3aacf54dca07f0e1f2a66c8cdd85f892dda68cd4
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058061"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426578"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Autoriser l’accès à un espace de noms Azure Service Bus à partir d’adresses ou de plages d’adresses IP spécifiques
 Par défaut, les espaces de noms Service Bus sont accessibles à partir d’Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez la limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -22,19 +22,11 @@ Cette fonctionnalité est utile dans les scénarios où Azure Service Bus ne do
 Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Service Bus. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Service Bus est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
 >[!WARNING]
-> La mise en place de règles de pare-feu peut empêcher d’autres services Azure d’interagir avec Service Bus.
->
-> Les services Microsoft de confiance ne sont pas pris en charge quand le filtrage d’adresse IP (règles de pare-feu) est implémenté. Ils le seront prochainement.
->
-> Scénarios courants Azure qui ne fonctionnent pas avec le filtrage d’adresse IP (notez que cette liste **N’EST PAS** exhaustive) :
-> - Intégration à Azure Event Grid
-> - Routes Azure IoT Hub
-> - Azure IoT Device Explorer
+> La mise en place de règles de pare-feu peut empêcher d’autres services Azure d’interagir avec Service Bus. En guise d’exception, vous pouvez autoriser l’accès aux ressources Service Bus à partir de certains services approuvés, même lorsque le filtrage IP est activé. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services). 
 >
 > Les services Microsoft suivants doivent se trouver sur un réseau virtuel
 > - Azure App Service
 > - Azure Functions
-> - Azure Monitor (paramètre de diagnostic)
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Cette section explique comment utiliser le portail Azure afin de créer des règles de pare-feu IP pour un espace de noms Service Bus. 
@@ -66,6 +58,8 @@ Cette section explique comment utiliser le portail Azure afin de créer des règ
     > [!NOTE]
     > Pour restreindre l’accès à des réseaux virtuels spécifiques, consultez [Autoriser l’accès à partir de réseaux spécifiques](service-bus-service-endpoints.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
 Cette section présente un exemple de modèle Azure Resource Manager qui crée un réseau virtuel et une règle de pare-feu.
 
@@ -78,7 +72,7 @@ Paramètres du modèle :
 
 > [!NOTE]
 > Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
-> Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier ***defaultAction***
+> Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier **_« defaultAction »_**
 > 
 > de
 > ```json

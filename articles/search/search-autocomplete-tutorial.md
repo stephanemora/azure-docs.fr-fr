@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348608"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426168"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Ajouter l’autocomplétion et les suggestions aux applications clientes
 
-La recherche en cours de frappe est une technique courante pour améliorer la productivité des requêtes initiées par l’utilisateur. Dans Recherche cognitive Azure, cette expérience est prise en charge via l’ *autocomplétion* , qui termine un terme ou une expression en fonction d’une entrée partielle (en complétant « micro » par « microsoft » par exemple). Les *suggestions* sont une autre possibilité : une liste succincte de documents correspondants (retournant des titres de livres avec un ID pour pouvoir lier vers une page d’informations). L’autocomplétion et les suggestions sont basées sur une correspondance dans l’index. Le service ne propose pas de requêtes qui ne retournent aucun résultat.
+La recherche en cours de frappe est une technique courante pour améliorer la productivité des requêtes initiées par l’utilisateur. Dans Recherche cognitive Azure, cette expérience est prise en charge via l’*autocomplétion*, qui termine un terme ou une expression en fonction d’une entrée partielle (en complétant « micro » par « microsoft » par exemple). Les *suggestions* sont une autre possibilité : une liste succincte de documents correspondants (retournant des titres de livres avec un ID pour pouvoir lier vers une page d’informations). L’autocomplétion et les suggestions sont basées sur une correspondance dans l’index. Le service ne propose pas de requêtes qui ne retournent aucun résultat.
 
 Pour implémenter ces expériences dans Recherche cognitive Azure, vous avez besoin des éléments suivants :
 
@@ -56,8 +56,8 @@ Cliquez sur les liens suivants pour accéder aux pages de référence des SDK RE
 
 + [REST API Suggestions](/rest/api/searchservice/suggestions) 
 + [API REST Autocomplétion](/rest/api/searchservice/autocomplete) 
-+ [Méthode SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [Méthode AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [Méthode SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [Méthode AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 ## <a name="structure-a-response"></a>Structurer une réponse
 
@@ -69,7 +69,7 @@ Vous devez affiner la réponse pour éviter les doublons ou les résultats non l
 
 | Paramètre | Usage |
 |-----------|-------|
-| **$select** | Si vous avez plusieurs champs source ( **sourceFields** ) dans un suggesteur, utilisez **$select** pour choisir le champ qui contribue aux valeurs (`$select=GameTitle`). |
+| **$select** | Si vous avez plusieurs champs source (**sourceFields**) dans un suggesteur, utilisez **$select** pour choisir le champ qui contribue aux valeurs (`$select=GameTitle`). |
 | **searchFields** | Limitez la requête à des champs spécifiques. |
 | **$filter** | Appliquez des critères de correspondance sur le jeu de résultats (`$filter=Category eq 'ActionAdventure'`). |
 | **$top** | Limitez les résultats à un nombre spécifique (`$top=5`).|
@@ -139,45 +139,43 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Fonction Suggest
 
-Si vous utilisez C# et une application MVC, le **fichier HomeController.cs** sous le répertoire Controllers est l’endroit où vous pouvez créer une classe pour les résultats suggérés. Dans .NET, une fonction Suggest est basée sur la [méthode DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Pour plus d’informations sur le SDK .NET, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](search-howto-dotnet-sdk.md).
+Si vous utilisez C# et une application MVC, le **fichier HomeController.cs** sous le répertoire Controllers est l’endroit où vous pouvez créer une classe pour les résultats suggérés. Dans .NET, une fonction Suggest est basée sur la [méthode SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Pour plus d’informations sur le SDK .NET, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](search-howto-dotnet-sdk.md).
 
-La méthode `InitSearch` crée un client d’index HTTP authentifié dans le service Recherche cognitive Azure. Les propriétés de la classe [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) déterminent les champs recherchés et retournés dans les résultats, le nombre de correspondances et l’utilisation de la correspondance approximative. 
+La méthode `InitSearch` crée un client d’index HTTP authentifié dans le service Recherche cognitive Azure. Les propriétés de la classe [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) déterminent les champs recherchés et retournés dans les résultats, le nombre de correspondances et l’utilisation de la correspondance approximative. 
 
 Pour l’autocomplétion, la correspondance approximative est limitée à une distance d’une modification (un caractère omis ou mal placé). Notez que la correspondance approximative dans les requêtes avec autocomplétion peut parfois produire des résultats inattendus en fonction de la taille de l’index et de la façon dont il est partitionnée. Pour plus d’informations, consultez les [concepts de partition et de partitionnement](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 ```csharp
-public ActionResult Suggest(bool highlights, bool fuzzy, string term)
+public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
 {
     InitSearch();
 
-    // Call suggest API and return results
-    SuggestParameters sp = new SuggestParameters()
+    var options = new SuggestOptions()
     {
-        Select = HotelName,
-        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
-        Top = 5
+        Size = 8,
     };
 
     if (highlights)
     {
-        sp.HighlightPreTag = "<b>";
-        sp.HighlightPostTag = "</b>";
+        options.HighlightPreTag = "<b>";
+        options.HighlightPostTag = "</b>";
     }
 
-    DocumentSuggestResult resp = _indexClient.Documents.Suggest(term, "sg", sp);
+    // Only one suggester can be specified per index.
+    // The suggester for the Hotels index enables autocomplete/suggestions on the HotelName field only.
+    // During indexing, HotelNames are indexed in patterns that support autocomplete and suggested results.
+    var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", options).ConfigureAwait(false);
 
     // Convert the suggest query results to a list that can be displayed in the client.
-    List<string> suggestions = resp.Results.Select(x => x.Text).ToList();
-    return new JsonResult
-    {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = suggestions
-    };
+    List<string> suggestions = suggestResult.Value.Results.Select(x => x.Text).ToList();
+
+    // Return the list of suggestions.
+    return new JsonResult(suggestions);
 }
 ```
 
-La fonction Suggest prend deux paramètres qui déterminent si les meilleurs résultats sont renvoyés ou si la correspondance approximative est utilisée en plus de la recherche de terme. La méthode crée un [objet SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters), qui est ensuite passé à l’API de suggestion. Le résultat est ensuite converti en JSON pour être visible par le client.
+La fonction SuggestAsync prend deux paramètres qui déterminent si les meilleurs résultats sont renvoyés ou si la correspondance approximative est utilisée en plus de la recherche de terme. Vous pouvez inclure jusqu’à huit correspondances dans les résultats suggérés. La méthode crée un [objet SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions), qui est ensuite passé à l’API de suggestion. Le résultat est ensuite converti en JSON pour être visible par le client.
 
 ## <a name="autocomplete"></a>Autocomplétion
 
@@ -185,7 +183,7 @@ Jusqu’à présent, le code de l’expérience utilisateur de recherche a été
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.8 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#searchbox1").autocompleteInline({
         appendMethod: "replace",
@@ -220,28 +218,25 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Fonction d’autocomplétion
 
-L’autocomplétion est basée sur la [méthode DocumentsOperationsExtensions.Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete). Comme avec les suggestions, ce bloc de code se trouve dans le fichier **HomeController.cs**.
+La fonction Autocomplétion est basée sur la [méthode AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Comme avec les suggestions, ce bloc de code se trouve dans le fichier **HomeController.cs**.
 
 ```csharp
-public ActionResult AutoComplete(string term)
+public async Task<ActionResult> AutoCompleteAsync(string term)
 {
     InitSearch();
-    //Call autocomplete API and return results
-    AutocompleteParameters ap = new AutocompleteParameters()
-    {
-        AutocompleteMode = AutocompleteMode.OneTermWithContext,
-        UseFuzzyMatching = false,
-        Top = 5
-    };
-    AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Convert the Suggest results to a list that can be displayed in the client.
-    List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
-    return new JsonResult
+    // Setup the autocomplete parameters.
+    var ap = new AutocompleteOptions()
     {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = autocomplete
+        Mode = AutocompleteMode.OneTermWithContext,
+        Size = 6
     };
+    var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap).ConfigureAwait(false);
+
+    // Convert the autocompleteResult results to a list that can be displayed in the client.
+    List<string> autocomplete = autocompleteResult.Value.Results.Select(x => x.Text).ToList();
+
+    return new JsonResult(autocomplete);
 }
 ```
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215958"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379784"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble des jetons dans Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Les jetons de sécurité que votre application reçoit d’Azure AD B2C peuvent 
 
 ## <a name="claims"></a>Revendications
 
-Lorsque vous utilisez Azure AD B2C, vous disposez d’un contrôle affiné du contenu de vos jetons. Vous pouvez configurer des [flux d’utilisateur](user-flow-overview.md) et des [stratégies personnalisées](custom-policy-overview.md) pour envoyer certains ensembles de données utilisateur dans les revendications requises pour votre application. Ces revendications peuvent inclure des propriétés standard telles que **displayName** et **emailAddress** . Vos applications peuvent utiliser ces revendications pour authentifier de manière sécurisée les utilisateurs et les demandes.
+Lorsque vous utilisez Azure AD B2C, vous disposez d’un contrôle affiné du contenu de vos jetons. Vous pouvez configurer des [flux d’utilisateur](user-flow-overview.md) et des [stratégies personnalisées](custom-policy-overview.md) pour envoyer certains ensembles de données utilisateur dans les revendications requises pour votre application. Ces revendications peuvent inclure des propriétés standard telles que **displayName** et **emailAddress**. Vos applications peuvent utiliser ces revendications pour authentifier de manière sécurisée les utilisateurs et les demandes.
 
 Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre particulier. De nouvelles revendications peuvent être introduites dans les jetons d’ID à tout moment. Votre application ne doit pas s’arrêter lors de l’ajout de nouvelles revendications. Vous pouvez également inclure des [attributs utilisateur personnalisés](user-flow-custom-attributes.md) dans vos revendications.
 
@@ -76,7 +76,7 @@ Les propriétés suivantes servent à [gérer les durées de vie des jetons de s
 
 - **Durée de vie du jeton d’actualisation (jours)** - La durée maximale avant laquelle un jeton d’actualisation peut être utilisé pour acquérir un nouveau jeton d’accès ou d’ID. La période concerne également l’acquisition d’un nouveau jeton d’actualisation si l’étendue `offline_access` a été accordée à votre application. La valeur par défaut est de 14 jours. La valeur minimale (inclusive) est de 1 jour. La valeur maximale (inclusive) est de 90 jours.
 
-- **Durée de vie fenêtre glissante du jeton d’actualisation (jours)**  : une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité de dernier jeton d’actualisation obtenu par l’application. Cette valeur ne peut être fournie que si le commutateur est défini sur **Délimité** . Elle doit être supérieure ou égale à la valeur **Durée de vie du jeton d’actualisation (jours)** . Si le commutateur est défini sur **Non délimité** , vous ne pouvez pas fournir une valeur spécifique. La valeur par défaut est de 90 jours. La valeur minimale (inclusive) est de 1 jour. La valeur maximale (inclusive) est de 365 jours.
+- **Durée de vie fenêtre glissante du jeton d’actualisation (jours)**  : une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité de dernier jeton d’actualisation obtenu par l’application. Cette valeur ne peut être fournie que si le commutateur est défini sur **Délimité**. Elle doit être supérieure ou égale à la valeur **Durée de vie du jeton d’actualisation (jours)** . Si le commutateur est défini sur **Non délimité**, vous ne pouvez pas fournir une valeur spécifique. La valeur par défaut est de 90 jours. La valeur minimale (inclusive) est de 1 jour. La valeur maximale (inclusive) est de 365 jours.
 
 Les cas d’usage suivants sont activés à l’aide de ces propriétés :
 
@@ -91,9 +91,9 @@ Les propriétés suivantes sont utilisées pour [gérer la compatibilité des je
 
 - **Revendication de l’émetteur (iss)**  : cette propriété identifie le client Azure AD B2C qui a émis le jeton. La valeur par défaut est `https://<domain>/{B2C tenant GUID}/v2.0/`. La valeur de `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` inclut les ID pour le locataire Azure AD B2C et le flux d’utilisateur utilisé dans la demande de jeton. Si votre application ou bibliothèque a besoin qu’Azure AD B2C soit conforme à [la spécification OpenId Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), utilisez cette valeur.
 
-- **Revendication d’objet (obj)**  : cette propriété identifie l’entité pour laquelle le jeton indique des informations. La valeur par défaut, **ObjectID** , remplit la réclamation `sub` dans le jeton avec l’ID d’objet de l’utilisateur. La valeur **Non pris en charge** est fournie uniquement pour la compatibilité descendante. Il est recommandé de passer à **ObjectID** dès que possible.
+- **Revendication d’objet (obj)**  : cette propriété identifie l’entité pour laquelle le jeton indique des informations. La valeur par défaut,**ObjectID**, remplit la réclamation `sub` dans le jeton avec l’ID d’objet de l’utilisateur. La valeur **Non pris en charge** est fournie uniquement pour la compatibilité descendante. Il est recommandé de passer à **ObjectID** dès que possible.
 
-- **ID de stratégie représentant la revendication**  : cette propriété identifie le type de revendication dans lequel le nom de stratégie utilisé dans la demande de jeton est renseigné. La valeur par défaut est `tfp`. La valeur `acr` est fournie uniquement pour la compatibilité descendante.
+- **ID de stratégie représentant la revendication** : cette propriété identifie le type de revendication dans lequel le nom de stratégie utilisé dans la demande de jeton est renseigné. La valeur par défaut est `tfp`. La valeur `acr` est fournie uniquement pour la compatibilité descendante.
 
 ## <a name="pass-through"></a>Requête directe
 
@@ -107,7 +107,7 @@ Pour valider un jeton, votre application doit valider la signature et les revend
 
 ### <a name="validate-signature"></a>Valider la signature
 
-Un jeton JWT contient trois segments : un *en-tête* , un *corps* et une *signature* . Le segment de signature peut être utilisé pour valider l’authenticité du jeton afin qu’il soit approuvé par votre application. Les jetons Azure AD B2C sont signés à l’aide d’algorithmes de chiffrement asymétrique standard, tels que RSA 256.
+Un jeton JWT contient trois segments : un *en-tête*, un *corps* et une *signature*. Le segment de signature peut être utilisé pour valider l’authenticité du jeton afin qu’il soit approuvé par votre application. Les jetons Azure AD B2C sont signés à l’aide d’algorithmes de chiffrement asymétrique standard, tels que RSA 256.
 
 L’en-tête du jeton contient des informations sur la clé et la méthode de chiffrement utilisées pour signer le jeton :
 
@@ -121,7 +121,7 @@ L’en-tête du jeton contient des informations sur la clé et la méthode de ch
 
 La valeur de la revendication **alg** correspond à l’algorithme utilisé pour signer le jeton. La valeur de la revendication **kid** est la clé publique utilisée pour signer le jeton. À tout moment, Azure AD B2C peut signer un jeton à l’aide de l’un des ensembles de paires de clés publique-privée. Azure AD B2C alterne le jeu de clés possible de façon périodique. Votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par Azure AD B2C, spécifiez une fréquence raisonnable d’environ 24 heures. Pour gérer les modifications de clé inattendues, votre application doit être écrite de façon à récupérer à nouveau les clés publiques si elle reçoit une valeur **kid** inattendue.
 
-Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. À l’aide de ce point de terminaison, les applications peuvent demander des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Votre locataire Azure AD B2C contient un document de métadonnées JSON pour chaque stratégie. Le document de métadonnées est un objet JSON qui contient plusieurs informations utiles. Les métadonnées contiennent **jwks_uri** qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Cet emplacement est fourni ici, mais il est préférable d’extraire cet emplacement de manière dynamique à l’aide du document de métadonnées et d’analyser **jwks_uri**  :
+Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. À l’aide de ce point de terminaison, les applications peuvent demander des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Votre locataire Azure AD B2C contient un document de métadonnées JSON pour chaque stratégie. Le document de métadonnées est un objet JSON qui contient plusieurs informations utiles. Les métadonnées contiennent **jwks_uri** qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Cet emplacement est fourni ici, mais il est préférable d’extraire cet emplacement de manière dynamique à l’aide du document de métadonnées et d’analyser **jwks_uri** :
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
@@ -134,7 +134,7 @@ Le document de métadonnées pour la stratégie `B2C_1_signupsignin1` dans le lo
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Afin de déterminer la stratégie utilisée pour signer un jeton (et l’emplacement à partir duquel demander les métadonnées), deux options sont possibles. Tout d’abord, le nom de la stratégie est inclus dans la revendication `acr` du jeton. Vous pouvez analyser les revendications contenues dans le corps du jeton JWT par le biais d’un décodage base-64 du corps et la désérialisation de la chaîne JSON résultante. La revendication `acr` est le nom de la stratégie qui a été utilisée pour émettre le jeton. L’autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l’émission de la requête, puis à la décoder pour déterminer la stratégie qui a été utilisée. Les 2 méthodes sont valides.
+Afin de déterminer la stratégie utilisée pour signer un jeton (et l’emplacement à partir duquel demander les métadonnées), deux options sont possibles. Tout d’abord, le nom de la stratégie est inclus dans la revendication `tfp` (par défaut) ou `acr` (configurée) dans le jeton. Vous pouvez analyser les revendications contenues dans le corps du jeton JWT par le biais d’un décodage base-64 du corps et la désérialisation de la chaîne JSON résultante. La revendication `tfp` ou `acr` est le nom de la stratégie qui a été utilisée pour émettre le jeton. L’autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l’émission de la requête, puis à la décoder pour déterminer la stratégie qui a été utilisée. Les 2 méthodes sont valides.
 
 Ce document ne contient pas la description de la procédure de validation de la signature. De nombreuses bibliothèques open source sont disponibles pour vous aider à valider un jeton.
 

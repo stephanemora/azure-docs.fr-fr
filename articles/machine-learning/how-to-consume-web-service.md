@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318164"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441985"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Dans Azure Machine Learning studio, sélectionnez __Points de terminaison__ , __Points de terminaison en temps réel__ , puis le nom du point de terminaison. Dans les détails du point de terminaison, le champ __Point de terminaison REST__ contient l’URI de scoring. Le champ __URI Swagger__ contient l’URI Swagger.
+Dans Azure Machine Learning studio, sélectionnez __Points de terminaison__, __Points de terminaison en temps réel__, puis le nom du point de terminaison. Dans les détails du point de terminaison, le champ __Point de terminaison REST__ contient l’URI de scoring. Le champ __URI Swagger__ contient l’URI Swagger.
 
 ---
 
@@ -117,9 +117,9 @@ Azure Machine Learning offre deux moyens de contrôler l’accès à vos service
 |Clé|Désactivée par défaut| Activée par défaut|
 |par jeton| Non disponible| Désactivée par défaut |
 
-Lors de l’envoi d’une demande à un service sécurisé à l’aide d’une clé ou d'un jeton, utilisez l’en-tête d’ __autorisation__ pour passer la clé ou le jeton. La clé ou le jeton doivent être formatés en forme en tant que `Bearer <key-or-token>`, où `<key-or-token>` est la valeur de votre clé ou de votre jeton.
+Lors de l’envoi d’une demande à un service sécurisé à l’aide d’une clé ou d'un jeton, utilisez l’en-tête d’__autorisation__ pour passer la clé ou le jeton. La clé ou le jeton doivent être formatés en forme en tant que `Bearer <key-or-token>`, où `<key-or-token>` est la valeur de votre clé ou de votre jeton.
 
-La principale différence entre les clés et les jetons est que les  **clés sont statiques et peuvent être régénérées manuellement** et que les **jetons doivent être actualisés à l’expiration**. L’authentification basée sur les clés est prise en charge pour les services web déployés avec Azure Container Instance et Azure Kubernetes Service, alors que l’authentification basée sur les jetons est disponible **uniquement** pour les déploiements avec Azure Kubernetes Service. Pour plus d’informations et obtenir des exemples de code spécifiques, consultez le [guide pratique](how-to-setup-authentication.md#web-service-authentication) sur l’authentification.
+La principale différence entre les clés et les jetons est que les  **clés sont statiques et peuvent être régénérées manuellement** et que les **jetons doivent être actualisés à l’expiration**. L’authentification basée sur les clés est prise en charge pour les services web déployés avec Azure Container Instance et Azure Kubernetes Service, alors que l’authentification basée sur les jetons est disponible **uniquement** pour les déploiements avec Azure Kubernetes Service. Pour plus d’informations sur la configuration de l’authentification, consultez [Configurer l’authentification pour des modèles déployés en tant que services web](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Authentification avec des clés

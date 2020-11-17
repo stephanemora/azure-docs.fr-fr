@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087177"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411352"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,13 +45,13 @@ Avant de lire ce guide, il est utile de prendre en compte les problèmes courant
 
 ## <a name="get-query-metrics"></a>Obtenir les métriques de requête
 
-Lors de l’optimisation d’une requête dans Azure Cosmos DB, la première étape consiste toujours à [obtenir les métriques de requête](profile-sql-api-query.md) pour votre requête. Ces métriques sont également disponibles par le biais du portail Azure. Une fois que vous avez exécuté votre requête dans l’Explorateur de données, les métriques de requête apparaissent en regard de l’onglet **Résultats**  :
+Lors de l’optimisation d’une requête dans Azure Cosmos DB, la première étape consiste toujours à [obtenir les métriques de requête](profile-sql-api-query.md) pour votre requête. Ces métriques sont également disponibles par le biais du portail Azure. Une fois que vous avez exécuté votre requête dans l’Explorateur de données, les métriques de requête apparaissent en regard de l’onglet **Résultats** :
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Obtention de métriques de requête" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Après avoir obtenu les métriques de requête, comparez le **nombre de documents récupérés** au **nombre de documents de sortie** pour votre requête. Utilisez cette comparaison pour identifier les sections pertinentes à vérifier dans cet article.
 
-Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie** , il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
+Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie**, il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
 
 Reportez-vous aux sections suivantes pour comprendre les optimisations de requête pertinentes pour votre scénario.
 
@@ -93,7 +93,7 @@ Reportez-vous aux sections suivantes pour comprendre les optimisations de requê
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Requêtes où le nombre de documents récupérés dépasse le nombre de documents de sortie
 
- Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents retournés par la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie** , il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
+ Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents retournés par la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie**, il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
 
 Voici un exemple de requête d’analyse qui n’a pas été entièrement servie par l’index :
 
@@ -385,7 +385,7 @@ Supposons qu’un seul élément du tableau tags correspond au filtre, et qu’i
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Requêtes où le nombre de documents récupérés est égal au nombre de documents de sortie
 
-Si le **nombre de documents récupérés** est à peu près égal au **nombre de documents de sortie** , le moteur de requête n’a pas eu à analyser de nombreux documents inutiles. Pour de nombreuses requêtes, telles que celles qui utilisent le mot clé `TOP`, le **nombre de documents récupérés** peut dépasser le **nombre de documents de sortie** de 1. Vous n’avez pas besoin de vous en préoccuper.
+Si le **nombre de documents récupérés** est à peu près égal au **nombre de documents de sortie**, le moteur de requête n’a pas eu à analyser de nombreux documents inutiles. Pour de nombreuses requêtes, telles que celles qui utilisent le mot clé `TOP`, le **nombre de documents récupérés** peut dépasser le **nombre de documents de sortie** de 1. Vous n’avez pas besoin de vous en préoccuper.
 
 ### <a name="minimize-cross-partition-queries"></a>Réduire les requêtes entre les partitions
 
@@ -494,3 +494,4 @@ Reportez-vous aux articles suivants pour des informations sur la mesure des unit
 * [Obtenir des métriques sur l’exécution des requêtes SQL à l’aide du SDK .NET](profile-sql-api-query.md)
 * [Réglage des performances de requête avec Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Conseils en matière de performances pour le Kit de développement logiciel (SDK) .NET](performance-tips.md)
+* [Conseils en matière de performances pour le Kit de développement logiciel (SDK) Java v4](performance-tips-java-sdk-v4-sql.md)

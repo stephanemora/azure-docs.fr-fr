@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427371"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357910"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML
 Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons d’effectuer les opérations suivantes afin de bénéficier du meilleur diagnostic et d’automatiser les étapes de résolution :
@@ -28,12 +28,12 @@ Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons d�
 Si vous utilisez l’[expérience de test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement pour ouvrir la page de configuration de l’authentification unique basée sur SAML.
 
 Pour ouvrir la page de configuration de l’authentification unique basée sur SAML :
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous comme **Administrateur général** ou **Coadministrateur** .
-1.  Ouvrez l’ **extension Azure Active Directory** en sélectionnant **Tous les services** en haut du menu de navigation principal de gauche.
-1.  Entrez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory** .
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous comme **Administrateur général** ou **Coadministrateur**.
+1.  Ouvrez l’**extension Azure Active Directory** en sélectionnant **Tous les services** en haut du menu de navigation principal de gauche.
+1.  Entrez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 1.  Sélectionnez **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 1.  Sélectionnez **Toutes les applications** pour afficher la liste complète de vos applications.
-    Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications** .
+    Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
 1.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 1. Une fois l’application chargée, sélectionnez **Authentification unique** dans le menu de navigation de gauche de l’application.
 1. Sélectionner l’authentification basée sur SAML.
@@ -49,7 +49,7 @@ L’attribut `Issuer` envoyé de l’application vers Azure AD dans la requête 
 
 Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur de l’identificateur configurée dans Azure AD.
 
-Dans la page Configuration de l’authentification unique SAML, dans la section **Configuration SAML de base** , vérifiez que la valeur située dans la zone de texte de l’identificateur correspond à celle de l’identificateur mentionnée dans l’erreur.
+Dans la page Configuration de l’authentification unique SAML, dans la section **Configuration SAML de base**, vérifiez que la valeur située dans la zone de texte de l’identificateur correspond à celle de l’identificateur mentionnée dans l’erreur.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L’adresse de réponse ne correspond pas aux adresses de réponse configurées pour l’application
 `Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
@@ -118,10 +118,10 @@ L’objet d’application est endommagé et Azure AD ne reconnaît pas le certif
 **Résolution :**
 
 Pour supprimer et créer un nouveau certificat, effectuez les étapes suivantes :
-1. Sur l’écran de configuration de l’authentification unique basée sur SAML, sélectionnez **Créer un certificat** sous **Certificat de signature SAML** .
-1. Sélectionnez une date d’expiration, puis cliquez sur **Enregistrer** .
+1. Sur l’écran de configuration de l’authentification unique basée sur SAML, sélectionnez **Créer un certificat** sous **Certificat de signature SAML**.
+1. Sélectionnez une date d’expiration, puis cliquez sur **Enregistrer**.
 1. Cochez la case **Activer le nouveau certificat** pour substituer le certificat actif. Ensuite, cliquez sur **Enregistrer** en haut du volet, puis acceptez d’activer le certificat de substitution.
-1. Dans la section **Certificat de signature SAML** , cliquez sur **Supprimer** pour supprimer le certificat **Inutilisé** .
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Supprimer** pour supprimer le certificat **Inutilisé**.
 
 ## <a name="saml-request-not-present-in-the-request"></a>Requête SAML absente de la requête
 `Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.`
@@ -146,6 +146,23 @@ Lorsque l’application a été ajoutée comme ne figurant pas sur galerie, Azur
 Supprimez les URL de réponse non utilisées qui sont configurées pour l’application.
 
 Sur la page Configuration de l’authentification unique basée sur SAML, dans la section **URL de réponse (URL du service consommateur d’assertion)** , supprimez les URL de réponse non utilisées ou par défaut créées par le système. Par exemple : `https://127.0.0.1:444/applications/default.aspx`.
+
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>La méthode d’authentification de l’utilisateur auprès du service ne correspond pas à la méthode d’authentification demandée.
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Cause possible**
+
+Le contexte `RequestedAuthnContext` se trouve dans la demande SAML. Cela signifie que l’application attend le contexte `AuthnContext` spécifié par la référence `AuthnContextClassRef`. Toutefois, l’utilisateur s’est déjà authentifié avant d’accéder à l’application, et le contexte `AuthnContext` (méthode d’authentification) utilisé pour cette authentification antérieure est différent de celui demandé. Par exemple, un utilisateur fédéré a accédé à myapps et WIA s’est produit. La référence `AuthnContextClassRef` sera `urn:federation:authentication:windows`. AAD n’effectuera pas de demande de nouvelle authentification, et utilisera le contexte d’authentification que lui a transmis le fournisseur d’identité (ADFS ou tout autre service de fédération dans ce cas). Par conséquent, il y aura une discordance si l’application demande autre chose que `urn:federation:authentication:windows`. Un autre scénario est quand une authentification multifacteur a été utilisée : `'X509, MultiFactor`.
+
+**Résolution :**
+
+
+`RequestedAuthnContext` est une valeur facultative. Ensuite, si possible, demandez à l’application si elle peut être supprimée.
+
+Une autre option consiste à s’assurer que le contexte `RequestedAuthnContext` soit respecté. Pour ce faire, vous devez demander une nouvelle authentification. Ainsi, lorsque la demande SAML est traitée, une nouvelle authentification est effectuée, et le contexte `AuthnContext` est respecté. Pour demander une nouvelle authentification, la demande SAML contient la valeur `forceAuthn="true"`. 
+
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problème lors de la personnalisation des revendications SAML envoyées à une application
 Pour savoir comment personnaliser les revendications d’attribut SAML envoyées à votre application, consultez [Mappage de revendications dans Azure Active Directory](../develop/active-directory-claims-mapping.md).

@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: d27c65938d10f9061961ebb585327bc77d8b2859
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092458"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359083"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Évaluer les résultats de l’expérience de Machine Learning automatisé
 
-Dans cet article, apprenez à afficher et à évaluer les résultats de vos expériences de Machine Learning automatisé, AutoML. Ces expériences comprennent plusieurs exécutions, chacune d’entre elles créant un modèle. Pour vous aider à évaluer chaque modèle, AutoML génère automatiquement des métriques et graphiques de performances spécifiques à votre type d’expérience. 
+Cet article explique comment afficher et évaluer les résultats de vos expériences de Machine Learning automatisé, ML automatisé. Ces expériences comprennent plusieurs exécutions, chacune d’entre elles créant un modèle. Pour vous aider à évaluer chaque modèle, le ML automatisé génère automatiquement des métriques et graphiques de performances spécifiques pour votre type d’expérience. 
 
-Par exemple, AutoML fournit différents graphiques pour les modèles de classification et de régression. 
+Par exemple, le ML automatisé fournit différents graphiques pour les modèles de classification et de régression. 
 
 |Classification|régression ;
 |---|---|
@@ -41,7 +41,7 @@ Par exemple, AutoML fournit différents graphiques pour les modèles de classifi
 
 Lorsque votre expérience de Machine Learning automatisé est terminée, un historique des exécutions est disponible dans votre espace de travail de Machine Learning via le [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
 
-Pour les expériences de kit de développement logiciel (SDK), vous pouvez également voir ces mêmes résultats lors d’une exécution avec le `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+Pour les expériences de kit de développement logiciel (SDK), vous pouvez également voir ces mêmes résultats lors d’une exécution avec le `RunDetails` [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
 
 Les étapes et les animations suivantes montrent comment afficher l’historique des exécutions et les métriques et graphiques de performances d’un modèle spécifique dans le studio.
 
@@ -50,18 +50,18 @@ Les étapes et les animations suivantes montrent comment afficher l’historique
 Pour afficher l’historique des exécutions et les métriques et graphiques de performances du modèle et les graphiques dans le studio : 
 
 1. [Connectez-vous au studio](https://ml.azure.com/) et accédez à votre espace de travail.
-1. Dans le panneau gauche de l’espace de travail, sélectionnez **Exécutions** .
+1. Dans le panneau gauche de l’espace de travail, sélectionnez **Exécutions**.
 1. Dans la liste des expériences, sélectionnez celle que vous voulez explorer.
-1. Dans la table du bas, sélectionnez l’ **Exécution** .
-1. Dans l’onglet **Modèles** , sélectionnez le **Nom de l’algorithme** pour le modèle que vous voulez explorer.
-1. Dans l’onglet **Métriques** , sélectionnez les métriques et graphiques que vous voulez évaluer pour ce modèle. 
+1. Dans la table du bas, sélectionnez l’**Exécution**.
+1. Dans l’onglet **Modèles**, sélectionnez le **Nom de l’algorithme** pour le modèle que vous voulez explorer.
+1. Dans l’onglet **Métriques**, sélectionnez les métriques et graphiques que vous voulez évaluer pour ce modèle. 
 
 
 <a name="classification"></a> 
 
 ## <a name="classification-performance-metrics"></a>Métriques de performances de classification
 
-Le tableau suivant récapitule les métriques de performances de modèle calculées par AutoML pour chaque modèle de classification généré pour votre expérience. 
+Le tableau suivant récapitule les métriques de performances de modèle calculées par le ML automatisé pour chaque modèle de classification généré pour votre expérience. 
 
 Métrique|Description|Calcul|Paramètres supplémentaires
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|La précision pondérée est la précision où le poids donné
 
 ### <a name="binary-vs-multiclass-metrics"></a>Métriques binaires et multiclasses
 
-AutoML ne fait pas la différence entre les métriques binaires et multiclasses. Les mêmes métriques de validation sont signalées si un jeu de données a deux classes ou plus de deux classes. Toutefois, certaines métriques sont destinées à la classification multiclasse. Lorsqu’elles sont appliquées à un jeu de données binaire, ces métriques ne traitent pas les classes comme la classe `true`, comme vous pourriez vous y attendre. Les métriques qui sont clairement destinées à la multiclasse sont suivies d’un suffixe `micro`, `macro` ou `weighted`. `average_precision_score`, `f1_score`, `precision_score`, `recall_score` et `AUC` en sont des exemples.
+Le ML automatisé ne fait pas la différence entre les métriques binaires et multiclasses. Les mêmes métriques de validation sont signalées si un jeu de données a deux classes ou plus de deux classes. Toutefois, certaines métriques sont destinées à la classification multiclasse. Lorsqu’elles sont appliquées à un jeu de données binaire, ces métriques ne traitent pas les classes comme la classe `true`, comme vous pourriez vous y attendre. Les métriques qui sont clairement destinées à la multiclasse sont suivies d’un suffixe `micro`, `macro` ou `weighted`. `average_precision_score`, `f1_score`, `precision_score`, `recall_score` et `AUC` en sont des exemples.
 
 Par exemple, au lieu de calculer le rappel comme `tp / (tp + fn)`, le rappel multiclasse pondéré (`micro`, `macro` ou `weighted`) fait la moyenne des deux classes d’un jeu de données de classification binaire. Cela revient à calculer le rappel pour la classe `true` et la classe `false` séparément, puis à obtenir la moyenne des deux.
 
@@ -119,7 +119,7 @@ La courbe Précision et rappel montre la relation qui existe entre la précision
 
 Avec ce graphique, vous pouvez comparer les courbes de rappel de précision pour chaque modèle afin de déterminer quel modèle présente une relation acceptable entre précision et rappel pour votre problème d’entreprise spécifique. Ce graphique montre le rappel de précision de macro-moyenne, le rappel de précision de micro-moyenne et le rappel de précision associé à toutes les classes d’un modèle. 
 
-La **macro-moyenne** calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La **micro-moyenne** , quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. La micro-moyenne est préférable si le jeu de données contient un déséquilibre de classe.
+La **macro-moyenne** calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La **micro-moyenne**, quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. La micro-moyenne est préférable si le jeu de données contient un déséquilibre de classe.
 
 ### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
 La courbe Précision et rappel idéale dépend de l’objectif du problème métier. 
@@ -159,7 +159,7 @@ Vous pouvez comparer l’élévation du modèle généré automatiquement avec A
 
 ### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
 
-Une courbe d’élévation plus élevée, autrement dit, plus votre modèle est au-dessus de la ligne de base, indique un modèle plus performant. 
+Un modèle plus performant aura une courbe d’élévation plus élevée sur le graphique et plus éloignée de la ligne de base. 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Exemple 1 : Modèle de classification avec des performances inférieures à celles d’un modèle de sélection aléatoire
 ![Modèle de classification avec des performances moins élevées que celles d’un modèle de sélection aléatoire](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -193,7 +193,7 @@ Un tracé d’étalonnage affiche le niveau de confiance d’un modèle prédict
 
 Pour tous les problèmes de classification, vous pouvez consulter la ligne d’étalonnage concernant la micro-moyenne, la macro-moyenne et chaque classe dans un modèle prédictif donné.
 
-La **macro-moyenne** calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La **micro-moyenne** , quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. 
+La **macro-moyenne** calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La **micro-moyenne**, quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. 
 
 ### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
 Un modèle bien étalonné s’aligne sur la ligne y = x, où il prédit correctement la probabilité que les échantillons appartiennent à chaque classe. Un modèle trop confiant prédira excessivement des probabilités proches de zéro et un, étant rarement incertain quant à la classe de chaque exemple.
@@ -209,7 +209,7 @@ Un modèle bien étalonné s’aligne sur la ligne y = x, où il prédit correct
 
 ## <a name="regression-performance-metrics"></a>Métriques de performances de régression
 
-Le tableau suivant récapitule les métriques de performances de modèle calculées par AutoML pour chaque modèle de régression ou modèle de prévision qui est généré pour votre expérience. 
+Le tableau suivant récapitule les métriques de performances de modèle calculées par la ML automatisé pour chaque modèle de régression ou modèle de prévision généré pour votre expérience. 
 
 |Métrique|Description|Calcul|Paramètres supplémentaires
 --|--|--|--|
@@ -234,12 +234,12 @@ Prédiction et True indique la relation entre une valeur prévue et sa valeur tr
 Après chaque exécution, vous pouvez afficher un graphique de type Prédiction et True pour chaque modèle de régression. Pour protéger la confidentialité des données, les valeurs sont réunies dans un conteneur et la taille de chaque emplacement est affichée sous la forme d’un graphique à barres au bas de la zone de graphique. Vous pouvez comparer le modèle prédictif, dont la zone la plus claire indique les marges d’erreur, par rapport à la valeur idéale du modèle.
 
 ### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-Ce graphique peut servir à mesurer les performances d’un modèle, car plus les valeurs prévues sont proches de la ligne y=x, plus le modèle prédictif est précis.
+Ce graphique peut servir à mesurer les performances d’un modèle, car plus les valeurs prévues sont proches de la ligne y=x, plus le modèle prédictif est performant.
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>Exemple 1 : Modèle de classification avec un niveau de justesse faible
+#### <a name="example-1-a-regression-model-with-low-performance"></a>Exemple 1 : Modèle de régression faiblement performant
 ![Modèle de régression avec une justesse faible des prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>Exemple 2 : Modèle de régression avec un niveau de justesse élevé 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>Exemple 2 : Modèle de régression hautement performant
 ![Modèle de régression avec un niveau de justesse élevé des prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -254,7 +254,7 @@ Pour afficher une marge d’erreur avec un biais faible, l’histogramme des ré
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exemple 1 : Modèle de régression avec des erreurs comprenant un biais
 ![Modèle de régression avec des erreurs comprenant un biais](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exemple 2 : Modèle de régression avec des erreurs mieux réparties
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Exemple 2 : Modèle de régression avec des erreurs mieux réparties
 ![Modèle de régression avec des erreurs mieux réparties](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

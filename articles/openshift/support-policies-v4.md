@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049959"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408404"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Stratégie de prise en charge d’Azure Red Hat OpenShift
 
@@ -30,6 +30,7 @@ Certaines configurations pour les clusters Azure Red Hat OpenShift 4 peuvent aff
 * Toutes les machines virtuelles du cluster doivent disposer d’un accès Internet sortant direct, du moins aux points de terminaison Azure Resource Manager (ARM), et de la journalisation des services (Geneva).  Aucune forme de proxy HTTPS n’est prise en charge.
 * Ne modifiez pas la configuration DNS du réseau virtuel du cluster. Vous devez utiliser le programme de résolution Azure DNS par défaut.
 * Ne remplacez pas les objets MachineConfig du cluster (par exemple, la configuration kubelet) de quelque manière que ce soit.
+* Ne définissez pas d’options unsupportedConfigOverrides. La définition de ces options empêche les mises à niveau de versions mineures.
 * Le service Azure Red Hat OpenShift accède à votre cluster par le biais du service de liaison privée.  Ne supprimez pas et ne modifiez pas l’accès au service.
 * Les nœuds de calcul non RHCOS ne sont pas pris en charge. Par exemple, vous ne pouvez pas utiliser un nœud de calcul RHEL.
 

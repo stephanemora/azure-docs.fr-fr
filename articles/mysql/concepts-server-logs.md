@@ -5,18 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/6/2020
+ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81271979"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358998"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
 
 Pour plus d’informations sur le journal des requêtes lentes MySQL, consultez la [section sur le journal des requêtes lentes](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) du manuel de référence MySQL.
+
+Lorsque la fonctionnalité [Magasin des requêtes](concepts-query-store.md) est activée sur votre serveur, vous pouvez voir les requêtes telles que « `CALL mysql.az_procedure_collect_wait_stats (900, 30);` » journalisées dans les journaux de requêtes lentes. Ce comportement est attendu, car la fonctionnalité Magasin des requêtes collecte des statistiques sur vos requêtes. 
 
 ## <a name="configure-slow-query-logging"></a>Configurer la journalisation des requêtes lentes 
 Par défaut, le journal des requêtes lentes est désactivé. Pour l’activer, affectez la valeur ON à `slow_query_log`. Pour ce faire, utilisez le portail Azure ou Azure CLI. 
@@ -142,5 +144,5 @@ Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Mo
     ```    
     
 ## <a name="next-steps"></a>Étapes suivantes
-- [Configurer les journaux des requêtes lentes à partir du portail Azure](howto-configure-server-logs-in-portal.md)
-- [Configurer les journaux des requêtes lentes à partir d’Azure CLI](howto-configure-server-logs-in-cli.md).
+- [Configurer les journaux des requêtes lentes du portail Azure](howto-configure-server-logs-in-portal.md)
+- [Configurer les journaux des requêtes lentes d’Azure CLI](howto-configure-server-logs-in-cli.md)
