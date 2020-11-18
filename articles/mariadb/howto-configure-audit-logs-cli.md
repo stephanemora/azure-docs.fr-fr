@@ -1,18 +1,18 @@
 ---
 title: Accéder aux journaux d'audit - Azure CLI - Azure Database for MariaDB
 description: Cet article explique comment configurer et consulter les journaux d'audit dans Azure Database for MariaDB à partir d'Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8e532902e1e6da90d4c81320b34a0b2b5dd1133f
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c1d446d8ee2863077ad84c361876758336f5a3cb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518088"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540958"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Configurer et consulter les journaux d’audit Azure Database pour Maria DB dans l’interface de ligne de commande Azure
 

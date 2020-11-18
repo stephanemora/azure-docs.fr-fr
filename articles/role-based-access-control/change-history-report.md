@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 0ad60e72300e381b57deb00f3db010e69a006441
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4ccd668fb6afa6787fadeda6ed92ebd954e2b892
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742946"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657803"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Afficher les journaux d’activité pour voir les changements RBAC Azure
 
@@ -48,7 +48,7 @@ Le journal d’activité dans le portail comporte plusieurs filtres. Voici les f
 | Catégorie d'événements | <ul><li>Administratif</li></ul> |
 | Opération | <ul><li>Créer une attribution de rôle</li><li>Supprimer une attribution de rôle</li><li>Créer ou mettre à jour une définition de rôle personnalisée</li><li>Supprimer la définition de rôle personnalisée</li></ul> |
 
-Pour plus d’informations sur les journaux d’activité, consultez [Afficher les journaux d’activité pour surveiller les actions sur les ressources](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Pour plus d’informations sur les journaux d’activité, consultez [Afficher les journaux d’activité pour surveiller les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -122,7 +122,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-Les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md) sont un autre outil que vous pouvez utiliser pour collecter et analyser les changements RBAC Azure de toutes vos ressources Azure. Les journaux Azure Monitor possèdent les avantages suivants :
+Les [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) sont un autre outil que vous pouvez utiliser pour collecter et analyser les changements RBAC Azure de toutes vos ressources Azure. Les journaux Azure Monitor possèdent les avantages suivants :
 
 - Écriture de requêtes et d’une logique complexes
 - Intégration aux alertes, à Power BI et à d’autres outils
@@ -133,13 +133,13 @@ Voici les étapes de base pour bien démarrer :
 
 1. [Créez un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) pour vos espaces de travail.
+1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution) pour vos espaces de travail.
 
-1. [Affichez les journaux d’activité](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Un moyen rapide d’accéder à la page Vue d’ensemble de la solution Activity Log Analytics consiste à cliquer sur l’option **Journaux** .
+1. [Affichez les journaux d’activité](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). Un moyen rapide d’accéder à la page Vue d’ensemble de la solution Activity Log Analytics consiste à cliquer sur l’option **Journaux**.
 
    ![Option journaux Azure Monitor dans le portail](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Si vous le souhaitez, vous pouvez utiliser [Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md) pour interroger et afficher les journaux. Pour plus d’informations, consultez [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+1. Si vous le souhaitez, vous pouvez utiliser [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) pour interroger et afficher les journaux. Pour plus d’informations, consultez [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 Voici une requête qui retourne les nouvelles attributions de rôle organisées par fournisseur de ressources cible :
 
@@ -162,5 +162,5 @@ AzureActivity
 ![Journaux d’activité à l’aide du portail Analytique avancée : capture d’écran](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Afficher des événements dans le journal d’activité](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Surveiller l’activité d’abonnement avec le journal d’activité Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [Afficher des événements dans le journal d’activité](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)
+* [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md)

@@ -9,12 +9,13 @@ ms.reviewer: ebertra
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: bf7e841586250142c23d6672491af30a011043ca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+monikerRange: '>=iotedge-2020-11'
+ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447456"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629646"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
 
@@ -30,8 +31,10 @@ Vous pouvez utiliser le répartiteur IoT Edge MQTT pour publier des messages et 
 - Un **IoT Hub** avec la référence SKU F1, S1, S2 ou S3.
 - Disposer d’un **appareil IoT Edge avec la version 1.2 ou supérieure**. Étant donné que le répartiteur IoT Edge MQTT est actuellement en préversion publique, définissez les variables d’environnement suivantes sur true dans le conteneur edgeHub pour activer le répartiteur MQTT :
 
-    - experimentalFeatures__enabled
-    - mqttbroker__enabled
+   | Nom | Valeur |
+   | - | - |
+   | `experimentalFeatures__enabled` | `true` |
+   | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
 - Les **clients Mosquitto** installés sur l’appareil IoT Edge. Cet article utilise les clients Mosquitto populaires qui incluent [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) et [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). D’autres clients MQTT peuvent être utilisés à la place. Pour installer les clients Mosquitto sur un appareil Ubuntu, exécutez la commande suivante :
 
@@ -328,7 +331,7 @@ Notez que le port 1883 (MQTT), par exemple, sans TLS, est utilisé dans ce premi
 
 Le client MQTT **sub_client** est maintenant démarré et attend les messages entrants sur `test_topic`.
 
-#### <a name="publish"></a>Publish
+#### <a name="publish"></a>Publier
 
 Connectez votre client MQTT **pub_client** au répartiteur MQTT et publiez un message sur le même `test_topic` que ci-dessus en exécutant la commande suivante sur votre appareil IoT Edge à partir d’un autre terminal :
 
