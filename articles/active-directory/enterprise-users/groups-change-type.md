@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373020"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489605"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Changer l’appartenance au groupe statique en dynamique dans Azure Active Directory
 
@@ -32,19 +32,19 @@ Vous pouvez changer l’appartenance à un groupe de statique en dynamique (ou v
 
 ## <a name="change-the-membership-type-for-a-group"></a>Changer le type d’appartenance pour un groupe
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur d’entreprise ou en tant qu’administrateur utilisateur dans votre organisation Azure AD.
-2. Sélectionnez **Groupes** .
-3. Depuis la liste **Tous les groupes** , ouvrez le groupe que vous souhaitez modifier.
-4. Sélectionner **Propriétés** .
+1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général, d’administrateur des utilisateurs ou d’administrateur des groupes dans votre organisation Azure AD.
+2. Sélectionnez **Groupes**.
+3. Depuis la liste **Tous les groupes**, ouvrez le groupe que vous souhaitez modifier.
+4. Sélectionner **Propriétés**.
 5. Sur la page **Propriétés** du groupe, sélectionnez un **Type d’appartenance** entre Utilisateur affecté (statique) ou dynamique et Appareil dynamique, selon le type d’appartenance souhaité. Pour une appartenance dynamique, vous pouvez utiliser le générateur de règle pour sélectionner les options d’une règle simple, ou écrire vous-même une règle d’appartenance. 
 
 Les étapes suivantes sont un exemple de modification de l’appartenance d’un groupe de statique à dynamique pour un groupe d’utilisateurs.
 
-1. Sur la page **Propriétés** du groupe sélectionné, sélectionnez **Utilisateur dynamique** comme **type d’appartenance** . Cliquez ensuite sur Oui dans la boîte de dialogue expliquant les modifications apportées à l’appartenance au groupe pour continuer. 
+1. Sur la page **Propriétés** du groupe sélectionné, sélectionnez **Utilisateur dynamique** comme **type d’appartenance**. Cliquez ensuite sur Oui dans la boîte de dialogue expliquant les modifications apportées à l’appartenance au groupe pour continuer. 
   
    ![sélectionner utilisateur dynamique comme type d’appartenance](./media/groups-change-type/select-group-to-convert.png)
   
-2. Sélectionnez **Ajouter une requête dynamique** , puis ajoutez la règle.
+2. Sélectionnez **Ajouter une requête dynamique**, puis ajoutez la règle.
   
    ![Entrez la règle pour le groupe dynamique](./media/groups-change-type/enter-rule.png)
   
@@ -57,7 +57,7 @@ Les étapes suivantes sont un exemple de modification de l’appartenance d’un
 ## <a name="change-membership-type-for-a-group-powershell"></a>Changer le type d’appartenance pour un groupe (PowerShell)
 
 > [!NOTE]
-> Pour changer les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d’ [Azure AD PowerShell version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez exécuter la version préliminaire à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
+> Pour changer les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d’[Azure AD PowerShell version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez exécuter la version préliminaire à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Voici un exemple de fonctions qui permettent de changer la gestion des appartenances d’un groupe existant. Dans cet exemple, une attention particulière est nécessaire pour manipuler correctement la propriété GroupTypes et conserver toutes les valeurs qui ne sont pas liées à l’appartenance dynamique.
 

@@ -3,12 +3,12 @@ title: 'Concept : intégrer un déploiement Azure VMware Solution dans une arch
 description: En savoir plus sur l’intégration d’un déploiement Azure VMware Solution dans une architecture hub and spoke sur Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0895e9c97f79e433b0383f0a99fbeeb124fd9064
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674716"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490812"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Intégrer Azure VMware Solution dans une architecture hub and spoke
 
@@ -36,30 +36,29 @@ Le diagramme montre un exemple de déploiement Hub and Spoke dans Azure, connect
 
 L’architecture possède les composants majeurs suivants :
 
--   **Site local :** Un ou plusieurs centres de données client locaux connectés à Azure via une connexion ExpressRoute.
+- **Site local :** Un ou plusieurs centres de données client locaux connectés à Azure via une connexion ExpressRoute.
 
--   **Cloud privé Azure VMware Solution** SDDC Azure VMware Solution formé par un ou plusieurs clusters vSphere, chacun avec un maximum de 16 nœuds.
+- **Cloud privé Azure VMware Solution** SDDC Azure VMware Solution formé par un ou plusieurs clusters vSphere, chacun avec un maximum de 16 nœuds.
 
--   **Passerelle ExpressRoute :** Active la communication entre le cloud privé Azure VMware Solution, les services partagés sur le réseau virtuel du hub et les charges de travail exécutées sur des réseaux virtuels Spoke.
+- **Passerelle ExpressRoute :** Active la communication entre le cloud privé Azure VMware Solution, les services partagés sur le réseau virtuel du hub et les charges de travail exécutées sur des réseaux virtuels Spoke.
 
--   **ExpressRoute Global Reach :** Active la connectivité entre une installation locale et le cloud privé Azure VMware Solution.
-
-
-  > [!NOTE]
-  > **Considérations S2S VPN :** Pour les déploiements de production Azure VMware Solution, Azure S2S VPN n’est pas pris en charge en raison de la configuration réseau requise pour VMware HCX. Toutefois, vous pouvez l’utiliser pour un déploiement POC.
+- **ExpressRoute Global Reach :** Active la connectivité entre une installation locale et le cloud privé Azure VMware Solution. La connectivité entre Azure VMware Solution et l’infrastructure Azure s’effectue à l’aide d’ExpressRoute Global Reach uniquement. Vous ne pouvez sélectionner aucune option autre qu’ExpressRoute Fast Path.  ExpressRoute Direct n’est pas pris en charge.
 
 
--   **Réseau virtuel Hub :** Joue le rôle de point central de la connectivité pour votre réseau local cloud privé Azure VMware Solution.
+- **Considérations S2S VPN :** Pour les déploiements de production Azure VMware Solution, Azure S2S VPN n’est pas pris en charge en raison de la configuration réseau requise pour VMware HCX. Toutefois, vous pouvez l’utiliser pour un déploiement POC.
 
--   **Réseau virtuel Spoke**
 
-    -   **Spoke IaaS :** Un spoke IaaS héberge des charges de travail IaaS Azure, y compris des groupes à haute disponibilité de machines virtuelles et des groupes de machines virtuelles identiques, ainsi que les composants réseau correspondants.
+- **Réseau virtuel Hub :** Joue le rôle de point central de la connectivité pour votre réseau local cloud privé Azure VMware Solution.
 
-    -   **Spoke PaaS :** Un spoke PaaS héberge des services PaaS Azure à l’aide de l’adressage privé grâce au [Point de terminaison privé](../private-link/private-endpoint-overview.md) et à la [Liaison privée](../private-link/private-link-overview.md).
+- **Réseau virtuel Spoke**
 
--   **Pare-feu Azure :** Fait office d’élément central permettant de segmenter le trafic entre les spokes et Azure VMware Solution.
+    - **Spoke IaaS :** Un spoke IaaS héberge des charges de travail IaaS Azure, y compris des groupes à haute disponibilité de machines virtuelles et des groupes de machines virtuelles identiques, ainsi que les composants réseau correspondants.
 
--   **Application Gateway :** Expose et protège des applications web qui s’exécutent sur des machines virtuelles IaaS/PaaS Azure ou Azure VMware Solution. Il s’intègre à d’autres services tels que la Gestion des API.
+    - **Spoke PaaS :** Un spoke PaaS héberge des services PaaS Azure à l’aide de l’adressage privé grâce au [Point de terminaison privé](../private-link/private-endpoint-overview.md) et à la [Liaison privée](../private-link/private-link-overview.md).
+
+- **Pare-feu Azure :** Fait office d’élément central permettant de segmenter le trafic entre les spokes et Azure VMware Solution.
+
+- **Application Gateway :** Expose et protège des applications web qui s’exécutent sur des machines virtuelles IaaS/PaaS Azure ou Azure VMware Solution. Il s’intègre à d’autres services tels que la Gestion des API.
 
 ## <a name="network-and-security-considerations"></a>Considérations relatives au réseau et à la sécurité
 
@@ -139,11 +138,7 @@ En guise de suggestion générale, utilisez l’infrastructure Azure DNS existan
 
 Vous pouvez utiliser Azure DNS privé, où la zone Azure DNS privé est liée au réseau virtuel.  Les serveurs DNS sont utilisés en tant que solutions de résolution hybrides avec un transfert conditionnel vers des DNS locaux ou Azure VMware Solution tirant parti de l’infrastructure client d’Azure DNS privé. 
 
-Il y a plusieurs considérations à prendre en compte pour les zones privées Azure DNS :
-
-* L’inscription automatique doit être activée pour qu’Azure DNS gère automatiquement le cycle de vie des enregistrements DNS pour les machines virtuelles déployées au sein de réseaux virtuels spoke.
-* Le nombre maximal de zones DNS privées auxquelles un réseau virtuel peut être lié avec l’inscription automatique activée est limité à une.
-* Le nombre maximal de zones DNS privées pouvant être liées à un réseau virtuel est de 1 000 sans l’activation de l’inscription automatique.
+Pour gérer automatiquement le cycle de vie des enregistrements DNS pour les machines virtuelles déployées au sein de réseaux virtuels spoke, activez l’inscription automatique. Lorsque l’inscription automatique est activée, le nombre maximal de zones DNS privées est 1. Si l’inscription automatique est désactivée, le nombre maximal est 1 000.
 
 Vous pouvez configurer des serveurs locaux et Azure VMware Solution avec des redirecteurs conditionnels vers des machines virtuelles de résolution dans Azure pour la zone privée Azure DNS.
 

@@ -1,19 +1,19 @@
 ---
 title: Gérer les points de terminaison de réseau virtuel - Azure CLI - Azure Database for MariaDB
 description: Cet article décrit comment créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database for MariaDB à l’aide d’Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b7efa9a6ae6dda41a5503da389b59880c448bc76
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515470"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635243"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database for MariaDB à l’aide d’Azure CLI
 
@@ -32,9 +32,9 @@ Les règles et points de terminaison de service de réseau virtuel étendent l�
 
 ## <a name="configure-vnet-service-endpoints"></a>Configurer des points de terminaison de service de réseau virtuel
 
-Les commandes [az network vnet](/cli/azure/network/vnet?view=azure-cli-latest) sont utilisées pour configurer les réseaux virtuels.
+Les commandes [az network vnet](/cli/azure/network/vnet) sont utilisées pour configurer les réseaux virtuels.
 
-Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Sélectionnez l’ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Remplacez la propriété **id** provenant de la sortie **az login** de votre abonnement dans l’espace réservé d’id d’abonnement.
+Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Sélectionnez l’ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Remplacez la propriété **id** provenant de la sortie **az login** de votre abonnement dans l’espace réservé d’id d’abonnement.
 
 - Le compte doit avoir les autorisations nécessaires pour créer un réseau virtuel et un point de terminaison de service.
 

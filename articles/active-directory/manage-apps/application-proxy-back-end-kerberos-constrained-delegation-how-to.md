@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c28e79c9a6f8c489a97d360c4fe142d431b5ab5d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042696"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656545"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 
@@ -90,7 +90,7 @@ Les entrées correspondantes du journal des événements apparaissent en tant qu
 1. Utilisez un enregistrement **A** dans votre DNS interne pour l’adresse de l’application, et non un enregistrement **CName**.
 1. Vérifiez de nouveau que l’hôte de connecteur dispose des droits nécessaires à la délégation au SPN du compte cible désigné. Vérifiez de nouveau que l'option **Utiliser tout protocole d’authentification** est sélectionnée. Pour plus d’informations, consultez [l’article consacré à la configuration de l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md).
 1. Vérifiez qu’il n'existe qu'une seule instance du SPN dans Azure AD. Entrez `setspn -x` à partir d’une invite de commandes sur un hôte membre de domaine.
-1. Vérifiez qu’une stratégie de domaine limitant la [taille maximale des jetons Kerberos émis](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/) est appliquée. En cas de taille excessive, cette stratégie empêche le connecteur d'obtenir un jeton.
+1. Vérifiez qu’une stratégie de domaine limitant la [taille maximale des jetons Kerberos émis](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012) est appliquée. En cas de taille excessive, cette stratégie empêche le connecteur d'obtenir un jeton.
 
 Pour obtenir d’autres informations de base sur les problèmes rencontrés, l’étape suivante consiste à assurer un suivi réseau capturant les échanges entre l’hôte de connecteur et une délégation KDC du domaine. Pour plus d’informations, consultez le [document consacré à la résolution approfondie des problèmes](https://aka.ms/proxytshootpaper).
 
@@ -102,9 +102,9 @@ Consommateur du ticket Kerberos fourni par le connecteur. À ce stade, attendez-
 
 1. À l’aide de l’URL interne de l’application définie sur le portail, vérifiez que l’application est directement accessible à partir du navigateur sur l’hôte de connecteur. Vous pouvez alors vous connecter. Pour plus d’informations, reportez-vous à la page consacrée à la **résolution des problèmes** de connecteur.
 1. Toujours sur l’hôte de connecteur, vérifiez que l’authentification entre le navigateur et l’application se fait à l’aide de Kerberos. Effectuez l'une des opérations suivantes :
-1. Exécutez les outils de développement ( **F12** ) d'Internet Explorer, ou utilisez [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) à partir de l’hôte de connecteur. Accédez à l’application à l’aide de l’URL interne. Examinez les en-têtes d’autorisation WWW retournés dans la réponse de l’application pour vous assurer que Negotiate ou Kerberos est mentionné.
+1. Exécutez les outils de développement (**F12**) d'Internet Explorer, ou utilisez [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) à partir de l’hôte de connecteur. Accédez à l’application à l’aide de l’URL interne. Examinez les en-têtes d’autorisation WWW retournés dans la réponse de l’application pour vous assurer que Negotiate ou Kerberos est mentionné.
 
-   - L’objet blob Kerberos suivant retourné dans la réponse du navigateur à l’application commence par **YII**. Ces lettres indiquent que Kerberos est en cours d'exécution. En revanche, NTLM (Microsoft NT LAN Manager) commence toujours par **TlRMTVNTUAAB** , soit NTLMSSP (NTLM Security Support Provider) lors d’un décodage en Base64. Si **TlRMTVNTUAAB** figure au début de l'objet blob, Kerberos n’est pas disponible. En revanche, si **TlRMTVNTUAAB** y figure, Kerberos est vraisemblablement disponible.
+   - L’objet blob Kerberos suivant retourné dans la réponse du navigateur à l’application commence par **YII**. Ces lettres indiquent que Kerberos est en cours d'exécution. En revanche, NTLM (Microsoft NT LAN Manager) commence toujours par **TlRMTVNTUAAB**, soit NTLMSSP (NTLM Security Support Provider) lors d’un décodage en Base64. Si **TlRMTVNTUAAB** figure au début de l'objet blob, Kerberos n’est pas disponible. En revanche, si **TlRMTVNTUAAB** y figure, Kerberos est vraisemblablement disponible.
 
       > [!NOTE]
       > Si vous utilisez Fiddler, cette méthode nécessite de désactiver temporairement la protection étendue dans la configuration de l’application dans IIS.
@@ -115,7 +115,7 @@ Consommateur du ticket Kerberos fourni par le connecteur. À ce stade, attendez-
 
 1. Supprimez temporairement NTLM de la liste des fournisseurs sur le site IIS. Accédez à l’application directement à partir d’Internet Explorer sur l’hôte de connecteur. NTLM ne figure plus dans la liste des fournisseurs. Vous ne pouvez accéder à l’application qu'à l’aide de Kerberos. Un échec de l'accès peut indiquer qu'il existe un problème de configuration de l’application. L’authentification Kerberos ne fonctionne pas.
 
-   - Si Kerberos n’est pas disponible, vérifiez les paramètres d’authentification de l’application dans IIS. Assurez-vous que **Negotiate** figure en haut, avec NTLM juste en-dessous. En présence de **Not Negotiate** , **Kerberos or Negotiate** ou **PKU2U** , ne continuez que si Kerberos fonctionne.
+   - Si Kerberos n’est pas disponible, vérifiez les paramètres d’authentification de l’application dans IIS. Assurez-vous que **Negotiate** figure en haut, avec NTLM juste en-dessous. En présence de **Not Negotiate**, **Kerberos or Negotiate** ou **PKU2U**, ne continuez que si Kerberos fonctionne.
 
      ![Fournisseurs d’authentification Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 

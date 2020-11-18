@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 16a53c440bc818a65175cf6a4a92cd007349e3b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f90ccbc98dac957fcb9fb81cd24c7ae6c9ac664
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421337"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657548"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
 
@@ -64,7 +64,7 @@ Les comptes que vous utilisez pour créer un peering de réseaux virtuels doiven
 |Spoke-Classic|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-Apprenez-en davantage sur les [rôles intégrés](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Gestionnaire des ressources uniquement).
+Apprenez-en davantage sur les [rôles intégrés](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../role-based-access-control/custom-roles.md?toc=%252fazure%252fvirtual-network%252ftoc.json) (Gestionnaire des ressources uniquement).
 
 ## <a name="resource-manager-to-resource-manager-peering-with-gateway-transit"></a>Peering de deux réseaux virtuels Resource Manager avec transit par passerelle
 

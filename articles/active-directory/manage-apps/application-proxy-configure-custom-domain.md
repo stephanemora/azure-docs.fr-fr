@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587767"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656375"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -26,7 +26,7 @@ Lorsque vous publiez une application via le Proxy d’application Azure Active D
 
 Il est judicieux de configurer des domaines personnalisés pour vos applications chaque fois que c’est possible. Voici quelques raisons d’utiliser des domaines personnalisés :
 
-- Les liens entre applications fonctionnent même en dehors du réseau d’entreprise. Sans domaine personnalisé, si votre application comprend des liens internes codés en dur vers des cibles situées en dehors du Proxy d’application, et que les liens ne peuvent pas être résolus à l’extérieur, ils sont rompus. Lorsque vos URL internes et externes sont identiques, vous évitez ce problème. Si vous n’êtes pas en mesure d’utiliser des domaines personnalisés, pour d’autres façons de résoudre ce problème, voir [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](../application-proxy-link-translation.md). 
+- Les liens entre applications fonctionnent même en dehors du réseau d’entreprise. Sans domaine personnalisé, si votre application comprend des liens internes codés en dur vers des cibles situées en dehors du Proxy d’application, et que les liens ne peuvent pas être résolus à l’extérieur, ils sont rompus. Lorsque vos URL internes et externes sont identiques, vous évitez ce problème. Si vous n’êtes pas en mesure d’utiliser des domaines personnalisés, pour d’autres façons de résoudre ce problème, voir [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](./application-proxy-configure-hard-coded-link-translation.md). 
   
 - Vos utilisateurs bénéficient alors d’une expérience plus simple, car ils peuvent accéder à l’application via la même URL tant à l’intérieur qu’à l’extérieur de votre réseau. Ils n’ont pas besoin de retenir différentes URL internes et externes, ou d’effectuer le suivi de leur emplacement actuel. 
 

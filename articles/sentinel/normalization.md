@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930612"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657021"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalisation dans Azure Sentinel
 
@@ -97,7 +97,7 @@ Les analyseurs disponibles au moment de la requête sont disponibles dans le [r�
 
     1. **Catégorie** : vous pouvez sélectionner une catégorie existante ou créer une catégorie (par exemple, *NormalizedNetworkSessionsParsers*).
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Installer un nouvel analyseur":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Enregistrer l’analyseur":::
 
 Pour utiliser correctement les analyseurs, vous devez également installer l’analyseur de schéma réseau vide (qui crée une vue tabulaire vide de tous les champs du schéma de sessions réseau) et l’analyseur de métadonnées de réseau (qui associe tous les analyseurs activés pour créer une vue unique des données à partir de différentes sources dans le schéma de mise en réseau). L’installation de ces deux analyseurs s’effectue de la même façon que pour les étapes mentionnées ci-dessus.
 
@@ -107,15 +107,15 @@ Lors de l’enregistrement d’une fonction de requête, il peut être nécessai
 
 Une fois activé, vous pouvez utiliser l’analyseur de métadonnées pour interroger une vue unifiée sur tous les analyseurs actuellement activés. Pour ce faire, accédez à la page des journaux Sentinel et interrogez l’analyseur de métadonnées :
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Installer un nouvel analyseur":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Interroger l’analyseur":::
  
 Vous pouvez également accéder à l’analyseur de métadonnées ou à des analyseurs individuels à l’aide de l’explorateur de requêtes de la page des journaux Sentinel, en cliquant sur Explorateur de requêtes :
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Installer un nouvel analyseur":::
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Explorateur de requêtes":::
 
 Dans le volet de droite, développez la section « Requêtes enregistrées » et recherchez le dossier « NormalizedNetworkParsers » (ou le nom de la catégorie que vous avez choisi lors de la création des analyseurs) :
 
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Installer un nouvel analyseur":::
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Rechercher votre analyseur":::
 
 Vous pouvez cliquer sur chaque analyseur et voir la fonction sous-jacente qu’il utilise, puis l’exécuter (ou y accéder directement par son alias, comme décrit ci-dessus). Notez que certains analyseurs peuvent conserver les champs d’origine en parallèle des champs normalisés pour des raisons pratiques. Ceci peut être facilement modifié dans la requête de l’analyseur.
 
@@ -124,15 +124,15 @@ Vous pouvez cliquer sur chaque analyseur et voir la fonction sous-jacente qu’i
 Vous pouvez répéter les étapes ci-dessus (recherche de l’analyseur dans l’explorateur de requêtes), cliquer sur l’analyseur approprié et voir son implémentation de la fonction.
 Par exemple, vous pouvez décider de modifier l’analyseur de métadonnées pour ajouter ou supprimer des analyseurs.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Installer un nouvel analyseur":::
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Personnalisation de votre analyseur":::
  
 Une fois la fonction modifiée, cliquez à nouveau sur Enregistrer et utilisez le même nom, le même alias et la même catégorie. Une boîte de dialogue de remplacement s’ouvre. Appuyez sur « OK » :
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Installer un nouvel analyseur":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Confirmez-vous cette action ?":::
 
 #### <a name="additional-information"></a>Informations supplémentaires
 
-En savoir plus sur les [requêtes enregistrées](../azure-monitor/log-query/saved-queries.md) (implémentation de l’analyseur de temps de requête) dans Log Analytics.
+En savoir plus sur les [requêtes enregistrées](../azure-monitor/log-query/example-queries.md) (implémentation de l’analyseur de temps de requête) dans Log Analytics.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

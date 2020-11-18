@@ -15,15 +15,15 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386977"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656273"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Utilisation d’applications prenant en charge les revendications dans le proxy d’application
-[Les applications prenant en charge les revendications](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) effectuent une redirection vers le service d’émission de jeton de sécurité (STS). Le service d’émission de jeton de sécurité demande des informations d’identification à l’utilisateur en échange d’un jeton, puis redirige l’utilisateur vers l’application. Il existe plusieurs façons d’activer le proxy d’application pour utiliser ces redirections. Utilisez cet article pour configurer votre déploiement pour les applications prenant en charge les revendications. 
+[Les applications prenant en charge les revendications](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) effectuent une redirection vers le service d’émission de jeton de sécurité (STS). Le service d’émission de jeton de sécurité demande des informations d’identification à l’utilisateur en échange d’un jeton, puis redirige l’utilisateur vers l’application. Il existe plusieurs façons d’activer le proxy d’application pour utiliser ces redirections. Utilisez cet article pour configurer votre déploiement pour les applications prenant en charge les revendications. 
 
 ## <a name="prerequisites"></a>Prérequis
 Vérifiez que le service d’émission de jeton de sécurité vers lequel l’application prenant en charge les revendications effectue la redirection est disponible en dehors de votre réseau local. Vous pouvez rendre le service d’émission de jeton de sécurité disponible en l’exposant par le biais d’un proxy ou en autorisant les connexions externes. 
@@ -56,5 +56,3 @@ Si toutes les URL internes de vos applications sont des noms de domaines complet
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activation d’applications clientes natives de manière à ce qu’elles interagissent avec des applications proxy](application-proxy-configure-native-client-application.md)
-
-

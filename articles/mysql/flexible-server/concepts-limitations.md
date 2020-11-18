@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650287"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504337"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitations dans Azure Database pour MySQL – Serveur flexible (préversion)
 
@@ -23,9 +23,9 @@ Cet article décrit les limitations existant dans le service Serveur flexible Az
 ## <a name="server-parameters"></a>Paramètres de serveur
 
 > [!NOTE]
-> Si vous recherchez des valeurs minimales/maximales pour des paramètres de serveur tels que `max_connections` et `innodb_buffer_pool_size`, ces informations ont été déplacées et se trouvent dans les concepts de paramètres de serveur <!-- **[server parameters](./concepts-server-parameters.md)** --> (article).
+> Si vous recherchez des valeurs minimales/maximales pour des paramètres de serveur comme `max_connections` et `innodb_buffer_pool_size`, ces informations ont été déplacées vers l’article [Paramètres du serveur](./concepts-server-parameters.md) dans les concepts des paramètres du serveur.
 
-Azure Database pour MySQL prend en charge le réglage des valeurs des paramètres de serveur. Les valeurs minimale et maximale de certains paramètres (par exemple, `max_connections`, `join_buffer_size`, `query_cache_size`) sont déterminées par le niveau de calcul et la taille de calcul du serveur. Consultez les concepts de paramètres de serveur <!-- [server parameters](./concepts-server-parameters.md)--> pour plus d’informations sur ces limites.
+Azure Database pour MySQL prend en charge le réglage des valeurs des paramètres de serveur. Les valeurs minimale et maximale de certains paramètres (par exemple, `max_connections`, `join_buffer_size`, `query_cache_size`) sont déterminées par le niveau de calcul et la taille de calcul du serveur. Pour plus d’informations sur ces limites, consultez [Paramètres du serveur](./concepts-server-parameters.md).
 
 Les plug-ins de mot de passe tels que « validate_password » et « caching_sha2_password » ne sont pas pris en charge par le service.
 

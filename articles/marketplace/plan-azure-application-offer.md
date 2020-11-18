@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 61c8127941c54270b938babefaf4eb17627a15f3
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4cb707896aa7874aa2bf287723e8a53d7d6d974c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369726"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577785"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planifier une offre Azure Application pour la Place de marché commerciale
 
@@ -33,7 +33,7 @@ Concevoir, créer et tester une offre d’application Azure nécessite de dispos
 
 Lors de la planification de votre offre Azure Application pour la Place de marché commerciale, consultez les ressources suivantes.
 
-- [Comprendre les modèles Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax.md)
+- [Comprendre les modèles Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax)
 - Guides de démarrage rapide :
     - [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/)
     - [Guide des meilleures pratiques pour les modèles Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -145,7 +145,7 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 - **Description courte** : ajoutez jusqu’à 256 caractères de texte brut. Ce résumé s’affichera sur la page des détails de votre offre.
 - **Description** : cette description s’affichera dans la vue d’ensemble des référencements sur la Place de marché Azure. Vous pouvez inclure une proposition de valeur, des avantages clés, une base utilisateur visée, des associations de catégories ou de secteurs, des opportunités d’achats dans l’application, les besoins des clients ou le problème que cette offre concerne, des informations requises et un lien pour en savoir plus.
 
-    Cette zone de texte contient des contrôles d’éditeur de texte riches, que vous pouvez utiliser pour rendre votre description plus attrayante. Vous pouvez également utiliser des balises HTML pour mettre en forme votre description. Vous pouvez entrer dans cette zone de texte jusqu’à 3 000 caractères, balisage HTML et espaces compris. Pour obtenir d’autres conseils, consultez [Rédiger une bonne description d’application](/windows/uwp/publish/write-a-great-app-description.md) et [Balises HTML prises en charge dans les descriptions d’offre de la place de marché commerciale](supported-html-tags.md).
+    Cette zone de texte contient des contrôles d’éditeur de texte riches, que vous pouvez utiliser pour rendre votre description plus attrayante. Vous pouvez également utiliser des balises HTML pour mettre en forme votre description. Vous pouvez entrer dans cette zone de texte jusqu’à 3 000 caractères, balisage HTML et espaces compris. Pour obtenir d’autres conseils, consultez [Rédiger une bonne description d’application](/windows/uwp/publish/write-a-great-app-description) et [Balises HTML prises en charge dans les descriptions d’offre de la place de marché commerciale](supported-html-tags.md).
 
 - **Mots clés de recherche** (facultatif) : Entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans le magasin en ligne. Pour obtenir des résultats optimaux, utilisez également ces mots clés dans votre description. Vous n’avez pas besoin d’inclure le **nom** et la **description** de l’offre. Ce texte est inclus automatiquement dans la recherche.
 - **Lien vers la politique de confidentialité** : URL de la politique de confidentialité de votre société. Vous devez renseigner une politique de confidentialité conforme et veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité.
@@ -197,9 +197,9 @@ Vous définissez le public de la préversion à l’aide d’ID d’abonnement A
 
 Pour les applications managées qui émettent des événements de contrôle à l’aide des [API du service de contrôle de la Place de marché](partner-center-portal/marketplace-metering-service-apis.md), vous devez fournir l’identité que votre service utilisera lors de l’émission d’événements de contrôle.
 
-Cette configuration est requise si vous souhaitez utiliser l’option [Événement d’utilisation par lot](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Si vous souhaitez soumettre un [événement d’utilisation](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), vous pouvez également utiliser le [service de métadonnées d’instance](/azure/active-directory/managed-identities-azure-resources/overview.md) pour obtenir le [Jeton du porteur du JSON Web Token (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
+Cette configuration est requise si vous souhaitez utiliser l’option [Événement d’utilisation par lot](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Si vous souhaitez soumettre un [événement d’utilisation](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), vous pouvez également utiliser le [service de métadonnées d’instance](/azure/active-directory/managed-identities-azure-resources/overview) pour obtenir le [Jeton du porteur du JSON Web Token (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
-- **ID locataire Azure Active Directory** (requis) : Dans le portail Azure, vous devez [créer une application Azure Active Directory (AD)](/azure/active-directory/develop/howto-create-service-principal-portal.md) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’[ID de locataire](/azure/active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de votre application Azure Active Directory (AD), accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans Azure Active Directory. Dans la colonne **Nom d’affichage**, sélectionnez l’application. Recherchez ensuite **Propriétés** puis le **numéro d’ID de répertoire (locataire)** référencé (par exemple, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **ID locataire Azure Active Directory** (requis) : Dans le portail Azure, vous devez [créer une application Azure Active Directory (AD)](/azure/active-directory/develop/howto-create-service-principal-portal) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’[ID de locataire](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) de votre application Azure Active Directory (AD), accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans Azure Active Directory. Dans la colonne **Nom d’affichage**, sélectionnez l’application. Recherchez ensuite **Propriétés** puis le **numéro d’ID de répertoire (locataire)** référencé (par exemple, `50c464d3-4930-494c-963c-1e951d15360e`).
 - **ID d'application Azure Active Directory** (obligatoire) : Vous avez également besoin de l’[ID de votre application](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) et d’une clé d’authentification. Pour rechercher votre ID d’application, accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans votre Azure Active Directory. Dans la colonne **Nom d’affichage**, sélectionnez l’application, puis recherchez l’**ID de l’application de (client)** (par exemple `50c464d3-4930-494c-963c-1e951d15360e`). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
 
 > [!NOTE]
@@ -209,7 +209,7 @@ Cette configuration est requise si vous souhaitez utiliser l’option [Événeme
 
 Vous pouvez opter pour des canaux marketing et de vente pris en charge par Microsoft. Lorsque vous créez votre offre dans l’Espace partenaires, deux onglets s’affichent vers la fin du processus :
 
-- **Revendre via des fournisseurs de solutions cloud** : utilisez cette option pour permettre aux partenaires fournisseurs de solutions cloud (CSP) Microsoft de revendre votre solution dans le cadre d’une offre groupée. Pour plus d’informations, consultez [Programme des fournisseurs de solution cloud](/azure/marketplace/cloud-solution-providers.md).
+- **Revendre via des fournisseurs de solutions cloud** : utilisez cette option pour permettre aux partenaires fournisseurs de solutions cloud (CSP) Microsoft de revendre votre solution dans le cadre d’une offre groupée. Pour plus d’informations, consultez [Programme des fournisseurs de solution cloud](/azure/marketplace/cloud-solution-providers).
 - **Co-vendre avec Microsoft** : cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option Co-vente de l’Espace partenaires](partner-center-portal/commercial-marketplace-co-sell.md). Pour plus d’informations sur le marketing de votre offre via les canaux partenaires fournisseurs de solutions cloud Microsoft, consultez [Fournisseurs de solutions cloud](cloud-solution-providers.md).
 
 Pour en savoir plus, consultez [Développer votre activité avec la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
@@ -224,12 +224,12 @@ Pour obtenir des conseils généraux sur les plans, notamment des modèles de ta
 
 Il existe deux types de plans d’application Azure : les _modèles de solution_ et les _applications managées_. Les deux types de plan prennent en charge l’automatisation du déploiement et de la configuration d’une solution au-delà d’une seule machine virtuelle. Vous pouvez automatiser la fourniture de plusieurs ressources, notamment les machines virtuelles, les ressources réseau et les ressources de stockage nécessaires pour fournir des solutions complexes, telles que des solutions IaaS. Les deux types de plans peuvent utiliser de nombreux types de ressources Azure, notamment, mais sans s’y limiter, les machines virtuelles.
 
-- Les plans de **modèles de solution** constituent l’un des principaux moyens de publier une solution sur la place de marché commerciale. Les plans de modèle de solution ne peuvent pas faire l’objet d’une transaction sur la place de marché commerciale, mais peuvent être utilisés pour déployer des offres de machines virtuelles payantes facturées via la place de marché commerciale. Utilisez le type de plan du modèle de solution lorsque le client gère la solution et que les transactions sont facturées par le biais d’un autre plan. Pour plus d’informations sur la création de modèles de solution, consultez [Qu’est ce qu’Azure Resource Manager ?](/azure/azure-resource-manager/resource-group-overview.md)
+- Les plans de **modèles de solution** constituent l’un des principaux moyens de publier une solution sur la place de marché commerciale. Les plans de modèle de solution ne peuvent pas faire l’objet d’une transaction sur la place de marché commerciale, mais peuvent être utilisés pour déployer des offres de machines virtuelles payantes facturées via la place de marché commerciale. Utilisez le type de plan du modèle de solution lorsque le client gère la solution et que les transactions sont facturées par le biais d’un autre plan. Pour plus d’informations sur la création de modèles de solution, consultez [Qu’est ce qu’Azure Resource Manager ?](/azure/azure-resource-manager/resource-group-overview)
 - Les plans d’**applications managées** vous permettent de créer et fournir facilement des applications clés en main et entièrement managées à vos clients. Ils ont les mêmes fonctionnalités que les plans de modèles de solution, malgré quelques différences essentielles :
     - Les ressources sont déployées vers un groupe de ressources et sont gérées par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. 
     - En tant qu’éditeur, vous spécifiez le coût de la prise en charge de la solution en continu, et les transactions sont prises en charge via la place de marché commerciale.
  
-    Utilisez le type de plan d’application managée lorsque vous ou votre client exigez que la solution soit gérée par un partenaire ou que vous déployiez une solution basée sur un abonnement. Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](/azure/managed-applications/overview.md).
+    Utilisez le type de plan d’application managée lorsque vous ou votre client exigez que la solution soit gérée par un partenaire ou que vous déployiez une solution basée sur un abonnement. Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](/azure/managed-applications/overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

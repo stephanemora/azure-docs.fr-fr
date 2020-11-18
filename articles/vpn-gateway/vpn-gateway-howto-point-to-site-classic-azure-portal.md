@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: a66b76350da6f3b3804dac73a7aeb9f54d2e34eb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938370"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657072"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurer une connexion point à site à l'aide d'une authentification par certificat (classique)
 
@@ -202,7 +202,7 @@ La pratique courante consiste à utiliser le certificat racine pour gérer l'acc
 
 Vous pouvez révoquer un certificat client en ajoutant son empreinte à la liste de révocation.
 
-1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Copiez les informations dans un éditeur de texte et supprimez les espaces afin d'obtenir une chaîne continue.
 1. Accédez à **Connexion VPN point à site**, puis sélectionnez **Gérer le certificat**.
 1. Sélectionnez **Liste de révocation** pour ouvrir la page **Liste de révocation**.
@@ -217,8 +217,8 @@ Une fois la mise à jour terminée, le certificat ne peut plus être utilisé po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/).
+* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](../index.yml).
 
-* Pour plus d'informations sur la mise en réseau et les machines virtuelles Linux, consultez [Vue d'ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/network-overview.md).
+* Pour plus d'informations sur la mise en réseau et les machines virtuelles Linux, consultez [Vue d'ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/network-overview.md).
 
 * Pour plus d’informations sur la résolution des problèmes liés aux connexions point à site, consultez l’article [Résolution des problèmes de connexion de point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

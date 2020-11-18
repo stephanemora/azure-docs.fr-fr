@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23b893bad591af5f1e923b68e8d30453f859792b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506411"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563475"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurer une règle de limitation du débit du pare-feu d’applications web à l’aide d’Azure PowerShell
 La règle de limitation du débit du pare-feu d'applications web (WAF) Azure pour Azure Front Door contrôle le nombre de requêtes autorisées de la part des clients sur une durée d'une minute.
@@ -26,9 +26,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 Avant de configurer une stratégie de limitation du débit, configurez votre environnement PowerShell et créez un profil Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configurer votre environnement PowerShell
-Azure PowerShell fournit un ensemble d’applets de commande qui utilisent le modèle [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour gérer vos ressources Azure. 
+Azure PowerShell fournit un ensemble d’applets de commande qui utilisent le modèle [Azure Resource Manager](../../azure-resource-manager/management/overview.md) pour gérer vos ressources Azure. 
 
-Vous pouvez installer [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) sur votre ordinateur local et l’utiliser sur n’importe quelle session PowerShell. Suivez les instructions données pour vous connecter avec vos informations d’identification Azure, puis installer le module Az PowerShell.
+Vous pouvez installer [Azure PowerShell](/powershell/azure/) sur votre ordinateur local et l’utiliser sur n’importe quelle session PowerShell. Suivez les instructions données pour vous connecter avec vos informations d’identification Azure, puis installer le module Az PowerShell.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Se connecter à Azure avec une boîte de dialogue interactive
 ```
@@ -105,6 +105,4 @@ L’exemple ci-dessous utilise le nom de groupe de ressources *myResourceGroupFD
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Front Door](../../frontdoor/front-door-overview.md). 
-
-
+- En savoir plus sur [Front Door](../../frontdoor/front-door-overview.md).

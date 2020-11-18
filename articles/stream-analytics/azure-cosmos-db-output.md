@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906256"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491730"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Sortie Azure Cosmos DB depuis Azure Stream Analytics
 
@@ -39,7 +39,7 @@ Le tableau suivant décrit les propriétés de création d’une sortie Azure Co
 
 ## <a name="partitioning"></a>Partitionnement
 
-La clé de partition est basée sur la clause PARTITION BY dans la requête. Le nombre d’enregistreurs de sortie suit le partitionnement d’entrée de [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). Stream Analytics convertit la clé de partition de sortie Cosmos DB en chaîne. Par exemple, si vous avez une clé de partition avec une valeur de 1 de type bigint, elle est convertie en « 1 » de type chaîne.
+La clé de partition est basée sur la clause PARTITION BY dans la requête. Le nombre d’enregistreurs de sortie suit le partitionnement d’entrée de [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). Stream Analytics convertit la clé de partition de sortie Cosmos DB en chaîne. Par exemple, si vous avez une clé de partition avec une valeur de 1 de type bigint, elle est convertie en « 1 » de type chaîne. Cette conversion a toujours lieu, que la propriété de partition soit écrite ou non dans Cosmos DB.
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372478"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656732"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planifier le déploiement de Mes applications Azure Active Directory
 
@@ -54,10 +54,10 @@ Mes applications Azure AD offre aux entreprises les avantages suivants :
 
 Mes applications est gratuit et ne nécessite aucune licence pour une utilisation de base. Toutefois, le nombre d’objets contenus dans votre répertoire et les fonctionnalités supplémentaires que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Les scénarios Azure AD ayant des exigences en matière de licences incluent les fonctionnalités de sécurité suivantes :
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Appartenance basée sur des groupes](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Réinitialisation de mot de passe en libre service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Appartenance basée sur des groupes](../fundamentals/active-directory-manage-groups.md)
+* [Réinitialisation de mot de passe en libre service](../authentication/tutorial-enable-sspr.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 
 Consultez le [guide complet des licences pour Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -65,8 +65,8 @@ Consultez le [guide complet des licences pour Azure AD](https://azure.microsoft.
 
 Avant de commencer ce projet, vérifiez que vous remplissez les conditions préalables suivantes :
 
-* [Intégration de l’authentification unique de l’application](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Gestion de l’infrastructure d’utilisateurs et de groupes Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Intégration de l’authentification unique de l’application](./plan-sso-deployment.md)
+* [Gestion de l’infrastructure d’utilisateurs et de groupes Azure AD](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planifier un déploiement de Mes applications Azure AD
 
@@ -166,23 +166,23 @@ Pour une expérience optimale sur la page My Apps, commencez par l’intégratio
 
 Utilisez l’authentification unique fédérée avec Azure AD (OpenID Connect/SAML) si elle est prise en charge par l’application plutôt que l’authentification unique basée sur les mots de passe ou sur ADFS.
 
-Pour plus d’informations sur le déploiement et la configuration de vos applications SaaS, consultez le [plan de déploiement de l’authentification unique SaaS](https://aka.ms/deploymentplans/sso).
+Pour plus d’informations sur le déploiement et la configuration de vos applications SaaS, consultez le [plan de déploiement de l’authentification unique SaaS](./plan-sso-deployment.md).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planifier le déploiement de l’extension de navigateur My Apps
 
-Lorsque des utilisateurs se connectent à des applications SSO basées sur un mot de passe, ils doivent installer et utiliser l’extension de connexion sécurisée My Apps. L’extension exécute un script qui transmet le mot de passe dans le formulaire de connexion de l’application. Les utilisateurs sont invités à installer l’extension lorsqu’ils lancent l’application SSO basée sur un mot de passe pour la première fois. Pour plus d’informations sur l’extension, consultez la documentation sur [l’installation de l’extension de navigateur de Mes applications](access-panel-extension-problem-installing.md).
+Lorsque des utilisateurs se connectent à des applications SSO basées sur un mot de passe, ils doivent installer et utiliser l’extension de connexion sécurisée My Apps. L’extension exécute un script qui transmet le mot de passe dans le formulaire de connexion de l’application. Les utilisateurs sont invités à installer l’extension lorsqu’ils lancent l’application SSO basée sur un mot de passe pour la première fois. Pour plus d’informations sur l’extension, consultez la documentation sur [l’installation de l’extension de navigateur de Mes applications]().
 
-Si vous devez intégrer des applications SSO basées sur un mot de passe, vous devez définir un mécanisme de déploiement de l’extension à l’échelle avec les [navigateurs pris en charge](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options disponibles :
+Si vous devez intégrer des applications SSO basées sur un mot de passe, vous devez définir un mécanisme de déploiement de l’extension à l’échelle avec les [navigateurs pris en charge](../user-help/my-apps-portal-end-user-access.md). Options disponibles :
 
-* [Stratégie de groupe pour Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Configuration Manager pour Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Stratégie de groupe pour Internet Explorer]()
+* [Configuration Manager pour Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer](../user-help/my-apps-portal-end-user-access.md)
 
 Les utilisateurs qui n’utilisent pas d’applications SSO basées sur un mot de passe tirent également parti de l’extension. Ces avantages incluent la possibilité de lancer une application à partir de sa barre de recherche, de rechercher l’accès aux applications récemment utilisées et d’avoir un lien vers la page My Apps.
 
 #### <a name="plan-for-mobile-access"></a>Planifier l’accès mobile
 
-Un navigateur protégé avec la stratégie Intune (Microsoft Edge ou Intune Managed Browser) est nécessaire pour les utilisateurs mobiles qui lancent des applications SSO basées sur un mot de passe. Un navigateur protégé par une stratégie permet de transférer le mot de passe enregistré pour l’application. Microsoft Edge et Managed Browser fournissent un ensemble de fonctionnalités de protection des données web. Vous pouvez également utiliser Microsoft Edge pour les scénarios d’entreprise sur les appareils iOS et Android. Microsoft Edge prend en charge les mêmes scénarios de gestion qu’Intune Managed Browser et améliore l’expérience de l’utilisateur. En savoir plus : [Gérer l’accès web à l’aide d’un navigateur protégé par une stratégie Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+Un navigateur protégé avec la stratégie Intune (Microsoft Edge ou Intune Managed Browser) est nécessaire pour les utilisateurs mobiles qui lancent des applications SSO basées sur un mot de passe. Un navigateur protégé par une stratégie permet de transférer le mot de passe enregistré pour l’application. Microsoft Edge et Managed Browser fournissent un ensemble de fonctionnalités de protection des données web. Vous pouvez également utiliser Microsoft Edge pour les scénarios d’entreprise sur les appareils iOS et Android. Microsoft Edge prend en charge les mêmes scénarios de gestion qu’Intune Managed Browser et améliore l’expérience de l’utilisateur. En savoir plus : [Gérer l’accès web à l’aide d’un navigateur protégé par une stratégie Microsoft Intune](/intune/app-configuration-managed-browser)
 
 ## <a name="plan-your-my-apps-deployment"></a>Planifier le déploiement de My Apps
 
@@ -248,7 +248,7 @@ Pour l’audit, les rapports et les sauvegardes de récupération d’urgence, d
 
 Une fois qu’une application a été configurée pour l’authentification unique, les groupes se voient attribuer l’accès. Les utilisateurs des groupes affectés auront accès à l’application et la verront dans Mes applications et le lanceur d’applications Microsoft 365.
 
-Consultez [Assigner des utilisateurs et des groupes à une application dans Active Directory](methods-for-assigning-users-and-groups.md).
+Consultez [Assigner des utilisateurs et des groupes à une application dans Active Directory](./assign-user-or-group-access-portal.md).
 
 Si, pendant le test ou le déploiement, vous souhaitez ajouter des groupes, mais que vous n’autorisez pas encore les applications à s’afficher dans My Apps, consultez [Masquer une application de l’expérience utilisateur dans Azure Active Directory](hide-application-from-user-portal.md).
 
@@ -294,7 +294,7 @@ Les tests suivants doivent être effectués avec les appareils d’entreprise et
 
 ### <a name="rollback-steps"></a>Étapes de restauration
 
-Il est important d’avoir un plan de repli en cas d’échec de votre déploiement. Si la configuration de l’authentification unique échoue pendant le déploiement, vous devez savoir comment [résoudre les problèmes avec l’authentification unique](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) et réduire l’impact sur vos utilisateurs. Dans les cas extrêmes, vous devrez peut-être [annuler l’utilisation de l’authentification unique](../manage-apps/plan-sso-deployment.md#rollback-process).
+Il est important d’avoir un plan de repli en cas d’échec de votre déploiement. Si la configuration de l’authentification unique échoue pendant le déploiement, vous devez savoir comment [résoudre les problèmes avec l’authentification unique](../hybrid/tshoot-connect-sso.md) et réduire l’impact sur vos utilisateurs. Dans les cas extrêmes, vous devrez peut-être [annuler l’utilisation de l’authentification unique](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## <a name="manage-your-implementation"></a>Gérer l’implémentation
@@ -312,4 +312,4 @@ Utilisez le rôle le moins privilégié pour accomplir une tâche requise dans A
 Vous pouvez utiliser [Privileged Identity Management](../privileged-identity-management/pim-configure.md) pour gérer vos rôles dans le but de fournir aux utilisateurs qui disposent d’autorisations sur l’annuaire des fonctionnalités supplémentaires au niveau des audits, du contrôle et des révisions d’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Planifier un déploiement d’Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Planifier un déploiement d’Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

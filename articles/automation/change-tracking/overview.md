@@ -3,14 +3,14 @@ title: Présentation de la fonctionnalité Suivi des modifications et inventaire
 description: Cet article présente la fonctionnalité Change Tracking and Inventory, qui permet d’identifier les modifications apportées aux logiciels et aux services Microsoft de votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130338"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445419"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -61,6 +61,16 @@ Suivi des modifications et inventaire ne prend pas en charge ou a les limitation
 Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Pour obtenir la liste des versions de système d’exploitation Windows et Linux que l’agent Log Analytics prend actuellement en charge, consultez [Systèmes d’exploitation pris en charge](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
 
 Pour comprendre la configuration requise du client pour le protocole TLS 1.2, consultez [Application de TLS 1.2 pour Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+
+### <a name="python-requirement"></a>Exigence relative à Python
+
+Le Suivi des modifications et inventaire prend uniquement en charge Python2. Si votre machine utilise une distribution qui n’inclut pas Python 2 par défaut, vous devez l’installer. Les exemples de commandes suivants installent Python 2 sur différentes distributions.
+
+- Red Hat, CentOS, Oracle : `yum install -y python2`
+- Ubuntu, Debian : `apt-get install -y python2`
+- SUSE : `zypper install -y python2`
+
+L’exécutable python2 doit avoir un alias pour *python*.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
@@ -119,7 +129,7 @@ Change Tracking and Inventory autorise la supervision des modifications apporté
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervise les pilotes 32 bits associés à wavemapper, wave1 et wave2, msacm.imaadpcm, .msadpcm, .msgsm610 et vidc. Analogue à la section [pilotes] du fichier **system.ini**.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervise les pilotes 32 bits associés à wavemapper, wave1 et wave2, msacm.imaadpcm, .msadpcm, .msgsm610 et vidc pour les applications 32 bits s’exécutant sur des ordinateurs 64 bits. Analogue à la section [pilotes] du fichier **system.ini**.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Supervise la liste des DLL système connues ou couramment utilisées. La supervision empêche quiconque d’exploiter des autorisations faibles de répertoire d’application en déposant des versions de type cheval de Troie des DLL système.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Supervise la liste des packages capables de recevoir des notifications d’événements de la part de **winlogon.exe** , le modèle de prise en charge de l’ouverture de session interactive de Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Supervise la liste des packages capables de recevoir des notifications d’événements de la part de **winlogon.exe**, le modèle de prise en charge de l’ouverture de session interactive de Windows.
 
 ## <a name="recursion-support"></a>Prise en charge de la récursivité
 

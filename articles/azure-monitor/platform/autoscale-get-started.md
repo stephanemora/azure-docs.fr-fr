@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377018"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565634"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -127,7 +127,7 @@ Le chemin du contrôle d'intégrité doit vérifier les composants critiques de 
 
 #### <a name="security"></a>Sécurité 
 
-Les équipes de développement des grandes entreprises doivent souvent adhérer à des exigences de sécurité pour leurs API exposées. Pour sécuriser le point de terminaison du contrôle d’intégrité vous devez d’abord utiliser des fonctionnalités telles que des [restrictions d’adresse IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), des [certificats clients](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules) ou un réseau virtuel pour restreindre l’accès à l’application. Vous pouvez sécuriser le point de terminaison du contrôle d’intégrité proprement dit en exigeant que la propriété `User-Agent` de la requête entrante corresponde à `ReadyForRequest/1.0`. La propriété User-Agent ne peut pas être falsifiée, car la requête a déjà été sécurisée par les fonctionnalités de sécurité précédentes.
+Les équipes de développement des grandes entreprises doivent souvent adhérer à des exigences de sécurité pour leurs API exposées. Pour sécuriser le point de terminaison du contrôle d’intégrité vous devez d’abord utiliser des fonctionnalités telles que des [restrictions d’adresse IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), des [certificats clients](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule) ou un réseau virtuel pour restreindre l’accès à l’application. Vous pouvez sécuriser le point de terminaison du contrôle d’intégrité proprement dit en exigeant que la propriété `User-Agent` de la requête entrante corresponde à `ReadyForRequest/1.0`. La propriété User-Agent ne peut pas être falsifiée, car la requête a déjà été sécurisée par les fonctionnalités de sécurité précédentes.
 
 ### <a name="behavior"></a>Comportement
 

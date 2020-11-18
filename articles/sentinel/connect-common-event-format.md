@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517969"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655848"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
 
@@ -94,5 +94,4 @@ Dans ce document, vous avez découvert la façon dont Azure Sentinel collecte le
 
 Pour en savoir plus sur la procédure à suivre avec les données que vous avez collectées dans Azure Sentinel, consultez les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
-
+- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).

@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286230"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445555"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Concepts de base de l’authentification Key Vault
 
@@ -45,9 +45,9 @@ Suivez les liens de la documentation ci-dessous pour comprendre comment inscrire
 * [Inscription d’un utilisateur dans Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md)
 * [Inscription d’une application dans Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Attribuer un rôle à votre principal de sécurité dans Azure Active Directory
+## <a name="assign-your-security-principal-a-role"></a>Attribuer un rôle à votre principal de sécurité
 
-Azure Active Directory utilise le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à des principaux de sécurité. Ces autorisations sont appelées attributions de rôles.
+Vous pouvez utiliser le contrôle d’accès Azure en fonction du rôle (Azure RBAC) pour accorder des autorisations à des principaux de sécurité. Ces autorisations sont appelées attributions de rôles.
 
 Dans le contexte du coffre de clés, ces attributions de rôles déterminent le niveau d’accès d’un principal de sécurité au plan de gestion (également appelé « plan de contrôle ») du coffre de clés. Ces attributions de rôles ne permettent pas d’accéder directement aux secrets du plan de données, mais elles permettent de gérer les propriétés du coffre de clés. Par exemple, un utilisateur ou une application affectés à un **rôle Lecteur** ne sera pas autorisé à apporter des modifications aux paramètres du pare-feu du coffre de clés, alors qu’un utilisateur ou une application affectés à un **rôle Contributeur** peut apporter des modifications. Aucun des deux rôles n’aura un accès direct pour effectuer des opérations sur les secrets, les clés et les certificats, comme la création ou la récupération de leur valeur, tant qu’un accès au plan de données du coffre de clés ne leur sera pas attribué. Cette question est traitée dans l’étape suivante.
 
@@ -57,7 +57,7 @@ Dans le contexte du coffre de clés, ces attributions de rôles déterminent le 
 >[!NOTE]
 > Lorsque vous attribuez un rôle à un utilisateur au niveau du locataire Azure Active Directory, cet ensemble d’autorisations s’étend à tous les abonnements, groupes de ressources et ressources au sein de l’étendue de l’attribution. Pour suivre le principe du moindre privilège, vous pouvez effectuer cette attribution de rôle dans une étendue plus granulaire. Par exemple, vous pouvez attribuer à un utilisateur un rôle Lecteur au niveau de l’abonnement et un rôle Propriétaire pour un coffre de clés unique. Accédez aux paramètres de gestion des identités et des accès (IAM) d’un abonnement, d’un groupe de ressources ou d’un coffre de clés pour effectuer une attribution de rôle dans une étendue plus granulaire.
 
-* [En savoir plus sur les rôles Azure Active Directory](../../role-based-access-control/built-in-roles.md)
+* Pour en savoir plus sur les rôles Azure [lien](../../role-based-access-control/built-in-roles.md)
 * [En savoir plus sur l’attribution ou la suppression des rôles](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configurer les stratégies d’accès au coffre de clés pour votre principal de sécurité
@@ -91,7 +91,7 @@ L’accès au plan de données, ou l’accès aux opérations sur les clés, les
 Les stratégies d’accès au coffre de clés permettent aux utilisateurs et aux applications d’effectuer des opérations de plan de données sur un coffre de clés.
 
 > [!NOTE]
-> Ce modèle d’accès n’est pas compatible avec le contrôle d’accès en fonction du rôle (RBAC) du coffre de clés (option 2) documenté ci-dessous. Vous devez choisir l’un ou l’autre. Vous aurez la possibilité d’effectuer cette sélection lorsque vous cliquerez sur l’onglet Stratégie d’accès de votre coffre de clés.
+> Ce modèle d’accès n’est pas compatible avec le contrôle d’accès Azure en fonction du rôle (RBAC) pour Key Vault (option 2) documenté ci-dessous. Vous devez choisir l’un ou l’autre. Vous aurez la possibilité d’effectuer cette sélection lorsque vous cliquerez sur l’onglet Stratégie d’accès de votre coffre de clés.
 
 Les stratégies d’accès classiques sont granulaires, ce qui signifie que vous pouvez autoriser chaque utilisateur ou application à effectuer des opérations individuelles au sein d’un coffre de clés ou les en empêcher. Voici quelques exemples :
 
@@ -104,25 +104,25 @@ Toutefois, les stratégies d’accès classiques n’accordent pas d’autorisat
 > [!IMPORTANT]
 > Les stratégies classiques d’accès au coffre de clés et les attributions de rôles Azure Active Directory sont indépendantes les unes des autres. L’attribution du rôle « Contributeur » à un principal de sécurité au niveau d’un abonnement ne lui permet pas automatiquement d’effectuer des opérations de plan de données sur chaque coffre de clés dans l’étendue de l’abonnement. Le principal de sécurité doit toujours recevoir, ou s’octroyer, des autorisations de stratégie d’accès pour effectuer des opérations de plan de données.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>Option no 2 d’accès au plan de données :  RBAC du coffre de clés (préversion)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Option no 2 d’accès au plan de données :  Contrôle d’accès Azure en fonction du rôle (RBAC) pour Key Vault (préversion)
 
-Une nouvelle façon d’accorder l’accès au plan de données du coffre de clés est d’utiliser le contrôle d’accès en fonction du rôle (RBAC) du coffre de clés.
+Une nouvelle façon d’accorder l’accès au plan de données du coffre de clés est d’utiliser le contrôle d’accès Azure en fonction du rôle (Azure RBAC) pour le coffre de clés.
 
 > [!NOTE]
 > Ce modèle d’accès n’est pas compatible avec les stratégies classiques d’accès au coffre de clés illustrées ci-dessus. Vous devez choisir l’un ou l’autre. Vous aurez la possibilité d’effectuer cette sélection lorsque vous cliquerez sur l’onglet Stratégie d’accès de votre coffre de clés.
 
 Les attributions de rôles Azure Key Vault sont un ensemble de rôles intégrés Azure qui englobent des ensembles communs d’autorisations utilisés pour accéder aux clés, aux secrets ou aux certificats. Ce modèle d’autorisation active également des capacités supplémentaires qui ne sont pas disponibles dans le modèle des stratégies classiques d’accès au coffre de clés.
 
-* Les autorisations RBAC peuvent être gérées à grande échelle en permettant aux utilisateurs de se voir attribuer ces rôles au niveau d’un abonnement, d’un groupe de ressources ou d’un coffre de clés. Un utilisateur disposera des autorisations de plan de données pour tous les coffres de clés dans l’étendue de l’attribution RBAC. Il n’est donc plus nécessaire d’attribuer des autorisations individuelles de stratégie d’accès par utilisateur/application par coffre de clés.
+* Les autorisations Azure RBAC peuvent être gérées à grande échelle en permettant aux utilisateurs de se voir attribuer ces rôles au niveau d’un abonnement, d’un groupe de ressources ou d’un coffre de clés. Un utilisateur disposera des autorisations de plan de données pour tous les coffres de clés dans l’étendue de l’attribution Azure RBAC. Il n’est donc plus nécessaire d’attribuer des autorisations individuelles de stratégie d’accès par utilisateur/application par coffre de clés.
 
-* Les autorisations RBAC sont compatibles avec Privileged Identity Management (PIM). Cela vous permet de configurer des contrôles d’accès juste-à-temps pour les rôles privilégiés, comme Administrateur de coffre de clés. Il s’agit d’une pratique de sécurité optimale qui suit le principe du moindre privilège en éliminant l’accès permanent à vos coffres de clés.
+* Les autorisations Azure RBAC sont compatibles avec Privileged Identity Management (PIM). Cela vous permet de configurer des contrôles d’accès juste-à-temps pour les rôles privilégiés, comme Administrateur de coffre de clés. Il s’agit d’une pratique de sécurité optimale qui suit le principe du moindre privilège en éliminant l’accès permanent à vos coffres de clés.
 
-* Les autorisations RBAC sont compatibles avec les autorisations granulaires par objet. Vous pouvez donc restreindre un utilisateur à effectuer des opérations uniquement sur certains de vos objets de coffre de clés. Cela permet à plusieurs applications de partager un seul coffre de clés tout en isolant l’accès entre les applications.
+* Les autorisations Azure RBAC sont compatibles avec les autorisations granulaires par objet. Vous pouvez donc restreindre un utilisateur à effectuer des opérations uniquement sur certains de vos objets de coffre de clés. Cela permet à plusieurs applications de partager un seul coffre de clés tout en isolant l’accès entre les applications.
 
-Pour en savoir plus sur le RBAC de coffre de clés, consultez les documents suivants :
+Pour en savoir plus sur Azure RBAC pour Key Vault, consultez les documents suivants :
 
-* [RBAC Azure Key Vault](./secure-your-key-vault.md#management-plane-and-azure-rbac)
-* [Rôles RBAC Azure Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
+* Azure RBAC pour Key Vault [lien](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Rôles Azure RBAC pour Key Vault (préversion) [lien](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
 
 ## <a name="configure-key-vault-firewall"></a>Configurer le pare-feu Key Vault
 

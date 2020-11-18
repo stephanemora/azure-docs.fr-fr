@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428493"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656988"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Surveiller l’intégrité de vos connecteurs de données avec ce classeur Azure Sentinel
 
@@ -42,7 +42,7 @@ Ce classeur comporte trois sections dotées d’onglets :
 
 1. L’onglet **Vue d’ensemble** affiche l’état général de l’ingestion de données dans l’espace de travail sélectionné : mesures du volume, taux d’EPS et heure de réception du dernier journal.
 
-1. L’onglet **Anomalies liées à la collecte de données** vous aide à détecter des anomalies dans le processus de collecte des données, par table et source de données. Chaque onglet présente des anomalies pour une table particulière (l'onglet **Général** contient une collection de tables). Les anomalies sont calculées à l’aide de la fonction **series_decompose_anomalies()** qui retourne un **score d’anomalie**. [Découvrez plus d’informations sur cette fonction](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Définissez les paramètres suivants pour que la fonction les évalue :
+1. L’onglet **Anomalies liées à la collecte de données** vous aide à détecter des anomalies dans le processus de collecte des données, par table et source de données. Chaque onglet présente des anomalies pour une table particulière (l'onglet **Général** contient une collection de tables). Les anomalies sont calculées à l’aide de la fonction **series_decompose_anomalies()** qui retourne un **score d’anomalie**. [Découvrez plus d’informations sur cette fonction](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Définissez les paramètres suivants pour que la fonction les évalue :
 
     - **AnomaliesTimeRange** : Ce sélecteur d’heure s’applique uniquement à la vue des anomalies liées à la collecte de données.
     - **SampleInterval** : intervalle de temps pendant lequel les données sont échantillonnées dans l’intervalle de temps donné. Le score d’anomalie est calculé uniquement sur les données du dernier intervalle.

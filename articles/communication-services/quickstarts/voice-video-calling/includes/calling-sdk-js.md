@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779057"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482602"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -147,7 +147,8 @@ Retourne une chaîne représentant l’état actuel d’un appel :
 * « Connecté » – l’appel est connecté
 * « En attente » – l’appel est mis en attente, aucun média ne circule entre le point de terminaison local et les participants distants
 * « Déconnexion » – état de transition avant que l’appel passe à l’état « Déconnecté »
-* « Déconnecté » – état d’appel final
+* « Déconnecté » – état d’appel final.
+   * Si la connexion réseau est perdue, l’état passe à « Déconnecté » au bout de 2 minutes environ.
 
 
 * Pour connaître la raison pour laquelle un appel donné s’est terminé, inspectez la propriété `callEndReason`.
@@ -233,13 +234,16 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>Questions fréquentes (FAQ)
+ * Si la connectivité réseau est perdue, l’état de l’appel passe-t-il à « Déconnecté » ?
+    * Oui, si la connexion réseau est perdue pendant plus de 2 minutes, l’appel passe à l’état Déconnecté et l’appel prend fin.
 
 ## <a name="remote-participants-management"></a>Gestion des participants distants
 
 Tous les participants distants sont représentés par le type `RemoteParticipant`, et disponibles via la collection `remoteParticipants` sur une instance d’appel.
 
 ### <a name="list-participants-in-a-call"></a>Répertorier les participants à un appel
-La collection `remoteParticipants` retourne une liste de participants distants dans un appel donné :
+La collection `remoteParticipants` renvoie une liste de participants distants dans un appel donné :
 
 ```js
 
@@ -266,11 +270,12 @@ const state = remoteParticipant.state;
 ```
 Il peut s’agir de l’un des états suivants :
 * « Inactif » – état initial
-* « Connexion » – état transitoire pendant qu’un participant se connecte à l’appel
-* « Connecté » – un participant est connecté à l’appel
-* « En attente » – un participant est en attente
+* « Connexion » – état transitoire pendant que le participant se connecte à l’appel
+* « Connecté » – le participant est connecté à l’appel
+* « En attente » – le participant est en attente
 * « EarlyMedia » – une annonce est lue avant que le participant soit connecté à l’appel
-* « Déconnecté » – état final ; le participant est déconnecté de l’appel
+* « Déconnecté » – état final ; le participant est déconnecté de l’appel.
+   * Si un participant à distance perd sa connectivité réseau, son état passe à « Déconnecté » après environ 2 minutes.
 
 Pour savoir pourquoi le participant a quitté l’appel, inspectez lz propriété `callEndReason` :
 ```js
@@ -410,7 +415,9 @@ Vous pouvez mettre à jour ultérieurement le mode de mise à l’échelle en ap
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>Questions fréquentes (FAQ)
+* Si un participant à distance perd sa connexion réseau, son état passe-t-il à « Déconnecté » ?
+    * Oui, si un participant à distance perd sa connexion réseau pendant plus de 2 minutes, son état passe à Déconnecté et il est supprimé de l’appel.
 ## <a name="device-management"></a>Gestion des appareils
 
 `DeviceManager` vous permet d’énumérer les appareils locaux utilisables dans un appel pour transmettre vos flux audio/vidéo. Il vous permet également de demander à un utilisateur l’autorisation d’accéder à son microphone et à sa caméra à l’aide de l’API de navigateur natif.
@@ -427,7 +434,7 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### <a name="enumerate-local-devices"></a>Énumérer les appareils locaux
 
-Pour accéder aux appareils locaux, vous pouvez utiliser les méthodes d’énumération sur le Gestionnaire de périphériques. L’énumération est une action synchrone.
+Pour accéder aux appareils locaux, vous pouvez utiliser les méthodes d’énumération sur le gestionnaire d’appareils. L’énumération est une action synchrone.
 
 ```js
 
@@ -442,10 +449,10 @@ const localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, Audio
 
 ```
 
-### <a name="set-default-microphonespeaker"></a>Définir le microphone/le haut-parleur par défaut
+### <a name="set-default-microphonespeaker"></a>Définir le microphone/haut-parleur par défaut
 
 Le gestionnaire d’appareils vous permet de définir un appareil par défaut qui sera utilisé lors du démarrage d’un appel.
-Si les valeurs par défaut du client ne sont pas définies, les Communication Services reviennent aux valeurs par défaut du système d’exploitation.
+Si les valeurs par défaut du client ne sont pas définies, Azure Communication Services revient aux valeurs par défaut du système d’exploitation.
 
 ```js
 

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792750"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656325"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -208,4 +208,4 @@ Si vous voyez d’autres codes de réponse, comme 407 ou 502, cela signifie que 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)
-* Si vous avez des problèmes de connectivité du connecteur, posez votre question sur la [Page de questions Microsoft Q&A pour Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) ou créez un ticket auprès de notre équipe de support.
+* Si vous avez des problèmes de connectivité du connecteur, posez votre question sur la [Page de questions Microsoft Q&A pour Azure Active Directory](/answers/topics/azure-active-directory.html) ou créez un ticket auprès de notre équipe de support.

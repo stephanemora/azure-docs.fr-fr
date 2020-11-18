@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dffaac329f1581d9082fd8ab2c314f52b1730ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504874"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656018"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Connecter des données à partir de Pare-feu Azure
 
@@ -26,7 +26,7 @@ Pare-feu Azure est un service de sécurité réseau informatique géré qui prot
 
 Vous pouvez connecter des journaux Pare-feu Azure à Azure Sentinel, ce qui vous permet d’afficher les données des journaux dans des classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer pour améliorer votre investigation.
 
-En savoir plus sur la [supervision des journaux Pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics).
+En savoir plus sur la [supervision des journaux Pare-feu Azure](../firewall/firewall-diagnostics.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88263825"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655899"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Connecter les données du pare-feu d’application web (WAF) Azure
 
-Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. Le pare-feu d’applications web (WAF) Azure offre une protection centralisée de vos applications web contre les exploitations de faille de sécurité et des menaces telles que des injections de code et des scripts intersites. Le WAF Azure peut être déployé sur le service [Azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview), le service [Azure Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview), et via une stratégie de WAF [Azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) (en préversion).
+Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. Le pare-feu d’applications web (WAF) Azure offre une protection centralisée de vos applications web contre les exploitations de faille de sécurité et des menaces telles que des injections de code et des scripts intersites. Le WAF Azure peut être déployé sur le service [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md), le service [Azure Front Door](../web-application-firewall/afds/afds-overview.md), et via une stratégie de WAF [Azure Content Delivery Network (CDN)](../web-application-firewall/cdn/cdn-overview.md) (en préversion).
 Vous pouvez connecter des journaux de WAF Azure à Azure Sentinel, ce qui vous permet d’afficher les données des journaux dans des classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer pour améliorer votre investigation.
 
 ## <a name="prerequisites"></a>Prérequis

@@ -12,12 +12,12 @@ ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426497"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657412"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique (SSO) à vos applications avec Proxy d’application
 
@@ -42,9 +42,9 @@ Ce diagramme explique le flux quand un utilisateur tente d’accéder à une app
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer avec l’authentification unique pour les applications IWA, assurez-vous que votre environnement est prêt à l’aide des configurations et paramètres suivants :
 
-* Vos applications, comme les applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.microsoft.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+* Vos applications, comme les applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * Toutes vos applications disposent de [Noms de principal du service](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
-* Le serveur exécutant le connecteur et le serveur exécutant l’application sont joints au domaine et font partie du même domaine ou de domaines sécurisés. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](https://technet.microsoft.com/library/dd807102.aspx).
+* Le serveur exécutant le connecteur et le serveur exécutant l’application sont joints au domaine et font partie du même domaine ou de domaines sécurisés. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * Le serveur exécutant le connecteur est autorisé à lire l’attribut TokenGroupsGlobalAndUniversal pour les utilisateurs. Ce paramètre par défaut peut avoir été affecté par la sécurisation renforcée de l’environnement.
 
 ### <a name="configure-active-directory"></a>Configurer Active Directory
@@ -56,12 +56,12 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 3. Cliquez avec le bouton droit, puis sélectionnez **Properties** > **Délégation**.
 4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés**. 
 5. Sélectionnez **Utiliser tout protocole d’authentification**.
-6. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées** , ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
+6. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
    ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Le connecteur et le serveur d’application sont dans des domaines différents
-1. Pour obtenir la liste des conditions préalables à l’utilisation de la délégation Kerberos contrainte entre domaines, consultez [Délégation Kerberos contrainte entre domaines](https://technet.microsoft.com/library/hh831477.aspx).
+1. Pour obtenir la liste des conditions préalables à l’utilisation de la délégation Kerberos contrainte entre domaines, consultez [Délégation Kerberos contrainte entre domaines](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 2. Utilisez la propriété `principalsallowedtodelegateto` du compte de service (ordinateur ou compte d’utilisateur de domaine dédié) de l’application web pour activer la délégation de l’authentification Kerberos à partir du proxy d’application (connecteur). Le serveur d’application s’exécute dans le contexte de `webserviceaccount` et le serveur qui délègue est `connectorcomputeraccount`. Exécutez les commandes ci-dessous sur un contrôleur de domaine (exécutant Windows Server 2012 R2 ou version ultérieure) dans le domaine de `webserviceaccount`. Utilisez des noms plats (non UPN) pour les deux comptes.
 
    Si le `webserviceaccount` est un compte d’ordinateur, utilisez les commandes suivantes :
@@ -89,7 +89,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 2. Dès que votre application apparaît dans la liste des applications d’entreprise, sélectionnez-la, puis cliquez sur **Authentification unique**.
 3. Définissez le mode d’authentification unique sur **Authentification Windows intégrée**.  
 4. Entrez le **SPN d’application interne** du serveur d’applications. Dans cet exemple, le nom de principal du service pour notre application publiée est http/www.contoso.com. Ce SPN doit se trouver dans la liste des services auxquels le connecteur peut présenter des informations d’identification déléguées. 
-5. Choisissez l’ **Identité de connexion déléguée** pour le connecteur à utiliser pour le compte de vos utilisateurs. Pour plus d’informations, consultez [Utilisation d’identités cloud et locales différentes](#working-with-different-on-premises-and-cloud-identities)
+5. Choisissez l’**Identité de connexion déléguée** pour le connecteur à utiliser pour le compte de vos utilisateurs. Pour plus d’informations, consultez [Utilisation d’identités cloud et locales différentes](#working-with-different-on-premises-and-cloud-identities)
 
    ![Configuration avancée des applications](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
@@ -153,4 +153,3 @@ Toutefois, dans certains cas, la demande est correctement envoyée à l’applic
 
 * [Comment configurer une application de proxy d’application pour utiliser la délégation Kerberos contrainte ?](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Résoudre les problèmes rencontrés avec le proxy d’application](application-proxy-troubleshoot.md)
-

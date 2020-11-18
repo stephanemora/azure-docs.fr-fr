@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642433"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656405"
 ---
 # <a name="application-management-best-practices"></a>Bonnes pratiques relatives à la gestion des applications
 
@@ -30,7 +30,7 @@ Cet article contient des recommandations et des bonnes pratiques pour la gestion
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Recommandations relatives à l’authentification unique et aux applications cloud
 | Recommandation | Commentaires |
 | --- | --- |
-| Vérifier la galerie d’applications Azure AD à la recherche d’applications  | Azure AD comprend une galerie contenant des milliers d’applications pré-intégrées pour lesquelles Enterprise Single Sign-On (SSO de l’entreprise) est activé. Pour obtenir des instructions de configuration propres à une application, consultez la [Liste des tutoriels sur les applications SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Vérifier la galerie d’applications Azure AD à la recherche d’applications  | Azure AD comprend une galerie contenant des milliers d’applications pré-intégrées pour lesquelles Enterprise Single Sign-On (SSO de l’entreprise) est activé. Pour obtenir des instructions de configuration propres à une application, consultez la [Liste des tutoriels sur les applications SaaS](../saas-apps/tutorial-list.md).  | 
 | Utiliser l’authentification unique SAML fédérée  | Lorsqu’elle est prise en charge par l’application, utilisez l’authentification unique SAML fédérée avec Azure AD plutôt que l’authentification unique basée sur les mots de passe et ADFS.  | 
 | Utiliser SHA-256 pour la signature de certificat  | Azure AD utilise l’algorithme SHA-256 par défaut pour signer la réponse SAML. Utilisez SHA-256, sauf si l’application exige SHA-1 (voir [Options de signature de certificat](certificate-signing-options.md) et [Problème de connexion à l’application](application-sign-in-problem-application-error.md).)  | 
 | Exiger l’affectation des utilisateurs  | Par défaut, les utilisateurs peuvent accéder aux applications de votre entreprise sans affectation. Toutefois, si l’application expose des rôles, ou si vous souhaitez qu’elle s’affiche sur le panneau Mes applications d’un utilisateur, demandez l’affectation d’utilisateurs. (Consultez le [Guide du développeur pour l’intégration de l’application](developer-guidance-for-integrating-applications.md).)  | 
@@ -41,7 +41,7 @@ Cet article contient des recommandations et des bonnes pratiques pour la gestion
 ## <a name="provisioning-recommendations"></a>Recommandations relatives au provisionnement
 | Recommandation | Commentaires |
 | --- | --- |
-| Utiliser des tutoriels pour configurer le provisionnement avec les applications cloud | Consultez la [Liste des tutoriels sur les applications SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) pour obtenir des instructions pas à pas sur la configuration du provisionnement de l’application de galerie que vous souhaitez ajouter. |
+| Utiliser des tutoriels pour configurer le provisionnement avec les applications cloud | Consultez la [Liste des tutoriels sur les applications SaaS](../saas-apps/tutorial-list.md) pour obtenir des instructions pas à pas sur la configuration du provisionnement de l’application de galerie que vous souhaitez ajouter. |
 | Utiliser les journaux de provisionnement (préversion) pour superviser l’état | Les [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) fournissent des détails sur toutes les actions effectuées par le service de provisionnement, y compris l’état des utilisateurs individuels. |
 | Affecter un groupe de distribution à l’e-mail de notification de provisionnement | Pour augmenter la visibilité des alertes critiques envoyées par le service de provisionnement, attribuez un groupe de distribution au paramètre E-mails de notification. |
 

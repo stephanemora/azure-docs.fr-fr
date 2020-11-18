@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078935"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656749"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Intégration au proxy d’application Azure AD sur un serveur NDES (Network Device Enrollment service)
 
@@ -26,7 +26,7 @@ Le proxy d’application Azure Active Directory (AD) vous permet de publier des 
 
 Si vous débutez avec le proxy d’application Azure AD et que vous souhaitez en savoir plus, consultez [Accéder à distance à des applications locales par le biais du proxy d’application Azure AD](application-proxy.md).
 
-Le proxy d’application Azure AD repose sur Azure. Il met à votre disposition une grande quantité de bande passante réseau et une infrastructure serveur pour offrir une meilleure protection contre les attaques par déni de service distribué (DDOS) et une disponibilité exceptionnelle. Par ailleurs, vous n’avez pas besoin d’ouvrir les ports d’un pare-feu externe à votre réseau local ni de disposer d’un serveur DMZ. Tout le trafic est entrant. Pour obtenir la liste complète des ports sortants, consultez [Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Le proxy d’application Azure AD repose sur Azure. Il met à votre disposition une grande quantité de bande passante réseau et une infrastructure serveur pour offrir une meilleure protection contre les attaques par déni de service distribué (DDOS) et une disponibilité exceptionnelle. Par ailleurs, vous n’avez pas besoin d’ouvrir les ports d’un pare-feu externe à votre réseau local ni de disposer d’un serveur DMZ. Tout le trafic est entrant. Pour obtenir la liste complète des ports sortants, consultez [Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > Le proxy d’application Azure AD est une fonctionnalité qui n’est disponible que si vous utilisez l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 > Si vous disposez de licences EMS (Enterprise Mobility Suite), vous pouvez utiliser cette solution.
@@ -96,4 +96,4 @@ Le proxy d’application Azure AD repose sur Azure. Il met à votre disposition 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois le proxy d’application Azure AD intégré à NDES, publiez des applications auxquelles les utilisateurs peuvent accéder. Pour plus d’informations, consultez [Publier des applications à l’aide du Proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Une fois le proxy d’application Azure AD intégré à NDES, publiez des applications auxquelles les utilisateurs peuvent accéder. Pour plus d’informations, consultez [Publier des applications à l’aide du Proxy d’application Azure AD](./application-proxy-add-on-premises-application.md).
