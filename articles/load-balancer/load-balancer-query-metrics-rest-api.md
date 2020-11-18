@@ -10,22 +10,22 @@ ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeca560989c174bcb654116eb13da40d6ec79e60
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808366"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700509"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Récupérer les métriques d’usage de Load Balancer avec l’API REST
 
-Collectez le nombre d’octets traités par [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) pour un intervalle de temps à l’aide de l’[API REST Azure](/rest/api/azure/).
+Collectez le nombre d’octets traités par [Standard Load Balancer](./load-balancer-overview.md) pour un intervalle de temps à l’aide de l’[API REST Azure](/rest/api/azure/).
 
 Pour consulter la documentation de référence complète et d’autres exemples avec l’API REST, reportez-vous à [Informations de référence sur l’API REST Azure Monitor](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Générer la demande
 
-Utilisez la requête GET suivante pour collecter la métrique [ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) depuis Standard Load Balancer. 
+Utilisez la requête GET suivante pour collecter la métrique [ByteCount](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics) depuis Standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -44,10 +44,10 @@ Les en-têtes suivants sont requis :
 
 | Nom | Description |
 | :--- | :---------- |
-| subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nom du groupe de ressources qui contient la ressource. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager, de CLI ou du portail. |
 | loadBalancerName | Nom de l’équilibreur de charge Azure Load Balancer. |
-| Noms de métriques | Liste des [métriques Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics) valides, séparées par des virgules. |
+| Noms de métriques | Liste des [métriques Load Balancer](./load-balancer-standard-diagnostics.md) valides, séparées par des virgules. |
 | api-version | Version de l’API à utiliser pour la requête.<br /><br /> Ce document aborde la version d’API `2018-01-01`, incluse dans l’URL ci-dessus.  |
 | intervalle de temps | Intervalle de temps de la requête. Il s’agit d’une chaîne au format `startDateTime_ISO/endDateTime_ISO`. Ce paramètre facultatif est défini pour retourner une journée de données dans l’exemple. |
 | &nbsp; | &nbsp; |

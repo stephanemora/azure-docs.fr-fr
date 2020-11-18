@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669175"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700458"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
@@ -151,11 +151,11 @@ Vos ressources dans les zones non affectées par la défaillance seront disponib
   - Lorsqu’une zone connaît une défaillance, votre service le comprend-il et en cas de perte de l’état, comment allez-vous récupérer ?
   - Quand une zone est rétablie, votre application comprend-elle comment converger en toute sécurité ?
 
-Passez en revue les [modèles de conception cloud Azure](https://docs.microsoft.com/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.
+Passez en revue les [modèles de conception cloud Azure](/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)
-- En savoir plus sur la [référence Standard de Load Balancer](load-balancer-standard-overview.md)
-- Découvrir comment [équilibrer la charge des machines virtuelles dans une zone à l’aide de Load Balancer standard avec un serveur frontal zonal](load-balancer-standard-public-zonal-cli.md)
-- Découvrir comment [équilibrer la charge des machines virtuelles dans des zones à l’aide de Load Balancer standard avec un serveur frontal redondant interzone](load-balancer-standard-public-zone-redundant-cli.md)
-- Découvrez plus d'informations sur les [modèles de conception cloud Azure](https://docs.microsoft.com/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.
+- En savoir plus sur la [référence Standard de Load Balancer](./load-balancer-overview.md)
+- Découvrir comment [équilibrer la charge des machines virtuelles dans une zone à l’aide de Load Balancer standard avec un serveur frontal zonal](./quickstart-load-balancer-standard-public-cli.md)
+- Découvrir comment [équilibrer la charge des machines virtuelles dans des zones à l’aide de Load Balancer standard avec un serveur frontal redondant interzone](./quickstart-load-balancer-standard-public-cli.md)
+- Découvrez plus d'informations sur les [modèles de conception cloud Azure](/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.

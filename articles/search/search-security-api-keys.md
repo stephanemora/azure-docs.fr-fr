@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675586"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700220"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Créer et gérer des clés API pour un service Recherche cognitive Azure
 
 Toutes les demandes adressées à un service de recherche ont besoin d’une `api-key` en lecture seule générée spécialement pour votre service. Cette `api-key` constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche et doit être incluse dans chaque requête. 
 
-+ Dans les [solutions REST](search-get-started-postman.md), la clé API est généralement spécifiée dans un en-tête de requête
++ Dans les [solutions REST](search-get-started-rest.md), la clé API est généralement spécifiée dans un en-tête de requête
 
 + Dans les [solutions .NET](search-howto-dotnet-sdk.md), une clé est souvent spécifiée comme paramètre de configuration, puis transmise en tant que [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -76,7 +76,7 @@ Il est essentiel de restreindre l'accès et les opérations dans les application
 
 Deux clés d'administration sont créées pour chaque service. Vous pouvez ainsi remplacer la clé primaire par la clé secondaire pour assurer la continuité de vos activités.
 
-1. Dans la page **Paramètres** >**Clés** , copiez la clé secondaire.
+1. Dans la page **Paramètres** >**Clés**, copiez la clé secondaire.
 2. Pour toutes les applications, mettez à jour les paramètres de la clé API afin d’utiliser la clé secondaire.
 3. Régénérez la clé principale.
 4. Mettez à jour toutes les applications pour qu’elles utilisent la nouvelle clé principale.
