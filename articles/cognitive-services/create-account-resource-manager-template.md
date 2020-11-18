@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363389"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842105"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Démarrage rapide : Créer une ressource Cognitive Services avec un modèle ARM
 
@@ -60,7 +60,7 @@ Une seule ressource Azure est définie dans le modèle :
     |Valeur  |Description  |
     |---------|---------|
     | **Abonnement** | Sélectionnez un abonnement Azure. |
-    | **Groupe de ressources** | Sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**. |
+    | **Groupe de ressources** | Sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**. |
     | **Région** | Sélectionnez une région.  Par exemple, **USA Est** |
     | **Nom du service cognitif** | Remplacez la valeur par le nom unique de votre groupe de ressources. Vous aurez besoin de ce nom dans la section suivante quand vous validerez le déploiement. |
     | **Lieu** | Remplacez la valeur par la région utilisée ci-dessus. |
@@ -68,7 +68,7 @@ Une seule ressource Azure est définie dans le modèle :
 
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Écran Création de ressources":::.
 
-3. Sélectionnez **Vérifier + créer** , puis **Créer**. Une fois le déploiement de la ressource terminé, le bouton **Accéder à la ressource** est mis en surbrillance.
+3. Sélectionnez **Vérifier + créer**, puis **Créer**. Une fois le déploiement de la ressource terminé, le bouton **Accéder à la ressource** est mis en surbrillance.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 

@@ -4,15 +4,15 @@ description: Dans ce guide de démarrage rapide, vous allez découvrir comment c
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289917"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841613"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Démarrage rapide : Utiliser un modèle ARM pour déployer Azure SignalR Service
 
@@ -62,20 +62,20 @@ Sélectionnez le lien suivant afin de déployer Azure SignalR Service en utilisa
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton permettant de déployer Azure SignalR Service sur Azure à l’aide du modèle ARM dans le portail Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-Dans la page **Déployer un service Azure SignalR**  :
+Dans la page **Déployer un service Azure SignalR** :
 
 1. Si vous le souhaitez, remplacez la valeur par défaut de l’option **Abonnement**.
 
-2. Pour **Groupe de ressources** , sélectionnez **Créer** , entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
+2. Pour **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
 
 3. Si vous avez créé un groupe de ressources, sélectionnez une **Région** pour le groupe de ressources.
 
-4. Si vous le souhaitez, entrez un nouveau **Nom** et la **Localisation** (par exemple **eastus2** ) du service Azure SignalR. Si vous ne spécifiez pas de nom, il est généré automatiquement. La localisation du service Azure SignalR peut être identique ou différente de la région du groupe de ressources. Si vous ne spécifiez pas de localisation, elle est définie sur la même région que le groupe de ressources.
+4. Si vous le souhaitez, entrez un nouveau **Nom** et la **Localisation** (par exemple **eastus2**) du service Azure SignalR. Si vous ne spécifiez pas de nom, il est généré automatiquement. La localisation du service Azure SignalR peut être identique ou différente de la région du groupe de ressources. Si vous ne spécifiez pas de localisation, elle est définie sur la même région que le groupe de ressources.
 
-5. Choisissez le **Niveau tarifaire** ( **Free_F1** ou **Standard_S1** ), entrez la **Capacité** (nombre d’unités SignalR), puis choisissez le **Mode de service** **Par défaut** (nécessite un serveur hub), **Serverless** (n’autorise pas de connexion serveur) ou **Classique** (routage vers le serveur hub uniquement si le hub dispose d’une connexion au serveur). Indiquez ensuite si vous souhaitez **Activer les journaux de connectivité** ou **Activer les journaux de messagerie**.
+5. Choisissez le **Niveau tarifaire** (**Free_F1** ou **Standard_S1**), entrez la **Capacité** (nombre d’unités SignalR), puis choisissez le **Mode de service** **Par défaut** (nécessite un serveur hub), **Serverless** (n’autorise pas de connexion serveur) ou **Classique** (routage vers le serveur hub uniquement si le hub dispose d’une connexion au serveur). Indiquez ensuite si vous souhaitez **Activer les journaux de connectivité** ou **Activer les journaux de messagerie**.
 
     > [!NOTE]
-    > Pour le niveau tarifaire **Free_F1** , la capacité est limitée à 1 unité.
+    > Pour le niveau tarifaire **Free_F1**, la capacité est limitée à 1 unité.
 
     :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Capture d’écran du modèle ARM utilisé pour créer un service Azure SignalR dans le portail Azure":::
 
@@ -92,12 +92,12 @@ Utilisez le code suivant pour déployer Azure SignalR Service en utilisant le mo
 
 * Nom et région du nouveau service Azure SignalR
 * Nom et région d’un nouveau groupe de ressources
-* Niveau tarifaire Azure ( **Free_F1** ou **Standard_S1** )
+* Niveau tarifaire Azure (**Free_F1** ou **Standard_S1**)
 * Capacité d’unités SignalR (1, 2, 5, 10, 20, 50 ou 100)
   > [!NOTE]
-  > Pour le niveau tarifaire **Free_F1** , la capacité est limitée à 1 unité.
-* Mode de service : **Par défaut** , pour exiger un serveur hub, **Serverless** pour interdire toute connexion serveur, ou **Classique** , pour effectuer un routage vers un serveur hub uniquement si le hub dispose d’une connexion au serveur
-* S’il faut activer les journaux pour la connectivité ou la messagerie ( **true** ou **false** )
+  > Pour le niveau tarifaire **Free_F1**, la capacité est limitée à 1 unité.
+* Mode de service : **Par défaut**, pour exiger un serveur hub, **Serverless** pour interdire toute connexion serveur, ou **Classique**, pour effectuer un routage vers un serveur hub uniquement si le hub dispose d’une connexion au serveur
+* S’il faut activer les journaux pour la connectivité ou la messagerie (**true** ou **false**)
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
@@ -137,12 +137,12 @@ Utilisez le code suivant pour déployer Azure SignalR Service en utilisant le mo
 
 * Nom et région du nouveau service Azure SignalR
 * Nom et région d’un nouveau groupe de ressources
-* Niveau tarifaire Azure ( **Free_F1** ou **Standard_S1** )
+* Niveau tarifaire Azure (**Free_F1** ou **Standard_S1**)
 * Capacité d’unités SignalR (1, 2, 5, 10, 20, 50 ou 100)
     > [!NOTE]
-    > Pour le niveau tarifaire **Free_F1** , la capacité est limitée à 1 unité.
-* Mode de service : **Par défaut** , pour exiger un serveur hub, **Serverless** pour interdire toute connexion serveur, ou **Classique** , pour effectuer un routage vers un serveur hub uniquement si le hub dispose d’une connexion au serveur
-* S’il faut activer les journaux pour la connectivité ou la messagerie ( **true** ou **false** )
+    > Pour le niveau tarifaire **Free_F1**, la capacité est limitée à 1 unité.
+* Mode de service : **Par défaut**, pour exiger un serveur hub, **Serverless** pour interdire toute connexion serveur, ou **Classique**, pour effectuer un routage vers un serveur hub uniquement si le hub dispose d’une connexion au serveur
+* S’il faut activer les journaux pour la connectivité ou la messagerie (**true** ou **false**)
 
 ```azurecli-interactive
 read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
