@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132565"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844708"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Accorder l’accès pour créer des abonnements Azure Enterprise (préversion)
 
@@ -23,7 +23,7 @@ En tant que client Azure en [Contrat Entreprise (EA)](https://azure.microsoft.co
 
 ## <a name="grant-access"></a>Accorder l'accès
 
-Pour [créer des abonnements sous un compte d’inscription](programmatically-create-subscription.md), les utilisateurs doivent avoir le [rôle de propriétaire Azure RBAC](../../role-based-access-control/built-in-roles.md#owner) sur ce compte. Vous pouvez accorder à un utilisateur ou un groupe d’utilisateurs le rôle de propriétaire Azure RBAC sur un compte d’inscription en procédant comme suit :
+Pour [créer des abonnements sous un compte d’inscription](programmatically-create-subscription-enterprise-agreement.md), les utilisateurs doivent avoir le [rôle de propriétaire Azure RBAC](../../role-based-access-control/built-in-roles.md#owner) sur ce compte. Vous pouvez accorder à un utilisateur ou un groupe d’utilisateurs le rôle de propriétaire Azure RBAC sur un compte d’inscription en procédant comme suit :
 
 1. Obtenir l’ID d’objet du compte d’inscription auquel vous souhaitez accorder l’accès
 
@@ -174,7 +174,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Une fois qu’un utilisateur devient propriétaire Azure RBAC pour votre compte d’inscription, il peut [créer des abonnements par programmation](programmatically-create-subscription.md) sous ce dernier. Un abonnement créé par un utilisateur délégué a toujours le propriétaire de compte d’origine comme administrateur de service, mais il a également l’utilisateur délégué comme propriétaire Azure RBAC par défaut.
+    Une fois qu’un utilisateur devient propriétaire Azure RBAC pour votre compte d’inscription, il peut [créer des abonnements par programmation](programmatically-create-subscription-enterprise-agreement.md) sous ce dernier. Un abonnement créé par un utilisateur délégué a toujours le propriétaire de compte d’origine comme administrateur de service, mais il a également l’utilisateur délégué comme propriétaire Azure RBAC par défaut.
 
     ---
 
@@ -193,7 +193,7 @@ Pour appeler facilement cette API à partir de la ligne de commande, essayez [AR
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Maintenant que l’utilisateur ou le principal de service a l’autorisation de créer un abonnement, vous pouvez utiliser cette identité sur [créer des abonnements Azure Enterprise par programmation](programmatically-create-subscription.md).
+* Maintenant que l’utilisateur ou le principal de service a l’autorisation de créer un abonnement, vous pouvez utiliser cette identité sur [créer des abonnements Azure Enterprise par programmation](programmatically-create-subscription-enterprise-agreement.md).
 * Pour obtenir un exemple de création d’abonnements à l’aide de .NET, consultez [l’exemple de code sur GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Pour en savoir plus sur Azure Resource Manager et ses API, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 * Pour plus d’informations sur la gestion d’un grand nombre d’abonnements à l’aide de groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../governance/management-groups/overview.md).
