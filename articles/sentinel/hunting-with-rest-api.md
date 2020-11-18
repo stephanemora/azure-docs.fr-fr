@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377043"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660846"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Gérer les requêtes de chasse et de diffusion en continu dans Azure Sentinel à l’aide de l’API REST
 
 Azure Sentinel, construit en partie sur Azure Monitor Log Analytics, vous permet d’utiliser l’API REST de Log Analytics pour gérer les requêtes de chasse et de diffusion en continu. Ce document explique les procédures de création et de gestion des requêtes de chasse à l’aide de l’API REST.  Les requêtes créées de cette façon sont affichées dans l’interface utilisateur d’Azure Sentinel.
 
-Consultez la référence de l’API REST définitive pour plus de détails sur les [API de recherche enregistrées](https://docs.microsoft.com/rest/api/loganalytics/savedsearches).
+Consultez la référence de l’API REST définitive pour plus de détails sur les [API de recherche enregistrées](/rest/api/loganalytics/savedsearches).
 
 ## <a name="api-examples"></a>Exemples d'API
 

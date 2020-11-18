@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797630"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659724"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gestion des coûts pour Azure Lab Services
 
@@ -31,7 +31,7 @@ Cette estimation peut ne pas afficher tous les coûts possibles. Certaines resso
 
 ## <a name="analyze-the-previous-months-usage"></a>Analyser l’utilisation du mois précédent
 
-L’analyse des coûts permet d’examiner l’utilisation des mois précédents pour vous aider à déterminer les ajustements à apporter au labo. Vous trouverez la répartition des coûts passés dans l’[Analyse des coûts d’abonnement](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis). Dans le Portail Azure, vous pouvez saisir **Abonnements** dans le champ de recherche, puis sélectionner l’option **Abonnements**. 
+L’analyse des coûts permet d’examiner l’utilisation des mois précédents pour vous aider à déterminer les ajustements à apporter au labo. Vous trouverez la répartition des coûts passés dans l’[Analyse des coûts d’abonnement](../cost-management-billing/costs/quick-acm-cost-analysis.md). Dans le Portail Azure, vous pouvez saisir **Abonnements** dans le champ de recherche, puis sélectionner l’option **Abonnements**. 
 
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran montrant la zone de recherche et l’option Abonnements.](./media/cost-management-guide/subscription-search.png)
@@ -46,7 +46,7 @@ Sélectionnez **Analyse du coût** dans le volet gauche sous **Cost Management**
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran montrant une analyse des coûts d’abonnement sur un graphique.](./media/cost-management-guide/subscription-cost-analysis.png)
 
-Ce tableau de bord permet une analyse détaillée des coûts, y compris la capacité d’exportation vers différents types de fichiers sur une planification. Pour plus d’informations, consultez [Présentation Cost Management + Facturation](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+Ce tableau de bord permet une analyse détaillée des coûts, y compris la capacité d’exportation vers différents types de fichiers sur une planification. Pour plus d’informations, consultez [Présentation Cost Management + Facturation](../cost-management-billing/cost-management-billing-overview.md).
 
 Vous pouvez filtrer par type de ressource. L’utilisation de `microsoft.labservices/labaccounts` affiche uniquement le coût associé aux services Lab.
 
@@ -70,7 +70,7 @@ Pour obtenir le coût global de la galerie d’images, modifiez le type de resso
 
 Certaines universités ont utilisé le compte lab et le groupe de ressources pour séparer les différentes classes. Chaque classe a son propre compte lab et son propre groupe de ressources. 
 
-Dans le volet analyse du coût, ajoutez un filtre basé sur le nom du groupe de ressources avec le nom de groupe de ressources correspondant à la classe. Ensuite, seuls les coûts de cette classe seront visibles. Cela permet une délimitation plus claire entre les différentes classes lors de la visualisation des coûts. Vous pouvez utiliser la fonctionnalité [d’exportation planifiée](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) de l’analyse du coût pour télécharger les coûts de chaque classe dans des fichiers distincts.
+Dans le volet analyse du coût, ajoutez un filtre basé sur le nom du groupe de ressources avec le nom de groupe de ressources correspondant à la classe. Ensuite, seuls les coûts de cette classe seront visibles. Cela permet une délimitation plus claire entre les différentes classes lors de la visualisation des coûts. Vous pouvez utiliser la fonctionnalité [d’exportation planifiée](../cost-management-billing/costs/tutorial-export-acm-data.md) de l’analyse du coût pour télécharger les coûts de chaque classe dans des fichiers distincts.
 
 ## <a name="manage-costs"></a>Gérer les coûts
 
@@ -90,7 +90,7 @@ Vous pouvez configurer ces paramètres au niveau du compte lab ainsi qu’au niv
 > [!NOTE]
 > Ce paramètre est disponible uniquement pour les machines virtuelles Windows.
 
-Lorsque le paramètre **Déconnecter les utilisateurs lorsque des machines virtuelles sont inactives** est activé, l’utilisateur est déconnecté de toutes les machines du labo lorsque le système d’exploitation Windows considère que la session est inactive (y compris les modèles de machines virtuelles). La [définition de l’inactivité du système d’exploitation Windows](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) utilise deux critères : 
+Lorsque le paramètre **Déconnecter les utilisateurs lorsque des machines virtuelles sont inactives** est activé, l’utilisateur est déconnecté de toutes les machines du labo lorsque le système d’exploitation Windows considère que la session est inactive (y compris les modèles de machines virtuelles). La [définition de l’inactivité du système d’exploitation Windows](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) utilise deux critères : 
 
 * Absence de l’utilisateur : aucune entrée au clavier ou à la souris.
 * Absence de consommation des ressources : tous les processeurs et tous les disques sont restés inactifs pendant un certain pourcentage de temps.
@@ -122,7 +122,7 @@ Le paramètre **Arrêter des machines virtuelles lorsque les utilisateurs se dé
 * Pour Linux, une connexion SSH est déconnectée.
  
 > [!NOTE]
-> Seules [des distributions et versions spécifiques de Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) sont prises en charge.
+> Seules [des distributions et versions spécifiques de Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) sont prises en charge.
  
 Vous pouvez spécifier la durée pendant laquelle les machines virtuelles doivent attendre que l’utilisateur se reconnecte avant de s’arrêter automatiquement. 
 

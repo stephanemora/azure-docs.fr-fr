@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142320"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659911"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure
 
@@ -20,23 +20,9 @@ ms.locfileid: "92142320"
 
 Cet article explique comment créer un hub IoT à l’aide d’Azure CLI.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Pour suivre ce guide pratique, vous devez disposer d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-and-set-your-azure-account"></a>Se connecter à votre compte Azure et le définir
-
-Si vous exécutez Azure CLI localement et non à l’aide de Cloud Shell, vous devez vous connecter à votre compte Azure.
-
-Dans l’invite de commande, exécutez la [commande login](/cli/azure/get-started-with-azure-cli) :
-
-   ```azurecli
-   az login
-   ```
-
-Suivez les instructions pour vous authentifier à l’aide du code et vous connecter à votre compte Azure via un navigateur web.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-iot-hub"></a>Création d’un IoT Hub
 
@@ -56,7 +42,7 @@ Utilisez l’interface de ligne de commande Azure pour créer un groupe de resso
    > ```
    >
 
-2. Exécutez la [commande suivante pour créer un hub IoT](/cli/azure/iot/hub#az-iot-hub-create) dans votre groupe de ressources en utilisant un nom globalement unique pour votre hub IoT :
+2. Exécutez la [commande suivante pour créer un IoT Hub](/cli/azure/iot/hub#az-iot-hub-create) dans votre groupe de ressources en utilisant un nom globalement unique pour votre IoT Hub :
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \

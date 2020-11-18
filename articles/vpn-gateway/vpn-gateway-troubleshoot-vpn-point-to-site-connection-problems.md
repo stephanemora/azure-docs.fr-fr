@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035944"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660982"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -298,7 +298,7 @@ Ce problème peut se produire si le client VPN n’obtient pas les itinéraires 
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gateway-resetgw-classic.md). Pour s’assurer que les nouvelles routes sont utilisées, les clients VPN point à site doivent être retéléchargés une fois que le peering de réseaux virtuels a été configuré avec succès.
+Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](./reset-gateway.md). Pour s’assurer que les nouvelles routes sont utilisées, les clients VPN point à site doivent être retéléchargés une fois que le peering de réseaux virtuels a été configuré avec succès.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erreur : « La fonction de révocation n’a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
 

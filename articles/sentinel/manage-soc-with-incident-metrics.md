@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761716"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660727"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Mieux gérer votre SOC avec des métriques d’incident
 
@@ -39,7 +39,7 @@ Le tableau **SecurityIncident** est intégré à Azure Sentinel. Vous le trouver
 
 Chaque fois que vous créez ou mettez à jour un incident, une nouvelle entrée de journal est ajoutée au tableau. Cela vous permet de suivre les modifications apportées aux incidents et d’obtenir des métriques SOC encore plus puissantes, mais vous devez en tenir compte lorsque vous créez des requêtes pour ce tableau, car vous devrez peut-être supprimer les entrées en double pour un incident (selon la requête exacte que vous exécutez). 
 
-Par exemple, si vous souhaitez renvoyer une liste de tous les incidents triés par leur numéro d’incident mais que vous souhaitez uniquement renvoyer le journal le plus récent par incident, vous pouvez le faire en utilisant l’[opérateur KQL summarize](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) avec la [fonction d’agrégation](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction) `arg_max()` :
+Par exemple, si vous souhaitez renvoyer une liste de tous les incidents triés par leur numéro d’incident mais que vous souhaitez uniquement renvoyer le journal le plus récent par incident, vous pouvez le faire en utilisant l’[opérateur KQL summarize](/azure/data-explorer/kusto/query/summarizeoperator) avec la [fonction d’agrégation](/azure/data-explorer/kusto/query/arg-max-aggfunction) `arg_max()` :
 
 
 ```Kusto
@@ -82,9 +82,9 @@ Pour compléter le tableau **SecurityIncidents**, nous vous avons fourni un mod�
 
 Vous pouvez trouver ce nouveau modèle de classeur en choisissant **Classeurs** dans le menu de navigation d’Azure Sentinel et en sélectionnant l’onglet **Modèles**. Choisissez **Efficacité des opérations de sécurité** à partir de la galerie, puis cliquez sur l’un des boutons **Afficher le classeur enregistré** et **Afficher le modèle**.
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tableau des incidents de sécurité":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galerie de classeurs d’incidents de sécurité":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tableau des incidents de sécurité":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Classeur d’incidents de sécurité terminé":::
 
 Vous pouvez utiliser le modèle pour créer vos propres classeurs personnalisés, adaptés à vos besoins spécifiques.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595357"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660608"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Travail à distance : Considérations relatives aux appliances virtuelles réseau (NVA) pour le travail à distance
 
@@ -30,7 +30,7 @@ Tous les principaux fournisseurs d’appliances virtuelles réseausur la place d
 
 - **Capacité et nombre d’utilisateurs simultanés** : ce nombre est particulièrement important pour les utilisateurs VPN de point à site, car chaque utilisateur connecté crée un tunnel chiffré (VPN IPSec ou SSL).  
 - **Débit agrégé** : quelle est la bande passante agrégée dont vous avez besoin pour prendre en charge tous les utilisateurs auxquels vous devez fournir l’accès à distance.
-- **Taille de machine virtuelle nécessaire** : vous devez toujours utiliser les tailles de machines virtuelles recommandées par le fournisseur d’appliances virtuelles réseau.  Dans le cas d’un VPN de point à site, si vous avez des connexions utilisateur simultanées, vous devez utiliser des machines virtuelles de plus grande taille, par exemple des machines virtuelles [dv2 et DSv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Série dv2 et Dsv2"). Ces machines virtuelles ont en général plus de processeurs virtuels et peuvent gérer plus de sessions VPN simultanées.  En plus d’avoir davantage de cœurs virtuels, les machines virtuelles de grande taille dans Azure disposent de plus de capacité de bande passante que les machines virtuelles de petite taille.
+- **Taille de machine virtuelle nécessaire** : vous devez toujours utiliser les tailles de machines virtuelles recommandées par le fournisseur d’appliances virtuelles réseau.  Dans le cas d’un VPN de point à site, si vous avez des connexions utilisateur simultanées, vous devez utiliser des machines virtuelles de plus grande taille, par exemple des machines virtuelles [dv2 et DSv2](../virtual-machines/dv2-dsv2-series.md "Série dv2 et Dsv2"). Ces machines virtuelles ont en général plus de processeurs virtuels et peuvent gérer plus de sessions VPN simultanées.  En plus d’avoir davantage de cœurs virtuels, les machines virtuelles de grande taille dans Azure disposent de plus de capacité de bande passante que les machines virtuelles de petite taille.
     > **Important :** Chaque fournisseur utilise les ressources de façon différente.  S’il n’est pas évident de connaître les tailles d’instance que vous devez utiliser pour accueillir la charge utilisateur estimée, contactez le fournisseur du logiciel directement et demandez-lui conseil.
 - **Nombre d’instances** : si vous prévoyez un grand nombre d’utilisateurs et de connexions, certaines limites s’appliquent à la possibilité d’augmenter la taille des instances d’appliances virtuelles réseau.  Envisagez de déployer plusieurs instances de machine virtuelle.
 - **VPN IPSec et VPN SSL** : en général, les implémentations VPN IPSec fonctionnent mieux que les implémentations VPN SSL.  

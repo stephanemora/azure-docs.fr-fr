@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 6ae4e658985a3974b311171e83e6243dfc4a1ae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5eb9cd00350c41645d4427e30a6f25a6c163358c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444027"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659894"
 ---
 # <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Configurer un labo pour l’analytique du Big Data à l’aide du déploiement Docker de la plateforme de données Hortonworks
 
@@ -28,7 +28,7 @@ Pour configurer ce labo, vous avez besoin d’un abonnement Azure et d’un comp
 
 ### <a name="lab-account-settings"></a>Paramètres du compte Lab
 
-Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de marché, consultez [Spécifier les images de la Place de marché accessibles aux créateurs de labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de marché, consultez [Spécifier les images de la Place de marché accessibles aux créateurs de labo](./specify-marketplace-images.md).
 
 | Paramètres du compte lab | Instructions |
 | ------------------- | ------------ |

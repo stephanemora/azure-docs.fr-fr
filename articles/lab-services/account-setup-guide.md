@@ -3,12 +3,12 @@ title: Guide de configuration accélérée de compte de laboratoire pour Azure L
 description: Ce guide aide les administrateurs à configurer rapidement un compte de laboratoire pour une utilisation au sein de leur école.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d9a64fe23c3e5b74e77e704154f5e74bf2066d9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: aa3e7b586546b3d87f5c6029b284eeb1402ed171
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490557"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659860"
 ---
 # <a name="lab-account-setup-guide"></a>Guide de configuration de compte de laboratoire
 Pour configurer votre environnement Azure Lab Services, les administrateurs doivent d’abord configurer un **compte de laboratoire** au sein de votre abonnement Azure. Un compte de laboratoire est un conteneur pour vos laboratoires. Cette opération ne prend que quelques minutes.
@@ -23,14 +23,14 @@ Cette section décrit les prérequis que vous devez suivre pour pouvoir configur
 
 ### <a name="obtain-an-azure-subscription"></a>Obtenir un abonnement Azure
 Pour créer un compte de laboratoire, vous devez avoir accès à un abonnement Azure configuré pour votre établissement scolaire. Votre établissement scolaire peut avoir un ou plusieurs abonnements. Un abonnement permet de gérer la facturation et la sécurité de l’ensemble de vos ressources et services Azure qui y sont utilisés, notamment les comptes de laboratoire.  Les abonnements Azure sont généralement gérés par votre service informatique.  Pour plus d’informations, consultez les rubriques suivantes :
- - [Guide de l’administrateur - Abonnement](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
+ - [Guide de l’administrateur - Abonnement](./administrator-guide.md#subscription)
 
 ### <a name="estimate-the-number-of-vms-and-vm-sizes-that-you-need"></a>Estimer le nombre de machines virtuelles et les tailles de machines virtuelles dont vous avez besoin
-Vous devez estimer le nombre de machines virtuelles et les [tailles de machines virtuelles](https://docs.microsoft.com/azure/lab-services/administrator-guide#vm-sizing) dont votre établissement scolaire a besoin.  Lisez le billet de blog suivant pour obtenir des conseils sur la façon de structurer votre laboratoires\images.  Ce billet de blog vous aide également à déterminer le nombre de machines virtuelles et les tailles de machines virtuelles dont vous avez besoin :
+Vous devez estimer le nombre de machines virtuelles et les [tailles de machines virtuelles](./administrator-guide.md#vm-sizing) dont votre établissement scolaire a besoin.  Lisez le billet de blog suivant pour obtenir des conseils sur la façon de structurer votre laboratoires\images.  Ce billet de blog vous aide également à déterminer le nombre de machines virtuelles et les tailles de machines virtuelles dont vous avez besoin :
 - [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931) (Passer d’un laboratoire physique à Azure Lab Services)
 
 Consultez également cet article qui donne des conseils supplémentaires sur la façon de structurer les laboratoires :
-- [Guide de l’administrateur - Laboratoire](https://docs.microsoft.com/azure/lab-services/administrator-guide#classroom-lab)
+- [Guide de l’administrateur - Laboratoire](./administrator-guide.md)
 
 ### <a name="understand-subscription-vm-limits-and-regional-vm-capacity"></a>Comprendre les limites de l’abonnement en termes de machines virtuelles et la capacité régionale en termes de machines virtuelles
 Une fois que vous avez une estimation du nombre de machines virtuelles et des tailles de machines virtuelles pour vos laboratoires, vous devez procéder comme suit :
@@ -44,9 +44,9 @@ Pour en savoir plus, lisez le billet de blog suivant : [VM Subscription Limits 
 ### <a name="decide-how-many-lab-accounts-to-create"></a>Déterminer le nombre de comptes de laboratoire à créer
 
 Pour commencer rapidement, créez un seul compte de laboratoire dans son propre groupe de ressources.  Plus tard, vous pourrez créer des comptes de laboratoire supplémentaires (et des groupes de ressources) en fonction des besoins. Par exemple, vous pouvez avoir un compte de laboratoire et un groupe de ressources par service afin de clairement séparer les coûts.  Lisez les articles suivants pour en savoir plus sur les comptes de laboratoire, les groupes de ressources et la séparation des coûts :
-- [Guide de l’administrateur - Groupe de ressources](https://docs.microsoft.com/azure/lab-services/administrator-guide#resource-group)
-- [Guide de l’administrateur - Compte de laboratoire](https://docs.microsoft.com/azure/lab-services/administrator-guide#lab-account) 
-- [Gestion des coûts pour Azure Lab Services](https://docs.microsoft.com/azure/lab-services/cost-management-guide)
+- [Guide de l’administrateur - Groupe de ressources](./administrator-guide.md#resource-group)
+- [Guide de l’administrateur - Compte de laboratoire](./administrator-guide.md#lab-account) 
+- [Gestion des coûts pour Azure Lab Services](./cost-management-guide.md)
 
 ## <a name="planning-your-lab-accounts-settings"></a>Planification des paramètres de votre compte de laboratoire
 
@@ -55,7 +55,7 @@ Pour planifier les paramètres de votre compte de laboratoire, vous devez prendr
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>Qui doivent être les propriétaires et les contributeurs du compte de laboratoire ?
 
    Les administrateurs informatiques de votre établissement scolaire sont généralement les Propriétaires et les Contributeurs d’un compte de laboratoire. Ils sont responsables de la gestion des stratégies qui s’appliquent à tous les laboratoires contenus dans le compte de laboratoire. La personne qui crée le compte de laboratoire en est automatiquement un Propriétaire. Vous pouvez ajouter d’autres Propriétaires et Contributeurs à partir du locataire Azure Active Directory (AD) associé à votre abonnement. Pour plus d’informations sur les rôles Propriétaire et Contributeur du compte de laboratoire, consultez :
-   -  [Guide de l’administrateur - Gérer les identités](https://docs.microsoft.com/azure/lab-services/administrator-guide#manage-identity).
+   -  [Guide de l’administrateur - Gérer les identités](./administrator-guide.md#manage-identity).
 
    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
@@ -64,12 +64,12 @@ Pour planifier les paramètres de votre compte de laboratoire, vous devez prendr
 ### <a name="who-will-be-allowed-to-create-labs"></a>Qui sera autorisé à créer les laboratoires ?
 
    Vous pouvez décider que votre service informatique et des enseignants peuvent créer des laboratoires. Lorsqu’un utilisateur crée un laboratoire, il est automatiquement désigné en tant que Propriétaire du laboratoire.  Pour créer des laboratoires, les utilisateurs (généralement issus du locataire Azure AD associé à votre abonnement) doivent être affectés au rôle Créateur de laboratoire dans le compte de laboratoire.  Pour plus d’informations sur le rôle Créateur de laboratoire, consultez :
-   -  [Guide de l’administrateur - Gérer les identités](https://docs.microsoft.com/azure/lab-services/administrator-guide#manage-identity)
+   -  [Guide de l’administrateur - Gérer les identités](./administrator-guide.md#manage-identity)
 
 ### <a name="who-will-be-allowed-to-own-and-manage-labs"></a>Qui sera autorisé à posséder et à gérer les laboratoires ?
 
    Vous pouvez également décider que votre service informatique et les enseignants possèdent/gèrent les laboratoires *sans* leur donner la possibilité de créer des laboratoires.  Dans ce cas, les utilisateurs issus du locataire Azure AD de votre abonnement se voient attribuer le rôle Propriétaire ou Contributeur pour les laboratoires existants.  Pour plus d’informations sur les rôles Propriétaire et Contributeur d’un laboratoire, consultez :
-   - [Guide de l’administrateur - Gérer les identités](https://docs.microsoft.com/azure/lab-services/administrator-guide#manage-identity)
+   - [Guide de l’administrateur - Gérer les identités](./administrator-guide.md#manage-identity)
 
 ### <a name="do-you-want-to-save-images-that-can-be-shared-across-labs"></a>Souhaitez-vous enregistrer des images qui peuvent être partagées entre les laboratoires ?
 Une galerie d’images partagées est un référentiel que vous pouvez utiliser pour enregistrer et partager des images. Pour les classes qui ont besoin de la même image, les créateurs de laboratoire peuvent créer l’image, puis l’exporter vers Shared Image Gallery.  Une fois qu’une image est exportée vers Shared Image Gallery, elle peut être utilisée pour créer de nouveaux laboratoires.
@@ -78,14 +78,14 @@ Vous pouvez également créer vos images dans votre environnement physique, puis
 - [Import Custom Image to Shared Image Gallery](https://techcommunity.microsoft.com/t5/azure-lab-services/import-custom-image-to-shared-image-gallery/ba-p/1777353) (Importer une image personnalisée dans Shared Image Gallery)
 
 Si vous décidez d’utiliser une galerie Shared Image Gallery, vous devrez en créer ou en attacher une à votre compte de laboratoire. Vous pouvez aussi différer cette décision, car la galerie peut être attachée à un compte de laboratoire à tout moment.  Pour plus d’informations sur Shared Image Gallery, consultez :
-- [Guide de l’administrateur - Shared Image Gallery](https://docs.microsoft.com/azure/lab-services/administrator-guide#shared-image-gallery)
-- [Guide de l’administrateur - Tarification de Shared Image Gallery](https://docs.microsoft.com/azure/lab-services/administrator-guide#shared-image-gallery-2)
+- [Guide de l’administrateur - Shared Image Gallery](./administrator-guide.md#shared-image-gallery)
+- [Guide de l’administrateur - Tarification de Shared Image Gallery](./administrator-guide.md#shared-image-gallery-2)
 
 ### <a name="which-images-in-azure-marketplace-will-your-labs-use"></a>Quelles images de la Place de marché Azure vos laboratoires utiliseront-ils ?
 La Place de marché Azure fournit des centaines d’images que vous pouvez activer afin que les créateurs de laboratoires puissent les utiliser pour créer leur laboratoire. Certaines images peuvent inclure tout ce dont un laboratoire a déjà besoin. Dans d’autres cas, vous pouvez utiliser une image comme point de départ, puis le créateur de laboratoire peut la personnaliser en installant des applications ou outils supplémentaires.
 
 Si vous ne savez pas de quelles images vous avez besoin, vous pouvez revenir ultérieurement pour les activer. En outre, la meilleure façon de voir quelles images sont disponibles consiste à créer d’abord un compte de laboratoire. Cela vous donne l’accès, afin que vous puissiez consulter la liste des images disponibles et leur contenu.  Pour plus d’informations sur les images de la Place de marché, consultez :
-- [Spécifier les images de la Place de marché accessibles aux créateurs lab](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images)
+- [Spécifier les images de la Place de marché accessibles aux créateurs lab](./specify-marketplace-images.md)
   
 ### <a name="do-the-labs-vms-need-to-have-access-to-other-azure-or-on-premises-resources"></a>Les machines virtuelles du laboratoire doivent-elles avoir accès à d’autres ressources Azure ou locales ?
 Quand vous configurez un compte de laboratoire, vous pouvez également l’appairer avec un réseau virtuel (VNet).  N’oubliez pas que votre réseau virtuel et votre compte de laboratoire doivent se trouver dans la même région.  Pour déterminer si vous devez appairer avec un réseau virtuel, prenez en compte les scénarios suivants :
@@ -105,28 +105,28 @@ Quand vous configurez un compte de laboratoire, vous pouvez également l’appai
    Si vous avez besoin d’accéder à des ressources Azure qui ne sont *pas* sécurisées au sein d’un réseau virtuel, vous pouvez accéder à ces ressources via l’Internet public sans effectuer de peering.
 
 Pour plus d’informations sur les réseaux virtuels, consultez :
-- [Notions de base de l’architecture - Réseau virtuel](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals#virtual-network)
-- [Comment se connecter à un réseau virtuel](https://docs.microsoft.com/azure/lab-services/how-to-connect-peer-virtual-network)
-- [Guide pratique pour créer un labo avec une ressource partagée dans Azure Lab Services](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource)
+- [Notions de base de l’architecture - Réseau virtuel](./classroom-labs-fundamentals.md#virtual-network)
+- [Comment se connecter à un réseau virtuel](./how-to-connect-peer-virtual-network.md)
+- [Guide pratique pour créer un labo avec une ressource partagée dans Azure Lab Services](./how-to-create-a-lab-with-shared-resource.md)
 
 ## <a name="set-up-your-lab-account"></a>Configurer votre compte de laboratoire
 
-Une fois que vous avez terminé la planification, vous êtes prêt à configurer votre compte de laboratoire.  Ces mêmes étapes s’appliquent à la configuration d’un laboratoire [Azure Lab Services avec Teams](https://docs.microsoft.com/azure/lab-services/lab-services-within-teams-overview).
+Une fois que vous avez terminé la planification, vous êtes prêt à configurer votre compte de laboratoire.  Ces mêmes étapes s’appliquent à la configuration d’un laboratoire [Azure Lab Services avec Teams](./lab-services-within-teams-overview.md).
 
-1. **Créez votre compte de laboratoire.** Pour obtenir des instructions, reportez-vous au tutoriel sur la [création d’un compte de laboratoire](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account).
+1. **Créez votre compte de laboratoire.** Pour obtenir des instructions, reportez-vous au tutoriel sur la [création d’un compte de laboratoire](./tutorial-setup-lab-account.md#create-a-lab-account).
    
     Pour plus d’informations sur la dénomination, consultez l’article suivant :
 
-   - [Recommandations en matière d’affectation de noms pour ressources](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
+   - [Recommandations en matière d’affectation de noms pour ressources](./administrator-guide.md#naming)
 
-2. **Ajoutez des utilisateurs au rôle Créateur de laboratoire.** Pour obtenir des instructions, consultez [Ajout d’utilisateurs au rôle Créateur de laboratoire](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role).
+2. **Ajoutez des utilisateurs au rôle Créateur de laboratoire.** Pour obtenir des instructions, consultez [Ajout d’utilisateurs au rôle Créateur de laboratoire](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
-3. **Connectez-vous à un réseau virtuel de pair.** Pour plus d’instructions, consultez [Connecter le réseau de votre labo avec un réseau virtuel pair](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network).
+3. **Connectez-vous à un réseau virtuel de pair.** Pour plus d’instructions, consultez [Connecter le réseau de votre labo avec un réseau virtuel pair](./how-to-connect-peer-virtual-network.md).
 
-   Vous devrez peut-être également consulter les instructions sur [la configuration de la plage d’adresses des machines virtuelles de laboratoire](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
+   Vous devrez peut-être également consulter les instructions sur [la configuration de la plage d’adresses des machines virtuelles de laboratoire](./how-to-configure-lab-accounts.md).
 
-4. **Activez et vérifiez les images.** Pour plus d’instructions, consultez [Activation d’images de la Place de marché Azure pour les créateurs de laboratoires](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+4. **Activez et vérifiez les images.** Pour plus d’instructions, consultez [Activation d’images de la Place de marché Azure pour les créateurs de laboratoires](./specify-marketplace-images.md).
 
    Pour examiner le contenu de chaque image de la Place de marché Azure, sélectionnez le nom de l’image. Par exemple, reportez-vous à la capture d’écran suivante qui montre les détails de l’image Ubuntu Data Science VM :
 

@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398505"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660931"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -119,7 +119,7 @@ Téléchargez [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip)
 1. Au terme des étapes précédentes, effectuez les mêmes étapes en inversant les rôles, afin que le nœud du serveur soit désormais le nœud du client et inversement.
 
 > [!Note]
-> Iperf n’est pas le seul outil. [NTTTCP peut aussi être utilisé à des fins de test](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf n’est pas le seul outil. [NTTTCP peut aussi être utilisé à des fins de test](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Tester des machines virtuelles exécutant Windows
 
@@ -225,7 +225,7 @@ L’analyse des suivis de captures paquets (Wireshark/Moniteur réseau) collect�
 
 Même si le débit global évalué lors des étapes précédentes (iPERF/NTTTCP/etc.) était correct, vous risquez de constater une lenteur de copie des fichiers lorsque vous utilisez l’Explorateur Windows ou une opération de glisser-déplacer via une session Bureau à distance. Ce problème est généralement dû à un ou deux des facteurs suivants :
 
-* Les applications de copie de fichiers, comme l’Explorateur Windows et le protocole RDP, n’utilisent pas plusieurs threads lors de la copie des fichiers. Pour de meilleures performances, utilisez une application de copie de fichiers multi-thread, comme [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx), pour copier des fichiers à l’aide de 16 ou 32 threads. Pour modifier le nombre de threads pour la copie de fichiers dans Richcopy, cliquez sur **Action** > **Options de copie** > **Copie de fichiers**.
+* Les applications de copie de fichiers, comme l’Explorateur Windows et le protocole RDP, n’utilisent pas plusieurs threads lors de la copie des fichiers. Pour de meilleures performances, utilisez une application de copie de fichiers multi-thread, comme [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)), pour copier des fichiers à l’aide de 16 ou 32 threads. Pour modifier le nombre de threads pour la copie de fichiers dans Richcopy, cliquez sur **Action** > **Options de copie** > **Copie de fichiers**.
 
    ![Problèmes de copie lente de fichiers](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Même si le débit global évalué lors des étapes précédentes (iPERF/NTTTCP/
    > Toutes les applications ne fonctionnent pas de la même façon et tous les processus/applications n’utilisent pas l'ensemble des threads. Lors de l’exécution du test, vous pouvez remarquer des threads vides et dès lors, les résultats en termes de débit manqueront de précision.
    > Pour vérifier les performances de transfert de fichiers de votre application, utilisez le multithread en augmentant le nombre de threads successifs ou en le diminuant pour déterminer le débit optimal de l'application ou du transfert de fichiers.
 
-* La vitesse en lecture/écriture du disque de la machine virtuelle est insuffisante. Pour plus d'informations, consultez [Dépannage Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
+* La vitesse en lecture/écriture du disque de la machine virtuelle est insuffisante. Pour plus d'informations, consultez [Dépannage Azure Storage](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface externe avec appareil local
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: bce381ba4916bc58d2c7acf8d69b323dbdf972aa
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64a4eb1b473c8944dadea4e1ee4323dfe4e9bcde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544781"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661118"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurer une connexion point à site à un réseau virtuel à l’aide d’une authentification RADIUS : PowerShell
 
@@ -119,7 +119,7 @@ La procédure suivante crée un groupe de ressources et un réseau virtuel compr
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. Créez les configurations de sous-réseau du réseau virtuel en les nommant *FrontEnd* , *BackEnd* et *GatewaySubnet* . Ces préfixes doivent faire partie de l’espace d’adressage du réseau virtuel que vous avez déclaré.
+2. Créez les configurations de sous-réseau du réseau virtuel en les nommant *FrontEnd*, *BackEnd* et *GatewaySubnet*. Ces préfixes doivent faire partie de l’espace d’adressage du réseau virtuel que vous avez déclaré.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -133,7 +133,7 @@ La procédure suivante crée un groupe de ressources et un réseau virtuel compr
    ```azurepowershell-interactive
    New-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
    ```
-4. Une passerelle VPN doit avoir une adresse IP publique. Vous commencez par demander la ressource d’adresse IP, puis vous y faites référence lors de la création de votre passerelle de réseau virtuel. L’adresse IP est affectée dynamiquement à la ressource lors de la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques* . Vous ne pouvez pas demander d’affectation d’adresse IP publique statique. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
+4. Une passerelle VPN doit avoir une adresse IP publique. Vous commencez par demander la ressource d’adresse IP, puis vous y faites référence lors de la création de votre passerelle de réseau virtuel. L’adresse IP est affectée dynamiquement à la ressource lors de la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Vous ne pouvez pas demander d’affectation d’adresse IP publique statique. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
    Spécifiez les variables pour demander une adresse IP publique assignée dynamiquement.
 
@@ -152,7 +152,7 @@ Avant de créer et de configurer la passerelle du réseau virtuel, votre serveur
 2. Configurer la passerelle VPN en tant que client RADIUS sur le RADIUS. Lorsque vous ajoutez un client RADIUS, spécifiez le réseau virtuel GatewaySubnet que vous avez créé. 
 3. Une fois que le serveur RADIUS est configuré, obtenez l’adresse IP du serveur RADIUS et le secret partagé que les clients RADIUS doivent utiliser pour communiquer avec le serveur RADIUS. Si le serveur RADIUS se trouve dans le réseau virtuel Azure, utilisez l’adresse IP de l’autorité de certification de la machine virtuelle du serveur RADIUS.
 
-L’article relatif au [serveur NPS (Network Policy Server)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) fournit des instructions sur la configuration d’un serveur RADIUS Windows (NPS) pour l’authentification de domaine AD.
+L’article relatif au [serveur NPS (Network Policy Server)](/windows-server/networking/technologies/nps/nps-top) fournit des instructions sur la configuration d’un serveur RADIUS Windows (NPS) pour l’authentification de domaine AD.
 
 ## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a>Créer la passerelle VPN
 
@@ -252,13 +252,13 @@ La configuration du client VPN permet aux appareils de se connecter à un résea
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Se connecter à partir d’un client VPN Mac
 
-À partir de la boîte de dialogue Réseau, recherchez le profil de client que vous souhaitez utiliser, puis cliquez sur **Connexion** .
+À partir de la boîte de dialogue Réseau, recherchez le profil de client que vous souhaitez utiliser, puis cliquez sur **Connexion**.
 
   ![Connexion Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Pour vérifier votre connexion
 
-1. Pour vérifier que votre connexion VPN est active, ouvrez une invite de commandes avec élévation de privilèges, puis exécutez *ipconfig/all* .
+1. Pour vérifier que votre connexion VPN est active, ouvrez une invite de commandes avec élévation de privilèges, puis exécutez *ipconfig/all*.
 2. Affichez les résultats. Notez que l’adresse IP que vous avez reçue est l’une des adresses du pool d’adresses de client VPN point à site que vous avez spécifiées dans votre configuration. Les résultats ressemblent à l’exemple qui suit :
 
    ```
@@ -292,4 +292,4 @@ Ce forum aux questions concerne le P2S à l’aide de l’authentification RADIU
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](../index.yml). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/network-overview.md).

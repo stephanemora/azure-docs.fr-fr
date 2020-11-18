@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ed0a60c88c33af70b7d780d6c4735c5f8e65b35b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660404"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : PowerShell
 
@@ -110,7 +110,7 @@ $DNS = "10.2.1.4"
 
 Dans cette étape, vous configurez et créez la passerelle de réseau virtuel pour votre réseau virtuel.
 
-* Le paramètre -GatewayType doit être défini sur la valeur **Vpn** , tandis que le paramètre -VpnType doit être défini sur la valeur **RouteBased**.
+* Le paramètre -GatewayType doit être défini sur la valeur **Vpn**, tandis que le paramètre -VpnType doit être défini sur la valeur **RouteBased**.
 * Le paramètre -VpnClientProtocol est utilisé pour spécifier les types de tunnels que vous souhaitez activer. Les types de tunnels disponibles **OpenVPN, SSTP** et **IKEv2**. Vous pouvez choisir d’en activer l'un deux, voire une combinaison prise en charge. Si vous souhaitez activer plusieurs types, vous devez spécifier les noms séparés par une virgule. OpenVPN et SSTP ne peuvent pas être activés conjointement. Le client strongSwan sur Android et Linux et le client VPN IKEv2 natif sur iOS et OSX n’utiliseront que le tunnel IKEv2 pour se connecter. Les clients Windows essaient IKEv2 en premier lieu. En cas d’échec de la connexion, ils utilisent SSTP. Vous pouvez utiliser le client OpenVPN pour la connexion au type de tunnel OpenVPN.
 * La référence SKU De base de la passerelle de réseau virtuel ne prend pas en charge IKEv2, OpenVPN ou l’authentification RADIUS. Si vous envisagez de connecter des clients Mac à votre réseau virtuel, n’utilisez pas la référence SKU de base.
 * L’achèvement d’une passerelle VPN peut prendre jusqu’à 45 minutes en fonction de la [référence de passerelle](vpn-gateway-about-vpn-gateway-settings.md) que vous sélectionnez. Cet exemple utilise IKEv2.
@@ -229,7 +229,7 @@ $profile.VPNProfileSASUrl
 ### <a name="mac-vpn-client"></a>Client VPN Mac
 
 À partir de la boîte de dialogue Réseau, recherchez le profil de client que vous souhaitez utiliser, puis cliquez sur **Connexion**.
-Pour obtenir des instructions détaillées, consultez la section [Installer - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac). Si vous rencontrez des problèmes de connexion, vérifiez que la passerelle de réseau virtuel n’utilise pas une référence SKU de base. La référence SKU de base n’est pas prise en charge pour les clients Mac.
+Pour obtenir des instructions détaillées, consultez la section [Installer - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac). Si vous rencontrez des problèmes de connexion, vérifiez que la passerelle de réseau virtuel n’utilise pas une référence SKU de base. La référence SKU de base n’est pas prise en charge pour les clients Mac.
 
   ![Connexion Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -324,7 +324,7 @@ La pratique courante consiste à utiliser le certificat racine pour gérer l'acc
 
 **Pour révoquer :**
 
-1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 
 1. Copiez les informations dans un éditeur de texte et supprimez tous les espaces afin d’obtenir une chaîne continue. Cette chaîne est déclarée sous la forme d’une variable à l’étape suivante.
 
@@ -385,6 +385,6 @@ Pour plus d’informations, consultez les [questions fréquentes (FAQ) sur les p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](../index.yml). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/network-overview.md).
 
 Pour plus d’informations sur la résolution des problèmes liés aux connexions de point à site, consultez l’article [Résolution des problèmes de connexion de point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca483d993290e4d66ba257d4cb5de7fc3c952405
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85552284"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660829"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Repérer les menaces avec Azure Sentinel
 
@@ -66,7 +66,7 @@ La fonctionnalité de repérage d’Azure Sentinel vous offre les avantages suiv
 
 ## <a name="query-language"></a>Langage de requête 
 
-La fonctionnalité de repérage d’Azure Sentinel repose sur le langage de requête Kusto. Pour plus d’informations sur le langage de requête et sur les opérateurs pris en charge, consultez l’article [Référence sur le langage de requête](/azure/azure-monitor/log-query/get-started-queries).
+La fonctionnalité de repérage d’Azure Sentinel repose sur le langage de requête Kusto. Pour plus d’informations sur le langage de requête et sur les opérateurs pris en charge, consultez l’article [Référence sur le langage de requête](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="public-hunting-query-github-repository"></a>Référentiel public GitHub de requêtes de repérage
 

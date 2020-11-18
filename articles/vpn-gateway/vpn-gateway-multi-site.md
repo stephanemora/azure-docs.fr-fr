@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441576"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660693"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 
@@ -71,8 +71,8 @@ Si vous avez déjà un VPN de site à site avec une passerelle de routage dynami
 2. Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Spécifier la référence et le type de VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Veillez à spécifier « Dynamique » comme type de routage.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Si vous n’avez pas de réseau virtuel de site à site :
-1. Créez votre réseau virtuel de site à site à l’aide des instructions suivantes : [Créer un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md).  
-2. Configurez une passerelle de routage dynamique à l’aide des instructions suivantes : [Configurer une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
+1. Créez votre réseau virtuel de site à site à l’aide des instructions suivantes : [Créer un réseau virtuel avec une connexion VPN de site à site](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Configurez une passerelle de routage dynamique à l’aide des instructions suivantes : [Configurer une passerelle VPN](./vpn-gateway-howto-site-to-site-classic-portal.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. Exporter le fichier de configuration réseau
 

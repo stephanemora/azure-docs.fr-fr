@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 926de9f3fd357cd9d9ca067e4f7beff7d03eec95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e22ebec5853d6b4f10b53be8e24f4dbebe4e1f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394182"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659775"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de MakeCert
 
@@ -26,7 +26,7 @@ Bien que nous recommandions de suivre les [étapes Windows 10 PowerShell](vpn-g
 
 Les étapes suivantes vous montrent comment créer un certificat auto-signé à l’aide de MakeCert. Ces étapes ne sont pas spécifiques au modèle de déploiement. Elles sont valides pour le modèle Resource Manager et classique.
 
-1. Téléchargez et installez [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
+1. Téléchargez et installez [MakeCert](/windows/win32/seccrypto/makecert).
 2. Après l’installation, vous pouvez généralement trouver l’utilitaire makecert.exe dans le chemin d’accès suivant : C:\Program Files (x86)\Windows Kits\10\bin\<arch>. Toutefois, il est possible qu’il ait été installé dans un autre emplacement. Ouvrez une invite de commandes avec des privilèges d’administrateur et accédez au dossier de l’utilitaire MakeCert. Vous pouvez utiliser l’exemple suivant, en l’ajustant pour l’emplacement approprié :
 
    ```cmd
