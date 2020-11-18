@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412926"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635583"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.6) : fonctionnalités et syntaxe prises en charge
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -576,7 +576,7 @@ Cosmos DB prend en charge une durée de vie (TTL) en fonction du timestamp du do
 
 ## <a name="user-and-role-management"></a>Gestion des rôles et des utilisateurs
 
-Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles. Cosmos DB prend cependant en charge le contrôle d’accès en fonction du rôle (RBAC) et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus par le biais du [portail Azure](https://portal.azure.com) (page de la chaîne de connexion).
+Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles. Cosmos DB prend cependant en charge le contrôle d'accès en fonction du rôle Azure (Azure RBAC) et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus par le biais du [portail Azure](https://portal.azure.com) (page de la chaîne de connexion).
 
 ## <a name="replication"></a>Réplication
 

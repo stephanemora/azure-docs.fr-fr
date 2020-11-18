@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1cf6c6516e01774d0345a3f75f6f1c2826451dce
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 68a308952b63d15aa6db90021400f826ef575c0c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289866"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537184"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utiliser le portail Azure afin de restreindre l’accès par importation/exportation aux disques managés avec des liaisons privées
 
@@ -27,9 +27,6 @@ Vous pouvez définir la propriété NetworkAccessPolicy avec `DenyAll` pour emp�
 
 [!INCLUDE [virtual-machines-disks-private-links-limitations](../../includes/virtual-machines-disks-private-links-limitations.md)]
 
-## <a name="regional-availability"></a>Disponibilité régionale
-
-[!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
 
 ## <a name="create-a-disk-access-resource"></a>Créer une ressource d’accès au disque
 
@@ -63,10 +60,10 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, premier panneau. Si vous ne sélectionnez pas la région appropriée, vous risquez de rencontrer des problèmes par la suite.":::
 
-1. Dans le panneau **Ressource** , sélectionnez **Se connecter à une ressource Azure dans mon annuaire**.
-1. Pour **Type de ressource** , sélectionnez **Microsoft.Compute/diskAccesses**.
-1. Pour **Resource** , sélectionnez la ressource d’accès au disque créée précédemment.
-1. Pour **Sous-ressource ciblen** , conservez **disks**.
+1. Dans le panneau **Ressource**, sélectionnez **Se connecter à une ressource Azure dans mon annuaire**.
+1. Pour **Type de ressource**, sélectionnez **Microsoft.Compute/diskAccesses**.
+1. Pour **Resource**, sélectionnez la ressource d’accès au disque créée précédemment.
+1. Pour **Sous-ressource ciblen**, conservez **disks**.
 1. Sélectionnez **Suivant : Configuration >** .
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, deuxième panneau. Toutes les valeurs sont mises en évidence : Type de ressource, Ressource, Sous-ressource cible.":::

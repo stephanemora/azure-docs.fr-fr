@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a448b510662eb2c3c4c8ae5a68c2ebc2ed448dc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378711"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647356"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -100,7 +100,7 @@ Les propriétés utilisateur que vous pouvez utiliser pour créer une expression
 | companyName | Toute valeur de chaîne ou *null* | (user.companyName -eq "value") |
 | department |Toute valeur de chaîne ou *null* |(user.department -eq "value") |
 | displayName |Valeur de chaîne quelconque |(user.displayName -eq "value") |
-| employeeId |Valeur de chaîne quelconque |(user.employeeId -eq "value")<br>(user.employeeId -ne *null* ) |
+| employeeId |Valeur de chaîne quelconque |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Toute valeur de chaîne ou *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Toute valeur de chaîne ou *null* |(user.givenName -eq "value") |
 | jobTitle |Toute valeur de chaîne ou *null* |(user.jobTitle -eq "value") |
@@ -190,7 +190,7 @@ Lorsque vous spécifiez une valeur dans une expression, il est important d’uti
 
 ### <a name="use-of-null-values"></a>Utiliser des valeurs Null
 
-Pour spécifier une valeur null dans une règle, vous pouvez utiliser la valeur *null* . 
+Pour spécifier une valeur null dans une règle, vous pouvez utiliser la valeur *null*. 
 
 * Utilisez -eq ou -ne lors de la comparaison de la valeur *null* dans une expression.
 * N’insérez des guillemets autour du mot *null* que si vous voulez qu’il soit interprété comme une valeur de chaîne littérale.

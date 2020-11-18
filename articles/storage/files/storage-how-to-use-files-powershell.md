@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2d67d3d695ce6ba90e01603e262fb014fffc9709
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 8b4bd9ece5f010f1294356ad4673543834e5076a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561565"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626909"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Démarrage rapide : créer et gérer un partage de fichiers Azure avec Azure PowerShell 
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers](storage-files-introduction.md) Azure avec PowerShell. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Les partages de fichiers Azure prennent en charge le protocole SMB (Server Message Block) standard, le protocole NFS (Network File System) (en préversion) et permettent de partager des fichiers sur plusieurs machines, applications et instances. 
@@ -70,10 +70,10 @@ New-AzRmStorageShare `
     -QuotaGiB 1024 | Out-Null
 ```
 
-Les noms de partage ne doivent contenir que des minuscules, des nombres et des traits d’union uniques, mais ne peut commencer par un trait d’union. Pour plus d’informations sur la façon de nommer des partages de fichiers et des fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Les noms de partage ne doivent contenir que des minuscules, des nombres et des traits d’union uniques, mais ne peut commencer par un trait d’union. Pour plus d’informations sur la façon de nommer des partages de fichiers et des fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Utiliser votre partage de fichiers Azure
-Azure Files offre deux méthodes pour utiliser les fichiers et dossiers au sein de votre partage de fichiers Azure : le [protocole Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) de norme industrielle et le [protocole REST de fichier](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Azure Files offre deux méthodes pour utiliser les fichiers et dossiers au sein de votre partage de fichiers Azure : le [protocole Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) de norme industrielle et le [protocole REST de fichier](/rest/api/storageservices/file-service-rest-api). 
 
 Pour monter un partage de fichiers avec SMB, consultez le document suivant en fonction de votre système d’exploitation :
 - [Windows](storage-how-to-use-files-windows.md)
@@ -193,7 +193,7 @@ Bien que l’applet de commande `Start-AzStorageFileCopy` soit pratique pour les
 ## <a name="create-and-manage-share-snapshots"></a>Créer et gérer des instantanés de partage
 Avec un partage de fichiers Azure, vous pouvez aussi créer des instantanés de partage. Un instantané conserve un point dans le temps pour un partage de fichiers Azure. Les instantanés de partage sont similaires aux technologies de systèmes d’exploitation que vous connaissez peut-être déjà comme :
 
-- Le [service VSS](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS.
+- Le [service VSS](/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS.
 - Les instantanés du [gestionnaire de volumes logiques (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux.
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS. 
 

@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Se connecter à l’aide de C++ – Azure Database pour MySQL'
 description: Ce guide de démarrage rapide fournit un exemple de code C++ que vous pouvez utiliser pour vous connecter à la base de données Azure pour MySQL et pour interroger les données de cette dernière.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 28957235dc5c90beebf834101a481187909ab6bb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e8b2842300e43a9de88cc0b9b3ae9ce6cd754612
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332217"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535841"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utiliser Connector/C++ pour vous connecter et interroger des données dans Azure Database pour MySQL
 
@@ -54,7 +54,7 @@ Les étapes de cette section supposent que vous êtes familiarisé avec l’util
 Obtenez les informations requises pour vous connecter à la base de données Azure pour MySQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources** , puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
+2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
 3. Cliquez sur le nom du serveur.
 4. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
  :::image type="content" source="./media/connect-cpp/1_server-overview-name-login.png" alt-text="Nom du serveur de base de données Azure pour MySQL":::

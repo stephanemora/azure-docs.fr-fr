@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Se connecter à MySQL Workbench – Azure Database pour MySQL'
 description: Ce guide de démarrage rapide indique les étapes à suivre pour utiliser MySQL Workbench pour vous connecter et interroger des données de la base de données Azure pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5e27cfec0a3f0a58c1e94a822e0c831f4efa1b32
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332038"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535535"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utilisation de MySQL Workbench pour vous connecter et interroger des données dans Azure Database pour MySQL
 
@@ -35,7 +35,7 @@ Obtenez les informations requises pour vous connecter à la base de données Azu
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources** , puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
+2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
 
 3. Cliquez sur le nom du serveur.
 
@@ -47,7 +47,7 @@ Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interfac
 
 1.    Lancez l’application MySQL Workbench sur votre ordinateur. 
 
-2.    Dans la boîte de dialogue **Configurer une nouvelle connexion** , entrez les informations suivantes dans l’onglet **Paramètres** :
+2.    Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
 
 :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurer une nouvelle connexion":::
 
@@ -64,7 +64,7 @@ Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interfac
 
 4.   Cliquez sur **OK** pour enregistrer la connexion. 
 
-5.   Dans la liste de **connexions MySQL** , cliquez sur le nom correspondant à votre serveur puis patientez jusqu’à ce que la connexion soit établie.
+5.   Dans la liste de **connexions MySQL**, cliquez sur le nom correspondant à votre serveur puis patientez jusqu’à ce que la connexion soit établie.
 
         Un nouvel onglet SQL s’ouvre avec un éditeur vide où vous pouvez saisir vos requêtes.
     

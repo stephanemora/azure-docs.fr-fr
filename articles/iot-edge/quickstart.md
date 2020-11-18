@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1c4ac7d36b568f68c67a99d078fd65515bbb21b0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5f6d768e3d863d52cfc91beb799d86fcd854af16
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747709"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517595"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Windows
 
@@ -68,8 +68,8 @@ Appareil IoT Edge :
   Une fois votre machine virtuelle démarrée, vous pouvez télécharger un fichier RDP à utiliser lors de la connexion à votre machine virtuelle :
 
   1. Accédez à votre nouvelle machine virtuelle Windows sur le portail Azure.
-  1. Sélectionnez **Connecter** .
-  1. Sous l’onglet **RDP** , sélectionnez **Télécharger le fichier RDP** .
+  1. Sélectionnez **Connecter**.
+  1. Sous l’onglet **RDP**, sélectionnez **Télécharger le fichier RDP**.
 
   Ouvrez ce fichier avec une connexion Bureau à distance pour vous connecter à votre machine virtuelle Windows avec le nom et le mot de passe d’administrateur que vous avez spécifiés avec la commande `az vm create`.
 
@@ -94,7 +94,7 @@ Le code suivant crée un hub **F1** gratuit dans le groupe de ressources `IoTEdg
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Si vous obtenez une erreur parce qu’un hub gratuit existe déjà dans votre abonnement, remplacez la référence SKU par **S1** . Si vous recevez une erreur indiquant que le nom du hub IoT n’est pas disponible, cela signifie que quelqu’un d’autre a déjà un hub portant ce nom. Essayez avec un autre nom.
+   Si vous obtenez une erreur parce qu’un hub gratuit existe déjà dans votre abonnement, remplacez la référence SKU par **S1**. Si vous recevez une erreur indiquant que le nom du hub IoT n’est pas disponible, cela signifie que quelqu’un d’autre a déjà un hub portant ce nom. Essayez avec un autre nom.
 
 ## <a name="register-an-iot-edge-device"></a>Enregistrer un appareil IoT Edge
 
@@ -116,7 +116,7 @@ Créez une identité d’appareil pour votre appareil simulé afin qu’il puiss
 2. Affichez la chaîne de connexion pour votre appareil, qui lie votre appareil physique à l’aide de son identité dans IoT Hub. Elle contient le nom de votre hub IoT, le nom de votre appareil, puis une clé partagée qui authentifie les connexions entre les deux.
 
    ```azurecli-interactive
-   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. Copiez la valeur de la clé `connectionString` à partir de la sortie JSON et enregistrez-la. Cette valeur est la chaîne de connexion de l’appareil. Vous l’utiliserez pour configurer le runtime IoT Edge dans la section suivante.
@@ -128,7 +128,7 @@ Créez une identité d’appareil pour votre appareil simulé afin qu’il puiss
 Installer le runtime Azure IoT Edge sur votre appareil IoT Edge et configurez-le avec une chaîne de connexion d’appareil.
 ![Diagramme - Démarrer le runtime sur l’appareil](./media/quickstart/start-runtime.png)
 
-Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le *démon de sécurité IoT Edge* démarre chaque fois qu’un appareil IoT Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. L’ *agent IoT Edge* gère le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le *hub IoT Edge* traite les communications entre les modules sur l’appareil IoT Edge et celles entre l’appareil et IoT Hub.
+Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le *démon de sécurité IoT Edge* démarre chaque fois qu’un appareil IoT Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. L’*agent IoT Edge* gère le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le *hub IoT Edge* traite les communications entre les modules sur l’appareil IoT Edge et celles entre l’appareil et IoT Hub.
 
 Le script d’installation inclut également un moteur de conteneur appelé Moby qui gère les images conteneur sur votre appareil IoT Edge.
 
@@ -241,7 +241,7 @@ Si vous avez créé votre machine virtuelle et un IoT Hub dans un nouveau groupe
 > [!IMPORTANT]
 > La suppression d’un groupe de ressources est irréversible.
 
-Supprimez le groupe **IoTEdgeResources** . La suppression d’un groupe de ressources peut prendre plusieurs minutes.
+Supprimez le groupe **IoTEdgeResources**. La suppression d’un groupe de ressources peut prendre plusieurs minutes.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

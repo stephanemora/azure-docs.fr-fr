@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 8c2e7b6a02c0a0fea32fb1effb30b682971c3f6f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348775"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646625"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Démarrage rapide : Créer un travail Azure Stream Analytics avec l’interface de ligne de commande Azure
 
@@ -23,41 +23,11 @@ Dans ce guide de démarrage rapide, vous utilisez l’interface de ligne de comm
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prepare-your-environment"></a>Préparation de votre environnement
-
-1. Connectez-vous.
-
-   Connectez-vous à l’aide de la commande [az login](/cli/azure/reference-index#az-login) si vous utilisez une installation locale de l’interface CLI.
-
-    ```azurecli
-    az login
-    ```
-
-    Suivez les étapes affichées dans votre terminal pour effectuer le processus d’authentification.
-
-2. Installez l’extension Azure CLI.
-
-   Quand vous utilisez des références d’extension pour l’interface Azure CLI, vous devez d’abord installer l’extension.  Les extensions Azure CLI vous donnent accès à des commandes expérimentales et en préversion qui ne sont pas encore offertes par l’interface CLI principale.  Pour en savoir plus sur les extensions, notamment sur la mise à jour et la désinstallation, consultez [Utiliser des extensions avec Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-   Installez l’[extension pour Stream Analytics](/cli/azure/ext/stream-analytics/stream-analytics) en exécutant la commande suivante :
-
-    ```azurecli
-    az extension add --name stream-analytics
-    ```
-
-   Installez l’[extension pour Azure IoT](/cli/azure/ext/azure-iot) en exécutant la commande suivante :
-
-    ```azurecli
-    az extension add --name azure-iot
-    ```
-
-3. Créez un groupe de ressources.
-
-   Toutes les ressources Azure doivent être déployées dans un groupe de ressources. Les groupes de ressources vous permettent d’organiser et de gérer les ressources Azure connexes.
+- Créez un groupe de ressources. Toutes les ressources Azure doivent être déployées dans un groupe de ressources. Les groupes de ressources vous permettent d’organiser et de gérer les ressources Azure connexes.
 
    Pour ce guide de démarrage rapide, créez un groupe de ressources nommé *streamanalyticsrg* dans la zone *eastus* à l’aide de la commande [az group create](/cli/azure/group#az-group-create) suivante :
 
@@ -270,7 +240,7 @@ az stream-analytics job start
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez vous abstenir de le supprimer et vous contenter de l’arrêter à ce stade. Si vous n’avez plus besoin de ce travail, supprimez toutes les ressources créées dans le cadre de ce guide de démarrage rapide en exécutant l’applet de commande suivante :
 
-```powershell
+```azurecli
 az group delete \
     --name streamanalyticsrg \
     --no-wait

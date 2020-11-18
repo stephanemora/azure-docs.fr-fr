@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944475"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523700"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Utilisez la méthode `create_chat_thread` pour créer un fil de conversation.
 
 - Utilisez `topic` pour attribuer un sujet au fil ; le sujet peut être mis à jour après que le fil de conversation a été créé à l’aide de la fonction `update_thread`.
-- Utilisez `members` pour lister les `ChatThreadMember` à ajouter au fil de conversation. `ChatThreadMember` prend le type `CommunicationUser` comme `user`, que vous avez obtenu à l’issue du processus de création décrit dans [Créer un utilisateur](../../access-tokens.md#create-a-user)
+- Utilisez `members` pour lister les `ChatThreadMember` à ajouter au fil de conversation. `ChatThreadMember` prend le type `CommunicationUser` comme `user`, que vous avez obtenu à l’issue du processus de création décrit dans [Créer un utilisateur](../../access-tokens.md#create-an-identity)
 
 La réponse `chat_thread_client` est utilisée dans les opérations effectuées sur le fil de conversation nouvellement créé : ajout de membres au fil de conversation, envoi d’un message, suppression d’un message, etc. Elle contient une propriété `thread_id` qui est l’ID unique du fil de conversation.
 
@@ -158,7 +158,7 @@ Une fois qu’un fil de conversation est créé, vous pouvez y ajouter des utili
 Utilisez la méthode `add_members` pour ajouter des membres au fil identifié par threadId.
 
 - Utilisez `members` pour lister les membres à ajouter au fil de conversation ;
-- `user`, obligatoire, est le `CommunicationUser` que vous avez créé avec `CommunicationIdentityClient` à l’étape [Créer un utilisateur](../../access-tokens.md#create-a-user).
+- `user`, obligatoire, est le `CommunicationUser` que vous avez créé avec `CommunicationIdentityClient` à l’étape [Créer un utilisateur](../../access-tokens.md#create-an-identity).
 - `display_name`, facultatif, est le nom d’affichage du membre du fil.
 - `share_history_time`, facultatif, est le moment à partir duquel l’historique de conversation est partagé avec le membre. Pour partager l’historique depuis le début du fil de conversation, attribuez à cette propriété une date égale ou antérieure à la date de création du fil. Pour ne partager aucun historique antérieur au moment où le membre a été ajouté, attribuez-lui l’heure actuelle. Pour partager un historique partiel, attribuez-lui une date intermédiaire.
 

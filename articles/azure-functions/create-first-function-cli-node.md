@@ -4,12 +4,12 @@ description: Apprenez à créer une fonction JavaScript à partir de la ligne de
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a77ae054191c4a96026ac74bd9da226542de838
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4a178cb0e69a6e2b666247bcb8e76ab2c7e272e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424760"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635668"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction JavaScript dans Azure à partir de la ligne de commande
 
@@ -123,7 +123,7 @@ Chaque liaison nécessite une direction, un type et un nom unique. Le déclenche
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location 'West Europe'
     ```
     
     L’applet de commande [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crée l’application de fonction dans Azure. Si vous utilisez Node.js 10, remplacez `-RuntimeVersion` par `10`.

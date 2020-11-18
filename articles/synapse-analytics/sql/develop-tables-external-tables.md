@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314958"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553673"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
@@ -323,7 +323,7 @@ column_name <data_type>
 
 Nom (composé d’une à trois parties) de la table à créer. Pour une table externe, un pool SQL serverless stocke seulement les métadonnées de la table. Aucune donnée réelle n’est déplacée ni stockée dans un pool SQL serverless.
 
-<column_definition>, ... *n* ]
+<column_definition>, ...*n* ]
 
 CREATE EXTERNAL TABLE prend en charge la possibilité de configurer le nom de colonne, le type de données, la possibilité d’une valeur Null et le classement. Vous ne pouvez pas utiliser DEFAULT CONSTRAINT sur des tables externes.
 
@@ -332,7 +332,7 @@ CREATE EXTERNAL TABLE prend en charge la possibilité de configurer le nom de co
 
 Lors de la lecture à partir de fichiers Parquet, vous pouvez spécifier uniquement les colonnes que vous souhaitez lire et ignorer le reste.
 
-LOCATION = ' *folder_or_filepath* '
+LOCATION = '*folder_or_filepath*'
 
 Spécifie le dossier, ou le chemin et le nom du fichier, où se trouvent les données dans Stockage Blob Azure. L’emplacement commence au dossier racine. Le dossier racine est l’emplacement de données qui est spécifié dans la source de données externe.
 
@@ -388,8 +388,6 @@ Grâce aux fonctionnalités d’exploration de Data Lake, vous pouvez désormais
 - Vous devez avoir accès à l’espace de travail avec au moins le rôle d’accès ARM Contributeur aux données Blob du stockage au compte ADLS Gen2.
 
 - Vous devez disposer au moins d’[autorisations de créer](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) et d’interroger des tables externes sur le pool SQL ou SQL à la demande.
-
-- Le service lié associé au compte ADLS Gen2 **doit avoir accès au fichier**. Par exemple, si le mécanisme d’authentification du service lié est l’identité managée, celle de l’espace de travail doit disposer au moins de l’autorisation Lecteur des données Blob du stockage sur le compte de stockage.
 
 Dans le panneau Données, sélectionnez le fichier à partir duquel vous souhaitez créer la table externe :
 > [!div class="mx-imgBorder"]

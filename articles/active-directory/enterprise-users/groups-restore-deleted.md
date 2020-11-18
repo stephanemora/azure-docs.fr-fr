@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092288d320874488cee4d2f097d7406c0757e8a0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e5cec8802fba3852f4600b9fb426ee4c175314b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378681"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647118"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Restaurer un groupe Microsoft 365 supprimé dans Azure Active Directory
 
@@ -39,14 +39,14 @@ Utilisateur | Peut restaurer n’importe quel groupe Microsoft 365 supprimé do
 
 1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur d’utilisateurs.
 
-2. Sélectionnez **Groupes** , puis **Groupes supprimés** pour voir les groupes supprimés disponibles pour la restauration.
+2. Sélectionnez **Groupes**, puis **Groupes supprimés** pour voir les groupes supprimés disponibles pour la restauration.
 
     ![Afficher les groupes qui sont disponibles pour la restauration](./media/groups-restore-deleted/deleted-groups3.png)
 
-3. Dans le panneau **Groupes supprimés** , vous pouvez effectuer les opérations suivantes :
+3. Dans le panneau **Groupes supprimés**, vous pouvez effectuer les opérations suivantes :
 
-   - Restaurer le groupe supprimé et son contenu en sélectionnant **Restaurer le groupe** .
-   - Supprimer définitivement le groupe supprimé en sélectionnant **Supprimer définitivement** . Pour supprimer définitivement un groupe, vous devez être administrateur.
+   - Restaurer le groupe supprimé et son contenu en sélectionnant **Restaurer le groupe**.
+   - Supprimer définitivement le groupe supprimé en sélectionnant **Supprimer définitivement**. Pour supprimer définitivement un groupe, vous devez être administrateur.
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Voir les groupes Microsoft 365 supprimés disponibles pour la restauration à l’aide de PowerShell
 

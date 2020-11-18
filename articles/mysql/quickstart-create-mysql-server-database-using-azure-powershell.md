@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un serveur - Azure PowerShell - Azure Database pour MySQL'
 description: Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer un serveur Azure Database pour MySQL dans un groupe de ressources Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 65ac6b3252b134fa6774c075ebc7d5f2c428a809
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545121"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542301"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL avec PowerShell
 
@@ -29,7 +29,7 @@ Si vous choisissez d’utiliser PowerShell localement, cet article vous demande 
 > Tant que le module Az.MySql PowerShell est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MySql -AllowPrerelease`.
 > Une fois que le module Az.MySql PowerShell est en disponibilité générale, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
-Si c’est la première fois que vous utilisez le service Azure Database pour MySQL, vous devez inscrire le fournisseur de ressources **Microsoft.DBforMySQL** .
+Si c’est la première fois que vous utilisez le service Azure Database pour MySQL, vous devez inscrire le fournisseur de ressources **Microsoft.DBforMySQL**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMySQL
@@ -47,7 +47,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 Créez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) avec l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
 
-L’exemple suivant crée un groupe de ressources nommé **myresourcegroup** dans la région **USA Ouest** .
+L’exemple suivant crée un groupe de ressources nommé **myresourcegroup** dans la région **USA Ouest**.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -70,7 +70,7 @@ Le tableau suivant contient la liste des paramètres couramment utilisés et des
 | SslEnforcement             | activé          | Indique si le protocole SSL doit être activé ou non pour ce serveur. Valeurs autorisées : Activé, Désactivé.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Capacité de stockage du serveur (en mégaoctets). Un StorageInMb valide est un minimum de 5 120 Mo et augmente par incrément de 1 024 Mo. Pour plus d’informations sur les limites de taille du stockage, consultez [Niveaux tarifaires d’Azure Database pour MySQL](./concepts-pricing-tiers.md).                                                                               |
 | Version                    | 5.7              | Version principale de MySQL.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Nom d’utilisateur du compte administrateur. Il ne peut pas être **azure_superuser** (superutilisateur), **admin** , **administrator** (administrateur), **root** (racine), **guest** (invité) ou **public** .                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Nom d’utilisateur du compte administrateur. Il ne peut pas être **azure_superuser** (superutilisateur), **admin**, **administrator** (administrateur), **root** (racine), **guest** (invité) ou **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Mot de passe de l’utilisateur administrateur sous la forme d’une chaîne sécurisée. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.                                       |
 
 La valeur du paramètre **Sku** suit la convention **niveau tarifaire\_génération de calcul\_vCores** comme dans les exemples suivants.
@@ -81,7 +81,7 @@ La valeur du paramètre **Sku** suit la convention **niveau tarifaire\_générat
 
 Pour plus d’informations sur les valeurs **Sku** valides par région et pour les niveaux, consultez [Niveaux tarifaires d’Azure Database pour MySQL](./concepts-pricing-tiers.md).
 
-L’exemple suivant crée un serveur MySQL dans la région **USA Ouest** appelée **mydemoserver** dans le groupe de ressources **myresourcegroup** avec une connexion d’administrateur au serveur de **myadmin** . Il s’agit d’un serveur de génération 5 dans le niveau tarifaire à usage général avec 2 vCores et des sauvegardes géoredondantes activées. Documentez le mot de passe utilisé sur la première ligne de l’exemple, car il s’agit du mot de passe du compte d’administrateur du serveur MySQL.
+L’exemple suivant crée un serveur MySQL dans la région **USA Ouest** appelée **mydemoserver** dans le groupe de ressources **myresourcegroup** avec une connexion d’administrateur au serveur de **myadmin**. Il s’agit d’un serveur de génération 5 dans le niveau tarifaire à usage général avec 2 vCores et des sauvegardes géoredondantes activées. Documentez le mot de passe utilisé sur la première ligne de l’exemple, car il s’agit du mot de passe du compte d’administrateur du serveur MySQL.
 
 > [!TIP]
 > Un nom de serveur est mappé à un nom DNS et doit être globalement unique dans Azure.
@@ -124,7 +124,7 @@ Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -SslE
 
 ## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
 
-Pour vous connecter à votre serveur, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès. Utilisez l’exemple suivant pour déterminer les informations de connexion. Notez les valeurs des champs **FullyQualifiedDomainName** et **AdministratorLogin** .
+Pour vous connecter à votre serveur, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès. Utilisez l’exemple suivant pour déterminer les informations de connexion. Notez les valeurs des champs **FullyQualifiedDomainName** et **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -199,7 +199,7 @@ Pour les autres commandes, consultez le [Manuel de référence de MySQL 5.7 - 
 
 1. Lancez l’application MySQL Workbench sur votre ordinateur client. Pour télécharger et installer MySQL Workbench, consultez [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. Dans la boîte de dialogue **Configurer une nouvelle connexion** , entrez les informations suivantes dans l’onglet **Paramètres**  :
+1. Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
 
    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="configurer une nouvelle connexion":::
 
@@ -212,7 +212,7 @@ Pour les autres commandes, consultez le [Manuel de référence de MySQL 5.7 - 
     | Nom d’utilisateur          | myadmin@mydemoserver                    | Connexion d’administrateur serveur que vous avez notée précédemment                |
     | Mot de passe          | *************                           | Utiliser le mot de passe du compte Administrateur que vous avez configuré précédemment      |
 
-1. Pour tester si les paramètres sont correctement configurés, cliquez sur le bouton **Tester la connexion** .
+1. Pour tester si les paramètres sont correctement configurés, cliquez sur le bouton **Tester la connexion**.
 
 1. Sélectionnez la connexion pour vous connecter au serveur.
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 9c88feca5bf4bdac91af7f88c24cd342dc1b04cf
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4c14417a31f28ea5d6475b3f84ee079d990dd6b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426287"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637062"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Python dans Azure à partir de la ligne de commande
 
@@ -250,7 +250,8 @@ Utilisez les commandes suivantes pour créer ces éléments. Azure CLI et PowerS
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
     
-    <a name="the-new-azfunctionapp-cmdlet-creates-the-function-app-in-azure-if-youre-using-python-37-or-36-change--runtimeversion-to-37-or-36-respectively"></a>L’applet de commande [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crée l’application de fonction dans Azure. Si vous utilisez Python 3.7 ou 3.6, remplacez `-RuntimeVersion` par `3.7` ou `3.6`, respectivement.
+    L’applet de commande [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crée l’application de fonction dans Azure. Si vous utilisez Python 3.7 ou 3.6, remplacez `-RuntimeVersion` par `3.7` ou `3.6`, respectivement.
+
     ---
     
     Dans l’exemple précédent, remplacez `<STORAGE_NAME>` par le nom du compte que vous avez utilisé à l’étape précédente, puis remplacez `<APP_NAME>` par le nom global unique qui vous convient.  `<APP_NAME>` représente également le domaine DNS par défaut pour l’application de fonction. 
@@ -275,3 +276,5 @@ Dans une fenêtre de terminal distincte ou dans le navigateur, appelez à nouvea
 
 > [!div class="nextstepaction"]
 > [Se connecter à une file d’attente Stockage Azure](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/python-functions-qs-survey)

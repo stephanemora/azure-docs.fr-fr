@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Créer un serveur – Portail Azure – Azure Database for MariaDB'
 description: Cet article vous montre comment utiliser le Portail Azure pour créer rapidement un exemple de serveur Azure Database for MariaDB en cinq minutes environ.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/19/2020
-ms.openlocfilehash: e5801f46745b3fda28af19c11e323b9497ebe98a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b27bff50b4e2cfa57e41919552086ba1d31f217
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88185245"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537048"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Démarrage rapide : Créer un serveur Azure Database for MariaDB à l’aide du portail Azure
 

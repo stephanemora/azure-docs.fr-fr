@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c0edd85ea4478ac95ea854b73717056d52a9098b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378712"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647560"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 
@@ -36,8 +36,8 @@ Cet article explique comment utiliser l’inscription en libre-service pour rens
 ## <a name="terms-and-definitions"></a>Termes et définitions
 
 * **Inscription libre- service** : méthode selon laquelle un utilisateur s‘abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure AD en fonction de son domaine de messagerie.
-* **Annuaire Azure AD non managé**  : annuaire dans lequel cette identité est créée. Un répertoire non géré est un répertoire qui ne possède aucun administrateur général.
-* **Utilisateur vérifié par e-mail**  : type de compte d’utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
+* **Annuaire Azure AD non managé** : annuaire dans lequel cette identité est créée. Un répertoire non géré est un répertoire qui ne possède aucun administrateur général.
+* **Utilisateur vérifié par e-mail** : type de compte d’utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Comment vérifier les paramètres libre-service ?
 

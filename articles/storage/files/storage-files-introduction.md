@@ -7,15 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9ce2044f3ee0bff3335f46d8cf712e64394af2d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570015"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628864"
 ---
 # <a name="what-is-azure-files"></a>Qu’est-ce qu’Azure Files ?
-Azure Files offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard ou le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard. Les partages de fichiers Azure peuvent être montés simultanément par des déploiements dans le cloud ou en local. Les partages de fichiers SMB Azure Files sont accessibles à partir des clients Windows, Linux et macOS. Les partages de fichiers NFS Azure Files sont accessibles à partir des clients Linux ou macOS. De plus, les partages de fichiers SMB Azure Files peuvent être mis en cache sur les serveurs Windows avec Azure File Sync, pour un accès rapide à proximité de l’endroit où les données sont utilisées.
+Azure Files offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard ou le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard. Les partages de fichiers Azure peuvent être montés simultanément par des déploiements dans le cloud ou en local. Les partages de fichiers SMB Azure Files sont accessibles à partir des clients Windows, Linux et macOS. Les partages de fichiers NFS Azure Files sont accessibles à partir des clients Linux ou macOS. De plus, les partages de fichiers SMB Azure Files peuvent être mis en cache sur les serveurs Windows avec Azure File Sync, pour un accès rapide à proximité de l’endroit où les données sont utilisées.
 
 ## <a name="videos"></a>Videos
 | Présentation d’Azure File Sync | Azure Files et Sync (Ignite 2019)  |
@@ -53,7 +53,7 @@ Les partages de fichiers Azure peuvent être utilisés pour :
 * **Gestion intégrale**. Les partages de fichiers Azure peuvent être créés sans avoir à gérer le matériel ou un système d’exploitation. Cela signifie que vous n’êtes pas obligé de gérer les mises à jour correctives du système d’exploitation du serveur avec des mises à niveau de sécurité critiques ou de remplacer les disques durs défaillants.
 * **Écriture de scripts et outils**. Les cmdlets PowerShell et l’interface CLI Azure peuvent être utilisées pour créer, monter et gérer les partages de fichiers Azure dans le cadre de l’administration des applications Azure. Vous pouvez créer et gérer les partages de fichiers Azure via le portail Azure et l’Explorateur Stockage Azure. 
 * **Résilience**. Azure Files a été entièrement conçu de manière à être toujours disponible. L’utilisation d’Azure Files au lieu des partages de fichiers locaux signifie que vous n’avez plus à vous soucier des pannes de courant ou des problèmes de réseau. 
-* **Programmabilité familière**. Les applications exécutées dans Azure peuvent accéder aux données dans le partage via les [API d’E/S du système](https://msdn.microsoft.com/library/system.io.file.aspx) de fichier. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. En plus des API d’E/S du système, vous pouvez utiliser les [bibliothèques de client de stockage Azure](https://msdn.microsoft.com/library/azure/dn261237.aspx) ou l’[API REST de stockage Azure](/rest/api/storageservices/file-service-rest-api).
+* **Programmabilité familière**. Les applications exécutées dans Azure peuvent accéder aux données dans le partage via les [API d’E/S du système](/dotnet/api/system.io.file) de fichier. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. En plus des API d’E/S du système, vous pouvez utiliser les [bibliothèques de client de stockage Azure](/previous-versions/azure/dn261237(v=azure.100)) ou l’[API REST de stockage Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Découvrir les protocoles de partage de fichiers disponibles](storage-files-compare-protocols.md)

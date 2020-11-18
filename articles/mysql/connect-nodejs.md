@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Se connecter à l’aide de Node.js – Azure Database pour MySQL'
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code Node.js que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332166"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535654"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utilisation de Node.js pour vous connecter et interroger des données dans Azure Database pour MySQL
 
@@ -50,7 +50,7 @@ Selon votre plateforme, suivez les instructions de la section appropriée pour i
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Exécutez les commandes suivantes pour installer **Node.js** et **npm** , le gestionnaire de package pour Node.js.
+1. Exécutez les commandes suivantes pour installer **Node.js** et **npm**, le gestionnaire de package pour Node.js.
 
    ```bash
    sudo apt-get install -y nodejs npm
@@ -68,7 +68,7 @@ Selon votre plateforme, suivez les instructions de la section appropriée pour i
 
 ### <a name="macos"></a>macOS
 
-1. Entrez les commandes suivantes pour installer **brew** , gestionnaire de package facile à utiliser pour macOS et **Node.js**.
+1. Entrez les commandes suivantes pour installer **brew**, gestionnaire de package facile à utiliser pour macOS et **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -90,7 +90,7 @@ Selon votre plateforme, suivez les instructions de la section appropriée pour i
 Obtenez les informations requises pour vous connecter à la base de données Azure pour MySQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources** , puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
+2. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
 3. Sélectionnez le nom du serveur.
 4. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Nom du serveur de base de données Azure pour MySQL":::

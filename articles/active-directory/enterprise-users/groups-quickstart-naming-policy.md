@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dcf05f829cfcdc79fcd7be903b96fb601c095a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7a594d42485510a525ce4e3c7f03b432554100f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378690"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650595"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
@@ -34,24 +34,24 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configurer la stratégie de nommage de groupes sur le portail Azure
 
 1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur d’utilisateurs.
-1. Sélectionnez **Groupes** , puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
+1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
 
     ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-quickstart-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Afficher ou modifier la stratégie d'attribution de suffixes/préfixes
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Stratégie de noms de groupes** .
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Stratégie de noms de groupes**.
 1. Vous pouvez afficher ou modifier individuellement les stratégies actuelles d'attribution de suffixes/préfixes en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d'attribution de noms.
-1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer** . Plusieurs éléments peuvent être supprimés en même temps.
+1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
 1. Sélectionnez **Enregistrer** pour appliquer les modifications apportées à la stratégie.
 
 ### <a name="view-or-edit-the-custom-blocked-words"></a>Afficher ou modifier les mots bloqués personnalisés
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Mots bloqués** .
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Mots bloqués**.
 
     ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-quickstart-naming-policy/blockedwords.png)
 
-1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger** .
+1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**.
 1. Chargez la nouvelle liste de mots bloqués personnalisés en sélectionnant l'icône de fichier.
 1. Sélectionnez **Enregistrer** pour appliquer les modifications apportées à la stratégie.
 
@@ -61,7 +61,7 @@ Vous avez terminé. Vous avez défini votre stratégie d’affectation de noms e
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Supprimer la stratégie d’attribution de noms à l’aide du portail Azure
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Supprimer une stratégie** .
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Supprimer une stratégie**.
 1. Une fois la suppression confirmée, la stratégie d'attribution de noms est supprimée, de même que toutes les stratégies d'attribution de suffixes/préfixes et tous les mots bloqués personnalisés.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un serveur – Azure CLI – Azure Database for MariaDB'
 description: Ce guide de démarrage rapide explique comment utiliser l’interface CLI Azure pour créer un serveur Azure Database for MariaDB dans un groupe de ressources Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4d2300e36bd06313cf889f40f37d672d66534db6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424490"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538358"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Démarrage rapide : Créer un serveur Azure Database for MariaDB à l’aide d’Azure CLI
 
@@ -49,14 +49,14 @@ Paramètre | Exemple de valeur | Description
 ---|---|---
 name | **mydemoserver** | Entrez un nom unique qui identifie votre serveur Azure Database for MariaDB. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
 resource-group | **myresourcegroup** | Entez le nom du groupe de ressources Azure.
-sku-name | **GP_Gen5_2** | Nom de la référence SKU. Suit la convention *niveau tarifaire*\_*génération de calcul*\_*vCores* dans le raccourci. Pour plus d’informations sur le paramètre **sku-name** , consultez la section après ce tableau.
+sku-name | **GP_Gen5_2** | Nom de la référence SKU. Suit la convention *niveau tarifaire*\_*génération de calcul*\_*vCores* dans le raccourci. Pour plus d’informations sur le paramètre **sku-name**, consultez la section après ce tableau.
 backup-retention | **7** | Durée pendant laquelle la sauvegarde doit être conservée. Exprimée en jours. Plage : 7 à 35. 
-geo-redundant-backup | **Désactivé** | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur. Valeurs autorisées : **Activé** , **Désactivé** .
+geo-redundant-backup | **Désactivé** | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur. Valeurs autorisées : **Activé**, **Désactivé**.
 location | **westus** | Emplacement Azure du serveur.
-ssl-enforcement | **Activé** | Indique si le protocole SSL doit être activé ou non pour ce serveur. Valeurs autorisées : **Activé** , **Désactivé** .
+ssl-enforcement | **Activé** | Indique si le protocole SSL doit être activé ou non pour ce serveur. Valeurs autorisées : **Activé**, **Désactivé**.
 storage-size | **51200** | Capacité de stockage du serveur (exprimée en mégaoctets). Les tailles de stockage valides sont 5 120 Mo (minimum) avec des augmentations par incréments de 1 024 Mo. Consultez le document [Niveaux tarifaires pour Azure Database for MariaDB](./concepts-pricing-tiers.md) pour plus d’informations sur les limites de taille de stockage. 
 version | **10.2** | Version majeure du moteur MariaDB.
-admin-user | **myadmin** | Nom d’utilisateur du compte administrateur. Le paramètre **admin-user** ne peut pas être **azure_superuser** , **admin** , **administrator** , **root** , **guest** ou **public** .
+admin-user | **myadmin** | Nom d’utilisateur du compte administrateur. Le paramètre **admin-user** ne peut pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
 admin-password | *votre mot de passe* | Mot de passe de l’utilisateur Administrateur. Votre mot de passe doit contenir entre 8 et 128 caractères. Il doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
 
 La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
@@ -66,7 +66,7 @@ La valeur du paramètre sku-name suit la convention {tarification}\_{génératio
 
 Pour plus d’informations sur les valeurs valides par région et pour les niveaux, consultez [Niveaux tarifaires pour Azure Database for MariaDB](./concepts-pricing-tiers.md).
 
-L’exemple suivant crée un serveur nommé **mydemoserver** dans la région USA Ouest. Le serveur se trouve dans le groupe de ressources **myresourcegroup** et a la connexion d’administrateur du serveur **myadmin** . Le serveur est de type Gen 5, appartient au niveau tarifaire Usage général et possède 2 vCores. Un nom de serveur est mappé à un nom DNS et doit être globalement unique dans Azure. Remplacez `<server_admin_password>` par votre propre mot de passe d’administrateur du serveur.
+L’exemple suivant crée un serveur nommé **mydemoserver** dans la région USA Ouest. Le serveur se trouve dans le groupe de ressources **myresourcegroup** et a la connexion d’administrateur du serveur **myadmin**. Le serveur est de type Gen 5, appartient au niveau tarifaire Usage général et possède 2 vCores. Un nom de serveur est mappé à un nom DNS et doit être globalement unique dans Azure. Remplacez `<server_admin_password>` par votre propre mot de passe d’administrateur du serveur.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -106,7 +106,7 @@ Pour vous connecter à votre serveur, vous devez fournir des informations sur l�
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Le résultat est au format JSON. Notez les valeurs des champs **fullyQualifiedDomainName** et **administratorLogin** .
+Le résultat est au format JSON. Notez les valeurs des champs **fullyQualifiedDomainName** et **administratorLogin**.
 
 ```json
 {
@@ -139,7 +139,7 @@ Le résultat est au format JSON. Notez les valeurs des champs **fullyQualifiedDo
 
 ## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>Se connecter au serveur avec l’outil en ligne de commande mysql
 
-Connectez-vous au serveur avec l’outil en ligne de commande mysql. Vous pouvez [télécharger](https://dev.mysql.com/downloads/) cet outil et l’installer sur votre ordinateur. Vous pouvez également accéder à l’outil en ligne de commande en sélectionnant le bouton **Try It** (Essayer) sur un exemple de code dans cet article. Une autre façon d’accéder à l’outil en ligne de commande consiste à sélectionner le bouton **>_** dans la barre d’outils en haut à droite dans le Portail Azure pour ouvrir **Azure Cloud Shell** .
+Connectez-vous au serveur avec l’outil en ligne de commande mysql. Vous pouvez [télécharger](https://dev.mysql.com/downloads/) cet outil et l’installer sur votre ordinateur. Vous pouvez également accéder à l’outil en ligne de commande en sélectionnant le bouton **Try It** (Essayer) sur un exemple de code dans cet article. Une autre façon d’accéder à l’outil en ligne de commande consiste à sélectionner le bouton **>_** dans la barre d’outils en haut à droite dans le Portail Azure pour ouvrir **Azure Cloud Shell**.
 
 Connectez-vous au serveur avec l’outil en ligne de commande mysql :
 
@@ -206,7 +206,7 @@ Connectez-vous au serveur avec l’outil en ligne de commande mysql :
 
 1. Ouvrez MySQL Workbench sur votre ordinateur client. S’il n’est pas déjà installé, [téléchargez](https://dev.mysql.com/downloads/workbench/) et installez l’application.
 
-2. Dans la boîte de dialogue **Configurer une nouvelle connexion** , entrez les informations suivantes dans l’onglet **Paramètres** :
+2. Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
 
    ![Configurer une nouvelle connexion](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 

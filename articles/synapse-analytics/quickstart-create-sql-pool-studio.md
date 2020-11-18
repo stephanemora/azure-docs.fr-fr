@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506343"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541842"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Démarrage rapide : Créer un pool SQL dédié en utilisant Synapse Studio
 
@@ -110,6 +110,7 @@ Si vous souhaitez supprimer le pool SQL dédié, procédez comme suit :
 1. Confirmez la suppression, puis appuyez sur le bouton **Supprimer**.
 1. À la fin du processus, le pool SQL dédié ne figure plus dans la liste des ressources de l’espace de travail.
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
+ 
 - Consultez [Démarrage rapide : Créer un notebook Apache Spark](quickstart-apache-spark-notebook.md).
 - Consultez [Démarrage rapide : Créer un pool SQL dédié à l’aide du portail Azure](quickstart-create-sql-pool-portal.md).
