@@ -44,6 +44,8 @@
       href: concepts-identity.md
     - name: Contrôle d’accès en fonction du rôle
       href: concepts-role-based-access-control.md
+    - name: Superviser et réparer des clouds privés
+      href: concepts-monitor-repair-private-cloud.md
     - name: Mises à niveau de clouds privés
       href: concepts-upgrades.md
 - name: Guides pratiques

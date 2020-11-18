@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935600"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698323"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Journaux Azure Monitor pour une instance publique de Basic Load Balancer
 
 Vous pouvez utiliser différents types de journaux d’activité dans Azure pour gérer les instances de Basic Load Balancer et résoudre les problèmes associés. Certains de ces journaux d’activité sont accessibles via le portail. Les journaux peuvent être envoyés en streaming à un hub d’événements ou à un espace de travail Log Analytics. Tous les journaux peuvent être extraits à partir du Stockage Blob Azure et affichés dans différents outils, comme Excel et Power BI.  Pour en savoir plus sur les différents types de journaux d’activité, consultez la liste ci-dessous.
 
-* **Journaux d’activité :** Vous pouvez utiliser l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) afin d’afficher toutes les activités soumises à vos abonnements Azure et leur état. Les journaux d’activité sont activés par défaut et peuvent être affichés dans le portail Azure.
+* **Journaux d’activité :** Vous pouvez utiliser l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md) afin d’afficher toutes les activités soumises à vos abonnements Azure et leur état. Les journaux d’activité sont activés par défaut et peuvent être affichés dans le portail Azure.
 * **Journaux d’activité d’événements d’alerte** : Vous pouvez utiliser ces journaux pour afficher les alertes générées par l’équilibreur de charge. L'état de l'équilibreur de charge est collecté toutes les cinq minutes. Ce journal est écrit uniquement si un événement d'alerte d’équilibreur de charge est généré.
 * **Journaux d’activité de sonde d’intégrité** : Vous pouvez utiliser ces journaux pour connaître les problèmes détectés par votre sonde d’intégrité, tels que le nombre d’instances du pool principal qui ne reçoivent pas les demandes de l’équilibreur de charge en raison d’échecs de sonde d’intégrité. Toute modification de l’état de la sonde d’intégrité est indiquée dans ce journal.
 
@@ -35,7 +35,7 @@ Vous pouvez utiliser différents types de journaux d’activité dans Azure pour
 
 La journalisation d’activité est automatiquement activée pour chaque ressource Resource Manager. Activez la journalisation des événements et des sondes d’intégrité pour commencer à collecter les données disponibles dans ces journaux. Utilisez les étapes suivantes pour activer la journalisation.
 
-Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) avant de continuer.
+Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](./quickstart-load-balancer-standard-public-portal.md) avant de continuer.
 
 1. Dans le portail, cliquez sur **Groupes de ressources**.
 2. Sélectionnez **\<resource-group-name>** l’emplacement de votre équilibreur de charge.
@@ -49,7 +49,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez
    * **Envoyer à Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Archiver dans un compte de stockage
-    Vous avez besoin d’un compte de stockage déjà créé pour ce processus.  Pour créer un compte de stockage, consultez [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    Vous avez besoin d’un compte de stockage déjà créé pour ce processus.  Pour créer un compte de stockage, consultez [Créez un compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal)
 
     1. Cochez la case en regard d’**Archiver dans un compte de stockage**.
     2. Sélectionnez **Configurer** pour ouvrir le volet **Sélectionnez un compte de stockage**.
@@ -58,7 +58,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez
     5. Sélectionnez OK.
 
     ### <a name="stream-to-an-event-hub"></a>Diffuser vers un hub d’événements
-    Vous avez besoin d’un hub d’événements déjà créé pour ce processus.  Pour créer un hub d’événements, consultez [Démarrage rapide : Créer un hub d’événements avec le portail Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+    Vous avez besoin d’un hub d’événements déjà créé pour ce processus.  Pour créer un hub d’événements, consultez [Démarrage rapide : Créer un hub d’événements avec le portail Azure](../event-hubs/event-hubs-create.md)
 
     1. Cochez la case en regard de **Diffuser vers un hub d’événements**.
     2. Sélectionnez **Configurer** pour ouvrir le volet **Sélectionner un hub d’événements**.
@@ -68,7 +68,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez
     6. Sélectionnez OK.
 
     ### <a name="send-to-log-analytics"></a>Envoyer à Log Analytics
-    Vous devez avoir un espace de travail Log Analytics déjà créé et configuré pour ce processus.  Pour créer un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+    Vous devez avoir un espace de travail Log Analytics déjà créé et configuré pour ce processus.  Pour créer un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md).
 
     1. Cochez la case en regard de l’option **Envoyer à Log Analytics**.
     2. Dans la zone déroulante, sélectionnez l’**Abonnement** dans lequel se trouve votre espace de travail Log Analytics.
@@ -86,7 +86,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez
 
 ## <a name="activity-log"></a>Journal d’activité
 
-Le journal d’activité est généré par défaut. Les journaux d’activité sont conservés pendant 90 jours dans la banque de Journaux d’activité d’événements d’Azure. Pour en savoir plus sur ces journaux, lisez l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+Le journal d’activité est généré par défaut. Les journaux d’activité sont conservés pendant 90 jours dans la banque de Journaux d’activité d’événements d’Azure. Pour en savoir plus sur ces journaux, lisez l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="archive-to-storage-account-logs"></a>Archiver dans des journaux de compte de stockage
 
@@ -171,7 +171,7 @@ Connectez-vous à votre compte de stockage et récupérez les entrées de journa
 Quand les informations de diagnostic sont envoyées en streaming vers un hub d’événements, elles peuvent être utilisées pour une analyse centralisée des journaux dans un outil SIEM tiers avec intégration à Azure Monitor. Pour plus d’informations, consultez [Envoyer en streaming des données de supervision Azure vers un hub d’événements](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Envoyer à Log Analytics
-Les informations de diagnostic des ressources dans Azure peuvent être envoyées directement à un espace de travail Log Analytics où des requêtes complexes peuvent être exécutées sur les informations en vue d’un dépannage et d’une analyse.  Pour plus d’informations, consultez [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace).
+Les informations de diagnostic des ressources dans Azure peuvent être envoyées directement à un espace de travail Log Analytics où des requêtes complexes peuvent être exécutées sur les informations en vue d’un dépannage et d’une analyse.  Pour plus d’informations, consultez [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 22922972049ec78cc26f4d060fa1981d1f23a3ce
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a1a8df6d503ec5f5bf9c1e739e5ecf6486a85776
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912444"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697418"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
@@ -60,8 +60,8 @@ Si la machine virtuelle est saine, mais ne répond pas à la sonde, il se peut q
 1. Connectez-vous à la machine virtuelle principale. 
 2. Ouvrez une invite de commandes et exécutez la commande suivante pour vérifier qu’une application écoute sur le port de la sonde :   
             netstat -an
-3. Si l’état du port indiqué n’est pas **ÉCOUTE** , configurez le port approprié. 
-4. Vous pouvez également sélectionner un autre port, qui indique **ÉCOUTE** , et mettre à jour en conséquence la configuration de l’équilibreur de charge.              
+3. Si l’état du port indiqué n’est pas **ÉCOUTE**, configurez le port approprié. 
+4. Vous pouvez également sélectionner un autre port, qui indique **ÉCOUTE**, et mettre à jour en conséquence la configuration de l’équilibreur de charge.              
 
 ### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Cause 3 : Un pare-feu ou un groupe de sécurité réseau bloque le port sur les machines virtuelles du pool principal de l’équilibreur de charge  
 Si le pare-feu sur la machine virtuelle bloque le port de la sonde, ou un ou plusieurs groupes de sécurité réseau configurés sur le sous-réseau ou sur la machine virtuelle, ou n’autorise pas la sonde à atteindre le port, la machine virtuelle est incapable de répondre à la sonde d’intégrité.          
@@ -87,7 +87,7 @@ Si toutes les causes précédentes semblent vérifiées et résolues et si la ma
         - Si aucun paquet entrant n’est observé sur la machine virtuelle du pool principal, il se peut qu’une erreur de configuration des groupes de sécurité réseau ou UDR bloque le trafic. 
         - Si aucun paquet sortant n’est observé sur la machine virtuelle du pool principal, celle-ci doit être vérifiée pour y rechercher les problèmes non liés (par exemple, une application bloquant le port de la sonde). 
     - Vérifiez si les paquets de la sonde sont contraints d’atteindre une autre destination (probablement via les paramètres UDR) avant l’équilibreur de charge. Ce faisant, le trafic peut ne jamais atteindre la machine virtuelle principale. 
-* Modifiez le type de sonde (par exemple, remplacez HTTP par TCP) et configurez le port correspondant dans les listes de contrôle d’accès (ACL) des groupes de sécurité réseau et le pare-feu pour vérifier si le problème est lié à la configuration de la réponse de la sonde. Pour plus d’informations sur la configuration de la sonde d’intégrité, consultez la page [Endpoint Load Balancing health probe configuration (Configuration d’une sonde d’intégrité pour l’équilibrage de charge des points de terminaison)](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
+* Modifiez le type de sonde (par exemple, remplacez HTTP par TCP) et configurez le port correspondant dans les listes de contrôle d’accès (ACL) des groupes de sécurité réseau et le pare-feu pour vérifier si le problème est lié à la configuration de la réponse de la sonde. Pour plus d’informations sur la configuration de la sonde d’intégrité, consultez la page [Endpoint Load Balancing health probe configuration (Configuration d’une sonde d’intégrité pour l’équilibrage de charge des points de terminaison)](/archive/blogs/mast/endpoint-load-balancing-heath-probe-configuration-details).
 
 ## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Symptôme : Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas au trafic sur le port de données configuré
 
@@ -125,7 +125,7 @@ Pour l’équilibreur de charge public, l’adresse IP des clients Internet sera
 
 Si l’application hébergée sur la machine virtuelle principale d’un équilibreur de charge essaie d’accéder à une autre application hébergée dans la même machine virtuelle principale via la même interface réseau, ce scénario n’est pas pris en charge et échoue. 
 
-**Résolution**  : vous pouvez résoudre ce problème via l’une des méthodes suivantes :
+**Résolution** : vous pouvez résoudre ce problème via l’une des méthodes suivantes :
 * Configurez des machines virtuelles du pool principal distinctes par application. 
 * Configurez l’application dans les machines virtuelles à double carte d’interface réseau afin que chaque application utilise sa propre interface réseau et adresse IP. 
 
@@ -133,7 +133,7 @@ Si l’application hébergée sur la machine virtuelle principale d’un équili
 
 Si un serveur Load Balancer interne est configuré au sein d’un réseau virtuel, et si l’une des machines virtuelles principales participantes essaie d’accéder au serveur frontal Load Balancer interne, des défaillances peuvent se produire lorsque le flux est mappé à la machine virtuelle d’origine. Ce scénario n'est pas pris en charge.
 
-**Résolution** Il existe plusieurs façons pour débloquer ce scénario, notamment l’utilisation d’un proxy. Évaluez Application Gateway ou d’autres proxies tiers (par exemple, nginx ou haproxy). Pour plus d’informations sur Application Gateway, consultez la page [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/application-gateway-introduction.md).
+**Résolution** Il existe plusieurs façons pour débloquer ce scénario, notamment l’utilisation d’un proxy. Évaluez Application Gateway ou d’autres proxies tiers (par exemple, nginx ou haproxy). Pour plus d’informations sur Application Gateway, consultez la page [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/overview.md).
 
 **Détails** Les équilibreurs de charge internes ne traduisent pas les connexions sortantes vers le front-end d’un équilibreur de charge interne, car ils se trouvent tous deux dans un espace d’adressage IP privé. Les Load Balancer publics offrent des [connexions sortantes](load-balancer-outbound-connections.md) d’adresses IP privées à l’intérieur du réseau virtuel vers des adresses IP publiques. Pour les Load Balancer internes, cette approche évite le risque d’épuisement du port SNAT à l’intérieur de l’espace d’adressage IP interne unique lorsque la traduction n’est pas requise.
 
@@ -143,7 +143,7 @@ Lorsque le flux est mappé avec lui-même, le flux sortant apparaît comme prove
 
 Le symptôme pour repérer ce scénario est la présence de délais d’expiration de connexion intermittents lorsque le flux retourne au back-end qui est à l’origine du flux. Les solutions de contournement courantes incluent l’insertion d’une couche de proxy derrière le Load Balancer interne et l’utilisation de règles de style de retour direct du serveur (DSR). Pour plus d’informations, consultez [Serveurs frontaux multiples dans Azure Load Balancer](load-balancer-multivip-overview.md).
 
-Vous pouvez combiner un Load Balancer interne avec un proxy tiers ou utiliser une [Application Gateway](../application-gateway/application-gateway-introduction.md) interne pour les scénarios de proxy limités à HTTP/HTTPS. Vous pouvez utiliser un Load Balancer public pour résoudre ce problème, mais le scénario qui en résulte est sujet aux [épuisements SNAT](load-balancer-outbound-connections.md). Évitez cette deuxième approche, sauf si elle est soigneusement gérée.
+Vous pouvez combiner un Load Balancer interne avec un proxy tiers ou utiliser une [Application Gateway](../application-gateway/overview.md) interne pour les scénarios de proxy limités à HTTP/HTTPS. Vous pouvez utiliser un Load Balancer public pour résoudre ce problème, mais le scénario qui en résulte est sujet aux [épuisements SNAT](load-balancer-outbound-connections.md). Évitez cette deuxième approche, sauf si elle est soigneusement gérée.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Symptôme : Impossible de modifier le port principal pour la règle d'équilibrage de charge existante d'un équilibreur de charge qui dispose d'un groupe de machines virtuelles identiques déployé dans le pool principal. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Cause : Le port principal ne peut pas être modifié lorsqu’une règle d’équilibrage de charge est utilisée par une sonde d’intégrité pour l’équilibreur de charge référencé par le groupe de machines virtuelles identiques.
@@ -172,4 +172,3 @@ Si vous décidez d’ouvrir un dossier de support, collectez les informations su
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket d’incident](https://azure.microsoft.com/support/options/).
-
