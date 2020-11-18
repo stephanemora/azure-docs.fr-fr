@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
-ms.custom: mvc
-ms.openlocfilehash: 75d76c64c10bf3ecc28c32452618048119bb9a59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d43fab43b05ccfd88308390f58ba48ff9111b295
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547620"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842819"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Démarrage rapide : Créer un serveur flexible Azure Database pour PostgreSQL à l'aide d'Azure CLI
 
@@ -32,13 +32,13 @@ Si vous préférez installer et utiliser l'interface de ligne de commande locale
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id** , qui fait référence à l’ **ID d’abonnement** pour votre compte Azure.
+Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **id** issue de la commande **az login**  ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **id** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -79,7 +79,7 @@ Pour vous connecter à votre serveur, vous devez fournir des informations sur l�
 az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin** .
+Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin**.
 
 <!--FIXME-->
 ```json
