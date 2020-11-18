@@ -1,17 +1,17 @@
 ---
 title: Niveaux tarifaires - Azure Database pour MySQL
 description: Découvrez les différents niveaux tarifaires d’Azure Database pour MySQL, ce qui englobe les générations de calcul, les types de stockage, la taille de stockage, les vCores, la mémoire et les périodes de conservation des sauvegardes.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1d1a7e760a709c7068f16ca415a00de424b7e339
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124081"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535144"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 

@@ -1,17 +1,17 @@
 ---
 title: Procédures stockées de gestion - Azure Database pour MySQL
 description: Découvrez les procédures stockées d’Azure Database pour MySQL qui vous aideront à configurer la réplication des données entrantes, à définir le fuseau horaire et à supprimer des requêtes.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: e67130516410f64c32eadbf15857ca3ec4c976fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a1aa061bb8c8be3a676e0e5bb690b2a9749b6c8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542476"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536130"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procédures stockées de gestion Azure Database pour MySQL
 

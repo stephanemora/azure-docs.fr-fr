@@ -1,18 +1,18 @@
 ---
 title: Gérer des réplicas en lecture - AZURE CLI, API REST - Azure Database for MariaDB
 description: Cet article décrit comment configurer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide d’Azure CLI et de l’API REST.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8bb8ad4baec4c59a78afd6a92d69e94240c056a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 70da1e9c70bf80737065362c68781652dd9ab6e5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542622"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537507"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide d’Azure CLI et de l’API REST
 
@@ -32,7 +32,7 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
 > [!IMPORTANT]
-> Lorsque vous créez un réplica pour un serveur source qui n'en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+> Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en utilisant la commande suivante :
 
@@ -60,7 +60,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le serveur réplica sera à la hauteur du serveur maître.
+> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur maître.
 
 ### <a name="list-replicas-for-a-source-server"></a>Répertorier les réplicas d'un serveur source
 

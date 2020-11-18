@@ -1,17 +1,17 @@
 ---
 title: Gérer des réplicas en lecture - Portail Azure – Azure Database for MariaDB
 description: Cet article décrit comment configurer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide du portail.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742857"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537745"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database for MariaDB avec le portail Azure
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à créer et à gérer des réplicas en l
 ## <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
 > [!IMPORTANT]
-> Lorsque vous créez un réplica pour un serveur source qui n'en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+> Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en effectuant les étapes suivantes :
 

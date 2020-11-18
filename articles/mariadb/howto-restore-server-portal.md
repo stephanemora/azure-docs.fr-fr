@@ -1,17 +1,17 @@
 ---
 title: Sauvegarde et restauration - Portail Azure - Azure Database for MariaDB
 description: Cet article décrit comment restaurer un serveur dans Azure Database for MariaDB à l’aide du portail Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 6d050a8bd351617a6ab567243c5b1ef8d9f93ded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86115908"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539623"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database for MariaDB à l’aide du portail Azure
 
@@ -89,7 +89,7 @@ Si vous avez configuré votre serveur pour les sauvegardes redondantes géograph
 
 3. Sélectionnez **Sauvegarde** comme **Source de données**. Cette action charge une liste déroulante des serveurs pour lesquels les sauvegardes géoredondantes sont activées.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Accédez à Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Sélectionnez la source de données.":::
     
    > [!NOTE]
    > Lorsqu’un serveur est créé, il est possible qu’il ne soit pas immédiatement disponible pour la restauration géographique. Le remplissage des métadonnées nécessaires peut prendre quelques heures.
@@ -97,21 +97,21 @@ Si vous avez configuré votre serveur pour les sauvegardes redondantes géograph
 
 4. Sélectionnez la liste déroulante **Sauvegarde**.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Accédez à Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Sélectionnez la liste déroulante de sauvegarde.":::
 
 5. Sélectionnez le serveur source à partir duquel effectuer la restauration.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Accédez à Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Sélectionnez une sauvegarde.":::
 
 6. Le serveur utilisera par défaut les valeurs pour le nombre de **vCores**, la **période de conservation de sauvegarde**, l’**option de redondance de sauvegarde**, la **version du moteur** et les **informations d’identification d’administrateur**. Sélectionnez **Continuer**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Accédez à Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Poursuivez la sauvegarde.":::
 
 7. Renseignez le reste du formulaire avec vos préférences. Vous pouvez sélectionner n’importe quel **Emplacement**.
 
-    Après avoir sélectionné l’emplacement, vous pouvez sélectionner **Configurer le serveur** pour mettre à jour la **génération de calcul** (si disponible dans la région choisie), le nombre de **vCores**, la **période de conservation de sauvegarde** et l’**option de redondance de sauvegarde**. La modification du **niveau tarifaire** (De base, Usage général ou À mémoire optimisée) ou de la taille du**stockage** pendant la restauration n’est pas prise en charge.
+    Après avoir sélectionné l’emplacement, vous pouvez sélectionner **Configurer le serveur** pour mettre à jour la **génération de calcul** (si disponible dans la région choisie), le nombre de **vCores**, la **période de conservation de sauvegarde** et l’**option de redondance de sauvegarde**. La modification du **niveau tarifaire** (De base, Usage général ou À mémoire optimisée) ou de la taille du **stockage** pendant la restauration n’est pas prise en charge.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Accédez à Azure Database for MariaDB."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Remplissez le formulaire."::: 
 
 8. Sélectionnez **Vérifier + créer** pour passer en revue vos sélections. 
 

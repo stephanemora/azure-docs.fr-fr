@@ -1,18 +1,18 @@
 ---
 title: Déplacer des régions Azure - Portail Azure - Azure Database for MariaDB
 description: Déplacez un serveur Azure Database for MariaDB d’une région Azure vers une autre à l’aide d’un réplica en lecture et du portail Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425896"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540822"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Déplacer un serveur Azure Database for MariaDB vers une autre région à l’aide du portail Azure
 
@@ -34,9 +34,9 @@ Vous pouvez utiliser un [réplica en lecture entre région](concepts-read-replic
 Pour créer un serveur de réplica en lecture interrégional dans la région cible à l’aide du portail Azure, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Sélectionnez le serveur Azure Database for MariaDB que vous souhaitez utiliser comme serveur source. Cette action ouvre la page **Vue d’ensemble** .
-1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES** .
-1. Sélectionnez **Ajouter un réplica** .
+1. Sélectionnez le serveur Azure Database for MariaDB que vous souhaitez utiliser comme serveur source. Cette action ouvre la page **Vue d’ensemble**.
+1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
+1. Sélectionnez **Ajouter un réplica**.
 1. Entrez un nom pour le serveur de réplica.
 1. Sélectionnez l’emplacement du serveur de réplica. L'emplacement par défaut est le même que celui du serveur source. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
 1. Sélectionnez **OK** pour confirmer la création du réplica. Pendant la création de réplica, les données sont copiées depuis le serveur source vers le réplica. Le temps de création peut durer plusieurs minutes ou plus, proportionnellement à la taille du serveur source.
@@ -53,19 +53,19 @@ Pour créer un serveur de réplica en lecture interrégional dans la région cib
 En arrêtant la réplication sur le serveur de réplication, il devient un serveur autonome. Afin d’arrêter la réplication vers le réplica depuis le portail Azure, procédez comme suit :
 
 1. Une fois le réplica créé, recherchez et sélectionnez votre serveur source Azure Database for MariaDB. 
-1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES** .
+1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
 1. Sélectionnez le serveur réplica.
-1. Sélectionnez **Arrêter la réplication** .
-1. Validez que vous voulez arrêter la réplication en cliquant sur **OK** .
+1. Sélectionnez **Arrêter la réplication**.
+1. Validez que vous voulez arrêter la réplication en cliquant sur **OK**.
 
 ## <a name="clean-up-source-server"></a>Nettoyer le serveur source
 
 Vous pourriez vouloir supprimer le serveur source Azure Database for MariaDB. Pour ce faire, procédez comme suit :
 
 1. Une fois le réplica créé, recherchez et sélectionnez votre serveur source Azure Database for MariaDB.
-1. Dans la fenêtre **Vue d’ensemble** , sélectionnez **Supprimer** .
+1. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Supprimer**.
 1. Tapez le nom du serveur source pour confirmer que vous souhaitez le supprimer.
-1. Sélectionnez **Supprimer** .
+1. Sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

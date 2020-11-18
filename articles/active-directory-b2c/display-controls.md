@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961355"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532373"
 ---
 # <a name="display-controls"></a>Contrôles d’affichage
 
@@ -27,8 +27,6 @@ Un **contrôle d’affichage** est un élément d’interface utilisateur qui pr
 L’image suivante illustre une page d’inscription auto-déclarée avec deux contrôles d’affichage qui valident une adresse e-mail principale et une adresse e-mail secondaire.
 
 ![Exemple de contrôle d’affichage rendu](media/display-controls/display-control-email.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

@@ -1,17 +1,17 @@
 ---
 title: Niveaux tarifaires - Azure Database for MariaDB
 description: Découvrez les différents niveaux tarifaires d’Azure Database for MariaDB, notamment les générations de calcul, les types de stockage, la taille de stockage, les vCores, la mémoire et les périodes de conservation des sauvegardes.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125779"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536283"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 
@@ -108,7 +108,7 @@ La mise à l’échelle du stockage et la modification de la période de rétent
 
 ## <a name="pricing"></a>Tarifs
 
-Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/mariadb/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MariaDBServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments** , développez la catégorie **Bases de données** , puis choisissez **Azure Database for MariaDB** .
+Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/mariadb/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MariaDBServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, puis choisissez **Azure Database for MariaDB**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [Limitations de service](concepts-limits.md).

@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91761787"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure
@@ -54,7 +54,7 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
 
 1. Dans le [portail](https://portal.azure.com), accédez au réseau virtuel Resource Manager pour lequel vous souhaitez créer une passerelle de réseau virtuel.
 1. Dans la section **Paramètres** de votre réseau virtuel, sélectionnez **Sous-réseaux** pour développer les paramètres du Sous-réseau.
-1. Dans les paramètres **Sous-réseaux** , sélectionnez **+ Sous-réseau de la passerelle** pour ajouter un sous-réseau de passerelle. 
+1. Dans les paramètres **Sous-réseaux**, sélectionnez **+ Sous-réseau de la passerelle** pour ajouter un sous-réseau de passerelle. 
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Ajouter le sous-réseau de passerelle":::
 
@@ -64,8 +64,8 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
 
 ## <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
-1. Dans le portail, sur le côté gauche, sélectionnez **Créer une ressource** , puis entrez « Passerelle de réseau virtuel » dans la zone de recherche. Recherchez **passerelle de réseau virtuel** dans les résultats de la recherche et sélectionnez l’entrée. Dans la page **Passerelle de réseau virtuel** , sélectionnez **Créer**.
-1. Dans la page **Créer une passerelle de réseau virtuel** , entrez ou sélectionnez les paramètres suivants :
+1. Dans le portail, sur le côté gauche, sélectionnez **Créer une ressource**, puis entrez « Passerelle de réseau virtuel » dans la zone de recherche. Recherchez **passerelle de réseau virtuel** dans les résultats de la recherche et sélectionnez l’entrée. Dans la page **Passerelle de réseau virtuel**, sélectionnez **Créer**.
+1. Dans la page **Créer une passerelle de réseau virtuel**, entrez ou sélectionnez les paramètres suivants :
 
     | Paramètre | Valeur |
     | --------| ----- |
@@ -79,7 +79,7 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
     | Adresse IP publique | Sélectionnez **Créer nouveau**.|
     | Nom de l’adresse IP publique | Fournissez un nom pour l’adresse IP publique. |
 
-1. Sélectionnez **Vérifier + créer** , puis **Créer** pour commencer à créer la passerelle. Les paramètres sont validés et la passerelle se déploie. La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes.
+1. Sélectionnez **Vérifier + créer**, puis **Créer** pour commencer à créer la passerelle. Les paramètres sont validés et la passerelle se déploie. La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Champs de la page Créer une passerelle de réseau virtuel":::
 

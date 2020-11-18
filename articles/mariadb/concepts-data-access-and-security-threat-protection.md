@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection - Azure Database for MariaDB
 description: Azure ATP détecte les activités de base de données anormales qui indiquent la présence potentielle de menaces de sécurité pour la base de données.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425660"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536190"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Advanced Threat Protection pour Azure Database for MariaDB
 
@@ -34,11 +34,11 @@ Azure ATP pour Azure Database for MariaDB fournit une nouvelle couche de sécuri
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertes Azure ATP 
 Advanced Threat Protection pour Azure Database for MariaDB détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder aux bases de données ou à les exploiter et peut déclencher les alertes suivantes :
-- **Accès à partir d’un emplacement inhabituel**  : cette alerte est déclenchée en cas de modification du modèle d’accès à un serveur Azure Database for MariaDB, quand un utilisateur s’est connecté au serveur Azure Database for MariaDB à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime (une nouvelle application ou opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
-- **Accès à partir d’un centre de données Azure inhabituel**  : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database for MariaDB, quand un utilisateur s’est connecté au serveur à partir d’un centre de données Azure inhabituel observé sur ce serveur récemment. Dans certains cas, l’alerte détecte une action légitime (votre nouvelle application dans Azure, Power BI). Dans d’autres cas, l’alerte détecte une action malveillante provenant d’une ressource/d’un service Azure (ancien employé, attaquant externe).
-- **Accès à partir d’une entité de sécurité inconnue**  : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database for MariaDB, quand un utilisateur s’est connecté au serveur avec un principal inhabituel (utilisateur Azure Database for MariaDB). Dans certains cas, l’alerte détecte une action légitime (nouvelle application, opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
-- **Accès à partir d’une application potentiellement dangereuse**  : cette alerte est déclenchée quand une application potentiellement dangereuse est utilisée pour accéder à la base de données. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque à l’aide d’outils d’attaque courants.
-- **Attaque par force brute pour obtenir les informations d’identification d’Azure Database for MariaDB**  : cette alerte est déclenchée quand il existe un nombre anormalement élevé d’échecs de connexion avec des informations d’identification différentes. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque par force brute.
+- **Accès à partir d’un emplacement inhabituel** : cette alerte est déclenchée en cas de modification du modèle d’accès à un serveur Azure Database for MariaDB, quand un utilisateur s’est connecté au serveur Azure Database for MariaDB à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime (une nouvelle application ou opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
+- **Accès à partir d’un centre de données Azure inhabituel** : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database for MariaDB, quand un utilisateur s’est connecté au serveur à partir d’un centre de données Azure inhabituel observé sur ce serveur récemment. Dans certains cas, l’alerte détecte une action légitime (votre nouvelle application dans Azure, Power BI). Dans d’autres cas, l’alerte détecte une action malveillante provenant d’une ressource/d’un service Azure (ancien employé, attaquant externe).
+- **Accès à partir d’une entité de sécurité inconnue** : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database for MariaDB, quand un utilisateur s’est connecté au serveur avec un principal inhabituel (utilisateur Azure Database for MariaDB). Dans certains cas, l’alerte détecte une action légitime (nouvelle application, opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
+- **Accès à partir d’une application potentiellement dangereuse** : cette alerte est déclenchée quand une application potentiellement dangereuse est utilisée pour accéder à la base de données. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque à l’aide d’outils d’attaque courants.
+- **Attaque par force brute pour obtenir les informations d’identification d’Azure Database for MariaDB** : cette alerte est déclenchée quand il existe un nombre anormalement élevé d’échecs de connexion avec des informations d’identification différentes. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque par force brute.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

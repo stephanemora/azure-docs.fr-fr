@@ -1,18 +1,18 @@
 ---
 title: Gérer des réplicas en lecture - Azure PowerShell – Azure Database pour MySQL
 description: Découvrez comment configurer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide de PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9c8ce7519c6e2c84ef47fc78897c4b67b89e56a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe33730fc11bfc18b7d67471e1077fb9490385d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540997"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541927"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide de PowerShell
 
@@ -54,9 +54,9 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 La commande `New-AzMySqlReplica` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| ResourceGroupName |  myResourceGroup |  Groupe de ressources où le serveur réplica est créé.  |
+| ResourceGroupName |  myResourceGroup |  Groupe de ressources où le serveur réplica est créé.  |
 | Nom | mydemoreplicaserver | Nom du nouveau serveur réplica créé. |
 
 Pour créer un réplica en lecture entre régions, utilisez le paramètre **Location**. L’exemple suivant crée un réplica dans la région **USA Ouest**.
@@ -83,9 +83,9 @@ Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 La commande `Get-AzMySqlReplica` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| ResourceGroupName |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
+| ResourceGroupName |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
 | ServerName | mydemoserver | Nom ou ID du serveur source. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761479"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542675"
 ---
 # <a name="sizing-guidance"></a>Guide de dimensionnement
 
@@ -89,6 +89,7 @@ Chaque instance gérée SQL doit avoir les exigences de ressources minimales sui
 - Cœurs : 1
 
 Chaque pod d’instance gérée SQL créé comporte trois conteneurs :
+
 |Nom du conteneur|Demande UC|Demande de mémoire|Limite UC|Limite de mémoire|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Non spécifié|Non spécifié|Les requêtes de ressources de conteneur fluentbit _s’ajoutent_ aux requêtes spécifiées pour l’instance gérée SQL.||
@@ -104,6 +105,7 @@ Chaque nœud de groupe de serveurs PostgreSQL Hyperscale doit avoir les exigence
 - Cœurs : 1
 
 Chaque coordinateur de groupe de serveurs PostgreSQL Hyperscale ou pod de travail créé possède trois conteneurs :
+
 |Nom du conteneur|Demande UC|Demande de mémoire|Limite UC|Limite de mémoire|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Non spécifié|Non spécifié|Les requêtes de ressources de conteneur fluentbit _s’ajoutent_ aux requêtes spécifiées pour les nœuds de groupe de serveurs PostgreSQL Hyperscale.|

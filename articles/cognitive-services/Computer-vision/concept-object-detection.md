@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3957e15a09bd7e7ecd814d169451af3241108b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dfd1942c0c83433dab3c2091be29e62fbc05706
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80131675"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540737"
 ---
 # <a name="detect-common-objects-in-images"></a>Détecter des objets courants dans des images
 
@@ -97,7 +97,7 @@ Les limites de la détection d'objet doivent impérativement être prises en com
 
 ## <a name="use-the-api"></a>Utilisation de l’API
 
-La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Incluez `Objects` dans le paramètre de requête **visualFeatures**. Ensuite, lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"objects"`.
+La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Incluez `Objects` dans le paramètre de requête **visualFeatures**. Ensuite, lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"objects"`.
 
 * [Démarrage rapide : SDK .NET Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

@@ -1,19 +1,19 @@
 ---
 title: Gérer les règles de pare-feu - Azure CLI - Azure Database pour MySQL
 description: Cet article décrit comment créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de la ligne de commande Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eaddd8b2979b30251301ad041ea4b872c23d680b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546396"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541332"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l'accès à un serveur Azure Database pour MySQL à partir d'une adresse IP ou d'une plage d'adresses IP spécifique. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d'ensemble des pare-feu Azure Database pour MySQL, consultez [Règles de pare-feu d'Azure Database pour MySQL](./concepts-firewall-rules.md).
@@ -28,14 +28,14 @@ Des règles de réseau virtuel (VNet) peuvent également être utilisées pour s
 La commande **az mysql server firewall-rule** est utilisée à partir de l’interface de ligne de commande Azure pour créer, supprimer, répertorier, afficher et mettre à jour des règles de pare-feu.
 
 Commandes :
-- **create**  : créez une règle de pare-feu du serveur Azure MySQL.
-- **delete**  : supprimez une règle de pare-feu du serveur Azure MySQL.
-- **list**  : répertoriez les règles de pare-feu du serveur Azure MySQL.
-- **show**  : affichez les détails d’une règle de pare-feu du serveur Azure MySQL.
-- **update**  : mettez à jour une règle de pare-feu du serveur Azure MySQL.
+- **create** : créez une règle de pare-feu du serveur Azure MySQL.
+- **delete** : supprimez une règle de pare-feu du serveur Azure MySQL.
+- **list** : répertoriez les règles de pare-feu du serveur Azure MySQL.
+- **show** : affichez les détails d’une règle de pare-feu du serveur Azure MySQL.
+- **update** : mettez à jour une règle de pare-feu du serveur Azure MySQL.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Se connecter à Azure et répertorier les serveurs Azure Database pour MySQL
-Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login** .
+Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login**.
 
 1. Exécutez la commande suivante à partir de la ligne de commande :
     ```azurecli
@@ -65,7 +65,7 @@ Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azur
     ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Répertorier les règles de pare-feu d’un serveur Azure Database pour MySQL 
-À l’aide du nom du serveur et du nom de groupe de ressources, répertoriez les règles de pare-feu existantes sur le serveur. Utilisez la commande [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list).  Notez que l’attribut de nom de serveur est spécifié dans le commutateur **-server** et non dans le commutateur **--name** . 
+À l’aide du nom du serveur et du nom de groupe de ressources, répertoriez les règles de pare-feu existantes sur le serveur. Utilisez la commande [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list).  Notez que l’attribut de nom de serveur est spécifié dans le commutateur **-server** et non dans le commutateur **--name**. 
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```

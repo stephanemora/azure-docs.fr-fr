@@ -1,17 +1,17 @@
 ---
 title: Limitations - Azure Database pour MySQL
 description: Cet article décrit les limitations dans Azure Database pour MySQL, telles que le nombre de connexions et les options du moteur de stockage.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 2c70e862364aea549c10c24a9dcc1c424c792993
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 38c006bd1cda1494b284f742459aaf539ed4a2d1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652174"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539705"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.

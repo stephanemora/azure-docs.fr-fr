@@ -1,17 +1,17 @@
 ---
 title: Options de calcul et de stockage - Azure Database pour MySQL - Serveur flexible
 description: Cet article décrit les options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315171"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534668"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
 
@@ -132,7 +132,7 @@ Pour en savoir plus sur le nombre maximal d’IOPS effectif par taille de calcul
 
 Le nombre maximal d’IOPS effectif dépend du nombre maximal d’IOPS disponibles par taille de calcul. Consultez la formule ci-dessous et reportez-vous à la colonne *Débit du disque non mis en cache max. : IOPS/Mbits/s* dans la documentation [série B](../../virtual-machines/sizes-b-series-burstable.md), [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) et [série Edsv4](../../virtual-machines/edv4-edsv4-series.md).
 
-**Nombre maximal d’IOPS effectif** = MINIMUM ( *Débit du disque non mis en cache max. : IOPS/Mbits/s* de la taille de calcul et du stockage approvisionné en Gio x 3)
+**Nombre maximal d’IOPS effectif** = MINIMUM (*Débit du disque non mis en cache max. : IOPS/Mbits/s* de la taille de calcul et du stockage approvisionné en Gio x 3)
 
 Vous pouvez surveiller votre consommation d’E/S dans le portail Azure (avec Azure Monitor) à l’aide de la métrique [IO percent](./concepts-monitoring.md). Si vous avez besoin de plus d’IOPS, vous devez savoir si vous êtes limité par la taille de calcul ou par le stockage approvisionné. Mettez à l’échelle le calcul ou le stockage de votre serveur en conséquence.
 
@@ -153,7 +153,7 @@ La mise à l’échelle du stockage et la modification de la période de rétent
 
 ## <a name="pricing"></a>Tarifs
 
-Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/MySQL/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) affiche le coût mensuel dans l’onglet **Calcul et stockage** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments** , développez la catégorie **Bases de données** , sélectionnez **Azure Database pour MySQL** , puis **Serveur flexible** comme type de déploiement pour personnaliser les options.
+Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/MySQL/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) affiche le coût mensuel dans l’onglet **Calcul et stockage** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, sélectionnez **Azure Database pour MySQL**, puis **Serveur flexible** comme type de déploiement pour personnaliser les options.
 
 Si vous souhaitez optimiser le coût du serveur, vous pouvez prendre en compte les conseils suivants :
 

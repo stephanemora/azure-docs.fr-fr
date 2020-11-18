@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "87088391"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
@@ -37,7 +37,7 @@ La section suivante décrit comment publier une application web ASP.NET existant
 
    ![Page Publier - Flèche à droite]
 
-4. Sélectionnez l’icône **Machines virtuelles Microsoft Azure** , puis sélectionnez **Publier**.
+4. Sélectionnez l’icône **Machines virtuelles Microsoft Azure**, puis sélectionnez **Publier**.
 
    ![Page Publier - Icône Machine virtuelle Microsoft Azure]
 
@@ -96,7 +96,7 @@ Vos paramètres doivent ressembler à ce qui suit :
 ![Paramètres de publication - Page Connexion]
 
 #### <a name="save-user-name-and-password"></a>Enregistrer le nom d’utilisateur et le mot de passe
-- Évitez de fournir des informations d’authentification chaque fois que vous publiez. Pour cela, renseignez les champs **Nom d’utilisateur** et **Mot de passe** , puis sélectionnez la zone **Enregistrer le mot de passe**.
+- Évitez de fournir des informations d’authentification chaque fois que vous publiez. Pour cela, renseignez les champs **Nom d’utilisateur** et **Mot de passe**, puis sélectionnez la zone **Enregistrer le mot de passe**.
 - Utilisez le bouton **Valider la connexion** pour confirmer que vous avez entré les informations correctes.
 
 #### <a name="deploy-to-clean-web-server"></a>Déployer sur un nouveau serveur web

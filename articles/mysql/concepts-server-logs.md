@@ -1,17 +1,17 @@
 ---
 title: Journaux des requêtes lentes - Azure Database pour MySQL
 description: Décrit les journaux des requêtes lentes disponibles dans Azure Database pour MySQL et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358998"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534974"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.

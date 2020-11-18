@@ -1,17 +1,17 @@
 ---
 title: Créer des bases de données et des utilisateurs Azure Database pour MySQL
 description: Cet article explique comment créer des comptes d’utilisateur pour interagir avec un serveur Azure Database pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 3e1f24b3ae6133241660751293f52fec63dfbe73
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766869"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541417"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Créer des bases de données et des utilisateurs dans Azure Database pour MySQL
 
@@ -114,7 +114,7 @@ Après avoir créé un serveur Azure Database pour MySQL, vous pouvez utiliser l
 
 ## <a name="azure_superuser"></a>azure_superuser
 
-Tous les serveurs Azure Database pour MySQL sont créés avec un utilisateur appelé « azure_superuser ». Il s’agit d’un compte système créé par Microsoft pour gérer le serveur afin d’effectuer la surveillance, les sauvegardes et d’autres opérations de maintenance régulière. Les ingénieurs du support technique peuvent également utiliser ce compte pour accéder au serveur lors d’un incident d’authentification par certificat et doivent demander l’accès à l’aide de processus juste-à-temps (JIT).
+Tous les serveurs Azure Database pour MySQL sont créés avec un utilisateur appelé « azure_superuser ». Il s’agit d’un compte système créé par Microsoft pour gérer le serveur afin d’effectuer la surveillance, les sauvegardes et d’autres opérations de maintenance régulière. Les ingénieurs du support technique peuvent également utiliser ce compte pour accéder au serveur lors d’un incident d’authentification par certificat et il doivent demander l’accès à l’aide de processus juste-à-temps (JIT).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

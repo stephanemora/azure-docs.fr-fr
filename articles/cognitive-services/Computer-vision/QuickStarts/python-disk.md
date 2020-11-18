@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 6445199ee30c52cc426ddce0016a34df5d1e0112
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3798a58c40284c356eb2ec696a31fb71042a46e1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960473"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538850"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>Démarrage rapide : Analyser une image locale à l’aide de l’API REST Vision par ordinateur et de Python
 
-Dans ce guide de démarrage rapide, vous allez analyser une image stockée localement pour extraire des caractéristiques visuelles en utilisant l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
+Dans ce guide de démarrage rapide, vous allez analyser une image stockée localement pour extraire des caractéristiques visuelles en utilisant l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Vous pouvez exécuter ce démarrage rapide étape par étape à l’aide d’un bloc-notes Jupyter sur [MyBinder](https://mybinder.org). Pour lancer Binder, sélectionnez le bouton suivant :
 
@@ -181,4 +181,4 @@ Une réponse correcte est retournée au format JSON. La page Web d’exemple ana
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)
 
-* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

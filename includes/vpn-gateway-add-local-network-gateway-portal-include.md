@@ -9,21 +9,21 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5358bbbca716f5152a943c90cb7a5f735ae12047
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92479568"
 ---
 1. À partir du [portail Azure](https://portal.azure.com), dans **Rechercher dans les ressources, services et documents (G+/)** , saisissez **Passerelle de réseau local**. Recherchez la **Passerelle de réseau local** sous **Place de marché** dans les résultats de la recherche, puis sélectionnez-la. La page **Créer une passerelle de réseau local** s’ouvre.
-1. Dans la page **Créer une passerelle de réseau local** , spécifiez les valeurs de votre passerelle de réseau local.
+1. Dans la page **Créer une passerelle de réseau local**, spécifiez les valeurs de votre passerelle de réseau local.
 
    :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-ip.png" alt-text="Créer une passerelle de réseau local avec une adresse IP":::
 
    * **Nom :** Spécifiez un nom pour votre objet de passerelle de réseau local.
    * **Point de terminaison :** sélectionnez le type de point de terminaison du périphérique VPN local, à savoir **Adresse IP** ou **Nom de domaine complet (FQDN)** .
-      * **Adresse IP**  : si une adresse IP publique statique vous a été allouée à partir de votre fournisseur de services Internet pour votre périphérique VPN, sélectionnez l’option Adresse IP et précisez l’adresse IP comme indiqué dans l’exemple. Il s’agit de l’adresse IP publique du périphérique VPN auquel vous souhaitez que la passerelle Azure VPN se connecte. Si vous ne disposez pas de l’adresse IP actuellement, vous pouvez utiliser les valeurs indiquées dans l’exemple. Toutefois, vous devrez revenir en arrière et remplacer votre adresse IP d’espace réservé par l’adresse IP publique de votre périphérique VPN. Dans le cas contraire, Azure ne sera pas en mesure de se connecter.
-      * **FQDN**  : si vous disposez d’une adresse IP publique dynamique qui peut changer après un certain laps de temps, généralement déterminé par votre fournisseur de services Internet, vous pouvez utiliser un nom DNS constant avec un service DNS dynamique qui pointe vers l’adresse IP publique actuelle de votre périphérique VPN. Votre passerelle VPN Azure résoudra le nom FQDN pour savoir à quelle adresse IP publique se connecter. 
+      * **Adresse IP** : si une adresse IP publique statique vous a été allouée à partir de votre fournisseur de services Internet pour votre périphérique VPN, sélectionnez l’option Adresse IP et précisez l’adresse IP comme indiqué dans l’exemple. Il s’agit de l’adresse IP publique du périphérique VPN auquel vous souhaitez que la passerelle Azure VPN se connecte. Si vous ne disposez pas de l’adresse IP actuellement, vous pouvez utiliser les valeurs indiquées dans l’exemple. Toutefois, vous devrez revenir en arrière et remplacer votre adresse IP d’espace réservé par l’adresse IP publique de votre périphérique VPN. Dans le cas contraire, Azure ne sera pas en mesure de se connecter.
+      * **FQDN** : si vous disposez d’une adresse IP publique dynamique qui peut changer après un certain laps de temps, généralement déterminé par votre fournisseur de services Internet, vous pouvez utiliser un nom DNS constant avec un service DNS dynamique qui pointe vers l’adresse IP publique actuelle de votre périphérique VPN. Votre passerelle VPN Azure résoudra le nom FQDN pour savoir à quelle adresse IP publique se connecter. 
    * **Espace d’adressage** fait référence aux plages d’adresses du réseau qui représente ce réseau local. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec les plages d’autres réseaux auxquels vous souhaitez vous connecter. Azure achemine la plage d’adresses que vous spécifiez vers l’adresse IP du périphérique VPN local. *Utilisez ici vos propres valeurs (et non les valeurs indiquées dans l’exemple) si vous voulez vous connecter à votre site local*.
    * **Configurer les paramètres BGP :** À utiliser uniquement durant la configuration de BGP. pour la configuration du protocole BGP.
    * **Abonnement :** Vérifiez que l’abonnement approprié s’affiche.

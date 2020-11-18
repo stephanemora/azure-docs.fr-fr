@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection – Portail Azure - Azure Database pour MySQL
 description: Découvrez comment configurer Advanced Threat Protection de façon à détecter les activités de base de données anormales pouvant indiquer des menaces sur la sécurité de la base de données.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b30bd36dca6f866b8f3e6e8a0b133a6dd61b239b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541449"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541434"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Protection avancée contre les menaces d’Azure Database pour MySQL
 
@@ -32,7 +32,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 3. Dans la page de configuration **Protection avancée contre les menaces (préversion)** :
 
    - Activez la protection avancée contre les menaces sur le serveur.
-   - Dans les **paramètres de protection avancée contre les menaces** , dans la zone de texte **Envoyer les alertes à** , fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
+   - Dans les **paramètres de protection avancée contre les menaces**, dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurer la détection des menaces":::
 
@@ -42,15 +42,15 @@ Vous recevez une notification par e-mail quand des activités anormales sont dé
  
 1. Cliquez sur le lien **Afficher les alertes récentes** figurant dans l’e-mail pour ouvrir le portail Azure et accéder à la page d’alertes d’Azure Security Center, qui fournit une vue d’ensemble des menaces actives détectées sur la base de données SQL.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Configurer la détection des menaces":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Rapports d’activités anormales":::
 
     Affichez les menaces actives :
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Configurer la détection des menaces":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Menaces actives":::
 
 2. Cliquez sur une alerte spécifique pour obtenir des détails supplémentaires et des actions permettant d’examiner cette menace et d’atténuer les menaces futures.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Configurer la détection des menaces":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Alerte spécifique":::
 
 ## <a name="explore-threat-detection-alerts"></a>Explorer les alertes de détection de menace
 
@@ -58,7 +58,7 @@ SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](
 
 Cliquez sur **Threat detection alert** (Alerte de détection des menaces) pour ouvrir la page d’alertes d’Azure Security Center et obtenir une vue d’ensemble des menaces SQL actives détectées sur la base de données.
 
-   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Configurer la détection des menaces":::
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Alerte de détection des menaces":::
    
 
 ## <a name="next-steps"></a>Étapes suivantes

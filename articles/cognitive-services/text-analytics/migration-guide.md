@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/19/2020
 ms.author: aahi
-ms.openlocfilehash: 172e684c6edbab4d7d47c8cf78e35ae38de3a0af
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 056009c34aec97a8c5c45aea4b93ba41977fa7a6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461785"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518190"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrer vers la version 3.x de l’API Analyse de texte
 
@@ -38,7 +38,7 @@ Si votre application utilise l’API REST, mettez à jour son point de terminais
 Consultez la documentation de référence pour obtenir des exemples de réponse JSON.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Bibliothèques clientes
 
@@ -70,7 +70,7 @@ Vous devez également mettre à jour votre application pour utiliser les [catég
 Consultez la documentation de référence pour obtenir des exemples de réponse JSON.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
+* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Bibliothèques clientes
 
@@ -92,7 +92,7 @@ Si votre application utilise l’API REST, mettez à jour son point de terminais
 Consultez la documentation de référence pour obtenir des exemples de réponse JSON.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Languages)
 
 ### <a name="client-libraries"></a>Bibliothèques clientes
 

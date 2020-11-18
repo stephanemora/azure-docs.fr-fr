@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 4eb2835bd09e6548149ee90cb7232bf230de0300
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489146"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538748"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
@@ -186,7 +186,7 @@ L’API Lire prend en charge des images et des documents contenant plusieurs lan
 
 ## <a name="ocr-api"></a>API OCR
 
-[L’API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) applique un modèle de reconnaissance plus ancien, ne prend en charge que les images et s’exécute de façon synchrone, retournant immédiatement le texte détecté. Consultez les [langues prises en charge par OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) puis l’API Lire.
+[L’API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) applique un modèle de reconnaissance plus ancien, ne prend en charge que les images et s’exécute de façon synchrone, retournant immédiatement le texte détecté. Consultez les [langues prises en charge par OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) puis l’API Lire.
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
 

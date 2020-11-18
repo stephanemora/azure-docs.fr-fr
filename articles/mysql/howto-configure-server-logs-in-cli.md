@@ -1,19 +1,19 @@
 ---
 title: Accéder aux journaux des requêtes lentes - Azure CLI - Azure Database pour MySQL
 description: Cet article décrit comment accéder aux journaux des requêtes lentes dans Azure Database pour MySQL à l’aide de l’interface Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a662fe9300d78591cc7ae1fcff67f9b3f93ab8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 945a67f81010a61adf814f6f6f422eba5001b48d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501216"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541570"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurer et consulter les journaux des requêtes lentes à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux des requêtes lentes Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire en ligne de commande Azure.

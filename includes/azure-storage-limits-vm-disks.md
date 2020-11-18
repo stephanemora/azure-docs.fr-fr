@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ffb07220267a2c192b4aad2405185c80bd9abbc0
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755525"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523800"
 ---
 Une machine virtuelle Azure prend en charge l’attachement d’un certain nombre de disques de données. En fonction des cibles d’évolutivité et de performances des disques de données d’une machine virtuelle, vous pouvez déterminer le nombre et le type de disque dont vous avez besoin pour répondre à vos exigences de performances et de capacité.
 
@@ -31,7 +31,7 @@ Le tableau suivant illustre les limite par défaut et maximales du nombre de res
 
 **Pour les comptes de stockage standard :** un compte de stockage standard a un taux de requêtes total maximal de 20 000 opérations d’E/S par seconde. Le nombre d’opérations d’E/S par seconde sur l’ensemble de vos disques de machine virtuelle dans un compte de stockage standard ne doit pas dépasser cette limite.
   
-    You can roughly calculate the number of highly utilized disks supported by a single Standard storage account based on the request rate limit. For example, for a Basic tier VM, the maximum number of highly utilized disks is about 66, which is 20,000/300 IOPS per disk. The maximum number of highly utilized disks for a Standard tier VM is about 40, which is 20,000/500 IOPS per disk. 
+Vous pouvez calculer approximativement le nombre de disques fortement sollicités pris en charge par un seul compte de stockage standard en vous basant sur la limite du taux de demandes. Par exemple, pour une machine virtuelle de niveau de base, le nombre maximal de disques fortement sollicités est d’environ 66, soit 20 000/300 opérations d’E/S par seconde par disque. Pour une machine virtuelle de niveau standard, le nombre maximal de disques fortement sollicités est d’environ 40, soit 20 000/500 IOPS par disque. 
 
 **Pour les comptes de stockage Premium :** un compte de stockage Premium a un débit total maximum de 50 Gbits/s. Le débit total sur l'ensemble de vos disques de machine virtuelle ne doit pas dépasser cette limite.
 

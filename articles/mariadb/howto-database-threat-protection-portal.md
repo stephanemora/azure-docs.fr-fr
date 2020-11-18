@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection - Portail Azure - Azure Database for MariaDB
 description: La protection contre les menaces pour Azure Database for MariaDB détecte les activités de base de données anormales indiquant des menaces de sécurité potentielles pour la base de données.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7734feddabb1a4a86e7932da3ef4adc57352637e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425969"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542692"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection pour Azure Database for MariaDB
 
@@ -31,7 +31,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 3. Dans la page de configuration **Protection avancée contre les menaces (préversion)** :
 
    - Activez la protection avancée contre les menaces sur le serveur.
-   - Dans les **paramètres de protection avancée contre les menaces** , dans la zone de texte **Envoyer les alertes à** , fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
+   - Dans les **paramètres de protection avancée contre les menaces**, dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
   
    ![Configurer la détection des menaces](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 

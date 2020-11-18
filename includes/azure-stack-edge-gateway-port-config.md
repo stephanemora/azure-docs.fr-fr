@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/16/2019
 ms.author: alkohli
-ms.openlocfilehash: baf18ae0263215e6ff83570557255d06c3117fd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 417fbdea3f46dfb3e90ab4890cec5e88c5aa4e07
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89081452"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523985"
 ---
-| N° de port| Entrant ou sortant | Étendue de ports| Obligatoire|   Notes |   |
-|--------|-----|-----|-----------|----------|-----------|
+| N° de port| Entrant ou sortant | Étendue de ports| Obligatoire | Notes |
+|---------|-----------|-----------|----------|-------|
 | TCP 80 (HTTP)|Sortie|WAN |Non|Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br>Le proxy web sortant est configurable par l’utilisateur. |
 | TCP 443 (HTTPS)|Sortie|WAN|Oui|Le port de sortie est utilisé pour accéder aux données dans le cloud.<br>Le proxy web sortant est configurable par l’utilisateur.|
 | UDP 123 (NTP)|Sortie|WAN|Dans certains cas<br>Voir les remarques|Ce port est requis seulement si vous utilisez un serveur NTP Internet.  |   

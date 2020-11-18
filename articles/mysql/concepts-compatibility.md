@@ -1,17 +1,17 @@
 ---
 title: Compatibilité des pilotes et outils - Azure Database pour MySQL
 description: Cet article décrit les pilotes MySQL et les outils de gestion compatibles avec Azure Database pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8d222eca76f020703f89dd1bdd5848cec4bc52ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ea7af0ec9c740c07cd3a5e4ebd88a9ad1a031d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006531"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542641"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Pilotes MySQL et outils de gestion compatibles avec Azure Database pour MySQL
 Cet article décrit les pilotes et outils de gestion compatibles avec Azure Database pour MySQL.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: d3a30d13aeef2ffd8e03a5a5d7ddf8b58a336ee5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: cdc4711f2fe24efa4d43d92800c174b77dc6dada
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348319"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542522"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Déployer une application double pile IPv6 dans Azure – PowerShell
 
@@ -152,7 +152,7 @@ $lb = New-AzLoadBalancer `
 -FrontendIpConfiguration $frontendIPv4,$frontendIPv6 `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
 -LoadBalancingRule $lbrule_v4,$lbrule_v6 `
--probe $probe
+-Probe $probe
 ```
 
 ## <a name="create-network-resources"></a>Créer des ressources réseau
@@ -160,7 +160,7 @@ Avant de déployer des machines virtuelles et de tester l’équilibreur de char
 ### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 Pour améliorer la haute disponibilité de votre application, placez vos machines virtuelles dans un groupe à haute disponibilité.
 
-Créez un groupe à haute disponibilité avec la commande [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). L’exemple suivant permet de créer un groupe à haute disponibilité nommé *myAvailabilitySet*  :
+Créez un groupe à haute disponibilité avec la commande [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). L’exemple suivant permet de créer un groupe à haute disponibilité nommé *myAvailabilitySet* :
 
 ```azurepowershell-interactive
 $avset = New-AzAvailabilitySet `
@@ -206,7 +206,7 @@ $rule2 = New-AzNetworkSecurityRuleConfig `
   -Direction Inbound `
   -Priority 200 `
   -SourceAddressPrefix * `
-  -SourcePortRange 80 `
+  -SourcePortRange * `
   -DestinationAddressPrefix * `
   -DestinationPortRange 80
 ```
@@ -223,7 +223,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Créez un réseau virtuel avec [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L’exemple suivant crée un réseau virtuel nommé *dsVnet* avec un sous-réseau nommé *mySubnet*  :
+Créez un réseau virtuel avec [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L’exemple suivant crée un réseau virtuel nommé *dsVnet* avec un sous-réseau nommé *mySubnet* :
 
 ```azurepowershell-interactive
 # Create dual stack subnet

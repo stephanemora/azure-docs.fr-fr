@@ -1,19 +1,19 @@
 ---
 title: Sauvegarde et restauration – Azure PowerShell – Azure Database pour MySQL
 description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837273"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539010"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Comment sauvegarder et restaurer un serveur Azure Database pour MySQL à l’aide de PowerShell
 
@@ -75,9 +75,9 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Le jeu de paramètres **PointInTimeRestore** de la cmdlet `Restore-AzMySqlServer` requiert les paramètres suivants :
 
-| Paramètre | Valeur suggérée | Description  |
+| Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
-| ResourceGroupName |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
+| ResourceGroupName |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
 | Nom | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Sélectionnez un point dans le temps à restaurer. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme **2020-03-13T05:59:00-08:00**. Vous pouvez également utiliser le format UTC Zulu, par exemple, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Utilisez le mode de point dans le temps pour effectuer la restauration. |
@@ -117,7 +117,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Le jeu de paramètres **GeoRestore** de la cmdlet `Restore-AzMySqlServer` requiert les paramètres suivants :
 
-| Paramètre | Valeur suggérée | Description  |
+| Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 |ResourceGroupName | myResourceGroup | Le nom du groupe de ressources auquel appartient le nouveau serveur.|
 |Nom | mydemoserver-georestored | Le nom du nouveau serveur. |

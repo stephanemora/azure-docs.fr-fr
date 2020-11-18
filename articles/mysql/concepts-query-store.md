@@ -1,17 +1,17 @@
 ---
 title: Magasin de données des requêtes - Azure Database pour MySQL
 description: Découvrez la fonctionnalité Magasin des requêtes dans Azure Database pour MySQL qui vous permet de suivre les performances dans le temps.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766131"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535076"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Surveiller les performances d’Azure Database pour MySQL avec Magasin de données des requêtes
 
@@ -35,13 +35,13 @@ Le Magasin des requêtes étant une fonctionnalité avec option d’adhésion, e
 
 1. Connectez-vous au Portail Azure, puis sélectionnez votre serveur Azure Database pour MySQL.
 1. Sélectionnez **Paramètres du serveur** dans la section **Paramètres** du menu.
-1. Recherchez le paramètre  query_store_capture_mode .
-1. Définissez la valeur sur ALL  et cliquez sur **Enregistrer**.
+1. Recherchez le paramètre query_store_capture_mode.
+1. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
 
 Pour activer les statistiques d’attente dans votre magasin des requêtes, procédez comme suit :
 
-1. Recherchez le paramètre  query_store_wait_sampling_capture_mode.
-1. Définissez la valeur sur ALL  et cliquez sur **Enregistrer**.
+1. Recherchez le paramètre query_store_wait_sampling_capture.
+1. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
 
 Autoriser jusqu’à 20 minutes de conservation pour le premier lot de données dans la base de données mysql.
 
@@ -104,7 +104,7 @@ Les options suivantes s’appliquent spécifiquement aux statistiques d’attent
 > [!NOTE]
 > Actuellement **query_store_capture_mode** remplace cette configuration, ce qui signifie que **query_store_capture_mode** et **query_store_wait_sampling_capture_mode** doivent être activés pour TOUS afin que les statistiques d’attente fonctionnent. Si **query_store_capture_mode** est désactivé, les statistiques d’attente sont également désactivées dans la mesure où les statistiques d’attente utilisent le performance_schema activé et le query_text capturé par le magasin de données des requêtes.
 
-Utilisez le  [Portail Azure](howto-server-parameters.md) ou l’ [interface de ligne de commande Azure](howto-configure-server-parameters-using-cli.md) pour obtenir ou définir une valeur différente pour un paramètre.
+Utilisez le [portail Azure](howto-server-parameters.md) ou l’interface [Azure CLI](howto-configure-server-parameters-using-cli.md) pour obtenir ou définir une valeur différente pour un paramètre.
 
 ## <a name="views-and-functions"></a>Vues et fonctions
 

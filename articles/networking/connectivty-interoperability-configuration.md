@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "86171854"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : détails de la configuration de test
@@ -51,7 +51,7 @@ La figure suivante montre la configuration de la connexion entre le circuit Expr
 
 [![5]][5]
 
-La liste suivante montre la configuration de routeur CE principal pour la connectivité de peering privé ExpressRoute. (Les routeurs Cisco ASR1000 sont utilisés en tant que routeurs CE dans l’initialisation (tearDown) de test.) Quand les circuits ExpressRoute et le VPN de site à site sont configurés en parallèle pour connecter un réseau local à Azure, Azure choisit en priorité le circuit ExpressRoute par défaut. Pour éviter un routage asymétrique, le réseau local doit également donner la priorité à la connectivité ExpressRoute plutôt qu’à la connectivité VPN de site à site. La configuration suivante établit la hiérarchisation des priorités en utilisant l’attribut BGP **local-préférence**  :
+La liste suivante montre la configuration de routeur CE principal pour la connectivité de peering privé ExpressRoute. (Les routeurs Cisco ASR1000 sont utilisés en tant que routeurs CE dans l’initialisation (tearDown) de test.) Quand les circuits ExpressRoute et le VPN de site à site sont configurés en parallèle pour connecter un réseau local à Azure, Azure choisit en priorité le circuit ExpressRoute par défaut. Pour éviter un routage asymétrique, le réseau local doit également donner la priorité à la connectivité ExpressRoute plutôt qu’à la connectivité VPN de site à site. La configuration suivante établit la hiérarchisation des priorités en utilisant l’attribut BGP **local-préférence** :
 
 ```config
 interface TenGigabitEthernet0/0/0.300

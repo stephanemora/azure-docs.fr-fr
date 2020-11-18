@@ -1,19 +1,19 @@
 ---
 title: Sauvegarde et restauration – Azure PowerShell – Azure Database for MariaDB
 description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database for MariaDB à l’aide d’Azure PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0207be2c983fd986d5852403e36462d2d7d2cdda
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424501"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539615"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Comment sauvegarder et restaurer un serveur Azure Database for MariaDB à l’aide de PowerShell
 
@@ -41,9 +41,9 @@ Lors de la création du serveur, vous choisissez entre la configuration de votre
 > [!NOTE]
 > Après la création d’un serveur, son type de redondance (géographique ou locale) ne peut pas être modifié.
 
-Lors de la création d’un serveur via la commande `New-AzMariaDbServer`, le paramètre **GeoRedundantBackup** décide de votre option de redondance de sauvegarde. Si **Activé** , des sauvegardes géoredondantes sont effectuées. Si **Désactivé** , des sauvegardes redondantes localement sont effectuées.
+Lors de la création d’un serveur via la commande `New-AzMariaDbServer`, le paramètre **GeoRedundantBackup** décide de votre option de redondance de sauvegarde. Si **Activé**, des sauvegardes géoredondantes sont effectuées. Si **Désactivé**, des sauvegardes redondantes localement sont effectuées.
 
-La période de rétention des sauvegardes est définie par le paramètre **BackupRetentionDay** .
+La période de rétention des sauvegardes est définie par le paramètre **BackupRetentionDay**.
 
 Pour plus d’informations sur la définition de ces valeurs lors de la création d’un serveur, consultez [Créer un serveur Azure Database for MariaDB à l’aide de PowerShell](quickstart-create-mariadb-server-database-using-azure-powershell.md).
 
@@ -79,7 +79,7 @@ Le jeu de paramètres **PointInTimeRestore** de la cmdlet `Restore-AzMariaDbServ
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
 | Nom | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
-| RestorePointInTime | 2020-03-13T13:59:00Z | Sélectionnez un point dans le temps à restaurer. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme **2020-03-13T05:59:00-08:00** . Vous pouvez également utiliser le format UTC Zulu, par exemple, **2018-03-13T13:59:00Z** . |
+| RestorePointInTime | 2020-03-13T13:59:00Z | Sélectionnez un point dans le temps à restaurer. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme **2020-03-13T05:59:00-08:00**. Vous pouvez également utiliser le format UTC Zulu, par exemple, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Utilisez le mode de point dans le temps pour effectuer la restauration. |
 
 Lorsque vous restaurez un serveur à un point dans le temps antérieur, un nouveau serveur est créé. Le serveur d’origine et ses bases de données au point dans le temps spécifié sont copiés sur le nouveau serveur.
@@ -94,7 +94,7 @@ Le nouveau serveur créé lors d’une restauration ne dispose pas des points de
 
 Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde du serveur existant. Ce nouveau serveur peut être créé dans toutes les régions dans lesquelles Azure Database for MariaDB est disponible.
 
-Pour créer un serveur à l’aide d’une sauvegarde géoredondante, utilisez la commande `Restore-AzMariaDbServer` avec le paramètre **UseGeoRestore** .
+Pour créer un serveur à l’aide d’une sauvegarde géoredondante, utilisez la commande `Restore-AzMariaDbServer` avec le paramètre **UseGeoRestore**.
 
 > [!NOTE]
 > Lorsqu’un serveur est créé, il est possible qu’il ne soit pas immédiatement disponible pour la restauration géographique. Le remplissage des métadonnées nécessaires peut prendre quelques heures.
@@ -106,7 +106,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Cet exemple crée un nouveau serveur appelé **mydemoserver-georestored** dans la région USA Est appartenant à **myresourcegroup** . Il s’agit d’un serveur à usage général, de 5e génération avec 8 vCores. Le serveur est créé à partir de la sauvegarde géoredondante **mydemoserver** , qui est également dans le groupe de ressources **myresourcegroup** .
+Cet exemple crée un nouveau serveur appelé **mydemoserver-georestored** dans la région USA Est appartenant à **myresourcegroup**. Il s’agit d’un serveur à usage général, de 5e génération avec 8 vCores. Le serveur est créé à partir de la sauvegarde géoredondante **mydemoserver**, qui est également dans le groupe de ressources **myresourcegroup**.
 
 Pour créer le nouveau serveur dans un groupe de ressources différent du serveur existant, spécifiez le nouveau nom du groupe de ressources à l’aide du paramètre **ResourceGroupName** comme indiqué dans l’exemple suivant :
 

@@ -1,18 +1,18 @@
 ---
 title: Augmenter automatiquement le stockage – Azure PowerShell – Azure Database pour MySQL
 description: Cet article explique comment vous pouvez activer la croissance automatique du stockage avec PowerShell dans Azure Database pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fa9f9b07eb20c995bc0cf47dd3bf72f236c3112
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e8c9f6f66e484fbd9ebe5c15934936d6e5c59073
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546821"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542029"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Croissance automatique du stockage sur le serveur Azure Database pour MySQL à l’aide de PowerShell
 

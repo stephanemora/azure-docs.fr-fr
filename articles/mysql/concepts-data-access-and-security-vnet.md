@@ -1,17 +1,17 @@
 ---
 title: Points de terminaison de service de réseau virtuel - Azure Database pour MySQL
 description: Décrit le fonctionnement des points de terminaison des services de réseau virtuel de votre serveur Azure Database pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: dba6b3f2137230ebe95f1bc89156cf6b127c8f52
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 225afcbafeaf7213b4f040a07d709d33e46b44f4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428134"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540805"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
 
@@ -35,7 +35,7 @@ Vous pouvez également envisager d’utiliser [Azure Private Link](concepts-data
 
 **Sous-réseau :** Un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
 
-**Point de terminaison de service de réseau virtuel :** Un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql** , qui fait référence au service Azure nommé SQL Database. Ce nom de service s’applique également aux services Azure Database pour MySQL et PostgreSQL. Il est important de noter que lorsque le nom de service **Microsoft.Sql** est appliqué à un point de terminaison de service de réseau virtuel, il configure le trafic de point de terminaison de service pour l’ensemble des services Azure SQL Database, y compris les serveurs Azure Database pour MySQL et Azure Database pour PostgreSQL sur le sous-réseau. 
+**Point de terminaison de service de réseau virtuel :** Un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database. Ce nom de service s’applique également aux services Azure Database pour MySQL et PostgreSQL. Il est important de noter que lorsque le nom de service **Microsoft.Sql** est appliqué à un point de terminaison de service de réseau virtuel, il configure le trafic de point de terminaison de service pour l’ensemble des services Azure SQL Database, y compris les serveurs Azure Database pour MySQL et Azure Database pour PostgreSQL sur le sous-réseau. 
 
 **Règle de réseau virtuel :** une règle de réseau virtuel pour le serveur Azure Database pour MySQL est un sous-réseau répertorié dans la liste de contrôle d’accès (ACL) du serveur Azure Database pour MySQL. Pour figurer dans l’ACL pour votre serveur Azure Database pour MySQL, le sous-réseau doit contenir le nom de type **Microsoft.Sql**.
 
@@ -88,7 +88,7 @@ Il existe une séparation des rôles de sécurité dans l’administration des p
 - **Administrateur réseau :** &nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :** &nbsp; mettez à jour la liste de contrôle d’accès (ACL) pour ajouter le sous-réseau donné au serveur Azure Database pour MySQL.
 
-*Alternative au RBAC Azure :*
+*Alternative Azure RBAC :*
 
 Les rôles d’administrateur de réseau et d’administrateur de base de données disposent de plus de fonctionnalités que nécessaires pour gérer les règles de réseau virtuel. Seule une partie de ces fonctionnalités est réellement nécessaire.
 

@@ -1,17 +1,17 @@
 ---
 title: Suggestions relatives au niveau de performance - Azure Database for MariaDB
 description: Cet article décrit la fonctionnalité Recommandations sur les performances dans Azure Database for MariaDB
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 05bc0f1ae50f74cc7c8ab2b236d73bdb4a6fe787
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a20b8a43c8955e1afea7a7157e3e73425fb0d806
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84484695"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540465"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recommandations sur les performances dans Azure Database for MariaDB
 
@@ -35,7 +35,7 @@ Sélectionnez **Analyser** et choisissez une base de données, l’analyse comme
 
 La fenêtre **Recommandations** affiche une liste de recommandations si des recommandations ont été trouvées, ainsi que l’ID de requête associé qui a généré cette recommandation. Avec l’ID de requête, vous pouvez utiliser la vue [mysql.query_store](concepts-query-store.md#mysqlquery_store) pour en savoir plus sur la requête.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Page d’accueil des suggestions sur les performances":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nouvelle page Suggestions sur les performances":::
 
 Les recommandations ne sont pas appliquées automatiquement. Pour appliquer la recommandation, copiez le texte de la requête et exécutez-le à partir du client de votre choix. N’oubliez pas de tester et de surveiller pour évaluer la recommandation.
 

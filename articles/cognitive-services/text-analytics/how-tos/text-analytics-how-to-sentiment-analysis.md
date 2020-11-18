@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 87e6ad488438ae28467f6e904fbb57f7ca5448ff
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366755"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518173"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -78,9 +78,9 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou la **console de test d’API** via les liens de référence suivants pour en structurer une rapidement et l’envoyer. 
 
-#### <a name="version-31-preview1"></a>[Version 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Version 3.1-preview.2](#tab/version-3-1)
 
-[Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
@@ -95,13 +95,13 @@ Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l�
 > [!NOTE]
 > Vous pouvez trouver votre clé et votre point de terminaison pour votre ressource Analyse de texte dans le portail Azure. Ces informations se trouvent dans la page **Démarrage rapide** de la ressource, sous **gestion des ressources**. 
 
-#### <a name="version-31-preview1"></a>[Version 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Version 3.1-preview.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 Pour avoir les résultats de l’exploration des opinions, vous devez inclure le paramètre `opinionMining=true`. Par exemple :
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 La valeur par défaut de ce paramètre est `false`. 
 
@@ -142,7 +142,7 @@ L’analyse des sentiments retourne une étiquette de sentiment et un score de c
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données. En raison de la prise en charge multilingue et des émojis, la réponse peut contenir des décalages de texte. Pour plus d’informations, consultez le [guide pratique pour traiter les décalages](../concepts/text-offsets.md).
 
-#### <a name="version-31-preview1"></a>[Version 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Version 3.1-preview.2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>Exemple de réponse d’Analyse des sentiments v3.1
 

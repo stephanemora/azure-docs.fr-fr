@@ -1,17 +1,17 @@
 ---
 title: Accéder aux journaux des requêtes lentes - Portail Azure - Azure Database for MariaDB
 description: Cet article explique comment configurer et accéder aux journaux des requêtes lentes dans Azure Database for MariaDB à partir du portail Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: a2642ebbad7c8d7a2e092a6e00929e32b72b52d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5ee948daecafc061910f36d2ac95d15338bfb38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104977"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539938"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes dans Azure Database pour Maria DB à partir du portail Azure
 

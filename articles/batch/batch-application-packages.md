@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91277697"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
@@ -64,7 +64,7 @@ Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) ou les API de 
 
 Pour utiliser des packages d’application, vous devez lier un [compte de stockage Azure](accounts.md#azure-storage-accounts) à votre compte Batch. Le service Batch utilisera le compte de stockage associé pour stocker vos packages d’application. Nous vous recommandons de créer un compte de stockage spécifiquement destiné à être utilisé avec votre compte Batch.
 
-Si vous n’avez pas encore configuré de compte de stockage, le portail Azure affiche un avertissement la première fois que vous sélectionnez **Applications** dans votre compte Batch. Pour lier un compte de stockage à votre compte Batch, dans la fenêtre **Avertissement** , sélectionnez **Compte de stockage** , puis sélectionnez à nouveau **Compte de stockage**.
+Si vous n’avez pas encore configuré de compte de stockage, le portail Azure affiche un avertissement la première fois que vous sélectionnez **Applications** dans votre compte Batch. Pour lier un compte de stockage à votre compte Batch, dans la fenêtre **Avertissement**, sélectionnez **Compte de stockage**, puis sélectionnez à nouveau **Compte de stockage**.
 
 Une fois que vous avez lié les deux comptes, Batch peut déployer automatiquement les packages stockés dans le compte de stockage lié sur vos nœuds de calcul.
 
@@ -91,25 +91,25 @@ Si vous voyez la [structure de fichiers](files-and-directories.md) du package d�
 
 Pour afficher les détails d’une application, sélectionnez celle-ci dans la fenêtre **Applications**. Vous pouvez configurer les paramètres suivants pour votre application.
 
-- **Autoriser les mises à jour** : indique si les packages d’application peuvent être [mis à jour ou supprimés](#update-or-delete-an-application-package). La valeur par défaut de ce paramètre est **Oui**. Si la valeur est **Non** , les packages d’application existants ne peuvent pas être mis à jour ou supprimés, mais de nouvelles versions de package d’application peuvent toujours être ajoutées.
+- **Autoriser les mises à jour** : indique si les packages d’application peuvent être [mis à jour ou supprimés](#update-or-delete-an-application-package). La valeur par défaut de ce paramètre est **Oui**. Si la valeur est **Non**, les packages d’application existants ne peuvent pas être mis à jour ou supprimés, mais de nouvelles versions de package d’application peuvent toujours être ajoutées.
 - **Version par défaut** : package d’application par défaut à utiliser lors du déploiement de l’application, si aucune version n’est spécifiée.
-- **Nom d'affichage**  : nom convivial que votre solution Batch peut utiliser quand elle affiche des informations sur l’application. Par exemple, ce nom peut être utilisé dans l’interface utilisateur d’un service que vous fournissez à vos clients par le biais de Batch.
+- **Nom d'affichage** : nom convivial que votre solution Batch peut utiliser quand elle affiche des informations sur l’application. Par exemple, ce nom peut être utilisé dans l’interface utilisateur d’un service que vous fournissez à vos clients par le biais de Batch.
 
 ### <a name="add-a-new-application"></a>Ajout d’une application
 
 Pour créer une application, ajoutez un package d’application et spécifiez un ID d’application unique.
 
-Dans votre compte Batch, sélectionnez **Applications** , puis **Ajouter**.
+Dans votre compte Batch, sélectionnez **Applications**, puis **Ajouter**.
 
 :::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Capture d’écran du processus de création Nouvelle application dans le portail Azure.":::
 
 Entrez les informations suivantes :
 
-- **ID d’application**  : ID de votre nouvelle application.
-- **Version**  : version du package d’application que vous chargez.
-- **Package d'application**  : fichier .zip contenant les fichiers binaires de l’application et les fichiers de prise en charge requis pour l’exécution de l’application.
+- **ID d’application** : ID de votre nouvelle application.
+- **Version** : version du package d’application que vous chargez.
+- **Package d'application** : fichier .zip contenant les fichiers binaires de l’application et les fichiers de prise en charge requis pour l’exécution de l’application.
 
-L’ **ID d’application** et la **Version** de vous entrez doivent respecter les exigences suivantes :
+L’**ID d’application** et la **Version** de vous entrez doivent respecter les exigences suivantes :
 
 - Sur des nœuds Windows, l’ID peut contenir n’importe quelle combinaison de caractères alphanumériques, de tirets et de traits de soulignement. Sur des nœuds Linux, seuls les caractères alphanumériques et les traits de soulignement sont autorisés.
 - Ne peut pas contenir plus de 64 caractères.
@@ -122,7 +122,7 @@ Quand vous êtes prêt, sélectionnez **Envoyer**. Une fois le fichier. zip char
 
 Pour ajouter une version de package d’application pour une application existante, sélectionnez l’application dans la section **Applications** de votre compte Batch, puis sélectionnez **Ajouter**.
 
-Comme vous l’avez fait pour la nouvelle application, spécifiez la **Version** de votre nouveau package, chargez votre fichier. zip dans le champ **Package d’application** , puis sélectionnez **Envoyer**.
+Comme vous l’avez fait pour la nouvelle application, spécifiez la **Version** de votre nouveau package, chargez votre fichier. zip dans le champ **Package d’application**, puis sélectionnez **Envoyer**.
 
 ### <a name="update-or-delete-an-application-package"></a>Mettre à jour ou supprimer un package d’application
 
@@ -130,9 +130,9 @@ Pour mettre à jour ou supprimer un package d’application existant, sélection
 
 :::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Capture d’écran montrant les options de mise à jour et de suppression pour les packages d’application dans le portail Azure.":::
 
-Si vous sélectionnez **Mettre à jour** , vous pourrez charger un nouveau fichier. zip. Cette opération remplace le fichier. zip précédent que vous avez chargé pour cette version.
+Si vous sélectionnez **Mettre à jour**, vous pourrez charger un nouveau fichier. zip. Cette opération remplace le fichier. zip précédent que vous avez chargé pour cette version.
 
-Si vous sélectionnez **Supprimer** , vous êtes invité à confirmer la suppression de cette version. Une fois que vous avez sélectionné **OK** , Batch supprime le fichier .zip de votre compte de stockage Azure. Si vous supprimez la version par défaut d’une application, le paramètre **Version par défaut** est supprimé pour cette application.
+Si vous sélectionnez **Supprimer**, vous êtes invité à confirmer la suppression de cette version. Une fois que vous avez sélectionné **OK**, Batch supprime le fichier .zip de votre compte de stockage Azure. Si vous supprimez la version par défaut d’une application, le paramètre **Version par défaut** est supprimé pour cette application.
 
 ## <a name="install-applications-on-compute-nodes"></a>Installation d’applications sur des nœuds de calcul
 
@@ -225,7 +225,7 @@ AZ_BATCH_APP_PACKAGE_blender_2_7
 
 Lorsque vous téléchargez un package d’application, vous pouvez spécifier une version par défaut à déployer sur vos nœuds de calcul. Si vous avez spécifié une version par défaut pour une application, vous pouvez omettre le suffixe de version lorsque vous faites référence à l’application. Vous pouvez spécifier la version d’application par défaut sur le Portail Azure, dans la fenêtre **Applications** tel qu’illustré dans [Télécharger et gérer des applications](#upload-and-manage-applications).
 
-Par exemple, si vous définissez « 2.7 » comme version par défaut pour l’application *blender* , et si vos tâches référencent la variable d’environnement suivante, vos nœuds Windows exécutent la version 2.7 :
+Par exemple, si vous définissez « 2.7 » comme version par défaut pour l’application *blender*, et si vos tâches référencent la variable d’environnement suivante, vos nœuds Windows exécutent la version 2.7 :
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 

@@ -1,22 +1,24 @@
 ---
 title: Journaux des requêtes lentes - Azure Database for MariaDB
 description: Décrit les journaux d’activité disponibles dans Azure Database for MariaDB et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/6/2020
+ms.openlocfilehash: a5acf3b6447b2e3722a27951700138f756a99251
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272081"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541111"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Journaux des requêtes lentes dans Azure Database for MariaDB
 Dans Azure Database for MariaDB, le journal des requêtes lentes est accessible aux utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
 
 Pour plus d’informations sur le journal des requêtes lentes, consultez la documentation MariaDB relative aux [journal des requêtes lentes](https://mariadb.com/kb/en/library/slow-query-log-overview/).
+
+Lorsque la fonctionnalité [Magasin des requêtes](concepts-query-store.md) est activée sur votre serveur, vous pouvez voir les requêtes telles que « `CALL mysql.az_procedure_collect_wait_stats (900, 30);` » journalisées dans les journaux de requêtes lentes. Ce comportement est attendu, car la fonctionnalité Magasin des requêtes collecte des statistiques sur vos requêtes. 
 
 ## <a name="configure-slow-query-logging"></a>Configurer la journalisation des requêtes lentes
 Par défaut, le journal des requêtes lentes est désactivé. Pour l’activer, affectez la valeur ON à `slow_query_log`. Pour ce faire, utilisez le portail Azure ou Azure CLI. 

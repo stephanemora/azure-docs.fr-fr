@@ -1,18 +1,18 @@
 ---
 title: Chaînes de connexion - Azure Database pour MySQL
 description: Ce document répertorie les chaînes de connexion actuellement prises en charge pour les applications qui se connectent à la base de données Azure pour MySQL, notamment ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python et Ruby.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 635cf55cab74ecdc32c5687eed8282a052ccf7c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40af2660f0052a876ef9310bc2426295ba67558b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331741"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541485"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Connexion d’applications à Azure Database pour MySQL
 Cette rubrique répertorie les types de chaînes de connexion pris en charge par Azure Database pour MySQL, ainsi que des modèles et des exemples. Vous pouvez avoir des paramètres et des réglages différents dans votre chaîne de connexion.

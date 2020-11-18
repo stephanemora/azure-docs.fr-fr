@@ -4,10 +4,10 @@ description: Guide pour permettre la migration d’espaces de noms Standard Serv
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "85340753"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrer des espaces de noms Standard Service Bus existants vers le niveau Premium
@@ -25,7 +25,7 @@ Quelques points à noter :
 - L'espace de noms **Premium** ne doit contenir **aucune entité** pour que la migration réussisse.
 - Toutes les **entités** dans l'espace de noms Standard sont **copiées** vers l'espace de noms Premium pendant le processus de migration.
 - La migration prend en charge **1 000 entités par unité de messagerie** sur le niveau Premium. Pour déterminer le nombre d'unités de messagerie dont vous avez besoin, commencez par le nombre d'entités dont vous disposez sur votre espace de noms Standard actuel.
-- Vous ne pouvez pas migrer directement du **niveau De base** vers le **niveau Premium** , mais vous pouvez le faire indirectement en migrant d’abord du niveau De base à Standard, puis de Standard à Premium à l’étape suivante.
+- Vous ne pouvez pas migrer directement du **niveau De base** vers le **niveau Premium**, mais vous pouvez le faire indirectement en migrant d’abord du niveau De base à Standard, puis de Standard à Premium à l’étape suivante.
 
 ## <a name="migration-steps"></a>Étapes de la migration
 
@@ -92,7 +92,7 @@ La migration à l’aide du portail Azure suit le même flux logique que la migr
 1. Dans le menu **Navigation** du volet de gauche, sélectionnez **Migrer vers Premium**. Cliquez sur le bouton **Commencer** pour passer à la page suivante.
     ![Page d’accueil de migration][]
 
-1. Exécutez l’ **installation**.
+1. Exécutez l’**installation**.
    ![Configurer l'espace de noms][]
    1. Créez et attribuez l'espace de noms Premium vers lequel migrer l'espace de noms Standard existant.
         ![Créer un espace de noms - créer un espace de noms Premium][]

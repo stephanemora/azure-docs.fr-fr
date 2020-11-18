@@ -1,7 +1,7 @@
 ---
 title: Configurer une exécution d’entraînement
 titleSuffix: Azure Machine Learning
-description: Effectuez l’apprentissage de votre modèle Machine Learning sur divers environnements de formation (cibles de calcul). Vous pouvez facilement basculer entre différents environnements d’entraînement. Commencer l’entraînement en local. Si un scale-out est nécessaire, basculez vers une cible de calcul basée sur le cloud.
+description: Effectuez l’apprentissage de votre modèle Machine Learning sur divers environnements de formation (cibles de calcul). Vous pouvez facilement basculer entre différents environnements d’entraînement.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 8280af20d63da969504cda8ffe875405d4bf0218
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324713"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541298"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurer et soumettre des exécutions d’entraînement
 
@@ -40,8 +40,8 @@ Vous soumettez votre expérience de formation à l’aide d’un objet ScriptRun
 
 * **source_directory** : Répertoire source contenant votre script d’apprentissage
 * **script** : script d’entraînement à exécuter
-* **compute_target**  : cible de calcul sur laquelle effectuer l’exécution
-* **environment**  : environnement à utiliser lors de l’exécution du script
+* **compute_target** : cible de calcul sur laquelle effectuer l’exécution
+* **environment** : environnement à utiliser lors de l’exécution du script
 * Et d’autres options configurables (consultez la [documentation de référence](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) pour plus d’informations)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Effectuer l’apprentissage de votre modèle
@@ -94,7 +94,7 @@ Pour plus d’informations et pour obtenir des détails sur les environnements, 
   
 ### <a name="local-compute-target"></a><a name="local"></a>Cible de calcul locale
 
-Si votre cible de calcul est votre **ordinateur local** , vous devez vous assurer que tous les packages nécessaires sont disponibles dans l’environnement Python où le script s’exécute.  Utilisez `python.user_managed_dependencies` pour utiliser votre environnement Python actuel (ou celui sous le chemin d’accès que vous spécifiez).
+Si votre cible de calcul est votre **ordinateur local**, vous devez vous assurer que tous les packages nécessaires sont disponibles dans l’environnement Python où le script s’exécute.  Utilisez `python.user_managed_dependencies` pour utiliser votre environnement Python actuel (ou celui sous le chemin d’accès que vous spécifiez).
 
 ```python
 from azureml.core import Environment
@@ -152,7 +152,7 @@ run.wait_for_completion(show_output=True)
 > Pour plus d’informations sur les instantanés, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
-> **Dossiers spéciaux** : deux dossiers, *outputs* et *logs* , reçoivent un traitement spécial de la part d’Azure Machine Learning. Pendant l’entraînement, quand vous écrivez des fichiers dans les dossiers *outputs* et *logs* relatifs au répertoire racine (`./outputs` et `./logs`, respectivement), les fichiers sont automatiquement chargés dans votre historique des exécutions. Vous pouvez ainsi y accéder une fois l’exécution terminée.
+> **Dossiers spéciaux** : deux dossiers, *outputs* et *logs*, reçoivent un traitement spécial de la part d’Azure Machine Learning. Pendant l’entraînement, quand vous écrivez des fichiers dans les dossiers *outputs* et *logs* relatifs au répertoire racine (`./outputs` et `./logs`, respectivement), les fichiers sont automatiquement chargés dans votre historique des exécutions. Vous pouvez ainsi y accéder une fois l’exécution terminée.
 >
 > Pour créer des artefacts pendant l’entraînement (par exemple, des fichiers de modèle, des points de contrôle, des fichiers de données ou des images tracées), écrivez-les dans le dossier `./outputs`.
 >

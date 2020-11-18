@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92208241"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour le peering privé ExpressRoute
@@ -43,7 +43,7 @@ Ce diagramme montre les tunnels IPsec en transit dans le peering privé ExpressR
 ### <a name="working-with-ipsec-policy"></a>Utilisation de la stratégie IPsec
 
 Dans Windows, le chiffrement est associé à la stratégie IPsec. Une stratégie IPsec détermine quel trafic IP est sécurisé, et quel mécanisme de sécurité est appliqué aux paquets IP.
-**Les stratégies IPSec** sont composées des éléments suivants : **Listes de filtres** , **Actions de filtrage** et **Règles de sécurité**.
+**Les stratégies IPSec** sont composées des éléments suivants : **Listes de filtres**, **Actions de filtrage** et **Règles de sécurité**.
 
 Lorsque vous configurez une stratégie IPsec, il est important de comprendre sa terminologie :
 
@@ -122,32 +122,32 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 
 ## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. Définir l’action de filtrage IP
 
-1. Dans la liste déroulante, cliquez avec le bouton droit sur **Stratégies de sécurité IP sur Active Directory** , puis cliquez sur **Gérer les listes de filtres IP et les actions de filtrage**.
+1. Dans la liste déroulante, cliquez avec le bouton droit sur **Stratégies de sécurité IP sur Active Directory**, puis cliquez sur **Gérer les listes de filtres IP et les actions de filtrage**.
 
    [![15]][15]
-2. Sous l’onglet **Gérer les actions de filtrage** , cliquez sur **Ajouter**.
+2. Sous l’onglet **Gérer les actions de filtrage**, cliquez sur **Ajouter**.
 
    [![16]][16]
 
-3. Dans **l’Assistant Action de filtrage de sécurité IP** , cliquez sur **Suivant**.
+3. Dans **l’Assistant Action de filtrage de sécurité IP**, cliquez sur **Suivant**.
 
    [![17]][17]
 4. Attribuez un nom explicite à l’action de filtrage de manière à pouvoir la localiser facilement quand vous en aurez besoin. Dans cet exemple, l’action de filtrage se nomme **myEncryption**. Vous pouvez également ajouter une description. Cliquez ensuite sur **Suivant**.
 
    [![18]][18]
-5. L’option **Négocier la sécurité** vous permet de définir le comportement si la connexion IPsec ne peut pas être établie avec un autre ordinateur. Sélectionnez **Négocier la sécurité** , puis cliquez sur **Suivant**.
+5. L’option **Négocier la sécurité** vous permet de définir le comportement si la connexion IPsec ne peut pas être établie avec un autre ordinateur. Sélectionnez **Négocier la sécurité**, puis cliquez sur **Suivant**.
 
    [![19]][19]
-6. Dans la page **Communiquer avec des ordinateurs qui ne prennent pas en charge IPSec** , sélectionnez **Ne pas autoriser les communications non sécurisées** , puis cliquez sur **Suivant**.
+6. Dans la page **Communiquer avec des ordinateurs qui ne prennent pas en charge IPSec**, sélectionnez **Ne pas autoriser les communications non sécurisées**, puis cliquez sur **Suivant**.
 
    [![20]][20]
-7. Dans la page **Trafic IP et sécurité** , sélectionnez **Personnalisé** , puis cliquez sur **Paramètres...** .
+7. Dans la page **Trafic IP et sécurité**, sélectionnez **Personnalisé**, puis cliquez sur **Paramètres...** .
 
    [![21]][21]
-8. Dans la page **Paramètres personnalisés de la méthode de sécurité** , sélectionnez **Chiffrement et intégrité des données (ESP) : SHA1, 3DES**. Cliquez ensuite sur **OK**.
+8. Dans la page **Paramètres personnalisés de la méthode de sécurité**, sélectionnez **Chiffrement et intégrité des données (ESP) : SHA1, 3DES**. Cliquez ensuite sur **OK**.
 
    [![22]][22]
-9. Dans la page **Gérer les actions de filtrage** , vous pouvez voir que le filtre **myEncryption** a bien été ajouté. Cliquez sur **Fermer**.
+9. Dans la page **Gérer les actions de filtrage**, vous pouvez voir que le filtre **myEncryption** a bien été ajouté. Cliquez sur **Fermer**.
 
    [![23]][23]
 
@@ -155,28 +155,28 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 
 Créez une liste de filtres qui spécifie le trafic HTTP chiffré avec le port de destination 8080.
 
-1. Pour qualifier les types de trafic qui doivent être chiffrés, utilisez une **liste de filtres IP**. Sous l’onglet **Gestion de listes de filtres IP** , cliquez sur **Ajouter** pour ajouter une liste de filtres IP.
+1. Pour qualifier les types de trafic qui doivent être chiffrés, utilisez une **liste de filtres IP**. Sous l’onglet **Gestion de listes de filtres IP**, cliquez sur **Ajouter** pour ajouter une liste de filtres IP.
 
    [![24]][24]
-2. Dans le champ **Nom** , tapez un nom pour votre liste de filtres IP. Par exemple, **azure-onpremises-HTTP8080**. Cliquez ensuite sur **Ajouter**.
+2. Dans le champ **Nom**, tapez un nom pour votre liste de filtres IP. Par exemple, **azure-onpremises-HTTP8080**. Cliquez ensuite sur **Ajouter**.
 
    [![25]][25]
-3. Dans la page **Description du filtre IP et propriété mise en miroir** , sélectionnez **En miroir**. Le paramètre En miroir recherche les paquets entrants et sortants, ce qui permet une communication bidirectionnelle. Cliquez ensuite sur **Suivant**.
+3. Dans la page **Description du filtre IP et propriété mise en miroir**, sélectionnez **En miroir**. Le paramètre En miroir recherche les paquets entrants et sortants, ce qui permet une communication bidirectionnelle. Cliquez ensuite sur **Suivant**.
 
    [![26]][26]
-4. Dans la page **Source du trafic IP** , dans la liste déroulante **Adresse source** , choisissez **Une adresse IP ou un sous-réseau spécifique**. 
+4. Dans la page **Source du trafic IP**, dans la liste déroulante **Adresse source**, choisissez **Une adresse IP ou un sous-réseau spécifique**. 
 
    [![27]][27]
-5. Spécifiez l’adresse source du trafic IP dans **Adresse IP ou sous-réseau** , puis cliquez sur **Suivant**.
+5. Spécifiez l’adresse source du trafic IP dans **Adresse IP ou sous-réseau**, puis cliquez sur **Suivant**.
 
    [![28]][28]
-6. Spécifiez l’ **adresse de destination :** adresse IP ou sous-réseau. Cliquez ensuite sur **Suivant**.
+6. Spécifiez l’**adresse de destination :** adresse IP ou sous-réseau. Cliquez ensuite sur **Suivant**.
 
    [![29]][29]
-7. Dans la page **Type de protocole IP** , sélectionnez **TCP**. Cliquez ensuite sur **Suivant**.
+7. Dans la page **Type de protocole IP**, sélectionnez **TCP**. Cliquez ensuite sur **Suivant**.
 
    [![30]][30]
-8. Dans la page **Type de protocole IP** , sélectionnez **Depuis n’importe quel port** et **Vers ce port**. Tapez **8080** dans la zone de texte. Ces paramètres spécifient que seul le trafic HTTP passant par le port de destination 8080 est chiffré. Cliquez ensuite sur **Suivant**.
+8. Dans la page **Type de protocole IP**, sélectionnez **Depuis n’importe quel port** et **Vers ce port**. Tapez **8080** dans la zone de texte. Ces paramètres spécifient que seul le trafic HTTP passant par le port de destination 8080 est chiffré. Cliquez ensuite sur **Suivant**.
 
    [![31]][31]
 9. Affichez la liste de filtres IP.  La configuration de la liste de filtres IP **azure-onpremises-HTTP8080** déclenche le chiffrement pour tout le trafic qui répond aux critères suivants :
@@ -195,7 +195,7 @@ Pour chiffrer le même type de trafic dans la direction opposée (de l’hôte l
 1. Pour ajouter un nouveau filtre IP à la liste de filtres IP, sélectionnez **Modifier**.
 
    [![33]][33]
-2. Dans la page **Liste de filtres IP** , cliquez sur **Ajouter**.
+2. Dans la page **Liste de filtres IP**, cliquez sur **Ajouter**.
 
    [![34]][34]
 3. Créez un deuxième filtre IP en utilisant les paramètres de l’exemple suivant :
@@ -240,16 +240,16 @@ Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de fil
 
    * Le mode Transport chiffre uniquement la charge utile et le code de fin ESP. L’en-tête IP du paquet d’origine n’est pas chiffré. En mode Transport, la source et la destination des adresses IP des paquets restent inchangées.
 
-   Sélectionnez **Cette règle ne spécifie aucun tunnel** , puis cliquez sur **Suivant**.
+   Sélectionnez **Cette règle ne spécifie aucun tunnel**, puis cliquez sur **Suivant**.
 
    [![43]][43]
-4. L’option **Type de réseau** permet de choisir la connexion réseau à associer à la stratégie de sécurité. Sélectionnez **Toutes les connexions réseau** , puis cliquez sur **Suivant**.
+4. L’option **Type de réseau** permet de choisir la connexion réseau à associer à la stratégie de sécurité. Sélectionnez **Toutes les connexions réseau**, puis cliquez sur **Suivant**.
 
    [![44]][44]
-5. Sélectionnez la liste de filtres IP que vous avez créée précédemment ( **azure-onpremises-HTTP8080** ), puis cliquez sur **Suivant**.
+5. Sélectionnez la liste de filtres IP que vous avez créée précédemment (**azure-onpremises-HTTP8080**), puis cliquez sur **Suivant**.
 
    [![45]][45]
-6. Sélectionnez l’action de filtrage que vous avez créée précédemment ( **myEncryption** ).
+6. Sélectionnez l’action de filtrage que vous avez créée précédemment (**myEncryption**).
 
    [![46]][46]
 7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)** , puis cliquez sur **Suivant**.
@@ -266,7 +266,7 @@ La stratégie IPsec nécessite que toutes les connexions HTTP passant par le por
 1. Affichez la stratégie. La stratégie de groupe de sécurité est définie, mais pas encore attribuée.
 
    [![49]][49]
-2. Pour attribuer la stratégie de groupe de sécurité à l’unité d’organisation **IPSecOU** , cliquez avec le bouton droit sur la stratégie de sécurité, puis choisissez **Attribuer**.
+2. Pour attribuer la stratégie de groupe de sécurité à l’unité d’organisation **IPSecOU**, cliquez avec le bouton droit sur la stratégie de sécurité, puis choisissez **Attribuer**.
    Chaque ordinateur qui appartient à l’unité d’organisation se verra attribuer la stratégie de groupe de sécurité.
 
    [![50]][50]

@@ -1,17 +1,17 @@
 ---
 title: Migrer par sauvegarde et restauration - Azure Database pour MySQL
 description: Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL en utilisant des outils comme mysqldump, MySQL Workbench et PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128961"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537915"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
 
@@ -37,10 +37,10 @@ Pour parcourir ce guide pratique, vous aurez besoin des éléments suivants :
 
 Les cas d’utilisation courants sont les suivants :
 
-- **Déplacement à partir d’un autre fournisseur de services gérés**  : la plupart des fournisseurs de services gérés peuvent ne pas fournir l’accès au fichier de stockage physique pour des raisons de sécurité, de sorte que la sauvegarde et la restauration logiques constituent la seule option pour la migration.
-- **Migration à partir d’un environnement local ou d’une machine virtuelle**  : Azure Database pour MySQL ne prend pas en charge la restauration des sauvegardes physiques qui effectuent la sauvegarde et la restauration logiques comme approche unique.
-- **Déplacement de votre stockage de sauvegarde depuis l’espace de stockage localement redondant vers le stockage géo-redondant**  : la base de données Azure Database pour MySQL permet de configurer un stockage localement redondant ou géo-redondant, car la sauvegarde est uniquement autorisée lors de la création du serveur. Une fois que le serveur est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour déplacer votre stockage de sauvegarde d’un stockage localement redondant vers un stockage géo-redondant, le vidage et la restauration sont la seule option. 
--  **Migration à partir de moteurs de stockage alternatifs vers InnoDB**  : Azure Database pour MySQL prend en charge le moteur de stockage InnoDB uniquement. Par conséquent, elle ne prend pas en charge les autres moteurs de stockage. Si vos tables sont configurées avec d’autres moteurs de stockage, convertissez-les au format de moteur InnoDB avant la migration vers la base de données Azure pour MySQL.
+- **Déplacement à partir d’un autre fournisseur de services gérés** : la plupart des fournisseurs de services gérés peuvent ne pas fournir l’accès au fichier de stockage physique pour des raisons de sécurité, de sorte que la sauvegarde et la restauration logiques constituent la seule option pour la migration.
+- **Migration à partir d’un environnement local ou d’une machine virtuelle** : Azure Database pour MySQL ne prend pas en charge la restauration des sauvegardes physiques qui effectuent la sauvegarde et la restauration logiques comme approche unique.
+- **Déplacement de votre stockage de sauvegarde depuis l’espace de stockage localement redondant vers le stockage géo-redondant** : la base de données Azure Database pour MySQL permet de configurer un stockage localement redondant ou géo-redondant, car la sauvegarde est uniquement autorisée lors de la création du serveur. Une fois que le serveur est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour déplacer votre stockage de sauvegarde d’un stockage localement redondant vers un stockage géo-redondant, le vidage et la restauration sont la seule option. 
+-  **Migration à partir de moteurs de stockage alternatifs vers InnoDB** : Azure Database pour MySQL prend en charge le moteur de stockage InnoDB uniquement. Par conséquent, elle ne prend pas en charge les autres moteurs de stockage. Si vos tables sont configurées avec d’autres moteurs de stockage, convertissez-les au format de moteur InnoDB avant la migration vers la base de données Azure pour MySQL.
 
     Par exemple, si votre site WordPress ou votre application web utilise les tables MyISAM, commencez par convertir ces tables en effectuant une migration vers le format InnoDB avant la restauration vers la base de données Azure pour MySQL. Utilisez la clause `ENGINE=InnoDB` pour définir le moteur utilisé lors de la création d’une table, puis transférez les données dans la table compatible avant la restauration.
 
@@ -129,12 +129,12 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 Dans cet exemple, vous restaurez les données dans la base de données nouvellement créée sur le serveur cible de base de données Azure pour MySQL.
 
-Voici un exemple d’utilisation de **mysql** pour **Serveur unique**  :
+Voici un exemple d’utilisation de **mysql** pour **Serveur unique** :
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
-Voici un exemple d’utilisation de **mysql** pour **Serveur flexible**  :
+Voici un exemple d’utilisation de **mysql** pour **Serveur flexible** :
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql

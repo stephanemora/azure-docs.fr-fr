@@ -1,17 +1,17 @@
 ---
 title: Réplication des données entrantes - Azure Database for MariaDB
 description: Découvrez l’utilisation de la réplication de données entrantes à synchroniser entre un serveur externe et le service Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 331e064bcf11af31a778cb8dd06c463712421b7c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425574"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533427"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Répliquer des données dans Azure Database for MariaDB
 

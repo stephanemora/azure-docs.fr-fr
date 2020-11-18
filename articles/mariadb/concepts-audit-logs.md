@@ -1,17 +1,17 @@
 ---
 title: Journaux d’audit - Azure Database for MariaDB
 description: Décrit les journaux d’audit disponibles dans Azure Database for MariaDB et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66eaf62b54759222421b17ebc7e33b82e018338
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362422"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541757"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Journaux d’audit dans Azure Database for MariaDB
 

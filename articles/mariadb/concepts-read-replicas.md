@@ -1,17 +1,17 @@
 ---
 title: Réplicas en lecture - Azure Database for MariaDB
 description: 'Découvrez les réplicas en lecture dans Azure Database for MariaDB : choix des régions, création de réplicas, connexion à des réplicas, supervision de la réplication et arrêt de la réplication.'
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fcf368c9fbbb185ac3f47faa5705e1933d085c81
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126448"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541162"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
@@ -24,7 +24,7 @@ Pour en savoir plus sur la réplication GTID, consultez la [documentation sur la
 > [!NOTE]
 > Communication sans biais
 >
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_ . Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quand utiliser un réplica en lecture
@@ -81,7 +81,7 @@ Au moment de sa création, un réplica hérite des règles de pare-feu du serveu
 
 Le réplica hérite du compte Administrateur du serveur source. Tous les comptes d’utilisateur sur le serveur source sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur source.
 
-Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database for MariaDB classique. Sur un serveur nommé **myreplica** , à l’aide du nom d’utilisateur administrateur **myadmin** , vous pouvez vous connecter au réplica via l’interface de ligne de commande mysql :
+Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database for MariaDB classique. Sur un serveur nommé **myreplica**, à l’aide du nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica via l’interface de ligne de commande mysql :
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -113,7 +113,7 @@ Découvrez comment [arrêter la réplication sur un réplica](howto-read-replica
 
 Il n’existe aucun basculement automatique entre les serveurs source et réplica. 
 
-Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur source et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur source et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication* , qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
+Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur source et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur source et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication*, qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
 
 > [!Tip]
 > Si vous basculez vers le réplica, le décalage qui existe au moment où vous supprimez la liaison entre le réplica et le serveur source indiquera la quantité de données perdues.

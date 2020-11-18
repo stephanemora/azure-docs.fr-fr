@@ -1,17 +1,17 @@
 ---
 title: Configurer des alertes de métriques - Portail Azure - Azure Database pour MySQL
 description: Cet article décrit comment configurer et consulter des alertes Métrique pour Azure Database pour MySQL à partir du portail Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: bb86bc3fbfd4beffdaca713d7989218550841f03
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81003be986524b94e9c4487cd0d8606540445d16
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546889"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542080"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database pour MySQL 
 
@@ -32,7 +32,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Créer une règle d’alerte sur une métrique à partir du portail Azure
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur Azure Database pour MySQL à surveiller.
 
-2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes** , comme illustré :
+2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes**, comme illustré :
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Sélectionner des règles d’alerte":::
 
@@ -40,25 +40,25 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
 4. La page **Créer une règle** s’ouvre, comme illustré ci-dessous. Entrez les informations obligatoires :
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formulaire Ajouter une alerte Métrique":::
 
-5. Dans la section **Condition** , sélectionnez **Ajouter une condition** .
+5. Dans la section **Condition**, sélectionnez **Ajouter une condition**.
 
 6. Sélectionnez une métrique dans la liste des signaux d'alerte. Dans cet exemple, sélectionnez « Storage percent ».
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Sélectionner la métrique":::
 
-7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps** , **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency** .
+7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency**.
    
    Sélectionnez **Terminé** lorsque vous avez terminé.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Sélectionner des règles d’alerte":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Sélectionner la métrique 2":::
 
-8. Dans la section **Groupes d’actions** , sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
+8. Dans la section **Groupes d’actions**, sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
 
 9. Renseignez le formulaire « Ajouter un groupe d'actions » avec un nom, un nom court, un abonnement et un groupe de ressources.
 
-10. Configurez un type d'action **E-mail/SMS/Push/Voix** .
+10. Configurez un type d'action **E-mail/SMS/Push/Voix**.
     
     Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l'abonnement, les contributeurs et les lecteurs qui recevront les notifications.
    
@@ -66,11 +66,11 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
     Sélectionnez **OK** lorsque vous avez terminé.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Sélectionner des règles d’alerte":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Groupe d’actions":::
 
 11. Spécifiez un nom de règle d’alerte, une description et une gravité.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Sélectionner des règles d’alerte"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Groupe d’actions 2"::: 
 
 12. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 

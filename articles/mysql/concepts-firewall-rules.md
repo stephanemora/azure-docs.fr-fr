@@ -1,17 +1,17 @@
 ---
 title: Règles de pare-feu - Azure Database pour MySQL
 description: Découvrez comment utiliser des règles de pare-feu pour activer les connexions à votre serveur Azure Database pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4efd9fd814165755d27de1d269b6319890f7190d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882661"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541604"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Règles de pare-feu d’un serveur de base de données Azure pour MySQL
 Le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.
@@ -43,7 +43,7 @@ Si aucune adresse IP sortante fixe n’est disponible pour votre service Azure,
 > L’option **Autoriser l’accès aux services Azure** configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Exemple de flux de fonctionnement du pare-feu":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurer Autoriser l’accès aux services Azure dans le portail":::
 
 ### <a name="connecting-from-a-vnet"></a>Connexion à partir d’un réseau virtuel
 Pour vous connecter de manière sécurisée à votre serveur Azure Database pour MySQL à partir d’un réseau virtuel, vous pouvez utiliser des [points de terminaison de service de réseau virtuel](./concepts-data-access-and-security-vnet.md). 

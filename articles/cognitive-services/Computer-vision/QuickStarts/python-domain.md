@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 27c117786ca7f0004ed3be6b28ed06cb1c7942de
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7b430f16e96c6d59fe85c711d07e323bf848b069
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960438"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541247"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Utiliser un modèle de domaine à l’aide de l’API REST et Python dans Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous allez utiliser un modèle de domaine pour identifier des monuments, ou éventuellement des célébrités, dans une image stockée à distance à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Reconnaître le contenu de domaine spécifique](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), vous appliquez un modèle de domaine spécifique pour reconnaître le contenu dans une image.
+Dans ce guide de démarrage rapide, vous allez utiliser un modèle de domaine pour identifier des monuments, ou éventuellement des célébrités, dans une image stockée à distance à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Reconnaître le contenu de domaine spécifique](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f311), vous appliquez un modèle de domaine spécifique pour reconnaître le contenu dans une image.
 
 Vous pouvez exécuter ce démarrage rapide étape par étape à l’aide d’un bloc-notes Jupyter sur [MyBinder](https://mybinder.org). Pour lancer Binder, sélectionnez le bouton suivant :
 
@@ -212,4 +212,4 @@ Quand vous n’en avez plus besoin, supprimez les fichiers des deux exemples.
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)
 
-* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

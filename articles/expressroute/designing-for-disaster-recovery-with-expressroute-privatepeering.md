@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92202411"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Conception pour une reprise d’activité avec le peering privé ExpressRoute
 
 ExpressRoute est conçu pour la haute disponibilité afin de fournir à l’opérateur une connectivité de réseau privé de qualité aux ressources Microsoft. En d’autres termes, il n’existe aucun point de défaillance unique dans le chemin d’accès ExpressRoute au sein du réseau de Microsoft. Pour des considérations de conception visant à optimiser la disponibilité d’un circuit ExpressRoute, consultez [Conception pour une haute disponibilité avec ExpressRoute][HA].
 
-Toutefois, prenant en considération l’adage populaire de Murphy, selon lequel *si quelque chose peut mal tourner, c’est ce qui va arriver* , nous nous concentrons dans cet article sur des solutions qui vont au-delà des défaillances qui peuvent être traitées à l’aide d’un simple circuit ExpressRoute. En d’autres termes, dans cet article, nous allons nous intéresser à l’architecture des réseaux du point de vue de la création d’une connectivité réseau back-end robuste favorisant la reprise d’activité à l’aide de circuits ExpressRoute géoredondants.
+Toutefois, prenant en considération l’adage populaire de Murphy, selon lequel *si quelque chose peut mal tourner, c’est ce qui va arriver*, nous nous concentrons dans cet article sur des solutions qui vont au-delà des défaillances qui peuvent être traitées à l’aide d’un simple circuit ExpressRoute. En d’autres termes, dans cet article, nous allons nous intéresser à l’architecture des réseaux du point de vue de la création d’une connectivité réseau back-end robuste favorisant la reprise d’activité à l’aide de circuits ExpressRoute géoredondants.
 
 >[!NOTE]
 >Les concepts décrits dans cet article s’appliquent tout autant lorsqu’un circuit ExpressRoute est créé sous Virtual WAN ou à l’extérieur de celui-ci.

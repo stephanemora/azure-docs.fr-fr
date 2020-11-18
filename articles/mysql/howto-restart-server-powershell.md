@@ -1,18 +1,18 @@
 ---
 title: Redémarrer un serveur – Azure PowerShell – Azure Database pour MySQL
 description: Cet article explique comment redémarrer un serveur Azure Database pour MySQL à l’aide de PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71d10078a704b2905cf055347f5ed4272ca8ef72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94b3586f13ad1f5bf5f042ef1dc824bd0a5da0d1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502781"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542199"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>Redémarrer un serveur Azure Database pour MySQL à l’aide de PowerShell
 

@@ -2,13 +2,13 @@
 title: Support pour les échecs de provisionnement ou de déploiement d’Azure VMware Solution
 description: Obtenez les informations dont vous avez besoin à partir de votre cloud privé Azure VMware Solution, et traitez une demande de service pour un échec de déploiement ou de provisionnement d’Azure VMware Solution.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 10/28/2020
+ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349118"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542403"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Ouvrir une demande de support pour un échec de provisionnement ou de déploiement d’Azure VMware Solution
 
@@ -55,7 +55,7 @@ Pour accéder au journal de déploiement :
 
    :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Capture d’écran montrant l’icône des notifications dans le portail Azure.":::
 
-1. Dans le volet **Notifications** , sélectionnez **Plus d’événements dans le journal d’activité**  :
+1. Dans le volet **Notifications**, sélectionnez **Plus d’événements dans le journal d’activité** :
 
     :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Capture d’écran montrant dans le volet Notifications la sélection du lien « Plus d’événements dans le journal d’activité ».":::
 
@@ -65,9 +65,9 @@ Pour accéder au journal de déploiement :
  
     :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Capture d’écran affichant les résultats de la recherche d’un exemple de ressource de cloud privé et le volet Créer ou mettre à jour un PrivateCloud.":::
  
-1. Dans les résultats de la recherche du volet **Journal d’activité** , sélectionnez le nom d’opération du déploiement qui a échoué.
+1. Dans les résultats de la recherche du volet **Journal d’activité**, sélectionnez le nom d’opération du déploiement qui a échoué.
 
-1. Dans le volet **Créer ou mettre à jour un PrivateCloud** , sélectionnez l’onglet **JSON** , puis recherchez `correlationId` dans le journal qui s’affiche. Copiez la valeur `correlationId` pour l’inclure dans votre demande de support. 
+1. Dans le volet **Créer ou mettre à jour un PrivateCloud**, sélectionnez l’onglet **JSON**, puis recherchez `correlationId` dans le journal qui s’affiche. Copiez la valeur `correlationId` pour l’inclure dans votre demande de support. 
  
 ## <a name="copy-error-messages"></a>Copier les messages d’erreur
 
@@ -84,7 +84,7 @@ Il se peut que vous tentiez de mettre à l’échelle ou d’appairer un cloud p
 Pour copier l’ID ExpressRoute :
 
 1. Dans le portail Azure, sélectionnez votre cloud privé.
-1. Dans le menu de gauche, sous **Gérer** , sélectionnez **Connectivité**. 
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Connectivité**. 
 1. Dans le volet droit, sélectionnez l’onglet **ExpressRoute**.
 1. Sélectionnez l’icône de copie pour **ID ExpressRoute** et enregistrez la valeur à utiliser dans votre demande de support.
  
@@ -106,19 +106,19 @@ Pour obtenir des informations générales sur la création d’une demande de su
 
 Pour créer une demande de support relatif à un échec de provisionnement ou de déploiement d’Azure VMware Solution :
 
-1. Dans le portail Azure, sélectionnez l’icône **Aide** , puis sélectionnez **Nouvelle demande de support**.
+1. Dans le portail Azure, sélectionnez l’icône **Aide**, puis sélectionnez **Nouvelle demande de support**.
 
     :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Capture d’écran du volet Nouvelle demande de support dans le portail Azure.":::
 
 1. Entrez ou sélectionnez les informations nécessaires :
 
-   1. Sous l’onglet **Général**  :
+   1. Sous l’onglet **Général** :
 
-      1. Pour **Type de problème** , sélectionnez **Problèmes de configuration et d’installation**.
+      1. Pour **Type de problème**, sélectionnez **Problèmes de configuration et d’installation**.
 
-      1. Pour **Sous-type de problème** , sélectionnez **Configurer un cloud privé**.
+      1. Pour **Sous-type de problème**, sélectionnez **Configurer un cloud privé**.
 
-   1. Sous l’onglet **Détails**  :
+   1. Sous l’onglet **Détails** :
 
       1. Entrez ou sélectionnez les informations nécessaires.
 

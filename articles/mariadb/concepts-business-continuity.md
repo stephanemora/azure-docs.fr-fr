@@ -1,17 +1,17 @@
 ---
 title: Continuité de l’activité - Azure Database for MariaDB
 description: Découvrez en quoi consiste la continuité d’activité (limite de restauration dans le temps, interruption de centre de données, géorestauration) quand vous utilisez le service Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e164930736f7b93e56d9bd4187e72a9c8eb76202
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252264"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541723"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Comprendre la continuité d’activité dans Azure Database for MariaDB
 

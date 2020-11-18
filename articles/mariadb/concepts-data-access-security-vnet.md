@@ -1,17 +1,17 @@
 ---
 title: Points de terminaison de service de réseau virtuel - Azure Database for MariaDB
 description: Décrit le fonctionnement des points de terminaison des services de réseau virtuel de votre serveur Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 15bfeb3860c3a7dd5f9dc11f7fb18473116f5ff4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0863ccda9f292f3da9f7064a78ba700ab5962eb2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425601"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533461"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure Database for MariaDB
 
@@ -34,7 +34,7 @@ Vous pouvez également envisager d’utiliser [Azure Private Link](concepts-data
 
 **Sous-réseau :** Un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
 
-**Point de terminaison de service de réseau virtuel :** Un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql** , qui fait référence au service Azure nommé SQL Database. Ce nom de service s’applique également aux services Azure Database for MariaDB, MySQL et PostgreSQL. Il est important de noter que lorsque le nom de service **Microsoft.Sql** est appliqué à un point de terminaison de service de réseau virtuel, il configure le trafic de point de terminaison de service pour l’ensemble des serveurs Azure SQL Database, Azure Database for MariaDB, Azure Database pour MySQL et Azure Database pour PostgreSQL dans le sous-réseau.
+**Point de terminaison de service de réseau virtuel :** Un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database. Ce nom de service s’applique également aux services Azure Database for MariaDB, MySQL et PostgreSQL. Il est important de noter que lorsque le nom de service **Microsoft.Sql** est appliqué à un point de terminaison de service de réseau virtuel, il configure le trafic de point de terminaison de service pour l’ensemble des serveurs Azure SQL Database, Azure Database for MariaDB, Azure Database pour MySQL et Azure Database pour PostgreSQL dans le sous-réseau.
 
 **Règle de réseau virtuel :** une règle de réseau virtuel pour le serveur Azure Database for MariaDB est un sous-réseau listé dans la liste de contrôle d’accès (ACL) du serveur Azure Database for MariaDB. Pour figurer dans l’ACL de votre serveur Azure Database for MariaDB, le sous-réseau doit contenir le nom de type **Microsoft.Sql**.
 

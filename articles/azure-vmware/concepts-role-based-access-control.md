@@ -2,13 +2,13 @@
 title: Concepts - Contrôle d’accès en fonction du rôle (RBAC)
 description: Découvrir les principales fonctionnalités du contrôle d’accès en fonction du rôle pour Azure VMware Solution
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 4fbda24ec6a8c1d08570d7f64270a954eb3d8a35
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 10/23/2020
+ms.openlocfilehash: 6e1864fdfe397325a7c5ba601b625bcc1776174c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440941"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535484"
 ---
 # <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Contrôle d’accès en fonction du rôle (RBAC) pour Azure VMware Solution
 
@@ -31,8 +31,8 @@ L’utilisateur de cloud privé n’a pas accès et ne peut pas configurer de co
 Vous pouvez afficher les privilèges accordés au rôle CloudAdmin d’Azure VMware Solution sur votre instance vCenter de cloud privé Azure VMware Solution.
 
 1. Connectez-vous au client SDDC vSphere et accédez à **Menu** > **Administration**.
-1. Sous **Access Control** , sélectionnez **Rôles**.
-1. Dans la liste des rôles, sélectionnez **CloudAdmin** , puis **Privilèges**. 
+1. Sous **Access Control**, sélectionnez **Rôles**.
+1. Dans la liste des rôles, sélectionnez **CloudAdmin**, puis **Privilèges**. 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Comment afficher les privilèges du rôle CloudAdmin dans le client vSphere":::
 

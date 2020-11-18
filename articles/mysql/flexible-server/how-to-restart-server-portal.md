@@ -1,17 +1,17 @@
 ---
 title: Redémarrer un serveur – Portail Azure – Azure Database pour MySQL – Serveur flexible
 description: Cet article explique comment redémarrer un serveur flexible Azure Database pour MySQL à l’aide du portail Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
-ms.openlocfilehash: c44e1da46b969b2d359a225e9d310160ce2092ce
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 88a1524875f168b49f50f1684c650d5bc178bf38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681272"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542658"
 ---
 # <a name="restart-azure-database-for-mysql-flexible-server-using-azure-portal"></a>Redémarrer un serveur flexible Azure Database pour MySQL à l’aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur flexible Azure Database pour MySQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.

@@ -1,17 +1,17 @@
 ---
 title: Configurer la réplication des données entrantes - Azure Database pour MySQL
 description: Cet article décrit comment configurer la réplication des données entrantes pour Azure Database pour MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544033"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541400"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Comment configurer Azure Database pour MySQL pour la réplication de données entrantes MySQL
 
@@ -20,7 +20,7 @@ Cet article décrit comment configurer [Réplication des données entrantes](con
 > [!NOTE]
 > Communication sans stéréotype
 >
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_ . Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 Pour créer un réplica dans le service Azure Database pour MySQL, [Réplication des données entrantes](concepts-data-in-replication.md) synchronise les données provenant d’un serveur MySQL source qui s’exécute en local dans des machines virtuelles ou des services de base de données cloud. La réplication des données est basée sur une réplication selon la position du fichier journal binaire (binlog) native à MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -134,17 +134,17 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    **MySQL Workbench**
 
-   Pour créer le rôle de réplication dans MySQL Workbench, ouvrez le panneau **Utilisateurs et privilèges** à partir du panneau **Gestion** . Cliquez ensuite sur **Ajouter un compte** . 
+   Pour créer le rôle de réplication dans MySQL Workbench, ouvrez le panneau **Utilisateurs et privilèges** à partir du panneau **Gestion**. Cliquez ensuite sur **Ajouter un compte**. 
  
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Utilisateurs et privilèges":::
 
-   Tapez le nom d’utilisateur dans le champ **Nom de connexion** . 
+   Tapez le nom d’utilisateur dans le champ **Nom de connexion**. 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Utilisateurs et privilèges":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Synchroniser l’utilisateur":::
  
-   Cliquez sur le panneau **Rôles administratifs** , puis sélectionnez **Subordonné de réplication** dans la liste **Privilèges globaux** . Cliquez ensuite sur **Appliquer** pour créer le rôle de réplication.
+   Cliquez sur le panneau **Rôles administratifs**, puis sélectionnez **Subordonné de réplication** dans la liste **Privilèges globaux**. Cliquez ensuite sur **Appliquer** pour créer le rôle de réplication.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Utilisateurs et privilèges":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Subordonné de réplication":::
 
 1. Définissez le serveur source en mode lecture seule.
 
@@ -164,7 +164,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    ```
    Les résultats doivent être comme suit. Assurez-vous de noter le nom du fichier binaire, tel qu’il sera utilisé lors des étapes ultérieures.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Utilisateurs et privilèges":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Résultats de l’état récapitulatif":::
  
 ## <a name="dump-and-restore-source-server"></a>Vider et restaurer le serveur source
 
@@ -206,7 +206,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
        - Il est recommandé de transmettre ce paramètre en tant que variable. Pour plus d’informations, consultez les exemples suivants.
 
    > [!NOTE]
-   > Si le serveur source est hébergé dans une machine virtuelle Azure, activez l’option « Autoriser l’accès aux services Azure » pour autoriser les serveurs sources et de réplica à communiquer entre eux. Ce paramètre peut être modifié dans les options de **sécurité de la connexion** . Pour plus d’informations, consultez la [gestion des règles de pare-feu à l’aide du portail](howto-manage-firewall-using-portal.md).
+   > Si le serveur source est hébergé dans une machine virtuelle Azure, activez l’option « Autoriser l’accès aux services Azure » pour autoriser les serveurs sources et de réplica à communiquer entre eux. Ce paramètre peut être modifié dans les options de **sécurité de la connexion**. Pour plus d’informations, consultez la [gestion des règles de pare-feu à l’aide du portail](howto-manage-firewall-using-portal.md).
       
    **Exemples**
    

@@ -1,17 +1,17 @@
 ---
 title: Configurer la réplication des données entrantes - Azure Database for MariaDB
 description: Cet article décrit comment configurer la réplication des données entrantes dans Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426003"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535365"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurer la réplication des données entrantes dans Azure Database for MariaDB
 
@@ -45,7 +45,7 @@ Passez en revue les [limitations et conditions requises](concepts-data-in-replic
 > [!NOTE]
 > Communication sans biais
 >
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_ . Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 ## <a name="configure-the-source-server"></a>Configurer le serveur source
@@ -141,15 +141,15 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
    **MySQL Workbench**
 
-   Pour créer le rôle de réplication dans MySQL Workbench, dans le volet **Gestion** , sélectionnez **Utilisateurs et privilèges** . Sélectionnez ensuite **Ajouter un compte** .
+   Pour créer le rôle de réplication dans MySQL Workbench, dans le volet **Gestion**, sélectionnez **Utilisateurs et privilèges**. Sélectionnez ensuite **Ajouter un compte**.
  
    ![Utilisateurs et privilèges](./media/howto-data-in-replication/users_privileges.png)
 
-   Entrez un nom d’utilisateur dans le champ **Nom de connexion** .
+   Entrez un nom d’utilisateur dans le champ **Nom de connexion**.
 
    ![Synchroniser l’utilisateur](./media/howto-data-in-replication/syncuser.png)
  
-   Sélectionnez le panneau **Rôles administratifs** , puis dans la liste **Privilèges globaux** , sélectionnez **Subordonné de réplication** . Sélectionnez **Appliquer** pour créer le rôle de réplication.
+   Sélectionnez le panneau **Rôles administratifs**, puis dans la liste **Privilèges globaux**, sélectionnez **Subordonné de réplication**. Sélectionnez **Appliquer** pour créer le rôle de réplication.
 
    ![Subordonné de réplication](./media/howto-data-in-replication/replicationslave.png)
 
