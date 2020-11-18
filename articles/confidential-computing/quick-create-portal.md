@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 1e417563b463d7033072b27bec505d10ef1adb47
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409542"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695739"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Démarrage rapide : Déployer une machine virtuelle d’informatique confidentielle Azure dans le portail Azure
 
@@ -62,7 +62,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 
     * **Choisir une image** : pour ce tutoriel, sélectionnez Ubuntu 18.04 LTS. Vous pouvez également sélectionner Windows Server 2019, Windows Server 2016 ou Ubuntu 16.04 LTS. Dans ce cas, vous serez redirigé en conséquence dans ce tutoriel.
     
-    * **Activer l’image de 2e génération** : les machines virtuelles d’informatique confidentielle s’exécutent uniquement sur des images de [2e génération](../virtual-machines/linux/generation-2.md). Vérifiez que l’image que vous sélectionnez est une image de 2e génération. Cliquez sur l’onglet **Avancé** au-dessus de l’emplacement où vous configurez la machine virtuelle. Faites défiler vers le bas jusqu’à la section intitulée « Génération de machine virtuelle ». Sélectionnez Génération 2, puis revenez à l’onglet **Options de base**.
+    * **Activer l’image de 2e génération** : les machines virtuelles d’informatique confidentielle s’exécutent uniquement sur des images de [2e génération](../virtual-machines/generation-2.md). Vérifiez que l’image que vous sélectionnez est une image de 2e génération. Cliquez sur l’onglet **Avancé** au-dessus de l’emplacement où vous configurez la machine virtuelle. Faites défiler vers le bas jusqu’à la section intitulée « Génération de machine virtuelle ». Sélectionnez Génération 2, puis revenez à l’onglet **Options de base**.
     
 
         ![Options avancées, onglet](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -168,7 +168,7 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```

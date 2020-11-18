@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7c6de17e4ed4f5666554908e9b13fb9e299b027a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311747"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682058"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gérer l’accès aux espaces de travail, aux données et aux pipelines
 
@@ -62,9 +62,9 @@ Quand vous provisionniez votre espace de travail, vous deviez choisir un compte 
 
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Étape 3 : Configurer la liste des administrateurs de l’espace de travail
 
-1. Accédez à l’ [**interface utilisateur web d’Azure Synapse**](https://web.azuresynapse.net).
+1. Accédez à l’[**interface utilisateur web d’Azure Synapse**](https://web.azuresynapse.net).
 2. Accédez à **Gérer**  > **Sécurité** > **Contrôle d’accès**.
-3. Sélectionnez **Ajouter un administrateur** , puis sélectionnez `Synapse_WORKSPACENAME_Admins`.
+3. Sélectionnez **Ajouter un administrateur**, puis sélectionnez `Synapse_WORKSPACENAME_Admins`.
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Étape 4 : Configurer l’accès administrateur SQL pour l’espace de travail
 
@@ -108,7 +108,7 @@ Cette section illustre, à l’aide de différents exemples, comment accorder à
 
 #### <a name="database-level-permission"></a>Autorisation au niveau base de données
 
-Pour accorder à un utilisateur l’accès à une base de données de pool SQL serverless **unique** , suivez les étapes de cet exemple :
+Pour accorder à un utilisateur l’accès à une base de données de pool SQL serverless **unique**, suivez les étapes de cet exemple :
 
 1. Créer des informations de connexion (LOGIN)
 
@@ -149,7 +149,7 @@ ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 
 ### <a name="dedicated-sql-pool"></a>Pool SQL dédié
 
-Pour accorder à un utilisateur l’accès à une base de données SQL **unique** , effectuez les étapes suivantes :
+Pour accorder à un utilisateur l’accès à une base de données SQL **unique**, effectuez les étapes suivantes :
 
 1. Créez l’utilisateur dans la base de données en exécutant la commande suivante qui cible la base de données souhaitée dans le sélecteur de contexte (liste déroulante permettant de sélectionner des bases de données) :
 

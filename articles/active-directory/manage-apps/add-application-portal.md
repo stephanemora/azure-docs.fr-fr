@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd81e5f87aaf4a28676b79863df60b71707849e9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305731"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656511"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory (Azure AD)
 
@@ -55,10 +55,10 @@ Pour ajouter une application à votre locataire Azure AD :
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Capture d’écran montrant le sélecteur de types d’authentification unique." lightbox="media/add-application-portal/sso-types.png":::
 
     - Si le développeur de l’application a utilisé la **norme OIDC** pour l’authentification unique, sélectionnez **S’inscrire**. Une page de configuration s'affiche. Accédez ensuite au guide de démarrage rapide relatif à la configuration de l’authentification unique basée sur OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Capture d’écran montrant le sélecteur de types d’authentification unique.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Capture d’écran montrant comment ajouter une application d’authentification unique basée sur OIDC.":::
 
     - Si le développeur de l’application a utilisé la **norme SAML** pour l’authentification unique, sélectionnez **Créer**. Une page de démarrage s’affiche avec les options de configuration de l’application pour votre organisation. Dans le formulaire, vous pouvez modifier le nom de l’application afin qu’il corresponde aux besoins de votre organisation. Accédez ensuite au guide de démarrage rapide relatif à la configuration de l’authentification unique basée sur SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Capture d’écran montrant le sélecteur de types d’authentification unique.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Capture d’écran montrant comment ajouter une application d’authentification unique basée sur SAML.":::
 
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Si l’application que vous recherchez ne figure pas dans la galerie, vous pouve
 Vous avez terminé l’ajout d’une application. Le guide de démarrage rapide suivant vous montre comment changer le logo et d’autres propriétés pour votre application.
 
 > [!TIP]
-> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

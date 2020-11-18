@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795521"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698894"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en utilisant le SDK JavaScript
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795521"
 > * [Portail](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
-Utilisez le [SDK JavaScript/TypeScript pour Recherche cognitive Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) pour créer une application Node.js en JavaScript qui crée, charge et interroge un index de recherche.
+Utilisez le [SDK JavaScript/TypeScript pour Recherche cognitive Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) pour créer une application Node.js en JavaScript qui crée, charge et interroge un index de recherche.
 
 Cet article explique comment créer l’application pas à pas. Vous pouvez aussi [télécharger le code source et les données](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11), puis exécuter l’application à partir de la ligne de commande.
 
@@ -56,9 +56,9 @@ Les appels au service nécessitent un point de terminaison d’URL et une clé d
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
-2. Dans **Paramètres** > **Clés** , procurez-vous une clé d’administration pour disposer de droits complets sur le service, indispensables pour créer ou supprimer des objets. Il existe deux clés, primaire et secondaire, interchangeables. Vous pouvez utiliser celle de votre choix.
+2. Dans **Paramètres** > **Clés**, procurez-vous une clé d’administration pour disposer de droits complets sur le service, indispensables pour créer ou supprimer des objets. Il existe deux clés, primaire et secondaire, interchangeables. Vous pouvez utiliser celle de votre choix.
 
-   ![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
+   ![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-rest/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -80,7 +80,7 @@ Commencez par ouvrir VS Code et son [terminal intégré](https://code.visualstud
     ```
      Acceptez les valeurs par défaut, sauf pour la licence, que vous devez définir sur « MIT ». 
 
-3. Installez `@azure/search-documents`, le [SDK JavaScript/TypeScript pour Recherche cognitive Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
+3. Installez `@azure/search-documents`, le [SDK JavaScript/TypeScript pour Recherche cognitive Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents
@@ -126,7 +126,7 @@ Remplacez la valeur `<search-service-name>` par le nom de votre service de reche
 
 ### <a name="create-indexjs-file"></a>Créer un fichier index.js
 
-Nous créons ensuite un fichier **index.js** , qui est le fichier principal qui va héberger notre code.
+Nous créons ensuite un fichier **index.js**, qui est le fichier principal qui va héberger notre code.
 
 Dans le haut de ce fichier, nous importons la bibliothèque `@azure/search-documents` :
 

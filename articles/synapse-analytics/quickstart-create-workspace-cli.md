@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5c9b47bf5d638f3c15416416a435653eeb68505
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172056"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659384"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Démarrage rapide : Créer un espace de travail Azure Synapse avec Azure CLI
 
@@ -22,7 +22,7 @@ L’interface de ligne de commande Azure (Azure CLI) est l’expérience de lign
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer un espace de travail Synapse en utilisant l’interface Azure CLI.
 
-Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de commencer](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,28 +32,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de co
     > [!IMPORTANT]
     > L’espace de travail Azure Synapse doit pouvoir lire et écrire dans le compte ADLS Gen2 sélectionné. De plus, pour tout compte de stockage que vous liez en tant que compte de stockage principal, vous devez avoir activé l’**espace de noms hiérarchique** lors de la création du compte de stockage, et tel que décrit dans la page [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-the-azure-cli-locally"></a>Installer l’interface Azure CLI localement
-
-Si vous choisissez d’installer et d’utiliser l’interface Azure CLI localement, consultez [Installer l’interface Azure CLI](/cli/azure/install-azure-cli).
-
-Si vous exécutez Azure CLI localement, vous devez vous connecter et vous authentifier. Cette étape n’est pas nécessaire si vous utilisez Azure Cloud Shell. Pour vous connecter à Azure CLI, exécutez `az login` et authentifiez-vous dans la fenêtre du navigateur :
-
-```azurecli
-az login
-```
-
-Pour plus d’informations sur l’authentification avec Azure CLI, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
-
-## <a name="install-azure-synapse-extension-for-azure-cli"></a>Installer l’extension Azure Synapse pour Azure CLI
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> L’extension Azure Synapse pour Azure CLI est disponible en préversion.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-cli"></a>Créer un espace de travail Azure Synapse à l’aide de l’interface Azure CLI
 

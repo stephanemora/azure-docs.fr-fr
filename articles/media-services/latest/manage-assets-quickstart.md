@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261411"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683010"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Démarrage rapide : Charger, encoder et diffuser en streaming du contenu via le portail
 
@@ -54,7 +54,7 @@ Ce guide de démarrage rapide vous montre comment utiliser le portail Azure pour
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Créer un compte Media Services](create-account-howto.md#use-the-azure-portal)
+[Créer un compte Media Services](create-account-howto.md)
 
 ## <a name="upload"></a>Télécharger
 

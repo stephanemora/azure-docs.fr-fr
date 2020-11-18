@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203498"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656596"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer l’authentification unique (SSO) basée sur OIDC d’une application dans votre locataire Azure Active Directory (Azure AD)
 
@@ -47,20 +47,20 @@ Pour configurer l’authentification unique pour une application :
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="La capture d’écran montre l’option d’authentification unique et le bouton d’inscription." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
 
 
-2. Sélectionnez **S’inscrire** . Vous êtes alors dirigé vers la page de connexion des développeurs d’applications. Connectez-vous à l’aide des informations d’identification de connexion Azure Active Directory. 
+2. Sélectionnez **S’inscrire**. Vous êtes alors dirigé vers la page de connexion des développeurs d’applications. Connectez-vous à l’aide des informations d’identification de connexion Azure Active Directory. 
 
    > [!IMPORTANT]
     > Si vous disposez déjà d’un abonnement à l’application, la validation des détails de l’utilisateur et des informations sur le locataire/l’annuaire se produit. Si l’application n’est pas en mesure de vérifier l’utilisateur, elle vous redirige pour que vous vous inscriviez au service d’application ou à la page d’erreur.
 
-3. Une fois l’authentification réussie, une boîte de dialogue s’affiche pour vous demander le consentement administrateur. Sélectionnez **Consentement pour le compte de votre organisation** , puis **Accepter** . 
+3. Une fois l’authentification réussie, une boîte de dialogue s’affiche pour vous demander le consentement administrateur. Sélectionnez **Consentement pour le compte de votre organisation**, puis **Accepter**. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="La capture d’écran montre l’option d’authentification unique et le bouton d’inscription." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="La capture d’écran montre l’écran de consentement pour une application." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. L’application est ajoutée à votre locataire et la page d’accueil de l’application s’affiche.
 
 
 > [!TIP]
-> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

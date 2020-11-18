@@ -1,15 +1,15 @@
 ---
 title: Organiser vos ressources avec des groupes d’administration - Azure Governance
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951874"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699591"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -150,7 +150,7 @@ L’étendue attribuable aux définitions de rôles peut être n’importe où d
 
 Par exemple, examinons une petite section d’une hiérarchie pour un visuel.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Schéma d’un exemple de hiérarchie de groupes d’administration." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagramme d’un sous-ensemble de l’exemple de hiérarchie de groupes d’administration." border="false":::
    Le diagramme se concentre sur le groupe d’administration racine avec les groupes d’administration enfants Informatique et Marketing. Le groupe d’administration Informatique possède un seul groupe d’administration enfant, nommé production, tandis que le groupe d’administration Marketing dispose de deux abonnements enfants d’essai gratuit.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Certaines limitations s’appliquent quand vous utilisez des rôles personnalis�
  - Vous pouvez définir un seul groupe d’administration dans les étendues attribuables d’un nouveau rôle. Cette limitation vise à réduire le nombre de situations où la relation entre les définitions de rôles et les attributions de rôles est rompue. Cette situation se produit quand un abonnement ou un groupe d’administration comportant une attribution de rôle est déplacé vers un autre parent dépourvu de la définition de rôle.  
  - Il n’est pas possible de définir les actions du plan de données du fournisseur de ressources dans des rôles personnalisés de groupe d’administration. Cette restriction s’explique par un problème de latence avec la mise à jour des fournisseurs de ressources du plan de données.
    Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
- - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle. Même si vous avez fait une faute de frappe ou indiqué un ID de groupe d’administration incorrect, la définition de rôle est créée.  
+ - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle. Même si vous avez fait une faute de frappe ou indiqué un ID de groupe d’administration incorrect, la définition de rôle est créée.
+
+> [!IMPORTANT]
+> L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production.
+> Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Déplacement des groupes d’administration et des abonnements 
 
@@ -194,7 +198,7 @@ Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administrat
 
 Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md). Vous pouvez rechercher dans tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure. Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Schéma d’un exemple de hiérarchie de groupes d’administration." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Capture d’écran du journal d’activité et des opérations associées au groupe d’administration sélectionné." border="false":::
 
 Quand vous cherchez à interroger les groupes d’administration en dehors du portail Azure, l’étendue cible pour les groupes d’administration ressemble à **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829214"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816550"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
@@ -46,7 +46,7 @@ dotnet build
 Installer la bibliothèque de client Azure Communication Chat pour .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
 ``` 
 
 ## <a name="object-model"></a>Modèle objet
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Utilisez la méthode `createChatThread` pour créer un fil de conversation.
 - Utilisez `topic` pour attribuer un sujet à cette conversation ; le sujet peut être mis à jour après que le fil de conversation a été créé à l’aide de la fonction `UpdateThread`.
-- Utilisez la propriété `members` pour transmettre la liste d’objets `ChatThreadMember` à ajouter au fil de conversation. L’objet `ChatThreadMember` est initialisé avec un objet `CommunicationUser`. Pour obtenir un objet `CommunicationUser`, vous devez transmettre un ID d’accès que vous avez créé en suivant les instructions fournies dans [Créer un utilisateur](../../access-tokens.md#create-a-user).
+- Utilisez la propriété `members` pour transmettre la liste d’objets `ChatThreadMember` à ajouter au fil de conversation. L’objet `ChatThreadMember` est initialisé avec un objet `CommunicationUser`. Pour obtenir un objet `CommunicationUser`, vous devez transmettre un ID d’accès que vous avez créé en suivant les instructions fournies dans [Créer un utilisateur](../../access-tokens.md#create-an-identity).
 
 La réponse `chatThreadClient` est utilisée dans les opérations effectuées sur le fil de conversation créé : ajout de membres au fil de conversation, envoi d’un message, suppression d’un message, etc. Elle contient l’attribut `Id` qui est l’ID unique du fil de conversation. 
 

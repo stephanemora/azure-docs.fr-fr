@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311119"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686206"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Se connecter à Synapse SQL avec SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -50,15 +50,15 @@ Avant de commencer, vérifiez que les conditions préalables suivantes sont remp
 Pour vous connecter à Synapse SQL en utilisant un pool SQL dédié, suivez ces étapes : 
 
 1. Ouvrez SQL Server Management Studio (SSMS). 
-1. Dans la boîte de dialogue **Se connecter au serveur** , renseignez les champs et sélectionnez **Se connecter**  : 
+1. Dans la boîte de dialogue **Se connecter au serveur**, renseignez les champs et sélectionnez **Se connecter** : 
   
     ![Se connecter au serveur 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nom du serveur**  : Saisissez le **nom du serveur** précédemment identifié.
-   * **Authentification**  :  Choisissez un type d’authentification, tel que **Authentification SQL Server** ou **Authentification intégrée à Active Directory**.
-   * **Nom d’utilisateur** et **Mot de passe**  : Entrez votre nom d’utilisateur et votre mot de passe si l’authentification SQL Server a été sélectionnée plus haut.
+   * **Nom du serveur** : Saisissez le **nom du serveur** précédemment identifié.
+   * **Authentification** :  Choisissez un type d’authentification, tel que **Authentification SQL Server** ou **Authentification intégrée à Active Directory**.
+   * **Nom d’utilisateur** et **Mot de passe** : Entrez votre nom d’utilisateur et votre mot de passe si l’authentification SQL Server a été sélectionnée plus haut.
 
-1. Développez votre serveur Azure SQL Server dans l’ **Explorateur d’objets**. Vous pouvez afficher les bases de données associées au serveur, telles que l’exemple de base de données AdventureWorksDW. Vous pouvez développer la base de données pour afficher les tables :
+1. Développez votre serveur Azure SQL Server dans l’**Explorateur d’objets**. Vous pouvez afficher les bases de données associées au serveur, telles que l’exemple de base de données AdventureWorksDW. Vous pouvez développer la base de données pour afficher les tables :
    
     ![Explorer AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
@@ -68,13 +68,13 @@ Pour vous connecter à Synapse SQL en utilisant un pool SQL dédié, suivez ces 
 Pour vous connecter à Synapse SQL en utilisant un pool SQL serverless, suivez ces étapes : 
 
 1. Ouvrez SQL Server Management Studio (SSMS).
-1. Dans la boîte de dialogue **Se connecter au serveur** , renseignez les champs et sélectionnez **Se connecter**  : 
+1. Dans la boîte de dialogue **Se connecter au serveur**, renseignez les champs et sélectionnez **Se connecter** : 
    
     ![Se connecter au serveur 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nom du serveur**  : Saisissez le **nom du serveur** précédemment identifié.
-   * **Authentification**  : Choisissez un type d’authentification, tel que **Authentification SQL Server** ou **Authentification intégrée à Active Directory**  :
-   * **Nom d’utilisateur** et **Mot de passe**  : Entrez votre nom d’utilisateur et votre mot de passe si l’authentification SQL Server a été sélectionnée plus haut.
+   * **Nom du serveur** : Saisissez le **nom du serveur** précédemment identifié.
+   * **Authentification** : Choisissez un type d’authentification, tel que **Authentification SQL Server** ou **Authentification intégrée à Active Directory** :
+   * **Nom d’utilisateur** et **Mot de passe** : Entrez votre nom d’utilisateur et votre mot de passe si l’authentification SQL Server a été sélectionnée plus haut.
    * Sélectionnez **Connecter**.
 
 4. Pour voir plus d’informations, développez votre serveur SQL Azure. Vous pouvez afficher les bases de données associées au serveur. Développez la *démonstration* pour voir le contenu dans votre exemple de base de données.

@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a157396318075522d5b3263c9cf0f749eafc2476
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604119"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658806"
 ---
 # <a name="what-is-application-management"></a>Qu’est-ce que la gestion des applications ?
 
@@ -57,7 +57,7 @@ Azure AD simplifie la façon dont vous gérez vos applications en fournissant u
 
 Il existe quatre types d’applications principaux que vous pouvez ajouter à vos **applications d’entreprise** et gérer avec Azure AD :
 
-- **Applications de la galerie Azure AD** : Azure AD a une galerie avec des milliers d’applications préintégrées pour l’authentification unique avec Azure AD. Certaines applications utilisées par votre organisation sont probablement dans la galerie. [Découvrez plus d’informations sur la planification de l’intégration de votre application](plan-an-application-integration.md) ou obtenez la procédure d’intégration détaillée pour chaque application dans les [tutoriels sur les applications SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+- **Applications de la galerie Azure AD** : Azure AD a une galerie avec des milliers d’applications préintégrées pour l’authentification unique avec Azure AD. Certaines applications utilisées par votre organisation sont probablement dans la galerie. [Découvrez plus d’informations sur la planification de l’intégration de votre application](plan-an-application-integration.md) ou obtenez la procédure d’intégration détaillée pour chaque application dans les [tutoriels sur les applications SaaS](/azure/active-directory/saas-apps/).
 
 - **Applications locales avec le proxy d’application** : Avec le proxy d’application Azure AD, vous pouvez intégrer vos applications web locales à Azure AD pour prendre en charge l’authentification unique. Les utilisateurs finaux peuvent alors accéder à vos applications web locales de la même manière qu’ils accèdent à Microsoft 365 et à d’autres applications SaaS. Consultez [Fournir un accès à distance aux applications locales par le biais du proxy d’application d’Azure AD](application-proxy.md).
 
