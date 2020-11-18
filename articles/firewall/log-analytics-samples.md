@@ -7,30 +7,30 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 86538f6d0467eb15e549179166ca957902a2d0c3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132786"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659554"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Journaux Azure Monitor pour Pare-feu Azure
 
-Vous pouvez utiliser les exemples de journaux Azure Monitor suivants pour analyser vos journaux Pare-feu Azure. L’exemple de fichier est créé dans le Concepteur de vues dans Azure Monitor. L’article [Concepteur de vues dans Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) contient plus d’informations sur le concept de Concepteur de vues.
+Vous pouvez utiliser les exemples de journaux Azure Monitor suivants pour analyser vos journaux Pare-feu Azure. L’exemple de fichier est créé dans le Concepteur de vues dans Azure Monitor. L’article [Concepteur de vues dans Azure Monitor](../azure-monitor/platform/view-designer.md) contient plus d’informations sur le concept de Concepteur de vues.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-monitor-logs-view"></a>Affichage des journaux Azure Monitor
 
-Voici comment configurer un exemple de visualisation des journaux Azure Monitor. Vous pouvez télécharger l’exemple de visualisation à partir du dépôt [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). Le moyen le plus simple consiste à cliquer avec le bouton droit sur le lien hypertexte dans cette page, à choisir *Enregistrer sous* et à fournir un nom comme **AzureFirewall.omsview** . 
+Voici comment configurer un exemple de visualisation des journaux Azure Monitor. Vous pouvez télécharger l’exemple de visualisation à partir du dépôt [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). Le moyen le plus simple consiste à cliquer avec le bouton droit sur le lien hypertexte dans cette page, à choisir *Enregistrer sous* et à fournir un nom comme **AzureFirewall.omsview**. 
 
 Effectuez les étapes suivantes pour ajouter la vue à votre espace de travail Log Analytics :
 
 1. Ouvrez l’espace de travail Log Analytics dans le Portail Azure.
-2. Ouvrez **Concepteur de vues** sous **Général** .
-3. Cliquez sur **Importer** .
+2. Ouvrez **Concepteur de vues** sous **Général**.
+3. Cliquez sur **Importer**.
 4. Recherchez et sélectionnez le fichier **AzureFirewall.omsview** que vous avez téléchargé.
-5. Cliquez sur **Enregistrer** .
+5. Cliquez sur **Enregistrer**.
 
 Voici l’aspect de la vue pour les données du journal de règles d’application :
 
@@ -40,7 +40,7 @@ Et pour les données du journal de règles de réseau :
 
 ![Données du journal de règles de réseau]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Le Pare-feu Azure journalise les données sous AzureDiagnostics avec, en guise de catégorie, **AzureFirewallApplicationRule** ou **AzureFirewallNetworkRule** . Les données contenant les détails sont stockées dans le champ msg_s. À l’aide de l’opérateur [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator), nous pouvons extraire du champ msg_s les propriétés dignes d’intérêt. Les requêtes ci-dessous extraient les informations relatives aux deux catégories.
+Le Pare-feu Azure journalise les données sous AzureDiagnostics avec, en guise de catégorie, **AzureFirewallApplicationRule** ou **AzureFirewallNetworkRule**. Les données contenant les détails sont stockées dans le champ msg_s. À l’aide de l’opérateur [parse](/azure/kusto/query/parseoperator), nous pouvons extraire du champ msg_s les propriétés dignes d’intérêt. Les requêtes ci-dessous extraient les informations relatives aux deux catégories.
 
 ## <a name="application-rules-log-data-query"></a>Requête portant sur les données du journal de règles d’application
 
@@ -172,9 +172,9 @@ Les exemples de journaux suivants montrent les données incluses dans une entré
 
 :::image type="content" source="media/log-analytics-samples/log1.png" alt-text="Capture d’écran d’une entrée de journal. Plusieurs valeurs sont visibles, telles qu’un horodatage, un protocole, un numéro de port, une action, une collection de règles et une règle." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Capture d’écran d’une entrée de journal. Plusieurs valeurs sont visibles, telles qu’un horodatage, un protocole, un numéro de port, une action, une collection de règles et une règle." border="false":::
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Capture d’écran d’une entrée de journal. Plusieurs valeurs sont visibles, telles qu’un horodatage, un protocole, des adresses IP source et cible et une action." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Capture d’écran d’une entrée de journal. Plusieurs valeurs sont visibles, telles qu’un horodatage, un protocole, un numéro de port, une action, une collection de règles et une règle." border="false":::
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Capture d’écran d’une entrée de journal. Plusieurs valeurs sont visibles, telles qu’un horodatage, un protocole, des adresses IP et des ports sources et cibles et un message." border="false":::
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir les diagnostics et la supervision du Pare-feu Azure, consultez le [Tutoriel : surveiller les journaux d’activité du Pare-feu Azure et les métriques](tutorial-diagnostics.md).
+Pour découvrir les diagnostics et la supervision du Pare-feu Azure, consultez le [Tutoriel : surveiller les journaux d’activité du Pare-feu Azure et les métriques](./firewall-diagnostics.md).

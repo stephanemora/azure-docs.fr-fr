@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: victorh
-ms.openlocfilehash: a0333f9afa69b533ac28dc302987e6d057bfeeb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69890e2d846a63a70c1b7459b1df13ce5e891289
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090157"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659469"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Journaux et métriques du pare-feu Azure
 
@@ -173,6 +173,6 @@ Les métriques suivantes sont disponibles pour le pare-feu Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment superviser les métriques et les journaux de Pare-feu Azure, consultez le [Tutoriel : Surveiller les journaux d’activité de pare-feu Azure](tutorial-diagnostics.md).
+- Pour savoir comment superviser les métriques et les journaux de Pare-feu Azure, consultez le [Tutoriel : Surveiller les journaux d’activité de pare-feu Azure](./firewall-diagnostics.md).
 
 - Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
