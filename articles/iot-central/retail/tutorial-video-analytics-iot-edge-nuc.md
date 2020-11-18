@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748644"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427987"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutoriel : Créer une instance d'IoT Edge pour l'analytique vidéo (Intel NUC)
 
@@ -115,11 +115,11 @@ Configurez IoT Edge pour l'inscription et la connexion à votre application IoT 
         symmetric_key: "{symmetric_key}"
     ```
 
-1. Remplacez `{scope_id}` par l' **Étendue d'ID** que vous avez notée dans le fichier *scratchpad.txt* du tutoriel précédent.
+1. Remplacez `{scope_id}` par l'**Étendue d'ID** que vous avez notée dans le fichier *scratchpad.txt* du tutoriel précédent.
 
-1. Remplacez `{registration_id}` par *lva-gateway-001* , l'appareil de passerelle que vous avez créé dans le tutoriel précédent.
+1. Remplacez `{registration_id}` par *gateway-001*, l’appareil de passerelle que vous avez créé dans le tutoriel précédent.
 
-1. Remplacez `{symmetric_key}` par la **Clé primaire** de l'appareil **lva-gateway-001** que vous avez notée dans le fichier *scratchpad.txt* du tutoriel précédent.
+1. Remplacez `{symmetric_key}` par la **Clé primaire** de l’appareil **gateway-001** que vous avez notée dans le fichier *scratchpad.txt* du tutoriel précédent.
 
 1. Exécutez la commande suivante pour redémarrer le démon IoT Edge :
 

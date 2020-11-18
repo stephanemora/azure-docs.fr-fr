@@ -3,12 +3,12 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102304"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491322"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 

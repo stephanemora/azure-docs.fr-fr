@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 17fa361fa4cef194d910d08d4a0afe075b119109
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: cb0a90db0595c655191006969071bc5b9cceaa75
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742517"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337591"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutoriel : Utiliser les API REST pour copier des données vers le stockage Blob Azure Data Box  
 
@@ -111,15 +111,15 @@ Suivez ces étapes pour importer le fichier `.cer` dans le magasin racine d’un
 1. Cliquez avec le bouton droit sur le fichier `.cer` et sélectionnez **Installer le certificat**. Cette action démarre l’Assistant Importation de certificat.
 2. Pour **Emplacement du magasin**, sélectionnez **Ordinateur local**, puis cliquez sur **Suivant**.
 
-    ![Importer un certificat à l’aide de PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
+    ![Assistant Importation de certificat, Windows Server](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
 3. Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis cliquez sur **Parcourir**. Accédez au magasin racine de l’hôte distant, puis cliquez sur **Suivant**.
 
-    ![Importer un certificat avec PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Assistant Importation de certificat, Magasin de certificats](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. Cliquez sur **Terminer**. Un message indiquant que l’importation a réussi s’affiche.
 
-    ![Importer un certificat avec PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Assistant Importation de certificat, terminer l’importation](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Utiliser un système Linux
 
@@ -173,7 +173,7 @@ La première étape consiste à créer un conteneur, car les objets blob sont to
 2. Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le conteneur d’objets blob.
 3. Cliquez avec le bouton droit sur **Conteneurs d’objets blob** puis, dans le menu contextuel, sélectionnez **Créer un conteneur d’objets blob**.
 
-   ![Création de conteneurs d’objets blob - Menu contextuel](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
+   ![Menu contextuel Conteneurs d’objets blob, Créer un conteneur d’objets blob](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
 4. Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Pour obtenir des informations sur les règles et restrictions applicables aux noms de conteneurs d’objets blob, consultez [Créer le conteneur et définir les autorisations](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 5. Appuyez sur **Entrée** pour créer le conteneur d’objets blob, ou sur **ÉCHAP** pour annuler. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.

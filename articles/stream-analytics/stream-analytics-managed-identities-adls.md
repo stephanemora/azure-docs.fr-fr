@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 551f0065f1547e94d93993a38795234f455b9eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044394"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491883"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authentifier Stream Analytics pour Azure Data Lake Storage Gen1 à l’aide d’identités managées
 
@@ -174,6 +174,10 @@ Cet article présente trois façons d'activer une identité managée pour un tra
    ```
 
    Pour en savoir plus sur la commande PowerShell ci-dessus, consultez la documentation [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry).
+
+## <a name="remove-managed-identity"></a>Supprimer l’identité managée
+
+L’identité gérée créée pour une tâche Stream Analytics est supprimée uniquement lorsque la tâche est supprimée. Il n’existe aucun moyen de supprimer l’identité gérée sans supprimer la tâche. Si vous ne souhaitez plus utiliser l’identité gérée, vous pouvez modifier la méthode d’authentification pour la sortie. L’identité gérée continuera d’exister jusqu’à ce que la tâche soit supprimée, et sera réemployée si vous décidez à nouveau d’utiliser l’authentification d’identité gérée.
 
 ## <a name="limitations"></a>Limites
 Cette fonctionnalité ne prend pas en charge les éléments suivants :

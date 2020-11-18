@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint Canada Federal PBMM
 description: Correspondance des contrôles des exemples de blueprint Canada Federal PBMM. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 07/31/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: c7b7df73d9fd553e9f733f37d7238e4c1c0afed5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 34c9b723b3c8a74b7a1f842e0144a826f55373ea
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929555"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420442"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
@@ -39,7 +39,7 @@ Ce blueprint vous aide à examiner les comptes qui peuvent ne pas être conforme
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestion des comptes | Schémas basés sur des rôles
 
-Azure implémente le [contrôle d'accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL et Service Fabric. L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft. En outre, ce blueprint attribue une définition Azure Policy pour vérifier l’utilisation des règles Azure RBAC personnalisées. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée.
+Azure implémente le [contrôle d'accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL et Service Fabric. L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft. En outre, ce blueprint affecte une définition Azure Policy pour vérifier l’utilisation des règles Azure RBAC personnalisées. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée.
 
 - Un administrateur Azure Active Directory doit être approvisionné pour les serveurs SQL
 - Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client
@@ -56,10 +56,8 @@ Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’a
 
 - Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Plusieurs propriétaires doivent être affectés à votre abonnement
-- Afficher les résultats de l’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs contient l’un des membres spécifiés
-- Afficher les résultats d’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
-- Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
-- Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
+- Auditer les machines Windows qui ont les membres spécifiés dans le groupe Administrateurs
+- Auditer les machines Windows qui ont un ou plusieurs membres spécifiés manquants dans le groupe Administrateurs
 
 ## <a name="ac-6-least-privilege"></a>AC-6 Privilège minimum
 
@@ -67,16 +65,14 @@ Azure implémente le [contrôle d’accès en fonction du rôle (Azure RBAC)](..
 
 - Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Plusieurs propriétaires doivent être affectés à votre abonnement
-- Afficher les résultats de l’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs contient l’un des membres spécifiés
-- Afficher les résultats d’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
-- Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
-- Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
+- Auditer les machines Windows qui ont les membres spécifiés dans le groupe Administrateurs
+- Auditer les machines Windows qui ont un ou plusieurs membres spécifiés manquants dans le groupe Administrateurs
 
 ## <a name="ac-7-security-attributes"></a>AC-7 Attributs de sécurité
 
 La fonctionnalité Découverte et classification des données, qui est fournie dans le cadre de la sécurité avancée des données pour Azure SQL Database, permet de découvrir, de classifier, d’étiqueter et de protéger les données sensibles de vos bases de données. Cette fonctionnalité peut être utilisée pour fournir de la visibilité sur l’état de classification de votre base de données et pour suivre l’accès aux données sensibles dans la base de données et en dehors de celle-ci. Advanced Data Security permet de garantir que vos informations seront associées aux attributs de sécurité appropriés pour votre organisation. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) permettant de superviser et d’appliquer la sécurité avancée des données sur un serveur SQL.
 
-- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activé sur l’instance managée SQL
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 
@@ -84,20 +80,19 @@ La fonctionnalité Découverte et classification des données, qui est fournie d
 
 Ce blueprint vous aide à superviser et à contrôler l’accès à distance en affectant des définitions [Azure Policy](../../../policy/overview.md) afin de vérifier que le débogage à distance pour l’application Azure App Service est désactivé. Ce blueprint affecte aussi des définitions de stratégie qui auditent les machines virtuelles Linux autorisant les connexions à distance à partir de comptes sans mot de passe. De plus, ce blueprint affecte une définition Azure Policy qui aide à superviser les accès non restreints aux comptes de stockage. En supervisant ces indicateurs, vous pouvez vérifier que les méthodes d’accès à distance sont conformes à votre stratégie de sécurité.
 
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
-- Auditer l'accès réseau non restreint aux comptes de stockage
-- Le débogage à distance doit être désactivé pour l’application API
-- Le débogage à distance devrait être désactivé pour Function App
-- Le débogage à distance doit être désactivé pour l'application web
+- Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
+- Les comptes de stockage doivent limiter l’accès réseau
+- Le débogage à distance doit être désactivé pour les applications API
+- Le débogage à distance doit être désactivé pour les applications de fonction
+- Le débogage à distance doit être désactivé pour les applications web
 
 ## <a name="au-3-2-content-of-audit-records"></a>AU-3 (2) Contenu des enregistrements d’audit
 
 Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, permettant une configuration et une gestion centralisées. Ce blueprint vous permet de garantir que les événements sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui auditent et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles Azure.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
+- Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 
@@ -107,7 +102,7 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 - Auditer le paramètre de diagnostic
 - L’audit sur SQL Server doit être activé
-- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activé sur l’instance managée SQL
 - Advanced Data Security doit être activé sur vos serveurs SQL
 
 ## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) Révision, analyse et rapports d’audit | Révision et analyse centralisées
@@ -115,7 +110,7 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, permettant la génération de rapports et l’analyse centralisées. Ce blueprint vous permet de garantir que les événements sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui auditent et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles Azure.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
 - Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
@@ -126,14 +121,14 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 Ces définitions de stratégie vérifient et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles et la configuration des paramètres d’audit pour les autres types de ressources Azure. Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. L’audit et Advanced Data Security sont configurés sur les serveurs SQL.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- Auditer l’espace de travail Log Analytics pour les machines virtuelles - Signaler 
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
+- Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Auditer le paramètre de diagnostic
 - L’audit sur SQL Server doit être activé
-- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activé sur l’instance managée SQL
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Déployer l’audit sur des serveurs SQL
@@ -143,13 +138,13 @@ Ces définitions de stratégie vérifient et appliquent le déploiement de l’a
 
 Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
 
-- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Logiciels installés par l’utilisateur
 
 Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
 
-- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 
 ## <a name="cp-7-alternate-processing-site"></a>CP-7 Site de traitement secondaire
 
@@ -170,8 +165,6 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 - Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
 - Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
-- Déployer des exigences pour auditer les machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
-- Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestion des authentificateurs | Authentification basée sur mot de passe
 
@@ -182,11 +175,6 @@ Ce blueprint permet d’appliquer des mots de passe forts en affectant des défi
 - Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
 - Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
 - Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- Déployer des exigences pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
-- Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- Déployer des exigences pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
 
 ## <a name="ia-8-100-identification-and-authentication-non-organizational-users--identity-and-credential-assurance-levels"></a>IA-8 (100) Identification et authentification (utilisateurs extérieurs à l’organisation) | Niveaux d’assurance relatifs à l’identité et aux informations d’identification
 
@@ -200,11 +188,11 @@ Ce blueprint permet de limiter et de contrôler les accès privilégiés en affe
 Ce blueprint permet de gérer les vulnérabilités du système d’informations en affectant des définitions [Azure Policy](../../../policy/overview.md) qui supervisent les vulnérabilités en rapport avec le système d’exploitation, SQL et les machines virtuelles dans Azure Security Center.
 Azure Security Center fournit des fonctionnalités de création de rapports qui vous permettent d’obtenir des insights en temps réel sur l’état de la sécurité des ressources Azure déployées. Ce blueprint affecte également des définitions de stratégie qui auditent et appliquent Advanced Data Security sur les serveurs SQL. Advanced Data Security comprend l’évaluation des vulnérabilités et des fonctionnalités de protection avancée contre les menaces pour vous aider à comprendre les vulnérabilités dans vos ressources déployées.
 
-- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activé sur l’instance managée SQL
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
-- Les vulnérabilités détectées dans la configuration de la sécurité de vos machines virtuelles doivent être corrigées
+- Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 
@@ -220,19 +208,19 @@ Ce blueprint permet de gérer et de contrôler la limite système en affectant u
 
 - Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet
 - L'accès via un point de terminaison accessible sur Internet doit être limité
-- Auditer l'accès réseau non restreint aux comptes de stockage
+- Les comptes de stockage doivent limiter l’accès réseau
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Protection de la limite | Points d’accès
 
 L’accès juste-à-temps (JIT) à la machine virtuelle verrouille le trafic entrant vers les machines virtuelles Azure, réduisant l’exposition aux attaques tout en facilitant la connexion aux machines virtuelles en cas de besoin. L’accès JIT à la machine virtuelle vous aide à limiter le nombre de connexions externes à vos ressources dans Azure. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pouvant prendre en charge l’accès juste-à-temps mais qui n’ont pas encore été configurées.
 
-- Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles
+- Azure DDoS Protection Standard doit être activé
 
 ## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) Protection de la limite | Services de télécommunications externes
 
 L’accès juste-à-temps (JIT) à la machine virtuelle verrouille le trafic entrant vers les machines virtuelles Azure, réduisant l’exposition aux attaques tout en facilitant la connexion aux machines virtuelles en cas de besoin. L’accès JIT à la machine virtuelle vous aide à gérer les exceptions de votre stratégie de flux de trafic en facilitant les processus de demande d’accès et d’approbation. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pouvant prendre en charge l’accès juste-à-temps mais qui n’ont pas encore été configurées.
 
-- Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles
+- Azure DDoS Protection Standard doit être activé
 
 ## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>Confidentialité et intégrité des transmissions SC-8 (1) | Protection par chiffrement ou autre protection physique
 
@@ -240,9 +228,8 @@ Ce blueprint permet de protéger la confidentialité et l’intégrité des info
 
 - L'application API doit uniquement être accessible via HTTPS
 - Afficher les résultats d’audit des serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
-- Déployer des exigences pour auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
 - Function App ne doit pas être accessible via HTTPS
-- Seules les connexions sécurisées à votre cache Redis doivent être activées
+- Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées
 - L'application web ne doit pas être accessible via HTTPS
 - La sécurisation du transfert vers des comptes de stockage doit être activée
 
@@ -250,7 +237,7 @@ Ce blueprint permet de protéger la confidentialité et l’intégrité des info
 
 Ce blueprint permet d’appliquer votre stratégie sur l’utilisation des contrôles de chiffrement pour protéger les informations au repos en affectant des définitions [Azure Policy](../../../policy/overview.md) qui mettent en œuvre des contrôles de chiffrement spécifiques et détectent l’utilisation de paramètres de chiffrement faibles. Le fait de savoir où vos ressources Azure peuvent avoir des configurations de chiffrement non optimales peut vous aider à prendre des mesures correctives visant à vérifier que les ressources sont configurées conformément à votre stratégie de sécurité des informations. Plus précisément, les définitions de stratégie affectées par ce blueprint exigent le chiffrement des comptes Data Lake Storage, exigent le chiffrement transparent des données sur les bases de données SQL et vérifient l’absence de chiffrement sur les bases de données SQL, les disques de machine virtuelle et les variables de compte Automation.
 
-- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activé sur l’instance managée SQL
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Déployer le chiffrement transparent des données sur les bases de données SQL
@@ -264,9 +251,9 @@ Ce blueprint permet de gérer les défauts du système d’informations en affec
 
 - Exiger la mise à jour corrective automatique de l’image du système d’exploitation sur les groupes de machines virtuelles identiques
 - Les mises à jour système doivent être installées sur les groupes de machines virtuelles identiques
-- Les mises à jour système doivent être installées sur vos machines virtuelles
+- Des mises à jour système doivent être installées sur vos machines
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
-- Les vulnérabilités détectées dans la configuration de la sécurité de vos machines virtuelles doivent être corrigées
+- Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 
@@ -290,11 +277,11 @@ Ce blueprint permet de gérer la protection des points de terminaison, notamment
 Ce blueprint vous aide à superviser votre système en auditant et en appliquant la journalisation et la sécurité des données aux ressources Azure. Plus précisément, les stratégies affectées auditent et appliquent le déploiement de l’agent Log Analytics et de paramètres de sécurité renforcée pour les bases de données SQL, les comptes de stockage et les ressources réseau. Ces fonctionnalités peuvent vous aider à détecter des comportements anormaux et des indicateurs d’attaques afin de prendre des mesures appropriées.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
+- Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
-- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activé sur l’instance managée SQL
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Déployer Advanced Threat Protection sur les comptes de stockage

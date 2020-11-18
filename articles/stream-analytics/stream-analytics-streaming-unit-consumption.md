@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 70b5e85c99184b890d2b5269f483785a82340255
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127550"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490948"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -20,14 +20,14 @@ Les unités de streaming représentent les ressources de calcul allouées pour e
 
 Pour obtenir un traitement de streaming à faible latence, les travaux Azure Stream Analytics effectuent tout le traitement en mémoire. Quand la mémoire devient insuffisante, le travail de streaming échoue. Par conséquent, pour un travail de production, il est important de surveiller l’utilisation des ressources d’un travail de streaming et de vérifier qu’il existe suffisamment de ressources allouées afin d’assurer l’exécution des travaux 24 heures sur 24 et 7 jours sur 7.
 
-La métrique de pourcentage d’utilisation des unités de streaming, comprise entre 0 % et 100 %, décrit la consommation de mémoire de votre charge de travail. Pour un travail de streaming avec un encombrement minimal, la métrique se situe généralement entre 10 et 20 %. Si le pourcentage d’utilisation des unités de streaming est élevé (supérieur à 80 %) ou si les événements d’entrée sont mis en backlog (même avec un faible pourcentage d’utilisation des unités de streaming, car il n’affiche pas l’utilisation du processeur), il est probable que votre charge de travail nécessite davantage de ressources de calcul, ce qui vous oblige à augmenter le nombre d’unités de streaming. Il est préférable de conserver une métrique inférieure à 80 % pour prendre en compte les pics d’activité occasionnels. Microsoft recommande de définir une alerte sur 80 % de la métrique d’utilisation de l’unité de stockage pour empêcher l’insuffisance des ressources. Pour plus d’informations, consultez [Didacticiel : Configurer des alertes pour les travaux Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+La métrique de pourcentage d’utilisation des unités de streaming, comprise entre 0 % et 100 %, décrit la consommation de mémoire de votre charge de travail. Pour un travail de streaming avec un encombrement minimal, la métrique se situe généralement entre 10 et 20 %. Si le pourcentage d’utilisation des unités de streaming est élevé (supérieur à 80 %) ou si les événements d’entrée sont mis en backlog (même avec un faible pourcentage d’utilisation des unités de streaming, car il n’affiche pas l’utilisation du processeur), il est probable que votre charge de travail nécessite davantage de ressources de calcul, ce qui vous oblige à augmenter le nombre d’unités de streaming. Il est préférable de conserver une métrique inférieure à 80 % pour prendre en compte les pics d’activité occasionnels. Pour réagir à l’augmentation des charges de travail et augmenter les unités de streaming, définissez une alerte de 80 % sur la métrique d’utilisation de l’unité de stockage. En outre, vous pouvez utiliser des métriques de délai en filigrane et d’événements retardés pour voir si cela a un impact.
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurer des unités de streaming Stream Analytics
 1. Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 2. Dans la liste des ressources, recherchez le travail Stream Analytics que vous souhaitez mettre à l’échelle, puis ouvrez-le. 
 
-3. Dans la page du travail, sous le titre **Configurer** , sélectionnez **Mettre à l’échelle**.  Le nombre par défaut d’unités SU est 3 lors de la création d’un travail.
+3. Dans la page du travail, sous le titre **Configurer**, sélectionnez **Mettre à l’échelle**.  Le nombre par défaut d’unités SU est 3 lors de la création d’un travail.
 
     ![Configuration d’un travail Stream Analytics sur le portail Azure][img.stream.analytics.preview.portal.settings.scale]
     
@@ -86,7 +86,7 @@ Par exemple, dans la requête suivante, le nombre associé à `clusterid` est la
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Afin d’atténuer les problèmes provoqués par une cardinalité élevée dans la requête précédente, vous pouvez envoyer des événements à Event Hub avec un partitionnement par `clusterid`, et effectuer un scale-out de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** , comme indiqué dans l’exemple ci-dessous :
+Afin d’atténuer les problèmes provoqués par une cardinalité élevée dans la requête précédente, vous pouvez envoyer des événements à Event Hub avec un partitionnement par `clusterid`, et effectuer un scale-out de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY**, comme indiqué dans l’exemple ci-dessous :
 
    ```sql
    SELECT count(*) 
@@ -140,7 +140,7 @@ En règle générale, un travail configuré avec une unité de streaming est suf
 Pour un travail avec 6 unités de streaming, vous devrez peut-être demander 4 ou 8 partitions du Concentrateur d’événements. Toutefois, évitez de trop nombreuses partitions inutiles car cela provoque l’utilisation excessive des ressources. Par exemple, un Concentrateur d’événements avec 16 partitions ou plus dans un travail Stream Analytics qui possède 1 unité de streaming. 
 
 ## <a name="reference-data"></a>Données de référence 
-Les données de référence dans ASA sont chargées en mémoire pour la recherche rapide. Avec l’implémentation actuelle, chaque opération de jointure avec les données de référence conserve une copie des données de référence en mémoire, même si vous effectuez la jointure plusieurs fois avec les mêmes données de référence. Pour les requêtes avec **PARTITION BY** , comme chaque partition possède une copie des données de référence, les partitions sont entièrement découplées. Avec l’effet multiplicateur, l’utilisation de la mémoire peut être rapidement très élevée si vous effectuez la jointure avec les données de référence plusieurs fois avec plusieurs partitions.  
+Les données de référence dans ASA sont chargées en mémoire pour la recherche rapide. Avec l’implémentation actuelle, chaque opération de jointure avec les données de référence conserve une copie des données de référence en mémoire, même si vous effectuez la jointure plusieurs fois avec les mêmes données de référence. Pour les requêtes avec **PARTITION BY**, comme chaque partition possède une copie des données de référence, les partitions sont entièrement découplées. Avec l’effet multiplicateur, l’utilisation de la mémoire peut être rapidement très élevée si vous effectuez la jointure avec les données de référence plusieurs fois avec plusieurs partitions.  
 
 ### <a name="use-of-udf-functions"></a>Utilisation de fonctions UDF
 Quand vous ajoutez une fonction UDF, Azure Stream Analytics charge le runtime JavaScript en mémoire. Cela affecte le pourcentage d’utilisation d’unités de streaming.

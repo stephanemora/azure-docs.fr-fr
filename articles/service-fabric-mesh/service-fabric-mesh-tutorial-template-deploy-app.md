@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745988"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145886"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle.
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Utilisez la commande suivante pour créer un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* .
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Utilisez la commande suivante pour créer un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Créer le registre de conteneurs
 
-Créez une instance ACR à l’aide de la commande `az acr create`. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry* . Si vous obtenez une erreur selon laquelle le nom de registre est déjà utilisé, choisissez un autre nom.
+Créez une instance ACR à l’aide de la commande `az acr create`. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry*. Si vous obtenez une erreur selon laquelle le nom de registre est déjà utilisé, choisissez un autre nom.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -103,6 +103,11 @@ Une fois le registre créé, vous voyez une sortie semblable à ce qui suit :
 Ce tutoriel utilise l’exemple d’application de liste de tâches.  Les images conteneur pour les services [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) et [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) se trouvent sur Docker Hub. Pour plus d’informations sur la génération de l’application dans Visual Studio, consultez [Générer une application web Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md). Service Fabric Mesh peut exécuter des conteneurs Docker Linux ou Windows.  Si vous utilisez des conteneurs Linux, sélectionnez **Switch to Linux containers** (Basculer vers les conteneurs Linux) dans Docker.  Si vous utilisez des conteneurs Windows, sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows) dans Docker.
 
 Pour envoyer une image vers une instance ACR, vous devez tout d’abord disposer d’une image conteneur. Si vous n’avez pas encore d’images conteneur locales, utilisez la commande [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) pour tirer les images [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) et [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) de Docker Hub.
+
+>[!NOTE]
+> Depuis le 2 novembre 2020, des [limites de taux de téléchargement s’appliquent](https://docs.docker.com/docker-hub/download-rate-limit/) aux requêtes anonymes et authentifiées qui sont envoyées à Docker Hub à partir de comptes de plan Docker Gratuit. Ces limites sont appliquées par adresse IP. 
+> 
+> Ces commandes utilisent des images publiques issues de Docker Hub. Notez que votre taux de téléchargement peut être limité. Pour plus d’informations, consultez [S’authentifier auprès de Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 Tirer les images Windows :
 
@@ -156,7 +161,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-L’exemple suivant répertorie les étiquettes sur le référentiel **azure-mesh-todo-service** .
+L’exemple suivant répertorie les étiquettes sur le référentiel **azure-mesh-todo-service**.
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,9 +201,9 @@ Une application Service Fabric Mesh est une ressource Azure que vous pouvez dép
 Ce tutoriel utilise l’exemple de liste de tâches.  Au lieu de créer des fichiers de modèle et de paramètres, téléchargez les fichiers de [modèle de déploiement mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) et de [paramètres mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Paramètres
-Si votre modèle contient des valeurs que vous prévoyez de changer une fois l’application déployée, ou que vous souhaitez pouvoir changer d’un déploiement à l’autre (si vous prévoyez de réutiliser ce modèle pour d’autres déploiements), la bonne pratique consiste à paramétrer les valeurs. La bonne façon de procéder consiste à créer une section « parameters » en haut de votre modèle de déploiement, où vous spécifiez les noms et propriétés des paramètres, qui sont ensuite référencés dans le modèle de déploiement. Chaque définition de paramètre inclut les propriétés *type* et *defaultValue* , ainsi qu’une section *metadata* facultative comportant une *description* .
+Si votre modèle contient des valeurs que vous prévoyez de changer une fois l’application déployée, ou que vous souhaitez pouvoir changer d’un déploiement à l’autre (si vous prévoyez de réutiliser ce modèle pour d’autres déploiements), la bonne pratique consiste à paramétrer les valeurs. La bonne façon de procéder consiste à créer une section « parameters » en haut de votre modèle de déploiement, où vous spécifiez les noms et propriétés des paramètres, qui sont ensuite référencés dans le modèle de déploiement. Chaque définition de paramètre inclut les propriétés *type* et *defaultValue*, ainsi qu’une section *metadata* facultative comportant une *description*.
 
-La section parameters est définie au début de votre modèle de déploiement, juste avant la section *ressources*  :
+La section parameters est définie au début de votre modèle de déploiement, juste avant la section *ressources* :
 
 ```json
 {
@@ -408,4 +413,4 @@ Dans cette partie du tutoriel, vous avez appris à :
 
 Passez au tutoriel suivant :
 > [!div class="nextstepaction"]
-> [Mettre à l’échelle une application s’exécutant dans Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
+> [Mettre à l’échelle une application en cours d’exécution dans Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)

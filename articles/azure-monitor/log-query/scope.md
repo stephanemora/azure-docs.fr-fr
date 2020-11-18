@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031940"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491373"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor
 Lorsque vous exécutez un [requête de journal](log-query-overview.md) à l’aide de la fonctionnalité [Log Analytics sur le portail Azure](get-started-portal.md), le jeu de données évalué par la requête dépend de l’étendue et de l’intervalle de temps que vous sélectionnez. Cet article décrit l’étendue et l’intervalle de temps, ainsi que la manière de les définir selon vos besoins. Il décrit également le comportement des différents types d’étendues.
@@ -51,9 +51,7 @@ Vous ne pouvez pas utiliser les commandes suivantes dans une requête étendue �
 - [workspace](workspace-expression.md)
  
 
-## <a name="query-limits"></a>Limites de requête
-Vous pouvez avoir des besoins métier selon lesquels une ressource Azure doit écrire des données sur plusieurs espaces de travail Log Analytics. L’espace de travail n’a pas besoin d’être dans la même région que la ressource, et un espace de travail unique peut collecter des données à partir de ressources dans différentes régions.  
-
+## <a name="query-scope-limits"></a>Limites d’étendue de requête
 La définition de l’étendue sur une ressource ou un ensemble de ressources est une fonctionnalité particulièrement puissante de Log Analytics dans la mesure où elle vous permet de consolider automatiquement les données distribuées dans une seule requête. Toutefois, cela peut affecter considérablement les performances si les données doivent être récupérées à partir d’espaces de travail dans plusieurs régions Azure.
 
 Log Analytics vous aide à vous protéger contre une surcharge excessive des requêtes qui s’étendent sur des espaces de travail dans plusieurs régions en émettant un avertissement ou une erreur quand un certain nombre de régions sont utilisées. Votre requête reçoit un avertissement si l’étendue comprend des espaces de travail dans 5 régions ou plus. L’exécution se déroule néanmoins, mais peut prendre un temps excessif.
@@ -66,12 +64,8 @@ L’exécution de votre requête sera bloquée si l’étendue comprend des espa
 
 
 ## <a name="time-range"></a>Plage temporelle
-L’intervalle de temps spécifie le jeu d’enregistrements évalués pour la requête en fonction du moment de création de l’enregistrement. Cela est défini par une colonne standard sur chaque enregistrement dans l’espace de travail ou l’application, comme spécifié dans le tableau suivant.
+L’intervalle de temps spécifie le jeu d’enregistrements évalués pour la requête en fonction du moment de création de l’enregistrement. Cela est défini par la colonne **TimeGenerated** sur chaque enregistrement dans l’espace de travail ou l’application, comme spécifié dans le tableau suivant. Dans le cas d’une application Application Insights classique, la colonne **timestamp** est utilisée pour l’intervalle de temps.
 
-| Emplacement | Colonne |
-|:---|:---|
-| Espace de travail Log Analytics          | TimeGenerated |
-| Application Application Insights | timestamp     |
 
 Définissez l’intervalle de temps en le sélectionnant dans le sélecteur de temps en haut de la fenêtre de Log Analytics.  Vous pouvez sélectionner une période prédéfinie ou choisir **Personnaliser** pour spécifier un intervalle de temps spécifique.
 
@@ -81,13 +75,13 @@ Si vous définissez un filtre dans la requête qui utilise la colonne d’heure 
 
 ![Requête filtrée](media/scope/query-filtered.png)
 
-Si vous utilisez la commande [workspace](workspace-expression.md) ou [app](app-expression.md) pour récupérer des données d’un autre espace de travail ou d’une autre application, le sélecteur d’heure peut se comporter différemment. Si l’étendue est un espace de travail Log Analytics et que vous utilisez la commande **app**, ou si l’étendue est une application Application Insights et que vous utilisez la commande **workspace**, il se peut que Log Analytics ne comprenne pas que la colonne utilisée dans le filtre doit déterminer le filtre de temps.
+Si vous utilisez la commande [workspace](workspace-expression.md) ou [app](app-expression.md) pour récupérer des données d’un autre espace de travail ou d’une autre application classique, le sélecteur d’heure peut se comporter différemment. Si l’étendue est un espace de travail Log Analytics et que vous utilisez la commande **app**, ou si l’étendue est une application Application Insights classique et que vous utilisez la commande **workspace**, il se peut que Log Analytics ne comprenne pas que la colonne utilisée dans le filtre doit déterminer le filtre de temps.
 
 Dans l’exemple suivant, l’étendue est définie sur un espace de travail Log Analytics.  La requête utilise la commande **workspace** pour récupérer des données d’un autre espace de travail Log Analytics. Le sélecteur d’heure est remplacé par l’option **Définir dans la requête** parce qu’il voit un filtre qui utilise la colonne attendue **TimeGenerated**.
 
 ![Interroger avec la commande workspace](media/scope/query-workspace.png)
 
-Si la requête utilise la commande **app** pour récupérer des données d’une application Application Insights, Log Analytics ne reconnaît pas la colonne **timestamp** dans le filtre et le sélecteur d’heure reste inchangé. Dans ce cas, les deux filtres sont appliqués. Dans l’exemple, seuls les enregistrements créés au cours des dernières 24 heures sont inclus dans la requête, même si celle-ci spécifie 7 jours dans la clause **where**.
+Si la requête utilise la commande **app** pour récupérer des données d’une application Application Insights classique, Log Analytics ne reconnaît pas la colonne **timestamp** dans le filtre et le sélecteur d’heure reste inchangé. Dans ce cas, les deux filtres sont appliqués. Dans l’exemple, seuls les enregistrements créés au cours des dernières 24 heures sont inclus dans la requête, même si celle-ci spécifie 7 jours dans la clause **where**.
 
 ![Query avec la commande app](media/scope/query-app.png)
 

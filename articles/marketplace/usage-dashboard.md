@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490115"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565536"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
@@ -21,7 +21,7 @@ Cet article fournit des informations sur le tableau de bord Utilisation de l’E
 Pour accéder au tableau de bord Utilisation de l’Espace partenaires, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Utilisation** sous **Place de marché commerciale**.
 
 >[!NOTE]
-> Pour des définitions détaillées des termes de l’analytique, consultez [Terminologie et questions fréquentes relatives à l’analytique de la place de marché commerciale](./partner-center-portal/faq-terminology.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Tableau de bord de l’utilisation
 
@@ -43,7 +43,7 @@ Les sections suivantes expliquent comment utiliser le tableau de bord Utilisatio
 
 ### <a name="month-range"></a>Plage de mois
 
-Une sélection de plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Utilisation** en sélectionnant la plage des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois (période de calcul) par défaut est de six mois.
+Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Utilisation** en sélectionnant la plage des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
 
 :::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="Illustration des filtres de mois dans le tableau de bord Utilisation":::
 
@@ -103,7 +103,7 @@ Notez les points suivants :
 
 - Vous pouvez déplacer la carte pour afficher l'emplacement exact.
 - Vous pouvez zoomer sur un emplacement spécifique.
-- La carte thermique comporte une grille supplémentaire qui présente à l’endroit spécifié les informations suivantes : nombre de clients, nombre de commandes et heures d’utilisation normalisée.
+- La carte thermique comporte une grille supplémentaire présentant les détails du nombre de clients, du nombre de commandes et des heures d’utilisation normalisée à l’endroit spécifié.
 - Vous pouvez rechercher et sélectionner un pays/région dans la grille pour zoomer sur l’emplacement dans la carte. Pour revenir à la vue d’origine, sélectionnez le bouton **Accueil** de la carte.
 
 ### <a name="usage-details-table"></a>Tableau des détails de l’utilisation
@@ -115,17 +115,17 @@ Le tableau des **détails de l’utilisation** présente une liste numérotée d
 - Si le nombre d’enregistrements dépasse 1 000, les données sont exportées de manière asynchrone sur une page de téléchargements qui restera disponible pendant 30 jours.
 - Appliquez des filtres aux **données d’utilisation détaillées** pour afficher uniquement les données qui vous intéressent. Données filtrées par pays/région, canal de vente, type de licence Place de marché, type d’utilisation, nom d’offre, type d’offre, essais gratuits, ID d’abonnement Place de marché, ID client et nom de société.
 
-_**Tableau 1 : Dictionnaire des termes relatifs aux données**_
+_**Tableau 1 : dictionnaire des termes relatifs aux données**_
 
 | Nom de la colonne | Nom de l’attribut | Définition |
 | ------------ | ------------- | ------------- |
-| ID d’abonnement de la place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la place de marché commerciale. Anciennement, GUID d’abonnement Azure. |
+| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Anciennement, GUID d’abonnement Azure. |
 | MonthStartDate | Date de début du mois | Mois de l’achat. |
 | Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. |
 | Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé Canal. Les valeurs possibles sont les suivantes :<ui><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> |
 | Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les valeurs possibles sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> |
 | SKU | SKU | Plan associé à l’offre. |
-| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Peut être différent de celui qui est indiqué dans l’abonnement Azure du client. |
+| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. |
 | Référence SKU en préversion | Référence SKU en préversion | Indique si la référence SKU est étiquetée comme « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ». |
 | Type de facturation de la référence SKU | Type de facturation de la référence SKU | Type de facturation associé à chaque référence SKU de l’offre. Les valeurs possibles sont les suivantes :<ul><li>Gratuit</li><li>Payant</li></ul> |
 | IsInternal | Déprécié | Déprécié |
@@ -148,7 +148,7 @@ _**Tableau 1 : Dictionnaire des termes relatifs aux données**_
 | Prix estimé (DE) | Prix estimé | Prix unitaire de la référence SKU dans la devise configurée par l’éditeur. |
 | Référence d’utilisation | Référence d’utilisation | GUID concaténé servant à connecter le rapport Utilisation (dans l’analytique de la place de marché commerciale) au rapport Transaction de paiement. La Référence d’utilisation est liée à OrderId et à LineItemId dans le rapport Transaction de paiement. |
 | Unité d’utilisation | Unité d’utilisation | Unité de consommation associée à la référence SKU. |
-| Customer Id | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro, un ou plusieurs abonnements sur la Place de marché Azure. |
+| Customer Id | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. |
 | ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. |
 | Quantité d’utilisation | Quantité d’utilisation | Nombre total d’unités d’utilisation consommées par la ressource déployée par le client.<br>Dépend de l’élément Type d’utilisation. Par exemple, si le Type d’utilisation est Utilisation normalisée, la quantité d’utilisation correspond à une utilisation normalisée. |
 | NormalizedUsage | Utilisation normalisée | Nombre total d’unités d’utilisation normalisées consommées par la ressource déployée par le client.<br>Les heures d’utilisation normalisée correspondent aux heures d’utilisation normalisées pour prendre en compte le nombre de cœurs de machines virtuelles ([nombre de cœurs de machines virtuelles] x [heures d’utilisation brute]). Les machines virtuelles désignées sous le nom de « SHAREDCORE » utilisent 1/6 (ou 0,1666) comme multiplicateur [nombre de cœurs de machines virtuelles]. |
@@ -184,14 +184,14 @@ L’onglet **Utilisation de la facturation à l’usage** présente des informat
 Si vous avez plusieurs offres qui utilisent des compteurs personnalisés, le rapport sur l’utilisation facturée affiche les informations d’utilisation de toutes vos offres, en fonction de leurs dimensions de compteur personnalisées.
 
 > [!TIP]
-> Vous pouvez utiliser l’icône de téléchargement située en haut à droite d’un widget pour télécharger les données. Vous pouvez donner votre avis sur chacun des widgets en cliquant sur l’icône de « pouce vers le haut » ou sur celle de « pouce vers le bas ».
+> Vous pouvez utiliser l’icône de téléchargement située dans l’angle supérieur droit d’un widget pour télécharger les données. Vous pouvez fournir des commentaires sur chacun des widgets en cliquant l’icône de « pouce vers le haut » ou de « pouce vers le bas ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles sur la place de marché commerciale, consultez [Accès aux rapports d’analytique de la place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md).
+- Pour une vue d’ensemble des rapports d’analytique disponibles dans la Place de marché commerciale, consultez [Accéder aux rapports d’analytique de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md).
 - Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
 - Pour plus d’informations sur vos commandes dans un format graphique téléchargeable, consultez [Tableau de bord Commandes dans l’analytique de la place de marché commerciale](./orders-dashboard.md).
-- Pour voir les métriques d’utilisation et de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord Utilisation dans l’analytique de la place de marché commerciale](usage-dashboard.md).
+- Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la Place de marché commerciale](usage-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./partner-center-portal/downloads-dashboard.md).
-- Pour une vue centralisée des avis clients sur les offres de la Place de marché Azure et de Microsoft AppSource, consultez [Tableau de bord d’analytique Évaluations et avis de l’Espace partenaires](./partner-center-portal/ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie et questions fréquentes relatives à l’analytique de la place de marché commerciale](./partner-center-portal/faq-terminology.md).
+- Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et de Microsoft AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](./partner-center-portal/ratings-reviews.md).
+- Pour voir les questions fréquentes sur l’analytique de la Place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).

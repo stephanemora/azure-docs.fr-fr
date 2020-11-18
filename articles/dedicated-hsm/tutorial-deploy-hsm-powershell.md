@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: fc67012dff5931fb86452ea95c2ea074a426953c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee431df89128a516e3a1cabeb43b5cbe9e356dae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075665"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927853"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -233,7 +233,7 @@ Lorsque vous êtes connecté au module HSM à l’aide de ssh, exécutez la com
 
 La sortie doit ressembler à ceci :
 
-![état du provisionnement](media/tutorial-deploy-hsm-powershell/output.png)
+![Capture d’écran montrant la sortie de la commande hsm show.](media/tutorial-deploy-hsm-powershell/output.png)
 
 À ce stade, vous avez alloué toutes les ressources pour un déploiement haute disponibilité à deux HSM, et vous avez vérifié que l’accès était possible et que l’état était opérationnel. Toute configuration ou tests supplémentaires doivent être effectués au niveau du module HSM. Pour cela, vous devez suivre les instructions du chapitre 7 du guide d’administration Gemalto Luna Network HSM 7 pour initialiser le module HSM et créer des partitions. L’ensemble des logiciels et de la documentation peuvent être téléchargés directement sur le site Gemalto une fois que vous vous êtes inscrit dans le portail de support client Gemalto et que vous disposez d’un ID client. Téléchargez le logiciel client version 7.2 pour obtenir tous les composants nécessaires.
 

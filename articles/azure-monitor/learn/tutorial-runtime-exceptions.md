@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357860"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926629"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
@@ -81,7 +81,7 @@ Le débogueur d'instantané collecte des captures instantanées des exceptions l
 
 3. Le premier appel dont les valeurs sont valides est **ValidZipCode**, et nous voyons qu’un code postal a été fourni, qui contient des lettres ne pouvant pas être traduites en chiffres.  Il semble qu’il s’agisse de l’erreur de code à corriger.
 
-    ![Déboguer l'instantané](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Capture d’écran montrant une erreur dans le code qui doit être corrigée.    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. Vous avez ensuite la possibilité de télécharger cet instantané dans Visual Studio où il est possible de localiser le code réel à corriger. Pour ce faire, cliquez sur **Télécharger l’instantané**.
 5. L’instantané est chargé dans Visual Studio.

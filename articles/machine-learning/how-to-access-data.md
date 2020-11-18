@@ -1,5 +1,5 @@
 ---
-title: Se connecter aux services de stockage Azure
+title: Se connecter à des services de stockage sur Azure
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser des magasins de données pour vous connecter en toute sécurité aux services de stockage Azure lors de l’entraînement avec Azure Machine Learning
 services: machine-learning
@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320857"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489299"
 ---
-# <a name="connect-to-azure-storage-services"></a>Se connecter aux services de stockage Azure
+# <a name="connect-to-storage-services-on-azure"></a>Se connecter à des services de stockage sur Azure
 
-Dans cet article, découvrez comment vous **connecter aux services de stockage Azure par le biais des magasins de données Azure Machine Learning**. Les banques de données se connectent en toute sécurité à votre service de stockage Azure sans avoir à compromettre vos informations d’authentification et l’intégrité de votre source de données d’origine. Ils stockent des informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton, dans votre [Key Vault](https://azure.microsoft.com/services/key-vault/) associé à l’espace de travail, de sorte que vous pouvez accéder à votre stockage en toute sécurité sans avoir à coder en dur ces informations dans vos scripts. Vous pouvez utiliser le [kit de développement logiciel (SDK) Azure Machine Learning Python](#python) ou [Azure Machine Learning Studio](how-to-connect-data-ui.md) pour créer et inscrire des banques de données.
+Dans cet article, découvrez comment vous **connecter aux services de stockage sur Azure par le biais des magasins de données Azure Machine Learning**. Les banques de données se connectent en toute sécurité à votre service de stockage Azure sans avoir à compromettre vos informations d’authentification et l’intégrité de votre source de données d’origine. Ils stockent des informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton, dans votre [Key Vault](https://azure.microsoft.com/services/key-vault/) associé à l’espace de travail, de sorte que vous pouvez accéder à votre stockage en toute sécurité sans avoir à coder en dur ces informations dans vos scripts. Vous pouvez utiliser le [kit de développement logiciel (SDK) Azure Machine Learning Python](#python) ou [Azure Machine Learning Studio](how-to-connect-data-ui.md) pour créer et inscrire des banques de données.
 
 Si vous préférez créer et gérer des banques de données à l’aide de l’extension Azure Machine Learning VS Code, consultez le [guide de procédures de gestion des ressources VS Code](how-to-manage-resources-vscode.md#datastores).
 
-Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix). **Pour les solutions de stockage non prises en charge** , et pour réduire le coût de sortie des données pendant les expériences de Machine Learning, [déplacez vos données](#move) vers une solution de stockage Azure prise en charge.  
+Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix). **Pour les solutions de stockage non prises en charge**, et pour réduire le coût de sortie des données pendant les expériences de Machine Learning, [déplacez vos données](#move) vers une solution de stockage Azure prise en charge.  
 
 Pour comprendre où les magasins de données interviennent dans flux de travail d’accès aux données d’Azure Machine Learning, consultez l’article [Accéder en toute sécurité aux données](concept-data.md#data-workflow).
 
@@ -88,11 +88,11 @@ Pour s’assurer que vous vous connectez en toute sécurité à votre service de
 
 ### <a name="virtual-network"></a>Réseau virtuel 
 
-Si votre compte de stockage de données se trouve sur un **réseau virtuel** , des étapes de configuration supplémentaires sont nécessaires pour s’assurer qu’Azure Machine Learning a accès à vos données. Pour vous assurer que les étapes de configuration appropriées sont appliquées lors de la création et de l’enregistrement de votre magasin de données, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure](how-to-enable-studio-virtual-network.md).  
+Si votre compte de stockage de données se trouve sur un **réseau virtuel**, des étapes de configuration supplémentaires sont nécessaires pour s’assurer qu’Azure Machine Learning a accès à vos données. Pour vous assurer que les étapes de configuration appropriées sont appliquées lors de la création et de l’enregistrement de votre magasin de données, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure](how-to-enable-studio-virtual-network.md).  
 
 ### <a name="access-validation"></a>Validation de l’accès
 
-**Dans le cadre du processus de création et d’inscription du magasin de données initial** , Azure Machine Learning vérifie automatiquement que le service de stockage sous-jacent existe et que le principal fourni par l’utilisateur (nom d’utilisateur, principal de service ou jeton SAS) a accès au stockage spécifié.
+**Dans le cadre du processus de création et d’inscription du magasin de données initial**, Azure Machine Learning vérifie automatiquement que le service de stockage sous-jacent existe et que le principal fourni par l’utilisateur (nom d’utilisateur, principal de service ou jeton SAS) a accès au stockage spécifié.
 
 **Après la création** du magasin de données, cette validation est effectuée uniquement pour les méthodes qui requièrent l’accès au conteneur de stockage sous-jacent, et **non** chaque fois que des objets du magasin de données sont récupérés. Par exemple, la validation se produit si vous souhaitez télécharger des fichiers à partir de votre magasin de données ; mais si vous souhaitez simplement modifier votre magasin de données par défaut, la validation ne se produit pas.
 
@@ -105,15 +105,17 @@ Vous trouverez des informations sur la clé de compte, le jeton SAS et le princi
       1. Pour les clés de compte, accédez à **Clés d’accès** dans le volet **Paramètres**. 
       1. Pour les jetons SAP, accédez à **Signatures d’accès partagé** dans le volet **Paramètres**.
 
-* Si vous prévoyez d’utiliser un principal du service pour l’authentification, accédez à vos **Inscriptions d’applications** , puis sélectionnez l’application que vous souhaitez utiliser. 
+* Si vous prévoyez d’utiliser un principal du service pour l’authentification, accédez à vos **Inscriptions d’applications**, puis sélectionnez l’application que vous souhaitez utiliser. 
     * La page **Vue d’ensemble** correspondante contient des informations requises comme l’ID de locataire et l’ID de client.
 
 > [!IMPORTANT]
-> Pour des raisons de sécurité, vous devrez peut-être changer vos clés d’accès pour un compte Stockage Azure (clé de compte ou jeton SAS). Dans ce cas, veillez à synchroniser les nouvelles informations d’identification avec votre espace de travail et les magasins de données qui y sont connectés. Découvrez comment [synchroniser vos informations d’identification mises à jour](how-to-change-storage-access-key.md). 
-
+> * Si vous avez besoin de modifier vos clés d’accès pour un compte de stockage Azure (clé de compte ou jeton SAP), veillez à synchroniser les nouvelles informations d’identification avec votre espace de travail et les magasins de données qui y sont connectés. Découvrez comment [synchroniser vos informations d’identification mises à jour](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Autorisations
 
-Pour le conteneur d'objets blob Azure et le stockage Azure Data Lake Gen2, assurez-vous que vos informations d'authentification vous donnent accès au **Lecteur des données blob du stockage**. En savoir plus sur le [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Par défaut, le jeton SAS d'un compte ne dispose d'aucune autorisation. Pour l'accès en lecture aux données, vos informations d'authentification doivent au minimum disposer d'autorisations de liste et de lecture pour les conteneurs et les objets. Pour l'accès en écriture aux données, des autorisations d'écriture et d'ajout sont également requises.
+Pour le conteneur de blobs Azure et le stockage Azure Data Lake Gen2, assurez-vous que vos informations d’authentification vous donnent un accès **Lecteur des données blob du stockage**. En savoir plus sur le [Lecteur des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Par défaut, le jeton SAS d'un compte ne dispose d'aucune autorisation. 
+* Pour l'**accès en lecture** aux données, vos informations d'authentification doivent au minimum disposer d'autorisations de liste et de lecture pour les conteneurs et les objets. 
+
+* Pour l'**accès en écriture** aux données, des autorisations d'écriture et d'ajout sont également requises.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ Dans cette section, vous trouverez des exemples de création et d’inscription 
  Pour créer des magasins de données pour les autres services de stockage pris en charge, consultez la [documentation de référence des méthodes `register_azure_*` applicables](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
 
 Si vous préférez une expérience à moindre code, consultez [Se connecter aux données avec Azure Machine Learning Studio](how-to-connect-data-ui.md).
+>[!IMPORTANT]
+> Si vous désinscrivez puis réinscrivez un magasin de données portant le même nom et que l’opération échoue, le compte Azure Key Vault de votre espace de travail peut ne pas être doté de la suppression réversible. Par défaut, la suppression réversible est activée pour l’instance de coffre de clés créée par votre espace de travail, mais elle peut ne pas l’être si vous avez utilisé un coffre de clés existant ou si votre espace de travail a été créé avant octobre 2020. Pour plus d’informations sur l’activation de la suppression réversible, consultez [Activer la suppression réversible pour un coffre de clés existant]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 > [!NOTE]
 > Le nom du magasin de données doit contenir uniquement des lettres minuscules, des chiffres et des traits de soulignement. 

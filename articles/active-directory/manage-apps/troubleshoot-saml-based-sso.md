@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 7f7f999c145903be5db3b20ab60bd0f5a18778ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463215"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658874"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Résoudre les problèmes d’authentification unique basée sur SAML dans Azure Active Directory
-Si vous rencontrez un problème lors de la configuration d’une application, vérifiez que vous avez suivi toutes les étapes du didacticiel dédié à l’application. Dans la configuration de l’application, une documentation en ligne sur la configuration de l’application vous est proposée. Pour une aide pas à pas détaillée, vous pouvez accéder à la [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
+Si vous rencontrez un problème lors de la configuration d’une application, vérifiez que vous avez suivi toutes les étapes du didacticiel dédié à l’application. Dans la configuration de l’application, une documentation en ligne sur la configuration de l’application vous est proposée. Pour une aide pas à pas détaillée, vous pouvez accéder à la [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md).
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Impossible d’ajouter une autre instance de l’application
 Pour ajouter une deuxième instance d’une application, vous devez être en mesure de :
@@ -53,7 +53,7 @@ Si les valeurs ne correspondent aux modèles préconfigurés sur Azure AD. Vous 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Où définir le format d’EntityID (identificateur d’utilisateur)
 Vous ne pouvez pas sélectionner le format d’EntityID (identificateur d’utilisateur) qu’Azure AD envoie à l’application dans la réponse après l’authentification de l’utilisateur.
 
-Azure AD sélectionne le format de l’attribut NameID (Identificateur d’utilisateur) en fonction de la valeur sélectionnée ou du format demandé par l’application dans la demande d’authentification SAML. Pour plus d’informations, consultez l’article [Protocole SAML d’authentification unique](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) dans la section NameIDPolicy.
+Azure AD sélectionne le format de l’attribut NameID (Identificateur d’utilisateur) en fonction de la valeur sélectionnée ou du format demandé par l’application dans la demande d’authentification SAML. Pour plus d’informations, consultez l’article [Protocole SAML d’authentification unique](../develop/single-sign-on-saml-protocol.md#authnrequest) dans la section NameIDPolicy.
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Impossible de trouver les métadonnées Azure AD pour terminer la configuration avec l’application
 Pour télécharger les métadonnées ou le certificat de l’application à partir d’Azure AD, procédez comme suit :
@@ -70,7 +70,7 @@ Pour télécharger les métadonnées ou le certificat de l’application à part
 Azure AD ne fournit pas d’URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
 
 ## <a name="customize-saml-claims-sent-to-an-application"></a>Personnaliser les revendications SAML envoyées à une application
-Pour savoir comment personnaliser les revendications d’attribut SAML envoyées à votre application, consultez [Claims mapping in Azure Active Directory (public preview)](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mappage de revendications dans Azure Active Directory [préversion]) pour plus d’informations.
+Pour savoir comment personnaliser les revendications d’attribut SAML envoyées à votre application, consultez [Claims mapping in Azure Active Directory (public preview)](../develop/active-directory-claims-mapping.md) (Mappage de revendications dans Azure Active Directory [préversion]) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md)

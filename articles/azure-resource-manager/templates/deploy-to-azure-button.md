@@ -2,13 +2,13 @@
 title: Bouton Déployer dans Azure
 description: Utilisez le bouton pour déployer des modèles Azure Resource Manager à partir d’un référentiel GitHub.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675397"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490897"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub
 
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Vous avez votre URL complète pour le lien.
 
+Si vous utilisez [Git avec Azure Repos](/azure/devops/repos/git/) au lieu d’un référentiel GitHub, vous pouvez toujours utiliser le bouton Déployer dans Azure. Assurez-vous que votre référentiel est public. Utilisez l’[opération Items](/rest/api/azure/devops/git/items/get) pour récupérer le modèle. Votre requête doit respecter le format suivant :
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Encodez cette URL de demande.
+
 ## <a name="create-deploy-to-azure-button"></a>Créer le bouton Déployer dans Azure
 
 Enfin, mettez le lien et l’image ensemble.
@@ -87,6 +95,12 @@ Pour le langage HTML, utilisez :
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+Pour Git avec Azure Repos, le bouton se présente au format suivant :
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Déployer le modèle

@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 47427f8d3690218060fd1e6221b1b089c68d6e1d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786273"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441832"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 
@@ -34,11 +34,11 @@ Nous vous recommandons d’utiliser l’intégration de Stockage Azure avec Azur
 
 Azure AD vous permet d’authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. Vous pouvez utiliser une [identité Azure AD managée](../../active-directory/managed-identities-azure-resources/index.yml) lors de l’exécution sur Azure. Les identités managées suppriment l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
 
-Azure AD utilise le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
+Azure AD utilise le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
 
 ## <a name="service-principal-application-id"></a>ID d’application du principal de service
 
-Un locataire Azure AD fournit à chaque application inscrite un [principal de service](../../active-directory/develop/developer-glossary.md#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration des autorisations pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+Un locataire Azure AD fournit à chaque application inscrite un [principal de service](../../active-directory/develop/developer-glossary.md#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration de l’autorisation pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure.
 
 Key Vault est une application Microsoft préinscrite dans tous les locataires Azure AD. Key Vault est inscrit sous le même ID d’application dans chaque cloud Azure.
 
@@ -137,29 +137,13 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### <a name="verify-the-shared-access-signature-definition"></a>Vérifier la définition de la signature d’accès partagé
 
-Vous pouvez vérifier que la définition de la signature d’accès partagé a été stockée dans votre coffre de clés à l’aide des commandes Azure CLI [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) et [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show).
+Vous pouvez vérifier que la définition de signature d’accès partagé a été stockée dans votre coffre de clés à l’aide de la commande Azure CLI [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show).
 
-Tout d’abord, recherchez la définition de la signature d’accès partagé dans votre coffre de clés à l’aide de la commande [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list).
-
-```azurecli-interactive
-az keyvault secret list --vault-name <YourKeyVaultName>
-```
-
-Le secret correspondant à votre définition SAS a les propriétés suivantes :
-
-```console
-    "contentType": "application/vnd.ms-sastoken-storage",
-    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
-```
-
-Vous pouvez maintenant utiliser la commande [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) et la propriété `id` pour afficher le contenu de ce secret.
+Vous pouvez maintenant utiliser la commande [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) et la propriété `id` pour afficher le contenu de ce secret.
 
 ```azurecli-interactive
-az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
 ```
-
-La sortie de cette commande affiche la chaîne de votre définition SAS sous la forme `value`.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

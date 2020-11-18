@@ -1,6 +1,6 @@
 ---
 title: Gérer les instantanés avec Azure NetApp Files | Microsoft Docs
-description: Décrit comment créer et gérer des captures instantanées à l’aide d’Azure NetApp Files.
+description: Décrit comment créer, gérer et utiliser des captures instantanées à l’aide d’Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932275"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491645"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
-Azure NetApp Files prend en charge la création de captures instantanées à la demande et l’utilisation de stratégies de capture instantanée pour planifier la création automatique de captures instantanées.  Vous pouvez également restaurer un instantané sur un nouveau volume ou restaurer un fichier unique à l’aide d’un client.  
+Azure NetApp Files prend en charge la création de captures instantanées à la demande et l’utilisation de stratégies de capture instantanée pour planifier la création automatique de captures instantanées. Vous pouvez également restaurer un instantané sur un nouveau volume, restaurer un fichier unique à l’aide d’un client, ou restaurer un volume existant à l’aide d’un instantané.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Créer un instantané à la demande pour un volume
 
@@ -108,6 +108,8 @@ Si vous souhaitez qu’un volume utilise la stratégie de capture instantanée, 
 
 Si vous souhaitez qu’un volume utilise une stratégie de capture instantanée que vous avez créée, vous devez appliquer la stratégie au volume. 
 
+Vous ne pouvez pas appliquer une stratégie d’instantané à un volume de destination dans une réplication entre régions.  
+
 1.  Accédez à la page **Volumes**, cliquez avec le bouton droit sur le volume auquel vous souhaitez appliquer une stratégie de capture instantanée, puis sélectionnez **Modifier**.
 
     ![Menu contextuel Volumes](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -173,6 +175,8 @@ Le volume monté contient un répertoire d’instantanés nommé `.snapshot` (su
 
 Si vous avez coché la case Masquer le chemin d’instantané lors de la création du volume, le répertoire d’instantanés est masqué. Vous pouvez afficher l’état Masquer le chemin d’instantané du volume en sélectionnant le volume. Vous pouvez modifier l’option Masquer le chemin d’instantané en cliquant sur **Modifier** dans la page du volume.  
 
+Pour un volume de destination dans une réplication entre régions, le paramètre Masquer le chemin d’instantané est activé par défaut et ne peut pas être modifié.
+
 ![Modifier les options d’instantané de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurer un fichier à l’aide d’un client NFS Linux 
@@ -218,6 +222,37 @@ Si vous avez coché la case Masquer le chemin d’instantané lors de la créati
 4. Vous pouvez également cliquer avec le bouton droit sur le répertoire parent, sélectionner **Propriétés**, cliquer sur l’onglet **Versions précédentes** pour voir la liste des instantanés, puis sélectionner **Restaurer** pour restaurer un fichier.  
 
     ![Propriétés : Versions précédentes](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Restaurer un volume à l’aide de la restauration d’instantané
+
+La fonctionnalité de restauration d’instantané vous permet de restaurer rapidement un volume à l’état dans lequel il se trouvait lors de la prise d’un instantané particulier. Dans la plupart des cas, le rétablissement d’un volume est beaucoup plus rapide que la restauration de fichiers individuels, d’un instantané vers le système de fichiers actif. La gestion de l’espace est également mieux optimisée par rapport à la restauration d’un instantané sur un nouveau volume. 
+
+Vous trouverez l’option Rétablir le volume dans le menu Instantanés d’un volume. Après avoir choisi un instantané à restaurer, Azure NetApp Files restaure le volume avec les données et horodatages qu’il contenait lors de la capture de l’instantané sélectionné. 
+
+> [!IMPORTANT]
+> Les données du système de fichiers et instantanés actifs créés après la capture de l’instantané sélectionné seront perdus. L’opération de restauration de l’instantané remplacera *toutes* les données du volume ciblé par les données de l’instantané sélectionné. Vous devez prêter attention au contenu de l’instantané et à la date de création lorsque vous sélectionnez un instantané. Vous ne pouvez pas annuler l’opération de restauration de l’instantané.
+
+1. Accédez au menu **Instantanés** d’un volume.  Cliquez avec le bouton droit sur l’instantané que vous souhaitez utiliser pour l’opération de restauration. Sélectionnez **Rétablir le volume**. 
+
+    ![Capture d’écran qui décrit le menu contextuel d’un instantané](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Dans la fenêtre Rétablir l'instantané du volume, entrez le nom du volume, puis cliquez sur **Restaurer**.   
+
+    Le volume est maintenant restauré au point chronologique de l’instantané sélectionné.
+
+    ![Capture d’écran de la fenêtre Rétablir l'instantané du volume](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>Suppression d'instantanés  
+
+Vous pouvez supprimer les instantanés dont vous n'avez plus besoin. 
+
+1. Accédez au menu **Instantanés** d’un volume. Cliquez avec le bouton droit sur l’instantané que vous voulez supprimer. Sélectionnez **Supprimer**.
+
+    ![Capture d’écran qui décrit le menu contextuel d’un instantané](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Dans la fenêtre Supprimer l’instantané, confirmez que vous souhaitez supprimer l’instantané en cliquant sur **Oui**. 
+
+    ![Capture d’écran confirmant la suppression de l’instantané](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

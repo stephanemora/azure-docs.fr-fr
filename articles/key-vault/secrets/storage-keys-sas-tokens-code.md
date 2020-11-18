@@ -9,19 +9,19 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2a0202c5259ccebedf03ade217f57b6305b9fa1b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786069"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444926"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Créer une définition SAS et récupérer les jetons de signature d’accès partagé dans le code
 
 Vous pouvez gérer votre compte de stockage avec les jetons de signature d’accès partagé(SAS) dans votre coffre de clés. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des SAS](../../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> Nous vous recommandons d’utiliser le [contrôle d’accès en fonction du rôle (RBAC)](../../storage/common/storage-auth-aad.md) pour sécuriser votre compte de stockage et ainsi bénéficier d’une sécurité et d’une facilité d’utilisation supérieures par rapport à une autorisation de clé partagée.
+> Nous vous recommandons d’utiliser le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../storage/common/storage-auth-aad.md) pour sécuriser votre compte de stockage et bénéficier ainsi d’une sécurité renforcée et d’une plus grande facilité d’utilisation par rapport à une autorisation de clé partagée.
 
 Cet article fournit des exemples de code .NET qui crée une définition SAS et récupère des jetons SAS. Pour plus d’informations, consultez notre exemple [ShareLink](/samples/azure/azure-sdk-for-net/share-link/), notamment le client généré pour les comptes de stockage gérés par Key Vault. Pour plus d’informations sur la façon de créer et de stocker des jetons SAS, consultez [Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure](overview-storage-keys.md) ou [Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell](overview-storage-keys-powershell.md).
 

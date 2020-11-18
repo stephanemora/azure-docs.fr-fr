@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658976"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.
 
@@ -29,7 +29,7 @@ Pour plus d’informations sur le consentement des applications, consultez [Infr
 
 Pour effectuer les actions suivantes, vous devez vous connecter en tant qu’administrateur général, administrateur d’application ou administrateur d’application cloud.
 
-Pour restreindre l’accès aux applications, vous devez demander l’affectation d’utilisateurs, puis affecter des utilisateurs ou des groupes à l’application.  Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](methods-for-assigning-users-and-groups.md).
+Pour restreindre l’accès aux applications, vous devez demander l’affectation d’utilisateurs, puis affecter des utilisateurs ou des groupes à l’application.  Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](./assign-user-or-group-access-portal.md).
 
 Vous pouvez accéder au portail Azure AD pour obtenir des scripts PowerShell contextuels permettant d'appliquer les mesures.
  

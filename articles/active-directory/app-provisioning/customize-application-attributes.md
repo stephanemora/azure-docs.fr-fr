@@ -1,5 +1,5 @@
 ---
-title: Personnalisation des mappages d’attributs Azure AD | Microsoft Docs
+title: Tutoriel - Personnaliser les mappages d’attributs Azure Active Directory
 description: Découvrez ce que sont les mappages d’attributs pour les applications SaaS dans Azure Active Directory et comment les modifier pour répondre aux besoins de votre entreprise.
 services: active-directory
 author: kenwith
@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 10/26/2020
+ms.topic: tutorial
+ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233881"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441951"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
 Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour des applications SaaS tierces telles que Salesforce, G Suite et autres. Si vous activez l’approvisionnement d’utilisateurs pour une application SaaS tierce, le portail Azure contrôle ses valeurs d’attributs via des mappages d’attributs.
 
@@ -65,10 +65,10 @@ Avec ces quatre types de base, les mappages d’attributs personnalisés prennen
 La section précédente vous a présenté la propriété de type de mappage d’attributs.
 Outre cette propriété, les mappages d’attributs prennent en charge les attributs suivants :
 
-- **Attribut source**  : attribut utilisateur du système source (par exemple, Azure Active Directory).
-- **Attribut cible**  : attribut utilisateur dans le système cible (par exemple, ServiceNow).
+- **Attribut source** : attribut utilisateur du système source (par exemple, Azure Active Directory).
+- **Attribut cible** : attribut utilisateur dans le système cible (par exemple, ServiceNow).
 - **Valeur par défaut si null (facultatif)**  : la valeur qui sera passée au système cible si l’attribut source est null. Cette valeur sera configurée uniquement lors de la création d’un utilisateur. La « valeur par défaut si null » ne sera pas configurée lors de la mise à jour d’un utilisateur existant. Si, par exemple, vous souhaitez configurer tous les utilisateurs existants dans le système cible avec un poste particulier (lorsque la valeur est null dans le système source), vous pouvez utiliser [l’expression](../app-provisioning/functions-for-customizing-application-data.md)suivante : Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Veillez à remplacer la « valeur par défaut » par ce que vous souhaitez configurer lorsque la valeur est null dans le système source. 
-- **Trouver les objets utilisant cet attribut**  : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
+- **Trouver les objets utilisant cet attribut** : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
 - **Priorité des correspondances** : plusieurs attributs de correspondance peuvent être définis. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué. Bien que vous puissiez définir autant d’attributs correspondants que vous le souhaitez, déterminez si les attributs que vous utilisez en tant qu’attributs correspondants sont véritablement uniques et doivent être des attributs correspondants. En général, les clients comptent 1 ou 2 attributs correspondants dans leur configuration. 
 - **Appliquer ce mappage**
   - **Toujours** : appliquez ce mappage à la création de l’utilisateur et aux actions de mise à jour.
@@ -90,7 +90,7 @@ Un certain nombre d’applications, telles que ServiceNow, Box et G Suite, prenn
 
 ![L’exemple montre ServiceNow avec des objets de groupe et d’utilisateur approvisionnés](./media/customize-application-attributes/24.png)
 
-Vous pouvez activer ou désactiver l’approvisionnement de groupe en sélectionnant le mappage de groupe sous **Mappages** , puis en définissant le paramètre **Activé** sur l’option souhaitée dans l’écran **Mappage d’attributs**.
+Vous pouvez activer ou désactiver l’approvisionnement de groupe en sélectionnant le mappage de groupe sous **Mappages**, puis en définissant le paramètre **Activé** sur l’option souhaitée dans l’écran **Mappage d’attributs**.
 
 Les attributs approvisionnés en tant que partie d’objets de groupe peuvent être personnalisés de la même manière que les objets utilisateur décrits précédemment. 
 
@@ -101,7 +101,7 @@ Les attributs approvisionnés en tant que partie d’objets de groupe peuvent ê
 
 Les attributs utilisateur pris en charge pour une application donnée sont préconfigurés. Les API de gestion des utilisateurs de la plupart des applications ne prennent pas en charge la découverte de schéma. Par conséquent, le service d’approvisionnement Azure AD n’est pas en mesure de générer de manière dynamique la liste des attributs pris en charge en appelant l’application.
 
-Cependant, certaines applications prennent en charge les attributs personnalisés, et le service d’approvisionnement Azure AD peut lire et écrire des attributs personnalisés. Pour entrer leurs définitions sur le portail Azure, activez la case **Afficher les options avancées** en bas de l’écran **Mappage d’attributs** , puis sélectionnez **Modifier la liste d’attributs pour**  votre application.
+Cependant, certaines applications prennent en charge les attributs personnalisés, et le service d’approvisionnement Azure AD peut lire et écrire des attributs personnalisés. Pour entrer leurs définitions sur le portail Azure, activez la case **Afficher les options avancées** en bas de l’écran **Mappage d’attributs**, puis sélectionnez **Modifier la liste d’attributs pour**  votre application.
 
 Les applications et les systèmes qui prennent en charge la personnalisation de la liste d’attributs sont les suivantes :
 
@@ -110,7 +110,7 @@ Les applications et les systèmes qui prennent en charge la personnalisation de 
 - Workday to Active Directory / Workday to Azure Active Directory
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
 - Azure Active Directory (les [attributs par défaut de l’API Azure AD Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) et les extensions d’annuaire personnalisées sont pris en charge)
-- Les applications qui prennent en charge [SCIM 2.0](https://tools.ietf.org/html/rfc7643), où les attributs définis dans le [schéma principal](https://tools.ietf.org/html/rfc7643) doivent être ajoutés
+- Applications prenant en charge [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - Pour l’écriture différée Azure Active Directory dans Workday ou SuccessFactors, il est possible de mettre à jour les métadonnées pertinentes des attributs pris en charge (XPath et JSONPath), mais non d’ajouter des attributs Workday ou SuccessFactors au-delà de ceux du schéma par défaut.
 
 
@@ -119,25 +119,25 @@ Les applications et les systèmes qui prennent en charge la personnalisation de 
 
 Lorsque vous modifiez la liste des attributs pris en charge, les propriétés suivantes sont fournies :
 
-- **Name**  : le nom du système de l’attribut, tel que défini dans le schéma de l’objet cible.
-- **Type**  : le type de données stockées par l’attribut, tel que défini dans le schéma de l’objet cible, qui peut être l’un des types suivants :
-  - *Binary*  : l’attribut contient des données binaires.
-  - *Boolean*  : l’attribut contient une valeur True ou False.
-  - *DateTime*  : l’attribut contient une chaîne de date.
-  - *Integer*  : l’attribut contient un entier.
-  - *Référence*  : l’attribut contient un ID qui fait référence à une valeur stockée dans une autre table de l’application cible.
-  - *String*  : l’attribut contient une chaîne de texte.
+- **Name** : le nom du système de l’attribut, tel que défini dans le schéma de l’objet cible.
+- **Type** : le type de données stockées par l’attribut, tel que défini dans le schéma de l’objet cible, qui peut être l’un des types suivants :
+  - *Binary* : l’attribut contient des données binaires.
+  - *Boolean* : l’attribut contient une valeur True ou False.
+  - *DateTime* : l’attribut contient une chaîne de date.
+  - *Integer* : l’attribut contient un entier.
+  - *Référence* : l’attribut contient un ID qui fait référence à une valeur stockée dans une autre table de l’application cible.
+  - *String* : l’attribut contient une chaîne de texte.
 - **Primary Key?** - L’attribut est défini ou pas comme un champ de clé primaire dans le schéma de l’objet cible.
 - **Obligatoire ?** - L’attribut doit ou non être renseigné dans l’application ou le système cible.
 - **Multi-value?** - L’attribut prend en charge ou pas plusieurs valeurs.
 - **Exact case?** - Les valeurs d’attribut sont ou non évaluées en tenant compte de la casse.
-- **API Expression**  : ne pas utiliser, sauf si vous êtes invité à le faire dans la documentation relative à un connecteur d’approvisionnement spécifique (tel que Workday).
-- **Referenced Object Attribute**  : s’il s’agit d’un attribut de type référence, ce menu vous permet de sélectionner la table et l’attribut dans l’application cible qui contient la valeur associée à l’attribut. Par exemple, si vous avez un attribut nommé « Department » dont la valeur stockée fait référence à un objet dans une table « Departments » distincte, sélectionnez « Departments.Name ». Les tables de référence et les champs d’ID principaux pris en charge pour une application donnée sont préconfigurés et ne peuvent actuellement pas être modifiés via le portail Azure, mais ils peuvent être modifiés via l’[API Microsoft Graph](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
+- **API Expression** : ne pas utiliser, sauf si vous êtes invité à le faire dans la documentation relative à un connecteur d’approvisionnement spécifique (tel que Workday).
+- **Referenced Object Attribute** : s’il s’agit d’un attribut de type référence, ce menu vous permet de sélectionner la table et l’attribut dans l’application cible qui contient la valeur associée à l’attribut. Par exemple, si vous avez un attribut nommé « Department » dont la valeur stockée fait référence à un objet dans une table « Departments » distincte, sélectionnez « Departments.Name ». Les tables de référence et les champs d’ID principaux pris en charge pour une application donnée sont préconfigurés et ne peuvent actuellement pas être modifiés via le portail Azure, mais ils peuvent être modifiés via l’[API Microsoft Graph](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionnement d’un attribut d’extension personnalisé sur une application conforme à SCIM
 La RFC SCIM définit un schéma d’utilisateur et de groupe principal, tout en permettant également aux extensions du schéma de répondre aux besoins de votre application. Pour ajouter un attribut personnalisé à une application SCIM :
    1. Connectez-vous au [portail Azure Active Directory](https://aad.portal.azure.com) et sélectionnez **Applications d’entreprise**. Sélectionnez ensuite votre application, puis **Provisionnement**.
-   2. Sous **Mappages** , sélectionnez l’objet (utilisateur ou groupe) pour lequel vous souhaitez ajouter un attribut personnalisé.
+   2. Sous **Mappages**, sélectionnez l’objet (utilisateur ou groupe) pour lequel vous souhaitez ajouter un attribut personnalisé.
    3. En bas de la page, sélectionnez **Afficher les options avancées**.
    4. Sélectionnez **Modifier la liste d’attributs pour AppName**.
    5. En bas de la liste d’attributs, entrez les informations relatives à l’attribut personnalisé dans les champs fournis. Sélectionnez ensuite **Ajouter un attribut**.
@@ -146,7 +146,7 @@ Pour les applications SCIM, le nom de l’attribut doit suivre le modèle indiqu
 
 Ces instructions s’appliquent uniquement aux applications prenant en charge SCIM. Les applications telles que ServiceNow et Salesforce ne sont pas intégrées à Azure AD à l’aide de SCIM, et n’ont donc pas besoin de cet espace de noms spécifique lors de l’ajout d’un attribut personnalisé.
 
-Les attributs personnalisés ne peuvent pas être des attributs référentiels ou des attributs multivaleurs. Les attributs d’extension multivaleurs personnalisés sont actuellement pris en charge uniquement pour les applications de la galerie.  
+Les attributs personnalisés ne peuvent pas être des attributs référentiels, des attributs multivaleurs ou des attributs de type complexe. Les attributs d’extension multivaleurs personnalisés et de type complexe sont actuellement pris en charge uniquement pour les applications de la galerie.  
  
 **Exemple de représentation d’un utilisateur avec un attribut d’extension :**
 
@@ -304,7 +304,7 @@ Si vous devez recommencer et réinitialiser vos mappages existants à leur état
 Cette option entraîne une resynchronisation forcée de tous les utilisateurs pendant l’exécution du service d’approvisionnement.
 
 > [!IMPORTANT]
-> Il est fortement recommandé que l’ **État de l’approvisionnement** soit défini sur **Désactivé** avant d’appeler cette option.
+> Il est fortement recommandé que l’**État de l’approvisionnement** soit défini sur **Désactivé** avant d’appeler cette option.
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 

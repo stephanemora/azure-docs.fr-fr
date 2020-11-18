@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
-ms.openlocfilehash: 6ac28e430681f35d9935cf0f484529074403bf54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324968"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491696"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Déployer des modèles ML sur des réseaux de portes programmables in situ (FGPA, field-programmable gate array) avec Azure Machine Learning 
 
@@ -349,7 +349,7 @@ for top in sorted_results[:5]:
 
 ### <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour éviter les coûts inutiles, nettoyez vos ressources **dans cet ordre**  : service web, puis l’image, et enfin le modèle.
+Pour éviter les coûts inutiles, nettoyez vos ressources **dans cet ordre** : service web, puis l’image, et enfin le modèle.
 
 ```python
 aks_service.delete()
@@ -362,6 +362,8 @@ converted_model.delete()
 ## <a name="next-steps"></a>Étapes suivantes
 
 + Découvrez comment [sécuriser vos services web](how-to-secure-web-service.md).
+
++ En savoir plus sur FPGA ainsi que sur les [tarifs et les coûts d’Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 + [Matériel Hyperscale : ML à grande échelle sur Azure + FPGA : Build 2018 (vidéo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 

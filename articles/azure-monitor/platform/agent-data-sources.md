@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460799"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490574"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Sources de données d’agent Log Analytics dans Azure Monitor
 Les données qu’Azure Monitor collecte à partir des machines virtuelles avec l’[agent Log Analytics](log-analytics-agent.md) sont définies par les sources de données que vous configurez dans l’[espace de travail Log Analytics](data-platform-logs.md).   Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
@@ -20,6 +20,9 @@ Les données qu’Azure Monitor collecte à partir des machines virtuelles avec 
 > Cet article traite des sources de données pour l’[agent Log Analytics](log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](agents-overview.md).
 
 ![Collecte de données de journal](media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> Les sources de données décrites dans cet article s’appliquent uniquement aux machines virtuelles qui exécutent l’agent Log Analytics. 
 
 ## <a name="summary-of-data-sources"></a>Résumé des sources de données
 Le tableau suivant répertorie les sources de données des agents actuellement disponibles avec l’agent Log Analytics.  Chacune de ces sources comporte un lien vers un article distinct qui fournit des détails sur cette source de données.   Il fournit également des informations sur leur méthode et leur fréquence de collecte. 
@@ -37,7 +40,7 @@ Le tableau suivant répertorie les sources de données des agents actuellement d
 
 
 ## <a name="configuring-data-sources"></a>Configuration des sources de données
-Pour configurer des sources de données pour les agents Log Analytics, accédez au menu **Espaces de travail Log Analytics** dans le portail Azure et sélectionnez un espace de travail. Cliquez sur **Paramètres avancés** puis sur **Données** . Sélectionnez la source de données à configurer. Vous pouvez suivre le lien dans le tableau ci-dessus vers la documentation de chaque source de données pour plus d’informations sur leur configuration.
+Pour configurer des sources de données pour les agents Log Analytics, accédez au menu **Espaces de travail Log Analytics** dans le portail Azure et sélectionnez un espace de travail. Cliquez sur **Paramètres avancés** puis sur **Données**. Sélectionnez la source de données à configurer. Vous pouvez suivre le lien dans le tableau ci-dessus vers la documentation de chaque source de données pour plus d’informations sur leur configuration.
 
 Toutes les configurations sont remises à tous les agents connectés à cet espace de travail.  Nous ne pouvez exclure aucun agent connecté de cette configuration.
 

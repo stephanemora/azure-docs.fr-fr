@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369095"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659078"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Accorder le consentement administrateur au niveau locataire à une application
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur le consentement des applications, consultez [Infr
 L’octroi du consentement administrateur au niveau locataire vous oblige à vous connecter en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
-> Lorsqu’une application a reçu le consentement administrateur au niveau locataire, tous les utilisateurs peuvent se connecter à l’application, sauf si elle a été configurée pour exiger l’attribution de l’utilisateur. Pour restreindre à des utilisateurs spécifiques l’accès à une application, demandez l’affectation d’utilisateurs, puis affectez des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](methods-for-assigning-users-and-groups.md).
+> Lorsqu’une application a reçu le consentement administrateur au niveau locataire, tous les utilisateurs peuvent se connecter à l’application, sauf si elle a été configurée pour exiger l’attribution de l’utilisateur. Pour restreindre à des utilisateurs spécifiques l’accès à une application, demandez l’affectation d’utilisateurs, puis affectez des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](./assign-user-or-group-access-portal.md).
 >
 > Le rôle Administrateur général est requis afin de donner le consentement administrateur pour les permissions d’application à l’API Microsoft Graph.
 
@@ -45,12 +45,12 @@ L’octroi du consentement administrateur au niveau locataire vous oblige à vou
 
 Vous pouvez accorder le consentement administrateur au niveau locataire via *Applications d’entreprise* si l’application a déjà été approvisionnée dans votre locataire. Par exemple, une application peut être approvisionnée dans votre locataire si au moins un utilisateur a déjà donné son consentement à l’application. Pour plus d’informations, consultez [Comment et pourquoi les applications sont ajoutées à Azure Active Directory](../develop/active-directory-how-applications-are-added.md).
 
-Pour accorder le consentement administrateur au niveau locataire à une application figurant dans **Applications d’entreprise**  :
+Pour accorder le consentement administrateur au niveau locataire à une application figurant dans **Applications d’entreprise** :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
-2. Sélectionnez **Azure Active Directory** puis **Applications d’entreprise** .
+2. Sélectionnez **Azure Active Directory** puis **Applications d’entreprise**.
 3. Sélectionnez l’application à laquelle vous souhaitez accorder le consentement administrateur au niveau locataire.
-4. Sélectionnez **Autorisations** , puis cliquez sur **Accorder le consentement administrateur** .
+4. Sélectionnez **Autorisations**, puis cliquez sur **Accorder le consentement administrateur**.
 5. Examinez attentivement les autorisations requises par l’application.
 6. Si vous acceptez les autorisations requises par l’application, accordez le consentement. Si ce n’est pas le cas, cliquez sur **Annuler** ou fermez la fenêtre.
 
@@ -61,12 +61,12 @@ Pour accorder le consentement administrateur au niveau locataire à une applicat
 
 Pour les applications développées par votre organisation ou inscrites directement dans votre locataire Azure AD, vous pouvez également accorder le consentement administrateur au niveau locataire à partir de **Inscriptions d’applications** dans le Portail Azure.
 
-Pour accorder le consentement administrateur au niveau locataire dans **Inscriptions d'applications**  :
+Pour accorder le consentement administrateur au niveau locataire dans **Inscriptions d'applications** :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
-2. Sélectionnez **Azure Active Directory** , puis **Inscription d’applications** .
+2. Sélectionnez **Azure Active Directory**, puis **Inscription d’applications**.
 3. Sélectionnez l’application à laquelle vous souhaitez accorder le consentement administrateur au niveau locataire.
-4. Sélectionnez **Autorisations d’API** , puis cliquez sur **Accorder le consentement administrateur** .
+4. Sélectionnez **Autorisations d’API**, puis cliquez sur **Accorder le consentement administrateur**.
 5. Examinez attentivement les autorisations requises par l’application.
 6. Si vous acceptez les autorisations requises par l’application, accordez le consentement. Si ce n’est pas le cas, cliquez sur **Annuler** ou fermez la fenêtre.
 
@@ -99,6 +99,6 @@ Comme toujours, examinez attentivement les autorisations demandées par une appl
 
 [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
 
-[Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
+[Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784284"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372691"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertes de sécurité - guide de référence
 
@@ -456,6 +456,8 @@ Les intentions de Kill Chain prises en charge par Security Center sont basées s
 | **Impact**              | Les événements d’impact tentent principalement de réduire directement la disponibilité ou l’intégrité d’un système, service ou réseau, notamment par la manipulation de données pour avoir un impact sur un processus métier ou opérationnel. Les techniques sollicitées sont généralement le ransomware, le défacement, la manipulation de données, etc.                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> Pour les alertes en préversion : [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les alertes, consultez les documents suivants :

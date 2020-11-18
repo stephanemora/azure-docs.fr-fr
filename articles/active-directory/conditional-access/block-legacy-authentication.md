@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233795"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489520"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
@@ -109,13 +109,17 @@ Même si votre organisation n’est pas prête à bloquer l’authentification h
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
-En bloquant l’accès avec **Autres clients** , vous empêchez également Exchange Online PowerShell et Dynamics 365 d’utiliser l’authentification de base.
+En bloquant l’accès avec **Autres clients**, vous empêchez également Exchange Online PowerShell et Dynamics 365 d’utiliser l’authentification de base.
 
 La configuration d’une stratégie pour **d’autres clients** bloque l’organisation entière à partir de certains clients tels que SPConnect. Ce blocage se produit, car les clients plus anciens s’authentifient de manière inattendue. Ce problème ne concerne pas aux principales applications Office, telles que les anciens clients Office.
 
 L’entrée en vigueur de la stratégie peut prendre jusqu’à 24 heures.
 
 Vous pouvez sélectionner tous les contrôles d’octroi disponibles pour la condition **Autre clients**. Toutefois, l’expérience de l’utilisateur final est toujours la même : un accès bloqué.
+
+### <a name="sharepoint-online-and-b2b-guest-users"></a>Utilisateurs invités SharePoint Online et B2B
+
+Pour bloquer l’accès des utilisateurs B2B à SharePoint Online via l’authentification héritée, les organisations doivent désactiver l’authentification héritée sur SharePoint à l’aide de la commande `Set-SPOTenant` PowerShell et en définissant le paramètre `-LegacyAuthProtocolsEnabled` sur `$false`. Vous trouverez plus d’informations sur la définition de ce paramètre dans le document de référence SharePoint PowerShell concernant [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

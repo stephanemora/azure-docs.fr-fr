@@ -1,5 +1,5 @@
 ---
-title: Sortie d’Azure Stream Analytics dans Azure SQL Database
+title: Augmenter les performances de débit pour Azure SQL Database à partir d’Azure Stream Analytics
 description: Découvrez comment charger des données de sortie d’Azure Stream Analytics dans SQL Azure et comment améliorer les débits d’écriture.
 author: chetanmsft
 ms.author: chetang
@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a902cbc8256e249a608a5da8436a1145ddb0d565
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346330"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490931"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Sortie d’Azure Stream Analytics dans Azure SQL Database
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Augmenter les performances de débit pour Azure SQL Database à partir d’Azure Stream Analytics
 
 Cet article donne des conseils pour améliorer les performances de débit d’écriture quand vous chargez des données dans Azure SQL Database à partir d’Azure Stream Analytics.
 

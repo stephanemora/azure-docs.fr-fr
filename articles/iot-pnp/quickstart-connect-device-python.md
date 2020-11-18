@@ -1,6 +1,6 @@
 ---
-title: Connecter un exemple de code Python pour appareil IoT Plug-and-Play à Azure IoT Hub | Microsoft Docs
-description: Utilisez Python pour créer et exécuter un exemple de code pour appareil IoT Plug-and-Play, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
+title: Démarrage rapide – Connecter un exemple de code Python pour appareil IoT Plug-and-Play à Azure IoT Hub | Microsoft Docs
+description: Démarrage rapide - Utilisez Python pour créer et exécuter un exemple de code pour appareil IoT Plug-and-Play, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 38c6b835f0a3ddaaf4c049ca6ea3aeb484ad3280
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737316"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421564"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play à IoT Hub (Python)
 
@@ -37,7 +37,7 @@ Dans votre environnement Python local, installez le package comme suit :
 pip install azure-iot-device
 ```
 
-Clonez le référentiel IoT du Kit de développement logiciel (SDK) Python et extrayez **master**  :
+Clonez le référentiel IoT du Kit de développement logiciel (SDK) Python et extrayez **master** :
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-python
@@ -45,7 +45,7 @@ git clone https://github.com/Azure/azure-iot-sdk-python
 
 ## <a name="run-the-sample-device"></a>Exécuter l’exemple d’appareil
 
-Le dossier *azure-iot-sdk-python\azure-iot-device\samples\pnp* contient l’exemple de code pour l’appareil IoT Plug-and-Play. Ce guide de démarrage rapide utilise le fichier *simple_thermostat.py* . Cet exemple de code implémente un appareil compatible IoT Plug-and-Play et utilise la bibliothèque de client d’appareil Azure IoT Python.
+Le dossier *azure-iot-sdk-python\azure-iot-device\samples\pnp* contient l’exemple de code pour l’appareil IoT Plug-and-Play. Ce guide de démarrage rapide utilise le fichier *simple_thermostat.py*. Cet exemple de code implémente un appareil compatible IoT Plug-and-Play et utilise la bibliothèque de client d’appareil Azure IoT Python.
 
 Ouvrez le fichier **simple_thermostat.py** dans un éditeur de texte. Notez comment il :
 
@@ -57,19 +57,19 @@ Ouvrez le fichier **simple_thermostat.py** dans un éditeur de texte. Notez comm
 
 1. Définit une fonction d’écouteur de clavier de saisie pour vous permettre de quitter l’application.
 
-1. Dispose d’une fonction **main** . La fonction **main**  :
+1. Dispose d’une fonction **main**. La fonction **main** :
 
     1. Utilise le Kit de développement logiciel (SDK) d’appareil pour créer un client d’appareil et se connecter à votre hub IoT.
 
-    1. Met à jour les propriétés. Le modèle que nous utilisons, **Thermostat** , définit `targetTemperature` et `maxTempSinceLastReboot` comme les deux propriétés pour notre thermostat. C’est donc ce que nous allons utiliser. Les propriétés sont mises à jour à l’aide de la méthode `patch_twin_reported_properties` définie sur le `device_client`.
+    1. Met à jour les propriétés. Le modèle que nous utilisons, **Thermostat**, définit `targetTemperature` et `maxTempSinceLastReboot` comme les deux propriétés pour notre thermostat. C’est donc ce que nous allons utiliser. Les propriétés sont mises à jour à l’aide de la méthode `patch_twin_reported_properties` définie sur le `device_client`.
 
-    1. Commence à écouter les demandes de commande à l’aide de la fonction **execute_command_listener** . La fonction configure un « écouteur » pour écouter les commandes provenant du service. Quand vous configurez l’écouteur, vous fournissez un `method_name`, un `user_command_handler` et un `create_user_response_handler`.
+    1. Commence à écouter les demandes de commande à l’aide de la fonction **execute_command_listener**. La fonction configure un « écouteur » pour écouter les commandes provenant du service. Quand vous configurez l’écouteur, vous fournissez un `method_name`, un `user_command_handler` et un `create_user_response_handler`.
         - La fonction `user_command_handler` définit ce que l’appareil doit faire quand il reçoit une commande. Par exemple, si votre alarme vient à être désactivée, l’effet de la réception de cette commande est l’éveil. Imaginez cela comme l’« effet » de la commande appelée.
         - La fonction `create_user_response_handler` crée une réponse à envoyer à votre hub IoT quand une commande s’exécute correctement. Par exemple, si votre alarme vient à être désactivée, vous répondez en appuyant sur la touche répéter. Considérez cela comme la réponse que vous donnez au service. Vous pouvez afficher cette réponse dans le portail.
 
     1. Commence à envoyer la télémétrie. La valeur **pnp_send_telemetry** est définie dans le fichier pnp_methods.py. L’exemple de code utilise une boucle pour appeler cette fonction toutes les huit secondes.
 
-    1. Désactive l’ensemble des écouteurs et des tâches, puis quitte la boucle quand vous appuyez sur **Q** ou **q** .
+    1. Désactive l’ensemble des écouteurs et des tâches, puis quitte la boucle quand vous appuyez sur **Q** ou **q**.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

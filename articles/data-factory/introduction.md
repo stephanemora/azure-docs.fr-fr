@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89536310"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491271"
 ---
 # <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
 
@@ -22,7 +22,7 @@ ms.locfileid: "89536310"
 
 Dans le monde des Big Data, les données brutes et désorganisées sont souvent enregistrées dans des systèmes de stockage relationnels, non-relationnels et autres systèmes. Toutefois, lorsqu’elles sont isolées, les données brutes n’ont pas le contexte ou la signification appropriés pour fournir des informations significatives aux analystes, aux scientifiques des données ou aux décideurs en entreprise. 
 
-Les Big Data requièrent un service qui permet d’orchestrer et d’opérationnaliser les processus pour affiner ces gigantesques magasins de données brutes pour les transformer en informations exploitables. Azure Data Factory est un service cloud géré créé pour ces projets complexes d’extraction, de transformation et de chargement (ETL), d’extraction, de chargement et de transformation (ELT) et d’intégration des données.
+Les Big Data nécessitent un service pouvant orchestrer et opérationnaliser les processus qui permettent d’affiner les données brutes de ces gigantesques magasins pour les transformer en insights métier exploitables. Azure Data Factory est un service cloud géré créé pour ces projets complexes d’extraction, de transformation et de chargement (ETL), d’extraction, de chargement et de transformation (ELT) et d’intégration des données.
 
 Prenons l’exemple d’une société d’édition de jeux qui rassemble plusieurs pétaoctets de journaux d’activité sur les jeux générés par les jeux dans le cloud. La société souhaite analyser ces journaux d’activité pour obtenir des informations détaillées sur les préférences des clients, les données démographiques et le comportement d’utilisation. Elle souhaite également identifier les opportunités de vente incitative et de ventes croisées, développer de nouvelles fonctionnalités attrayantes, accroître son activité et fournir une meilleure expérience à ses clients.
 

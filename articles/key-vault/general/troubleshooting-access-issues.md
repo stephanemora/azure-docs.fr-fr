@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f9bbf6e9d1d932f7225807613b789821c1462932
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285240"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441849"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Résolution des problèmes de stratégie d’accès au coffre de clés Azure
 
@@ -53,7 +53,7 @@ L’application nécessite également l’affectation d’au moins un rôle IAM 
 
 Actuellement, un redéploiement Key Vault a pour effet de supprimer toutes les stratégies d’accès de Key Vault et de les remplacer par une stratégie d’accès dans un modèle ARM. Il n’existe pas d’option incrémentielle pour les stratégies d’accès du Key Vault. Afin de conserver dans Key Vault les stratégies d’accès existantes, vous devez lire celles-ci dans Key Vault, puis remplir le modèle ARM à l’aide de ces stratégies pour éviter toute interruption d’accès.
 
-Une autre option qui peut être utile pour ce scénario consiste à utiliser des rôles RBAC en guise d’alternative aux stratégies d’accès. Avec RBAC, vous pouvez redéployer le coffre de clés sans spécifier à nouveau la stratégie. Vous trouverez d’autres informations sur cette solution [ici](./rbac-guide.md).
+Une autre option qui peut être utile pour ce scénario consiste à utiliser le contrôle RBAC Azure et des rôles en guise d’alternative aux stratégies d’accès. Avec le contrôle RBAC Azure, vous pouvez redéployer le coffre de clés sans respécifier la stratégie. Vous trouverez d’autres informations sur cette solution [ici](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Procédure de résolution des problèmes recommandée pour les types d’erreurs suivants
 

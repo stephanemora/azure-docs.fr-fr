@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151814"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487990"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Nouveautés dans la documentation Azure Monitor
 
@@ -157,7 +157,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 ### <a name="alerts"></a>Alertes
 - [Règles d’action pour les alertes Azure Monitor](platform/alerts-action-rules.md) – Ajout de traitements CLI.
 - [Créer et gérer des groupes d’actions dans le portail Azure](platform/action-groups.md) – Mise à jour pour refléter les modifications apportées à l’interface utilisateur.
-- [Requêtes enregistrées dans Azure Monitor Log Analytics](log-query/saved-queries.md) – Nouvel article.
+- [Exemples de requête dans Azure Monitor Log Analytics](log-query/example-queries.md) – Nouvel article.
 - [Résoudre les problèmes d’alertes de journal dans Azure Monitor](platform/alerts-troubleshoot-log.md) – Ajout d’une section sur le quota de règles d’alerte.
 - [Résolution des problèmes d’alertes de métriques Azure](platform/alerts-troubleshoot-metric.md) – Ajout d’une section sur les règles d’alerte de métrique personnalisée non encore émise.
 - [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor.](platform/alerts-metric-overview.md) – Ajout d’une recommandation pour la sélection de la granularité de l’agrégation.
@@ -448,7 +448,7 @@ Articles nouveaux et mis à jour suite à la restructuration et au regroupement 
 - [Superviser les applications Python avec Azure Monitor (préversion)](app/opencensus-python.md) - Ajout de métriques standard.
 - [Prise en charge du mappage de source pour les applications JavaScript – Azure Monitor Application Insights](app/source-map-support.md) - Nouvel article.
 
-### <a name="containers"></a>Conteneurs
+### <a name="containers"></a>Containers
 
 - [Questions fréquentes (FAQ) Azure Monitor](faq.md) - Mise à jour relative à Azure Monitor pour conteneurs.
 - [Configurer la supervision de GPU avec Azure Monitor pour conteneurs](insights/container-insights-gpu-monitoring.md) - Nouvel article.

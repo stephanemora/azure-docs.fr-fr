@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286710"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488534"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -73,7 +73,7 @@ Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 | **callerIpAddress** |Adresse IP du client qui a effectué la requête. |
 | **correlationId** |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux d’activité côté client avec les journaux d’activité côté service (Key Vault). |
 | **identity** |Identité issue du jeton qui a été présenté dans la requête d’API REST. Il s’agit généralement d’un « utilisateur », d’un « principal de service » ou de la « utilisateur + appId », comme dans le cas d’une requête résultant d’une cmdlet Azure PowerShell. |
-| **properties** |Informations variables en fonction de l’opération ( **operationName** ). Dans la plupart des cas, ce champ contient des informations sur le client (chaîne d’agent utilisateur transmise par le client), l’URI de requête d’API REST exacte et le code d’état HTTP. En outre, quand un objet est retourné suite à une requête (par exemple, **KeyCreate** ou **VaultGet** ), ce champ contient également l’URI de la clé (sous la forme `id`), l’URI du coffre ou l’URI du secret. |
+| **properties** |Informations variables en fonction de l’opération (**operationName**). Dans la plupart des cas, ce champ contient des informations sur le client (chaîne d’agent utilisateur transmise par le client), l’URI de requête d’API REST exacte et le code d’état HTTP. En outre, quand un objet est retourné suite à une requête (par exemple, **KeyCreate** ou **VaultGet**), ce champ contient également l’URI de la clé (sous la forme `id`), l’URI du coffre ou l’URI du secret. |
 
 Les valeurs du champ **operationName** sont indiquées au format *ObjectVerb*. Par exemple :
 
@@ -93,12 +93,14 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **VaultDelete** |[Suppression d’un coffre de clés](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Mise à jour d’un coffre de clés](/rest/api/keyvault/vaults) |
 | **VaultList** |[Liste de l’ensemble des coffres de clés dans un groupe de ressources](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Vider le coffre supprimé](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Récupérer un coffre supprimé|
+| **VaultGetDeleted** |[Obtenir un coffre supprimé](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Lister les coffres supprimés](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Création d’une clé](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Obtention des informations sur une clé](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importation d’une clé dans un coffre](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[Sauvegarde d’une clé](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[Suppression d’une clé](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[Restauration d’une clé](/rest/api/keyvault/restorekey) |
 | **KeySign** |[Signature avec une clé](/rest/api/keyvault/sign) |
 | **KeyVerify** |[Vérification à l’aide d’une clé](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[Encapsulage d’une clé](/rest/api/keyvault/wrapkey) |
@@ -106,14 +108,56 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **KeyEncrypt** |[Chiffrement avec une clé](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[Déchiffrement avec une clé](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[Mise à jour d’une clé](/rest/api/keyvault/updatekey) |
-| **KeyList** |[Liste des clés dans un coffre](/rest/api/keyvault/vaults) |
+| **KeyList** |[Liste des clés dans un coffre](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[Liste des versions d’une clé](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[Vider une clé](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Sauvegarder une clé](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Restauration d’une clé](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[Récupérer une clé](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Obtenir une clé supprimée](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[Lister les clés supprimées dans un coffre](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Obtenir des informations sur un certificat](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Créer un certificat](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importer un certificat dans un coffre](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Mettre à jour un certificat](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Lister les certificats d’un coffre](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Lister les versions d’un certificat](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Supprimer un certificat](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Vider un certificat](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Sauvegarder un certificat](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Restaurer un certificat](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Récupérer un certificat](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Obtenir un certificat supprimé](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Lister les certificats supprimés d’un coffre](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Obtenir une stratégie de certificat](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Mettre à jour une stratégie de certificat](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Créer une stratégie de certificat](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Obtenir des contacts de certificat](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Définir des contacts de certificat](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Supprimer des contacts de certificat](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Obtenir un émetteur de certificat](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Définir un émetteur de certificat](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Mettre à jour un émetteur de certificat](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Supprimer un émetteur de certificat](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Lister les émetteurs de certificats](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Inscrire un certificat |
+| **CertificateRenew** |Renouveler un certificat |
+| **CertificatePendingGet** |Récupérer le certificat en attente |
+| **CertificatePendingMerge** |En attente d’une fusion de certificats |
+| **CertificatePendingUpdate** |En attente d’une mise à jour de certificat |
+| **CertificatePendingDelete** |Supprimer un certificat en attente |
 | **SecretSet** |[Création d’une clé secrète](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Obtention d’un secret](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Mise à jour d’une clé secrète](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[Suppression d’une clé secrète](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[Liste des clés secrètes d’un coffre](/rest/api/keyvault/vaults) |
+| **SecretList** |[Liste des clés secrètes d’un coffre](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[Liste des versions d’une clé secrète](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Vider un secret](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Sauvegarder un secret](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Restaurer un secret](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Récupérer un secret](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Obtenir un secret supprimé](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Lister les secrets supprimés dans un coffre](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Événement lié à la modification de la stratégie d’accès au coffre publié |
 | **SecretNearExpiryEventGridNotification** |Événement lié à un secret proche de l’expiration publié |
 | **SecretExpiredEventGridNotification** |Événement lié à un secret expiré publié |

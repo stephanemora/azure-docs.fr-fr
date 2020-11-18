@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7423114d2da23207dfcc1a329675b8c902b1f320
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287504"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445538"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>S’authentifier auprès d’Azure Key Vault
 
@@ -28,7 +28,7 @@ Un principal de sécurité est un objet qui représente un utilisateur, un group
 
 * Un principal de sécurité **groupe** identifie un ensemble d’utilisateurs créés dans Azure Active Directory. Tous les rôles et autorisations attribués au groupe sont accordés à tous les utilisateurs du groupe.
 
-* Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client** , lui sert de nom d’utilisateur. La **clé secrète client** du principal de service fonctionne comme un mot de passe.
+* Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client**, lui sert de nom d’utilisateur. La **clé secrète client** du principal de service fonctionne comme un mot de passe.
 
 Pour les applications, il existe deux façons d’obtenir un principal de service :
 
@@ -62,7 +62,7 @@ Key Vault fonctionne avec deux niveaux d’autorisation distincts :
 
     Key Vault prend actuellement en charge le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#key-vault-contributor), qui autorise les opérations de gestion sur les ressources Key Vault. D’autres rôles sont actuellement en préversion. Vous pouvez également créer des rôles personnalisés (cf. [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md)).
 
-    Pour des informations générales sur les rôles, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC) ?](../../role-based-access-control/overview.md).
+    Pour obtenir des informations générales sur les rôles, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md)
 
 
 > [!IMPORTANT]
@@ -125,4 +125,4 @@ Le tableau suivant contient des liens vers différents articles qui montrent com
 - [Résolution des problèmes de stratégie d’accès à Key Vault](troubleshooting-access-issues.md)
 - [Codes d'erreur de l'API REST Key Vault](rest-error-codes.md)
 - [Guide du développeur Key Vault](developers-guide.md)
-- [Présentation du contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md)
+- [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md)

@@ -1,18 +1,18 @@
 ---
-title: Connecter un module générique IoT Plug-and-Play | Microsoft Docs
-description: Utilisez l’exemple de code d’appareil IoT plug-and-Play en C# dans un module générique.
+title: Tutoriel - Connecter un module générique Azure IoT Plug-and-Play | Microsoft Docs
+description: Tutoriel - Utiliser l’exemple de code d’appareil IoT Plug-and-Play en C# dans un module générique.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426931"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421462"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutoriel : Connecter un module IoT Plug-and-Play (C#)
 
@@ -33,11 +33,11 @@ Pour effectuer ce tutoriel sur Windows, vous devez installer les logiciels suiva
 
 Utilisez l’explorateur Azure IoT pour ajouter un nouvel appareil appelé **my-module-device** à votre hub IoT.
 
-Ajoutez un module appelé **my-module** à **my-module-device**  :
+Ajoutez un module appelé **my-module** à **my-module-device** :
 
 1. Dans l’explorateur Azure IoT, accédez à l’appareil **my-module-device**.
 
-1. Sélectionnez **Identité de module** , puis **+ Ajouter**.
+1. Sélectionnez **Identité de module**, puis **+ Ajouter**.
 
 1. Entrez **my-module** comme nom d’identité du module, puis sélectionnez **Enregistrer**.
 

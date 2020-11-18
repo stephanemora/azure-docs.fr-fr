@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077915"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491424"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Forum aux questions
 
@@ -159,15 +159,12 @@ Nous assurons la couverture de la récupération d’urgence des métadonnées (
 
 1. Créez un hub de notification secondaire dans un autre centre de données. Nous vous recommandons d’en créer un dès le début pour vous protéger d’une reprise après sinistre qui peut affecter vos capacités de gestion. Vous pouvez également créer un hub au moment de l’événement de récupération d’urgence.
 
-2. Alimentez le hub de notification secondaire avec les inscriptions du hub de notification principal. Il n’est pas recommandé de tenter de conserver les inscriptions sur les deux hubs ni de les synchroniser au fil des inscriptions. Cette pratique ne fonctionne pas en raison de la tendance inhérente d’inscriptions à expirer côté PNS. Les inscriptions sont supprimées de Notification Hubs lorsque le PNS nous signale qu’elles ont expiré ou qu’elles ne sont plus valides.  
+2. Veillez à ce que le hub de notification secondaire soit synchronisé avec le hub de notification principal en utilisant l’une des options suivantes :
 
-Nous avons deux suggestions pour le serveur principal d’applications :
+   * Utilisez un serveur principal d’application qui crée et met à jour simultanément des installations dans les deux hubs de notification. Ces installations vous permettent de spécifier votre propre identificateur d’appareil unique, ce qui le rend plus adapté au scénario de réplication. Pour plus d’informations, consultez [cet exemple de code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Utilisez un serveur principal d’applications qui obtient un vidage régulier des inscriptions à partir du hub de notification principal sous forme de sauvegarde. Il peut alors effectuer une insertion en bloc dans le hub de notification secondaire.
 
-* Utilisez un serveur principal d’applications qui gère un ensemble donné d’inscriptions de son côté. Il peut alors effectuer une insertion en bloc dans le hub de notification secondaire.
-* Utilisez un serveur principal d’applications qui obtient un vidage régulier des inscriptions à partir du hub de notification principal sous forme de sauvegarde. Il peut alors effectuer une insertion en bloc dans le hub de notification secondaire.
-
-> [!NOTE]
-> Pour plus d’informations sur la fonctionnalité d’exportation/importation des inscriptions disponible au niveau Standard, voir [Exportation et modification d’inscriptions en bloc] (Exportation/Importation des inscriptions).
+Le hub de notification secondaire peut se retrouver avec des installations/inscriptions ayant expiré. Lorsque la notification Push est effectuée vers un handle expiré, Notification Hubs nettoie automatiquement l’enregistrement d’installation/inscription associé en fonction de la réponse reçue du serveur PNS. Pour nettoyer les enregistrements expirés d’un hub de notification secondaire, ajoutez une logique personnalisée qui traite les informations reçues de chaque envoi. Ensuite, faites expirer l’installation/l’inscription dans le hub de notification secondaire.
 
 Si vous n’avez de serveur principal d’applications, lorsque l’application démarre sur les appareils cibles, ces derniers effectuent une nouvelle inscription dans le hub de notification secondaire. Finalement, tous les appareils actifs sont inscrits dans le hub de notification secondaire.
 

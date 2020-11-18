@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: 8066f42a5ab34f5cab0afcdc42cc6ccacfff2855
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3994b05f613cbebcf6daa05cf8db3ef429b52407
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876671"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428060"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Tutoriel : Créer une application d’analytique vidéo pour la détection d’objets et de mouvements dans Azure IoT Central (YOLO v3)
 
@@ -111,7 +111,7 @@ Ce tutoriel configure votre solution de sorte qu’elle utilise le module YOLO 
 
 ### <a name="replace-the-manifest"></a>Remplacer le manifeste
 
-Sur la page de **LVA Edge Gateway**, sélectionnez **+ Remplacer le manifeste**.
+Dans la page **LVA Edge Gateway v2**, sélectionnez **+ Remplacer le manifeste**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-yolo-v3/replace-manifest.png" alt-text="Remplacer le manifeste":::
 

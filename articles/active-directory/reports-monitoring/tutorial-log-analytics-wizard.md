@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9e6b03a2f9dd0089b1112000804e46f3d214cd3c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362567"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131290"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutoriel : Configurer l’Assistant Log Analytics
 
@@ -96,11 +96,11 @@ La configuration d’un espace de travail Log Analytics comprend deux grandes é
 
 7. Recherchez **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Capture d’écran montrant Azure Active Directory dans la Recherche Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. Dans la section **Surveillance**, cliquez sur **Paramètres de diagnostic**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Capture d’écran montrant les paramètres de diagnostic sélectionnés dans la section Supervision.](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. Dans la page **Paramètres de diagnostic**, cliquez sur **Ajouter un paramètre de diagnostic**.
 
@@ -128,7 +128,7 @@ Cette procédure montre comment exécuter des requêtes à l’aide du **langage
 
 2. Recherchez **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Capture d’écran montrant Azure Active Directory dans la Recherche Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Dans la section **Surveillance**, cliquez **Journaux**.
 
@@ -210,7 +210,7 @@ Cette procédure montre comment envoyer des alertes lorsque le compte breakglass
 
 2. Recherchez **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Capture d’écran montrant Azure Active Directory dans la Recherche Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Dans la section **Surveillance**, cliquez **Journaux**.
 
@@ -301,7 +301,7 @@ Cette procédure montre comment créer un classeur à l’aide du modèle de dé
 
 2. Recherchez **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Capture d’écran montrant Azure Active Directory dans la Recherche Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Dans la section **Surveillance**, cliquez sur **Classeurs**.
 
@@ -332,7 +332,7 @@ Cette procédure montre comment créer un classeur à l’aide du modèle de dé
 
 10. cliquez sur **Run Query (Exécuter la requête)**.
 
-    ![Exécuter une requête](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![Capture d’écran montrant le bouton Exécuter la requête.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
 11. Dans la barre d’outils, sous **Visualisation**, cliquez sur **Graphique à secteurs**.
 
@@ -353,7 +353,7 @@ Cette procédure montre comment ajouter une requête à un modèle de classeur. 
 
 2. Recherchez **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Capture d’écran montrant Azure Active Directory dans la Recherche Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Dans la section **Surveillance**, cliquez sur **Classeurs**.
 
@@ -361,11 +361,11 @@ Cette procédure montre comment ajouter une requête à un modèle de classeur. 
 
 4. Dans la section **Accès conditionnel**, cliquez sur **Rapports et insights sur l’accès conditionnel**.
 
-    ![Modèle d’accès conditionnel](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![Capture d’écran montre l’option Insights et rapports sur l’accès conditionnel.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
 5. Dans la barre d’outils, cliquez sur **Modifier**.
 
-    ![Modèle d’accès conditionnel](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![Capture d’écran montrant le bouton Modifier.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
 6. Dans la barre d’outils, cliquez sur les points de suspension, sur **Ajouter**, puis sur **Ajouter une requête**.
 
@@ -375,7 +375,7 @@ Cette procédure montre comment ajouter une requête à un modèle de classeur. 
 
 8. cliquez sur **Run Query (Exécuter la requête)**.
 
-    ![Exécuter une requête](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![Capture d’écran montrant le bouton Exécuter la requête qui permet d’exécuter cette requête.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
 9. Cliquez sur **Intervalle de temps**, puis sélectionnez **Définir dans la requête**.
 

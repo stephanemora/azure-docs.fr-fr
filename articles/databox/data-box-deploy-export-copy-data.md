@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123906"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335211"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutoriel : Copier des données depuis Azure Data Box via SMB (préversion)
 
@@ -54,7 +54,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
 2. Dans la boîte de dialogue Access share and copy data (Accéder au partage et copier les données), copiez les valeurs **Nom d’utilisateur** et **Mot de passe** correspondant au partage. Sélectionnez **OK**.
     
-    ![Obtenir les informations d’identification du partage 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Obtenir les informations d’identification de partage, accéder au partage et copier les données](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
 3. Pour accéder aux partages associés à votre compte de stockage (*exportbvtdataset2* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
 
@@ -73,13 +73,13 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
     The command completed successfully.
     ```
 
-4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Sélectionnez **OK** pour ouvrir l’Explorateur de fichiers.
+5. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Sélectionnez **OK** pour ouvrir l’Explorateur de fichiers.
     
-    ![Se connecter au partage à l’aide de l’Explorateur de fichiers](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Se connecter au partage via l’Explorateur de fichiers, entrer l’adresse IP de l’appareil](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     À présent, vous devriez voir les partages sous forme de dossiers.
     
-    ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Se connecter au partage via l’Explorateur de fichiers, afficher les partages](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 Si vous utilisez un client Linux, utilisez la commande suivante pour monter le partage SMB. Le paramètre « vers » ci-dessous est la version de SMB que votre hôte Linux prend en charge. Utilisez la version appropriée dans la commande ci-dessous. Pour connaître les versions de SMB que le service the Data Box prend en charge, consultez [Systèmes de fichiers pris en charge pour les clients Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients). 

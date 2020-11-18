@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348574"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490710"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics dans la sortie du stockage Blob Azure
 
@@ -158,7 +158,7 @@ Il existe deux niveaux d’accès que vous pouvez choisir pour votre travail Str
 1. **Accès au niveau du conteneur :** cette option autorise le travail à accéder à un conteneur existant spécifique.
 2. **Accès au niveau du compte :** cette option donne au travail un accès général au compte de stockage, notamment la possibilité de créer des conteneurs.
 
-À moins d’avoir besoin du travail pour créer des conteneurs en votre nom, vous devriez choisir l’ **accès au niveau du conteneur** , car cette option donne au travail le niveau d’accès minimal requis. Les deux options sont expliquées plus bas pour le Portail Azure et la ligne de commande.
+À moins d’avoir besoin du travail pour créer des conteneurs en votre nom, vous devriez choisir l’**accès au niveau du conteneur**, car cette option donne au travail le niveau d’accès minimal requis. Les deux options sont expliquées plus bas pour le Portail Azure et la ligne de commande.
 
 ### <a name="grant-access-via-the-azure-portal"></a>Autoriser l’accès via le portail azure
 
@@ -223,6 +223,10 @@ Lorsque vous configurez les **pare-feu et les réseaux virtuels** de votre compt
 3.    Si vous l’avez activée, cliquez sur **Enregistrer**.
 
    ![Activer l’accès au réseau virtuel](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## <a name="remove-managed-identity"></a>Supprimer l’identité managée
+
+L’identité gérée créée pour une tâche Stream Analytics est supprimée uniquement lorsque la tâche est supprimée. Il n’existe aucun moyen de supprimer l’identité gérée sans supprimer la tâche. Si vous ne souhaitez plus utiliser l’identité gérée, vous pouvez modifier la méthode d’authentification pour la sortie. L’identité gérée continuera d’exister jusqu’à ce que la tâche soit supprimée, et sera réemployée si vous décidez à nouveau d’utiliser l’authentification d’identité gérée.
 
 ## <a name="limitations"></a>Limites
 Vous trouverez plus bas les limitations actuelles de cette fonctionnalité :

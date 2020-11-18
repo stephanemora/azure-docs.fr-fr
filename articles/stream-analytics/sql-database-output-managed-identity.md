@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: c703dd4053cc27d469d83d344da910e8e5b23ddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ec260c2e71d1716eb4de9ad25942f61169356dfb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129896"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491339"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utiliser les identités managées pour accéder à Azure SQL Database à partir d’une tâche Azure Stream Analytics (préversion)
 
@@ -33,7 +33,7 @@ Commencez par créer une identité managée pour votre tâche Azure Stream Analy
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre tâche Azure Stream Analytics.
 
-1. Dans le menu de navigation gauche, sélectionnez **Identité managée** sous **Configurer**. Activez ensuite la case à cocher située en regard de **Utiliser l'identité managée affectée par le système** , puis sélectionnez **Enregistrer**.
+1. Dans le menu de navigation gauche, sélectionnez **Identité managée** sous **Configurer**. Activez ensuite la case à cocher située en regard de **Utiliser l'identité managée affectée par le système**, puis sélectionnez **Enregistrer**.
 
    ![Sélectionner l'identité managée attribuée par le système](./media/sql-db-output-managed-identity/system-assigned-managed-identity.png)
 
@@ -44,7 +44,7 @@ Commencez par créer une identité managée pour votre tâche Azure Stream Analy
 
    ![ID d’objet affiché en tant qu’ID de principal](./media/sql-db-output-managed-identity/principal-id.png)
 
-   Le principal de service a le même nom que le travail Stream Analytics. Par exemple, si le nom de votre travail est *MyASAJob* , le nom du principal de service est également *MyASAJob*.
+   Le principal de service a le même nom que le travail Stream Analytics. Par exemple, si le nom de votre travail est *MyASAJob*, le nom du principal de service est également *MyASAJob*.
 
 ## <a name="select-an-active-directory-admin"></a>Sélectionner un administrateur Active Directory
 
@@ -52,7 +52,7 @@ Une fois l'identité managée créée, sélectionnez un administrateur Active Di
 
 1. Accédez à votre ressource Azure SQL Database et sélectionnez l'instance SQL Server hébergeant la base de données. Le nom de l'instance SQL Server se trouve en regard du *nom du serveur* sur la page de vue d’ensemble des ressources. 
 
-1. Sous **Paramètres** , sélectionnez **Administrateur Active Directory**. Sélectionnez ensuite **Définir l’administrateur**. 
+1. Sous **Paramètres**, sélectionnez **Administrateur Active Directory**. Sélectionnez ensuite **Définir l’administrateur**. 
 
    ![Page Administrateur Active Directory](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
@@ -60,9 +60,9 @@ Une fois l'identité managée créée, sélectionnez un administrateur Active Di
 
    ![Ajouter un administrateur Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-   La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou groupes grisés ne peuvent pas être sélectionnés, car ils ne sont pas pris en charge en tant qu'administrateurs Azure Active Directory. Consultez la liste des administrateurs pris en charge dans la section  **Fonctionnalités et limitations d'Azure Active Directory** de l'article  [Utiliser l'authentification Azure Active Directory pour l'authentification auprès de SQL Database ou d'Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Le contrôle d'accès basé sur les rôles Azure (Azure RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server. Par ailleurs, l’utilisateur ou groupe sélectionné est l’utilisateur qui sera en mesure de créer l’ **Utilisateur de base de données autonome** dans la section suivante.
+   La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou groupes grisés ne peuvent pas être sélectionnés, car ils ne sont pas pris en charge en tant qu'administrateurs Azure Active Directory. Consultez la liste des administrateurs pris en charge dans la section  **Fonctionnalités et limitations d'Azure Active Directory** de l'article  [Utiliser l'authentification Azure Active Directory pour l'authentification auprès de SQL Database ou d'Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Le contrôle d'accès basé sur les rôles Azure (Azure RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server. Par ailleurs, l’utilisateur ou groupe sélectionné est l’utilisateur qui sera en mesure de créer l’**Utilisateur de base de données autonome** dans la section suivante.
 
-1. Sur la page **Administrateur Active Directory** , sélectionnez **Enregistrer**. Le processus de modification de l’administrateur prend quelques minutes.
+1. Sur la page **Administrateur Active Directory**, sélectionnez **Enregistrer**. Le processus de modification de l’administrateur prend quelques minutes.
 
    Lors de la configuration de l'administrateur Azure Active Directory, le nom du nouvel administrateur (utilisateur ou groupe) ne peut pas être présent dans la base de données primaire virtuelle en tant qu'utilisateur de l'authentification SQL Server. S'il est présent, la configuration de l'administrateur Azure Active Directory échoue et sa création est annulée, ce qui indique qu'il existe déjà un administrateur (nom). Dans la mesure où l'utilisateur de l'authentification SQL Server ne fait pas partie d'Azure Active Directory, tout effort pour se connecter au serveur en utilisant l'authentification Azure Active Directory échoue. 
 
@@ -84,10 +84,10 @@ Créez ensuite un utilisateur de base de données autonome dans votre base de do
 
    ![Fenêtre Nouvelle règle de pare-feu](./media/sql-db-output-managed-identity/new-firewall-rule.png)
 
-   1. Si tel est le cas, accédez à votre ressource SQL Server dans le portail Azure. Dans la section **Sécurité** , ouvrez la page **Pare-feux et réseaux virtuels**. 
+   1. Si tel est le cas, accédez à votre ressource SQL Server dans le portail Azure. Dans la section **Sécurité**, ouvrez la page **Pare-feux et réseaux virtuels**. 
    1. Ajoutez une nouvelle règle avec n’importe quel nom de règle.
-   1. Utilisez l'adresse IP *De* de la fenêtre **Nouvelle règle de pare-feu** pour l' *adresse IP de début*.
-   1. Utilisez l'adresse IP *À* de la fenêtre **Nouvelle règle de pare-feu** pour l' *adresse IP de fin*. 
+   1. Utilisez l'adresse IP *De* de la fenêtre **Nouvelle règle de pare-feu** pour l'*adresse IP de début*.
+   1. Utilisez l'adresse IP *À* de la fenêtre **Nouvelle règle de pare-feu** pour l'*adresse IP de fin*. 
    1. Sélectionnez **Enregistrer** et essayez de vous reconnecter à partir de SQL Server Management Studio. 
 
 1. Une fois connecté, créez l’utilisateur de base de données autonome. La commande SQL suivante crée un utilisateur de base de données autonome portant le même nom que votre tâche Stream Analytics. Veillez à mettre *ASA_JOB_NAME* entre crochets. Utilisez la syntaxe T-SQL suivante et exécutez la requête. 
@@ -123,6 +123,10 @@ Assurez-vous d’avoir créé une table dans votre SQL Database avec le schéma 
 1. Sélectionnez **Ajouter > SQL Database**. Dans la fenêtre de propriétés de la sortie du récepteur de sortie SQL Database, sélectionnez **Identité managée** dans la liste déroulante Mode d’authentification.
 
 1. Renseignez le reste des propriétés. Pour en savoir plus sur la création d’une sortie SQL Database, consultez [Créer une sortie SQL Database avec Stream Analytics](sql-database-output.md). Lorsque vous avez terminé, sélectionnez **Enregistrer**. 
+
+## <a name="remove-managed-identity"></a>Supprimer l’identité managée
+
+L’identité gérée créée pour une tâche Stream Analytics est supprimée uniquement lorsque la tâche est supprimée. Il n’existe aucun moyen de supprimer l’identité gérée sans supprimer la tâche. Si vous ne souhaitez plus utiliser l’identité gérée, vous pouvez modifier la méthode d’authentification pour la sortie. L’identité gérée continuera d’exister jusqu’à ce que la tâche soit supprimée, et sera réemployée si vous décidez à nouveau d’utiliser l’authentification d’identité gérée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

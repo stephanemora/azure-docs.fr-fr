@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098771"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490268"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,11 +80,11 @@ Si vos charges de travail impliquent la suppression et la recréation de toutes 
 Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de données et le conteneur est autorisé. L’exemple suivant montre comment approvisionner le débit standard (manuel) sur une base de données et un conteneur Azure Cosmos :
 
 * Vous pouvez créer une base de données Azure Cosmos nommée *« Z »* avec le débit approvisionné standard (manuel) des unités de requête *« K »* . 
-* Créez ensuite cinq conteneurs nommés *A* , *B* , *C* , *D* et *E* dans la base de données. Lors de la création du conteneur B, assurez-vous d’activer **Fournir un débit dédié pour cette option conteneur** et configurez explicitement *"P"* . RU de débit provisionné sur ce conteneur. Vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et du conteneur. 
+* Créez ensuite cinq conteneurs nommés *A*, *B*, *C*, *D* et *E* dans la base de données. Lors de la création du conteneur B, assurez-vous d’activer **Fournir un débit dédié pour cette option conteneur** et configurez explicitement *"P"* . RU de débit provisionné sur ce conteneur. Vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et du conteneur. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Définition du débit au niveau du conteneur":::
 
-* Le début des unités de requête *« K »* est partagé entre les quatre conteneurs *A* , *C* , *D* , et *E*. La quantité exacte de débit disponible pour *A* , *C* , *D* , ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
+* Le début des unités de requête *« K »* est partagé entre les quatre conteneurs *A*, *C*, *D*, et *E*. La quantité exacte de débit disponible pour *A*, *C*, *D*, ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
 * Le conteneur nommé *B* est assuré de bénéficier en permanence du débit des unités de requête *« P »* . Il est associé à des contrats SLA.
 
 > [!NOTE]
@@ -109,7 +109,7 @@ La réponse de ces méthodes contient également le [débit minimal approvisionn
 La valeur RU/s minimale réelle peut varier en fonction de la configuration de votre compte. Mais en général, il s’agit de la valeur maximale :
 
 * 400 RU/s 
-* Stockage actuel en Go * 10 RU/s
+* Le stockage actuel en Go * 10 RU/s (sauf si votre conteneur ou base de données contient plus de 1 To de données, consultez notre [programme sur le stockage étendu / débit faible](#high-storage-low-throughput-program))
 * Valeur RU/s la plus élevée provisionnée sur la base de données ou le conteneur / 100
 * Nombre de conteneurs * 100 RU/s (base de données de débit partagé uniquement)
 
@@ -120,9 +120,9 @@ Vous pouvez mettre à l’échelle le débit approvisionné d’un conteneur ou 
 * [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
 * [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) sur le Kit de développement logiciel (SDK) Java.
 
-Si vous **réduisez le débit approvisionné** , vous pouvez le faire jusqu’à la valeur [minimale](#current-provisioned-throughput).
+Si vous **réduisez le débit approvisionné**, vous pouvez le faire jusqu’à la valeur [minimale](#current-provisioned-throughput).
 
-Si vous **augmentez le débit approvisionné** , la plupart du temps, l’opération est instantanée. Toutefois, dans certains cas, l’opération peut prendre plus de temps en raison des tâches du système pour approvisionner les ressources requises. Dans ce cas, une tentative de modification du débit approvisionné pendant que cette opération est en cours génère une réponse HTTP 423 avec un message d’erreur indiquant qu’une autre opération de mise à l’échelle est en cours.
+Si vous **augmentez le débit approvisionné**, la plupart du temps, l’opération est instantanée. Toutefois, dans certains cas, l’opération peut prendre plus de temps en raison des tâches du système pour approvisionner les ressources requises. Dans ce cas, une tentative de modification du débit approvisionné pendant que cette opération est en cours génère une réponse HTTP 423 avec un message d’erreur indiquant qu’une autre opération de mise à l’échelle est en cours.
 
 > [!NOTE]
 > Si vous planifiez une charge de travail d’ingestion très importante qui nécessite une forte augmentation du débit approvisionné, gardez à l’esprit que l’opération de mise à l’échelle n’a pas de contrat SLA et, comme indiqué dans le paragraphe précédent, elle peut prendre beaucoup de temps lorsque l’augmentation est importante. Il serait bon de planifier et de commencer la mise à l’échelle avant que la charge de travail ne démarre et d’utiliser les méthodes ci-dessous pour vérifier la progression.

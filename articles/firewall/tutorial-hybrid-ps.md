@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069406"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658636"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -48,7 +48,7 @@ Si vous préférez utiliser le portail Azure pour suivre ce didacticiel, reporte
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour cet article, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
+Pour cet article, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
 Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 
@@ -68,7 +68,7 @@ Pour plus d'informations sur la création de ces itinéraires, consultez la sect
 >[!NOTE]
 >Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
 
-Pour consulter la documentation de référence d’Azure PowerShell concernée, consultez [Informations de référence sur Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
+Pour consulter la documentation de référence d’Azure PowerShell concernée, consultez [Informations de référence sur Azure PowerShell](/powershell/module/az.network/new-azfirewall).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -496,4 +496,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-[Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+[Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)

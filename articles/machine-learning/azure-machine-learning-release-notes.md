@@ -9,18 +9,72 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: a60ca64113bb3f2700e9f521f65780dc8ffbcc54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307731"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489129"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) d’Azure Machine Learning.
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+
+## <a name="2020-11-09"></a>09-11-2020
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.18.0
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-core**
+    +  Amélioration de la gestion des séries chronologiques en autorisant leur remplissage avec un bruit gaussien.
+  + **azureml-automl-runtime**
+    + Lève une exception ConfigException si une colonne DateTime contient une valeur OutOfBoundsDatetime
+    + Amélioration de la gestion des séries chronologiques en autorisant leur remplissage avec un bruit gaussien.
+    + S’assurer que chaque colonne de texte peut tirer parti de la transformation char-gram avec la plage n-gram en fonction de la longueur des chaînes de cette colonne de texte
+    + Fournir des explications de fonctionnalités brutes pour le meilleur mode pour les expériences AutoML exécutées sur le calcul local de l’utilisateur
+  + **azureml-core**
+    + Épinglez le package : pyjwt pour éviter d’extraire des versions avec rupture dans les prochaines versions.
+    + La création d’une expérience retournera l’expérience active ou la dernière expérience archivée avec le même nom donné, si une telle expérience existe, ou une nouvelle expérience.
+    + L’appel de get_experiment par son nom retournera l’expérience active ou la dernière expérience archivée avec le nom donné.
+    + Les utilisateurs ne peuvent pas renommer une expérience en cours de réactivation.
+    + Message d’erreur amélioré pour inclure des correctifs potentiels lorsqu’un jeu de données est transmis incorrectement à une expérience (par exemple, ScriptRunConfig). 
+    + Documentation améliorée pour `OutputDatasetConfig.register_on_complete` afin d’inclure le comportement de ce qui se produit lorsque le nom existe déjà.
+    + La spécification des noms d’entrée et de sortie de jeu de données susceptibles d’entrer en conflit avec des variables d’environnement communes génère désormais un avertissement
+    + Réaffectation du paramètre `grant_workspace_access` lors de l’inscription des magasins de données. Affectez-lui la valeur `True` pour accéder aux données derrière le réseau virtuel à partir de Machine Learning Studio.
+      [En savoir plus](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+    + L’API de service liée est affinée. Au lieu de fournir l’ID de ressource, nous utilisons 3 paramètres distincts sub_id, rg, et name, définis dans la configuration.
+    + Pour permettre aux clients de résoudre eux-mêmes les problèmes d’altération des jetons, activez la synchronisation des jetons de l’espace de travail en tant que méthode publique.
+    + Cette modification permet d’utiliser une chaîne vide comme valeur pour script_param
+  + **azureml-pipeline-core**
+    + SDK prenant en charge le type SynapseCompute et SynapseSparkStep. Les clients peuvent lancer des expériences et des pipelines sur un pool Synapse Spark.
+  + **azureml-pipeline-steps**
+    + SDK prenant en charge le type SynapseCompute et SynapseSparkStep. Les clients peuvent lancer des expériences et des pipelines sur un pool Synapse Spark.
+  + **azureml-synapse**
+    + Ajoutez une commande magique Synapse et SparkMonitor pour permettre à l’utilisateur d’envoyer une tâche Synapse et d’afficher la progression de la tâche dans le notebook.
+  + **azureml-train-automl-client**
+    +  Amélioration de la gestion des séries chronologiques en autorisant leur remplissage avec un bruit gaussien.
+  + **azureml-train-automl-runtime**
+    + Lève une exception ConfigException si une colonne DateTime contient une valeur OutOfBoundsDatetime
+    + Ajout de la prise en charge pour fournir des explications de fonctionnalités brutes pour le meilleur mode pour les expériences AutoML exécutées sur le calcul local de l’utilisateur
+    + Amélioration de la gestion des séries chronologiques en autorisant leur remplissage avec un bruit gaussien.
+  + **azureml-train-core**
+    + Cette modification permet d’utiliser une chaîne vide comme valeur pour script_param
+  + **azureml-train-restclients-hyperdrive**
+    + Le fichier LISEZ-MOI a été modifié pour fournir plus de contexte
+  + **azureml-widgets**
+    + Ajout de la prise en charge des chaînes à des graphiques/bibliothèque de coordonnées parallèles pour le widget.
+
+## <a name="2020-11-05"></a>05-11-2020
+
+### <a name="data-labeling-for-image-instance-segmentation-polygon-annotation-preview"></a>Étiquetage des données pour la segmentation d’instance d’image (annotation de polygone) (préversion)
+
+Le type de projet de segmentation d’instance d’image (annotations de polygone) dans l’étiquetage des données est maintenant disponible. Les utilisateurs peuvent ainsi dessiner et annoter des polygones autour du contour des objets dans les images. Les utilisateurs pourront affecter une classe et un polygone à chaque objet pertinent dans une image.
+
+En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](how-to-label-images.md).
+
+
 
 ## <a name="2020-10-26"></a>2020-10-26
 
@@ -1075,7 +1129,7 @@ Accédez aux outils de création web suivants à partir de Studio :
 
 + **Nouvelles fonctionnalités**
   + Jeu de données : ajoutez deux options `on_error` et `out_of_range_datetime` pour que `to_pandas_dataframe` échoue lorsque les données ont des valeurs d’erreur au lieu de les remplir avec `None`.
-  + Espace de travail : Ajout de l’indicateur `hbi_workspace` pour les espaces de travail avec des données sensibles qui permettent un chiffrement supplémentaire et désactivent les diagnostics avancés sur les espaces de travail. Nous avons également ajouté la prise en charge de l’ajout de vos propres clés pour l’instance Cosmos DB associée, en spécifiant les paramètres `cmk_keyvault` et `resource_cmk_uri` lors de la création d’un espace de travail, ce qui crée une instance Cosmos DB dans votre abonnement lors de l’approvisionnement de votre espace de travail. [Apprenez-en davantage ici](./concept-enterprise-security.md#azure-cosmos-db).
+  + Espace de travail : Ajout de l’indicateur `hbi_workspace` pour les espaces de travail avec des données sensibles qui permettent un chiffrement supplémentaire et désactivent les diagnostics avancés sur les espaces de travail. Nous avons également ajouté la prise en charge de l’ajout de vos propres clés pour l’instance Cosmos DB associée, en spécifiant les paramètres `cmk_keyvault` et `resource_cmk_uri` lors de la création d’un espace de travail, ce qui crée une instance Cosmos DB dans votre abonnement lors de l’approvisionnement de votre espace de travail. [Apprenez-en davantage ici](./concept-data-encryption.md#azure-cosmos-db).
 
 + **Résolutions de bogue et améliorations**
   + **azureml-automl-runtime**

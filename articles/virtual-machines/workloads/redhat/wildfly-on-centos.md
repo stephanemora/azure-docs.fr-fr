@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 875d04751475d1d5236e9f15fbca585cdc9b1ab0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897624"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359916"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Démarrage rapide : WildFly on CentOS 8
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser WildFly en mode autonome ou en mode cluster, selon votre ca
 
 ## <a name="configuration-choice"></a>Choix de la configuration
 
-WildFly peut être démarré en mode **serveur autonome**  : une instance de serveur autonome est un processus indépendant, à l’instar d’une instance JBoss Application Server (AS) 3, 4, 5 ou 6. Les instances autonomes peuvent être lancées via des scripts de lancement standalone.sh ou standalone.bat. Pour plusieurs instances autonomes, il incombe à l’utilisateur de coordonner la gestion multiserveur entre les serveurs.
+WildFly peut être démarré en mode **serveur autonome** : une instance de serveur autonome est un processus indépendant, à l’instar d’une instance JBoss Application Server (AS) 3, 4, 5 ou 6. Les instances autonomes peuvent être lancées via des scripts de lancement standalone.sh ou standalone.bat. Pour plusieurs instances autonomes, il incombe à l’utilisateur de coordonner la gestion multiserveur entre les serveurs.
 
 Vous pouvez aussi démarrer l’instance WildFly avec une autre configuration en utilisant des fichiers de configuration disponibles dans le dossier configuration.
 
@@ -49,13 +49,15 @@ Pour démarrer votre serveur WildFly autonome avec une autre configuration fourn
 
 Par exemple, pour utiliser Jakarta EE Platform 8 avec les fonctionnalités de clustering, utilisez la commande suivante :
 
-`./standalone.sh --server-config=standalone-full-ha.xml`
+```
+./standalone.sh --server-config=standalone-full-ha.xml
+```
 
 Pour plus d’informations sur les configurations, consultez le [Guide de prise en main de WildFly](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations).
 
 ## <a name="licensing-support-and-subscription-notes"></a>Remarques sur les licences, le support et les abonnements
 
-L’image Azure CentOS 8 est une image de machine virtuelle avec paiement à l’utilisation (PAYG) et ne demande pas à l’utilisateur d’obtenir une licence. La première fois que la machine virtuelle est lancée, le système d’exploitation de la machine virtuelle est automatiquement activé et facturé à un tarif horaire. Ceci s’ajoute aux tarifs horaires des machines virtuelles Linux de Microsoft. Pour plus d’informations, cliquez sur [Tarification des machines virtuelles Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux). Le téléchargement et l’utilisation de WildFly sont gratuits et ne nécessitent pas d’abonnement ou de licence Red Hat.
+L’image Azure CentOS 8 est une image de machine virtuelle avec paiement à l’utilisation (PAYG) et ne demande pas à l’utilisateur d’obtenir une licence. La première fois que la machine virtuelle est lancée, la licence du système d’exploitation de la machine virtuelle est automatiquement activée et facturée à un tarif horaire. Ceci s’ajoute aux tarifs horaires des machines virtuelles Linux de Microsoft. Pour plus d’informations, cliquez sur [Tarification des machines virtuelles Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux). Le téléchargement et l’utilisation de WildFly sont gratuits et ne nécessitent pas d’abonnement ou de licence Red Hat.
 
 ## <a name="how-to-consume"></a>Mode d’utilisation
 
@@ -63,15 +65,23 @@ Vous pouvez déployer le modèle des trois façons suivantes :
 
 - Utiliser PowerShell - Déployez le modèle en exécutant les commandes suivantes : (Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).)
 
-    `New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
     
 - Utiliser Azure CLI - Déployez le modèle en exécutant les commandes suivantes : (Pour plus d’informations sur l’installation et la configuration de l’interface de ligne de commande multiplateforme d’Azure, consultez [Ligne de commande multiplateforme d’Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).)
 
-    `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
 
 - Utiliser le portail Azure - Déployez le modèle en cliquant <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">ici</a> et connectez-vous à votre portail Azure.
 
@@ -81,7 +91,7 @@ Vous pouvez déployer le modèle des trois façons suivantes :
 
 ## <a name="resource-links"></a>Liens de ressources
 
-* En savoir plus sur [WildFly 18](https://wildfly.org/18)
+* En savoir plus sur [WildFly 18](https://docs.wildfly.org/18/)
 * En savoir plus sur les [distributions Linux sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 * [Documentation Azure pour les développeurs Java](https://github.com/JasonFreeberg/jboss-on-app-service)
 

@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/09/2020
 ms.author: banders
-ms.openlocfilehash: 16ba70717d04c44e950ce2ed2c47e54859c4be47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684879"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408020"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annulation de votre abonnement Azure
 
-Vous pouvez annuler votre abonnement Azure dans le portail Azure si vous n’avez plus besoin de l’abonnement.
+Vous pouvez annuler votre abonnement Azure dans le portail Azure si vous n’en avez plus besoin.
 
 Bien que cela ne soit pas obligatoire, Microsoft *recommande* d’effectuer les actions suivantes avant d’annuler votre abonnement :
 
@@ -71,9 +71,21 @@ Si vous annulez par inadvertance votre abonnement assorti d’un paiement à l�
 
 Si votre abonnement n’est pas un abonnement assorti d’un paiement à l’utilisation, contactez le support dans les 90 jours suivant l’annulation pour le réactiver.
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Pourquoi ne puis-je pas voir l’option Annuler l’abonnement sur le portail Azure ? 
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Il est possible que vous ne soyez pas autorisé à annuler un abonnement. Consultez [Qui peut annuler un abonnement ?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) pour obtenir une description des personnes en mesure d’annuler différents types d’abonnements.
+
+## <a name="how-do-i-delete-my-azure-account"></a>Comment supprimer mon compte Azure ?
+
+*Je dois supprimer mon compte, y compris toutes mes informations personnelles. J’ai déjà annulé mes abonnements actifs (essai gratuit). Je n’ai pas d’abonnement actif et je souhaiterais supprimer mon compte dans son intégralité*.
+
+* Si vous disposez d’un compte Azure Active Directory par l’intermédiaire de votre organisation, l’administrateur Azure AD peut supprimer le compte. Une fois ce délai passé, vos services sont désactivés. Cela signifie que vos machines virtuelles et les adresses IP temporaires sont libérées et que le stockage est en lecture seule. En résumé, une fois que vous l’annulez, la facturation s’arrête immédiatement.
+
+* Si vous ne possédez pas de compte Azure AD par l’intermédiaire de votre organisation, vous pouvez annuler et supprimer vos abonnements Azure, puis supprimer votre carte de crédit du compte. Si l’action ne supprime pas le compte, elle le rend inutilisable. Vous pouvez aller plus loin et supprimer également le compte Microsoft associé s’il n’est pas utilisé à d’autres fins.
+
+## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Comment annuler un compte Visual Studio Professional ?
+
+Consultez l’article [Renouvellement et annulation](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Si vous avez des abonnements Azure pour Visual Studio, ceux-ci doivent également être annulés et supprimés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

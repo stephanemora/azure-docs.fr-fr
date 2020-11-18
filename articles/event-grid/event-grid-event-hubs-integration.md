@@ -4,12 +4,12 @@ description: 'Tutoriel : Explique comment utiliser Azure Event Grid et Event Hu
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270545"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305271"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutoriel : Diffuser en continu des Big Data dans un entrepôt de données
 Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous montre comment utiliser Event Hubs avec Event Grid pour effectuer la migration de données Event Hubs capturées entre le stockage blob vers Azure Synapse Analytics (anciennement SQL Data Warehouse).
@@ -165,7 +165,7 @@ Fermez Cloud Shell en sélectionnant le bouton **Cloud Shell** dans le portail (
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>Créer une table dans Azure Synapse Analytics
 Créez une table dans votre entrepôt de données en exécutant le script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Pour exécuter le script, vous pouvez utiliser Visual Studio ou l’éditeur de requête dans le portail. Les étapes suivantes montrent comment utiliser l’éditeur de requête : 
 
-1. Dans la liste des ressources du groupe de ressources, sélectionnez votre **pool Synapse SQL (entrepôt de données)** . 
+1. Dans la liste des ressources comprises dans le groupe de ressources, sélectionnez votre **pool SQL dédié**. 
 2. Dans la page Azure Synapse Analytics, sélectionnez **Éditeur de requêtes (préversion)** dans le menu de gauche. 
 
     ![Page Azure Synapse Analytics](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)

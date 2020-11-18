@@ -1,7 +1,7 @@
 ---
 title: Exemples de notebooks Jupyter
 titleSuffix: Azure Machine Learning
-description: Recherchez et utilisez des exemples de notebooks Jupyter pour explorer le kit SDK Azure Machine Learning pour Python.
+description: Découvrez comment trouver et utiliser les notebooks Jupyter qui sont conçus pour vous aider à explorer le SDK, et qui servent de modèles pour vos propres projets Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8b4256f33a143c711a23a3564c2a46c69e0783b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3f5cb2831a58ce9d0d30039b80815e281401e883
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675766"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542556"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorer Azure Machine Learning avec des notebooks Jupyter
 
@@ -32,7 +32,7 @@ Cet article vous montre comment accéder au dépôt dans les environnements suiv
 - [Data Science Virtual Machine](#dsvm) (Machine virtuelle Science des données)
 
 > [!NOTE]
-> Une fois que vous avez cloné le dépôt, vous voyez que des notebooks de tutoriel se trouvent dans le dossier **tutorials** , et que des notebooks relatifs à certaines fonctionnalités se trouvent dans le dossier **how-to-use-azureml**.
+> Une fois que vous avez cloné le dépôt, vous voyez que des notebooks de tutoriel se trouvent dans le dossier **tutorials**, et que des notebooks relatifs à certaines fonctionnalités se trouvent dans le dossier **how-to-use-azureml**.
 
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obtenir des exemples d’instance de calcul Azure Machine Learning
@@ -47,7 +47,7 @@ Si vous souhaitez utiliser votre propre serveur de notebooks pour le développem
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-Ces instructions permettent d’installer les packages de base du SDK qui sont nécessaires pour le guide de démarrage rapide et les notebooks du tutoriel. Les autres exemples de notebooks peuvent nécessiter l’installation de composants supplémentaires. Pour plus d’informations, consultez [Installer le kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Ces instructions permettent d’installer les packages de base du SDK qui sont nécessaires pour le guide de démarrage rapide et les notebooks du tutoriel. Les autres exemples de notebooks peuvent nécessiter l’installation de composants supplémentaires. Pour plus d’informations, consultez [Installer le kit SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>Recevoir des exemples sur DSVM

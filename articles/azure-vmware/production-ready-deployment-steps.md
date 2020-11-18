@@ -3,12 +3,12 @@ title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517359"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287048"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
@@ -17,7 +17,7 @@ Cet article vous présente le processus de planification permettant d’identifi
 Les processus de ce démarrage rapide génèrent un environnement prêt pour la production en vue de la création de machines virtuelles et de la migration. 
 
 >[!IMPORTANT]
->Avant de créer votre ressource Azure VMware Solution, référez-vous à l’article [Guide pratique pour activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md) afin de soumettre un ticket de support pour que vos nœuds soient alloués. Une fois que l’équipe du support technique reçoit votre demande, il lui faut jusqu’à cinq jours ouvrés pour confirmer votre requête et vous allouer des nœuds. Si vous disposez d’un cloud privé Azure VMware Solution et que vous souhaitez que davantage de nœuds vous soient alloués, vous passerez par le même processus. 
+>Avant de créer votre ressource Azure VMware Solution, référez-vous à l’article [Guide pratique pour activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md) afin de soumettre un ticket de support pour que vos hôtes soient alloués. Une fois que l’équipe du support technique a reçu votre demande, il lui faut jusqu’à cinq jours ouvrés pour confirmer votre requête et vous allouer des hôtes. Si vous disposez d’un cloud privé Azure VMware Solution et que vous souhaitez que davantage d’hôtes vous soient alloués, vous passerez par le même processus. 
 
 
 ## <a name="subscription"></a>Abonnement
@@ -39,9 +39,9 @@ Identifiez la région dans laquelle vous souhaitez déployer Azure VMware Soluti
 
 Définissez le nom de la ressource que vous allez utiliser au cours du déploiement.  Le nom de la ressource est le nom convivial et descriptif que vous utilisez pour votre cloud privé Azure VMware Solution.
 
-## <a name="size-nodes"></a>Nœuds de taille
+## <a name="size-hosts"></a>Dimensionner les hôtes
 
-Identifiez les nœuds de taille que vous souhaitez utiliser lors du déploiement d’Azure VMware Solution.  Pour obtenir une liste complète, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#hosts).
+Identifiez les tailles d’hôtes que vous souhaitez utiliser lors du déploiement d’Azure VMware Solution.  Pour obtenir une liste complète, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#hosts).
 
 ## <a name="number-of-hosts"></a>Nombre d’hôtes
 

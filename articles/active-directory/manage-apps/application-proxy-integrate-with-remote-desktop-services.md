@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015274"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658075"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -28,7 +28,7 @@ Le public concerné par cet article est le suivant :
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Comment le proxy d’application s’intègre dans le déploiement RDS standard
 
-Un déploiement RDS standard inclut divers services du rôle Bureau à distance s’exécutant sur Windows Server. [L’architecture des Services Bureau à distance](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) offre plusieurs options de déploiement. Contrairement à d’autres options de déploiement des Services Bureau à distance, le [déploiement des services Bureau à distance avec le proxy d’application Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (illustré dans le diagramme ci-dessous) dispose d’une connexion sortante permanente depuis le serveur exécutant le service du connecteur. Les autres déploiements comportent des connexions entrantes ouvertes via un équilibreur de charge.
+Un déploiement RDS standard inclut divers services du rôle Bureau à distance s’exécutant sur Windows Server. [L’architecture des Services Bureau à distance](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) offre plusieurs options de déploiement. Contrairement à d’autres options de déploiement des Services Bureau à distance, le [déploiement des services Bureau à distance avec le proxy d’application Azure AD](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) (illustré dans le diagramme ci-dessous) dispose d’une connexion sortante permanente depuis le serveur exécutant le service du connecteur. Les autres déploiements comportent des connexions entrantes ouvertes via un équilibreur de charge.
 
 ![Le proxy d’application se situe entre la VM RDS et l’Internet public](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
@@ -37,13 +37,13 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 - Le rôle Passerelle Bureau à distance apparaît lorsque l’utilisateur lance la connexion RDP. Ce rôle gère le trafic RDP chiffré provenant d’Internet et le convertit sur le serveur local auquel l’utilisateur est connecté. Dans ce scénario, le trafic reçu par la Passerelle Bureau à distance provient du proxy d’application Azure AD.
 
 >[!TIP]
->Si vous n’avez pas déployé RDS au préalable, ou si vous souhaitez en savoir plus avant de commencer, découvrez comment [déployer RDS de manière transparente avec Azure Resource Manager et Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>Si vous n’avez pas déployé RDS au préalable, ou si vous souhaitez en savoir plus avant de commencer, découvrez comment [déployer RDS de manière transparente avec Azure Resource Manager et Azure Marketplace](/windows-server/remote/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Spécifications
 
 - Les points de terminaison du rôle Site Web Bureau à distance et du rôle Passerelle Bureau à distance doivent se trouver sur le même ordinateur et avoir une racine commune. Le rôle Site web Bureau à distance et le rôle Passerelle Bureau à distance sont publiés sous la forme d’une seule application avec le proxy d’application afin de vous proposer une expérience d’authentification unique pour les deux applications.
 
-- Vous devez déjà avoir [déployé RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](application-proxy-add-on-premises-application.md).
+- Vous devez déjà avoir [déployé RDS](/windows-server/remote/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](application-proxy-add-on-premises-application.md).
 
 - Vos utilisateurs finaux doivent utiliser un navigateur compatible pour se connecter à Site Web Bureau à distance ou au client Site Web Bureau à distance. Pour plus d’informations, consultez [Prise en charge des configurations client](#support-for-other-client-configurations).
 
@@ -51,7 +51,7 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 
 - Si vous utilisez Site Web Bureau à distance sur Internet Explorer, vous devez activer le module complémentaire ActiveX RDS.
 
-- Si vous utilisez le client Site Web Bureau à distance, vous devez utiliser le [connecteur version 1.5.1975 ou une version ultérieure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history) de Proxy d’application.
+- Si vous utilisez le client Site Web Bureau à distance, vous devez utiliser le [connecteur version 1.5.1975 ou une version ultérieure](./application-proxy-release-version-history.md) de Proxy d’application.
 
 - Pour le flux de préauthentification d’Azure AD, les utilisateurs peuvent se connecter uniquement aux ressources dont la publication est à leur disposition dans le volet **RemoteApp et Bureaux**. Les utilisateurs ne peuvent pas se connecter à un Bureau à l’aide du volet **Se connecter à un ordinateur distant**.
 
@@ -111,7 +111,7 @@ Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le no
 Maintenant que vous avez configuré le Bureau à distance, le proxy d’application Azure AD a repris le dessus comme composant accessible sur Internet de RDS. Vous pouvez supprimer les autres points de terminaison accessibles sur Internet de vos ordinateurs Site Web Bureau à distance et Passerelle Bureau à distance.
 
 ### <a name="enable-the-rd-web-client"></a>Activer le client Site Web Bureau à distance
-Si vous souhaitez également que les utilisateurs puissent utiliser le client Site Web Bureau à distance, suivez les étapes de la section [Configurer le client Site Web Bureau à distance pour vos utilisateurs](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) afin de l’activer.
+Si vous souhaitez également que les utilisateurs puissent utiliser le client Site Web Bureau à distance, suivez les étapes de la section [Configurer le client Site Web Bureau à distance pour vos utilisateurs](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) afin de l’activer.
 
 Le client Site Web Bureau à distance permet aux utilisateurs d’accéder à l’infrastructure de Bureau à distance de votre organisation par le biais d’un navigateur web compatible avec HTML5 comme Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 et versions ultérieures).
 
@@ -130,7 +130,7 @@ La configuration décrite dans cet article concerne l’accès à RDS via Site W
 
 | Méthode d'authentification | Configuration client prise en charge |
 | --------------------- | ------------------------------ |
-| Pré-authentification    | Site Web Bureau à distance : Windows 7/10 avec Internet Explorer ou [le mode IE d’Edge Chromium](https://docs.microsoft.com/deployedge/edge-ie-mode) + module complémentaire ActiveX RDS |
+| Pré-authentification    | Site Web Bureau à distance : Windows 7/10 avec Internet Explorer ou [le mode IE d’Edge Chromium](/deployedge/edge-ie-mode) + module complémentaire ActiveX RDS |
 | Pré-authentification    | Client Site Web Bureau à distance : navigateur web compatible avec HTML5, tel que Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 et versions ultérieures) |
 | PassThrough | Tout autre système d’exploitation prenant en charge l’application Bureau à distance Microsoft |
 

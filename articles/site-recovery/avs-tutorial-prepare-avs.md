@@ -1,5 +1,5 @@
 ---
-title: Préparer une reprise d’activité de machines virtuelles Azure VMware Solution avec Azure Site Recovery
+title: Préparer Azure VMware Solution à une reprise d’activité après sinistre dans Azure Site Recovery
 description: Découvrez comment préparer des serveurs Azure VMware Solution à une reprise d’activité sur Azure à l’aide du service Azure Site Recovery.
 author: Harsha-CS
 manager: rochakm
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 9b04faf6797d04404dc0c5d617af2fd62a68c49a
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8e77ede7b04c95bfd6b6b8f660c8d811e7434c0f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814274"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395442"
 ---
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Azure VMware Solution à une reprise d’activité sur Azure
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>Préparer Azure VMware Solution à une reprise d’activité après sinistre dans Azure Site Recovery
 
 Cet article explique comment préparer les serveurs Azure VMware Solution à la reprise d’activité sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md). 
 

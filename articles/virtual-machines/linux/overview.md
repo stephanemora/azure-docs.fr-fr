@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b205665a0e5fc06fdc784efa91036f26da5d3cde
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95e4ac884e0eda3b4f469484226962e3fd2e2eea
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654342"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375378"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Machines virtuelles Linux dans Azure
 
@@ -30,7 +30,7 @@ Les Machines Virtuelles Azure peuvent être utilisées de différentes manières
 Le nombre de machines virtuelles utilisées par votre application peut varier (montée en puissance et augmentation de la charge) pour répondre à vos besoins.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>À quoi dois-je penser avant de créer une machine virtuelle ?
-Il existe toujours une multitude de [considérations liées à la conception](/azure/architecture/reference-architectures/n-tier/windows-vm) lorsque vous générez une infrastructure d’application dans Azure. Il est important de réfléchir à ces aspects des machines virtuelles avant de commencer :
+Il existe toujours une multitude de [considérations liées à la conception](/azure/architecture/reference-architectures/n-tier/linux-vm) lorsque vous générez une infrastructure d’application dans Azure. Il est important de réfléchir à ces aspects des machines virtuelles avant de commencer :
 
 * le nom de vos ressources d’application,
 * l’emplacement de stockage des ressources,
@@ -74,24 +74,24 @@ La fonctionnalité Disques managés se charge de la création et de la gestion d
 Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur la fonctionnalité Disques managés, consultez [Vue d’ensemble de la fonctionnalité Disques managés](../managed-disks-overview.md).
 
 ## <a name="distributions"></a>Distributions 
-Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous pouvez trouver des distributions comme Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans la Place de marché Microsoft Azure. Microsoft travaille activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](endorsed-distros.md).
+Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous pouvez trouver les distributions disponibles dans la Place de marché Azure. Microsoft travaille activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](endorsed-distros.md).
 
 Si votre distribution Linux préférée n’est pas présente dans la galerie, vous pouvez « apporter votre propre machine virtuelle Linux » en [créant et chargeant un disque dur virtuel dans Azure](create-upload-generic.md).
 
-Microsoft travaille en étroite collaboration avec des partenaires afin de garantir que les images disponibles sont mises à jour et optimisées pour un runtime Azure.  Pour plus d’informations sur les partenaires Azure, consultez les liens suivants :
+Microsoft travaille en étroite collaboration avec des partenaires afin de garantir que les images disponibles sont mises à jour et optimisées pour un runtime Azure.  Pour plus d’informations sur les offres des partenaires Azure, consultez les liens suivants :
 
 * Linux sur Azure : [Distributions approuvées](endorsed-distros.md)
-* SUSE : [Place de marché Azure - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?search=suse%20sles&page=1)
-* Red Hat - [Place de marché Azure - Red Hat Enterprise Linux 8.1](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux81-ARM)
+* SUSE : [Place de marché Azure - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=suse)
+* Red Hat : [Place de marché Azure - Red Hat Enterprise Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Red%20Hat%20Enterprise%20Linux)
 * Canonical - [Place de marché Azure - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer)
-* Debian - [Place de marché Azure - Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian)
-* FreeBSD - [Place de marché Azure - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-* CoreOS - [Place de marché Azure - Conteneur Linux par CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS)
+* Debian : [Place de marché Azure - Debian](https://azuremarketplace.microsoft.com/marketplace/apps?search=Debian&page=1)
+* FreeBSD : [Place de marché Azure - FreeBSD](https://azuremarketplace.microsoft.com/marketplace/apps?search=freebsd&page=1)
+* Flatcar : [Place de marché Azure - Flatcar Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Flatcar&page=1)
 * RancherOS - [Place de marché Azure - RancherOS](https://azuremarketplace.microsoft.com/marketplace/apps/rancher.rancheros)
 * Bitnami - [Bitnami Library pour Azure](https://azure.bitnami.com/)
 * Mesosphere - [Place de marché Azure - Mesosphere DC/OS sur Azure](https://azure.microsoft.com/services/kubernetes-service/mesosphere/)
 * Docker - [Place de marché Azure - Images Docker](https://azuremarketplace.microsoft.com/marketplace/apps?search=docker&page=1&filters=virtual-machine-images)
-* Jenkins - [Place de marché Azure - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
+* Jenkins - [Place de marché Azure - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/marketplace/apps/cloudbees.cloudbees-core-contact)
 
 
 ## <a name="cloud-init"></a>Cloud-Init 
@@ -99,7 +99,7 @@ Microsoft travaille en étroite collaboration avec des partenaires afin de garan
 Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être du code.  Lorsque l’ensemble de l’infrastructure se trouve dans le code, elle est facile à recréer.  Azure fonctionne avec tous les principaux outils d’automatisation, comme Ansible, Chef, SaltStack et Puppet.  Azure propose également ses propres outils pour l’automatisation :
 
 * [Les modèles Azure](create-ssh-secured-vm-from-template.md)
-* [Azure VMAccess](../extensions/vmaccess.md)
+* [Azure `VMaccess`](../extensions/vmaccess.md)
 
 Azure prend en charge [cloud-init](https://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettent à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques.
 
@@ -115,6 +115,11 @@ Azure prend en charge [cloud-init](https://cloud-init.io/) sur la plupart des di
 * [Adresses IP dans Azure](../../virtual-network/public-ip-addresses.md)
 * [Ouverture de ports sur une machine virtuelle Linux dans Azure](nsg-quickstart.md)
 * [Créer un nom de domaine complet dans le portail Azure](portal-create-fqdn.md)
+
+
+## <a name="data-residency"></a>Résidence des données
+
+Dans Azure, la fonctionnalité permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique et la région Brésil Sud (État de Sao Paulo) de la zone géographique Brésil. Pour toutes les autres régions, les données client sont stockées dans Zone géographique. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

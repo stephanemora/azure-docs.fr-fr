@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675554"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080802"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Salesforce Sandbox
 
@@ -49,16 +49,16 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 Pour configurer l’intégration de Salesforce Sandbox avec Azure AD, vous devez ajouter Salesforce Sandbox à partir de la galerie à votre liste d’applications SaaS managées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Salesforce Sandbox** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Salesforce Sandbox** dans la zone de recherche.
 1. Sélectionnez **Salesforce Sandbox** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce-sandbox"></a>Configurer et tester l’authentification unique Azure AD pour Salesforce Sandbox
 
-Configurez et testez l’authentification unique Azure AD avec Salesforce Sandbox à l’aide d’un utilisateur de test appelé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Salesforce Sandbox associé.
+Configurez et testez l’authentification unique Azure AD avec Salesforce Sandbox à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Salesforce Sandbox associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Salesforce Sandbox, suivez les indications des sections ci-après :
 
@@ -73,37 +73,37 @@ Pour configurer et tester l’authentification unique Azure AD avec Salesforce S
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Salesforce Sandbox** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Salesforce Sandbox**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , si vous avez un **fichier de métadonnées de fournisseur de services** et voulez une configuration en mode initié par le **fournisseur d’identité** (IDP), effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous avez un **fichier de métadonnées de fournisseur de services** et voulez une configuration en mode initié par le **fournisseur d’identité** (IDP), effectuez les étapes suivantes :
 
-    a. Cliquez sur **Charger un fichier de métadonnées** .
+    a. Cliquez sur **Charger un fichier de métadonnées**.
 
     ![Charger le fichier de métadonnées](common/upload-metadata.png)
 
-    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger** .
+    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
 
     ![choisir le fichier de métadonnées](common/browse-upload-metadata.png)
 
     > [!NOTE]
     > Vous obtenez le fichier de métadonnées du fournisseur de services à partir du portail d’administration Salesforce Sandbox, décrit plus loin dans le tutoriel.
 
-    c. Une fois que le fichier de métadonnées est correctement chargé, la valeur **URL de réponse** est renseignée automatiquement dans la zone de texte **URL de réponse** .
+    c. Une fois que le fichier de métadonnées est correctement chargé, la valeur **URL de réponse** est renseignée automatiquement dans la zone de texte **URL de réponse**.
 
     ![image](common/both-replyurl.png)
 
     > [!Note]
     > Si la valeur **URL de réponse** n’est pas automatiquement renseignée, renseignez-la manuellement en fonction de vos besoins.
 
-5. Sur la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le fichier **XML des métadonnées** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML des métadonnées** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Configurer Salesforce Sandbox** , copiez la ou les URL appropriées, selon vos besoins.
+6. Dans la section **Configurer Salesforce Sandbox**, copiez la ou les URL appropriées, selon vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -117,31 +117,31 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
-   1. Cliquez sur **Créer** .
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Salesforce Sandbox.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **Salesforce Sandbox** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Salesforce Sandbox**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-salesforce-sandbox-sso"></a>Configurer l’authentification unique Salesforce Sandbox
 
@@ -149,52 +149,52 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Cliquez sur **Setup** sous **l’icône de paramètres** en haut à droite de la page.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Capture d’écran mettant en évidence l’icône « Paramètres » en haut à droite et l’option « Configurer » dans le menu déroulant.](./media/salesforce-sandbox-tutorial/configure1.png)
 
-3. Dans le volet de navigation de gauche, accédez à **SETTINGS** (PARAMÈTRES), puis cliquez sur **Identity** (Identité) pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique** .
+3. Dans le volet de navigation de gauche, accédez à **SETTINGS** (PARAMÈTRES), puis cliquez sur **Identity** (Identité) pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Capture d’écran montrant le menu « Paramètres » dans le volet gauche, avec « Paramètres de l’authentification unique » sélectionné dans le menu « Identité ».](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-4. Sur la page **Paramètres de l’authentification unique** , cliquez sur le bouton **Modifier** .
+4. Sur la page **Paramètres de l’authentification unique**, cliquez sur le bouton **Modifier**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec le bouton « Modifier » sélectionné.](./media/salesforce-sandbox-tutorial/configure3.png)
 
-5. Sélectionnez **SAML activé** , puis cliquez sur **Enregistrer** .
+5. Sélectionnez **SAML activé**, puis cliquez sur **Enregistrer**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec la case « SAML activé » cochée et le bouton « Enregistrer » sélectionné.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-6. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau à partir d’un fichier de métadonnées** .
+6. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau à partir d’un fichier de métadonnées**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec le bouton « Nouveau à partir d’un fichier de métadonnées » sélectionné.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-7. Cliquez sur **Sélectionner le fichier** pour charger le fichier XML de métadonnées que vous avez téléchargé à partir du Portail Azure, puis cliquez sur **Créer** .
+7. Cliquez sur **Sélectionner le fichier** pour charger le fichier XML de métadonnées que vous avez téléchargé à partir du Portail Azure, puis cliquez sur **Créer**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec les boutons « Sélectionner le fichier » et « Créer » sélectionnés.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-8. Sur la page **Paramètres d’authentification unique SAML** , les champs se renseignent automatiquement et cliquez sur Enregistrer.
+8. Sur la page **Paramètres d’authentification unique SAML**, les champs se renseignent automatiquement et cliquez sur Enregistrer.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec les champs remplis et le bouton « Enregistrer » sélectionné.](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
-9. Dans la page **Paramètres de l’authentification unique** , cliquez sur le bouton **Télécharger les métadonnées** pour télécharger le fichier de métadonnées du fournisseur de services. Utilisez ce fichier dans la section **Configuration SAML de base** dans le portail Azure pour configurer les URL nécessaires comme expliqué ci-dessus.
+9. Dans la page **Paramètres de l’authentification unique**, cliquez sur le bouton **Télécharger les métadonnées** pour télécharger le fichier de métadonnées du fournisseur de services. Utilisez ce fichier dans la section **Configuration SAML de base** dans le portail Azure pour configurer les URL nécessaires comme expliqué ci-dessus.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec le bouton « Télécharger les métadonnée » sélectionné.](./media/salesforce-sandbox-tutorial/configure4.png)
 
-10. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** , vous devez respecter les prérequis suivants :
+10. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, vous devez respecter les prérequis suivants :
 
     a. Vous devez disposer d’un domaine vérifié.
 
     b. Vous devez configurer et activer votre domaine sur Salesforce Sandbox. La procédure à suivre est décrite dans la suite de ce didacticiel.
 
-    c. Dans le portail Azure, dans la section **Configuration SAML de base** , cliquez sur **Définir des URL supplémentaires** et effectuez l’étape suivante :
+    c. Dans le portail Azure, dans la section **Configuration SAML de base**, cliquez sur **Définir des URL supplémentaires** et effectuez l’étape suivante :
   
     ![Informations d’authentification unique dans Domaine et URL Salesforce Sandbox](common/both-signonurl.png)
 
-    Dans la zone de texte **URL de connexion** , tapez la valeur au format suivant : `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+    Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
 
     > [!NOTE]
     > Cette valeur doit être copiée à partir du portail Salesforce Sandbox une fois que vous avez activé le domaine.
 
-11. Dans la section **Certificat de signature SAML** , cliquez sur **XML de métadonnées de fédération** , puis enregistrez le fichier xml sur votre ordinateur.
+11. Dans la section **Certificat de signature SAML**, cliquez sur **XML de métadonnées de fédération**, puis enregistrez le fichier xml sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -202,31 +202,31 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 13. Cliquez sur **Setup** sous **l’icône de paramètres** en haut à droite de la page.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Capture d’écran mettant en évidence l’icône « Paramètres » en haut à droite et l’option « Configurer » dans le menu déroulant.](./media/salesforce-sandbox-tutorial/configure1.png)
 
-14. Dans le volet de navigation de gauche, accédez à **SETTINGS** (PARAMÈTRES), puis cliquez sur **Identity** (Identité) pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique** .
+14. Dans le volet de navigation de gauche, accédez à **SETTINGS** (PARAMÈTRES), puis cliquez sur **Identity** (Identité) pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Capture d’écran montrant le menu « Paramètres » dans le volet de navigation gauche, avec « Paramètres de l’authentification unique » sélectionné dans le menu « Identité ».](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-15. Sur la page **Paramètres de l’authentification unique** , cliquez sur le bouton **Modifier** .
+15. Sur la page **Paramètres de l’authentification unique**, cliquez sur le bouton **Modifier**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec le bouton « Modifier » sélectionné.](./media/salesforce-sandbox-tutorial/configure3.png)
 
-16. Sélectionnez **SAML activé** , puis cliquez sur **Enregistrer** .
+16. Sélectionnez **SAML activé**, puis cliquez sur **Enregistrer**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec la case « SAML activé » cochée et le bouton « Enregistrer » sélectionné.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-17. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau à partir d’un fichier de métadonnées** .
+17. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau à partir d’un fichier de métadonnées**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » et le bouton « Nouveau à partir d’un fichier de métadonnées » sélectionné.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-18. Cliquez sur **Choisir un fichier** pour charger le fichier XML de métadonnées, puis sur **Créer** .
+18. Cliquez sur **Choisir un fichier** pour charger le fichier XML de métadonnées, puis sur **Créer**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec les boutons « Sélectionner le fichier » et « Créer » sélectionnés.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-19. Sur la page **Paramètres d'authentification unique SAML** , les champs sont automatiquement renseignés. Entrez le nom de la configuration (par exemple : *SPSSOWAAD_Test* ) dans la zone de texte **Nom** et cliquez sur Enregistrer.
+19. Sur la page **Paramètres d'authentification unique SAML**, les champs sont automatiquement renseignés. Entrez le nom de la configuration (par exemple : *SPSSOWAAD_Test*) dans la zone de texte **Nom** et cliquez sur Enregistrer.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Capture d’écran montrant la page « Paramètres de l’authentification unique » avec les champs remplis, un exemple de nom dans la zone de texte « Nom » et le bouton « Enregistrer » sélectionné.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Pour activer votre domaine sur Salesforce Sandbox, procédez comme suit :
 
@@ -235,11 +235,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 21. Dans le volet de navigation de gauche de Salesforce Sandbox, cliquez sur **Company Settings** (Paramètres de l’entreprise) pour développer la section associée, puis cliquez sur **My Domain** (Mon domaine).
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Capture d’écran montrant « Paramètres de l’entreprise » et « Mon domaine » sélectionnés dans le volet de navigation gauche.](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. Dans la section **Authentication Configuration** (Configuration de l’authentification), cliquez sur **Authentication Policy** (Stratégie d’authentification).
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![Capture d’écran montrant la section « Configuration de l’authentification », avec le bouton « Modifier » sélectionné.](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. Dans la section **Authentication Configuration** (Configuration de l’authentification), pour le champ **Authentication Service** (Service d’authentification), sélectionnez le nom du paramètre d’authentification unique SAML que vous avez défini lors de la configuration SSO dans Salesforce Sandbox, puis cliquez sur **Save** (Enregistrer).
 

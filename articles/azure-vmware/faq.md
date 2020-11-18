@@ -4,12 +4,12 @@ description: Apporte des réponses à des questions récurrentes à propos d’A
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349084"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487786"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Questions fréquentes sur Azure VMware Solution
 
@@ -74,7 +74,7 @@ Non, en raison de la bande passante et de la latence requises.
 Azure Bastion est le service recommandé pour se connecter au serveur de rebond afin d’empêcher l’exposition à Internet d’Azure VMware Solution. Vous ne pouvez pas utiliser Azure Bastion pour vous connecter à des machines virtuelles Azure VMware Solution, car il ne s’agit pas d’objets IaaS Azure.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Azure Load Balancer interne peut-il être utilisé pour des machines virtuelles Azure VMware Solution ?
-Non. Azure Load Balancer interne ne prend en charge que des machines virtuelles Azure IaaS. Azure Load Balancer ne prend pas en charge les pools principaux basés sur IP, mais uniquement des machines virtuelles Azure ou des objets VMSS (groupes de machines virtuelles identiques) dans lesquels les machines virtuelles Azure VMware Solution ne sont pas des objets Azure.
+Non. Azure Load Balancer interne ne prend en charge que des machines virtuelles Azure IaaS. Azure Load Balancer ne prend pas en charge les pools principaux basés sur IP, mais uniquement des machines virtuelles Azure ou des objets de groupes de machines virtuelles identiques dans lesquels les machines virtuelles Azure VMware Solution ne sont pas des objets Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Une passerelle ExpressRoute existante peut-elle être utilisée pour la connexion à Azure VMware Solution ?
 Oui, vous pouvez utiliser une passerelle ExpressRoute existante pour vous connecter à Azure VMware Solution, à condition qu’elle ne dépasse pas la limite de quatre circuits ExpressRoute par réseau virtuel.  Toutefois, pour accéder à Azure VMware Solution à partir d’un site local via ExpressRoute, vous devez disposer d’ExpressRoute Global Reach, car la passerelle ExpressRoute ne fournit pas de routage transitif entre ses circuits connectés.
@@ -195,6 +195,12 @@ Non. Le trafic réseau entrant directement à partir d’Internet dans des cloud
 Oui. Vous devez utiliser le gestionnaire NSX-T pour créer un pare-feu restreignant l’accès des machines virtuelles à Internet.
 
 
+#### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>La solution Azure VMware peut-elle utiliser des passerelles ExpressRoute hébergées sur des réseaux étendus virtuels Azure ?
+Oui.
+
+#### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>La connectivité de transit peut-elle être établie entre la solution locale et VMware Azure via le réseau WAN virtuel Azure avec ExpressRoute Global Reach ?
+Le réseau WAN virtuel Azure ne fournit pas de routage transitif entre deux circuits ExpressRoute connectés et une passerelle ExpressRoute WAN non virtuelle. L’utilisation d’ExpressRoute Global Reach permet la connectivité entre la solution locale et Azure VMware, mais transite par le réseau global Microsoft au lieu du hub WAN virtuel.
+
 
 ## <a name="accounts-and-privileges"></a>Comptes et privilèges
 
@@ -247,7 +253,7 @@ VMware HCX Enterprise Edition (EE) est disponible avec Azure VMware Solution en 
 Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un ticket de support pour vous allouer des nœuds. Cela prend jusqu’à cinq jours ouvrés pour confirmer votre requête et vous allouer des nœuds. Si vous disposez d’un cloud privé Azure VMware Solution et que vous souhaitez que davantage de nœuds vous soient alloués, vous passerez par le même processus.
 
 
-1. Sur votre portail Azure, sous **Aide + Support** , créez une **[nouvelle demande de support](https://rc.portal.azure.com/#create/Microsoft.Support)** et indiquez les informations suivantes pour le ticket :
+1. Sur votre portail Azure, sous **Aide + Support**, créez une **[nouvelle demande de support](https://rc.portal.azure.com/#create/Microsoft.Support)** et indiquez les informations suivantes pour le ticket :
    - **Type de problème :** Techniques
    - **Abonnement :** Sélectionnez votre abonnement
    - **Service :** Tous les services > Azure VMware Solution
@@ -256,7 +262,7 @@ Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un t
    - **Type de problème :** Problèmes de gestion de la capacité
    - **Sous-type de problème :** Demande client de capacité/quota d’hôtes supplémentaire
 
-1. Dans la **description** du ticket de support, indiquez les informations suivantes sous l’onglet **Détails**  :
+1. Dans la **description** du ticket de support, indiquez les informations suivantes sous l’onglet **Détails** :
 
    - POC ou Production 
    - Nom de la région
@@ -280,6 +286,17 @@ Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un t
    `"
 
    For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+
+
+## Customer communication
+
+#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+
+Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+
+
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: bbebe3b3f63e6ccbb5f351abfc9ba3b846ca6fbe
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766260"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337659"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de NFS
 
@@ -62,7 +62,7 @@ Si vous utilisez un ordinateur hôte Linux, procédez comme suit afin de configu
 
 2. Indiquez l’adresse IP du client NFS, puis cliquez sur **Ajouter**. Vous pouvez configurer un accès à plusieurs clients NFS en répétant cette étape. Cliquez sur **OK**.
 
-    ![Configurer l’accès au client NFS 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
+    ![Configurer l’adresse IP d’un client NFS](media/data-box-deploy-copy-data/nfs-client-access2.png)
 
 2. Assurez-vous qu’une [version prise en charge](data-box-system-requirements.md) du client NFS est installée sur l’ordinateur hôte Linux. Utilisez la version spécifiquement adaptée à votre distribution Linux. 
 

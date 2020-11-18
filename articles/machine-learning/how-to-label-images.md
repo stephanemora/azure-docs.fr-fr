@@ -1,23 +1,23 @@
 ---
 title: Étiqueter des images dans un projet d’étiquetage
 title.suffix: Azure Machine Learning
-description: Découvrez comment utiliser les outils de marquage des données dans un projet d’étiquetage Azure Machine Learning.
+description: Découvrez comment utiliser les outils d’étiquetage des données afin de préparer les données rapidement dans le cadre d’un projet d’étiquetage Azure Machine Learning.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897569"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542182"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
-Une fois que votre administrateur de projet a [créé un projet d’étiquetage](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage (préversion publique) pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
+Une fois que votre administrateur de projet a [créé un projet d’étiquetage](./how-to-create-labeling-projects.md#create-a-labeling-project) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
 
 > [!div class="checklist"]
 > * Comment accéder à vos projets d’étiquetage
@@ -127,6 +127,28 @@ Pour supprimer *tous* les cadres englobants de l’image active, sélectionnez l
 
 Après avoir créé les cadres englobants d’une image, sélectionnez **Envoyer** pour enregistrer votre travail. Sinon, ce dernier ne sera pas enregistré.
 
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Étiqueter des images et spécifier des polygones pour la segmentation des images 
+
+Si votre projet est de type « Segmentation d’instance (polygone) », vous devez spécifier un ou plusieurs polygones dans l’image et appliquer une étiquette à chacun de ces polygones. Les images peuvent avoir plusieurs polygones englobants, chacun étant associé à une seule étiquette. Pour déterminer si plusieurs polygones englobants sont utilisés dans votre projet, cliquez sur **Voir les instructions détaillées**.
+
+1. Sélectionnez une étiquette pour le polygone que vous prévoyez de créer.
+1. Sélectionnez l’outil **Dessiner une région de polygone** ![Outil Dessiner une région de polygone](./media/how-to-label-images/polygon-tool.png) ou sélectionnez « P ».
+3. Cliquez pour chaque point du polygone.  Lorsque vous avez terminé la forme, double-cliquez pour la valider.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Créer des polygones pour le chat et le chien":::
+
+Pour supprimer un polygone, cliquez sur la cible en forme de X qui s’affiche à côté du polygone après sa création.
+
+Si vous souhaitez modifier l’étiquette d’un polygone, sélectionnez l’outil **Déplacer les régions**, cliquez sur le polygone, puis sélectionnez l’étiquette souhaitée.
+
+Vous pouvez modifier les polygones existants. L’outil **Verrouiller/Déverrouiller les régions** ![Outil Verrouiller/Déverrouiller les régions](./media/how-to-label-images/lock-bounding-boxes-tool.png), ou « L », permet de passer du verrouillage au déverrouillage des régions, et inversement. Si les régions sont verrouillées, vous pourrez uniquement changer la forme ou l’emplacement des nouveaux polygones.
+
+Utilisez l’outil **Ajouter ou supprimer des points de polygone** ![Outil Ajouter ou supprimer des points de polygone](./media/how-to-label-images/add-remove-points-tool.png) ou sélectionnez « U » pour ajuster un polygone existant. Cliquez sur le polygone pour ajouter ou supprimer un point. Si vous ne pouvez pas modifier une zone, c’est que vous avez probablement inversé le comportement de l’outil **Verrouiller/déverrouiller des zones**.
+
+Pour supprimer *tous* les polygones de l’image active, sélectionnez l’outil **Supprimer toutes les régions** ![Outil Supprimer toutes les régions](./media/how-to-label-images/delete-regions-tool.png).
+
+Après avoir créé les polygones d’une image, sélectionnez **Envoyer** pour enregistrer votre travail. Sinon, ce dernier ne sera pas enregistré.
+
 ## <a name="finish-up"></a>Terminer
 
 Quand vous envoyez une page de données marquées, Azure vous affecte de nouvelles données non étiquetées en provenance d’une file d’attente de travail. S’il ne reste plus de données non étiquetées, vous recevez un message correspondant ainsi qu’un lien vers la page d’accueil du portail.
@@ -135,5 +157,4 @@ Une fois l’étiquetage terminé, sélectionnez votre nom dans le coin supérie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprenez à [effectuer l’apprentissage de modèles de classification d’image dans Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Apprenez à [effectuer l’apprentissage de modèles de classification d’image dans Azure](./tutorial-train-models-with-aml.md)

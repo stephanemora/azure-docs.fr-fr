@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôle de blueprint UK OFFICIAL et UK NHS
 description: Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931270"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420255"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -26,7 +26,6 @@ Le blueprint vous aide à vérifier que le transfert d’informations avec les s
 - Seules les connexions sécurisées à votre cache Redis doivent être activées
 - La sécurisation du transfert vers des comptes de stockage doit être activée
 - Afficher les résultats d’audit des serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
-- Déployer des prérequis pour auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
 - L'application web ne doit pas être accessible via HTTPS
 - Function App ne doit pas être accessible via HTTPS
 - L'application API doit uniquement être accessible via HTTPS
@@ -55,19 +54,19 @@ Ce blueprint vous permet de gérer les vulnérabilités du système d’informat
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
-- L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
+- L’évaluation des vulnérabilités doit être activée sur votre instance managée SQL
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
-- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activée sur votre instance managée SQL
 - Advanced Data Security doit être activé sur vos serveurs SQL
 
 ## <a name="53-protective-monitoring"></a>5.3 Surveillance à des fins de protection
 
 Ce blueprint vous aide à protéger les ressources du système d’informations en affectant des définitions [Azure Policy](../../../policy/overview.md) qui fournissent une supervision de protection sur l’accès illimité, l’activité de liste verte et les menaces.
 
-- Auditer l'accès réseau non restreint aux comptes de stockage
-- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les comptes de stockage doivent limiter l’accès réseau
+- Les contrôles d’application adaptatifs permettant de définir les applications sécurisées doivent être activés sur vos machines
 - Auditer des machines virtuelles pour lesquelles la reprise d’activité après sinistre n’est pas configurée
-- DDoS Protection Standard doit être activé
+- Azure DDoS Protection Standard doit être activé
 - Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security de l’instance gérée SQL.
 - Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security du serveur SQL.
 - Déployer la détection de menaces sur les serveurs SQL
@@ -115,11 +114,6 @@ Ce blueprint affecte également une définition Azure Policy qui vérifie les au
 
 Ce blueprint vous aide à appliquer des mots de passe forts en affectant des définitions Azure Policy qui détectent les machines virtuelles Windows ne mettant pas en œuvre une force minimale ou d’autres exigences relatives aux mots de passe. Le fait d’avoir connaissance des machines virtuelles qui enfreignent la stratégie de force des mots de passe peut vous aider à prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie.
 
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- Déployer des prérequis pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 - Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
 - Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
 - Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
@@ -128,8 +122,6 @@ Ce blueprint vous aide à appliquer des mots de passe forts en affectant des dé
 
 Ce blueprint vous permet également de contrôler l’accès aux ressources Azure en affectant des définitions Azure Policy. Ces stratégies vérifient l’utilisation des types de ressources et des configurations susceptibles d’accorder un accès plus permissif aux ressources. Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider à prendre des actions correctives visant à limiter l’accès aux ressources Azure aux utilisateurs autorisés.
 
-- Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
-- Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
 - Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
 - Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
 - Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
@@ -141,15 +133,15 @@ Ce blueprint vous permet également de contrôler l’accès aux ressources Azur
 Outre l’utilisation de plus de 25 stratégies pour une gestion sécurisée appropriée des utilisateurs, ce blueprint vous aide à protéger les interfaces de service contre les accès non autorisés en attribuant une définition [ Stratégie Azure](../../../policy/overview.md) qui surveille les comptes de stockage non restreints.
 Des comptes de stockage avec un accès illimité, peuvent permettre un accès involontaire à des informations contenues dans le système d’information. Cet blueprint attribue également une stratégie qui active des contrôles d’application adaptatifs sur des machines virtuelles.
 
-- Auditer l'accès réseau non restreint aux comptes de stockage
-- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les comptes de stockage doivent limiter l’accès réseau
+- Les contrôles d’application adaptatifs permettant de définir les applications sécurisées doivent être activés sur vos machines
 - L'accès via un point de terminaison accessible sur Internet doit être limité
 - Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet
 - La solution de protection des points de terminaison doit être installée sur les groupes de machines virtuelles identiques
-- Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles
-- Le débogage à distance devrait être désactivé pour Function App
-- Le débogage à distance doit être désactivé pour l'application web
-- Le débogage à distance doit être désactivé pour l’application API
+- Les ports de gestion des machines virtuelles doivent être protégés par un contrôle d’accès réseau juste-à-temps
+- Le débogage à distance doit être désactivé pour les applications de fonction
+- Le débogage à distance doit être désactivé pour les applications web
+- Le débogage à distance doit être désactivé pour les applications API
 
 ## <a name="13-audit-information-for-users"></a>13 Informations d’audit pour les utilisateurs
 
@@ -161,6 +153,7 @@ Une stratégie affectée vérifie également si les machines virtuelles n’envo
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Déployer Network Watcher lors de la création de réseaux virtuels
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

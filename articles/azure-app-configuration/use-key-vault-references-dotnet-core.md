@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213249"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124796"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des références Key Vault dans une application ASP.NET Core
 
@@ -51,7 +51,7 @@ Avant d’effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet
 
 1. Sélectionnez l’option **Créer une ressource** dans le coin supérieur gauche du Portail Azure :
 
-    ![La sortie après la création du coffre de clés](./media/quickstarts/search-services.png)
+    ![La capture d’écran montre l’option Créer une ressource dans le portail Azure.](./media/quickstarts/search-services.png)
 1. Dans la zone de recherche, entrez **Key Vault**.
 1. Dans la liste des résultats, sélectionnez **Coffres de clés** sur la gauche.
 1. Dans **Coffres de clés**, sélectionnez **Ajouter**.
@@ -65,7 +65,7 @@ Avant d’effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet
 
 À ce stade, votre compte Azure est le seul autorisé à accéder à ce nouveau coffre.
 
-![La sortie après la création du coffre de clés](./media/quickstarts/vault-properties.png)
+![La capture d’écran montre votre coffre de clés.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret au coffre de clés
 

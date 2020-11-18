@@ -8,16 +8,16 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4921078e9e7b5d9de06fbbc9a97dc4a964569e04
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754668"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357621"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
-Ce document va vous aider à rassembler les informations dont vous avez besoin pour dépanner votre solution Communication Services.
+Ce document vous aide à résoudre les problèmes que vous pouvez rencontrer dans votre solution Communication Services. Si vous voulez résoudre des problèmes liés aux SMS, vous pouvez [activer la création de rapports de remise avec Event Grid](../quickstarts/telephony-sms/handle-sms-events.md) pour capturer les détails de remise de SMS.
 
 ## <a name="getting-help"></a>Obtenir de l’aide
 
@@ -30,9 +30,11 @@ En fonction du [plan de support](https://azure.microsoft.com/support/plans/) de 
 
 Pour vous aider à résoudre certains types de problèmes, vous pouvez être invité à fournir les informations suivantes :
 
-* **ID MS-CV**  : cet ID sert à résoudre les problèmes liés aux appels et aux messages. 
-* **ID d’appel**  : cet ID sert à identifier les appels Communication Services.
-* **ID de message SMS**  : cet ID sert à identifier les messages SMS.
+* **ID MS-CV** : cet ID sert à résoudre les problèmes liés aux appels et aux messages. 
+* **ID d’appel** : cet ID sert à identifier les appels Communication Services.
+* **ID de message SMS** : cet ID sert à identifier les messages SMS.
+* **Journaux des appels** : ces journaux contiennent des informations détaillées qui peuvent être utilisés pour résoudre les problèmes d’appel et de réseau.
+
 
 ## <a name="access-your-ms-cv-id"></a>Accéder à votre ID MS-CV
 
@@ -126,6 +128,44 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+
+## <a name="enable-and-access-call-logs"></a>Activer et accéder aux journaux des appels
+
+
+
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Le code suivant peut être utilisé pour configurer `AzureLogger`, afin de sortir les journaux dans la console à l’aide de la bibliothèque de client JavaScript :
+
+```javascript
+import { AzureLogger } from '@azure/logger'; 
+
+AzureLogger.verbose = (...args) => { console.info(...args); } 
+AzureLogger.info = (...args) => { console.info(...args); } 
+AzureLogger.warning = (...args) => { console.info(...args); } 
+AzureLogger.error = (...args) => { console.info(...args); } 
+
+callClient = new CallClient({logger: AzureLogger}); 
+```
+
+# <a name="ios"></a>[iOS](#tab/ios)
+
+Lors du développement pour iOS, vos journaux sont stockés dans des fichiers `.blog`. Notez que vous ne pouvez pas afficher les journaux directement, car ils sont chiffrés.
+
+Vous pouvez y accéder en ouvrant Xcode. Accédez à Windows > Devices and Simulators (Appareils et simulateurs) > Appareils (Devices). Sélectionnez votre appareil. Sous Installed Apps (Applications installées), sélectionnez votre application, puis cliquez sur « Download container » (Télécharger le conteneur). 
+
+Vous obtenez ainsi un fichier `xcappdata`. Cliquez avec le bouton droit sur ce fichier et sélectionnez « Afficher le contenu du package ». Vous voyez alors les fichiers `.blog` que vous pouvez ensuite joindre à votre demande de support Azure.
+
+# <a name="android"></a>[Android](#tab/android)
+
+Lors du développement pour Android, vos journaux sont stockés dans des fichiers `.blog`. Notez que vous ne pouvez pas afficher les journaux directement, car ils sont chiffrés.
+
+Sur Android Studio, accédez à l’Explorateur de fichiers de l’appareil en sélectionnant View (Affichage) > Tool Windows (Fenêtres Outil) > Device File Explorer (Explorateur de fichiers de l’appareil) à partir du simulateur et de l’appareil. Le fichier `.blog` se trouve dans le répertoire de votre application, qui doit ressembler à ce qui suit `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. Vous pouvez joindre ce fichier à votre demande de support. 
+   
+
+---
+
 
 ## <a name="related-information"></a>Informations connexes
 - [Journaux et diagnostics](logging-and-diagnostics.md)

@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027242"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658772"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurer le workflow du consentement administrateur (préversion)
 
@@ -35,9 +35,9 @@ Pour activer le workflow de consentement de l’administrateur et choisir les r�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Cliquez sur **All services** (Tous les services) en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
-3. Dans la zone de recherche de filtre, tapez «  **Azure Active Directory**  », puis sélectionnez l’élément **Azure Active Directory**.
+3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**. 
-5. Sous **Gérer** , sélectionnez **Paramètres utilisateur**.
+5. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
 6. Sous **Demandes de consentement d’administrateur (préversion)** , définissez **Les utilisateurs peuvent demander le consentement d’administrateur pour les applications qu’ils ne peuvent pas accepter** sur **Oui**.
 
    ![Configurer les paramètres de workflow de consentement administrateur](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
@@ -76,9 +76,9 @@ Pour passer en revue les demandes de consentement de l’administrateur et prend
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que réviseur inscrit du workflow de consentement administrateur.
 2. Sélectionnez **Tous les services** en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
-3. Dans la zone de recherche de filtre, tapez «  **Azure Active Directory**  », puis sélectionnez l’élément **Azure Active Directory**.
+3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**.
-5. Sous **Activité** , sélectionnez **Demandes de consentement d’administrateur (préversion)** .
+5. Sous **Activité**, sélectionnez **Demandes de consentement d’administrateur (préversion)** .
 
    > [!NOTE]
    > Les réviseurs ne verront que les demandes d’administrateur qui ont été créées après qu’ils ont été désignés réviseurs.
@@ -147,7 +147,7 @@ Non, pour l’instant, les demandeurs peuvent uniquement obtenir des notificatio
 
 **En tant que réviseur, est-il possible d’approuver l’application, mais pas pour tout le monde ?**
  
-Si vous souhaitez accorder le consentement de l’administrateur et permettre à tous les utilisateurs du locataire d’utiliser l’application, nous vous recommandons de refuser la demande. Octroyez ensuite manuellement le consentement de l’administrateur en restreignant l’accès à l’application en demandant l’attribution de l’utilisateur et en affectant des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](methods-for-assigning-users-and-groups.md).
+Si vous souhaitez accorder le consentement de l’administrateur et permettre à tous les utilisateurs du locataire d’utiliser l’application, nous vous recommandons de refuser la demande. Octroyez ensuite manuellement le consentement de l’administrateur en restreignant l’accès à l’application en demandant l’attribution de l’utilisateur et en affectant des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](./assign-user-or-group-access-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -157,6 +157,6 @@ Pour plus d’informations sur le consentement des applications, consultez [Infr
 
 [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
 
-[Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
+[Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

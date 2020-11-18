@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171871"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331955"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorer le centre des connaissances Synapse
 
@@ -37,9 +37,9 @@ Le **centre des connaissances** vous permet d’effectuer trois opérations :
 * **Browser available sample (Parcourir les exemples disponibles)** . Cette option vous permet de lier des exemples de jeux de données et d’ajouter des exemples de code sous la forme de scripts SQL, de notebooks et de pipelines.
 * **Tour Synapse studio (Visiter Synapse Studio)** . Cette option vous guide dans une brève présentation des composants de base de Synapse Studio. Elle est utile si vous n’avez jamais utilisé Synapse Studio.
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>Exploration du stockage blob avec SQL à la demande
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploration du stockage Blob avec un pool SQL serverless
 
-1. Dans le **centre des connaissances**, cliquez sur **Use samples immediately (Utiliser des exemples immédiatement)**
+1. Accédez au **Centre des connaissances**, puis cliquez sur **Use samples immediately (Utiliser des exemples immédiatement)** .
 1. Sélectionnez **Query data with SQL (Interroger des données avec SQL)** . 
 1. Cliquez sur **Use samples immediately (Utiliser des exemples immédiatement)** .
 1. Un script SQL est alors créé.
@@ -47,7 +47,7 @@ Le **centre des connaissances** vous permet d’effectuer trois opérations :
 1. Cliquez sur Exécuter. Le texte que vous avez sélectionné est exécuté.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Chargement d’autres données sur les taxis new-yorkais
-1. Dans le **centre des connaissances**, cliquez sur **Browse available samples (Parcourir les exemples disponibles)** . 
+1. Accédez au **Centre des connaissances**, puis cliquez sur **Browse available samples (Parcourir les exemples disponibles)** . 
 1. Sélectionnez l’onglet **SQL scripts (Scripts SQL)** en haut.
 1. Sélectionnez **Load the New York Taxicab dataset (Charger le jeu de données New York Taxicab)** .
 1. Sous **Inputs (Entrées)** , choisissez **Select an existing pool (Sélectionner un pool existant)** et sélectionnez **SQLDB1**.
@@ -60,4 +60,4 @@ Le **centre des connaissances** vous permet d’effectuer trois opérations :
 
 * [Bien démarrer avec Azure Synapse Analytics](get-started.md)
 * [Créer un espace de travail](quickstart-create-workspace.md)
-* [Utiliser SQL à la demande](quickstart-sql-on-demand.md)
+* [Utiliser un pool SQL serverless](quickstart-sql-on-demand.md)

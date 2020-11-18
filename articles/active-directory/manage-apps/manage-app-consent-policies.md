@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442257"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659044"
 ---
 # <a name="manage-app-consent-policies"></a>Gérer les stratégies de consentement des applications
 
@@ -31,7 +31,7 @@ Les stratégies de consentement d’application dont l’ID commence par « Mic
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
-1. Vérifiez que vous utilisez le module [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Cette étape est importante si vous avez installé les modules [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) et [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Vérifiez que vous utilisez le module [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Cette étape est importante si vous avez installé les modules [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) et [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -149,7 +149,7 @@ Pour en savoir plus :
 * [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
 * [Découvrez comment gérer le consentement pour les applications et évaluer les demandes de consentement](manage-consent-requests.md)
 * [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
-* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
+* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
 * [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

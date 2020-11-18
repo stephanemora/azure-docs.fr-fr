@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146686"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504388"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Groupes de disponibilité Always On sur SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,13 +72,13 @@ Pour commencer, consultez [Configurer un écouteur DNN](availability-group-distr
 
 Il existe plusieurs options pour déployer un groupe de disponibilité sur SQL Server sur des machines virtuelles Azure, certaines comportant davantage d’automatisation que d’autres. 
 
-Le tableau suivant fournit une comparaison des options disponibles : 
+Le tableau suivant fournit une comparaison des options disponibles :
 
-| |**[Portail Azure](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[Modèles de démarrage rapide](availability-group-quickstart-template-configure.md)**|**[Manuelle](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Portail Azure | Azure CLI/PowerShell | Modèles de démarrage rapide | Manuel |
+|---------|---------|---------|---------|---------|
 |**Version SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Édition de SQL Server** |Entreprise |Entreprise |Entreprise |Entreprise, Standard|
-|**Version de Windows Server**| 2016 + | 2016 + | 2016 + | Tous| 
+|**Version de Windows Server**| 2016 + | 2016 + | 2016 + | Tous|
 |**Crée le cluster à votre place**|Oui|Oui | Oui |Non|
 |**Crée le groupe de disponibilité à votre place** |Oui |Non|Non|Non|
 |**Crée un écouteur et un équilibreur de charge de manière indépendante** |Non|Non|Non|Oui|
@@ -90,9 +90,8 @@ Le tableau suivant fournit une comparaison des options disponibles :
 |**Reprise d’activité avec plusieurs zones dans la même région**|Oui|Oui|Oui|Oui|
 |**Groupe de disponibilité distribué sans domaine d’application**|Non|Non|Non|Oui|
 |**Groupe de disponibilité distribué sans cluster** |Non|Non|Non|Oui|
-||||||
 
-
+Pour plus d’informations, consultez [Portail Azure](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), [Modèles de démarrage rapide](availability-group-quickstart-template-configure.md) et [Manuel](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Considérations 
 

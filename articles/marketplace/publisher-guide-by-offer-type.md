@@ -4,15 +4,15 @@ description: Cet article décrit les types d’offres disponibles dans la Place 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 897f16d84a3e1cf0ca747e90ce621a35ff326b2a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146175"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488976"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
@@ -30,9 +30,8 @@ Le tableau suivant montre les types d’offre de place de marché commerciale pr
 
 | **Type d’offre**    | **Description**  |
 | :------------------- | :-------------------|
-| [Application Azure : **Application managée**](marketplace-managed-apps.md) | Utiliser l’application Azure : Type d’offre d’application managée lorsque les conditions suivantes sont requises : <br> <ul> <li>Vous déployez une solution basée sur un abonnement pour votre client à l’aide d’une machine virtuelle ou d’une solution IaaS complète. </li> <li>Vous ou votre client exigez que la solution soit gérée par un partenaire. </li> <ul> |
-| [Application Azure : **Modèle de solution**](marketplace-solution-templates.md) | Utiliser l’application Azure : Type d’offre Modèle de solution si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration en plus d’une machine virtuelle unique. Les modèles de solution peuvent utiliser de nombreux types de ressources Azure, notamment, mais sans s’y limiter, les machines virtuelles.  |
-  | [**Conteneur Azure**](marketplace-containers.md) | Utilisez le type d’offre Conteneur Azure si votre solution est une image de conteneur Docker approvisionnée en tant que service de conteneur Azure Kubernetes. |
+| [**Azure Application**](plan-azure-application-offer.md) | Il existe deux types de plans d’application Azure : les _modèles de solution_ et les _applications managées_. Les deux types de plan prennent en charge l’automatisation du déploiement et de la configuration d’une solution au-delà d’une seule machine virtuelle. Vous pouvez automatiser la fourniture de plusieurs ressources, notamment les machines virtuelles, les ressources réseau et les ressources de stockage nécessaires pour fournir des solutions complexes, telles que des solutions IaaS. Les deux types de plans peuvent utiliser de nombreux types de ressources Azure, notamment, mais sans s’y limiter, les machines virtuelles.<ul><li>Les plans de **modèles de solution** constituent l’un des principaux moyens de publier une solution sur la place de marché commerciale. Les plans de modèle de solution ne peuvent pas faire l’objet d’une transaction sur la place de marché commerciale, mais peuvent être utilisés pour déployer des offres de machines virtuelles payantes facturées via la place de marché commerciale. Utilisez le type de plan du modèle de solution lorsque le client gère la solution et que les transactions sont facturées par le biais d’un autre plan.</li><br><li>Les plans d’**applications managées** vous permettent de créer et fournir facilement des applications clés en main et entièrement managées à vos clients. Ils ont les mêmes fonctionnalités que les plans de modèles de solution, malgré quelques différences essentielles :</li><ul><li> Les ressources sont déployées vers un groupe de ressources et sont gérées par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources.</li><li>En tant qu’éditeur, vous spécifiez le coût de la prise en charge de la solution en continu, et les transactions sont prises en charge via la place de marché commerciale.</li></ul>Utilisez le type de plan d’application managée lorsque vous ou votre client exigez que la solution soit gérée par un partenaire ou que vous déployiez une solution basée sur un abonnement.</ul> |
+| [**Conteneur Azure**](marketplace-containers.md) | Utilisez le type d’offre Conteneur Azure si votre solution est une image de conteneur Docker approvisionnée en tant que service de conteneur Azure Kubernetes. |
 | [**Machine virtuelle Azure**](marketplace-virtual-machines.md) | Utilisez le type d’offre Machine virtuelle si vous déployez une appliance virtuelle dans le cadre de l’abonnement associé à votre client. |
 | [**Service de conseil**](consulting-services.md) | Les services de conseil aident les clients à se connecter aux services pour gérer et étendre leur utilisation des services Azure, Dynamics 365 ou Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Vous pouvez publier des offres AppSource qui étendent ou s’appuient sur Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps et des applications de finance et opérations.|

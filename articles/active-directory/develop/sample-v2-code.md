@@ -12,12 +12,12 @@ ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 49bba8054065123d7409f26b61d1dfc2580ef720
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e56748df2fb69ace4e9b8d9f6908bc8013176a19
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636049"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287808"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
@@ -55,23 +55,25 @@ Les exemples suivants illustrent des applications web qui connectent les utilisa
 
 | Plateforme | Connecte uniquement les utilisateurs | Connecte les utilisateurs et appelle Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Cette illustration montre le logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [Didacticiel de connexion des utilisateurs par la WebApp ASP.NET Core](https://aka.ms/aspnetcore-webapp-sign-in) | Même exemple dans la phase où [l’application web ASP.NET Core appelle Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) |
-| ![Cette image affiche le logo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Démarrage rapide avec ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![Cette illustration montre le logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [Didacticiel de connexion des utilisateurs par la WebApp ASP.NET Core](https://aka.ms/aspnetcore-webapp-sign-in) | Même exemple dans la phase où [l’application web ASP.NET Core appelle Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph)</p>Exemple avancé [Accès au cache de jeton de l’utilisateur connecté à partir d’applications en arrière-plan, d’API et de services](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
+| ![Cette image affiche le logo ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [Playbook de migration d’application AD FS vers Azure AD pour les développeurs](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) pour découvrir comment migrer de manière sécurisée vos applications intégrées à Active Directory Federation Services (AD FS) vers Azure Active Directory (Azure AD) | |
+| ![Cette image affiche le logo ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Démarrage rapide avec ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Cette image affiche le logo Python](media/sample-v2-code/logo_python.png)  | [ms-identity-python-flask-webapp-authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![Cette image affiche le logo Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Applications clientes publiques mobiles et de bureau
 
-Les exemples suivants illustrent des applications clientes publiques (applications de bureau ou mobiles) qui accèdent à l’API Graph ou à votre API web pour le compte d’un utilisateur. Outre l’exemple *Desktop (console) avec WAM* , toutes ces applications clientes utilisent la bibliothèque d’authentification Microsoft (MSAL).
+Les exemples suivants illustrent des applications clientes publiques (applications de bureau ou mobiles) qui accèdent à l’API Graph ou à votre API web pour le compte d’un utilisateur. Outre l’exemple *Desktop (console) avec WAM*, toutes ces applications clientes utilisent la bibliothèque d’authentification Microsoft (MSAL).
 
 | Application cliente | Plateforme | Flux/octroi | Appelle Microsoft Graph | Appelle une API web ASP.NET Core |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Bureau (WPF)      | ![Cette image affiche le logo .NET/C#](media/sample-v2-code/logo_NET.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
-| Bureau (Console)   | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NET.png) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| Tutoriel de bureau (.NET Core) - Utiliser éventuellement :</p>- le cache de jeton Implémente multiplateforme</p>- une interface web personnalisée | ![Cette image affiche le logo .NET/C#](media/sample-v2-code/logo_NETcore.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code)| [ms-identity-dotnet-desktop-tutorial](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial) | |
+| Bureau (WPF)      | ![Cette image affiche le logo de bureau .NET/C#](media/sample-v2-code/logo_NET.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Bureau (Console)   | ![Image montrant le logo .NET/C# (bureau)](media/sample-v2-code/logo_NET.png) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
-| Bureau (Console)   | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| Bureau (console) avec WAM  | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | Interactif avec [Gestionnaire de comptes web](/windows/uwp/security/web-account-manager) (WAM) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
+| Bureau (Console)   | ![Voici le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| Bureau (console) avec WAM  | ![Voici le logo pour .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | Interactif avec [Gestionnaire de comptes web](/windows/uwp/security/web-account-manager) (WAM) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Python](media/sample-v2-code/logo_python.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[ms-identity-python-desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
 | Mobile (Android, iOS, UWP)   | ![Cette image affiche le logo .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
@@ -87,7 +89,7 @@ L’exemple suivant présente une application qui accède à l’API Microsoft G
 | Application cliente | Plateforme | Flux/Grant | Appelle Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
 | Console | ![Cette image affiche le logo .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Informations d’identification du client](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| Application web | ![Cette image affiche le logo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Informations d’identification du client](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| Application web | ![Capture d’écran montrant le logo ASP.NET.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Informations d’identification du client](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 | Console | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png) | [Informations d’identification du client](msal-authentication-flows.md#client-credentials) | [ms-identity-java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
 | Console | ![Cette image affiche le logo Python](media/sample-v2-code/logo_python.png) | [Informations d’identification du client](msal-authentication-flows.md#client-credentials) | [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
 
@@ -103,7 +105,7 @@ L’exemple suivant présente une application cliente publique qui s’exécute 
 
 ## <a name="multi-tenant-saas-applications"></a>Applications SaaS multilocataires
 
-Les exemples suivants montrent comment configurer votre application de façon à lui faire accepter les connexions de n’importe quel locataire Azure Active Directory (Azure AD). En configurant votre application comme étant *multilocataire* , vous pouvez proposer une application **SaaS** (Software as a Service) à de nombreuses organisations, permettant ainsi à leurs utilisateurs de se connecter à votre application après avoir consenti à utiliser leur compte.
+Les exemples suivants montrent comment configurer votre application de façon à lui faire accepter les connexions de n’importe quel locataire Azure Active Directory (Azure AD). En configurant votre application comme étant *multilocataire*, vous pouvez proposer une application **SaaS** (Software as a Service) à de nombreuses organisations, permettant ainsi à leurs utilisateurs de se connecter à votre application après avoir consenti à utiliser leur compte.
 
 | Plateforme | Description | Lien |
 | -------- | --------------------- | -------- |
@@ -141,4 +143,4 @@ Pour découvrir des [exemples](https://github.com/microsoftgraph/msgraph-communi
 
 ## <a name="see-also"></a>Voir aussi
 
-[Concept et référence de l’API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Concept et référence de l’API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)

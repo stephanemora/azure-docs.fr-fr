@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/18/2020
+ms.date: 11/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 59f8148cf6e1d705094e8a6c4ee267b6c77ab7da
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ac7382f60d5c49ac8c784566af4d9db8ea78956b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518413"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile
 
@@ -27,10 +27,7 @@ L’intégration de Citrix ShareFile à Azure AD vous offre les avantages suivan
 * Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Citrix ShareFile (via l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Citrix ShareFile, vous avez besoin des éléments suivants :
 
@@ -42,25 +39,24 @@ Pour configurer l’intégration d’Azure AD à Citrix ShareFile, vous avez bes
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Citrix ShareFile prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
-* Après avoir configuré Citrix ShareFile, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-citrix-sharefile-from-the-gallery"></a>Ajout de Citrix ShareFile à partir de la galerie
 
 Pour configurer l’intégration de Citrix ShareFile avec Azure AD, vous devez ajouter Citrix ShareFile, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Citrix ShareFile** dans la zone de recherche.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Citrix ShareFile** dans la zone de recherche.
 1. Sélectionnez **Citrix ShareFile** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Citrix ShareFile avec un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Citrix ShareFile avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Citrix ShareFile associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec Citrix ShareFile, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Citrix ShareFile, procédez comme suit :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     
@@ -74,17 +70,17 @@ Pour configurer et tester l’authentification unique Azure AD avec Citrix Share
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Citrix ShareFile** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Citrix ShareFile**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<tenant-name>.sharefile.com/saml/login`.
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant-name>.sharefile.com/saml/login`.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant :
 
     - `https://<tenant-name>.sharefile.com`
     - `https://<tenant-name>.sharefile.com/saml/info`
@@ -92,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     - `https://<tenant-name>.sharefile1.eu/saml/info`
     - `https://<tenant-name>.sharefile.eu/saml/info`
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : 
+    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
     
     - `https://<tenant-name>.sharefile.com/saml/acs`
     - `https://<tenant-name>.sharefile.eu/saml/<URL path>`
@@ -101,63 +97,55 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support Citrix ShareFile](https://www.citrix.co.in/products/citrix-content-collaboration/support.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Citrix ShareFile** , copiez la ou les URL appropriées correspondant à vos besoins.
+6. Dans la section **Configurer Citrix ShareFile**, copiez la ou les URL appropriées correspondant à vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
-   1. Cliquez sur **Créer** .
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Citrix ShareFile.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **Citrix ShareFile** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Citrix ShareFile**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-citrix-sharefile-sso"></a>Configurer l’authentification unique Citrix ShareFile
 
 1. Dans une fenêtre de navigateur web, connectez-vous à votre site d'entreprise **Citrix ShareFile** en tant qu'administrateur.
 
-1. Dans le menu de gauche, cliquez sur **Icône Paramètres** -> **Sécurité** -> **Stratégie de connexion et de sécurité** .
+1. Dans le tableau de bord (**Dashboard**), cliquez sur **Settings** (Paramètres), puis sélectionnez **Admin Settings** (Paramètres d’administration).
+
+    ![Administration](./media/sharefile-tutorial/settings.png)
+
+1. Dans les paramètres d’administration, accédez à **Security** -> **Login & Security Policy** (Stratégie de connexion et de sécurité).
    
     ![Administration des comptes](./media/sharefile-tutorial/settings-security.png "Administration des comptes")
 
-1. Dans la page de boîte de dialogue **Authentification unique/Configuration de SAML 2.0** sous **Paramètres de base** , procédez comme suit :
+1. Dans la page de boîte de dialogue **Authentification unique/Configuration de SAML 2.0** sous **Paramètres de base**, procédez comme suit :
    
     ![Authentification unique](./media/sharefile-tutorial/saml-configuration.png "Authentification unique")
    
-    a. Sélectionnez **OUI** dans **Activer SAML** .
+    a. Sélectionnez **OUI** dans **Activer SAML**.
 
     b. Copiez la valeur **Émetteur / ID d’entité ShareFile** et collez-la dans la zone **URL d’identificateur** de la boîte de dialogue **Configuration SAML de base** du portail Azure.
     
@@ -173,37 +161,38 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="create-citrix-sharefile-test-user"></a>Créer un utilisateur de test Citrix ShareFile
 
-1. Connectez-vous à votre client **Citrix ShareFile** .
+1. Connectez-vous à votre client **Citrix ShareFile**.
 
-2. Cliquez sur **People** -> **Manage Users Home** -> **Create New Users** -> **Create Employee** .
+2. Cliquez sur **People** -> **Manage Users Home** -> **Create New Users** -> **Create Employee**.
    
     ![Créer un employé](./media/sharefile-tutorial/create-user.png "Créer un employé")
 
-3. Dans la section **Basic Information** , procédez comme suit :
+3. Dans la section **Basic Information**, procédez comme suit :
    
     ![Informations de base](./media/sharefile-tutorial/user-form.png "Informations de base")
    
-    a. Dans la zone de texte **First Name** , entrez le **prénom** de l’utilisateur. Ici, il s’agit de **Britta** .
+    a. Dans la zone de texte **First Name**, entrez le **prénom** de l’utilisateur. Ici, il s’agit de **Britta**.
    
-    b.  Dans la zone de texte **Last Name** , entrez le **nom** de l’utilisateur. Ici, il s’agit de **Simon** .
+    b.  Dans la zone de texte **Last Name**, entrez le **nom** de l’utilisateur. Ici, il s’agit de **Simon**.
    
-    c. Dans la zone de texte **Email Address** (Adresse e-mail), tapez l’adresse e-mail du compte de Britta Simon au format suivant : **brittasimon\@contoso.com** .
+    c. Dans la zone de texte **Email Address** (Adresse e-mail), tapez l’adresse e-mail du compte de Britta Simon au format suivant : **brittasimon\@contoso.com**.
 
-4. Cliquez sur **Add User** .
+4. Cliquez sur **Add User**.
   
     >[!NOTE]
     >Le titulaire du compte Azure AD va recevoir un e-mail contenant un lien lui permettant de confirmer son compte avant que celui-ci ne soit activé. Vous pouvez utiliser n’importe quel autre outil de création de compte d’utilisateur Citrix ShareFile ou toute autre API fournie par Citrix ShareFile pour approvisionner des comptes d’utilisateur Azure AD.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la vignette Citrix ShareFile dans le panneau d’accès doit vous connecter automatiquement à l’application Citrix ShareFile pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Citrix ShareFile, où vous pouvez lancer le processus de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+2. Accédez directement à l’URL de connexion Citrix ShareFile pour lancer le processus de connexion.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Citrix ShareFile dans le volet d’accès vous redirige vers l’URL de connexion Citrix ShareFile. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+Après avoir configuré Citrix ShareFile, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

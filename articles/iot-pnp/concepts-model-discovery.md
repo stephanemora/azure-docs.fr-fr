@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042913"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445572"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Utiliser les modèles IoT Plug-and-Play dans une solution IoT
 
@@ -121,7 +121,7 @@ Les solutions peuvent utiliser le [référentiel de modèles](concepts-model-rep
 
 Une fois que vous avez identifié l’ID de modèle pour une nouvelle connexion d’appareil, procédez comme suit :
 
-1. Récupérez la définition de modèle à l’aide de l’ID de modèle à partir du référentiel de modèles. Pour plus d’informations, consultez [Obtenir des modèles](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Récupérez la définition de modèle à l’aide de l’ID de modèle à partir du référentiel de modèles. Pour plus d’informations, consultez [Référentiel de modèles d’appareil](concepts-model-repository.md).
 
 1. Avec la définition de modèle de l’appareil connecté, vous pouvez énumérer les fonctionnalités de l’appareil.
 

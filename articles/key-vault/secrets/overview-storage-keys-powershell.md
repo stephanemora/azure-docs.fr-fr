@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18bf8d865a5bb4d96fb55199137b38ec30861dbe
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50fbaf5092e793369daaa71fc7364dfd406e03b3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793039"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444892"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell
 
@@ -33,13 +33,13 @@ Nous vous recommandons d’utiliser l’intégration de Stockage Azure avec Azur
 
 Azure AD vous permet d’authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. Vous pouvez utiliser une [identité Azure AD managée](../../active-directory/managed-identities-azure-resources/index.yml) lors de l’exécution sur Azure. Les identités managées suppriment l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
 
-Azure AD utilise le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
+Azure AD utilise le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="service-principal-application-id"></a>ID d’application du principal de service
 
-Un locataire Azure AD fournit à chaque application inscrite un [principal de service](../../active-directory/develop/developer-glossary.md#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration des autorisations pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+Un locataire Azure AD fournit à chaque application inscrite un [principal de service](../../active-directory/develop/developer-glossary.md#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration de l’autorisation pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure.
 
 Key Vault est une application Microsoft préinscrite dans tous les locataires Azure AD. Key Vault est inscrit sous le même ID d’application dans chaque cloud Azure.
 

@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 62cf7c979be83454ae2433befcdbf4f5d8e5524f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518710"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516541"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -27,11 +27,11 @@ Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser l
 > * Partager une galerie d’images
 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel exige Azure CLI version 2.4.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
+- Cet article nécessite la version 2.4.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -55,7 +55,7 @@ az vm create \
 ```
 
 > [!IMPORTANT]
-> L’ **ID** de votre machine virtuelle est affichée dans la sortie de la commande [az vm create](/cli/azure/vm). Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
+> L’**ID** de votre machine virtuelle est affichée dans la sortie de la commande [az vm create](/cli/azure/vm). Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
 
 L’adresse IP publique de votre machine virtuelle est également affichée dans la sortie de la commande [az vm create](/cli/azure/vm). La connexion SSH à l’adresse IP publique de votre machine virtuelle se présente comme suit :
 
@@ -111,14 +111,14 @@ az sig image-definition create \
 ```
 
 > [!IMPORTANT]
-> L’ **ID** de votre définition d’image est indiqué dans la sortie de la commande. Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
+> L’**ID** de votre définition d’image est indiqué dans la sortie de la commande. Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
 
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
 Créez une version d’image à partir de la machine virtuelle à l’aide de la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*. *MinorVersion*. *Patch*.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer un réplica dans la région *USA Centre Sud* et un réplica dans la région *USA Est 2*. Les régions de réplication doivent inclure la région dans laquelle se trouve la machine virtuelle source.
 

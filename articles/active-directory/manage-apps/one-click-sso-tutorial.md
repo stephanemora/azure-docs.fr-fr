@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763123"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658704"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuration en un clic de l’authentification unique pour une application
 
@@ -40,7 +40,7 @@ La fonctionnalité d’authentification SSO en un clic a été conçue pour conf
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement actif de l’application à configurer avec l’authentification unique. Vous avez également besoin d’informations d’identification de l’administrateur.
-- L’**Extension de connexion sécurisée à Mes applications** de Microsoft installée dans le navigateur. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- L’**Extension de connexion sécurisée à Mes applications** de Microsoft installée dans le navigateur. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="one-click-sso-configuration-steps"></a>Étapes de configuration SSO en un clic
 
@@ -84,6 +84,5 @@ La fonctionnalité d’authentification SSO en un clic a été conçue pour conf
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [Présentation de l’Extension de navigateur de connexion sécurisée à Mes applications](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Présentation de l’Extension de navigateur de connexion sécurisée à Mes applications](../user-help/my-apps-portal-end-user-access.md)

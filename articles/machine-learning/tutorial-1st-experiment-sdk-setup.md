@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : Prise en main des notebooks Jupyter (Python)'
 titleSuffix: Azure Machine Learning
-description: Tutoriels sur la configuration des notebooks Jupyter. Créez un espace de travail Azure Machine Learning, clonez les notebooks Jupyter dans l’espace de travail et créez une instance de calcul dans laquelle vous exécutez les notebooks.
+description: Tutoriels sur la configuration des notebooks Jupyter. Créez un espace de travail, clonez les notebooks dans l’espace de travail, puis créez une instance de calcul dans laquelle exécuter les notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913294"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532968"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutoriel : Commencez à utiliser Azure Machine Learning dans des notebooks Jupyter
 
@@ -67,7 +67,7 @@ Vous effectuez la configuration d’expérience suivante et vous exécutez les �
 
 1. Ouvrez le dossier contenant un numéro de version. Ce numéro représente la version actuelle du Kit de développement logiciel (SDK) Python.
 
-1. Sélectionnez le bouton  **...** à droite du dossier **tutoriels** , puis sélectionnez **Cloner**.
+1. Sélectionnez le bouton  **...** à droite du dossier **tutoriels**, puis sélectionnez **Cloner**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Capture d’écran montrant le dossier de clonage des tutoriels.":::
 
@@ -78,7 +78,7 @@ Vous effectuez la configuration d’expérience suivante et vous exécutez les �
 1. Ouvrez le dossier **tutoriels** qui a été fermé dans la section **Fichiers utilisateur**.
 
     > [!IMPORTANT]
-    > Vous pouvez voir les notebooks présents dans le dossier **exemples** , mais vous ne pouvez pas exécuter de notebook à partir de là. Pour exécuter un notebook, veillez à ouvrir sa version clonée dans la section **Fichiers utilisateur**.
+    > Vous pouvez voir les notebooks présents dans le dossier **exemples**, mais vous ne pouvez pas exécuter de notebook à partir de là. Pour exécuter un notebook, veillez à ouvrir sa version clonée dans la section **Fichiers utilisateur**.
     
 1. Sélectionnez le fichier **tutorial-1st-experiment-sdk-train.ipynb** dans votre dossier **tutorials/image-classification-mnist-data**.
 

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: ba4ef77dee8eb3cad753aca54a77aeedd166f142
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 99339914b66dc40f686cc46cacbcea15438c9004
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784556"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413341"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importer des clés protégées par HSM dans un coffre de clés
 
@@ -38,7 +38,9 @@ Le transfert de clés protégées par HSM vers un coffre de clés est pris en ch
 |Fortanix|Fabricant,<br/>HSM en tant que service|<ul><li>SDKMS (Self-Defending Key Management Service)</li><li>Equinix SmartKey</li></ul>|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Fabricant|Tous les modules HSM LiquidSecurity avec<ul><li>Version 2.0.4 ou ultérieure du microprogramme</li><li>Version 3.2 ou ultérieure du microprogramme</li></ul>|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV (système de gestion de clés sécurisé)|Plusieurs marques et modèles de modules HSM, dont<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Pour plus d'informations, consultez le [site de Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
-
+|Securosys SA|Fabricant, HSM en tant que service|Famille HSM de Primus, HSM Clouds de Securosys|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
+|StorMagic|ISV (système de gestion de clés sécurisé)|Plusieurs marques et modèles de modules HSM, dont<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Pour plus d’informations, consultez le [site StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
+|||||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

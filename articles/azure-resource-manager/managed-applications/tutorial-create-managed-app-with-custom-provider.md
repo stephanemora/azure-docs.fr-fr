@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949810"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379551"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutoriel : Créer une application managée avec des actions et des ressources personnalisées
 
@@ -41,7 +41,7 @@ Pour suivre ce tutoriel, vous devez savoir :
 
 Dans ce tutoriel, vous allez créer une application managée et son groupe de ressources managé contenant une instance de fournisseur personnalisé, un compte de stockage et une fonction. La fonction Azure utilisée dans cet exemple implémente une API qui gère des opérations de fournisseur personnalisé pour des actions et des ressources. Le compte Stockage Azure est utilisé comme stockage de base pour vos ressources de fournisseur personnalisé.
 
-La définition de l’interface utilisateur pour la création d’une instance d’application managée comprend des éléments d’entrée `funcname` et `storagename`. Le nom du compte de stockage et le nom de la fonction doivent être globalement uniques. Par défaut, les fichiers de fonction seront déployés à partir d’un [exemple de package de fonction](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), mais vous pouvez changer cela en ajoutant un élément d’entrée pour un lien de package dans *createUIDefinition.json* :
+La définition de l’interface utilisateur pour la création d’une instance d’application managée comprend des éléments d’entrée `funcname` et `storagename`. Le nom du compte de stockage et le nom de la fonction doivent être globalement uniques. Par défaut, les fichiers de fonction seront déployés à partir d’un [exemple de package de fonction](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), mais vous pouvez changer cela en ajoutant un élément d’entrée pour un lien de package dans *createUiDefinition.json* :
 
 ```json
 {
@@ -74,7 +74,7 @@ La définition de l’interface utilisateur pour la création d’une instance d
 }
 ```
 
-et une sortie dans *createUIDefinition.json* :
+et une sortie dans *createUiDefinition.json* :
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -82,13 +82,13 @@ et une sortie dans *createUIDefinition.json* :
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-L’exemple *createUIDefinition.json* complet se trouve dans [Référence : Artefacts des éléments d’interface utilisateur](reference-createuidefinition-artifact.md).
+L’exemple *createUiDefinition.json* complet se trouve dans [Référence : Artefacts des éléments d’interface utilisateur](reference-createuidefinition-artifact.md).
 
 ## <a name="template-with-custom-provider"></a>Modèle avec fournisseur personnalisé
 
 Pour créer une instance d’application managée avec un fournisseur personnalisé, vous devez définir une ressource de fournisseur personnalisé avec le nom **public** et le type **Microsoft.CustomProviders/resourceProviders** dans votre fichier **mainTemplate.json**. Dans cette ressource, vous définissez les types de ressources et les actions de votre service. Pour déployer des instances de fonction Azure et de compte Stockage Azure, définissez des ressources de type `Microsoft.Web/sites` et `Microsoft.Storage/storageAccounts`, respectivement.
 
-Dans ce tutoriel, vous allez créer un type de ressource `users`, une action personnalisée `ping`, et une action personnalisée `users/contextAction` qui sera exécutée dans le contexte d’une ressource personnalisée `users`. Pour chaque type de ressource et action, fournissez un point de terminaison pointant vers la fonction nommée dans [createUIDefinition.json](#user-interface-definition). Comme **routingType**, affectez la valeur `Proxy,Cache` pour les types de ressources et `Proxy` pour les actions :
+Dans ce tutoriel, vous allez créer un type de ressource `users`, une action personnalisée `ping`, et une action personnalisée `users/contextAction` qui sera exécutée dans le contexte d’une ressource personnalisée `users`. Pour chaque type de ressource et action, fournissez un point de terminaison pointant vers la fonction nommée dans [createUiDefinition.json](#user-interface-definition). Comme **routingType**, affectez la valeur `Proxy,Cache` pour les types de ressources et `Proxy` pour les actions :
 
 ```json
 {
@@ -339,11 +339,11 @@ Vous pouvez accéder à l’instance d’application managée et effectuer une *
 
 * Accédez à la page « Users » et cliquez sur le bouton « Add ». Fournissez des entrées pour la création d’une ressource et envoyez le formulaire :
 
-![Créer une ressource personnalisée](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Capture d’écran montrant le bouton Add sélectionné dans Users.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Accédez à la page « Users », sélectionnez une ressource « users » et cliquez sur « Custom Context Action » :
 
-![Créer une ressource personnalisée](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Capture d’écran montrant Custom Context Action sélectionné.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 

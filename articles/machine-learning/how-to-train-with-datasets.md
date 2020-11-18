@@ -1,7 +1,7 @@
 ---
 title: Entraîner avec azureml-datasets
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser des jeux de données lors de l’entraînement.
+description: Découvrez mettre rendre vos données à la disposition de votre calcul local ou distant pour l’entraînement du modèle ML avec des jeux de données Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 70fd8796eb4d17662697410bf97caee835e998ab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 263509ce7d348e51bf4a2a1d7ad83fb5dfdb5e29
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311321"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489435"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 
@@ -254,7 +254,8 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 
-Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent et développent les concepts abordés dans cet article.
++ Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent et développent les concepts abordés dans cet article.
++ Découvrez comment [paramétrer des jeux de données dans vos pipelines ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

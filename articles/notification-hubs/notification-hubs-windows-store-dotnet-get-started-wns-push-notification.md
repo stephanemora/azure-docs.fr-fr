@@ -15,12 +15,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 07a0581cd7fe2e7a9c13f860c862e34da3cfd1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f55b6eafe230f722979d535111ce45aa35981f0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998286"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125035"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications à des applications de plateforme Windows universelle avec Azure Notification Hubs
 
@@ -66,7 +66,7 @@ Pour envoyer des notifications Push à des applications UWP, associez votre appl
 3. Développez **Gestion des produits** , sélectionnez **WNS/MPNS**, puis le **site des services Microsoft Live**. vous connecter à votre compte Microsoft ; La page d’inscription des applications s’ouvre dans un nouvel onglet. Vous pouvez également naviguer directement jusqu’à la page [Mes applications](https://apps.dev.microsoft.com) et sélectionner le nom de votre application pour accéder à cette page.
 
     ![Page de WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Notez le mot de passe **Secrets de l’application** et la valeur **Identificateur de sécurité (SID) du package**.
+4. Notez le mot de passe **Secrets de l’application**, ainsi que l’**Identificateur de sécurité (SID) du package** et l’**Identité de l’application** dans la section Windows Store.
 
     >[!WARNING]
     >Le secret d’application et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces valeurs avec quiconque et ne les distribuez pas avec votre application.
@@ -103,7 +103,7 @@ Votre Notification Hub est désormais configuré pour fonctionner avec WNS. Vous
 5. Dans l’Assistant, connectez-vous avec votre compte Microsoft.
 6. Sélectionnez l’application inscrite à l’étape 2, puis sélectionnez **Suivant** et **Associer**. Cela ajoute les informations d’inscription Windows Store requises au manifeste de l’application.
 7. Dans Visual Studio, cliquez avec le bouton droit sur la solution, puis sélectionnez **Gérer les packages NuGet**. La fenêtre **Gérer les packages NuGet** s’ouvre.
-8. Dans la zone de recherche, saisissez **WindowsAzure.Messaging.Managed**, sélectionnez **Installer**et acceptez les conditions d’utilisation.
+8. Dans la zone de recherche, saisissez **WindowsAzure.Messaging.Managed**, sélectionnez **Installer** et acceptez les conditions d’utilisation.
 
     ![La fenêtre Gérer les packages NuGet][20]
 
@@ -149,7 +149,9 @@ Votre Notification Hub est désormais configuré pour fonctionner avec WNS. Vous
 
     Cette action garantit l’inscription de l’URI de canal dans votre hub de notification chaque fois que l’application se lance.
 
-12. Pour exécuter l’application, appuyez sur la touche **F5** du clavier. Une boîte de dialogue contenant la clé d’inscription s’affiche. Pour fermer la boîte de dialogue, cliquez sur **OK**.
+12. Cliquez avec le bouton droit sur `Package.appxmanifest`, puis sélectionnez Afficher le code (**F7**). Recherchez `<Identity .../>` et remplacez la valeur par l’**Identité de l’application** issue du WNS que vous avez créé [précédemment](#create-an-app-in-windows-store).
+
+13. Pour exécuter l’application, appuyez sur la touche **F5** du clavier. Une boîte de dialogue contenant la clé d’inscription s’affiche. Pour fermer la boîte de dialogue, cliquez sur **OK**.
 
     ![Inscription réussie](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 
@@ -171,7 +173,7 @@ Vous pouvez tester rapidement la réception de notifications dans votre applicat
 3. Examinez le résultat de l’opération d’envoi dans la liste **Résultat** au bas de la fenêtre. Vous voyez également un message d’alerte.
 
     ![Résultat de l’opération d’envoi](./media/notification-hubs-windows-store-dotnet-get-started/result-of-send.png)
-4. Vous voyez le message de notification : **Message de test** sur votre bureau.
+4. Vous voyez le message de notification : **message de test** sur votre bureau.
 
     ![Message de notification](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 

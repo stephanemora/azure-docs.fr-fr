@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042612"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490608"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -24,14 +24,14 @@ Les détections de risques dans Azure AD Identity Protection incluent toutes les
 
 Identity Protection offre aux organisations un accès à des ressources puissantes pour voir et traiter rapidement ces actions suspectes. 
 
->**Remarque :** Identity Protection génère des détections de risques uniquement quand les informations d’identification correctes sont utilisées. Si des informations d’identification incorrectes sont utilisées sur une connexion, elles ne représentent pas un risque de compromission des informations d’identification.
-
 ![Vue d’ensemble de la sécurité montrant les utilisateurs et les connexions à risque](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> Identity Protection génère des détections de risques uniquement quand les informations d’identification correctes sont utilisées. Si des informations d’identification incorrectes sont utilisées sur une connexion, elles ne représentent pas un risque de compromission des informations d’identification.
 
 ## <a name="risk-types-and-detection"></a>Types de risques et détection
 
-Il existe deux types d’ **utilisateurs** et de **connexions** à risque, ainsi que deux types de détections ou de calculs **en temps réel** et **hors connexion**.
+Il existe deux types d’**utilisateurs** et de **connexions** à risque, ainsi que deux types de détections ou de calculs **en temps réel** et **hors connexion**.
 
 Les détections en temps réel peuvent ne pas apparaître dans les rapports pendant cinq à dix minutes. Les détections hors connexion peuvent ne pas apparaître dans les rapports pendant 2 à 24 heures.
 
@@ -77,6 +77,10 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 La protection d’identité catégorise les risques en trois niveaux : faible, moyen, sévère. 
 
 Bien que Microsoft ne communique pas en détail sur l'évaluation du risque, nous pouvons affirmer que chaque niveau souligne avec un peu plus de certitude que l'utilisateur ou la connexion est compromis(e). Par exemple, une instance de propriétés de connexion non connues pour un utilisateur pourrait être moins dangereuse que la divulgation d’informations d’identification pour un autre utilisateur.
+
+### <a name="password-hash-synchronization"></a>Synchronisation de hachage du mot de passe
+
+Les détections de risque comme les informations d’identification divulguées et la vaporisation de mots de passe nécessitent la présence de hachages de mot de passe pour la détection. Pour plus d’informations sur la synchronisation de hachage du mot de passe, consultez l’article [Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Informations d’identification divulguées
 

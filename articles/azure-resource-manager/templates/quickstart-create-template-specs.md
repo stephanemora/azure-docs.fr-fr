@@ -2,15 +2,15 @@
 title: Créer et déployer une spec de modèle
 description: Découvrez comment créer une spec de modèle à partir d’un modèle ARM. Ensuite, déployez la spec de modèle vers un groupe de ressources dans votre abonnement.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728775"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506360"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Démarrage rapide : Créer et déployer une spec de modèle (préversion)
 
@@ -29,7 +29,7 @@ Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://a
 
 La spec de modèle est un type de ressource nommé **Microsoft.Resources/templateSpecs**. Pour créer votre spec de modèle, vous pouvez utiliser Azure PowerShell, Azure CLI ou un modèle ARM. Quelle que soit l’option, vous avez besoin d’un modèle ARM empaqueté la spec de modèle.
 
-Avec PowerShell et CLI, le modèle ARM est transmis en tant que paramètre à la commande. Avec un modèle ARM, le modèle à empaqueter dans la spec de modèle est incorporé dans la définition de celle-ci.
+Avec PowerShell et CLI, le modèle ARM est transmis sous forme de paramètre à la commande. Avec un modèle ARM, le modèle à empaqueter dans la spec de modèle est incorporé dans la définition de celle-ci.
 
 Ces deux options sont présentées ci-dessous.
 
@@ -88,7 +88,7 @@ Ces deux options sont présentées ci-dessous.
 1. Lorsque vous utilisez un modèle ARM pour créer la spec de modèle, le modèle est incorporé dans la définition de la ressource. Copiez le modèle suivant et enregistrez-le localement sous **azuredeploy.json**. Ce démarrage rapide part du principe que vous avez enregistré dans le chemin d’accès **c:\Templates\azuredeploy.json**, mais vous pouvez utiliser n’importe quel chemin.
 
     > [!NOTE]
-    > Dans le modèle incorporé, tous les crochets gauches (ouvrants) doivent être échappés à l’aide d’un deuxième crochet gauche. Utilisez `[[` au lieu de `[`.
+    > Dans le modèle incorporé, toutes les [expressions de modèle](template-expressions.md) doivent être échappées au moyen d’un deuxième crochet gauche. Utilisez `"[[` au lieu de `"[`. Les tableaux JSON utilisent toujours un seul crochet gauche.
 
     ```json
     {

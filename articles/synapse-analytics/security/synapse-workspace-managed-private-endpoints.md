@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 930c1f94446eb145a093bf7a8706485d40eec210
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313771"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379670"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Points de terminaison privés managés Synapse (préversion)
 
@@ -49,7 +49,7 @@ Le pool SQL dédié et le pool SQL serverless sont des fonctionnalités d’anal
 
 Quand un espace de travail est créé, Azure Synapse crée deux points de terminaison privés managés dans l’espace de travail, un pour le pool SQL dédié et un pour le pool SQL serverless. 
 
-Ces deux points de terminaison privés managés sont listés dans Azure Synapse Studio. Sélectionnez **Gérer** dans le volet de navigation gauche, puis sélectionnez **Réseaux virtuels managés** pour les afficher dans Studio.
+Ces deux points de terminaison privés managés sont listés dans Synapse Studio. Sélectionnez **Gérer** dans la zone de navigation de gauche, puis sélectionnez **Points de terminaison privés managés** pour les afficher dans Studio.
 
 Le point de terminaison privé managé qui cible le pool SQL est appelé *synapse-ws-sql--\<workspacename\>* et celui qui cible le pool SQL serverless est appelé *synapse-ws-sqlOnDemand--\<workspacename\>* .
 

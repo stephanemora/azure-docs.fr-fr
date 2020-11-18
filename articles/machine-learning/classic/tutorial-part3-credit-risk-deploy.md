@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 148a3deb23219036f2fd9d8fe4dad93e9fb96b9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d723a18bfe764b4e1459f72b00fa81db716dcdb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337979"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325643"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est le **troisième tutoriel d’une série qui en compte trois**.
@@ -49,12 +49,12 @@ Effectuez la [deuxième partie du tutoriel](tutorial-part2-credit-risk-train.md)
 ## <a name="prepare-for-deployment"></a>Préparer le déploiement
 Pour que d’autres personnes puissent utiliser le modèle prédictif que vous avez développé dans ce tutoriel, vous pouvez le déployer en tant que service web sur Azure.
 
-Jusqu’à présent, vous avez testé l’expérience de l’entraînement de votre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il va produire de nouvelles prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience de ***i*** en expérience ***prédictive***. 
+Jusqu’à présent, vous avez testé l’expérience de l’entraînement de votre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il va produire de nouvelles prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience ***d’entraînement** _ en expérience _*_prédictive_*_ 
 
 La préparation pour le déploiement est un processus en trois étapes :  
 
 1. Supprimer l’un des modèles
-1. Convertir l’*expérience d’entraînement* que vous avez créée en *expérience prédictive*
+1. Convertir l’_expérience d’entraînement* que vous avez créée en *expérience prédictive*
 1. Déploiement de l’expérience prédictive sous la forme d’un service web
 
 ### <a name="remove-one-of-the-models"></a>Supprimer l’un des modèles
@@ -232,7 +232,7 @@ Il s’agit d’un service web Azure qui peut recevoir et renvoyer des données 
 > [!NOTE]
 > Les noms de colonnes de fonctionnalités dans Studio (classique) **respectent la casse**. Assurez-vous que les noms de colonnes dans vos données d’entrée pour l’appel du service web sont les mêmes que dans le jeu de données d’apprentissage.
 
-Pour plus d’informations sur l’accès au service web et sur son utilisation, consultez [Utilisation d’un service web Microsoft Azure Machine Learning à l’aide d’un modèle d’application web](/azure/machine-learning/studio/consume-web-services).
+Pour plus d’informations sur l’accès au service web et sur son utilisation, consultez [Utilisation d’un service web Microsoft Azure Machine Learning à l’aide d’un modèle d’application web](./consume-web-services.md).
 
 
 
@@ -257,13 +257,13 @@ Vous pouvez également développer une application personnalisée pour accéder 
 > [Consommer un service web Azure Machine Learning](consume-web-services.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[metadata-editor]: /azure/machine-learning/studio-module-reference/edit-metadata
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset

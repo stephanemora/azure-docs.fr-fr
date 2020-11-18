@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9536cf41add73f494bfff451c201d36e951864e3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839345"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489486"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifications d’Azure Active Directory Identity Protection
 
@@ -35,7 +35,9 @@ La configuration de cette alerte vous permet de spécifier à quel niveau de ris
 
 Toutefois, une nouvelle notification par e-mail est envoyée uniquement si le moment où la détection du risque a eu lieu (à l’origine de la modification du niveau de risque pour l’utilisateur) est plus récent que celui où le dernier e-mail a été envoyé. Par exemple, un utilisateur se connecte le 1er janvier à 5 h et il n’y a aucun risque en temps réel (c’est-à-dire qu’aucun e-mail n’est généré en raison de cette connexion). Dix minutes plus tard, à 5 h 10, le même utilisateur se connecte à nouveau et présente alors un risque en temps réel élevé, ce qui amène le niveau de risque de l’utilisateur à passer à un niveau élevé et entraîne l’envoi d’un e-mail. Puis, à 5 h 15, le score de risque hors connexion pour la connexion d’origine à 5 h passe à un risque élevé en raison du traitement des risques hors connexion. Un autre e-mail Utilisateur signalé à risque n’est pas envoyé, car l’heure de la première connexion est antérieure à la deuxième connexion à l’origine de la notification par e-mail.
 
-Pour empêcher une surcharge d’e-mails, vous ne recevrez qu’un seul e-mail Utilisateurs à risque détectés dans un délai de cinq secondes. Cela signifie que si plusieurs utilisateurs passent au niveau de risque spécifié au cours de la même période de cinq secondes, nous regrouperons les messages et enverrons un seul e-mail pour représenter la modification du niveau de risque pour tous.
+Pour empêcher une surcharge d’e-mails, vous ne recevrez qu’un seul e-mail dans un délai de 5 secondes. Ce délai signifie que si plusieurs utilisateurs passent au niveau de risque spécifié au cours de la même période de 5 secondes, nous regrouperons les messages et enverrons un seul e-mail pour représenter la modification du niveau de risque pour tous.
+
+Si votre organisation a activé la correction automatique, comme décrit dans l’article [Expériences utilisateur avec Azure AD Identity Protection](concept-identity-protection-user-experience.md), l’utilisateur peut réduire ses risques avant même que vous ne lanciez vos recherches. Vous pouvez voir les utilisateurs à risque et les connexions risquées qui ont été corrigées en ajoutant « Corrigé » au filtre **État du risque** dans les rapports **Utilisateurs à risque** ou **Connexions risquées**.
 
 ![E-mail Utilisateurs à risque détectés](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -60,7 +62,7 @@ Il inclut :
 
 ![E-mail de synthèse hebdomadaire](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Les utilisateurs des rôles Administrateur général, Administrateur de la sécurité ou Lecteur de sécurité sont automatiquement ajoutés à cette liste. Nous tentons d’envoyer des e-mails aux 20 premiers membres de chaque rôle. Si un utilisateur est inscrit dans PIM pour s’élever à l’un de ces rôles à la demande, **il recevra uniquement les e-mails s’il est élevé au moment où l’e-mail est envoyé**.
+Les utilisateurs des rôles Administrateur général, Administrateur de la sécurité ou Lecteur de sécurité sont automatiquement ajoutés à cette liste. Nous tentons d’envoyer des e-mails aux 20 premiers membres de chaque rôle. Si un utilisateur est inscrit dans PIM pour s’élever à l’un de ces rôles à la demande, **il recevra uniquement les e-mails s’il est élevé au moment où l’e-mail est envoyé**
 
 ### <a name="configure-weekly-digest-email"></a>Configurer un courrier de synthèse hebdomadaire
 

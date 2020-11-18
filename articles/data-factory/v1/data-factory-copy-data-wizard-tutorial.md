@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248545"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128400"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant de copie de Data Factory
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
        Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur `Data factory name “ADFTutorialDataFactory” is not available` s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactoryAAAAMMJJ), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  
       
        ![Nom de la fabrique de données indisponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
-   2. Sélectionnez votre **abonnement**Azure.
+   2. Sélectionnez votre **abonnement** Azure.
    3. Pour Groupe de ressources, effectuez l’une des opérations suivantes : 
       
       - Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
@@ -91,7 +91,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    
    1. Saisissez **AzureStorageLinkedService** dans **Nom du service lié**.
    2. Vérifiez que l’option **À partir des abonnements** est sélectionnée pour **Account selection method** (Méthode de sélection du compte).
-   3. Sélectionnez votre **abonnement**Azure.  
+   3. Sélectionnez votre **abonnement** Azure.  
    4. Sélectionnez un **compte de stockage Azure** dans la liste des comptes de stockage Azure disponibles dans l’abonnement sélectionné. Vous pouvez également choisir de saisir manuellement les paramètres du compte de stockage en sélectionnant l’option **Saisir manuellement** dans **Account selection method** (Méthode de sélection de compte). Cliquez ensuite sur **Suivant**. 
       
       ![Outil de copie - spécifiez le compte de stockage d’objets blob Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -100,10 +100,10 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    1. Double-cliquez sur **adftutorial** (dossier).
    2. Sélectionnez **emp.txt**, puis cliquez sur **Choisir**.
       
-      ![Outil de copie - choisissez le fichier ou le dossier d’entrée](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![Capture d’écran montrant l’option Choisir pour votre fichier d’entrée.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. Sur la page **Choose the input file or folder (Choisir le fichier ou le dossier d’entrée)** , cliquez sur **Suivant**. Ne sélectionnez pas **copie binaire**. 
    
-    ![Outil de copie - choisissez le fichier ou le dossier d’entrée](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![Capture d’écran montrant l’option Copie binaire pour votre entrée.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. Dans la page **File format settings** (Paramètres de format de fichier), vous pouvez voir les délimiteurs et le schéma qui sont détectés automatiquement par l’Assistant en analysant le fichier. Vous pouvez également entrer les délimiteurs manuellement pour que l’Assistant copie arrête leur détection automatique ou pour remplacer les délimiteurs détectés. Une fois que vous avez vérifié les délimiteurs et afficher un aperçu des données, cliquez sur **Suivant**. 
    
     ![Outil de copie - Paramètres de format de fichier](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -114,7 +114,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    
    1. Saisissez **AzureSqlLinkedService** dans le champ **Nom de la connexion**.
    2. Vérifiez que l’option **À partir des abonnements** est sélectionnée pour **Server / database selection method** (Méthode de sélection du serveur/de la base de données).
-   3. Sélectionnez votre **abonnement**Azure.  
+   3. Sélectionnez votre **abonnement** Azure.  
    4. Sélectionnez le **Nom du serveur** et la **Base de données**.
    5. Saisissez le **Nom d’utilisateur** et le **Mot de passe**.
    6. Cliquez sur **Suivant**.  
@@ -128,10 +128,10 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
     ![Outil de copie - Mappage de schéma](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. Dans la page **Paramètres de performances** cliquez sur **Suivant**. 
     
-    ![Outil de copie - Paramètres de performances](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![Capture d’écran montrant la page Paramètres de performances, dans laquelle vous pouvez sélectionner Suivant.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Passez en revue les informations contenues dans la page **Résumé**, puis cliquez sur **Terminer**. L’Assistant crée deux services liés, deux jeux de données (entrée et sortie) et un pipeline dans la fabrique de données (d’où vous avez lancé l’Assistant Copie). 
     
-    ![Outil de copie - Paramètres de performances](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![Capture d’écran montrant la page Résumé, dans laquelle vous pouvez sélectionner Suivant.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Lancer l’application Surveiller et gérer
 1. Dans la page **Déploiement**, cliquez sur le lien : `Click here to monitor copy pipeline`.

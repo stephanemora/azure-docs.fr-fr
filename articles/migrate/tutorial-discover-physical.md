@@ -4,12 +4,12 @@ description: Apprenez à découvrir des serveurs physiques locaux avec l’outil
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 83ff63392c6cbcaa6a2ea011eb60199f61844bb1
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314086"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148335"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutoriel : Découvrir les serveurs physiques avec Server Assessment
 
@@ -75,11 +75,15 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
 Configurez un compte que l’appliance peut utiliser pour accéder aux serveurs physiques.
 
-- Pour les serveurs Windows, configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la découverte. Ajoutez le compte d’utilisateur aux groupes suivants : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du journal de performances.
-- Pour les serveurs Linux, vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. Vous pouvez également définir l’accès de la façon suivante :
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk
-    - setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (si/usr/sbin/fdisk n’est pas présent)<br/> - setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode chmod a+r /sys/class/dmi/id/product_uuid
+- En ce qui concerne les serveurs Windows, utilisez un compte de domaine pour les ordinateurs joints à un domaine et un compte local pour les autres. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
+- Pour les serveurs Linux, vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. Vous pouvez également définir un compte non racine doté des fonctionnalités requises à l’aide des commandes suivantes :
+
+**Commande** | **Objectif**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(si /usr/sbin/fdisk n’est pas présent)_ | Collecter les données de configuration du disque
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Collecter les données de performances du disque
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Collecter le numéro de série du BIOS
+chmod a+r /sys/class/dmi/id/product_uuid | Collecter le GUID du BIOS
 
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
@@ -116,7 +120,7 @@ Pour configurer l’appliance, vous devez :
 1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez **Découvrir**.
 2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Physiques ou autres (AWS, GCP, Xen, etc.)** .
 3. Dans **1 : Générer une clé de projet Azure Migrate**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte de serveurs physiques ou virtuels. Le nom doit être alphanumérique et se composer au maximum de 14 caractères.
-1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Détecter des machines pendant la création des ressources.
+1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir des machines pendant la création des ressources.
 1. Une fois les ressources Azure créées, une **clé de projet Azure Migrate** est générée.
 1. Copiez la clé, car vous en aurez besoin pour terminer l’inscription de l’appliance pendant sa configuration.
 
@@ -137,13 +141,13 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 3.  Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
     - Pour le cloud public :
 
-        **Scénario** | **Télécharger*** | **Valeur de hachage**
+        **Scénario** | **Téléchargement** _ | _ *Valeur de hachage**
         --- | --- | ---
         Physique (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Pour Azure Government :
 
-        **Scénario** | **Télécharger*** | **Valeur de hachage**
+        **Scénario** | **Téléchargement** _ | _ *Valeur de hachage**
         --- | --- | ---
         Physique (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  

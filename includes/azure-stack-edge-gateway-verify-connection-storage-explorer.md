@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474a97f4b05fd1f944e18abebcef927232453e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89080570"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376134"
 ---
 Si vous utilisez l’Explorateur Stockage pour la première fois, vous devez effectuer les étapes suivantes.
 
@@ -24,11 +24,11 @@ Suivez ces étapes pour vous connecter au compte de stockage et vérifier la con
 
 1. Dans l’Explorateur Stockage, sélectionnez Comptes de stockage. Cliquez avec le bouton droit et sélectionnez l’option **Se connecter au Stockage Azure**. 
 
-    ![Configurer l’Explorateur Stockage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
+    ![Configurer l’Explorateur Stockage 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
 
 2. Dans la boîte de dialogue **Connexion au stockage Azure**, sélectionnez **Utiliser un nom et une clé de compte de stockage**.
 
-    ![Configurer l’Explorateur Stockage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
+    ![Configurer l’Explorateur Stockage 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
 
 2. Dans la boîte de dialogue **Se connecter avec le nom et la clé**, procédez comme suit :
 
@@ -39,11 +39,11 @@ Suivez ces étapes pour vous connecter au compte de stockage et vérifier la con
     5. Cochez l’option **Utiliser HTTP** lorsque le transfert se fait sur *http*. 
     6. Sélectionnez **Suivant**.
 
-    ![Configurer l’Explorateur Stockage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
+    ![Configurer l’Explorateur Stockage 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
 
 3. Dans la boîte de dialogue **Résumé de la connexion**, vérifiez les informations fournies. Sélectionnez **Connecter**.
 
-    ![Configurer l’Explorateur Stockage](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
+    ![Configurer l’Explorateur Stockage 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
 
 4. Le compte que vous avez correctement ajouté s’affiche dans le volet gauche de l’Explorateur Stockage avec (Externe, Autre) ajouté à son nom. Sélectionnez **Conteneurs d’objets Blob** pour afficher le conteneur.
 
@@ -59,27 +59,27 @@ Procédez comme suit pour charger des données dans votre compte de stockage Edg
 
 2. Dans la boîte de dialogue **Télécharger des fichiers**, accédez à et sélectionnez les fichiers que vous souhaitez télécharger. Sélectionnez **Suivant**.
 
-    ![Vérifier le transfert de données](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
+    ![Vérifier le transfert de données 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
 
 3. Vérifiez que les fichiers ont été téléchargés. Les fichiers téléchargés apparaissent dans le conteneur.
 
-    ![Vérifier le transfert de données](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
+    ![Vérifier le transfert de données 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
 
 4. Ensuite, vous allez vous connecter au compte de stockage Azure qui a été mappé à ce compte de stockage Edge. Toutes les données qui sont téléchargées vers le compte de stockage Edge doivent automatiquement être hiérarchisées sur le compte de stockage Azure. 
     
     Pour obtenir la chaîne de connexion pour le compte de stockage Azure, accédez au **Compte de stockage Azure > Clés d’accès** et copiez la chaîne de connexion.
 
-    ![Vérifier le transfert de données](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
+    ![Vérifier le transfert de données 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
 
     Utilisez la chaîne de connexion pour joindre un compte Stockage Azure hébergé.  
 
-    ![Vérifier le transfert de données](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
+    ![Vérifier le transfert de données 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
 
 
 5. Dans la boîte de dialogue **Résumé de la connexion**, vérifiez les informations fournies. Sélectionnez **Connecter**.
 
-    ![Vérifier le transfert de données](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
+    ![Vérifier le transfert de données 6](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
 
 6. Vous verrez que les fichiers que vous avez téléchargés dans le compte de stockage Edge ont été transférés vers le compte de stockage Azure.
 
-    ![Vérifier le transfert de données](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)
+    ![Vérifier le transfert de données 7](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)

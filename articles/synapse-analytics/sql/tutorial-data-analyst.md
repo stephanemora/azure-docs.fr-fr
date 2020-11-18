@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Utiliser SQL à la demande (préversion) pour analyser des jeux de données Azure Open Datasets dans Azure Synapse Studio (préversion)'
-description: Ce tutoriel vous montre comment effectuer facilement des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec SQL à la demande (préversion) et comment visualiser les résultats dans Azure Synapse Studio.
+title: 'Tutoriel : Utiliser un pool SQL serverless (préversion) pour analyser des jeux de données Azure Open Datasets dans Azure Synapse Studio (préversion)'
+description: Ce tutoriel explique comment effectuer facilement des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec un pool SQL serverless (préversion), et comment visualiser les résultats dans Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309287"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutoriel : Utiliser SQL à la demande pour analyser des jeux de données Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutoriel : Utiliser un pool SQL serverless pour analyser Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio
 
-Dans ce tutoriel, vous apprenez à effectuer des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec SQL à la demande, puis en visualisant les résultats dans Azure Synapse Studio.
+Dans ce tutoriel, vous allez voir comment effectuer des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec un pool SQL serverless, puis en visualisant les résultats dans Azure Synapse Studio.
 
 En particulier, vous analysez le [jeu de données sur les taxis de la ville de New York (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) qui comprend les éléments suivants :
 
@@ -213,9 +213,9 @@ Les résultats de la requête indiquent que la chute du nombre de courses de tax
 - Il faisait froid (la température était inférieure à zéro degré Celsius).
 - Il y avait du vent (environ 10 m/s).
 
-Ce tutoriel vous a montré comment un analyste de données peut rapidement effectuer une analyse exploratoire des données, combiner facilement différents jeux de données à l’aide de SQL à la demande et visualiser les résultats à l’aide d’Azure Synapse Studio.
+Ce tutoriel vous a montré comment un analyste de données peut rapidement effectuer une analyse exploratoire des données, combiner facilement différents jeux de données à l’aide d’un pool SQL serverless et visualiser les résultats à l’aide d’Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment connecter SQL à la demande à Power BI Desktop et créer des rapports, consultez [Connecter SQL à la demande à Power BI Desktop et créer des rapports](tutorial-connect-power-bi-desktop.md).
+Pour savoir comment connecter un pool SQL serverless à Power BI Desktop et créer des rapports, consultez [Connecter un pool SQL serverless à Power BI Desktop et créer des rapports](tutorial-connect-power-bi-desktop.md).
  

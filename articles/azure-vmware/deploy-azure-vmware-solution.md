@@ -3,13 +3,13 @@ title: Déployer et configurer Azure VMware Solution
 description: Découvrez comment utiliser les informations collectées au cours de la phase de planification pour déployer le cloud privé de Azure VMware Solution.
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152035"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336333"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Déployer et configurer Azure VMware Solution
 
@@ -35,7 +35,7 @@ Utilisez les informations que vous avez rassemblées dans l’article [Planifica
 ## <a name="create-the-jump-box"></a>Créer le serveur de renvoi
 
 >[!IMPORTANT]
->Si vous avez laissé l’option **Réseau virtuel** vierge au cours de l’approvisionnement initial sur l’écran **Créer un cloud privé** , suivez le didacticiel [Configurer la mise en réseau pour votre cloud privé VMware](tutorial-configure-networking.md)**avant** de passer à cette section.  
+>Si vous avez laissé l’option **Réseau virtuel** vierge au cours de l’approvisionnement initial sur l’écran **Créer un cloud privé**, suivez le didacticiel [Configurer la mise en réseau pour votre cloud privé VMware](tutorial-configure-networking.md)**avant** de passer à cette section.  
 
 Après avoir déployé Azure VMware Solution, vous créerez le serveur de rebond du réseau virtuel qui se connecte à vCenter et NSX. Une fois que vous avez configuré les circuits ExpressRoute et ExpressRoute Global Reach, le serveur de renvoi n’est pas nécessaire.  Mais il est pratique d’accéder à vCenter et à NSX dans votre Azure VMware Solution.  
 
@@ -59,7 +59,7 @@ Le secteur de rebond se trouve dans le réseau virtuel où Azure VMware Solution
 
 Dans la liste des itinéraires effectifs, vous devriez voir les réseaux créés dans le cadre du déploiement d’Azure VMware Solution. Vous verrez plusieurs réseaux dérivés du [`/22` réseau que vous avez défini](production-ready-deployment-steps.md#ip-address-segment) au cours de l’[étape de déploiement](#deploy-azure-vmware-solution) plus haut dans cet article.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Créer la jumpbox Azure VMware Solution" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Vérifiez les itinéraires réseau publiés à partir de Azure VMware Solution sur un réseau virtuel Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 Dans cet exemple, le réseau 10.74.72.0/22 entré pendant le déploiement dérive les réseaux /24.  Si vous voyez un résultat similaire, vous pouvez vous connecter à vCenter dans Azure VMware Solution.
 
@@ -67,7 +67,7 @@ Dans cet exemple, le réseau 10.74.72.0/22 entré pendant le déploiement dériv
 
 Connectez-vous au serveur de rebond que vous avez créé à l’étape précédente. Une fois que vous êtes connecté, ouvrez un navigateur web et connectez-vous à vCenter et à la console d’administration NSX-T.  
 
-Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console d’administration NSX-T dans le Portail Azure.  Sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble** , sélectionnez **Identité > Par défaut** . 
+Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console d’administration NSX-T dans le Portail Azure.  Sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble**, sélectionnez **Identité > Par défaut**. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Créez un segment réseau dans Azure VMware Solution
 
@@ -97,10 +97,10 @@ Comme DNS est requis, identifiez le serveur DNS que vous souhaitez utiliser.
 
 Si vous envisagez d’utiliser DHCP sur vos segments NSX-T, poursuivez la lecture de cette section. Dans le cas contraire, passez à la section [Ajouter une machine virtuelle sur le segment réseau NSX-T](#add-a-vm-on-the-nsx-t-network-segment) .  
 
-Maintenant que vous avez créé votre segment de réseau NSX-T, vous pouvez procéder de l’une des façons suivantes :
+Maintenant que vous avez créé votre segment réseau NSX-T, vous pouvez créer et gérer DHCP dans Azure VMware Solution de deux manières :
 
-* Utilisez NSX-T comme serveur DHCP pour le ou les segments créés. Avec cette option, vous [créez un serveur DHCP dans NSX-T](manage-dhcp.md#create-dhcp-server) et [faites le relais avec ce serveur](manage-dhcp.md#create-dhcp-relay-service).
-* Relayez les requêtes DHCP du ou des segments NSX-T vers un serveur DHCP ailleurs dans votre environnement. Pour cette option, [vous devez uniquement effectuer la configuration du relais](manage-dhcp.md#create-dhcp-relay-service).
+* Si vous utilisez NSX-T pour héberger votre serveur DHCP, vous devez [créer un serveur DHCP](manage-dhcp.md#create-a-dhcp-server) et [relayer vers ce serveur](manage-dhcp.md#create-dhcp-relay-service). 
+* Si vous utilisez un serveur DHCP externe tiers sur votre réseau, vous devez [créer un service de relais DHCP](manage-dhcp.md#create-dhcp-relay-service).  Pour cette option, [vous devez uniquement effectuer la configuration du relais](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Ajouter une machine virtuelle au segment de réseau NSX-T

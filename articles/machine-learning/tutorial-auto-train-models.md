@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel sur la régression : ML automatisé'
 titleSuffix: Azure Machine Learning
-description: Dans ce tutoriel, vous apprenez à générer un modèle Machine Learning à l’aide du Machine Learning automatisé. Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée.
+description: Créez une expérience de Machine Learning automatisé qui génère un modèle de régression basé sur les données d’entraînement et les paramètres de configuration que vous fournissez.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896784"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358607"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutoriel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
 
@@ -140,7 +140,7 @@ green_taxi_df.describe()
 |std|0.41|1.04|2,93|2.76|1,52|2.61|1,44|12,08|3.45|8,45|1.95|6,83
 |min|1.00|0,00|0,00|-74,66|0,00|-74,66|0,00|-300,00|1.00|1.00|0,00|0,00
 |25 %|2,00|1.00|1,06|-73,96|40,70|-73,97|40,70|7,80|3,75|8,00|2,00|9,00
-|50|2,00|1.00|1,90|-73,94|40,75|-73,94|40,75|11,30|6,50|15,00|3.00|15,00
+|50%|2,00|1.00|1,90|-73,94|40,75|-73,94|40,75|11,30|6,50|15,00|3.00|15,00
 |75 %|2,00|1.00|3.60|-73,92|40,80|-73,91|40,79|17,80|9.25|22,00|5.00|19,00
 |max|2,00|9,00|97,57|0,00|41,93|0,00|41,94|450,00|12,00|30.00|6,00|23,00
 
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurer l’espace de travail
 
-Créez un objet d’espace de travail à partir de l’espace de travail existant. Un [espace de travail](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) est une classe qui accepte les informations concernant vos abonnements et vos ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle. `Workspace.from_config()` lit le fichier **config.json** et charge les détails d’authentification dans un objet nommé `ws`. `ws` est utilisé dans tout le reste du code de ce didacticiel.
+Créez un objet d’espace de travail à partir de l’espace de travail existant. Un [espace de travail](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) est une classe qui accepte les informations concernant vos abonnements et vos ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle. `Workspace.from_config()` lit le fichier **config.json** et charge les détails d’authentification dans un objet nommé `ws`. `ws` est utilisé dans tout le reste du code de ce didacticiel.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Lire les résultats
 
-Explorez les résultats de l’entraînement automatique à l’aide d’un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Le widget vous permet de voir un graphique et un tableau de toutes les itérations d’exécution individuelles, ainsi que des métriques et des métadonnées de précision d’entraînement. Vous pouvez aussi filtrer sur des métriques de précision différentes de votre métrique principale avec le sélecteur de liste déroulante.
+Explorez les résultats de l’entraînement automatique à l’aide d’un [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Le widget vous permet de voir un graphique et un tableau de toutes les itérations d’exécution individuelles, ainsi que des métriques et des métadonnées de précision d’entraînement. Vous pouvez aussi filtrer sur des métriques de précision différentes de votre métrique principale avec le sélecteur de liste déroulante.
 
 ```python
 from azureml.widgets import RunDetails

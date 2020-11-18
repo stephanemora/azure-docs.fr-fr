@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130253"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491305"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Résoudre les problèmes liés aux requêtes Azure Stream Analytics
 
@@ -25,7 +25,7 @@ Cet article décrit les problèmes courants liés au développement de requêtes
 
 1.  Examinez les erreurs en effectuant un test local :
 
-    - Sur le Portail Azure, sous l’onglet **Requête** , sélectionnez **Test**. Utilisez les exemples de données téléchargés pour [tester la requête](stream-analytics-test-query.md). Examinez les éventuelles erreurs et tentez de les corriger.   
+    - Sur le Portail Azure, sous l’onglet **Requête**, sélectionnez **Test**. Utilisez les exemples de données téléchargés pour [tester la requête](stream-analytics-test-query.md). Examinez les éventuelles erreurs et tentez de les corriger.   
     - Vous pouvez également [tester votre requête localement](stream-analytics-live-data-local-testing.md) à l’aide des outils Azure Stream Analytics pour Visual Studio ou [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Déboguer des requêtes étape par étape localement à l’aide du diagramme de travail](debug-locally-using-job-diagram-vs-code.md) dans les outils Azure Stream Analytics pour Visual Studio Code. Le diagramme de travail montre la façon dont les données circulent des sources d’entrée (Event Hub, IoT Hub, etc.), via plusieurs étapes de requête et, enfin, jusqu’aux récepteurs de sortie. Chaque étape de la requête est mappée à un jeu de résultats temporaire défini dans le script à l’aide de l’instruction WITH. Vous pouvez afficher les données et les métriques dans chaque jeu de résultats intermédiaire pour trouver la source du problème.
@@ -51,6 +51,8 @@ Cet article décrit les problèmes courants liés au développement de requêtes
 
 Veillez à tirer parti de la parallélisation dans Azure Stream Analytics. Vous pouvez apprendre à [mettre à l’échelle des travaux Stream Analytics avec parallélisation des requêtes](stream-analytics-parallelization.md) en configurant des partitions d’entrée et en réglant la définition des requêtes Analytics.
 
+Si l’utilisation des ressources est régulièrement supérieure à 80 %, le délai en filigrane augmente; tout comme le nombre d’événements retardés. Dans ce cas, vous pouvez d’augmenter les unités de streaming. Une utilisation intensive indique que la tâche atteint une limite proche de la quantité maximale de ressources allouées.
+
 ## <a name="debug-queries-progressively"></a>Déboguer les requêtes progressivement
 
 Lors du traitement de données en temps réel, savoir à quoi ressemblent les données au milieu de la requête peut être utile. Vous pouvez le voir à l’aide du diagramme de travail dans Visual Studio. Si vous n’avez pas Visual Studio, vous pouvez prendre des mesures supplémentaires pour générer des données intermédiaires.
@@ -61,7 +63,7 @@ L’exemple de requête suivant dans un travail Azure Stream Analytics a un flux
 
 ![Exemple de requête SELECT INTO Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-Notez que le travail est en cours d’exécution, mais aucun événement n’est produit dans la sortie. Dans la vignette **Surveillance** , illustrée ici, vous pouvez voir que l’entrée génère des données, mais vous ne savez pas quelle étape de **JOIN** a causé la suppression de tous les événements.
+Notez que le travail est en cours d’exécution, mais aucun événement n’est produit dans la sortie. Dans la vignette **Surveillance**, illustrée ici, vous pouvez voir que l’entrée génère des données, mais vous ne savez pas quelle étape de **JOIN** a causé la suppression de tous les événements.
 
 ![Vignette Surveillance Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
 

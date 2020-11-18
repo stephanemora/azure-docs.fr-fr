@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425930"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658789"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
@@ -180,7 +180,7 @@ Les pages d’entité sont conçues pour faire partie de plusieurs scénarios d�
 
 ### <a name="querying-behavior-analytics-data"></a>Interrogation des données d’analyse du comportement
 
-Une requête de mots clés [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/) nous permet d’interroger la table d’analyse du comportement.
+Une requête de mots clés [KQL](/azure/data-explorer/kusto/query/) nous permet d’interroger la table d’analyse du comportement.
 
 Par exemple, si vous souhaitez rechercher tous les cas d’un utilisateur n’ayant pas réussi à se connecter à une ressource Azure, où il s’agissait de la première tentative de l’utilisateur de se connecter à partir d’un pays donné, alors que les connexions à partir de ce pays sont rares, même émanant de pairs de l’utilisateur, nous pouvons utiliser la requête suivante :
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150893"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516813"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Tutoriel : Créer une application de conversation sur un serveur Blazor Server
 
@@ -96,7 +96,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
    dotnet add package Microsoft.AspNetCore.SignalR.Client --version 3.1.7
    ```
 
-1. Créez `ChartRoom.razor` sous le dossier `Pages` pour implémenter un client SignalR. Suivez les étapes ci-dessous ou copiez simplement [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
+1. Créez `ChatRoom.razor` sous le dossier `Pages` pour implémenter un client SignalR. Suivez les étapes ci-dessous ou copiez simplement [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
 
    1. Ajoutez un lien et une référence de page.
       
@@ -285,7 +285,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
    </li>
    ```
    
-1. Mettez à jour `site.css` pour optimiser les affichages de bulles dans la zone de graphique. Ajoutez le code ci-dessous à la fin.
+1. Mettez à jour `site.css` pour optimiser les affichages de bulles dans la zone de conversation. Ajoutez le code ci-dessous à la fin.
 
    ```css
    /* improved for chat text box */

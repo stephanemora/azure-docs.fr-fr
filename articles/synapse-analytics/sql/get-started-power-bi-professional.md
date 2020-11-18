@@ -1,6 +1,6 @@
 ---
 title: Se connecter à Synapse SQL avec Power BI Professional
-description: Dans ce tutoriel, nous allons voir la procédure qui permet de connecter Power BI Desktop à SQL à la demande (préversion).
+description: Dans ce tutoriel, nous allons voir la procédure qui permet de connecter Power BI Desktop à SQL à un pool SQL serverless (préversion).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 97b611c449302c95d4b24c305ce50ee7683e85ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899121"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316454"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Se connecter à Synapse SQL avec Power BI Professional
+# <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Se connecter à un pool SQL serverless avec Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "92899121"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Dans ce tutoriel, nous allons parcourir les étapes permettant de connecter Power BI Desktop à SQL à la demande (préversion).
+Dans ce tutoriel, nous allons parcourir les étapes permettant de connecter Power BI Desktop à un pool SQL serverless (préversion).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,17 +43,17 @@ Paramètres :
 
 | Paramètre                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Adresse de point de terminaison de service SQL à la demande    | Utilisée comme nom de serveur                                   |
-| Région de point de terminaison de service SQL à la demande     | Utilisée pour déterminer le stockage que nous allons utiliser dans les exemples |
+| Adresse du point de terminaison de service du pool SQL serverless    | Utilisée comme nom de serveur                                   |
+| Région du point de terminaison de service du pool SQL serverless     | Utilisée pour déterminer le stockage que nous allons utiliser dans les exemples |
 | Nom d’utilisateur et mot de passe pour l’accès au point de terminaison | Utilisés pour accéder au point de terminaison                               |
-| La base de données que vous allez utiliser pour créer des vues     | Cette base de données est utilisée comme point de départ dans les exemples       |
+| La base de données que vous allez utiliser pour créer des vues       | Cette base de données est utilisée comme point de départ dans les exemples       |
 
 ## <a name="first-time-setup"></a>Première configuration
 
 Deux étapes précèdent l’utilisation des exemples :
 
 1. Créer une base de données pour vos vues
-2. Créer les informations d’identification que devra utiliser SQL à la demande pour accéder aux fichiers dans le stockage
+2. Créer les informations d’identification que devra utiliser le pool SQL serverless pour accéder aux fichiers dans le stockage
 
 ### <a name="create-database"></a>Créer une base de données
 
@@ -70,12 +70,12 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Créer des informations d’identification
 
-Nous devons créer des informations d’identification afin que vous puissiez exécuter des requêtes. Ces informations d’identification seront utilisées par le service SQL à la demande pour accéder aux fichiers dans le stockage.
+Nous devons créer des informations d’identification afin que vous puissiez exécuter des requêtes. Ces informations d’identification seront utilisées par le service de pool SQL serverless pour accéder aux fichiers dans le stockage.
 
 > [!NOTE]
-> Vous devez créer des informations d’identification pour l’accès au compte de stockage. Bien que SQL à la demande puisse accéder au stockage à partir de différentes régions, le fait d’avoir le stockage et l’espace de travail Azure Synapse dans la même région offre une meilleure expérience sur le plan des performances.
+> Vous devez créer des informations d’identification pour l’accès au compte de stockage. Même si le pool SQL serverless peut accéder au stockage à partir de différentes régions, le fait d’avoir le stockage et l’espace de travail Azure Synapse dans la même région offre une meilleure expérience sur le plan des performances.
 
-**Extrait de code sur la façon de créer des informations d’identification pour les conteneurs de données de recensement** . Exécutez ce qui suit :
+**Extrait de code sur la façon de créer des informations d’identification pour les conteneurs de données de recensement**. Exécutez ce qui suit :
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -92,13 +92,13 @@ GO
 
 ## <a name="create-a-power-bi-desktop-report"></a>Créer un rapport Power BI Desktop
 
-Ouvrez l’application Power BI Desktop et sélectionnez l’option **Obtenir les données** .
+Ouvrez l’application Power BI Desktop et sélectionnez l’option **Obtenir les données**.
 
 ![Ouvrez l’application Power BI Desktop et sélectionnez « Obtenir les données ».](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Étape 1 : Sélectionner la source de données
 
-Sélectionnez **Azure** dans le menu, puis **Azure SQL Database** .
+Sélectionnez **Azure** dans le menu, puis **Azure SQL Database**.
 ![Sélectionnez la source de données.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Étape 2 : Sélectionner la base de données
@@ -108,5 +108,4 @@ Entrez l’URL de la base de données et le nom de la base de données où rési
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à [Interroger des fichiers de stockage](get-started-azure-data-studio.md) pour savoir comment vous connecter à SQL à la demande à l’aide d’Azure Data Studio.
- 
+Passez à [Interroger des fichiers de stockage](get-started-azure-data-studio.md) pour savoir comment vous connecter au pool SQL serverless à l’aide d’Azure Data Studio.

@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Connecter SQL à la demande à Power BI Desktop et créer un rapport'
-description: Dans ce tutoriel, vous allez apprendre à connecter SQL à la demande dans Azure Synapse Analytics à Power BI Desktop, et à créer un rapport de démonstration basé sur une vue.
+title: 'Tutoriel : Connecter un pool SQL serverless à Power BI Desktop et créer un rapport'
+description: Dans ce tutoriel, vous allez voir comment connecter un pool SQL serverless dans Azure Synapse Analytics à Power BI Desktop, et comment créer un rapport de démonstration basé sur une vue.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539552"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317193"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutoriel : Utiliser SQL à la demande avec Power BI Desktop et créer un rapport
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutoriel : Utiliser un pool SQL serverless avec Power BI Desktop et créer un rapport
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -24,7 +24,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 >
 > - Créer une base de données de démonstration
 > - Créer une vue utilisée pour le rapport
-> - Connecter Power BI Desktop à SQL à la demande
+> - Connecter Power BI Desktop à un pool SQL serverless
 > - Créer un rapport basé sur une vue
 
 ## <a name="prerequisites"></a>Prérequis
@@ -42,8 +42,8 @@ Valeurs pour les paramètres suivants :
 
 | Paramètre                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Adresse de point de terminaison de service SQL à la demande    | Utilisée comme nom de serveur                                   |
-| Région de point de terminaison de service SQL à la demande     | Utilisée pour déterminer le stockage utilisé dans les exemples. |
+| Adresse du point de terminaison de service du pool SQL serverless    | Utilisée comme nom de serveur                                   |
+| Région du point de terminaison de service du pool SQL serverless     | Utilisée pour déterminer le stockage utilisé dans les exemples. |
 | Nom d’utilisateur et mot de passe pour l’accès au point de terminaison | Utilisés pour accéder au point de terminaison                               |
 | La base de données que vous allez utiliser pour créer des vues     | Base de données utilisée comme point de départ dans les exemples       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2 - Créer une source de données
 
-Une source de données permet au service SQL à la demande d’accéder aux fichiers dans le stockage. Créez la source de données pour un compte de stockage qui se trouve dans la même région que votre point de terminaison. Bien que SQL à la demande puisse accéder aux comptes de stockage dans différentes régions, le fait d’avoir le stockage et le point de terminaison dans la même région offre de meilleures performances.
+Une source de données est nécessaire pour permettre au service de pool SQL serverless d’accéder aux fichiers dans le stockage. Créez la source de données pour un compte de stockage qui se trouve dans la même région que votre point de terminaison. Même si le pool SQL serverless peut accéder aux comptes de stockage dans différentes régions, le fait d’avoir le stockage et le point de terminaison dans la même région offre de meilleures performances.
 
 Créez la source de données en exécutant le script Transact-SQL (T-SQL) suivant :
 

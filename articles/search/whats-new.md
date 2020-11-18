@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518923"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422669"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -42,7 +42,7 @@ Créez une identité pour un service de recherche dans Azure Active Directory, p
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Disponibilité  |
 |---------|------------------|-------------|---------------|
-| [Bibliothèque cliente Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) | Kit SDK Azure pour .NET | Bibliothèque cliente .NET publiée par l’équipe du SDK Azure, conçue pour assurer la cohérence avec d’autres bibliothèques clientes .NET. <br/><br/>La version 11 cible l’API REST Recherche version 2020-06-30, mais ne prend pas encore en charge la base de connaissances, les Types géospatiaux ou [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). <br/><br/>Pour plus d’informations, consultez [Démarrage rapide : Créer un index](search-get-started-dotnet.md) et [Mettre à niveau vers Azure.Search.documents (v11)](search-dotnet-sdk-migration-version-11.md). | En disponibilité générale. </br> Installez le [package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) à partir de NuGet. |
+| [Bibliothèque cliente Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) | Kit SDK Azure pour .NET | Bibliothèque cliente .NET publiée par l’équipe du SDK Azure, conçue pour assurer la cohérence avec d’autres bibliothèques clientes .NET. <br/><br/>La version 11 cible l’API REST Recherche api-version=2020-06-30, mais ne prend pas encore en charge la base de connaissances ou les types géospatiaux. <br/><br/>Pour plus d’informations, consultez [Démarrage rapide : Créer un index](search-get-started-dotnet.md) et [Mettre à niveau vers Azure.Search.documents (v11)](search-dotnet-sdk-migration-version-11.md). | En disponibilité générale. </br> Installez le [package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) à partir de NuGet. |
 | [Bibliothèque cliente azure.search.documents](/python/api/overview/azure/search-documents-readme)  | Kit SDK Azure pour Python| Bibliothèque cliente Python publiée par l’équipe du SDK Azure, conçue pour assurer la cohérence avec d’autres bibliothèques clientes Python. <br/><br/>La version 11 cible l’API REST Recherche version 2020-06-30. | En disponibilité générale. </br> Installez le [package azure-search-documents](https://pypi.org/project/azure-search-documents/) à partir de PyPI. |
 | [Bibliothèque cliente @azure/search-documents](/javascript/api/overview/azure/search-documents-readme)  | Kit SDK Azure pour JavaScript | Bibliothèque cliente JavaScript publiée par l’équipe du SDK Azure, conçue pour assurer la cohérence avec d’autres bibliothèques clientes JavaScript. <br/><br/>La version 11 cible l’API REST Recherche version 2020-06-30. | En disponibilité générale. </br> Installez le [package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) à partir de npm. |
 

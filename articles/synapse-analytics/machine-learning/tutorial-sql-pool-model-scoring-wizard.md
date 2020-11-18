@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Assistant de scoring de modèles Machine Learning pour les pools SQL'
-description: Tutoriel sur l’utilisation de l’Assistant de scoring de modèles Machine Learning pour enrichir des données des pools Synapse SQL
+title: 'Tutoriel : Assistant de scoring de modèle Machine Learning pour les pools SQL dédiés'
+description: Tutoriel sur l’utilisation de l’Assistant de scoring de modèles Machine Learning pour enrichir des données des pools SQL dédiés
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,29 +9,29 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019968"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314033"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Tutoriel : Assistant de scoring de modèles Machine Learning pour les pools Synapse SQL
+# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Tutoriel : Assistant de scoring de modèle Machine Learning pour les pools SQL dédiés
 
-Apprenez à enrichir facilement vos données dans les pools SQL avec des modèles Machine Learning prédictifs.  Les modèles créés par vos scientifiques de données sont désormais facilement accessibles aux professionnels des données pour l’analyse prédictive. Dans Synapse, un professionnel des données peut simplement sélectionner un modèle dans le registre de modèles Azure Machine Learning à des fins de déploiement dans des pools Synapse SQL et lancer des prédictions pour enrichir les données.
+Découvrez comment enrichir facilement les données de vos pools SQL dédiés avec des modèles Machine Learning prédictifs.  Les modèles créés par vos scientifiques de données sont désormais facilement accessibles aux professionnels des données pour l’analyse prédictive. Dans Synapse, un professionnel des données peut simplement sélectionner un modèle dans le registre de modèles Azure Machine Learning afin de le déployer dans des pools Synapse SQL, et lancer des prédictions pour enrichir les données.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > - Effectuer l’apprentissage d’un modèle Machine Learning prédictif et enregistrer le modèle dans le registre de modèles Azure Machine Learning
-> - Utiliser l’Assistant de scoring SQL pour lancer des prédictions dans un pool Synapse SQL
+> - Utiliser l’Assistant de scoring SQL pour lancer des prédictions dans un pool SQL dédié
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de commencer](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - [Espace de travail Synapse Analytics](../get-started-create-workspace.md) avec un compte de stockage ADLS Gen2 configuré comme stockage par défaut. Vous devez être le **contributeur de données Blob du stockage** du système de fichiers ADLS Gen2 que vous utilisez.
-- Pool Synapse SQL dans votre espace de travail Synapse Analytics. Pour plus de détails, consultez [Créer un pool Synapse SQL](../quickstart-create-sql-pool-studio.md).
+- Pool SQL dédié dans votre espace de travail Synapse Analytics. Pour plus d’informations, consultez [Créer un pool SQL dédié](../quickstart-create-sql-pool-studio.md).
 - Service lié Azure Machine Learning dans votre espace de travail Synapse Analytics. Pour plus de détails, consultez [Créer un service lié Azure Machine Learning dans Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
@@ -62,7 +62,7 @@ Avant d’exécuter toutes les cellules du notebook, vérifiez si l’instance d
 1. Le notebook effectue l’apprentissage d’un modèle ONNX et l’inscrit auprès de MLFlow. Accédez à **Modèles** pour vérifier si le nouveau modèle est correctement inscrit.
    ![Modèle dans le registre](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. L’exécution du notebook exporte également les données de test dans un fichier CSV. Téléchargez le fichier CSV sur votre système local. Plus tard, vous importerez le fichier CSV dans le pool SQL et utiliserez les données pour tester le modèle.
+1. L’exécution du notebook exporte également les données de test dans un fichier CSV. Téléchargez le fichier CSV sur votre système local. Plus tard, vous importerez le fichier CSV dans le pool SQL dédié, et utiliserez les données pour tester le modèle.
 
    Le fichier CSV est créé dans le même dossier que votre fichier de notebook. Cliquez sur « Actualiser » dans l’Explorateur de fichiers s’il ne s’affiche pas.
 
@@ -76,7 +76,7 @@ Avant d’exécuter toutes les cellules du notebook, vérifiez si l’instance d
 
    ![Charger des données](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. Accédez à **Développer** -> **Scripts SQL**. Créez un script SQL pour charger `test_data.csv` dans votre pool SQL.
+1. Accédez à **Développer** -> **Scripts SQL**. Créez un script SQL pour charger `test_data.csv` dans votre pool SQL dédié.
 
    > [!NOTE]
    > Mettez à jour l’URL du fichier dans ce script avant de l’exécuter.
@@ -117,9 +117,9 @@ Avant d’exécuter toutes les cellules du notebook, vérifiez si l’instance d
    GO
    ```
 
-   ![Charger des données dans un pool SQL](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+   ![Charger des données dans un pool SQL dédié](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Accédez à **Données** -> **Espace de travail**. Ouvrez l’Assistant de scoring SQL en cliquant avec le bouton droit sur la table de pool SQL. Sélectionnez **Machine Learning** -> **Enrichir avec un modèle existant**.
+1. Accédez à **Données** -> **Espace de travail**. Ouvrez l’Assistant de scoring SQL en cliquant avec le bouton droit sur la table du pool SQL dédié. Sélectionnez **Machine Learning** -> **Enrichir avec un modèle existant**.
 
    > [!NOTE]
    > L’option Machine Learning n’apparaît que si vous disposez d’un service lié créé pour Azure Machine Learning (consultez **Prérequis** au début de ce tutoriel).
@@ -138,7 +138,7 @@ Avant d’exécuter toutes les cellules du notebook, vérifiez si l’instance d
 
    ![Mappage de table vers modèle](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. Le code T-SQL généré est encapsulé à l’intérieur d’une procédure stockée. C’est la raison pour laquelle vous devez nommer une procédure stockée. Le modèle binaire et les métadonnées (version, description, etc.) sont physiquement copiés entre Azure Machine Learning et une table de pools SQL. Ainsi, vous devez spécifier la table dans laquelle enregistrer le modèle. Vous pouvez choisir « Utiliser une table existante » ou « Créer une table ». Lorsque vous avez terminé, cliquez sur **Déployer le modèle + ouvrir l’éditeur** pour déployer le modèle et générer un script de prédiction T-SQL.
+1. Le code T-SQL généré est encapsulé à l’intérieur d’une procédure stockée. C’est la raison pour laquelle vous devez nommer une procédure stockée. Le modèle binaire et les métadonnées (version, description, etc.) sont physiquement copiés entre Azure Machine Learning et une table de pool SQL dédié. Ainsi, vous devez spécifier la table dans laquelle enregistrer le modèle. Vous pouvez choisir « Utiliser une table existante » ou « Créer une table ». Lorsque vous avez terminé, cliquez sur **Déployer le modèle + ouvrir l’éditeur** pour déployer le modèle et générer un script de prédiction T-SQL.
 
    ![Créer une procédure](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 

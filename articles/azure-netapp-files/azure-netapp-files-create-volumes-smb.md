@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932343"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488177"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -146,7 +146,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
     * **Nom de domaine DNS AD**  
         Nom de domaine des Active Directory Domain Services que vous souhaitez rejoindre.
     * **Nom de site Active Directory**  
-        Il s’agit du nom du site auquel se limitera la détection du contrôleur de domaine.
+        Il s’agit du nom du site auquel se limitera la détection du contrôleur de domaine. Celui-ci doit correspondre au nom du site dans Sites et services Active Directory.
     * **Préfixe de serveur SMB (compte d’ordinateur)**  
         Préfixe de nom pour le compte d’ordinateur dans Active Directory que Azure NetApp Files utilise pour la création de nouveaux comptes.
 

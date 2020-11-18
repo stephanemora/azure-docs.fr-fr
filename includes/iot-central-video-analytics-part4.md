@@ -8,82 +8,44 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 164f5803b6e9e62447423735e98f6e4c36c73f13
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876670"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426740"
 ---
-### <a name="add-relationships"></a>Ajouter des relations
-
-Dans le modèle d’appareil **LVA Edge Gateway**, sous **Modules/LVA Edge Gateway Module**, sélectionnez **Relations**. Sélectionnez **+ Ajouter une relation** et ajoutez les deux relations suivantes :
-
-|Nom d’affichage               |Nom          |Cible |
-|-------------------------- |------------- |------ |
-|LVA Edge Motion Detector   |Utiliser la valeur par défaut   |LVA Edge Motion Detector Device |
-|LVA Edge Object Detector   |Utiliser la valeur par défaut   |LVA Edge Object Detector Device |
-
-Ensuite, sélectionnez **Enregistrer**.
-
-:::image type="content" source="media/iot-central-video-analytics-part4/relationships.png" alt-text="Ajouter des relations":::
-
-### <a name="add-views"></a>Ajout de vues
-
-Le modèle d’appareil **LVA Edge Gateway** n’inclut aucune définition d’affichage.
-
-Pour ajouter une vue au modèle d’appareil :
-
-1. Dans le modèle d’appareil **LVA Edge Gateway**, accédez à **Affichages**, puis sélectionnez la vignette **Visualisation de l'appareil**.
-
-1. Entrez *Appareil LVA Edge Gateway* comme nom d’affichage.
-
-1. Ajoutez les vignettes suivantes l’affichage :
-
-    * Vignette avec les propriétés **Informations sur l’appareil** : **Modèle d’appareil**, **Fabricant**, **Système d’exploitation**, **Architecture du processeur**, **Version du logiciel**, **Mémoire totale** et **Stockage total**.
-    * Vignette de graphique en courbes avec valeurs de télémétrie **Mémoire libre** et **Pulsation système**.
-    * Vignette d’historique des événements avec les événements suivants : **Créer une caméra**, **Supprimer une caméra**, **Redémarrer le module**, **Module démarré**, **Module arrêté**.
-    * Vignette de dernière valeur connue 2x1 indiquant la télémétrie **État du client IoT Central**.
-    * Vignette de dernière valeur connue 2x1 indiquant la télémétrie **État du module**.
-    * Vignette de dernière valeur connue 1x1 indiquant la télémétrie **Pulsation système**.
-    * Vignette de dernière valeur connue1x1 indiquant la télémétrie **Caméras connectées**.
-
-    :::image type="content" source="media/iot-central-video-analytics-part4/gateway-dashboard.png" alt-text="Ajouter des relations":::
-
-1. Sélectionnez **Enregistrer**.
-
 ### <a name="publish-the-device-template"></a>Publier le modèle d’appareil
 
 Avant d’ajouter un appareil à l’application, vous devez publier le modèle d’appareil :
 
-1. Dans le modèle d’appareil **LVA Edge Gateway**, sélectionnez **Publier**.
+1. Dans le modèle d’appareil **LVA Edge Gateway v2**, sélectionnez **Publier**.
 
 1. Sur la page **Publier ce modèle d’appareil dans l’application**, sélectionnez **Publier**.
 
-**LVA Edge Gateway** est maintenant disponible en tant que type d’appareil à utiliser sur la page **Appareils** de l’application.
+**LVA Edge Gateway v2** figure désormais dans la page **Appareils** de l’application, en tant que type d’appareil disponible.
 
-## <a name="add-a-gateway-device"></a>Ajouter un appareil de passerelle
+## <a name="migrate-the-gateway-device"></a>Effectuer la migration de l’appareil de passerelle
 
-Pour ajouter un appareil **LVA Edge Gateway** à l’application :
+L’appareil **gateway-001** existant utilise le modèle d’appareil **LVA Edge Gateway**. Pour utiliser votre nouveau manifeste de déploiement, effectuez la migration de l’appareil vers le nouveau modèle d’appareil :
 
-1. Accédez à la page **Appareils** et sélectionnez le modèle d’appareil **LVA Edge Gateway**.
+Pour effectuer la migration de l’appareil **gateway-001** :
 
-1. Sélectionnez **+Nouveau**.
+1. Accédez à la page **Appareils**, puis sélectionnez le modèle d’appareil **gateway-001** pour le mettre en surbrillance dans la liste.
 
-1. Dans la boîte de dialogue **Créer un nouvel appareil**, remplacez le nom de l’appareil par *LVA Gateway 001*, puis l’ID de l’appareil par *lva-gateway-001*.
+1. Sélectionnez **Migrer**. Si l’icône de **migration** n’est pas visible, sélectionnez **...** pour afficher plus d’options.
 
-    > [!NOTE]
-    > L’ID de l’appareil doit être unique dans l’application.
+    :::image type="content" source="media/iot-central-video-analytics-part4/migrate-device.png" alt-text="Effectuer la migration de l’appareil de passerelle vers une nouvelle version":::
 
-1. Sélectionnez **Create** (Créer).
+1. Dans la liste de la boîte de dialogue **Migration**, sélectionnez **LVA Edge Gateway v2**, puis **Effectuer la migration**.
 
-L’état de l’appareil correspond à **Inscrit**.
+La migration se termine au bout de quelques secondes. Votre appareil utilise maintenant le modèle d’appareil **LVA Edge Gateway v2** avec votre manifeste de déploiement personnalisé.
 
 ### <a name="get-the-device-credentials"></a>Obtenir les informations d’identification de l’appareil
 
 Vous avez besoin des informations d’identification qui permettent à l’appareil de se connecter à votre application IoT Central. Pour obtenir les informations d’identification de l’appareil :
 
-1. Sur la page **Appareils**, sélectionnez l’appareil **lva-gateway-001** que vous avez créé.
+1. Dans la page **Appareils**, sélectionnez l’appareil **gateway-001**.
 
 1. Sélectionnez **Connecter**.
 

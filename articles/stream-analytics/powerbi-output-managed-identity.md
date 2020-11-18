@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 29f02f80aa5bff1304dc593d68954e15fe6e66bb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346432"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489503"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Utiliser une identité managée pour authentifier votre travail Azure Stream Analytics vers Power BI
 
@@ -35,7 +35,7 @@ Les éléments suivants sont requis pour l’utilisation de cette fonctionnalit�
 
 2. Avant de configurer la sortie, accordez au travail Stream Analytics l’accès à votre espace de travail Power BI en suivant les instructions fournies dans la section [Autoriser le travail Stream Analytics à accéder à votre espace de travail Power BI](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) de cet article.
 
-3. Accédez à la section **Sorties** de votre tâche Stream Analytics, sélectionnez **+ Ajouter** , puis **Power BI**. Ensuite, sélectionnez le bouton **Autoriser** et connectez-vous avec votre compte Power BI.
+3. Accédez à la section **Sorties** de votre tâche Stream Analytics, sélectionnez **+ Ajouter**, puis **Power BI**. Ensuite, sélectionnez le bouton **Autoriser** et connectez-vous avec votre compte Power BI.
 
    ![Autoriser à l’aide d’un compte Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -209,6 +209,10 @@ Corps de la demande
     "principalType": "App"
 }
 ```
+
+## <a name="remove-managed-identity"></a>Supprimer l’identité managée
+
+L’identité gérée créée pour une tâche Stream Analytics est supprimée uniquement lorsque la tâche est supprimée. Il n’existe aucun moyen de supprimer l’identité gérée sans supprimer la tâche. Si vous ne souhaitez plus utiliser l’identité gérée, vous pouvez modifier la méthode d’authentification pour la sortie. L’identité gérée continuera d’exister jusqu’à ce que la tâche soit supprimée, et sera réemployée si vous décidez à nouveau d’utiliser l’authentification d’identité gérée.
 
 ## <a name="limitations"></a>Limites
 Vous trouverez plus bas les limitations de cette fonctionnalité :

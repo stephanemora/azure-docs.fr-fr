@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a73005580c9b7ddeae17e3e0490aa586bd9b0fbb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206750"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335795"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -123,7 +123,7 @@ Si l’extension est correctement installée, la sortie suivante s’affiche :
 
 Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/), un environnement d’interpréteur de commandes interactif hébergé Azure, par le biais de votre navigateur pour exécuter des commandes CLI. Azure Cloud Shell prend en charge Bash ou Windows PowerShell avec les services Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Sélectionnez le bouton Cloud Shell du menu situé dans la section supérieure droite du portail Azure :
 
-![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Sélection du menu Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 Ce bouton lance un interpréteur de commandes interactif que vous pouvez utiliser pour exécuter les étapes décrites dans cet article de guide pratique.
 
@@ -213,31 +213,31 @@ Pour plus d’informations sur la connexion à Azure à l’aide de Windows Powe
 Effectuez les étapes suivantes dans le portail Azure pour commander un appareil.
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à cette URL : [https://portal.azure.com](https://portal.azure.com).
-2. Sélectionnez **+ Créer une ressource** , puis recherchez *Azure Data Box* . Sélectionnez **Azure Data Box** .
+2. Sélectionnez **+ Créer une ressource**, puis recherchez *Azure Data Box*. Sélectionnez **Azure Data Box**.
 
-   ![Capture d’écran de la nouvelle section avec Azure Data Box dans le champ de recherche.](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Capture d’écran de la section Nouveau avec Azure Data Box dans le champ de recherche](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Sélectionnez **Create** (Créer).
 
-   ![Capture d’écran de la section Azure Data Box avec l’option Créer en évidence.](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Capture d’écran de la section Azure Data Box avec l’option Créer en évidence](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
-4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer** .
+4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Type de transfert     | Sélectionnez **Importer vers Azure** .        |
+    |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
     |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Groupe de ressources | Sélectionnez un groupe de ressources existant. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. |
     |Pays/région source    |    Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
     |Région Azure de destination     |     Sélectionnez la région Azure où vous souhaitez transférer des données. <br> Pour plus d’informations, consultez la [disponibilité des régions](data-box-overview.md#region-availability).            |
 
-    [![Ordre d’importation Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Démarrage d’une commande d’importation Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
-5. Sélectionnez **Data Box** . La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
+5. Sélectionnez **Data Box**. La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
 
-    ![Capture d’écran des différentes tailles de données disponibles pour la sélection : Data Box Disk 40 téraoctets, Data Box 100 téraoctets, Data Box Heavy, 1 000 téraoctets et Envoyer vos propres disques 1 téraoctet.](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Tailles de données disponibles : Data Box Disk 40 téraoctets ; Data Box 100 téraoctets ; Data Box Heavy, 1000 téraoctets ; Envoyer vos propres disques 1 téraoctet.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. Sous **Ordre** , accédez à l’onglet **Fonctions de base** . Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant : Destination des données>** .
+6. Sous **Ordre**, accédez à l’onglet **Fonctions de base**. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant : Destination des données>** .
 
     |Paramètre  |Value  |
     |---------|---------|
@@ -245,17 +245,17 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     |Resource group    | Groupe de ressources que vous avez sélectionné précédemment. |
     |Nom de la commande d’importation | Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.    |
 
-    ![Capture d’écran de l’Assistant Commande montrant l’étape de base de l’Assistant avec les informations correctes fournies.](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Assistant Commande d’importation Data Box, écran De base, avec informations correctes renseignées](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Par défaut, le mot de passe de déverrouillage de l’appareil est chiffré à l’aide d’une clé managée par Microsoft. Après avoir effectué la commande, vous pouvez ajouter une clé gérée par le client. Une clé gérée par le client vous permet d’utiliser votre propre clé à partir d’un coffre de clés pour protéger votre mot de passe de déverrouillage d’appareil. Pour plus d’informations, consultez [Utiliser des clés gérées par le client dans Azure Key Vault pour Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-7. Dans l’onglet **Destination des données** , sélectionnez **Destination des données** .
+7. Dans l’onglet **Destination des données**, sélectionnez **Destination des données**.
 
     Si vous utilisez un ou plusieurs **comptes de stockage** comme destination de stockage, vous voyez s’afficher l’écran suivant :
 
-    ![Azure Data Box - Destination des données](media/data-box-deploy-ordered/select-data-box-import-07.png)
+    ![Assistant Commande d’importation Data Box, écran Destination des données, avec comptes de stockage sélectionnés](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. Vous pouvez également créer un **compte de stockage blob** , **Usage général v1** ou **Usage général v2** .
+    Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**.
 
     Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, découvrez comment [Ajouter Azure Data Box en tant que service approuvé](../storage/common/storage-network-security.md#exceptions).
 
@@ -265,7 +265,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     |---------|---------|
     |Groupes de ressources     | Créez un groupe de ressources si vous envisagez de créer des disques managés à partir de disques durs virtuels locaux. Vous pouvez utiliser un groupe de ressources existant uniquement si celui-ci a été créé avant la création d’une commande Data Box de disque managé par le service Data Box. <br> Spécifiez plusieurs groupes de ressources séparés par des points-virgules. Un maximum de 10 groupes de ressources sont pris en charge.|
 
-    ![Capture d’écran de l’Assistant Commande montrant l’étape de destination des données de l’Assistant avec les informations correctes fournies.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Assistant Commande d’importation Data Box, écran Destination des données, avec Disques managés sélectionné](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels en tant qu’objets blob de pages sur le compte de stockage intermédiaire avant de convertir celui-ci en disques managés et de le déplacer vers les groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -277,35 +277,35 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     Tous les paramètres dans l’écran **Sécurité** sont facultatifs. Si vous ne changez aucun paramètre, les paramètres par défaut s’appliquent.
 
-    ![Écran Sécurité d’une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+    ![Écran Sécurité de l’Assistant Commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-1. Si vous ne souhaitez pas utiliser les mots de passe générés par le système qu’Azure Data Box utilise par défaut, développez **Bring your own password** (Apporter son propre mot de passe).
+8. Si vous ne souhaitez pas utiliser les mots de passe générés par le système qu’Azure Data Box utilise par défaut, développez **Bring your own password** (Apporter son propre mot de passe).
 
    Les mots de passe générés par le système sont sécurisés et sont recommandés, à moins que votre organisation en décide autrement.
 
-   ![Développement des options Bring your own password pour une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+   ![Développement des options Bring your own password sur l’écran Sécurité pour une commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png)
 
-   - Afin d’utiliser votre propre mot de passe pour votre nouvel appareil, dans **Définir la préférence pour le mot de passe de l’appareil** , sélectionnez **Utiliser votre propre mot de passe** , puis tapez un mot de passe conforme aux exigences de sécurité.
+   - Afin d’utiliser votre propre mot de passe pour votre nouvel appareil, dans **Définir la préférence pour le mot de passe de l’appareil**, sélectionnez **Utiliser votre propre mot de passe**, puis tapez un mot de passe conforme aux exigences de sécurité.
    
-     ![Écran Sécurité pour l’importation de Data Box ; options d’utilisation de votre propre mot de passe d’appareil](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+     ![Options d’utilisation de votre propre mot de passe d’appareil sur l’écran Sécurité pour une commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
    - Afin d’utiliser vos propres mots de passe pour les partages :
 
-     1. Dans **Définir la préférence pour les mots de passe de partage** , sélectionnez **Utiliser vos propres mots de passe** , puis **Sélectionnez des mots de passe pour les partages** .
+     1. Dans **Définir la préférence pour les mots de passe de partage**, sélectionnez **Utiliser vos propres mots de passe**, puis **Sélectionnez des mots de passe pour les partages**.
      
-        ![Écran Sécurité pour l’importation de Data Box ; options d’utilisation de vos propres mots de passe de partage](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+        ![Options d’utilisation de vos mots de passe de partage sur l’écran Sécurité pour une commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
      1. Tapez un mot de passe pour chaque compte de stockage dans la commande. Le mot de passe sera utilisé sur tous les partages pour le compte de stockage.
      
-        Afin d’utiliser le même mot de passe pour tous les comptes de stockage, sélectionnez **Copy to all** (Copier pour tous). Lorsque vous avez terminé, sélectionnez **Enregistrer** .
+        Afin d’utiliser le même mot de passe pour tous les comptes de stockage, sélectionnez **Copy to all** (Copier pour tous). Lorsque vous avez terminé, sélectionnez **Enregistrer**.
      
         ![Écran d’entrée de mots de passe de partage pour une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
 
-       Dans l’écran **Sécurité** , vous pouvez utiliser **View of change passwords** (Vue des changements de mots de passe) pour changer les mots de passe.
+       Dans l’écran **Sécurité**, vous pouvez utiliser **Afficher ou modifier les mots de passe** pour changer les mots de passe.
 
-1. Dans **Sécurité** , si vous voulez activer le double chiffrement basé sur logiciel, développez **Double-encryption (for highly secure environments)** Double chiffrement (pour les environnements hautement sécurisés) et sélectionnez **Enable double encryption for the order** (Activer le double chiffrement pour la commande).
+9. Dans **Sécurité**, si vous voulez activer le double chiffrement basé sur logiciel, développez **Double-encryption (for highly secure environments)** Double chiffrement (pour les environnements hautement sécurisés) et sélectionnez **Enable double encryption for the order** (Activer le double chiffrement pour la commande).
 
-   ![Écran Sécurité de l’importation de Data Box ; activation du chiffrement basé sur logiciel pour une commande de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+   ![Options d’activation du chiffrement basé sur logiciel sur l’écran Sécurité pour une commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    Le chiffrement basé sur le logiciel est effectué en plus du chiffrement AES 256 bits des données sur Data Box.
 
@@ -314,29 +314,29 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
    Sélectionnez **Suivant : Détails du contact** pour continuer.
 
-8. Sous **Détails du contact** , sélectionnez **+ Ajouter une adresse de livraison** .
+10. Sous **Détails du contact**, sélectionnez **+ Ajouter une adresse de livraison**.
 
-    ![Capture d’écran de l’Assistant Commande montrant l’étape Coordonnées de l’Assistant avec l’option Ajouter une adresse d’expédition en évidence.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Dans l’écran Détails du contact, ajoutez les adresses d’expédition à votre commande d’importation Azure Data Box.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. Dans la zone **Adresse d’expédition** , indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Sélectionnez **Valider l’adresse** . Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet.
+11. Dans **Adresse de livraison**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Ensuite, sélectionnez **Valider l’adresse**. Le service vérifie la disponibilité du service pour l’adresse. Si le service est disponible pour l’adresse d’expédition, vous recevrez une notification à cet effet.
 
-   ![Capture d’écran de la boîte de dialogue Ajouter une adresse de livraison avec les options Expédier avec et l’option Ajouter une adresse d’expédition en évidence.](media/data-box-deploy-ordered/select-data-box-import-10.png)
+     ![Boîte de dialogue Ajouter une adresse de livraison, avec les options Expédier avec et l’option Ajouter une adresse d’expédition en évidence](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
-   Si vous avez sélectionné l’expédition autogérée, vous recevez une notification par e-mail une fois la commande passée. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-portal-customer-managed-shipping.md).
+    Si vous avez sélectionné l’expédition autogérée, vous recevez une notification par e-mail une fois la commande passée. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-portal-customer-managed-shipping.md).
 
-10. Sélectionnez **Ajouter une adresse de livraison** dès lors que les détails de l’expédition ont été correctement validés. Vous revenez à l’onglet **Détails du contact** .
+12. Sélectionnez **Ajouter une adresse de livraison** dès lors que les détails de l’expédition ont été correctement validés. Vous revenez à l’onglet **Détails du contact**.
 
-11. Quand vous êtes de nouveau dans l’onglet **Détails du contact** , ajoutez une ou plusieurs adresses e-mail. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.
+13. Quand vous êtes de nouveau dans l’onglet **Détails du contact**, ajoutez une ou plusieurs adresses e-mail. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.
 
     Nous vous recommandons d’utiliser un e-mail de groupe afin de continuer à recevoir des notifications si un administrateur du groupe quitte l’entreprise.
 
-    ![Capture d’écran de la section E-mail de l’étape Coordonnées de l’Assistant Commande avec la zone de texte E-mail et l’option Suivant : Passer en revue et commander en évidence.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Section e-mail des détails du contact dans l’Assistant Commander](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
-12. Sous **Passer en revue + commander** , passez en revue les informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
+12. Sous **Passer en revue + commander**, passez en revue les informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
 
-13. Sélectionnez **Commander** . La création d’une commande peut prendre quelques minutes.
+13. Sélectionnez **Commander**. La création d’une commande peut prendre quelques minutes.
 
-    ![Capture d’écran de l’Assistant Commande montrant l’étape Passer en revue et commander et l’option Commander en évidence.](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Écran Vérifier et commander de l’Assistant Commander](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -515,7 +515,7 @@ Effectuez les étapes suivantes l’aide d’Azure PowerShell pour commander un 
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
-Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande Data Box, puis à **Vue d’ensemble** pour voir l’état. Le portail affiche la commande avec l’état **Commandé** .
+Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande Data Box, puis à **Vue d’ensemble** pour voir l’état. Le portail affiche la commande avec l’état **Commandé**.
 
 Si l’appareil n’est pas disponible, vous recevez une notification. Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. Pendant la préparation de l’appareil, les actions suivantes se produisent :
 
@@ -524,13 +524,13 @@ Si l’appareil n’est pas disponible, vous recevez une notification. Si l’ap
 * Un mot de passe qui permet de déverrouiller l’appareil est également généré.
 * La Data Box est verrouillée pour empêcher tout accès non autorisé à l’appareil à tout moment.
 
-Une fois l’appareil préparé, le portail affiche la commande avec l’état **Traité** .
+Une fois l’appareil préparé, le portail affiche la commande avec l’état **Traité**.
 
-![Commande de Data Box traitée](media/data-box-overview/data-box-order-status-processed.png)
+![Commande Data Box qui a été traitée](media/data-box-overview/data-box-order-status-processed.png)
 
-Ensuite, Microsoft prépare et achemine l’appareil via un transporteur régional. Vous recevez un numéro de suivi une fois l’appareil expédié. Le portail affiche la commande dont l’état est **Distribué** .
+Ensuite, Microsoft prépare et achemine l’appareil via un transporteur régional. Vous recevez un numéro de suivi une fois l’appareil expédié. Le portail affiche la commande dont l’état est **Distribué**.
 
-![Commande de Data Box expédiée](media/data-box-overview/data-box-order-status-dispatched.png)
+![Commande Data Box qui a été expédié](media/data-box-overview/data-box-order-status-dispatched.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -686,11 +686,11 @@ PS C:\WINDOWS\system32>
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
-Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble** , puis sélectionnez **Annuler** dans la barre de commandes.
+Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble**, puis sélectionnez **Annuler** dans la barre de commandes.
 
 Après avoir passé commande, vous pouvez l’annuler à tout moment tant qu’elle n’a pas été traitée.
 
-Pour supprimer une commande annulée, accédez à **Vue d’ensemble** , puis sélectionnez **Supprimer** dans la barre de commandes.
+Pour supprimer une commande annulée, accédez à **Vue d’ensemble**, puis sélectionnez **Supprimer** dans la barre de commandes.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

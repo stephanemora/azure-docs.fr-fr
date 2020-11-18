@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089126"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337769"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Démarrage rapide : Configurer un serveur de configuration Azure Spring Cloud
 
@@ -70,9 +70,33 @@ Configurez votre serveur de configuration avec l’emplacement du dépôt Git po
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Résolution des problèmes de Config Server d’Azure Spring Cloud
+
+La procédure suivante explique comment résoudre les problèmes liés aux paramètres de Config Server.
+
+1. Dans le portail Azure, accédez à la page **Vue d’ensemble** du service, puis sélectionnez **Journaux**. 
+1. Sélectionnez **Requêtes** et **Afficher les journaux des applications qui contiennent les termes « erreur » ou « exceptions »** . 
+1. Cliquez sur **Exécuter**. 
+1. Si vous trouvez l’erreur **java.lang.illegalStateException** dans les journaux, cela indique que le service Spring Cloud ne peut pas localiser les propriétés provenant de Config Server.
+
+    [ ![Portail ASC, exécuter une requête](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. Allez à la page **Vue d’ensemble** du service.
+1. Sélectionnez **Diagnostiquer et résoudre les problèmes**. 
+1. Sélectionnez le détecteur **Config Server**.
+
+    [ ![Portail ASC, diagnostiquer les problèmes](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Cliquez sur **Contrôle d’intégrité de Config Server**.
+
+    [ ![Portail ASC, Genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Cliquez sur **État de Config Server** pour afficher plus de détails à partir du détecteur.
+
+    [ ![Portail ASC, état d’intégrité](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

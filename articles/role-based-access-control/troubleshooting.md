@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741065"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490744"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Résoudre les problèmes liés à Azure RBAC
 
@@ -28,7 +28,7 @@ Cet article répond à certaines questions fréquentes sur le contrôle d’acc�
 
 ## <a name="azure-role-assignments-limit"></a>Limite des attributions de rôle Azure
 
-Azure prend en charge jusqu’à **2 000**  attributions de rôle par abonnement. Cette limite comprend les attributions de rôles au niveau de l’abonnement, du groupe de ressources et des étendues de ressources. Si vous obtenez le message d’erreur « Plus aucune attribution de rôle ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous tentez d’attribuer un rôle, essayez de réduire le nombre d’attributions de rôle dans l’abonnement.
+Azure prend en charge jusqu’à **2 000** attributions de rôle par abonnement. Cette limite comprend les attributions de rôles au niveau de l’abonnement, du groupe de ressources et des étendues de ressources. Si vous obtenez le message d’erreur « Plus aucune attribution de rôle ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous tentez d’attribuer un rôle, essayez de réduire le nombre d’attributions de rôle dans l’abonnement.
 
 > [!NOTE]
 > Cette limite d’attribution de rôle de **2 000** par abonnement est fixe et ne peut pas être augmentée.
@@ -68,13 +68,14 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Si vous tentez de supprimer la dernière attribution de rôle Propriétaire pour un abonnement, l’erreur « Impossible de supprimer le dernier RBAC admin assignment » risque de s’afficher. La suppression de la dernière attribution de rôle Propriétaire pour un abonnement n’est pas prise en charge afin d’éviter que l’abonnement ne devienne orphelin. Si vous voulez annuler votre abonnement, consultez [Annulation de votre abonnement Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problèmes liés aux rôles personnalisés
 
 - Si vous avez besoin de connaître les étapes permettant de créer un rôle personnalisé, consultez les tutoriels de rôle personnalisé en utilisant le [Portail Azure](custom-roles-portal.md) (actuellement en préversion), [Azure PowerShell](tutorial-custom-role-powershell.md) ou [Azure CLI](tutorial-custom-role-cli.md).
 - Si vous ne parvenez pas à mettre à jour un rôle personnalisé existant, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Authorization/roleDefinition/write`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
 - Si vous ne pouvez pas supprimer un rôle personnalisé et que vous obtenez le message d’erreur « Certaines attributions de rôle existantes font référence au rôle (code : RoleDefinitionHasAssignments) », cela signifie que des attributions de rôle utilisent toujours le rôle personnalisé. Supprimez ces attributions de rôle et réessayez de supprimer ce rôle.
-- Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Plus aucune définition de rôle ne peut être créée (code : RoleDefinitionLimitExceeded) » quand vous essayez de créer un rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisés. Azure prend en charge jusqu’à **5 000**  rôles personnalisés dans un répertoire. (Pour Azure Allemagne et Azure Chine 21Vianet, la limite est de 2 000 rôles personnalisés.)
+- Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Plus aucune définition de rôle ne peut être créée (code : RoleDefinitionLimitExceeded) » quand vous essayez de créer un rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisés. Azure prend en charge jusqu’à **5 000** rôles personnalisés dans un répertoire. (Pour Azure Allemagne et Azure Chine 21Vianet, la limite est de 2 000 rôles personnalisés.)
 - Si vous obtenez une erreur similaire au message « Le client a l’autorisation d’effectuer l’action "Microsoft.Authorization/roleDefinitions/write" sur l’étendue "/subscriptions/{subscriptionid}". Cependant, l’abonnement lié est introuvable » quand vous essayez de mettre à jour un rôle personnalisé, vérifiez si une ou plusieurs [étendues attribuables](role-definitions.md#assignablescopes) ont été supprimées du répertoire. Si l’étendue a été supprimée, créez un ticket de support, car il n’existe aucune solution en libre-service disponible pour l’instant.
 
 ## <a name="custom-roles-and-management-groups"></a>Rôles personnalisés et groupes d’administration
@@ -88,7 +89,7 @@ $ras.Count
 
 - Pour connaître la procédure à suivre pour transférer un abonnement vers une autre instance Azure AD, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory](transfer-subscription.md).
 - Si vous transférez un abonnement vers un autre répertoire Azure AD, toutes les attributions de rôle définies sont **définitivement** supprimées du répertoire Azure AD source et ne sont pas migrées sur le répertoire Azure AD cible. Vous devez recréer vos attributions de rôle dans le répertoire cible. Vous devez également recréer manuellement les identités managées pour les ressources Azure. Pour plus d’informations, consultez [Questions fréquentes et problèmes connus en lien avec les identités managées](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Si vous êtes administrateur général Azure AD et que vous n’avez pas accès à un abonnement après son transfert entre des répertoires, utilisez l’option **Gestion de l’accès pour les ressources Azure** afin d’ [élever votre accès](elevate-access-global-admin.md) temporairement et ainsi accéder à l’abonnement.
+- Si vous êtes administrateur général Azure AD et que vous n’avez pas accès à un abonnement après son transfert entre des répertoires, utilisez l’option **Gestion de l’accès pour les ressources Azure** afin d’[élever votre accès](elevate-access-global-admin.md) temporairement et ainsi accéder à l’abonnement.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problèmes liés aux coadministrateurs ou administrateurs de service
 
@@ -107,7 +108,7 @@ Pour plus d'informations sur le déplacement des ressources, consultez [Déplace
 
 ## <a name="role-assignments-with-identity-not-found"></a>Attributions de rôle avec identité introuvable
 
-Dans la liste des attributions de rôles pour le Portail Azure, vous pouvez remarquer que le principal de sécurité (utilisateur, groupe, principal de service ou identité gérée) est répertorié comme **Identité introuvable** avec un type **Inconnu** .
+Dans la liste des attributions de rôles pour le Portail Azure, vous pouvez remarquer que le principal de sécurité (utilisateur, groupe, principal de service ou identité gérée) est répertorié comme **Identité introuvable** avec un type **Inconnu**.
 
 ![Identité introuvable répertoriée dans les attributions de rôle Azure](./media/troubleshooting/unknown-security-principal.png)
 
@@ -118,9 +119,9 @@ L’identité n’a peut-être pas été trouvée pour deux raisons :
 
 Si vous avez récemment invité un utilisateur lors de la création d’une attribution de rôle, ce principal de sécurité peut encore être dans le processus de réplication entre les régions. Si c’est le cas, patientez quelques instants, puis actualisez la liste des attributions de rôles.
 
-Toutefois, si ce principal de sécurité n’est pas un utilisateur récemment invité, il peut s’agir d’un principal de sécurité supprimé. Si vous attribuez un rôle à un principal de sécurité, puis que vous supprimez ce principal de sécurité sans d’abord supprimer l’attribution de rôle, le principal de sécurité sera répertorié comme **Identité introuvable** avec un type **Inconnu** .
+Toutefois, si ce principal de sécurité n’est pas un utilisateur récemment invité, il peut s’agir d’un principal de sécurité supprimé. Si vous attribuez un rôle à un principal de sécurité, puis que vous supprimez ce principal de sécurité sans d’abord supprimer l’attribution de rôle, le principal de sécurité sera répertorié comme **Identité introuvable** avec un type **Inconnu**.
 
-Si vous répertoriez cette attribution de rôle à l’aide d’Azure PowerShell, vous pourrez voir un `DisplayName` vide et un `ObjectType` défini sur **Inconnu** . Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
+Si vous répertoriez cette attribution de rôle à l’aide d’Azure PowerShell, vous pourrez voir un `DisplayName` vide et un `ObjectType` défini sur **Inconnu**. Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -222,14 +223,14 @@ Comme pour les applications web, certaines fonctionnalités du volet de la machi
 
 Les machines virtuelles sont associées aux noms de domaine, réseaux virtuels, comptes de stockage et règles d'alerte.
 
-Les éléments suivants requièrent l’accès **en écriture** à la **machine virtuelle**  :
+Les éléments suivants requièrent l’accès **en écriture** à la **machine virtuelle** :
 
 * Points de terminaison  
 * Adresses IP  
 * Disques  
 * Extensions  
 
-Les éléments suivants requièrent l’accès **en écriture** à la **machine virtuelle** , ainsi qu’au **Groupe de ressources** (avec le nom de domaine) auxquels ils appartiennent :  
+Les éléments suivants requièrent l’accès **en écriture** à la **machine virtuelle**, ainsi qu’au **Groupe de ressources** (avec le nom de domaine) auxquels ils appartiennent :  
 
 * Groupe à haute disponibilité  
 * Jeu d'équilibrage de la charge  
@@ -243,7 +244,7 @@ Certaines fonctionnalités de [Azure Functions](../azure-functions/functions-ove
 
 ![Aucun accès aux applications de fonction](./media/troubleshooting/functionapps-noaccess.png)
 
-Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme** , puis cliquez sur **Tous les paramètres** pour afficher certains paramètres liés à une application de fonction (semblable à une application Web), mais il ne peut pas modifier ces paramètres. Pour accéder à ces fonctionnalités, vous aurez besoin du rôle [Contributeur](built-in-roles.md#contributor).
+Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis cliquez sur **Tous les paramètres** pour afficher certains paramètres liés à une application de fonction (semblable à une application Web), mais il ne peut pas modifier ces paramètres. Pour accéder à ces fonctionnalités, vous aurez besoin du rôle [Contributeur](built-in-roles.md#contributor).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

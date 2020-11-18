@@ -1,18 +1,18 @@
 ---
-title: Connecter un exemple de code C# pour appareil IoT Plug-and-Play à IoT Hub | Microsoft Docs
-description: Créez et exécutez un exemple de code pour appareil IoT Plug-and-Play sur Windows, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
+title: Démarrage rapide – Connecter un exemple de code C# pour appareil IoT Plug-and-Play à Azure IoT Hub | Microsoft Docs
+description: Démarrage rapide – Créez et exécutez un exemple de code pour appareil IoT Plug-and-Play sur Windows, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: da1ac77ad2716abf964c835634d049895fe88654
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 01e87b08f8d0abcf3659e0d7bfe081fd3516ff08
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044545"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421615"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play s’exécutant sur Windows à IoT Hub (C#)
 

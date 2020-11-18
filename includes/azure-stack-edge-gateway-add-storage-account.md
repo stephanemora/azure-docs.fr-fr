@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 30ca4d330d9b16214396ac81e5ab5722ca0e7569
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b6a6cbf51ef2ff1f1ef53b53a2b84c7a4f9510d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254290"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375873"
 ---
 1. Sur le [portail Azure](https://portal.azure.com/), sélectionnez votre ressource Azure Stack Edge, puis accédez à la **Vue d’ensemble**. Votre appareil doit être en ligne.
 
@@ -34,6 +34,6 @@ ms.locfileid: "89254290"
     
 4. Si vous sélectionnez ce nouveau compte de stockage et que vous accédez à **Clés d’accès**, vous pouvez trouver le point de terminaison de service Blob et le nom du compte de stockage correspondant. Copiez ces informations, car ces valeurs, ainsi que les clés d’accès, vous aideront à vous connecter au compte de stockage Edge.
 
-    ![Ajout d’un compte de stockage](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
+    ![Ajout d’un compte de stockage 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
     Vous pouvez accéder aux clés d’accès en vous [connectant aux API locales de l’appareil à l’aide d’Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 

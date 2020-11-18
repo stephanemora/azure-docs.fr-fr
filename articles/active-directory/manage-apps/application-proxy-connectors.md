@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282126"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658262"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -67,7 +67,7 @@ Vous n’êtes pas obligé de supprimer manuellement les connecteurs qui ne sont
 
 Azure AD fournit les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](application-proxy-add-on-premises-application.md) afin d’obtenir les mises à jour.
 
-Si vous ne souhaitez pas attendre le chargement d’une mise à jour automatique sur votre connecteur, vous pouvez effectuer une mise à niveau manuelle. Accédez à la [page de téléchargement du connecteur](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) sur le serveur où votre connecteur se trouve et sélectionnez **Télécharger** . Ce processus lance une mise à niveau du connecteur local.
+Si vous ne souhaitez pas attendre le chargement d’une mise à jour automatique sur votre connecteur, vous pouvez effectuer une mise à niveau manuelle. Accédez à la [page de téléchargement du connecteur](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) sur le serveur où votre connecteur se trouve et sélectionnez **Télécharger**. Ce processus lance une mise à niveau du connecteur local.
 
 Pour les abonnés avec plusieurs connecteurs, les mises à jour automatiques ciblent un seul connecteur à la fois dans chaque groupe afin d’éviter les temps d’arrêt dans votre environnement.
 
@@ -104,7 +104,7 @@ En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des c
 > [!NOTE]
 > L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.
 >
-> Ce tableau est également axé sur les performances attendues d’un connecteur en fonction du type de machine sur laquelle il est installé. Pour les seuils de limitation du service proxy d’application, consultez [Restrictions et limites du service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> Ce tableau est également axé sur les performances attendues d’un connecteur en fonction du type de machine sur laquelle il est installé. Pour les seuils de limitation du service proxy d’application, consultez [Restrictions et limites du service](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Sécurité et mise en réseau
 
@@ -155,7 +155,7 @@ Les certificats utilisés sont spécifiques au service de proxy d’application.
 
 Après le premier renouvellement de certificat réussi, le service du connecteur de proxy d’application Azure AD (service réseau) n’a pas l’autorisation de supprimer l’ancien certificat du magasin de la machine locale. Si le certificat a expiré ou s’il n’est plus utilisé par le service, vous pouvez le supprimer sans problème.
 
-Pour éviter les problèmes de renouvellement de certificat, vérifiez que la communication réseau du connecteur vers les [destinations documentées](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) est activée.
+Pour éviter les problèmes de renouvellement de certificat, vérifiez que la communication réseau du connecteur vers les [destinations documentées](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) est activée.
 
 Si un connecteur n’est pas connecté au service pendant plusieurs mois, ses certificats ont peut-être expiré. Dans ce cas, désinstallez et réinstallez le connecteur pour déclencher l’inscription. Vous pouvez exécuter les commandes PowerShell suivantes :
 
@@ -178,9 +178,9 @@ et les compteurs de performances Windows.
 
 ![Ajouter des compteurs au connecteur avec l’Analyseur de performances](./media/application-proxy-connectors/performance-monitor.png)
 
-Les connecteurs ont des journaux de **session** et d’ **administration** . Le journal d’ **administration** inclut les événements principaux et leurs erreurs. Le journal de **session** contient toutes les transactions et les détails de leur traitement.
+Les connecteurs ont des journaux de **session** et d’**administration**. Le journal d’**administration** inclut les événements principaux et leurs erreurs. Le journal de **session** contient toutes les transactions et les détails de leur traitement.
 
-Pour voir les journaux, ouvrez l’ **Observateur d’événements** et accédez à **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** . Pour rendre le journal de **session** visible, dans le menu **Affichage** , sélectionnez **Afficher les journaux d’analyse et de débogage** . Le journal de **session** est généralement utilisé pour la résolution des problèmes. Il est désactivé par défaut. Activez-le pour commencer à collecter des événements, et désactivez-le lorsqu’il n’est plus nécessaire.
+Pour voir les journaux, ouvrez l’**Observateur d’événements** et accédez à **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur**. Pour rendre le journal de **session** visible, dans le menu **Affichage**, sélectionnez **Afficher les journaux d’analyse et de débogage**. Le journal de **session** est généralement utilisé pour la résolution des problèmes. Il est désactivé par défaut. Activez-le pour commencer à collecter des événements, et désactivez-le lorsqu’il n’est plus nécessaire.
 
 Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur se compose de deux services Windows : le connecteur lui-même et le programme de mise à jour. Tous deux doivent s’exécuter en permanence.
 

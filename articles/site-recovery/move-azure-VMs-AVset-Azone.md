@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605105"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393130"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Déplacer des machines virtuelles Azure vers des zones de disponibilité
 
@@ -62,7 +62,7 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
 4. Pour des machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle.
 5. Veillez à ne pas utiliser de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
 
-6. Si la machine virtuelle que vous tentez de déplacer n’a accès à Internet, ou si elle utilise un proxy pare-feu pour contrôler l’accès sortant, vérifiez la configuration requise dans [Configurer la connectivité réseau sortante](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Vérifiez les [exigences de connectivité sortante pour les machines virtuelles](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Identifiez la topologie du réseau source et les ressources que vous utilisez actuellement pour la vérification, à savoir les équilibreurs de charge, les groupes de sécurité réseau et l’adresse IP publique.
 
@@ -99,16 +99,12 @@ Les étapes ci-dessous vous guident dans l’utilisation d’Azure Site Recovery
 1. Dans le portail Azure, sélectionnez **Machines virtuelles**, puis choisissez la machine virtuelle que vous souhaitez déplacer vers les zones de disponibilité.
 2. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
 3. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication. Vérifiez que cette région [prend en charge](../availability-zones/az-region.md) les zones de disponibilité.
-
-    ![Sélection de la région cible](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Sélectionnez **Suivant : Paramètres avancés**.
 5. Choisissez les valeurs appropriées pour l’abonnement, le groupe de ressources de machine virtuelle et le réseau virtuel cibles.
 6. Dans la section **Disponibilité**, choisissez la zone de disponibilité vers laquelle vous souhaitez déplacer la machine virtuelle. 
    > [!NOTE]
    > Si vous ne voyez pas l’option Groupe à haute disponibilité ou Zone de disponibilité, vérifiez que les [conditions préalables](#prepare-the-source-vms) sont remplies et que la [préparation](#prepare-the-source-vms) des machines virtuelles sources est terminée.
   
-    ![Sélections pour le choix d’une zone de disponibilité](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Sélectionnez **Activer la réplication**. Cette action démarre un travail consistant à activer la réplication pour la machine virtuelle.
 
@@ -119,7 +115,6 @@ Une fois le travail de réplication terminé, vous pouvez vérifier l’état de
 1. Dans le menu Machine virtuelle, sélectionnez **Récupération d’urgence**.
 2. Vous pouvez vérifier l’intégrité de la réplication, les points de récupération qui ont été créés, ainsi que les régions sources et cibles sur la carte.
 
-   ![État de la réplication](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="test-the-configuration"></a>Tester la configuration
 

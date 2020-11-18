@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : démarrer l’analyse des données avec SQL serverless'
-description: Dans ce tutoriel, vous allez découvrir comment analyser des données avec SQL à la demande en utilisant des données qui se trouvent dans des bases de données Spark.
+title: 'Tutoriel : Bien démarrer avec l’analyse des données à l’aide d’un pool SQL serverless'
+description: Dans ce tutoriel, vous allez voir comment analyser des données avec un pool SQL serverless, en utilisant des données situées dans des bases de données Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: fa87ee06e0ed01828148a58b2d2f754a40d8803a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4ca9ababbeb7843f1a014a4bd51a5e24a74acbae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088463"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322932"
 ---
-# <a name="analyze-data-with-sql-on-demand"></a>Analyser des données avec SQL à la demande
+# <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Analyser des données avec un pool SQL serverless dans Azure Synapse Analytics
 
-Dans ce tutoriel, vous allez découvrir comment analyser des données avec SQL serverless à l’aide d’un pool SQL à la demande utilisant des données qui se trouvent dans des bases de données Spark. 
+Dans ce tutoriel, vous allez voir comment analyser des données avec un pool SQL serverless, en utilisant des données situées dans des bases de données Spark. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-sql-on-demand-pool"></a>Analyser les données NYC Taxi du stockage Blob avec un pool SQL à la demande
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analyser les données NYC Taxi du stockage Blob avec un pool SQL serverless
 
 1. Dans le hub **Données** situé sous **Liées**, cliquez avec le bouton droit sur **Stockage Blob Azure > Exemples de jeux de données > nyc_tlc_yellow**, puis sélectionnez **100 premières lignes**.
 1. Un script SQL sera créé avec le code suivant :
@@ -37,12 +37,12 @@ Dans ce tutoriel, vous allez découvrir comment analyser des données avec SQL s
     ```
 1. Cliquez sur **Exécuter**.
 
-## <a name="analyze-nyc-taxi-data-in-spark-databases-using-sql-on-demand"></a>Analyser les données NYC Taxi dans des bases de données Spark à l’aide de SQL à la demande
+## <a name="analyze-nyc-taxi-data-in-spark-databases-using-serverless-sql-pool"></a>Analyser les données NYC Taxi des bases de données Spark avec un pool SQL serverless
 
-Les tables des bases de données Spark sont automatiquement visibles et interrogeables par SQL à la demande.
+Les tables des bases de données Spark sont automatiquement visibles et interrogeables par le pool SQL serverless.
 
 1. Dans Synapse Studio, accédez au hub **Développer** et créez un autre script SQL.
-1. Définissez **Se connecter à** sur **SQL à la demande**.
+1. Configurez **Se connecter à** sur **Pool SQL serverless**.
 1. Collez le texte suivant dans le script et exécutez le script.
 
     ```sql
@@ -51,7 +51,7 @@ Les tables des bases de données Spark sont automatiquement visibles et interrog
     ```
 
     > [!NOTE]
-    > Lors de la première exécution d’une requête qui utilise SQL à la demande, il faut environ 10 secondes à SQL à la demande pour collecter les ressources SQL nécessaires à l’exécution des requêtes. Les requêtes suivantes s’exécutent beaucoup plus vite.
+    > Lors de la première exécution d’une requête qui utilise un pool SQL serverless, il faut environ 10 secondes au pool pour collecter les ressources SQL nécessaires à l’exécution des requêtes. Les requêtes suivantes s’exécutent beaucoup plus vite.
   
 
 

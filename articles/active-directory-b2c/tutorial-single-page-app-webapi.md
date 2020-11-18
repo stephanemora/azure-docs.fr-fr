@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9fe1363ffc714754c1de333a77d36595ce4223e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442335"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421088"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Tutoriel : Protéger et accorder l’accès à une API web Node.js à partir d’une application monopage avec Azure AD B2C
 
@@ -56,11 +56,11 @@ Enregistrez la valeur sous **Étendues** pour l’étendue `demo.read` à utilis
 
 Pour appeler une API web protégée à partir d’une autre application, vous devez accorder à cette application les autorisations d’accès à l’API web.
 
-Dans le tutoriel sur les prérequis, vous avez créé une application web nommée *webapp1*. Dans ce tutoriel, vous configurez cette application pour appeler l’API web que vous avez créée dans la section précédente, *webapi1*.
+Dans le tutoriel sur les prérequis, vous avez créé une application monopage nommée *spaapp1*. Dans ce tutoriel, vous configurez cette application pour appeler l’API web que vous avez créée dans une section précédente, *spaapp1*.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-Votre application monopage a maintenant reçu des autorisations sur l’API web protégée pour les étendues spécifiées. Un utilisateur s’authentifie auprès d’Azure AD B2C pour utiliser l’application monopage. L’application monopage utilise le workflow d’octroi d’autorisation pour accéder à l’API web protégée avec un jeton d’accès retourné par Azure AD B2C.
+Votre application monopage a maintenant reçu des autorisations sur l’API web protégée pour les étendues spécifiées. Un utilisateur s’authentifie auprès d’Azure AD B2C pour utiliser l’application monopage. L’application monopage obtient un jeton d’accès d’Azure AD B2C pour accéder à l’API web protégée.
 
 ## <a name="configure-the-sample"></a>Configurer l'exemple
 
@@ -161,7 +161,7 @@ Bien que les deux applications s’exécutent localement dans ce tutoriel, vous 
 1. Ouvrez une autre fenêtre de console et accédez au répertoire contenant l’exemple d’application monopage JavaScript. Par exemple :
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. Exécutez les commandes suivantes :

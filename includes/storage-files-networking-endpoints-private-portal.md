@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b941084c8a196081c2443364ed3fb52868386670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09723030f0da0252120f66f36347cad2e3a3546a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465001"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376125"
 ---
 Accédez au compte de stockage pour lequel vous souhaitez créer un point de terminaison privé. Dans la table des matières du compte de stockage, sélectionnez **Connexion de point de terminaison privé**, puis **+ Point de terminaison privé** pour créer un point de terminaison privé. 
 

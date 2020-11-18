@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6923f0a1d568cc695b86d1538ba55a3eb3444da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543693"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341482"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutoriel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
 
 [L’API REST Azure Database pour MySQL](/rest/api/mysql/) permet aux ingénieurs DevOps d’automatiser et d’intégrer l’approvisionnement, la configuration et les opérations des bases de données et des serveurs MySQL gérés dans Azure.  L’API permet la création, l’énumération, la gestion et la suppression des bases de données et serveurs MySQL sur le service Azure Database pour MySQL.
 
-Azure Resource Manager tire parti de l’API REST sous-jacente pour déclarer et programmer les ressources Azure nécessaires aux déploiements à grande échelle, en s’alignant avec l’infrastructure sous la forme d’un concept de code. Le modèle paramètre le nom de ressource Azure, la référence, le réseau, la configuration du pare-feu et les réglages. Vous pouvez ainsi le créer une fois et l’utiliser plusieurs fois.  Les modèles Azure Resource Manager peuvent être facilement créés à l’aide du [portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) ou de [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). Ils permettent la création d’applications, la normalisation et l’automatisation du déploiement, qui peuvent être intégrées dans le pipeline CI/CD DevOps.  Par exemple, si vous cherchez à déployer rapidement une application web avec le serveur principal Azure Database pour MySQL, vous pouvez effectuer le déploiement de bout en bout à l’aide de ce [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) depuis la galerie GitHub.
+Azure Resource Manager tire parti de l’API REST sous-jacente pour déclarer et programmer les ressources Azure nécessaires aux déploiements à grande échelle, en s’alignant sur l’infrastructure sous la forme d’un concept de code. Le modèle paramètre le nom de ressource Azure, la référence, le réseau, la configuration du pare-feu et les réglages. Vous pouvez ainsi le créer une fois et l’utiliser plusieurs fois.  Les modèles Azure Resource Manager peuvent être facilement créés à l’aide du [portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) ou de [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). Ils permettent la création d’applications, la normalisation et l’automatisation du déploiement, qui peuvent être intégrées dans le pipeline CI/CD DevOps.  Par exemple, si vous cherchez à déployer rapidement une application web avec le serveur principal Azure Database pour MySQL, vous pouvez effectuer le déploiement de bout en bout à l’aide de ce [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) depuis la galerie GitHub.
 
 Dans ce tutoriel, vous allez utiliser un modèle Azure Resource Manager et d’autres utilitaires pour apprendre à :
 
@@ -29,6 +29,8 @@ Dans ce tutoriel, vous allez utiliser un modèle Azure Resource Manager et d’a
 > * Charger un exemple de données
 > * Interroger des données
 > * Mettre à jour des données
+
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -115,7 +117,7 @@ Pour vous connecter à votre serveur, vous devez fournir des informations sur l�
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin** .
+Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -199,13 +201,47 @@ La ligne est mise à jour en conséquence lorsque vous récupérez les données.
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le groupe de ressources, ce qui supprime également les ressources qu’il contient.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Groupes de ressources**.
+
+2. Dans la liste des groupes de ressources, choisissez le nom de votre groupe de ressources.
+
+3. Dans la page **Vue d’ensemble** de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
+
+4. Dans la boîte de dialogue de confirmation, entrez le nom de votre groupe de ressources, puis sélectionnez **Supprimer**.
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Créer un serveur Azure Database pour MySQL avec le point de terminaison de service de réseau virtuel à l’aide du modèle Azure Resource Manager
-> * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) pour créer une base de données
+> * Utiliser l’outil en ligne de commande mysql pour créer une base de données
 > * Charger un exemple de données
 > * Interroger des données
 > * Mettre à jour des données
-> 
+
+> [!div class="nextstepaction"]
 > [Connexion d’applications à la base de données Azure pour MySQL](./howto-connection-string.md)

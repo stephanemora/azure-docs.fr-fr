@@ -3,17 +3,17 @@ title: Analyser les coûts d’Azure avec l’application Power BI
 description: Cet article explique comment installer et utiliser l’application Power BI Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131120"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413239"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Azure Cost Management pour les Contrats Entreprise
 
@@ -36,15 +36,15 @@ L’application Power BI Azure Cost Management prend actuellement en charge seu
 Pour installer l’application :
 
 1. Ouvrez [Application Power BI Azure Cost Management](https://aka.ms/costmgmt/ACMApp).
-2. Dans la page AppSource de Power BI, sélectionnez **Obtenir** .
+2. Dans la page AppSource de Power BI, sélectionnez **Obtenir**.
 3. Sélectionnez **Continuer** pour accepter les conditions d’utilisation et la politique de confidentialité.
-4. Dans la zone **Installer cette application Power BI** , sélectionnez **Installer** .
-5. Si nécessaire, créez un espace de travail et sélectionnez **Continuer** .
+4. Dans la zone **Installer cette application Power BI**, sélectionnez **Installer**.
+5. Si nécessaire, créez un espace de travail et sélectionnez **Continuer**.
 6. Une fois l’installation terminée, une notification apparaît, indiquant que votre nouvelle application est prête.
-7. Sélectionnez **Accéder à l’application** .
-8. Dans **Démarrer avec votre nouvelle application** , sous **Connecter vos données** , sélectionnez **Connecter** .  
+7. Sélectionnez **Accéder à l’application**.
+8. Dans **Démarrer avec votre nouvelle application**, sous **Connecter vos données**, sélectionnez **Connecter**.  
   ![Démarrer avec votre nouvelle application - Connecter](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. Dans la boîte de dialogue qui apparaît, entrez votre numéro d’inscription Contrat Entreprise pour **BillingProfileIdOrEnrollmentNumber** . Spécifiez le nombre de mois de données à obtenir. Conservez la valeur d’ **Étendue** par défaut de **Numéro d’inscription** , puis sélectionnez **Suivant** .  
+9. Dans la boîte de dialogue qui apparaît, entrez votre numéro d’inscription Contrat Entreprise pour **BillingProfileIdOrEnrollmentNumber**. Spécifiez le nombre de mois de données à obtenir. Conservez la valeur d’**Étendue** par défaut de **Numéro d’inscription**, puis sélectionnez **Suivant**.  
   ![Entrer les informations d’inscription du Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. La boîte de dialogue suivante se connecte à Azure et obtient les données nécessaires pour les recommandations d’instances réservées. *Laissez les valeurs par défaut comme elles sont configurées* et sélectionnez **Sign in** (Se connecter).  
   ![Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs par défaut.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
@@ -80,7 +80,7 @@ Les rapports suivants sont disponibles dans l’application.
 
 ![Rapport complet Azure Hybrid Benefit](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
 
-Le rapport identifie également les machines virtuelles Windows où Hybrid Benefit est **Activé** mais où il y a _moins de_ 8 processeurs virtuels. Il montre aussi les endroits où Hybrid Benefit est **non activé** et qui ont 8 processeurs virtuels _ou plus_ . Ces informations vous aident à utiliser pleinement Hybrid Benefit. Appliquez l’avantage à vos machines virtuelles les plus coûteuses pour optimiser vos économies potentielles.
+Le rapport identifie également les machines virtuelles Windows où Hybrid Benefit est **Activé** mais où il y a _moins de_ 8 processeurs virtuels. Il montre aussi les endroits où Hybrid Benefit est **non activé** et qui ont 8 processeurs virtuels _ou plus_. Ces informations vous aident à utiliser pleinement Hybrid Benefit. Appliquez l’avantage à vos machines virtuelles les plus coûteuses pour optimiser vos économies potentielles.
 
 ![Avantages Azure Hybrid Benefit : Moins de 8 processeurs virtuels et processeurs virtuels non activés](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
 
@@ -145,11 +145,11 @@ Un nom de table s’affiche à la place de `<TableName>`.
 
 #### <a name="cause"></a>Cause
 
-La valeur de l’ **étendue** par défaut `Enrollment Number` a été modifiée dans la connexion à Cost Management.
+La valeur de l’**étendue** par défaut `Enrollment Number` a été modifiée dans la connexion à Cost Management.
 
 #### <a name="solution"></a>Solution
 
-Reconnectez-vous à Cost Management et définissez la valeur de l’ **étendue** sur `Enrollment Number`. N’entrez pas le numéro d’inscription de votre organisation, mais tapez plutôt `Enrollment Number` exactement comme il apparaît dans l’image suivante.
+Reconnectez-vous à Cost Management et définissez la valeur de l’**étendue** sur `Enrollment Number`. N’entrez pas le numéro d’inscription de votre organisation, mais tapez plutôt `Enrollment Number` exactement comme il apparaît dans l’image suivante.
 
 ![Entrer les informations d’inscription du Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
@@ -204,8 +204,8 @@ Les informations suivantes récapitulent les données disponibles via l’applic
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Détails des budgets pour visualiser les coûts réels ou l’utilisation par rapport aux cibles budgétaires existantes. |
 | [**Pricesheets (Listes de prix)**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Tarifs applicables pour le profil de facturation ou l’inscription Contrat Entreprise spécifié. |
 | [**RI charges (Coûts facturés pour les instances réservées)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | Coûts facturés associés à vos instances réservées au cours des 24 derniers mois. |
-| [**RI recommendations (shared) - Recommandations (partagées) pour les instances réservées**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Recommandations d’achat d’instances réservées basées sur les tendances d’utilisation de tous vos abonnements pour les 7, 30 ou 60 derniers jours. |
-| [**RI recommendations (single) - Recommandations (abonnement unique) pour les instances réservées**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Recommandations d’achat d’instances réservées basées sur les tendances d’utilisation de votre abonnement unique pour les 7, 30 ou 60 derniers jours. |
+| [**RI recommendations (shared) - Recommandations (partagées) pour les instances réservées**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Recommandations d’achat d’instances réservées, basées sur les tendances d’utilisation observées dans tous vos abonnements sur les 7 derniers jours. |
+| [**RI recommendations (single) - Recommandations (abonnement unique) pour les instances réservées**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Recommandations d’achat d’instances réservées, basées sur les tendances d’utilisation de votre abonnement unique au cours des 7 derniers jours. |
 | [**RI usage details (Détails d’utilisation des instances réservées)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | Détails de la consommation pour vos instances réservées existantes au cours du dernier mois. |
 | [**RI usage summary (Récapitulatif de l’utilisation des instances réservées)**](/rest/api/consumption/reservationssummaries/list) | Pourcentage d’utilisation quotidienne des réservations Azure |
 | [**Usage Details (Détails d’utilisation)**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | Ventilation des quantités consommées et des coûts estimés pour le profil de facturation donné dans l’inscription Contrat Entreprise. |

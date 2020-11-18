@@ -1,6 +1,6 @@
 ---
 title: Didacticiel – Spark & Hive Tools pour VSCode (application Spark)
-description: Tutoriel - Utilisez Spark & Hive Tools pour VSCode pour développer des applications Spark, écrites en Python, et envoyez-les à un pool Apache Spark (préversion).
+description: Tutoriel - Utiliser Spark & Hive Tools pour VSCode en vue de développer des applications Spark, écrites en Python, et envoyez-les à un pool Apache Spark serverless (préversion).
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 6778d78ff5e342d97c1c9bc477c1a88eca42a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337844"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315655"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutoriel : Créer des applications Apache Spark avec VSCode à l’aide d’un espace de travail Synapse
 
@@ -26,7 +26,7 @@ Les outils Spark et Hive peuvent être installée sur les plateformes prises en 
 
 Les éléments suivants sont requis pour effectuer les étapes décrites dans cet article :
 
-- Un pool Apache Spark. Pour créer un pool Apache Spark, consultez [Créer un pool Apache Spark à l’aide du portail Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+- Pool Apache Spark serverless. Pour créer un pool Apache Spark serverless, consultez [Créer un pool Apache Spark à l’aide du portail Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono est nécessaire uniquement pour les plateformes Linux et MacOS.
 - [Un environnement interactif PySpark pour Visual Studio Code](../../hdinsight/set-up-pyspark-interactive-environment.md).
@@ -228,7 +228,7 @@ for (word, count) in sortedCollection:
 
      ![Résultat de l’envoi du travail Python](./media/vscode-tool-synapse/submit-pythonjob-result.png)
 
-Une fois que vous avez envoyé un programme de traitement par lots, les journaux d’envoi s’affichent dans la fenêtre **OUTPUT** (SORTIE) de Visual Studio Code. L’URL **Spark UI** et l’URL **Spark Job Application UI**s’affichent également. Vous pouvez ouvrir l’URL dans un navigateur web pour suivre l’état du travail.
+Une fois que vous avez envoyé un programme de traitement par lots, les journaux d’envoi s’affichent dans la fenêtre **OUTPUT** (SORTIE) de Visual Studio Code. L’URL **Spark UI** et l’URL **Spark Job Application UI** s’affichent également. Vous pouvez ouvrir l’URL dans un navigateur web pour suivre l’état du travail.
 
 ## <a name="access-and-manage-synapse-workspace"></a>Accéder à l’espace de travail Synapse et le gérer
 

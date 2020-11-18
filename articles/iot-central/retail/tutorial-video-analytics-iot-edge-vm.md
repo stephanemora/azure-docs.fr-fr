@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127026"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426543"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutoriel : Créer une instance IoT Edge pour l’analytique vidéo (machine virtuelle Linux)
 
@@ -55,7 +55,7 @@ Utilisez les informations du tableau suivant pour remplir le formulaire de **dé
 | Nom d’utilisateur d’administrateur | *AzureUser* |
 | Mot de passe d’administrateur | Entrez un mot de passe. Notez le mot de passe dans le fichier *scratchpad.txt*. Vous l’utiliserez plus tard. |
 | ID d’étendue | **ID d’étendue** que vous avez noté dans le fichier *scratchpad.txt* dans le tutoriel précédent lorsque vous avez ajouté l’appareil de passerelle. |
-| ID de périphérique | *LVA-Gateway-001* : appareil de passerelle que vous avez créé dans le tutoriel précédent. |
+| ID de périphérique | *gateway-001* : appareil de passerelle que vous avez créé dans le tutoriel précédent. |
 | Clé de périphérique | Clé primaire de l’appareil que vous avez notée dans le fichier *scratchpad.txt* dans le tutoriel précédent lorsque vous avez ajouté l’appareil de passerelle. |
 | Hôte d’application IoT Central | **URL de l’application** que vous avez notée dans le fichier *scratchpad.txt* dans le tutoriel précédent. Par exemple, *traders.azureiotcentral.com*. |
 | Jeton d’API d’application IoT Central | Jeton d’API d’opérateur que vous avez noté dans le tutoriel précédent. |

@@ -1,19 +1,19 @@
 ---
-title: Connecter un exemple de code Node.js pour appareil IoT Plug-and-Play à Azure IoT Hub | Microsoft Docs
-description: Utilisez Node.js pour créer et exécuter un exemple de code pour appareil IoT Plug-and-Play, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
+title: Démarrage rapide – Connecter un exemple de code Node.js pour appareil IoT Plug-and-Play à Azure IoT Hub | Microsoft Docs
+description: Démarrage rapide – Utilisez Node.js pour créer et exécuter un exemple de code pour appareil IoT Plug-and-Play, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2342577fdd7e42f4b21d1f47348c39e3ed4a46e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 24f6cc1e9656957d6894ecb6b7c3e0476b233cf6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747243"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421581"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-nodejs"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play à IoT Hub (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Vous utilisez le kit de développement logiciel (SDK) de l’appareil pour créer l’exemple de code inclus. L’application que vous créez simule un appareil qui se connecte à un hub IoT. L’application envoie les données de télémétrie et les propriétés et reçoit des commandes.
 
-1. Dans une fenêtre de terminal locale, accédez au dossier de votre dépôt cloné, puis au dossier */azure-iot-sdk-node/device/samples/pnp* . Exécutez ensuite la commande suivante pour installer les bibliothèques requises :
+1. Dans une fenêtre de terminal locale, accédez au dossier de votre dépôt cloné, puis au dossier */azure-iot-sdk-node/device/samples/pnp*. Exécutez ensuite la commande suivante pour installer les bibliothèques requises :
 
     ```cmd/sh
     npm install
@@ -63,7 +63,7 @@ Vous utilisez le kit de développement logiciel (SDK) de l’appareil pour crée
 
 Cet exemple implémente un appareil à thermostat IoT Plug-and-Play simple. Le modèle implémenté par cet exemple n’utilise pas de [composants](concepts-components.md) IoT Plug-and-Play. Le [fichier de modèle DTDL pour l’appareil à thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) définit la télémétrie, les propriétés et les commandes implémentées par l’appareil.
 
-Ouvrez le fichier _simple_thermostat.js_ . Dans ce fichier, vous pouvez voir comment :
+Ouvrez le fichier _simple_thermostat.js_. Dans ce fichier, vous pouvez voir comment :
 
 1. Importer les interfaces nécessaires.
 1. Écrire un gestionnaire de mise à jour de propriété et un gestionnaire de commandes.

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c4c7b8da659fa7fe8879ae92c4947b7f0867274c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173504"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322925"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analyser des données dans un compte de stockage
 
@@ -65,7 +65,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-    Dans la fenêtre du script, le champ **Se connecter à** est défini sur **SQL à la demande**.
+    Dans la fenêtre du script, le champ **Se connecter à** est défini sur **Pool SQL serverless**.
 
 1. Exécutez le script.
 

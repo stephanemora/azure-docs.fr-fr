@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874541"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658483"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
-Cet article traite des erreurs qui peuvent se produire durant le processus de consentement à une application. Si vous rencontrez des invites de consentement inattendues qui ne contiennent aucun message d’erreur, consultez [Scénarios d’authentification pour Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) pour résoudre le problème.
+Cet article traite des erreurs qui peuvent se produire durant le processus de consentement à une application. Si vous rencontrez des invites de consentement inattendues qui ne contiennent aucun message d’erreur, consultez [Scénarios d’authentification pour Azure AD](../develop/authentication-vs-authorization.md) pour résoudre le problème.
 
 Pour fonctionner, de nombreuses applications qui s’intègrent à Azure Active Directory nécessitent des autorisations à d’autres ressources. Quand ces ressources sont également intégrées à Azure Active Directory, vous devez souvent utiliser l’infrastructure de consentement commune pour demander les autorisations nécessaires pour y accéder. Une invite de consentement s’affiche, généralement lors de la première utilisation de l’application, mais parfois lors d’une utilisation ultérieure.
 
@@ -90,8 +90,6 @@ Les utilisateurs finaux ne pourront pas donner leur consentement aux application
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-[Applications, autorisations et consentement dans Azure Active Directory (point de terminaison v1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Applications, autorisations et consentement dans Azure Active Directory (point de terminaison v1)](../develop/quickstart-register-app.md)<br>
 
-[Étendues, autorisations et consentement dans Azure Active Directory (point de terminaison v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Étendues, autorisations et consentement dans Azure Active Directory (point de terminaison v2.0)](../develop/v2-permissions-and-consent.md)

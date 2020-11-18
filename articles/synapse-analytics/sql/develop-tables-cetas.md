@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0805aaf694f1569e613ab74135c95e454adbdc0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: df0198ba77e1661bb18aa72285e100ca070966a8
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315077"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331734"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS avec Synapse SQL
 
@@ -68,7 +68,7 @@ Spécifie le nom de l’objet de source de données externe qui contient l’emp
 
 FILE_FORMAT = *external_file_format_name*
 
-Spécifie le nom de l’objet de format de fichier externe qui contient le format du fichier de données externe. Pour créer un format de fichier externe, utilisez [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Seuls les formats de fichiers externes avec FORMAT_TYPE=PARQUET et FORMAT_TYPE=DELIMITEDTEXT sont actuellement pris en charge.
+Spécifie le nom de l’objet de format de fichier externe qui contient le format du fichier de données externe. Pour créer un format de fichier externe, utilisez [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Seuls les formats de fichiers externes avec FORMAT_TYPE=PARQUET et FORMAT_TYPE=DELIMITEDTEXT sont actuellement pris en charge. La compression GZip pour le format DELIMITEDTEXT n’est pas prise en charge.
 
 WITH *<common_table_expression>*
 
@@ -144,32 +144,30 @@ CETAS peut être utilisé pour stocker les jeux de résultats avec les types de 
 - varbinary
 - char
 - varchar
+- NCHAR
+- NVARCHAR
+- smalldate
 - Date
-- time
+- DATETIME
 - datetime2
+- datetimeoffset
+- time
 - Décimal
 - numeric
 - float
 - real
 - bigint
-- int
-- SMALLINT
 - TINYINT
+- SMALLINT
+- int
+- bigint
 - bit
-
-> [!NOTE]
-> Les LOB ne sont pas utilisables avec CETAS.
-
-Les types de données suivants ne peuvent pas être utilisés dans la partie SELECT de CETAS :
-
-- NCHAR
-- NVARCHAR
-- DATETIME
-- smalldatetime
-- datetimeoffset
 - money
 - SMALLMONEY
 - UNIQUEIDENTIFIER
+
+> [!NOTE]
+> Les LOB supérieurs à 1 Mo ne peuvent pas être utilisés avec CETAS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
