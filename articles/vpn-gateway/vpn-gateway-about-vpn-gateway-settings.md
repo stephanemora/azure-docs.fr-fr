@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424340"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661152"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -37,7 +37,7 @@ Les valeurs disponibles pour -GatewayType sont :
 * Vpn
 * ExpressRoute
 
-Une passerelle VPN nécessite le `-GatewayType` *VPN* .
+Une passerelle VPN nécessite le `-GatewayType` *VPN*.
 
 Exemple :
 
@@ -104,7 +104,7 @@ Dans le modèle de déploiement de Resource Manager, chaque configuration néces
 * ExpressRoute
 * VPNClient
 
-Dans l’exemple PowerShell suivant, nous créons une connexion S2S qui nécessite le type de connexion *IPsec* .
+Dans l’exemple PowerShell suivant, nous créons une connexion S2S qui nécessite le type de connexion *IPsec*.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -122,7 +122,7 @@ Une fois qu’une passerelle de réseau virtuel a été créée, vous ne pouvez 
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-L’exemple PowerShell suivant spécifie la `-VpnType` en tant que *RouteBased* . Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
+L’exemple PowerShell suivant spécifie la `-VpnType` en tant que *RouteBased*. Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -176,7 +176,7 @@ Pour accéder à des ressources techniques supplémentaires et connaître les ex
 | **Classique** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Non pris en charge | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Étapes suivantes

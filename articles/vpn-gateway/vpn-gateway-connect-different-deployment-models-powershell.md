@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63505f470410234f720dd28c29e87c4a2a6d123f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082050"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661135"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
 
@@ -35,7 +35,7 @@ Les étapes suivantes vous guident à travers les paramétrages nécessaires pou
 
 ### <a name="prerequisites"></a><a name="pre"></a>Configuration requise
 
-* Les deux réseaux virtuels ont déjà été créés. Pour créer un réseau virtuel Azure Resource Manager, consultez [Créer un groupe de ressources et un réseau virtuel](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Pour créer un réseau virtuel classique, consultez [Créer un réseau virtuel (Classic)](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Les deux réseaux virtuels ont déjà été créés. Pour créer un réseau virtuel Azure Resource Manager, consultez [Créer un groupe de ressources et un réseau virtuel](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Pour créer un réseau virtuel classique, consultez [Créer un réseau virtuel (Classic)](/previous-versions/azure/virtual-network/create-virtual-network-classic).
 * Les plages d’adresses des réseaux virtuels ne se chevauchent pas ou ne chevauchent aucune des plages des autres connexions susceptibles d’être utilisées par les passerelles.
 * Vous avez installé les dernières applets de commande PowerShell. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/) . Veillez à installer à la fois les applets de commande de gestion des services et Resource Manager (RM). 
 
@@ -90,7 +90,7 @@ Configuration d’adressage IP de la passerelle = gwipconfig
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Ouvrez le fichier .xml que vous avez téléchargé pour le modifier. Pour obtenir un exemple de fichier de configuration réseau, consultez le [schéma de configuration réseau](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Ouvrez le fichier .xml que vous avez téléchargé pour le modifier. Pour obtenir un exemple de fichier de configuration réseau, consultez le [schéma de configuration réseau](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Vérifier le sous-réseau de passerelle
 Dans l’élément **VirtualNetworkSites**, ajoutez un sous-réseau de passerelle à votre réseau virtuel si vous n’en avez pas déjà créé un. Lorsque vous travaillez avec le fichier de configuration réseau, le sous-réseau de passerelle DOIT être nommé « GatewaySubnet ». Sinon, Azure ne peut pas le reconnaître et l’utiliser comme sous-réseau de passerelle.
