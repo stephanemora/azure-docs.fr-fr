@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: df611e01fefacd22f4dc026a819d4c71ede6e7e3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970399"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686087"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec clustering de basculement Windows Server et disque partagé Azure
 
@@ -35,12 +35,12 @@ Cet article explique comment passer d'une installation ASCS/SCS unique à une co
 Vous pouvez actuellement utiliser des disques SSD Premium Azure en tant que disque partagé Azure pour l'instance SAP ASCS/SCS. Les limitations suivantes s'appliquent :
 
 -  Le [disque Ultra Azure](../../disks-types.md#ultra-disk) n'est pas pris en charge en tant que disque partagé Azure pour les charges de travail SAP. Il est actuellement impossible de placer des machines virtuelles Azure dans un groupe à haute disponibilité à l'aide d'un disque Ultra Azure.
--  Le [disque partagé Azure](../../windows/disks-shared.md) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de Zones de disponibilité. 
+-  Le [disque partagé Azure](../../disks-shared.md) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de Zones de disponibilité. 
 -  La valeur [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) du disque partagé Azure détermine combien de nœuds de cluster peuvent utiliser le disque partagé. En règle générale, pour une instance SAP ASCS/SCS, vous configurez deux nœuds dans le cluster de basculement Windows. Par conséquent, la valeur de `maxShares` doit être définie sur deux.
 -  Toutes les machines virtuelles en cluster SAP ASCS/SCS doivent être déployées dans le même [groupe de placement de proximité Azure](../../windows/proximity-placement-groups.md).   
    Bien qu'il soit possible de déployer des machines virtuelles en cluster Windows dans un groupe à haute disponibilité avec un disque partagé Azure sans groupe de placement de proximité, le groupe de placement de proximité garantira une proximité physique étroite des disques partagés Azure et des machines virtuelles en cluster, réduisant ainsi la latence entre les machines virtuelles et la couche de stockage.    
 
-Pour plus de détails sur les limitations du disque partagé Azure, lisez attentivement la section [Limitations](../../linux/disks-shared.md#limitations) de la documentation consacrée au disque partagé Azure.  
+Pour plus de détails sur les limitations du disque partagé Azure, lisez attentivement la section [Limitations](../../disks-shared.md#limitations) de la documentation consacrée au disque partagé Azure.  
 
 > [!IMPORTANT]
 > Lors du déploiement d'un cluster de basculement Windows SAP ASCS/SCS avec disque partagé Azure, sachez que votre déploiement fonctionnera avec un seul disque partagé au sein d'un cluster de stockage. Votre instance SAP ASCS/SCS sera impactée en cas de problème au niveau du cluster de stockage dans lequel le disque partagé Azure est déployé.  
@@ -121,17 +121,17 @@ Vous devrez ajouter la configuration à l'équilibreur de charge existant pour l
 - Configuration du backend  
     Déjà en place - les machines virtuelles ont déjà été ajoutées au pool back-end, lors de la configuration du SID SAP **PR1**
 - Port de la sonde
-    - Port 620**nr** [**62002**] Conserver l'option par défaut pour Protocole (TCP), Intervalle (5), Seuil de défaillance sur le plan de l'intégrité (2)
+    - Port 620 **nr** [**62002**] Conserver l'option par défaut pour Protocole (TCP), Intervalle (5), Seuil de défaillance sur le plan de l'intégrité (2)
 - Règles d’équilibrage de charge
     - Si vous utilisez Standard Load Balancer, sélectionnez Ports haute disponibilité
     - Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
-        - 32**nr** TCP [**3202**]
-        - 36**nr** TCP [**3602**]
-        - 39**nr** TCP [**3902**]
-        - 81**nr** TCP [**8102**]
-        - 5**nr**13 TCP [**50213**]
-        - 5**nr**14 TCP [**50214**]
-        - 5**nr**16 TCP [**50216**]
+        - 32 **nr** TCP [**3202**]
+        - 36 **nr** TCP [**3602**]
+        - 39 **nr** TCP [**3902**]
+        - 81 **nr** TCP [**8102**]
+        - 5 **nr** 13 TCP [**50213**]
+        - 5 **nr** 14 TCP [**50214**]
+        - 5 **nr** 16 TCP [**50216**]
         - Associer à l'adresse IP front-end ASCS **PR2**, à la sonde d'intégrité et au pool back-end existant.  
 
     - Assurez-vous que le délai d'inactivité (en minutes) est défini sur la valeur maximale de 30 et que l'adresse IP flottante (retour direct du serveur) est activée.
@@ -146,16 +146,16 @@ Comme le serveur ERS2 (Enqueue Replication Server 2) est également en cluster, 
   Les machines virtuelles ont déjà été ajoutées au pool back-end ILB.  
 
 - Nouveau port de sonde
-    - Port 621**nr** [**62112**] Conserver l'option par défaut pour Protocole (TCP), Intervalle (5), Seuil de défaillance sur le plan de l'intégrité (2)
+    - Port 621 **nr** [**62112**] Conserver l'option par défaut pour Protocole (TCP), Intervalle (5), Seuil de défaillance sur le plan de l'intégrité (2)
 
 - Nouvelles règles d'équilibrage de charge
     - Si vous utilisez Standard Load Balancer, sélectionnez Ports haute disponibilité
     - Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
-        - 32**nr** TCP [**3212**]
-        - 33**nr** TCP [**3312**]
-        - 5**nr**13 TCP [**51212**]
-        - 5**nr**14 TCP [**51212**]
-        - 5**nr**16 TCP [**51212**]
+        - 32 **nr** TCP [**3212**]
+        - 33 **nr** TCP [**3312**]
+        - 5 **nr** 13 TCP [**51212**]
+        - 5 **nr** 14 TCP [**51212**]
+        - 5 **nr** 16 TCP [**51212**]
         - Associer à l'adresse IP front-end ERS2 **PR2**, à la sonde d'intégrité et au pool back-end existant.  
 
     - Assurez-vous que le délai d'inactivité (en minutes) est défini sur la valeur maximale, par exemple 30, et que l'adresse IP flottante (retour direct du serveur) est activée.
@@ -293,7 +293,7 @@ Utilisez la fonctionnalité de sondage de l’équilibrage de charge interne pou
 Toutefois, cela ne fonctionne pas dans certaines configurations de cluster, car une seule instance est active. L’autre instance est passive et ne peut accepter aucune partie de la charge de travail. La fonctionnalité de sondage est utile lorsque l'équilibreur de charge interne Azure détecte quelle instance est active, et ne cible que l'instance active.  
 
 > [!IMPORTANT]
-> Dans cet exemple de configuration, le paramètre **ProbePort** est défini sur 620**Nr**. Pour l'instance SAP ASCS portant le numéro **02**, il est défini sur 620**02**.
+> Dans cet exemple de configuration, le paramètre **ProbePort** est défini sur 620 **Nr**. Pour l'instance SAP ASCS portant le numéro **02**, il est défini sur 620 **02**.
 > Vous devrez ajuster la configuration pour qu'elle corresponde à vos numéros d'instance SAP et à votre SID SAP.
 
 Pour ajouter un port de sonde, exécutez ce module PowerShell sur l'une des machines virtuelles du cluster :

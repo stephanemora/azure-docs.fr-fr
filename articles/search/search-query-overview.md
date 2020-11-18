@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 362f46290bbe2008f9fb862a8711577050050192
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675802"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693247"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Types et composition de requête dans Recherche cognitive Azure
 
@@ -33,7 +33,7 @@ L’exemple suivant est une requête représentative construite dans l’[API RE
 }
 ```
 
-+ **`queryType`** définit l’analyseur qui peut être l’ [analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou l’ [analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques et bien d’autres encore.
++ **`queryType`** définit l’analyseur qui peut être l’[analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou l’[analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques et bien d’autres encore.
 
 + **`search`** fournit le critère de correspondance, généralement des termes ou expressions, qui est néanmoins souvent accompagné d’opérateurs booléens. Les termes autonomes uniques constituent des requêtes de *terme*. Les requêtes en plusieurs parties entre guillemets sont des requêtes *d’expression*. La recherche peut être non définie, comme dans **`search=*`** , mais sans critère de correspondance, le jeu de résultats est composé de documents sélectionnés de manière arbitraire.
 
@@ -59,9 +59,9 @@ Si vous avez suivi ce [démarrage rapide pour créer l’index de démonstration
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Comment les opérations de requête sont activées par l’index
 
-La conception des index et la conception des requêtes sont étroitement liées dans Recherche cognitive Azure. Il est important de savoir que le *schéma d’index* , qui comporte des attributs pour chaque champ, détermine le type de requête que vous pouvez créer. 
+La conception des index et la conception des requêtes sont étroitement liées dans Recherche cognitive Azure. Il est important de savoir que le *schéma d’index*, qui comporte des attributs pour chaque champ, détermine le type de requête que vous pouvez créer. 
 
-Les attributs d’index d’un champ définissent les opérations autorisées, par exemple si un champ *peut faire l’objet de recherches* dans l’index, s’il peut être *affiché* dans les résultats, s’il peut être *trié* ou *filtré* , etc. Dans l’exemple de chaîne de requête, `"$orderby": "Rating"` fonctionne uniquement parce que le champ Évaluation est marqué comme *triable* dans le schéma d’index. 
+Les attributs d’index d’un champ définissent les opérations autorisées, par exemple si un champ *peut faire l’objet de recherches* dans l’index, s’il peut être *affiché* dans les résultats, s’il peut être *trié* ou *filtré*, etc. Dans l’exemple de chaîne de requête, `"$orderby": "Rating"` fonctionne uniquement parce que le champ Évaluation est marqué comme *triable* dans le schéma d’index. 
 
 ![Définition d’index pour l’exemple des hôtels](./media/search-query-overview/hotel-sample-index-definition.png "Définition d’index pour l’exemple Hôtel")
 
@@ -91,7 +91,7 @@ Le tableau suivant liste les API et les approches basées sur des outils pour en
 | Méthodologie | Description |
 |-------------|-------------|
 | [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. Il est recommandé pour l’exploration, le test et la validation. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
-| [Postman ou autres outils REST](search-get-started-postman.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche cognitive Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche cognitive Azure.  |
+| [Postman ou autres outils REST](search-get-started-rest.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche cognitive Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche cognitive Azure.  |
 | [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client que vous pouvez utiliser pour interroger un index Recherche cognitive Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md)  |
 | [Rechercher des documents (API REST)](/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
 

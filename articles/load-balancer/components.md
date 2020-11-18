@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317444"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693764"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
@@ -82,7 +82,7 @@ Par exemple, utilisez une règle d’équilibrage de charge pour le port 80 pour
 
 ## <a name="high-availability-ports"></a>Ports à haute disponibilité
 
-Une règle d’équilibreur de charge configurée avec **tous les protocoles et le port 0** . 
+Une règle d’équilibreur de charge configurée avec **tous les protocoles et le port 0**. 
 
 Cette règle permet de fournir une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un équilibreur de charge standard interne. 
 
@@ -128,7 +128,7 @@ L’équilibreur de charge de base ne prend pas en charge les règles de trafic 
 
 ## <a name="limitations"></a>Limites
 
-- En savoir plus sur les [limites](https://aka.ms/lblimits) des équilibreurs de charge 
+- En savoir plus sur les [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) des équilibreurs de charge 
 - L’équilibreur de charge offre un équilibrage de charge et le réacheminement de ports pour les protocoles TCP ou UDP spécifiques. Les règles d’équilibrage de charge et les règles NAT de trafic entrant prennent en charge les protocoles TCP et UDP, mais aucun autre protocole IP, notamment ICMP.
 - Le flux sortant depuis une machine virtuelle back-end vers un front-end d’un équilibreur de charge interne est voué à l’échec.
 - Une règle d’équilibreur de charge ne peut pas s’étendre sur deux réseaux virtuels.  Les front-ends et leurs instances back-end doivent être dans le même réseau virtuel.  
@@ -138,12 +138,12 @@ L’équilibreur de charge de base ne prend pas en charge les règles de trafic 
 
 - Pour bien démarrer avec les équilibreurs de charge, consultez [Créer un équilibreur de charge standard public](quickstart-load-balancer-standard-public-portal.md).
 - En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).
-- Découvrez les [adresses IP publiques](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
-- Découvrez les [adresses IP privées](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).
+- Découvrez les [adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md).
+- Découvrez les [adresses IP privées](../virtual-network/private-ip-addresses.md).
 - Découvrez comment utiliser [Standard Load Balancer et les zones de disponibilité](load-balancer-standard-availability-zones.md).
 - En savoir plus sur les [Diagnostics Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - En savoir plus sur la [réinitialisation TCP au terme du délai d’inactivité](load-balancer-tcp-reset.md).
 - Découvrez [Load Balancer Standard avec les règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md).
-- En savoir plus sur les [groupes de sécurité réseau](../virtual-network/security-overview.md).
-- Découvrez-en plus sur les [limites des équilibreurs de charge](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
-- Découvrez l’utilisation du [réacheminement de port](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
+- En savoir plus sur les [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md).
+- Découvrez-en plus sur les [limites des équilibreurs de charge](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
+- Découvrez l’utilisation du [réacheminement de port](./tutorial-load-balancer-port-forwarding-portal.md).
