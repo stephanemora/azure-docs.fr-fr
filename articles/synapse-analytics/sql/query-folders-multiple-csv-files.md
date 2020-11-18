@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9d15d681a114b0f364e8e33adc786b4d0ba7df0e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340986"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684557"
 ---
 # <a name="query-folders-and-multiple-files"></a>Interroger des dossiers et plusieurs fichiers  
 
@@ -30,7 +30,7 @@ Vous allez utiliser le dossier *csv/taxi* pour suivre les exemples de requêtes.
 
 ## <a name="read-all-files-in-folder"></a>Lire tous les fichiers dans le dossier
 
-L’exemple ci-dessous lit tous les fichiers de données NYC Yellow Taxi figurant dans le dossier *csv/taxi* , et retourne le nombre total de passagers et de trajets par an. Il montre également l’utilisation de fonctions d’agrégation.
+L’exemple ci-dessous lit tous les fichiers de données NYC Yellow Taxi figurant dans le dossier *csv/taxi*, et retourne le nombre total de passagers et de trajets par an. Il montre également l’utilisation de fonctions d’agrégation.
 
 ```sql
 SELECT 
@@ -135,7 +135,7 @@ ORDER BY
 
 ### <a name="read-all-files-from-multiple-folders"></a>Lire tous les fichiers de plusieurs dossiers
 
-Vous pouvez lire tous les fichiers figurant dans plusieurs dossiers en utilisant un caractère générique. La requête suivante lit tous les fichiers de tous les dossiers figurant dans le dossier *csv* , dont les noms commencent par *t* et se terminent par *i*.
+Vous pouvez lire tous les fichiers figurant dans plusieurs dossiers en utilisant un caractère générique. La requête suivante lit tous les fichiers de tous les dossiers figurant dans le dossier *csv*, dont les noms commencent par *t* et se terminent par *i*.
 
 > [!NOTE]
 > Notez la présence de la barre oblique (/) à la fin du chemin d’accès dans la requête ci-dessous. Elle indique qu’il s’agit d’un dossier. En cas d’omission de la barre oblique (/), la requête cible les fichiers nommés *t&ast;i* à la place.

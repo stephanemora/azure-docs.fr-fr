@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973698"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684506"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -171,7 +171,7 @@ Non, elle est prise en charge uniquement pour les disques Ultra et managés SSD 
 
 **Dans quelles régions les disques partagés sont pris en charge ?**
 
-Pour obtenir des informations régionales, consultez notre [article conceptuel](./linux/disks-shared.md).
+Pour obtenir des informations régionales, consultez notre [article conceptuel](disks-shared.md).
 
 **Les disques partagés peuvent-ils être utilisés comme disque de système d’exploitation ?**
 
@@ -179,7 +179,7 @@ Non, les disques partagés sont pris en charge uniquement pour les disques de do
 
 **Quelles sont les tailles de disque qui prennent en charge les disques partagés ?**
 
-Pour connaître les tailles prises en charge, consultez notre [article conceptuel](./linux/disks-shared.md).
+Pour connaître les tailles prises en charge, consultez notre [article conceptuel](disks-shared.md).
 
 **Est-il possible d’activer la fonctionnalité Disques partagés sur un disque existant ?**
 

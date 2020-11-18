@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4538654b255aad99ff00477134c9eeb5845e50d6
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167336"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682755"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -165,7 +165,7 @@ ms.locfileid: "92167336"
 Cet article décrit les étapes à suivre pour préparer l’infrastructure Azure à l’installation et à la configuration d’une instance SAP ASCS/SCS haute disponibilité sur un cluster de basculement Windows en utilisant un *disque partagé de cluster* en tant qu’option pour le clustering d’une instance SAP ASCS.
 Deux alternatives au *disque partagé de cluster* sont présentées dans la documentation :
 
-- [disques partagés Azure](../../windows/disks-shared.md) ;
+- [disques partagés Azure](../../disks-shared.md) ;
 - utilisation de [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) pour créer un stockage en miroir qui simule un disque partagé en cluster. 
 
 La configuration présentée repose sur des [groupes de placement de proximité (PPG)](./sap-proximity-placement-scenarios.md) pour atteindre une latence réseau optimale pour les charges de travail SAP. La documentation ne couvre pas la couche de base de données.  
@@ -192,9 +192,9 @@ Les noms d’hôte et les adresses IP pour le scénario présenté sont les suiv
 | --- | --- | --- |---| ---|
 | 1er nœud de cluster du cluster ASCS/SCS |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | 2e nœud de cluster du cluster ASCS/SCS |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| Nom réseau du cluster | pr1clust |10.0.0.42 ( **uniquement** pour le cluster Win 2016) | n/a | n/a |
+| Nom réseau du cluster | pr1clust |10.0.0.42 (**uniquement** pour le cluster Win 2016) | n/a | n/a |
 | Nom réseau du cluster ASCS | pr1-ascscl |10.0.0.43 | n/a | n/a |
-| Nom réseau du cluster ERS ( **uniquement** pour ERS2) | pr1-erscl |10.0.0.44 | n/a | n/a |
+| Nom réseau du cluster ERS (**uniquement** pour ERS2) | pr1-erscl |10.0.0.44 | n/a | n/a |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Créer un équilibreur de charge interne Azure
@@ -211,7 +211,7 @@ La liste suivante présente la configuration de l’équilibreur de charge d’(
 - Configuration du frontend
     - Adresse IP ASCS/SCS statique **10.0.0.43**
 - Configuration du backend  
-    Ajoutez toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS. Dans cet exemple, il s’agit des machines virtuelles **pr1-ascs-10** et **pr1-ascs-11** .
+    Ajoutez toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS. Dans cet exemple, il s’agit des machines virtuelles **pr1-ascs-10** et **pr1-ascs-11**.
 - Port de la sonde
     - Port 620 **nr** Conservez l’option par défaut pour Protocole (TCP), Intervalle (5) et Seuil de défaillance sur le plan de l’intégrité (2)
 - Règles de l’équilibrage de charge
@@ -466,13 +466,13 @@ Avant d’installer le logiciel SIOS, créez l’utilisateur de domaine DataKeep
 
    _Première page de l’installation de SIOS DataKeeper_
 
-2. Dans la boîte de dialogue, sélectionnez **Oui** .
+2. Dans la boîte de dialogue, sélectionnez **Oui**.
 
    ![Figure 32 : DataKeeper vous indique qu’un service va être désactivé][sap-ha-guide-figure-3032]
 
    _DataKeeper vous informe qu’un service va être désactivé_
 
-3. Dans la boîte de dialogue, nous vous recommandons de sélectionner **Compte de domaine ou de serveur** .
+3. Dans la boîte de dialogue, nous vous recommandons de sélectionner **Compte de domaine ou de serveur**.
 
    ![Figure 33 : Sélection de l’utilisateur de SIOS DataKeeper][sap-ha-guide-figure-3033]
 

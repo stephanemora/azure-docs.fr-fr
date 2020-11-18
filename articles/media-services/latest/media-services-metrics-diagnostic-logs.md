@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309068"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685169"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Surveiller les métriques et journaux de diagnostic Media Services via Azure Monitor
 
@@ -67,8 +67,8 @@ Les métriques de [points de terminaison de streaming](/rest/api/media/streaming
 |Demandes|Demandes|Fournit le nombre total de requêtes HTTP traitées par le point de terminaison de streaming.|
 |Sortie|Sortie|Nombre total d’octets de sortie par minute par point de terminaison de streaming.|
 |SuccessE2ELatency|Latence de réussite de bout en bout|Durée à partir de laquelle le point de terminaison de streaming a reçu la requête lorsque le dernier octet de la réponse a été envoyé.|
-|Utilisation de l’UC| Utilisation de l’UC pour les points de terminaison de streaming Premium. Ces données ne sont pas disponibles pour les points de terminaison de streaming Standard. |
-|Bande passante en sortie | Sortie de la bande passante en bits par seconde.|
+|Utilisation de l’UC| | Utilisation de l’UC pour les points de terminaison de streaming Premium. Ces données ne sont pas disponibles pour les points de terminaison de streaming Standard. |
+|Bande passante en sortie | | Sortie de la bande passante en bits par seconde.|
 
 ### <a name="metrics-are-useful"></a>Utilité des métriques
 

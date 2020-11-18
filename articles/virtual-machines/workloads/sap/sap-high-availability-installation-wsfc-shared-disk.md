@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963633"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682636"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP ASCS/SCS dans Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "91963633"
 
 Cet article explique comment installer et configurer un système SAP à haute disponibilité dans Azure à l’aide d’un cluster de basculement Windows Server et d’un disque partagé de cluster pour le clustering d’une instance SAP ASCS/SCS. Comme décrit dans [Guide d’architecture : Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster][sap-high-availability-guide-wsfc-shared-disk], il existe deux possibilités pour un *disque partagé de cluster* :
 
-- [Disques partagés Azure](../../windows/disks-shared.md)
+- [Disques partagés Azure](../../disks-shared.md)
 - Utilisation de [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) pour créer un stockage en miroir, qui simule le disque partagé en cluster 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -250,7 +250,7 @@ Utilisez la fonctionnalité de sondage de l’équilibrage de charge interne pou
 Toutefois, cela ne fonctionne pas dans certaines configurations de cluster, car une seule instance est active. L’autre instance est passive et ne peut accepter aucune partie de la charge de travail. La fonctionnalité de sondage est utile quand l’équilibreur de charge interne Azure détecte quelle instance est active, et ne cible que l’instance active.  
 
 > [!IMPORTANT]
-> Dans cet exemple de configuration, le paramètre **ProbePort** est défini sur 620**Nr**. Pour l’instance SAP ASCS portant le numéro **00**, il est défini sur 620**00**. Vous devrez ajuster la configuration pour qu’elle corresponde à vos numéros d’instance SAP et à votre SID SAP.
+> Dans cet exemple de configuration, le paramètre **ProbePort** est défini sur 620 **Nr**. Pour l’instance SAP ASCS portant le numéro **00**, il est défini sur 620 **00**. Vous devrez ajuster la configuration pour qu’elle corresponde à vos numéros d’instance SAP et à votre SID SAP.
 
 Pour ajouter un port de sonde, exécutez ce module PowerShell sur l’une des machines virtuelles du cluster :
 

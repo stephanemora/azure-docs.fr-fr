@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900889"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683129"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser le disque Azure CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
 Le disque CSI (Container Storage interface) pour Azure Files est un pilote conforme à la [spécification CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilisé par Azure Kubernetes Service (AKS) pour gérer le cycle de vie des disques Azure.
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Disque partagé
 
-[Disques partagés Azure](../virtual-machines/windows/disks-shared.md) est une fonctionnalité de disques managés Azure qui permet d’attacher un disque Azure à des nœuds d’agent simultanément. Le fait d’attacher un disque managé à plusieurs nœuds d’agent vous permet, par exemple, de déployer de nouvelles applications en cluster ou de migrer des applications en cluster existantes vers Azure.
+[Disques partagés Azure](../virtual-machines/disks-shared.md) est une fonctionnalité de disques managés Azure qui permet d’attacher un disque Azure à des nœuds d’agent simultanément. Le fait d’attacher un disque managé à plusieurs nœuds d’agent vous permet, par exemple, de déployer de nouvelles applications en cluster ou de migrer des applications en cluster existantes vers Azure.
 
 > [!IMPORTANT] 
 > Actuellement, seul le fichier spécial en mode bloc brut (`volumeMode: Block`) est pris en charge par le pilote CSI du disque Azure. Les applications doivent gérer la coordination et le contrôle des écritures, des lectures, des verrous, des caches, des montages et des clôturages sur le disque partagé, qui est exposé en tant que fichier spécial en mode bloc brut.

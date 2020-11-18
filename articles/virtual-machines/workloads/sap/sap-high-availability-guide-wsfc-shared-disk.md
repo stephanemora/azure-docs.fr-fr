@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3dc49e3e2d8492882507918a59edb0b9da41fcf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f9bfcaa1299f4aacbc11110308ba14093b09f7d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167251"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684302"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure
 
@@ -122,7 +122,7 @@ _Architecture de haute disponibilité (HA) SAP ASCS/SCS avec disque partagé_
 
 Il existe deux options pour le disque partagé dans un cluster de basculement Windows dans Azure :
 
-- La fonctionnalité de [disques partagés Azure](../../windows/disks-shared.md), qui permet d’attacher simultanément un disque managé Azure à plusieurs machines virtuelles. 
+- La fonctionnalité de [disques partagés Azure](../../disks-shared.md), qui permet d’attacher simultanément un disque managé Azure à plusieurs machines virtuelles. 
 - Le logiciel tiers [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster) pour créer un stockage en miroir qui simule un stockage partagé de cluster. 
 
 Lorsque vous sélectionnez une technologie de disque partagé, gardez à l’esprit les points suivants :
@@ -131,7 +131,7 @@ Lorsque vous sélectionnez une technologie de disque partagé, gardez à l’esp
 - Cette fonctionnalité permet d’attacher simultanément un disque managé Azure à plusieurs machines virtuelles sans logiciels supplémentaires à gérer ni à utiliser. 
 - Cette fonctionnalité implique d’utiliser un seul disque partagé Azure au sein d’un cluster de stockage, ce qui a une incidence sur la fiabilité de votre solution SAP.
 - Actuellement, seuls sont pris en charge les déploiements avec disque partagé Premium Azure dans un groupe à haute disponibilité. Le disque partagé Azure n’est pas pris en charge dans le déploiement zonal.     
-- Veillez à approvisionner le disque Azure Premium avec une taille de disque minimale (cf. [Plages SSD Premium](../../windows/disks-shared.md#disk-sizes)) pour pouvoir l’attacher simultanément au nombre nécessaire de machines virtuelles (généralement, deux pour le cluster de basculement Windows SAP ASCS). 
+- Veillez à approvisionner le disque Azure Premium avec une taille de disque minimale (cf. [Plages SSD Premium](../../disks-shared.md#disk-sizes)) pour pouvoir l’attacher simultanément au nombre nécessaire de machines virtuelles (généralement, deux pour le cluster de basculement Windows SAP ASCS). 
 - Le disque Ultra partagé Azure n’est pas pris en charge pour les charges de travail SAP, car il ne gère ni le déploiement dans un groupe à haute disponibilité ni le déploiement zonal.  
  
 **SIOS**
@@ -142,19 +142,19 @@ Lorsque vous sélectionnez une technologie de disque partagé, gardez à l’esp
 
 ### <a name="shared-disk-using-azure-shared-disk"></a>Disque partagé à l’aide d’un disque partagé Azure
 
-Microsoft propose des [disques partagés Azure](../../windows/disks-shared.md), qui peuvent être utilisés pour implémenter la haute disponibilité SAP ASCS/SCS avec une option de disque partagé.
+Microsoft propose des [disques partagés Azure](../../disks-shared.md), qui peuvent être utilisés pour implémenter la haute disponibilité SAP ASCS/SCS avec une option de disque partagé.
 
 #### <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 
 Il est actuellement possible d’utiliser des disques SSD Premium Azure comme disque partagé Azure pour l'instance SAP ASCS/SCS. Quelques limitations s'appliquent pour le moment :
 
 -  Le [disque Ultra Azure](../../disks-types.md#ultra-disk) n'est pas pris en charge comme disque partagé Azure pour les charges de travail SAP. Il est actuellement impossible de placer des machines virtuelles Azure dans un groupe à haute disponibilité à l'aide d'un disque Ultra Azure.
--  Le [disque partagé Azure](../../windows/disks-shared.md) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de zones de disponibilité. 
+-  Le [disque partagé Azure](../../disks-shared.md) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de zones de disponibilité. 
 -  La valeur [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) du disque partagé Azure détermine combien de nœuds de cluster peuvent utiliser le disque partagé. En règle générale, pour une instance SAP ASCS/SCS, on configure deux nœuds dans le cluster de basculement Windows. Par conséquent, la valeur de `maxShares` doit être définie sur deux.
 -  Toutes les machines virtuelles en cluster SAP ASCS/SCS doivent être déployées dans le même [groupe de placement de proximité Azure](../../windows/proximity-placement-groups.md).   
    Bien qu'il soit possible de déployer des machines virtuelles en cluster Windows dans un groupe à haute disponibilité avec un disque partagé Azure sans groupe de placement de proximité, le groupe de placement de proximité garantira une proximité physique étroite des disques partagés Azure et des machines virtuelles en cluster, réduisant ainsi la latence entre les machines virtuelles et la couche de stockage.    
 
-Pour plus d’informations sur les limitations du disque partagé Azure, lisez attentivement la section [Limitations](../../linux/disks-shared.md#limitations) de la documentation consacrée au disque partagé Azure.
+Pour plus d’informations sur les limitations du disque partagé Azure, lisez attentivement la section [Limitations](../../disks-shared.md#limitations) de la documentation consacrée au disque partagé Azure.
 
 > [!IMPORTANT]
 > Lors du déploiement d'un cluster de basculement Windows SAP ASCS/SCS avec disque partagé Azure, sachez que votre déploiement fonctionnera avec un seul disque partagé au sein d'un cluster de stockage. Votre instance SAP ASCS/SCS serait affectée en cas de problème au niveau du cluster de stockage dans lequel le disque partagé Azure est déployé.    
