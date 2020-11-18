@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400157"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654981"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Utiliser le Pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop
 
@@ -63,7 +63,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 
 Selon les besoins de votre organisation, vous souhaiterez peut-être activer l’accès Internet sortant sécurisé pour vos utilisateurs finaux. Dans les cas où la liste des destinations autorisées est bien définie (par exemple [accès Microsoft 365](/microsoft-365/enterprise/microsoft-365-ip-web-service)), vous pouvez utiliser des règles d’application et de réseau du Pare-feu Azure pour configurer l’accès requis. Le trafic des utilisateurs finaux est ainsi directement routé vers Internet, ce qui optimise les performances.
 
-Si vous souhaitez filtrer le trafic Internet utilisateur sortant à l’aide d’une passerelle web sécurisée locale existante, vous pouvez configurer des navigateurs web ou d’autres applications qui s’exécutent sur le pool d’hôtes Windows Virtual Desktop avec une configuration de proxy explicite. Pour obtenir un exemple, consultez [Procédure d’utilisation des options de ligne de commande MicrosoftEdge pour configurer les paramètres de proxy](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Ces paramètres de proxy n’influencent que l’accès Internet de l’utilisateur final, ce qui permet le trafic sortant de la plateforme Windows Virtual Desktop directement via le Pare-feu Azure.
+Si vous souhaitez filtrer le trafic Internet utilisateur sortant à l’aide d’une passerelle web sécurisée locale existante, vous pouvez configurer des navigateurs web ou d’autres applications qui s’exécutent sur le pool d’hôtes Windows Virtual Desktop avec une configuration de proxy explicite. Pour obtenir un exemple, consultez [Procédure d’utilisation des options de ligne de commande MicrosoftEdge pour configurer les paramètres de proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Ces paramètres de proxy n’influencent que l’accès Internet de l’utilisateur final, ce qui permet le trafic sortant de la plateforme Windows Virtual Desktop directement via le Pare-feu Azure.
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 

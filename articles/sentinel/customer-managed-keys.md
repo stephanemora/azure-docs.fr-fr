@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427052"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655270"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurer une clé gérée par le client Azure Sentinel
 
@@ -59,7 +59,7 @@ Pour provisionner CMK, effectuez les étapes suivantes :
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>ÉTAPE 1 : Créer un coffre de clés Azure et une clé de stockage
 
-1.  [Créez une ressource Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal), puis générez ou importez une clé à utiliser pour le chiffrement des données.
+1.  [Créez une ressource Azure Key Vault](/azure-stack/user/azure-stack-key-vault-manage-portal), puis générez ou importez une clé à utiliser pour le chiffrement des données.
     > [!NOTE]
     >  Azure Key Vault doit être configuré comme récupérable pour protéger votre clé et l’accès.
 
@@ -132,6 +132,5 @@ Si vous utilisez la même clé dans Azure Sentinel et dans Log Analytics, il est
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à configurer une clé gérée par le client dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
-

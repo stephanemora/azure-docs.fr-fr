@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7105597ec34e804c2f2b85b01feb4824d63005c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b1d7f95711017feba52cad97f05128d83734da
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578119"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655168"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Créer un profil Intune pour déployer des profils de client VPN
 
@@ -35,7 +35,7 @@ Dans les étapes suivantes, nous utilisons un exemple de code XML pour un profil
 * Connexion automatique activée
 * Détection des réseaux approuvés activée.
 
-Pour d’autres options prises en charge, consultez l’article [CSP VPNv2](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp).
+Pour d’autres options prises en charge, consultez l’article [CSP VPNv2](/windows/client-management/mdm/vpnv2-csp).
 
 1. Téléchargez le profil VPN à partir du Portail Azure et extrayez le fichier *azurevpnconfig.xml* du package.
 1. Copiez et collez le texte ci-dessous dans un nouveau fichier d’éditeur de texte.
@@ -75,19 +75,19 @@ Dans cette section, vous allez créer un profil Microsoft Intune avec des param�
 
     * **Nom :** Entrez un nom pour la configuration.
     * **Description :** Description facultative.
-    * **OMA-URI :** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (ces informations se trouvent dans le fichier azurevpnconfig.xml dans la balise <name> </name>).
+    * **OMA-URI :** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (ces informations se trouvent dans le fichier azurevpnconfig.xml dans la balise <name></name>).
     * **Type de données :** Chaîne (fichier XML).
 
    Sélectionnez l’icône de dossier et choisissez le fichier que vous avez enregistré à l’étape 6 dans les étapes de [XML](#xml). Sélectionnez **Ajouter**.
 
-   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Profils de configuration" lightbox="./media/create-profile-intune/configuration-settings.png":::
+   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Paramètres de configuration" lightbox="./media/create-profile-intune/configuration-settings.png":::
 1. Sélectionnez **Suivant**.
 1. Sous **Affectations**, sélectionnez le groupe vers lequel vous souhaitez transmettre la configuration. Ensuite, sélectionnez **Suivant**.
 1. Les règles d’applicabilité sont facultatives. Définissez des règles si nécessaire, puis sélectionnez **Suivant**.
 1. Dans la page **Vérifier + créer**, sélectionnez **Créer**.
 
-    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Profils de configuration":::
-1. Votre profil personnalisé est maintenant créé. Pour les étapes Microsoft Intune de déploiement de ce profil, consultez [Attribuer des profils d’utilisateur et d’appareil](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Création d’un profil":::
+1. Votre profil personnalisé est maintenant créé. Pour les étapes Microsoft Intune de déploiement de ce profil, consultez [Attribuer des profils d’utilisateur et d’appareil](/mem/intune/configuration/device-profile-assign).
  
 ## <a name="next-steps"></a>Étapes suivantes
 

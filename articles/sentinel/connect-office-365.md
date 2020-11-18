@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: d6b59de048cdf00d352c4f488ecb51bfdf83640f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89178924"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655368"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Connecter des journaux Office 365 à Azure Sentinel
 
-Le connecteur de journal d’activité [Office 365](https://docs.microsoft.com/office/) fournit des informations Azure Sentinel sur les activités de l’utilisateur et de l’administrateur en cours dans **Exchange** et **SharePoint** (y compris **OneDrive**), ainsi que, maintenant, dans **Teams**. Ces informations comportent des détails relatifs aux actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe, les opérations de boîtes aux lettres, les événements Teams (par ex. concernant la conversation, l’équipe, les membres et les canaux), ainsi que les détails de l’utilisateur qui a effectué les actions. En connectant les journaux Office 365 à Azure Sentinel, vous pouvez afficher et analyser ces données dans vos classeurs, les interroger pour créer des alertes personnalisées et les incorporer pour améliorer votre processus d’investigation, ce qui vous donne plus d’informations sur la sécurité d’Office 365.
+Le connecteur de journal d’activité [Office 365](/office/) fournit des informations Azure Sentinel sur les activités de l’utilisateur et de l’administrateur en cours dans **Exchange** et **SharePoint** (y compris **OneDrive**), ainsi que, maintenant, dans **Teams**. Ces informations comportent des détails relatifs aux actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe, les opérations de boîtes aux lettres, les événements Teams (par ex. concernant la conversation, l’équipe, les membres et les canaux), ainsi que les détails de l’utilisateur qui a effectué les actions. En connectant les journaux Office 365 à Azure Sentinel, vous pouvez afficher et analyser ces données dans vos classeurs, les interroger pour créer des alertes personnalisées et les incorporer pour améliorer votre processus d’investigation, ce qui vous donne plus d’informations sur la sécurité d’Office 365.
 
 > [!IMPORTANT]
 > L’extension du connecteur  **du journal Office 365 pour les journaux Microsoft Teams** est actuellement en préversion publique.
@@ -38,9 +38,9 @@ Le connecteur de journal d’activité [Office 365](https://docs.microsoft.com/
 - Votre déploiement Office 365 doit se trouver sur le même locataire que votre espace de travail Azure Sentinel.
 
 > [!IMPORTANT]
-> - Pour permettre au connecteur d’accéder aux données par le biais de l’API Activité de gestion Office 365, vous devez avoir activé la **journalisation d’audit unifiée** sur votre déploiement Office 365. Selon le type de licence Office 365 / Microsoft 365 dont vous disposez, elle peut être activée par défaut ou non. Consultez le [Centre de conformité et de sécurité Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) pour vérifier l’état de la journalisation d’audit unifiée en fonction de votre type de licence.
-> - Vous pouvez également activer, désactiver et vérifier manuellement l’état actuel de la journalisation d’audit unifiée Office 365. Pour obtenir des instructions, voir [Activer ou désactiver la recherche dans un journal d’audit Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
-> - Pour plus d’informations, consultez la [Référence de l’API Activité de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
+> - Pour permettre au connecteur d’accéder aux données par le biais de l’API Activité de gestion Office 365, vous devez avoir activé la **journalisation d’audit unifiée** sur votre déploiement Office 365. Selon le type de licence Office 365 / Microsoft 365 dont vous disposez, elle peut être activée par défaut ou non. Consultez le [Centre de conformité et de sécurité Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) pour vérifier l’état de la journalisation d’audit unifiée en fonction de votre type de licence.
+> - Vous pouvez également activer, désactiver et vérifier manuellement l’état actuel de la journalisation d’audit unifiée Office 365. Pour obtenir des instructions, voir [Activer ou désactiver la recherche dans un journal d’audit Office 365](/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - Pour plus d’informations, consultez la [Référence de l’API Activité de gestion Office 365](/office/office-365-management-api/office-365-management-activity-api-reference).
 
 
    > [!NOTE]
@@ -70,4 +70,3 @@ Le connecteur de journal d’activité [Office 365](https://docs.microsoft.com/
 Dans ce document, vous avez appris à connecter Office 365 à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Commencez à détecter les menaces avec Azure Sentinel à l’aide de règles [intégrées](tutorial-detect-threats-built-in.md) ou [personnalisées](tutorial-detect-threats-custom.md).
-

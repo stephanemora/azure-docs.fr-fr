@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068028"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655066"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory
 Cet article vous aide à comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout ou de la suppression d’une application dans Azure Active Directory.
@@ -31,9 +31,9 @@ En raison de problèmes temporaires, de problèmes de réseau ou d’un bogue, l
 Si vous rencontrez une erreur lorsque vous cliquez sur le bouton **Ajouter**, une **notification** affiche l’état **Erreur**. Si vous souhaitez obtenir plus de détails sur l’erreur afin d’en savoir plus sur ou de partager ces informations avec un ingénieur du support, vous pouvez afficher plus d’informations sur l’erreur en suivant les étapes décrites dans la section [Guide pratique pour afficher les détails d’une notification du portail](#how-to-see-the-details-of-a-portal-notification).
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Je ne sais pas comment configurer mon application une fois que je l’ai ajoutée
-Si vous avez besoin d’aide pour en savoir plus sur les applications, la [liste des tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) est un bon point de départ.
+Si vous avez besoin d’aide pour en savoir plus sur les applications, la [liste des tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md) est un bon point de départ.
 
-En outre, la [bibliothèque de documents Applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) vous fournit plus d’informations sur l’authentification unique avec Azure AD et son fonctionnement.
+En outre, la [bibliothèque de documents Applications Azure AD](./what-is-application-management.md) vous fournit plus d’informations sur l’authentification unique avec Azure AD et son fonctionnement.
 
 ## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Je souhaite supprimer une application, mais le bouton Supprimer est désactivé
 
@@ -43,7 +43,7 @@ Le bouton Supprimer est désactivé dans les scénarios suivants :
 
 - Pour les applications Microsoft, vous ne pourrez pas les supprimer de l’interface utilisateur, quel que soit votre rôle.
 
-- Pour servicePrincipals qui correspond à une identité managée. Les principaux du service d’identités managées ne peuvent pas être supprimés dans le panneau Applications d’entreprise. Vous devez accéder à la ressource Azure pour la gérer. En savoir plus sur l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- Pour servicePrincipals qui correspond à une identité managée. Les principaux du service d’identités managées ne peuvent pas être supprimés dans le panneau Applications d’entreprise. Vous devez accéder à la ressource Azure pour la gérer. En savoir plus sur l’[identité managée](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Comment afficher les détails d’une notification du portail
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :

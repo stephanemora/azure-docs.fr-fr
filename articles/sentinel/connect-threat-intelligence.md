@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 223f3e45f25e3aed3ed6fa15e5b9ea04b17f6c59
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362744"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655321"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connecter des données issues de fournisseurs de veille contre les menaces
 
@@ -36,7 +36,7 @@ Azure Sentinel vous permet d’importer les indicateurs de menace que votre orga
 
 - Les **notebooks** peuvent utiliser des indicateurs de menace lorsque vous enquêtez sur des anomalies et recherchez des comportements malveillants.
 
-Vous pouvez transmettre en continu des indicateurs de menace à Azure Sentinel en utilisant l’un des produits de la plateforme Threat Intelligence intégrée listés dans la section suivante, en le connectant à des serveurs TAXII ou en utilisant une intégration directe avec l’[API Microsoft Graph Security tiIndicators](https://aka.ms/graphsecuritytiindicators).
+Vous pouvez transmettre en continu des indicateurs de menace à Azure Sentinel en utilisant l’un des produits de la plateforme Threat Intelligence intégrée listés dans la section suivante, en le connectant à des serveurs TAXII ou en utilisant une intégration directe avec l’[API Microsoft Graph Security tiIndicators](/graph/api/resources/tiindicator).
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>Produits de la plateforme Threat Intelligence intégrée
 
@@ -114,4 +114,4 @@ Vous pouvez transmettre en continu des indicateurs de menace à Azure Sentinel e
 Dans ce document, vous avez appris à connecter votre fournisseur d’intelligence des menaces à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants.
 
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).

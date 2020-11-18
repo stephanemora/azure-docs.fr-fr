@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883820"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655338"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Connecter Pare-feu Windows Defender avec sécurité avancée à Azure Sentinel
 
-Le connecteur [Pare-feu Windows Defender avec sécurité avancée](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) permet à Azure Sentinel d’ingérer facilement les journaux Pare-feu Windows Defender avec sécurité avancée à partir de n’importe quelle machine Windows dans votre espace de travail. Cette connexion vous permet d’afficher et d’analyser les événements Pare-feu Windows dans vos classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer dans vos investigations de sécurité, ce qui vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opérations de sécurité. 
+Le connecteur [Pare-feu Windows Defender avec sécurité avancée](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) permet à Azure Sentinel d’ingérer facilement les journaux Pare-feu Windows Defender avec sécurité avancée à partir de n’importe quelle machine Windows dans votre espace de travail. Cette connexion vous permet d’afficher et d’analyser les événements Pare-feu Windows dans vos classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer dans vos investigations de sécurité, ce qui vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opérations de sécurité. 
 
 La solution collecte les événements de pare-feu Windows à partir des machines Windows sur lesquelles un agent Log Analytics est installé. 
 
@@ -81,10 +81,9 @@ La solution collecte les événements de pare-feu Windows à partir des machines
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
  
-Comme les journaux Pare-feu Windows sont envoyés à Azure Sentinel uniquement lorsque le fichier journal local atteint sa capacité maximale, laisser le journal à sa taille par défaut de 4096 ko entraînera très probablement une latence de collecte élevée. Vous pouvez réduire la latence en diminuant la taille du fichier journal. Consultez les instructions pour [configurer le journal Pare-feu Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Notez que si la définition de la taille de journal la plus petite possible (1 ko) élimine pratiquement la latence de collecte, elle peut également avoir un impact négatif sur le niveau de performance de l’ordinateur local. 
+Comme les journaux Pare-feu Windows sont envoyés à Azure Sentinel uniquement lorsque le fichier journal local atteint sa capacité maximale, laisser le journal à sa taille par défaut de 4096 ko entraînera très probablement une latence de collecte élevée. Vous pouvez réduire la latence en diminuant la taille du fichier journal. Consultez les instructions pour [configurer le journal Pare-feu Windows](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Notez que si la définition de la taille de journal la plus petite possible (1 ko) élimine pratiquement la latence de collecte, elle peut également avoir un impact négatif sur le niveau de performance de l’ordinateur local. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter le pare-feu Windows à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-

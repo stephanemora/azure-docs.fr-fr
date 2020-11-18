@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930055"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655577"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Connecter des données de Microsoft 365 Defender à Azure Sentinel
 
@@ -33,9 +33,9 @@ ms.locfileid: "90930055"
 
 ## <a name="background"></a>Arrière-plan
 
-Le nouveau connecteur [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) vous permet de diffuser des journaux de **recherche avancée de menaces**, un type de données d’événement brutes, de Microsoft 365 Defender vers Azure Sentinel. 
+Le nouveau connecteur [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) vous permet de diffuser des journaux de **recherche avancée de menaces**, un type de données d’événement brutes, de Microsoft 365 Defender vers Azure Sentinel. 
 
-Avec l’intégration de [Microsoft Defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) dans le cadre de la sécurité Microsoft 365 Defender, vous pouvez désormais collecter vos événements de [recherche avancée de menaces](https://aka.ms/mdatpAH) Microsoft Defender for Endpoint à l’aide du connecteur Microsoft 365 Defender et les diffuser directement dans de nouvelles tables dédiées dans votre espace de travail Azure Sentinel. Ces tables sont générées sur le même schéma que celui utilisé dans le portail Microsoft 365 Defender, ce qui vous donne un accès complet à l’ensemble des journaux de recherche avancée de menaces et vous permet d’effectuer les opérations suivantes :
+Avec l’intégration de [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) dans le cadre de la sécurité Microsoft 365 Defender, vous pouvez désormais collecter vos événements de [recherche avancée de menaces](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) Microsoft Defender for Endpoint à l’aide du connecteur Microsoft 365 Defender et les diffuser directement dans de nouvelles tables dédiées dans votre espace de travail Azure Sentinel. Ces tables sont générées sur le même schéma que celui utilisé dans le portail Microsoft 365 Defender, ce qui vous donne un accès complet à l’ensemble des journaux de recherche avancée de menaces et vous permet d’effectuer les opérations suivantes :
 
 - Copiez facilement vos requêtes de recherche avancée de menaces Microsoft Defender ATP existantes dans Azure Sentinel.
 
@@ -49,7 +49,7 @@ Avec l’intégration de [Microsoft Defender for Endpoint (MDATP)](https://docs.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Vous devez disposer d’une licence valide pour Microsoft Defender for Endpoint, comme décrit dans [Configurer le déploiement de Microsoft Defender for Endpoint](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Vous devez disposer d’une licence valide pour Microsoft Defender for Endpoint, comme décrit dans [Configurer le déploiement de Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - Le rôle Administrateur général doit être attribué à votre utilisateur sur le locataire (dans Azure Active Directory).
 
@@ -101,4 +101,4 @@ Dans l’onglet **Étapes suivantes**, vous trouverez quelques exemples de requ�
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à obtenir des données d’événement brutes à partir de Microsoft Defender for Endpoint dans Azure Sentinel, à l’aide du connecteur Microsoft 365 Defender. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).
