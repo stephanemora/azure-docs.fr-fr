@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823209"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696742"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Réinitialisation TCP de l’équilibreur de charge et délai d’inactivité
 
-Vous pouvez utiliser [Standard Load Balancer](load-balancer-standard-overview.md) pour créer un comportement d’application plus prévisible pour vos scénarios en activant Réinitialisation TCP pendant le délai d'inactivité pour une règle donnée. Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux lorsque le délai d’inactivité d’un flux est atteint.  Lorsque cette fonctionnalité est activée, Load Balancer envoie des réinitialisations TCP bidirectionnelles (paquet TCP RST) sur un délai d'inactivité.  Les points de terminaison de votre application sont ainsi informés que la connexion a expiré et n'est plus utilisable.  Les points de terminaison peuvent immédiatement établir une nouvelle connexion, si besoin.
+Vous pouvez utiliser [Standard Load Balancer](./load-balancer-overview.md) pour créer un comportement d’application plus prévisible pour vos scénarios en activant Réinitialisation TCP pendant le délai d'inactivité pour une règle donnée. Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux lorsque le délai d’inactivité d’un flux est atteint.  Lorsque cette fonctionnalité est activée, Load Balancer envoie des réinitialisations TCP bidirectionnelles (paquet TCP RST) sur un délai d'inactivité.  Les points de terminaison de votre application sont ainsi informés que la connexion a expiré et n'est plus utilisable.  Les points de terminaison peuvent immédiatement établir une nouvelle connexion, si besoin.
 
 ![Réinitialisation TCP de Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
 ## <a name="tcp-reset"></a>Réinitialisation du protocole TCP
 
-Vous modifiez ce comportement par défaut et activez l’envoi des réinitialisations TCP pendant un délai d’inactivité, sur des règles NAT entrantes, des règles d’équilibrage de charge et des [règles de trafic sortant](https://aka.ms/lboutboundrules).  Lorsqu’il est activé par règle, Load Balancer envoie une réinitialisation TCP bidirectionnelle (paquets TCP RST) aux points de terminaison client et serveur pendant un délai d’inactivité de tous les flux correspondants.
+Vous modifiez ce comportement par défaut et activez l’envoi des réinitialisations TCP pendant un délai d’inactivité, sur des règles NAT entrantes, des règles d’équilibrage de charge et des [règles de trafic sortant](./load-balancer-outbound-connections.md#outboundrules).  Lorsqu’il est activé par règle, Load Balancer envoie une réinitialisation TCP bidirectionnelle (paquets TCP RST) aux points de terminaison client et serveur pendant un délai d’inactivité de tous les flux correspondants.
 
 Les points de terminaison recevant les paquets TCP RST ferment aussitôt le socket correspondant. Une notification immédiate est fournie aux points de terminaison et informe que la libération de la connexion s’est produite et que toute communication ultérieure sur cette même connexion TCP est vouée à l’échec.  Les applications peuvent purger les connexions lorsque le socket se ferme, et les rétablir en fonction des besoins sans attendre que la connexion TCP finisse par expirer.
 
@@ -48,7 +48,7 @@ Par défaut, il est défini sur 4 minutes. Si une période d’inactivité est s
 
 Lorsque la connexion est fermée, votre application cliente peut recevoir le message d’erreur suivant : « Le serveur a clos la connexion sous-jacente : une connexion qui devait être tenue active a été fermée par le serveur. »
 
-Une pratique courante consiste à utiliser TCP keep-alive. Cela permet de maintenir la connexion active pendant une période plus longue. Pour plus d’informations, consultez ces [exemples .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). avec keep-alive activé, les paquets sont envoyés au cours des périodes d’inactivité sur la connexion. Les paquets keep-alive garantissent que la valeur de délai d’inactivité n’est pas atteinte et que la connexion est maintenue pendant une longue période.
+Une pratique courante consiste à utiliser TCP keep-alive. Cela permet de maintenir la connexion active pendant une période plus longue. Pour plus d’informations, consultez ces [exemples .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive). avec keep-alive activé, les paquets sont envoyés au cours des périodes d’inactivité sur la connexion. Les paquets keep-alive garantissent que la valeur de délai d’inactivité n’est pas atteinte et que la connexion est maintenue pendant une longue période.
 
 Le paramètre fonctionne uniquement pour les connexions entrantes. Pour éviter la perte de la connexion, configurez TCP keep-alive sur un intervalle inférieur au paramètre de délai d’inactivité ou augmentez la valeur du délai d’inactivité. Pour prendre en charge ces scénarios, la prise en charge d’un délai d’inactivité configurable a été ajoutée.
 
@@ -63,6 +63,6 @@ TCP keep-alive convient aux scénarios où l’autonomie de la batterie n’est 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Standard Load Balancer](load-balancer-standard-overview.md).
-- En savoir plus sur les [règles de trafic sortant](load-balancer-outbound-rules-overview.md).
+- En savoir plus sur [Standard Load Balancer](./load-balancer-overview.md).
+- En savoir plus sur les [règles de trafic sortant](./load-balancer-outbound-connections.md#outboundrules).
 - [Configurer le délai d’inactivité TCP RST](load-balancer-tcp-idle-timeout.md)

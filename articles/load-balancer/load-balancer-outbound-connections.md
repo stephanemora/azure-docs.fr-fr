@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: b3924a563d8266cfa38f24106dbb84102031a182
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331870"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694778"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Utilisation de la SNAT pour les connexions sortantes
 
@@ -22,13 +22,13 @@ Les adresses IP front-end d’un équilibreur de charge public Azure peuvent êt
 La SNAT permet le **masquage d’IP** de l’instance back-end. Ce masquage permet d’empêcher des sources externes d’avoir une adresse directe vers les instances back-end. Le partage d’une adresse IP entre des instances back-end réduit le coût des adresses IP publiques statiques et prend en charge des scénarios tels que la simplification des listes d’adresses IP autorisées avec un trafic provenant d’adresses IP publiques connues. 
 
 >[!Note]
-> Pour les applications qui demandent un grand nombre de connexions sortantes ou les clients d’entreprise qui nécessitent un seul ensemble d’IP à utiliser à partir d’un réseau virtuel donné, le service [NAT de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/nat-overview) est la solution recommandée. Son allocation dynamique permet une configuration simple et l’utilisation la plus efficace des ports SNAT à partir de chaque adresse IP. Ce service permet aussi à toutes les ressources du réseau virtuel de partager un ensemble d’adresses IP sans avoir besoin de partager un équilibreur de charge.
+> Pour les applications qui demandent un grand nombre de connexions sortantes ou les clients d’entreprise qui nécessitent un seul ensemble d’IP à utiliser à partir d’un réseau virtuel donné, le service [NAT de réseau virtuel](../virtual-network/nat-overview.md) est la solution recommandée. Son allocation dynamique permet une configuration simple et l’utilisation la plus efficace des ports SNAT à partir de chaque adresse IP. Ce service permet aussi à toutes les ressources du réseau virtuel de partager un ensemble d’adresses IP sans avoir besoin de partager un équilibreur de charge.
 
 >[!Important]
 > Même sans SNAT sortante configurée, les comptes de stockage Azure de la même région restent accessibles et les ressources back-end ont toujours accès aux services Microsoft comme les mises à jour de Windows.
 
 >[!NOTE] 
->Cet article traite des déploiements Azure Resource Manager uniquement. Consultez [Connexions sortantes dans Azure (Classic)](load-balancer-outbound-connections-classic.md) pour découvrir l’ensemble des scénarios de déploiement Classic dans Azure.
+>Cet article traite des déploiements Azure Resource Manager uniquement. Consultez [Connexions sortantes dans Azure (Classic)](/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic) pour découvrir l’ensemble des scénarios de déploiement Classic dans Azure.
 
 ## <a name="sharing-frontend-ip-address-across-backend-resources"></a><a name ="snat"></a> Partage de l’adresse IP front-end entre les ressources back-end
 
@@ -48,7 +48,7 @@ Par définition, chaque adresse IP a 65 535 ports. Chaque port peut être util
 >[!NOTE]
 > Chaque port utilisé pour une règle NAT de trafic entrant ou d’équilibrage de charge utilise une plage de huit ports dans ces 64 000 ports, ce qui réduit le nombre de ports éligibles à la SNAT. Si une règle NAT ou d’équilibrage de charge se trouve dans la même plage de huit qu’une autre règle, elle ne consomme pas de ports supplémentaires. 
 
-Avec les [règles de trafic sortant](https://docs.microsoft.com/azure/load-balancer/outbound-rules) et les règles d’équilibrage de charge, ces ports SNAT peuvent être distribués aux instances back-end pour leur permettre de partager les IP publiques de l’équilibreur de charge pour les connexions sortantes.
+Avec les [règles de trafic sortant](./outbound-rules.md) et les règles d’équilibrage de charge, ces ports SNAT peuvent être distribués aux instances back-end pour leur permettre de partager les IP publiques de l’équilibreur de charge pour les connexions sortantes.
 
 Quand vous configurez le [scénario 2](#scenario2) ci-dessous, l’hôte de chaque instance back-end effectue la SNAT sur des paquets qui font partie d’une connexion sortante. Quand l’hôte effectue la SNAT sur une connexion sortante à partir d’une instance back-end, il réécrit l’IP source sur l’une des IP front-end. Pour conserver des flux uniques, l’hôte réécrit le port source de chaque paquet sortant sur l’un des ports SNAT alloués à l’instance back-end.
 
@@ -101,7 +101,7 @@ Quand vous configurez le [scénario 2](#scenario2) ci-dessous, l’hôte de cha
  Les ports éphémères de l’adresse IP publique du front-end de l’équilibreur de charge servent à faire la distinction entre les différents flux en provenance de la machine virtuelle. La traduction d’adresses réseau utilise dynamiquement des [ports éphémères préaffectés](#preallocatedports) lors de la création de flux sortants. 
 
 
- Dans ce contexte, les ports éphémères utilisés pour la traduction d’adresses réseau sources sont appelés ports SNAT. Il est fortement recommandé de configurer explicitement une [règle de trafic sortant](https://docs.microsoft.com/azure/load-balancer/outbound-rules). Si vous utilisez la SNAT par défaut par le biais d’une règle d’équilibrage de charge, les ports SNAT sont pré-alloués comme décrit dans le [tableau d’allocation des ports SNAT par défaut](#snatporttable).
+ Dans ce contexte, les ports éphémères utilisés pour la traduction d’adresses réseau sources sont appelés ports SNAT. Il est fortement recommandé de configurer explicitement une [règle de trafic sortant](./outbound-rules.md). Si vous utilisez la SNAT par défaut par le biais d’une règle d’équilibrage de charge, les ports SNAT sont pré-alloués comme décrit dans le [tableau d’allocation des ports SNAT par défaut](#snatporttable).
 
 
  ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Scénario 3 : Machine virtuelle sans adresse IP publique et derrière un équilibreur de charge de base
@@ -109,7 +109,7 @@ Quand vous configurez le [scénario 2](#scenario2) ci-dessous, l’hôte de cha
 
  | Associations | Méthode | Protocoles IP |
  | ------------ | ------ | ------------ |
- |Aucun </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
+ |None </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
 
  #### <a name="description"></a>Description
 
@@ -142,7 +142,7 @@ Sans ports de destination différents pour le trafic de retour (le port SNAT uti
 
 Le nombre de connexions sortantes peut augmenter rapidement. L’instance back-end risque de se retrouver en manque de ports. Si la **réutilisation des connexions** n’est pas activée, le risque d’**épuisement des ports** SNAT augmente.
 
-Un épuisement des ports provoque l’échec des nouvelles connexions sortantes vers une adresse IP de destination. Les connexions sont correctement établies lorsqu’un port est disponible. Cet épuisement se produit lorsque les 64 000 ports à partir d’une adresse IP sont répartis sur de nombreuses instances back-end. Pour obtenir des conseils sur l’atténuation de l’épuisement des ports SNAT, consultez ce [guide de résolution des problèmes](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection).  
+Un épuisement des ports provoque l’échec des nouvelles connexions sortantes vers une adresse IP de destination. Les connexions sont correctement établies lorsqu’un port est disponible. Cet épuisement se produit lorsque les 64 000 ports à partir d’une adresse IP sont répartis sur de nombreuses instances back-end. Pour obtenir des conseils sur l’atténuation de l’épuisement des ports SNAT, consultez ce [guide de résolution des problèmes](./troubleshoot-outbound-connection.md).  
 
 Pour les connexions TCP, l’équilibreur de charge utilise un seul port SNAT pour chaque adresse IP et port de destination. Ce multiusage permet plusieurs connexions à la même adresse IP de destination avec le même port SNAT. Ce multiusage est limité si la connexion ne dirige pas vers différents ports de destination.
 
@@ -194,6 +194,5 @@ Pour plus d’informations sur le service NAT de réseau virtuel Azure, consulte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-*   [Résoudre les échecs de connexion sortante provoqués par l’épuisement des ports SNAT](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
-*   [Passez en revue les métriques SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) et familiarisez-vous avec la méthode appropriée pour les filtrer, les fractionner et les afficher.
-
+*   [Résoudre les échecs de connexion sortante provoqués par l’épuisement des ports SNAT](./troubleshoot-outbound-connection.md)
+*   [Passez en revue les métriques SNAT](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) et familiarisez-vous avec la méthode appropriée pour les filtrer, les fractionner et les afficher.

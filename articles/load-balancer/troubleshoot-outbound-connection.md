@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628993"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696351"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Résolution des problèmes liés aux défaillances des connexions sortantes
 
 Cet article a pour but de fournir des solutions aux problèmes courants liés aux connexions sortantes d’Azure Load Balancer. La plupart des problèmes de connectivité sortante que les clients rencontrent sont dus à une insuffisance de ports SNAT et à l’expiration des délais de connexion, ce qui entraîne une perte de paquets. Cet article décrit les étapes à suivre pour atténuer chacun de ces problèmes.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Gestion de l’insuffisance de ports (PAT) SNAT
-Les [ports éphémères](load-balancer-outbound-connections.md) utilisés pour [PAT](load-balancer-outbound-connections.md) sont une ressource épuisable, comme décrit dans [Machine virtuelle autonome sans adresse IP publique](load-balancer-outbound-connections.md) et [Machine virtuelle à charge équilibrée sans adresse IP publique](load-balancer-outbound-connections.md). Vous pouvez superviser l’utilisation des ports éphémères et la comparer à votre allocation actuelle pour déterminer le niveau de risque, ou pour confirmer l’insuffisance des ports SNAT à l’aide de [ce](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guide.
+Les [ports éphémères](load-balancer-outbound-connections.md) utilisés pour [PAT](load-balancer-outbound-connections.md) sont une ressource épuisable, comme décrit dans [Machine virtuelle autonome sans adresse IP publique](load-balancer-outbound-connections.md) et [Machine virtuelle à charge équilibrée sans adresse IP publique](load-balancer-outbound-connections.md). Vous pouvez superviser l’utilisation des ports éphémères et la comparer à votre allocation actuelle pour déterminer le niveau de risque, ou pour confirmer l’insuffisance des ports SNAT à l’aide de [ce](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guide.
 
 Si vous savez que vous lancez de nombreuses connexions TCP ou UDP sortantes vers les mêmes adresse IP et port de destination et constatez que des connexions sortantes échouent, ou si l’équipe de support vous signale que les ports SNAT ([ports éphémères](load-balancer-outbound-connections.md#preallocatedports) préaffectés) utilisés par la [PAT](load-balancer-outbound-connections.md) arrivent à épuisement, plusieurs options d’atténuation générales s’offrent à vous. Passez en revue ces options et choisissez l’option disponible la plus appropriée pour votre scénario. Plusieurs options peuvent être adaptées à votre scénario.
 
@@ -63,7 +63,7 @@ Par exemple, deux machines virtuelles du pool principal auraient 1024 ports SNAT
 Si vous effectuez un scale-out vers le niveau immédiatement supérieur de taille de pool principal et que l’opération nécessite une réallocation des ports alloués, certaines de vos connexions peuvent expirer.  Si vous utilisez uniquement certains de vos ports SNAT, une telle montée en charge n’affectera pas vos connexions.  La moitié des ports existants seront réaffectés à chaque fois que vous passerez au niveau de pool principal suivant.  Si vous ne voulez pas que cela se produise, vous devez configurer votre déploiement en fonction de la taille de niveau considérée.  Sinon, assurez-vous que votre application peut détecter et effectuer autant de tentatives que nécessaire.  Les conservations de connexion active TCP peuvent contribuer à détecter un dysfonctionnement des ports SNAT suite à une réallocation.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Utiliser des conservations de connexion active pour réinitialiser le délai d’inactivité en sortie
-Les connexions sortantes ont un délai d’inactivité de 4 minutes. Vous pouvez ajuster ce délai d’expiration à l’aide de [règles de trafic sortant](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Vous pouvez également utiliser un transport (par exemple, des conservations de connexion active TCP) ou des conservations de connexion active de couche Application pour actualiser un flux inactif et réinitialiser ce délai d’inactivité, si nécessaire.  
+Les connexions sortantes ont un délai d’inactivité de 4 minutes. Vous pouvez ajuster ce délai d’expiration à l’aide de [règles de trafic sortant](outbound-rules.md). Vous pouvez également utiliser un transport (par exemple, des conservations de connexion active TCP) ou des conservations de connexion active de couche Application pour actualiser un flux inactif et réinitialiser ce délai d’inactivité, si nécessaire.  
 
 Lorsque vous utilisez des conservations de connexion active TCP, il suffit de les activer sur un côté de la connexion. Par exemple, il suffit de les activer sur le côté serveur uniquement pour réinitialiser la minuterie d’inactivité ; il est inutile que les 2 côtés lancent des conservations de connexion active.  Des concepts similaires existent pour la couche d’application, notamment les configurations client-serveur de base de données.  Examinez côté serveur les options de persistance de connexion spécifiques aux applications.
 

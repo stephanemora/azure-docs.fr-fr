@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500247"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696164"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Mettre à niveau l’équilibreur de charge interne Azure – Aucune connexion sortante nécessaire
-[Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](./skus.md#skus).
 
 Cet article présente un script PowerShell qui crée une instance Standard Load Balancer avec la même configuration que le Basic Load Balancer et qui migre le trafic de Basic Load Balancer à Standard Load Balancer.
 
@@ -23,14 +23,14 @@ Cet article présente un script PowerShell qui crée une instance Standard Load 
 
 Un script Azure PowerShell est disponible qui effectue les opérations suivantes :
 
-* Crée un équilibreur de charge de référence SKU interne Standard à l’emplacement que vous spécifiez. Notez qu’aucune [connexion sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) ne sera fournie par l’équilibreur de charge interne Standard.
+* Crée un équilibreur de charge de référence SKU interne Standard à l’emplacement que vous spécifiez. Notez qu’aucune [connexion sortante](./load-balancer-outbound-connections.md) ne sera fournie par l’équilibreur de charge interne Standard.
 * Il copie de façon fluide les configurations de la référence SKU De base de Load Balancer sur l’instance Standard Load Balancer nouvellement créée.
 * Déplacez de façon fluide les adresses IP privées de Basic Load Balancer vers l’instance Standard Load Balancer nouvellement créée.
 * Déplacez de façon fluide les machines virtuelles du pool principal du Basic Load Balancer vers le pool principal du Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Mises en garde/Limitations
 
-* Le script ne prend en charge que la mise à niveau de l’équilibreur de charge interne lorsqu’aucune connexion sortante n’est requise. Si vous avez besoin d’une [connexion sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) pour certaines de vos machines virtuelles, consultez cette [page](upgrade-InternalBasic-To-PublicStandard.md) pour obtenir des instructions. 
+* Le script ne prend en charge que la mise à niveau de l’équilibreur de charge interne lorsqu’aucune connexion sortante n’est requise. Si vous avez besoin d’une [connexion sortante](./load-balancer-outbound-connections.md) pour certaines de vos machines virtuelles, consultez cette [page](upgrade-InternalBasic-To-PublicStandard.md) pour obtenir des instructions. 
 * L’instance Load Balancer de base doit se trouver dans le même groupe de ressources que les machines virtuelles principales et les cartes réseau.
 * Si l’instance Standard Load Balancer est créée dans une autre région, vous ne pouvez pas associer les machines virtuelles existant dans l’ancienne région avec l’instance Standard Load Balancer nouvellement créée. Pour contourner cette limitation, prenez soin de créer la machine virtuelle dans la nouvelle région.
 * Si votre équilibreur de charge ne dispose pas de configuration d’adresse IP front-end ni de pool de back-ends, vous risquez de rencontrer une erreur lors de l’exécution du script. Vérifiez qu’ils ne sont pas vides.

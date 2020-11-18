@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664871"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694957"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -54,7 +54,7 @@ Le diagramme suivant présente un déploiement de réseau virtuel hub-and-spoke.
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Équilibrage de charge d’un grand nombre de ports
 
-Vous pouvez aussi utiliser des ports haute disponibilité pour les applications qui nécessitent l’équilibrage de charge d’un grand nombre de ports. Vous pouvez simplifier ces scénarios à l’aide d’un [équilibreur de charge standard](load-balancer-standard-overview.md) interne avec des ports haute disponibilité. Une seule règle d’équilibrage de charge remplace plusieurs règles individuelles d’équilibrage de charge, une pour chaque port.
+Vous pouvez aussi utiliser des ports haute disponibilité pour les applications qui nécessitent l’équilibrage de charge d’un grand nombre de ports. Vous pouvez simplifier ces scénarios à l’aide d’un [équilibreur de charge standard](./load-balancer-overview.md) interne avec des ports haute disponibilité. Une seule règle d’équilibrage de charge remplace plusieurs règles individuelles d’équilibrage de charge, une pour chaque port.
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
@@ -99,5 +99,4 @@ Vous pouvez configurer *une* ressource Standard Load Balancer publique pour les 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Découvrez comment configurer des ports de haute disponibilité pour votre ILB via le portail](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule) ou des [modèles](quickstart-load-balancer-standard-internal-template.md).
-- [Présentation de la référence Standard d’Azure Load Balancer (préversion)](load-balancer-standard-overview.md)
+- [Présentation de la référence Standard d’Azure Load Balancer (préversion)](load-balancer-overview.md)

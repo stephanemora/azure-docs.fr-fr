@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735922"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696861"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI
 
@@ -51,14 +51,14 @@ Créez et configurez les objets suivants pour déployer un équilibreur de charg
 * **Configuration d’adresses IP frontales** : contient les adresses IP publiques pour le trafic réseau entrant.
 * **Pool d’adresses principales** : contient des interfaces réseau pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
 * **Règles d’équilibrage de charge** : contient des règles qui mappent un port public situé sur l’équilibreur de charge à un port du pool d’adresses principales.
-* **Règles NAT entrantes** : contient des règles de traduction d’adresses réseau (NAT) qui mappent un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
+* **Règles NAT entrantes**: contient des règles de traduction d’adresses réseau (NAT) qui mappent un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
 * **Sondes** : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
 
 ## <a name="set-up-azure-cli"></a>Configuration de l’interface de ligne de commande Azure CLI
 
 Dans cet exemple, vous exécutez les outils Azure CLI dans une fenêtre de commande PowerShell. Pour améliorer la lisibilité et la réutilisation, vous utilisez les fonctionnalités de script de PowerShell et non les cmdlets Azure PowerShell.
 
-1. [Installez et configurez l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en suivant les étapes de l’article lié, puis connectez-vous à votre compte Azure.
+1. [Installez et configurez l’interface Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) en suivant les étapes de l’article lié, puis connectez-vous à votre compte Azure.
 
 2. Configurez des variables PowerShell à utiliser avec les commandes Azure CLI :
 
@@ -122,7 +122,7 @@ Dans cet exemple, vous exécutez les outils Azure CLI dans une fenêtre de comma
     > [!IMPORTANT]
     > L’équilibreur de charge utilise l’étiquette du domaine de l’adresse IP publique en tant que nom de domaine complet (FQDN). Cet usage diffère d’un déploiement classique qui utilise le service cloud en tant que nom de domaine complet de l’équilibrage de charge.
     >
-    > Dans cet exemple, le nom de domaine complet est *contoso09152016.southcentralus.cloudapp.azure.com* .
+    > Dans cet exemple, le nom de domaine complet est *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Créer ds pools frontaux et principaux
 
@@ -284,7 +284,7 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
     ```
 
     > [!WARNING]
-    > Cet exemple utilise le nom d’utilisateur et le mot de passe pour les machines virtuelles, en texte en clair. Prenez les mesures nécessaires lorsque vous utilisez ces informations d’identification en texte en clair. Pour découvrir une méthode plus sécurisée de traitement des informations d’identification dans PowerShell, consultez la cmdlet [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx).
+    > Cet exemple utilise le nom d’utilisateur et le mot de passe pour les machines virtuelles, en texte en clair. Prenez les mesures nécessaires lorsque vous utilisez ces informations d’identification en texte en clair. Pour découvrir une méthode plus sécurisée de traitement des informations d’identification dans PowerShell, consultez la cmdlet [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential).
 
 2. Créez le groupe à haute disponibilité :
 
@@ -299,5 +299,3 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

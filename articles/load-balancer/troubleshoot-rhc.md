@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855246"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696317"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Résoudre les problèmes d’intégrité des ressources, de disponibilité de front-end et de back-end 
 
@@ -52,7 +52,7 @@ Supposons que nous vérifions l’état de la sonde d’intégrité et que nous 
   * Si vous constatez que ce problème de groupe de sécurité réseau est bien le cause, déplacez la règle d’autorisation existante ou créez une règle de haute priorité pour autoriser le trafic AzureLoadBalancer
 * Vérifier le système d’exploitation. Vérifier que les machines virtuelles écoutent le port de la sonde et examiner leurs règles de pare-feu du système d’exploitation pour s’assurer qu’elles ne bloquent pas le trafic de la sonde en provenance de l’adresse IP 168.63.129.16
   * Vous pouvez vérifier les ports d’écoute en exécutant netstat -a à l’invite de commandes Windows ou netstat -l dans un terminal Linux
-* Ne pas placer une machine virtuelle d’appliance virtuelle réseau de pare-feu dans le pool back-end de l’équilibreur de charge, utiliser des [routes définies par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) pour router le trafic vers des instances back-end via le pare-feu
+* Ne pas placer une machine virtuelle d’appliance virtuelle réseau de pare-feu dans le pool back-end de l’équilibreur de charge, utiliser des [routes définies par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md#user-defined) pour router le trafic vers des instances back-end via le pare-feu
 * Vérifier que vous utilisez le bon protocole ; si vous utilisez HTTP pour sonder un port à l’écoute d’une application non HTTP, la sonde échoue
 
 Si, après avoir parcouru cette liste de vérification, vous continuez de trouver des échecs de sonde d’intégrité, il est possible que des problèmes de plateforme rares affectent le service de sondage de vos instances. Dans ce cas, vous pouvez compter sur Azure : une alerte automatisée est envoyée à notre équipe pour résoudre rapidement tous les problèmes de plateforme.
@@ -61,5 +61,3 @@ Si, après avoir parcouru cette liste de vérification, vous continuez de trouve
 
 * [En savoir plus sur la sondes d’intégrité Azure Load Balancer](load-balancer-custom-probe-overview.md)
 * [En savoir plus sur les métriques Azure Load Balancer](load-balancer-standard-diagnostics.md)
-
-

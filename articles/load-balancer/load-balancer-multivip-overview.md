@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448102"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696878"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Serveurs frontaux multiples pour Azure Load Balancer
 
 Azure Load Balancer vous permet d’équilibrer la charge des services sur plusieurs ports, plusieurs adresses IP ou les deux. Vous pouvez utiliser les définitions d’équilibrage de charge public et interne pour charger les flux équilibrés sur un ensemble de machines virtuelles.
 
-Cet article décrit les principes de base de cette capacité, les concepts importants et les contraintes. Si vous souhaitez uniquement exposer des services sur une adresse IP, des instructions simplifiées sont disponibles pour les configurations d’équilibreur de charge [publiques](load-balancer-get-started-internet-portal.md) ou [internes](load-balancer-get-started-ilb-arm-portal.md). Les serveurs frontaux multiples s’ajoutent à une configuration de serveur frontal unique. À l’aide des concepts présentés dans cet article, vous pouvez étendre une configuration simplifiée à tout moment.
+Cet article décrit les principes de base de cette capacité, les concepts importants et les contraintes. Si vous souhaitez uniquement exposer des services sur une adresse IP, des instructions simplifiées sont disponibles pour les configurations d’équilibreur de charge [publiques](./quickstart-load-balancer-standard-public-portal.md) ou [internes](./quickstart-load-balancer-standard-internal-portal.md). Les serveurs frontaux multiples s’ajoutent à une configuration de serveur frontal unique. À l’aide des concepts présentés dans cet article, vous pouvez étendre une configuration simplifiée à tout moment.
 
 Lorsque vous définissez Azure Load Balancer, un serveur frontal et une configuration de pool principal sont connectés à des règles. La sonde d’intégrité référencée par la règle est utilisée pour déterminer comment les nouveaux flux sont envoyés à un nœud du pool principal. Le serveur frontal (adresse IP virtuelle aka) est défini par un élément à 3 tuples comprenant une adresse IP (publique ou interne), un protocole de transport (TCP ou UDP) et un numéro de port issu de la règle de l’équilibrage de charge. Le pool principal est une collection de configurations IP de machines virtuelles (partie de la ressource de la carte réseau) qui font référence au pool principal Load Balancer.
 

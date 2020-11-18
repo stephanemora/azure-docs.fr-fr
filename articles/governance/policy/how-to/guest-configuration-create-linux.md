@@ -4,12 +4,12 @@ description: Découvrez comment créer une stratégie Guest Configuration pour d
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346874"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694240"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -17,7 +17,7 @@ Avant de créer des stratégies personnalisées, lisez les informations de prés
  
 Pour en savoir plus sur la création de stratégies Guest Configuration pour Windows, consultez la page [Créer des stratégies Guest Configuration pour Windows](./guest-configuration-create.md)
 
-Lors de l’audit de Linux, Guest Configuration utilise [Chef InSpec](https://www.inspec.io/). Le profil InSpec définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’ **auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
+Lors de l’audit de Linux, Guest Configuration utilise [Chef InSpec](https://www.inspec.io/). Le profil InSpec définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
 
 La [configuration d’invité Azure Policy](../concepts/guest-configuration.md) peut être utilisée uniquement pour auditer les paramètres à l’intérieur des machines. La correction des paramètres à l’intérieur des machines n’est pas encore disponible.
 
@@ -163,10 +163,10 @@ Les fichiers de prise en charge doivent être regroupés en un package. Le packa
 
 La cmdlet `New-GuestConfigurationPackage` crée le package. Paramètres de la cmdlet `New-GuestConfigurationPackage` lors de la création du contenu Linux :
 
-- **Name**  : Nom du package Guest Configuration.
-- **Configuration**  : Chemin d’accès complet au document de configuration compilé.
-- **Chemin d’accès**  : Chemin d’accès au dossier de sortie. Ce paramètre est facultatif. S’il n’est pas spécifié, le package est créé dans le répertoire actif.
-- **ChefInspecProfilePath**  : Chemin d’accès complet au profil InSpec. Ce paramètre est pris en charge uniquement lors de la création de contenu pour auditer Linux.
+- **Name** : Nom du package Guest Configuration.
+- **Configuration** : Chemin d’accès complet au document de configuration compilé.
+- **Chemin d’accès** : Chemin d’accès au dossier de sortie. Ce paramètre est facultatif. S’il n’est pas spécifié, le package est créé dans le répertoire actif.
+- **ChefInspecProfilePath** : Chemin d’accès complet au profil InSpec. Ce paramètre est pris en charge uniquement lors de la création de contenu pour auditer Linux.
 
 Exécutez la commande suivante pour créer un package à l’aide de la configuration fournie à l’étape précédente :
 
@@ -183,9 +183,9 @@ Après avoir créé le package de configuration et avant de le publier sur Azure
 
 Paramètres de la cmdlet `Test-GuestConfigurationPackage` :
 
-- **Name**  : Nom de la stratégie Guest Configuration.
+- **Name** : Nom de la stratégie Guest Configuration.
 - **Paramètre** : Paramètres de stratégie fournis au format Hashtable.
-- **Chemin d’accès**  : Chemin d’accès complet du package Guest Configuration.
+- **Chemin d’accès** : Chemin d’accès complet du package Guest Configuration.
 
 Exécutez la commande suivante pour tester le package créé par l’étape précédente :
 
@@ -212,10 +212,10 @@ Paramètres de la cmdlet `New-GuestConfigurationPolicy` :
 
 - **ContentUri** : URI http(s) publique du package de contenu Guest Configuration.
 - **DisplayName** : Nom d'affichage de la stratégie.
-- **Description**  : Description de la stratégie.
+- **Description** : Description de la stratégie.
 - **Paramètre** : Paramètres de stratégie fournis au format Hashtable.
-- **Version**  : Version de stratégie.
-- **Chemin d’accès**  : Chemin de destination où les définitions de stratégie sont créées.
+- **Version** : Version de stratégie.
+- **Chemin d’accès** : Chemin de destination où les définitions de stratégie sont créées.
 - **Plateforme** : Plateforme cible (Windows/Linux) pour la stratégie et le package de contenu Guest Configuration.
 - **Tag** ajoute un ou plusieurs filtres de balise à la définition de stratégie
 - **Category** définit le champ de métadonnées catégorie dans la définition de stratégie
@@ -330,8 +330,8 @@ Pour publier une mise à jour de la définition de stratégie, trois champs sont
 > [!NOTE]
 > La propriété `version` de l’affectation de configuration invité n’a d’influence que sur les packages qui sont hébergés par Microsoft. La meilleure pratique pour le contenu personnalisé du contrôle de version consiste à inclure la version dans le nom de fichier.
 
-- **Version**  : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.
-- **contentUri**  : Lorsque vous exécutez la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un URI vers l’emplacement du package. L’inclusion d’une version de package dans le nom de fichier garantit que la valeur de cette propriété change dans chaque version.
+- **Version** : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.
+- **contentUri** : Lorsque vous exécutez la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un URI vers l’emplacement du package. L’inclusion d’une version de package dans le nom de fichier garantit que la valeur de cette propriété change dans chaque version.
 - **contentHash** : Cette propriété est automatiquement mise à jour par l’applet de commande `New-GuestConfigurationPolicy`. Il s’agit d’une valeur de hachage du package créé par `New-GuestConfigurationPackage`. Cette propriété doit être correcte pour le fichier `.zip` que vous publiez. Si seule la propriété **contentUri** est mise à jour, l’extension n’accepte pas le package de contenu.
 
 Le moyen le plus simple de publier un package mis à jour consiste à répéter le processus décrit dans cet article et à fournir un numéro de version mis à jour. Ce processus garantit que toutes les propriétés ont été correctement mises à jour.
@@ -375,7 +375,7 @@ Pour utiliser la fonctionnalité de validation de signature, exécutez la cmdlet
 
 Paramètres de la cmdlet `Protect-GuestConfigurationPackage` :
 
-- **Chemin d’accès**  : Chemin d’accès complet du package Guest Configuration.
+- **Chemin d’accès** : Chemin d’accès complet du package Guest Configuration.
 - **PublicGpgKeyPath** : Chemin d'accès à la clé GPG publique. Ce paramètre est uniquement pris en charge lors de la signature de contenu pour Linux.
 
 Vous trouverez une bonne référence de création de clés GPG à utiliser avec les machines Linux dans cet article sur GitHub, [Génération d’une clé GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
@@ -384,12 +384,6 @@ L’agent GuestConfiguration s’attend à trouver la clé publique du certifica
 La stratégie d’accès Key Vault doit autoriser le fournisseur de ressources de calcul à accéder aux certificats lors des déploiements. Pour les étapes détaillées, consultez [Configurer Key Vault pour des machines virtuelles dans Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Une fois votre contenu publié, ajoutez une balise nommée `GuestConfigPolicyCertificateValidation` et avec une valeur `enabled` à toutes les machines virtuelles où la signature du code doit être requise. Pour plus d'informations sur la façon dont les balises peuvent être délivrées à grande échelle à l'aide d'Azure Policy, consultez les [Exemples de balises](../samples/built-in-policies.md#tags). Une fois cette balise en place, la définition de stratégie générée via la cmdlet `New-GuestConfigurationPolicy` met en œuvre l’exigence via l’extension Guest Configuration.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Résolution des problèmes liés aux attributions de stratégie Guest Configuration (préversion)
-
-Un outil est disponible en préversion pour favoriser la résolution des problèmes liés aux attributions de configuration d’invité Azure Policy. L’outil est en préversion et a été publié sur PowerShell Gallery avec le nom de module [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Pour plus d’informations sur les applets de commande de cet outil, utilisez la commande Get-Help dans PowerShell pour afficher les conseils intégrés. Comme l’outil fait l’objet de mises à jour fréquentes, c’est la meilleure façon d’obtenir les informations les plus récentes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

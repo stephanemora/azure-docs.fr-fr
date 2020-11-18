@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809348"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696181"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Mettre à niveau l’équilibreur de charge public Azure
-[Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](./skus.md#skus).
 
 Une mise à niveau comprend trois phases :
 
@@ -34,7 +34,7 @@ Un script Azure PowerShell est disponible qui effectue les opérations suivantes
 
 ### <a name="caveatslimitations"></a>Mises en garde/Limitations
 
-* Le script prend en charge la mise à niveau de Public Load Balancer uniquement. Pour plus d’informations sur la mise à niveau du Basic Load Balancer interne et pour obtenir des instructions, consultez [cette page](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard).
+* Le script prend en charge la mise à niveau de Public Load Balancer uniquement. Pour plus d’informations sur la mise à niveau du Basic Load Balancer interne et pour obtenir des instructions, consultez [cette page](./upgrade-basicinternal-standard.md).
 * Standard Load Balancer dispose d’une nouvelle adresse publique. Il est impossible de déplacer de façon fluide les adresses IP associées à l’instance Basic Load Balancer existante vers Standard Load Balancer, car il s’agit de deux références SKU différentes.
 * Si l’instance Standard Load Balancer est créée dans une autre région, vous ne pouvez pas associer les machines virtuelles existant dans l’ancienne région avec l’instance Standard Load Balancer nouvellement créée. Pour contourner cette limitation, prenez soin de créer la machine virtuelle dans la nouvelle région.
 * Si votre équilibreur de charge ne dispose pas de configuration d’adresse IP front-end ni de pool de back-ends, vous risquez de rencontrer une erreur lors de l’exécution du script. Assurez-vous qu’ils ne sont pas vides.
@@ -108,11 +108,11 @@ Voici quelques scénarios illustrant la façon d’ajouter des machines virtuell
     >Pour les machines virtuelles avec des adresses IP publiques, vous devez d’abord créer des adresses IP standard là où la même adresse IP n’est pas garantie. Dissociez les machines virtuelles des adresses IP de base et associez-les aux adresses IP standard nouvellement créées. Vous êtes alors en mesure de suivre les instructions permettant d’ajouter des machines virtuelles au pool de back-ends de Standard Load Balancer. 
 
 * **Création de machines virtuelles à ajouter aux pools de back-ends de l’instance Standard Load Balancer publique nouvellement créée**.
-    * Des instructions supplémentaires sur la création d’une machine virtuelle et son association à Standard Load Balancer sont disponibles [ici](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * Des instructions supplémentaires sur la création d’une machine virtuelle et son association à Standard Load Balancer sont disponibles [ici](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Créer une règle de trafic sortant pour une connexion sortante
 
-Suivez les [instructions](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) pour créer une règle de trafic sortant afin de pouvoir
+Suivez les [instructions](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) pour créer une règle de trafic sortant afin de pouvoir
 * définir la NAT de trafic sortant à partir de zéro ;
 * mettre à l’échelle et adapter le comportement de la NAT de trafic sortant.
 
