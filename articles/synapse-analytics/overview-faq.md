@@ -2,19 +2,19 @@
 title: FAQ - Azure Synapse Analytics (espaces de travail, préversion)
 description: FAQ pour Azure Synapse Analytics (espaces de travail, préversion)
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7e8ea231dd6db9eab6cf9115f6ce2e62893371a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 530ebe09ee0ca44b0a5fbd4b8da2784e2c7ae7ea
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305410"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843891"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Questions fréquentes sur Azure Synapse Analytics (espace de travail, préversion)
 
@@ -101,8 +101,6 @@ A : Oui, vous pouvez utiliser vos applications métier tierces, telles que Tabl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un espace de travail](quickstart-create-workspace.md)
-- [Utiliser Synapse Studio](quickstart-synapse-studio.md)
-- [Créer un pool SQL dédié](quickstart-create-sql-pool-portal.md)
-- [Utiliser un pool SQL serverless](quickstart-sql-on-demand.md)
-- [Créer un pool Apache Spark serverless](quickstart-create-apache-spark-pool-portal.md) 
+* [Bien démarrer avec Azure Synapse Analytics](get-started.md)
+* [Créer un espace de travail](quickstart-create-workspace.md)
+* [Utiliser un pool SQL serverless](quickstart-sql-on-demand.md)

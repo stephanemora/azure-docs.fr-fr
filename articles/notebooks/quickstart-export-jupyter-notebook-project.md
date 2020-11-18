@@ -3,12 +3,12 @@ title: Exporter un projet Jupyter Notebook à partir de la préversion Azure Not
 description: Exportez rapidement un projet Jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: ea16bd61b542217fb6f2d5ba1d926a0bc19d4cce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030444"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844418"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Exporter un projet Jupyter Notebook dans la préversion Azure Notebooks
 
@@ -79,7 +79,7 @@ Azure Machine Learning fournit une plateforme de machine learning de bout en bou
 1. À l’aide de la barre de navigation de gauche, sélectionnez **Notebooks**.
 1. Cliquez sur le bouton **Charger les fichiers** et chargez les fichiers projet que vous avez téléchargés à partir d’Azure Notebooks.
 
-Pour plus d’informations sur Azure ML et l’exécution de notebooks Jupyter, vous pouvez consulter la [documentation](../machine-learning/how-to-run-jupyter-notebooks.md) ou essayer le module [Présentation d’Azure Machine Learning](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) sur Microsoft Learn.
+Pour plus d’informations sur Azure ML et l’exécution de notebooks Jupyter, vous pouvez consulter la [documentation](../machine-learning/how-to-run-jupyter-notebooks.md) ou essayer le module [Présentation d’Azure Machine Learning](/learn/modules/intro-to-azure-machine-learning-service/) sur Microsoft Learn.
 
 
 ## <a name="use-azure-lab-services"></a>Utiliser Azure Lab Services

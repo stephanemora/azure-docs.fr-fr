@@ -5,15 +5,15 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: cavoeg
 ms.date: 10/06/2020
-ms.openlocfilehash: c04bb82810bf55d6ac55b2697f5010896e0eb9b4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0cc31c26a71775dfdf3e9ee94852fda8af2c0cfc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289292"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844537"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Démarrage rapide : Utiliser un modèle ARM pour déployer l’API Azure pour FHIR
 
@@ -71,15 +71,15 @@ Sélectionnez le lien suivant afin de déployer l’API Azure pour FHIR en utili
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
-Dans la page **Déployer l’API Azure pour FHIR**  :
+Dans la page **Déployer l’API Azure pour FHIR** :
 
 1. Si vous le souhaitez, remplacez la valeur par défaut de **Abonnement** par un autre abonnement.
 
-2. Pour **Groupe de ressources** , sélectionnez **Créer** , entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
+2. Pour **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
 
 3. Si vous avez créé un groupe de ressources, sélectionnez une **Région** pour le groupe de ressources.
 
-4. Entrez un nouveau **Nom du service** et choisissez l’ **Emplacement** de l’API Azure pour FHIR. L’emplacement peut être identique ou différent de la région du groupe de ressources.
+4. Entrez un nouveau **Nom du service** et choisissez l’**Emplacement** de l’API Azure pour FHIR. L’emplacement peut être identique ou différent de la région du groupe de ressources.
 
     :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Déployez l’API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure.":::
 

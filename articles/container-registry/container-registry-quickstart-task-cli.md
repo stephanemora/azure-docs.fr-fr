@@ -3,13 +3,13 @@ title: 'Démarrage rapide : créer une image conteneur à la demande dans Azure
 description: Utilisez les commandes Azure Container Registry pour générer, envoyer (push) et exécuter rapidement une image conteneur Docker à la demande, dans le cloud Azure.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 1b4dcc05747ceae52c649c366c3faf437e77b560
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: adb63b716172c979ca31f1ef70bf1523ff1ad5cc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098907"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845048"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks
 
@@ -42,7 +42,7 @@ az acr create --resource-group myResourceGroup \
   --name myContainerRegistry008 --sku Basic
 ```
 
-Cet exemple crée un registre *De base* , option économique pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles, consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
+Cet exemple crée un registre *De base*, option économique pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles, consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Générer et envoyer (push) une image à partir d’un Dockerfile
 

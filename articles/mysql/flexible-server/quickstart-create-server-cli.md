@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un serveur - Azure CLI - Azure Database pour MySQL - Serveur flexible'
 description: Ce guide de démarrage rapide explique comment utiliser l'interface Azure CLI pour créer un serveur flexible Azure Database pour MySQL dans un groupe de ressources Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 4be295ada476e4dc41a86d06908ef1d653a3bad8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 65cc3d2fdcbdea934e80a5f0012ca4f3da157ca3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545019"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843432"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Démarrage rapide : Créer un serveur flexible Azure Database pour MySQL à l'aide d'Azure CLI
 
@@ -32,13 +32,13 @@ Si vous préférez installer et utiliser l'interface de ligne de commande locale
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id** , qui fait référence à l’ **ID d’abonnement** pour votre compte Azure.
+Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **id** issue de la commande **az login**  ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **id** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -107,7 +107,7 @@ Pour vous connecter à votre serveur, vous devez fournir des informations sur l�
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin** . Voici un exemple de sortie JSON : 
+Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** et **administratorLogin**. Voici un exemple de sortie JSON : 
 
 ```json
 {
