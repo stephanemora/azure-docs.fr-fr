@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413001"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653417"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -50,7 +50,7 @@ Pare-feu Azure prend en charge le filtrage du trafic entrant et sortant. La prot
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quels sont les services de journalisation et d’analyse pris en charge par Pare-feu d’Azure ?
 
-Pare-feu Azure est intégré à Azure Monitor pour la consultation et l’analyse des journaux d’activité de Pare-feu. Les journaux d’activité peuvent être envoyés à Log Analytics, Stockage Azure ou Event Hubs. Ils peuvent être analysés dans Log Analytics ou par d’autres outils comme Excel et Power BI. Pour plus d’informations, consultez [Didacticiel : Surveiller les journaux d’activité de pare-feu Azure](tutorial-diagnostics.md).
+Pare-feu Azure est intégré à Azure Monitor pour la consultation et l’analyse des journaux d’activité de Pare-feu. Les journaux d’activité peuvent être envoyés à Log Analytics, Stockage Azure ou Event Hubs. Ils peuvent être analysés dans Log Analytics ou par d’autres outils comme Excel et Power BI. Pour plus d’informations, consultez [Didacticiel : Surveiller les journaux d’activité de pare-feu Azure](./firewall-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>En quoi Pare-feu Azure fonctionne-t-il différemment des services existants comme les appliances virtuelles réseau sur la Place de marché ?
 
@@ -217,7 +217,7 @@ Non, le déplacement d’un groupe IP vers un autre groupe de ressources n’est
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Quel est le délai d’inactivité TCP pour le pare-feu Azure ?
 
-Le comportement standard d’un pare-feu réseau consiste à garantir que les connexions TCP restent actives et à les fermer rapidement en l’absence d’activité. Le délai d’inactivité TCP du pare-feu Azure est de quatre minutes. Ce paramètre n’est pas configurable. Si une période d’inactivité est supérieure à la valeur de délai d’expiration, le maintien de la session TCP ou HTTP n’est pas garanti. Une pratique courante consiste à utiliser TCP keep-alive. Cela permet de maintenir la connexion active pendant une période plus longue. Pour plus d’informations, consultez ces [exemples .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+Le comportement standard d’un pare-feu réseau consiste à garantir que les connexions TCP restent actives et à les fermer rapidement en l’absence d’activité. Le délai d’inactivité TCP du pare-feu Azure est de quatre minutes. Ce paramètre n’est pas configurable. Si une période d’inactivité est supérieure à la valeur de délai d’expiration, le maintien de la session TCP ou HTTP n’est pas garanti. Une pratique courante consiste à utiliser TCP keep-alive. Cela permet de maintenir la connexion active pendant une période plus longue. Pour plus d’informations, consultez ces [exemples .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Puis-je déployer un pare-feu Azure sans adresse IP publique ?
 

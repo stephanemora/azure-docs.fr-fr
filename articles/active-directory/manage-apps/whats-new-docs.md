@@ -9,13 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-services: active-directory
-ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422601"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654007"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
@@ -71,7 +70,7 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 - [Qu’est-ce que l’authentification unique ?](what-is-single-sign-on.md)
 - [Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.](manage-application-permissions.md)
 - [Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)](add-application-portal-configure.md)
-- [Automatiser la configuration de l’application basée sur l’authentification unique SAML avec l’API Microsoft Graph](application-saml-sso-configure-api.md)
+- [Automatiser la configuration de l’application basée sur l’authentification unique SAML avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>Juillet 2020
