@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a193fdf82ed5e9a785c6c01db4931fb05e9aaac7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 58c07654c174f5b94512574cb4c279d35897dc71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205742"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701940"
 ---
 # <a name="sky-reflections"></a>Reflets du ciel
 
@@ -146,4 +146,3 @@ Azure Remote Rendering fournit quelques cartes d’environnement intégrées qui
 * [Lumières](../../overview/features/lights.md)
 * [Matériaux](../../concepts/materials.md)
 * [Textures](../../concepts/textures.md)
-* [L’outil en ligne de commande TexConv](../../resources/tools/tex-conv.md)

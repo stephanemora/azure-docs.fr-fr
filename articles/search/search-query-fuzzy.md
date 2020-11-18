@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934886"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701583"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Recherche approximative pour corriger les fautes d’orthographe et de frappe
 
@@ -73,7 +73,7 @@ Dans Recherche cognitive Azure, en plus du terme et de la distance (maximum 2), 
 
 ## <a name="testing-fuzzy-search"></a>Test de la recherche approximative
 
-Pour les tests simples, nous vous recommandons d’utiliser l’[Explorateur de recherche](search-explorer.md) ou [Postman](search-get-started-postman.md) afin d’effectuer une itération au sein d’une expression de requête. Les deux outils sont interactifs, ce qui signifie que vous pouvez rapidement parcourir plusieurs variantes d’un terme et évaluer les réponses retournées.
+Pour les tests simples, nous vous recommandons d’utiliser l’[Explorateur de recherche](search-explorer.md) ou [Postman](search-get-started-rest.md) afin d’effectuer une itération au sein d’une expression de requête. Les deux outils sont interactifs, ce qui signifie que vous pouvez rapidement parcourir plusieurs variantes d’un terme et évaluer les réponses retournées.
 
 Quand les résultats sont ambigus, la [mise en surbrillance des correspondances](search-pagination-page-layout.md#hit-highlighting) peut vous aider à identifier la correspondance dans la réponse. 
 

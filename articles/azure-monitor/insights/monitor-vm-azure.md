@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491628"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738099"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervision de machines virtuelles Azure avec Azure Monitor
 Cet article explique comment utiliser Azure Monitor pour collecter et analyser des données de supervision sur des machines virtuelles Azure pour maintenir leur intégrité. Les machines virtuelles peuvent être supervisées pour vérifier leur disponibilité et leurs performances avec Azure Monitor comme n’importe quelle [autre ressource Azure](monitor-azure-resource.md), mais elles se distinguent des autres ressources, car vous devez également superviser le système d’exploitation invité et les charges de travail qui y sont exécutées. 
@@ -170,7 +170,7 @@ Azure Monitor pour machines virtuelles active la collecte d’un ensemble préd�
 
 
 > [!NOTE]
-> Les données de performances collectées par l’agent Log Analytics sont écrites dans la table *Perf* , tandis qu’Azure Monitor pour machines virtuelles les collecte dans la table *InsightsMetrics*. Il s’agit des mêmes données, mais les tables ont une structure différente. Si vous avez des requêtes basées sur *Perf* , elles doivent être réécrites pour utiliser *InsightsMetrics*.
+> Les données de performances collectées par l’agent Log Analytics sont écrites dans la table *Perf*, tandis qu’Azure Monitor pour machines virtuelles les collecte dans la table *InsightsMetrics*. Il s’agit des mêmes données, mais les tables ont une structure différente. Si vous avez des requêtes basées sur *Perf*, elles doivent être réécrites pour utiliser *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Alertes
@@ -207,7 +207,7 @@ Par exemple, pour créer une alerte qui vérifie si des machines virtuelles dans
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Pour créer une alerte si un nombre excessif d’échecs d’ouverture de sessio
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084016"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734563"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Le démarrage de la machine virtuelle Azure est bloqué au niveau de la mise à jour de Windows
 
@@ -80,4 +80,4 @@ En fonction du nombre de mises à jour qui sont installées ou annulées, le pro
     > [!NOTE] 
     > Selon la taille du package, l’outil DISM prend un certain temps pour traiter la désinstallation. Normalement, le processus est terminé en 16 minutes.
 
-7. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Ensuite, vérifiez que le problème est résolu.
+7. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk). Ensuite, vérifiez que le problème est résolu.
