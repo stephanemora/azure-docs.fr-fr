@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fffb52e333bea1b2be11b127a9eab6656dc1d1f5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311868"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740326"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Acquisition de données et phase de présentation du processus Team Data science Process
 
@@ -48,9 +48,7 @@ Trois tâches principales sont traitées dans cette phase :
 Configurez le processus permettant de déplacer les données des emplacements sources vers les emplacements cibles où vous devez exécuter les opérations d’analyse telles que l’apprentissage et les prédictions. Pour connaître les détails techniques et les options relatifs au déplacement des données avec plusieurs services de données Azure, consultez [Charger des données dans des environnements de stockage à des fins d’analyse](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Exploration des données
-Avant de former vos modèles, vous devez développer une parfaite compréhension des données. Les jeux de données réels sont souvent parasités, ne contiennent pas certaines valeurs ou comportent une multitude d’autres anomalies. Vous pouvez utiliser la visualisation et la synthèse des données pour auditer la qualité de vos données et fournir les informations nécessaires pour traiter les données en vue de leur modélisation. Ce processus est souvent itératif.
-
-Le processus TDSP fournit un utilitaire automatisé appelé [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), qui aide à visualiser les données et à préparer des rapports de synthèse de données. Nous vous recommandons de commencer par IDEAR pour explorer les données afin de développer une compréhension initiale des données de manière interactive sans codage. Vous pouvez ensuite écrire du code personnalisé pour l’exploration et la visualisation des données. Pour obtenir de l’aide sur le nettoyage des données, consultez [Tâches de préparation des données pour l’apprentissage automatique amélioré](prepare-data.md).  
+Avant de former vos modèles, vous devez développer une parfaite compréhension des données. Les jeux de données réels sont souvent parasités, ne contiennent pas certaines valeurs ou comportent une multitude d’autres anomalies. Vous pouvez utiliser la visualisation et la synthèse des données pour auditer la qualité de vos données et fournir les informations nécessaires pour traiter les données en vue de leur modélisation. Ce processus est souvent itératif. Pour obtenir de l’aide sur le nettoyage des données, consultez [Tâches de préparation des données pour l’apprentissage automatique amélioré](prepare-data.md).  
 
 Une fois que vous êtes satisfait de la qualité des données nettoyées, l’étape suivante consiste à mieux comprendre les modèles inhérents aux données. Cette analyse des données vous permet de choisir et de développer un modèle prédictif approprié pour votre cible. Recherchez la preuve indiquant à quel point les données sont bien appropriées à la cible. Déterminez ensuite s’il existe des données suffisantes pour passer aux étapes de modélisation suivantes. Là encore, ce processus est souvent itératif. Vous devrez peut-être rechercher de nouvelles sources de données avec des données plus précises ou mieux appropriées pour compléter le jeu de données identifié au cours de la phase précédente. 
 
@@ -66,7 +64,7 @@ Dans cette étape, vous développez une architecture de la solution du pipeline 
 ## <a name="artifacts"></a>Artefacts
 Voici les livrables de cette phase :
 
-   * [Rapport de qualité des données](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md) : ce rapport contient des synthèses de données, les relations entre chaque attribut et cible, le classement des variables, etc. L’outil [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fourni dans le cadre du processus TDSP permet de générer rapidement ce rapport sur n’importe quel jeu de données tabulaire tel qu’un fichier CSV ou une table relationnelle. 
+   * [Rapport de qualité des données](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md) : ce rapport contient des synthèses de données, les relations entre chaque attribut et cible, le classement des variables, etc. 
    * **Architecture de la solution** : il peut s’agir d’un diagramme ou d’une description de votre pipeline de données que vous utilisez pour exécuter une évaluation ou des prédictions sur de nouvelles données une fois que vous avez créé un modèle. Elle contient également le pipeline avec lequel former le modèle en fonction des nouvelles données. Stockez le document dans le répertoire [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quand vous utilisez le modèle de structure de répertoire TDSP.
    * **Décision de point de contrôle** : avant de procéder à l’ingénierie des caractéristiques et à la modélisation complètes, vous pouvez réévaluer le projet afin de déterminer si cela vaut la peine de le poursuivre. Vous pouvez, par exemple, être en mesure de continuer, avoir besoin de collecter des données supplémentaires ou abandonner le projet s’il n’existe pas de données permettant de répondre à la question.
 

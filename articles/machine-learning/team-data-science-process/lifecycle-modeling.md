@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305621"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740179"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Phase de modélisation du cycle de vie du processus TDSP (Team Data Science Process)
 
@@ -42,7 +42,7 @@ Voici une représentation visuelle du cycle de vie TDSP :
 Trois tâches principales sont traitées dans cette phase :
 
   * **Ingénierie des caractéristiques** : Créez des caractéristiques de données à partir des données brutes pour faciliter l’apprentissage du modèle.
-  * **Apprentissage du modèle**  : Recherchez le modèle qui répond le plus précisément à la question en comparant leurs mesures de réussite.
+  * **Apprentissage du modèle** : Recherchez le modèle qui répond le plus précisément à la question en comparant leurs mesures de réussite.
   * Déterminez si votre modèle est **approprié pour la production**.
 
 ### <a name="feature-engineering"></a>Ingénierie des caractéristiques
@@ -59,15 +59,13 @@ Le processus d’apprentissage du modèle comprend les étapes suivantes :
 
    * **Fractionner les données d’entrée** de manière aléatoire en vue d’une modélisation dans un jeu de données d’apprentissage et un jeu de données de test.
    * **Créer les modèles** à l’aide du jeu de données d’apprentissage.
-   * **Évaluer** l’apprentissage et le jeu de données de test. Utiliser une série d’algorithmes d’apprentissage automatique concurrents, ainsi que les divers paramètres associés ( *balayage de paramètres* ), destinés à répondre à la question digne d’intérêt avec les données actuelles.
+   * **Évaluer** l’apprentissage et le jeu de données de test. Utiliser une série d’algorithmes d’apprentissage automatique concurrents, ainsi que les divers paramètres associés (*balayage de paramètres*), destinés à répondre à la question digne d’intérêt avec les données actuelles.
    * **Déterminer la solution « optimale »** pour répondre à la question en comparant les mesures de réussite entre différentes méthodes.
 
 > [!NOTE]
-> **Éviter la fuite**  : Une fuite de données peut avoir lieu si vous incluez des données extérieures au jeu de données d’apprentissage, qui permet à un modèle ou à un algorithme d’apprentissage automatique d’effectuer des prédictions anormalement correctes. La nervosité qui gagne les scientifiques de données quand ils obtiennent des résultats prédictifs semblant trop beaux pour être vrais est souvent liée à une fuite. Ces dépendances peuvent être difficiles à détecter. Pour éviter toute fuite, il est souvent nécessaire de jongler entre la création d’un jeu de données d’analyse, la création d’un modèle et l’évaluation de la précision des résultats. 
+> **Éviter la fuite** : Une fuite de données peut avoir lieu si vous incluez des données extérieures au jeu de données d’apprentissage, qui permet à un modèle ou à un algorithme d’apprentissage automatique d’effectuer des prédictions anormalement correctes. La nervosité qui gagne les scientifiques de données quand ils obtiennent des résultats prédictifs semblant trop beaux pour être vrais est souvent liée à une fuite. Ces dépendances peuvent être difficiles à détecter. Pour éviter toute fuite, il est souvent nécessaire de jongler entre la création d’un jeu de données d’analyse, la création d’un modèle et l’évaluation de la précision des résultats. 
 > 
 > 
-
-Nous fournissons avec le processus TDSP un [outil de modélisation et de création de rapports automatisé](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) capable d’exécuter plusieurs algorithmes et balayages de paramètres pour produire un modèle de référence. Il génère également un rapport de modélisation de base qui résume les performances de chaque combinaison de modèle et de paramètre, y compris l’importance des variables. Ce processus est également itératif, car il peut influer sur l’ingénierie des caractéristiques. 
 
 ## <a name="artifacts"></a>Artefacts
 Les artefacts générés au cours de cette phase sont les suivants :

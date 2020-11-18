@@ -3,12 +3,12 @@ title: Automatiser Azure Application Insights avec PowerShell | Microsoft Docs
 description: Automatisez la création et la gestion des ressources, des alertes et des tests de disponibilité dans PowerShell à l’aide d’un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ed537a8fa6622756e7bcddceb6e9321cfbd82e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760901"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741074"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gérer les ressources Application Insights à l’aide de PowerShell
 
@@ -431,7 +431,6 @@ Pour automatiser la création de toute autre ressource de tout type, créez un e
    
     Chaque test web étant associé à une règle d’alerte, vous devez copier les deux.
    
-    Vous pouvez également inclure des alertes sur des métriques. [Noms de métriques](powershell-alerts.md#metric-names).
 5. Insérez cette ligne dans chaque ressource :
    
     `"apiVersion": "2015-05-01",`
@@ -470,8 +469,7 @@ Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de 
 Autres articles sur l’automation :
 
 * [Création d'une ressource Application Insights](./create-new-resource.md#creating-a-resource-automatically) - méthode rapide sans utiliser de modèle.
-* [Configurer des alertes](powershell-alerts.md)
-* [Créer des tests web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Créer des tests web](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-alerts-metric#availability-test-with-metric-alert)
 * [Envoyer des diagnostics Azure vers Application Insights.](powershell-azure-diagnostics.md)
 * [Créer des annotations de version](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

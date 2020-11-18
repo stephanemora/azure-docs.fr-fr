@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321216"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740224"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tâches du responsable de groupe Team Data Science Process
 
@@ -43,7 +43,7 @@ Le tutoriel suivant présente en détail les différentes étapes.
    
    ![Connexion à votre compte Microsoft](./media/group-manager-tasks/signinvs.png)
    
-   Si vous n’avez pas de compte Microsoft, sélectionnez **Inscrivez-vous maintenant** , créez un compte Microsoft, puis connectez-vous en utilisant ce compte. Si votre organisation dispose d’un abonnement Visual Studio, connectez-vous avec les informations d’identification de cet abonnement.
+   Si vous n’avez pas de compte Microsoft, sélectionnez **Inscrivez-vous maintenant**, créez un compte Microsoft, puis connectez-vous en utilisant ce compte. Si votre organisation dispose d’un abonnement Visual Studio, connectez-vous avec les informations d’identification de cet abonnement.
    
 1. Une fois que vous êtes connecté, en haut à droite de la page Azure DevOps, sélectionnez **Créer l’organisation**.
    
@@ -53,7 +53,7 @@ Le tutoriel suivant présente en détail les différentes étapes.
    
 1. Dans la boîte de dialogue d’inscription, attribuez un nom à votre organisation Azure DevOps et acceptez l’attribution de la région hôte, ou déroulez la liste et sélectionnez une autre région. Sélectionnez **Continuer**. 
 
-1. Sous **Pour commencer, créez un projet** , entrez *GroupCommon* , puis sélectionnez **Créer un projet**. 
+1. Sous **Pour commencer, créez un projet**, entrez *GroupCommon*, puis sélectionnez **Créer un projet**. 
    
    ![Créer un projet](./media/group-manager-tasks/create-project.png)
 
@@ -65,9 +65,9 @@ La page **Résumé** du projet **GroupCommon** s’ouvre. L’URL de la page est
 
 Azure Repos permet à votre groupe d’héberger les types de dépôt suivants :
 
-- **Dépôts communs du groupe**  : dépôts à usage général que plusieurs équipes d’une même division Science des données peuvent adopter pour divers projets de science des données. 
-- **Dépôts d’équipe**  :  dépôts pour des équipes spécifiques au sein d’une division Science des données. Ces dépôts varient en fonction des besoins d’une équipe et peuvent servir à divers projets au sein d’une même équipe, mais ils ne sont pas suffisamment généraux pour servir à plusieurs équipes au sein d’une division Science des données.
-- **Dépôts de projet**  : dépôts pour des projets spécifiques. Ces dépôts peuvent ne pas être suffisamment généraux pour servir à plusieurs projets au sein d’une équipe ou à d’autres équipes au sein d’une division Science des données.
+- **Dépôts communs du groupe** : dépôts à usage général que plusieurs équipes d’une même division Science des données peuvent adopter pour divers projets de science des données. 
+- **Dépôts d’équipe** :  dépôts pour des équipes spécifiques au sein d’une division Science des données. Ces dépôts varient en fonction des besoins d’une équipe et peuvent servir à divers projets au sein d’une même équipe, mais ils ne sont pas suffisamment généraux pour servir à plusieurs équipes au sein d’une division Science des données.
+- **Dépôts de projet** : dépôts pour des projets spécifiques. Ces dépôts peuvent ne pas être suffisamment généraux pour servir à plusieurs projets au sein d’une équipe ou à d’autres équipes au sein d’une division Science des données.
 
 Pour créer les dépôts communs de groupe dans votre projet, vous devez : 
 - Renommer le dépôt par défaut **GroupCommon** **GroupProjectTemplate**
@@ -75,37 +75,37 @@ Pour créer les dépôts communs de groupe dans votre projet, vous devez :
 
 ### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Renommer le dépôt de projet par défaut GroupProjectTemplate
 
-Pour renommer le dépôt de projet par défaut **GroupCommon** **GroupProjectTemplate**  :
+Pour renommer le dépôt de projet par défaut **GroupCommon** **GroupProjectTemplate** :
 
-1. Dans la page **Résumé** du projet **GroupCommon** , sélectionnez **Dépôts**. Cette action vous dirige vers le dépôt par défaut **GroupCommon** du projet GroupCommon, qui est actuellement vide.
+1. Dans la page **Résumé** du projet **GroupCommon**, sélectionnez **Dépôts**. Cette action vous dirige vers le dépôt par défaut **GroupCommon** du projet GroupCommon, qui est actuellement vide.
    
-1. En haut de la page, cliquez sur la flèche en regard de **GroupCommon** , puis sélectionnez **Gérer les dépôts** dans le menu déroulant.
+1. En haut de la page, cliquez sur la flèche en regard de **GroupCommon**, puis sélectionnez **Gérer les dépôts** dans le menu déroulant.
    
    ![Gérer les dépôts](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
    
-1. Dans la page **Paramètres du projet** , sélectionnez **...** en regard de **GroupCommon** , puis **Renommer le dépôt**. 
+1. Dans la page **Paramètres du projet**, sélectionnez **...** en regard de **GroupCommon**, puis **Renommer le dépôt**. 
    
    ![Sélectionner ... puis Renommer le dépôt](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
    
-1. Dans la fenêtre contextuelle **Renommer le dépôt GroupCommon** , entrez *GroupProjectTemplate* , puis sélectionnez **Renommer**. 
+1. Dans la fenêtre contextuelle **Renommer le dépôt GroupCommon**, entrez *GroupProjectTemplate*, puis sélectionnez **Renommer**. 
    
    ![Renommer le dépôt](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
 ### <a name="create-the-grouputilities-repository"></a>Créer le dépôt GroupUtilities
 
-Pour créer le dépôt **GroupUtilities**  :
+Pour créer le dépôt **GroupUtilities** :
 
-1. Dans la page **Résumé** du projet **GroupCommon** , sélectionnez **Dépôts**. 
+1. Dans la page **Résumé** du projet **GroupCommon**, sélectionnez **Dépôts**. 
    
-1. En haut de la page, cliquez sur la flèche en regard de **GroupProjectTemplate** , puis sélectionnez **Nouveau dépôt** dans le menu déroulant.
+1. En haut de la page, cliquez sur la flèche en regard de **GroupProjectTemplate**, puis sélectionnez **Nouveau dépôt** dans le menu déroulant.
    
    ![Sélectionner Nouveau dépôt](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. Dans la boîte de dialogue **Créer un dépôt** , sélectionnez **Git** en guise de **Type** , entrez *GroupUtilities* pour **Nom du dépôt** , puis sélectionnez **Créer**.
+1. Dans la boîte de dialogue **Créer un dépôt**, sélectionnez **Git** en guise de **Type**, entrez *GroupUtilities* pour **Nom du dépôt**, puis sélectionnez **Créer**.
    
    ![Créer le dépôt GroupUtilities](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
-1. Dans la page **Paramètres du projet** , sélectionnez **Dépôts** en dessous de **Dépôts** dans le volet de navigation gauche pour afficher les deux dépôts du groupe : **GroupProjectTemplate** et **GroupUtilities**.
+1. Dans la page **Paramètres du projet**, sélectionnez **Dépôts** en dessous de **Dépôts** dans le volet de navigation gauche pour afficher les deux dépôts du groupe : **GroupProjectTemplate** et **GroupUtilities**.
    
    ![Les deux dépôts du groupe](./media/group-manager-tasks/two-repositories.png)
 
@@ -115,19 +115,17 @@ Dans cette partie du tutoriel, vous allez importer le contenu des dépôts **Pro
 
 Pour importer les dépôts de l’équipe TDSP :
 
-1. Dans la page d’accueil du projet **GroupCommon** , sélectionnez **Dépôts** dans le volet de navigation gauche. Le dépôt par défaut **GroupProjectTemplate** s’ouvre. 
+1. Dans la page d’accueil du projet **GroupCommon**, sélectionnez **Dépôts** dans le volet de navigation gauche. Le dépôt par défaut **GroupProjectTemplate** s’ouvre. 
    
-1. Dans la page **GroupProjectTemplate est vide** , sélectionnez **Importer**. 
+1. Dans la page **GroupProjectTemplate est vide**, sélectionnez **Importer**. 
    
    ![Sélectionner Importer](./media/group-manager-tasks/import-repo.png)
    
-1. Dans la boîte de dialogue **Importer un dépôt Git** , sélectionnez **Git** comme **Type de source** , puis entrez *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* pour l’ **URL clone**. Sélectionnez ensuite **Importer**. Le contenu du dépôt ProjectTemplate de l’équipe Microsoft TDSP est importé dans votre dépôt GroupProjectTemplate. 
+1. Dans la boîte de dialogue **Importer un dépôt Git**, sélectionnez **Git** comme **Type de source**, puis entrez *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* pour l’**URL clone**. Sélectionnez ensuite **Importer**. Le contenu du dépôt ProjectTemplate de l’équipe Microsoft TDSP est importé dans votre dépôt GroupProjectTemplate. 
    
    ![Importer le dépôt de l’équipe Microsoft TDSP](./media/group-manager-tasks/import-repo-2.png)
    
-1. En haut de la page **Dépôts** , dans la liste déroulante, sélectionnez le dépôt **GroupUtilities**.
-   
-1. Répétez le processus d’importation pour importer le contenu du dépôt **Utilities** de l’équipe Microsoft TDSP, *https:\//github.com/Azure/Azure-TDSP-Utilities.git* , dans votre dépôt **GroupUtilities**. 
+1. En haut de la page **Dépôts**, dans la liste déroulante, sélectionnez le dépôt **GroupUtilities**.
    
 Chacun des deux dépôts de votre groupe contient à présent tous les fichiers du dépôt correspondant de l’équipe Microsoft TDSP, à l’exception de ceux du répertoire *.git*. 
 
@@ -139,7 +137,7 @@ Si vous voulez personnaliser le contenu des dépôts de votre groupe en fonction
 
 Pour personnaliser le contenu d’un dépôt :
 
-1. Dans la page **Résumé** du projet **GroupCommon** , sélectionnez **Dépôts**. 
+1. Dans la page **Résumé** du projet **GroupCommon**, sélectionnez **Dépôts**. 
    
 1. En haut de la page, sélectionnez le dépôt que vous voulez personnaliser.
 
@@ -168,16 +166,16 @@ Si vous souhaitez apporter des modifications à partir de votre ordinateur local
 - Un abonnement Azure, si vous voulez créer un machine virtuelle DSVM.
 - Git installé sur votre ordinateur. Si vous utilisez une machine virtuelle DSVM, Git est préinstallé. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).
 - Si vous souhaitez utiliser une machine virtuelle DSVM, l’instance DSVM Windows ou Linux doit être créée et configurée dans Azure. Pour obtenir des informations complémentaires et des instructions, consultez la [documentation sur Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
-- Pour une machine virtuelle DSVM Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installé sur votre ordinateur. Dans le fichier *README.md* , accédez à la section **Télécharger et installer** , puis sélectionnez le **programme d’installation le plus récent**. Téléchargez le programme d’installation *.exe* et exécutez-le. 
-- Pour une machine virtuelle DSVM Linux, une clé publique SSH créée dans votre instance DSVM et ajoutée à Azure DevOps. Pour obtenir des informations complémentaires et des instructions, consultez la section **Créer une clé publique SSH** dans l’ [annexe Plateformes et outils](platforms-and-tools.md#appendix). 
+- Pour une machine virtuelle DSVM Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installé sur votre ordinateur. Dans le fichier *README.md*, accédez à la section **Télécharger et installer**, puis sélectionnez le **programme d’installation le plus récent**. Téléchargez le programme d’installation *.exe* et exécutez-le. 
+- Pour une machine virtuelle DSVM Linux, une clé publique SSH créée dans votre instance DSVM et ajoutée à Azure DevOps. Pour obtenir des informations complémentaires et des instructions, consultez la section **Créer une clé publique SSH** dans l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
 
 Pour commencer, copiez ou *clonez* le dépôt sur votre ordinateur local. 
    
-1. Dans la page **Résumé** du projet **GroupCommon** , sélectionnez **Dépôts** puis, en haut de la page, sélectionnez le dépôt que vous voulez cloner.
+1. Dans la page **Résumé** du projet **GroupCommon**, sélectionnez **Dépôts** puis, en haut de la page, sélectionnez le dépôt que vous voulez cloner.
    
 1. Dans la page du dépôt, sélectionnez **Cloner** en haut à droite.
    
-1. Dans la boîte de dialogue **Cloner le dépôt** , sélectionnez **HTTPS** pour une connexion HTTP ou **SSH** pour une connexion SSH, puis copiez l’URL clone figurant sous **Ligne de commande** dans votre Presse-papiers.
+1. Dans la boîte de dialogue **Cloner le dépôt**, sélectionnez **HTTPS** pour une connexion HTTP ou **SSH** pour une connexion SSH, puis copiez l’URL clone figurant sous **Ligne de commande** dans votre Presse-papiers.
    
    ![Cloner le dépôt](./media/group-manager-tasks/clone.png)
    
@@ -227,30 +225,30 @@ git push
 
 Pour ajouter des membres au groupe :
 
-1. Dans Azure DevOps, à partir de la page d’accueil du projet **GroupCommon** , sélectionnez **Paramètres du projet** dans le volet de navigation gauche. 
+1. Dans Azure DevOps, à partir de la page d’accueil du projet **GroupCommon**, sélectionnez **Paramètres du projet** dans le volet de navigation gauche. 
    
-1. Dans le volet de navigation gauche **Paramètres du projet** , sélectionnez **Équipes** puis, dans la page **Équipes** , sélectionnez l’ **équipe GroupCommon**. 
+1. Dans le volet de navigation gauche **Paramètres du projet**, sélectionnez **Équipes** puis, dans la page **Équipes**, sélectionnez l’**équipe GroupCommon**. 
    
    ![Configurer des équipes](./media/group-manager-tasks/teams.png)
    
-1. Dans la page **Profil de l’équipe** , sélectionnez **Ajouter**.
+1. Dans la page **Profil de l’équipe**, sélectionnez **Ajouter**.
    
    ![Ajouter à l’équipe GroupCommon](./media/group-manager-tasks/add-to-team.png)
    
-1. Dans la boîte de dialogue **Ajouter des utilisateurs et des groupes** , recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer les modifications**. 
+1. Dans la boîte de dialogue **Ajouter des utilisateurs et des groupes**, recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer les modifications**. 
    
    ![Ajoutez des utilisateurs et des groupes](./media/group-manager-tasks/add-users.png)
    
 
 Pour configurer des autorisations pour les membres :
 
-1. Dans le volet de navigation gauche **Paramètres du projet** , sélectionnez **Autorisations**. 
+1. Dans le volet de navigation gauche **Paramètres du projet**, sélectionnez **Autorisations**. 
    
-1. Dans la page **Autorisations** , sélectionnez le groupe auquel vous voulez ajouter les membres. 
+1. Dans la page **Autorisations**, sélectionnez le groupe auquel vous voulez ajouter les membres. 
    
-1. Dans la page du groupe, sélectionnez **Membres** , puis **Ajouter**. 
+1. Dans la page du groupe, sélectionnez **Membres**, puis **Ajouter**. 
    
-1. Dans la fenêtre contextuelle **Inviter des membres** , recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer**. 
+1. Dans la fenêtre contextuelle **Inviter des membres**, recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer**. 
    
    ![Accorder des autorisations aux membres](./media/group-manager-tasks/grant-permissions.png)
 
