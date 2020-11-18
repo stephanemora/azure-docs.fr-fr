@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427666"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654675"
 ---
 # <a name="configure-permission-classifications"></a>Configurer des classifications d’autorisations
 
@@ -35,7 +35,7 @@ Actuellement, seule la classification d’autorisation ayant un « Faible impac
 Pour classifier les autorisations à l’aide du Portail Azure, procédez comme suit :
 
 1. Se connecter au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator)
-1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Classifications d’autorisations** .
+1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Classifications d’autorisations**.
 1. Choisissez **Ajouter des autorisations** pour classifier une autorisation autrement que comme ayant un « Faible impact ».
 1. Sélectionnez l’API, puis les autorisations déléguées.
 
@@ -45,7 +45,7 @@ Dans cet exemple, nous avons classifié l’ensemble minimal d’autorisations r
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Vous pouvez utiliser le dernier module Azure AD PowerShell en préversion, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), pour classifier les autorisations. Les classifications des autorisations sont configurées sur l’objet **ServicePrincipal** de l’API qui publie les autorisations.
+Vous pouvez utiliser le dernier module Azure AD PowerShell en préversion, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), pour classifier les autorisations. Les classifications des autorisations sont configurées sur l’objet **ServicePrincipal** de l’API qui publie les autorisations.
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>Répertorier les classifications d’autorisations actuelles pour une API
 
@@ -123,7 +123,7 @@ Pour en savoir plus :
 * [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
 * [Découvrez comment gérer le consentement pour les applications et évaluer les demandes de consentement](manage-consent-requests.md)
 * [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
-* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
+* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
 * [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

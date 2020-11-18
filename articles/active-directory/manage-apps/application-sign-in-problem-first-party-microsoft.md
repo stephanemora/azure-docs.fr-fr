@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707949"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654403"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 
@@ -63,7 +63,7 @@ La liste ci-après répertorie les problèmes couramment rencontrés lorsque les
 
   * Vérifiez que les connexions sont **activées** dans le compte de l’utilisateur. [Vérifier l’état du compte d’un utilisateur](#problems-with-the-users-account)
 
-  * Vérifiez que le **mot de passe de l’utilisateur n’a pas expiré ou qu’il n’a pas été oublié**. [Réinitialiser le mot de passe d’un utilisateur](#reset-a-users-password) ou [Activer la réinitialisation du mot de passe libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Vérifiez que le **mot de passe de l’utilisateur n’a pas expiré ou qu’il n’a pas été oublié**. [Réinitialiser le mot de passe d’un utilisateur](#reset-a-users-password) ou [Activer la réinitialisation du mot de passe libre-service](../authentication/tutorial-enable-sspr.md)
 
   * Vérifiez que **Multi-Factor Authentication** ne bloque pas l’accès utilisateur. [Vérifier l’état Multi-Factor Authentication d’un utilisateur](#check-a-users-multi-factor-authentication-status) ou [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info)
 
@@ -179,9 +179,9 @@ Pour réinitialiser le mot de passe d’un utilisateur, procédez comme suit :
 
 Pour activer la réinitialisation du mot de passe libre-service, suivez les étapes de déploiement ci-dessous :
 
--   [Permettre aux utilisateurs de réinitialiser leur mot de passe Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permettre aux utilisateurs de réinitialiser leur mot de passe Azure Active Directory](../authentication/tutorial-enable-sspr.md)
 
--   [Permettre aux utilisateurs de réinitialiser ou de modifier leur mot de passe Active Directory Azure local](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permettre aux utilisateurs de réinitialiser ou de modifier leur mot de passe Active Directory Azure local](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Vérifier l’état Multi-Factor Authentication d’un utilisateur
 
@@ -508,26 +508,25 @@ L’accès à l’application peut être bloqué, car l’opération de consente
 
 -   Pour toute application Open ID Connect qui demande des autorisations, la navigation vers l’écran de connexion de l’application permet d’exécuter un consentement au niveau de l’utilisateur de l’application pour l’utilisateur connecté.
 
--   Si vous souhaitez procéder par programmation, consultez [Demande de consentement d’utilisateur individuel](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Si vous souhaitez procéder par programmation, consultez [Demande de consentement d’utilisateur individuel](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Effectuer une opération de consentement de niveau administrateur pour n’importe quelle application
 
 -   Pour les **applications développées à l’aide du modèle d’application V1 uniquement**, vous pouvez forcer ce consentement de niveau administrateur en ajoutant « **?prompt=admin\_consent** » à la fin de l’URL de connexion de l’application.
 
--   Pour **toutes les applications développées à l’aide du modèle d’application V2**, vous pouvez appliquer ce consentement de niveau administrateur en suivant les instructions situées dans la section **Demander les autorisations d’un administrateur Active Directory** de la rubrique [Utilisation du point de terminaison de consentement administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Pour **toutes les applications développées à l’aide du modèle d’application V2**, vous pouvez appliquer ce consentement de niveau administrateur en suivant les instructions situées dans la section **Demander les autorisations d’un administrateur Active Directory** de la rubrique [Utilisation du point de terminaison de consentement administrateur](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Effectuer une opération de consentement de niveau administrateur pour une application à locataire unique
 
 -   Pour les **applications à locataire unique** qui demandent des autorisations (telles que celles que vous développez ou celles dont vous êtes propriétaire au sein de votre organisation), vous pouvez effectuer une opération de **consentement de niveau administrateur** pour le compte de tous les utilisateurs en vous connectant en tant qu’administrateur général, puis en cliquant sur le bouton **Accorder des autorisations** en haut du volet **Registre d’application -&gt; Toutes les applications -&gt; Sélectionner une application -&gt; Autorisations requises**.
 
--   Pour **toutes les applications développées à l’aide du modèle d’application V1 ou V2**, vous pouvez appliquer ce consentement de niveau administrateur en suivant les instructions situées dans la section **Demander les autorisations d’un administrateur Active Directory** de la rubrique [Utilisation du point de terminaison de consentement administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Pour **toutes les applications développées à l’aide du modèle d’application V1 ou V2**, vous pouvez appliquer ce consentement de niveau administrateur en suivant les instructions situées dans la section **Demander les autorisations d’un administrateur Active Directory** de la rubrique [Utilisation du point de terminaison de consentement administrateur](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Effectuer une opération de consentement de niveau administrateur pour une application multilocataire
 
 -   Pour les **applications multilocataires** qui demandent des autorisations (comme les applications développées par un tiers ou par Microsoft), vous pouvez effectuer une opération de **consentement de niveau administrateur**. Connectez-vous en tant qu’administrateur général, puis cliquez sur le bouton **Accorder des autorisations** sous le volet **Applications d’entreprise -&gt; Toutes les applications -&gt; Sélectionner une application -&gt; Autorisations** (prochainement disponible).
 
--   Vous pouvez également appliquer ce consentement de niveau administrateur en suivant les instructions situées dans la section **Demander les autorisations d’un administrateur Active Directory** de la rubrique [Utilisation du point de terminaison de consentement administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Vous pouvez également appliquer ce consentement de niveau administrateur en suivant les instructions situées dans la section **Demander les autorisations d’un administrateur Active Directory** de la rubrique [Utilisation du point de terminaison de consentement administrateur](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Utilisation du point de terminaison de consentement administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Utilisation du point de terminaison de consentement administrateur](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

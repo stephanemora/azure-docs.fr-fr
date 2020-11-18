@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348064"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358454"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
 Pour traiter un tableau dans votre application logique, vous pouvez créer une [boucle « Foreach »](#foreach-loop). Cette boucle répète une ou plusieurs actions sur chaque élément du tableau. Pour connaître la limite du nombre d’éléments de tableau qu’une boucle « Foreach » peut traiter, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître la limite du nombre de boucles « Until » que l’exécution d’une application logique peut avoir, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites par défaut et maximale du nombre de boucles « Until » que l’exécution d’une application logique peut avoir, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
@@ -60,7 +60,7 @@ Cet exemple d’application logique envoie un résumé quotidien pour le flux RS
 
       ![Ajouter une boucle « for each »](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. Générez maintenant la boucle. Sous **Sélectionner une sortie des étapes précédentes** , après que la liste **Ajouter contenu dynamique** s’affiche, sélectionnez le tableau **Liens du flux** , qui sort du déclencheur RSS. 
+3. Générez maintenant la boucle. Sous **Sélectionner une sortie des étapes précédentes**, après que la liste **Ajouter contenu dynamique** s’affiche, sélectionnez le tableau **Liens du flux**, qui sort du déclencheur RSS. 
 
    ![Sélectionner depuis la liste de contenu dynamique](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -128,7 +128,7 @@ Par défaut, les cycles dans une boucle « Foreach » s’exécutent en parall
 
    ![Dans la boucle « Foreach », choisissez « ... » > « Paramètres »](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Sous **Contrôle d’accès concurrentiel** , affectez la valeur **On** au paramètre **Contrôle d’accès concurrentiel**. Déplacez le curseur **Degré de parallélisme** sur **1** , puis choisissez **Terminé**.
+1. Sous **Contrôle d’accès concurrentiel**, affectez la valeur **On** au paramètre **Contrôle d’accès concurrentiel**. Déplacez le curseur **Degré de parallélisme** sur **1**, puis choisissez **Terminé**.
 
    ![Activer le contrôle d’accès concurrentiel](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -152,7 +152,7 @@ Si vous travaillez avec la définition JSON de votre application logique, vous p
 
 ## <a name="until-loop"></a>Boucle « Until »
   
-Pour exécuter et répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, placez ces actions dans une boucle « Until ». Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître la limite du nombre de boucles « Until » que l’exécution d’une application logique peut avoir, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Pour exécuter et répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, placez ces actions dans une boucle « Until ». Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites par défaut et maximale du nombre de boucles « Until » que l’exécution d’une application logique peut avoir, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle « Until » :
 
@@ -198,7 +198,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
    | **Valeur** | 0 | Valeur de départ de votre variable | 
    |||| 
 
-1. Sous l’action **Initialiser la variable** , choisissez **Nouvelle étape**. 
+1. Sous l’action **Initialiser la variable**, choisissez **Nouvelle étape**. 
 
 1. Sous la zone de recherche, choisissez **Tout**. Recherchez « until », puis sélectionnez cette action : **Until - Contrôle**
 
@@ -215,7 +215,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
    ![Ajouter une action pour incrémenter une variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. Comme **Nom** , sélectionnez la variable **Limite**. Comme **Valeur** , entrez « 1 ». 
+1. Comme **Nom**, sélectionnez la variable **Limite**. Comme **Valeur**, entrez « 1 ». 
 
      ![Incrémenter la variable « Limite » de 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -245,17 +245,19 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
       ![Message électronique reçu](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Empêcher les boucles infinies
 
-Une boucle « Until » dispose de limites par défaut qui arrêtent l’exécution si l’une de ces conditions est remplie :
+La boucle « Until » arrête l’exécution en fonction de ces propriétés. Veillez donc à définir leurs valeurs en conséquence :
 
-| Propriété | Valeur par défaut | Description | 
-| -------- | ------------- | ----------- | 
-| **Count** | 60 | Quantité maximale de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
-| **Délai d'expiration** | PT1H | Durée d’exécution maximale d’une boucle avant que la boucle ne sorte. La valeur par défaut est d’une heure et est spécifiée au format ISO 8601. <p>La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. | 
-|||| 
+* **Nombre** : Cette valeur est la quantité maximale de boucles qui s’exécutent avant que la boucle ne sorte. Pour connaître les limites par défaut et maximale du nombre de boucles « Until » que l’exécution d’une application logique peut avoir, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Pour modifier ces limites par défaut, choisissez **Afficher les options avancées** dans la forme d’action de la boucle.
+* **Timeout** (Expiration du délai) : Cette valeur est la durée la plus longue d’exécution de la boucle avant qu’elle ne se termine, spécifiée au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Pour obtenir les limites par défaut et maximale de la valeur **Délai d’attente**, consultez [Limites de simultanéité, de bouclage et de décomposition](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie.
+
+Pour modifier ces limites, dans l’action de la boucle, sélectionnez **Modifier les limites**.
 
 <a name="until-json"></a>
 

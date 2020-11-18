@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321715"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359814"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notes de publication – Services de données activés par Azure Arc (préversion)
 
@@ -91,7 +91,7 @@ Pour obtenir des instructions, consultez [Présentation des services de données
 - La préversion ne prend pas en charge la sauvegarde/restauration pour le moteur de la version 11 de PostgreSQL. Elle prend uniquement en charge la sauvegarde/restauration pour la version 12 de PostgreSQL.
 - `azdata arc dc debug copy-logs` ne collecte pas les journaux du moteur PostgreSQL sur Windows.
 - La recréation d’un groupe de serveurs avec le nom d’un groupe de serveurs qui vient d’être supprimé peut échouer ou cesser de répondre. 
-   - **Solution de contournement**  : Ne réutilisez pas le même nom lorsque vous recréez un groupe de serveurs ou attendez l’équilibreur de charge ou le service externe du groupe de serveurs précédemment supprimé. En supposant que le nom du groupe de serveurs que vous avez supprimé était `postgres01` et qu’il était hébergé dans un espace de noms `arc`, avant de recréer un groupe de serveurs portant le même nom, attendez que `postgres01-external-svc` disparaisse de la sortie de la commande kubectl `kubectl get svc -n arc`.
+   - **Solution de contournement** : Ne réutilisez pas le même nom lorsque vous recréez un groupe de serveurs ou attendez l’équilibreur de charge ou le service externe du groupe de serveurs précédemment supprimé. En supposant que le nom du groupe de serveurs que vous avez supprimé était `postgres01` et qu’il était hébergé dans un espace de noms `arc`, avant de recréer un groupe de serveurs portant le même nom, attendez que `postgres01-external-svc` disparaisse de la sortie de la commande kubectl `kubectl get svc -n arc`.
  - Le chargement de la page de présentation et de la page de configuration Calcul + stockage dans Azure Data Studio est lent. 
 
 

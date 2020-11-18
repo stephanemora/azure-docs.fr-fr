@@ -5,13 +5,13 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
-ms.date: 10/22/2020
-ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/06/2020
+ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128877"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357604"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Surveillance d’Azure IoT Hub
 
@@ -291,6 +291,14 @@ class Program
 Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](/azure/azure-monitor/platform/alerts-metric-overview), sur des [journaux](/azure/azure-monitor/platform/alerts-unified-log) et sur le [journal d’activité](/azure/azure-monitor/platform/activity-log-alerts). Les différents types d’alertes présentent des avantages et des inconvénients.
 
 Au moment de la création d’une règle d’alerte basée sur les métriques de la plateforme IoT Hub qui sont collectées à l’unité, certaines agrégations peuvent ne pas être disponibles ou utilisables. Pour plus d’informations, consultez [Agrégations prises en charge dans les informations de référence des données de surveillance Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
+
+## <a name="monitor-per-device-disconnects-with-event-grid"></a>Superviser les déconnexions par appareil avec Event Grid
+
+Azure Monitor propose une métrique, *Appareils connectés*, que vous pouvez utiliser pour superviser le nombre d’appareils connectés à votre instance IoT Hub et déclencher une alerte dès que ce nombre descend en dessous d’un certain seuil. Même si cela peut suffire pour certains scénarios, [Azure Event Grid](/azure/event-grid/) offre une solution de supervision par appareil à faible latence qui vous permet de suivre les connexions pour les appareils critiques et l’infrastructure.
+
+Avec Event Grid, vous pouvez vous abonner aux [événements IoT Hub **DeviceConnected** et **DeviceDisconnected**](iot-hub-event-grid.md#event-types) pour déclencher des alertes et superviser l’état de connexion des appareils. Event Grid offre une latence bien moindre à celle d’Azure Monitor, et vous pouvez assurer une supervision par appareil et non sur le nombre total d’appareils connectés. Ces aspects font d’Event Grid la méthode recommandée pour la supervision des connexions des appareils critiques et de l’infrastructure. Nous vous recommandons vivement d’utiliser Event Grid pour superviser les connexions d’appareils dans les environnements de production.
+
+Pour plus d’informations sur la supervision des connexions d’appareils avec Event Grid et Azure Monitor, consultez [Analyser et résoudre les problèmes de déconnexion avec Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

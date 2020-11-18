@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: f2a934702a650ece3d3d50b2eedaa99f65b2eacc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 3fcf63932db0ad9abe5d99c2e4bf084b0acc750c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93144990"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427869"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure
 
@@ -35,7 +35,7 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 
 * **Nom du réseau virtuel :** VNet1
 * **Espace d’adressage :** 10.1.0.0/16<br>Pour cet exemple, nous n’utilisons qu’un seul espace d’adressage. Vous pouvez avoir plusieurs espaces d’adressage pour votre réseau virtuel.
-* **Nom du sous-réseau**  : FrontEnd
+* **Nom du sous-réseau** : FrontEnd
 * **Plage d'adresses du sous-réseau :** 10.1.0.0/24
 * **Abonnement :** vérifiez que vous utilisez l’abonnement approprié si vous en possédez plusieurs.
 * **Groupe de ressources :** TestRG1
@@ -72,11 +72,11 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 Les certificats sont utilisés par Azure pour authentifier les clients qui se connectent à un réseau virtuel via une connexion VPN point à site. Une fois que vous avez obtenu le certificat racine, vous [chargez](#uploadfile) les informations de la clé publique du certificat racine vers Azure. Le certificat racine est alors considéré comme « approuvé » par Azure pour la connexion via P2S sur le réseau virtuel. Vous générez également des certificats de client à partir du certificat racine approuvé, puis vous les installez sur chaque ordinateur client. Le certificat permet d’authentifier le client lorsqu’il établit une connexion avec le réseau virtuel. 
 
-### <a name="1-root-certificate"></a><a name="getcer"></a>1. Certificat racine
+### <a name="generate-a-root-certificate"></a><a name="getcer"></a>Générer un certificat racine
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="2-client-certificate"></a><a name="generateclientcert"></a>2. Certificat client
+### <a name="generate-client-certificates"></a><a name="generateclientcert"></a>Générer des certificats clients
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -84,46 +84,46 @@ Les certificats sont utilisés par Azure pour authentifier les clients qui se co
 
 Le pool d’adresses des clients est une plage d’adresses IP privées que vous spécifiez. Les clients qui se connectent via un réseau virtuel de point à site reçoivent de façon dynamique une adresse IP de cette plage. Utilisez une plage d’adresses IP privées qui ne chevauche ni l’emplacement local à partir duquel vous vous connectez ni le réseau virtuel auquel vous souhaitez vous connecter. Si vous configurez plusieurs protocoles et que SSTP est l’un d’entre eux, le pool d’adresses configuré est réparti de manière égale entre les protocoles configurés.
 
-1. Une fois la passerelle de réseau virtuel créée, accédez à la section **Paramètres** de la page Passerelle de réseau virtuel. Dans la section **Paramètres** , sélectionnez **Configuration de point à site**. Sélectionnez **Configurer** pour ouvrir la page de configuration.
+1. Une fois la passerelle de réseau virtuel créée, accédez à la section **Paramètres** de la page Passerelle de réseau virtuel. Dans **Paramètres**, sélectionnez **Configuration de point à site**. Sélectionnez **Configurer** pour ouvrir la page de configuration.
 
-   ![Point-to-Site page](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-configure.png "Configuration de point à site maintenant")
-2. Sur la page **Configuration de point à site** , vous pouvez configurer divers paramètres. Si vous ne voyez pas le type de tunnel ou d’authentification sur cette page, votre passerelle utilise la référence SKU de base. La référence SKU de base ne prend pas en charge IKEv2 ou l’authentification RADIUS. Si vous souhaitez utiliser ces paramètres, vous devez supprimer et recréer la passerelle à l’aide d’une autre référence SKU de passerelle.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="Point-to-site configuration page" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
+1. Sur la page **Configuration de point à site**, vous pouvez configurer divers paramètres. Si vous ne voyez pas le type de tunnel ou d’authentification sur cette page, votre passerelle utilise la référence SKU de base. La référence SKU de base ne prend pas en charge IKEv2 ou l’authentification RADIUS. Si vous souhaitez utiliser ces paramètres, vous devez supprimer et recréer la passerelle à l’aide d’une autre référence SKU de passerelle.
 
-   [![Point-to-site configuration page](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-address.png "spécifier le pool d’adresses")](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-expanded.png#lightbox)
-3. Dans la zone **Pool d’adresses** , ajoutez la plage d’adresses IP privées que vous souhaitez utiliser. Les clients VPN reçoivent dynamiquement une adresse IP à partir de la plage que vous spécifiez. Le masque minimal de sous-réseau est de 29 bits pour la configuration active/passive, et de 28 bits pour la configuration active/active.
-4. Passez à la section suivante pour configurer le type de tunnel.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png" alt-text="Spécifier le pool d’adresses" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png":::
+1. Dans la zone **Pool d’adresses**, ajoutez la plage d’adresses IP privées que vous souhaitez utiliser. Les clients VPN reçoivent dynamiquement une adresse IP à partir de la plage que vous spécifiez. Le masque minimal de sous-réseau est de 29 bits pour la configuration active/passive, et de 28 bits pour la configuration active/active.
+1. Passez à la section suivante pour configurer le type de tunnel.
 
 ## <a name="5-configure-tunnel-type"></a><a name="tunneltype"></a>5. Configurer le type de tunnel
 
-Vous pouvez sélectionner le type de tunnel. Les types de tunnels disponibles sont SSTP et IKEv2.
+Sélectionnez le type de tunnel. Les types de tunnels disponibles sont SSTP et IKEv2.
 
 * Le client strongSwan sur Android et Linux et le client VPN IKEv2 natif sur iOS et OSX n’utiliseront que le tunnel IKEv2 pour se connecter.
 * Les clients Windows essaient IKEv2 en premier lieu. En cas d’échec de la connexion, ils utilisent SSTP.
 * Vous pouvez utiliser le client OpenVPN pour la connexion au type de tunnel OpenVPN.
 
-![Tunnel type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel.png "spécifier le type de tunnel")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel-ike.png" alt-text="Tunnel type":::
 
 ## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. Configurer le type d’authentification
 
-Pour le **Type d’authentification** , sélectionnez **Certificat Azure**.
+Pour le **Type d’authentification**, sélectionnez **Certificat Azure**.
 
-  ![Type d’authentification](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "spécifier le type d’authentification")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/azure-certificate.png" alt-text="Type d’authentification":::
 
 ## <a name="7-upload-the-root-certificate-public-certificate-data"></a><a name="uploadfile"></a>7. Charger les données de certificat public du certificat racine
 
 Vous pouvez charger d’autres certificats racines approuvés, jusqu’à 20 au total. Une fois que les données de certificat public sont chargées, Azure peut les utiliser pour authentifier les clients qui ont installé un certificat client généré à partir du certificat racine approuvé. Chargez les informations de la clé publique du certificat racine dans Azure.
 
-1. Les certificats sont ajoutés sur la page **Configuration de point à site** , dans la section **Certificat racine**.
-2. Vérifiez que vous avez exporté le certificat racine en tant que fichier Base-64 codé X.509 (.cer). Vous devez exporter le certificat dans ce format pour être en mesure de l’ouvrir avec un éditeur de texte.
-3. Ouvrez le certificat avec un éditeur de texte, Bloc-notes par exemple. Lors de la copie des données de certificat, assurez-vous que vous copiez le texte en une seule ligne continue sans retour chariot ou sauts de ligne. Vous devrez peut-être modifier l’affichage dans l’éditeur de texte en activant « Afficher les symboles/Afficher tous les caractères » pour afficher les retours chariot et sauts de ligne. Copiez uniquement la section suivante sur une seule ligne continue :
+1. Les certificats sont ajoutés sur la page **Configuration de point à site**, dans la section **Certificat racine**.
+1. Vérifiez que vous avez exporté le certificat racine en tant que fichier Base-64 codé X.509 (.cer). Vous devez exporter le certificat dans ce format pour être en mesure de l’ouvrir avec un éditeur de texte.
+1. Ouvrez le certificat avec un éditeur de texte, Bloc-notes par exemple. Lors de la copie des données de certificat, assurez-vous que vous copiez le texte en une seule ligne continue sans retour chariot ou sauts de ligne. Vous devrez peut-être modifier l’affichage dans l’éditeur de texte en activant « Afficher les symboles/Afficher tous les caractères » pour afficher les retours chariot et sauts de ligne. Copiez uniquement la section suivante sur une seule ligne continue :
 
-   ![Certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "copier les données du certificat racine")
-4. Collez les données du certificat dans le champ **Données du certificat public**. Donnez un **Nom** au certificat, puis sélectionnez **Enregistrer**. Vous pouvez ajouter jusqu’à 20 certificats racine approuvés.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png" alt-text="Certificate data" border="false":::
+1. Collez les données du certificat dans le champ **Données du certificat public**. Donnez un **Nom** au certificat, puis sélectionnez **Enregistrer**. Vous pouvez ajouter jusqu’à 20 certificats racine approuvés.
 
-   ![Paste certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png "coller les données du certificat")
-5. Sélectionnez **Enregistrer** en haut de la page pour enregistrer tous les paramètres de configuration.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png" alt-text="Paste certificate data" border="false":::
+1. Sélectionnez **Enregistrer** en haut de la page pour enregistrer tous les paramètres de configuration.
 
-   ![Save configuration](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png "enregistrer la configuration")
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png" alt-text="Save configuration" border="false":::
 
 ## <a name="8-install-an-exported-client-certificate"></a><a name="installclientcert"></a>8. Installer un certificat client exporté
 
@@ -151,7 +151,7 @@ Dans la boîte de dialogue Réseau, recherchez le profil client que vous souhait
 
 Pour obtenir des instructions détaillées, consultez la section [Installer - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac). Si vous rencontrez des problèmes de connexion, vérifiez que la passerelle de réseau virtuel n’utilise pas une référence SKU de base. La référence SKU de base n’est pas prise en charge pour les clients Mac.
 
-  ![Mac connection](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Se connecter")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Connexion du client VPN Mac" border="false":::
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Pour vérifier votre connexion
 
@@ -194,8 +194,8 @@ Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine approuvés 
 ### <a name="to-remove-a-trusted-root-certificate"></a>Suppression d’un certificat racine approuvé
 
 1. Pour supprimer un certificat racine approuvé, accédez à la page **Configuration Point à site** de votre passerelle de réseau virtuel.
-2. Dans la section **Certificat racine** de la page, recherchez le certificat que vous souhaitez supprimer.
-3. Sélectionnez les points de suspension à côté du certificat, puis sélectionnez « Supprimer ».
+1. Dans la section **Certificat racine** de la page, recherchez le certificat que vous souhaitez supprimer.
+1. Sélectionnez les points de suspension à côté du certificat, puis sélectionnez « Supprimer ».
 
 ## <a name="to-revoke-a-client-certificate"></a><a name="revokeclient"></a>Révocation d'un certificat client
 
@@ -208,12 +208,12 @@ La pratique courante consiste à utiliser le certificat racine pour gérer l'acc
 Vous pouvez révoquer un certificat client en ajoutant son empreinte à la liste de révocation.
 
 1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
-2. Copiez les informations dans un éditeur de texte et supprimez tous les espaces afin d’obtenir une chaîne continue.
-3. Accédez à la page **Configuration de point à site** de la passerelle de réseau virtuel. Il s’agit de la page que vous avez utilisé pour [charger un certificat racine approuvé](#uploadfile).
-4. Dans la section **Certificats révoqués** , entrez un nom convivial pour le certificat (il ne s’agit pas forcément du nom commun du certificat).
-5. Copiez et collez la chaîne d’empreinte numérique dans le champ **Empreinte**.
-6. L’empreinte est validée, puis automatiquement ajoutée à la liste de révocation. Un message apparaît pour indiquer que la liste est en cours de mise à jour. 
-7. Une fois la mise à jour terminée, le certificat ne peut plus être utilisé pour se connecter. Les clients qui tentent de se connecter à l’aide de ce certificat reçoivent un message indiquant que le certificat n’est plus valide.
+1. Copiez les informations dans un éditeur de texte et supprimez tous les espaces afin d’obtenir une chaîne continue.
+1. Accédez à la page **Configuration de point à site** de la passerelle de réseau virtuel. Il s’agit de la page que vous avez utilisé pour [charger un certificat racine approuvé](#uploadfile).
+1. Dans la section **Certificats révoqués**, entrez un nom convivial pour le certificat (il ne s’agit pas forcément du nom commun du certificat).
+1. Copiez et collez la chaîne d’empreinte numérique dans le champ **Empreinte**.
+1. L’empreinte est validée, puis automatiquement ajoutée à la liste de révocation. Un message apparaît pour indiquer que la liste est en cours de mise à jour. 
+1. Une fois la mise à jour terminée, le certificat ne peut plus être utilisé pour se connecter. Les clients qui tentent de se connecter à l’aide de ce certificat reçoivent un message indiquant que le certificat n’est plus valide.
 
 ## <a name="point-to-site-faq"></a><a name="faq"></a>Forum Aux Questions sur les connexions point à site
 

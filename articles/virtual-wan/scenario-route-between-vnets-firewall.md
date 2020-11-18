@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267514"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515567"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scénario : Pare-feu Azure - personnalisé
 
@@ -28,10 +28,10 @@ Pour déterminer le nombre de tables de routage nécessaires, vous pouvez créer
 
 | Du           | Par :      | *Réseaux virtuels*      | *Branches*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **Réseaux virtuels**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Branches**   |   &#8594;|    AzFW      |       X       |       X      |
+| **Réseaux virtuels**      |   &#8594;|    Direct    |     AzFW      |     AzFW     |
+| **Branches**   |   &#8594;|    AzFW      |    Direct     |    Direct    |
 
-Dans le tableau précédent, un « X » représente une connectivité directe entre deux connexions sans le trafic qui traverse le pare-feu Azure dans le réseau étendu virtuel, et « AzFW » indique que le flux passe par le pare-feu Azure. Comme il existe deux modèles de connectivité distincts dans la matrice, nous aurons besoin de deux tables de routage qui seront configurées comme suit :
+Dans le tableau précédent, « Direct » représente une connectivité directe entre deux connexions sans le trafic qui traverse le Pare-feu Azure dans le réseau étendu virtuel, et « AzFW » indique que le flux passe par le Pare-feu Azure. Comme il existe deux modèles de connectivité distincts dans la matrice, nous aurons besoin de deux tables de routage qui seront configurées comme suit :
 
 * Réseaux virtuels :
   * Table de routage associée : **RT_VNet**

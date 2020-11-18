@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042903"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331853"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
@@ -63,6 +63,8 @@ Selon le document [RFC 8252 : sections 8.3](https://tools.ietf.org/html/rfc82
 Du point de vue du développement, cela signifie plusieurs choses :
 
 * N’inscrivez pas plusieurs URI de redirection quand seul le port diffère. Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de redirection (par exemple, s’il s’agit d’une redirection de type `web`, `native` ou `spa`).
+
+    Cela est particulièrement important lorsque vous souhaitez utiliser différents flux d’authentification dans la même inscription d’application, par exemple l’octroi d’un code d’autorisation et le flux implicite. Pour associer le comportement de réponse correct à chaque URI de redirection, le serveur de connexion doit pouvoir faire la distinction entre les URI de redirection et ne peut pas le faire lorsque seul le port diffère.
 * Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://127.0.0.1/MyWebApp` ne correspond pas à `http://127.0.0.1/MyNativeApp`.
 * L’adresse de bouclage IPv6 (`[::1]`) n’est pas prise en charge actuellement.
 * Pour éviter que votre application ne soit interrompue par des pare-feu mal configurés ou des interfaces réseau renommées, utilisez l’adresse IP de bouclage littérale `127.0.0.1` dans votre URI de redirection, à la place de `localhost`.

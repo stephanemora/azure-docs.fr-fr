@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347605"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517969"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
 
@@ -27,7 +27,7 @@ Lorsque vous connectez une solution externe qui envoie des messages CEF, il exis
 
 ÉTAPE 1 : [Connecter CEF en déployant un redirecteur Syslog/CEF](connect-cef-agent.md) ÉTAPE 2 : [Effectuez les étapes spécifiques à la solution](connect-cef-solution-config.md) ÉTAPE 3 : [Vérifiez la connectivité](connect-cef-verify.md)
 
-Cet article décrit le fonctionnement de la connexion, fournit les prérequis et indique les étapes de déploiement de l’agent sur les solutions de sécurité qui envoient des messages au format CEF (Common Event format) sur Syslog. 
+Cet article décrit le fonctionnement de la connexion, liste les prérequis et indique les étapes de déploiement d’un mécanisme pour que des solutions de sécurité envoient des messages au format CEF (Common Event format) sur Syslog. 
 
 > [!NOTE] 
 > Les données sont stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
@@ -53,18 +53,18 @@ Pour utiliser la communication TLS entre la source Syslog et le redirecteur Sysl
 Assurez-vous que la machine Linux que vous utilisez en tant que redirecteur de journaux exécute l’un des systèmes d’exploitation suivants :
 
 - 64 bits
-  - CentOS 7 et 8, y compris les sous-versions (pas la version 6)
+  - CentOS 7 et 8, y compris les versions mineures (pas la version 6)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 et 8, y compris les sous-versions (pas la version 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 et 8, y compris les versions mineures (pas la version 6)
   - Debian GNU/Linux 8 et 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
   - SUSE Linux Enterprise Server 12 et15
 
 - 32 bits
-  - CentOS 7 et 8, y compris les sous-versions (pas la version 6)
+  - CentOS 7 et 8, y compris les versions mineures (pas la version 6)
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 et 8, y compris les sous-versions (pas la version 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 et 8, y compris les versions mineures (pas la version 6)
   - Debian GNU/Linux 8 et 9
   - Ubuntu Linux 14.04 LTS et 16.04 LTS
  
@@ -82,7 +82,7 @@ Assurez-vous que votre machine répond également aux exigences suivantes :
   - Vous devez disposer d’autorisations élevées (sudo) sur votre machine. 
 
 - Configuration logicielle requise
-  - Vérifiez que Python 2.7 est en cours d’exécution sur votre machine.
+  - Vérifiez que Python 2.7 ou 3 est en cours d’exécution sur votre machine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

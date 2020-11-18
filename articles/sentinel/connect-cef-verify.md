@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744216"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515708"
 ---
 # <a name="step-3-validate-connectivity"></a>ÉTAPE 3 : Valider la connectivité
 
@@ -29,7 +29,7 @@ Une fois que vous avez déployé votre redirecteur de journal (à l’étape 1) 
 
 - Vous devez disposer d’autorisations élevées (sudo) sur votre machine de transfert de journaux.
 
-- **Python 2.7** doit être installé sur votre machine de transfert de journaux.<br>
+- **Python 2.7** ou **3** doit être installé sur votre machine de transfert de journaux.<br>
 Utilisez la commande `python –version` pour vérifier.
 
 - Vous pouvez avoir besoin de l’ID et de la clé primaire de l’espace de travail à un moment donné dans ce processus. Vous pouvez les trouver dans la ressource d’espace de travail, sous **Gestion des agents**.
@@ -49,7 +49,7 @@ Notez qu’environ 20 minutes peuvent être nécessaires avant que vos journaux 
 
    - Vous verrez peut-être s’afficher un message vous demandant d’exécuter une commande pour corriger un problème de **mappage du champ *Ordinateur***. Pour plus d’informations, consultez l’[explication dans le script de validation](#mapping-command).
 
-    - Vous verrez peut-être s’afficher un message vous demandant d’exécuter une commande pour corriger un problème d’ **analyse de journaux de pare-feu Cisco ASA**. Pour plus d’informations, consultez l’[explication dans le script de validation](#parsing-command).
+    - Vous verrez peut-être s’afficher un message vous demandant d’exécuter une commande pour corriger un problème d’**analyse de journaux de pare-feu Cisco ASA**. Pour plus d’informations, consultez l’[explication dans le script de validation](#parsing-command).
 
 ## <a name="validation-script-explained"></a>Explication du script de validation
 
@@ -87,7 +87,7 @@ Le script de validation effectue les vérifications suivantes :
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-    - <a name="parsing-command"></a>En cas de problème avec l’analyse, le script génère un message d’erreur qui vous indique d’ **exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir l’analyse correcte et redémarrer l’agent.
+    - <a name="parsing-command"></a>En cas de problème avec l’analyse, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir l’analyse correcte et redémarrer l’agent.
     
         ```bash
         # Cisco ASA parsing fix
@@ -100,7 +100,7 @@ Le script de validation effectue les vérifications suivantes :
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
 
-    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’ **exécuter manuellement la commande suivante** (en appliquant l’ID d’espace de travail à la place de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
+    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID d’espace de travail à la place de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
 
         ```bash
         # Computer field mapping fix
@@ -180,7 +180,7 @@ Le script de validation effectue les vérifications suivantes :
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-    - <a name="parsing-command"></a>En cas de problème avec l’analyse, le script génère un message d’erreur qui vous indique d’ **exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir l’analyse correcte et redémarrer l’agent.
+    - <a name="parsing-command"></a>En cas de problème avec l’analyse, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir l’analyse correcte et redémarrer l’agent.
     
         ```bash
         # Cisco ASA parsing fix
@@ -193,7 +193,7 @@ Le script de validation effectue les vérifications suivantes :
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
 
-    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’ **exécuter manuellement la commande suivante** (en appliquant l’ID d’espace de travail à la place de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
+    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID d’espace de travail à la place de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
 
         ```bash
         # Computer field mapping fix

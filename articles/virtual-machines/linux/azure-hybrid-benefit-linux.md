@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mathapli
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962392"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516439"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Aperçu : Comment Azure Hybrid Benefit s’applique-t-il aux machines virtuelles Linux ?
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Préversion publique : Comment Azure Hybrid Benefit s’applique-t-il aux machines virtuelles Linux ?
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -45,30 +45,28 @@ Les instances réservées, les hôtes dédiés et les avantages hybrides SQL ne 
 
 ## <a name="how-to-get-started"></a>Pour commencer
 
-Azure Hybrid Benefit est actuellement en phase de préversion pour les machines virtuelles Linux. Après avoir accédé à la préversion, vous pouvez activer l’avantage à l’aide du portail Azure ou d’Azure CLI.
+Azure Hybrid Benefit est actuellement en phase de préversion pour les machines virtuelles Linux. Après avoir accédé à la préversion, vous pouvez activer l’avantage à l’aide d’Azure CLI.
 
-### <a name="preview"></a>Préversion
+### <a name="public-preview"></a>Version préliminaire publique
 
-Au cours de cette phase, vous pouvez accéder à l’avantage en complétant le formulaire disponible [ici](https://aka.ms/ahb-linux-form). Une fois le formulaire rempli, vos abonnements Azure seront activés pour l’avantage et vous recevrez une confirmation de la part de Microsoft sous trois jours ouvrables.
+Azure Hybrid Benefit (pour Linux) est actuellement en phase de préversion publique. Vous pouvez effectuer les étapes ci-dessous pour activer l’avantage sur les distributions Red Hat et SUSE. 
 
 ### <a name="red-hat-customers"></a>Clients Red Hat
 
-1.    Remplissez le formulaire de demande de préversion ci-dessus.
-1.    Inscrivez-vous au [programme Red Hat Cloud Access](https://aka.ms/rhel-cloud-access).
-1.    Activez vos abonnements Azure pour l’accès au cloud et activez les abonnements contenant les machines virtuelles pour lesquelles vous souhaitez utiliser l’avantage.
-1.    Appliquez l’avantage à vos machines virtuelles existantes via le portail Azure ou Azure CLI.
-1.    Inscrivez vos machines virtuelles recevant l’avantage avec une source de mises à jour distincte.
+Azure Hybrid Benefit pour RHEL est accessible aux clients qui disposent d’abonnements RHEL actifs/inutilisés pouvant être utilisés dans Azure et qui ont activé un ou plusieurs de ces abonnements pour une utilisation dans Azure avec le programme [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access). 
+
+1.  Activez un ou plusieurs de vos abonnements RHEL pouvant être utilisés dans Azure à l’aide de l’[interface client de Red Hat Cloud Access](https://access.redhat.com/management/cloud).
+1.  Le ou les abonnements Azure fournis durant le processus d’activation de Red Hat Cloud Access sont alors autorisés à utiliser la fonctionnalité Azure Hybrid Benefit.
+1.  Appliquez Azure Hybrid Benefit à l’une de vos machines virtuelles RHEL PAYG existantes ainsi qu’à toutes les nouvelles machines virtuelles RHEL que vous déployez à partir d’images PAYG de la Place de marché Azure.
+1.  Effectuez les [étapes recommandées suivantes](https://access.redhat.com/articles/5419341) pour configurer des sources de mise à jour pour les machines virtuelles RHEL et tenir compte des consignes de conformité des abonnements RHEL.
+
 
 ### <a name="suse-customers"></a>Clients SUSE
 
-1.    Remplissez le formulaire de demande de préversion ci-dessus.
 1.    Inscrivez-vous au programme de cloud public SUSE.
-1.    Appliquez l’avantage à vos machines virtuelles existantes via le portail Azure ou Azure CLI.
+1.    Appliquer l’avantage aux machines virtuelles existantes par le biais d’Azure CLI
 1.    Inscrivez vos machines virtuelles recevant l’avantage avec une source de mises à jour distincte.
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Activez et désactivez l’avantage dans le portail Azure.
-
-Vous pouvez activer l’avantage sur les machines virtuelles existantes en accédant au panneau **Configuration** et en suivant la procédure qui s’y trouve. Vous pouvez activer l’avantage sur les nouvelles machines virtuelles lors de l’expérience de création de machine virtuelle.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Activez et désactivez l’avantage dans Azure CLI.
 
@@ -109,12 +107,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>Vérifier l’état AHB d’une machine virtuelle
-Vous pouvez afficher l’état AHB d’une machine virtuelle de trois façons : en consultant le portail, en utilisant Azure CLI ou en utilisant Azure Instance Metadata Service Azure (Azure IMDS).
+Vous pouvez afficher l’état AHB d’une machine virtuelle de deux façons : en utilisant Azure CLI ou en utilisant Azure Instance Metadata Service Azure (Azure IMDS).
 
-
-### <a name="portal"></a>Portail
-
-Affichez le panneau Configuration et vérifiez l’état de la licence pour savoir si AHB est activé pour votre machine virtuelle.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -132,7 +126,19 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="red-hat"></a>Red Hat
 
-Pour utiliser Azure Hybrid Benefit pour vos machines virtuelles RHEL, vous devez d’abord être inscrit au programme Red Hat Cloud Access. Vous pouvez le faire via le site Red Hat Cloud Access. Après avoir activé l’avantage sur votre machine virtuelle, vous devez inscrire la machine virtuelle auprès de votre propre source de mises à jour avec Red Hat Subscription Manager ou Red Hat Satellite. L’inscription aux mises à jour vous permet de vous assurer que vous êtes pris en charge.
+Les clients qui utilisent Azure Hybrid Benefit pour RHEL acceptent les [conditions légales](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) et la [déclaration de confidentialité](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) standard associés aux offres RHEL de la Place de marché Azure.
+
+Les clients utilisant Azure Hybrid Benefit pour RHEL peuvent fournir des mises à jour logicielles et des correctifs à ces machines virtuelles de trois façons :
+
+1.  [Red Hat Update Infrastructure (RHUI)](../workloads/redhat/redhat-rhui.md) (option par défaut)
+1.  Red Hat Satellite Server
+1.  Red Hat Subscription Manager
+
+Les clients qui choisissent l’option RHUI peuvent continuer à utiliser RHUI en tant que source de mise à jour principale pour leurs machines virtuelles RHEL AHB sans attacher d’abonnements RHEL à ces machines virtuelles.  Les clients qui choisissent l’option RHUI doivent veiller à la conformité de l’abonnement RHEL.
+
+Les clients qui choisissent Red Hat Satellite Server ou Red Hat Subscription Manager doivent supprimer la configuration de RHUI, puis attacher un abonnement RHEL avec Cloud Access à leurs machines virtuelles RHEL AHB.  
+
+Vous trouverez des informations supplémentaires sur la conformité de l’abonnement Red Hat, les mises à jour logicielles et les sources pour les machines virtuelles RHEL AHB [ici](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 
@@ -147,13 +153,12 @@ A : Non, vous ne pouvez pas. Toute tentative d’entrer un type de licence ne c
 
 A : L’inscription au programme Red Hat Cloud Access peut mettre un certain temps à se propager entre Red Hat et Azure. Si l’erreur persiste après un jour ouvrable, contactez le support technique de Microsoft.
 
-## <a name="common-errors"></a>Erreurs courantes
-Cette section contient une liste d’erreurs courantes et de procédures d’atténuation.
+## <a name="common-issues"></a>Problèmes courants
+Cette section contient une liste des problèmes courants susceptibles de se produire et des procédures d’atténuation.
 
 | Error | Limitation des risques |
 | ----- | ---------- |
-| « L’abonnement n’est pas inscrit pour la préversion Linux d’Azure Hybrid Benefit. Pour obtenir des instructions pas à pas, consultez https://aka.ms/ahb-linux  » | Remplissez le formulaire sur https://aka.ms/ahb-linux-form pour vous inscrire à la préversion Linux d’Azure Hybrid Benefit.
 | « Impossible de terminer l’action, car les informations dont nous disposons indique que vous n’avez pas réussi à activer Red Hat Cloud Access sur votre abonnement Azure... » | Pour pouvoir utiliser l’avantage avec des machines virtuelles RHEL, vous devez d’abord inscrire vos abonnements Azure auprès de Red Hat Cloud Access. Visitez ce lien pour en savoir plus sur l’inscription de vos abonnements Azure pour Red Hat Cloud Access
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour utiliser la préversion, remplissez le formulaire disponible [ici](https://aka.ms/ahb-linux-form).
+* Découvrez comment créer et mettre à jour des machines virtuelles et ajouter des types de licences (RHEL_BYOS, SLES_BYOS) pour Azure Hybrid Benefit avec [Azure CLI ici.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

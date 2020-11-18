@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a2b1ca8434c40eca610f95a3031e677782866e04
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342005"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336724"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multirégions dans les applications qui utilisent Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,13 +25,13 @@ Une fois qu’un compte a été créé avec plusieurs régions d’écriture act
 
 ## <a name="azure-portal"></a><a id="portal"></a> Portail Azure
 
-Procédez comme suit pour activer les écritures multirégions à partir du portail Azure :
+Pour activer les écritures multirégions à partir du portail Azure, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Accédez à votre compte Azure Cosmos et, dans le menu, ouvrez le volet **Répliquer les données globalement**.
 
-1. Sous l’option **Écritures multirégions** , choisissez **Activer**. Cela ajoute automatiquement les régions existantes aux régions en lecture et en écriture.
+1. Sous l’option **Écritures multirégions**, choisissez **Activer**. Cela ajoute automatiquement les régions existantes aux régions en lecture et en écriture.
 
 1. Vous pouvez ajouter des régions supplémentaires en sélectionnant les icônes sur la carte ou en sélectionnant le bouton **Ajouter une région**. Toutes les régions que vous ajoutez seront disponibles en lecture et en écriture.
 

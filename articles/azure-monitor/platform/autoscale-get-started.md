@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342213"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377018"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -34,7 +34,7 @@ Pour chaque ressource, vous trouverez le nombre d’instances en cours ainsi que
 
 - **Non configuré** : vous n’avez pas encore activé la mise à l’échelle automatique pour cette ressource.
 - **Enabled** : vous avez activé la mise à l’échelle automatique pour cette ressource.
-- **Disabled**  : vous avez désactivé la mise à l’échelle automatique pour cette ressource.
+- **Disabled** : vous avez désactivé la mise à l’échelle automatique pour cette ressource.
 
 ## <a name="create-your-first-autoscale-setting"></a>Créez votre premier paramètre de mise à l’échelle automatique
 
@@ -133,6 +133,9 @@ Les équipes de développement des grandes entreprises doivent souvent adhérer 
 
 Lorsque le chemin du contrôle d’intégrité est fourni, App Service effectue un test ping du chemin toutes les instances. Si un code de réponse correct n’est pas reçu après 5 tests ping, cette instance est considérée comme « non saine ». La ou les instances non saines seront exclues de la rotation de l’équilibreur de charge. Vous pouvez configurer le nombre requis de tests Ping ayant échoué avec le paramètre d’application `WEBSITE_HEALTHCHECK_MAXPINGFAILURES`. Ce paramètre d’application peut être défini sur n’importe quel entier compris entre 2 et 10. Par exemple, si cette valeur est définie sur `2`, vos instances seront supprimées de l’équilibreur de charge après deux échecs de test Ping. En outre, lorsque vous effectuez un scale-up ou un scale-out, App Service effectue un test Ping sur le chemin du contrôle d’intégrité pour s’assurer que les nouvelles instances sont prêtes à recevoir des requêtes avant d’être ajoutées à l’équilibreur de charge.
 
+> [!NOTE]
+> N’oubliez pas que votre plan App Service doit faire l’objet d’un scale-out à hauteur de 2 instances ou plus pour que l’exclusion de l’équilibreur de charge se produise. Si vous n’avez qu’une seule instance, elle n’est pas supprimée de l’équilibreur de charge, même si elle n’est pas saine. 
+
 Les instances saines restantes peuvent subir une augmentation de charge. Pour éviter de submerger les instances restantes, jusqu’à la moitié de vos instances sera exclue. Par exemple, si un scale-out du plan d’App Service vers 4 instances dont 3 qui ne sont pas saines est effectué, au moins 2 instances seront exclues de la rotation exclu de la rotation de LoadBalancer. Les 2 autres instances (1 saine et 1 non saine) continueront de recevoir des requêtes. Dans le pire des cas où toutes les instances sont non saines, aucune ne sera exclue. Si vous souhaitez remplacer ce comportement, vous pouvez définir le paramètre d’application `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` sur une valeur comprise entre `0` et `100`. Si vous attribuez une valeur plus élevée, vous supprimez les instances non saines (la valeur par défaut est 50).
 
 Si une instance n’est pas saine pendant une heure, elle sera remplacée par une nouvelle instance. Une instance au plus sera remplacée chaque heure, avec un maximum de trois instances par jour et par plan App Service.
@@ -140,6 +143,20 @@ Si une instance n’est pas saine pendant une heure, elle sera remplacée par un
 ### <a name="monitoring"></a>Surveillance
 
 Après avoir fourni le chemin de contrôle d’intégrité de votre application, vous pouvez surveiller l’intégrité de votre site à l’aide d’ Azure Monitor. Dans le panneau **Contrôle d’intégrité** du portail, cliquez sur **Métriques** dans la barre d’outils supérieure. Un nouveau panneau s’ouvre, dans lequel vous pouvez voir l’état d’intégrité historique du site et créer une nouvelle règle d’alerte. Pour plus d’informations sur la surveillance de vos sites, [consultez le guide sur Azure Monitor](../../app-service/web-sites-monitor.md).
+
+## <a name="moving-autoscale-to-a-different-region"></a>Déplacement de la mise à l’échelle automatique vers une autre région
+Cette section explique comment déplacer la mise à l’échelle automatique Azure vers une autre région sous le même abonnement et le même groupe de ressources. Vous pouvez utiliser l’API REST pour déplacer les paramètres de mise à l’échelle automatique.
+### <a name="prerequisite"></a>Configuration requise
+1. Vérifiez que l’abonnement et le groupe de ressources sont disponibles et que les détails dans les régions source et de destination sont identiques.
+1. Vérifiez que la mise à l’échelle automatique Azure est disponible dans la [région Azure vers laquelle vous souhaitez effectuer le déplacement](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### <a name="move"></a>Déplacer
+Utilisez l’[API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) pour créer un paramètre de mise à l’échelle automatique dans le nouvel environnement. Le paramètre de mise à l’échelle automatique créé dans la région de destination est une copie du paramètre de mise à l’échelle automatique dans la région source.
+
+Les [paramètres de diagnostic](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) créés en association avec le paramètre de mise à l’échelle automatique dans la région source ne peuvent pas être déplacés. Vous devez recréer les paramètres de diagnostic dans la région de destination une fois créés les paramètres de mise à l’échelle automatique. 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>En savoir plus sur le déplacement de ressources dans les régions Azure
+Pour en savoir plus sur le déplacement de ressources entre régions et sur la reprise d’activité après sinistre dans Azure, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

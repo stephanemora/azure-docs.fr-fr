@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742842"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516735"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Étape 1 : Déployer le redirecteur de journal
 
@@ -38,7 +38,7 @@ Au cours de cette étape, vous allez désigner et configurer la machine Linux qu
 
 - Vous devez disposer d’autorisations élevées (sudo) sur votre machine Linux désignée.
 
-- **Python 2.7** doit être installé sur la machine Linux.<br>Utilisez la commande `python -version` pour vérifier.
+- **Python 2.7** ou **3** doit être installé sur la machine Linux.<br>Utilisez la commande `python -version` pour vérifier.
 
 - La machine Linux ne doit être connectée à aucun espace de travail Azure avant l’installation de l’agent Log Analytics.
 
@@ -48,7 +48,7 @@ Au cours de cette étape, vous allez désigner et configurer la machine Linux qu
  
 1. Dans le menu de navigation d’Azure Sentinel, cliquez sur **Connecteurs de données**. Dans la liste des connecteurs, cliquez sur la mosaïque **Common Event Format (CEF)** , puis sur le bouton **Ouvrir la page du connecteur** dans le coin inférieur droit. 
 
-1. Sous **1.2 Installer le collecteur CEF sur la machine Linux** , copiez le lien fourni sous **Exécuter le script suivant pour installer et appliquer le collecteur CEF** ou à partir du texte ci-dessous (appliquer l’ID de l’espace de travail et la clé primaire au lieu des espaces de travail) :
+1. Sous **1.2 Installer le collecteur CEF sur la machine Linux**, copiez le lien fourni sous **Exécuter le script suivant pour installer et appliquer le collecteur CEF** ou à partir du texte ci-dessous (appliquer l’ID de l’espace de travail et la clé primaire au lieu des espaces de travail) :
 
     ```bash
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
@@ -128,14 +128,14 @@ Choisissez un démon Syslog pour afficher la description appropriée.
         /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. **Vérification du mappage du champ *Ordinateur*  :**
+1. **Vérification du mappage du champ *Ordinateur* :**
 
     - Vérifie que le champ *Ordinateur* de la source syslog est correctement mappé dans l’agent Log Analytics en utilisant la commande suivante : 
 
         ```bash
         grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’ **exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
+    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
     
         ```bash
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
@@ -196,14 +196,14 @@ Choisissez un démon Syslog pour afficher la description appropriée.
         /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. **Vérification du mappage du champ *Ordinateur*  :**
+1. **Vérification du mappage du champ *Ordinateur* :**
 
     - Vérifie que le champ *Ordinateur* de la source syslog est correctement mappé dans l’agent Log Analytics en utilisant la commande suivante : 
 
         ```bash
         grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’ **exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
+    - <a name="mapping-command"></a>En cas de problème avec le mappage, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir le mappage correct et redémarrer l’agent.
     
         ```bash
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]

@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Gérer le calcul avec Azure Functions'
-description: Comment utiliser Azure Functions pour gérer les ressources de calcul de votre pool SQL dans Azure Synapse Analytics.
+description: Comment utiliser Azure Functions pour gérer le calcul de votre pool SQL dans Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043357"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517884"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans un pool SQL Azure Synapse Analytics
 
@@ -99,7 +99,7 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
 
    ![Capture d’écran du menu « Applications de fonction » avec l’icône « Plus » à côté de « Fonctions » sélectionnée](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Sous Langage, sélectionnez *JavaScript* , puis *TimerTrigger*.
+2. Sous Langage, sélectionnez *JavaScript*, puis *TimerTrigger*.
 
    ![Créer une fonction](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -167,6 +167,6 @@ Montée en puissance à 8 h 00 jusqu’à DW1000c, descente en puissance unique 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les fonctions Azure [Déclencheur de minuteur](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Découvrez-en plus sur les fonctions Azure [Déclencheur de minuteur](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Consultez le [dépôt d’exemples](https://github.com/Microsoft/sql-data-warehouse-samples) du pool SQL.

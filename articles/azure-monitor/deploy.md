@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0591825bf187648293d5aabc88597b19ab2436e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033470"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491050"
 ---
 # <a name="deploy-azure-monitor"></a>Déployer Azure Monitor
 L’activation d’Azure Monitor pour surveiller toutes vos ressources Azure consiste en une combinaison de configuration de composants Azure Monitor et de configuration des ressources Azure pour générer des données d’analyse collectées par Azure Monitor. Cet article décrit les différentes étapes requises pour une implémentation complète d’Azure Monitor avec une configuration commune afin de surveiller toutes les ressources de votre abonnement Azure. Les descriptions de base de chaque étape sont fournies avec des liens vers d’autres documents pour des exigences de configuration détaillées.
@@ -118,7 +118,7 @@ Pour plus d’informations sur l’installation et la configuration de ces agent
 Azure Monitor surveille vos applications personnalisées à l’aide d’[Application Insights](app/app-insights-overview.md), que vous devez configurer pour chaque application que vous souhaitez analyser. Le processus de configuration varie selon le type d’application surveillé et le type d’analyse que vous souhaitez effectuer. Les données collectées par Application Insights sont stockées dans les mesures Azure Monitor, les journaux Azure Monitor et le stockage d’objets BLOB Azure, selon la fonctionnalité. Les données de performances sont stockées à la fois dans les métriques Azure Monitor et dans les journaux Azure Monitor sans aucune configuration supplémentaire.
 
 ### <a name="create-an-application-resource"></a>Créer une ressource d’application
-Vous devez créer une ressource dans Application Insights pour chaque application que vous allez analyser. Les données de journal collectées par Application Insights sont stockées dans des journaux d’activité Azure Monitor pour une application basée sur un espace de travail. Les données de journal pour les applications classiques sont stockées séparément de votre espace de travail Log Analytics, comme décrit dans la section [Structure des données](platform/data-platform-logs.md#structure-of-data).
+Vous devez créer une ressource dans Application Insights pour chaque application que vous allez analyser. Les données de journal collectées par Application Insights sont stockées dans des journaux d’activité Azure Monitor pour une application basée sur un espace de travail. Les données de journal pour les applications classiques sont stockées séparément de votre espace de travail Log Analytics, comme décrit dans la section [Structure des données](platform/data-platform-logs.md#data-structure).
 
  Lorsque vous créez l’application, vous devez choisir entre Classique ou Basée sur un espace de travail. Consultez [Créer une ressource Application Insights](app/create-new-resource.md) pour créer une application classique. Pour créer une application basée sur un espace de travail, consultez [Ressources Application Insights basées sur un espace de travail (version préliminaire)](app/create-workspace-resource.md).
 

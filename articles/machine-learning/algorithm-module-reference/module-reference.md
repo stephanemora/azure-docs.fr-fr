@@ -1,6 +1,6 @@
 ---
 title: Informations de référence sur les algorithmes et les modules
-description: En savoir plus sur les modules disponibles dans le concepteur Azure Machine Learning
+description: En savoir plus sur les modules du concepteur Azure Machine Learning que vous pouvez utiliser pour créer vos propres projets de machine learning.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 89ad9aae7c0d01971bbcfc7e392cb9d455ef85cd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886397"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376840"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning
 
@@ -45,7 +45,7 @@ Pour savoir quels algorithmes choisir, consultez
 | --- |--- | --- |
 | régression ; | Prédisez une valeur. | [Régression d’arbre de décision boosté](boosted-decision-tree-regression.md) <br/> [Régression de forêt d’arbres décisionnels](decision-forest-regression.md) <br/> [Régression quantile de forêt rapide](fast-forest-quantile-regression.md)  <br/> [Régression linéaire](linear-regression.md)  <br/> [Régression de réseau neuronal](neural-network-regression.md)  <br/> [Régression de poisson](poisson-regression.md)  <br/>|
 | Clustering | Regroupez des données.| [Clustering k-moyennes](k-means-clustering.md)
-| classification ; | Prédisez une classe.  Choisissez entre des algorithmes binaires (à deux classes) ou multiclasses.| [Arbre de décision multiclasse optimisé](multiclass-boosted-decision-tree.md) <br/> [Forêt d’arbres décisionnels multiclasse](multiclass-decision-forest.md) <br/> [Régression logistique multiclasse](multiclass-logistic-regression.md)  <br/> [Réseau neuronal multiclasse](multiclass-neural-network.md) <br/> [Une ou toutes les multiclasses](one-vs-all-multiclass.md) <br/> [Perceptron moyenné à deux classes](two-class-averaged-perceptron.md) <br/>  [Arbre de décision optimisé à deux classes](two-class-boosted-decision-tree.md)  <br/> [Forêt d’arbres décisionnels à deux classes](two-class-decision-forest.md) <br/>  [Régression logistique à deux classes](two-class-logistic-regression.md) <br/> [Réseau neuronal à deux classes](two-class-neural-network.md) <br/> [Machine à vecteurs de support à deux classes](two-class-support-vector-machine.md) | 
+| classification ; | Prédisez une classe.  Choisissez entre des algorithmes binaires (à deux classes) ou multiclasses.| [Arbre de décision multiclasse optimisé](multiclass-boosted-decision-tree.md) <br/> [Forêt d’arbres décisionnels multiclasse](multiclass-decision-forest.md) <br/> [Régression logistique multiclasse](multiclass-logistic-regression.md)  <br/> [Réseau neuronal multiclasse](multiclass-neural-network.md) <br/> [Une ou toutes les multiclasses](one-vs-all-multiclass.md) <br/> [Une ou une multiclasse](one-vs-one-multiclass.md) <br/>[Perceptron moyenné à deux classes](two-class-averaged-perceptron.md) <br/>  [Arbre de décision optimisé à deux classes](two-class-boosted-decision-tree.md)  <br/> [Forêt d’arbres décisionnels à deux classes](two-class-decision-forest.md) <br/>  [Régression logistique à deux classes](two-class-logistic-regression.md) <br/> [Réseau neuronal à deux classes](two-class-neural-network.md) <br/> [Machine à vecteurs de support à deux classes](two-class-support-vector-machine.md) | 
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Modules pour la génération et l’évaluation de modèles
 

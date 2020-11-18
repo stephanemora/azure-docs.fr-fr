@@ -7,18 +7,21 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005410"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506411"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurer une règle de limitation du débit du pare-feu d’applications web à l’aide d’Azure PowerShell
 La règle de limitation du débit du pare-feu d'applications web (WAF) Azure pour Azure Front Door contrôle le nombre de requêtes autorisées de la part des clients sur une durée d'une minute.
 Cet article explique comment utiliser Azure PowerShell pour configurer une règle de limitation du débit du WAF afin de contrôler le nombre de requêtes que les clients sont autorisés à envoyer à une application web dont l'URL contient */promo*.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+> [!NOTE]
+> Les limitations de débit sont appliquées pour chaque adresse IP de client. Si vous avez plusieurs clients qui accèdent à votre instance Front Door à partir d’adresses IP différentes, leurs propres limitations de débit sont appliquées.
 
 ## <a name="prerequisites"></a>Prérequis
 Avant de configurer une stratégie de limitation du débit, configurez votre environnement PowerShell et créez un profil Front Door.
@@ -73,9 +76,7 @@ Définissez une limitation du débit avec [New-AzFrontDoorWafCustomRuleObject](/
 
 Recherchez le nom du groupe de ressources qui contient le profil Front Door à l’aide de `Get-AzureRmResourceGroup`. Ensuite, configurez une stratégie de sécurité avec une règle personnalisée de limitation du débit en utilisant [ New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) dans le groupe de ressources spécifié qui abrite le profil Front Door.
 
-L’exemple ci-dessous utilise le nom de groupe de ressources *myResourceGroupFD1* en partant du principe que vous avez créé le profil Front Door à l’aide des instructions fournies dans l’article [Démarrage rapide : Créer un profil Front Door](../../frontdoor/quickstart-create-front-door.md).
-
- Utilisation de [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+L’exemple ci-dessous utilise le nom de groupe de ressources *myResourceGroupFD1* en partant du principe que vous avez créé le profil Front Door à l’aide des instructions fournies dans l’article [Démarrage rapide : Créer une instance Front Door](../../frontdoor/quickstart-create-front-door.md) avec [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `

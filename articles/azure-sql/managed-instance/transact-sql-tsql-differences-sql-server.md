@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790608"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506377"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ SQL Managed Instance ne pouvant pas accéder à des partages de fichiers et à d
 
 Consultez [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) et [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solution de contournement**  : Au lieu de créer une sauvegarde du certificat et de restaurer la sauvegarde, [obtenez le contenu binaire du certificat et la clé privée, stockez-les en tant que fichier .sql et créez à partir du binaire](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database) :
+**Solution de contournement** : Au lieu de créer une sauvegarde du certificat et de restaurer la sauvegarde, [obtenez le contenu binaire du certificat et la clé privée, stockez-les en tant que fichier .sql et créez à partir du binaire](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database) :
 
 ```sql
 CREATE CERTIFICATE  
@@ -158,6 +158,8 @@ SQL Managed Instance ne pouvant pas accéder aux fichiers, vous ne pouvez pas cr
 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
+
+  - Pour emprunter l’identité d’un utilisateur avec l’instruction EXECUTE AS, l’utilisateur doit être mappé directement au principal de serveur Azure AD (connexion). Les utilisateurs membres de groupes Azure AD mappés aux principaux de serveur Azure AD ne peuvent pas faire l’objet d’un emprunt d’identité à l’aide de l’instruction EXECUTE AS, même si l’appelant dispose d’autorisations d’emprunt d’identité sur le nom d’utilisateur spécifié.
 
 - L’exportation/importation de bases de données à l’aide de fichiers bacpac est prise en charge pour les utilisateurs Azure AD dans SQL Managed Instance avec [SSMS v18.4 ou version ultérieure](/sql/ssms/download-sql-server-management-studio-ssms) et [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Les configurations suivantes sont prises en charge avec le fichier de base de données bacpac : 
@@ -300,6 +302,7 @@ Pour en savoir plus, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-data
   - Les alertes ne sont pas encore prises en charge.
   - Les proxies ne sont pas pris en charge.
 - EventLog n’est pas pris en charge.
+- L’utilisateur doit être directement mappé au principal de serveur Azure AD (connexion) pour pouvoir créer, modifier ou exécuter des travaux SQL Agent. Les utilisateurs qui ne sont pas directement mappés, par exemple les utilisateurs membres d’un groupe Azure AD qui dispose des droits de création, de modification ou d’exécution des travaux SQL Agent, ne peuvent pas effectuer ces actions. Cela est dû à l’emprunt d’identité Managed Instance et aux [limitations d’EXECUTE AS](#logins-and-users).
 
 Les fonctionnalités suivantes de l’agent SQL ne sont pas prises en charge actuellement :
 
@@ -407,7 +410,7 @@ Opérations :
 
 ### <a name="polybase"></a>PolyBase
 
-Les tables externes qui référencent les fichiers dans HDFS ou le stockage Blob Azure ne sont pas prises en charge. Pour plus d’informations sur PolyBase, consultez [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+Le seul type de source externe pris en charge est SGBDR vers Azure SQL Database et Azure SQL Managed Instance. Pour plus d’informations sur PolyBase, consultez [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Réplication
 

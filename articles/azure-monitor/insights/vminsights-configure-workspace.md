@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995730"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506292"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurer l’espace de travail Log Analytics pour Azure Monitor pour machines virtuelles
 Azure Monitor pour machines virtuelles collecte ses données à partir d’un ou plusieurs espaces de travail Log Analytics dans Azure Monitor. Avant d’intégrer des agents, vous devez créer et configurer un espace de travail. Cet article décrit les exigences de l’espace de travail et sa configuration pour Azure Monitor pour machines virtuelles.
@@ -20,10 +20,10 @@ Azure Monitor pour machines virtuelles collecte ses données à partir d’un ou
 ## <a name="overview"></a>Vue d’ensemble
 Un seul abonnement peut utiliser n’importe quel nombre d’espaces de travail selon vos besoins, à condition que l’espace de travail se trouve dans un emplacement pris en charge et soit configuré avec la solution *VMInsights*.
 
-Une fois l’espace de travail configuré, vous pouvez utiliser l’une des options disponibles pour installer les agents requis sur les machines virtuelles et les ordinateurs virtuels, puis spécifier un espace de travail afin qu’ils envoient leurs données. Azure Monitor pour machines virtuelles collectera les données de n’importe quel espace de travail configuré dans son abonnement.
+Une fois l’espace de travail configuré, vous pouvez utiliser l’une des options disponibles pour installer les agents requis sur les machines virtuelles et VMSS, puis spécifier un espace de travail afin qu’ils envoient leurs données. Azure Monitor pour machines virtuelles collectera les données de n’importe quel espace de travail configuré dans son abonnement.
 
 > [!NOTE]
-> Lorsque vous activez Azure Monitor pour machines virtuelles sur une ou plusieurs machines virtuelles à l’aide du portail Azure, vous avez la possibilité de sélectionner un espace de travail existant ou d’en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
+> Quand vous activez Azure Monitor pour machines virtuelles sur une machine virtuelle ou VMSS à l’aide du portail Azure, vous avez la possibilité de sélectionner un espace de travail existant ou d’en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
 
 
 ## <a name="create-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
@@ -89,7 +89,7 @@ Pour configurer plusieurs espaces de travail, sélectionnez l’onglet **Configu
 [![Configuration de l’espace de travail](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Lorsque vous activez Azure Monitor pour machines virtuelles sur une ou plusieurs machines virtuelles à l’aide du portail Azure, vous avez la possibilité de sélectionner un espace de travail existant ou d’en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
+Quand vous activez Azure Monitor pour machines virtuelles sur une machine virtuelle ou VMSS à l’aide du portail Azure, vous avez la possibilité de sélectionner un espace de travail existant ou d’en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
 
 [![Activer une machine virtuelle unique dans le portail](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

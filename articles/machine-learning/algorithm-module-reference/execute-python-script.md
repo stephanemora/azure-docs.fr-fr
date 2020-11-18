@@ -1,7 +1,7 @@
 ---
 title: 'Exécuter un script Python : sur le module Modifier les métadonnées'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Exécuter un script Python dans Azure Machine Learning pour exécuter du code Python.
+description: Découvrez comment utiliser le module Exécuter un script Python dans le concepteur Azure Machine Learning pour exécuter du code Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323764"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421360"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -37,7 +37,7 @@ Azure Machine Learning utilise la distribution Anaconda de Python, qui inclut de
 
 Pour obtenir la liste complète, consultez la section [Packages Python préinstallés](#preinstalled-python-packages).
 
-Pour installer des packages qui ne figurent pas dans la liste des packages préinstallés (par exemple, *scikit-misc* ), ajoutez le code suivant à votre script : 
+Pour installer des packages qui ne figurent pas dans la liste des packages préinstallés (par exemple, *scikit-misc*), ajoutez le code suivant à votre script : 
 
 ```python
 import os
@@ -165,7 +165,7 @@ Le module Exécuter un script Python contient un exemple de code Python que vous
         return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
     ```
 
-5. Dans la zone de texte **Script Python** , saisissez ou collez un script Python valide.
+5. Dans la zone de texte **Script Python**, saisissez ou collez un script Python valide.
 
     > [!NOTE]
     >  Faites preuve de prudence lors de l’écriture de votre script. Assurez-vous qu’il n’existe pas d’erreurs de syntaxe, comme l’utilisation de variables non déclarées ou de modules ou fonctions non importés. Portez une attention particulière à la liste des modules préinstallés. Pour importer des modules qui ne sont pas listés, installez les packages correspondants dans votre script, tels que :
@@ -197,9 +197,9 @@ Les résultats des calculs effectués par le code Python incorporé doivent êtr
 
 Le module renvoie deux jeux de données :  
   
-+ **Jeu de données de résultats 1** , défini par la première trame de données pandas renvoyée dans un script Python.
++ **Jeu de données de résultats 1**, défini par la première trame de données pandas renvoyée dans un script Python.
 
-+ **Jeu de données de résultats 2** , défini par le second dataframe pandas retourné dans un script Python.
++ **Jeu de données de résultats 2**, défini par le second dataframe pandas retourné dans un script Python.
 
 ## <a name="preinstalled-python-packages"></a>Packages Python préinstallés
 Les packages préinstallés sont les suivants :

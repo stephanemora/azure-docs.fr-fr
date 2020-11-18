@@ -1,7 +1,7 @@
 ---
 title: 'Arbre de décision optimisé à deux classes : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Arbre de décision optimisé à deux classes dans Azure Machine Learning pour créer un modèle Machine Learning basé sur l’algorithme d’arbres de décision optimisés.
+description: Découvrez comment utiliser le module Arbre de décision optimisé à deux classes dans le concepteur pour créer un classifieur binaire.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907733"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375908"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Arbre de décision optimisé à deux classes
 
@@ -56,7 +56,7 @@ Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l�
   
 6.  Dans le champ **Number of trees constructed** (Nombre d’arbres construits), indiquez le nombre total d’arbres de décision à créer dans l’ensemble. En créant plusieurs arbres de décision, vous pouvez obtenir une meilleure couverture, mais cette opération augmente la durée d’apprentissage.
   
-     Cette valeur contrôle également le nombre d’arbres qui s’affichent dans la visualisation du modèle entraîné. Si vous souhaitez visualiser ou imprimer un arbre unique, définissez la valeur sur 1. Toutefois, lorsque vous procédez ainsi, un seul arbre est généré (l’arbre avec le jeu de paramètres initial), et aucune autre itération n’est effectuée.
+     Si vous définissez la valeur sur 1, un seul arbre est généré (l’arbre avec le jeu de paramètres initial), et aucune autre itération n’est effectuée.
   
 7.  Dans le champ **Random number seed** (Valeur de départ aléatoire), saisissez si vous le souhaitez un entier non négatif à utiliser comme valeur initiale aléatoire. La spécification d’une valeur de départ garantit la reproductibilité entre les exécutions qui présentent les mêmes données et paramètres.  
   
