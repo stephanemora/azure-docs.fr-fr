@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999103"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635703"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Résoudre les problèmes de démarrage du système d’exploitation – Capacité d’installation Windows Update
 
@@ -62,8 +62,6 @@ Pour résoudre ce problème :
 
 1. Vérifiez si le disque est plein. Si la taille du disque est inférieure à 1 To, augmentez-la jusqu’à un maximum de 1 To [à l’aide de PowerShell](../windows/expand-os-disk.md).
 1. Si le disque a déjà une taille de 1 To, vous devrez effectuer un nettoyage de disque.
-   1. Détachez le disque de données [de la machine virtuelle corrompue](../windows/detach-disk.md).
-   1. Attachez-le [à une machine virtuelle opérationnelle](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Utilisez l’[outil Nettoyage de disque](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) pour libérer de l’espace.
 1. Une fois le redimensionnement et le nettoyage terminés, défragmentez le lecteur à l’aide de la commande suivante :
 
@@ -80,14 +78,14 @@ En fonction du niveau de fragmentation, la défragmentation peut prendre plusieu
 1. Ouvrez une session d’invite de commandes avec élévation de privilèges en tant qu’administrateur.
 1. Exécutez les commandes suivantes :
 
-   **Activer la console série** :
+   **Activer la console série** :
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
 
-1. vérifiez que l’espace disponible sur le disque du système d’exploitation est supérieur à la taille de la mémoire (RAM) sur la machine virtuelle.
+1. Vérifiez que l’espace disponible sur le disque du système d’exploitation est supérieur à la taille de la mémoire (RAM) sur la machine virtuelle.
 
    Si l’espace n’est pas suffisant, changez l’emplacement où le fichier d’image mémoire sera créé et référencez-le sur n’importe quel autre disque de données attaché à la machine virtuelle possédant suffisamment d’espace libre. Pour changer l’emplacement, remplacez **%SystemRoot%** par la lettre de lecteur du disque de données (par exemple, **F:** ) dans les commandes ci-dessous.
 
@@ -107,7 +105,7 @@ En fonction du niveau de fragmentation, la défragmentation peut prendre plusieu
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Activez sur ControlSet002** :
+   **Activer sur ControlSet002** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -115,7 +113,7 @@ En fonction du niveau de fragmentation, la défragmentation peut prendre plusieu
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Déchargez le disque de système d’exploitation corrompu** :
+   **Décharger le disque de système d’exploitation corrompu** :
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM
@@ -123,4 +121,4 @@ En fonction du niveau de fragmentation, la défragmentation peut prendre plusieu
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

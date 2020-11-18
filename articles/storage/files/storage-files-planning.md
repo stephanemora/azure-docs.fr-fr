@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a35c34a08dba625b16940d7ec5fb870952dba36b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649947"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630241"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -96,21 +96,21 @@ La suppression réversible pour les partages de fichiers (préversion) est un pa
 
 Nous vous recommandons d’activer la suppression réversible pour la plupart des partages de fichiers. Si vous avez un flux de travail dans lequel la suppression de partage est courante et attendue, vous pouvez décider de configurer une période de rétention très brève ou de ne pas activer la suppression réversible.
 
-Pour plus d’informations sur la suppression réversible, consultez [Prévenir les suppressions de données accidentelles](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+Pour plus d’informations sur la suppression réversible, consultez [Prévenir les suppressions de données accidentelles](./storage-files-prevent-file-share-deletion.md).
 
 ### <a name="backup"></a>Sauvegarde
-Vous pouvez sauvegarder votre partage de fichiers Azure via des [captures instantanées de partage](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), qui sont des copies en lecture seule de votre partage à un instant dans le passé. Les captures instantanées sont incrémentielles, ce qui signifie qu’elles ne contiennent que les données modifiés depuis la capture instantanée précédente. Vous pouvez avoir jusqu’à 200 captures instantanées par partage de fichiers et les conserver pendant jusqu’à 10 ans. Vous pouvez soit prendre manuellement ces captures instantanées dans le portail Azure, via PowerShell ou l’interface de ligne de commande (CLI), soit d’utiliser [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Les captures instantanées sont stockées dans votre partage de fichiers, ce qui signifie que, si vous supprimez votre partage de fichiers, vos captures instantanées sont également supprimées. Pour protéger vos sauvegardes de captures instantanées contre des suppressions accidentelles, assurez-vous que la suppression réversible est activée pour votre partage.
+Vous pouvez sauvegarder votre partage de fichiers Azure via des [captures instantanées de partage](./storage-snapshots-files.md), qui sont des copies en lecture seule de votre partage à un instant dans le passé. Les captures instantanées sont incrémentielles, ce qui signifie qu’elles ne contiennent que les données modifiés depuis la capture instantanée précédente. Vous pouvez avoir jusqu’à 200 captures instantanées par partage de fichiers et les conserver pendant jusqu’à 10 ans. Vous pouvez soit prendre manuellement ces captures instantanées dans le portail Azure, via PowerShell ou l’interface de ligne de commande (CLI), soit d’utiliser [Sauvegarde Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json). Les captures instantanées sont stockées dans votre partage de fichiers, ce qui signifie que, si vous supprimez votre partage de fichiers, vos captures instantanées sont également supprimées. Pour protéger vos sauvegardes de captures instantanées contre des suppressions accidentelles, assurez-vous que la suppression réversible est activée pour votre partage.
 
-La [Sauvegarde Azure pour les partages de fichiers Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) gère la planification et la rétention des captures instantanées. Ses fonctionnalités grand-père-père-fils vous permettent de prendre des captures instantanées quotidiennes, hebdomadaires, mensuelles et annuelles, dont les périodes de rétention diffèrent. Le service Sauvegarde Azure orchestre également l’activation de la suppression réversible, et pose un verrou de suppression sur un compte de stockage dès qu’un partage de fichiers dans celui-ci est configuré pour la sauvegarde. Enfin, le service Sauvegarde Azure offre certaines fonctionnalités de surveillance et d’alerte clés, qui permettent aux clients d’avoir une vue consolidée de leur parc de sauvegarde.
+La [Sauvegarde Azure pour les partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) gère la planification et la rétention des captures instantanées. Ses fonctionnalités grand-père-père-fils vous permettent de prendre des captures instantanées quotidiennes, hebdomadaires, mensuelles et annuelles, dont les périodes de rétention diffèrent. Le service Sauvegarde Azure orchestre également l’activation de la suppression réversible, et pose un verrou de suppression sur un compte de stockage dès qu’un partage de fichiers dans celui-ci est configuré pour la sauvegarde. Enfin, le service Sauvegarde Azure offre certaines fonctionnalités de surveillance et d’alerte clés, qui permettent aux clients d’avoir une vue consolidée de leur parc de sauvegarde.
 
 Sauvegarde Azure vous permet d’effectuer des restaurations au niveau élément et au niveau partage dans le portail Azure. Il vous suffit de choisir le point de restauration (une capture instantanée particulière), le fichier ou répertoire particulier le cas échéant, puis l’emplacement (d’origine ou de remplacement) sur lequel vous souhaitez effectuer la restauration. Le service de sauvegarde gère la copie des données de captures instantanées et affiche la progression de la restauration dans le portail.
 
-Pour plus d’informations sur la sauvegarde, consultez [À propos de la sauvegarde des partages de fichiers Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+Pour plus d’informations sur la sauvegarde, consultez [À propos de la sauvegarde des partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 ### <a name="advanced-threat-protection-for-azure-files-preview"></a>Advanced Threat Protection pour Azure Files (préversion)
 Advanced Threat Protection (ATP) pour Stockage Azure fournit une couche supplémentaire de renseignement sur la sécurité, qui génère des alertes quand elle détecte une activité anormale sur votre compte de stockage, par exemple, des tentatives inhabituelles d’accès au compte de stockage. ATP exécute également une analyse de réputation du hachage de programme malveillant et déclenche une alerte concernant les programmes malveillants connus. Vous pouvez configurer ATP au niveau d’un abonnement ou d’un compte de stockage via Azure Security Center. 
 
-Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
+Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage Azure](../common/azure-defender-storage-configure.md).
 
 ## <a name="storage-tiers"></a>Niveaux de stockage
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
@@ -124,7 +124,7 @@ En général, les fonctionnalités d’Azure Files et l’interopérabilité ave
     - Les partages de fichiers Standard sont disponibles pour le stockage localement redondant, redondant interzone, géoredondant (GRS) et géoredondant interzone (GZRS).
 - **Taille maximale d’un partage de fichiers**
     - Les partages de fichiers Premium peuvent être provisionnés jusqu’à 100 Tio sans aucun travail supplémentaire.
-    - Par défaut, les partages de fichiers Standard ne peuvent atteindre que 5 Tio, mais la limite de partage peut être augmentée jusqu’à 100 Tio en optant pour l’indicateur de fonctionnalité de compte de stockage *Partage de fichiers volumineux*. Les partages de fichiers Standard peuvent couvrir jusqu’à 100 Tio uniquement pour les comptes de stockage redondants en local ou interzones. Pour plus d’informations sur l’augmentation de la taille des partages de fichiers, consultez [Activer et créer des partages de fichiers volumineux](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
+    - Par défaut, les partages de fichiers Standard ne peuvent atteindre que 5 Tio, mais la limite de partage peut être augmentée jusqu’à 100 Tio en optant pour l’indicateur de fonctionnalité de compte de stockage *Partage de fichiers volumineux*. Les partages de fichiers Standard peuvent couvrir jusqu’à 100 Tio uniquement pour les comptes de stockage redondants en local ou interzones. Pour plus d’informations sur l’augmentation de la taille des partages de fichiers, consultez [Activer et créer des partages de fichiers volumineux](./storage-files-how-to-create-large-file-share.md).
 - **Disponibilité régionale**
     - Les partages de fichiers Premium sont disponibles dans la plupart des régions Azure, à l’exception de quelques-unes. La prise en charge de la redondance interzone est disponible dans un sous-ensemble de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour connaître les régions prenant en charge ZRS, consultez [Stockage redondant interzone](../common/storage-redundancy.md#zone-redundant-storage). Pour nous aider à hiérarchiser les nouvelles régions et les fonctionnalités du niveau Premium, répondez à ce [sondage](https://aka.ms/pfsfeedback).
     - Le partage de fichiers Standard est disponible dans toutes les régions Azure.

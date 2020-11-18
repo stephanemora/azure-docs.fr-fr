@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588686"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651310"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Suivi des données lors du repérage avec Azure Sentinel
 
@@ -133,7 +133,7 @@ Vous pouvez également afficher les données de signets brutes pour tous les sig
 > [!div class="mx-imgBorder"]
 > ![Journaux des signets](./media/bookmarks/bookmark-logs.png)
 
-Cet affichage montre tous vos signets avec les métadonnées associées. Vous pouvez utiliser des requêtes [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) KQL pour filtrer jusqu’à la dernière version du signet spécifique que vous recherchez.
+Cet affichage montre tous vos signets avec les métadonnées associées. Vous pouvez utiliser des requêtes [Keyword Query Language](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) KQL pour filtrer jusqu’à la dernière version du signet spécifique que vous recherchez.
 
 > [!NOTE]
 > Il peut y avoir un délai important (mesuré en minutes) entre la création d’un signet et le moment où il apparaît dans l'onglet **Signets**.

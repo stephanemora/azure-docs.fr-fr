@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309372"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649141"
 ---
 # <a name="azure-resource-provider-operations"></a>Opérations de fournisseur de ressources Azure
 
@@ -792,7 +792,7 @@ Service Azure : Réseau virtuel avec modèle de déploiement classique
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Service Azure : [Application Gateway](../application-gateway/index.yml), [Azure Bastion](../bastion/index.yml), [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Pare-feu Azure](../firewall/index.yml), [Azure Front Door Service](../frontdoor/index.yml), [Azure Private Link](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Réseau virtuel](../virtual-network/index.yml), [Virtual WAN](../virtual-wan/index.yml), [Passerelle VPN](../vpn-gateway/index.yml)
+Service Azure : [Application Gateway](../application-gateway/index.yml), [Azure Bastion](../bastion/index.yml), [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Pare-feu Azure](../firewall/index.yml), [Azure Front Door Service](../frontdoor/index.yml), [Azure Private Link](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Réseau virtuel](../virtual-network/index.yml), [Virtual WAN](../virtual-wan/index.yml), [Passerelle VPN](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -3850,7 +3850,7 @@ Service Azure : [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Service Azure : [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (anciennement SQL Data Warehouse)](../sql-data-warehouse/index.yml)
+Service Azure : [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (anciennement SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -4331,7 +4331,7 @@ Service Azure : [Azure Analysis Services](../analysis-services/index.yml)
 
 ### <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
-Service Azure : [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
+Service Azure : [Azure Databricks](/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -4619,7 +4619,7 @@ Service Azure : [Explorateur de données Azure](/azure/data-explorer/)
 
 ### <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
-Service Azure : [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
+Service Azure : [Power BI Embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -4712,7 +4712,7 @@ Service Azure : [Azure Blockchain Service](../blockchain/workbench/index.yml)
 
 ### <a name="microsoftbotservice"></a>Microsoft.BotService
 
-Service Azure : [Service de robot Azure](https://docs.microsoft.com/azure/bot-service/)
+Service Azure : [Service de robot Azure](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -6187,7 +6187,7 @@ Service Azure : [Logic Apps](../logic-apps/index.yml)
 
 ### <a name="microsoftrelay"></a>Microsoft.Relay
 
-Service Azure : [Azure Relay](../service-bus-relay/relay-what-is-it.md)
+Service Azure : [Azure Relay](../azure-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -6257,7 +6257,7 @@ Service Azure : [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 ### <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-Service Azure : [Service Bus](../service-bus/index.md)
+Service Azure : [Service Bus](../service-bus-messaging/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -6957,7 +6957,7 @@ Service Azure : [Azure Lab Services](../lab-services/index.yml)
 
 ### <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
 
-Service Azure : [Azure DevOps](https://docs.microsoft.com/azure/devops/)
+Service Azure : [Azure DevOps](/azure/devops/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -8924,7 +8924,7 @@ Service Azure : [Azure Arc](../azure-arc/index.yml)
 
 ### <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
-Service Azure : [Kubernetes compatible avec Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Service Azure : [Kubernetes compatible avec Azure Arc](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -9677,7 +9677,7 @@ Service Azure : Insights Microsoft Monitoring
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
-Service Azure : [Bing Maps](https://docs.microsoft.com/BingMaps/)
+Service Azure : [Bing Maps](/BingMaps/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

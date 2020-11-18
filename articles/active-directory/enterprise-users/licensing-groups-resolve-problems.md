@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372980"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647031"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -34,7 +34,7 @@ Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuve
 
 ### <a name="to-find-users-in-an-error-state-in-a-group"></a>Pour rechercher des utilisateurs en état d’erreur dans un groupe
 
-1. Ouvrez la page de vue d’ensemble du groupe et sélectionnez **Licenses** . Une notification s’affiche si des utilisateurs sont en état d’erreur.
+1. Ouvrez la page de vue d’ensemble du groupe et sélectionnez **Licenses**. Une notification s’affiche si des utilisateurs sont en état d’erreur.
 
    ![Message de notifications d’erreur et de groupe](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
@@ -42,7 +42,7 @@ Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuve
 
    ![liste des utilisateurs en état d’erreur de licences de groupe](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-1. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory** , sélectionnez **Licences** , puis **Vue d’ensemble** . Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
+1. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
 
    ![Vue d’ensemble et informations sur les groupes en état d’erreur](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
@@ -56,11 +56,11 @@ Les sections suivantes décrivent chaque problème potentiel et la manière de l
 
 **Problème :** Le nombre de licences disponibles est insuffisant pour un des produits spécifiés dans le groupe. Vous devez acheter des licences produit supplémentaires ou libérer des licences inutilisées par d’autres utilisateurs ou d’autres groupes.
 
-Pour connaître le nombre de licences disponibles, accédez à **Azure Active Directory** > **Licences** > **Tous les produits** .
+Pour connaître le nombre de licences disponibles, accédez à **Azure Active Directory** > **Licences** > **Tous les produits**.
 
-Pour voir quels utilisateurs et quels groupes utilisent des licences, sélectionnez un produit. Sous **Utilisateurs sous licence** , vous pouvez voir la liste des utilisateurs auxquels des licences ont été affectées directement, ou par le biais d’un ou de plusieurs groupes. Sous **Groupes sous licence** , vous pouvez voir tous les groupes auxquels ce produit est attribué.
+Pour voir quels utilisateurs et quels groupes utilisent des licences, sélectionnez un produit. Sous **Utilisateurs sous licence**, vous pouvez voir la liste des utilisateurs auxquels des licences ont été affectées directement, ou par le biais d’un ou de plusieurs groupes. Sous **Groupes sous licence**, vous pouvez voir tous les groupes auxquels ce produit est attribué.
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _CountViolation_ .
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _CountViolation_.
 
 ## <a name="conflicting-service-plans"></a>Plans de service en conflit
 
@@ -75,7 +75,7 @@ Pour résoudre ce conflit, vous devez désactiver deux des plans. Vous pouvez d�
 
 Seul l’administrateur peut décider de la méthode à utiliser pour résoudre les problèmes de conflit de licences produit. Azure AD ne résout pas automatiquement les conflits de licences.
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _MutuallyExclusiveViolation_ .
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _MutuallyExclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>D’autres produits dépendent de cette licence
 
@@ -83,7 +83,7 @@ Seul l’administrateur peut décider de la méthode à utiliser pour résoudre 
 
 Pour résoudre ce problème, vous devez vérifier que le plan requis est toujours attribué aux utilisateurs par une autre méthode, ou que les services dépendants sont désactivés pour ces utilisateurs. Après cela, vous pouvez supprimer la licence de groupe sur ces utilisateurs.
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _DependencyViolation_ .
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _DependencyViolation_.
 
 ## <a name="usage-location-isnt-allowed"></a>L’emplacement d’utilisation n’est pas autorisé
 
@@ -93,7 +93,7 @@ Si Azure AD tente d’attribuer une licence de groupe à un utilisateur dont l�
 
 Pour résoudre ce problème, retirez du groupe sous licence les utilisateurs associés à des emplacements non pris en charge. Autrement, si les valeurs d’emplacement d’utilisation actuelles ne représentent pas l’emplacement réel des utilisateurs, vous pouvez modifier ceux-ci de sorte que les licences soient attribuées correctement la prochaine fois (à condition que le nouvel emplacement soit pris en charge).
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _ProhibitedInUsageLocationViolation_ .
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > Lorsqu’Azure AD attribue des licences de groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Nous recommandons aux administrateurs de définir des valeurs d’emplacement d’utilisation correctes pour les utilisateurs avant d’utiliser la licence groupée afin de se conformer aux lois et réglementations locales.
@@ -138,7 +138,7 @@ Par exemple, prenons un groupe avec une licence Office 365 E3/E5 attribuée ave
 
 ## <a name="manage-licenses-for-products-with-prerequisites"></a>Gérer les licences des produits avec des prérequis
 
-Certains produits Microsoft Online que vous possédez peut-être sont des *modules complémentaires* . Ils nécessitent l’activation d’un plan de service requis pour un utilisateur ou un groupe pour qu’une licence puisse leur être attribuée. Avec les licences basées sur le groupe, le système impose que les plans de service requis et du module complémentaire soient présents pour le même groupe. Cela permet de veiller à ce que tous les utilisateurs ajoutés au groupe puissent recevoir le produit de travail complet. Considérez l’exemple suivant :
+Certains produits Microsoft Online que vous possédez peut-être sont des *modules complémentaires*. Ils nécessitent l’activation d’un plan de service requis pour un utilisateur ou un groupe pour qu’une licence puisse leur être attribuée. Avec les licences basées sur le groupe, le système impose que les plans de service requis et du module complémentaire soient présents pour le même groupe. Cela permet de veiller à ce que tous les utilisateurs ajoutés au groupe puissent recevoir le produit de travail complet. Considérez l’exemple suivant :
 
 Microsoft Workplace Analytics est un produit additionnel. Il contient un plan de service unique portant le même nom. Ce plan de service peut uniquement être affecté à un utilisateur ou à un groupe, lorsque l’une des conditions requises suivantes est également assignée :
 
@@ -165,13 +165,13 @@ Dorénavant, tout utilisateur ajouté à ce groupe utilise une licence de produi
 
 Selon les actions entreprises pour résoudre les erreurs, il peut être nécessaire de déclencher manuellement le traitement d’un groupe pour mettre à jour l’état de l’utilisateur.
 
-Par exemple, si vous avez libéré des licences en supprimant leurs affectations directes à des utilisateurs, vous devez déclencher le traitement des groupes ayant échoué précédemment afin d’attribuer des licences complètes à tous les utilisateurs membres. Pour traiter à nouveau un groupe, accédez au volet correspondant, ouvrez **Licences** , puis sélectionnez le bouton **Retraiter** dans la barre d’outils.
+Par exemple, si vous avez libéré des licences en supprimant leurs affectations directes à des utilisateurs, vous devez déclencher le traitement des groupes ayant échoué précédemment afin d’attribuer des licences complètes à tous les utilisateurs membres. Pour traiter à nouveau un groupe, accédez au volet correspondant, ouvrez **Licences**, puis sélectionnez le bouton **Retraiter** dans la barre d’outils.
 
 ## <a name="force-user-license-processing-to-resolve-errors"></a>Forcer le traitement des licences utilisateur pour résoudre des erreurs
 
 Selon les mesures que vous avez prises pour résoudre les erreurs, il peut être nécessaire de déclencher manuellement le traitement d’un utilisateur pour mettre à jour l’état de l’utilisateur.
 
-Par exemple, après avoir résolu le problème d’adresse proxy en double pour un utilisateur affecté, vous devez déclencher le traitement de l’utilisateur. Pour retraiter un utilisateur , accédez au volet correspondant, ouvrez **Licences** , puis sélectionnez le bouton **Retraiter** dans la barre d’outils.
+Par exemple, après avoir résolu le problème d’adresse proxy en double pour un utilisateur affecté, vous devez déclencher le traitement de l’utilisateur. Pour retraiter un utilisateur , accédez au volet correspondant, ouvrez **Licences**, puis sélectionnez le bouton **Retraiter** dans la barre d’outils.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 04/16/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 878f091ac6ac40f6ce434710e809c790f382c1ac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0183101d37a9f204b5b471270de4cc7befd50a55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372962"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646761"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Télécharger une liste d’utilisateurs dans le portail Azure Active Directory
 
@@ -32,8 +32,8 @@ Pour télécharger la liste des utilisateurs à partir du centre d’administrat
 
 1. [Connectez-vous à votre organisation](https://aad.portal.azure.com) Azure AD avec un compte Administrateur d’utilisateurs de l’organisation.
 2. Accédez à Azure Active Directory > Utilisateurs. Sélectionnez ensuite les utilisateurs que vous souhaitez inclure dans le téléchargement en cochant la case dans la colonne de gauche en regard de chaque utilisateur. Remarque : Pour le moment, il n’existe aucun moyen de sélectionner tous les utilisateurs pour l’exportation. Chacun d’eux doit être sélectionné individuellement.
-3. Dans Azure AD, sélectionnez **Utilisateurs** > **Télécharger les utilisateurs** .
-4. Dans la page **Télécharger les utilisateurs** , sélectionnez **Démarrer** pour recevoir un fichier CSV répertoriant les propriétés de profil utilisateur. Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats sur la page Résultats de l’opération en bloc. Le fichier contient la raison de chaque erreur.
+3. Dans Azure AD, sélectionnez **Utilisateurs** > **Télécharger les utilisateurs**.
+4. Dans la page **Télécharger les utilisateurs**, sélectionnez **Démarrer** pour recevoir un fichier CSV répertoriant les propriétés de profil utilisateur. Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats sur la page Résultats de l’opération en bloc. Le fichier contient la raison de chaque erreur.
 
    ![Sélectionnez l’emplacement où vous souhaitez télécharger la liste des utilisateurs](./media/users-bulk-download/bulk-download.png)
 
@@ -70,7 +70,7 @@ Pour télécharger la liste des utilisateurs à partir du centre d’administrat
 
 ## <a name="check-status"></a>Vérification du statut
 
-Pour connaître l'état de vos demandes d'opérations en bloc en attente, consultez la page **Résultats des opérations en bloc** .
+Pour connaître l'état de vos demandes d'opérations en bloc en attente, consultez la page **Résultats des opérations en bloc**.
 
 [![Vérifier l'état sur la page Résultats des opérations en bloc.](./media/users-bulk-download/bulk-center.png)](./media/users-bulk-download/bulk-center.png#lightbox)
 

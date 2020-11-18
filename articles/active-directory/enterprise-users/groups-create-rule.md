@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f9fcdd2ce17e967be432f8edc910dcf2fcdbed3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373098"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650901"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Créer ou mettre à jour un groupe dynamique dans Azure Active Directory
 
@@ -47,19 +47,19 @@ Pour obtenir des exemples de syntaxe des règles, des propriétés prises en cha
 ## <a name="to-create-a-group-membership-rule"></a>Pour créer une règle d’appartenance à un groupe
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou Administrateur d’utilisateurs dans l’organisation Azure AD.
-1. Recherchez et sélectionnez **Groupes** .
-1. Sélectionnez **Tous les groupes** , puis **Nouveau groupe** .
+1. Recherchez et sélectionnez **Groupes**.
+1. Sélectionnez **Tous les groupes**, puis **Nouveau groupe**.
 
    ![Sélectionnez la commande pour ajouter le nouveau groupe](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
-1. Dans la page **Groupe** , entrez le nom et la description du nouveau groupe. Sélectionnez un **Type d’appartenance** pour les utilisateurs ou les appareils, puis sélectionnez **Ajouter une requête dynamique** . Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
+1. Dans la page **Groupe**, entrez le nom et la description du nouveau groupe. Sélectionnez un **Type d’appartenance** pour les utilisateurs ou les appareils, puis sélectionnez **Ajouter une requête dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
 
    ![Capture d’écran montrant la page « Tous les groupes » avec l’action « Nouveau groupe » sélectionnée.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. Pour afficher les propriétés d’extension personnalisées disponibles pour votre requête d’appartenance :
    1. Sélectionnez **Obtenir les propriétés d’extension personnalisée**
-   1. Entrez l’ID de l’application, puis sélectionnez **Actualiser les propriétés** .
-1. Une fois la règle créée, sélectionnez **Enregistrer** .
+   1. Entrez l’ID de l’application, puis sélectionnez **Actualiser les propriétés**.
+1. Une fois la règle créée, sélectionnez **Enregistrer**.
 1. Sélectionnez **Créer** sur la page **Nouveau groupe** pour créer le groupe.
 
 Si la règle que vous avez entrée n’est pas valide, une explication de la raison pour laquelle la règle n’a pas pu être traitée s’affiche dans une notification Azure du portail. Lisez-la avec attention pour savoir comment corriger la règle.
@@ -67,16 +67,16 @@ Si la règle que vous avez entrée n’est pas valide, une explication de la rai
 ## <a name="to-update-an-existing-rule"></a>Pour mettre à jour une règle existante
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans l’organisation Azure AD.
-1. Sélectionnez **Groupes** > **Tous les groupes** .
+1. Sélectionnez **Groupes** > **Tous les groupes**.
 1. Sélectionnez un groupe pour ouvrir son profil.
-1. Sur la page de profil du groupe, sélectionnez **Règles d'appartenance dynamique** . Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
+1. Sur la page de profil du groupe, sélectionnez **Règles d'appartenance dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
 
    ![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 1. Pour afficher les propriétés d'extension personnalisées disponibles pour votre règle d'appartenance :
    1. Sélectionnez **Obtenir les propriétés d’extension personnalisée**
-   1. Entrez l’ID de l’application, puis sélectionnez **Actualiser les propriétés** .
-1. Une fois la règle mise à jour, sélectionnez **Enregistrer** .
+   1. Entrez l’ID de l’application, puis sélectionnez **Actualiser les propriétés**.
+1. Une fois la règle mise à jour, sélectionnez **Enregistrer**.
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activer ou désactiver l’e-mail de bienvenue
 
@@ -90,19 +90,19 @@ Vous pouvez voir l’état du traitement de l’appartenance et la date de la de
 
 Les messages d’état suivants peuvent être affichés pour l’état **Traitement de l’appartenance** :
 
-- **Évaluation**  :  le changement de groupe a été reçu et les mises à jour sont en cours d’évaluation.
+- **Évaluation** :  le changement de groupe a été reçu et les mises à jour sont en cours d’évaluation.
 - **En cours de traitement** : les mises à jour sont en cours de traitement.
-- **Mise à jour terminée**  : le traitement est terminé et toutes les mises à jour applicables ont été effectuées.
-- **Erreur de traitement**  :  Impossible de terminer le traitement en raison d’une erreur d’évaluation de la règle d’appartenance.
-- **Mise à jour suspendue**  : les mises à jour de la règle d’appartenance dynamique ont été suspendues par l’administrateur. Le paramètre MembershipRuleProcessingState est défini sur « Suspendu ».
+- **Mise à jour terminée** : le traitement est terminé et toutes les mises à jour applicables ont été effectuées.
+- **Erreur de traitement** :  Impossible de terminer le traitement en raison d’une erreur d’évaluation de la règle d’appartenance.
+- **Mise à jour suspendue** : les mises à jour de la règle d’appartenance dynamique ont été suspendues par l’administrateur. Le paramètre MembershipRuleProcessingState est défini sur « Suspendu ».
 
 Les messages d’état suivants peuvent être affichés pour l’état **Dernière mise à jour de l’appartenance** :
 
 - &lt;**Date et heure**&gt; : date et heure de la dernière mise à jour de l’appartenance.
-- **En cours**  : les mises à jour sont en cours d’exécution.
-- **Inconnue**  : impossible de récupérer l’heure de la dernière mise à jour. Le groupe est peut-être nouveau.
+- **En cours** : les mises à jour sont en cours d’exécution.
+- **Inconnue** : impossible de récupérer l’heure de la dernière mise à jour. Le groupe est peut-être nouveau.
 
-Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein de l’organisation pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes** .
+Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein de l’organisation pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.
 
 ![alertes de message d’erreur de traitement](./media/groups-create-rule/processing-error.png)
 

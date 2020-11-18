@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d03496634c5d30d30b23a76b5b47b1e810af288
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787582"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635396"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory
 
@@ -75,15 +75,15 @@ L’accès aux données d’objet blob ou de file d’attente par le biais du po
 
 Le Portail Azure peut utiliser soit votre compte Azure AD, soit les clés d’accès au compte pour accéder aux données d’objet blob et de file d’attente dans un compte de stockage Azure. Le schéma d’autorisation utilisé par le portail Azure dépend des rôles Azure qui vous sont attribués.
 
-Lorsque vous tentez d’accéder aux données de blob ou de file d’attente, le portail Azure commence par vérifier si vous avez reçu un rôle Azure avec **Microsoft.Storage/storageAccounts/listkeys/action** . Si vous avez été doté d’un rôle avec cette action, le Portail Azure utilise la clé de compte pour l’accès aux données d’objet blob et de file d’attente par le biais de l’autorisation par clé partagée. Si vous n’avez pas reçu un rôle avec cette action, le Portail Azure tente d’accéder aux données à l’aide de votre compte Azure AD.
+Lorsque vous tentez d’accéder aux données de blob ou de file d’attente, le portail Azure commence par vérifier si vous avez reçu un rôle Azure avec **Microsoft.Storage/storageAccounts/listkeys/action**. Si vous avez été doté d’un rôle avec cette action, le Portail Azure utilise la clé de compte pour l’accès aux données d’objet blob et de file d’attente par le biais de l’autorisation par clé partagée. Si vous n’avez pas reçu un rôle avec cette action, le Portail Azure tente d’accéder aux données à l’aide de votre compte Azure AD.
 
 Pour accéder aux données d’objet blob ou de file d’attente à partir du Portail Azure à l’aide de votre compte Azure AD, vous devez disposer d’autorisations pour accéder à ces données, ainsi que pour parcourir les ressources de compte de stockage dans le Portail Azure. Les rôles intégrés fournis par le service Stockage Azure octroient l’accès aux ressources d’objet blob et de file d’attente, mais n’accordent pas d’autorisations pour les ressources de compte de stockage. C’est la raison pour laquelle l’accès au portail requiert également l’attribution d’un rôle Azure Resource Manager, tel que le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader), étendu au niveau du compte de stockage ou à un niveau supérieur. Le rôle **Lecteur** octroie les autorisations les plus restreintes, mais l’utilisation d’un autre rôle Azure Resource Manager accordant l’accès aux ressources de gestion de compte de stockage est également acceptable. Pour en savoir plus sur l’attribution d’autorisations à des utilisateurs pour l’accès aux données dans le portail Azure avec un compte Azure AD, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données Blob et de file d’attente](storage-auth-aad-rbac-portal.md).
 
-Le Portail Azure indique le schéma d’autorisation en cours d’utilisation lorsque vous accédez à un conteneur ou à une file d’attente. Pour plus d’informations sur l’accès aux données dans le portail, consultez [Choisir comment autoriser l’accès à des données d’objets blob dans le portail Azure](../blobs/authorize-blob-access-portal.md) et [Choisir comment autoriser l’accès à des données en file d’attente dans le portail Azure](../queues/authorize-queue-access-portal.md).
+Le Portail Azure indique le schéma d’autorisation en cours d’utilisation lorsque vous accédez à un conteneur ou à une file d’attente. Pour plus d’informations sur l’accès aux données dans le portail, consultez [Choisir comment autoriser l’accès à des données d’objets blob dans le portail Azure](../blobs/authorize-data-operations-portal.md) et [Choisir comment autoriser l’accès à des données en file d’attente dans le portail Azure](../queues/authorize-data-operations-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Accès aux données à partir de PowerShell ou d’Azure CLI
 
-Azure CLI et PowerShell prennent en charge la connexion avec des informations d’identification Azure AD. Une fois que vous vous êtes connecté, votre session s’exécute sous ces informations d’identification. Pour plus d’informations, consultez l’article [Exécuter des commandes Azure CLI ou PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](../blobs/authorize-active-directory-powershell.md).
+Azure CLI et PowerShell prennent en charge la connexion avec des informations d’identification Azure AD. Une fois que vous vous êtes connecté, votre session s’exécute sous ces informations d’identification. Pour plus d’informations, consultez l’article [Exécuter des commandes Azure CLI ou PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](../blobs/authorize-data-operations-powershell.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

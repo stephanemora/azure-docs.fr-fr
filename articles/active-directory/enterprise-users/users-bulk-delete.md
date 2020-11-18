@@ -4,8 +4,8 @@ description: Supprimer des utilisateurs en bloc dans le centre d’administratio
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4146fb6bfe6c06e699df1f563e1f26e0716b023
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b312ef8735477e0921bcb9cdec541f97ba3003eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372974"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650272"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Supprimer des utilisateurs en bloc dans Azure Active Directory.
 
@@ -48,25 +48,25 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 ## <a name="to-bulk-delete-users"></a>Pour supprimer des utilisateurs en bloc
 
 1. [Connectez-vous à votre organisation Azure AD](https://aad.portal.azure.com) avec un compte Administrateur d’utilisateurs de celle-ci.
-1. Dans Azure AD, sélectionnez **Utilisateurs** > **Supprimer en bloc** .
-1. Dans la page **Supprimer des utilisateurs en bloc** , sélectionnez **Télécharger** pour recevoir un fichier CSV de propriétés utilisateur valide.
+1. Dans Azure AD, sélectionnez **Utilisateurs** > **Supprimer en bloc**.
+1. Dans la page **Supprimer des utilisateurs en bloc**, sélectionnez **Télécharger** pour recevoir un fichier CSV de propriétés utilisateur valide.
 
    ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à supprimer](./media/users-bulk-delete/bulk-delete.png)
 
-1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque utilisateur à supprimer. La seule valeur obligatoire est **Nom d’utilisateur principal** . Puis enregistrez le fichier.
+1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque utilisateur à supprimer. La seule valeur obligatoire est **Nom d’utilisateur principal**. Puis enregistrez le fichier.
 
    ![Le fichier CSV contient les noms et les ID des utilisateurs à supprimer.](./media/users-bulk-delete/delete-csv-file.png)
 
-1. Dans la page **Supprimer des utilisateurs en bloc** , sous **Charger votre fichier csv** , accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur Envoyer, la validation du fichier CSV démarre.
-1. Quand le contenu du fichier est validé, un message indique **Fichier chargé** . Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
+1. Dans la page **Supprimer des utilisateurs en bloc**, sous **Charger votre fichier csv**, accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur Envoyer, la validation du fichier CSV démarre.
+1. Quand le contenu du fichier est validé, un message indique **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
 1. Lorsque votre fichier réussit la validation, sélectionnez **Envoyer** pour démarrer l’opération en bloc Azure qui supprime les utilisateurs.
 1. Une fois l’opération de suppression terminée, vous recevez une notification indiquant que l’opération en bloc a réussi.
 
-Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats dans la page **Résultats de l’opération en bloc** . Le fichier contient la raison de chaque erreur.
+Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats dans la page **Résultats de l’opération en bloc**. Le fichier contient la raison de chaque erreur.
 
 ## <a name="check-status"></a>Vérification du statut
 
-Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc** .
+Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc**.
 
    [![Check delete status in the Bulk Operations Results page.](./media/users-bulk-delete/bulk-center.png)](./media/users-bulk-delete/bulk-center.png#lightbox)
 
@@ -75,9 +75,9 @@ Ensuite, vous pouvez vérifier si les utilisateurs que vous avez supprimés n’
 ## <a name="verify-deleted-users-in-the-azure-portal"></a>Vérifier la suppression d’utilisateurs via le portail Azure
 
 1. Connectez-vous au portail Azure en utilisant un compte d’administrateur d’utilisateurs de l’organisation.
-1. Dans le volet de navigation, sélectionnez **Azure Active Directory** .
-1. Sous **Gérer** , sélectionnez **Utilisateurs** .
-1. Sous **Afficher** , sélectionnez **Tous les utilisateurs** et vérifiez que les utilisateurs que vous avez supprimés ne sont plus répertoriés.
+1. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Utilisateurs**.
+1. Sous **Afficher**, sélectionnez **Tous les utilisateurs** et vérifiez que les utilisateurs que vous avez supprimés ne sont plus répertoriés.
 
 ### <a name="verify-deleted-users-with-powershell"></a>Vérifier la suppression d’utilisateurs à l’aide de PowerShell
 

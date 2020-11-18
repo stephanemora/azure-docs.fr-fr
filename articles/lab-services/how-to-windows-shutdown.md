@@ -3,19 +3,19 @@ title: Guide de contrôle du comportement d’arrêt de Windows dans Azure Lab S
 description: Procédure d'arrêt automatique d’une machine virtuelle Windows inactive et de suppression de la commande d’arrêt Windows.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541558"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647696"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guide de contrôle du comportement d’arrêt de Windows
 
 Azure Lab Services propose plusieurs contrôles de coût pour veiller à ce que les machines virtuelles Windows ne s’exécutent pas de manière inattendue :
- - [Définir un calendrier](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Définir des quotas pour les utilisateurs](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Activer l’arrêt automatique lors de la déconnexion](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Définir un calendrier](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Définir des quotas pour les utilisateurs](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Activer l’arrêt automatique lors de la déconnexion](./how-to-enable-shutdown-disconnect.md)
 
 Même avec ces contrôles de coût, il arrive qu'une machine virtuelle Windows continuer de s’exécuter de manière inattendue et entraîne une déduction du quota de l’étudiant :
 
@@ -25,7 +25,7 @@ Même avec ces contrôles de coût, il arrive qu'une machine virtuelle Windows c
 
 - **La commande d’arrêt de Windows est utilisée pour désactiver la machine virtuelle**
   
-    Un étudiant peut utiliser la commande d’arrêt de Windows, ou d’autres mécanismes d’arrêt fournis dans Windows, pour éteindre la machine virtuelle plutôt que d'utiliser le [bouton d'arrêt d'Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  Dans ce cas, du point de vue d'Azure Lab Services, la machine virtuelle est toujours en cours d’utilisation.
+    Un étudiant peut utiliser la commande d’arrêt de Windows, ou d’autres mécanismes d’arrêt fournis dans Windows, pour éteindre la machine virtuelle plutôt que d'utiliser le [bouton d'arrêt d'Azure Lab Services](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  Dans ce cas, du point de vue d'Azure Lab Services, la machine virtuelle est toujours en cours d’utilisation.
     
 Pour éviter de telles situations, ce guide propose une procédure permettant d'arrêter automatiquement une machine virtuelle Windows inactive et de supprimer la commande d’arrêt de Windows à partir du menu **Démarrer**.  
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604323"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651275"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory
 
@@ -58,7 +58,7 @@ Pour exiger une affectation d’utilisateur pour une application :
 Pour savoir comment attribuer ou désattribuer un utilisateur ou un groupe à l’aide du portail Azure, consultez [Série de démarrages rapides sur la gestion des applications](add-application-portal-assign-users.md).
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Attribuer ou désattribuer des utilisateurs et des groupes pour une application à l’aide de l’API Graph
-Vous pouvez utiliser l’API Graph pour attribuer ou désattribuer des utilisateurs et des groupes pour une application. Pour plus d’informations, consultez [Attributions de rôles d’application](https://docs.microsoft.com/graph/api/resources/approleassignment).
+Vous pouvez utiliser l’API Graph pour attribuer ou désattribuer des utilisateurs et des groupes pour une application. Pour plus d’informations, consultez [Attributions de rôles d’application](/graph/api/resources/approleassignment).
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Attribuer des utilisateurs et des groupes à une application à l’aide de PowerShell
 1. Ouvrez une invite de commandes Windows PowerShell avec des privilèges élevés.
@@ -81,11 +81,11 @@ Vous pouvez utiliser l’API Graph pour attribuer ou désattribuer des utilisate
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Pour plus d’informations sur la façon d’affecter un utilisateur à un rôle d’application, consultez la documentation de [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Pour plus d’informations sur la façon d’affecter un utilisateur à un rôle d’application, consultez la documentation de [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
 Pour affecter un groupe à une application d’entreprise, vous devez remplacer `Get-AzureADUser` par `Get-AzureADGroup`, et `New-AzureADUserAppRoleAssignment` par `New-AzureADGroupAppRoleAssignment`.
 
-Pour plus d’informations sur la façon d’affecter un groupe à un rôle d’application, consultez la documentation de [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Pour plus d’informations sur la façon d’affecter un groupe à un rôle d’application, consultez la documentation de [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Exemple
 
@@ -154,6 +154,6 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Voir tous mes groupes](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Suppression d’une affectation d’utilisateur ou de groupe à partir d’une application d’entreprise](remove-user-or-group-access-portal.md)
+- [Suppression d’une affectation d’utilisateur ou de groupe à partir d’une application d’entreprise]()
 - [Désactiver les connexions utilisateur pour une application d’entreprise](disable-user-sign-in-portal.md)
-- [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](change-name-or-logo-portal.md)
+- [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](./add-application-portal-configure.md)

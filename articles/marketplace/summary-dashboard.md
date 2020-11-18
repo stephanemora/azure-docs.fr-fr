@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 957c1d8a87e334af421c53b1425d3aec0766f31a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 6b59da408ae7c88aaf8b9e7423fe955a861edf0f
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413518"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565515"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Résumé dans l’analytique de la Place de marché commerciale
 
@@ -21,7 +21,7 @@ Cet article fournit des informations sur le tableau de bord Résumé de l’Espa
 Pour accéder au tableau de bord Résumé de l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Résumé**.
 
 >[!NOTE]
-> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).
 
 ## <a name="summary-dashboard"></a>Tableau de bord Résumé
 
@@ -43,7 +43,7 @@ Une sélection par plage de mois est disponible en haut à droite de chaque page
 :::image type="content" source="./media/summary-dashboard/summary-dashboard.png" alt-text="Illustre les options de plage de mois dans le tableau de bord Résumé.":::
 
 > [!NOTE]
-> Toutes les mesures dans les widgets de visualisation et les rapports d’exportation respectent la période de calcul sélectionnée par l’utilisateur.
+> Toutes les métriques dans les widgets de visualisation et les rapports d’exportation respectent la période de calcul sélectionnée par l’utilisateur.
 
 ### <a name="orders-widget"></a>Widget Commandes
 
@@ -99,14 +99,14 @@ Notez les points suivants :
 - Vous pouvez rechercher et sélectionner un pays/région dans la grille pour zoomer sur l’emplacement dans la carte. Pour revenir à la vue d’origine, sélectionnez le bouton **Accueil** de la carte.
 
 > [!TIP]
-> Vous pouvez utiliser l’icône de téléchargement située dans le coin supérieur droit d’un widget pour télécharger les données. Vous pouvez fournir des commentaires sur chacun des widgets en sélectionnant l’icône « pouce vers le haut » ou « pouce vers le bas ».
+> Vous pouvez utiliser l’icône de téléchargement située dans l’angle supérieur droit d’un widget pour télécharger les données. Vous pouvez fournir des commentaires sur chacun des widgets en sélectionnant l’icône « pouce vers le haut » ou « pouce vers le bas ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles sur la place de marché commerciale, voir [Accéder aux rapports d’analytique de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md).
+- Pour une vue d’ensemble des rapports d’analytique disponibles dans la Place de marché commerciale, consultez [Accéder aux rapports d’analytique de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md).
 - Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la Place de marché commerciale](orders-dashboard.md).
 - Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](usage-dashboard.md).
 - Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord client dans l’analytique de la Place de marché commerciale](customer-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](./partner-center-portal/downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](./partner-center-portal/ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).

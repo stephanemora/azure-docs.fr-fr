@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267786"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629357"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considérations relatives à la mise en réseau Azure File Sync
 Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
@@ -55,7 +55,7 @@ Azure File Sync requiert les plages d’adresses IP pour les services suivants, 
 | Azure Resource Manager | Azure Resource Manager est l’interface de gestion pour Azure. Tous les appels de gestion, notamment l’inscription de serveur Azure File Sync et les tâches de serveur de synchronisation en cours, sont effectués via Azure Resource Manager. | `AzureResourceManager` |
 | Azure Active Directory | Azure Active Directory, ou Azure AD, contient les principaux d’utilisateur requis pour autoriser l’inscription du serveur sur un service de synchronisation du stockage, et les principaux du service requis pour qu’Azure File Sync soit autorisé à accéder à vos ressources cloud. | `AzureActiveDirectory` |
 
-Si vous utilisez Azure File Sync dans Azure, même dans une région différente, vous pouvez utiliser le nom de balise de service directement dans votre groupe de sécurité réseau pour autoriser le trafic vers ce service. Pour en savoir plus, consultez [Groupes de sécurité réseau](../../virtual-network/security-overview.md). 
+Si vous utilisez Azure File Sync dans Azure, même dans une région différente, vous pouvez utiliser le nom de balise de service directement dans votre groupe de sécurité réseau pour autoriser le trafic vers ce service. Pour en savoir plus, consultez [Groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md). 
 
 Si vous utilisez Azure File Sync localement, l’API d’étiquette de service vous permet d’obtenir des plages d’adresses IP spécifiques pour la liste verte de votre pare-feu. Il existe deux méthodes pour obtenir ces informations :
 
@@ -65,9 +65,9 @@ Si vous utilisez Azure File Sync localement, l’API d’étiquette de service v
     - [Azure Chine](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=57064)
 - L’API de détection des étiquettes de service (préversion) permet la récupération par programmation de la liste actuelle des étiquettes de service. En préversion, l’API de détection des étiquettes de service peut renvoyer des informations qui sont moins récentes que les informations renvoyées par les documents JSON publiés sur le centre de téléchargement Microsoft. Vous pouvez utiliser l’aire de l’API en fonction de vos préférences d’automatisation :
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 Pour en savoir plus sur l’utilisation de l’API de balise de service pour récupérer les adresses de vos services, consultez [Liste verte des adresses IP Azure File Sync](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

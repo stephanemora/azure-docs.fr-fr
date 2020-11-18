@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 07/07/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50915aebc9cb76c7bb67235e40564ff32ce656b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ec9a215d25ce1177b015b392c4f36d7547be521
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373000"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647016"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Modifier des affectations de licence pour un utilisateur ou un groupe dans Azure Active Directory
 
@@ -43,33 +43,33 @@ Avant de mettre à jour les affectations de licence, il est important de vérifi
 
 ## <a name="change-user-license-assignments"></a>Modifier des affectations de licence utilisateur
 
-Dans la page **Mettre à jour des affectations de licence** , si vous voyez que certaines cases à cocher ne sont pas disponibles, cela signifie que les services ne sont pas modifiables, car ils sont hérités à partir d’une licence de groupe.
+Dans la page **Mettre à jour des affectations de licence**, si vous voyez que certaines cases à cocher ne sont pas disponibles, cela signifie que les services ne sont pas modifiables, car ils sont hérités à partir d’une licence de groupe.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur de licence dans votre organisation Azure AD.
-1. Sélectionnez **Azure Active Directory** > **Utilisateurs** , puis ouvrez la page **Profil** d’un utilisateur.
-1. Sélectionnez **Licences** .
+1. Sélectionnez **Azure Active Directory** > **Utilisateurs**, puis ouvrez la page **Profil** d’un utilisateur.
+1. Sélectionnez **Licences**.
 1. Sélectionnez **Affectations** pour modifier l’affectation de licence de l’utilisateur ou du groupe. La page **Affectations** vous permet de résoudre les conflits d’affectation de licence.
 1. Cochez la case Office 365 E3 et vérifiez que tous les services E1 affectés à l’utilisateur sont au minimum sélectionnés.
 1. Décochez la case Office 365 E1.
 
     ![Page Affectations de licence d’un utilisateur avec Office 365 E1 décoché et Office 365 E3 coché](./media/licensing-groups-change-licenses/update-user-license-assignments.png)
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 Azure AD applique les nouvelles licences et supprime les anciennes simultanément pour assurer la continuité du service.
 
 ## <a name="change-group-license-assignments"></a>Modifier des affectations de licence de groupe
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur de licence dans votre organisation Azure AD.
-1. Sélectionnez **Azure Active Directory** > **Groupes** , puis ouvrez la page **Vue d’ensemble** d’un groupe.
-1. Sélectionnez **Licences** .
+1. Sélectionnez **Azure Active Directory** > **Groupes**, puis ouvrez la page **Vue d’ensemble** d’un groupe.
+1. Sélectionnez **Licences**.
 1. Sélectionnez la commande **Affectations** pour modifier l’affectation de licence de l’utilisateur ou du groupe.
 1. Cochez la case Office 365 E3. Pour assurer la continuité du service, veillez à sélectionner tous les services E1 déjà affectés à l’utilisateur.
 1. Décochez la case Office 365 E1.
 
     ![Sélection de la commande Affectations dans une page de licences d’utilisateur ou de groupe](./media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 Pour assurer la continuité du service, Azure AD applique les nouvelles licences et supprime les anciennes simultanément.
 

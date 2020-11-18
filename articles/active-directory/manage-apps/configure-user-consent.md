@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1617015d6d4a026d5dadda667dcd03447a20c288
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427624"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649498"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurer le consentement de l’utilisateur final pour une application
 
@@ -36,28 +36,28 @@ Les stratégies de consentement d’application décrivent les conditions qui do
 
 En choisissant les stratégies de consentement de l’application qui s’appliquent à tous les utilisateurs, vous pouvez définir des limites lorsque les utilisateurs finaux sont autorisés à accorder leur consentement aux applications et quand ils devront demander la révision et l’approbation par l’administrateur :
 
-* **Désactiver le consentement de l’utilisateur**  : les utilisateurs ne peuvent pas accorder d’autorisations aux applications. Les utilisateurs peuvent continuer à se connecter aux applications qu’ils ont précédemment autorisées ou que des administrateurs ont autorisées en leur nom, mais ils ne sont pas autorisés à accorder de nouvelles autorisations ou à autoriser de nouvelles applications. Seuls les utilisateurs auxquels est dévolu un rôle d’annuaire comprenant l’autorisation de donner un consentement sont en mesure de donner leur consentement à de nouvelles applications.
+* **Désactiver le consentement de l’utilisateur** : les utilisateurs ne peuvent pas accorder d’autorisations aux applications. Les utilisateurs peuvent continuer à se connecter aux applications qu’ils ont précédemment autorisées ou que des administrateurs ont autorisées en leur nom, mais ils ne sont pas autorisés à accorder de nouvelles autorisations ou à autoriser de nouvelles applications. Seuls les utilisateurs auxquels est dévolu un rôle d’annuaire comprenant l’autorisation de donner un consentement sont en mesure de donner leur consentement à de nouvelles applications.
 
-* **Les utilisateurs peuvent accorder des autorisations à des applications d’éditeurs de votre organisation vérifiés, mais uniquement les autorisations que vous sélectionnez**  : les utilisateurs ne peuvent accorder des autorisations qu’à des applications publiées par un [serveur de publication vérifié](../develop/publisher-verification-overview.md) et inscrites dans votre locataire. Les utilisateurs ne peuvent accorder que des autorisations classifiées comme ayant un « faible impact ». Vous devez [classifier les autorisations](configure-permission-classifications.md) pour sélectionner les autorisations que les utilisateurs peuvent accorder.
+* **Les utilisateurs peuvent accorder des autorisations à des applications d’éditeurs de votre organisation vérifiés, mais uniquement les autorisations que vous sélectionnez** : les utilisateurs ne peuvent accorder des autorisations qu’à des applications publiées par un [serveur de publication vérifié](../develop/publisher-verification-overview.md) et inscrites dans votre locataire. Les utilisateurs ne peuvent accorder que des autorisations classifiées comme ayant un « faible impact ». Vous devez [classifier les autorisations](configure-permission-classifications.md) pour sélectionner les autorisations que les utilisateurs peuvent accorder.
 
-* **Les utilisateurs peuvent accorder des autorisations à toutes les applications**  : cette option permet à tout utilisateur d’accorder à toute application toute autorisation ne nécessitant pas de consentement de l’administrateur.
+* **Les utilisateurs peuvent accorder des autorisations à toutes les applications** : cette option permet à tout utilisateur d’accorder à toute application toute autorisation ne nécessitant pas de consentement de l’administrateur.
 
-* **Stratégie de consentement d’application personnalisée**  : pour encore plus d’options sur les conditions qui régissent le consentement de l’utilisateur, vous pouvez [créer une stratégie de consentement d’application personnalisée](manage-app-consent-policies.md#create-a-custom-app-consent-policy) et la configurer pour qu’elle s’applique au consentement de l’utilisateur.
+* **Stratégie de consentement d’application personnalisée** : pour encore plus d’options sur les conditions qui régissent le consentement de l’utilisateur, vous pouvez [créer une stratégie de consentement d’application personnalisée](manage-app-consent-policies.md#create-a-custom-app-consent-policy) et la configurer pour qu’elle s’applique au consentement de l’utilisateur.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour configurer les paramètres de consentement de l’utilisateur via le portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’[Administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator).
-1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur** .
-1. Sous **Consentement de l’utilisateur pour les applications** , sélectionnez le paramètre de consentement que vous souhaitez configurer pour tous les utilisateurs.
+1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur**.
+1. Sous **Consentement de l’utilisateur pour les applications**, sélectionnez le paramètre de consentement que vous souhaitez configurer pour tous les utilisateurs.
 1. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Paramètres de consentement de l’utilisateur":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Vous pouvez utiliser le dernier module Azure AD PowerShell en préversion, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), pour choisir la stratégie de consentement d’application régissant le consentement de l’utilisateur pour les applications.
+Vous pouvez utiliser le dernier module Azure AD PowerShell en préversion, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), pour choisir la stratégie de consentement d’application régissant le consentement de l’utilisateur pour les applications.
 
 #### <a name="disable-user-consent"></a>Désactiver le consentement de l’utilisateur
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>Évolution du consentement en fonction des risques
 
-La réaffectation du consentement en fonction des risques contribue à réduire l’exposition des utilisateurs aux applications malveillantes qui font des [demandes de consentement illicites](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Si Microsoft détecte une demande de consentement de l’utilisateur final à risque, la demande nécessitera une « évolution » vers le consentement de l’administrateur à la place. Cette fonctionnalité est activée par défaut, mais elle entraînera un changement de comportement uniquement lorsque le consentement de l’utilisateur final sera activé.
+La réaffectation du consentement en fonction des risques contribue à réduire l’exposition des utilisateurs aux applications malveillantes qui font des [demandes de consentement illicites](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Si Microsoft détecte une demande de consentement de l’utilisateur final à risque, la demande nécessitera une « évolution » vers le consentement de l’administrateur à la place. Cette fonctionnalité est activée par défaut, mais elle entraînera un changement de comportement uniquement lorsque le consentement de l’utilisateur final sera activé.
 
 Quand une demande de consentement à risque est détectée, l’invite de consentement affiche un message indiquant que l’approbation de l’administrateur est requise. Si le [flux de travail de demande de consentement de l’administrateur](configure-admin-consent-workflow.md) est activé, l’utilisateur peut envoyer la demande à un administrateur pour révision ultérieure, directement à partir de l’invite de consentement. S’il n’est pas activé, le message suivant s’affiche :
 
@@ -114,9 +114,9 @@ Dans ce cas, un événement d’audit est également journalisé avec la catégo
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Désactiver ou réactiver l’évolution du consentement en fonction des risques à l’aide de PowerShell
 
-Vous pouvez utiliser le module Azure AD PowerShell en préversion, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), pour désactiver la réaffectation à l’administrateur du consentement requis quand Microsoft détecte un risque, ou pour la réactiver si elle a été précédemment désactivée.
+Vous pouvez utiliser le module Azure AD PowerShell en préversion, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), pour désactiver la réaffectation à l’administrateur du consentement requis quand Microsoft détecte un risque, ou pour la réactiver si elle a été précédemment désactivée.
 
-1. Vérifiez que vous utilisez le module [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Cette étape est importante si vous avez installé les modules [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) et [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Vérifiez que vous utilisez le module [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Cette étape est importante si vous avez installé les modules [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) et [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD
@@ -182,7 +182,7 @@ Pour en savoir plus :
 * [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
 * [Découvrez comment gérer le consentement pour les applications et évaluer les demandes de consentement](manage-consent-requests.md)
 * [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
-* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
+* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
 * [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e404b3eeadd8eef45e413eea2bd753d08cc505ca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489452"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650629"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms à des groupes Microsoft 365 dans Azure Active Directory
 
@@ -36,9 +36,9 @@ Quand une stratégie d’attribution de noms est configurée, elle est appliqué
 
 Vous pouvez appliquer une stratégie d’attribution de noms pour des groupes de deux manières différentes :
 
-- **Stratégie de nommage avec préfixe-suffixe**  : vous pouvez définir des préfixes ou des suffixes qui sont par la suite ajoutés automatiquement pour appliquer une convention de nommage à vos groupes (par exemple, dans le nom de groupe « GRP\_JAPON\_Mon groupe\_Ingénierie », GRP\_JAPON\_ est le préfixe et \_Ingénierie est le suffixe). 
+- **Stratégie de nommage avec préfixe-suffixe** : vous pouvez définir des préfixes ou des suffixes qui sont par la suite ajoutés automatiquement pour appliquer une convention de nommage à vos groupes (par exemple, dans le nom de groupe « GRP\_JAPON\_Mon groupe\_Ingénierie », GRP\_JAPON\_ est le préfixe et \_Ingénierie est le suffixe). 
 
-- **Mots bloqués personnalisés**  : vous pouvez charger un ensemble de mots bloqués propres à votre organisation pour interdire leur utilisation dans les groupes créés par les utilisateurs (par exemple, « PDG, Paie, RH »).
+- **Mots bloqués personnalisés** : vous pouvez charger un ensemble de mots bloqués propres à votre organisation pour interdire leur utilisation dans les groupes créés par les utilisateurs (par exemple, « PDG, Paie, RH »).
 
 ### <a name="prefix-suffix-naming-policy"></a>Stratégie de nommage avec préfixe-suffixe
 
@@ -85,20 +85,20 @@ Certains administrateurs peuvent être exemptés de ces stratégies dans toutes 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configurer une stratégie d’attribution de noms dans le portail Azure
 
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte d’administrateur de groupe.
-1. Sélectionnez **Groupes** , puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
+1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
 
     ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Afficher ou modifier la stratégie d’attribution de suffixes/préfixes
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Stratégie de noms de groupes**.
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Stratégie de noms de groupes**.
 1. Vous pouvez afficher ou modifier individuellement les stratégies actuelles d'attribution de suffixes/préfixes en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d'attribution de noms.
 1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
 1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer**.
 
 ### <a name="edit-custom-blocked-words"></a>Modifier les mots bloqués personnalisés
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Mots bloqués**.
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Mots bloqués**.
 
     ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords.png)
 
@@ -206,7 +206,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Supprimer la stratégie d’attribution de noms à l’aide du portail Azure
 
-1. Sur la page **Stratégie d'attribution de noms** , sélectionnez **Supprimer une stratégie**.
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Supprimer une stratégie**.
 1. Une fois la suppression confirmée, la stratégie d'attribution de noms est supprimée, de même que toutes les stratégies d'attribution de suffixes/préfixes et tous les mots bloqués personnalisés.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Supprimer la stratégie d’attribution de noms à l’aide d’Azure AD PowerShell

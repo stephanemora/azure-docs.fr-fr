@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 2682202b68deeeb1dbbe2493ecb9592acd1788b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413538"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563781"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -21,7 +21,7 @@ Cet article fournit des informations sur le tableau de bord Commandes de l’Esp
 Pour accéder au tableau de bord Commandes dans l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Commandes**.
 
 >[!NOTE]
-> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).
 
 ## <a name="orders-dashboard"></a>Tableau de bord des commandes
 
@@ -116,13 +116,13 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 pre
 
 | Nom de la colonne | Nom de l’attribut | Définition |
 | ------------ | ------------- | ------------- |
-| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la place de marché commerciale. Anciennement, GUID d’abonnement Azure. |
+| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Anciennement, GUID d’abonnement Azure. |
 | MonthStartDate | Date de début du mois | Date de début du mois représente le mois d’achat. |
 | Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. |
 | Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé canal. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> |
 | Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les différentes valeurs sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> |
 | SKU | SKU | Plan associé à l’offre |
-| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région associé à l’abonnement Azure du client. |
+| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. |
 | Référence SKU en préversion | Référence SKU en préversion | La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ». |
 | ID de commande | ID de commande | Identificateur unique de la commande du client pour votre service de la place de marché commerciale. Les offres basées sur l’utilisation de machines virtuelles ne sont pas associées à une commande. |
 | Order Quantity | Order Quantity | Nombre de ressources associées à l’ID de commande pour les commandes actives |
@@ -130,11 +130,11 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 pre
 | Nouveau client | Nouveau client | La valeur identifie si un nouveau client a acheté une ou plusieurs de vos offres pour la première fois. La valeur est « Oui » si le mois calendaire correspond avec la « date d’acquisition ». La valeur est « Non » si le client a acheté une de vos offres avant le mois calendaire signalé. |
 | État de la commande | État de la commande | État d’une commande de la place de marché commerciale au moment de la dernière actualisation des données. |
 | Date d’annulation de la commande | Date d’annulation de la commande | Date à laquelle la commande passée sur la place de marché commerciale a été annulée. |
-| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom de la ville associée à l’abonnement Azure du client. |
+| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom de la ville fournie dans l’abonnement Azure d’un client. |
 | Date de la commande | Date de la commande | Date à laquelle la commande de la place de marché commerciale a été passée. |
 | Nom de l’offre | Nom de l’offre | Nom de l’offre de la place de marché commerciale. |
 | Date de fin d'essai | Date de fin d'essai | La date de fin de la période d’essai de cette commande approche ou est dépassée. |
-| Customer Id | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la place de marché Azure. |
+| Customer Id | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. |
 | ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’_ *ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. |
 | AssetCount | Nombre de ressources | Nombre de ressources associées à l’ID de commande. |
 ||||
@@ -144,14 +144,14 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 pre
 Les filtres de la page **Commandes** s’appliquent au niveau de la page Commandes. Vous pouvez sélectionner un ou plusieurs filtres afin d’afficher le graphique pour les critères et les données souhaités dans la grille/l’exportation « Données de commandes détaillées ». Les filtres sont appliqués aux données extraites pour la plage de mois que vous avez sélectionnée dans l’angle supérieur droit de la page Commandes.
 
 > [!TIP]
-> Vous pouvez utiliser l’icône de téléchargement située dans l’angle supérieur droit d’un widget pour télécharger les données. Vous pouvez fournir des commentaires sur chacun des widgets en cliquant sur l’icône de « pouce vers le haut » ou de « pouce vers le bas ».
+> Vous pouvez utiliser l’icône de téléchargement située dans l’angle supérieur droit d’un widget pour télécharger les données. Vous pouvez fournir des commentaires sur chacun des widgets en cliquant l’icône de « pouce vers le haut » ou de « pouce vers le bas ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles dans la place de marché commerciale, consultez [Accéder aux rapports d’analytique de la place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md).
+- Pour une vue d’ensemble des rapports d’analytique disponibles dans la Place de marché commerciale, consultez [Accéder aux rapports d’analytique de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md).
 - Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché pour vos offres, voir [Tableau de bord Résumé dans l’analytique de la place de marché commerciale](./summary-dashboard.md).
 - Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la Place de marché commerciale](orders-dashboard.md).
 - Pour consulter les métriques d’utilisation et de facturation à l’usage des offres de machines virtuelles, voir [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./partner-center-portal/downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](./partner-center-portal/ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./partner-center-portal/faq-terminology.md).

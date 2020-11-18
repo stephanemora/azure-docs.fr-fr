@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322215"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630275"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
@@ -45,7 +45,7 @@ Les migrations effectuées vers des partages de fichiers Azure à partir de volu
 
 Les partages de fichiers Azure ouvrent un tout nouveau monde de possibilités pour structurer le déploiement de vos services de fichiers. Un partage de fichiers Azure désigne simplement un partage SMB dans le cloud, que vous pouvez configurer pour que les utilisateurs y accèdent directement via le protocole SMB avec l’authentification Kerberos habituelle et les autorisations NTFS existantes (listes de contrôle d’accès de fichiers et de dossiers) fonctionnant en mode natif. En savoir plus sur l’[accès aux partages de fichiers Azure en fonction de l’identité](storage-files-active-directory-overview.md).
 
-Une alternative à l’accès direct est [Azure File Sync](https://aka.ms/AFS). Azure File Sync est un équivalent direct de la mise en cache locale des fichiers fréquemment utilisés proposée par StorSimple.
+Une alternative à l’accès direct est [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync est un équivalent direct de la mise en cache locale des fichiers fréquemment utilisés proposée par StorSimple.
 
 Azure File Sync est un service cloud Microsoft basé sur deux composants principaux :
 
@@ -56,7 +56,7 @@ Les partages de fichiers Azure conservent d’importants aspects de fidélité s
 
 Cet article est consacré aux étapes de migration. Si vous souhaitez en savoir plus sur Azure File Sync avant d’effectuer la migration, consultez les articles suivants :
 
-* [Vue d’ensemble d’Azure File Sync](https://aka.ms/AFS "Vue d’ensemble")
+* [Vue d’ensemble d’Azure File Sync](./storage-sync-files-planning.md "Vue d’ensemble")
 * [Guide de déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Clé de chiffrement des données du service StorSimple
@@ -215,7 +215,7 @@ Une fois les comptes de stockage créés, accédez à la section **Partage de fi
 
 ### <a name="storsimple-data-manager"></a>StorSimple Data Manager
 
-La ressource Azure qui contiendra vos tâches de migration s’appelle **StorSimple Data Manager**. Sélectionnez **Nouvelle ressource** , puis recherchez-la. Sélectionnez ensuite **Créer**.
+La ressource Azure qui contiendra vos tâches de migration s’appelle **StorSimple Data Manager**. Sélectionnez **Nouvelle ressource**, puis recherchez-la. Sélectionnez ensuite **Créer**.
 
 Cette ressource temporaire est utilisée pour l’orchestration. Vous la déprovisionnerez une fois la migration terminée. Elle doit être déployée dans le même abonnement, le même groupe de ressources et la même région que votre compte de stockage StorSimple.
 
@@ -321,7 +321,7 @@ Trie plusieurs emplacements sources dans une nouvelle structure de répertoires�
 Il existe deux stratégies principales pour accéder à vos partages de fichiers Azure :
 
 * **Azure File Sync** : [Déployez Azure File Sync](#deploy-azure-file-sync) sur une instance locale de Windows Server. Azure File Sync offre tous les avantages d’un cache local, tout comme StorSimple.
-* **Accès direct au partage**  : [Déployez l’accès direct au partage](#deploy-direct-share-access). Utilisez cette stratégie si votre scénario d’accès pour un partage de fichiers Azure donné ne tirera pas parti de la mise en cache locale, ou si vous n’avez plus la possibilité d’héberger une instance locale de Windows Server. Ici, vos utilisateurs et vos applications continuent d’accéder aux partages SMB via le protocole SMB. Ces partages ne se trouvent plus sur un serveur local, mais directement dans le cloud.
+* **Accès direct au partage** : [Déployez l’accès direct au partage](#deploy-direct-share-access). Utilisez cette stratégie si votre scénario d’accès pour un partage de fichiers Azure donné ne tirera pas parti de la mise en cache locale, ou si vous n’avez plus la possibilité d’héberger une instance locale de Windows Server. Ici, vos utilisateurs et vos applications continuent d’accéder aux partages SMB via le protocole SMB. Ces partages ne se trouvent plus sur un serveur local, mais directement dans le cloud.
 
 Vous devez déjà avoir choisi l’option qui vous convient le mieux dans la [phase 1](#phase-1-prepare-for-migration) de ce guide.
 
@@ -385,7 +385,7 @@ Votre instance Windows Server locale inscrite doit être prête et connectée à
 * [Comment configurer un VPN point à site Windows](storage-files-configure-p2s-vpn-windows.md)
 * [Comment configurer un VPN point à site Linux](storage-files-configure-p2s-vpn-linux.md)
 * [Procédure de configuration du transfert DNS](storage-files-networking-dns.md)
-* [Configurer DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Configurer DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -418,18 +418,18 @@ Lorsque vous utilisez Azure File Sync pour un partage de fichiers Azure, il est 
 Vous pouvez utiliser le portail Azure pour voir à quel moment votre espace de noms est entièrement arrivé.
 
 * Connectez-vous au portail Azure et accédez à votre groupe de synchronisation. Vérifiez l’état de synchronisation de votre groupe de synchronisation et de votre point de terminaison de serveur.
-* Le sens le plus important est celui du téléchargement. Si le point de terminaison de serveur vient d’être provisionné, il affiche **Synchronisation initiale** , ce qui indique que l’espace de noms est toujours en cours de téléchargement.
-Lorsqu’il n’affiche plus **Synchronisation initiale** , cela signifie que votre espace de noms a été entièrement copié sur le serveur. Vous pouvez maintenant procéder à une copie RoboCopy locale.
+* Le sens le plus important est celui du téléchargement. Si le point de terminaison de serveur vient d’être provisionné, il affiche **Synchronisation initiale**, ce qui indique que l’espace de noms est toujours en cours de téléchargement.
+Lorsqu’il n’affiche plus **Synchronisation initiale**, cela signifie que votre espace de noms a été entièrement copié sur le serveur. Vous pouvez maintenant procéder à une copie RoboCopy locale.
 
 #### <a name="windows-server-event-viewer"></a>Observateur d’événements Windows Server
 
 Vous pouvez également utiliser l’observateur d’événements sur l’instance Windows Server pour savoir quand l’espace de noms est entièrement téléchargé.
 
-1. Ouvrez l’ **observateur d’événements** et accédez à **Applications et services**.
+1. Ouvrez l’**observateur d’événements** et accédez à **Applications et services**.
 1. Ouvrez **Microsoft\FileSync\Agent\Telemetry**.
-1. Recherchez l’ **événement 9102** le plus récent, qui correspond à une session de synchronisation terminée.
+1. Recherchez l’**événement 9102** le plus récent, qui correspond à une session de synchronisation terminée.
 1. Sélectionnez **Détails** et vérifiez que vous consultez bien un événement dans lequel la valeur **SyncDirection** est **Télécharger**.
-1. Lorsque votre espace de noms aura été téléchargé sur le serveur, il y aura un événement unique avec **Scenario** , la valeur **FullGhostedSync** et **HResult** = **0**.
+1. Lorsque votre espace de noms aura été téléchargé sur le serveur, il y aura un événement unique avec **Scenario**, la valeur **FullGhostedSync** et **HResult** = **0**.
 1. S’il vous manque cet événement, vous pouvez également rechercher d’autres **événements 9102** où **SyncDirection** = **Télécharger** et **Scenario** =  **« RegularSync »** . Le fait de trouver l’un de ces événements indique aussi que l’espace de noms a terminé son téléchargement et que la synchronisation est passée à des sessions de synchronisation régulières, qu’il y ait quelque chose à synchroniser ou non, pour le moment.
 
 ### <a name="a-final-robocopy"></a>Une RoboCopy finale
@@ -518,7 +518,7 @@ Arrière-plan :
    :::column-end:::
 :::row-end:::
 
-Quand vous configurez les emplacements source et cible de la commande RoboCopy, veillez à examiner la structure de la source et de la cible pour être sûr qu’elles correspondent. Si vous avez utilisé la fonctionnalité de mappage de répertoires de la tâche de migration, la structure de votre répertoire racine peut être différente de celle de votre volume StorSimple. Si c’est le cas, vous pouvez avoir besoin de plusieurs tâches RoboCopy, une pour chaque sous-répertoire. Si vous ne savez pas si la commande s’exécute comme prévu, vous pouvez utiliser le paramètre */L* , qui simulera la commande sans apporter de modification.
+Quand vous configurez les emplacements source et cible de la commande RoboCopy, veillez à examiner la structure de la source et de la cible pour être sûr qu’elles correspondent. Si vous avez utilisé la fonctionnalité de mappage de répertoires de la tâche de migration, la structure de votre répertoire racine peut être différente de celle de votre volume StorSimple. Si c’est le cas, vous pouvez avoir besoin de plusieurs tâches RoboCopy, une pour chaque sous-répertoire. Si vous ne savez pas si la commande s’exécute comme prévu, vous pouvez utiliser le paramètre */L*, qui simulera la commande sans apporter de modification.
 
 Cette commande RoboCopy utilise /MIR. Elle ne déplace donc pas les fichiers qui sont identiques (fichiers hiérarchisés, par exemple). Toutefois, si le chemin source et le chemin cible sont incorrects, /MIR vide également les structures de répertoires qui sont présentes sur votre instance Windows Server ou sur le partage de fichiers Azure, mais pas sur le chemin source StorSimple. Elles doivent donc correspondre exactement pour que la tâche RoboCopy atteigne son objectif, à savoir la mise à jour du contenu déplacé avec les dernières modifications apportées pendant la migration.
 
@@ -535,7 +535,7 @@ Si vous utilisez Azure File Sync, vous devrez probablement créer des partages 
 
 Si vous avez un déploiement DFS-N, vous pouvez faire pointer les espaces de noms DFN vers les emplacements des nouveaux dossiers du serveur. Si vous ne disposez pas d’un déploiement DFS-N et que vous avez déjà relié votre appliance 8100 ou 8600 localement à une instance Windows Server, vous pouvez retirer ce serveur du domaine. Ensuite, joignez le domaine à votre nouvelle instance Windows Server avec Azure File Sync. Au cours de ce processus, donnez au serveur le même nom de serveur et les mêmes noms de partage que l’ancien serveur, afin que le basculement reste transparent pour vos utilisateurs, votre stratégie de groupe et vos scripts.
 
-En savoir plus sur [DFS-N](https://aka.ms/AzureFiles/Namespaces).
+En savoir plus sur [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## <a name="deprovision"></a>annulation du déploiement
 
@@ -561,7 +561,7 @@ Votre migration est terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Familiarisez-vous avec [Azure File Sync](https://aka.ms/AFS).
+* Familiarisez-vous avec [Azure File Sync](./storage-sync-files-planning.md).
 * Comprenez la flexibilité des stratégies de [hiérarchisation cloud](storage-sync-cloud-tiering.md).
 * [Activez Sauvegarde Azure](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) sur vos partages de fichiers Azure pour planifier des instantanés et définir des planifications de conservation de sauvegardes.
 * Si vous constatez dans le portail Azure que certains fichiers ne se synchronisent jamais, consultez le [guide de résolution des problèmes](storage-sync-files-troubleshoot.md) pour connaître les mesures à prendre pour les résoudre.

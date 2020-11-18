@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: 1267f040b13184f50c9d98fe0fb13fb24db0f4f7
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026834"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651360"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Utiliser les Watchlists Azure Sentinel
 
@@ -33,17 +33,17 @@ Les scénarios courants pour l’utilisation des Watchlists sont notamment les s
 
 ## <a name="create-a-new-watchlist"></a>Création d’une nouvelle Watchlist
 
-1. À partir du Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Watchlist** , puis sélectionnez **Ajouter une nouvelle**.
+1. À partir du Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Watchlist**, puis sélectionnez **Ajouter une nouvelle**.
 
     > [!div class="mx-imgBorder"]
     > ![nouvelle Watchlist](./media/watchlists/sentinel-watchlist-new.png)
 
-1. Dans la page **Général** , indiquez le nom, la description et l’alias de la Watchlist, puis sélectionnez **Suivant**.
+1. Dans la page **Général**, indiquez le nom, la description et l’alias de la Watchlist, puis sélectionnez **Suivant**.
 
     > [!div class="mx-imgBorder"]
     > ![page général de la Watchlist](./media/watchlists/sentinel-watchlist-general.png)
 
-1. Dans la page **Source** , sélectionnez le type de jeu de données, chargez un fichier, puis sélectionnez **Suivant**.
+1. Dans la page **Source**, sélectionnez le type de jeu de données, chargez un fichier, puis sélectionnez **Suivant**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="page source de la Watchlist" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
@@ -62,7 +62,7 @@ Les scénarios courants pour l’utilisation des Watchlists sont notamment les s
 
 ## <a name="use-watchlists-in-queries"></a>Utilisation des Watchlists dans les requêtes
 
-1. Dans le Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Watchlist** , sélectionnez la Watchlist que vous voulez utiliser, puis sélectionnez **Afficher dans Log Analytics**.
+1. Dans le Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Watchlist**, sélectionnez la Watchlist que vous voulez utiliser, puis sélectionnez **Afficher dans Log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="utilisation des Watchlists dans les requêtes" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
@@ -75,13 +75,13 @@ Les scénarios courants pour l’utilisation des Watchlists sont notamment les s
     
 ## <a name="use-watchlists-in-analytics-rules"></a>Utilisation des Watchlists dans les règles d’analyse
 
-Pour utiliser des Watchlists dans les règles d’analyse, à partir du Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Analytics** , puis créez une règle à l’aide de la fonction `_GetWatchlist('<watchlist>')` de la requête.
+Pour utiliser des Watchlists dans les règles d’analyse, à partir du Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Analytics**, puis créez une règle à l’aide de la fonction `_GetWatchlist('<watchlist>')` de la requête.
 
 :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="utilisation des Watchlists dans les règles d’analyse" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Afficher la liste des alias de Watchlists
 
-Pour obtenir un liste d’alias de Watchlist, à partir du Portail Azure, accédez à **Azure Sentinel** > **Général** > **Journaux** , puis exécutez la requête suivante : `_GetWatchlistAlias`. Vous pouvez voir la liste des alias dans l’onglet **Résultats**.
+Pour obtenir un liste d’alias de Watchlist, à partir du Portail Azure, accédez à **Azure Sentinel** > **Général** > **Journaux**, puis exécutez la requête suivante : `_GetWatchlistAlias`. Vous pouvez voir la liste des alias dans l’onglet **Résultats**.
 
 > [!div class="mx-imgBorder"]
 > ![liste de Watchlists](./media/watchlists/sentinel-watchlist-alias.png)
@@ -89,6 +89,5 @@ Pour obtenir un liste d’alias de Watchlist, à partir du Portail Azure, accéd
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à utiliser les Watchlists dans Azure Sentinel pour enrichir les données et améliorer les investigations. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
-

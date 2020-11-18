@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675790"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629442"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -154,7 +154,7 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Liste verte des adresses IP Azure File Sync
 Azure File Sync prend en charge l’utilisation d’[étiquettes de service](../../virtual-network/service-tags-overview.md), qui représentent un groupe de préfixes d’adresses IP pour un service Azure donné. Vous pouvez utiliser des étiquettes de service pour créer des règles de pare-feu qui permettent la communication avec le service Azure File Sync. L’étiquette de service `StorageSyncService` est utilisée pour Azure File Sync.
 
-Si vous utilisez Azure File Sync dans Azure, vous pouvez autoriser le trafic à l’aide du nom d’étiquette de service directement dans votre groupe de sécurité réseau. Pour en savoir plus, consultez [Groupes de sécurité réseau](../../virtual-network/security-overview.md).
+Si vous utilisez Azure File Sync dans Azure, vous pouvez autoriser le trafic à l’aide du nom d’étiquette de service directement dans votre groupe de sécurité réseau. Pour en savoir plus, consultez [Groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
 
 Si vous utilisez Azure File Sync localement, l’API d’étiquette de service vous permet d’obtenir des plages d’adresses IP spécifiques pour la liste verte de votre pare-feu. Il existe deux méthodes pour obtenir ces informations :
 
@@ -164,9 +164,9 @@ Si vous utilisez Azure File Sync localement, l’API d’étiquette de service v
     - [Azure Chine](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=57064)
 - L’API de détection des étiquettes de service (préversion) permet la récupération par programmation de la liste actuelle des étiquettes de service. En préversion, l’API de détection des étiquettes de service peut renvoyer des informations qui sont moins récentes que les informations renvoyées par les documents JSON publiés sur le centre de téléchargement Microsoft. Vous pouvez utiliser l’aire de l’API en fonction de vos préférences d’automatisation :
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 Étant donné que l’API de détection d’étiquettes de service n’est pas mise à jour aussi fréquemment que les documents JSON publiés dans le centre de téléchargement Microsoft, nous vous recommandons d’utiliser le document JSON pour mettre à jour la liste verte de votre pare-feu local. Pour cela, procédez comme suit :
 

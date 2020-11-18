@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367731"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651938"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory
 
@@ -72,7 +72,7 @@ Quand vous utilisez des domaines personnalisés, vous devez créer une entrée D
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Pour vérifier que vous avez correctement configuré votre enregistrement CNAME, vous pouvez utiliser [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) sur l’un des points de terminaison cibles, par exemple, `expenses.adventure-works.com`.  Votre réponse doit inclure l’alias déjà mentionné (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Pour vérifier que vous avez correctement configuré votre enregistrement CNAME, vous pouvez utiliser [nslookup](/windows-server/administration/windows-commands/nslookup) sur l’un des points de terminaison cibles, par exemple, `expenses.adventure-works.com`.  Votre réponse doit inclure l’alias déjà mentionné (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 ## <a name="considerations"></a>Considérations
 

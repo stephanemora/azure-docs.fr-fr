@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85509504"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630581"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gérer des serveurs inscrits avec Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -32,7 +32,7 @@ Pour inscrire un serveur à un service de synchronisation de stockage, vous deve
     
     ![Interface utilisateur du Gestionnaire de serveur avec la Configuration de sécurité renforcée d’Internet Explorer en surbrillance](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Vérifiez que le module Azure PowerShell est installé sur votre serveur. Si votre serveur est membre d’un cluster de basculement, chaque nœud du cluster nécessite le module Az. Plus d’informations sur l’installation du module Az sont disponibles dans [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Vérifiez que le module Azure PowerShell est installé sur votre serveur. Si votre serveur est membre d’un cluster de basculement, chaque nœud du cluster nécessite le module Az. Plus d’informations sur l’installation du module Az sont disponibles dans [Installer et configurer Azure PowerShell](/powershell/azure/install-Az-ps).
 
     > [!Note]  
     > Nous vous recommandons d’utiliser la version la plus récente du module Az PowerShell pour inscrire/désinscrire un serveur. Si le package Az a été installé précédemment sur ce serveur (et que la version de PowerShell sur ce serveur est 5.* ou supérieure), vous pouvez utiliser l’applet de commande `Update-Module` pour mettre à jour ce package. 
@@ -180,7 +180,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>Utiliser la Qualité de service (QoS) de Windows Server 
-Lorsqu’Azure File Sync est hébergé dans une machine virtuelle s’exécutant sur un hôte de virtualisation Windows Server, vous pouvez utiliser la QoS de stockage (qualité de service de stockage) pour contrôler la consommation d’E/S de stockage. La stratégie de QoS de stockage peut être définie comme une valeur maximale (ou limite, comme la limite StorageSyncNetwork appliquée ci-dessus) ou minimale (ou réservation). La définition d’une valeur minimale plutôt que maximale permet à Azure File Sync d’optimiser l’utilisation de la bande passante de stockage disponible si d’autres charges de travail ne l’utilisent pas. Pour plus d’informations, consultez [Qualité de service de stockage](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
+Lorsqu’Azure File Sync est hébergé dans une machine virtuelle s’exécutant sur un hôte de virtualisation Windows Server, vous pouvez utiliser la QoS de stockage (qualité de service de stockage) pour contrôler la consommation d’E/S de stockage. La stratégie de QoS de stockage peut être définie comme une valeur maximale (ou limite, comme la limite StorageSyncNetwork appliquée ci-dessus) ou minimale (ou réservation). La définition d’une valeur minimale plutôt que maximale permet à Azure File Sync d’optimiser l’utilisation de la bande passante de stockage disponible si d’autres charges de travail ne l’utilisent pas. Pour plus d’informations, consultez [Qualité de service de stockage](/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Voir aussi
 - [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)

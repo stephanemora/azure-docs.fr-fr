@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b6c879d126b0c16f2dc6ceb41a1dfcc3ecf6a2d5
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886551"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94639640"
 ---
 <a name="HOLTop"></a>
 
@@ -56,7 +56,7 @@ npm install @azure/cognitiveservices-computervision
 
 Le fichier `package.json` de votre application sera mis à jour avec les dépendances.
 
-Créez un fichier, *index.js* , puis ouvrez-le dans un éditeur de texte. Ajoutez les instructions d’importation suivantes.
+Créez un fichier, *index.js*, puis ouvrez-le dans un éditeur de texte. Ajoutez les instructions d’importation suivantes.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
@@ -215,7 +215,7 @@ Définissez la fonction d’assistance `describeType` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## <a name="extract-text-ocr-with-read"></a>Extraire du texte (OCR) avec Read
+## <a name="read-printed-and-handwritten-text"></a>Lire du texte imprimé et manuscrit
 
 Vision par ordinateur peut extraire le texte visible dans une image et le convertir en flux de caractères. Cet exemple utilise les opérations Read.
 

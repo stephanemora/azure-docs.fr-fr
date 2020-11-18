@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763582"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648053"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -207,7 +207,7 @@ Pour appliquer une stratégie de découverte du domaine d’accueil après l’a
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Étape 2 : Rechercher le principal de service auquel affecter la stratégie  
 Vous avez besoin de **l’ID d’objet** des principaux de service auxquels vous souhaitez affecter la stratégie. Il existe plusieurs façons de rechercher **l’ID d’objet** des principaux de service.    
 
-Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation. 
+Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation. 
 
 Étant donné que vous utilisez PowerShell, vous pouvez utiliser l’applet de commande suivante pour lister les principaux de service et leurs identifiants.
 
@@ -267,6 +267,6 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour plus d’informations sur le fonctionnement de l’authentification dans Azure AD, consultez la section [Scénarios d’authentification pour Azure AD](../develop/authentication-scenarios.md).
+- Pour plus d’informations sur le fonctionnement de l’authentification dans Azure AD, consultez la section [Scénarios d’authentification pour Azure AD](../develop/authentication-vs-authorization.md).
 - Pour plus d’informations sur l’authentification unique de l’utilisateur, consultez [Authentification unique aux applications dans Azure Active Directory](what-is-single-sign-on.md).
 - Visitez la [plateforme d’identités Microsoft](../develop/v2-overview.md) pour avoir une vue d’ensemble de la documentation destinée aux développeurs.

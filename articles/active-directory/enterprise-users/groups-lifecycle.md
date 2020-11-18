@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f3544d81059cd4c25c584d8af1b6fcd45a41b8bb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373081"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650714"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Microsoft 365
 
@@ -73,11 +73,11 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
 
 1. Ouvrez le [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte qui est un administrateur général dans votre organisation Azure AD.
 
-2. Sélectionnez **Groupes** , puis **Expiration** , pour ouvrir les paramètres d’expiration.
+2. Sélectionnez **Groupes**, puis **Expiration**, pour ouvrir les paramètres d’expiration.
   
    ![Paramètres d’expiration pour les groupes](./media/groups-lifecycle/expiration-settings.png)
 
-3. Sur la page **Expiration** , vous pouvez :
+3. Sur la page **Expiration**, vous pouvez :
 
     - Définir la durée de vie du groupe en jours. Vous pouvez sélectionner l’une des valeurs prédéfinies ou une valeur personnalisée (30 jours ou plus).
     - Spécifier une adresse de messagerie à laquelle les notifications de renouvellement et d’expiration doivent être envoyées lorsqu’un groupe n’a pas de propriétaire.
@@ -85,7 +85,7 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
       - **Tous** les groupes Microsoft 365
       - Liste des groupes Microsoft 365 **sélectionnés**
       - **Aucun** pour limiter l’expiration de tous les groupes
-    - Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer** .
+    - Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 > [!NOTE]
 > - Lors de la première configuration de l’expiration, les groupes plus anciens que l’intervalle d’expiration bénéficient d’un délai de 35 jours avant expiration, à moins qu’ils soient renouvelés automatiquement ou renouvelés par le propriétaire.
@@ -98,7 +98,7 @@ Si les groupes ne sont pas renouvelés automatiquement, des notifications par e-
 
 ![Notifications par e-mail de l’expiration](./media/groups-lifecycle/expiration-notification.png)
 
-Dans l’e-mail de notification **Renouveler le groupe** , les propriétaires de groupes peuvent accéder directement à la page d’informations du groupe dans le [volet d’accès](https://account.activedirectory.windowsazure.com/r#/applications). Dans cette page, les utilisateurs peuvent obtenir plus d’informations sur le groupe, comme sa description, la date de son dernier renouvellement, sa date d’expiration, ainsi que la possibilité de son renouvellement. La page d’informations du groupe comprend également des liens vers les ressources de groupe Microsoft 365, pour que le propriétaire du groupe puisse voir facilement le contenu et les activités dans son groupe.
+Dans l’e-mail de notification **Renouveler le groupe**, les propriétaires de groupes peuvent accéder directement à la page d’informations du groupe dans le [volet d’accès](https://account.activedirectory.windowsazure.com/r#/applications). Dans cette page, les utilisateurs peuvent obtenir plus d’informations sur le groupe, comme sa description, la date de son dernier renouvellement, sa date d’expiration, ainsi que la possibilité de son renouvellement. La page d’informations du groupe comprend également des liens vers les ressources de groupe Microsoft 365, pour que le propriétaire du groupe puisse voir facilement le contenu et les activités dans son groupe.
 
 Quand un groupe expire, il est supprimé un jour après la date d’expiration. Une notification par e-mail comme celle-ci est envoyée aux propriétaires de groupes Microsoft 365 pour les informer de l’expiration et de la suppression qui en découle de leur groupe Microsoft 365.
 

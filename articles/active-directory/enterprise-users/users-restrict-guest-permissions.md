@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8fdeefab150a2992edf40076a44c936d35b14dc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646591"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory
 
@@ -41,13 +41,13 @@ Vous devez disposer du rôle Administrateur général pour configurer les param�
 Nous avons apporté des modifications aux contrôles existants du Portail Azure concernant les autorisations des utilisateurs invités.
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations d’administrateur général.
-1. Sur la page de présentation **Azure Active Directory** de votre organisation, sélectionnez **Paramètres utilisateur** .
-1. Sous **Utilisateurs externes** , sélectionnez **Gérer les paramètres de collaboration externe** .
-1. Sur la page **Paramètres de collaboration externe** , sélectionnez l’option **L’accès utilisateur invité est limité aux propriétés et appartenances de leurs propres objets annuaire** .
+1. Sur la page de présentation **Azure Active Directory** de votre organisation, sélectionnez **Paramètres utilisateur**.
+1. Sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externe**.
+1. Sur la page **Paramètres de collaboration externe** , sélectionnez l’option **L’accès utilisateur invité est limité aux propriétés et appartenances de leurs propres objets annuaire**.
 
     ![Page Paramètres de collaboration externe Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
 
-1. Sélectionnez **Enregistrer** . La prise en compte des modifications pour les utilisateurs invités peut prendre jusqu’à 15 minutes.
+1. Sélectionnez **Enregistrer**. La prise en compte des modifications pour les utilisateurs invités peut prendre jusqu’à 15 minutes.
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Mise à jour avec l’API Microsoft Graph
 

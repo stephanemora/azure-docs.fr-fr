@@ -7,19 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628981"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630360"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Chiffrement IPSec en transit pour Azure HDInsight
 
 Cet article traite de l’implémentation du chiffrement en transit pour les communications entre les nœuds de cluster Azure HDInsight.
-
-> [!Note]
-> Le chiffrement en transit est actuellement activé pour les régions suivantes : USA Est, USA Centre Sud, USA Ouest 2.
 
 ## <a name="background"></a>Arrière-plan
 
@@ -40,7 +37,7 @@ Pour créer un nouveau cluster avec le chiffrement en transit activé à l’aid
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Créer un cluster – Onglet sécurité et mise en réseau.":::
 
-1. Sous l’onglet **Sécurité + mise en réseau** , cochez la case **Activer le chiffrement en transit**.
+1. Sous l’onglet **Sécurité + mise en réseau**, cochez la case **Activer le chiffrement en transit**.
 
     :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Créer un cluster – Activer le chiffrement en transit.":::
 

@@ -9,24 +9,24 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372987"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650578"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
 
 Cet article présente l’affectation de licences de produit à un groupe d’utilisateurs, puis la vérification que les licences ont été correctement reçues dans Azure Active Directory (Azure AD).
 
-Dans cet exemple, l’organisation Azure AD contient un groupe de sécurité appelé **HR Department** . Ce groupe inclut tous les membres du département des ressources humaines (environ 1 000 utilisateurs). Vous souhaitez attribuer des licences Office 365 Entreprise E3 à l’ensemble du département. Le service Yammer Enterprise inclus dans le produit doit être temporairement désactivé jusqu’à ce que le département soit prêt à l’utiliser. L’administrateur souhaite également déployer des licences Enterprise Mobility + Security vers le même groupe d’utilisateurs.
+Dans cet exemple, l’organisation Azure AD contient un groupe de sécurité appelé **HR Department**. Ce groupe inclut tous les membres du département des ressources humaines (environ 1 000 utilisateurs). Vous souhaitez attribuer des licences Office 365 Entreprise E3 à l’ensemble du département. Le service Yammer Enterprise inclus dans le produit doit être temporairement désactivé jusqu’à ce que le département soit prêt à l’utiliser. L’administrateur souhaite également déployer des licences Enterprise Mobility + Security vers le même groupe d’utilisateurs.
 
 > [!NOTE]
 > Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété Emplacement d’utilisation sur l’utilisateur.
@@ -39,19 +39,19 @@ Dans cet exemple, l’organisation Azure AD contient un groupe de sécurité app
 
 1. Sélectionnez **Licences** afin d’ouvrir une page vous permettant de voir et gérer tous les produits sous licence dans l’organisation.
 
-1. Sous **Tous les produits** , sélectionnez Office 365 Enterprise E5 et Enterprise Mobility + Security E3 en sélectionnant les noms de produits. Pour démarrer l’affectation, sélectionnez **Affecter** en haut de la page.
+1. Sous **Tous les produits**, sélectionnez Office 365 Enterprise E5 et Enterprise Mobility + Security E3 en sélectionnant les noms de produits. Pour démarrer l’affectation, sélectionnez **Affecter** en haut de la page.
 
    ![Sélectionnez les produits pour attribuer les licences](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
-1. Dans la page **Affecter une licence** , sélectionnez **Utilisateurs et groupes** pour ouvrir la liste des utilisateurs et groupes.
+1. Dans la page **Affecter une licence**, sélectionnez **Utilisateurs et groupes** pour ouvrir la liste des utilisateurs et groupes.
 
 1. Sélectionnez un utilisateur ou groupe, puis utilisez le bouton **Sélectionner** en bas de la page pour confirmer votre sélection.
 
-1. Dans la page **Affecter une licence** , cliquez sur **Options d’affectation** , ce qui affiche tous les plans de services inclus dans les deux produits que nous avons sélectionnés précédemment. Recherchez **Yammer Enterprise** et définissez-le sur **Désactivé** pour désactiver ce service à partir de la licence du produit. Confirmez en cliquant sur **OK** en bas des **options de licence** .
+1. Dans la page **Affecter une licence**, cliquez sur **Options d’affectation**, ce qui affiche tous les plans de services inclus dans les deux produits que nous avons sélectionnés précédemment. Recherchez **Yammer Enterprise** et définissez-le sur **Désactivé** pour désactiver ce service à partir de la licence du produit. Confirmez en cliquant sur **OK** en bas des **options de licence**.
 
    ![Sélectionnez les plans de service pour les licences](./media/licensing-groups-assign/assignment-options.png)
   
-1. Pour procéder à l’affectation, au bas de la page **Affecter une licence** , cliquez sur **Affecter** .
+1. Pour procéder à l’affectation, au bas de la page **Affecter une licence**, cliquez sur **Affecter**.
 
 1. Une notification indiquant l’état et le résultat du processus s’affiche dans l’angle supérieur droit. Si l’affectation au groupe n’a pas pu être effectuée (par exemple en raison de licences existantes dans le groupe), cliquez sur la notification pour afficher les détails de l’échec.
 
@@ -59,9 +59,9 @@ Lorsque vous attribuez des licences à un groupe, Azure AD traite tous les memb
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Étape 2 : Vérifier que l’affectation initiale est terminée
 
-1. Accédez à **Azure Active Directory** > **Groupes** . Sélectionnez le groupe auquel les licences ont été assignées.
+1. Accédez à **Azure Active Directory** > **Groupes**. Sélectionnez le groupe auquel les licences ont été assignées.
 
-1. Dans la page du groupe, sélectionnez **Licences** . Cela vous permet de vérifier rapidement si les licences ont été entièrement affectées aux utilisateurs et s’il existe des erreurs que vous devez examiner. Les informations suivantes sont disponibles :
+1. Dans la page du groupe, sélectionnez **Licences**. Cela vous permet de vérifier rapidement si les licences ont été entièrement affectées aux utilisateurs et s’il existe des erreurs que vous devez examiner. Les informations suivantes sont disponibles :
 
    - Licences de services actuellement affectées au groupe. Sélectionnez une entrée pour afficher les services spécifiques qui ont été activés et pour apporter des modifications.
 
@@ -71,7 +71,7 @@ Lorsque vous attribuez des licences à un groupe, Azure AD traite tous les memb
 
    ![erreurs de licence et état des licences](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Pour des informations plus détaillées sur le traitement des licences, consultez **Azure Active Directory** > **Utilisateurs et groupes** > *nom du groupe* > **Journaux d’audit** . Vérifiez les activités suivantes :
+1. Pour des informations plus détaillées sur le traitement des licences, consultez **Azure Active Directory** > **Utilisateurs et groupes** > *nom du groupe* > **Journaux d’audit**. Vérifiez les activités suivantes :
 
    - Activité : `Start applying group based license to users`. Elle est consignée lorsque le système sélectionne la modification d’affectation de licences sur le groupe et commence à l’appliquer à tous les membres de l’utilisateur. Elle contient des informations sur la modification qui a été apportée.
 
@@ -82,16 +82,16 @@ Lorsque vous attribuez des licences à un groupe, Azure AD traite tous les memb
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
 
 1. Accédez à **Azure Active Directory** > **Groupes** et recherchez les groupes auquel les licences ont été affectées.
-1. Dans la page du groupe, sélectionnez **Licences** . La notification en haut de la page indique que des licences n’ont pas pu être affectées à 10 utilisateurs. Ouvrez cette notification pour accéder à une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.
-1. La colonne **Échec d’affectations** indique que les deux licences de produit n’ont pas pu être affectées aux utilisateurs. La colonne **Raison principale de l’échec** contient la cause de l’échec. Dans ce cas, il s’agit de **Plans de service en conflit** .
+1. Dans la page du groupe, sélectionnez **Licences**. La notification en haut de la page indique que des licences n’ont pas pu être affectées à 10 utilisateurs. Ouvrez cette notification pour accéder à une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.
+1. La colonne **Échec d’affectations** indique que les deux licences de produit n’ont pas pu être affectées aux utilisateurs. La colonne **Raison principale de l’échec** contient la cause de l’échec. Dans ce cas, il s’agit de **Plans de service en conflit**.
 
    ![licences qui n’ont pas pu être affectées](./media/licensing-groups-assign/failed-assignments.png)
 
-1. Sélectionnez un utilisateur pour ouvrir la page **Licences** de l’utilisateur. Cette page montre toutes les licences actuellement affectées à l’utilisateur. Dans cet exemple, l’utilisateur a hérité de la licence Office 365 Enterprise E1 du groupe **Kiosk users** . Cette licence est en conflit avec la licence E3 que le système a tenté d’appliquer à partir du groupe **HR Department** . Par conséquent, aucune des licences de ce groupe n’a été assignée à l’utilisateur.
+1. Sélectionnez un utilisateur pour ouvrir la page **Licences** de l’utilisateur. Cette page montre toutes les licences actuellement affectées à l’utilisateur. Dans cet exemple, l’utilisateur a hérité de la licence Office 365 Enterprise E1 du groupe **Kiosk users**. Cette licence est en conflit avec la licence E3 que le système a tenté d’appliquer à partir du groupe **HR Department**. Par conséquent, aucune des licences de ce groupe n’a été assignée à l’utilisateur.
 
    ![Voir tous les conflits de licence pour un utilisateur](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
-1. Pour résoudre ce conflit, nous supprimons l’utilisateur du groupe **Kiosk users** . Lorsqu’Azure AD a traité la modification, les licences **HR Department** sont affectées correctement.
+1. Pour résoudre ce conflit, nous supprimons l’utilisateur du groupe **Kiosk users**. Lorsqu’Azure AD a traité la modification, les licences **HR Department** sont affectées correctement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

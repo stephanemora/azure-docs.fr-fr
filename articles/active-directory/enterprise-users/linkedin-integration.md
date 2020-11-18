@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d70676e117a71fbd194e921b4755ba5d196871c7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373127"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650306"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Intégrer des connexions de compte LinkedIn dans Azure Active Directory
 
@@ -40,9 +40,9 @@ Vous pouvez autoriser des utilisateurs de votre organisation à accéder à leur
 Vous pouvez activer les connexions au compte LinkedIn pour les utilisateurs de votre choix, qu’il s’agisse de l’ensemble de votre organisation aux de certains utilisateurs sélectionnés au sein de celle-ci.
 
 1. Connectez-vous au [centre d’administration d’Azure AD](https://aad.portal.azure.com/) avec un compte d’administrateur général pour l’organisation Azure AD.
-1. Sélectionnez **Utilisateurs** .
-1. Dans la page **Utilisateurs** , sélectionnez **Paramètres utilisateur** .
-1. Sous **Connexions au compte LinkedIn** , autorisez des utilisateurs à se connecter à leur compte pour accéder à leur connexions LinkedIn dans certaines applications Microsoft. Aucune donnée n’est partagée tant que l’utilisateur n’a pas consenti à la connexion à son compte.
+1. Sélectionnez **Utilisateurs**.
+1. Dans la page **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
+1. Sous **Connexions au compte LinkedIn**, autorisez des utilisateurs à se connecter à leur compte pour accéder à leur connexions LinkedIn dans certaines applications Microsoft. Aucune donnée n’est partagée tant que l’utilisateur n’a pas consenti à la connexion à son compte.
 
     * Sélectionnez **Oui** pour activer le service pour tous les utilisateurs de votre organisation
     * Choisissez **Groupe sélectionné** pour activer le service uniquement pour un groupe d’utilisateurs sélectionnés au sein de votre organisation
@@ -91,8 +91,8 @@ Pour utiliser le groupe l’étape deux en tant que groupe sélectionné dans le
 1. Télécharger les [fichiers modèles d’administration Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 1. Extrayez les fichiers **ADMX** et copiez-les dans votre magasin central.
 1. Ouvrez la gestion des stratégies de groupe.
-1. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016** > **Divers** > **Afficher les fonctionnalités LinkedIn dans les applications Office** .
-1. Sélectionnez **Activé** ou **Désactivé** .
+1. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016** > **Divers** > **Afficher les fonctionnalités LinkedIn dans les applications Office**.
+1. Sélectionnez **Activé** ou **Désactivé**.
   
    State | Résultat
    ------ | ------

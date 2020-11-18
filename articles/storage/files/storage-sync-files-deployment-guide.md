@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 128a974c41b1c09196ecab2070136d9568b08f5d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331785"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629476"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -48,7 +48,7 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
     > [!Important]  
     > Si vous prévoyez d’utiliser l’interface d’enregistrement du serveur, plutôt que de vous enregistrer directement depuis PowerShell, vous devez utiliser PowerShell 5.1.
 
-1. Si vous avez choisi d’utiliser PowerShell 5.1, assurez-vous qu’au moins .NET 4.7.2 est installé. En savoir plus sur les [Versions et dépendances .NET Framework](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) sur votre système.
+1. Si vous avez choisi d’utiliser PowerShell 5.1, assurez-vous qu’au moins .NET 4.7.2 est installé. En savoir plus sur les [Versions et dépendances .NET Framework](/dotnet/framework/migration-guide/versions-and-dependencies) sur votre système.
 
     > [!Important]  
     > Si vous installez .NET 4.7.2+ sur Windows Server Core, vous devez effectuer l’installation avec les indicateurs `quiet` et `norestart` ; sinon, l’installation échoue. Par exemple, si vous installez .NET 4.8, la commande se présente comme ceci :
@@ -56,7 +56,7 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. Le module Az PowerShell, qui peut être installé en suivant les instructions ici : [Installez et configurez Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. Le module Az PowerShell, qui peut être installé en suivant les instructions ici : [Installez et configurez Azure PowerShell](/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > Le module Az.StorageSync est maintenant installé automatiquement quand vous installez le module Az PowerShell.
@@ -94,7 +94,7 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
    az extension add --name storagesync
    ```
 
-   Après l’installation de la référence de l’extension **storagesync** , l’avertissement suivant s’affiche.
+   Après l’installation de la référence de l’extension **storagesync**, l’avertissement suivant s’affiche.
 
    ```output
    The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
@@ -112,9 +112,9 @@ Pour chaque serveur que vous souhaitez utiliser avec Azure File Sync, y compris 
 1. Ouvrez le Gestionnaire de serveurs.
 2. Cliquez sur **Serveur Local** :  
     ![« Serveur local » sur le côté gauche de l’interface utilisateur du Gestionnaire de serveur](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
-3. Dans le sous-volet **Propriétés** , sélectionnez le lien vers **Configuration de sécurité renforcée d’Internet Explorer**.  
+3. Dans le sous-volet **Propriétés**, sélectionnez le lien vers **Configuration de sécurité renforcée d’Internet Explorer**.  
     ![Volet « Configuration de sécurité renforcée d’Internet Explorer » dans l’interface utilisateur du Gestionnaire de serveur](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
-4. Dans la boîte de dialogue **Configuration de sécurité renforcée d’Internet Explorer** , sélectionnez **Désactivé** pour **Administrateurs** et **Utilisateurs**  :  
+4. Dans la boîte de dialogue **Configuration de sécurité renforcée d’Internet Explorer**, sélectionnez **Désactivé** pour **Administrateurs** et **Utilisateurs** :  
     ![Fenêtre indépendante Configuration de sécurité renforcée d’Internet Explorer avec l’option « Désactivé » sélectionnée](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -153,13 +153,13 @@ Le déploiement de Azure File Sync commence par le placement d’une ressource *
 > Le service de synchronisation de stockage hérite des autorisations d’accès de l’abonnement et du groupe de ressources dans lequel il a été déployé. Nous vous recommandons de vérifier soigneusement les personnes qui y ont accès. Les entités avec un accès en écriture peuvent démarrer la synchronisation de nouveaux ensembles de fichiers à partir des serveurs inscrits dans ce service de synchronisation de stockage et permettre le flux de données vers le stockage Azure qui leur est accessible.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
-Pour déployer un service de synchronisation de stockage, accédez au [Portail Microsoft Azure](https://portal.azure.com/), cliquez sur *Créer une ressource* , puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync** , puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
+Pour déployer un service de synchronisation de stockage, accédez au [Portail Microsoft Azure](https://portal.azure.com/), cliquez sur *Créer une ressource*, puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
 
 Dans le volet qui s’ouvre, entrez les informations suivantes :
 
-- **Name**  : Nom unique (par région) du service de synchronisation de stockage.
-- **Abonnement** : abonnement dans lequel vous voulez créer le service de synchronisation de stockage. Selon la stratégie de configuration de votre organisation, vous avez accès à un ou plusieurs abonnements. Un abonnement Azure est le conteneur de base pour la facturation de chaque service cloud (par exemple, Azure Files).
-- **Groupe de ressources**  : un groupe de ressources est un groupe logique de ressources Azure, tel qu’un compte de stockage ou un service de synchronisation de stockage. Vous pouvez créer un groupe de ressources ou utiliser un groupe de ressources existant pour Azure File Sync. (Nous vous recommandons d’utiliser des groupes de ressources comme conteneurs pour isoler les ressources logiquement dans votre organisation, par exemple, en regroupant les ressources humaines ou les ressources d’un projet spécifique.)
+- **Name** : Nom unique (par région) du service de synchronisation de stockage.
+- **Abonnement**: abonnement dans lequel vous voulez créer le service de synchronisation de stockage. Selon la stratégie de configuration de votre organisation, vous avez accès à un ou plusieurs abonnements. Un abonnement Azure est le conteneur de base pour la facturation de chaque service cloud (par exemple, Azure Files).
+- **Groupe de ressources** : un groupe de ressources est un groupe logique de ressources Azure, tel qu’un compte de stockage ou un service de synchronisation de stockage. Vous pouvez créer un groupe de ressources ou utiliser un groupe de ressources existant pour Azure File Sync. (Nous vous recommandons d’utiliser des groupes de ressources comme conteneurs pour isoler les ressources logiquement dans votre organisation, par exemple, en regroupant les ressources humaines ou les ressources d’un projet spécifique.)
 - **Emplacement** : région dans laquelle vous souhaitez déployer Azure File Sync. Seuls les régions prises en charge sont disponibles dans cette liste.
 
 Quand vous avez terminé, sélectionnez **Créer** pour déployer le service de synchronisation de stockage.
@@ -295,9 +295,9 @@ Une fois que vous êtes connecté, vous êtes invité à fournir les information
 
 ![Capture d’écran de l’interface utilisateur d’inscription de serveur](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Abonnement Azure**  : abonnement qui contient le service de synchronisation de stockage (consultez [Déployer le service de synchronisation de stockage](#deploy-the-storage-sync-service)). 
+- **Abonnement Azure** : abonnement qui contient le service de synchronisation de stockage (consultez [Déployer le service de synchronisation de stockage](#deploy-the-storage-sync-service)). 
 - **Groupe de ressources** : groupe de ressources qui contient le service de synchronisation de stockage.
-- **Service de synchronisation de stockage**  : nom du service de synchronisation de stockage auquel vous souhaitez vous inscrire.
+- **Service de synchronisation de stockage** : nom du service de synchronisation de stockage auquel vous souhaitez vous inscrire.
 
 Après avoir sélectionné les informations appropriées, sélectionnez **S’inscrire** pour effectuer l’inscription du serveur. Dans le cadre du processus d’inscription, vous êtes invité à effectuer une nouvelle connexion.
 
@@ -322,16 +322,16 @@ Un point de terminaison cloud est un pointeur vers un partage de fichiers Azure.
 L’administrateur qui crée le point de terminaison cloud doit être membre du rôle de gestion **Propriétaire** pour le compte de stockage contenant le partage de fichiers Azure sur lequel pointe le point de terminaison cloud. Ce paramètre peut être configuré sous **Access Control (IAM)** sur le Portail Azure pour le compte de stockage.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
-Pour créer un groupe de synchronisation, dans le [portail Azure](https://portal.azure.com/), accédez à votre service de synchronisation de stockage, puis sélectionnez **+ Groupe de synchronisation**  :
+Pour créer un groupe de synchronisation, dans le [portail Azure](https://portal.azure.com/), accédez à votre service de synchronisation de stockage, puis sélectionnez **+ Groupe de synchronisation** :
 
 ![Créer un groupe de synchronisation dans le portail Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 Dans le volet qui s’ouvre, entrez les informations suivantes pour créer un groupe de synchronisation avec un point de terminaison cloud :
 
-- **Nom du groupe de synchronisation**  : nom du groupe de synchronisation à créer. Ce nom doit être unique au sein du service de synchronisation de stockage, mais vous pouvez choisir tout nom ayant un sens pour vous.
-- **Abonnement** : abonnement dans lequel vous avez déployé le service de synchronisation de stockage, comme décrit dans [Déployer le service de synchronisation de stockage](#deploy-the-storage-sync-service).
-- **Compte de stockage**  : si vous sélectionnez **Sélectionner un compte de stockage** , un autre volet s’affiche dans lequel vous pouvez sélectionner le compte de stockage qui contient le partage de fichiers Azure avec lequel effectuer la synchronisation.
-- **Partage de fichiers Azure**  : nom du partage de fichiers Azure avec lequel vous voulez effectuer la synchronisation.
+- **Nom du groupe de synchronisation** : nom du groupe de synchronisation à créer. Ce nom doit être unique au sein du service de synchronisation de stockage, mais vous pouvez choisir tout nom ayant un sens pour vous.
+- **Abonnement**: abonnement dans lequel vous avez déployé le service de synchronisation de stockage, comme décrit dans [Déployer le service de synchronisation de stockage](#deploy-the-storage-sync-service).
+- **Compte de stockage** : si vous sélectionnez **Sélectionner un compte de stockage**, un autre volet s’affiche dans lequel vous pouvez sélectionner le compte de stockage qui contient le partage de fichiers Azure avec lequel effectuer la synchronisation.
+- **Partage de fichiers Azure** : nom du partage de fichiers Azure avec lequel vous voulez effectuer la synchronisation.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Pour créer le groupe de synchronisation, exécutez la commande PowerShell suivante. N’oubliez pas de remplacer `<my-sync-group>` par le nom du groupe de synchronisation.
@@ -412,12 +412,12 @@ Pour ajouter un point de terminaison de serveur, accédez au nouveau groupe de s
 
 ![Ajouter un nouveau point de terminaison de serveur dans le volet Groupe de synchronisation](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
-Dans le volet **Ajouter un point de terminaison de serveur** , entrez les informations suivantes pour créer un point de terminaison de serveur :
+Dans le volet **Ajouter un point de terminaison de serveur**, entrez les informations suivantes pour créer un point de terminaison de serveur :
 
-- **Serveur inscrit**  : nom du serveur ou du cluster où vous voulez créer le point de terminaison de serveur.
-- **Chemin d’accès**  : chemin d’accès Windows Server à synchroniser en tant qu’élément du groupe de synchronisation.
-- **Hiérarchisation cloud**  : commutateur pour activer ou désactiver la hiérarchisation cloud. La hiérarchisation cloud permet de hiérarchiser les fichiers rarement utilisés dans Azure Files.
-- **Espace libre du volume**  : quantité d’espace libre à réserver sur le volume sur lequel se trouve le point de terminaison de serveur. Par exemple, si l’espace libre du volume est défini à 50 % sur un volume ayant un seul point de terminaison de serveur, environ la moitié de la quantité de données est hiérarchisée dans Azure Files. Que la hiérarchisation cloud soit activée ou non, le partage de fichiers Azure dispose toujours d’une copie complète des données dans le groupe de synchronisation.
+- **Serveur inscrit** : nom du serveur ou du cluster où vous voulez créer le point de terminaison de serveur.
+- **Chemin d’accès** : chemin d’accès Windows Server à synchroniser en tant qu’élément du groupe de synchronisation.
+- **Hiérarchisation cloud** : commutateur pour activer ou désactiver la hiérarchisation cloud. La hiérarchisation cloud permet de hiérarchiser les fichiers rarement utilisés dans Azure Files.
+- **Espace libre du volume** : quantité d’espace libre à réserver sur le volume sur lequel se trouve le point de terminaison de serveur. Par exemple, si l’espace libre du volume est défini à 50 % sur un volume ayant un seul point de terminaison de serveur, environ la moitié de la quantité de données est hiérarchisée dans Azure Files. Que la hiérarchisation cloud soit activée ou non, le partage de fichiers Azure dispose toujours d’une copie complète des données dans le groupe de synchronisation.
 - **Mode de téléchargement initial** : Il s’agit d’une sélection facultative, à partir de la version 11 de l’agent, qui peut être utile lorsque vous avez des fichiers dans le partage de fichiers Azure, mais pas sur le serveur. Une telle situation peut exister, par exemple, si vous créez un point de terminaison de serveur pour ajouter un autre serveur de filiale à un groupe de synchronisation ou lorsque vous récupérez un serveur défaillant en cas de sinistre. Si la hiérarchisation cloud est activée, le comportement par défaut consiste à rappeler uniquement l’espace de noms, pas de contenu de fichier initialement. Cela est utile si vous pensez que les demandes d’accès des utilisateurs doivent décider du contenu du fichier qui est rappelé sur le serveur. Si la hiérarchisation cloud est désactivée, le comportement par défaut est que l’espace de noms sera d’abord téléchargé, puis les fichiers seront rappelés en fonction du timestamp de la dernière modification jusqu’à ce que la capacité locale soit atteinte. Vous pouvez toutefois changer le mode de téléchargement initial sur Espace de noms uniquement. Un troisième mode ne peut être utilisé que si la hiérarchisation cloud est désactivée pour ce point de terminaison de serveur. Ce mode évite de rappeler l’espace de noms d’abord. Les fichiers s’affichent uniquement sur le serveur local s’ils ont pu être téléchargés entièrement. Ce mode est utile si, par exemple, une application nécessite la présence de fichiers complets et ne peut pas tolérer des fichiers hiérarchisés dans son espace de noms.
 
 Pour ajouter le point de terminaison de serveur, sélectionnez **Créer**. Vos fichiers sont maintenant synchronisés entre le partage de fichiers Azure et Windows Server. 
@@ -573,7 +573,7 @@ Cela étant, si vous modifiez la planification de manière à obtenir un instant
 
 Le nombre maximal d'instantanés VSS par volume par défaut (64), ainsi que leur planification par défaut, se traduisent par un maximum de 45 jours de versions précédentes pouvant être restaurées par un professionnel de l’information et ce, en fonction du nombre d'instantanés VSS que vous pouvez stocker sur votre volume.
 
-Si le paramètre de 65 instantanés VSS par volume ne vous convient pas, vous pouvez [modifier cette valeur via une clé de Registre](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Si le paramètre de 65 instantanés VSS par volume ne vous convient pas, vous pouvez [modifier cette valeur via une clé de Registre](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Pour que la nouvelle limite prenne effet, vous devez réexécuter la cmdlet de manière à activer la compatibilité des versions précédentes sur chaque volume sur lequel elle était précédemment activée, avec l'indicateur -Force afin de prendre en compte le nouveau nombre maximal d'instantanés VSS par volume. Un nouveau nombre de jours compatibles est alors calculé. Notez que cette modification prend uniquement effet sur les fichiers nouvellement hiérarchisés et remplace les personnalisations apportées à la planification VSS que vous avez peut-être établie.
 
 <a id="proactive-recall"></a>
@@ -599,7 +599,7 @@ Une société internationale a des filiales aux États-Unis et en Inde. Le matin
 
 # <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
 
-Vous pouvez modifier les propriétés de point de terminaison de serveur dans PowerShell par le biais de l’applet de commande [Set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint).
+Vous pouvez modifier les propriétés de point de terminaison de serveur dans PowerShell par le biais de l’applet de commande [Set-AzStorageSyncServerEndpoint](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint).
 
 ```powershell
 # Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"

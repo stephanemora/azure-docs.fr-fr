@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230804"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331972"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTPS dans Azure Logic Apps
 
@@ -23,7 +23,8 @@ Afin que votre application logique puisse être appelée via une URL, et recevoi
 
 Cet article montre comment créer un point de terminaison pouvant être appelé sur votre application logique en utilisant le déclencheur de requête, et appeler ce point de terminaison à partir d’une autre application logique. Tous les principes s’appliquent de la même façon aux autres types de déclencheurs que vous pouvez utiliser pour recevoir des demandes entrantes.
 
-Pour plus d’informations sur le chiffrement, la sécurité et l’autorisation des appels entrants à votre application logique, comme [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment appelé Secure Sockets Layer (SSL), ou [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), consultez [Sécuriser l’accès et les données – Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+Pour plus d’informations sur la sécurité, l’autorisation et le chiffrement des appels entrants dans votre application logique, par exemple, sur [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment appelé SSL (Secure Sockets Layer), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), l’exposition de votre application logique avec Gestion des API Azure, ou la restriction des adresses IP dont proviennent les appels entrants, consultez [Sécuriser l’accès et les données - Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -391,6 +392,8 @@ Pour afficher la définition JSON de l’action de réponse et de la définition
 > * la clé d’accès partagé s’affiche dans l’URL ;
 > * Vous ne pouvez pas gérer les stratégies de contenu de sécurité en raison du partage de domaines entre les clients Azure Logic Apps.
 
+Pour plus d’informations sur la sécurité, l’autorisation et le chiffrement des appels entrants dans votre application logique, par exemple, sur [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment appelé SSL (Secure Sockets Layer), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), l’exposition de votre application logique avec Gestion des API Azure, ou la restriction des adresses IP dont proviennent les appels entrants, consultez [Sécuriser l’accès et les données - Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>Q : Puis-je configurer des points de terminaison que je peux appeler de façon plus approfondie ?
 
 **R** : Oui, les points de terminaison HTTPS prennent en charge une configuration plus avancée par le biais de la [Gestion des API Azure](../api-management/api-management-key-concepts.md). Ce service vous offre également la possibilité de gérer toutes vos API de façon systématique, y compris les applications logiques, de configurer les noms de domaines personnalisés, d’utiliser plus de méthodes d’authentification et bien plus encore, comme par exemple :
@@ -403,4 +406,4 @@ Pour afficher la définition JSON de l’action de réponse et de la définition
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps](../connectors/connectors-native-reqres.md)
-* [Accès et données sécurisés dans Azure Logic Apps – Accès – Accès pour les appels entrants à des déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Sécuriser l’accès et les données dans Azure Logic Apps - Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

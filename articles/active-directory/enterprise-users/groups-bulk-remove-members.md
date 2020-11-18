@@ -4,21 +4,21 @@ description: Supprimez en bloc les membres d'un groupe dans le centre d’admini
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da3da152fa8d0f568ee0f4075dafb8da8c3bf8a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373025"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650850"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Supprimer en bloc les membres d’un groupe dans Azure Active Directory
 
@@ -35,7 +35,7 @@ Téléchargez et renseignez le modèle CSV de chargement en bloc pour ajouter d
 Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
 - **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
-- **En-têtes de colonne**  : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations. Pour les modifications d’appartenance à un groupe, vous avez le choix de l’identificateur : ID d’objet membre ou nom d’utilisateur principal.
+- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations. Pour les modifications d’appartenance à un groupe, vous avez le choix de l’identificateur : ID d’objet membre ou nom d’utilisateur principal.
 - **Exemples de lignes** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs acceptables pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
 
 ### <a name="additional-guidance"></a>Conseils supplémentaires
@@ -48,10 +48,10 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 ## <a name="to-bulk-remove-group-members"></a>Supprimer en bloc les membres d’un groupe
 
 1. Connectez-vous [au portail Azure](https://portal.azure.com) avec un compte Utilisateur administrateur dans l’organisation. Les propriétaires de groupes peuvent également supprimer en bloc les membres de groupes qu'ils possèdent.
-1. Dans Azure AD, sélectionnez **Groupes** > **Tous les groupes** .
-1. Ouvrez le groupe dont vous supprimez des membres, puis sélectionnez **Membres** .
-1. Dans la page **Membres** , sélectionnez **Supprimer des membres** .
-1. Dans la page **Supprimer en bloc les membres du groupe** , sélectionnez **Télécharger** pour obtenir le modèle de fichier CSV avec les propriétés des membres du groupe requises.
+1. Dans Azure AD, sélectionnez **Groupes** > **Tous les groupes**.
+1. Ouvrez le groupe dont vous supprimez des membres, puis sélectionnez **Membres**.
+1. Dans la page **Membres**, sélectionnez **Supprimer des membres**.
+1. Dans la page **Supprimer en bloc les membres du groupe**, sélectionnez **Télécharger** pour obtenir le modèle de fichier CSV avec les propriétés des membres du groupe requises.
 
    ![La commande Supprimer des membres se trouve sur la page de profil du groupe](./media/groups-bulk-remove-members/remove-panel.png)
 
@@ -59,18 +59,18 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
     :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="Le fichier CSV contient les noms et les ID des membres du groupe à supprimer":::
 
-1. Dans la page **Supprimer en bloc les membres du groupe** , sous **Chargez votre fichier .csv** , accédez au fichier. Quand vous sélectionnez le fichier, la validation du fichier CSV démarre.
-1. Quand le contenu du fichier est validé, la page d’importation en bloc affiche **Fichier chargé** . Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
+1. Dans la page **Supprimer en bloc les membres du groupe**, sous **Chargez votre fichier .csv**, accédez au fichier. Quand vous sélectionnez le fichier, la validation du fichier CSV démarre.
+1. Quand le contenu du fichier est validé, la page d’importation en bloc affiche **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
 1. Une fois votre fichier validé, sélectionnez **Envoyer** pour démarrer l’opération en bloc Azure qui supprime les membres du groupe.
 1. Une fois l’opération de suppression terminée, vous recevez une notification indiquant que l’opération en bloc a réussi.
 
 ## <a name="check-removal-status"></a>Vérifier l’état de la suppression
 
-Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc** .
+Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc**.
 
 [![Vérifier l'état sur la page Résultats des opérations en bloc](./media/groups-bulk-remove-members/bulk-center.png)](./media/groups-bulk-remove-members/bulk-center.png#lightbox)
 
-Pour plus d’informations sur chaque élément de ligne au sein de l’opération en bloc, sélectionnez les valeurs sous les colonnes **Nombre de réussites** , **Nombre d’échecs** ou **Nombre total de requêtes** . Si des échecs se sont produits, les raisons sont affichées.
+Pour plus d’informations sur chaque élément de ligne au sein de l’opération en bloc, sélectionnez les valeurs sous les colonnes **Nombre de réussites**, **Nombre d’échecs** ou **Nombre total de requêtes**. Si des échecs se sont produits, les raisons sont affichées.
 
 ## <a name="bulk-removal-service-limits"></a>Limites du service de suppression en bloc
 

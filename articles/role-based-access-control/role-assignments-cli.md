@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597649"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648359"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI
 
@@ -26,7 +26,7 @@ ms.locfileid: "91597649"
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
 - d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](built-in-roles.md#owner)
-- [Bash Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure CLI](/cli/azure)
+- [Bash Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure)
 
 ## <a name="steps-to-add-a-role-assignment"></a>Étapes pour ajouter une attribution de rôle
 
@@ -362,4 +362,4 @@ az role assignment delete --assignee "alain@example.com" \
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Répertorier les attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-list-cli.md)
-- [Utiliser Azure CLI pour gérer les ressources et les groupes de ressources Azure](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Utiliser Azure CLI pour gérer les ressources et les groupes de ressources Azure](../azure-resource-manager/management/manage-resources-cli.md)

@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 179ad1e552899f8fa92b8191fe78223458f87104
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f202bebd2c9ab6147d8a37fc6109b915065068aa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372985"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650340"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Comment migrer des utilisateurs disposant de licences individuelles vers des groupes pour la gestion des licences
 
@@ -57,13 +57,13 @@ Voici ce à quoi le processus de migration peut ressembler :
 
 1. À l’aide du portail Azure, affectez la licence Office 365 E3 au groupe **Tous les utilisateurs** dans Azure AD.
 
-1. Vérifiez que l’affectation de licence est effectuée pour tous les utilisateurs. Accédez à la page du groupe, sélectionnez **Licences** , puis vérifiez l’état de traitement en haut du panneau **Licences** .
+1. Vérifiez que l’affectation de licence est effectuée pour tous les utilisateurs. Accédez à la page du groupe, sélectionnez **Licences**, puis vérifiez l’état de traitement en haut du panneau **Licences**.
 
    - Recherchez « Les dernières modifications de licence ont été appliquées à tous les utilisateurs » afin de confirmer la fin de l’opération.
 
    - Recherchez une notification en haut de la page, indiquant les utilisateurs pour lesquels des licences n’ont peut-être pas été correctement attribuées. Avons-nous manqué de licences pour certains utilisateurs ? Certains utilisateurs présentent-ils des plans de licence en conflit qui les empêchent d’hériter des licences de groupe ?
 
-1. Vérifiez ponctuellement certains utilisateurs afin de veiller à ce qu’à la fois les licences directes et les licences de groupe leur soient bien appliquées. Accédez à la page de profil d’un utilisateur, sélectionnez **Licences** , puis examinez l’état des licences.
+1. Vérifiez ponctuellement certains utilisateurs afin de veiller à ce qu’à la fois les licences directes et les licences de groupe leur soient bien appliquées. Accédez à la page de profil d’un utilisateur, sélectionnez **Licences**, puis examinez l’état des licences.
 
    - Voici l’état utilisateur attendu lors de la migration :
 
@@ -71,7 +71,7 @@ Voici ce à quoi le processus de migration peut ressembler :
 
      Cela confirme que l’utilisateur possède des licences directes et héritées. Nous voyons qu’Office 365 E3 est affecté.
 
-   - Sélectionnez chaque licence pour voir quels services sont activés. Pour vérifier que les licences directes et de groupe activent exactement les mêmes services pour l’utilisateur, sélectionnez **Affectations** .
+   - Sélectionnez chaque licence pour voir quels services sont activés. Pour vérifier que les licences directes et de groupe activent exactement les mêmes services pour l’utilisateur, sélectionnez **Affectations**.
 
 1. Après avoir confirmé l’équivalence des licences directes et des licences de groupe, vous pouvez commencer à supprimer les licences directes des utilisateurs. Vous pouvez tester cette procédure en supprimant ces licences pour des utilisateurs individuels sur le portail, puis exécuter des scripts d’automatisation afin de les supprimer en bloc. Voici l’exemple d’un même utilisateur dont les licences directes ont été supprimées par le biais du portail. L’état de licence reste inchangé, mais les attributions directes n’apparaissent plus.
 

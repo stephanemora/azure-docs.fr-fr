@@ -12,20 +12,20 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357910"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651547"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML
 Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons d’effectuer les opérations suivantes afin de bénéficier du meilleur diagnostic et d’automatiser les étapes de résolution :
 
-- Installez l’[extension de navigateur sécurisée Mes applications](access-panel-extension-problem-installing.md) pour aider Azure Active Directory (Azure AD) à fournir un meilleur diagnostic et de meilleures résolutions lorsque vous utilisez l’expérience de test dans le portail Azure.
-- Reproduisez l’erreur à l’aide de l’expérience de test sur la page de configuration d’application du portail Azure. En savoir plus sur le [débogage d’applications avec authentification unique SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Installez l’[extension de navigateur sécurisée Mes applications](./access-panel-deployment-plan.md) pour aider Azure Active Directory (Azure AD) à fournir un meilleur diagnostic et de meilleures résolutions lorsque vous utilisez l’expérience de test dans le portail Azure.
+- Reproduisez l’erreur à l’aide de l’expérience de test sur la page de configuration d’application du portail Azure. En savoir plus sur le [débogage d’applications avec authentification unique SAML](./debug-saml-sso-issues.md)
 
-Si vous utilisez l’[expérience de test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement pour ouvrir la page de configuration de l’authentification unique basée sur SAML.
+Si vous utilisez l’[expérience de test](./debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement pour ouvrir la page de configuration de l’authentification unique basée sur SAML.
 
 Pour ouvrir la page de configuration de l’authentification unique basée sur SAML :
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous comme **Administrateur général** ou **Coadministrateur**.
@@ -88,7 +88,7 @@ Azure AD ne prend pas en charge les requêtes SAML envoyées par l’application
 
 **Résolution :**
 
-1. Capturez la requête SAML. Pour savoir comment capturer la requête SAML, suivez le didacticiel [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+1. Capturez la requête SAML. Pour savoir comment capturer la requête SAML, suivez le didacticiel [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](./debug-saml-sso-issues.md).
 1. Contactez le fournisseur de l’application et communiquez-lui les informations suivantes :
     - Demande SAML
     - [Spécifications du protocole SAML d’authentification unique Azure AD](../develop/single-sign-on-saml-protocol.md)
@@ -174,5 +174,5 @@ Comparez la ressource à laquelle vous souhaitez accéder dans le code aux autor
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Série de guides de démarrage rapide sur la gestion des applications](add-application-portal-assign-users.md)
-- [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Spécifications du protocole SAML d’authentification unique Azure AD](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](./debug-saml-sso-issues.md)
+- [Spécifications du protocole SAML d’authentification unique Azure AD](../develop/single-sign-on-saml-protocol.md)

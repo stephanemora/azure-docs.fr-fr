@@ -4,21 +4,21 @@ description: Ajoutez en bloc des utilisateurs dans le centre d'administration Az
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec712d2f58c3028aa11d0b12132669648351bfb1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 59327b33a228dfde2c303b63393a372b12370a05
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373038"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647407"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Télécharger en bloc les membres d’un groupe dans Azure Active Directory
 
@@ -27,15 +27,15 @@ ms.locfileid: "92373038"
 ## <a name="to-bulk-download-group-membership"></a>Pour télécharger en bloc des appartenances de groupes
 
 1. Connectez-vous [au portail Azure](https://portal.azure.com) avec un compte Utilisateur administrateur dans l’organisation. Les propriétaires de groupes peuvent également télécharger en bloc les membres de groupes qu'ils possèdent.
-1. Dans Azure AD, sélectionnez **Groupes** > **Tous les groupes** .
+1. Dans Azure AD, sélectionnez **Groupes** > **Tous les groupes**.
 1. Ouvrez le groupe dont vous souhaitez télécharger l’appartenance, puis sélectionnez **Membres.**
-1. Sur la page **Membres** , sélectionnez **Télécharger les membres** pour télécharger un fichier CSV des membres du groupe.
+1. Sur la page **Membres**, sélectionnez **Télécharger les membres** pour télécharger un fichier CSV des membres du groupe.
 
    ![La commande Télécharger les membres se trouve sur la page de profil du groupe](./media/groups-bulk-download-members/download-panel.png)
 
 ## <a name="check-download-status"></a>Vérifier l’état du téléchargement
 
-Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc** .
+Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc**.
 
 [![Vérifiez l’état sur la page Résultats des opérations en bloc.](./media/groups-bulk-download-members/bulk-center.png)](./media/groups-bulk-download-members/bulk-center.png#lightbox)
 

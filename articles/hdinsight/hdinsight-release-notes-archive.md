@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: d8b36676c9b95992bdcf382c1f474b56e30ad3fb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3973e32fdc724bd3c0894d6aaf2eb06ad3ba3adc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535550"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629935"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -21,9 +21,39 @@ ms.locfileid: "92535550"
 
 Azure HDInsight est l'un des services les plus populaires parmi les clients d'entreprise pour l'analytique Apache Hadoop et Apache Spark open source sur Azure.
 
-## <a name="release-date-09282020"></a>Date de publication : 28/9/2020
+## <a name="release-date-10082020"></a>Date de publication : 08/10/2020
 
 Cette version s’applique à la fois à HDInsight 3.6 et HDInsight 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours que la version soit active dans votre région.
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+#### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>Clusters privés HDInsight sans adresse IP publique ni Private Link (aperçu)
+HDInsight prend désormais en charge la création de clusters sans adresse IP publique ni accès Private Link aux clusters en préversion. Les clients peuvent utiliser les nouveaux paramètres avancés de mise en réseau pour créer un cluster entièrement isolé sans adresse IP publique et utiliser leurs propres points de terminaison privés pour accéder au cluster. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À compter de cette version, le service migrera progressivement vers des [groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/overview.md). L’ensemble du processus peut prendre plusieurs mois. Une fois les régions et les abonnements migrés, les clusters HDInsight nouvellement créés s’exécuteront sur des groupes de machines virtuelles identiques sans l’intervention du client. Aucun changement cassant n’est prévu.
+
+### <a name="deprecation"></a>Dépréciation
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Dépréciation du cluster ML Services HDInsight 3.6
+Le type de cluster ML Services HDInsight 3.6 ne sera plus pris en charge au 31 décembre 2020. Après cette date, les clients ne devront plus créer de cluster ML Services 3.6. Les clusters existants s’exécuteront tels quels sans le support de Microsoft. Vérifiez l’expiration de la prise en charge des versions HDInsight et des types de cluster [ici](./hdinsight-component-versioning.md#available-versions).
+
+### <a name="behavior-changes"></a>Changements de comportement
+Cette version n’est associée à aucun changement de comportement.
+
+### <a name="upcoming-changes"></a>Changements à venir
+Les changements suivants se produiront dans les prochaines versions.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Possibilité de sélectionner différentes tailles de machine virtuelle Zookeeper pour les services Spark, Hadoop et ML
+HDInsight ne prend actuellement pas en charge la personnalisation de la taille de nœud Zookeeper pour les types de cluster des services Spark, Hadoop et ML. Les tailles de machine virtuelle sont définies par défaut sur A2_v2/A2, qui sont fournies sans frais. Dans la version à venir, vous pourrez sélectionner la taille de machine virtuelle Zookeeper la plus appropriée pour votre scénario. Les nœuds Zookeeper avec une taille de machine virtuelle différente de A2_v2/A2 sont facturés. Les machines virtuelles A2_v2 et A2 sont toujours fournies sans frais.
+
+### <a name="bug-fixes"></a>Résolution des bogues
+HDInsight continue à améliorer la fiabilité et les performances des clusters. 
+
+### <a name="component-version-change"></a>Changement de la version des composants
+Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](./hdinsight-component-versioning.md).
+
+## <a name="release-date-09282020"></a>Date de publication : 28/9/2020
+
+Cette version s’applique à la fois à HDInsight 3.6 et HDInsight 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours pour que la version release soit active dans votre région.
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 #### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>La mise à l’échelle automatique pour Interactive Query avec HDInsight 4.0 est désormais en disponibilité générale
@@ -114,7 +144,7 @@ Aucune modification de la version des composants pour cette version. Les version
 
 ### <a name="known-issues"></a>Problèmes connus
 
-Un problème a été résolu dans le portail Azure, en raison duquel les utilisateurs rencontraient une erreur en créant un cluster Azure HDInsight à l’aide d’un type d’authentification SSH de clé publique. Quand un utilisateur cliquait sur **Vérifier + créer** , il recevait l’erreur « Ne doit pas avoir trois caractères consécutifs du nom d’utilisateur SSH ». Ce problème a été résolu, mais vous devrez peut-être actualiser le cache de votre navigateur en appuyant sur Ctrl+F5 pour charger la vue corrigée. La solution de contournement à ce problème a consisté à créer un cluster avec un modèle ARM. 
+Un problème a été résolu dans le portail Azure, en raison duquel les utilisateurs rencontraient une erreur en créant un cluster Azure HDInsight à l’aide d’un type d’authentification SSH de clé publique. Quand un utilisateur cliquait sur **Vérifier + créer**, il recevait l’erreur « Ne doit pas avoir trois caractères consécutifs du nom d’utilisateur SSH ». Ce problème a été résolu, mais vous devrez peut-être actualiser le cache de votre navigateur en appuyant sur Ctrl+F5 pour charger la vue corrigée. La solution de contournement à ce problème a consisté à créer un cluster avec un modèle ARM. 
 
 ## <a name="release-date-07132020"></a>Date de publication : 13/07/2020
 
@@ -188,13 +218,13 @@ Une machine virtuelle à au moins 4 cœurs est nécessaire pour le nœud princi
 #### <a name="cluster-worker-node-provisioning-change"></a>Changement du provisionnement du nœud Worker du cluster
 Quand 80 % des nœuds Worker sont prêts, le cluster entre dans la phase **opérationnelle**. Dans cette phase, les clients peuvent effectuer toutes les opérations de plan de données, comme l’exécution de scripts et de travaux. Toutefois, les clients ne peuvent effectuer aucune opération de plan de contrôle comme un scale-up/scale-down. Seule la suppression est prise en charge.
  
-Après la phase **opérationnelle** , le cluster attend encore 60 minutes pour les 20 % de nœuds Worker restants. À la fin de ces 60 minutes, le cluster passe à la phase **en cours d’exécution** , même si tous les nœuds Worker ne sont toujours pas disponibles. Une fois qu’un cluster entre dans la phase **en cours d’exécution** , vous pouvez l’utiliser normalement. Les opérations de plan de contrôle comme un scale-up/scale-down aussi bien que les opérations de plan de données comme l’exécution de scripts et de travaux sont acceptées. Si certains des nœuds Worker demandés ne sont pas disponibles, le cluster est marqué comme ayant partiellement réussi. Les nœuds qui ont été correctement déployés vous sont facturés. 
+Après la phase **opérationnelle**, le cluster attend encore 60 minutes pour les 20 % de nœuds Worker restants. À la fin de ces 60 minutes, le cluster passe à la phase **en cours d’exécution**, même si tous les nœuds Worker ne sont toujours pas disponibles. Une fois qu’un cluster entre dans la phase **en cours d’exécution**, vous pouvez l’utiliser normalement. Les opérations de plan de contrôle comme un scale-up/scale-down aussi bien que les opérations de plan de données comme l’exécution de scripts et de travaux sont acceptées. Si certains des nœuds Worker demandés ne sont pas disponibles, le cluster est marqué comme ayant partiellement réussi. Les nœuds qui ont été correctement déployés vous sont facturés. 
  
 #### <a name="create-new-service-principal-through-hdinsight"></a>Créer un principal du service avec HDInsight
 Auparavant, avec la création de cluster, les clients pouvaient créer un principal de service pour accéder au compte ADLS Gen 1 connecté dans le portail Azure. À compter du 15 juin 2020, les clients ne peuvent pas créer de principal de service dans le workflow de création de HDInsight, seul un principal de service existant est pris en charge. Consultez [Créer un principal de service et des certificats à l’aide d’Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="time-out-for-script-actions-with-cluster-creation"></a>Délai d’attente pour les actions de script avec création de cluster
-HDInsight prend en charge l’exécution d’actions de script avec création de cluster. À partir de cette version release, toutes les actions de script avec création de cluster doivent se terminer dans un délai de **60 minutes** , faute de quoi elles expirent. Les actions de script soumises à des clusters en cours d’exécution ne sont pas impactées. Vous trouverez plus de détails [ici](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
+HDInsight prend en charge l’exécution d’actions de script avec création de cluster. À partir de cette version release, toutes les actions de script avec création de cluster doivent se terminer dans un délai de **60 minutes**, faute de quoi elles expirent. Les actions de script soumises à des clusters en cours d’exécution ne sont pas impactées. Vous trouverez plus de détails [ici](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
  
 ### <a name="upcoming-changes"></a>Changements à venir
 Aucun changement cassant à venir auquel vous devez prêter attention.
@@ -526,9 +556,9 @@ Les nouvelles mises à jour et fonctionnalités appartiennent aux catégories su
 
 *  ***Mise à jour de R Server 9.1 vers Machine Learning Services 9.3** _ : avec cette version, nous offrons aux scientifiques des données et aux ingénieurs le meilleur de l’open source qui bénéficie d’innovations algorithmiques et d’une grande facilité d’opérationnalisation, le tout disponible dans leur langage préféré avec la vitesse d’Apache Spark. Cette version étend les fonctionnalités offertes par R Server avec l’ajout de la prise en charge de Python, entraînant le remplacement du nom du cluster R Server par ML Services. 
 
-_  * **Prise en charge d’Azure Data Lake Storage Gen2** _ : HDInsight prendra en charge la préversion d’Azure Data Lake Storage Gen2. Dans les régions disponibles, les clients pourront choisir un compte ADLS Gen2 comme magasin principal ou secondaire pour leurs clusters HDInsight.
+_  ***Prise en charge d’Azure Data Lake Storage Gen2** _ : HDInsight prendra en charge la préversion d’Azure Data Lake Storage Gen2. Dans les régions disponibles, les clients pourront choisir un compte ADLS Gen2 comme magasin principal ou secondaire pour leurs clusters HDInsight.
 
-_  * **Mises à jour du Pack Sécurité Entreprise HDInsight (préversion)** _ : (préversion) [Les points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) prennent en charge Stockage Blob Azure, ADLS Gen1, Cosmos DB et Azure DB.
+_  ***Mises à jour du Pack Sécurité Entreprise HDInsight (préversion)** _ : (préversion) [Les points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) prennent en charge Stockage Blob Azure, ADLS Gen1, Cosmos DB et Azure DB.
 
 ### <a name="component-versions"></a>Versions des composants
 
@@ -1796,7 +1826,7 @@ Les problèmes résolus représentent des problèmes sélectionnés qui ont ét�
 
 ### <a name="known-issues"></a>Problèmes connus
 
-- **Intégration de HDInsight avec ADLS Gen 2**  : il existe deux problèmes sur les clusters HDInsight ESP utilisant Azure Data Lake Storage Gen 2 avec les autorisations et répertoires d’utilisateurs :
+- **Intégration de HDInsight avec ADLS Gen 2** : il existe deux problèmes sur les clusters HDInsight ESP utilisant Azure Data Lake Storage Gen 2 avec les autorisations et répertoires d’utilisateurs :
    
   1. Les répertoires de base pour les utilisateurs ne sont pas créés sur le nœud principal 1. Pour résoudre ce problème, créez les répertoires manuellement et affectez comme propriétaire le nom UPN de l’utilisateur correspondant.
    

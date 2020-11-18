@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329361"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629408"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuration des points de terminaison réseau Azure File Sync
 Azure Files et Azure File Sync fournissent deux principaux types de points de terminaison pour l’accès aux partages de fichiers Azure : 
@@ -33,8 +33,8 @@ Cet article suppose que vous avez :
 - Vous avez déjà créé un service de synchronisation de stockage et vous l’avez inscrit auprès de votre serveur de fichiers Windows. Pour savoir comment déployer Azure File Sync, consultez [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md).
 
 De plus :
-- Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-the-private-endpoints"></a>Créer les points de terminaison privés
 Lorsque vous créez un point de terminaison privé pour une ressource Azure, les ressources suivantes sont déployées :

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 376086d0fc84e04645215b26ba896cf22f3f9c57
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704546"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647883"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
@@ -62,12 +62,12 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
       ![Bouton « Modifier les autorisations »](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
+    >[!NOTE]
+    >Les rôles Administrateur d’application et Administrateur Cloud App ne sont pas appropriés pour ce scénario, puisque nous avons besoin d’autorisations d’administrateur général pour effectuer des opérations d’écriture et de lecture dans le répertoire.
+
     c. Sélectionnez les autorisations suivantes dans la liste (si vous ne l’avez pas déjà fait) et sélectionnez **Modifier les autorisations**.
 
       ![Liste des autorisations et bouton « Modifier les autorisations »](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
-
-    > [!Note]
-    > Les rôles Administrateur d’application et Administrateur Cloud App ne sont pas appropriés pour ce scénario, puisque nous avons besoin d’autorisations d’administrateur général pour effectuer des opérations d’écriture et de lecture dans le répertoire.
 
     d. Acceptez le consentement. Vous êtes à nouveau connecté au système.
 
@@ -79,9 +79,7 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
       ![Boîte de dialogue de l’Explorateur graphique, avec la requête d’extraction des principaux du service](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      > [!Note]
-      > Nous avons commencé à mettre à niveau l’API. Il est donc possible que les clients subissent des interruptions du service.
-
+      
     f. Dans la liste des principaux du service extraits, obtenez celui que vous devez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste des principaux du service. Recherchez l’ID de l’objet que vous avez copié à partir de la page **Propriétés** et utilisez la requête suivante pour accéder au principal du service :
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
@@ -92,8 +90,8 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
       ![Détails de la propriété appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      > [!Note]
-      > Si vous utilisez l’application personnalisée (non l’application de la Place de marché Azure), les deux rôles par défaut s’affichent : utilisateur et msiam_access. Pour l’application de la Place de marché, msiam_access est le seul rôle par défaut. Vous n’avez pas besoin d’apporter des modifications aux rôles par défaut.
+      
+      Si vous utilisez l’application personnalisée (non l’application de la Place de marché Azure), les deux rôles par défaut s’affichent : utilisateur et msiam_access. Pour l’application de la Place de marché, msiam_access est le seul rôle par défaut. Vous n’avez pas besoin d’apporter des modifications aux rôles par défaut.
 
     h. Générez de nouveaux rôles pour votre application.
 
@@ -128,8 +126,8 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
       }
       ```
 
-      > [!Note]
-      > Vous ne pouvez ajouter de nouveaux rôles qu’après msiam_access de l’opération de correction. Vous pouvez également ajouter autant de rôles selon les besoins de votre organisation. Azure AD envoie la valeur de ces rôles conformément à la valeur de revendication dans la réponse SAML. Pour générer les valeurs de GUID pour l’ID de nouveaux rôles, utilisez les outils web tels que [this](https://www.guidgenerator.com/)
+      
+      Vous ne pouvez ajouter de nouveaux rôles qu’après msiam_access de l’opération de correction. Vous pouvez également ajouter autant de rôles selon les besoins de votre organisation. Azure AD envoie la valeur de ces rôles conformément à la valeur de revendication dans la réponse SAML. Pour générer les valeurs de GUID pour l’ID de nouveaux rôles, utilisez les outils web tels que [this](https://www.guidgenerator.com/)
 
     i. Revenez à l’Explorateur graphique et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété **appRoles** comme celle affichée dans l’exemple précédent. Sélectionnez **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle.
 
@@ -143,8 +141,8 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
     ![Volets « Modifier l’affectation » et « Sélectionner un rôle »](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-    > [!Note]
-    > Vous devez actualiser votre session dans le portail Azure pour afficher les nouveaux rôles.
+    
+    Vous devez actualiser votre session dans le portail Azure pour afficher les nouveaux rôles.
 
 8. Mettez à jour la table **Attributs** table pour définir un mappage personnalisé de la revendication de rôle.
 
@@ -154,8 +152,8 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
     | -------------- | ----------------|
     | Nom de rôle  | user.assignedroles |
 
-    >[!NOTE]
-    >Si la valeur de revendication de rôle est null, Azure AD n’enverra pas cette valeur dans le jeton ; il s’agit du comportement par défaut normal.
+    
+    Si la valeur de revendication de rôle est null, Azure AD n’enverra pas cette valeur dans le jeton ; il s’agit du comportement par défaut normal.
 
     a. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs et revendications de l’utilisateur**.
 
@@ -253,15 +251,15 @@ Pour supprimer un rôle existant, procédez comme suit :
 
     d. Sélectionnez **Run Query** (Exécuter la requête).
 
-    > [!NOTE]
-    > Assurez-vous que vous disposez du rôle d’utilisateur msiam_access et que l’ID correspond au rôle généré.
+    
+    Assurez-vous que vous disposez du rôle d’utilisateur msiam_access et que l’ID correspond au rôle généré.
 
 7. Lorsque le rôle est désactivé, supprimez ce bloc de rôle de la section **appRoles**. Conservez la méthode **PATCH**, puis sélectionnez **Exécuter la requête**.
 
 8. Lorsque vous avez exécuté la requête, le rôle est supprimé.
 
-    > [!NOTE]
-    > Le rôle doit être désactivé pour pouvoir être supprimé.
+    
+    Le rôle doit être désactivé pour pouvoir être supprimé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,22 +3,22 @@ title: Fermer un compte professionnel ou scolaire dans une organisation Azure AD
 description: Comment fermer votre compte professionnel ou scolaire dans un annuaire Azure Active Directory non managé.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 11/20/2020
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 142143f96314539051ea44c00c6ff95cb2650566
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372956"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650204"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Fermer votre compte professionnel ou scolaire dans une organisation Azure AD non gérée
 
@@ -45,11 +45,11 @@ Pour fermer un compte professionnel ou scolaire non managé, suivez ces étapes�
 
 1. Connectez-vous pour [fermer votre compte](https://go.microsoft.com/fwlink/?linkid=873123), en utilisant le compte que vous souhaitez fermer.
 
-1. Sur **Mes demandes de données** , sélectionnez **Fermer le compte** .
+1. Sur **Mes demandes de données**, sélectionnez **Fermer le compte**.
 
     ![Mes demandes de données - Fermer le compte](./media/users-close-account/close-account.png)
 
-1. Passez en revue le message de confirmation, puis sélectionnez **Oui** .
+1. Passez en revue le message de confirmation, puis sélectionnez **Oui**.
 
     ![Mes demandes de données - Confirmer la fermeture](./media/users-close-account/confirm-close.png)
 

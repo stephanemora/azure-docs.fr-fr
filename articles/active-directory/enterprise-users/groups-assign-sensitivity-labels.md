@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b754886d88e97134b30e4a2bee7bdf5ac5a9d3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c30dea57310fb040d8fa5f52e1d8576c2dd08504
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373040"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650833"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Attribuer des étiquettes de sensibilité aux groupes Microsoft 365 dans Azure Active Directory
 
@@ -40,7 +40,7 @@ Pour appliquer des étiquettes publiées à des groupes, vous devez d’abord ac
     Connect-AzureAD
     ```
 
-    Dans la page **Connectez-vous à votre compte** , entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter** .
+    Dans la page **Connectez-vous à votre compte**, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
 1. Récupérez les paramètres de groupe actuels pour l’organisation Azure AD.
 
     ```PowerShell
@@ -73,20 +73,20 @@ Vous devrez également synchroniser vos étiquettes de sensibilité dans Azure A
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Attribuer une étiquette à un nouveau groupe dans le Portail Azure
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
-1. Sélectionnez **Groupes** , puis sélectionnez **Nouveau groupe** .
-1. Dans la page **Nouveau groupe** , sélectionnez **Office 365** , puis remplissez les informations requises pour le nouveau groupe et sélectionnez une étiquette de sensibilité dans la liste.
+1. Sélectionnez **Groupes**, puis sélectionnez **Nouveau groupe**.
+1. Dans la page **Nouveau groupe**, sélectionnez **Office 365**, puis remplissez les informations requises pour le nouveau groupe et sélectionnez une étiquette de sensibilité dans la liste.
 
    ![Attribuer une étiquette de sensibilité à la page Nouveaux groupes](./media/groups-assign-sensitivity-labels/new-group-page.png)
 
-1. Enregistrez vos modifications, puis sélectionnez **Créer** .
+1. Enregistrez vos modifications, puis sélectionnez **Créer**.
 
 Votre groupe est créé et les paramètres de site et de groupe associés à l'étiquette sélectionnée sont automatiquement appliqués.
 
 ## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Attribuer une étiquette à un groupe existant dans le Portail Azure
 
 1. Connectez-vous au [Centre d'administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur de groupes, ou en tant que propriétaire du groupe.
-1. Sélectionnez **Groupes** .
-1. Dans la page **Tous les groupes** , sélectionnez le groupe que vous souhaitez étiqueter.
+1. Sélectionnez **Groupes**.
+1. Dans la page **Tous les groupes**, sélectionnez le groupe que vous souhaitez étiqueter.
 1. Sur la page du groupe sélectionné, sélectionnez **Propriétés** et sélectionnez une étiquette de sensibilité dans la liste.
 
    ![Attribuer une étiquette de sensibilité à la page Vue d’ensemble d’un groupe](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
@@ -96,10 +96,10 @@ Votre groupe est créé et les paramètres de site et de groupe associés à l'�
 ## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>Retirer une étiquette d’un groupe existant dans le Portail Azure
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur général ou administrateur de groupes, ou en tant que propriétaire du groupe.
-1. Sélectionnez **Groupes** .
-1. Dans la page **Tous les groupes** , sélectionnez le groupe duquel vous souhaitez supprimer l’étiquette.
-1. Dans la page **Groupe** , sélectionnez **Propriétés** .
-1. Sélectionnez **Supprimer** .
+1. Sélectionnez **Groupes**.
+1. Dans la page **Tous les groupes**, sélectionnez le groupe duquel vous souhaitez supprimer l’étiquette.
+1. Dans la page **Groupe**, sélectionnez **Propriétés**.
+1. Sélectionnez **Supprimer**.
 1. Sélectionnez **Enregistrer** pour enregistrer vos modifications.
 
 ## <a name="using-classic-azure-ad-classifications"></a>Utilisation des classifications Azure AD classiques
@@ -133,10 +133,10 @@ Si l’étiquette que vous recherchez ne figure pas dans la liste, cela peut êt
 Les étiquettes peuvent être échangées à tout moment à l’aide des mêmes étapes que l’attribution d’une étiquette à un groupe existant, comme suit :
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur général ou administrateur de groupes, ou en tant que propriétaire du groupe.
-1. Sélectionnez **Groupes** .
-1. Dans la page **Tous les groupes** , sélectionnez le groupe que vous souhaitez étiqueter.
+1. Sélectionnez **Groupes**.
+1. Dans la page **Tous les groupes**, sélectionnez le groupe que vous souhaitez étiqueter.
 1. Dans la page du groupe sélectionné, sélectionnez **Propriétés** et sélectionnez une nouvelle étiquette de sensibilité dans la liste.
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>Les modifications apportées aux paramètres de groupe sur les étiquettes publiées ne sont pas mises à jour sur les groupes
 

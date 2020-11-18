@@ -10,24 +10,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2020
+ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 8aae75aca585c30c0678c88247a8ecfe8a0b801d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 60d3607a543cac5b8ce71819eb60394d8b8827bf
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340258"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331123"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
 
 Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau.
 
-Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou sur le [pare-feu Azure](https://docs.microsoft.com/azure/firewall/service-tags). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **ApiManagement** ) dans le champ *Source* ou *Destination* d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
+Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou sur le [pare-feu Azure](https://docs.microsoft.com/azure/firewall/service-tags). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **ApiManagement**) dans le champ *Source* ou *Destination* d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
 
 Vous pouvez utiliser des étiquettes de service pour isoler le réseau et protéger vos ressources Azure de l’accès Internet général tout en accédant aux services Azure qui ont des points de terminaison publics. Créez des règles de groupe de sécurité de réseau entrant/sortant pour refuser le trafic vers/depuis **Internet** et autoriser le trafic vers/depuis **AzureCloud** ou d’autres [balises de service disponibles](#available-service-tags) de services Azure spécifiques.
+
+![Isolement réseau des services Azure à l’aide de balises de service](./media/service-tags-overview/service_tags.png)
 
 ## <a name="available-service-tags"></a>Balises de service disponibles
 Le tableau suivant répertorie les balises de service disponibles à utiliser dans les règles [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
@@ -54,7 +56,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureBackup** |Sauvegarde Azure.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **Storage** and **AzureActiveDirectory**. | Règle de trafic sortant | Non | Oui |
 | **AzureBotService** | Service Azure Bot. | Règle de trafic sortant | Non | Non |
 | **AzureCloud** | Toutes les [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=56519). | Règle de trafic sortant | Oui | Oui |
-| **AzureCognitiveSearch** | Recherche cognitive Azure. <br/><br/>Cette balise ou les adresses IP qu’elle couvre permettent d’accorder aux indexeurs un accès sécurisé à des sources de données. Pour plus de détails, consultez la [documentation sur la connexion d’indexeur](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors). <br/><br/> *Remarque*  : L’adresse IP du service de recherche n’est pas incluse dans la liste des plages d’adresses IP pour cette balise de service et **doit également être ajoutée** au pare-feu IP des sources de données. | Trafic entrant | Non | Non |
+| **AzureCognitiveSearch** | Recherche cognitive Azure. <br/><br/>Cette balise ou les adresses IP qu’elle couvre permettent d’accorder aux indexeurs un accès sécurisé à des sources de données. Pour plus de détails, consultez la [documentation sur la connexion d’indexeur](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors). <br/><br/> *Remarque* : L’adresse IP du service de recherche n’est pas incluse dans la liste des plages d’adresses IP pour cette balise de service et **doit également être ajoutée** au pare-feu IP des sources de données. | Trafic entrant | Non | Non |
 | **AzureConnectors** | Connecteurs Azure Logic Apps pour les connexions principales/de sonde. | Trafic entrant | Oui | Oui |
 | **AzureContainerRegistry** | Azure Container Registry. | Règle de trafic sortant | Oui | Oui |
 | **AzureCosmosDB** | Azure Cosmos DB. | Règle de trafic sortant | Oui | Oui |
@@ -65,7 +67,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Remarque :* Cette étiquette et les adresses IP qu’elle couvre peuvent être utilisées pour restreindre l’accès aux points de terminaison configurés pour des routes d’événements. *Cette étiquette n’est actuellement pas configurable sur le Portail Azure.* | Trafic entrant | Non | Oui |
 | **AzureEventGrid** | Azure Event Grid. | Les deux | Non | Non |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Les deux | Non | Non |
-| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **AzureActiveDirectory** , **AzureFrontDoor.Frontend** et **AzureFrontDoor.FirstParty**. | Règle de trafic sortant | Non | Non |
+| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **AzureActiveDirectory**, **AzureFrontDoor.Frontend** et **AzureFrontDoor.FirstParty**. | Règle de trafic sortant | Non | Non |
 | **AzureIoTHub** | Azure IoT Hub. | Règle de trafic sortant | Non | Non |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport à la balise **AzureActiveDirectory**. | Règle de trafic sortant | Oui | Oui |
 | **AzureLoadBalancer** | Équilibrage de charge de l’infrastructure Azure. Elle est translatée vers l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) (168.63.129.16) d’où proviennent les sondes d’intégrité d’Azure. Cela comprend uniquement le trafic de sondes, et non le trafic réel vers votre ressource principale. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure. | Les deux | Non | Non |
@@ -77,7 +79,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzurePlatformLKM** | Gestionnaire de licences Windows ou service de gestion de clés.<br/><br/>Vous pouvez utiliser cette balise pour désactiver les paramètres par défaut des licences. Utilisez cette balise avec prudence. Nous vous recommandons de lire les [considérations sur la plateforme Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  Nous vous recommandons également d’effectuer des tests avant d’utiliser cette balise. | Règle de trafic sortant | Non | Non |
 | **AzureResourceManager** | Azure Resource Manager. | Règle de trafic sortant | Non | Non |
 | **AzureSignalR** | Azure SignalR. | Règle de trafic sortant | Non | Non |
-| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **AzureActiveDirectory** , **AzureKeyVault** , **EventHub** , **GuestAndHybridManagement** et **Storage**. | Règle de trafic sortant | Non | Non |
+| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** et **Storage**. | Règle de trafic sortant | Non | Non |
 | **AzureTrafficManager** | Adresses IP de sonde Azure Traffic Manager.<br/><br/>Pour plus d’informations sur les adresses IP de sondage Traffic Manager, consultez les [Questions fréquentes (FAQ) sur Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Trafic entrant | Non | Oui |  
 | **BatchNodeManagement** | Trafic de gestion pour les déploiements dédiés d’Azure Batch. | Les deux | Non | Oui |
 | **CognitiveServicesManagement** | Plages d’adresses du trafic pour Azure Cognitive Services. | Les deux | Non | Non |
@@ -146,7 +148,7 @@ Les plages d’adresses IP de ces fichiers sont en notation CIDR.
 >Un sous-ensemble de ces informations a été publié dans des fichiers XML pour [Azure public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure Chine](https://www.microsoft.com/download/details.aspx?id=42064) et [Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=54770). Ces téléchargements XML seront obsolètes à compter du 30 juin 2020 et ne seront plus disponibles après cette date. Vous devez effectuer une migration à l’aide de l’API Discovery ou des téléchargements de fichiers JSON, comme décrit dans les sections précédentes.
 
 ### <a name="tips"></a>Conseils 
-- Vous pouvez détecter les mises à jour d’une publication à l’autre en notant les valeurs *changeNumber* augmentées dans le fichier JSON. Chaque sous-section (par exemple, **Storage.WestUS** ) a sa propre valeur *changeNumber* qui est incrémentée au fur et à mesure que des modifications sont effectuées. Le niveau supérieur de la valeur *changeNumber* du fichier est incrémenté lorsque l’une des sous-sections est modifiée.
+- Vous pouvez détecter les mises à jour d’une publication à l’autre en notant les valeurs *changeNumber* augmentées dans le fichier JSON. Chaque sous-section (par exemple, **Storage.WestUS**) a sa propre valeur *changeNumber* qui est incrémentée au fur et à mesure que des modifications sont effectuées. Le niveau supérieur de la valeur *changeNumber* du fichier est incrémenté lorsque l’une des sous-sections est modifiée.
 - Pour obtenir des exemples d’analyse des informations de balise de service (par exemple, obtenir toutes les plages d’adresses pour le stockage dans la région WestUS), reportez-vous à la documentation relative à l’[API Service Tag Discovery PowerShell](https://aka.ms/discoveryapi_powershell).
 
 ## <a name="next-steps"></a>Étapes suivantes

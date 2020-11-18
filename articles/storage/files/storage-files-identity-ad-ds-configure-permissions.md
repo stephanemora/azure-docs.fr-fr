@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761139"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629170"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Troisième partie : configurer les autorisations au niveau des répertoires et des fichiers sur SMB 
 
@@ -44,7 +44,7 @@ Le tableau suivant contient les autorisations Azure RBAC associées à cette con
 
 ## <a name="supported-permissions"></a>Autorisations prises en charge
 
-Azure Files prend en charge l’ensemble des ACL Windows de base et avancées. Vous pouvez voir et configurer les ACL Windows sur les répertoires et les fichiers d’un partage de fichiers Azure en montant le partage puis en utilisant l’Explorateur de fichiers Windows ou en exécutant la commande Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) ou la commande [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl). 
+Azure Files prend en charge l’ensemble des ACL Windows de base et avancées. Vous pouvez voir et configurer les ACL Windows sur les répertoires et les fichiers d’un partage de fichiers Azure en montant le partage puis en utilisant l’Explorateur de fichiers Windows ou en exécutant la commande Windows [icacls](/windows-server/administration/windows-commands/icacls) ou la commande [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl). 
 
 Pour configurer des ACL avec des autorisations de superutilisateur, vous devez monter le partage avec votre clé de compte de stockage à partir de votre machine virtuelle jointe à un domaine. Suivez les instructions de la section suivante pour monter un partage de fichiers Azure à partir de l’invite de commandes et configurer les ACL Windows.
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Nous fournissons également des [conseils](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
+Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Nous fournissons également des [conseils](./storage-files-faq.md#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
 
 ## <a name="configure-windows-acls"></a>Configurer des ACL Windows
 
@@ -108,13 +108,13 @@ Utilisez l’Explorateur de fichiers Windows pour accorder des autorisations com
 
 ### <a name="configure-windows-acls-with-icacls"></a>Configurer des ACL Windows avec icacls
 
-Utilisez la commande Windows suivante pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs.
+Utilisez la commande Windows suivante pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. N’oubliez pas de remplacer les valeurs d’espace réservé dans l’exemple par vos propres valeurs.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Pour plus d’informations sur l’utilisation de la commande icacls pour définir des ACL Windows et sur les différents types d’autorisation pris en charge, consultez les [informations de référence sur la ligne de commande pour icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Pour plus d’informations sur l’utilisation de la commande icacls pour définir des ACL Windows et sur les différents types d’autorisation pris en charge, consultez les [informations de référence sur la ligne de commande pour icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,22 +3,22 @@ title: Révoquer les accès utilisateur lors d’une urgence dans Azure Active D
 description: Comment révoquer tous les accès d’un utilisateur dans Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92372954"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649685"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -113,9 +113,9 @@ En tant qu’administrateur dans Azure Active Directory, ouvrez PowerShell, exé
 
 Une fois que les administrateurs ont effectué les étapes ci-dessus, l’utilisateur ne peut pas obtenir de nouveaux jetons pour aucune des applications liées à Azure Active Directory. Le temps écoulé entre la révocation des accès de l’utilisateur et la perte effective des accès dépend de la manière dont l’application accorde les accès :
 
-- Pour les **applications utilisant des jetons d’accès** , l’utilisateur perd ses accès dès que le jeton d’accès arrive à expiration.
+- Pour les **applications utilisant des jetons d’accès**, l’utilisateur perd ses accès dès que le jeton d’accès arrive à expiration.
 
-- Pour les **applications utilisant des jetons de session** , les sessions actives prennent fin dès que le jeton arrive à expiration. Si l’état désactivé de l’utilisateur est synchronisé avec l’application, l’application peut révoquer automatiquement les sessions actives de l’utilisateur si elle est configurée pour cela.  Le délai de révocation dépend de la fréquence de synchronisation entre l’application et Azure AD.
+- Pour les **applications utilisant des jetons de session**, les sessions actives prennent fin dès que le jeton arrive à expiration. Si l’état désactivé de l’utilisateur est synchronisé avec l’application, l’application peut révoquer automatiquement les sessions actives de l’utilisateur si elle est configurée pour cela.  Le délai de révocation dépend de la fréquence de synchronisation entre l’application et Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

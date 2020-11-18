@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604074"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648274"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Étapes pour ajouter une attribution de rôle
 
@@ -26,7 +26,7 @@ Vous devez d’abord déterminer qui a besoin d’un accès. Vous pouvez attribu
 
 ![Principe de sécurité d’une attribution de rôle](./media/shared/rbac-security-principal.png)
 
-- Utilisateur : personne disposant d’un profil dans Azure Active Directory. Vous pouvez également attribuer des rôles aux utilisateurs dans les autres locataires. Pour plus d’informations sur les utilisateurs des autres organisations, consultez [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+- Utilisateur : personne disposant d’un profil dans Azure Active Directory. Vous pouvez également attribuer des rôles aux utilisateurs dans les autres locataires. Pour plus d’informations sur les utilisateurs des autres organisations, consultez [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 - Groupe : ensemble d’utilisateurs créés dans Azure Active Directory. Lorsque vous attribuez un rôle à un groupe, vous l’attribuez également à tous les utilisateurs de ce groupe. 
 - Principal de service : identité de sécurité utilisée par des applications ou des services permettant d’accéder aux ressources Azure spécifiques. Vous pouvez la considérer comme une *identité utilisateur* (nom d’utilisateur, mot de passe ou certificat) pour une application.
 - Identité managée : identité dans Azure Active Directory qui est managée automatiquement par Azure. Vous utilisez généralement des [identités managées](../active-directory/managed-identities-azure-resources/overview.md) lors du développement d’applications cloud afin de gérer les informations d’identification pour l’authentification auprès des services Azure.

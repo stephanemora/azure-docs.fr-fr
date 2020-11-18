@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: e39884f6d62fc43943f892aed0dac650a01d6c40
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd25c7638bd7e178cdb963ba528cccefde6b9eca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462811"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646473"
 ---
 # <a name="reset-a-vpn-gateway"></a>Réinitialiser une passerelle VPN
 
@@ -52,7 +52,7 @@ Vous pouvez réinitialiser une passerelle VPN Resource Manager à l’aide du po
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-La cmdlet permettant de réinitialiser une passerelle est **Reset-AzVirtualNetworkGateway**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Az](https://docs.microsoft.com/powershell/module/az.network). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet1GW dans le groupe de ressources TestRG1 :
+La cmdlet permettant de réinitialiser une passerelle est **Reset-AzVirtualNetworkGateway**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Az](/powershell/module/az.network). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet1GW dans le groupe de ressources TestRG1 :
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -65,7 +65,7 @@ Quand vous recevez un résultat de retour, vous pouvez supposer que la réinitia
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Modèle de déploiement classique
 
-La cmdlet permettant de réinitialiser une passerelle est **Reset-AzureVNetGateway**. Les cmdlet Azure PowerShell pour le management des services doit être installé localement sur votre bureau. Vous ne pouvez pas utiliser Azure Cloud Shell. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Lorsque vous utilisez cette commande, assurez-vous que vous utilisez le nom complet du réseau virtuel. Les réseaux virtuels classiques ayant été créés à l’aide du portail ont un nom long requis pour PowerShell. Vous pouvez afficher le nom long à l’aide de « Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml ».
+La cmdlet permettant de réinitialiser une passerelle est **Reset-AzureVNetGateway**. Les cmdlet Azure PowerShell pour le management des services doit être installé localement sur votre bureau. Vous ne pouvez pas utiliser Azure Cloud Shell. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Service Management (SM)](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Lorsque vous utilisez cette commande, assurez-vous que vous utilisez le nom complet du réseau virtuel. Les réseaux virtuels classiques ayant été créés à l’aide du portail ont un nom long requis pour PowerShell. Vous pouvez afficher le nom long à l’aide de « Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml ».
 
 L’exemple suivant réinitialise la passerelle pour un réseau virtuel nommé « Group TestRG1 TestVNet1» (qui apparaît simplement comme « TestVNet1 » dans le portail) :
 
@@ -86,7 +86,7 @@ StatusCode     : OK
 
 ## <a name="azure-cli"></a><a name="cli"></a>Interface CLI Azure
 
-Pour réinitialiser la passerelle, utilisez la commande [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet5GW dans le groupe de ressources TestRG5 :
+Pour réinitialiser la passerelle, utilisez la commande [az network vnet-gateway reset](/cli/azure/network/vnet-gateway). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet5GW dans le groupe de ressources TestRG5 :
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515381"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629697"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Développer pour Azure Files avec C++
 
@@ -32,7 +32,7 @@ Ce didacticiel explique comment effectuer des opérations de base sur Azure File
 * Créer une signature d’accès partagé pour un fichier qui utilise une stratégie d’accès partagé définie sur le partage
 
 > [!Note]  
-> Comme Azure Files est accessible sur SMB, vous pouvez écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S C++ standard. Cet article indique comment écrire des applications qui utilisent le SDK C++ Stockage Azure, lequel a recours à l’[API REST Fichier](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) pour communiquer avec Azure Files.
+> Comme Azure Files est accessible sur SMB, vous pouvez écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S C++ standard. Cet article indique comment écrire des applications qui utilisent le SDK C++ Stockage Azure, lequel a recours à l’[API REST Fichier](/rest/api/storageservices/file-service-rest-api) pour communiquer avec Azure Files.
 
 ## <a name="create-a-c-application"></a>Création d’une application C++
 

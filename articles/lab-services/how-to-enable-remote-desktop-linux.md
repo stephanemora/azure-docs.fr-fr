@@ -3,12 +3,12 @@ title: Activer un bureau à distance graphique pour Linux dans Azure Lab Service
 description: Découvrez comment activer le Bureau à distance pour les machines virtuelles Linux dans un lab dans Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251607"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647951"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Activer un bureau à distance graphique pour des machines virtuelles Linux dans Azure Lab Services
 Cet article explique comment effectuer les tâches suivantes :
@@ -38,7 +38,7 @@ X2Go utilise le port déjà activé pour SSH.  Par conséquent, aucune configura
 > Dans certains cas, comme avec Ubuntu LTS 18.04, X2Go est plus performant.  Si vous utilisez RDP et constatez une latence lors de l’interaction avec l’environnement de bureau graphique, envisagez d’essayer X2Go, car cela peut améliorer les performances.
 
 > [!IMPORTANT]
->  Des images de la Place de marché disposent déjà d’un environnement de bureau graphique et d’un serveur de bureau à distance installés.  Par exemple, la [Data Science Virtual Machine pour Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) possède déjà un [serveur XFCE et X2Go installé et configuré pour accepter les connexions clientes](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Des images de la Place de marché disposent déjà d’un environnement de bureau graphique et d’un serveur de bureau à distance installés.  Par exemple, la [Data Science Virtual Machine pour Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) possède déjà un [serveur XFCE et X2Go installé et configuré pour accepter les connexions clientes](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Activer une connexion Bureau à distance pour RDP
 
@@ -73,7 +73,7 @@ Pour configurer le modèle de machine virtuelle, suivez les étapes ci-dessous 
     ![Chaîne de connexion SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Installez le protocole RDP ou X2Go, ainsi que l’environnement de bureau graphique de votre choix.  Reportez-vous aux instructions suivantes :
-    - [Installer et configurer le protocole RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Installer et configurer le protocole RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Installer et configurer le protocole X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Se connecter au modèle de machine virtuelle via l’interface graphique utilisateur (GUI)
@@ -82,7 +82,7 @@ Une fois le modèle de machine virtuelle configuré, l’enseignant peut se conn
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Client Bureau à distance Microsoft (RDP)
 
-Le client Bureau à distance Microsoft (RDP) est utilisé pour se connecter à un modèle de machine virtuelle sur lequel le protocole RDP est configuré.  Vous pouvez utiliser le client Bureau à distance sur Windows, Chromebooks, Mac et bien plus encore.  Pour plus d’informations, consultez l’article [Clients Bureau à distance](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
+Le client Bureau à distance Microsoft (RDP) est utilisé pour se connecter à un modèle de machine virtuelle sur lequel le protocole RDP est configuré.  Vous pouvez utiliser le client Bureau à distance sur Windows, Chromebooks, Mac et bien plus encore.  Pour plus d’informations, consultez l’article [Clients Bureau à distance](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
 Suivez les étapes ci-dessous en fonction du type d’ordinateur utilisé pour la connexion au modèle de machine virtuelle :
 

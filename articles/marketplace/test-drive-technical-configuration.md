@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504830"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629901"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -34,7 +34,7 @@ Microsoft peut supprimer la complexité de la configuration d’une version d’
 
 - **URL de l’instance** (obligatoire) : URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 exécutant votre application et où les exemples de données sont installés (par exemple `https://testdrive.crm.dynamics.com`).
 
-- **URL de l’API web de l’instance** (obligatoire) – Récupérez l’URL de l’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en accédant à **Paramètres** > **Personnalisation** > **Ressources développeur** > **API web de l’instance (URL racine du service)** , puis copiez l’URL trouvée ici (par exemple `https://testdrive.crm.dynamics.com/api/data/v9.0`).
+- **URL de l’API web de l’instance**(obligatoire) – Récupérez l’URL de l’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en accédant à **Paramètres** > **Personnalisation** > **Ressources développeur** > **API web de l’instance (URL racine du service)**, puis copiez l’URL trouvée ici (par exemple `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Nom de rôle** (obligatoire) : renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365, qui sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
 
@@ -68,13 +68,13 @@ Pour permettre à Microsoft de déployer la version d’évaluation en votre nom
 
 - **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et les applications logiques) – Entrez l’ID d’abonnement pour accorder l’accès aux services de votre compte Azure pour les rapports d’utilisation des ressources et la facturation. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](../cost-management-billing/manage/create-subscription.md) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
 
-- **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Propriétés** , puis cherchez l’ **ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi chercher l’ID de locataire de votre organisation à partir de l’adresse de votre nom de domaine à l’adresse [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Propriétés**, puis cherchez l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi chercher l’ID de locataire de votre organisation à partir de l’adresse de votre nom de domaine à l’adresse [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Nom de locataire Azure AD** (obligatoire pour Dynamic 365) : entrez votre nom Azure Active Directory (AD). Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
 
-- **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Inscriptions d’applications** , puis cherchez l’ **ID d’application** (comme `50c464d3-4930-494c-963c-1e951d15360e`).
+- **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Inscriptions d’applications**, puis cherchez l’**ID d’application** (comme `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Clé secrète client Azure AD** (obligatoire) : entrez la [clé secrète client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le menu de gauche, sélectionnez l’onglet **Azure Active Directory** , puis **Inscriptions d’applications** , et enfin la version d’évaluation de votre application. Ensuite, sélectionnez **Certificats et secrets** et **Nouvelle clé secrète client**. Entrez une description, sélectionnez **Jamais** sous **Expiration** et choisissez **Ajouter**. Veillez à copier la valeur. Ne quittez pas la page avant de copier la valeur.
+- **Clé secrète client Azure AD** (obligatoire) : entrez la [clé secrète client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le menu de gauche, sélectionnez l’onglet **Azure Active Directory**, puis **Inscriptions d’applications**, et enfin la version d’évaluation de votre application. Ensuite, sélectionnez **Certificats et secrets** et **Nouvelle clé secrète client**. Entrez une description, sélectionnez **Jamais** sous **Expiration** et choisissez **Ajouter**. Veillez à copier la valeur. Ne quittez pas la page avant de copier la valeur.
 
 ## <a name="test-drive-listings"></a>Listes des versions d’évaluation
 

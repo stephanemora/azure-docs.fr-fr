@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715999"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630173"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Résoudre les problèmes liés à Azure Files dans Linux (SMB)
 
@@ -61,14 +61,14 @@ Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de m
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Cause 1 : Canal de communication non chiffré
 
-Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Les connexions non chiffrées dans le même centre de données peuvent également être bloquées si le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage. Un canal de communication chiffré est fourni uniquement si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
+Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Les connexions non chiffrées dans le même centre de données peuvent également être bloquées si le paramètre [Transfert sécurisé requis](../common/storage-require-secure-transfer.md) est activé sur le compte de stockage. Un canal de communication chiffré est fourni uniquement si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
 
 Pour en savoir plus, consultez [Prérequis pour le montage d’un partage de fichiers Azure avec Linux et le package cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
 1. Connectez-vous à partir d’un client qui prend en charge le chiffrement SMB ou à partir d’une machine virtuelle se trouvant dans le même centre de données que le compte de stockage Azure utilisé pour le partage de fichiers Azure.
-2. Vérifiez que le paramètre [Transfert sécurisé obligatoire](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage si le client ne prend pas en charge le chiffrement SMB.
+2. Vérifiez que le paramètre [Transfert sécurisé obligatoire](../common/storage-require-secure-transfer.md) est désactivé sur le compte de stockage si le client ne prend pas en charge le chiffrement SMB.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Cause 2 : Des règles de pare-feu ou de réseau virtuel sont activées sur le compte de stockage 
 
@@ -76,7 +76,7 @@ Si des règles de pare-feu et de réseau virtuel sont configurées sur le compte
 
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
-Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](../common/storage-network-security.md).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>« [autorisation refusée] Quota de disque dépassé » lorsque vous essayez d’ouvrir un fichier
@@ -95,19 +95,19 @@ Il existe un quota de 2 000 handles ouverts sur un seul fichier ou répertoire
 
 Réduisez le nombre de handles ouverts simultanément en en fermant certains, puis réessayez l’opération.
 
-Pour afficher les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle).  
+Pour afficher les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle).  
 
-Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle).
+Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle).
 
 > [!Note]  
-> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files dans Linux
 
 - Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mio pour des performances optimales.
 - Utilisez la méthode de copie appropriée :
-    - Utilisez [AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour les transferts entre deux partages de fichiers.
+    - Utilisez [AZCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) pour les transferts entre deux partages de fichiers.
     - Utilisez cp ou dd avec parallel peut améliorer la vitesse de copie. Le nombre de threads dépend de votre charge de travail et cas d’usage. Les exemples suivants utilisent six : 
     - exemple cp (cp utilise la taille de bloc par défaut du système de fichiers comme taille de segment) : `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`:.
     - exemple dd (cette commande définit explicitement la taille du bloc sur 1 Mio) : `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -144,13 +144,13 @@ Code d’erreur : 403
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
-Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Cause 2 : Votre compte d’utilisateur n’a pas accès au compte de stockage
 
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
-Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
@@ -162,12 +162,12 @@ Ce problème se produit généralement quand le fichier ou le répertoire a un d
 
 Si les clients SMB ont fermé tous les descripteurs ouverts et que le problème persiste, effectuez les étapes suivantes :
 
-- Utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts.
+- Utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts.
 
-- Utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) pour fermer les descripteurs ouverts. 
+- Utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) pour fermer les descripteurs ouverts. 
 
 > [!Note]  
-> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Ralentissement des performances dans un partage de fichiers Azure monté sur une machine virtuelle
@@ -192,11 +192,11 @@ Vous pouvez également vérifier si les options correctes sont utilisées en ex�
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
 ```
 
-Si l’option **cache=strict** ou **serverino** n’est pas présente, démontez et remontez Azure Files en exécutant la commande de montage à partir de la [documentation](../storage-how-to-use-files-linux.md). Revérifiez ensuite que les options sont correctes pour l’entrée **/etc/fstab**.
+Si l’option **cache=strict** ou **serverino** n’est pas présente, démontez et remontez Azure Files en exécutant la commande de montage à partir de la [documentation](./storage-how-to-use-files-linux.md). Revérifiez ensuite que les options sont correctes pour l’entrée **/etc/fstab**.
 
 ### <a name="cause-2-throttling"></a>Cause 2 : Limitation
 
-Vous rencontrez peut-être des limitations et vos requêtes sont envoyées dans une file d’attente. Vous pouvez cela vérifier en tirant parti des [mesures de stockage Azure dans Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
+Vous rencontrez peut-être des limitations et vos requêtes sont envoyées dans une file d’attente. Vous pouvez cela vérifier en tirant parti des [mesures de stockage Azure dans Azure Monitor](../blobs/monitor-blob-storage.md).
 
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
@@ -294,7 +294,7 @@ Si vous ne pouvez pas effectuer de mise à niveau vers les dernières versions d
 ## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>« CIFS VFS: error -22 on ioctl to get interface list » lorsque vous montez un partage de fichiers Azure à l’aide de SMB 3.0
 
 ### <a name="cause"></a>Cause
-Cette erreur est consignée, car Azure Files [ne prend actuellement pas en charge SMB Multichannel](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+Cette erreur est consignée, car Azure Files [ne prend actuellement pas en charge SMB Multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### <a name="solution"></a>Solution
 Cette erreur peut être ignorée.

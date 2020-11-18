@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275793"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647594"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -239,6 +239,9 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 
 Pour contrôler les revendications émises et l’origine des données, utilisez les propriétés d’une stratégie de mappage de revendications. Si aucune stratégie n’est définie, le système émet des jetons incluant l’ensemble de revendications principal, l’ensemble de revendications de base et les éventuelles [revendications facultatives](active-directory-optional-claims.md) que l’application a choisi de recevoir.
 
+> [!NOTE]
+> Les revendications de l’ensemble de revendications principal sont présentes dans chaque jeton, indépendamment de la définition de cette propriété.
+
 ### <a name="include-basic-claim-set"></a>Ensemble de revendications de base Include
 
 **Chaîne :** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Pour contrôler les revendications émises et l’origine des données, utilisez
 - Si la valeur est True, toutes les revendications de l’ensemble de revendications de base sont émises dans les jetons affectés par la stratégie.
 - Si la valeur est False, les revendications de l’ensemble de revendications de base ne figurent pas dans les jetons, sauf si elles sont ajoutées individuellement à la propriété de schéma de revendications de la même stratégie.
 
-> [!NOTE]
-> Les revendications de l’ensemble de revendications principal sont présentes dans chaque jeton, indépendamment de la définition de cette propriété.
+
 
 ### <a name="claims-schema"></a>Schéma de revendications
 
@@ -260,7 +262,7 @@ Pour contrôler les revendications émises et l’origine des données, utilisez
 **Type de données :** Objet blob JSON avec une ou plusieurs entrées de schéma de revendication
 
 **Résumé :** Cette propriété définit les revendications présentes dans les jetons affectés par la stratégie, en plus de l’ensemble de revendications de base et de l’ensemble de revendications principal.
-Pour chaque entrée de schéma de revendication définie dans cette propriété, certaines informations sont requises. Spécifiez l’origine des données ( **Value** , **Paire Source/ID** ou **Paire Source/ExtensionID** ), et la revendication à laquelle les données ont trait ( **Type de revendication** ).
+Pour chaque entrée de schéma de revendication définie dans cette propriété, certaines informations sont requises. Spécifiez l’origine des données (**Value**, **Paire Source/ID** ou **Paire Source/ExtensionID**), et la revendication à laquelle les données ont trait (**Type de revendication**).
 
 ### <a name="claim-schema-entry-elements"></a>Éléments d’entrée du schéma de revendication
 
@@ -358,7 +360,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 **TransformationMethod :** L’élément TransformationMethod identifie l’opération effectuée pour générer les données de la revendication.
 
-Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Définissez les entrées et sorties à l’aide des éléments **InputClaims** , **InputParameters** et **OutputClaims** .
+Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Définissez les entrées et sorties à l’aide des éléments **InputClaims**, **InputParameters** et **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tableau 4 : Méthodes de transformation et entrées et sorties attendues
 
@@ -367,17 +369,17 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|E-mail ou UPN|chaîne extraite|ExtensionAttributes 1-15 ou toute autre extension de schéma qui stocke une valeur d’UPN ou d’e-mail pour l’utilisateur, par exemple, johndoe@contoso.com. Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
 
-**InputClaims :** L’élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType** .
+**InputClaims :** L’élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
 
 - L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication d’entrée appropriée.
 - L’attribut **TransformationClaimType** est utilisé pour donner un nom unique à cette entrée. Ce nom doit correspondre à l’une des entrées attendues pour la méthode de transformation.
 
-**InputParameters :** Un élément InputParameters permet de transmettre une valeur constante à une transformation. Il utilise deux attributs : **Value** et **ID** .
+**InputParameters :** Un élément InputParameters permet de transmettre une valeur constante à une transformation. Il utilise deux attributs : **Value** et **ID**.
 
 - L’attribut **Value** est la valeur de constante réelle à transmettre.
 - L’attribut **ID** est utilisé pour donner un nom unique à l’entrée. Le nom doit correspondre à l’une des entrées attendues pour la méthode de transformation.
 
-**OutputClaims :** Un élément OutputClaims permet conserver les données générées par une transformation, et de les lier à une entrée de schéma de revendication. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType** .
+**OutputClaims :** Un élément OutputClaims permet conserver les données générées par une transformation, et de les lier à une entrée de schéma de revendication. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
 
 - L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication de sortie appropriée.
 - L’attribut **TransformationClaimType** est utilisé pour donner un nom unique à la sortie. Le nom doit correspondre à l’une des sorties attendues pour la méthode de transformation.
@@ -439,8 +441,7 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
-> [!NOTE]
-> Quand vous créez une stratégie de mappage de revendications, vous pouvez également émettre une revendication à partir d’un attribut d’extension de schéma d’annuaire dans des jetons. Utilisez *ExtensionID* pour l’attribut d’extension au lieu de *ID* dans l’élément `ClaimsSchema`.  Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire](active-directory-schema-extensions.md).
+Quand vous créez une stratégie de mappage de revendications, vous pouvez également émettre une revendication à partir d’un attribut d’extension de schéma d’annuaire dans des jetons. Utilisez *ExtensionID* pour l’attribut d’extension au lieu de *ID* dans l’élément `ClaimsSchema`.  Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Prérequis
 

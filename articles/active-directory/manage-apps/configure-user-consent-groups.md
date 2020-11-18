@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d5c42675b182fbc34354c75778214463adfe491f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427649"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648138"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe
 
-Les propriétaires de groupes et d’équipes peuvent autoriser des applications telles que des applications publiées par des fournisseurs tiers à accéder aux données de votre organisation associées à un groupe. Par exemple, un propriétaire d’équipe dans Microsoft Teams peut autoriser une application à lire tous les messages Teams de l’équipe ou à consulter le profil de base des membres d’un groupe. Pour en savoir plus, consultez [Consentement propre à la ressource dans Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent).
+Les propriétaires de groupes et d’équipes peuvent autoriser des applications telles que des applications publiées par des fournisseurs tiers à accéder aux données de votre organisation associées à un groupe. Par exemple, un propriétaire d’équipe dans Microsoft Teams peut autoriser une application à lire tous les messages Teams de l’équipe ou à consulter le profil de base des membres d’un groupe. Pour en savoir plus, consultez [Consentement propre à la ressource dans Microsoft Teams](/microsoftteams/resource-specific-consent).
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Gérer le consentement du propriétaire du groupe aux applications
 
@@ -32,8 +32,8 @@ Vous pouvez configurer quels utilisateurs peuvent autoriser des applications à 
 Suivez ces étapes pour gérer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’[Administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator).
-2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur** .
-3. Sous **Consentement du propriétaire du groupe pour les applications qui accèdent aux données** , sélectionnez l’option que vous souhaitez activer.
+2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur**.
+3. Sous **Consentement du propriétaire du groupe pour les applications qui accèdent aux données**, sélectionnez l’option que vous souhaitez activer.
 4. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 
 Dans cet exemple, tous les propriétaires de groupes peuvent autoriser des applications qui accèdent aux données de leurs groupes :
@@ -42,9 +42,9 @@ Dans cet exemple, tous les propriétaires de groupes peuvent autoriser des appli
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Vous pouvez utiliser le Module Azure AD PowerShell Préversion, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), pour activer ou désactiver la capacité des propriétaires de groupes à autoriser des applications qui accèdent aux données de votre organisation pour les groupes qui leur appartiennent.
+Vous pouvez utiliser le Module Azure AD PowerShell Préversion, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), pour activer ou désactiver la capacité des propriétaires de groupes à autoriser des applications qui accèdent aux données de votre organisation pour les groupes qui leur appartiennent.
 
-1. Vérifiez que vous utilisez le module [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Cette étape est importante si vous avez installé les modules [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) et [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Vérifiez que vous utilisez le module [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Cette étape est importante si vous avez installé les modules [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) et [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD
@@ -121,7 +121,7 @@ Pour en savoir plus :
 * [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
 * [Découvrez comment gérer le consentement pour les applications et évaluer les demandes de consentement](manage-consent-requests.md)
 * [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
-* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
+* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
 * [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

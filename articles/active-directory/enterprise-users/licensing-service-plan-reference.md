@@ -10,27 +10,27 @@ editor: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/27/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7b74fe368e10a0cd6ee63196d4330c456d56ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: db07f18b97936389d9b2360f7d4476c67d9f284a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373130"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646897"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Noms de produits et identificateurs de plans de service pour la gestion des licences
 
-Lors de la gestion des licences dans le [Portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou le [centre d’administration Microsoft 365](https://admin.microsoft.com), vous voyez des noms de produits similaires à *Office 365 E3* . Toutefois lorsque vous utilisez les cmdlets PowerShell v1.0, le même produit est identifié avec un nom spécifique, mais moins convivial : *ENTERPRISEPACK* . Lorsque vous utilisez les cmdlets PowerShell v2.0 ou Microsoft Graph, le même produit est identifié à l’aide d’une valeur GUID : *6fd2c87f-b296-42f0-b197-1e91e994b900* . Le tableau suivant répertorie les produits Microsoft Online Services les plus couramment utilisés ainsi que leurs différentes valeurs d’identificateur. Ces tableaux sont fournis à titre de référence et ne sont exacts qu’à la date de la dernière mise à jour de cet article. Microsoft ne prévoit pas de les mettre à jour pour les nouveaux services régulièrement ajoutés.
+Lors de la gestion des licences dans le [Portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou le [centre d’administration Microsoft 365](https://admin.microsoft.com), vous voyez des noms de produits similaires à *Office 365 E3*. Toutefois lorsque vous utilisez les cmdlets PowerShell v1.0, le même produit est identifié avec un nom spécifique, mais moins convivial : *ENTERPRISEPACK*. Lorsque vous utilisez les cmdlets PowerShell v2.0 ou Microsoft Graph, le même produit est identifié à l’aide d’une valeur GUID : *6fd2c87f-b296-42f0-b197-1e91e994b900*. Le tableau suivant répertorie les produits Microsoft Online Services les plus couramment utilisés ainsi que leurs différentes valeurs d’identificateur. Ces tableaux sont fournis à titre de référence et ne sont exacts qu’à la date de la dernière mise à jour de cet article. Microsoft ne prévoit pas de les mettre à jour pour les nouveaux services régulièrement ajoutés.
 
-- **Nom du produit**  : utilisé dans les portails de gestion
-- **Identificateur de chaîne**  : utilisé par les cmdlets PowerShell v1.0 lors des opérations sur les licences
-- **GUID**  : GUID utilisé par l’API Microsoft Graph
-- **Plans de service inclus**  : liste des plans de service du produit qui correspondent aux identificateurs de chaîne et de GUID
+- **Nom du produit** : utilisé dans les portails de gestion
+- **Identificateur de chaîne** : utilisé par les cmdlets PowerShell v1.0 lors des opérations sur les licences
+- **GUID** : GUID utilisé par l’API Microsoft Graph
+- **Plans de service inclus** : liste des plans de service du produit qui correspondent aux identificateurs de chaîne et de GUID
 - **Plans de service compris (noms conviviaux)** : liste des plans de service (noms conviviaux) du produit qui correspondent aux identificateurs de chaîne et de GUID
 
 >[!NOTE]
@@ -145,7 +145,7 @@ Lors de la gestion des licences dans le [Portail Azure](https://portal.azure.com
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>Plans de service ne pouvant pas être assignés en même temps
 
-Certains produits contiennent des plans de service qui ne peuvent pas être affectés au même utilisateur en même temps. Par exemple, si vous disposez d’ *Office 365 E1* et d’ *Office 365 E3* dans votre locataire et tentez d’attribuer les deux licences au même utilisateur, l’opération échoue. Cela est dû au fait que le produit E3 contient les plans de service suivants qui sont en conflit avec leurs équivalents E1 :
+Certains produits contiennent des plans de service qui ne peuvent pas être affectés au même utilisateur en même temps. Par exemple, si vous disposez d’*Office 365 E1* et d’*Office 365 E3* dans votre locataire et tentez d’attribuer les deux licences au même utilisateur, l’opération échoue. Cela est dû au fait que le produit E3 contient les plans de service suivants qui sont en conflit avec leurs équivalents E1 :
 
 -   SharePoint Online (Plan 2) est en conflit avec SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) est en conflit avec Exchange Online (Plan 1).

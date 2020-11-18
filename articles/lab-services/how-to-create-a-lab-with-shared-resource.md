@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d4bf4127dc163bb5f034e077b84664828374ba87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647968"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Guide pratique pour créer un labo avec une ressource partagée dans Azure Lab Services
 
@@ -38,12 +38,12 @@ L’une des ressources partagées les plus courantes est le serveur de licences.
 Le serveur de licences doit être connecté au réseau virtuel qui est appairé au labo. Il doit donc se trouver dans la même région que le compte du labo.
 
 #### <a name="static-private-ip-and-mac-address"></a>Adresse MAC et IP privée statique
-Les machines virtuelles ont une adresse IP privée dynamique par défaut. [Avant de configurer un logiciel, définissez l’adresse IP privée sur statique](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). Cela permet de définir l’adresse IP privée et l’adresse MAC comme des adresses statiques.  
+Les machines virtuelles ont une adresse IP privée dynamique par défaut. [Avant de configurer un logiciel, définissez l’adresse IP privée sur statique](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Cela permet de définir l’adresse IP privée et l’adresse MAC comme des adresses statiques.  
 
 #### <a name="control-access"></a>Contrôler l’accès
 Il est essentiel de contrôler l’accès au serveur de licences.  Une fois la machine virtuelle configurée, l’accès sera toujours nécessaire pour la maintenance, la résolution des problèmes et la mise à jour.  Voici les différentes manières de le faire.
-- [Définir l’accès juste-à-temps dans Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
-- [Définir un groupe de sécurité réseau pour restreindre l’accès.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Définir l’accès juste-à-temps dans Azure Security Center.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Définir un groupe de sécurité réseau pour restreindre l’accès.](../virtual-network/network-security-groups-overview.md)
 - [Configurer Azure Bastion pour permettre un accès sécurisé au serveur de licences.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Compte de laboratoire

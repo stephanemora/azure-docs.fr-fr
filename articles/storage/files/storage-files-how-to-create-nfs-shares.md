@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738835"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629459"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Comment créer un partage NFS
 
@@ -38,7 +38,7 @@ Les partages de fichiers Azure sont des partages de fichiers entièrement géré
     - [Configurer un VPN point à site (P2S) sous Linux pour une utilisation avec Azure Files](storage-files-configure-p2s-vpn-linux.md).
     - [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
     - Configurez [ExpressRoute](../../expressroute/expressroute-introduction.md).
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="register-the-nfs-41-protocol"></a>Inscrire le protocole NFS 4.1
 
@@ -86,7 +86,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Maintenant que vous avez créé un compte FileStorage et configuré la mise en réseau, vous pouvez créer un partage de fichiers NFS. Le processus est similaire à la création d’un partage SMB ; vous sélectionnez simplement **NFS** au lieu de **SMB** lors de la création du partage.
 
-1. Accédez à votre compte de stockage et sélectionnez **Partages de fichiers** .
+1. Accédez à votre compte de stockage et sélectionnez **Partages de fichiers**.
 1. Sélectionnez **+ Partage de fichiers** pour créer un partage de fichiers.
 1. Nommez votre partage de fichiers, puis sélectionnez une capacité approvisionnée.
 1. Pour **Protocole** sélectionnez **NFS (préversion)** .
@@ -110,7 +110,7 @@ Maintenant que vous avez créé un compte FileStorage et configuré la mise en r
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Pour mettre à niveau votre version de PowerShell, consultez [Mise à niveau des instances Windows PowerShell existantes](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+   Pour mettre à niveau votre version de PowerShell, consultez [Mise à niveau des instances Windows PowerShell existantes](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
     
 1. Installez la dernière version du module PowershellGet.
 
@@ -120,13 +120,13 @@ Maintenant que vous avez créé un compte FileStorage et configuré la mise en r
 
 1. Fermez, puis rouvrez la console PowerShell.
 
-1. Installez le module **Az.Storage** en préversion **2.5.2-preview** .
+1. Installez le module **Az.Storage** en préversion **2.5.2-preview**.
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Pour plus d’informations sur l’installation des modules PowerShell, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+   Pour plus d’informations sur l’installation des modules PowerShell, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0).
    
 1. Pour créer un partage de fichiers Premium avec le module Azure PowerShell, utilisez l’applet de commande [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare).
 

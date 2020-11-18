@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d0472b2adb3213338b9fbc4e3a17a2c3444eb113
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393623"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647577"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -67,7 +67,7 @@ Une fois les étapes précédentes terminées, vous devenez l’administrateur g
   
 6. Connectez-vous au [centre d’administration d’Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général pour l’organisation Azure AD.
   
-7. Sélectionnez **Noms de domaine personnalisés** , puis ajoutez le nom de domaine. Vous devrez entrer les enregistrements TXT DNS pour confirmer la propriété du nom de domaine. 
+7. Sélectionnez **Noms de domaine personnalisés**, puis ajoutez le nom de domaine. Vous devrez entrer les enregistrements TXT DNS pour confirmer la propriété du nom de domaine. 
   
    ![domaine vérifié comme ajouté à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
@@ -100,7 +100,7 @@ Les plans de service pris en charge sont les suivants :
 
 La prise de contrôle par administration externe n’est pas prise en charge pour les services dont les plans de service incluent SharePoint, OneDrive ou Skype entreprise, par exemple, via un abonnement gratuit à Office. 
 
-Sinon, vous pouvez recourir à l’ [**option ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine de l’organisation non gérée et le vérifier au sein de l’organisation souhaitée. 
+Sinon, vous pouvez recourir à l’[**option ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine de l’organisation non gérée et le vérifier au sein de l’organisation souhaitée. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>En savoir plus sur RMS pour les particuliers
 

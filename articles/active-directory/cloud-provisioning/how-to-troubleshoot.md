@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226945"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650095"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Résolution des problèmes de provisionnement cloud
 
@@ -47,11 +47,11 @@ Pour vérifier que l’agent est visible par Azure et qu’il est sain, effectue
 1. À gauche, sélectionnez **Azure Active Directory** > **Azure AD Connect** Au centre, sélectionnez **Gérer le provisionnement (préversion)** .
 1. Dans l’écran **Provisionnement Azure AD (préversion)** , sélectionnez **Passer en revue tous les agents**.
 
-   ![Passer en revue tous les agents](media/how-to-install/install7.png)</br>
+   ![Passer en revue tous les agents](media/how-to-install/install-7.png)</br>
  
 1. L’écran **Agents de provisionnement locaux** affiche les agents que vous avez installés. Vérifiez que l’agent en question est présent et qu’il est marqué comme étant *Sain*.
 
-   ![Écran Agents de provisionnement locaux](media/how-to-install/install8.png)</br>
+   ![Écran Agents de provisionnement locaux](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>Vérifier le port
 
@@ -59,7 +59,7 @@ Vérifiez que le service Azure est à l’écoute sur le port 443 et que votre 
 
 Ce test vérifie que vos agents peuvent communiquer avec Azure via le port 443. Ouvrez un navigateur et accédez à l’URL précédents à partir du serveur sur lequel l’agent est installé.
 
-![Vérification de l’accessibilité du port](media/how-to-install/verify2.png)
+![Vérification de l’accessibilité du port](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>Sur le serveur local
 

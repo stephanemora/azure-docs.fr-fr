@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79062b8b1072e40fc9997d5ed6c730801aca20d1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e37a450ad99c37a2468e4cb73ce9f88decb628d5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373077"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647237"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Rechercher des groupes et des membres (préversion) dans Azure Active Directory
 
@@ -36,12 +36,12 @@ Les modifications apportées à cette préversion sont les suivantes :
 
 Nous avons facilité l’accès à la préversion :
 
-  1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes** .
+  1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes**.
   2. Dans la page Groupes – Tous les groupes, sélectionnez la bannière en haut pour accéder à la préversion.
 
-Vous pouvez également découvrir les fonctionnalités et améliorations les plus récentes en sélectionnant le lien **Informations d’aperçu** dans la page **Tous les groupes** . Lorsque vous accédez à la préversion, vous pouvez voir la balise de la préversion sur toutes les pages de groupes qui ont fait l’objet d’améliorations et font partie de la préversion. Certaines pages de groupes n’ont pas été mises à jour dans le cadre de cette préversion.
+Vous pouvez également découvrir les fonctionnalités et améliorations les plus récentes en sélectionnant le lien **Informations d’aperçu** dans la page **Tous les groupes**. Lorsque vous accédez à la préversion, vous pouvez voir la balise de la préversion sur toutes les pages de groupes qui ont fait l’objet d’améliorations et font partie de la préversion. Certaines pages de groupes n’ont pas été mises à jour dans le cadre de cette préversion.
 
-Si vous rencontrez des problèmes, vous pouvez revenir à l’expérience héritée en sélectionnant la bannière en haut de la page **Tous les groupes** . Vos commentaires sont les bienvenus, car ils nous permettent d’améliorer l’expérience.
+Si vous rencontrez des problèmes, vous pouvez revenir à l’expérience héritée en sélectionnant la bannière en haut de la page **Tous les groupes**. Vos commentaires sont les bienvenus, car ils nous permettent d’améliorer l’expérience.
 
 ## <a name="group-search-and-sorting"></a>Recherche et tri de groupe
 
@@ -74,7 +74,7 @@ Vous pouvez également rechercher et filtrer individuellement dans les listes de
 
 ## <a name="improved-group-member-counts"></a>Comptages de membres de groupes amélioré
 
-Nous avons amélioré la page **Vue d’ensemble** de groupe pour fournir des comptages de membres pour les groupes de toutes tailles. Vous pouvez voir le nombre de membres même pour des groupes comptant plus de 1 000 membres. Vous pouvez maintenant voir le nombre total de membres directs d’un groupe et le nombre total d’appartenances (tous les membres uniques du groupe, membres transitifs inclus) sur la page **Vue d’ensemble** .
+Nous avons amélioré la page **Vue d’ensemble** de groupe pour fournir des comptages de membres pour les groupes de toutes tailles. Vous pouvez voir le nombre de membres même pour des groupes comptant plus de 1 000 membres. Vous pouvez maintenant voir le nombre total de membres directs d’un groupe et le nombre total d’appartenances (tous les membres uniques du groupe, membres transitifs inclus) sur la page **Vue d’ensemble**.
 
 ![Plus grande précision des comptages d’appartenances aux groupes](./media/groups-members-owners-search/member-numbers.png)
 

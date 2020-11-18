@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0b1db07c40a38eec24ab88bb451dbfb46c5edac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f20a9569121903fd63b919cde223392377872c35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373064"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649651"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
 
@@ -45,7 +45,7 @@ Le modèle traditionnel de partage présente plusieurs inconvénients :
 
 Azure AD introduit une nouvelle approche de l’utilisation des comptes partagés, qui élimine ces inconvénients.
 
-L’administrateur Azure AD configure les applications auxquelles un utilisateur peut accéder en utilisant le volet d’accès et en choisissant le type d’authentification unique le mieux adapté pour l’application. Un de ces types, l’ *authentification unique avec mot de passe* , permet à Azure AD d’agir comme un genre d’intermédiaire pendant le processus d’ouverture de session pour cette application.
+L’administrateur Azure AD configure les applications auxquelles un utilisateur peut accéder en utilisant le volet d’accès et en choisissant le type d’authentification unique le mieux adapté pour l’application. Un de ces types, l’ *authentification unique avec mot de passe*, permet à Azure AD d’agir comme un genre d’intermédiaire pendant le processus d’ouverture de session pour cette application.
 
 Les utilisateurs se connectent une fois avec leur compte professionnel. Ce compte est le même que celui qu’ils utilisent régulièrement pour accéder à leur Bureau ou e-mail. Ils peuvent découvrir les applications auxquelles ils sont affectés et accéder uniquement à celles-ci. Grâce aux comptes partagés, cette liste d’applications peut inclure un nombre quelconque d’informations d’identification partagées. L’utilisateur final n’a pas besoin de mémoriser ou de noter les différents comptes qu’il peut être amené à utiliser.
 

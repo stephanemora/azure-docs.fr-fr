@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 08/13/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f16dea1f81f7f6a35409d8481550fd000864b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4f298cf7487e00f6ee6a8aa8913fd32f8c6beee
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373004"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647101"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -28,7 +28,7 @@ Utilisez les informations et exemples suivants pour approfondir vos connaissance
 
 ## <a name="usage-location"></a>Emplacement d’utilisation
 
-Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** sur l’utilisateur. Dans le [portail Azure](https://portal.azure.com), vous pouvez spécifier le lieu d’utilisation dans **Utilisateur** &gt; **Profil** &gt; **Paramètres** .
+Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** sur l’utilisateur. Dans le [portail Azure](https://portal.azure.com), vous pouvez spécifier le lieu d’utilisation dans **Utilisateur** &gt; **Profil** &gt; **Paramètres**.
 
 Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs se trouvent à plusieurs emplacements, assurez-vous de bien prendre en compte cette situation dans vos ressources utilisateur avant d’ajouter des utilisateurs à des groupes avec licences.
 
@@ -86,7 +86,7 @@ Il est toutefois possible d’affecter la même licence de produit directement �
 
 Des licences attribuées directement peuvent être supprimées sans que cela affecte les licences héritées. Prenons l’utilisateur qui hérite d’une licence Office 365 Entreprise E3 d’un groupe.
 
-Initialement, l’utilisateur hérite uniquement de la licence du groupe *E3 - Services de base* , qui active quatre plans de service.
+Initialement, l’utilisateur hérite uniquement de la licence du groupe *E3 - Services de base*, qui active quatre plans de service.
 
 1. Sélectionnez **Affecter** pour affecter directement une licence E3 à l’utilisateur. Dans ce cas, vous désactivez tous les plans de service, à l’exception de Yammer Enterprise.
 
@@ -108,13 +108,13 @@ Voici un exemple de ce à quoi ce processus peut ressembler :
 
 1. À l’origine, vous avez affecté le produit *Office 365 Enterprise E5* à plusieurs groupes. L’un de ces groupes, nommé *O365 E5 - Exchange uniquement* a été conçu pour activer uniquement le service *Exchange Online (Plan 2)* pour ses membres.
 
-2. Vous avez reçu de Microsoft une notification signalant que le produit E5 va être étendu avec un nouveau service, *Microsoft Stream* . Lorsque le service devient disponible dans votre organisation, vous pouvez procéder de la façon suivante :
+2. Vous avez reçu de Microsoft une notification signalant que le produit E5 va être étendu avec un nouveau service, *Microsoft Stream*. Lorsque le service devient disponible dans votre organisation, vous pouvez procéder de la façon suivante :
 
-3. Accédez au panneau [**Azure Active Directory > Licences > Tous les produits**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), sélectionnez *Office 365 Entreprise E5* , puis **Groupes sous licence** pour afficher la liste de tous les groupes disposant de ce produit.
+3. Accédez au panneau [**Azure Active Directory > Licences > Tous les produits**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), sélectionnez *Office 365 Entreprise E5*, puis **Groupes sous licence** pour afficher la liste de tous les groupes disposant de ce produit.
 
-4. Cliquez sur le groupe que vous souhaitez examiner (dans ce cas, *O365 E5 - Exchange uniquement* ). Cela a pour effet d’ouvrir l’onglet **Licences** . Cliquez sur la licence E5 a pour effet d’ouvrir un panneau répertoriant tous les services activés.
+4. Cliquez sur le groupe que vous souhaitez examiner (dans ce cas, *O365 E5 - Exchange uniquement*). Cela a pour effet d’ouvrir l’onglet **Licences**. Cliquez sur la licence E5 a pour effet d’ouvrir un panneau répertoriant tous les services activés.
    > [!NOTE]
-   > Le service *Microsoft Stream* a été automatiquement ajouté et activé dans ce groupe, en plus du service *Exchange Online* :
+   > Le service *Microsoft Stream* a été automatiquement ajouté et activé dans ce groupe, en plus du service *Exchange Online*:
 
    ![Capture d’écran du nouveau service ajouté à une licence de groupe](./media/licensing-group-advanced/manage-new-services.png)
 
@@ -148,7 +148,7 @@ Vous pouvez utiliser les [Journaux d’audit AD Azure](../reports-monitoring/con
 
 ### <a name="find-out-who-modified-a-group-license"></a>Déterminer qui a modifié une licence de groupe
 
-1. Définissez le filtre **Activité** sur *Définition d’une licence de groupe* , puis cliquez sur **Appliquer** .
+1. Définissez le filtre **Activité** sur *Définition d’une licence de groupe*, puis cliquez sur **Appliquer**.
 2. Les résultats incluent tous les cas de définition ou de modification de licences sur les groupes.
    >[!TIP]
    > Vous pouvez également taper le nom du groupe dans le filtre *Cible* afin de délimiter l’étendue des résultats.
@@ -163,11 +163,11 @@ Voici un exemple de modifications récentes de licence groupe, avec des détails
 
 Quand une licence change pour un groupe, Azure AD commence à appliquer les modifications à tous les utilisateurs.
 
-1. Pour voir quand le traitement des groupes a commencé, définissez le filtre **Activité** sur *Commencer à appliquer une licence basée sur un groupe à des utilisateurs* . Notez que l’acteur pour l’opération est *Microsoft Azure AD Group-Based Licensing* , un compte système utilisé pour exécuter toutes les modifications de licence de groupe.
+1. Pour voir quand le traitement des groupes a commencé, définissez le filtre **Activité** sur *Commencer à appliquer une licence basée sur un groupe à des utilisateurs*. Notez que l’acteur pour l’opération est *Microsoft Azure AD Group-Based Licensing*, un compte système utilisé pour exécuter toutes les modifications de licence de groupe.
    >[!TIP]
-   > Cliquez sur un élément dans la liste pour afficher le champ *Propriétés modifiées* . Celui-ci affiche les modifications de licence sélectionnées pour traitement. Cela est utile si vous avez apporté plusieurs modifications à un groupe et n’êtes certain de celles qui ont été traitées.
+   > Cliquez sur un élément dans la liste pour afficher le champ *Propriétés modifiées*. Celui-ci affiche les modifications de licence sélectionnées pour traitement. Cela est utile si vous avez apporté plusieurs modifications à un groupe et n’êtes certain de celles qui ont été traitées.
 
-2. De même, pour voir quand le traitement des groupes s’est terminé, utilisez la valeur de filtre *Terminer l’application d’une licence basée sur le groupe à des utilisateurs* .
+2. De même, pour voir quand le traitement des groupes s’est terminé, utilisez la valeur de filtre *Terminer l’application d’une licence basée sur le groupe à des utilisateurs*.
    > [!TIP]
    > Dans ce cas, le champ *Propriétés modifiées* contient une synthèse des résultats, qui est utile pour vérifier rapidement si le traitement a généré des erreurs. Exemple de sortie :
    > ```
@@ -217,7 +217,7 @@ Si vous utilisez la gestion des licences par groupe, il est conseillé de vous f
 
 - L’automatisation de la gestion des licences ne réagit pas automatiquement à tous les types de modifications dans l’environnement. Par exemple, il se peut que vous manquiez de licences et que certains utilisateurs se retrouvent dans un état d’erreur. Pour libérer le nombre de sièges disponibles, vous pouvez supprimer des licences affectées directement d’autres utilisateurs. Le système ne réagit toutefois pas automatiquement à cette modification et ne corrige pas les utilisateurs dans cet état d’erreur.
 
-  Pour résoudre ces types de limitations, vous pouvez accéder au panneau **Groupe** dans Azure AD et cliquer sur **Retraiter** . Cette commande traite tous les utilisateurs de ce groupe et résout les états d’erreur, si cela est possible.
+  Pour résoudre ces types de limitations, vous pouvez accéder au panneau **Groupe** dans Azure AD et cliquer sur **Retraiter**. Cette commande traite tous les utilisateurs de ce groupe et résout les états d’erreur, si cela est possible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: c7a013e07ada0ba88b20598c23f706eb5ee71d49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 512accd274da35c1f747f2ef185f0b3eefa4756d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073061"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636790"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformité dans Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est disponible dans toutes les régions Azure. Microsoft met cinq environnements cloud Azure distincts à disposition des clients :
 
-* Le cloud **public Azure** , qui est disponible dans le monde entier.
+* Le cloud **public Azure**, qui est disponible dans le monde entier.
 
 * **Azure China 21Vianet** est disponible via un partenariat unique entre Microsoft et 21Vianet, l’un des fournisseurs Internet les plus importants du pays.
 
@@ -79,4 +79,4 @@ Pour en savoir plus sur les certifications de conformité Azure, consultez les a
 
 * Pour plus d’informations sur la conformité FedRAMP, consultez [Services Azure par FedRAMP et étendue d’audit DoD CC SRG](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
-* Pour plus d’informations sur la conformité DoD, consultez [Offres de conformité DoD](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide).
+* Pour plus d’informations sur la conformité DoD, consultez [Offres de conformité DoD](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5).

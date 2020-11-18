@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404780"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647934"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurer un laboratoire avec des machines virtuelles GPU
 
@@ -30,14 +30,14 @@ Comme décrit dans le tableau suivant, la taille de GPU pour le *calcul* est des
 
 | Taille | Cœurs | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
-| GPU de petite taille (calcul) | -&nbsp;6&nbsp;cœurs<br>-&nbsp;56&nbsp;Go de&nbsp;RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Cette taille convient tout particulièrement aux applications qui nécessitent beaucoup de ressources informatiques comme l’intelligence artificielle (IA) et le Deep Learning. |
+| GPU de petite taille (calcul) | -&nbsp;6&nbsp;cœurs<br>-&nbsp;56&nbsp;Go de&nbsp;RAM  | [Standard_NC6](../virtual-machines/nc-series.md) |Cette taille convient tout particulièrement aux applications qui nécessitent beaucoup de ressources informatiques comme l’intelligence artificielle (IA) et le Deep Learning. |
 
 Les tailles de GPU pour la *visualisation* sont destinées aux applications nécessitant beaucoup de ressources graphiques.  Par exemple, le [type de classe d’ingénierie SOLIDWORKS](./class-type-solidworks.md) montre l’utilisation de la taille **GPU de petite taille (visualisation)** .  Le GPU de visualisation convient à ce type de classe, car les étudiants interagissent avec l’environnement de conception 3D assistée par ordinateur (CAO) de SOLIDWORKS pour la modélisation et la visualisation d’objets solides.
 
 | Taille | Cœurs | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
-| GPU de petite taille (visualisation) | -&nbsp;6&nbsp;cœurs<br>-&nbsp;56&nbsp;Go de&nbsp;RAM  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Cette taille est plus appropriée pour la visualisation, le streaming, les jeux et l'encodage à distance à l'aide d’infrastructures tels qu'OpenGL et DirectX. |
-| GPU de taille moyenne (visualisation) | -&nbsp;12&nbsp;cœurs<br>-&nbsp;112&nbsp;Go de&nbsp;RAM  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est plus appropriée pour la visualisation, le streaming, les jeux et l'encodage à distance à l'aide d’infrastructures tels qu'OpenGL et DirectX. |
+| GPU de petite taille (visualisation) | -&nbsp;6&nbsp;cœurs<br>-&nbsp;56&nbsp;Go de&nbsp;RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | Cette taille est plus appropriée pour la visualisation, le streaming, les jeux et l'encodage à distance à l'aide d’infrastructures tels qu'OpenGL et DirectX. |
+| GPU de taille moyenne (visualisation) | -&nbsp;12&nbsp;cœurs<br>-&nbsp;112&nbsp;Go de&nbsp;RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Cette taille est plus appropriée pour la visualisation, le streaming, les jeux et l'encodage à distance à l'aide d’infrastructures tels qu'OpenGL et DirectX. |
 
 > [!NOTE]
 > Il se peut que certaines de ces tailles de machine virtuelle ne s’affichent pas dans la liste lors de la création d’un laboratoire de classe. La liste est remplie en fonction de la capacité actuelle de l’emplacement du laboratoire. Si le créateur du compte lab [permet aux créateurs de laboratoire de choisir un emplacement pour le laboratoire](allow-lab-creator-pick-lab-location.md), vous pouvez essayer de choisir un autre emplacement pour le laboratoire et voir si la taille de la machine virtuelle est disponible. Pour connaître la disponibilité des machines virtuelles, consultez [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -76,7 +76,7 @@ Pour installer manuellement les pilotes pour la taille du GPU de calcul, procéd
 1. Une fois que vous avez installé les pilotes et les autres logiciels requis pour votre classe, sélectionnez **Publier** pour créer les machines virtuelles de vos étudiants.
 
 > [!NOTE]
-> Si vous utilisez une image Linux, après avoir téléchargé le programme d’installation, installez les pilotes en suivant les instructions fournies dans [Installer des pilotes CUDA sur Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#install-cuda-drivers-on-n-series-vms).
+> Si vous utilisez une image Linux, après avoir téléchargé le programme d’installation, installez les pilotes en suivant les instructions fournies dans [Installer des pilotes CUDA sur Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Installer les pilotes GPU de visualisation
 
@@ -85,8 +85,8 @@ Pour installer manuellement les pilotes pour la taille de GPU de visualisation, 
 1. Dans l’Assistant Création de laboratoire, lorsque vous [créez votre labo](./how-to-manage-classroom-labs.md), désactivez le paramètre **Installer les pilotes GPU**.
 1. Une fois votre laboratoire créé, connectez-vous au modèle de machine virtuelle pour installer les pilotes appropriés.
 1. Installez les pilotes GRID fournis par Microsoft sur le modèle de machine virtuelle en suivant les instructions selon votre système d’exploitation :
-   -  [Pilotes NVIDIA GRID pour Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)
-   -  [Pilotes NVIDIA GRID pour Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#nvidia-grid-drivers)
+   -  [Pilotes NVIDIA GRID pour Windows](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   -  [Pilotes NVIDIA GRID pour Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
   
 1. Redémarrez le modèle de machine virtuelle.
 1. Vérifiez que les pilotes sont installés correctement en suivant les instructions de la section [Vérifier les pilotes installés](how-to-setup-lab-gpu.md#validate-the-installed-drivers).
@@ -96,13 +96,13 @@ Pour installer manuellement les pilotes pour la taille de GPU de visualisation, 
 Cette section décrit comment vérifier que vos pilotes GPU ont bien été installés.
 
 #### <a name="windows-images"></a>Images Windows
-1.  Suivez les instructions de la section « Vérifier l’installation des pilotes » dans [installer les pilotes GPU NVIDIA sur les machines virtuelles de la série N exécutant Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
+1.  Suivez les instructions de la section « Vérifier l’installation des pilotes » dans [installer les pilotes GPU NVIDIA sur les machines virtuelles de la série N exécutant Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
 1.  Si vous utilisez un GPU de *visualisation*, vous pouvez également :
     - Afficher et ajuster les paramètres de votre GPU dans le panneau de configuration NVIDIA. Pour ce faire, dans le **Panneau de configuration Windows**, sélectionnez **Matériel et audio**, puis **Panneau de configuration NVIDIA**.
 
       ![Capture d’écran du panneau de configuration Windows montrant le lien du panneau de configuration NVIDIA](./media/how-to-setup-gpu/control-panel-nvidia-settings.png) 
 
-     - Affichez les performances de votre GPU à l’aide du**Gestionnaire des tâches**.  Sélectionnez l’onglet **Performances**, puis sélectionnez l’option **GPU**.
+     - Affichez les performances de votre GPU à l’aide du **Gestionnaire des tâches**.  Sélectionnez l’onglet **Performances**, puis sélectionnez l’option **GPU**.
 
        ![Capture d’écran montrant l’onglet performances du GPU dans le Gestionnaire des tâches](./media/how-to-setup-gpu/task-manager-gpu.png) 
 
@@ -110,7 +110,7 @@ Cette section décrit comment vérifier que vos pilotes GPU ont bien été insta
       > Les paramètres du panneau de configuration NVIDIA sont accessibles uniquement pour les GPU de *visualisation*.  Si vous tentez d’ouvrir le panneau de configuration NVIDIA pour un GPU de calcul, vous obtiendrez l’erreur suivante : « Les paramètres d’affichage NVIDIA ne sont pas disponibles.  Vous n'utilisez actuellement pas d'écran connecté à un processeur graphique NVIDA ».  De même, les informations de performances du GPU dans le gestionnaire des tâches sont fournies uniquement pour les GPU de visualisation.
 
 #### <a name="linux-images"></a>Images Linux
-Suivez les instructions de la section « Vérifier l’installation des pilotes » dans [installer les pilotes GPU NVIDIA sur les machines virtuelles de la série N exécutant Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
+Suivez les instructions de la section « Vérifier l’installation des pilotes » dans [installer les pilotes GPU NVIDIA sur les machines virtuelles de la série N exécutant Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :
@@ -118,6 +118,3 @@ Voir les articles suivants :
 - [Créer et gérer des laboratoires de classe](how-to-manage-classroom-labs.md)
 - [Type de classe pour la conception assistée par ordinateur (CAO) SOLIDWORKS](class-type-solidworks.md)
 - [Type de classe MATLAB (laboratoire de matrice)](class-type-matlab.md)
-
-
-

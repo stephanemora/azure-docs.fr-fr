@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396686"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647900"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide de configuration d’un modèle d’ordinateur Windows dans Azure Lab Services
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>Personnalisations de OneDrive
 
-[OneDrive peut être personnalisé de nombreuses façons](https://docs.microsoft.com/onedrive/use-group-policy). Nous allons aborder quelques-unes des personnalisations les plus courantes.
+[OneDrive peut être personnalisé de nombreuses façons](/onedrive/use-group-policy). Nous allons aborder quelques-unes des personnalisations les plus courantes.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Déplacer silencieusement les dossiers connus de Windows vers OneDrive
 
@@ -61,7 +61,7 @@ Si vous utilisez un ordinateur qui n’utilise pas Active Directory, les utilisa
 
 Si votre machine virtuelle est connectée à Active Directory, vous pouvez configurer le modèle d’ordinateur de façon à ce qu’il demande automatiquement aux étudiants de déplacer les dossiers connus vers OneDrive.  
 
-Vous devez d’abord récupérer l’ID de votre organisation.  Pour obtenir des instructions supplémentaires, consultez [Trouver l’ID de votre organisation Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Vous pouvez également obtenir l’ID de l’organisation à l’aide de la cmdlet PowerShell suivante.
+Vous devez d’abord récupérer l’ID de votre organisation.  Pour obtenir des instructions supplémentaires, consultez [Trouver l’ID de votre organisation Microsoft 365](/onedrive/find-your-office-365-tenant-id).  Vous pouvez également obtenir l’ID de l’organisation à l’aide de la cmdlet PowerShell suivante.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ Si votre modèle d’ordinateur a besoin d’Office, nous vous recommandons d’
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Modifier le canal de mise à jour de Microsoft 365
 
-À l’aide de l’outil de configuration d’Office, vous pouvez définir la fréquence à laquelle Office reçoit les mises à jour. Toutefois, si vous avez besoin de modifier cette fréquence après l'installation, vous pouvez modifier l'URL du canal de mise à jour. Pour accéder aux adresses URL du canal de mise à jour, consultez [Modifier le canal de mise à jour de Microsoft 365 Apps pour les appareils de votre organisation](https://docs.microsoft.com/deployoffice/change-update-channels). L’exemple ci-dessous montre comment configurer Microsoft 365 pour utiliser le canal de mise à jour mensuelle.
+À l’aide de l’outil de configuration d’Office, vous pouvez définir la fréquence à laquelle Office reçoit les mises à jour. Toutefois, si vous avez besoin de modifier cette fréquence après l'installation, vous pouvez modifier l'URL du canal de mise à jour. Pour accéder aux adresses URL du canal de mise à jour, consultez [Modifier le canal de mise à jour de Microsoft 365 Apps pour les appareils de votre organisation](/deployoffice/change-update-channels). L’exemple ci-dessous montre comment configurer Microsoft 365 pour utiliser le canal de mise à jour mensuelle.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ Vous pouvez également utiliser PowerShell pour mettre à jour les applications 
 
 ### <a name="stop-automatic-windows-updates"></a>Arrêter les mises à jour Windows automatiques
 
-Après la mise à jour de Windows vers la dernière version, vous pouvez envisager d’arrêter les mises à jour Windows.  Les mises à jour automatiques peuvent potentiellement interférer avec les heures de classe.  Si votre cours est long, demandez aux étudiants de vérifier manuellement les mises à jour ou de paramétrer les mises à jour automatiques à une heure en dehors des heures de cours.  Pour plus d’informations sur les options de personnalisation de Windows Update, consultez [Gérer les paramètres supplémentaires de Windows Update](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+Après la mise à jour de Windows vers la dernière version, vous pouvez envisager d’arrêter les mises à jour Windows.  Les mises à jour automatiques peuvent potentiellement interférer avec les heures de classe.  Si votre cours est long, demandez aux étudiants de vérifier manuellement les mises à jour ou de paramétrer les mises à jour automatiques à une heure en dehors des heures de cours.  Pour plus d’informations sur les options de personnalisation de Windows Update, consultez [Gérer les paramètres supplémentaires de Windows Update](/windows/deployment/update/waas-wu-settings).
 
 Les mises à jour Windows automatiques peuvent être arrêtées à l’aide du script PowerShell suivant.
 

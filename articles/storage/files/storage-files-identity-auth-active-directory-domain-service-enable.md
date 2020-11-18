@@ -8,16 +8,16 @@ ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 906ec80ecc198675fdb5b163403267be1d13de00
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5d900f105728efc6f58c4f9f7412cea157cbfe20
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746851"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630377"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Activer l’authentification Azure Active Directory Domain Services sur Azure Files
 
-[Azure Files](storage-files-introduction.md) prend en charge l’authentification basée sur l’identité sur le protocole SMB (Server Message Block) par le biais de deux types de services de domaine : Active Directory Domain Services local (AD DS) et Azure Active Directory Domain Services (Azure AD DS). Nous vous recommandons vivement de consulter la section [Fonctionnement](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) pour sélectionner le service de domaine approprié pour l’authentification. L’installation est différente selon le service de domaine que vous choisissez. Cet article se concentre sur l’activation et la configuration d’Azure AD DS pour l’authentification auprès de partages de fichiers Azure.
+[Azure Files](storage-files-introduction.md) prend en charge l’authentification basée sur l’identité sur le protocole SMB (Server Message Block) par le biais de deux types de services de domaine : Active Directory Domain Services local (AD DS) et Azure Active Directory Domain Services (Azure AD DS). Nous vous recommandons vivement de consulter la section [Fonctionnement](./storage-files-active-directory-overview.md#how-it-works) pour sélectionner le service de domaine approprié pour l’authentification. L’installation est différente selon le service de domaine que vous choisissez. Cet article se concentre sur l’activation et la configuration d’Azure AD DS pour l’authentification auprès de partages de fichiers Azure.
 
 Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de lire notre [guide de planification](storage-files-planning.md) avant de vous lancer dans les articles suivants.
 
@@ -33,13 +33,13 @@ Avant d’activer Azure AD sur SMB pour des partages de fichiers Azure, assurez-
 
     Vous pouvez utiliser un locataire nouveau ou existant pour l’authentification Azure AD sur SMB. Le locataire et le partage de fichiers auquel vous voulez accéder doivent être associés au même abonnement.
 
-    Pour créer un locataire Azure AD, vous pouvez [Ajouter un locataire Azure AD et un abonnement Azure AD](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Si vous avez déjà un locataire Azure AD, mais que vous voulez en créer un pour l’utiliser avec des partages de fichiers Azure, voir [Créer un locataire Azure Active Directory](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
+    Pour créer un locataire Azure AD, vous pouvez [Ajouter un locataire Azure AD et un abonnement Azure AD](/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Si vous avez déjà un locataire Azure AD, mais que vous voulez en créer un pour l’utiliser avec des partages de fichiers Azure, voir [Créer un locataire Azure Active Directory](/rest/api/datacatalog/create-an-azure-active-directory-tenant).
 
 1.  **Activer Azure AD Domain Services sur le locataire Azure AD.**
 
     Pour prendre en charge l’authentification avec les informations d’identification Azure AD, vous devez activer Azure AD Domain Services pour votre locataire Azure AD. Si vous n’êtes pas l’administrateur du locataire Azure AD, contactez-le et suivez les instructions pas à pas pour [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../../active-directory-domain-services/tutorial-create-instance.md).
 
-    Il faut généralement environ 15 minutes pour déployer Azure AD DS. Vérifiez que l’état d’intégrité d’Azure AD DS est **En cours d’exécution** , avec la synchronisation de hachage de mot de passe activée, avant de passer à l’étape suivante.
+    Il faut généralement environ 15 minutes pour déployer Azure AD DS. Vérifiez que l’état d’intégrité d’Azure AD DS est **En cours d’exécution**, avec la synchronisation de hachage de mot de passe activée, avant de passer à l’étape suivante.
 
 1.  **Joindre une machine virtuelle à Azure AD DS.**
 
@@ -87,9 +87,9 @@ N’oubliez pas que vous pouvez activer l’authentification Azure AD DS sur SMB
 Pour activer l’authentification Azure AD DS sur SMB avec le [portail Azure](https://portal.azure.com), procédez comme suit :
 
 1. Dans le Portail Azure, accédez à votre compte de stockage existant, ou [créez un compte de stockage](../common/storage-account-create.md).
-1. Dans la section **Paramètres** , sélectionnez **Configuration** .
-1. Sous **Accès basé sur l’identité pour les partages de fichiers** , mettez le bouton bascule **Azure Active Directory Domain Service (AAD DS)** en position **Activé** .
-1. Sélectionnez **Enregistrer** .
+1. Dans la section **Paramètres**, sélectionnez **Configuration**.
+1. Sous **Accès basé sur l’identité pour les partages de fichiers**, mettez le bouton bascule **Azure Active Directory Domain Service (AAD DS)** en position **Activé**.
+1. Sélectionnez **Enregistrer**.
 
 L’image suivante montre comment activer l’authentification Azure AD DS sur SMB pour votre compte de stockage.
 
@@ -97,9 +97,9 @@ L’image suivante montre comment activer l’authentification Azure AD DS sur S
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Pour activer l’authentification Azure AD DS sur SMB avec Azure PowerShell, installez le dernier module Azure (version 2.4 ou ultérieure) ou le module Stockage Azure (version 1.5 ou ultérieure). Pour en savoir plus sur l’installation de PowerShell, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Pour activer l’authentification Azure AD DS sur SMB avec Azure PowerShell, installez le dernier module Azure (version 2.4 ou ultérieure) ou le module Stockage Azure (version 1.5 ou ultérieure). Pour en savoir plus sur l’installation de PowerShell, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](/powershell/azure/install-Az-ps).
 
-Pour créer un compte de stockage, appelez [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), puis affectez au paramètre **EnableAzureActiveDirectoryDomainServicesForFile** la valeur **true** . Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation de la fonctionnalité est **EnableAzureFilesAadIntegrationForSMB** .)
+Pour créer un compte de stockage, appelez [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), puis affectez au paramètre **EnableAzureActiveDirectoryDomainServicesForFile** la valeur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation de la fonctionnalité est **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour activer l’authentification Azure AD sur SMB avec Azure CLI, installez la dernière version de l’interface CLI (version 2.0.70 ou ultérieure). Pour plus d’informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Pour activer l’authentification Azure AD sur SMB avec Azure CLI, installez la dernière version de l’interface CLI (version 2.0.70 ou ultérieure). Pour plus d’informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Pour créer un compte de stockage, appelez [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) et définissez la propriété `--enable-files-aadds` avec la valeur **true** . Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation des fonctionnalités est **file-aad** .)
+Pour créer un compte de stockage, appelez [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) et définissez la propriété `--enable-files-aadds` avec la valeur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation des fonctionnalités est **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

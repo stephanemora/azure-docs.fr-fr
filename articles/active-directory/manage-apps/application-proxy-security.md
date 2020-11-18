@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825904"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649566"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -49,7 +49,7 @@ Appliquez des contrôles de stratégie plus riches avant que les connexions à v
 
 Avec l’[accès conditionnel](../conditional-access/concept-conditional-access-cloud-apps.md), vous pouvez définir des restrictions quant à la façon dont les utilisateurs sont autorisés à accéder à vos applications. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
 
-Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. De plus, vos applications peuvent également être acheminées vers Microsoft Cloud App Security via l’accès conditionnel Azure AD pour assurer un contrôle et une surveillance en temps réel par le biais de stratégies [d’accès](https://docs.microsoft.com/cloud-app-security/access-policy-aad) et de [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
+Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. De plus, vos applications peuvent également être acheminées vers Microsoft Cloud App Security via l’accès conditionnel Azure AD pour assurer un contrôle et une surveillance en temps réel par le biais de stratégies [d’accès](/cloud-app-security/access-policy-aad) et de [session](/cloud-app-security/session-policy-aad)
 
 ### <a name="traffic-termination"></a>Arrêt du trafic
 
@@ -69,7 +69,7 @@ Pour plus d’informations sur les connecteurs, consultez [Présentation des con
 
 Bénéficiez d’une protection de sécurité de pointe.
 
-Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](../active-directory-identityprotection.md), grâce aux données du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection contre les connexions à haut risque. Nous prenons en compte plusieurs facteurs pour déterminer les tentatives de connexion à haut risque. Ces facteurs incluent le marquage des appareils infectés, l’anonymisation des réseaux et les emplacements atypiques ou peu probables.
+Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), grâce aux données du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection contre les connexions à haut risque. Nous prenons en compte plusieurs facteurs pour déterminer les tentatives de connexion à haut risque. Ces facteurs incluent le marquage des appareils infectés, l’anonymisation des réseaux et les emplacements atypiques ou peu probables.
 
 Nombre de ces rapports et événements sont déjà disponibles via une API pour l’intégration avec vos systèmes de gestion des événements et des informations de sécurité.
 
@@ -79,7 +79,7 @@ Vous n’avez pas à vous soucier de la maintenance et de l’application de cor
 
 Les logiciels sans correctifs sont toujours responsables d’un grand nombre d’attaques. Le proxy d’application Azure AD est un service Internet contrôlé par Microsoft ; vous obtenez donc toujours les derniers correctifs de sécurité et mises à niveau.
 
-Pour améliorer la sécurité des applications publiées par le proxy d’application Azure AD, nous empêchons les robots web d’indexer et d’archiver vos applications. Chaque fois qu’un robot d’indexation tente de récupérer les paramètres d’un robot d’une application publiée, le proxy d’application retourne un fichier robots.txt qui inclut `User-agent: * Disallow: /`.
+Pour améliorer la sécurité des applications publiées par le proxy d’application Azure AD, nous empêchons les robots web d’indexer et d’archiver vos applications. Chaque fois qu’un robot web tente de récupérer les paramètres de robots d’une application publiée, le proxy d’application répond avec un fichier robots.txt qui inclut `User-agent: * Disallow: /`.
 
 #### <a name="azure-ddos-protection-service"></a>Service Azure DDoS Protection
 
@@ -107,8 +107,8 @@ Le connecteur utilise un certificat client pour authentifier le service de proxy
 
 Le flux suivant se déroule lorsque le connecteur est configuré pour la première fois :
 
-1. L’inscription du connecteur sur le service se produit dans le cadre de l’installation du connecteur. Les utilisateurs sont invités à saisir leurs informations d’identification administrateur Azure AD. Le jeton obtenu à partir de cette authentification est ensuite présenté au service de proxy d’application Azure AD.
-2. Le service de proxy d’Application évalue le jeton. Il vérifie si l’utilisateur est un administrateur d’entreprise dans le locataire. Si l’utilisateur n’est pas un administrateur, le processus se termine.
+1. L’inscription du connecteur sur le service se produit dans le cadre de l’installation du connecteur. Les utilisateurs sont invités à saisir leurs informations d’identification administrateur Azure AD.  Le jeton obtenu à partir de cette authentification est ensuite présenté au service de proxy d’application Azure AD.
+2. Le service de proxy d’Application évalue le jeton. Il vérifie si l’utilisateur est un administrateur d’entreprise dans le locataire.  Si l’utilisateur n’est pas un administrateur, le processus se termine.
 3. Le connecteur génère une demande de certificat client et la transmet, ainsi que le jeton, au service de proxy d’application. À son tour, le service vérifie le jeton et signe la demande de certificat client.
 4. Le connecteur utilise le certificat client pour les communications ultérieures avec le service de proxy d’application.
 5. Le connecteur effectue une extraction initiale des données de configuration système à partir du service à l’aide de son certificat client et est désormais prêt à recevoir des demandes.
@@ -173,7 +173,7 @@ Une fois la demande et la transmission de tout le contenu vers le serveur princi
 
 Après obtention d’une réponse, le connecteur établit une connexion sortante vers le service de proxy d’application, afin de renvoyer les détails de l’en-tête et commencer la diffusion des données renvoyées.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. Le service diffuse les données à l’utilisateur. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. Le service diffuse les données à l’utilisateur. 
 
 Une partie du traitement de l’application peut se produire ici. Si vous avez configuré le proxy d’application pour traduire les en-têtes ou les URL de votre application, cette opération se produit si nécessaire au cours de cette étape.
 

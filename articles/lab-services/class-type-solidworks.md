@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290727"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651802"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurer un laboratoire pour les cours d’ingénierie à l’aide de SOLIDWORKS
 
@@ -24,18 +24,18 @@ Dans cet article, nous allons vous montrer comment configurer une classe qui uti
 
 Le gestionnaire de licences réseau SOLIDWORKS nécessite l’installation et l’activation du gestionnaire de licences SolidNetWork sur votre serveur de licences.  Ce serveur de licences se trouve généralement sur votre réseau local ou sur un réseau privé au sein d’Azure.  Pour plus d’informations sur la configuration du gestionnaire de licences SolidNetWork sur votre serveur, consultez [Installer et activer un gestionnaire de licences](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) dans le Guide d’installation de SOLIDWORKS.  Quand vous configurez cette option, souvenez-vous du **numéro de port** et du [**numéro de série**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) utilisés, car ils seront nécessaires pour les étapes ultérieures.
 
-Une fois que votre serveur de licences est configuré, vous devez procéder au peering du [réseau virtuel (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) à votre [compte de labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  Le peering de réseau doit être effectué avant de créer le laboratoire afin que les machines virtuelles du laboratoire puissent accéder au serveur de licences et inversement.
+Une fois que votre serveur de licences est configuré, vous devez procéder au peering du [réseau virtuel (VNet)](./how-to-connect-peer-virtual-network.md) à votre [compte de labo](./tutorial-setup-lab-account.md).  Le peering de réseau doit être effectué avant de créer le laboratoire afin que les machines virtuelles du laboratoire puissent accéder au serveur de licences et inversement.
 
 > [!NOTE]
-> Vous devez vérifier que les ports appropriés sont ouverts sur vos pare-feu pour permettre la communication entre les machines virtuelles du labo et le serveur de licences.  Par exemple, consultez les instructions de la section [Modifier les ports d’ordinateur du gestionnaire de licences pour le pare-feu Windows](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm), qui indiquent comment ajouter des règles de trafic entrant et sortant au pare-feu du serveur de licences.  Vous devrez peut-être également ouvrir des ports sur les machines virtuelles du labo.  Suivez les étapes de l’article sur les [paramètres du pare-feu pour les laboratoires](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) pour plus d’informations, notamment sur l’obtention de l’adresse IP publique du laboratoire.
+> Vous devez vérifier que les ports appropriés sont ouverts sur vos pare-feu pour permettre la communication entre les machines virtuelles du labo et le serveur de licences.  Par exemple, consultez les instructions de la section [Modifier les ports d’ordinateur du gestionnaire de licences pour le pare-feu Windows](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm), qui indiquent comment ajouter des règles de trafic entrant et sortant au pare-feu du serveur de licences.  Vous devrez peut-être également ouvrir des ports sur les machines virtuelles du labo.  Suivez les étapes de l’article sur les [paramètres du pare-feu pour les laboratoires](./how-to-configure-firewall-settings.md) pour plus d’informations, notamment sur l’obtention de l’adresse IP publique du laboratoire.
 
 ## <a name="lab-configuration"></a>Configuration du laboratoire
 
-Pour configurer ce labo, vous avez besoin d’un abonnement Azure et d’un compte Lab pour commencer. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. Une fois que vous disposez d’un abonnement Azure, vous pouvez créer un compte lab dans Azure Lab Services. Pour plus d’informations sur la création d’un compte de laboratoire, consultez notre tutoriel sur [la configuration d’un compte de labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Vous pouvez également utiliser un compte Lab existant.
+Pour configurer ce labo, vous avez besoin d’un abonnement Azure et d’un compte Lab pour commencer. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. Une fois que vous disposez d’un abonnement Azure, vous pouvez créer un compte lab dans Azure Lab Services. Pour plus d’informations sur la création d’un compte de laboratoire, consultez notre tutoriel sur [la configuration d’un compte de labo](./tutorial-setup-lab-account.md). Vous pouvez également utiliser un compte Lab existant.
 
 ### <a name="lab-account-settings"></a>Paramètres du compte Lab
 
-Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de marché, consultez l’article [Spécifier les images de la Place de marché accessibles aux créateurs de labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de marché, consultez l’article [Spécifier les images de la Place de marché accessibles aux créateurs de labo](./specify-marketplace-images.md).
 
 | Paramètres du compte lab | Instructions |
 | ------------------- | ------------ |
