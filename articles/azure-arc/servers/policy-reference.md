@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Serveurs avec Azure Arc
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Serveurs avec Azure Arc (préversion). Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d771432d146f32c31b275a792ce9556ea8bfd2fa
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bbe960a61c4554aa9520ef3457a337a5f51c30a9
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320111"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747607"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Définitions intégrées d’Azure Policy pour Serveurs avec Azure Arc
 
