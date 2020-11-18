@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440865"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566365"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Journaux et métriques Azure Virtual WAN
 
@@ -66,7 +66,7 @@ Les étapes suivantes vous aident à localiser et à afficher les métriques :
 
 4. Dans la page **Métriques**, vous pouvez afficher les métriques qui vous intéressent.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Capture d'écran d'un volet de VPN site à site dans lequel Afficher dans Azure Monitor est sélectionné.":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Capture d’écran montrant la page « Métriques » avec les catégories en surbrillance.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Journaux de diagnostic
 
@@ -93,15 +93,15 @@ Les étapes suivantes vous aident à localiser et à afficher les diagnostics :
 
 1. Dans le portail, accédez à votre ressource Virtual WAN. Dans la section **Vue d’ensemble** de la page Virtual WAN du portail, sélectionnez **Essentiels** pour développer la vue et obtenir des informations sur le groupe de ressources. Copiez les informations du groupe de ressources.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Capture d'écran d'un volet de VPN site à site dans lequel Afficher dans Azure Monitor est sélectionné.":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Capture d’écran montrant la section « Vue d’ensemble » avec une flèche pointant vers le bouton « Copier ».":::
 
 2. Dans la section Surveillance, accédez au groupe de ressources. Sélectionnez **Paramètres de diagnostic**, puis entrez les informations sur les ressources. Il s’agit des informations sur les ressources que vous avez copiées à l’étape 2 de la section [Afficher les métriques de passerelle](#metrics-steps), plus haut dans cet article.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Capture d'écran d'un volet de VPN site à site dans lequel Afficher dans Azure Monitor est sélectionné.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Capture d’écran montrant la section « Surveillance » avec une flèche pointant vers la liste déroulante « Ressource ».":::
 
 3. Dans la page des résultats, sélectionnez **+ Ajouter un paramètre de diagnostic**, puis sélectionnez une option. Vous pouvez choisir d’envoyer à Log Analytics, de diffuser vers un Event Hub ou de simplement archiver dans un compte de stockage.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Capture d'écran d'un volet de VPN site à site dans lequel Afficher dans Azure Monitor est sélectionné.":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="page métriques":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Exemple de requête Log Analytics
 
@@ -123,5 +123,5 @@ Les entrées du **journal d’activité** sont recueillies par défaut et peuven
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour savoir comment superviser les métriques et les journaux de Pare-feu Azure, consultez le [Tutoriel : Surveiller les journaux d’activité de pare-feu Azure](../firewall/tutorial-diagnostics.md).
+* Pour savoir comment superviser les métriques et les journaux de Pare-feu Azure, consultez le [Tutoriel : Surveiller les journaux d’activité de pare-feu Azure](../firewall/firewall-diagnostics.md).
 * Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

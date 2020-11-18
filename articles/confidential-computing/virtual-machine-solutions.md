@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245850"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560841"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Solutions sur des machines virtuelles Azure
 
@@ -29,7 +29,7 @@ Commencez le déploiement d’une machine virtuelle de série DCsv2 par le biais
 
 ### <a name="current-available-sizes-and-regions"></a>Tailles et régions actuellement disponibles
 
-Pour obtenir une liste de toutes les tailles de machines virtuelles de calcul confidentielles disponibles dans les régions disponibles et les zones de disponibilité, exécutez la commande suivante dans [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) :
+Pour obtenir une liste de toutes les tailles de machines virtuelles de calcul confidentielles disponibles dans les régions disponibles et les zones de disponibilité, exécutez la commande suivante dans [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) :
 
 ```azurecli-interactive
 az vm list-skus `
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Configuration requise pour l’hôte dédié
-Le déploiement d’une taille de machine virtuelle **Standard_DC8_v2** dans la famille de machines virtuelles de la série DCSv2 occupera l’hôte complet et celui-ci ne sera pas partagé avec d’autres locataires ou abonnements. Cette famille de références SKU de machines virtuelles fournit l’isolement dont vous pouvez avoir besoin pour répondre aux exigences réglementaires de conformité et de sécurité qui sont normalement respectées en utilisant un service d’hôte dédié. Lorsque vous choisissez la référence SKU **Standard_DC8_v2**, le serveur hôte physique alloue toutes les ressources matérielles disponibles, notamment la mémoire EPC, uniquement à votre machine virtuelle. Notez que cette fonctionnalité existe de par la conception de l’infrastructure et que toutes les fonctionnalités de **Standard_DC8_v2** seront prises en charge. Ce déploiement n’est pas identique au service [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) fourni par d’autres familles de machines virtuelles Azure.
+Le déploiement d’une taille de machine virtuelle **Standard_DC8_v2** dans la famille de machines virtuelles de la série DCSv2 occupera l’hôte complet et celui-ci ne sera pas partagé avec d’autres locataires ou abonnements. Cette famille de références SKU de machines virtuelles fournit l’isolement dont vous pouvez avoir besoin pour répondre aux exigences réglementaires de conformité et de sécurité qui sont normalement respectées en utilisant un service d’hôte dédié. Lorsque vous choisissez la référence SKU **Standard_DC8_v2**, le serveur hôte physique alloue toutes les ressources matérielles disponibles, notamment la mémoire EPC, uniquement à votre machine virtuelle. Notez que cette fonctionnalité existe de par la conception de l’infrastructure et que toutes les fonctionnalités de **Standard_DC8_v2** seront prises en charge. Ce déploiement n’est pas identique au service [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) fourni par d’autres familles de machines virtuelles Azure.
 
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
@@ -59,14 +59,14 @@ Suivez un tutoriel de démarrage rapide pour déployer une machine virtuelle de 
 - **Tarifs et disponibilité régionale** : recherchez les prix des machines virtuelles de la série DCsv2 dans la [page de tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) .
 
 
-- **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs dans votre abonnement Azure à partir de la valeur par défaut. Votre abonnement peut également limiter le nombre de cœurs que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série DCsv2. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) gratuitement. Notez que les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.
+- **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs dans votre abonnement Azure à partir de la valeur par défaut. Votre abonnement peut également limiter le nombre de cœurs que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série DCsv2. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-portal/supportability/per-vm-quota-requests.md) gratuitement. Notez que les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.
 
   > [!NOTE]
   > Si vous avez des besoins de capacité à grande échelle, contactez le support Azure. Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Quel que soit votre quota, vous êtes facturé uniquement pour les cœurs que vous utilisez.
   
 - **Redimensionnement** : en raison de leur matériel spécialisé, vous pouvez uniquement redimensionner les instances d’informatique confidentielle qui appartiennent à la même famille de taille. Par exemple, vous pouvez uniquement redimensionner une machine virtuelle de la série DCsv2 d’une taille DCsv2 en une autre de cette même série. Le redimensionnement d’une taille d’informatique non confidentielle en une taille d’informatique confidentielle n’est pas pris en charge.  
 
-- **Image** : pour assurer la prise en charge d’Intel Software Guard Extension (Intel SGX) sur les instances d’informatique confidentielle, tous les déploiements doivent être exécutés sur des images de génération 2. L’informatique confidentielle Azure prend en charge les charges de travail s’exécutant sur Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 et Windows Server 2016 Gen 2. Consultez l’article sur la [prise en charge des machines virtuelles de génération 2 sur Azure](../virtual-machines/linux/generation-2.md) pour en savoir plus sur les scénarios pris en charge et non pris en charge. 
+- **Image** : pour assurer la prise en charge d’Intel Software Guard Extension (Intel SGX) sur les instances d’informatique confidentielle, tous les déploiements doivent être exécutés sur des images de génération 2. L’informatique confidentielle Azure prend en charge les charges de travail s’exécutant sur Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 et Windows Server 2016 Gen 2. Consultez l’article sur la [prise en charge des machines virtuelles de génération 2 sur Azure](../virtual-machines/generation-2.md) pour en savoir plus sur les scénarios pris en charge et non pris en charge. 
 
 - **Stockage** : les disques de données de machines virtuelles d’informatique confidentielle Azure et nos disques de système d’exploitation éphémères se trouvent sur des disques NVMe. Les instances ne prennent en charge que les disques SSD Premium et SSD Standard, et non SSD Ultra ou HDD Standard. La taille de machine virtuelle **DC8_v2** ne prend pas en charge le stockage Premium. 
 
@@ -76,7 +76,7 @@ Suivez un tutoriel de démarrage rapide pour déployer une machine virtuelle de 
 
 Lors de l’utilisation de machines virtuelles dans Azure, vous êtes responsable de l’implémentation d’une solution de haute disponibilité et reprise d’activité après sinistre pour éviter tout temps d’arrêt. 
 
-À l’heure actuelle, l’informatique confidentielle Azure ne prend pas en charge la redondance de zone par le biais de Zones de disponibilité. Pour bénéficier d’une disponibilité et d’une redondance optimales pour l’informatique confidentielle, utilisez des [groupes à haute disponibilité](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). En raison des restrictions matérielles, les groupes à haute disponibilité pour les instances d’informatique confidentielle ne peuvent avoir qu’un maximum de 10 domaines de mise à jour. 
+À l’heure actuelle, l’informatique confidentielle Azure ne prend pas en charge la redondance de zone par le biais de Zones de disponibilité. Pour bénéficier d’une disponibilité et d’une redondance optimales pour l’informatique confidentielle, utilisez des [groupes à haute disponibilité](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). En raison des restrictions matérielles, les groupes à haute disponibilité pour les instances d’informatique confidentielle ne peuvent avoir qu’un maximum de 10 domaines de mise à jour. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Déploiement avec des modèles Azure Resource Manager (ARM)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357469"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555819"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD pour Custom Speech
 
@@ -37,7 +37,7 @@ En chemin, les workflows doivent nommer et stocker des données, des tests, des 
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>Workflow CI pour les mises à jour de données de test
 
-Le principal objectif des workflows CI/CD est de créer un nouveau modèle à l’aide des données d’apprentissage, et de tester ce modèle à l’aide des données de test pour déterminer si le [taux d’erreur de mots](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) a été amélioré par rapport au modèle le plus performant précédent le (« modèle de référence »). Si le nouveau modèle est plus performant, il devient le nouveau modèle de référence auquel les futurs modèles seront comparés.
+Le principal objectif des workflows CI/CD est de créer un nouveau modèle à l’aide des données d’apprentissage, et de tester ce modèle à l’aide des données de test pour déterminer si le [taux d’erreur de mots](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) a été amélioré par rapport au modèle le plus performant précédent le (« modèle de référence »). Si le nouveau modèle est plus performant, il devient le nouveau modèle de référence auquel les futurs modèles seront comparés.
 
 Le workflow CI pour les mises à jour de données de test doit tester à nouveau le modèle de référence actuel avec les données de test mises à jour afin de calculer le taux WER modifié. Cela garantit que lorsque le taux WER d’un nouveau modèle est comparé à celui du modèle de référence, les deux modèles ont été testés avec les mêmes données de test et comparés avec les mêmes critères.
 
@@ -85,7 +85,7 @@ Le [modèle de référentiel Speech DevOps](https://github.com/Azure-Samples/Spe
 - Copier le modèle de référentiel dans votre compte GitHub puis créer des ressources Azure et un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) pour les workflows CI/CD Actions GitHub.
 - Passer en revue la « [boucle interne de développement](https://mitchdenny.com/the-inner-loop/) ». Mettre à jour les données d’apprentissage et de test à partir d’une branche de fonctionnalités, tester les modifications avec un modèle de développement temporaire, et déclencher une demande de tirage pour proposer et examiner les modifications.
 - Lorsque les données d’apprentissage sont mises à jour dans une demande de tirage pour une branche *principale*, former les modèles avec le workflow CI Actions GitHub.
-- Effectuer des tests d’exactitude automatisés pour établir le [taux d’erreur de mots](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) d’un modèle. Stocker les résultats des tests dans Azure Blob.
+- Effectuer des tests d’exactitude automatisés pour établir le [taux d’erreur de mots](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) d’un modèle. Stocker les résultats des tests dans Azure Blob.
 - Exécuter le workflow CD pour créer un point de terminaison lorsque le taux WER s’améliore.
 
 ## <a name="next-steps"></a>Étapes suivantes

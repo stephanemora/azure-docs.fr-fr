@@ -10,21 +10,21 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e8747b822916ba2c9ef7b45cc3cbbaa88d16dcb1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367554"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565787"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
 > Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
 
-Une instance de Recherche personnalisée vous permet d’adapter l’expérience de recherche pour inclure uniquement du contenu provenant de sites Web qui intéressent vos utilisateurs. Au lieu d’effectuer une recherche à l’échelle du web, Bing ne recherche que dans les sections du web qui vous intéressent. Pour créer votre vue personnalisée du web, utilisez le [portail](https://customsearch.ai) de la Recherche personnalisée Bing.
+Une instance de Recherche personnalisée vous permet d’adapter l’expérience de recherche pour inclure uniquement du contenu provenant de sites Web qui intéressent vos utilisateurs. Au lieu d’effectuer une recherche à l’échelle du web, Bing ne recherche que dans les sections du web qui vous intéressent. Pour créer votre vue personnalisée du web, utilisez le [portail](https://www.customsearch.ai) de la Recherche personnalisée Bing.
 
 Le portail vous permet de créer une instance de recherche qui spécifie les sections du web : domaines, sous-pages et pages web que Bing doit ou ne doit pas utiliser pour ses recherches. Le portail peut également suggérer du contenu que vous pouvez inclure.
 
@@ -43,7 +43,7 @@ Utilisez les éléments suivants pour définir vos sections du web :
 
 Lorsque vous créez votre instance de recherche personnalisée, vous pouvez spécifier les sections du web, domaines, sous-pages et des pages web que vous souhaitez voir inclus ou bloqués dans les résultats de votre recherche. 
 
-Si vous savez les sections que vous souhaitez inclure dans votre instance de recherche personnalisée, ajoutez-les à la liste des éléments actifs ( **Active** ) de votre instance. 
+Si vous savez les sections que vous souhaitez inclure dans votre instance de recherche personnalisée, ajoutez-les à la liste des éléments actifs (**Active**) de votre instance. 
 
 Si vous ignorez les sections à inclure, vous pouvez adresser des requêtes de recherche à Bing via le volet **Preview** (Visualisation) en sélectionnant les sections souhaitées. Pour ce faire : 
 
@@ -60,9 +60,9 @@ Si vous ignorez les sections à inclure, vous pouvez adresser des requêtes de r
 
 Vous pouvez accéder à la liste des sections actives et bloquées en cliquant respectivement sur les onglets **Active** et **Blocked** dans votre instance de recherche personnalisée. Les sections ajoutées à la liste des sections actives seront incluses dans votre recherche personnalisée. Les sections bloquées ne feront l’objet d’aucune recherche et n’apparaîtront pas dans les résultats de votre recherche.
 
-Pour spécifier les sections du web dans lesquelles Bing doit rechercher, cliquez sur l’onglet **Active** , puis ajoutez une ou plusieurs URL. Pour modifier ou supprimer des sections, utilisez les options de la colonne **Controls** (Contrôles). 
+Pour spécifier les sections du web dans lesquelles Bing doit rechercher, cliquez sur l’onglet **Active**, puis ajoutez une ou plusieurs URL. Pour modifier ou supprimer des sections, utilisez les options de la colonne **Controls** (Contrôles). 
 
-Lors de l’ajout d’URL à la liste **Active** , vous pouvez ajouter des URL uniques ou plusieurs URL à la fois en chargeant un fichier texte à l’aide de l’icône de chargement.
+Lors de l’ajout d’URL à la liste **Active**, vous pouvez ajouter des URL uniques ou plusieurs URL à la fois en chargeant un fichier texte à l’aide de l’icône de chargement.
 
 ![Onglet Active de Recherche personnalisée Bing](media/file-upload-icon.png)
 
@@ -75,7 +75,7 @@ Pour charger un fichier, créez un fichier texte en spécifiant un domaine, une 
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Obtenir des suggestions de site web pour votre expérience de recherche
 
-Après l’ajout de sections web à la liste **Active** , le portail Recherche personnalisée Bing génère des suggestions de sites web et de sous-pages en bas de l’onglet. Il s’agit de sections dont Recherche personnalisée Bing estime que vous pourriez vouloir les inclure. Cliquez sur **Refresh** (Actualiser) pour obtenir des suggestions actualisées suite à la mise à jour des paramètres de votre instance de recherche personnalisée. Cette section n’est visible que si des suggestions sont disponibles.
+Après l’ajout de sections web à la liste **Active**, le portail Recherche personnalisée Bing génère des suggestions de sites web et de sous-pages en bas de l’onglet. Il s’agit de sections dont Recherche personnalisée Bing estime que vous pourriez vouloir les inclure. Cliquez sur **Refresh** (Actualiser) pour obtenir des suggestions actualisées suite à la mise à jour des paramètres de votre instance de recherche personnalisée. Cette section n’est visible que si des suggestions sont disponibles.
 
 ## <a name="search-for-images-and-videos"></a>Rechercher des images et vidéos
 
@@ -89,7 +89,7 @@ Vous pouvez tester votre instance de recherche en utilisant le volet de visualis
 
 1. Sous la zone de recherche, sélectionnez **My instance** (Mon instance). Vous pouvez comparer les résultats de votre expérience de recherche à Bing en sélectionnant **Bing**. 
 2. Sélectionnez un filtre de recherche sécurisée et le marché dans lequel effectuer la recherche (voir [Paramètres de requête](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
-3. Entrez une requête et appuyez sur Entrée ou cliquez sur l’icône de recherche pour afficher les résultats issus de la configuration active. Vous pouvez modifier le type de recherche que vous effectuez en cliquant sur **Web** , **Image** ou **Vidéo** pour obtenir les résultats correspondants. 
+3. Entrez une requête et appuyez sur Entrée ou cliquez sur l’icône de recherche pour afficher les résultats issus de la configuration active. Vous pouvez modifier le type de recherche que vous effectuez en cliquant sur **Web**, **Image** ou **Vidéo** pour obtenir les résultats correspondants. 
 
 <a name="adjustrank"></a>
 

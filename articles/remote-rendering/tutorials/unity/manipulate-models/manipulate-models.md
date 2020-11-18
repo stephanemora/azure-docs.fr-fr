@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203838"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565968"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutoriel : Manipulation de modèles
 
@@ -308,7 +308,7 @@ La méthode `OnPointerClicked` de **RemoteRayCastPointerHandler** est appelée p
 
 L’envoi de demandes de raycasting sur clic est une stratégie efficace pour interroger les objets distants. Or, il ne s’agit pas d’une expérience utilisateur idéale, car le curseur entre en collision avec le BoxCollider, et non avec le modèle lui-même.
 
-Vous pouvez aussi créer un nouveau pointeur MRTK qui lance ses rayons dans la session à distance de manière plus fréquente. Plus complexe, cette approche est néanmoins de nature à améliorer l’expérience utilisateur. Même si cette stratégie sort du cadre de ce tutoriel, vous trouverez un exemple de cette approche dans l’application Showcase, qui se trouve dans le [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+Vous pouvez aussi créer un nouveau pointeur MRTK qui lance ses rayons dans la session à distance de manière plus fréquente. Plus complexe, cette approche est néanmoins de nature à améliorer l’expérience utilisateur. Même si cette stratégie sort du cadre de ce tutoriel, vous trouverez un exemple de cette approche dans l’application Showcase, qui se trouve dans le [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 Quand un raycast aboutit dans le **RemoteRayCastPointerHandler**, l’élément `Entity` atteint est émis à partir de l’événement Unity `OnRemoteEntityClicked`. Pour répondre à cet événement, nous allons créer un script d’assistance qui accepte l’élément `Entity` et effectue une action sur celui-ci. Commençons par obtenir le script pour imprimer le nom de l’élément `Entity` dans le journal de débogage.
 

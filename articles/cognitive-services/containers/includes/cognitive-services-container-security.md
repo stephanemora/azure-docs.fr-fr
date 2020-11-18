@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545312"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94573864"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Sécurité des conteneurs Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Une autre approche *sécurisée* pour les consommateurs de conteneurs Cognitive 
 
 ### <a name="container-networking"></a>Mise en réseau de conteneurs
 
-Les conteneurs Cognitive Services sont requis pour envoyer des informations relatives aux compteurs à des fins de facturation. Les *conteneurs hors connexion*  constituent la seule exception, car ils suivent une autre méthodologie de facturation. Si vous n’ajoutez pas à la liste verte les différents canaux réseau sur lesquels s’appuient les conteneurs Cognitive Services, le conteneur ne fonctionnera pas.
+Les conteneurs Cognitive Services sont requis pour envoyer des informations relatives aux compteurs à des fins de facturation. Si vous n’ajoutez pas à la liste verte les différents canaux réseau sur lesquels s’appuient les conteneurs Cognitive Services, le conteneur ne fonctionnera pas.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Ajouter à la liste verte les domaines et ports Cognitive Services
 

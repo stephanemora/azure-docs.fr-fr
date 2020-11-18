@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127822"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560891"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Intégration d’Application Gateway par des points de terminaison de service
 Il existe trois variantes d’App Service qui nécessitent une configuration légèrement différente de l’intégration avec Azure Application Gateway. Les variantes incluent la version normale d’App Service, également appelée multilocataire, App Service Environment (ASE) Load Balancer interne (ILB) et ASE externe. Cet article explique comment le configurer avec App Service (multilocataire) et aborde les considérations relatives aux ASE ILB et externe.
@@ -36,7 +36,7 @@ Avec Portail Azure, vous suivez quatre étapes pour approvisionner et configurer
 1. Créez une instance App Service à l’aide de l’un des guides de démarrage rapide dans la documentation d’App Service, par exemple [Guide de démarrage rapide .Net Core](../quickstart-dotnetcore.md).
 2. Créez une instance Application Gateway à l’aide du [portail Démarrage rapide](../../application-gateway/quick-create-portal.md), mais ignorez la section Ajouter des cibles de serveur principal.
 3. Configurez [App Service en tant que serveur principal dans Application Gateway](../../application-gateway/configure-web-app-portal.md), mais ignorez la section Restreindre l’accès.
-4. Enfin, créez la [restriction d’accès à l’aide de points de terminaison de service](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Enfin, créez la [restriction d’accès à l’aide de points de terminaison de service](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 Vous pouvez maintenant accéder au App Service via Application Gateway, mais si vous essayez d’y accéder directement, vous devriez recevoir une erreur HTTP 403 indiquant que le site web est arrêté.
 

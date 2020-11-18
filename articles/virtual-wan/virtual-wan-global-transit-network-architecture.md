@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102321"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563730"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -127,7 +127,7 @@ Cet indicateur est visible lorsque l’utilisateur modifie une connexion de rés
 
 Les hubs Azure Virtual WAN interconnectent tous les points de terminaison réseau sur le réseau hybride et peuvent potentiellement voir l’ensemble du trafic sur le réseau de transit. Il est possible de changer des hubs Virtual WAN en hubs virtuels sécurisés en déployant le Pare-feu Azure à l’intérieur des hubs VWAN pour contrôler la stratégie, l’accès et la sécurité dans le cloud. L’orchestration des Pare-feu Azure dans les hubs WAN virtuels peut être effectuée par Azure Firewall Manager.
 
-[Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) fournit les fonctionnalités nécessaires pour gérer et adapter la sécurité des réseaux de transit global. Avec Azure Firewall Manager, vous pouvez gérer de manière centralisée le routage, les stratégies globales, les services de sécurité Internet avancée par le biais d’un tiers et du Pare-feu Azure.
+[Azure Firewall Manager](../firewall-manager/index.yml) fournit les fonctionnalités nécessaires pour gérer et adapter la sécurité des réseaux de transit global. Avec Azure Firewall Manager, vous pouvez gérer de manière centralisée le routage, les stratégies globales, les services de sécurité Internet avancée par le biais d’un tiers et du Pare-feu Azure.
 
 ![hub virtuel sécurisé avec le Pare-feu Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -177,4 +177,4 @@ Créez une connexion à l’aide de Virtual WAN et déployez le Pare-feu Azure d
 
 * [Connexions de site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md)
 * [Connexions ExpressRoute à l’aide du Virtual WAN](virtual-wan-expressroute-portal.md)
-* [Azure Firewall Manager pour déployer le Pare-feu Azure dans un WAN virtuel](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Azure Firewall Manager pour déployer le Pare-feu Azure dans un WAN virtuel](../firewall-manager/index.yml)

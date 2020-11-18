@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
-ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 565f4971fffde1cbeb2234b43aaad5cce73b5404
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993013"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564376"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Vue d’ensemble des machines virtuelles d’informatique confidentielle Azure
 
@@ -29,7 +29,7 @@ Dans les machines virtuelles d’informatique confidentielle Azure, une partie d
 
 L’infrastructure d’informatique confidentielle Azure se compose actuellement d’une référence SKU spécialisée de machines virtuelles. Ces machines virtuelles s’exécutent sur des processeurs Intel avec Software Guard Extension (Intel SGX). [Intel SGX](https://intel.com/sgx) est le composant qui nous permet de renforcer la protection pour mettre en œuvre l’informatique confidentielle. 
 
-Aujourd’hui, Azure propose la [série DCsv2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) qui exploite la technologie Intel SGX pour permettre la création d’enclaves basées sur le matériel. Vous pouvez donc créer des applications basées sur des enclaves sécurisées et les exécuter dans la série DCsv2 de machines virtuelles pour protéger les données et le code de votre application en cours d’utilisation. 
+Aujourd’hui, Azure propose la [série DCsv2](../virtual-machines/dcv2-series.md) qui exploite la technologie Intel SGX pour permettre la création d’enclaves basées sur le matériel. Vous pouvez donc créer des applications basées sur des enclaves sécurisées et les exécuter dans la série DCsv2 de machines virtuelles pour protéger les données et le code de votre application en cours d’utilisation. 
 
 [Apprenez-en davantage](virtual-machine-solutions.md) sur le déploiement de machines virtuelles d’informatique confidentielle Azure avec des enclaves approuvées basées sur un matériel.
 
@@ -39,7 +39,7 @@ Les enclaves sont les parties sécurisées du processeur et de la mémoire d’u
 
 Une enclave est similaire à une boîte sécurisée. Vous placez le code et les données chiffrés dans la boîte noire. De l’extérieur, vous ne voyez rien. Vous donnez à l’enclave une clé pour déchiffrer les données, puis les données sont traitées et rechiffrées avant d’être envoyées hors de l’enclave.
 
-Chaque enclave a une taille définie de cache de pages chiffrées (EPC), qui détermine la quantité de mémoire que peut contenir chaque enclave. Les machines virtuelles DCsv2 de plus grande taille ont davantage de mémoire EPC. Pour obtenir le nombre maximal d’EPC par taille de machine virtuelle, lisez la page [Spécifications DCsv2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series).
+Chaque enclave a une taille définie de cache de pages chiffrées (EPC), qui détermine la quantité de mémoire que peut contenir chaque enclave. Les machines virtuelles DCsv2 de plus grande taille ont davantage de mémoire EPC. Pour obtenir le nombre maximal d’EPC par taille de machine virtuelle, lisez la page [Spécifications DCsv2](../virtual-machines/dcv2-series.md).
 
 
 

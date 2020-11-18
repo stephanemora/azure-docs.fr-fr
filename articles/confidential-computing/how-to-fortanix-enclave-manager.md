@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462426"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565702"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Procédure : Exécuter une application avec Fortanix Enclave Manager 
 
@@ -120,7 +120,7 @@ La création d'une instance de Fortanix Node Agent déploiera une machine virtue
 1. Sur cette page, vous allez entrer les informations nécessaires au déploiement d'une machine virtuelle. Plus précisément, il s'agit d'une machine virtuelle Intel compatible SGX de la série DCsv2 d'Azure sur laquelle le logiciel Fortanix Node Agent est installé. Node Agent permettra à votre image convertie de s'exécuter en toute sécurité sur les nœuds Intel SGX dans Azure.  Sélectionnez l'**abonnement** et le **groupe de ressources** dans lesquels vous souhaitez déployer la machine virtuelle et les ressources associées. 
  
     > [!NOTE]
-    > Des contraintes s'appliquent au déploiement des machines virtuelles de la série DCsv2 dans Azure. Vous devrez peut-être demander un quota pour bénéficier de cœurs supplémentaires. Pour plus d'informations, consultez [Solutions informatiques confidentielles sur les machines virtuelles Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions). 
+    > Des contraintes s'appliquent au déploiement des machines virtuelles de la série DCsv2 dans Azure. Vous devrez peut-être demander un quota pour bénéficier de cœurs supplémentaires. Pour plus d'informations, consultez [Solutions informatiques confidentielles sur les machines virtuelles Azure](./virtual-machine-solutions.md). 
 
 1. Sélectionnez une région disponible.
 1. Dans le champ **Nom du nœud**, entrez un nom pour votre machine virtuelle. 
@@ -174,4 +174,4 @@ Dans ce guide de démarrage rapide, vous avez utilisé les outils Fortanix pour 
 
 Pour en savoir plus sur les offres d'Azure en matière d'informatique confidentielle, consultez [Vue d'ensemble de l'informatique confidentielle Azure](overview.md).
 
- Apprenez à effectuer des tâches similaires à l'aide d'autres offres de tiers disponibles sur Azure, comme [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) et [Scone](https://sconedocs.github.io).  
+ Apprenez à effectuer des tâches similaires à l'aide d'autres offres de tiers disponibles sur Azure, comme [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) et [Scone](https://sconedocs.github.io).

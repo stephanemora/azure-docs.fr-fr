@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312044"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556027"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Sécuriser votre espace de travail Synapse (préversion) 
 
@@ -31,7 +31,7 @@ Pour sécuriser un espace de travail Synapse (préversion), vous devez suivre un
   - Administrateur Apache Spark pour Azure Synapse Analytics
 - Contrôle d’accès pour les données dans Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Contrôle d’accès pour les bases de données SQL et Spark Synapse.
-- 
+
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Procédure de sécurisation d’un espace de travail Synapse
 
 Ce document utilise des noms standard pour simplifier les instructions. Remplacez-les par les noms de votre choix.
@@ -48,9 +48,9 @@ Ce document utilise des noms standard pour simplifier les instructions. Remplace
 
 Créez et remplissez trois groupes de sécurité pour votre espace de travail :
 
-- **WS1\_WSAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur l’espace de travail.
-- **WS1\_SparkAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects Spark de l’espace de travail.
-- **WS1\_SQLAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects SQL de l’espace de travail.
+- **WS1\_WSAdmins** : pour les utilisateurs qui ont besoin d’un contrôle total sur l’espace de travail.
+- **WS1\_SparkAdmins** : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects Spark de l’espace de travail.
+- **WS1\_SQLAdmins** : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects SQL de l’espace de travail.
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>ÉTAPE 2 : Préparer votre compte Azure Data Lake Storage Gen2.
 
@@ -96,8 +96,8 @@ L’espace de travail Synapse a besoin d’accéder à STG1 et CNT1 pour pouvoir
 
 - Ouvrez le portail Azure
 - Accédez à WS1.
-- Sous **Paramètres** , sélectionnez **Administrateur SQL Active Directory**.
-- Sélectionnez **Définir l’administrateur** , puis choisissez WS1\_SQLAdmins.
+- Sous **Paramètres**, sélectionnez **Administrateur SQL Active Directory**.
+- Sélectionnez **Définir l’administrateur**, puis choisissez WS1\_SQLAdmins.
 
 ## <a name="step-6-maintain-access-control"></a>ÉTAPE 6 : Gérer le contrôle d’accès
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848906"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564104"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Forum aux questions (FAQ) sur le calcul confidentiel Azure
 
@@ -32,7 +32,7 @@ Voici quelques méthodes permettant de déployer une machine virtuelle DCsv2 :
 
 **Toutes les images de système d’exploitation fonctionnent-elles avec le calcul confidentiel Azure ?**
 
-Non. Les machines virtuelles peuvent uniquement être déployées sur des machines de deuxième génération avec Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter et Windows Server 2016 Datacenter. En savoir plus sur les machines virtuelles de la génération 2 sur [Linux](../virtual-machines/linux/generation-2.md) et [Windows](../virtual-machines/windows/generation-2.md)
+Non. Les machines virtuelles peuvent uniquement être déployées sur des machines de deuxième génération avec Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter et Windows Server 2016 Datacenter. En savoir plus sur les machines virtuelles de la génération 2 sur [Linux](../virtual-machines/generation-2.md) et [Windows](../virtual-machines/generation-2.md)
 
 **Les machines virtuelles DCsv2 sont grisées dans le portail et je ne peux en sélectionner aucune**
 

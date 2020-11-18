@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 14cd7822b90e3d70f19dde4c89e9e6e6482d7cf6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 017ca60048273d45e6f52857a52a0a1dab614aaa
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968971"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542811"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST Vision par ordinateur et de Java
 
@@ -175,4 +175,4 @@ Explorez une application Java Swing qui utilise l’API Vision par ordinateur po
 > [!div class="nextstepaction"]
 > [Didacticiel sur l’API Vision par ordinateur avec Java](../Tutorials/java-tutorial.md)
 
-* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
