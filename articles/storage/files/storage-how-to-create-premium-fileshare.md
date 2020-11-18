@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 75ba8e1e2037ba8ef249b548dfb38e5fd1618cb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ec8e4a945f8b8277d05c11bf3673d2e4ab15f9a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564183"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626790"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Guide pratique pour créer un partage de fichiers Premium Azure
 
@@ -24,8 +24,8 @@ Cet article vous montre comment créer ce type de compte en utilisant le [portai
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Si vous envisagez d’utiliser le module Azure PowerShell, [installez-en la dernière version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si vous envisagez d’utiliser le module Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="create-a-filestorage-storage-account"></a>Créer un compte de stockage FileStorage
 

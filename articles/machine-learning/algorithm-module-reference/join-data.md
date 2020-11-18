@@ -1,7 +1,7 @@
 ---
 title: 'Joindre des données : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Joindre des données dans Azure Machine Learning pour fusionner des jeux de données.
+description: Découvrez comment utiliser le module Joindre des données dans le concepteur Azure Machine Learning pour fusionner deux jeux de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c23dca40d50c5837bd9ff45bc3c3d7fb2581685b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907899"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420748"
 ---
 # <a name="join-data"></a>Joindre des données
 

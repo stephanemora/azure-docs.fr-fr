@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739688"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445028"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
@@ -25,7 +25,7 @@ Vous utilisez Azure Key Vault pour protéger les secrets et les clés de chiffre
 Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de l’abonnement. Toute personne qui essaie de gérer ou de récupérer le contenu d’un coffre doit être authentifiée par Azure AD.
 
 - L’authentification établit l’identité de l’appelant.
-- L’autorisation détermine les opérations que l’appelant peut exécuter. L’autorisation dans Key Vault utilise une combinaison de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) et de stratégies d’accès Azure Key Vault.
+- L’autorisation détermine les opérations que l’appelant peut exécuter. L’autorisation dans Key Vault utilise une combinaison de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) et de stratégies d’accès Azure Key Vault.
 
 ### <a name="access-model-overview"></a>Vue d’ensemble du modèle d’accès
 
@@ -34,7 +34,7 @@ L’accès aux coffres se produit via deux interfaces ou plans. Il s’agit du p
 - Le *plan de gestion* est l’endroit où vous gérez Key Vault lui-même. C’est l’interface utilisée pour créer et supprimer des coffres. Vous pouvez également lire les propriétés de coffre de clés et gérer les stratégies d’accès.
 - Le *plan de données* vous permet d’utiliser les données stockées dans un coffre de clés. Vous pouvez ajouter, supprimer et modifier des clés, des secrets et des certificats.
 
-Pour accéder à un coffre de clés dans l’un ou l’autre de ces plans, les appelants (utilisateurs ou applications) doivent être authentifiés et autorisés. Les deux plans utilisent Azure Active Directory (Azure AD) pour l’authentification. Pour l’autorisation, le plan de gestion utilise le contrôle d’accès en fonction du rôle (RBAC), tandis que le plan de données s’appuie sur une stratégie d’accès Key Vault.
+Pour accéder à un coffre de clés dans l’un ou l’autre de ces plans, les appelants (utilisateurs ou applications) doivent être authentifiés et autorisés. Les deux plans utilisent Azure Active Directory (Azure AD) pour l’authentification. Pour l’autorisation, le plan de gestion utilise le contrôle d’accès en fonction du rôle Azure (Azure RBAC), tandis que le plan de données s’appuie sur une stratégie d’accès Key Vault.
 
 Le modèle d’un mécanisme d’authentification unique auprès des deux plans présente plusieurs avantages :
 
@@ -50,7 +50,7 @@ Lorsque vous créez un coffre de clés dans un groupe de ressources, vous gérez
 - **Groupe de ressources** : Un rôle Azure attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
 - **Ressource spécifique** : Un rôle Azure attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
 
-Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas à vos besoins, vous pouvez définir votre propre rôle. Pour plus d’informations, consultez [RBAC : pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
+Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas à vos besoins, vous pouvez définir votre propre rôle. Pour plus d’informations, consultez [Azure RBAC : pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Si un utilisateur dispose d’autorisations `Contributor` sur un plan de gestion de coffre de clés, il peut s’accorder lui-même l’accès au plan de données en définissant une stratégie d’accès Key Vault. Vous devez contrôler étroitement qui dispose d’un accès accordé par le rôle `Contributor` à vos coffres de clés. Vérifiez que seules les personnes autorisées peuvent accéder à et gérer vos coffres de clés, vos clés, vos secrets et vos certificats.
@@ -91,4 +91,4 @@ Pour toute recommandation quant à la gestion sécurisée des comptes de stockag
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md)
-- [Contrôle d’accès en fonction du rôle (RBAC) : Rôles intégrés](../../role-based-access-control/built-in-roles.md)
+- [RBAC Azure : Rôles intégrés](../../role-based-access-control/built-in-roles.md)

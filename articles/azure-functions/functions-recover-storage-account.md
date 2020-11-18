@@ -3,12 +3,12 @@ title: "Résoudre l'erreur : Le runtime d'Azure Functions est inaccessible"
 description: Découvrez comment résoudre les problèmes relatifs à un compte de stockage non valide.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054727"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579009"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Résoudre l'erreur : « Le runtime d'Azure Functions est inaccessible »
 
@@ -76,7 +76,7 @@ Le runtime de votre fonction peut être inaccessible pour l'une des raisons suiv
 
 * Votre application de fonction est hébergée dans un [environnement ASE (App Service Environment) à équilibrage de charge interne](../app-service/environment/create-ilb-ase.md) et elle est configurée pour bloquer le trafic Internet entrant.
 
-* Votre application de fonction présente des [restrictions sur les adresses IP entrantes](functions-networking-options.md#inbound-ip-restrictions) qui sont configurées pour bloquer l'accès à Internet. 
+* Votre application de fonction présente des [restrictions sur les adresses IP entrantes](functions-networking-options.md#inbound-access-restrictions) qui sont configurées pour bloquer l'accès à Internet. 
 
 Le portail Azure appelle directement l'application en cours d'exécution pour extraire la liste des fonctions et passe des appels HTTP vers le point de terminaison Kudu. Les paramètres au niveau de la plateforme, sous l'onglet **Fonctionnalités de la plateforme**, sont toujours disponibles.
 

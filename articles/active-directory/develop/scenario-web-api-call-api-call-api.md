@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8eb737752741dc55da24ad6b605b081053b8a11
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396193"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443699"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Une API web qui appelle des API web : Appeler une API
 
@@ -164,5 +164,4 @@ Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Une API web qui appelle des API web : Passer en production](scenario-web-api-call-api-production.md)
+Passez à l’article suivant de ce scénario, [Passer en production](scenario-web-api-call-api-production.md).

@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539569"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445436"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Mettre à niveau vers la version 11 du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure
 
@@ -169,6 +169,24 @@ Les étapes suivantes vous permettent de commencer une migration de code en parc
    ```
 
 1. Ajoutez de nouvelles références de client pour les objets liés à l’indexeur. Si vous utilisez des indexeurs, des sources de source ou des ensembles de compétences, modifiez les références de client en [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Ce client est nouveau dans la version 11 et n’a pas d’antécédent.
+
+1. Réexaminez les collections. Dans le nouveau Kit de développement logiciel (SDK), toutes les listes sont en lecture seule afin d’éviter les problèmes en aval si la liste contient des valeurs NULL. La modification du code consiste à ajouter des éléments à une liste. Par exemple, au lieu d’assigner des chaînes à une propriété Select, vous devez les ajouter comme suit :
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
 
 1. Mettez à jour les références de client pour les requêtes et l’importation de données. Les instances de [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) doivent être remplacées par [SearchClient](/dotnet/api/azure.search.documents.searchclient). Pour éviter toute confusion dans les noms, veillez à intercepter toutes les instances avant de passer à l’étape suivante.
 

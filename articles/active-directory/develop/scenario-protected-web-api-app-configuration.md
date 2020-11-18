@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bfbfb1ff5b6cb9c711d987608226c51822dfc935
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257450"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442954"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protégée : Configuration de code
 
@@ -242,5 +242,4 @@ Vous pouvez également valider les jetons d’accès entrants dans Azure Functio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Vérifiez les étendues et les rôles d’application dans votre code](scenario-protected-web-api-verification-scope-app-roles.md)
+Passez à l’article suivant de ce scénario, [Vérifier les étendues et les rôles d’application dans votre code](scenario-protected-web-api-verification-scope-app-roles.md).

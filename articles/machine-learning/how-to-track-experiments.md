@@ -1,7 +1,7 @@
 ---
 title: Journaliser les expériences et métriques Machine Learning
 titleSuffix: Azure Machine Learning
-description: Surveillez vos expériences Azure Machine Learning et les métriques d'exécution pour améliorer le processus de création de modèle. Ajoutez la journalisation à votre script de formation à l’aide de run.log, Run.start_logging ou ScriptRunConfig.
+description: Activez la journalisation sur vos exécutions de formation ML pour surveiller les métriques d’exécution en temps réel et pour aider à diagnostiquer les erreurs et les avertissements.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6680bdc525c6f07b8330277056413f886412551b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: deeee689c27008ab71df0a050be3d7a6b5109307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318432"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361061"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Activer la journalisation dans les exécutions de formation Azure Machine Learning
+# <a name="enable-logging-in-ml-training-runs"></a>Activer la journalisation dans les exécutions de formation ML
 
 
 Le kit de développement logiciel (SDK) Python d’Azure Machine Learning vous permet de journaliser des informations en temps réel à l’aide du package de journalisation Python par défaut et des fonctionnalités spécifiques au kit de développement logiciel (SDK). Vous pouvez journaliser en local et envoyer des journaux à votre espace de travail dans le portail.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 56d2e01d35f25ac469e808a805382463d2b23ceb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27c9f2ab8b02c96d016fea66acd2b3840d79d09d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121100"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444121"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Application de bureau qui appelle des API web : Configuration de code
 
@@ -261,5 +261,4 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Acquérir un jeton pour une application de bureau](scenario-desktop-acquire-token.md)
+Passez à l’article suivant de ce scénario, [Acquérir un jeton pour l’application de bureau](scenario-desktop-acquire-token.md).

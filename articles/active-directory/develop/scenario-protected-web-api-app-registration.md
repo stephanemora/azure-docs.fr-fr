@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518272"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443940"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
 
@@ -64,7 +64,7 @@ Lors de l’inscription de l’application, vous devez définir les paramètres 
 - Une ou plusieurs étendues
 - Un ou plusieurs rôles d’application
 
-Par défaut, le portail d’inscription des applications vous recommande d’utiliser l’URI de ressource `api://{clientId}`. Cet URI est unique, mais n’est pas lisible. Si vous modifiez l’URI, assurez-vous que la nouvelle valeur est unique. Le portail d’inscription des applications s’assure que vous utilisez un domaine de [serveur de publication configuré](howto-configure-publisher-domain.md)
+Par défaut, le portail d’inscription des applications vous recommande d’utiliser l’URI de ressource `api://{clientId}`. Cet URI est unique, mais n’est pas lisible. Si vous modifiez l’URI, assurez-vous que la nouvelle valeur est unique. Le portail d’inscription des applications s’assure que vous utilisez un [domaine de serveur de publication configuré](howto-configure-publisher-domain.md).
 
 Pour les applications clientes, les étendues s’affichent en tant que *permissions déléguées* et les rôles d’application en tant que *permissions d’application* pour votre API web.
 
@@ -153,5 +153,4 @@ Pour ajouter cette sécurité renforcée :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Configuration du code d’application](scenario-protected-web-api-app-configuration.md)
+Passez à l’article suivant de ce scénario, [Configuration du code de l’application](scenario-protected-web-api-app-configuration.md).

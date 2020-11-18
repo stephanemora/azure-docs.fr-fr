@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177127"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376062"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Pour créer une appliance cloud
 
@@ -18,7 +18,7 @@ ms.locfileid: "67177127"
     ![StorSimple - Créer une appliance cloud](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Dans le panneau **Créer une appliance cloud**, spécifiez les détails suivants.
    
-    ![StorSimple - Créer une appliance cloud](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple – Créer une appliance cloud 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nom** : nom unique de votre appliance cloud.
    2. **Modèle** : sélectionnez le modèle de l’appliance cloud. Un modèle d’appareil 8010 offre 30 To de stockage Standard, tandis qu’un modèle d’appareil 8020 offre 64 To de stockage Premium. Spécifiez 8010 pour déployer des scénarios de récupération au niveau de l’élément à partir de sauvegardes. Sélectionnez 8020 pour déployer des charges de travail aux performances élevées et à faible latence ou pour une utilisation comme appareil secondaire à des fins de récupération d’urgence.

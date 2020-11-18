@@ -4,14 +4,17 @@ description: Réduisez le trafic de télémétrie en excluant les événements q
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f07a530a584a14d5312631ec977773e70af29
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761003"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378191"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
+
+> [!IMPORTANT]
+> L’approche recommandée pour surveiller des applications Java consiste à utiliser l’instrumentation automatique sans modifier le code. Suivez les instructions pour l’[agent Application Insights agent Java 3.0](./java-in-process-agent.md).
 
 Les filtres offrent un moyen de sélectionner les données de télémétrie que votre [application web Java envoie à Application Insights](java-get-started.md). Vous pouvez utiliser certains filtres prêts à l’emploi, et également écrire vos propres filtres personnalisés.
 

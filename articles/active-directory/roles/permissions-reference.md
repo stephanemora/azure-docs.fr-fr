@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373442"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396513"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -59,7 +59,7 @@ Les utilisateurs dans ce rôle peuvent créer et gérer tous les aspects des app
 Ce rôle permet également de _donner son consentement_ pour des autorisations déléguées et des autorisations d’application, à l’exception des autorisations sur l'API Microsoft Graph.
 
 > [!IMPORTANT]
-> Cette exception signifie que vous pouvez toujours accepter les autorisations pour _d’autres applications_ (par exemple les applications Microsoft ou les applications que vous avez inscrites), mais pas les autorisations sur Azure AD proprement dit. Vous pouvez toujours _demander_ ces autorisations dans le cadre de l’inscription de l’application, mais l’ _octroi_ de ces autorisations (c’est-à-dire le consentement) requiert un administrateur Azure AD. Cela signifie qu’un utilisateur malveillant ne peut pas élever facilement ses autorisations, par exemple en créant une application capable d’écrire dans le répertoire entier et en lui donnant son consentement, puis, par le biais de des autorisations de cette application, en s’élevant lui-même pour devenir administrateur global.
+> Cette exception signifie que vous pouvez toujours accepter les autorisations pour _d’autres applications_ (par exemple les applications Microsoft ou les applications que vous avez inscrites), mais pas les autorisations sur Azure AD proprement dit. Vous pouvez toujours _demander_ ces autorisations dans le cadre de l’inscription de l’application, mais l’_octroi_ de ces autorisations (c’est-à-dire le consentement) requiert un administrateur Azure AD. Cela signifie qu’un utilisateur malveillant ne peut pas élever facilement ses autorisations, par exemple en créant une application capable d’écrire dans le répertoire entier et en lui donnant son consentement, puis, par le biais de des autorisations de cette application, en s’élevant lui-même pour devenir administrateur global.
 >
 >Ce rôle permet de gérer des informations d’identification d’application. Les utilisateurs auxquels ce rôle a été attribué peuvent ajouter des informations d’identification à une application et les utiliser pour emprunter l’identité de l’application. Si l’identité de l’application a obtenu l’accès à une ressource, telle que la possibilité de créer ou de mettre à jour un utilisateur ou d’autres objets, un utilisateur auquel ce rôle a été attribué peut effectuer ces actions en empruntant l’identité de l’application. Cette capacité à emprunter l’identité de l’application peut correspondre une élévation de privilèges que l’utilisateur réalise dans ses attributions de rôle. Il est important de comprendre que l’affectation d’un utilisateur au rôle Administrateur d’applications lui donne la possibilité d’emprunter l’identité d’une application.
 
@@ -69,7 +69,7 @@ Les utilisateurs dans ce rôle peuvent créer des inscriptions d’application q
 
 ### <a name="authentication-administrator"></a>[Administrateur d’authentification](#authentication-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification sans mot de passe pour certains utilisateurs et peuvent mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification peuvent obliger les utilisateurs qui ne sont pas administrateurs ou sont attribués à certains rôles à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et peuvent également révoquer la **mémorisation de l’authentification multifacteur sur l’appareil** , ce qui permet de demander une authentification multifacteur lors de la prochaine connexion. Ces actions s’appliquent uniquement aux utilisateurs qui ne sont pas administrateurs ou qui se voient attribuer un ou plusieurs des rôles suivants :
+Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification sans mot de passe pour certains utilisateurs et peuvent mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification peuvent obliger les utilisateurs qui ne sont pas administrateurs ou sont attribués à certains rôles à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et peuvent également révoquer la **mémorisation de l’authentification multifacteur sur l’appareil**, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion. Ces actions s’appliquent uniquement aux utilisateurs qui ne sont pas administrateurs ou qui se voient attribuer un ou plusieurs des rôles suivants :
 
 * Administrateur d’authentification
 * Lecteurs de répertoires
@@ -90,7 +90,7 @@ Le rôle [Administrateur d’authentification privilégié](#privileged-authenti
 
 ### <a name="azure-devops-administrator"></a>[Administrateur Azure DevOps](#azure-devops-administrator-permissions)
 
-Les utilisateurs disposant de ce rôle peuvent gérer la stratégie Azure DevOps pour restreindre la création d’une nouvelle organisation Azure DevOps à un ensemble d’utilisateurs ou de groupes configurables. Les utilisateurs auxquels ce rôle est attribué peuvent gérer cette stratégie par le biais de n’importe quelle organisation Azure DevOps adossée à l’organisation Azure AD de l’entreprise.
+Les utilisateurs disposant de ce rôle peuvent gérer la stratégie Azure DevOps pour restreindre la création d’une nouvelle organisation Azure DevOps à un ensemble d’utilisateurs ou de groupes configurables. Les utilisateurs auxquels ce rôle est attribué peuvent gérer cette stratégie par le biais de n’importe quelle organisation Azure DevOps prise en charge par l’organisation Azure AD de l’entreprise. Ce rôle n’accorde aucune autre autorisation spécifique à Azure DevOps (par exemple, administrateur de collections de projets) au sein de l’une des organisations Azure DevOps prises en charge par l’organisation Azure AD de l’entreprise.
 
 Toutes les stratégies Azure DevOps d’entreprise peuvent être gérées par les utilisateurs de ce rôle.
 
@@ -233,7 +233,7 @@ Les utilisateurs affectés à ce rôle peuvent lire les paramètres et les infor
 >- [Centre d’administration OneDrive](https://admin.onedrive.com/) : Le Centre d’administration OneDrive ne prend pas en charge le rôle de lecteur général.
 >- [Centre d’administration M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Le lecteur général ne peut pas lire les demandes du Customer Lockbox. L’onglet **Demandes du Customer Lockbox** ne figure pas sous **Support** dans le volet gauche du centre d’administration M365.
 >- [Centre de sécurité et de conformité Office](https://sip.protection.office.com/homepage) - Le lecteur général ne peut pas lire les journaux d'audit SCC, effectuer une recherche de contenu ou voir le Degré de sécurisation.
->- [Centre d’administration Teams](https://admin.teams.microsoft.com) : Le lecteur général ne peut pas lire le **cycle de vie Teams** , les **analyses et rapports** , la **gestion des appareils téléphoniques IP** et le **catalogue d’applications** .
+>- [Centre d’administration Teams](https://admin.teams.microsoft.com) : Le lecteur général ne peut pas lire le **cycle de vie Teams**, les **analyses et rapports**, la **gestion des appareils téléphoniques IP** et le **catalogue d’applications**.
 >- [Privileged Access Management (PAM) ](/office365/securitycompliance/privileged-access-management-overview) ne prend pas en charge le rôle de lecteur général.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) : le lecteur général est pris en charge uniquement pour la [création centralisée de rapports](/azure/information-protection/reports-aip) et lorsque votre organisation Azure AD n’est pas sur la [plateforme d’étiquetage unifiée](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -311,16 +311,16 @@ Les utilisateurs titulaires de ce rôle peuvent superviser les notifications et 
 
 Ne pas utiliser. Ce rôle est attribué automatiquement à partir de Commerce, et n’est ni prévu, ni pris en charge pour toute autre utilisation. Consultez les détails ci-dessous.
 
-Le rôle Utilisateur de Commerce moderne donne à certains utilisateurs l’autorisation d’accéder au centre d’administration Microsoft 365 et de consulter les entrées de navigation de gauche pour **Hébergement** , **Facturation** et **Support** . Le contenu disponible dans ces zones est contrôlé par des [rôles spécifiques du commerce](../../cost-management-billing/manage/understand-mca-roles.md) attribués aux utilisateurs pour gérer des produits qu’ils ont achetés pour eux-mêmes ou votre organisation. Cela peut inclure des tâches telles que le paiement de factures, ou l’accès à des comptes de facturation et à des profils de facturation. 
+Le rôle Utilisateur de Commerce moderne donne à certains utilisateurs l’autorisation d’accéder au centre d’administration Microsoft 365 et de consulter les entrées de navigation de gauche pour **Hébergement**, **Facturation** et **Support**. Le contenu disponible dans ces zones est contrôlé par des [rôles spécifiques du commerce](../../cost-management-billing/manage/understand-mca-roles.md) attribués aux utilisateurs pour gérer des produits qu’ils ont achetés pour eux-mêmes ou votre organisation. Cela peut inclure des tâches telles que le paiement de factures, ou l’accès à des comptes de facturation et à des profils de facturation. 
 
 Les utilisateurs ayant le rôle Utilisateur de Commerce moderne disposent généralement d’autorisations d’administration dans d’autres systèmes d’achat Microsoft, mais ne disposent pas des rôles Administrateur général ou Administrateur de facturation utilisés pour accéder au centre d’administration. 
 
 **Quand le rôle Utilisateur de Commerce moderne est-il attribué ?**
 
-* **Achat en libre-service dans le Centre d’administration Microsoft 365**  : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Utilisateur de Commerce moderne afin de pouvoir gérer leurs achats dans le centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Achats sur la Place de marché commerciale de Microsoft**  : comme pour l’achat en libre-service, quand un utilisateur achète un produit ou un service sur Microsoft AppSource ou la Place de Marché Azure, le rôle Utilisateur de Commerce moderne lui est attribué s’il n’a pas le rôle Administrateur général ou Administrateur de facturation. Dans certains cas, il peut arriver que des utilisateurs soient empêchés d’effectuer ces achats. Pour plus d’informations, consultez [Place de marché commerciale de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
-* **Propositions de Microsoft**  : une proposition est une offre formelle de Microsoft à votre organisation pour l’achat de produits et services Microsoft. Quand la personne qui accepte la proposition n’a pas de rôle Administrateur général ou Administrateur de facturation dans Azure AD, elle se voit attribuer un rôle spécifique du commerce pour compléter la proposition et le rôle Utilisateur de Commerce moderne pour accéder au centre d’administration. Quand elle accède au Centre d’administration, elle ne peut utiliser que des fonctionnalités autorisées par son rôle spécifique du commerce.
-* **Rôles spécifiques du commerce**  : certains utilisateurs se voient attribuer des rôles spécifiques du commerce. Si un utilisateur n’est pas Administrateur général ou Administrateur de facturation, il obtient le rôle Utilisateur de Commerce moderne qui lui permet d’accéder au centre d’administration.  
+* **Achat en libre-service dans le Centre d’administration Microsoft 365** : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Utilisateur de Commerce moderne afin de pouvoir gérer leurs achats dans le centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Achats sur la Place de marché commerciale de Microsoft** : comme pour l’achat en libre-service, quand un utilisateur achète un produit ou un service sur Microsoft AppSource ou la Place de Marché Azure, le rôle Utilisateur de Commerce moderne lui est attribué s’il n’a pas le rôle Administrateur général ou Administrateur de facturation. Dans certains cas, il peut arriver que des utilisateurs soient empêchés d’effectuer ces achats. Pour plus d’informations, consultez [Place de marché commerciale de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
+* **Propositions de Microsoft** : une proposition est une offre formelle de Microsoft à votre organisation pour l’achat de produits et services Microsoft. Quand la personne qui accepte la proposition n’a pas de rôle Administrateur général ou Administrateur de facturation dans Azure AD, elle se voit attribuer un rôle spécifique du commerce pour compléter la proposition et le rôle Utilisateur de Commerce moderne pour accéder au centre d’administration. Quand elle accède au Centre d’administration, elle ne peut utiliser que des fonctionnalités autorisées par son rôle spécifique du commerce.
+* **Rôles spécifiques du commerce** : certains utilisateurs se voient attribuer des rôles spécifiques du commerce. Si un utilisateur n’est pas Administrateur général ou Administrateur de facturation, il obtient le rôle Utilisateur de Commerce moderne qui lui permet d’accéder au centre d’administration.  
 
 En cas de suppression de l’attribution du rôle Utilisateur de Commerce moderne à un utilisateur, celui-ci perd son accès au centre d’administration Microsoft 365. S’il gérait des produits pour lui-même ou pour votre organisation, ils ne peut plus les gérer. Cette gestion peut inclure l’attribution de licences, la modification de modes de paiement, le paiement de factures ou d’autres tâches d’administration des abonnements.
 

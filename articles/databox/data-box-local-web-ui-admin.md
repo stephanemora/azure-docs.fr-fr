@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127522"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337285"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 
@@ -212,7 +212,7 @@ Pour activer les privilèges d’opérateur de sauvegarde sur votre appareil Azu
 
 1. En haut à droite de l’interface utilisateur web locale de votre appareil, sélectionnez **Paramètres**.
 
-   ![Ouvrir les paramètres de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Ouvrir les paramètres de Data Box - 1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Activez** les privilèges d’opérateur de sauvegarde.
 
@@ -235,7 +235,7 @@ Pour activer le transfert des ACL pour Azure Files :
 
 1. En haut à droite de l’interface utilisateur web locale de votre appareil, sélectionnez **Paramètres**.
 
-    ![Ouvrir les paramètres de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Ouvrir les paramètres de Data Box - 2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Activez** ACL pour Azure files.
 
@@ -255,7 +255,7 @@ Pour activer le protocole TLS 1.1 sur votre appareil Azure :
 
 1. En haut à droite de l’interface utilisateur web locale de votre appareil, sélectionnez **Paramètres**.
 
-    ![Ouvrir les paramètres de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Ouvrir les paramètres de Data Box - 3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Activez** le protocole TLS 1.1.
 

@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289365"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506054"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostiquer les problèmes de configuration des liaisons privées sur Azure Key Vault
 
@@ -56,7 +56,7 @@ Si l’application, le script ou le portail s’exécute sur un réseau arbitrai
 
 Ce guide n’est PAS applicable aux solutions qui sont managées par Microsoft, où le coffre de clés est accessible par un produit Azure qui existe indépendamment du réseau virtuel client. Des exemples de scénarios de ce type sont Stockage Azure ou Azure SQL configuré pour le chiffrement au repos, Azure Event Hub chiffrant des données avec des clés fournies par le client, Azure Data Factory accédant aux informations d’identification du service stockées dans le coffre de clés, Azure Pipelines récupérant des secrets du coffre de clés et d’autres scénarios similaires. Dans ce cas, *vous devez vérifier si le produit prend en charge les coffres de clés avec le pare-feu activé*. Cette prise en charge s’effectue généralement à l’aide de la fonctionnalité de [services approuvés](overview-vnet-service-endpoints.md#trusted-services) du pare-feu Key Vault. De nombreux produits ne sont toutefois pas inclus dans la liste des services approuvés pour diverses raisons. Dans ce cas, obtenez un support spécifique au produit.
 
-Un petit nombre de produits Azure prend en charge le concept d’ *injection de réseau virtuel*. En termes simples, le produit ajoute un périphérique réseau au réseau virtuel du client, ce qui lui permet d’envoyer des requêtes comme s’il était déployé sur le réseau virtuel. [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) en est un exemple probant. Les produits comme celui-ci peuvent effectuer des requêtes auprès du coffre de clés à l’aide des liaisons privées, et ce guide de résolution des problèmes peut être utile.
+Un petit nombre de produits Azure prend en charge le concept d’*injection de réseau virtuel*. En termes simples, le produit ajoute un périphérique réseau au réseau virtuel du client, ce qui lui permet d’envoyer des requêtes comme s’il était déployé sur le réseau virtuel. [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) en est un exemple probant. Les produits comme celui-ci peuvent effectuer des requêtes auprès du coffre de clés à l’aide des liaisons privées, et ce guide de résolution des problèmes peut être utile.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Confirmer que la connexion est approuvée et réussie
 
@@ -65,7 +65,7 @@ Les étapes suivantes permettent de confirmer que la connexion au point de termi
 1. Ouvrez le portail Azure et ouvrez votre ressource de coffre de clés.
 2. Dans le menu de gauche, sélectionnez **Mise en réseau**.
 3. Cliquez sur l’onglet **Connexions de point de terminaison privé**. Cette opération affiche toutes les connexions de point de terminaison privé et leurs états respectifs. S’il n’existe aucune connexion, ou si la connexion de votre réseau virtuel est manquante, vous devez créer un nouveau point de terminaison privé. Ce sujet sera abordé ultérieurement.
-4. Toujours dans **Connexions de point de terminaison privé** , recherchez celle que vous diagnostiquez et confirmez que « État de la connexion » est **Approuvé** et que « État de l’approvisionnement » est **Réussi**.
+4. Toujours dans **Connexions de point de terminaison privé**, recherchez celle que vous diagnostiquez et confirmez que « État de la connexion » est **Approuvé** et que « État de l’approvisionnement » est **Réussi**.
     - Si la connexion est à l’état « En attente », vous pouvez simplement l’approuver.
     - Si la connexion est à l’état « Rejeté », « Échec », « Erreur », « Déconnecté » ou un autre état, cela signifie qu’elle n’est pas effective et vous devez créer une nouvelle ressource de point de terminaison privé.
 
@@ -142,21 +142,29 @@ Cette section est conçue à des fins d’apprentissage. Lorsque le coffre de cl
 
 Windows :
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 Linux :
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Vous pouvez voir que le nom est résolu en une adresse IP publique et qu’il n’y a pas d’alias `privatelink`. L’alias sera expliqué ultérieurement, ne vous en souciez pas pour le moment.
 
@@ -168,23 +176,24 @@ Lorsque le coffre de clés a une ou plusieurs connexions de point de terminaison
 
 Windows :
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+Réponse ne faisant pas autorité : Adresse :  52.168.109.101 Alias : fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```
+Linux:
 
-Linux :
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
-
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 La différence notable par rapport au scénario précédent est qu’il existe un nouvel alias avec la valeur `{vaultname}.privatelink.vaultcore.azure.net`. Cela signifie que le plan de données du coffre de clés est prêt à accepter les requêtes de liaisons privées.
 
@@ -198,19 +207,27 @@ Lorsque le coffre de clés a une ou plusieurs connexions de point de terminaison
 
 Windows :
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  10.1.2.3
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  10.1.2.3
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+```
 
 Linux :
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```
 
 Deux différences notables sont à noter. Premièrement, le nom est résolu en une adresse IP privée. Il doit s’agir de l’adresse IP que nous avons trouvée dans la [section correspondante](#find-the-key-vault-private-ip-address-in-the-virtual-network) de cet article. Deuxièmement, il n’y a pas d’autres alias après `privatelink`. Cela se produit parce que les serveurs DNS du réseau virtuel *interceptent* la chaîne d’alias et retournent l’adresse IP privée directement à partir du nom `fabrikam.privatelink.vaultcore.azure.net`. Cette entrée est en réalité un enregistrement `A` dans une zone DNS privée. Plus d’informations seront fournies ultérieurement.
 
@@ -227,7 +244,7 @@ Si la résolution DNS ne fonctionne pas comme décrit dans la section précéden
 
 Votre abonnement Azure doit avoir une ressource de [zone DNS privée](../../dns/private-dns-privatednszone.md) avec ce nom exact :
 
-    privatelink.vaultcore.azure.net
+`privatelink.vaultcore.azure.net`
 
 Vous pouvez vérifier la présence de cette ressource en accédant à la page de l’abonnement dans le portail et en sélectionnant « Ressources » dans le menu de gauche. Le nom de la ressource doit être `privatelink.vaultcore.azure.net`, et le type de ressource doit être **Zone DNS privée**.
 
@@ -278,41 +295,52 @@ Comme vous pouvez le constater, vous contrôlez la résolution de noms. Les rais
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Interroger le point de terminaison `/healthstatus` du coffre de clés
 
-Votre coffre de clés fournit le point de terminaison `/healthstatus`, qui peut être utilisé pour les diagnostics. Les en-têtes de réponse incluent l’adresse IP d’origine, telle qu’elle est affichée par le service de coffre de clés. Vous pouvez appeler ce point de terminaison à l’aide de la commande suivante ( **n’oubliez pas d’utiliser le nom d’hôte de votre coffre de clés** ) :
+Votre coffre de clés fournit le point de terminaison `/healthstatus`, qui peut être utilisé pour les diagnostics. Les en-têtes de réponse incluent l’adresse IP d’origine, telle qu’elle est affichée par le service de coffre de clés. Vous pouvez appeler ce point de terminaison à l’aide de la commande suivante (**n’oubliez pas d’utiliser le nom d’hôte de votre coffre de clés**) :
 
 Windows (PowerShell) :
 
-    PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```
 
-    Key                           Value
-    ---                           -----
-    Pragma                        no-cache
-    x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
-    x-ms-keyvault-service-version 1.2.27.0
-    x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security     max-age=31536000;includeSubDomains
-    Content-Length                4
-    Cache-Control                 no-cache
-    Content-Type                  application/json; charset=utf-8
+```output
+Key                           Value
+---                           -----
+Pragma                        no-cache
+x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
+x-ms-keyvault-service-version 1.2.27.0
+x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security     max-age=31536000;includeSubDomains
+Content-Length                4
+Cache-Control                 no-cache
+Content-Type                  application/json; charset=utf-8
+```
 
 Linux ou une version récente de Windows 10 qui comprend `curl` :
 
-    joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
-    x-ms-keyvault-service-version: 1.2.27.0
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security: max-age=31536000;includeSubDomains
-    Content-Length: 4
+```console
+joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
+```
+
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
+x-ms-keyvault-service-version: 1.2.27.0
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+Content-Length: 4
+```
 
 Si vous n’obtenez pas une sortie similaire à celle-ci, ou si vous obtenez une erreur réseau, cela signifie que votre coffre de clés n’est pas accessible via le nom d’hôte que vous avez spécifié (`fabrikam.vault.azure.net` dans l’exemple). Soit le nom d’hôte n’est pas résolu dans l’adresse IP correcte, soit vous rencontrez un problème de connectivité au niveau de la couche de transport. Cela peut être dû à des problèmes de routage, à des suppressions de packages et à d’autres raisons. Vous devez approfondir vos investigations.
 
 La réponse doit inclure un en-tête `x-ms-keyvault-network-info` :
 
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```console
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```
 
 Le champ `addr` dans l’en-tête `x-ms-keyvault-network-info` indique l’adresse IP de l’origine de la requête. Cette adresse IP peut être l’une des suivantes :
 
@@ -330,11 +358,15 @@ Le champ `addr` dans l’en-tête `x-ms-keyvault-network-info` indique l’adres
 
 Si vous avez installé une version récente de PowerShell, vous pouvez utiliser `-SkipCertificateCheck` pour ignorer les vérifications de certificat HTTPS, puis cibler directement l’[adresse IP du coffre de clés](#find-the-key-vault-private-ip-address-in-the-virtual-network) :
 
-    PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```
 
 Si vous utilisez `curl`, vous pouvez faire de même avec l’argument `-k` :
 
-    joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```console
+joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```
 
 Les réponses doivent être identiques à celles de la section précédente, ce qui signifie qu’elles doivent inclure l’en-tête `x-ms-keyvault-network-info` avec la même valeur. Le point de terminaison `/healthstatus` ne se soucie pas de savoir si vous utilisez le nom d’hôte ou l’adresse IP du coffre de clés.
 

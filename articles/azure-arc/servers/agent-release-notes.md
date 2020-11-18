@@ -2,13 +2,13 @@
 title: Nouveautés de l’agent des serveurs activés par Azure Arc
 description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés ici, il existe des liens menant à des informations supplémentaires.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908157"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445283"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs activés par Azure Arc
 
@@ -18,6 +18,21 @@ L’agent Connected Machine des serveurs activés par Azure Arc reçoit des amé
 - Problèmes connus
 - Résolution des bogues
 
+## <a name="november-2020"></a>Novembre 2020
+
+### <a name="fixed"></a>Fixe
+
+Résolution d’un problème où la configuration du proxy pouvait être perdue après la mise à niveau des distributions RPM.
+
+## <a name="october-2020"></a>Octobre 2020
+
+### <a name="fixed"></a>Fixe
+
+- Correction d’un script proxy pour gérer l’emplacement alternatif du fichier d’unité de démon GC.
+- Modification de la fiabilité de l’agent GuestConfig.
+- Prise en charge de l’agent GuestConfig pour la région US Gov Virginie.
+- Les messages de rapport de l’extension de l’agent GuestConfig sont plus détaillés en cas d’échec.
+
 ## <a name="september-2020"></a>Septembre 2020
 
 Version : 1.0 (Disponibilité générale)
@@ -26,7 +41,7 @@ Version : 1.0 (Disponibilité générale)
 
 - La prise en charge des agents en préversion (toutes les versions antérieures à 1.0) sera supprimée dans une prochaine mise à jour de service.
 - Suppression de la prise en charge du point de terminaison de secours `.azure-automation.net`. Si vous avez un proxy, vous devez autoriser le point de terminaison `*.his.arc.azure.com`.
-- Si l’agent de l’ordinateur connecté est installé sur une machine virtuelle hébergée dans Azure, il n’est pas possible d’installer ou de modifier des extensions de machine virtuelle à partir de la ressource Serveurs activés par Arc. Cela permet d’éviter les opérations d’extension conflictuelles effectuées à partir des ressources **Microsoft.Compute** et **Microsoft.HybridCompute** de l’ordinateur virtuel. Utilisez la ressource **Microsoft.Compute** pour l’ordinateur pour toutes les opérations d’extension.
+- Si Azure Connected Machine Agent est installé sur une machine virtuelle hébergée dans Azure, il n’est pas possible d’installer ou de modifier des extensions de machine virtuelle à partir de la ressource Serveurs activés par Arc. Cela permet d’éviter les opérations d’extension conflictuelles effectuées à partir des ressources **Microsoft.Compute** et **Microsoft.HybridCompute** de l’ordinateur virtuel. Utilisez la ressource **Microsoft.Compute** pour l’ordinateur pour toutes les opérations d’extension.
 - Le nom du processus Configuration des invité a changé, passant de *gcd* à *gcad* sur Linux, et de *gcservice* à *gcarcservice* sur Windows.
 
 ### <a name="new-feature"></a>Nouvelle fonctionnalité
@@ -60,4 +75,4 @@ Si vous utilisez une version antérieure de l’agent Linux et que vous l’avez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Avant d’évaluer ou d’activer des serveurs activés par Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble d’Azure Connected Machine Agent](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
+Avant d'évaluer ou d'activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d'ensemble d'Azure Connected Machine Agent](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l'agent, ainsi que sur les méthodes de déploiement.

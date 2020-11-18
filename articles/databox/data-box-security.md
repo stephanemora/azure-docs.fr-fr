@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565752"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444756"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -32,11 +32,11 @@ La solution Microsoft Azure Data Box repose sur l’interaction de quatre compos
 
 Le diagramme suivant indique le flux de données à travers la solution de Azure Data Box de l’environnement local vers Azure, et les différentes fonctionnalités de sécurité en place quand les données transitent par la solution. Ce flux est destiné à une commande d’importation pour votre Data Box.
 
-![Sécurité de l’importation Data Box](media/data-box-security/data-box-security-2.png)
+![Sécurité de l’importation Data Box](media/data-box-security/data-box-security-import.png)
 
 Le diagramme suivant montre l’ordre d’exportation pour votre Data Box.
 
-![Sécurité de l’exportation Data Box](media/data-box-security/data-box-security-3.png)
+![Sécurité de l’exportation Data Box](media/data-box-security/data-box-security-export.png)
 
 Comme les données circulent dans cette solution, les événements sont enregistrés et des journaux sont générés. Pour plus d'informations, accédez à :
 
@@ -63,7 +63,7 @@ Le service Data Box est protégé par les fonctionnalités suivantes :
 Les données qui circulent vers et depuis Data Box sont protégées par les fonctionnalités suivantes :
 
 - Chiffrement AES 256 bits pour les données au repos.
-- Des protocoles chiffrés peuvent être utilisés pour les données en transit. Nous vous recommandons d’utiliser SMB 3.0 avec chiffrement pour protéger les données lorsque vous les copiez depuis vos serveurs de données.
+- Des protocoles chiffrés peuvent être utilisés pour les données en transit. Nous vous recommandons d’utiliser SMB 3.0 avec chiffrement pour protéger les données lorsque vous les copiez depuis vos serveurs de données.
 - Effacement sécurisé des données de l’appareil une fois le chargement des données vers Azure terminé. L’effacement des données est conforme aux instructions de l’[annexe A relative aux lecteurs de disque dur ATA dans les normes NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). L’événement d’effacement de données est enregistré dans le [l’historique des commandes](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protection du service Data Box

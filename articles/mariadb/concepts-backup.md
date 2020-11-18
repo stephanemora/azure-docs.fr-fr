@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480732"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378956"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Sauvegarde et restauration dans Azure Database for MariaDB
 
@@ -90,7 +90,12 @@ Vous pouvez restaurer un serveur dans une autre région Azure où le service est
 
 La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. La géorestauration utilise la sauvegarde la plus récente du serveur. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
 
+> [!IMPORTANT]
+>Si une géorestauration est effectuée pour un serveur nouvellement créé, la synchronisation de la sauvegarde initiale peut prendre plus de 24 heures en fonction de la taille des données, car la durée de la sauvegarde initiale d’un instantané complet est bien supérieure. Les sauvegardes d’instantanés ultérieures sont des copies incrémentielles. Par conséquent, les restaurations sont plus rapides 24 heures après la création du serveur. Si vous évaluez des géorestaurations pour définir votre RTO, nous vous recommandons d’attendre et de les évaluer **uniquement 24 heures après** la création du serveur pour obtenir de meilleures estimations.
+
 Pendant la géorestauration, les configurations de serveur qui peuvent être changées incluent la génération de calcul, les vCores, la période de conservation des sauvegardes et les options de redondance de sauvegarde. Le changement de niveau tarifaire (De base, Usage général ou Mémoire optimisée) ou de la taille du stockage pendant la géorestauration n’est pas pris en charge.
+
+Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
 ### <a name="perform-post-restore-tasks"></a>Effectuer des tâches de post-restauration
 

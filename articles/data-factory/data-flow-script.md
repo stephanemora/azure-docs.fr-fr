@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91598090"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360273"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
@@ -218,6 +218,17 @@ Il s’agit d’un extrait de code que vous pouvez coller dans votre flux de don
 ```
 split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>Mapper automatiquement la dérive de schéma à l’aide d’une transformation de sélection
+Lorsque vous devez charger un schéma de base de données existant à partir d’un ensemble inconnu ou dynamique de colonnes entrantes, vous devez mapper les colonnes de droite dans la transformation du récepteur. Cela est nécessaire uniquement lorsque vous chargez une table existante. Ajoutez cet extrait de code avant votre récepteur pour créer une transformation de sélection qui mappe automatiquement vos colonnes. Laissez le mappage de votre récepteur sur Mappage automatique.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

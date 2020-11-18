@@ -1,14 +1,14 @@
 ---
 title: Connecter des machines hybrides à Azure à partir du portail Azure
 description: Cet article explique comment installer l’agent et connecter des machines à Azure à l’aide d’Azure Arc enabled servers dans le portail Azure.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370149"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398026"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connecter des machines hybrides à Azure à partir du portail Azure
 
@@ -26,27 +26,27 @@ Le script permettant d’automatiser le téléchargement et l’installation, et
 
 1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
 
-1. Dans la page **Serveurs - Azure Arc** , sélectionnez **Ajouter** en haut à gauche.
+1. Dans la page **Serveurs - Azure Arc**, sélectionnez **Ajouter** en haut à gauche.
 
-1. Dans la page **Sélectionner une méthode** , sélectionnez la vignette **Ajouter des serveurs à l’aide d’un script interactif** , puis sélectionnez **Générer un script**.
+1. Dans la page **Sélectionner une méthode**, sélectionnez la vignette **Ajouter des serveurs à l’aide d’un script interactif**, puis sélectionnez **Générer un script**.
 
-1. Dans la page **Générer un script** , sélectionnez l’abonnement et le groupe de ressources où vous souhaitez que la machine soit gérée dans Azure. Sélectionnez une localisation Azure destinée au stockage des métadonnées de la machine. Cet emplacement peut être identique ou différent de l’emplacement du groupe de ressources.
+1. Dans la page **Générer un script**, sélectionnez l’abonnement et le groupe de ressources où vous souhaitez que la machine soit gérée dans Azure. Sélectionnez une localisation Azure destinée au stockage des métadonnées de la machine. Cet emplacement peut être identique ou différent de l’emplacement du groupe de ressources.
 
-1. Dans la page **Prérequis** , passez en revue les informations, puis sélectionnez **Suivant : Détails des ressources**.
+1. Dans la page **Prérequis**, passez en revue les informations, puis sélectionnez **Suivant : Détails des ressources**.
 
-1. Dans la page **Détails des ressources** , spécifiez les informations suivantes :
+1. Dans la page **Détails des ressources**, spécifiez les informations suivantes :
 
-    1. Dans la liste déroulante **Groupe de ressources** , sélectionnez le groupe de ressources à partir duquel sera gérée la machine.
-    1. Dans la liste déroulante **Région** , sélectionnez la région Azure dans laquelle seront stockées les métadonnées des serveurs.
-    1. Dans la liste déroulante **Système d’exploitation** , sélectionnez le système d’exploitation sur lequel le script doit s’exécuter.
+    1. Dans la liste déroulante **Groupe de ressources**, sélectionnez le groupe de ressources à partir duquel sera gérée la machine.
+    1. Dans la liste déroulante **Région**, sélectionnez la région Azure dans laquelle seront stockées les métadonnées des serveurs.
+    1. Dans la liste déroulante **Système d’exploitation**, sélectionnez le système d’exploitation sur lequel le script doit s’exécuter.
     1. Si la machine passe par un serveur proxy pour se connecter à Internet, spécifiez l’adresse IP du serveur proxy ou le nom et le numéro de port que la machine doit utiliser pour communiquer avec le serveur proxy. Saisissez la valeur au format `http://<proxyURL>:<proxyport>`.
     1. Sélectionnez **Suivant : Balises**.
 
-1. Dans la page **Balises** , passez en revue les suggestions de **balises d’emplacement physique** par défaut et entrez une valeur, ou spécifiez une ou plusieurs **Balises personnalisées** en fonction de vos standards.
+1. Dans la page **Balises**, passez en revue les suggestions de **balises d’emplacement physique** par défaut et entrez une valeur, ou spécifiez une ou plusieurs **Balises personnalisées** en fonction de vos standards.
 
 1. Sélectionnez **Suivant : Télécharger et exécuter le script**.
 
-1. Dans la page **Télécharger et exécuter le script** , passez en revue les informations de résumé, puis sélectionnez **Télécharger**. Si vous avez encore besoin d’apporter des modifications, sélectionnez **Précédent**.
+1. Dans la page **Télécharger et exécuter le script**, passez en revue les informations de résumé, puis sélectionnez **Télécharger**. Si vous avez encore besoin d’apporter des modifications, sélectionnez **Précédent**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Installer et valider l’agent sur Windows
 
@@ -55,7 +55,7 @@ Le script permettant d’automatiser le téléchargement et l’installation, et
 Vous pouvez installer l’agent Connected Machine manuellement en exécutant le package Windows Installer *AzureConnectedMachineAgent.msi*. Vous pouvez télécharger la dernière version du [package Windows Installer de l’agent pour Windows](https://aka.ms/AzureConnectedMachineAgent) à partir du centre de téléchargement Microsoft.
 
 >[!NOTE]
->* Pour installer ou désinstaller l’agent, vous devez disposer d’autorisations d’ *administrateur*.
+>* Pour installer ou désinstaller l’agent, vous devez disposer d’autorisations d’*administrateur*.
 >* Vous devez tout d’abord télécharger et copier le package Installer dans un dossier sur le serveur cible, ou à partir d’un dossier réseau partagé. Si vous exécutez le package Installer sans aucune option, il démarre un assistant de configuration que vous pouvez suivre pour une installation interactive de l’agent.
 
 Si la machine doit communiquer avec le service via un serveur proxy, après avoir installé l’agent, vous devez exécuter une commande qui est décrite dans les étapes ci-dessous. Cette commande définit la variable d’environnement système `https_proxy` du serveur proxy.
@@ -113,9 +113,9 @@ Si le démarrage de l’agent échoue une fois l’installation terminée, reche
 
 L’agent Connected Machine pour Linux est fourni dans le format de package par défaut pour la distribution (. RPM ou. DEB) qui est hébergée dans le [dépôt de packages](https://packages.microsoft.com/) de Microsoft. Le [bundle de script shell `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) effectue les opérations suivantes :
 
-- Configure la machine hôte pour télécharger le package de l’agent à partir de packages.microsoft.com.
-- Installe le package du fournisseur de ressources hybrides.
-- Inscrit la machine auprès d’Azure Arc
+* Configure la machine hôte pour télécharger le package de l’agent à partir de packages.microsoft.com.
+
+* Installe le package du fournisseur de ressources hybrides.
 
 Si vous le souhaitez, vous pouvez configurer l’agent avec vos informations de proxy en incluant le paramètre `--proxy "{proxy-url}:{proxy-port}"`.
 
@@ -131,15 +131,30 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-Pour télécharger et installer l’agent, y compris le paramètre `--proxy` permettant de configurer l’agent afin qu’il communique par le biais de votre serveur proxy, exécutez les commandes suivantes :
+1. Pour télécharger et installer l’agent, y compris le paramètre `--proxy` permettant de configurer l’agent afin qu’il communique par le biais de votre serveur proxy, exécutez les commandes suivantes :
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
+
+2. Après avoir installé l’agent, vous devez le configurer pour qu’il communique avec le service Azure Arc en exécutant la commande suivante :
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### <a name="install-with-the-scripted-method"></a>Effectuer l’installation à l’aide de la méthode de script
+
+1. Connectez-vous au serveur avec un compte disposant d’un accès racine.
+
+1. Accédez au dossier ou au partage sur lequel vous avez copié le script et exécutez-le sur le serveur en exécutant le script `./OnboardingScript.sh`.
+
+Si le démarrage de l’agent échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux. Le répertoire des journaux est *var/opt/azcmagent/log*.
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Vérifier la connexion avec Azure Arc
 

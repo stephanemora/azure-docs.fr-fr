@@ -3,12 +3,12 @@ title: Concepts – Clusters et clouds privés
 description: Découvrez les principales fonctionnalités des centres de données à définition logicielle Azure VMware Solution et des clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: b261eb0517e9890d9bccf12f2e5748626f4c1ff9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791016"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337319"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concepts de cloud privé et de cluster Azure VMware Solution
 
@@ -52,9 +52,9 @@ Les versions actuelles des logiciels VMware utilisés dans des clusters de cloud
 
 | Logiciel              |    Version   |
 | :---                  |     :---:    |
-| VCSA / vSphere / ESXi |    6,7 U2    | 
-| ESXi                  |    6,7 U2    | 
-| vSAN                  |    6,7 U2    |
+| VCSA / vSphere / ESXi |    6.7 U3    | 
+| ESXi                  |    6.7 U3    | 
+| vSAN                  |    6.7 U3    |
 | NSX-T                 |      2.5     |
 
 Pour tout nouveau cluster dans un cloud privé, la version du logiciel correspond à ce qui est en cours d’exécution. Pour tout nouveau cloud privé dans un abonnement, la dernière version de la pile logicielle est installée.

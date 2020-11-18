@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147223"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427290"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -65,15 +65,17 @@ La vidéo suivant explique un certain nombre d’options de récepteur pour les 
 
 ![Capture d’écran montrant les paramètres du récepteur.](media/data-flow/sink-settings.png "Capture d’écran montrant les paramètres du récepteur.")
 
-**Dérive de schéma**  : La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de Data Factory à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes. Activez **Autoriser la dérive de schéma** pour écrire des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur.
+**Dérive de schéma** : La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de Data Factory à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes. Activez **Autoriser la dérive de schéma** pour écrire des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur.
 
-**Valider le schéma**  : Si l’option Valider le schéma est sélectionnée, le flux de données échoue si une colonne du schéma source entrant est introuvable dans la projection source ou que les types de données ne correspondent pas. Utilisez ce paramètre pour que les données sources respectent le contrat de votre projection définie. Il est utile dans les scénarios de source de base de données pour signaler que les noms ou les types de colonne ont changé.
+**Valider le schéma** : Si l’option Valider le schéma est sélectionnée, le flux de données échoue si une colonne du schéma source entrant est introuvable dans la projection source ou que les types de données ne correspondent pas. Utilisez ce paramètre pour que les données sources respectent le contrat de votre projection définie. Il est utile dans les scénarios de source de base de données pour signaler que les noms ou les types de colonne ont changé.
 
 **Utiliser TempDB :** Par défaut, Data Factory utilise une table temporaire globale pour stocker des données dans le cadre du processus de chargement. Vous pouvez également désélectionner l’option « Utiliser TempDB » et demander à Data Factory de stocker la table d’hébergement temporaire dans une base de données utilisateur qui se trouve dans la base de données utilisée pour ce récepteur.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Utiliser la base de données temporaire](media/data-flow/tempdb.png "Utiliser la base de données temporaire")
 
 ## <a name="cache-sink"></a>Récepteur de cache
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
 Un *récepteur de cache* existe lorsqu’un flux de données écrit des données dans le cache Spark et non dans un magasin de données. Dans les flux de données de mappage, vous pouvez référencer ces données à la fois dans le même flux à l’aide d’une *recherche dans le cache*. Cela est utile lorsque vous souhaitez référencer des données dans le cadre d’une expression, mais que vous ne souhaitez pas explicitement y joindre les colonnes. La recherche d’une valeur maximale dans un magasin de données et la mise en correspondance des codes d’erreur avec une base de données de messages d’erreur sont des situations courantes dans lesquelles un récepteur de cache peut être utile. 
 
@@ -101,6 +103,11 @@ Lorsque vous désactivez le mappage automatique, vous pouvez ajouter des mappage
 Par défaut, les données sont écrites dans plusieurs récepteurs selon un ordre non déterministe. Le moteur d’exécution écrit les données en parallèle à l’issue de la logique de transformation et l’ordre des récepteurs peut varier d’une exécution à l’autre. Pour spécifier l’ordre exact des récepteurs, activez **Ordre des récepteurs personnalisé** sous l’onglet **Général** du flux de données. Quand cette option est activée, les récepteurs sont écrits séquentiellement dans l’ordre croissant.
 
 ![Capture d’écran montrant l’Ordre des récepteurs personnalisé.](media/data-flow/custom-sink-ordering.png "Capture d’écran montrant l’Ordre des récepteurs personnalisé.")
+
+> [!NOTE]
+> Lors de l’utilisation de [recherches mises en cache](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), assurez-vous que l’ordre des récepteurs mis en cache est défini sur 1, le plus bas (ou le premier) dans le classement.
+
+![Ordre des récepteurs personnalisé](media/data-flow/cache-2.png "Ordre des récepteurs personnalisé")
 
 ## <a name="data-preview-in-sink"></a>Aperçu des données dans le récepteur
 

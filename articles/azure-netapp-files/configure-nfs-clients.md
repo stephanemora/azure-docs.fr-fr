@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b8b4b56693023ede2ccf8ae7eeac7ed5e16824
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c1cdeaa41dda11f2ab520cf8d31ddb2116587082
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216859"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409567"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configurer un client NFS pour Azure NetApp Files
 
@@ -75,7 +75,10 @@ Les exemples de cette section utilisent le nom de domaine et l’adresse IP sui
     Par exemple : 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    Assurez-vous que `default_realm` est défini sur le domaine indiqué dans `/etc/krb5.conf`.  Si ce n’est pas le cas, ajoutez-le sous la section `[libdefaults]` du fichier, comme indiqué dans l’exemple suivant :
+    
+    `default_realm = CONTOSO.COM`
 
 7. Redémarrez tous les services NFS :  
  

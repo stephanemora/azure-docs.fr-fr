@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 78a882378becda8c381ac036d786b32a2b42a5f1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077437"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379466"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Base de référence sur la sécurité Azure pour la Gestion des API
 
@@ -193,7 +193,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 * [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -323,7 +323,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Activation des paramètres de diagnostic pour la Gestion des API Azure](./api-management-howto-use-azure-monitor.md#activity-logs)
 
-* [Configurer une règle d’alerte pour une requête non autorisée](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
+* [Configurer une règle d’alerte pour Gestion des API Azure](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 * [Afficher les métriques de capacité d’une instance Gestion des API Azure](./api-management-capacity.md)
 
@@ -375,15 +375,15 @@ Suivez les recommandations d’Azure Security Center concernant la gestion et la
 
 * [Guide pratique pour utiliser le contrôle d’accès en fonction du rôle dans Gestion des API Azure](./api-management-role-based-access-control.md)
 
-* [Obtenir la liste des utilisateurs d’une instance Gestion des API Azure](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Obtenir la liste des utilisateurs d’une instance Gestion des API Azure](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
-* [Obtenir la liste des utilisateurs affectés à un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
+* [Obtenir la liste des utilisateurs affectés à un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/az.resources/get-azroleassignment)
 
-* [Obtenir une définition de rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
+* [Obtenir une définition de rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
 * [Recommandations Azure Security Center concernant l’accès et les identités](../security-center/recommendations-reference.md#recs-identity)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -480,7 +480,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Dans la mesure du possible, utilisez Azure AD comme système central d’authentification et d’autorisation. AAD protège les données à l’aide d’un chiffrement renforcé pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
+**Aide** : Dans la mesure du possible, utilisez Azure AD comme système central d’authentification et d’autorisation. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
 
 Configurez le portail des développeurs où se trouve la Gestion des API Azure de manière à authentifier les comptes de développeurs à l’aide d’Azure Active Directory.
 
@@ -490,7 +490,7 @@ Configurez votre instance Gestion des API pour protéger vos API à l’aide du 
 
 * [Protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et la Gestion des API](./api-management-howto-protect-backend-with-aad.md)
 
-* [Guide pratique pour créer et configurer une instance AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Création et configuration d’une instance Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -506,7 +506,7 @@ Les administrateurs peuvent créer des groupes personnalisés ou utiliser des gr
 
 * [Gestion des comptes d’utilisateur dans Gestion des API Azure](./api-management-howto-create-or-invite-developers.md)
 
-* [Obtenir la liste des utilisateurs de la Gestion des API](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Obtenir la liste des utilisateurs de la Gestion des API](/powershell/module/az.apimanagement/get-azapimanagementuse)
 
 * [Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure](./api-management-howto-create-groups.md)
 
@@ -746,7 +746,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -818,7 +818,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -832,7 +832,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
+**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
@@ -888,7 +888,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Définissez et implémentez des configurations de sécurité standard pour votre service Gestion des API Azure avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ApiManagement » pour créer des stratégies personnalisées en vue d’auditer ou d’appliquer la configuration de vos services Gestion des API Azure.
 
-* [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -900,7 +900,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -928,9 +928,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Si vous utilisez des définitions de stratégie Azure personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer la configuration de votre service Gestion des API Azure de façon sécurisée.
 
-* [Stocker des fichiers dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Stocker des fichiers dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
+* [Documentation Azure Repos](/azure/devops/repos/index)
 
 * [Kit de ressources DevOps Gestion des API Azure](./api-management-security-controls.md#configuration-management)
 
@@ -1032,7 +1032,7 @@ En outre, définissez et implémentez des configurations de sécurité standard 
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (comme la Gestion des API Azure). Toutefois, il ne s’exécute pas sur du contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1086,7 +1086,7 @@ Vous pouvez utiliser des identités managées afin d’obtenir des certificats p
 
 * [Comment implémenter une récupération d’urgence à l’aide d’une sauvegarde de service et la récupérer dans Gestion des API Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [Sauvegarder des certificats Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Sauvegarder des certificats Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1098,7 +1098,7 @@ Vous pouvez utiliser des identités managées afin d’obtenir des certificats p
 
 * [Appeler l’opération de restauration de la Gestion des API](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
-* [Restaurer des certificats Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Restaurer des certificats Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1116,7 +1116,7 @@ Activez la suppression réversible dans Key Vault pour protéger les clés contr
 
 * [Activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

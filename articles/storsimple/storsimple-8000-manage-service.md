@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249550"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360709"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
 
@@ -105,7 +105,7 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 ### <a name="to-regenerate-the-service-registration-key"></a>Pour régénérer la clé d’inscription du service
 1. Dans le panneau **StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
     
-    ![Panneau Clés](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Accédez au panneau Clés](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. Dans le panneau **Clés**, cliquez sur **Régénérer**.
 

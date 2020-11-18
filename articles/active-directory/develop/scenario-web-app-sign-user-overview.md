@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257064"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443583"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scénario : Application web qui connecte les utilisateurs
 
@@ -28,29 +28,25 @@ Découvrez comment créer une application web qui utilise la plateforme d’iden
 
 Si vous souhaitez créer votre première application web (ASP.NET Core) portable qui connecte les utilisateurs, suivez ce guide de démarrage rapide :
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : application web ASP.NET Core qui connecte les utilisateurs](quickstart-v2-aspnet-core-webapp.md)
+[Démarrage rapide : application web ASP.NET Core qui connecte les utilisateurs](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Si vous souhaitez savoir comment ajouter la connexion à une application web ASP.NET existante, essayez le démarrage rapide suivant :
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Application web ASP.NET qui connecte les utilisateurs](quickstart-v2-aspnet-webapp.md)
+[Démarrage rapide : Application web ASP.NET qui connecte les utilisateurs](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 Si vous êtes développeur Java, essayez le démarrage rapide suivant :
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java](quickstart-v2-java-webapp.md)
+[Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 Si vous développez avec Python, essayez le démarrage rapide suivant :
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Python](quickstart-v2-python-webapp.md)
+[Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Python](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,22 +77,18 @@ Lors d’une deuxième phase, vous pouvez permettre à l’application d’appel
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+Passez à l’article suivant de ce scénario, [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+Passez à l’article suivant de ce scénario, [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+Passez à l’article suivant de ce scénario, [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+Passez à l’article suivant de ce scénario, [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=python).
 
 ---

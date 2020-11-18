@@ -2,16 +2,16 @@
 title: Azure Event Grid - Événements de partenaire
 description: Envoyez des événements de partenaires SaaS et PaaS Event Grid tiers directement à des services Azure avec Azure Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102667"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506144"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Événements de partenaire dans Azure Event Grid (préversion)
-La fonctionnalité **Événements de partenaire** permet à un fournisseur SaaS tiers de publier des événements depuis ses services, pour les mettre à la disposition des consommateurs qui peuvent s’abonner à ces événements. Elle offre une expérience interne aux sources d’événements tierces, en exposant un type de [rubrique](concepts.md#topics) et une **rubrique de partenaire** que les abonnés utilisent pour consommer des événements. Elle fournit également un nouveau modèle de publication-abonnement clair, en séparant les préoccupations et la propriété des ressources qui sont utilisées par les éditeurs d’événements et les abonnés.
+La fonctionnalité **Événements de partenaire** permet à un fournisseur SaaS tiers de publier des événements depuis ses services afin que les consommateurs puissent s’abonner à ces événements. Cette fonctionnalité offre une expérience interne aux sources d’événements tierces, en exposant un type de [rubrique](concepts.md#topics) et une **rubrique de partenaire**. Les abonnés créent des abonnements à cette rubrique pour consommer des événements. Elle fournit également un nouveau modèle clair de publication-abonnement, en séparant les préoccupations et la propriété des ressources qui sont utilisées par les éditeurs d’événements et les abonnés.
 
 > [!NOTE]
 > Si vous ne connaissez pas Event Grid, consultez la [vue d’ensemble](overview.md), les [concepts](concepts.md) et les [gestionnaires d’événements](event-handlers.md).
@@ -75,6 +75,20 @@ Un canal d’événement est une ressource mise en miroir sur une rubrique de pa
 
 ## <a name="resources-managed-by-subscribers"></a>Ressources gérées par les abonnés 
 Les abonnés peuvent utiliser les rubriques de partenaire définies par un éditeur, c’est le seul type de ressource qu’ils voient et gèrent. Dès lors qu’une rubrique de partenaire est créée, un utilisateur abonné peut créer des abonnements à des événements en définissant des règles de filtre pour des [gestionnaires d’événements/destinations](overview.md#event-handlers). Pour les abonnés, une rubrique de partenaire et ses abonnements aux événements associés fournissent les mêmes fonctionnalités complètes que les [rubriques personnalisées](custom-topics.md) ; leur(s) abonnement(s) associé(s) présentent une différence notable : les rubriques de partenaire prennent uniquement en charge le schéma [Cloud Events 1.0](cloudevents-schema.md) qui fournit un ensemble plus riche de fonctionnalités que les autres schémas pris en charge.
+
+L’illustration suivante montre le flux des opérations du plan de contrôle.
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Événements de partenaire – Flux du plan de contrôle":::
+
+1. L’éditeur crée une **inscription de partenaire**. Les inscriptions de partenaires sont mondiales. Autrement dit, elles ne sont pas associées à une région Azure particulière. Cette étape est facultative.
+1. L’éditeur crée un **espace de noms de partenaire** dans une région spécifique.
+1. Lorsque « Abonné 1 » tente de créer une rubrique de partenaire, un **canal d’événement**, « Canal d’événement 1 », est d’abord créé dans l’abonnement Azure de l’éditeur.
+1. Ensuite, une **rubrique de partenaire**, « Rubrique de partenaire 1 », est créée dans l’abonnement Azure de l’abonné. L’abonné doit activer la rubrique de partenaire. 
+1. Abonné 1 crée un **abonnement Azure Logic Apps** à Rubrique de partenaire 1.
+1. Abonné 1 crée un **abonnement Stockage Blob Azure** à Rubrique de partenaire 1. 
+1. Lorsque « Abonné 2 » tente de créer une rubrique de partenaire, un autre **canal d’événement**, « Canal d’événement 2 », est d’abord créé dans l’abonnement Azure de l’éditeur. 
+1. Ensuite, la **rubrique de partenaire**, « Rubrique de partenaire 2 », est créée dans l’abonnement Azure de l’abonné. L’abonné doit activer la rubrique de partenaire. 
+1. Abonné 2 crée un **abonnement Azure Functions** à Rubrique de partenaire 2. 
 
 ## <a name="pricing"></a>Tarifs
 Les rubriques de partenaire sont facturées au nombre d’opérations effectuées lors de l’utilisation d’Event Grid. Pour plus d’informations sur tous les types d’opérations utilisés comme base de facturation, et les tarifs détaillés, consultez [Tarifs Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).

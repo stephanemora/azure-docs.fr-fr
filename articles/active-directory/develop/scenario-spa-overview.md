@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 17acb2bc5e96a136f31371c0be912c2c758c0f76
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675627"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443855"
 ---
 # <a name="scenario-single-page-application"></a>Scénario : Application monopage
 
@@ -34,11 +34,11 @@ De nombreuses applications web modernes sont créées en tant qu’applications 
 
 La plateforme d’identités Microsoft offre **deux** options pour permettre aux applications monopages d’effectuer la connexion des utilisateurs et d’obtenir des jetons pour accéder aux services back-end ou aux API web :
 
-- [Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./v2-oauth2-auth-code-flow.md). Le flux de code d’autorisation permet à l’application d’échanger un code d’autorisation pour obtenir des jetons d’ **ID** afin de représenter l’utilisateur authentifié et des jetons d’ **accès** nécessaires pour appeler des API protégées. De plus, il retourne des jetons d’ **actualisation** qui fournissent à votre application un accès à long terme à des ressources au nom d’utilisateurs sans nécessiter l’intervention de ces utilisateurs. Il s’agit de l’approche **recommandée** .
+- [Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./v2-oauth2-auth-code-flow.md). Le flux de code d’autorisation permet à l’application d’échanger un code d’autorisation pour obtenir des jetons d’**ID** afin de représenter l’utilisateur authentifié et des jetons d’**accès** nécessaires pour appeler des API protégées. De plus, il retourne des jetons d’**actualisation** qui fournissent à votre application un accès à long terme à des ressources au nom d’utilisateurs sans nécessiter l’intervention de ces utilisateurs. Il s’agit de l’approche **recommandée**.
 
 ![Authentification des applications monopages](./media/scenarios/spa-app-auth.svg)
 
-- [Flux implicite OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Le flux d’octroi implicite permet à l’application d’obtenir des jetons d’ **ID** et d’ **accès** . Contrairement au flux de code d’autorisation, le flux d’octroi implicite ne retourne pas de **jeton d’actualisation** .
+- [Flux implicite OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Le flux d’octroi implicite permet à l’application d’obtenir des jetons d’**ID** et d’**accès**. Contrairement au flux de code d’autorisation, le flux d’octroi implicite ne retourne pas de **jeton d’actualisation**.
 
 ![Flux implicite des applications monopages](./media/scenarios/spa-app.svg)
 
@@ -58,5 +58,4 @@ Afin d’activer ce scénario pour votre application, vous avez besoin des élé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Inscription d’application](scenario-spa-app-registration.md)
+Passez à l’article suivant de ce scénario, [Inscription d’application](scenario-spa-app-registration.md).

@@ -1,7 +1,7 @@
 ---
 title: Résoudre des erreurs de module concepteur
 titleSuffix: Azure Machine Learning
-description: Résoudre les codes d’erreur de modules dans le concepteur Azure Machine Learning
+description: Découvrez comment lire et dépanner les codes d’erreur de module automatisé dans le concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323767"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420833"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
 
@@ -23,7 +23,7 @@ Cet article décrit les messages d’erreur et les codes d’exception dans le c
 
 Vous pouvez trouver le message d’erreur dans le concepteur en procédant comme suit :  
 
-- Sélectionnez le module ayant échoué, accédez à l’onglet **Résultats + Journaux** , où vous trouverez le journal détaillé dans le fichier **70_driver_log.txt** sous la catégorie **azureml-logs**.
+- Sélectionnez le module ayant échoué, accédez à l’onglet **Résultats + Journaux**, où vous trouverez le journal détaillé dans le fichier **70_driver_log.txt** sous la catégorie **azureml-logs**.
 
 - Pour plus d’informations sur l’erreur du module, vous pouvez consulter error_info.json sous la catégorie **module_statistics**.
 
@@ -1106,7 +1106,7 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
  Vérifiez que la requête fonctionne correctement en dehors d’Azure ML en vous connectant directement au serveur de base de données et en exécutant la requête.  
 
  Si un message SQL est généré par l’exception du module, prenez les mesures en fonction de l’erreur signalée. Par exemple, les messages d’erreur contiennent parfois des indications spécifiques sur l’erreur probable :
-+ *Aucune colonne ou base de données manquante* , indiquant que vous avez peut-être tapé un nom de colonne incorrect. Si vous êtes sûr que le nom de la colonne est correct, essayez d’utiliser des crochets ou des guillemets pour inclure l’identificateur de colonne.
++ *Aucune colonne ou base de données manquante*, indiquant que vous avez peut-être tapé un nom de colonne incorrect. Si vous êtes sûr que le nom de la colonne est correct, essayez d’utiliser des crochets ou des guillemets pour inclure l’identificateur de colonne.
 + *Erreur logique SQL près de \<SQL keyword\>* , indiquant une erreur de syntaxe possible avant le mot-clé spécifié
 
   

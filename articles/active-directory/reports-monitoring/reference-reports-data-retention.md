@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308882"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393453"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Pendant combien de temps les données de rapport sont-elles conservées par Azure AD ?
 
@@ -51,12 +51,6 @@ Si vous avez déjà des données d'activités avec votre licence gratuite, vous 
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Puis-je voir les données du mois dernier après avoir obtenu une licence Azure AD Premium ?
-
-Si vous êtes récemment passé à une version Premium (y compris une version d’essai), vous pouvez voir les données jusqu’à 7 jours dans un premier temps. Lorsque les données s’accumulent, vous pouvez voir les données au cours des 30 derniers jours.
-
----
-
 ### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Quand Azure AD commence-t-il à collecter des données de signaux de sécurité ?  
 
 Pour les signaux de sécurité, le processus de collection démarre lorsque vous choisissez d’utiliser **Identity Protection Center**. 
@@ -81,5 +75,11 @@ Vous pouvez conserver les données d'activité d'audit et de connexion au-delà 
 | :--            | :--           | :--                 | :--                 |
 | Les utilisateurs à risque  | 7 jours        | 30 jours             | 90 jours             |
 | Connexions risquées | 7 jours        | 30 jours             | 90 jours             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Puis-je voir les données du mois dernier après avoir obtenu une licence Azure AD Premium ?
+
+**Non**, c’est impossible. Azure stocke jusqu’à sept jours de données d’activité pour une version gratuite. Cela signifie que, lorsque vous passez d’une version gratuite à une version Premium, vous ne pouvez voir que sept jours de données au maximum.
 
 ---

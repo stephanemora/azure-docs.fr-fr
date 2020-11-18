@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d876a8960bd18e990a5c964c699089b3973b4cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3942d4e7316c9617e1d2f61820cfa91b42d4b883
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755711"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625440"
 ---
 Ce guide fournit des instructions et un exemple de code pour vous aider à commencer à utiliser la bibliothèque de client Custom Vision pour Node.js afin de générer un modèle de classification d’images. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -25,7 +25,7 @@ Utilisez la bibliothèque de client Custom Vision pour .NET pour :
 * Publier l’itération actuelle
 * Tester le point de terminaison de prédiction
 
-Documentation de référence [(entraînement)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(prédiction)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Code source de la bibliothèque [(entraînement)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(prédiction)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Package (npm) [(entraînement)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(prédiction)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Exemples](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+Documentation de référence [(entraînement)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(prédiction)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Code source de la bibliothèque [(entraînement)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(prédiction)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Package (npm) [(entraînement)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(prédiction)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Exemples](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -77,7 +77,7 @@ Créez des variables pour le point de terminaison et les clés Azure de votre re
 > [!IMPORTANT]
 > Accédez au portail Azure. Si la ressource [nom du produit] que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
 >
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
 
 Ajoutez également des champs pour le nom de votre projet et un paramètre de délai d’attente pour les appels asynchrones.
 
@@ -88,9 +88,9 @@ Ajoutez également des champs pour le nom de votre projet et un paramètre de d�
 
 |Nom|Description|
 |---|---|
-|[TrainingAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | Cette classe gère la création, l’entraînement et la publication de vos modèles. |
-|[PredictionAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| Cette classe gère l’interrogation de vos modèles pour les prédictions de classification d’images.|
-|[Prédiction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction?view=azure-node-latest)| Cette interface définit une prédiction unique sur une seule image. Elle comprend des propriétés pour l’ID et le nom de l’objet ainsi qu’un score de confiance.|
+|[TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | Cette classe gère la création, l’entraînement et la publication de vos modèles. |
+|[PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| Cette classe gère l’interrogation de vos modèles pour les prédictions de classification d’images.|
+|[Prédiction](/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction?view=azure-node-latest)| Cette interface définit une prédiction unique sur une seule image. Elle comprend des propriétés pour l’ID et le nom de l’objet ainsi qu’un score de confiance.|
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -106,7 +106,7 @@ Ces extraits de code vous montrent comment effectuer les tâches suivantes avec 
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Instanciez les objets clients avec le point de terminaison et la clé. Créez un objet **ApiKeyCredentials** avec votre clé et utilisez-le avec votre point de terminaison pour créer un objet [TrainingAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) et un objet [PredictionAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest).
+Instanciez les objets clients avec le point de terminaison et la clé. Créez un objet **ApiKeyCredentials** avec votre clé et utilisez-le avec votre point de terminaison pour créer un objet [TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) et un objet [PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest).
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_auth)]
 
@@ -198,5 +198,5 @@ Vous savez maintenant comment effectuer la détection d’objet dans le code. Ce
 
 * Qu’est-ce que Custom Vision ?
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js).
-* [Documentation de référence du SDK (entraînement)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
-* [Documentation de référence du SDK (prédiction)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)
+* [Documentation de référence du SDK (entraînement)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [Documentation de référence du SDK (prédiction)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

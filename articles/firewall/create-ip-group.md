@@ -7,28 +7,29 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53b35351108717c7b597e052a66e9902be5ec6c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85602531"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394524"
 ---
 # <a name="create-ip-groups"></a>Créer des groupes IP
 
 Les groupes IP vous permettent de regrouper et de gérer des adresses IP pour les règles de Pare-feu Azure. Ils peuvent avoir une seule adresse IP, plusieurs adresses IP ou une ou plusieurs plages d’adresses IP.
 
-## <a name="create-an-ip-group"></a>Créer un groupe IP
+## <a name="create-an-ip-group---azure-portal"></a>Créer un groupe IP – Portail Azure
 
-1. Dans la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
-2. Saisissez **IP Groups** (Groupes IP) dans la zone de recherche, puis sélectionnez **IP Groups** (Groupes IP).
-3. Sélectionnez **Create** (Créer).
-4. Sélectionnez votre abonnement.
-5. Sélectionnez un groupe de ressources ou créez-en un.
-6. Saisissez un nom unique pour votre groupe d’adresses IP, puis sélectionnez une région.
+Pour créer un groupe IP à l’aide du portail Azure :
 
-6. Sélectionnez **Suivant : adresses IP**.
-7. Saisissez une adresse IP, plusieurs adresses IP ou des plages d’adresses IP.
+1. Sur la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
+1. Dans la zone de recherche, entrez **Groupes IP** puis sélectionnez **Groupes IP**.
+1. Sélectionnez **Create** (Créer).
+1. Sélectionnez votre abonnement.
+1. Sélectionnez un groupe de ressources ou créez-en un.
+1. Entrez un nom unique pour votre groupe IP, puis sélectionnez une région.
+1. Sélectionnez **Suivant : adresses IP**.
+1. Saisissez une adresse IP, plusieurs adresses IP ou des plages d’adresses IP.
 
    Il existe deux façons d’entrer des adresses IP :
    - Vous pouvez les entrer manuellement
@@ -38,9 +39,35 @@ Les groupes IP vous permettent de regrouper et de gérer des adresses IP pour 
 
    Lorsque vous saisissez une adresse IP, le portail la valide pour vérifier les problèmes de chevauchement, de doublons et de mise en forme.
 
-5. Quand vous avez terminé, sélectionnez **Review + Create** (Vérifier + créer).
-6. Sélectionnez **Create** (Créer).
+1. Quand vous avez terminé, sélectionnez **Review + Create** (Vérifier + créer).
+1. Sélectionnez **Create** (Créer).
 
+## <a name="create-an-ip-group---azure-powershell"></a>Créer un groupe IP – Azure PowerShell
+
+Cet exemple crée un groupe IP avec un préfixe d’adresse et une adresse IP à l’aide d’Azure PowerShell :
+
+```azurepowershell
+$ipGroup = @{
+    Name              = 'ipGroup'
+    ResourceGroupName = 'ipGroupRG'
+    Location          = 'West US'
+    IpAddress         = @('10.0.0.0/24', '192.168.1.10') 
+}
+
+New-AzIpGroup @ipGroup
+```
+
+## <a name="create-an-ip-group---azure-cli"></a>Créer un groupe IP – Azure CLI
+
+Cet exemple crée un groupe IP avec un préfixe d’adresse et une adresse IP à l’aide d’Azure CLI :
+
+```azurecli-interactive
+az network ip-group create \
+    --name ipGroup \ 
+    --resource-group ipGroupRG \
+    --location westus \
+    --ip-addresses '10.0.0.0/24' '192.168.1.10'
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043225"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505884"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -135,7 +135,7 @@ Spécifie le référentiel ou le fournisseur à utiliser pour le stockage de cl�
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Le runtime d’Azure Functions utilise cette chaîne de connexion de compte de stockage pour toutes les fonctions à l’exception de celles qui sont déclenchées par HTTP. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Consultez les sections [Compte de stockage](functions-infrastructure-as-code.md#storage-account) et [Conditions requises pour le compte de stockage](storage-considerations.md#storage-account-requirements).
+Le runtime Azure Functions utilise cette chaîne de connexion de compte de stockage pour fonctionner normalement. Ce compte de stockage est notamment utilisé pour la gestion des clés, la gestion des déclencheurs de minuterie et les points de contrôle Event Hubs. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Consultez les sections [Compte de stockage](functions-infrastructure-as-code.md#storage-account) et [Conditions requises pour le compte de stockage](storage-considerations.md#storage-account-requirements).
 
 |Clé|Exemple de valeur|
 |---|------------|

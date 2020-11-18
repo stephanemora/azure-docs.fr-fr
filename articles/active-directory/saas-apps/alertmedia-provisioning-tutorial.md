@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358966"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578601"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Tutoriel : Configurer AlertMedia pour le provisionnement automatique d’utilisateurs
 
@@ -55,7 +55,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 2. Cliquez sur **Ajouter nouveau**.
 3. Choisissez d’attribuer à votre **intégration d’API** un nom pour vous aider à identifier facilement l’emplacement où les clés sont utilisées.
 4. Sélectionnez l’administrateur que vous souhaitez associer à l’intégration.
-5. Cliquez sur le bouton **Générer des clés** , puis sur **Enregistrer**.
+5. Cliquez sur le bouton **Générer des clés**, puis sur **Enregistrer**.
 6. Copiez et enregistrez le **Jeton client** à partir de votre intégration. Cette valeur sert de **Jeton secret** dans l’onglet Provisionnement de votre application AlertMedia sur le portail Azure.
 
 
@@ -78,7 +78,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-alertmedia-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour AlertMedia dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -94,24 +94,24 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez l’ **URL de votre locataire** AlertMedia comme suit.
-      * (pas de domaine personnalisé) https://dashboard.alertmedia.com/api/scim/v3
+5. Dans la section **Informations d’identification de l’administrateur**, entrez l’**URL de votre locataire** AlertMedia comme suit.
+      * (pas de domaine personnalisé) `https://dashboard.alertmedia.com/api/scim/v3`
 
-      * (domaine personnalisé) https://subdomain.alertmedia.com/api/scim/v3
+      * (domaine personnalisé) `https://subdomain.alertmedia.com/api/scim/v3`
 
       Saisissez le **Jeton secret** récupéré à l’étape 2. Cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à AlertMedia. Si la connexion échoue, vérifiez que votre compte AlertMedia dispose des autorisations d’administrateur et réessayez.
 
       ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Airstack**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Airstack**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et AlertMedia. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans AlertMedia pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), vous devez vérifier que l’API AlertMedia prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et AlertMedia. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans AlertMedia pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), vous devez vérifier que l’API AlertMedia prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -143,7 +143,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:customer_user_id|String|
    |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:user_type|String|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec AlertMedia**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec AlertMedia**.
 
 11. Passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et AlertMedia dans la section **Mappage d’attributs**. Les attributs sélectionnés comme propriétés de **correspondance** sont utilisés afin de faire correspondre les groupes dans AlertMedia pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 

@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319834"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491815"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -44,8 +44,8 @@ Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de
 Un conteneur Cosmos (ou une base de données à débit partagé) doit avoir un débit minimum de 400 RU/s. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :
 
 * Le débit maximal provisionné jusqu’ici sur le conteneur. Par exemple, si votre débit a été porté à 50 000 RU/s, le plus petit débit approvisionné possible serait de 500 RU/s.
-* Stockage actuel en Go dans le conteneur. Par exemple, si votre conteneur a 100 Go de stockage, le plus petit débit approvisionné possible est de 1 000 RU/s.
-* Le débit minimal sur une base de données de débit partagé dépend également du nombre total de conteneurs que vous avez créés dans une base de données de débit partagé, mesuré à 100 RU/s par conteneur. Par exemple, si vous avez créé cinq conteneurs au sein d’une base de données de débit partagé, le débit doit être au moins de 500 RU/s.
+* Stockage actuel en Go dans le conteneur. Par exemple, si votre conteneur a 100 Go de stockage, le plus petit débit approvisionné possible est de 1 000 RU/s. **Remarque :** Si votre conteneur ou votre base de données contient plus de 1 To de données, votre compte peut être éligible à notre [programme « Stockage étendu/débit faible »](set-throughput.md#high-storage-low-throughput-program).
+* Le débit minimal sur une base de données de débit partagé dépend également du nombre total de conteneurs que vous avez créés dans une base de données de débit partagé, mesuré à 100 RU/s par conteneur. Par exemple, si vous avez créé 5 conteneurs au sein d’une base de données à débit partagé, le débit doit être au moins de 500 RU/s.
 
 Les débits actuel et minimal d’un conteneur ou d’une base de données peuvent être récupérés à partir du portail Azure ou des SDK. Pour plus d’informations, consultez [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md). 
 

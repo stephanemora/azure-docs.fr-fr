@@ -1,7 +1,7 @@
 ---
 title: Optimiser les hyperparamètres du modèle
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Optimiser les hyperparamètres de modèle dans Azure Machine Learning pour effectuer un balayage de paramètre sur un modèle afin de déterminer les réglages de paramètres optimaux.
+description: Utilisez le module Optimiser les hyperparamètres du modèle du concepteur pour effectuer un balayage des paramètres et régler les hyperparamètres.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2bbf75ba5de4ad20e11261bdcfd1204b1a0b0766
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940207"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420629"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
@@ -142,7 +142,7 @@ Toutefois, pendant l’entraînement, vous devez choisir une *seule* métrique �
 
 -   **Erreur quadratique relative** : normalise l’erreur quadratique totale en la divisant par l’erreur quadratique totale des valeurs prédites.  
 
--   **Coefficient de détermination** : nombre unique qui indique la conformité des données à un modèle. La valeur 1 signifie que le modèle correspond exactement aux données. La valeur 0 signifie que les données sont aléatoires ou qu’elles ne peuvent pas être représentées par le modèle. Il est souvent appelé *r<sup>2</sup>* , *R<sup>2</sup>* ou *R carré*.  
+-   **Coefficient de détermination** : nombre unique qui indique la conformité des données à un modèle. La valeur 1 signifie que le modèle correspond exactement aux données. La valeur 0 signifie que les données sont aléatoires ou qu’elles ne peuvent pas être représentées par le modèle. Il est souvent appelé *r <sup>2</sup>* , *R <sup>2</sup>* ou *R carré*.  
 
 ### <a name="modules-that-dont-support-a-parameter-sweep"></a>Modules qui ne prennent pas en charge un balayage de paramètres
 

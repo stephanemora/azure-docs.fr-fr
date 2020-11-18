@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287599"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445130"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -79,7 +79,7 @@ Pour obtenir des didacticiels sur la façon de s’authentifier auprès de Key V
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gérer des clés, certificats et secrets
 
-L’accès aux clés, secrets et certificats est contrôlé par le plan de données. Le contrôle d’accès du plan de données peut être effectué à l’aide de stratégies d’accès au coffre local ou du contrôle d’accès en fonction du rôle (RBAC) (préversion).
+L’accès aux clés, secrets et certificats est contrôlé par le plan de données. Le contrôle d’accès du plan de données peut être effectué à l’aide de stratégies d’accès au coffre local ou d’Azure RBAC (préversion).
 
 **API et SDK de clés**
 
@@ -104,7 +104,7 @@ L’accès aux clés, secrets et certificats est contrôlé par le plan de donn�
 
 Consultez les [bibliothèques clientes](client-libraries.md) pour obtenir les packages d’installation et le code source.
 
-Pour plus d’informations sur la sécurité du plan de données Key Vault, consultez [Plan de données et stratégies d’accès Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) et [Plan de données et RBAC (préversion) Key Vault](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+Pour plus d’informations sur la sécurité du plan de données Key Vault, consultez [Plan de données et stratégies d’accès de Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) et [Plan de données et Azure RBAC (préversion) de Key Vault](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview).
 
 ### <a name="code-examples"></a>Exemples de code
 

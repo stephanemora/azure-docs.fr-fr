@@ -4,14 +4,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: mathoma
+ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: ad6e444f9672fbe521e9c6963649d250830154d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84032670"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593946"
 ---
 Dans cette étape, vous créez un [serveur SQL logique](../database/logical-servers.md) et une [base de données unique](../database/single-database-overview.md) qui utilise des exemples de données AdventureWorksLT. Vous pouvez créer la base de données à l’aide des menus et écrans du portail Azure, ou à l’aide d’un script Azure CLI ou PowerShell dans Azure Cloud Shell.
 
@@ -149,11 +149,11 @@ Le code précédent utilise ces commandes Azure CLI :
 
 | Commande | Description |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Définit un abonnement en tant qu’abonnement actif. |
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Définit un abonnement en tant qu’abonnement actif. |
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur qui héberge des bases de données et des pools élastiques. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Crée une règle de pare-feu de niveau serveur. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Crée une base de données. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Crée une base de données. |
 
 Pour obtenir plus d’exemples Azure CLI Azure SQL Database, consultez [Exemples d’interface de ligne de commande Azure](../database/az-cli-script-samples-content-guide.md).
 

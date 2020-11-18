@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629338"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423043"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL - Serveur unique
 
@@ -21,9 +21,14 @@ Cette vue d’ensemble décrit les fonctionnalités de continuité d’activité
 
 Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption, c’est-à-dire votre objectif de délai de récupération (RTO). Vous devez aussi comprendre la quantité maximale des récentes mises à jour de données (intervalle) que l’application peut accepter de perdre lors de la reprise après l’événement d’interruption, c’est-à-dire votre objectif de point de récupération (RPO).
 
-Azure Database pour PostgreSQL propose des fonctionnalités de continuité d’activité, notamment des sauvegardes géoredondantes offrant la possibilité de lancer une géorestauration et le déploiement de réplicas en lecture dans une autre région. Chacune de ces fonctionnalités présente des caractéristiques spécifiques concernant le temps de récupération et le risque de perte de données. Avec la fonctionnalité de [Géorestauration](concepts-backup.md), un nouveau serveur est créé à l’aide des données de sauvegarde répliquées à partir d’une autre région. Le temps total nécessaire à la restauration et à la récupération dépend de la taille de la base de données et de la quantité de journaux à récupérer. La durée totale d’établissement du serveur varie entre quelques minutes et quelques heures. Avec les [réplicas en lecture](concepts-read-replicas.md), les journaux des transactions du serveur principal sont diffusés de façon asynchrone vers le réplica. Le décalage entre le serveur principal et le réplica dépend de la latence entre les sites et de la quantité de données à transmettre. En cas de défaillance du site principal, par exemple d’une zone de disponibilité, le fait de promouvoir le réplica offre un RTO plus court et une perte de données réduite. 
+Azure Database pour PostgreSQL propose des fonctionnalités de continuité d’activité, notamment des sauvegardes géoredondantes offrant la possibilité de lancer une géorestauration et le déploiement de réplicas en lecture dans une autre région. Chacune de ces fonctionnalités présente des caractéristiques spécifiques concernant le temps de récupération et le risque de perte de données. Avec la fonctionnalité de [Géorestauration](concepts-backup.md), un nouveau serveur est créé à l’aide des données de sauvegarde répliquées à partir d’une autre région. Le temps total nécessaire à la restauration et à la récupération dépend de la taille de la base de données et de la quantité de journaux à récupérer. La durée totale d’établissement du serveur varie entre quelques minutes et quelques heures. Avec les [réplicas en lecture](concepts-read-replicas.md), les journaux des transactions du serveur principal sont diffusés de façon asynchrone vers le réplica. En cas de panne de la base de données primaire en raison d’une défaillance au niveau de la zone ou de la région, le basculement vers le réplica permet de raccourcir le RTO et de réduire les pertes de données.
 
-Le tableau suivant compare le RTO et le RPO dans un scénario classique :
+> [!NOTE]
+> Le décalage entre le serveur principal et le réplica dépend de la latence entre les sites, de la quantité de données à transmettre et, plus important, de la charge de travail d’écriture du serveur principal. Des charges de travail d’écriture intensives peuvent entraîner un décalage significatif. 
+>
+> En raison de la nature asynchrone de la réplication utilisée pour les réplicas en lecture, ils **ne doivent pas** être considérés comme une solution à haute disponibilité (HA), car des décalages plus importants peuvent signifier des RTO et RPO plus élevés. Les réplicas en lecture ne peuvent être considérés comme une solution de haute disponibilité que pour les charges de travail pour lesquelles le décalage reste plus faible pendant les périodes de pointe et les périodes creuses de la charge de travail. Dans le cas contraire, les réplicas en lecture sont destinés à une véritable échelle de lecture pour les charges de travail intensives prêtes et pour les scénarios de récupération d’urgence.
+
+Le tableau suivant compare le RTO et le RPO dans un scénario de **charge de travail classique** :
 
 | **Fonctionnalité** | **De base** | **Usage général** | **Mémoire optimisée** |
 | :------------: | :-------: | :-----------------: | :------------------: |
@@ -31,7 +36,7 @@ Le tableau suivant compare le RTO et le RPO dans un scénario classique :
 | Géo-restauration à partir de sauvegardes répliquées géographiquement | Non pris en charge | RTO – Variable <br/>RPO < 1 h | RTO – Variable <br/>RPO < 1 h |
 | Réplicas en lecture | RTO – Quelques minutes* <br/>RPO < 5 min* | RTO – Quelques minutes* <br/>RPO < 5 min*| RTO – Quelques minutes* <br/>RPO < 5 min*|
 
-\* Le RTO et le RPO peuvent être beaucoup plus élevés dans certains cas, en fonction de différents facteurs, dont la charge de travail de la base de données primaire et la latence entre les régions. 
+ \* Le RTO et le RPO **peuvent être beaucoup plus élevés** dans certains cas en fonction de différents facteurs, notamment la latence entre les sites, la quantité de données à transmettre et, surtout, la charge de travail d’écriture de la base de données primaire. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Récupérer un serveur après une erreur d’utilisateur ou d’application
 
@@ -56,7 +61,7 @@ La fonctionnalité de géorestauration permet de restaurer le serveur à l’aid
 > La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes. Si vous souhaitez basculer des sauvegardes redondantes localement aux sauvegardes géoredondantes pour un serveur existant, vous devez effectuer une copie de sauvegarde de votre serveur existant en utilisant pg_dump et la restaurer vers un serveur nouvellement créé configuré avec des sauvegardes géoredondantes.
 
 ## <a name="cross-region-read-replicas"></a>Réplicas en lecture inter-régions
-Vous pouvez utiliser des réplicas en lecture inter-régions pour améliorer la planification de la continuité d’activité et de la reprise d’activité. Les réplicas en lecture sont mis à jour de manière asynchrone à l’aide de la technologie de réplication physique de PostgreSQL. Pour plus d’informations sur les réplicas en lecture, les régions disponibles et le basculement, consultez cet [article sur les concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
+Vous pouvez utiliser des réplicas en lecture inter-régions pour améliorer la planification de la continuité d’activité et de la reprise d’activité. Les réplicas en lecture sont mis à jour de manière asynchrone à l’aide de la technologie de réplication physique de PostgreSQL et peuvent présenter un décalage avec le serveur principal. Pour plus d’informations sur les réplicas en lecture, les régions disponibles et le basculement, consultez cet [article sur les concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Où Azure Database pour PostgreSQL stocke-t-il les données client ?

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543523"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578703"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Cache pour Redis avec une capacité de réserve
 
@@ -37,9 +37,11 @@ Supposons, par exemple, que vous exécutiez deux caches, l’un à 13 Go et l�
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Acheter une capacité réservée Azure Cache pour Redis
 
+Vous pouvez acheter une instance de machine virtuelle réservée dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Payez la réservation [à l’avance ou par paiements mensuels](../cost-management-billing/reservations/monthly-payments-reservations.md).
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Tous les services** > **Réservations** .
-3. Sélectionnez **Ajouter** , puis dans le volet Acheter des réservations, sélectionnez **Azure Cache pour Redis** pour acheter une nouvelle réservation pour vos caches.
+2. Sélectionnez **Tous les services** > **Réservations**.
+3. Sélectionnez **Ajouter**, puis dans le volet Acheter des réservations, sélectionnez **Azure Cache pour Redis** pour acheter une nouvelle réservation pour vos caches.
 4. Renseignez les champs obligatoires. Les bases de données existantes ou nouvelles, correspondant aux attributs que vous sélectionnez, peuvent prétendre à la remise de capacité réservée. Le nombre d’instances Azure Cache pour Redis qui obtiendront la remise dépend de l’étendue et de la quantité sélectionnées.
 
 
@@ -51,7 +53,7 @@ Le tableau suivant décrit les champs requis.
 | Champ | Description |
 | :------------ | :------- |
 | Abonnement   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Cache pour Redis. Les coûts initiaux de la réservation de capacité réservée Azure Cache pour Redis sont facturés selon le mode de paiement défini dans l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
-| Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : </br></br> **Partagé**  : la remise de réservation est appliquée aux instances Azure Cache pour Redis en cours d’exécution, dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</br></br> **Abonnement unique**  : la remise de réservation est appliquée aux instances Azure Cache pour Redis incluses dans l’abonnement. </br></br> **Groupe de ressources unique**  : la remise de réservation est appliquée aux instances Azure Cache pour Redis incluses dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.
+| Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : </br></br> **Partagé** : la remise de réservation est appliquée aux instances Azure Cache pour Redis en cours d’exécution, dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</br></br> **Abonnement unique** : la remise de réservation est appliquée aux instances Azure Cache pour Redis incluses dans l’abonnement. </br></br> **Groupe de ressources unique** : la remise de réservation est appliquée aux instances Azure Cache pour Redis incluses dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.
 | Région | La région Azure couverte par la réservation de capacité réservée Azure Cache pour Redis.
 | Niveau tarifaire | Le niveau de service des serveurs Azure Cache pour Redis.
 | Terme | Un an ou trois ans

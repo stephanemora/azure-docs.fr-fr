@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320704"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357944"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 
@@ -26,7 +26,8 @@ Découvrez comment changer les clés d’accès des comptes Stockage Azure utili
 Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’accès d’un compte Stockage Azure. Lorsque vous régénérez la clé d’accès, Azure Machine Learning doit être mis à jour pour utiliser la nouvelle clé. Azure Machine Learning peut utiliser le compte de stockage à la fois pour le stockage des modèles et comme banque de données.
 
 > [!IMPORTANT]
-> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure Key Vault associé à l’espace de travail. Si la [suppression réversible ](../key-vault/general/soft-delete-overview.md) est activée pour votre coffre de clés, lisez cet article pour la mise à jour des informations d’identification. L’annulation de l’inscription du magasin de données et sa réinscription sous le même nom échouent.
+
+> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure associé à l’espace de travail. Si la [suppression réversible](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) est activée pour votre coffre de clés, cet article fournit des instructions pour la mise à jour des informations d’identification. Si vous désinscrivez le magasin de données et essayez de le réinscrire sous le même nom, l’action échoue. Consultez [Activer la suppression réversible pour un coffre de clés existant]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) pour savoir comment activer la suppression réversible dans ce scénario.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -110,7 +111,7 @@ Pour mettre à jour Azure Machine Learning afin d’utiliser la nouvelle clé, e
         Cette commande synchronise automatiquement les nouvelles clés du compte de stockage Azure utilisé par l’espace de travail.
 
 1. Vous pouvez réenregistrer les magasins de données qui utilisent le compte de stockage via le kit de développement logiciel (SDK) ou [le studio Azure Machine Learning](https://ml.azure.com).
-    1. **Pour réinscrire les magasins de données via le kit de développement logiciel (SDK) Python** , utilisez les valeurs de la section [Éléments à mettre à jour](#whattoupdate) et la clé de l’étape 1 avec le code suivant. 
+    1. **Pour réinscrire les magasins de données via le kit de développement logiciel (SDK) Python**, utilisez les valeurs de la section [Éléments à mettre à jour](#whattoupdate) et la clé de l’étape 1 avec le code suivant. 
     
         Puisque `overwrite=True` est spécifié, ce code écrase l’inscription existante et la met à jour pour utiliser la nouvelle clé.
     
@@ -132,12 +133,12 @@ Pour mettre à jour Azure Machine Learning afin d’utiliser la nouvelle clé, e
         
         ```
     
-    1. **Pour réenregistrer les magasins de données via le studio** , sélectionnez **Magasins de données** dans le volet gauche du studio. 
+    1. **Pour réenregistrer les magasins de données via le studio**, sélectionnez **Magasins de données** dans le volet gauche du studio. 
         1. Sélectionnez le magasin de données à mettre à jour.
         1. Sélectionnez le bouton **Mettre à jour les informations d’identification** en haut à gauche. 
         1. Utilisez votre nouvelle clé d’accès de l’étape 1 pour remplir le formulaire et cliquez sur **Enregistrer**.
         
-            Si vous mettez à jour les informations d’identification de votre **magasin de données par défaut** , effectuez cette étape et répétez l’étape 2b pour resynchroniser votre nouvelle clé avec le magasin de données par défaut de l’espace de travail. 
+            Si vous mettez à jour les informations d’identification de votre **magasin de données par défaut**, effectuez cette étape et répétez l’étape 2b pour resynchroniser votre nouvelle clé avec le magasin de données par défaut de l’espace de travail. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

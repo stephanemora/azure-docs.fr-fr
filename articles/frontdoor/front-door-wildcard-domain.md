@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18504f1ed4200889b20c9608c9c0ad2c13c9aaa5
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570332"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425760"
 ---
 # <a name="wildcard-domains"></a>Domaines génériques
 
@@ -27,7 +27,7 @@ Les scénarios améliorés avec la prise en charge des domaines génériques com
 - Vous n’avez plus besoin de changer votre configuration Front Door de production si une application ajoute un nouveau sous-domaine. Auparavant, vous deviez ajouter le sous-domaine, lui lier un certificat, attacher une stratégie de pare-feu d’applications web (WAF), puis ajouter le domaine à différentes règles de routage.
 
 > [!NOTE]
-> Actuellement, les domaines génériques sont pris en charge uniquement via l’API, PowerShell et Azure CLI. La prise en charge de l’ajout et de la gestion des domaines génériques dans le portail Azure n’est pas disponible.
+> Actuellement, l’ajout de domaines de caractères génériques dans Azure DNS n’est pris en charge que via l’API, PowerShell et Azure CLI. La prise en charge de l’ajout et de la gestion des domaines génériques dans le portail Azure n’est pas disponible.
 
 ## <a name="adding-wildcard-domains"></a>Ajout de domaines génériques
 

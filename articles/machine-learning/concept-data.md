@@ -1,7 +1,7 @@
 ---
 title: Sécuriser l’accès aux données dans le cloud
 titleSuffix: Azure Machine Learning
-description: Apprenez à vous connecter en toute sécurité à vos données à partir d’Azure Machine Learning et à utiliser des jeux de données et des magasins de données pour les tâches de ML. Les magasins de données peuvent stocker des données provenant d’un Blob Azure, d’Azure Data Lake Gen 1 et 2, d’une base de données SQL et d’Azure Databricks.
+description: Apprenez à vous connecter en toute sécurité à votre stockage de données sur Azure à l’aide de magasins de données et jeux de données Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322237"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360171"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36540de8924a1433f16f942d9aedc059efae05de
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348676"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360783"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
@@ -18,6 +18,9 @@ Vous pouvez utiliser Update Management dans Azure Automation pour gérer les mis
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser de machine configurée avec Update Management pour exécuter des scripts personnalisés à partir d’Azure Automation. Cette machine ne peut exécuter que le script de mise à jour signé par Microsoft.
+
+> [!NOTE]
+> À ce stade, l’activation d’Update Management directement à partir d’un serveur Azure Arc n’est pas prise en charge. Pour connaître les conditions requises et la façon de l’activer pour votre serveur, consultez [Activer Update Management à partir de votre compte Automation](../../automation/update-management/enable-from-automation-account.md).
 
 Pour télécharger et installer automatiquement des correctifs *critiques* et *de sécurité* sur votre machine virtuelle Azure, consultez [Mise à jour corrective automatique de l’invité de machine virtuelle](../../virtual-machines/windows/automatic-vm-guest-patching.md) pour les machines virtuelles Windows.
 

@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur le module d’extraction des caractéristiques de N-grammes du texte
 titleSuffix: Azure Machine Learning
-description: Découvrez comment caractériser des données texte à l’aide du module d’extraction des caractéristiques de N-grammes du texte dans Azure Machine Learning.
+description: Découvrez comment caractériser des données texte à l’aide du module d’extraction des caractéristiques de N-grammes du texte dans le concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907976"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420799"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informations de référence sur le module d’extraction des caractéristiques de N-grammes du texte
 

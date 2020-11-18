@@ -1,7 +1,7 @@
 ---
 title: Utiliser AutoML pour créer des modèles et les déployer
 titleSuffix: Azure Machine Learning
-description: Créez, examinez et déployez des modèles de machine learning automatisé avec Azure Machine Learning.
+description: Créer, examiner et déployer des modèles Machine Learning automatisé à l’aide d’Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, automl
+ms.openlocfilehash: 0c697e6332b757e1d135a77b70f33a6e32528309
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311282"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358896"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 
@@ -60,13 +60,13 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
     >* Les données doivent être sous forme tabulaire.
     >* La valeur que vous souhaitez prédire (colonne cible) doit être présente dans les données.
 
-    1. Pour créer un jeu de données à partir d’un fichier sur votre ordinateur local, sélectionnez **+Créer un jeu de données** , puis sélectionnez **À partir d’un fichier local**. 
+    1. Pour créer un jeu de données à partir d’un fichier sur votre ordinateur local, sélectionnez **+Créer un jeu de données**, puis sélectionnez **À partir d’un fichier local**. 
 
-    1. Dans le formulaire **Informations de base** , donnez un nom unique à votre jeu de données et indiquez éventuellement une description. 
+    1. Dans le formulaire **Informations de base**, donnez un nom unique à votre jeu de données et indiquez éventuellement une description. 
 
     1. Sélectionnez **Suivant** pour ouvrir le **formulaire Sélection d’un magasin de données et de fichiers**. Sur ce formulaire, vous sélectionnez l’emplacement où charger votre jeu de données : choisissez le conteneur de stockage par défaut qui est automatiquement créé avec votre espace de travail ou un conteneur de stockage que vous voulez utiliser pour l’expérience. 
     
-        1. Si vos données se trouvent derrière un réseau virtuel, vous devez activer la fonction permettant d’ **ignorer la validation** pour vous assurer que l’espace de travail peut accéder à vos données. Pour plus d’informations, consultez [Utiliser Azure Machine Learning Studio dans un réseau virtuel Azure](how-to-enable-studio-virtual-network.md). 
+        1. Si vos données se trouvent derrière un réseau virtuel, vous devez activer la fonction permettant d’**ignorer la validation** pour vous assurer que l’espace de travail peut accéder à vos données. Pour plus d’informations, consultez [Utiliser Azure Machine Learning Studio dans un réseau virtuel Azure](how-to-enable-studio-virtual-network.md). 
     
     1. Sélectionnez **Parcourir** pour charger le fichier de données de votre jeu de données. 
 
@@ -91,7 +91,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
         Sélectionnez **Suivant**.
 1. Sélectionnez votre jeu de données récemment créé une fois qu’il apparaît. Vous pouvez également afficher un aperçu du jeu de données et des exemples de statistiques. 
 
-1. Dans le formulaire **Configurer l’exécution** , entrez un nom d’expérience unique.
+1. Dans le formulaire **Configurer l’exécution**, entrez un nom d’expérience unique.
 
 1. Sélectionnez une colonne cible ; il s’agit de la colonne sur laquelle vous voulez effectuer des prédictions.
 
@@ -115,20 +115,20 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
 
     Sélectionnez **Suivant**.
 
-1. Dans le formulaire **Type de tâche et paramètres** , sélectionnez le type de tâche : classification, régression ou prévision. Pour plus d’informations, consultez [Types de tâches pris en charge](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
+1. Dans le formulaire **Type de tâche et paramètres**, sélectionnez le type de tâche : classification, régression ou prévision. Pour plus d’informations, consultez [Types de tâches pris en charge](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
-    1. Pour la **classification** , vous pouvez également activer le deep learning.
+    1. Pour la **classification**, vous pouvez également activer le deep learning.
     
         Si le deep learning est activé, la validation est limitée à la _division train_validation_. [Découvrez-en plus sur les options de validation](how-to-configure-cross-validation-data-splits.md).
 
 
-    1. Pour les **prévisions**  : 
+    1. Pour les **prévisions** : 
     
         1. Activez le deep learning.
     
-        1. Sélectionnez la *colonne d'heure*  : cette colonne contient les données d'heure à utiliser.
+        1. Sélectionnez la *colonne d'heure* : cette colonne contient les données d'heure à utiliser.
 
-        1. Sélectionnez l' *horizon de prévision*  : Indiquez le nombre d’unités de temps (minutes/heures/jours/semaines/mois/années) que le modèle sera en mesure de prédire. Plus le modèle doit prédire dans un avenir lointain, moins il sera précis. [En savoir plus sur les prévisions et l'horizon de prévision](how-to-auto-train-forecast.md).
+        1. Sélectionnez l'*horizon de prévision* : Indiquez le nombre d’unités de temps (minutes/heures/jours/semaines/mois/années) que le modèle sera en mesure de prédire. Plus le modèle doit prédire dans un avenir lointain, moins il sera précis. [En savoir plus sur les prévisions et l'horizon de prévision](how-to-auto-train-forecast.md).
 
 1. (Facultatif) Voir des paramètres de configuration supplémentaires : paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler la tâche d’entraînement. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données. 
 
@@ -137,17 +137,17 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
     Métrique principale| Métrique principale utilisée pour évaluer votre modèle. [En savoir plus sur les métriques du modèle](how-to-configure-auto-train.md#primary-metric).
     Expliquer le meilleur modèle | Sélectionnez cette option pour activer ou désactiver l’affichage d’explications du meilleur modèle recommandé. <br> Cette fonctionnalité n’est actuellement pas disponible pour [certains algorithmes de prévision](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Algorithme bloqué| Sélectionnez les algorithmes que vous souhaitez exclure du travail de formation. <br><br> L’autorisation des algorithmes est disponible uniquement pour les [expériences SDK](how-to-configure-auto-train.md#supported-models). <br> Consultez les [modèles pris en charge pour chaque type de tâche](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
-    Critère de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Durée du travail de formation (heures)*  : Délai d'exécution du travail de formation. <br> *Seuil de score de métrique*  :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
+    Critère de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Durée du travail de formation (heures)*  : Délai d'exécution du travail de formation. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
     Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. <br> [En savoir plus sur la validation croisée](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Les prévisions prennent uniquement en charge la validation croisée k-fold.
-    Accès concurrentiel| *Nombre maximal d'itérations simultanées*  : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié.
+    Accès concurrentiel| *Nombre maximal d'itérations simultanées* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié.
 
-1. (Facultatif) Afficher les paramètres de caractérisation : si vous choisissez d’activer **Caractérisation automatique** dans le formulaire **Paramètres de configuration supplémentaires** formulaire, les techniques caractérisation par défaut sont appliquées. Dans **Afficher les paramètres de caractérisation** , vous pouvez modifier ces valeurs par défaut et les personnaliser en conséquence. Découvrez comment [personnaliser la caractérisation](#customize-featurization). 
+1. (Facultatif) Afficher les paramètres de caractérisation : si vous choisissez d’activer **Caractérisation automatique** dans le formulaire **Paramètres de configuration supplémentaires** formulaire, les techniques caractérisation par défaut sont appliquées. Dans **Afficher les paramètres de caractérisation**, vous pouvez modifier ces valeurs par défaut et les personnaliser en conséquence. Découvrez comment [personnaliser la caractérisation](#customize-featurization). 
 
     ![Capture d’écran représentant la boîte de dialogue Sélectionner le type de tâche dans laquelle l’option View featurization settings (Voir les paramètres de caractérisation) est affichée.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## <a name="customize-featurization"></a>Personnaliser la caractérisation
 
-Dans le formulaire **Caractérisation** , vous pouvez activer/désactiver la caractérisation automatique et personnaliser les paramètres correspondants pour votre expérience. Pour ouvrir ce formulaire, reportez-vous à l’étape 10 de la section [Créer et exécuter une expérience](#create-and-run-experiment). 
+Dans le formulaire **Caractérisation**, vous pouvez activer/désactiver la caractérisation automatique et personnaliser les paramètres correspondants pour votre expérience. Pour ouvrir ce formulaire, reportez-vous à l’étape 10 de la section [Créer et exécuter une expérience](#create-and-run-experiment). 
 
 Le tableau suivant récapitule les personnalisations actuellement disponibles via le studio. 
 

@@ -1,7 +1,7 @@
 ---
 title: Surveiller et consulter les journaux d’exécution et les métriques de Machine Learning
 titleSuffix: Azure Machine Learning
-description: Surveillez vos expériences Azure Machine Learning et consultez les métriques d'exécution pour améliorer le processus de création de modèle. Utilisez les widgets et le portail du studio pour explorer l’état d’exécution et consulter les enregistrements d’exécution.
+description: Surveillez vos expériences ML et consultez les métriques d’exécution avec les widgets Jupyter et Azure Machine Learning Studio.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316684"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360596"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Surveiller et consulter les journaux d’exécution et les métriques de Machine Learning
-
-
 
 Dans cet article, vous allez apprendre à surveiller les exécutions d’Azure Machine Learning et à en consulter les journaux. Avant de pouvoir afficher les journaux, vous devez les activer. Pour plus d’informations, consultez [Activer la journalisation dans les exécutions de formation d’Azure ML](how-to-track-experiments.md).
 
@@ -93,7 +91,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Afficher la sortie une fois l’opération terminée
 
-Quand vous utilisez **ScriptRunConfig** , vous pouvez employer ```run.wait_for_completion(show_output = True)``` pour indiquer quand l’entraînement du modèle est terminé. L’indicateur ```show_output``` vous donne une sortie détaillée. Pour plus d’informations, consultez la section ScriptRunConfig de [Procédure d’activation de la journalisation](how-to-track-experiments.md#scriptrun-logs).
+Quand vous utilisez **ScriptRunConfig**, vous pouvez employer ```run.wait_for_completion(show_output = True)``` pour indiquer quand l’entraînement du modèle est terminé. L’indicateur ```show_output``` vous donne une sortie détaillée. Pour plus d’informations, consultez la section ScriptRunConfig de [Procédure d’activation de la journalisation](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Interroger les métriques d’exécution

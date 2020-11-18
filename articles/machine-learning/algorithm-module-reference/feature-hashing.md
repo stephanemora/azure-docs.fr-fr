@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur le module de hachage des caractéristiques
 titleSuffix: Azure Machine Learning
-description: Découvrez comment caractériser des données texte à l’aide du module de hachage des caractéristiques dans Azure Machine Learning.
+description: Découvrez comment caractériser des données texte à l’aide du module de hachage des caractéristiques dans le concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323716"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420782"
 ---
 # <a name="feature-hashing-module-reference"></a>Informations de référence sur le module de hachage des caractéristiques
 
@@ -22,7 +22,7 @@ Cet article décrit un module inclus dans le concepteur Azure Machine Learning.
 
 Utilisez le module Feature Hashing (Hachage des caractéristiques) pour transformer un flux de texte anglais en un ensemble de caractéristiques numériques (entiers). Vous pouvez alors passer cet ensemble de caractéristiques hachées à un algorithme de machine learning pour entraîner un modèle d’analyse de texte.
 
-La fonctionnalité de hachage des caractéristiques fournie dans ce module se base sur le framework nimbusml. Pour plus d’informations, consultez [NgramHash (classe)](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+La fonctionnalité de hachage des caractéristiques fournie dans ce module se base sur le framework nimbusml. Pour plus d’informations, consultez [NgramHash (classe)](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## <a name="what-is-feature-hashing"></a>Qu’est-ce que le hachage des caractéristiques ?
 

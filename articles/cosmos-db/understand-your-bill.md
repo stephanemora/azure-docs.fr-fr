@@ -5,24 +5,24 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073823"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358709"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est un service de base de données natif Cloud entièrement géré qui simplifie la facturation en facturant uniquement vos opérations de base de données et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
 
-- **Opérations de base de données**  : la façon dont vous êtes facturé pour vos opérations de base de données dépend du type de compte Azure Cosmos que vous utilisez.
+- **Opérations de base de données** : la façon dont vous êtes facturé pour vos opérations de base de données dépend du type de compte Azure Cosmos que vous utilisez.
 
-  - **Débit approvisionné**  : vous êtes facturé à l’heure pour le débit maximal approvisionné pour une heure donnée, par incréments de 100 RU/s.
-  - **Serverless**  : vous êtes facturé à l’heure pour la quantité totale d’unités de requête consommées par vos opérations de base de données.
+  - **Débit approvisionné** : vous êtes facturé à l’heure pour le débit maximal approvisionné pour une heure donnée, par incréments de 100 RU/s.
+  - **Serverless** : vous êtes facturé à l’heure pour la quantité totale d’unités de requête consommées par vos opérations de base de données.
 
 - **Stockage** : un tarif fixe vous est facturé pour la quantité totale de stockage (exprimée en Go) que vos données et index ont utilisée pendant une heure donnée.
 
@@ -105,9 +105,9 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemple de facturation d’un débit partagé":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Exemples de facturation avec géoréplication et écritures multirégions  
+## <a name="billing-examples-with-geo-replication"></a>Exemples de facturation avec géoréplication  
 
-Vous pouvez ajouter des régions Azure à votre compte de base de données Azure Cosmos n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte de base de données Azure Cosmos (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée, pour votre compte de base de données Azure Cosmos, (a) configuré avec une seule région d’écriture est égal à T x N RU/s et (b) configuré avec toutes les régions capables de traiter les écritures est égal à T x (N + 1) RU/s, respectivement. Le débit provisionné (une seule région d’écriture) coûte 0,008 USD/heure pour 100 RU/s et le débit provisionné avec plusieurs régions accessibles en écriture (configuration d’écritures multirégions) coûte 0,016 USD/heure pour 100 RU/s (voir la [Page des tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
+Vous pouvez ajouter des régions Azure à votre compte de base de données Azure Cosmos n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte Azure Cosmos Database (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée et pour votre compte Azure Cosmos Database est égal à T x N RU/s. Le débit approvisionné (région d’écriture unique) coûte 0,008 $/heure par 100 RU/s et le débit approvisionné avec plusieurs régions accessibles en écriture (configuration d’écritures multirégions) coûte 0,016 $/par heure par 100 RU/s (voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemple de facturation : compte Azure Cosmos avec plusieurs régions et une seule région d’écriture
 

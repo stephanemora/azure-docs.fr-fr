@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521456"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395867"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -39,17 +39,18 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 | Asie Est | 4 | 16 | 4 | 16 | 50 | N/A |
 | USA Est | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | USA Est 2 | 4 | 16 | 4 | 16 | 50 | N/A |
+| France Centre | 4 | 16 | 4 | 16 | 50 | N/A |
 | Japon Est | 2 | 8 | 4 | 16 | 50 | N/A |
 | Centre de la Corée | 4 | 16 | N/A | N/A | 50 | N/A |
-| Centre-Nord des États-Unis | 2 | 3,5 | 4 | 16 | 50 | N/A |
+| Centre-Nord des États-Unis | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europe Nord | 4 | 16 | 4 | 16 | 50 | K80 |
 | États-Unis - partie centrale méridionale | 4 | 16 | 4 | 16 | 50 | N/A |
 | Asie Sud-Est | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Inde Sud | 4 | 16 | N/A | N/A | 50 | N/A |
 | Sud du Royaume-Uni | 4 | 16 | 4 | 16 | 50 | N/A |
-| Centre-USA Ouest| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Centre-USA Ouest| 4 | 16 | 4 | 16 | 50 | N/A |
 | Europe Ouest | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| USA Ouest | 4 | 16 | 2 | 4 | 16| N/A |
+| USA Ouest | 4 | 16 | 4 | 16 | 50 | N/A |
 | USA Ouest 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Les ressources maximales suivantes sont accessibles à un groupe de conteneurs déployé avec [Ressources GPU](container-instances-gpu.md) (préversion).
@@ -67,29 +68,63 @@ Les ressources maximales suivantes sont accessibles à un groupe de conteneurs d
 
 Les régions et les ressources maximales suivantes sont accessibles aux groupes de conteneurs Windows Server 2019 (préversion) avec les conteneurs Windows Server [pris en charge ou en préversion](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
-| Région | Processeur maximum Windows Server 2016 | Mémoire maximale de Windows Server 2016 (Go) | Processeur maximum Windows Server 2019 LTSC | Mémoire maximale de Windows Server 2019 LTSC (Go) | Stockage (Go) |
+###  <a name="windows-server-2016"></a>Windows Server 2016
+
+> [!NOTE]
+> Pour plus d’informations sur les hôtes 1B, 2B et 3B, consultez [Compatibilité des versions d’hôte et de conteneur](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+
+| Région | Utilisation maximale de l’UC pour 1B/2B | Mémoire maximale (Go) pour 1B/2B |Utilisation maximale de l’UC pour 3B | Mémoire maximale (Go) pour 3B | Stockage (Go) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australie Est | 2 | 3,5 | 4 | 16 | 20 |
+| Australie Est | 2 | 8 | 2 | 3,5 | 20 |
 | Brésil Sud | 4 | 16 | 4 | 16 | 20 |
-| Centre du Canada | 2 | 3,5 | 4 | 16 | 20 |
-| Inde centrale | 2 | 3,5 | 4 | 16 | 20 |
-| USA Centre | 2 | 3,5 | 4 | 16 | 20 |
-| Asie Est | 2 | 3,5 | 4 | 16 | 20 |
-| USA Est | 2 | 8 | 4 | 16 | 20 |
-| USA Est 2 | 2 | 3,5 | 2 | 3,5 | 20 |
-| France Centre | 4 | 16 | 4 | 16 | 20 |
+| Centre du Canada | 2 | 3,5 | 2 | 3,5 | 20 |
+| Inde centrale | 2 | 3,5 | 2 | 3,5 | 20 |
+| USA Centre | 2 | 3,5 | 2 | 3,5 | 20 |
+| Asie Est | 2 | 3,5 | 2 | 3,5 | 20 |
+| USA Est | 4 | 16 | 2 | 8 | 20 |
+| USA Est 2 | 2 | 3,5 | 4 | 16 | 20 |
 | Japon Est | 4 | 16 | 4 | 16 | 20 |
 | Centre de la Corée | 4 | 16 | 4 | 16 | 20 |
-| Centre-Nord des États-Unis | 2 | 3,5 | 4 | 16 | 20 |
-| Europe Nord | 2 | 3,5 | 4 | 16 | 20 |
-| États-Unis - partie centrale méridionale | 2 | 3,5 | 4 | 16 | 20 |
-| Inde Sud | 2 | 3,5 | 4 | 16 | 20 |
-| Asie Sud-Est | 2 | 3,5 | 4 | 16 | 20 |
-| Sud du Royaume-Uni | 2 | 3,5 | 4 | 16 | 20 |
+| Centre-Nord des États-Unis | 4 | 16 | 4 | 16 | 20 |
+| Europe Nord | 2 | 3,5 | 2 | 8 | 20 |
+| États-Unis - partie centrale méridionale | 2 | 3,5 | 2 | 3,5 | 20 |
+| Asie Sud-Est | N/A | N/A | 2 | 3,5 | 20 |
+| Inde Sud | 2 | 3,5 | 2 | 3,5 | 20 |
+| Sud du Royaume-Uni | 2 | 8 | 2 | 3,5 | 20 |
 | Centre-USA Ouest | 4 | 16 | 4 | 16 | 20 |
 | Europe Ouest | 4 | 16 | 4 | 16 | 20 |
-| USA Ouest | 4 | 14 | N/A | N/A | 20 |
+| USA Ouest | 4 | 16 | 2 | 8 | 20 |
 | USA Ouest 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+
+
+### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
+
+> [!NOTE]
+> Pour plus d’informations sur les hôtes 1B, 2B et 3B, consultez [Compatibilité des versions d’hôte et de conteneur](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+
+| Région | Utilisation maximale de l’UC pour 1B/2B | Mémoire maximale (Go) pour 1B/2B |Utilisation maximale de l’UC pour 3B | Mémoire maximale (Go) pour 3B | Stockage (Go) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Australie Est | 4 | 16 | 4 | 16 | 20 |
+| Brésil Sud | 4 | 16 | 4 | 16 | 20 |
+| Centre du Canada | 4 | 16 | 4 | 16 | 20 |
+| Inde centrale | 4 | 16 | 4 | 16 | 20 |
+| USA Centre | 4 | 16 | 4 | 16 | 20 |
+| Asie Est | 4 | 16 | 4 | 16 | 20 |
+| USA Est | 4 | 16 | 4 | 16 | 20 |
+| USA Est 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| France Centre | 4 | 16 | 4 | 16 | 20 |
+| Japon Est | N/A | N/A | 4 | 16 | 20 |
+| Centre de la Corée | 4 | 16 | 4 | 16 | 20 |
+| Centre-Nord des États-Unis | 4 | 16 | 4 | 16 | 20 |
+| Europe Nord | 4 | 16 | 4 | 16 | 20 |
+| États-Unis - partie centrale méridionale | 4 | 16 | 4 | 16 | 20 |
+| Asie Sud-Est | 4 | 16 | 4 | 16 | 20 |
+| Inde Sud | 4 | 16 | 4 | 16 | 20 |
+| Sud du Royaume-Uni | 4 | 16 | 4 | 16 | 20 |
+| Centre-USA Ouest | 4 | 16 | 4 | 16 | 20 |
+| Europe Ouest | 4 | 16 | 4 | 16 | 20 |
+| USA Ouest | 4 | 16 | 4 | 16 | 20 |
+| USA Ouest 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 08d1d393b4ba52e6feeb36c0538f2664e1407d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 9fdef187e9bdf77b29c548f767a4b4edfeb62f44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708286"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422176"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Créer et gérer les réplicas en lecture dans Azure Database pour PostgreSQL (serveur unique) à partir du portail Azure
 
@@ -31,7 +31,9 @@ Pour configurer le niveau de journalisation approprié, utilisez le paramètre d
 * **Réplica** : plus de détails que l’option **Désactivé**. Il s’agit du niveau minimal de journalisation nécessaire pour que les [réplicas en lecture](concepts-read-replicas.md) fonctionnent. Il s’agit du paramètre par défaut sur la plupart des serveurs.
 * **Logique** : plus de détails que l’option **Réplica**. Il s’agit du niveau minimal de journalisation pour que le décodage logique fonctionne. Les réplicas en lecture fonctionnent également avec ce paramètre.
 
-Le serveur doit être redémarré après une modification de ce paramètre. En interne, ce paramètre définit les paramètres Postgres `wal_level`, `max_replication_slots` et `max_wal_senders`.
+
+> [!NOTE]
+> Lors du déploiement de réplicas de lecture pour des charges de travail principales gourmandes en écriture intenses persistantes, le retard de réplication peut continuer à s’allonger et ne jamais pouvoir se réaligner sur le principal. Cela peut également augmenter l’utilisation du stockage sur le serveur principal, car les fichiers WAL ne sont pas supprimés tant qu’ils ne sont pas reçus au niveau du réplica.
 
 ## <a name="prepare-the-primary-server"></a>Préparer le serveur principal
 
@@ -45,11 +47,11 @@ Le serveur doit être redémarré après une modification de ce paramètre. En i
 
 4. Redémarrez le serveur pour appliquer le changement en sélectionnant **Oui**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database pour PostgreSQL - Réplication - Confirmer le redémarrage":::
 
 5. Vous recevrez deux notifications du portail Azure une fois que l’opération sera terminée. Une notification concerne la mise à jour du paramètre du serveur. La seconde concerne le redémarrage du serveur qui suit immédiatement.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Notifications de réussite":::
 
 6. Actualisez la page du portail Azure pour mettre à jour la barre d’outils Réplication. Vous pouvez désormais créer des réplicas en lecture pour ce serveur.
    
@@ -63,15 +65,15 @@ Pour créer un réplica en lecture, effectuez les étapes suivantes :
 
 3. Sélectionnez **Ajouter un réplica**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Ajouter un réplica":::
 
 4. Entrez un nom pour le réplica en lecture. 
 
-    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Nommer le réplica":::
 
 5. Sélectionnez un emplacement pour le réplica. La localisation par défaut est la même que celle du serveur principal.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Sélectionner un emplacement":::
 
    > [!NOTE]
    > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
@@ -80,7 +82,7 @@ Pour créer un réplica en lecture, effectuez les étapes suivantes :
 
 Une fois le réplica en lecture créé, vous pouvez le voir dans la fenêtre **Réplication** :
 
-:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Voir le nouveau réplica dans la fenêtre Réplication":::
  
 
 > [!IMPORTANT]
@@ -102,15 +104,15 @@ Pour arrêter la réplication entre un serveur principal et un réplica en lectu
 
 3. Sélectionnez le serveur réplica dont vous souhaitez arrêter la réplication.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Sélectionner le réplica":::
  
 4. Sélectionnez **Arrêter la réplication**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Sélectionner Arrêter la réplication":::
  
 5. Sélectionnez **OK** pour arrêter la réplication.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Confirmer l’arrêt de la réplication":::
  
 
 ## <a name="delete-a-primary-server"></a>Supprimer un serveur principal
@@ -125,11 +127,11 @@ Pour supprimer un serveur du portail Azure, effectuez les étapes suivantes :
 
 2. Ouvrez la page **Vue d’ensemble** du serveur. Sélectionnez **Supprimer**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="Dans la page de vue d’ensemble du serveur, sélectionner Supprimer pour supprimer le serveur principal":::
  
 3. Entrez le nom du serveur principal à supprimer. Sélectionnez **Supprimer** pour confirmer la suppression du serveur principal.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Confirmer la suppression du serveur principal":::
  
 
 ## <a name="delete-a-replica"></a>Supprimer un réplica
@@ -137,7 +139,7 @@ Vous pouvez supprimer un réplica en lecture de la même façon que vous supprim
 
 - Dans le portail Azure, ouvrez la page **Vue d’ensemble** du réplica en lecture. Sélectionnez **Supprimer**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="Dans la page de vue d’ensemble du réplica, sélectionner Supprimer pour supprimer le réplica":::
  
 Vous pouvez également supprimer le réplica en lecture de la fenêtre **Réplication** en effectuant les étapes suivantes :
 
@@ -147,15 +149,15 @@ Vous pouvez également supprimer le réplica en lecture de la fenêtre **Réplic
 
 3. Sélectionnez le réplica en lecture à supprimer.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Sélectionner le réplica à supprimer":::
  
 4. Sélectionnez **Supprimer le réplica**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Sélectionnez Supprimer le réplica":::
  
 5. Entrez le nom du réplica à supprimer. Sélectionnez **Supprimer** pour confirmer la suppression du réplica.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Confirmer la suppression du réplica":::
  
 
 ## <a name="monitor-a-replica"></a>Superviser un réplica
@@ -168,7 +170,7 @@ La métrique **Retard maximum entre réplicas** indique le retard en octets entr
 
 2.  Sélectionnez **Métriques**. Dans la fenêtre **Métriques**, sélectionnez **Retard maximum entre réplicas**.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Superviser le retard maximum entre réplicas":::
  
 3.  Pour votre **Agrégation**, sélectionnez **Max**.
 
@@ -180,7 +182,7 @@ La métrique **Retard du réplica** indique le temps écoulé depuis la dernièr
 
 2. Sélectionnez **Métriques**. Dans la fenêtre **Métriques**, sélectionnez **Retard du réplica**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Azure Database pour PostgreSQL – Réplication – Définir un réplica et enregistrer":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Superviser le retard du réplica":::
  
 3. Pour votre **Agrégation**, sélectionnez **Max**. 
  

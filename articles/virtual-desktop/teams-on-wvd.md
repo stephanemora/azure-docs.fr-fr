@@ -3,15 +3,15 @@ title: Microsoft Teams sur Windows Virtual Desktop - Azure
 description: Comment utiliser Microsoft Teams sur Windows Virtual Desktop
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131766"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505544"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utiliser Microsoft Teams sur Windows Virtual Desktop
 
@@ -32,7 +32,6 @@ Avant d'utiliser Microsoft Teams sur Windows Virtual Desktop, vous devez effectu
 - [Préparez votre réseau](/microsoftteams/prepare-network/) pour Microsoft Teams.
 - Installez le [client Windows Desktop](connect-windows-7-10.md) sur un appareil Windows 10 ou Windows 10 IoT Entreprise présentant la [configuration matérielle requise pour Microsoft Teams sur un PC Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connectez-vous à une machine virtuelle Windows 10 multisession ou Windows 10 Entreprise.
-- [Téléchargez](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) et installez l’application de bureau Teams sur l’hôte, à l’aide de l’installation par machine. La fonction d’optimisation des médias de Microsoft Teams requiert l’application de bureau Teams version 1.3.00.4461 ou ultérieure.
 
 ## <a name="install-the-teams-desktop-app"></a>Installer l’application de bureau Teams
 
@@ -42,7 +41,8 @@ Cette section vous montre comment installer l’application de bureau Teams sur 
 
 Pour activer l’optimisation des médias pour Teams, définissez la clé de Registre suivante sur l’ordinateur hôte :
 
-1. Dans le menu Démarrer, exécutez **RegEdit** en tant qu’administrateur. Accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams** .
+1. Dans le menu Démarrer, exécutez **RegEdit** en tant qu’administrateur. Accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Créez la clé Teams si elle n’existe pas déjà.
+
 2. Créez la valeur suivante pour la clé Teams :
 
 | Nom             | Type   | Données/Valeur  |
@@ -51,7 +51,7 @@ Pour activer l’optimisation des médias pour Teams, définissez la clé de Reg
 
 ### <a name="install-the-teams-websocket-service"></a>Installer le service WebSocket de Teams
 
-Installez le dernier [Service WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) sur votre image de machine virtuelle. Si vous rencontrez une erreur d’installation, installez [la dernière version de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), puis réessayez.
+Installez le [service redirecteur WebRTC Bureau à distance](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) le plus récent sur votre image de machine virtuelle. Si vous rencontrez une erreur d’installation, installez [la dernière version de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), puis réessayez.
 
 #### <a name="latest-websocket-service-versions"></a>Dernières versions du service WebSocket
 
@@ -94,7 +94,7 @@ Vous pouvez déployer l’application de bureau Teams via une installation par m
 
         Cela permet d’installer Microsoft Teams dans le dossier Program Files (x86) sur un système d’exploitation 32 bits, et dans le dossier Program Files sur un système d’exploitation 64 bits. À ce stade, la configuration de l’image finale (gold) est terminée. L’installation de Teams sur chaque machine est nécessaire pour les configurations non persistantes.
 
-        Deux indicateurs peuvent être définis lors de l’installation des équipes, **ALLUSER=1** et **ALLUSERS=1** . Il est important de comprendre la différence entre ces paramètres. Le paramètre **ALLUSER=1** est utilisé uniquement dans les environnements VDI pour spécifier une installation par ordinateur. Le paramètre **ALLUSERS=1** peut être utilisé dans des environnements VDI et non-VDI. Lorsque vous définissez ce paramètre, le programme d’installation de Teams au niveau de la machine s’affiche dans « Programmes et fonctionnalités » dans le Panneau de configuration, ainsi que dans « Applications et fonctionnalités » des paramètres Windows. Tous les utilisateurs disposant d’informations d’identification d’administrateur sur la machine peuvent désinstaller Teams.
+        Deux indicateurs peuvent être définis lors de l’installation des équipes, **ALLUSER=1** et **ALLUSERS=1**. Il est important de comprendre la différence entre ces paramètres. Le paramètre **ALLUSER=1** est utilisé uniquement dans les environnements VDI pour spécifier une installation par ordinateur. Le paramètre **ALLUSERS=1** peut être utilisé dans des environnements VDI et non-VDI. Lorsque vous définissez ce paramètre, le **programme d’installation de Teams au niveau de la machine** s’affiche dans « Programmes et fonctionnalités » dans le Panneau de configuration, ainsi que dans « Applications et fonctionnalités » des paramètres Windows. Tous les utilisateurs disposant d’informations d’identification d’administrateur sur la machine peuvent désinstaller Teams.
 
         > [!NOTE]
         > Les utilisateurs et les administrateurs ne peuvent pas désactiver le lancement automatique de Teams lors de la connexion.
@@ -114,14 +114,19 @@ Vous pouvez déployer l’application de bureau Teams via une installation par m
 
 Après l’installation du service WebSocket et de l’application de bureau Teams, procédez comme suit pour vérifier que les optimisations de médias de Teams sont chargées :
 
-1. Sélectionnez votre image de profil utilisateur, puis **À propos** .
-2. Sélectionner **Version** .
+1. Quittez et redémarrez l’application Teams.
 
-      Si les optimisations de médias sont chargées, la bannière vous indique **l’optimisation des médias WVD effectuée** . Si la bannière vous indique que **le média WVD n’est pas connecté** , quittez l’application Teams et réessayez.
+2. Sélectionnez votre image de profil utilisateur, puis **À propos**.
 
-3. Sélectionnez votre image de profil utilisateur, puis choisissez **Paramètres** .
+3. Sélectionner **Version**.
 
-      Si les optimisations de médias sont chargées, les appareils audio et les caméras disponibles en local sont répertoriés dans le menu de l’appareil. Si le menu affiche **Sortie audio de l’ordinateur distant** , quittez l’application Teams, puis réessayez. Si les appareils n’apparaissent toujours pas dans le menu, vérifiez les paramètres de confidentialité de votre ordinateur local. Veillez à ce que, sous **Paramètres** > **Confidentialité** > **Autorisations de l’application** , le paramètre **Autoriser les applications à accéder à votre microphone** soit **Activé** . Déconnectez-vous de la session à distance, puis reconnectez-vous et vérifiez à nouveau les périphériques audio et vidéo. Pour rejoindre des appels et des réunions avec vidéo, vous devez également accorder aux applications l’autorisation d’accéder à votre caméra.
+      Si les optimisations de médias sont chargées, la bannière vous indique **l’optimisation des médias WVD effectuée**. Si la bannière vous indique que **le média WVD n’est pas connecté**, quittez l’application Teams et réessayez.
+
+4. Sélectionnez votre image de profil utilisateur, puis choisissez **Paramètres**.
+
+      Si les optimisations de médias sont chargées, les appareils audio et les caméras disponibles en local sont répertoriés dans le menu de l’appareil. Si le menu affiche **Sortie audio de l’ordinateur distant**, quittez l’application Teams, puis réessayez. Si les appareils n’apparaissent toujours pas dans le menu, vérifiez les paramètres de confidentialité de votre ordinateur local. Veillez à ce que, sous **Paramètres** > **Confidentialité** > **Autorisations de l’application**, le paramètre **Autoriser les applications à accéder à votre microphone** soit **Activé**. Déconnectez-vous de la session à distance, puis reconnectez-vous et vérifiez à nouveau les périphériques audio et vidéo. Pour rejoindre des appels et des réunions avec vidéo, vous devez également accorder aux applications l’autorisation d’accéder à votre caméra.
+
+      Si les optimisations ne se chargent pas, désinstallez, puis réinstallez Teams et vérifiez à nouveau.
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
@@ -150,9 +155,9 @@ Envoyez des commentaires concernant Microsoft Teams sur Windows Virtual Desktop 
 
 ## <a name="collect-teams-logs"></a>Collecter les journaux Teams
 
-Si l’application de bureau Teams génère des problèmes dans l’environnement Windows Virtual Desktop, collectez les journaux des clients sur la machine virtuelle hôte, ici : **%appdata%\Microsoft\Teams\logs.txt** .
+Si l’application de bureau Teams génère des problèmes dans l’environnement Windows Virtual Desktop, collectez les journaux des clients sur la machine virtuelle hôte, ici : **%appdata%\Microsoft\Teams\logs.txt**.
 
-En cas de problèmes liés aux appels et aux réunions, collectez les journaux des clients Web de Microsoft Teams en appuyant sur **Ctrl** + **Alt** + **Maj** + **1** . Les journaux sont écrits sur la machine virtuelle de l’hôte, à l’emplacement suivant : **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_HEURE.txt** .
+En cas de problèmes liés aux appels et aux réunions, collectez les journaux des clients Web de Microsoft Teams en appuyant sur **Ctrl** + **Alt** + **Maj** + **1**. Les journaux sont écrits sur la machine virtuelle de l’hôte, à l’emplacement suivant : **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_HEURE.txt**.
 
 ## <a name="contact-microsoft-teams-support"></a>Contacter le support Microsoft Teams
 

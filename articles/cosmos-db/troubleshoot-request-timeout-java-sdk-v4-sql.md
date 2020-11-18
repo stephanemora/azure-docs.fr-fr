@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a805300ac62d0627c9b06188c9764a6887947afe
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340074"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411284"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnostiquer et résoudre les exceptions de dépassement de délai de demande avec le SDK Java v4 Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,6 +22,9 @@ L'erreur HTTP 408 se produit si le SDK n'a pas pu terminer la demande avant l'e
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage
 La liste suivante répertorie les causes connues et les solutions pour les exceptions de dépassement de délai de demande.
+
+### <a name="existing-issues"></a>Problèmes existants
+Si vous constatez que les requêtes sont bloquées pendant une durée plus longue ou que le délai est plus fréquemment dépassé, mettez à niveau le Kit de développement logiciel (SDK) Java v4 vers la dernière version. REMARQUE :  Nous vous recommandons vivement d’utiliser la version 4.7.0 et les versions supérieures. Pour plus d’informations, consultez les [Notes de publication du Kit de développement logiciel (SDK) Java v4](sql-api-sdk-java-v4.md).
 
 ### <a name="high-cpu-utilization"></a>Utilisation élevée du processeur
 L'utilisation élevée du processeur est le cas le plus courant. Pour une latence optimale, l'utilisation du processeur doit être d'environ 40 %. Utilisez 10 secondes comme intervalle pour superviser l'utilisation maximale (non moyenne) du processeur. Les pics d'utilisation du processeur sont plus courants avec les requêtes entre partitions où il peut y avoir plusieurs connexions pour une seule requête.

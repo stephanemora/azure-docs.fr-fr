@@ -9,49 +9,49 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/31/2019
+ms.date: 11/05/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66c7229c7e6d32bbec9a7659329aff7a90e7887d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373047"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393606"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
-Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources de répertoire : il fait partie du nom ou de l’adresse électronique d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI d’ID d’une application. Une ressource dans Azure Active Directory (Azure AD) peut inclure un nom de domaine appartenant au répertoire qui contient la ressource. Seul un administrateur général peut gérer des domaines dans Azure AD.
+Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources Azure Active Directory (Azure AD) : il fait partie du nom ou de l’adresse e-mail d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI d’ID d’une application. Une ressource dans Azure AD peut inclure un nom de domaine appartenant à l’organisation qui contient la ressource. Seul un administrateur général peut gérer des domaines dans Azure AD.
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Définir le nom de domaine principal pour votre répertoire Azure AD
+## <a name="set-the-primary-domain-name-for-your-azure-ad-organization"></a>Définir le nom de domaine principal pour votre organisation Azure AD
 
-Lors de la création du répertoire, le nom de domaine initial, par exemple « contoso.onmicrosoft.com », est également le nom de domaine principal. Le domaine principal est le nom de domaine par défaut pour un nouvel utilisateur lorsque vous créez un nouvel utilisateur. Le fait de définir un nom de domaine principal simplifie le processus permettant à un administrateur de créer des utilisateurs dans le portail. Pour modifier le nom de domaine principal, procédez comme suit :
+Lors de la création de l’organisation, le nom de domaine initial, par exemple « contoso.onmicrosoft.com », est également le nom de domaine principal. Le domaine principal est le nom de domaine par défaut pour un nouvel utilisateur lorsque vous créez un nouvel utilisateur. Le fait de définir un nom de domaine principal simplifie le processus permettant à un administrateur de créer des utilisateurs dans le portail. Pour modifier le nom de domaine principal, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Azure Active Directory** .
-3. Sélectionnez **Noms de domaine personnalisés** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour l’organisation.
+2. Sélectionnez **Azure Active Directory**.
+3. Sélectionnez **Noms de domaine personnalisés**.
   
    ![Ouvrir la page de gestion des utilisateurs](./media/domains-manage/add-custom-domain.png)
 4. Sélectionnez le nom du domaine que vous souhaitez choisir comme domaine principal.
-5. Sélectionnez la commande **Définir comme principal** . Confirmez votre choix lorsque vous y êtes invité.
+5. Sélectionnez la commande **Définir comme principal**. Confirmez votre choix lorsque vous y êtes invité.
   
    ![Créer un nom de domaine principal](./media/domains-manage/make-primary-domain.png)
 
-Vous pouvez modifier le nom de domaine principal de votre répertoire par n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre répertoire ne change pas le nom des utilisateurs existants.
+Vous pouvez modifier le nom de domaine principal de votre organisation par n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre organisation ne change pas le nom d’utilisateur des utilisateurs existants.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Ajouter des noms de domaine personnalisé à votre organisation Azure AD
 
-Vous pouvez ajouter jusqu’à 900 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec le répertoire Active Directory local, vous pouvez ajouter jusqu’à 450 noms de domaine dans chaque répertoire.
+Vous pouvez ajouter jusqu’à 900 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec Windows Server Active Directory, vous pouvez ajouter jusqu’à 450 noms de domaine dans chaque organisation.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Ajouter des sous-domaines d’un domaine personnalisé
 
-Si vous souhaitez ajouter un nom de domaine de troisième niveau, tel que « europe.contoso.com » à votre répertoire, vous devez tout d’abord ajouter et vérifier le domaine de second niveau, tel que contoso.com. Le sous-domaine est automatiquement vérifié par Azure AD. Pour voir que le sous-domaine ajouté est vérifié, actualisez la liste des domaines dans le navigateur.
+Si vous souhaitez ajouter un nom de sous-domaine, tel que « europe.contoso.com » à votre organisation, vous devez tout d’abord ajouter et vérifier le domaine racine, tel que « contoso.com ». Le sous-domaine est automatiquement vérifié par Azure AD. Pour voir que le sous-domaine ajouté est vérifié, actualisez la liste des domaines dans le navigateur.
 
-Remarque
+Si vous avez déjà ajouté un domaine contoso.com à une organisation Azure AD, vous pouvez également vérifier le sous-domaine europe.contoso.com dans une autre organisation Azure AD. Lorsque vous ajoutez le sous-domaine, vous êtes invité à ajouter un enregistrement TXT au fournisseur d’hébergement DNS.
 
-Si vous avez déjà ajouté un domaine contoso.com à un locataire Azure AD, vous pouvez également ajouter le sous-domaine europe.contoso.com à un deuxième locataire Azure AD. Lorsque vous ajoutez le sous-domaine, vous êtes invité à ajouter un enregistrement TXT au fournisseur d’hébergement DNS.
+
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Que faire en cas de modification du bureau d’enregistrement DNS pour votre nom de domaine personnalisé ?
 
@@ -61,19 +61,19 @@ Si vous modifiez les bureaux d’enregistrement DNS, aucune tâche de configurat
 
 Vous pouvez supprimer un nom de domaine personnalisé de votre répertoire Azure AD si votre organisation n’utilise plus ce nom de domaine ou si vous souhaitez l’utiliser avec un autre répertoire Azure AD.
 
-Pour supprimer un nom de domaine personnalisé, vous devez d’abord vous assurer qu’aucune des ressources de votre répertoire ne s’appuie sur le nom de domaine. Vous ne pouvez pas supprimer un nom de domaine de votre répertoire si :
+Pour supprimer un nom de domaine personnalisé, vous devez d’abord vous assurer qu’aucune des ressources de votre organisation ne s’appuie sur le nom de domaine. Vous ne pouvez pas supprimer un nom de domaine de votre organisation si :
 
 * L’utilisateur dispose d’un nom d’utilisateur, d’une adresse de messagerie ou d’une adresse de proxy qui incluent le nom de domaine.
 * Le groupe dispose d’une adresse de messagerie ou d’une adresse de proxy qui incluent le nom de domaine.
 * Une application dans Azure AD dispose d’une URI ID d’application qui inclut le nom de domaine.
 
-Vous devez modifier ou supprimer n’importe quelle ressource de ce type dans votre répertoire Azure AD pour pouvoir supprimer le nom de domaine personnalisé.
+Vous devez modifier ou supprimer n’importe quelle ressource de ce type dans votre organisation Azure AD pour pouvoir supprimer le nom de domaine personnalisé.
 
 ### <a name="forcedelete-option"></a>Option ForceDelete
 
-Vous pouvez appliquer l’option **ForceDelete** à un nom de domaine dans le [Centre d’administration Azure AD](https://aad.portal.azure.com) ou à l’aide de [l’API Microsoft Graph](/graph/api/domain-forcedelete?view=graph-rest-beta). Ces options utilisent une opération asynchrone et mettent à jour toutes les références depuis le nom de domaine personnalisé comme « user@contoso.com » vers le nom de domaine par défaut initial comme « user@contoso.onmicrosoft.com ». 
+Vous pouvez appliquer l’option **ForceDelete** à un nom de domaine dans le [Centre d’administration Azure AD](https://aad.portal.azure.com) ou à l’aide de [l’API Microsoft Graph](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). Ces options utilisent une opération asynchrone et mettent à jour toutes les références depuis le nom de domaine personnalisé comme « user@contoso.com » vers le nom de domaine par défaut initial comme « user@contoso.onmicrosoft.com ».
 
-Pour appeler **ForceDelete** dans le Portail Azure, vous devez vous assurer qu’il y a moins de 1 000 références au nom de domaine, et toutes les références dans lesquelles Exchange est le service d’approvisionnement doivent être mises à jour ou supprimées dans le [ Centre d’administration Exchange](https://outlook.office365.com/ecp/). Cela inclut les listes distribuées et les groupes de sécurité à extension messagerie ; pour plus d’informations, consultez [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). En outre, l’opération **ForceDelete** échoue si l’un des énoncés suivants est vrai :
+Pour appeler **ForceDelete** dans le Portail Azure, vous devez vous assurer qu’il y a moins de 1 000 références au nom de domaine, et toutes les références dans lesquelles Exchange est le service d’approvisionnement doivent être mises à jour ou supprimées dans le [ Centre d’administration Exchange](https://outlook.office365.com/ecp/). Cela inclut les listes distribuées et les groupes de sécurité à extension messagerie ; pour plus d’informations, consultez [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true). En outre, l’opération **ForceDelete** échoue si l’un des énoncés suivants est vrai :
 
 * Vous avez acheté un domaine par le biais des services d’abonnement de domaine Microsoft 365
 * Vous êtes un partenaire qui administre le compte d’une autre organisation cliente
@@ -110,11 +110,11 @@ Si vous remarquez que l’une des conditions n’a pas été respectée, nettoye
 
 La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell ou par programmation à l’aide de l’API Microsoft Graph.
 
-* [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Type de ressource de domaine](/graph/api/resources/domain?view=graph-rest-1.0)
+* [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains&preserve-view=true)
+* [Type de ressource de domaine](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Ajouter des noms de domaines personnalisés](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)
-* [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta) (Appliquer une opération ForceDelete sur un nom de domaine personnalisé avec l’API Microsoft Graph)
+* [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true) (Appliquer une opération ForceDelete sur un nom de domaine personnalisé avec l’API Microsoft Graph)

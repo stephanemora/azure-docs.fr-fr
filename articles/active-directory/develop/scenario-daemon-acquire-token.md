@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119213"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443311"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon conçue pour appeler des API web - acquisition d'un jeton
 
@@ -202,7 +202,7 @@ Pour plus d'informations, consultez la documentation du protocole : [Plateforme
 
 ## <a name="application-token-cache"></a>Cache de jetons d'application
 
-Dans MSAL.NET, `AcquireTokenForClient` utilise le cache de jetons de l’application (toutes les autres méthodes AcquireToken*XX* utilisent le cache de jetons de l’utilisateur). N’appelez pas `AcquireTokenSilent` avant d’appeler `AcquireTokenForClient`, car `AcquireTokenSilent` utilise le cache de jetons de l’*utilisateur*. `AcquireTokenForClient` vérifie le cache de jetons d'*application* et le met à jour.
+Dans MSAL.NET, `AcquireTokenForClient` utilise le cache de jetons de l’application (toutes les autres méthodes AcquireToken *XX* utilisent le cache de jetons de l’utilisateur). N’appelez pas `AcquireTokenSilent` avant d’appeler `AcquireTokenForClient`, car `AcquireTokenSilent` utilise le cache de jetons de l’*utilisateur*. `AcquireTokenForClient` vérifie le cache de jetons d'*application* et le met à jour.
 
 ## <a name="troubleshooting"></a>Dépannage
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Application démon - appeler une API web](./scenario-daemon-call-api.md?tabs=dotnet)
+Passez à l’article suivant de ce scénario, [Appeler une API web](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Application démon - appeler une API web](./scenario-daemon-call-api.md?tabs=python)
+Passez à l’article suivant de ce scénario, [Appeler une API web](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Application démon - appeler une API web](./scenario-daemon-call-api.md?tabs=java)
+Passez à l’article suivant de ce scénario, [Appeler une API web](./scenario-daemon-call-api.md?tabs=java).
 
 ---

@@ -4,12 +4,12 @@ description: Découvrez comment développer sur Azure Functions à l’aide de C
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167744"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380961"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -139,7 +139,7 @@ Le processus de build crée un fichier *function.json* dans un dossier de foncti
 
 L’objectif de ce fichier est de fournir au contrôleur de mise à l’échelle les informations à utiliser pour les [ décisions de mise à l’échelle affectant le plan Consommation](functions-scale.md#how-the-consumption-and-premium-plans-work). C’est pourquoi le fichier ne contient pas de liaisons d’entrée ou de sortie, mais uniquement des informations de déclencheur.
 
-Le fichier *function.json* généré inclut une propriété `configurationSource` qui indique au runtime d’utiliser les attributs .NET pour les liaisons, au lieu de la configuration *function.json* . Voici un exemple :
+Le fichier *function.json* généré inclut une propriété `configurationSource` qui indique au runtime d’utiliser les attributs .NET pour les liaisons, au lieu de la configuration *function.json*. Voici un exemple :
 
 ```json
 {
@@ -162,7 +162,7 @@ Le fichier *function.json* généré inclut une propriété `configurationSource
 
 La génération du fichier *function.json* est effectuée par le package NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-Le même package est utilisé pour les versions 1.x et 2.x du runtime Functions. Le framework cible est ce qui différencie un projet 1.x d’un projet 2.x. Voici les parties correspondantes des fichiers *.csproj* , qui montrent les frameworks cibles et le même package `Sdk` :
+Le même package est utilisé pour les versions 1.x et 2.x du runtime Functions. Le framework cible est ce qui différencie un projet 1.x d’un projet 2.x. Voici les parties correspondantes des fichiers *.csproj*, qui montrent les frameworks cibles et le même package `Sdk` :
 
 # <a name="v2x"></a>[v2.x+](#tab/v2)
 
@@ -199,7 +199,7 @@ Le code source de `Microsoft.NET.Sdk.Functions` est disponible dans le dépôt G
 
 Visual Studio utilise les outils [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) pour exécuter les projets Functions. Ils constituent l’interface de ligne de commande du runtime Functions.
 
-L’installation des outils Core Tools à l’aide de npm n’affecte pas la version de Core Tools utilisée par Visual Studio. Pour le runtime Functions version 1.x, Visual Studio stocke les versions de Core Tools dans *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* et utilise la dernière version stockée. Pour Functions 2.x, les outils Core Tools sont inclus dans l’extension **Azure Functions and Web Jobs Tools** . Pour les versions 1.x et 2.x, vous pouvez voir quelle version est utilisée dans la sortie de console lorsque vous exécutez un projet Functions :
+L’installation des outils Core Tools à l’aide de npm n’affecte pas la version de Core Tools utilisée par Visual Studio. Pour le runtime Functions version 1.x, Visual Studio stocke les versions de Core Tools dans *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* et utilise la dernière version stockée. Pour Functions 2.x, les outils Core Tools sont inclus dans l’extension **Azure Functions and Web Jobs Tools**. Pour les versions 1.x et 2.x, vous pouvez voir quelle version est utilisée dans la sortie de console lorsque vous exécutez un projet Functions :
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -565,7 +565,7 @@ public static class EnvironmentVariablesExample
 }
 ```
 
-Les paramètres de l’application peuvent être lus à partir de variables d’environnement lors du développement localement et de l’exécution dans Azure. Lors du développement localement, les paramètres de l’application proviennent de la collection `Values` dans le fichier *local.settings.json* . Dans les deux environnements, local et Azure, `GetEnvironmentVariable("<app setting name>")` récupère la valeur du paramètre d’application nommé. Par exemple, lorsque vous exécutez localement, « My Site Name » est retourné si votre fichier *local.settings.json* contient `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+Les paramètres de l’application peuvent être lus à partir de variables d’environnement lors du développement localement et de l’exécution dans Azure. Lors du développement localement, les paramètres de l’application proviennent de la collection `Values` dans le fichier *local.settings.json*. Dans les deux environnements, local et Azure, `GetEnvironmentVariable("<app setting name>")` récupère la valeur du paramètre d’application nommé. Par exemple, lorsque vous exécutez localement, « My Site Name » est retourné si votre fichier *local.settings.json* contient `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
 La propriété [System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) est une autre API permettant d’obtenir des valeurs de paramètre d’application, mais nous vous recommandons d’utiliser `GetEnvironmentVariable` comme indiqué ici.
 

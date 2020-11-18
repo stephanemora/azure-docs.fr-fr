@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4df4c3d91c30dfd63de9073d8435f6f96c6ecd95
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329390"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626824"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -34,8 +34,8 @@ Pour plus d’informations sur ces trois choix, consultez [Planification d’un 
 
 ## <a name="prerequisites"></a>Prérequis
 - Cet article suppose que vous avez déjà créé un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 Les partages de fichiers Azure sont déployés dans des *comptes de stockage*, qui sont des objets de niveau supérieur représentant un pool partagé de stockage. Ce pool de stockage peut être utilisé pour déployer plusieurs partages de fichiers. 
@@ -226,9 +226,9 @@ New-AzRmStorageShare `
 > La possibilité de définir et de changer des niveaux par le biais de PowerShell est fournie dans le module PowerShell Az.Storage en préversion. Quand vous créez des scripts, gardez à l’esprit que ces applets de commande ou leur sortie peuvent changer avant leur publication dans le module PowerShell AZ.Storage mis à la disposition générale.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Vous pouvez créer un partage de fichiers Azure avec la commande [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create). Les commandes Azure CLI suivantes supposent que vous avez défini les variables `$resourceGroupName` et `$storageAccountName` comme indiqué ci-dessus, dans la section relative à la création d’un compte de stockage avec Azure CLI.
+Vous pouvez créer un partage de fichiers Azure avec la commande [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create). Les commandes Azure CLI suivantes supposent que vous avez défini les variables `$resourceGroupName` et `$storageAccountName` comme indiqué ci-dessus, dans la section relative à la création d’un compte de stockage avec Azure CLI.
 
-Les fonctionnalités permettant de créer ou de déplacer un partage de fichiers vers un niveau spécifique sont disponibles dans la dernière mise à jour d’Azure CLI. La mise à jour d’Azure CLI est spécifique du système d’exploitation ou de la distribution Linux que vous utilisez. Pour obtenir des instructions sur la façon de mettre à jour Azure CLI sur votre système, consultez [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+Les fonctionnalités permettant de créer ou de déplacer un partage de fichiers vers un niveau spécifique sont disponibles dans la dernière mise à jour d’Azure CLI. La mise à jour d’Azure CLI est spécifique du système d’exploitation ou de la distribution Linux que vous utilisez. Pour obtenir des instructions sur la façon de mettre à jour Azure CLI sur votre système, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 > [!Important]  
 > Pour les partages de fichiers Premium, le paramètre `--quota` fait référence à la taille provisionnée du partage de fichiers. La taille provisionnée du partage de fichiers est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Les partages de fichiers Standard sont facturés en fonction de l’utilisation, et non par rapport à la taille provisionnée.
@@ -251,7 +251,7 @@ az storage share-rm create \
 ---
 
 > [!Note]  
-> Le nom de votre partage de fichiers doit être en minuscules. Pour obtenir des informations détaillées sur le nommage des partages de fichiers et des fichiers, consultez  [Nommage et référencement des partages, des répertoires, des fichiers et des métadonnées](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> Le nom de votre partage de fichiers doit être en minuscules. Pour plus d’informations sur la façon de nommer des partages de fichiers et des fichiers, consultez [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ### <a name="changing-the-tier-of-an-azure-file-share"></a>Modification du niveau d’un partage de fichiers Azure
 Les partages de fichiers qui sont déployés dans un **compte de stockage à usage général v2 (GPv2)** peuvent être associés aux niveaux Transaction optimisée, Accès chaud ou Accès froid. Vous pouvez modifier le niveau du partage de fichiers Azure à tout moment, moyennant des frais de transaction, comme indiqué ci-dessus.

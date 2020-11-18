@@ -1,7 +1,7 @@
 ---
 title: 'Exécuter un script R : sur le module Modifier les métadonnées'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Exécuter un script R dans Azure Machine Learning pour exécuter du code R.
+description: Découvrez comment utiliser le module Exécuter un script R dans le concepteur Azure Machine Learning pour exécuter du code R personnalisé.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323743"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420816"
 ---
 # <a name="execute-r-script-module"></a>Module Exécuter un script R
 
@@ -147,13 +147,13 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
 
 1. Connectez les entrées dont le script a besoin. Les entrées sont facultatives et peuvent inclure des données ainsi que du code R supplémentaire.
 
-    * **Dataset1**  : Référencez la première entrée en tant que `dataframe1`. Le jeu de données d’entrée doit être au format CSV, TSV ou ARFF. Ou vous pouvez connecter un jeu de données Azure Machine Learning.
+    * **Dataset1** : Référencez la première entrée en tant que `dataframe1`. Le jeu de données d’entrée doit être au format CSV, TSV ou ARFF. Ou vous pouvez connecter un jeu de données Azure Machine Learning.
 
-    * **Dataset2**  : Référencez la deuxième entrée en tant que `dataframe2`. Ce jeu de données doit également se présenter sous la forme d’un fichier CSV, TSV, ARFF, ou d’un jeu de données Azure Machine Learning.
+    * **Dataset2** : Référencez la deuxième entrée en tant que `dataframe2`. Ce jeu de données doit également se présenter sous la forme d’un fichier CSV, TSV, ARFF, ou d’un jeu de données Azure Machine Learning.
 
-    * **ScriptBundle**  : La troisième entrée accepte des fichiers .zip. Un fichier compressé peut contenir plusieurs fichiers et plusieurs types de fichiers.
+    * **ScriptBundle** : La troisième entrée accepte des fichiers .zip. Un fichier compressé peut contenir plusieurs fichiers et plusieurs types de fichiers.
 
-1. Dans la zone de texte **Script R** , tapez ou collez un script R valide.
+1. Dans la zone de texte **Script R**, tapez ou collez un script R valide.
 
     > [!NOTE]
     > Faites preuve de prudence lors de l’écriture de votre script. Assurez-vous qu’il n’existe pas d’erreurs de syntaxe, comme l’utilisation de variables non déclarées, ou des modules ou fonctions non importés. Faites également attention à la liste des packages préinstallés à la fin de cet article. Pour utiliser des packages qui ne sont pas répertoriés, installez-les dans votre script. par exemple `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
@@ -216,7 +216,7 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
     }
     ```
 
-1.  Pour **Valeur de départ aléatoire** , entrez une valeur à utiliser dans l’environnement R en tant que valeur de départ aléatoire. Ce paramètre revient à appeler `set.seed(value)` dans le code R.  
+1.  Pour **Valeur de départ aléatoire**, entrez une valeur à utiliser dans l’environnement R en tant que valeur de départ aléatoire. Ce paramètre revient à appeler `set.seed(value)` dans le code R.  
 
 1. Envoyez le pipeline.  
 
@@ -237,7 +237,7 @@ Il existe de nombreuses façons d’étendre votre pipeline à l’aide de scrip
 
 Le module Exécuter un script R prend en charge des fichiers de script R arbitraires en tant qu’entrées. Pour les utiliser, vous devez les télécharger sur votre espace de travail en tant que partie du fichier .zip.
 
-1. Pour télécharger un fichier. zip contenant du code R dans votre espace de travail, accédez à la page de ressources **Jeux de données**. Sélectionnez **Créer un jeu de données** , puis sélectionnez **À partir d’un fichier local** et l’option de type de jeu de données **Fichier**.  
+1. Pour télécharger un fichier. zip contenant du code R dans votre espace de travail, accédez à la page de ressources **Jeux de données**. Sélectionnez **Créer un jeu de données**, puis sélectionnez **À partir d’un fichier local** et l’option de type de jeu de données **Fichier**.  
 
 1. Vérifiez que le fichier compressé apparaît dans **Mes jeux de données** sous la catégorie **Jeux de données** de l'arborescence du module de gauche.
 
@@ -325,7 +325,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 Vous pouvez passer des objets R entre des instances du module Exécuter un script R en utilisant le mécanisme de sérialisation interne. Cet exemple suppose que vous souhaitez déplacer l’objet R nommé `A` entre deux modules Exécuter un script R.
 
-1. Ajoutez le premier module **Exécuter un script R** à votre pipeline. Puis, dans la zone de texte **Script R** , entrez le code suivant pour créer un objet sérialisé `A` en tant que colonne dans la table de données de sortie du module :  
+1. Ajoutez le premier module **Exécuter un script R** à votre pipeline. Puis, dans la zone de texte **Script R**, entrez le code suivant pour créer un objet sérialisé `A` en tant que colonne dans la table de données de sortie du module :  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){

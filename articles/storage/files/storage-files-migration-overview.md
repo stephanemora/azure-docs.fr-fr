@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785610"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628915"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrer vers des partages de fichiers Azure
 
@@ -34,8 +34,8 @@ La clé de toute migration consiste à capturer toutes les correspondances de fi
 
 Voici les deux composants de base d’un fichier :
 
-- **Flux de données**  : le flux de données enregistre le contenu du fichier.
-- **Métadonnées du fichier**  : Les métadonnées de fichier comportent les sous-composants suivants :
+- **Flux de données** : le flux de données enregistre le contenu du fichier.
+- **Métadonnées du fichier** : Les métadonnées de fichier comportent les sous-composants suivants :
    * Attributs de fichier tels que En lecture seule
    * Autorisations de fichier, appelées *autorisations NTFS* ou *listes de contrôle d’accès de fichiers et de dossiers*
    * Horodatages, en particulier, les horodatages de création et de dernière modification
@@ -111,7 +111,7 @@ Il existe plusieurs outils de copie de fichiers disponibles auprès de Microsoft
 
     La première fois que vous exécutez l’outil, il copie le bloc de données. Cette exécution initiale peut prendre un certain temps. Vous trouvez souvent que la mise hors connexion de la source de données pour vos processus métier dure trop longtemps.
 
-    En mettant en miroir une source sur une cible (comme avec **robocopy /MIR** ), vous pouvez réexécuter l’outil sur la même source et la même cible. L’exécution est beaucoup plus rapide, car seules les modifications de la source après l’exécution précédente doivent être transportées. Réexécuter un outil de copie de cette façon peut réduire considérablement les temps d’arrêt.
+    En mettant en miroir une source sur une cible (comme avec **robocopy /MIR**), vous pouvez réexécuter l’outil sur la même source et la même cible. L’exécution est beaucoup plus rapide, car seules les modifications de la source après l’exécution précédente doivent être transportées. Réexécuter un outil de copie de cette façon peut réduire considérablement les temps d’arrêt.
 
 Le tableau suivant classe les outils Microsoft et leurs aptitudes actuelles pour les partages de fichiers Azure :
 
@@ -134,7 +134,7 @@ Cette section décrit les outils qui vous aident à planifier et à exécuter de
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy, de Microsoft Corporation
 
-RoboCopy est l’un des outils les mieux applicables aux migrations de fichiers. Il est intégré à Windows. La [documentation RoboCopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) principale est une ressource utile pour les nombreuses options de cet outil.
+RoboCopy est l’un des outils les mieux applicables aux migrations de fichiers. Il est intégré à Windows. La [documentation RoboCopy](/windows-server/administration/windows-commands/robocopy) principale est une ressource utile pour les nombreuses options de cet outil.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize, de JAM Software GmbH
 

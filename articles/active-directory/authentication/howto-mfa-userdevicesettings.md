@@ -1,26 +1,88 @@
 ---
-title: Gérer les paramètres utilisateur pour Azure Multi-Factor Authentication - Azure Active Directory
+title: Gérer les méthodes d’authentification pour Azure Multi-Factor Authentication – Azure Active Directory
 description: Découvrir comment configurer les paramètres utilisateur Azure Active Directory pour Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: michmcla
+ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166508"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378043"
 ---
-# <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gérer les paramètres utilisateur pour Azure Multi-Factor Authentication
+# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Gérer les méthodes d’authentification utilisateur pour Azure Multi-Factor Authentication
 
-Pour faciliter la gestion des utilisateurs d’Azure Multi-Factor Authentication, vous pouvez imposer à ces derniers de réinitialiser leur mot de passe, de se réinscrire auprès de MFA ou de révoquer les sessions MFA existantes. Pour les utilisateurs qui ont défini des mots de passe d’application, vous pouvez également choisir de supprimer ces mots de passe, ce qui va entraîner l’échec de l’authentification héritée dans ces applications. Ces actions peuvent être nécessaires si vous devez fournir une assistance à un utilisateur, ou si vous souhaitez réinitialiser son état de sécurité.
+Les utilisateurs d’Azure AD ont deux ensembles distincts de coordonnées :  
+
+- Les coordonnées du profil public, qui sont gérées dans le profil utilisateur et visibles par les membres de votre organisation. Pour les utilisateurs synchronisés depuis Windows Server Active Directory, ces informations sont gérées localement dans Windows Server Active Directory Domain Services.
+- Les méthodes d’authentification, qui sont toujours privées et utilisées uniquement pour l’authentification, notamment l’authentification multifacteur (MFA). Les administrateurs peuvent gérer ces méthodes dans le panneau de méthode d’authentification d’un utilisateur, et les utilisateurs peuvent gérer leurs méthodes dans la page Informations de sécurité de Mon compte.
+
+Lors de la gestion des méthodes Azure Multi-Factor Authentication pour vos utilisateurs, les Administrateurs d’authentification peuvent : 
+
+1. Ajouter des méthodes d’authentification pour un utilisateur spécifique, notamment des numéros de téléphone utilisés pour l’authentification multifacteur.
+1. Réinitialisez le mot de passe d’un utilisateur.
+1. Demander à un utilisateur de se réinscrire pour l’authentification multifacteur.
+1. Révoquer des sessions MFA existantes.
+1. Supprimer les mots de passe d’application existants d’un utilisateur.  
+
+## <a name="add-authentication-methods-for-a-user"></a>Ajouter des méthodes d’authentification pour un utilisateur 
+
+Vous pouvez ajouter des méthodes d’authentification pour un utilisateur via le portail Azure ou Microsoft Graph.  
+
+> [!NOTE]
+> Pour des raisons de sécurité, les champs publics de coordonnées des utilisateurs ne doivent pas être utilisés pour effectuer l’authentification multifacteur. Au lieu de cela, les utilisateurs doivent renseigner leur numéro de méthode d’authentification à utiliser pour l’authentification multifacteur.  
+
+:::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Ajouter des méthodes d’authentification à partir du portail Azure":::
+
+Pour ajouter des méthodes d’authentification pour un utilisateur via le portail Azure :  
+
+1. Connectez-vous au **portail Azure**. 
+1. Accédez à **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**. 
+1. Choisissez l’utilisateur auquel vous souhaitez ajouter une méthode d’authentification et sélectionnez **Méthodes d’authentification**.  
+1. En haut de la fenêtre, sélectionnez **+ Ajouter une méthode d’authentification**.
+   1. Sélectionnez une méthode (numéro de téléphone ou e-mail). L’e-mail peut être utilisé pour la réinitialisation de mot de passe, mais pas pour l’authentification. Lorsque vous ajoutez un numéro de téléphone, sélectionnez un type de téléphone et entrez un numéro de téléphone dans un format valide (par exemple, +1 4255551234).
+   1. Sélectionnez **Ajouter**.
+
+> [!NOTE]
+> L’expérience de préversion permet aux administrateurs d’ajouter toutes les méthodes d’authentification disponibles pour les utilisateurs, tandis que l’expérience d’origine autorise uniquement la mise à jour des méthodes utilisant un numéro téléphone et un autre de remplacement.
+
+### <a name="manage-methods-using-powershell"></a>Gérer les méthodes à l’aide de PowerShell :  
+
+Installez le module Microsoft.Graph.Identity.Signins PowerShell à l’aide des commandes suivantes. 
+
+```powershell
+Install-module Microsoft.Graph.Identity.Signins
+Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Select-MgProfile -Name beta
+```
+
+Répertoriez les méthodes d’authentification par téléphone pour un utilisateur spécifique.
+
+```powershell
+Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
+```
+
+Créez une méthode d’authentification par téléphone mobile pour un utilisateur spécifique.
+
+```powershell
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+```
+
+Supprimez une méthode par téléphone spécifique pour un utilisateur.
+
+```powershell
+Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
+```
+
+Les méthodes d’authentification peuvent également être gérées à l’aide d’API Microsoft Graph. Pour plus d’informations, consultez le document [Vue d’ensemble de l’API des méthodes d’authentification Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 ## <a name="manage-user-authentication-options"></a>Gérer les options d’authentification des utilisateurs
 
@@ -41,7 +103,7 @@ Si le rôle *Administrateur d’authentification* vous est attribué, vous pouve
 
 ## <a name="delete-users-existing-app-passwords"></a>Supprimer les mots de passe d’application existants des utilisateurs
 
-Si nécessaire, vous pouvez supprimer tous les mots de passe d’application créés par un utilisateur. Les applications sans navigateur qui ont été associées à ces mots de passe d’application cessent de fonctionner jusqu’à la création d’un nouveau mot de passe d’application. Des autorisations d’*Administrateur général* sont nécessaires pour effectuer cette action.
+Pour les utilisateurs qui ont défini des mots de passe d’application, les administrateurs peuvent également choisir de supprimer ces mots de passe, ce qui entraînera l’échec de l’authentification héritée dans ces applications. Ces actions peuvent être nécessaires si vous devez fournir une assistance à un utilisateur ou si vous souhaitez réinitialiser ses méthodes d’authentification. Les applications sans navigateur qui ont été associées à ces mots de passe d’application cesseront de fonctionner jusqu’à la création d’un nouveau mot de passe d’application. 
 
 Pour supprimer les mots de passe d’application d’un utilisateur, effectuez les étapes suivantes :
 

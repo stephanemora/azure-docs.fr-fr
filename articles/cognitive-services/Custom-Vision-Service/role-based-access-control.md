@@ -10,29 +10,29 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146369"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616890"
 ---
 # <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
-Custom Vision prend en charge le contrôle d’accès en fonction du rôle Azure (Azure RBAC), un système d’autorisation pour la gestion de l’accès individuel aux ressources Azure. À l’aide d’Azure RBAC, vous attribuez à différents membres d’équipe différents niveaux d’autorisations pour vos projets Custom Vision. Pour plus d’informations sur Azure RBAC, consultez la [documentation Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/).
+Custom Vision prend en charge le contrôle d’accès en fonction du rôle Azure (Azure RBAC), un système d’autorisation pour la gestion de l’accès individuel aux ressources Azure. À l’aide d’Azure RBAC, vous attribuez à différents membres d’équipe différents niveaux d’autorisations pour vos projets Custom Vision. Pour plus d’informations sur Azure RBAC, consultez la [documentation Azure RBAC](../../role-based-access-control/index.yml).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Ajouter une attribution de rôle à une ressource Custom Vision
 
 Azure RBAC peut être assigné à une ressource Custom Vision. Pour accorder l’accès à une ressource Azure, vous ajoutez une attribution de rôle.
-1. Dans le [portail Azure](https://ms.portal.azure.com/), sélectionnez **Tous les services** . 
+1. Dans le [portail Azure](https://ms.portal.azure.com/), sélectionnez **Tous les services**. 
 1. Ensuite, sélectionnez **Cognitive Services** et accédez à votre ressource d’entraînement Custom Vision.
    > [!NOTE]
    > Vous pouvez également configurer Azure RBAC pour des groupes de ressources, des abonnements ou des groupes d’administration complets. Pour ce faire, sélectionnez le niveau d’étendue souhaité, puis accédez à l’élément de votre choix (par exemple, en sélectionnant **Groupes de ressources** puis en cliquant sur le groupe de ressources souhaité).
 1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de navigation de gauche.
 1. Sélectionnez l’onglet **Attributions de rôles** afin d’afficher les attributions de rôles pour cette étendue.
-1. Sélectionnez **Ajouter** -> **Ajouter une attribution de rôle** .
-1. Dans la liste déroulante **Rôle** , sélectionnez un rôle à ajouter.
-1. Dans la liste **Sélectionner** , sélectionnez un utilisateur, un groupe, un principal de service ou une identité gérée. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone Sélectionner pour rechercher des noms complets, des adresses e-mail et des identificateurs d’objet dans l’annuaire.
+1. Sélectionnez **Ajouter** -> **Ajouter une attribution de rôle**.
+1. Dans la liste déroulante **Rôle**, sélectionnez un rôle à ajouter.
+1. Dans la liste **Sélectionner**, sélectionnez un utilisateur, un groupe, un principal de service ou une identité gérée. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone Sélectionner pour rechercher des noms complets, des adresses e-mail et des identificateurs d’objet dans l’annuaire.
 1. Sélectionnez **Enregistrer** pour attribuer le rôle.
 
 Au bout de quelques minutes, le rôle sélectionné est attribué à la cible dans l’étendue sélectionnée.

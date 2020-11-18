@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186584"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358481"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -54,7 +54,9 @@ Ces API REST BLOB ne sont pas prises en charge :
 * [Obtenir les portées de page](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Copie incrémentielle BLOB](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Placer la page à partir de l’URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Ajouter un bloc à partir d’une URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
 
 Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les comptes qui ont un espace de noms hiérarchique. Si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machine virtuelle non gérés dans un compte de stockage pour lequel la fonctionnalité espace de noms hiérarchique n’est pas activée.
 
@@ -62,7 +64,7 @@ Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Prise en charge de la définition de listes de contrôle d’accès (ACL) de manière récursive
 
-La possibilité d’appliquer les modifications aux listes ACL de manière récursive du répertoire parent vers les éléments enfants est proposée dans la [préversion publique](recursive-access-control-lists.md). Dans la version actuelle de cette fonctionnalité, vous pouvez appliquer des modifications aux listes ACL à l’aide de PowerShell, du SDK .NET et du SDK Python. La prise en charge n’est pas encore disponible pour le SDK Java, Azure CLI, le portail Azure ou l’Explorateur Stockage Azure.
+La possibilité d’appliquer les modifications aux listes ACL de manière récursive du répertoire parent vers les éléments enfants est mise à la disposition générale. Dans la version actuelle de cette fonctionnalité, vous pouvez appliquer des modifications aux listes ACL à l’aide de PowerShell, d’Azure CLI, et du Kit de développement logiciel (SDK) .NET, Java et Python. La prise en charge n’est pas encore disponible pour le portail Azure ou l’Explorateur Stockage Azure.
 
 <a id="known-issues-tools"></a>
 

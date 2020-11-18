@@ -1,14 +1,14 @@
 ---
 title: Déployer à grande échelle Azure Policy vers des abonnements délégués
 description: Découvrez comment Azure Lighthouse vous permet de déployer une définition et une affectation de stratégie sur plusieurs locataires.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167281"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412066"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Déployer à grande échelle Azure Policy vers des abonnements délégués
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Bien que vous puissiez déployer des stratégies sur plusieurs locataires, vous ne pouvez pas actuellement [afficher les détails de conformité](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) pour les ressources non conformes dans ces locataires.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [Azure Policy](../../governance/policy/index.yml).
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
+- Découvrez comment [déployer une stratégie pouvant être corrigée](deploy-policy-remediation.md) dans un abonnement délégué.

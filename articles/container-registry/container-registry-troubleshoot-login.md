@@ -3,12 +3,12 @@ title: Résoudre des problèmes de connexion à un registre
 description: Symptômes, causes et résolution de problèmes courants de connexion à un registre de conteneurs Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348897"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379500"
 ---
 # <a name="troubleshoot-registry-login"></a>Résoudre des problèmes de connexion au registre
 
@@ -77,8 +77,8 @@ Liens connexes :
 Vérifiez la validité des informations d’identification que vous utilisez pour votre scénario ou qui vous ont été fournies par un propriétaire du registre. Autres problèmes possibles
 
 * Si vous utilisez un principal de service Active Directory, veillez à utiliser les informations d’identification correctes dans le locataire Active Directory :
-  * Nom d'utilisateur - ID d’application du principal de service (également appelé *ID client* )
-  * Mot de passe - mot de passe du principal de service (également appelé *clé secrète client* )
+  * Nom d'utilisateur - ID d’application du principal de service (également appelé *ID client*)
+  * Mot de passe - mot de passe du principal de service (également appelé *clé secrète client*)
 * Si vous utilisez un service Azure, tel que Azure Kubernetes Service ou Azure DevOps pour accéder au registre, confirmez la configuration du registre pour votre service.
 * Si vous avez exécuté `az acr login` avec l’option `--expose-token` qui active la connexion au registre sans utiliser le démon Docker, veillez à vous authentifier avec le nom d’utilisateur `00000000-0000-0000-0000-000000000000`.
 * Si votre registre est configuré pour un [accès par tirage (pull) anonyme](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), les informations d’identification Docker existantes stockées à partir d’une connexion Docker précédente peuvent empêcher l’accès anonyme. Exécutez `docker logout` avant de tenter d’effectuer une opération de tirage (pull) anonyme sur le Registre.
@@ -98,7 +98,9 @@ Liens connexes :
 
 Vérifiez les autorisations du registre associées aux informations d’identification, telles que le rôle Azure `AcrPull` pour extraire des images du registre, ou le rôle `AcrPush` pour envoyer des images. 
 
-L’accès à un registre dans le portail ou la gestion du registre à l’aide d’Azure CLI nécessitent au moins le rôle `Reader` pour effectuer les opérations Azure Resource Manager.
+L’accès à un registre dans le portail ou la gestion du registre à l’aide d’Azure CLI nécessitent au moins le rôle `Reader` ou des autorisations équivalentes pour effectuer les opérations Azure Resource Manager.
+
+Si vos autorisations ont été récemment modifiées pour permettre l’accès au registre via le portail, vous devrez peut-être utiliser une session incognito ou privée dans votre navigateur pour éviter tout cache de navigateur ou tous cookies obsolètes.
 
 Vous ou un propriétaire du registre devez disposer de privilèges suffisants dans l’abonnement pour ajouter ou supprimer des attributions de rôle.
 

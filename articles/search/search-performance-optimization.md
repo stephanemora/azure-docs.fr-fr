@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934954"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420595"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Mettre à l’échelle pour les performances de la Recherche cognitive Azure
 
@@ -30,7 +30,7 @@ Avant d’entreprendre un déploiement à plus grande échelle, vous devez savoi
 
 1. Commencez par un petit nombre de requêtes par seconde (RPS), puis augmentez graduellement le nombre d’exécutions dans le test jusqu’à ce que la latence des requêtes soit inférieure à la cible prédéfinie. Il s’agit d’un test d’évaluation important qui vous aidera à planifier la mise à l’échelle à mesure que l’utilisation de votre application s’intensifie.
 
-1. Dans la mesure du possible, réutilisez les connexions HTTP. Si vous utilisez le Kit de développement logiciel (SDK) .NET Recherche cognitive Azure, cela signifie que vous devez réutiliser une instance ou une instance [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient), et si vous utilisez l’API REST, vous devez réutiliser une instance HttpClient unique.
+1. Dans la mesure du possible, réutilisez les connexions HTTP. Si vous utilisez le Kit de développement logiciel (SDK) .NET Recherche cognitive Azure, cela signifie que vous devez réutiliser une instance ou une instance [SearchClient](/dotnet/api/azure.search.documents.searchclient) et, si vous utilisez l’API REST, vous devez réutiliser une instance HttpClient unique.
 
 1. Variez la substance des requêtes afin que la recherche s’effectue sur différentes parties de votre index. Il est important de varier les requêtes, car si vous exécutez continuellement les mêmes requêtes de recherche, la mise en cache des données commencera à offrir de meilleures performances qu’avec un ensemble de requêtes plus disparates.
 
@@ -43,7 +43,7 @@ Lors de la création de ces charges de travail de test, certaines caractéristiq
 + Le service Recherche cognitive Azure n’exécute pas de tâches d’indexation en arrière-plan. Si votre service gère les charges de travail de requête et d’indexation simultanément, prenez cela en compte en introduisant des travaux d’indexation dans vos tests de requête ou en explorant les options d’exécution des travaux d’indexation pendant les heures creuses.
 
 > [!Tip]
-> Vous pouvez simuler une charge de requête réaliste à l’aide des outils de test de charge. Essayez de [tester la charge avec Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) ou utilisez l’une de ces [alternatives](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Vous pouvez simuler une charge de requête réaliste à l’aide des outils de test de charge. Essayez de [tester la charge avec Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) ou utilisez l’une de ces [alternatives](/azure/devops/test/load-test/overview#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Mettre à l’échelle pour un volume de requêtes élevé
 

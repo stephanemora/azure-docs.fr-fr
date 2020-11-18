@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les services d’app
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875603"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377800"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -100,7 +100,8 @@ Le ciblage de l’infrastructure complète à partir de .NET Core, le déploieme
 
 # <a name="java"></a>[Java](#tab/java)
 
-Les applications web Java basées sur App Service ne prennent pas en charge la supervision automatique basée sur les agents/extensions. Pour activer la supervision de votre application Java, vous devez [instrumenter manuellement votre application](./java-get-started.md).
+Suivez les instructions pour [l’agent Application Insights pour Java 3.0](./java-in-process-agent.md) afin d’activer l’instrumentation automatique pour vos applications Java sans modifier votre code.
+L’intégration automatique n’est pas encore disponible pour App Service.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -350,7 +351,8 @@ Si vous réalisez la mise à niveau à partir d’une version antérieure à 2.
 Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les problèmes rencontrés avec la supervision basée sur un agent/une extension pour les applications .NET et .NET Core exécutées sur Azure App Services.
 
 > [!NOTE]
-> Les applications Java sont prises en charge sur Azure App Services seulement via l’instrumentation manuelle basée sur un SDK. Les étapes ci-dessous ne s’appliquent donc pas à ces scénarios.
+> L’approche recommandée pour surveiller des applications Java consiste à utiliser l’instrumentation automatique sans modifier le code. Suivez les instructions pour l’[agent Application Insights agent Java 3.0](./java-in-process-agent.md).
+
 
 1. Vérifiez que l’application est supervisée via `ApplicationInsightsAgent`.
     * Vérifiez que le paramètre d’application `ApplicationInsightsAgent_EXTENSION_VERSION` est défini à une valeur « ~2 ».
@@ -401,7 +403,7 @@ Si vous souhaitez tester le monitoring côté client et côté serveur sans code
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP et WordPress ne sont pas pris en charge
 
-Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellement aucun SDK/agent officiellement pris en charge pour la supervision côté serveur de ces charges de travail. Toutefois, il est possible d’opérer manuellement des transactions côté client sur un site PHP ou WordPress en ajoutant le JavaScript côté client à vos pages web à l’aide du [SDK JavaScript](./javascript.md).
+Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellement aucun SDK/agent officiellement pris en charge pour la supervision côté serveur de ces charges de travail. Toutefois, il est possible d’opérer manuellement des transactions côté client sur un site PHP ou WordPress en ajoutant le JavaScript côté client à vos pages web à l’aide du [Kit de développement logiciel (SDK) JavaScript](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Chaîne de connexion et clé d’instrumentation
 

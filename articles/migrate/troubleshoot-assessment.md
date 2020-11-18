@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314741"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505221"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -26,7 +26,7 @@ Corrigez les problèmes de préparation à l’évaluation comme suit :
 **Problème** | **Correctif**
 --- | ---
 Type de démarrage non pris en charge | Azure ne prend pas en charge les machines virtuelles associées au type de démarrage EFI. Nous vous recommandons de convertir le type de démarrage en BIOS avant d’effectuer une migration. <br/><br/>Vous pouvez utiliser Azure Migrate Server Migration pour gérer la migration de ces machines virtuelles. Celui-ci permet de convertir le type de démarrage de la machine virtuelle en BIOS au cours de la migration.
-Système d’exploitation Windows pris en charge de manière conditionnelle | Le système d’exploitation n’est plus pris en charge et a besoin d’un programme Custom Support Agreement (CSA) pour bénéficier d’une [prise en charge dans Azure](/troubleshoot/azure/virtual-machines/server-software-support). Envisagez de mettre à niveau avant d’effectuer la migration vers Azure.
+Système d’exploitation Windows pris en charge de manière conditionnelle | Le système d’exploitation n’est plus pris en charge et a besoin d’un programme Custom Support Agreement (CSA) pour bénéficier d’une [prise en charge dans Azure](/troubleshoot/azure/virtual-machines/server-software-support). Envisagez de mettre à niveau avant d’effectuer la migration vers Azure. [Consultez]() les informations relatives à la [préparation des machines exécutant Windows Server 2003](prepare-windows-server-2003-migration.md) pour la migration vers Azure.
 Système d’exploitation Windows non pris en charge | Azure ne prend en charge que [certaines versions du système d’exploitation Windows](/troubleshoot/azure/virtual-machines/server-software-support). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure.
 Systèmes d’exploitation Linux approuvés sous condition | Azure n’approuve que [certaines versions du système d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure. Pour plus d’informations, voyez également [ici](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
 Systèmes d’exploitation Linux non approuvés | La machine peut démarrer dans Azure, mais Azure ne fournit aucune prise en charge du système d’exploitation. Envisagez de mettre à niveau vers une [version approuvée de Linux](../virtual-machines/linux/endorsed-distros.md) avant d’effectuer la migration vers Azure.

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: bea3270821888334ed876bb827dab56b4c206b6a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325241"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578023"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 
@@ -70,12 +70,12 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
 
     Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Dépendances** , comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
+* **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 
 Ces entités sont encapsulées dans une __configuration d'inférence__. La configuration d’inférence référence le script d’entrée et d’autres dépendances.
 
 > [!IMPORTANT]
-> Lors de la création d’une configuration d’inférence à utiliser avec Azure App Service, vous devez utiliser un objet [Environnement](//python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
+> Lors de la création d’une configuration d’inférence à utiliser avec Azure App Service, vous devez utiliser un objet [Environnement](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Pour plus d’informations sur la configuration de l’inférence, consultez [D�
 
 ## <a name="create-the-image"></a>Création de l’image
 
-Pour créer l’image du Docker qui est déployée sur Azure App Service, utilisez [Model.package](//python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). L’extrait de code suivant montre comment construire une nouvelle image à partir de la configuration du modèle et de l’inférence :
+Pour créer l’image du Docker qui est déployée sur Azure App Service, utilisez [Model.package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py). L’extrait de code suivant montre comment construire une nouvelle image à partir de la configuration du modèle et de l’inférence :
 
 > [!NOTE]
 > L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
@@ -146,7 +146,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     }
     ```
 
-    Enregistrez le nom d’utilisateur ( __username__ ), ainsi que l’un des mots de passe ( __passwords__ ).
+    Enregistrez le nom d’utilisateur (__username__), ainsi que l’un des mots de passe (__passwords__).
 
 1. Si vous ne disposez pas déjà d’un groupe de ressources ou d’un plan App Service pour déployer le service, les commandes suivantes montrent comment créer ces deux éléments :
 
@@ -243,7 +243,7 @@ Une fois l’image déployée, vous pouvez trouver le nom d’hôte à l’aide 
 az webapp show --name <app-name> --resource-group myresourcegroup
 ```
 
-Cette commande retourne des informations semblables au nom d’hôte suivant : `<app-name>.azurewebsites.net`. Utilisez cette valeur dans le cadre de l’ __URL de base__ du service.
+Cette commande retourne des informations semblables au nom d’hôte suivant : `<app-name>.azurewebsites.net`. Utilisez cette valeur dans le cadre de l’__URL de base__ du service.
 
 ## <a name="use-the-web-app"></a>Utiliser l’application web
 

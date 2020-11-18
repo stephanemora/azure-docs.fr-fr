@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4effdde131f93ccf430029edc4d87e0627010c8b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257552"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443189"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scénario : Application de bureau qui appelle des API web
 
@@ -61,5 +61,4 @@ Les applications de bureau ont un certain nombre de spécificités. Elles dépen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Application de bureau : inscription d’application](scenario-desktop-app-registration.md)
+Passez à l’article suivant de ce scénario, [Inscription d’application](scenario-desktop-app-registration.md).

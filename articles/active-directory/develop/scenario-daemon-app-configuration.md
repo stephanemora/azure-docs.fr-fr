@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257671"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444161"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon appelant des API web - Configuration du code
 
@@ -352,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Application démon conçue pour appeler des API web - acquisition d’un jeton](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Passez à l’article suivant de ce scénario, [Acquérir un jeton pour l’application](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Application démon conçue pour appeler des API web - acquisition d’un jeton](./scenario-daemon-acquire-token.md?tabs=python)
+Passez à l’article suivant de ce scénario, [Acquérir un jeton pour l’application](./scenario-daemon-acquire-token.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Application démon conçue pour appeler des API web - acquisition d’un jeton](./scenario-daemon-acquire-token.md?tabs=java)
+Passez à l’article suivant de ce scénario, [Acquérir un jeton pour l’application](./scenario-daemon-acquire-token.md?tabs=java).
 
 ---

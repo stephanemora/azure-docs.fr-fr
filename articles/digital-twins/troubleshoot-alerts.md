@@ -5,14 +5,14 @@ description: Découvrez comment activer des alertes sur les métriques Azure Dig
 author: baanders
 ms.author: baanders
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087204"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616600"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Dépannage d’Azure Digital Twins : Alertes
 
@@ -44,17 +44,17 @@ Pour une procédure pas à pas guidée de la saisie de ces champs, consultez [*V
 
 Voici un extrait du processus *Sélectionner une condition* illustrant les types de signaux d’alerte disponibles pour Azure Digital Twins. Sur cette page, vous pouvez filtrer le type de signal et sélectionner le signal souhaité dans une liste.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Capture d’écran montrant la première page Configurer la logique du signal. La zone Type de signal est mise en surbrillance pour sélectionner des métriques ou des journaux d’activité, ainsi qu’une liste des métriques que vous pouvez sélectionner en dessous":::
 
 Après avoir sélectionné un signal, vous êtes invité à configurer la logique de l’alerte. Vous pouvez filtrer sur une dimension, définir une valeur seuil pour votre alerte et définir la fréquence des vérifications pour la condition. Voici un exemple de configuration d’une alerte lorsque la métrique du taux moyen d’échec de routage dépasse 5 %.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Capture d’écran montrant la deuxième page Configurer la logique du signal. La page affiche l’historique des métriques, a une zone à filtrer sur une dimension telle que les opérations Event Grid et une section pour la définition de la logique d’alerte telle que « moyenne est supérieure à 5 ».":::
 
 ### <a name="verify-success"></a>Vérifier la réussite de l’exécution
 
 Une fois les alertes configurées, elles s’affichent sur la page *Alertes* de votre instance.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Capture d’écran montrant la page Alertes et le bouton à ajouter. Une alerte est configurée" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

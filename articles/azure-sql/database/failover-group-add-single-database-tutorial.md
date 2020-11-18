@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 06/19/2019
-ms.openlocfilehash: e4709bf901ed74e0ea7589824a280651f8b73866
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8298c673ddc707130d0873f686e1baed3677a46f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793379"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593958"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutoriel : Ajouter une base de données Azure SQL Database à un groupe de basculement automatique
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
-- La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ---
 
@@ -65,23 +65,23 @@ Dans le cadre de cette étape, vous allez créer un [groupe de basculement](auto
 
 Créez votre groupe de basculement et ajoutez-y votre base de données en utilisant le Portail Azure.
 
-1. Dans le menu de gauche du **Portail Azure** , sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services** , puis tapez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’ **Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
 1. Sélectionnez la base de données créée dans la section 1, par exemple `mySampleDatabase`.
 1. Les groupes de basculement peuvent être configurés au niveau du serveur. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
    ![Ouvrir un serveur pour une base de données](./media/failover-group-add-single-database-tutorial/open-sql-db-server.png)
 
-1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres** , puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement.
+1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement.
 
    ![Ajouter un nouveau groupe de basculement](./media/failover-group-add-single-database-tutorial/sqldb-add-new-failover-group.png)
 
-1. Dans la page **Groupe de basculement** , entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer**  :
+1. Dans la page **Groupe de basculement**, entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
 
-   - **Nom du groupe de basculement**  : Tapez un nom de groupe de basculement unique, par exemple `failovergrouptutorial`.
-   - **Serveur secondaire**  : Sélectionnez l’option permettant de *configurer les paramètres requis* , puis choisissez de **Créer un serveur** . Vous pouvez également choisir un serveur existant en tant que serveur secondaire. Après avoir entré les valeurs suivantes, sélectionnez **Sélectionner** .
-      - **Nom du serveur**  : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`.
+   - **Nom du groupe de basculement** : Tapez un nom de groupe de basculement unique, par exemple `failovergrouptutorial`.
+   - **Serveur secondaire** : Sélectionnez l’option permettant de *configurer les paramètres requis*, puis choisissez de **Créer un serveur**. Vous pouvez également choisir un serveur existant en tant que serveur secondaire. Après avoir entré les valeurs suivantes, sélectionnez **Sélectionner**.
+      - **Nom du serveur** : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`.
       - **Connexion administrateur au serveur** : Tapez `azureuser`.
-      - **Mot de passe**  : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
+      - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
       - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `East US`. Cet emplacement ne peut pas être le même que celui de votre serveur principal.
 
      > [!NOTE]
@@ -89,7 +89,7 @@ Créez votre groupe de basculement et ajoutez-y votre base de données en utilis
 
      ![Créer un serveur secondaire pour le groupe de basculement](./media/failover-group-add-single-database-tutorial/create-secondary-failover-server.png)
 
-   - **Base de données dans le groupe**  : Une fois qu’un serveur secondaire est sélectionné, cette option est déverrouillée. Sélectionnez-la pour **Sélectionner les bases de données à ajouter** , puis choisissez la base de données créée dans la section 1. L’ajout de la base de données au groupe de basculement démarre automatiquement le processus de géoréplication.
+   - **Base de données dans le groupe** : Une fois qu’un serveur secondaire est sélectionné, cette option est déverrouillée. Sélectionnez-la pour **Sélectionner les bases de données à ajouter**, puis choisissez la base de données créée dans la section 1. L’ajout de la base de données au groupe de basculement démarre automatiquement le processus de géoréplication.
 
    ![Ajouter SQL Database à un groupe de basculement](./media/failover-group-add-single-database-tutorial/add-sqldb-to-failover-group.png)
 
@@ -199,7 +199,7 @@ Cette partie du tutoriel utilise les cmdlets Azure CLI suivantes :
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur qui héberge des bases de données et des pools élastiques. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crée les règles de pare-feu d’un serveur. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Crée un groupe de basculement. |
+| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Crée un groupe de basculement. |
 
 ---
 
@@ -211,13 +211,13 @@ Dans le cadre de cette étape, vous allez faire basculer votre groupe de bascule
 
 Testez le basculement en utilisant le portail Azure.
 
-1. Dans le menu de gauche du **Portail Azure** , sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services** , puis tapez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’ **Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
 1. Sélectionnez la base de données créée dans la section 2, par exemple`mySampleDatbase`.
 1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
    ![Ouvrir un serveur pour une base de données](./media/failover-group-add-single-database-tutorial/open-sql-db-server.png)
 
-1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres** , puis choisissez le groupe de basculement créé dans la section 2.
+1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis choisissez le groupe de basculement créé dans la section 2.
   
    ![Sélectionner le groupe de basculement à partir du portail](./media/failover-group-add-single-database-tutorial/select-failover-group.png)
 
@@ -322,8 +322,8 @@ Cette partie du tutoriel utilise les cmdlets Azure CLI suivantes :
 
 | Commande | Notes |
 |---|---|
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Répertorie les groupes de basculement d’un serveur. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
+| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Répertorie les groupes de basculement d’un serveur. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
 
 ---
 
@@ -409,14 +409,14 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Définit un abonnement en tant qu’abonnement actif. |
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Définit un abonnement en tant qu’abonnement actif. |
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur qui héberge des bases de données uniques et des pools élastiques dans Azure SQL Database. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crée les règles de pare-feu IP au niveau du serveur dans Azure SQL Database. |
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Crée une base de données dans Azure SQL Database. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Crée un groupe de basculement dans Azure SQL Database. |
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Répertorie les groupes de basculement dans un serveur dans Azure SQL Database. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest&preserve-view=true) | Crée une base de données dans Azure SQL Database. |
+| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Crée un groupe de basculement dans Azure SQL Database. |
+| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Répertorie les groupes de basculement dans un serveur dans Azure SQL Database. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
 | [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 # <a name="the-portal"></a>[Le portail](#tab/azure-portal)

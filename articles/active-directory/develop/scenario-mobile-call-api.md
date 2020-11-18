@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7cad0592c5c4c0487f582ce5405c275b94b7bd0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83771738"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444025"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Appeler une API web à partir d’une application mobile
 
@@ -159,5 +159,4 @@ catch(MsalUiRequiredException ex)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Passer en production](scenario-mobile-production.md)
+Passez à l’article suivant de ce scénario, [Passer en production](scenario-mobile-production.md).

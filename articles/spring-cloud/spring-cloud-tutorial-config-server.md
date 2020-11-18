@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06d5196e612bcf20e11f17634b32db028cd5bc88
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904241"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378089"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurer une instance de serveur de configuration Spring Cloud pour votre service
 
@@ -81,6 +81,9 @@ Toutes les propriétés configurables servant à configurer un dépôt Git priv�
 | `host-key`                 | Non     | La clé hôte du serveur du dépôt Git ne doit pas inclure le préfixe d’algorithme tel qu’il est couvert par `host-key-algorithm`. |
 | `host-key-algorithm`       | Non     | Algorithme de clé d’hôte, doit être *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Obligatoire* uniquement si `host-key` existe. |
 | `strict-host-key-checking` | Non     | Indique si l’instance du serveur de configuration ne peut pas démarrer en cas d’utilisation de la `host-key` privée. Doit être *true* (valeur par défaut) ou *false*. |
+
+> [!NOTE]
+> Config Server prend `master` (sur Git lui-même) comme étiquette par défaut si elle n’est pas spécifiée. Toutefois, GitHub a récemment modifié la branche par défaut `master` en `main`. Pour éviter les défaillances du composant Config Server d’Azure Spring Cloud, prêtez attention à l’étiquette par défaut lors de la configuration de Config Server avec GitHub, en particulier pour les nouveaux référentiels créés.
 
 -----
 

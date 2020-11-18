@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9becd6341baad54a74f10ae2f38cf9ccf1fd3037
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 7d49499b39c562aeff20d163fc86401d8c1f4a06
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347894"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579162"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -51,16 +51,16 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Sélectionnez **Créer une ressource** > **Kubernetes Service** dans le coin supérieur gauche du portail Azure.
 
-Sur la page **Bases** , configurez les options suivantes :
+Sur la page **Bases**, configurez les options suivantes :
 
-- *DÉTAILS DU PROJET* : Choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, comme *myResourceGroup*. Entrez un **nom du cluster Kubernetes** , tel que *myAKSCluster*.
+- *DÉTAILS DU PROJET* : Choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, comme *myResourceGroup*. Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*.
 - *DÉTAILS DU CLUSTER* : Sélectionnez une région, une version de Kubernetes et le préfixe du nom DNS du cluster AKS.
 - *POOL DE NŒUDS PRINCIPAL* : Sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé.
      - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Dans le cadre de cet article, définissez **Nombre de nœuds** sur *1*. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
 
 Cliquez sur **Suivant : Mise à l'échelle**.
 
-Sur la page **Mise à l’échelle** , sélectionnez *Activé* sous **Nœuds virtuels**.
+Sur la page **Mise à l’échelle**, sélectionnez *Activé* sous **Nœuds virtuels**.
 
 ![Créer un cluster AKS et activer les nœuds virtuels](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -90,7 +90,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux*  :
+L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux* :
 
 ```output
 NAME                           STATUS    ROLES     AGE       VERSION
@@ -214,5 +214,5 @@ Les nœuds virtuels constituent l’un des composants d’une solution de mise �
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider&preserve-view=true#az-provider-list
+[az-provider-list]: /cli/azure/provider?view=azure-cli-latest#az-provider-list
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register

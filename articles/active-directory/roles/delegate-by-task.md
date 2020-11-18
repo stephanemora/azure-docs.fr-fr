@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373170"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379092"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -351,6 +351,7 @@ Mettre à jour toutes les propriétés, sauf le nom d’utilisateur principal | 
 Mettre à jour le nom d’utilisateur principal pour les administrateurs limités (consultez la documentation) | Administrateur d’utilisateurs | 
 Mettre à jour la propriété Nom d’utilisateur principal sur les administrateurs privilégiés (consultez la documentation) | Administrateur général | 
 Mettre à jour les paramètres utilisateur | Administrateur général | 
+Mettre à jour les méthodes d’authentification | Administrateur d’authentification | Administrateur d’authentification privilégié, Administrateur général
 
 
 ## <a name="support"></a>Support

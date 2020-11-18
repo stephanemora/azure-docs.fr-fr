@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21ba0193c3f1e19ffc74452aaceee34759c7e606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a51442870fb72e2b3cd93d9f03736d2c679ed06
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949012"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442818"
 ---
 # <a name="single-page-application-move-to-production"></a>Application monopage : Passer en production
 
@@ -36,27 +36,12 @@ Consultez un [exemple de déploiement](https://github.com/Azure-Samples/ms-ident
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Présentation approfondie de l’exemple de démarrage rapide, avec explication du code permettant de connecter des utilisateurs et d’obtenir un jeton d’accès pour appeler l’**API Microsoft Graph** à l’aide de **MSAL.js** :
+- Présentation approfondie de l’exemple de démarrage rapide, avec explication du code permettant de connecter des utilisateurs et d’obtenir un jeton d’accès pour appeler l’**API Microsoft Graph** à l’aide de **MSAL.js** : [Tutoriel de SPA JavaScript](./tutorial-v2-javascript-spa.md).
 
-> [!div class="nextstepaction"]
-> [Didacticiel JavaScript SPA](./tutorial-v2-javascript-spa.md)
+- Exemple montrant comment obtenir des jetons pour votre propre API web de serveur principal (ASP.NET Core) à l’aide de **MSAL.js** : [SPA avec serveur principal ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi).
 
-Exemple montrant comment obtenir des jetons pour votre propre API web de serveur principal (ASP.NET Core) à l’aide de **MSAL.js** :
+- Exemple montrant comment valider des jetons d’accès pour votre API web de serveur principal (Node.js) à l’aide de **passport-azure-ad** : [API web Node.js (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2).
 
-> [!div class="nextstepaction"]
-> [SPA avec serveur principal ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
+- Exemple montrant comment utiliser **MSAL.js** pour connecter des utilisateurs dans une application inscrite auprès d’**Azure Active Directory B2C** (Azure AD B2C) : [SPA avec Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
-Exemple montrant comment valider des jetons d’accès pour votre API web de serveur principale (Node.js) à l’aide de **Passport-Azure-ad**.
-
-> [!div class="nextstepaction"]
-> [API Web Node.js (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
-
-Exemple montrant comment utiliser **MSAL.js** pour connecter des utilisateurs dans une application inscrite auprès d’**Azure Active Directory B2C** (Azure AD B2C) :
-
-> [!div class="nextstepaction"]
-> [SPA avec Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-
-Exemple montrant comment utiliser **passport-azure-ad** pour valider des jetons d’accès pour des applications inscrites auprès d’**Azure Active Directory B2C** (Azure AD B2C).
-
-> [!div class="nextstepaction"]
-> [API Web Node.js (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- Exemple montrant comment utiliser **passport-azure-ad** pour valider des jetons d’accès pour des applications inscrites auprès d’**Azure Active Directory B2C** (Azure AD B2C) : [API web Node.js (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).

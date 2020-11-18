@@ -1,79 +1,76 @@
 ---
 title: Clé gérée par le client dans Azure Monitor
-description: Informations et étapes relatives à la configuration de CMK (Customer-Managed Key) pour chiffrer des données dans vos espaces de travail Log Analytics à l’aide d’une clé Azure Key Vault.
+description: Informations et étapes relatives à la configuration d’une clé gérée par le client pour chiffrer des données dans vos espaces de travail Log Analytics à l’aide d’une clé Azure Key Vault.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 09/09/2020
-ms.openlocfilehash: 532d96163e2ec66730dc3fdf87f10904fd584224
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 11/09/2020
+ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107995"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443379"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
-Cet article fournit des informations générales et des étapes pour configurer des clés gérées par le client (CMK, Customer-Managed Keys) qui sont destinées à vos espaces de travail Log Analytics. Une fois la configuration effectuée, toutes les données envoyées à vos espaces de travail sont chiffrées au moyen de votre clé Azure Key Vault.
+Cet article fournit des informations générales et des étapes pour configurer des clés gérées par le client qui sont destinées à vos espaces de travail Log Analytics. Une fois la configuration effectuée, toutes les données envoyées à vos espaces de travail sont chiffrées au moyen de votre clé Azure Key Vault.
 
 Nous vous recommandons de passer en revue les [Limitations et contraintes](#limitationsandconstraints) ci-dessous avant de procéder à la configuration.
 
-## <a name="customer-managed-key-cmk-overview"></a>Vue d’ensemble des clés gérées par le client (CMK)
+## <a name="customer-managed-key-overview"></a>Vue d’ensemble des clés gérées par le client
 
-Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est une exigence de sécurité et de confidentialité courante dans les organisations. Vous pouvez laisser Azure gérer complètement le chiffrement au repos, mais vous disposez aussi de plusieurs options pour gérer étroitement le chiffrement ou les clés de chiffrement.
+Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est une exigence de sécurité et de confidentialité courante dans les organisations. Si vous pouvez laisser Azure gérer complètement le chiffrement au repos, plusieurs options vous permettent de gérer le chiffrement ou des clés de chiffrement.
 
-Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre [Azure Key Vault](../../key-vault/general/overview.md) et accessible à l’aide de l’authentification par [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) attribuée par le système. Cette clé (CMK) peut être [protégée par un logiciel ou par un HSM matériel](../../key-vault/general/overview.md). L’utilisation du chiffrement par Azure Monitor est identique à celle du [chiffrement par Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
+Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre coffre [Azure Key Vault](../../key-vault/general/overview.md) et utilisée par le stockage pour le chiffrement des données. La clé peut être [protégée par un logiciel ou par un HSM matériel](../../key-vault/general/overview.md). L’utilisation du chiffrement par Azure Monitor est identique à celle du [chiffrement par Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-La capacité de clé gérée par le client est fournie sur des clusters Log Analytics dédiés et vous permet de révoquer l’accès à vos données à tout moment et de les protéger avec le contrôle [Lockbox](#customer-lockbox-preview). Pour vérifier que nous disposons de la capacité requise pour un cluster dédié dans votre région, votre abonnement doit nécessairement être autorisé au préalable. Avant de commencer à configurer une clé CMK, demandez à votre contact Microsoft d’autoriser votre abonnement.
+La capacité de clé gérée par le client est fournie sur des clusters Log Analytics dédiés. Elle vous permet de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview) et vous donne le contrôle de révoquer l’accès à vos données à tout moment. Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le premier semestre 2021.
 
 Le [modèle de tarification des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) utilise des réservations de capacité à partir de 1 000 Go/jour.
 
-Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#cmk-kek-revocation). Nous travaillerons à l’implémentation de données SSD chiffrées avec clé CMK au cours de la seconde moitié de 2020.
+> [!IMPORTANT]
+> En raison de contraintes temporaires en matière de capacité, nous vous demandons de vous préinscrire avant de créer un cluster. Utilisez vos contacts chez Microsoft ou ouvrez une demande de support pour inscrire vos ID d’abonnements.
 
-## <a name="how-cmk-works-in-azure-monitor"></a>Fonctionnement de CMK dans Azure Monitor
+## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Fonctionnement de la clé gérée par le client dans Azure Monitor
 
-Azure Monitor tire parti de l’identité managée attribuée par le système pour accorder l’accès à votre coffre de clés Azure. L’identité gérée attribuée par le système ne peut être associée qu’à une seule ressource Azure, tandis que l’identité du cluster Log Analytics est prise en charge au niveau du cluster. Cela exige que la capacité de clé CMK soit fournie sur un cluster Log Analytics dédié. Pour prendre en charge la capacité de clé CMK sur plusieurs espaces de travail, une nouvelle ressource *cluster* Log Analytics s’exécute en tant que connexion d’identité intermédiaire entre votre Key Vault et vos espaces de travail Log Analytics. Le stockage en cluster Log Analytics utilise l’identité gérée associée à la ressource *cluster* pour s’authentifier auprès de votre Azure Key Vault via Azure Active Directory. 
+Azure Monitor tire parti de l’identité managée attribuée par le système pour accorder l’accès à votre coffre de clés Azure. L’identité managée affectée par le système ne peut être associée qu’à une seule ressource Azure, tandis que l’identité du cluster Log Analytics est prise en charge au niveau du cluster. Cela exige que la capacité de clé gérée par le client soit fournie sur un cluster Log Analytics dédié. Pour prendre en charge la capacité de clé gérée par le client sur plusieurs espaces de travail, une nouvelle ressource *cluster* Log Analytics s’exécute en tant que connexion d’identité intermédiaire entre votre coffre de clés et vos espaces de travail Log Analytics. Le stockage en cluster Log Analytics utilise l’identité gérée associée à la ressource *cluster* pour s’authentifier auprès de votre Azure Key Vault via Azure Active Directory. 
 
-Après la configuration d’une clé CMK, toutes les données ingérées dans les espaces de travail liés à votre cluster dédié sont chiffrées à l’aide de votre clé stockée dans Key Vault. Vous pouvez dissocier les espaces de travail du cluster à tout moment. Les nouvelles données sont ingérées dans un stockage Log Analytics et chiffrées avec une clé Microsoft. Et vous pouvez interroger vos données, nouvelles et anciennes, sans la moindre difficulté.
+Après la configuration d’une clé gérée par le client, toutes les données ingérées dans les espaces de travail liés à votre cluster dédié sont chiffrées à l’aide de votre clé stockée dans Key Vault. Vous pouvez dissocier les espaces de travail du cluster à tout moment. Les nouvelles données sont ensuite ingérées dans un stockage Log Analytics et chiffrées avec une clé Microsoft. Vous pourrez interroger vos données, nouvelles et anciennes, sans la moindre difficulté.
 
 
-![Vue d’ensemble de CMK](media/customer-managed-keys/cmk-overview.png)
+![Vue d’ensemble des clés gérées par le client](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. Ressource *cluster* Log Analytics ayant une identité gérée avec des autorisations pour Key Vault. L’identité est propagée vers le stockage de cluster Log Analytics dédié sous-jacent.
 3. Cluster Log Analytics dédié.
-4. Espaces de travail liés à la ressource *cluster* pour le chiffrement par clé CMK
+4. Espaces de travail liés à la ressource *cluster* 
 
 ## <a name="encryption-keys-operation"></a>Opération de clés de chiffrement
 
 Il existe trois types de clés impliquées dans le chiffrement des données de Stockage :
 
-- **KEK** - Clé de chiffrement principale (CMK)
-- **AEK**  : clé de chiffrement de compte
-- **DEK**  : clé de chiffrement de données
+- **KEK** : clé de chiffrement de clé (votre clé gérée par le client)
+- **AEK** : clé de chiffrement de compte
+- **DEK** : clé de chiffrement de données
 
 Les règles suivantes s’appliquent :
 
 - Les comptes de stockage de cluster Log Analytics génèrent une clé de chiffrement unique pour chaque compte de stockage, appelée clé de chiffrement de compte (AEK, Account Encryption Key).
-
-- La clé AEK est utilisé pour dériver les clés DEK, clés utilisées pour chiffrer chaque bloc de données écrites sur le disque.
-
+- La clé AEK est utilisée pour dériver les clés DEK, clés utilisées pour chiffrer chaque bloc de données écrites sur le disque.
 - Lorsque vous configurez votre clé dans Key Vault et que vous la référencez dans le cluster, Stockage Azure envoie des requêtes à votre Azure Key Vault pour envelopper et désenvelopper l’AEK afin d’effectuer des opérations de chiffrement et de déchiffrement de données.
-
 - Votre clé KEK ne quitte jamais votre coffre de clés et, dans le cas d’une clé HSM, elle ne quitte jamais le matériel.
-
 - Stockage Azure utilise l’identité managée associée à la ressource *cluster* pour s’authentifier et accéder à Azure Key Vault par le biais d’Azure Active Directory.
 
-## <a name="cmk-provisioning-procedure"></a>Procédure de provisionnement de CMK
+## <a name="customer-managed-key-provisioning-procedure"></a>Procédure de configuration de clé gérée par le client
 
-1. Autorisation de l’abonnement : la capacité de clé CMK est fournie sur des clusters Log Analytics dédiés. Pour vérifier que nous disposons de la capacité requise dans votre région, votre abonnement doit nécessairement être autorisé au préalable. Demandez à votre contact Microsoft d’autoriser votre abonnement.
-2. Création du coffre de clés Azure et stockage de la clé
-3. Création du cluster
-4. Octroi d’autorisations d’accès à votre coffre de clés
-5. Liaison d’espaces de travail Log Analytics
+1. Inscription de votre abonnement pour autoriser la création du cluster
+1. Création du coffre de clés Azure et stockage de la clé
+1. Création du cluster
+1. Octroi d’autorisations d’accès à votre coffre de clés
+1. Liaison d’espaces de travail Log Analytics
 
-La configuration de clé CMK n’est pas prise en charge dans le portail Azure et l’approvisionnement est effectué par le biais de requêtes [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) ou [REST](https://docs.microsoft.com/rest/api/loganalytics/).
+La configuration de clé gérée par le client n’est pas prise en charge dans le portail Azure et l’approvisionnement est effectué par le biais de requêtes [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) ou [REST](https://docs.microsoft.com/rest/api/loganalytics/).
 
 ### <a name="asynchronous-operations-and-status-check"></a>Opérations asynchrones et vérification de l’état
 
@@ -82,13 +79,13 @@ Certaines étapes de configuration s’exécutent de façon asynchrone, car elle
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-Pour vérifier l’état de l’opération asynchrone, envoyez une requête GET dans la valeur d’en-tête *Azure-AsyncOperation*  :
+Pour vérifier l’état de l’opération asynchrone, envoyez une requête GET dans la valeur d’en-tête *Azure-AsyncOperation* :
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-La réponse contient des informations sur l’opération et son *état* . Les valeurs possibles sont les suivantes :
+La réponse contient des informations sur l’opération et son *état*. Les valeurs possibles sont les suivantes :
 
 L’opération est en cours
 ```json
@@ -149,12 +146,10 @@ L’opération a échoué
 }
 ```
 
-### <a name="allowing-subscription-for-cmk-deployment"></a>Autorisation de l’abonnement pour le déploiement de la clé CMK
-
-La capacité de clé CMK est fournie sur des clusters Log Analytics dédiés. Pour vérifier que nous disposons de la capacité requise dans votre région, votre abonnement doit nécessairement être autorisé au préalable. Utilisez vos contacts au sein de Microsoft pour fournir vos ID d’abonnement.
+### <a name="allowing-subscription"></a>Autorisation de l’abonnement
 
 > [!IMPORTANT]
-> La fonctionnalité CMK est régionale. Vos Azure Key Vault, le cluster et les espaces de travail Log Analytics liés doivent se trouver dans la même région, mais ils peuvent être dans des abonnements différents.
+> La capacité de clé gérée par le client est régionale. Vos Azure Key Vault, le cluster et les espaces de travail Log Analytics liés doivent se trouver dans la même région, mais ils peuvent être dans des abonnements différents.
 
 ### <a name="storing-encryption-key-kek"></a>Stockage de la clé de chiffrement (KEK)
 
@@ -162,7 +157,7 @@ Créez un coffre de clés Azure, ou utilisez-en un existant, pour générer ou i
 
 ![Paramètres de suppression réversible et de protection contre la suppression définitive](media/customer-managed-keys/soft-purge-protection.png)
 
-Ces paramètres peuvent être mis à jour par le biais de l’interface CLI et de PowerShell :
+Ces paramètres peuvent être mis à jour dans Key Vault par le biais de l’interface CLI et de PowerShell :
 
 - [Suppression réversible](../../key-vault/general/soft-delete-overview.md)
 - La [protection contre la suppression définitive](../../key-vault/general/soft-delete-overview.md#purge-protection) protège contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
@@ -176,7 +171,7 @@ Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](htt
 
 ### <a name="grant-key-vault-permissions"></a>Octroi d’autorisations d’accès au coffre de clés
 
-Mettez à jour votre Key Vault avec une nouvelle stratégie d’accès pour accorder des autorisations à votre cluster. Ces autorisations sont utilisées par le Stockage Azure Monitor sous-jacent pour le chiffrement des données. Ouvrez votre coffre de clés dans le portail Azure, puis cliquez sur « Stratégies d’accès », puis sur « + Ajouter une stratégie d’accès » pour créer une stratégie avec les paramètres ci-après :
+Créez une stratégie d’accès dans Key Vault pour accorder des autorisations à votre cluster. Ces autorisations sont utilisées par le Stockage Azure Monitor sous-jacent pour le chiffrement des données. Ouvrez votre coffre de clés dans le portail Azure, puis cliquez sur « Stratégies d’accès », puis sur « + Ajouter une stratégie d’accès » pour créer une stratégie avec les paramètres ci-après :
 
 - Autorisations de clé : sélectionnez « Obtenir », « Inclure la clé » et « Ne pas inclure la clé ».
 - Sélectionner le principal : entrez le nom du cluster ou la valeur principal-id retournée dans la réponse à l’étape précédente.
@@ -199,47 +194,40 @@ Mettez à jour la propriété KeyVaultProperties du cluster avec les détails de
 
 L’opération est asynchrone et peut prendre du temps.
 
+```azurecli
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
+```
+
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
-> [!NOTE]
-> Vous pouvez mettre à jour les valeurs *sku* , *keyVaultProperties* ou *billingType* du cluster à l’aide de l’instruction PATCH.
-
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-Authorization: Bearer <token>
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
 Content-type: application/json
-
+ 
 {
-   "identity": { 
-     "type": "systemAssigned" 
-     },
-   "sku": {
-     "name": "capacityReservation",
-     "capacity": 1000
-     },
-   "properties": {
-    "billingType": "cluster",
-     "KeyVaultProperties": {
-       "KeyVaultUri": "https://<key-vault-name>.vault.azure.net",
-       "KeyName": "<key-name>",
-       "KeyVersion": "<current-version>"
-       }
-   },
-   "location":"<region-name>"
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
 }
 ```
 
 **Réponse**
 
-200 OK et en-tête.
 La propagation de l’identificateur de clé prend quelques minutes. Vous pouvez vérifier l’état de la mise à jour de deux manières :
 1. Copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de[contrôle de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
-2. Envoyez une requête GET sur le cluster, puis examinez les propriétés *KeyVaultProperties* . Les détails de l’identificateur de clé récemment mis à jour doivent être retournés dans la réponse.
+2. Envoyez une requête GET sur le cluster, puis examinez les propriétés *KeyVaultProperties*. Les détails de l’identificateur de clé récemment mis à jour doivent être retournés dans la réponse.
 
-Une réponse à la requête GET doit ressembler à ceci lorsque la mise à jour de l’identificateur de clé est terminée :
-
+Une réponse à la requête GET doit ressembler à ceci lorsque la mise à jour de l’identificateur de clé est terminée : 200 OK et en-tête
 ```json
 {
   "identity": {
@@ -283,7 +271,7 @@ Cette opération est asynchrone et peut durer un certain temps.
 
 Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
 
-## <a name="cmk-kek-revocation"></a>Révocation de clé CMK (KEK)
+## <a name="key-revocation"></a>Révocation de la clé
 
 Vous pouvez révoquer l’accès aux données en désactivant votre clé ou en supprimant la stratégie d’accès du cluster dans votre Key Vault. Le stockage de cluster Log Analytics respecte toujours les modifications des autorisations de clé en maximum une heure. Il devient alors indisponible. Toutes les nouvelles données ingérées dans les espaces de travail liés à votre cluster sont définitivement supprimées. Les données sont donc inaccessibles et les requêtes adressées à ces espaces de travail échouent. Les données précédemment ingérées restent dans le stockage tant que votre cluster et vos espaces de travail ne sont pas supprimés. Les données inaccessibles sont régies par la stratégie de conservation des données et sont vidées à la fin de la durée de conservation. 
 
@@ -291,33 +279,38 @@ Les données ingérées au cours des 14 derniers jours sont également conserv�
 
 Le stockage sonde régulièrement votre Key Vault pour tenter de désencapsuler la clé de chiffrement et, une fois qu’il y a accès, l’ingestion et l’interrogation des données reprennent dans un délai de 30 minutes.
 
-## <a name="cmk-kek-rotation"></a>Rotation de clé CMK (KEK)
+## <a name="key-rotation"></a>Rotation des clés
 
-La rotation de clé CMK nécessite une mise à jour explicite du cluster avec la nouvelle version de clé dans Azure Key Vault. Suivez les instructions de l’étape « Mettre à jour le cluster avec les détails de l’identificateur de clé ». Si vous ne mettez pas à jour les nouveaux détails de l’identificateur de clé dans le cluster, le stockage de cluster Log Analytics continue d’utiliser votre clé précédente pour le chiffrement. Si vous désactivez ou supprimez votre ancienne clé avant de mettre à jour la nouvelle dans le cluster, vous passez à l’état [révocation de clé](#cmk-kek-revocation).
+La rotation de clés gérées par le client nécessite une mise à jour explicite du cluster avec la nouvelle version de clé dans Azure Key Vault. Suivez les instructions de l’étape « Mettre à jour le cluster avec les détails de l’identificateur de clé ». Si vous ne mettez pas à jour les nouveaux détails de l’identificateur de clé dans le cluster, le stockage de cluster Log Analytics continue d’utiliser votre clé précédente pour le chiffrement. Si vous désactivez ou supprimez votre ancienne clé avant de mettre à jour la nouvelle dans le cluster, vous passez à l’état [révocation de clé](#key-revocation).
 
 Toutes vos données restent accessibles après l’opération de rotation de clé, car les données sont toujours chiffrées avec la clé de chiffrement de compte (AEK, Account Encryption Key), tandis que celle-ci est désormais chiffrée avec votre nouvelle version de clé de chiffrement de clé (KEK, Key Encryption Key) dans Key Vault.
 
-## <a name="cmk-for-queries"></a>Clé CMK pour les requêtes
+## <a name="customer-managed-key-for-queries"></a>Clé gérée par le client pour les requêtes
 
-Le langage de requête utilisé dans Log Analytics est expressif et peut contenir des informations sensibles dans les commentaires que vous ajoutez aux requêtes ou dans la syntaxe de requête. Certaines organisations requièrent que ces informations soient protégées dans le cadre de la stratégie CMK et vous devez sauvegarder vos requêtes en les chiffrant avec votre clé. Azure Monitor vous permet de stocker des requêtes de *recherches enregistrées* et d’ *alertes de journal* chiffrées avec votre clé dans votre propre compte de stockage lorsque vous êtes connecté à votre espace de travail. 
+Le langage de requête utilisé dans Log Analytics est expressif et peut contenir des informations sensibles dans les commentaires que vous ajoutez aux requêtes ou dans la syntaxe de requête. Certaines organisations requièrent que ces informations soient protégées dans le cadre de la stratégie de clé gérée par le client, et vous devez sauvegarder vos requêtes en les chiffrant avec votre clé. Azure Monitor vous permet de stocker des requêtes de *recherches enregistrées* et d’*alertes de journal* chiffrées avec votre clé dans votre propre compte de stockage lorsque vous êtes connecté à votre espace de travail. 
 
 > [!NOTE]
-> Les requêtes Log Analytics peuvent être enregistrées dans différents magasins en fonction du scénario utilisé. Les requêtes restent chiffrées avec Microsoft Key (MMK) dans les scénarios suivants, quelle que soit la configuration de CMK : Classeurs dans Azure Monitor, tableaux de bord Azure, application logique Azure, Azure Notebooks et Automation Runbooks.
+> Les requêtes Log Analytics peuvent être enregistrées dans différents magasins en fonction du scénario utilisé. Les requêtes restent chiffrées avec la clé Microsoft (MMK) dans les scénarios suivants, quelle que soit la configuration de clé gérée par le client : Classeurs dans Azure Monitor, tableaux de bord Azure, application logique Azure, Azure Notebooks et Automation Runbooks.
 
-Lorsque vous apportez votre propre stockage (BYOS) et que vous le liez à votre espace de travail, le service charge les requêtes de *recherches enregistrées* et d’ *alertes de journal* dans votre compte de stockage. Cela signifie que vous contrôlez le compte de stockage et la [stratégie de chiffrement au repos](../../storage/common/customer-managed-keys-overview.md) à l’aide de la même clé que celle utilisée pour chiffrer les données dans le cluster Log Analytics ou d’une clé différente. Toutefois, vous êtes responsable des coûts associés à ce compte de stockage. 
+Lorsque vous apportez votre propre stockage (BYOS) et que vous le liez à votre espace de travail, le service charge les requêtes de *recherches enregistrées* et d’*alertes de journal* dans votre compte de stockage. Cela signifie que vous contrôlez le compte de stockage et la [stratégie de chiffrement au repos](../../storage/common/customer-managed-keys-overview.md) à l’aide de la même clé que celle utilisée pour chiffrer les données dans le cluster Log Analytics ou d’une clé différente. Toutefois, vous êtes responsable des coûts associés à ce compte de stockage. 
 
-**Considérations à prendre en compte avant de définir la clé CMK pour les requêtes**
+**Considérations à prendre en compte avant de définir la clé gérée par le client pour les requêtes**
 * Vous devez disposer d’autorisations d’écriture pour votre espace de travail et votre compte de stockage.
 * Veillez à créer votre compte de stockage dans la même région que celle où se trouve votre espace de travail Log Analytics.
 * Les *recherches enregistrées* en stockage sont considérées comme des artefacts de service et leur format peut changer.
 * Les *recherches enregistrées* existantes sont supprimées de votre espace de travail. Copiez toutes les *recherches enregistrées* dont vous avez besoin avant la configuration. Vous pouvez afficher vos *recherches enregistrées* à l’aide de [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * L’historique des requêtes n’est pas pris en charge et vous ne pouvez pas voir les requêtes que vous avez exécutées.
-* Vous pouvez lier un seul compte de stockage à l’espace de travail pour l’enregistrement des requêtes, mais il peut être utilisé pour les requêtes de *recherches enregistrées* et d’ *alertes de journal* .
+* Vous pouvez lier un seul compte de stockage à l’espace de travail pour l’enregistrement des requêtes, mais il peut être utilisé pour les requêtes de *recherches enregistrées* et d’*alertes de journal*.
 * L’action d’épingler au tableau de bord n’est pas prise en charge.
 
 **Configurer BYOS pour les requêtes de recherches enregistrées**
 
 Liez un compte de stockage à *interroger* à votre espace de travail. Les requêtes de *recherches enregistrées* sont enregistrées dans votre compte de stockage. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
@@ -344,7 +337,12 @@ Après la configuration, toute nouvelle requête *de recherche enregistrée* ser
 
 **Configurer BYOS pour les requêtes d’alertes de journal**
 
-Liez un compte de stockage pour les *alertes* à votre espace de travail. Les requêtes d’ *alertes de journal* sont enregistrées dans votre compte de stockage. 
+Liez un compte de stockage pour les *alertes* à votre espace de travail. Les requêtes d’*alertes de journal* sont enregistrées dans votre compte de stockage. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
@@ -376,10 +374,14 @@ Dans Azure Monitor, vous disposez de ce contrôle sur les données des espaces d
 
 En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
-## <a name="cmk-management"></a>Gestion de clé CMK
+## <a name="customer-managed-key-operations"></a>Opérations de clés gérées par le client
 
 - **Obtenir tous les clusters dans un groupe de ressources**
   
+  ```azurecli
+  az monitor log-analytics cluster list --resource-group "resource-group-name"
+  ```
+
   ```powershell
   Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
@@ -425,7 +427,11 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
   ```
 
 - **Obtenir tous les clusters dans un abonnement**
-  
+
+  ```azurecli
+  az monitor log-analytics cluster list
+  ```
+
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
@@ -443,8 +449,12 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
 
   À mesure que le volume de données de vos espaces de travail liés change au fil du temps, vous souhaitez mettre à jour le niveau de réservation de capacité de manière appropriée. Suivez la [mise à jour du cluster](#update-cluster-with-key-identifier-details) et fournissez votre nouvelle valeur de capacité. Celle-ci peut varier entre 1000 et 3000 Go par jour par incréments de 100. Pour un niveau de réservation de capacité supérieur à 3000 Go par jour, adressez-vous à votre contact Microsoft pour l’activer. Notez que vous n’avez pas besoin de fournir le corps entier de la requête REST et que vous devez inclure la propriété sku :
 
+  ```azurecli
+  az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
+  ```
+
   ```powershell
-  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
+  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
   ```
 
   ```rst
@@ -455,7 +465,7 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
   {
     "sku": {
       "name": "capacityReservation",
-      "Capacity": 1000
+      "Capacity": daily-ingestion-gigabyte
     }
   }
   ```
@@ -464,9 +474,9 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
 
   La propriété *billingType* détermine l’attribution de facturation pour le cluster et ses données :
   - *cluster* (par défaut) : la facturation est attribuée à l’abonnement hébergeant votre ressource cluster.
-  - *workspaces*  : la facturation est attribuée de façon proportionnée aux abonnements hébergeant vos espaces de travail.
+  - *workspaces* : la facturation est attribuée de façon proportionnée aux abonnements hébergeant vos espaces de travail.
   
-  Suivez la [mise à jour du cluster](#update-cluster-with-key-identifier-details) et fournissez votre nouvelle valeur de billingType. Notez que vous n’avez pas besoin de fournir tout le corps de la requête REST et que vous devez inclure la propriété *billingType*  :
+  Suivez la [mise à jour du cluster](#update-cluster-with-key-identifier-details) et fournissez votre nouvelle valeur de billingType. Notez que vous n’avez pas besoin de fournir tout le corps de la requête REST et que vous devez inclure la propriété *billingType* :
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -486,6 +496,10 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
 
   Cette opération est asynchrone et peut durer un certain temps.
 
+  ```azurecli
+  az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
+  ```
+
   ```powershell
   Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
@@ -495,18 +509,13 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
   Authorization: Bearer <token>
   ```
 
-  **Réponse**
-
-  200 OK et en-tête.
-
-  Les données ingérées après l’opération de dissociation sont stockées dans le stockage Log Analytics. Cela peut prendre jusqu’à 90 minutes. Vous pouvez vérifier l’état de dissociation de l’espace de travail de deux manières :
-
-  1. Copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de[contrôle de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
-  2. Envoyez une requête [Workspaces – Get](/rest/api/loganalytics/workspaces/get) et observez la réponse. L’espace de travail dissocié n’a pas d’identificateur *clusterResourceId* sous *features* .
-
-- **Vérifier l’état d’association de l’espace de travail**
+  - **Vérifier l’état d’association de l’espace de travail**
   
-  Effectuez une opération Get sur l’espace de travail et observez si la propriété *clusterResourceId* est présente dans la réponse sous *Fonctionnalités* . Un espace de travail lié comprend la propriété *clusterResourceId* .
+  Effectuez une opération Get sur l’espace de travail et observez si la propriété *clusterResourceId* est présente dans la réponse sous *Fonctionnalités*. Un espace de travail lié comprend la propriété *clusterResourceId*.
+
+  ```azurecli
+  az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+  ```
 
   ```powershell
   Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
@@ -518,6 +527,10 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
   
   L’opération de dissociation est asynchrone et peut prendre jusqu’à 90 minutes.
 
+  ```azurecli
+  az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
+  ```
+ 
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
@@ -526,28 +539,24 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
-
-  **Réponse**
-
-  200 OK
-
+  
 - **Récupérer votre cluster et vos données** 
   
-  Un cluster supprimé au cours des 14 derniers jours est dans un état de suppression réversible. Il est possible de le récupérer avec ses données. Étant donné que tous les espaces de travail ont été dissociés du cluster lors de sa suppression, vous devez réassocier vos espaces de travail après la récupération du chiffrement par clé CMK. Actuellement, cette opération de récupération est effectuée manuellement par le groupe de produits. Utilisez votre canal Microsoft pour les demandes de récupération.
+  Un cluster supprimé au cours des 14 derniers jours est dans un état de suppression réversible. Il est possible de le récupérer avec ses données. Étant donné que tous les espaces de travail ont été dissociés de la suppression du cluster, vous devez réassocier vos espaces de travail après la récupération du cluster. Actuellement, cette opération de récupération est effectuée manuellement par le groupe de produits. Utilisez votre canal Microsoft ou ouvrez une demande de support pour la récupération du cluster supprimé.
 
 ## <a name="limitations-and-constraints"></a>Limitations et contraintes
 
-- La clé CMK est prise en charge sur un cluster Log Analytics dédié, et convient pour des clients qui envoient au moins 1 To par jour.
+- La clé gérée par le client est prise en charge sur un cluster Log Analytics dédié et convient pour des clients qui envoient au moins 1 To par jour.
 
 - Le nombre maximal de clusters par région et abonnement est de 2
 
-Le nombre maximal d’espaces de travail liés à un cluster est de 100
+- Le nombre maximal d’espaces de travail liés à un cluster est de 1000.
 
-- Vous pouvez lier un espace de travail à votre cluster puis le dissocier si une clé CMK n’est pas requise pour l’espace de travail. Le nombre de liaisons d’espaces de travail sur un espace de travail particulier est limité à 2 sur une période de 30 jours.
+- Vous pouvez lier un espace de travail à votre cluster, puis le dissocier. Le nombre de liaisons d’espaces de travail sur un espace de travail particulier est limité à 2 sur une période de 30 jours.
 
 - Vous ne devez lier un espace de travail à un cluster qu’APRÈS avoir vérifié que l’approvisionnement du cluster Log Analytics est terminé. Les données envoyées à votre espace de travail avant la fin de l’approvisionnement seront définitivement supprimées.
 
-- Le chiffrement CMK s’applique aux données nouvellement ingérées après la configuration de CMK. Les données qui ont été ingérées avant la configuration de CMK demeurent chiffrées avec la clé Microsoft. Vous pouvez interroger les données ingérées avant et après la configuration de CMK de manière fluide.
+- Le chiffrement par clé gérée par le client s’applique aux données nouvellement ingérées après l’heure de la configuration. Les données ingérées avant la configuration restent chiffrées avec une clé Microsoft. Vous pouvez interroger les données ingérées avant et après la configuration la clé gérée par le client en toute simplicité.
 
 - Le coffre de clés Azure doit être configuré comme récupérable. Les propriétés ci-après, qui ne sont pas activées par défaut, doivent être configurées à l’aide de l’interface CLI ou de PowerShell :<br>
   - [Suppression réversible](../../key-vault/general/soft-delete-overview.md)
@@ -557,7 +566,7 @@ Le nombre maximal d’espaces de travail liés à un cluster est de 100
 
 - Votre Azure Key Vault, le cluster et les espaces de travail liés doivent se trouver dans la même région et dans le même locataire Azure Active Directory (Azure AD) mais peuvent être dans des abonnements différents.
 
-- La liaison d’un espace de travail à un cluster échoue s’il est lié à un autre cluster
+- La liaison d’un espace de travail à un cluster échoue s’il est lié à un autre cluster.
 
 ## <a name="troubleshooting"></a>Dépannage
 
@@ -566,7 +575,7 @@ Le nombre maximal d’espaces de travail liés à un cluster est de 100
     
   - Erreurs de connexion temporaires : le Stockage gère les erreurs temporaires (délais d’attente, échecs de connexion, problèmes DNS) en autorisant les clés à rester en cache pendant un peu plus de temps, compensant toute courte période d’indisponibilité. Les fonctionnalités de requête et d’ingestion se poursuivent sans interruption.
     
-  - Une indisponibilité du site actif d’environ 30 minutes entraîne l’indisponibilité du compte de stockage. La fonctionnalité de requête est indisponible et les données ingérées sont mises en cache pendant plusieurs heures à l’aide de la clé Microsoft pour éviter la perte de données. Quand l’accès à Key Vault est restauré, la requête est disponible et les données mises en cache temporaires sont ingérées dans le magasin de données et chiffrées avec CMK.
+  - Une indisponibilité du site actif d’environ 30 minutes entraîne l’indisponibilité du compte de stockage. La fonctionnalité de requête est indisponible et les données ingérées sont mises en cache pendant plusieurs heures à l’aide de la clé Microsoft pour éviter la perte de données. Quand l’accès à Key Vault est restauré, la requête est disponible et les données en cache temporaires sont ingérées dans le magasin de données et chiffrées avec une clé gérée par le client.
 
   - Taux d’accès au Key Vault : la fréquence à laquelle le stockage Azure Monitor accède au Key Vault pour les opérations d’encapsulation (wrap) et de désencapsulation (unwrap) est comprise entre 6 et 60 secondes.
 
@@ -584,7 +593,7 @@ Le nombre maximal d’espaces de travail liés à un cluster est de 100
 
 - Certaines opérations sont longues et peuvent prendre du temps. Il s’agit des opérations de création du cluster, de mise à jour de la clé du cluster et de la suppression du cluster. Vous pouvez vérifier l’état de l’opération de deux manières :
   1. Lorsque vous utilisez REST, copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de[vérification de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
-  2. Envoyez une requête GET au cluster ou à l’espace de travail du cluster et observez la réponse. Par exemple, l’espace de travail dissocié n’a pas de *clusterResourceId* sous *features* .
+  2. Envoyez une requête GET au cluster ou à l’espace de travail du cluster et observez la réponse. Par exemple, l’espace de travail dissocié n’a pas de *clusterResourceId* sous *features*.
 
 - Pour obtenir du support et de l’aide concernant la clé gérée par le client, utilisez vos contacts dans Microsoft.
 

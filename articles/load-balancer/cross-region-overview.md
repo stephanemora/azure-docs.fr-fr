@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336528"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398009"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -55,7 +55,7 @@ En cas de défaillance d'une région, le trafic est acheminé vers l'équilibreu
 
 La sonde d'intégrité de l'équilibreur de charge inter-région collecte les informations relatives à la disponibilité toutes les 20 secondes. Si la disponibilité d'un équilibreur de charge régional passe à 0, l'équilibreur de charge inter-région détecte la défaillance. L'équilibreur de charge régional est alors retiré de la rotation. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramme de l'équilibreur de charge inter-région" border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramme de la vue globale du trafic régional" border="true":::
 
 ### <a name="ultra-low-latency"></a>Latence ultra faible
 

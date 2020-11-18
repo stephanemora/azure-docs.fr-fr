@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02a08cc0400b4d65577c13282ca4c23cac1d21dc
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120947"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578924"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gérer les erreurs et les exceptions MSAL
 
@@ -576,18 +576,18 @@ Lorsque le serveur de jeton de service (STS) est surchargé avec un trop grand n
 Voici un exemple pour une application démon utilisant le flux d’informations d’identification du client. Vous pouvez l’adapter à n’importe quelle méthode pour acquérir un jeton.
 
 ```csharp
+
+bool retry = false;
 do
 {
-    retry = false;
     TimeSpan? delay;
     try
     {
-         result = await publicClientApplication.AcquireTokenForClient(scopes, account)
-                                           .ExecuteAsync();
+         result = await publicClientApplication.AcquireTokenForClient(scopes, account).ExecuteAsync();
     }
     catch (MsalServiceException serviceException)
     {
-         if (ex.ErrorCode == "temporarily_unavailable")
+         if (serviceException.ErrorCode == "temporarily_unavailable")
          {
              RetryConditionHeaderValue retryAfter = serviceException.Headers.RetryAfter;
              if (retryAfter.Delta.HasValue)

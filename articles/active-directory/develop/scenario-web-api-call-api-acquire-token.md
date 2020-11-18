@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ab0b74ffbcd8167613c6a8470e2f9102566edc60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56bcc4e4936371b58d78f6de5ce4c2d25fbf614d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257229"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442801"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Une API web qui appelle des API web : Acquérir un jeton pour l’application
 
@@ -92,5 +92,4 @@ Une API web Python doit utiliser un middleware pour valider le jeton du porteur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Une API web qui appelle des API web : Appeler une API](scenario-web-api-call-api-call-api.md)
+Passez à l’article suivant de ce scénario, [Appeler une API](scenario-web-api-call-api-call-api.md).

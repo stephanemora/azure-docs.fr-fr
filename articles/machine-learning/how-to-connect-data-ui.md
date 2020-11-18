@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312795"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359865"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Se connecter aux données avec Azure Machine Learning Studio
 
@@ -48,9 +48,7 @@ Pour une première expérience de code, consultez les articles suivants pour uti
 
 ## <a name="create-datastores"></a>Créer des magasins de données
 
-Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](how-to-access-data.md#matrix). **Pour les solutions de stockage non prises en charge** , et pour réduire le coût de sortie des données pendant les expériences de Machine Learning, vous devez [déplacer vos données](how-to-access-data.md#move) vers une solution de stockage Azure prise en charge. [Apprenez-en davantage sur les magasins de données](how-to-access-data.md). 
-
-
+Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](how-to-access-data.md#matrix). **Pour les solutions de stockage non prises en charge**, et pour réduire le coût de sortie des données pendant les expériences de Machine Learning, vous devez [déplacer vos données](how-to-access-data.md#move) vers une solution de stockage Azure prise en charge. [Apprenez-en davantage sur les magasins de données](how-to-access-data.md). 
 
 Créez un magasin de données en quelques étapes avec Azure Machine Learning Studio.
 
@@ -60,9 +58,9 @@ Créez un magasin de données en quelques étapes avec Azure Machine Learning St
 1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Sélectionnez **Magasins de données** dans le volet gauche sous **Gérer**.
 1. Sélectionnez **+ Nouveau magasin de données**.
-1. Remplissez le formulaire de création d’un magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et du type d’authentification que vous sélectionnez. Pour savoir où trouver les informations d’authentification requises pour remplir ce formulaire, consultez la section [accès au stockage et autorisations](#access-validation).
+1. Complétez le formulaire pour créer et inscrire un nouveau magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et du type d’authentification que vous sélectionnez. Pour savoir où trouver les informations d’authentification requises pour remplir ce formulaire, consultez la section [accès au stockage et autorisations](#access-validation).
 
-L’exemple suivant montre à quoi ressemble le formulaire quand vous créez un **magasin de données d’objets blob Azure**  :
+L’exemple suivant montre à quoi ressemble le formulaire quand vous créez un **magasin de données d’objets blob Azure** :
 
 ![Formulaire de création d’un magasin de données](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -88,7 +86,7 @@ Pour créer un jeu de données dans le studio :
 1. Sélectionnez **Suivant** pour ouvrir le formulaire **Sélection d’un magasin de données et de fichiers**. Sur ce formulaire, vous sélectionnez l’emplacement où conserver votre jeu de données après sa création, ainsi que les fichiers de données à utiliser pour votre jeu de données.
     1. Vous pouvez choisir d’ignorer la validation si vos données se trouvent dans un réseau virtuel. En savoir plus sur l’[isolement et la confidentialité des réseaux virtuels](how-to-enable-studio-virtual-network.md).
     1. Pour les jeux de données de type Tabulaire, vous pouvez spécifier une caractéristique « timeseries » pour activer les opérations relatives au temps sur votre jeu de données. Découvrez comment [ajouter la caractéristique « timeseries » à votre jeu de données](how-to-monitor-datasets.md#studio-dataset).
-1. Sélectionnez **Suivant** pour renseigner les formulaires **Paramètres et aperçu** et **Schéma**  ; ils sont renseignés intelligemment en fonction du type de fichier et vous pouvez configurer davantage votre jeu de données avant de le créer sur ces formulaires. 
+1. Sélectionnez **Suivant** pour renseigner les formulaires **Paramètres et aperçu** et **Schéma** ; ils sont renseignés intelligemment en fonction du type de fichier et vous pouvez configurer davantage votre jeu de données avant de le créer sur ces formulaires. 
 1. Sélectionnez **Suivant** pour passer en revue le formulaire **Confirmer les détails**. Vérifiez vos sélections et créez un profil de données facultatif pour votre jeu de données. En savoir plus sur le [profilage des données](#profile).
 1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.
 
@@ -136,11 +134,11 @@ Pour s’assurer que vous vous connectez en toute sécurité à votre service de
 
 ### <a name="virtual-network"></a>Réseau virtuel
 
-Si votre compte de stockage de données se trouve sur un **réseau virtuel** , des étapes de configuration supplémentaires sont nécessaires pour s’assurer qu’Azure Machine Learning a accès à vos données. Pour vous assurer que les étapes de configuration appropriées sont appliquées lors de la création et de l’enregistrement de votre magasin de données, consultez [Isolement réseau et confidentialité](how-to-enable-studio-virtual-network.md).  
+Si votre compte de stockage de données se trouve sur un **réseau virtuel**, des étapes de configuration supplémentaires sont nécessaires pour s’assurer qu’Azure Machine Learning a accès à vos données. Pour vous assurer que les étapes de configuration appropriées sont appliquées lors de la création et de l’enregistrement de votre magasin de données, consultez [Isolement réseau et confidentialité](how-to-enable-studio-virtual-network.md).  
 
 ### <a name="access-validation"></a>Validation de l’accès
 
-**Dans le cadre du processus de création et d’inscription du magasin de données initial** , Azure Machine Learning vérifie automatiquement que le service de stockage sous-jacent existe et que le principal fourni par l’utilisateur (nom d’utilisateur, principal de service ou jeton SAS) a accès au stockage spécifié.
+**Dans le cadre du processus de création et d’inscription du magasin de données initial**, Azure Machine Learning vérifie automatiquement que le service de stockage sous-jacent existe et que le principal fourni par l’utilisateur (nom d’utilisateur, principal de service ou jeton SAS) a accès au stockage spécifié.
 
 **Après la création** du magasin de données, cette validation est effectuée uniquement pour les méthodes qui requièrent l’accès au conteneur de stockage sous-jacent, et **non** chaque fois que des objets du magasin de données sont récupérés. Par exemple, la validation se produit si vous souhaitez télécharger des fichiers à partir de votre magasin de données ; mais si vous souhaitez simplement modifier votre magasin de données par défaut, la validation ne se produit pas.
 
@@ -153,15 +151,19 @@ Vous trouverez des informations sur la clé de compte, le jeton SAS et le princi
       1. Pour les clés de compte, accédez à **Clés d’accès** dans le volet **Paramètres**.
       1. Pour les jetons SAP, accédez à **Signatures d’accès partagé** dans le volet **Paramètres**.
 
-* Si vous envisagez d’utiliser un [principal de service](../active-directory/develop/howto-create-service-principal-portal.md) pour l’authentification, accédez à vos **Inscriptions d’applications** , puis sélectionnez l’application que vous souhaitez utiliser.
+* Si vous envisagez d’utiliser un [principal de service](../active-directory/develop/howto-create-service-principal-portal.md) pour l’authentification, accédez à vos **Inscriptions d’applications**, puis sélectionnez l’application que vous souhaitez utiliser.
     * La page **Vue d’ensemble** correspondante contient des informations requises comme l’ID de locataire et l’ID de client.
 
 > [!IMPORTANT]
-> Pour des raisons de sécurité, vous devrez peut-être changer vos clés d’accès pour un compte Stockage Azure (clé de compte ou jeton SAS). Dans ce cas, veillez à synchroniser les nouvelles informations d’identification avec votre espace de travail et les magasins de données qui y sont connectés. Découvrez comment [synchroniser vos informations d’identification mises à jour](how-to-change-storage-access-key.md).
+> * Si vous avez besoin de modifier vos clés d’accès pour un compte de stockage Azure (clé de compte ou jeton SAP), veillez à synchroniser les nouvelles informations d’identification avec votre espace de travail et les magasins de données qui y sont connectés. Découvrez comment [synchroniser vos informations d’identification mises à jour](how-to-change-storage-access-key.md). <br> <br>
+> * Si vous désinscrivez puis réinscrivez un magasin de données portant le même nom et que l’opération échoue, le compte Azure Key Vault de votre espace de travail peut ne pas être doté de la suppression réversible. Par défaut, la suppression réversible est activée pour l’instance de coffre de clés créée par votre espace de travail, mais elle peut ne pas l’être si vous avez utilisé un coffre de clés existant ou si votre espace de travail a été créé avant octobre 2020. Pour plus d’informations sur l’activation de la suppression réversible, consultez [Activer la suppression réversible pour un coffre de clés existant]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### <a name="permissions"></a>Autorisations
 
-Pour le conteneur d’objets BLOB Azure et le stockage Azure Data Lake Gen2, assurez-vous que vos informations d’authentification ont l’accès **Lecteur des données Blob du stockage**. En savoir plus sur le [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+Pour le conteneur de blobs Azure et le stockage Azure Data Lake Gen2, assurez-vous que vos informations d’authentification vous donnent un accès **Lecteur des données blob du stockage**. En savoir plus sur le [Lecteur des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Par défaut, le jeton SAS d'un compte ne dispose d'aucune autorisation. 
+* Pour l’**accès en lecture** aux données, vos informations d’authentification doivent au minimum disposer d’autorisations de liste et de lecture pour les conteneurs et les objets. 
+
+* Pour l’**accès en écriture** aux données, des autorisations d’écriture et d’ajout sont également requises.
 
 ## <a name="train-with-datasets"></a>Entraîner avec des jeux de données
 

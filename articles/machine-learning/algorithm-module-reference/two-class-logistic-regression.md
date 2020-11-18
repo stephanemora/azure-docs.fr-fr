@@ -1,7 +1,7 @@
 ---
 title: 'Régression logistique à deux classes : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module de régression logistique à deux classes dans Azure Machine Learning pour créer un modèle de régression logistique utilisable pour prédire seulement deux résultats.
+description: Découvrez comment utiliser le module Régression logistique à deux classes dans Azure Machine Learning pour créer un classifieur binaire.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2e29a666f4d478e11986f834cff94d9743223f22
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309990"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420578"
 ---
 # <a name="two-class-logistic-regression-module"></a>Module de régression logistique à deux classes
 
@@ -22,7 +22,7 @@ Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour créer un modèle de régression logistique qui peut être utilisé pour prédire seulement deux résultats. 
 
-La régression logistique est une technique statistique connue utilisée pour modéliser de nombreux types de problèmes. Cet algorithme est une méthode d’ *apprentissage supervisé*. Par conséquent, vous devez fournir un jeu de données qui contient déjà les résultats pour former le modèle.  
+La régression logistique est une technique statistique connue utilisée pour modéliser de nombreux types de problèmes. Cet algorithme est une méthode d’*apprentissage supervisé*. Par conséquent, vous devez fournir un jeu de données qui contient déjà les résultats pour former le modèle.  
 
 ### <a name="about-logistic-regression"></a>À propos de la régression logistique  
 
@@ -44,9 +44,9 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
 
     -   **Plage de paramètres** : en cas de doute sur les paramètres à utiliser, utilisez le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md). Vous fournissez une plage de valeurs, et le mode d'apprentissage effectue une itération sur plusieurs combinaisons de paramètres pour déterminer la combinaison de valeurs qui produit le meilleur résultat.
   
-3.  Pour la **tolérance d’optimisation** , spécifiez une valeur de seuil à utiliser lors de l’optimisation du modèle. Si l’amélioration entre les itérations tombe au-dessous du seuil spécifié, on considère que l’algorithme a convergé vers une solution, et l’entraînement cesse.  
+3.  Pour la **tolérance d’optimisation**, spécifiez une valeur de seuil à utiliser lors de l’optimisation du modèle. Si l’amélioration entre les itérations tombe au-dessous du seuil spécifié, on considère que l’algorithme a convergé vers une solution, et l’entraînement cesse.  
   
-4.  Pour la **pondération de régularisation L1** et la **pondération de régularisation L2** , saisissez une valeur à utiliser pour les paramètres de régularisation L1 et L2. La définition d’une valeur non nulle est recommandée pour les deux options.  
+4.  Pour la **pondération de régularisation L1** et la **pondération de régularisation L2**, saisissez une valeur à utiliser pour les paramètres de régularisation L1 et L2. La définition d’une valeur non nulle est recommandée pour les deux options.  
      La *régularisation* est une méthode qui sert à empêcher le surajustement en pénalisant les modèles avec des valeurs de coefficient extrêmes. La régularisation fonctionne en ajoutant la pénalité associée aux valeurs de coefficient à l’erreur de l’hypothèse. Par conséquent, un modèle précis avec des valeurs de coefficient extrêmes est plus pénalisé, mais un modèle moins précis avec des valeurs plus conservatrices est moins pénalisé.  
   
      Les régularisations L1 et L2 ont différents effets et cas d’utilisation.  
@@ -62,20 +62,20 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
     >
     > Différentes combinaisons linéaires de termes L1 et L2 ont été imaginées pour les modèles de régression logistique : par exemple, [régularisation de réseau élastique](https://wikipedia.org/wiki/Elastic_net_regularization). Nous vous suggérons de faire référence à ces combinaisons pour définir une combinaison linéaire est efficace dans votre modèle.
       
-5.  Pour la **taille de la mémoire pour L-BFGS** , spécifiez la quantité de mémoire à utiliser pour l’optimisation *L-BFGS*.  
+5.  Pour la **taille de la mémoire pour L-BFGS**, spécifiez la quantité de mémoire à utiliser pour l’optimisation *L-BFGS*.  
   
      L-BFGS est l’acronyme de « limited memory Broyden-Fletcher-Goldfarb-Shanno ». Il s’agit d’un algorithme d’optimisation souvent utilisé pour l’estimation des paramètres. Ce paramètre indique le nombre de positions passées et de gradients à stocker pour le calcul de l’étape suivante.  
   
      Ce paramètre d’optimisation limite la quantité de mémoire utilisée pour calculer l’étape suivante et la direction. Lorsque vous spécifiez moins de mémoire, l’apprentissage est plus rapide mais moins précis.  
   
-6.  Pour la **valeur initiale aléatoire** , saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions du même pipeline.  
+6.  Pour la **valeur initiale aléatoire**, saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions du même pipeline.  
   
   
 8. Ajoutez un jeu de données étiqueté au pipeline, puis entraînez le modèle :
 
     + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres** , connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

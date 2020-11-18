@@ -1,22 +1,22 @@
 ---
 title: Connecter des machines hybrides à Azure à l’aide de PowerShell
-description: Cet article explique comment installer l’agent et connecter une machine à Azure à l’aide de serveurs compatibles avec Azure Arc en utilisant PowerShell.
+description: Cet article explique comment installer l’agent et connecter une machine à Azure à l’aide de serveurs compatibles avec Azure Arc. Vous pouvez pour cela utiliser PowerShell.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0755846ef02377edade98b69e478908a111ab247
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f85e2564b2e5b194d306ef4bad2269982331a7d4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901537"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422771"
 ---
-# <a name="connect-hybrid-machines-to-azure-using-powershell"></a>Connecter des machines hybrides à Azure à l’aide de PowerShell
+# <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Connecter des machines hybrides à Azure à l’aide de PowerShell
 
-Vous pouvez activer des serveurs compatibles avec Azure Arc pour au moins une machine Windows ou Linux dans votre environnement en effectuant une série d’étapes manuelles. Vous pouvez également utiliser la cmdlet PowerShell [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) pour télécharger l’agent Connected Machine, installer l’agent et inscrire l’ordinateur auprès d’Azure Arc. La cmdlet télécharge le package Windows Installer de l’agent Windows à partir du centre de téléchargement de Microsoft et le package de l’agent Linux à partir du référentiel de packages de Microsoft.
+Pour les serveurs compatibles avec Azure Arc, vous pouvez effectuer une procédure manuelle afin de les rendre compatibles avec au moins une machine Windows ou Linux dans votre environnement. Vous pouvez également utiliser la cmdlet PowerShell [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) pour télécharger l’agent Connected Machine, installer l’agent et inscrire l’ordinateur auprès d’Azure Arc. La cmdlet télécharge le package de l’agent Windows (Windows Installer) à partir du centre de téléchargement de Microsoft et le package de l’agent Linux à partir du référentiel de packages de Microsoft.
 
 Cette méthode nécessite que vous disposiez d’autorisations d’administrateur sur la machine pour installer et configurer l’agent. Sur Linux, vous utilisez le compte root et, sur Windows, vous êtes membre du groupe Administrateurs local. Vous pouvez effectuer ce processus de manière interactive ou à distance sur un serveur Windows à l’aide de la [communication à distance PowerShell](/powershell/scripting/learn/ps101/08-powershell-remoting).
 
-Avant de commencer, veillez à consulter les [conditions préalables](agent-overview.md#prerequisites) et vérifiez que votre abonnement et vos ressources répondent aux exigences. Pour plus d’informations sur les régions prises en charge et d’autres considérations liées, consultez [Régions Azure prises en charge](overview.md#supported-regions).
+Avant de commencer, vérifiez les [conditions préalables](agent-overview.md#prerequisites) et vérifiez que votre abonnement et vos ressources répondent aux exigences. Pour plus d'informations sur les régions prises en charge et d'autres considérations connexes, consultez [Régions Azure prises en charge](overview.md#supported-regions).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -24,13 +24,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 - Machine avec Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/).
 
-Avant d’utiliser Azure PowerShell pour gérer les extensions de machine virtuelle sur votre serveur hybride géré par des serveurs Arc, vous devez installer le module `Az.ConnectedMachine`. Exécutez la commande suivante sur votre serveur Arc :
+PowerShell permet de gérer les extensions de machine virtuelle sur vos serveurs hybrides gérés par des serveurs compatibles avec Azure Arc. Avant d’utiliser PowerShell, installez le module `Az.ConnectedMachine`. Exécutez la commande suivante sur votre serveur compatible avec Azure Arc :
 
 ```powershell
 Install-Module -Name Az.ConnectedMachine
 ```
 
-Une fois l’installation terminée, le message suivant est retourné :
+Une fois l’installation terminée, le message suivant s’affiche :
 
 `The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
 
@@ -54,11 +54,11 @@ Une fois l’installation terminée, le message suivant est retourné :
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
         ```
 
-Si le démarrage de l’agent échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux. Sous Windows, à l’emplacement *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* et sous Linux, à l’emplacement */var/opt/azcmagent/log/himds.log*.
+Si le démarrage de l’agent échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux. Sous Windows, consultez ce fichier : *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. Sous Linux, consultez ce fichier : */var/opt/azcmagent/log/himds.log*.
 
-## <a name="install-and-connect-using-powershell-remoting"></a>Installer et se connecter à l’aide de la communication à distance PowerShell
+## <a name="install-and-connect-by-using-powershell-remoting"></a>Installer et se connecter à l’aide de la communication à distance PowerShell
 
-Procédez comme suit pour configurer au moins un serveur Windows avec des serveurs compatibles avec Azure Arc. La communication à distance PowerShell doit être activée sur chaque machine distante. Utilisez l’applet de commande `Enable-PSRemoting` pour activer la communication à distance PowerShell.
+Voici la procédure permettant de configurer au moins un serveur Windows avec des serveurs compatibles avec Azure Arc. Vous devez activer la communication à distance PowerShell sur chaque ordinateur distant. Pour ce faire, utilisez l’applet de commande `Enable-PSRemoting`.
 
 1. Ouvrez une console PowerShell en tant qu’administrateur.
 
@@ -73,7 +73,7 @@ Procédez comme suit pour configurer au moins un serveur Windows avec des serveu
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
         ```
     
-    * Pour installer l’agent Connected Machine sur plusieurs ordinateurs distants en même temps, ajoutez une liste de noms d’ordinateurs distants séparés par une virgule.
+    * Pour installer l’agent Connected Machine sur plusieurs ordinateurs distants en même temps, ajoutez la liste des noms d’ordinateurs distants, séparés par une virgule.
 
         ```azurepowershell
         $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
@@ -95,14 +95,14 @@ Procédez comme suit pour configurer au moins un serveur Windows avec des serveu
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Vérifier la connexion avec Azure Arc
 
-Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc enabled servers, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://portal.azure.com).
+Après avoir installé et configuré l’agent de manière à inscrire les serveurs compatibles avec Azure Arc, accédez au portail Azure pour vérifier que le serveur a déjà été correctement connecté. Affichez vos machines dans le [portail Azure](https://portal.azure.com).
 
-![Connexion au serveur réussie](./media/onboard-portal/arc-for-servers-successful-onboard.png)
+![Capture d’écran du tableau de bord des serveurs, montrant une connexion serveur réussie.](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
+* Si nécessaire, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
 
-* Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
+* Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md). Vous pouvez utiliser une [configuration invité](../../governance/policy/concepts/guest-configuration.md) de machine virtuelle, vérifier que l’ordinateur fait ses rapports auprès de l’espace de travail Log Analytics attendu et activer l’analyse avec [Azure Monitor avec des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md).
 
-* En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-introduction.md).
+* En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, ou les gérer à l’aide de runbooks Azure Automation ou de fonctionnalités comme Update Management. Cet agent est également requis pour utiliser d’autres services Azure, comme [Azure Security Center](../../security-center/security-center-introduction.md).

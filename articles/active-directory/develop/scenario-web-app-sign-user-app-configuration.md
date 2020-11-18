@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728333"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443651"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Application web qui connecte les utilisateurs : Configuration de code
 
@@ -344,22 +344,18 @@ Dans l’article suivant, vous apprenez à déclencher la connexion et la décon
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Se connecter et se déconnecter](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Passez à l’article suivant de ce scénario, [Connexion et déconnexion](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Se connecter et se déconnecter](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Passez à l’article suivant de ce scénario, [Connexion et déconnexion](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Se connecter et se déconnecter](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Passez à l’article suivant de ce scénario, [Connexion et déconnexion](./scenario-web-app-sign-user-sign-in.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Se connecter et se déconnecter](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Passez à l’article suivant de ce scénario, [Connexion et déconnexion](./scenario-web-app-sign-user-sign-in.md?tabs=python).
 
 ---

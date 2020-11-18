@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967965"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393164"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Mot de passe et stratégies de verrouillage de compte sur les domaines managés d’Active Directory Domain Services
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur des domaines managés Azure Active Directory Domain Services
 
 Pour gérer la sécurité des utilisateurs dans Azure AD DS (Azure Active Directory Domain Services), vous pouvez définir des stratégies de mot de passe affinées qui contrôlent les paramètres de verrouillage des comptes ou la longueur minimale et la complexité des mots de passe. Une stratégie de mot de passe affinée par défaut est créée et appliquée à tous les utilisateurs membres d’un domaine managé Azure AD DS. Pour assurer un contrôle précis et répondre à des besoins métier ou de conformité spécifiques, il est possible de créer et d’appliquer des stratégies supplémentaires à des groupes d’utilisateurs spécifiques.
 

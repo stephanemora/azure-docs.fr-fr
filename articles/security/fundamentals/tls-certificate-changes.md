@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c2f847678292a1d38eff540a813b591c255ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043211"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444875"
 ---
 # <a name="azure-tls-certificate-changes"></a>Modification des certificats Azure TLS  
 
@@ -22,12 +22,15 @@ Microsoft met à jour les services Azure pour qu’ils utilisent des certificats
 
 ## <a name="when-will-this-change-happen"></a>Quand cette modification aura-t-elle lieu ?
 
-- Les services [Azure Active Directory](/azure/active-directory) (Azure AD) ont commencé cette transition le 7 juillet 2020.
-- Tous les points de terminaison Azure TLS/SSL nouvellement créés contiennent des certificats mis à jour, liés aux nouvelles autorités de certification racines.
-- Les points de terminaison Azure existants feront l’objet d’une transition par phases à partir du 13 août 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) et [DPS](/azure/iot-dps/) resteront dans l’autorité de certification racine Baltimore CyberTrust, mais leurs autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Stockage Azure](/azure/storage) restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- [Azure Cache pour Redis](/azure/azure-cache-for-redis) restera dans l’autorité de certification racine Baltimore CyberTrust, mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](../../azure-cache-for-redis/cache-whats-new.md).
+Les points de terminaison Azure existants sont en transition de manière progressive depuis le 13 août 2020. Tous les points de terminaison Azure TLS/SSL nouvellement créés contiennent des certificats mis à jour, liés aux nouvelles autorités de certification racines.
+
+Détails spécifiques au service :
+
+- Les services [Azure Active Directory](../../active-directory/index.yml) (Azure AD) ont commencé cette transition le 7 juillet 2020.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) et [DPS](../../iot-dps/index.yml) resteront dans l’autorité de certification racine Baltimore CyberTrust, mais leurs autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- [Stockage Azure](../../storage/index.yml) restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- [Azure Cache pour Redis](../../azure-cache-for-redis/index.yml) restera dans l’autorité de certification racine Baltimore CyberTrust, mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](../../azure-cache-for-redis/cache-whats-new.md).
+
 > [!IMPORTANT]
 > Les clients devront peut-être mettre à jour leurs applications après cette modification pour éviter les échecs de connectivité quand ils tentent de se connecter aux services Azure.
 
@@ -67,11 +70,11 @@ Voici quelques méthodes permettant de déterminer si votre application est impa
 - Si vous disposez d’une application qui s’intègre à des API Azure ou d’autres services Azure et que vous ne savez pas si elle utilise l’épinglage de certificat, contactez le fournisseur de l’application.
 
 - Les différents systèmes d’exploitation et runtimes de langage qui communiquent avec les services Azure peuvent nécessiter des étapes supplémentaires pour générer correctement la chaîne de certificats avec ces nouvelles racines :
-    - **Linux**  : de nombreuses distributions vous obligent à ajouter des autorités de certification à /etc/ssl/certs. Pour obtenir des instructions spécifiques, reportez-vous à la documentation de la distribution.
+    - **Linux** : de nombreuses distributions vous obligent à ajouter des autorités de certification à /etc/ssl/certs. Pour obtenir des instructions spécifiques, reportez-vous à la documentation de la distribution.
     - **Java** : assurez-vous que le magasin de clés Java contient les autorités de certification listées ci-dessus.
-    - **Windows exécuté dans des environnements déconnectés**  : pour les systèmes qui s’exécutent dans des environnements déconnectés, de nouvelles racines doivent être ajoutées au magasin d’autorités de certification racines de confiance et les intermédiaires au magasin d’autorités de certification intermédiaires.
-    - **Android**  : consultez la documentation de votre appareil et de votre version d’Android.
-    - **Autres appareils, en particulier IoT**  : contactez le fabricant de l’appareil.
+    - **Windows exécuté dans des environnements déconnectés** : pour les systèmes qui s’exécutent dans des environnements déconnectés, de nouvelles racines doivent être ajoutées au magasin d’autorités de certification racines de confiance et les intermédiaires au magasin d’autorités de certification intermédiaires.
+    - **Android** : consultez la documentation de votre appareil et de votre version d’Android.
+    - **Autres appareils, en particulier IoT** : contactez le fabricant de l’appareil.
 
 - Si vous disposez d’un environnement dans lequel les règles de pare-feu sont configurées pour autoriser les appels sortants uniquement vers des emplacements de téléchargement de liste de révocation de certificats et/ou de vérification de protocole OCSP (Online Certificate Status Protocol) spécifiques, vous devez autoriser les URL correspondantes suivantes :
 

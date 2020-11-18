@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: bb408c762c33e4d146a2f0ef36f32e525b3859bd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758266"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628847"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Vue d’ensemble - Authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure
 
-[Azure Files](storage-files-introduction.md) prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) via deux types de services de domaine : Active Directory Domain Services (AD DS) en local et Azure Active Directory Domain Services (Azure AD DS). Nous vous recommandons vivement de consulter la section [Fonctionnement](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) pour sélectionner le service de domaine approprié pour l’authentification. L’installation est différente selon le service de domaine que vous choisissez. Cette série d’articles se concentre sur l’activation et la configuration d’AD DS en local pour l’authentification auprès de partages de fichiers Azure.
+[Azure Files](storage-files-introduction.md) prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) via deux types de services de domaine : Active Directory Domain Services (AD DS) en local et Azure Active Directory Domain Services (Azure AD DS). Nous vous recommandons vivement de consulter la section [Fonctionnement](./storage-files-active-directory-overview.md#how-it-works) pour sélectionner le service de domaine approprié pour l’authentification. L’installation est différente selon le service de domaine que vous choisissez. Cette série d’articles se concentre sur l’activation et la configuration d’AD DS en local pour l’authentification auprès de partages de fichiers Azure.
 
 Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de lire notre [guide de planification](storage-files-planning.md) avant de vous lancer dans les articles suivants.
 
@@ -24,7 +24,7 @@ Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de 
 
 - Les identités AD DS utilisées pour l’authentification AD DS en local Azure Files doivent être synchronisées avec Azure AD. La synchronisation de hachage de mot de passe est facultative. 
 - Prend en charge les partages de fichiers Azure gérés par Azure File Sync.
-- Prend en charge l’authentification Kerberos avec AD, ainsi qu’avec le [chiffrement AES 256](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) et le chiffrement RC4-HMAC. Le chiffrement Kerberos AES 128 n’est pas encore pris en charge.
+- Prend en charge l’authentification Kerberos avec AD, ainsi qu’avec le [chiffrement AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) et le chiffrement RC4-HMAC. Le chiffrement Kerberos AES 128 n’est pas encore pris en charge.
 - Prend en charge l’authentification unique.
 - Pris en charge uniquement sur les clients exécutant des systèmes d’exploitation ultérieurs à Windows 7 ou Windows Server 2008 R2.
 - Pris en charge uniquement sur la forêt AD auprès de laquelle le compte de stockage est inscrit. Vous pouvez uniquement accéder aux partages de fichiers Azure avec les informations d’identification AD DS à partir d’une forêt unique par défaut. Si vous avez besoin d’accéder à votre partage de fichiers Azure à partir d’une autre forêt, vérifiez que l’approbation de forêt appropriée est configurée. Pour plus d’informations, consultez le [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
@@ -42,11 +42,11 @@ Quand vous activez AD DS pour les partages de fichiers Azure sur SMB, vos machin
 
 Avant d’activer l’authentification AD DS pour des partages de fichiers Azure, assurez-vous que les conditions préalables suivantes sont remplies : 
 
-- Sélectionnez ou créez votre [environnement AD DS](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview), puis [synchronisez-le à Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md). 
+- Sélectionnez ou créez votre [environnement AD DS](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview), puis [synchronisez-le à Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md). 
 
     Vous pouvez activer la fonctionnalité sur un environnement AD DS local nouveau ou existant. Les identités utilisées pour l’accès doivent être synchronisées à Azure AD. Le locataire Azure AD et le partage de fichiers auquel vous accédez doivent être associés au même abonnement.
 
-- Joignez le domaine d’un ordinateur local ou d’une machine virtuelle Azure à AD DS en local. Pour plus d’informations sur la façon de joindre un domaine, reportez-vous à [Joindre un ordinateur à un domaine](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+- Joignez le domaine d’un ordinateur local ou d’une machine virtuelle Azure à AD DS en local. Pour plus d’informations sur la façon de joindre un domaine, reportez-vous à [Joindre un ordinateur à un domaine](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 
     Si votre ordinateur n’est pas joint à un domaine AD DS, vous pouvez toujours utiliser les informations d’identification AD pour l’authentification si votre ordinateur a une ligne de vue sur le contrôleur de domaine Active Directory.
 
@@ -55,7 +55,7 @@ Avant d’activer l’authentification AD DS pour des partages de fichiers Azur
     Assurez-vous que le compte de stockage contenant vos partages de fichiers n’est pas déjà configuré pour l’authentification Azure AD DS. Si l’authentification Azure AD DS pour Azure Files est activée sur le compte de stockage, elle doit être désactivée avant de changer pour AD DS en local. Cela implique que les ACL existantes configurées dans l’environnement Azure AD DS devront être reconfigurées pour l’application adéquate des autorisations.
 
 
-    Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Nous fournissons également des [conseils](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
+    Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Nous fournissons également des [conseils](./storage-files-faq.md#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
 
 
 - Effectuez toute configuration du réseau appropriée avant d’activer et de configurer l’authentification AD DS pour vos partages de fichiers Azure. Pour plus d’informations, consultez [Considérations relatives aux réseaux Azure Files](storage-files-networking-overview.md).
@@ -66,7 +66,7 @@ L’authentification Azure Files avec AD DS est disponible dans [toutes les ré
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Si vous envisagez d’activer des configurations de mise en réseau sur votre partage de fichiers, nous vous recommandons de lire l’article sur les [considérations en matière de réseau](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) et de terminer la configuration associée avant d’activer l’authentification AD DS.
+Si vous envisagez d’activer des configurations de mise en réseau sur votre partage de fichiers, nous vous recommandons de lire l’article sur les [considérations en matière de réseau](./storage-files-networking-overview.md) et de terminer la configuration associée avant d’activer l’authentification AD DS.
 
 L’activation de l’authentification AD DS pour vos partages de fichiers Azure vous permet de vous authentifier auprès de vos partages de fichiers Azure avec vos informations d’identification AD DS locales. Elle vous permet en outre de mieux gérer vos autorisations pour contrôler les accès avec précision. Pour ce faire, vous devez synchroniser les identités de l’AD DS local sur Azure AD avec Azure AD Connect. Vous contrôlez l’accès au niveau partage avec des identités synchronisées sur Azure AD tout en gérant l’accès au niveau fichier/partage avec les informations d’identification AD DS locales.
 
@@ -86,7 +86,7 @@ Le diagramme ci-dessous illustre le workflow de bout en bout pour l’activation
 
 ![Diagramme de workflow AD pour Files](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Les identités utilisées pour accéder aux partages de fichiers Azure doivent être synchronisées avec Azure AD pour appliquer les autorisations de fichiers au niveau du partage via le modèle de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md). Les [DACL de style Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) sur des fichiers/répertoires reportés provenant de serveurs de fichiers existants seront conservées et appliquées. Il en résulte une intégration fluide à votre environnement AD DS d’entreprise. Lorsque vous remplacez des serveurs de fichiers locaux par des partages de fichiers Azure, les utilisateurs existants peuvent accéder aux partages de fichiers Azure à partir de leurs clients actuels à l’aide d’une expérience d’authentification unique, sans modification des informations d’identification utilisés.  
+Les identités utilisées pour accéder aux partages de fichiers Azure doivent être synchronisées avec Azure AD pour appliquer les autorisations de fichiers au niveau du partage via le modèle de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md). Les [DACL de style Windows](/previous-versions/technet-magazine/cc161041(v=msdn.10)) sur des fichiers/répertoires reportés provenant de serveurs de fichiers existants seront conservées et appliquées. Il en résulte une intégration fluide à votre environnement AD DS d’entreprise. Lorsque vous remplacez des serveurs de fichiers locaux par des partages de fichiers Azure, les utilisateurs existants peuvent accéder aux partages de fichiers Azure à partir de leurs clients actuels à l’aide d’une expérience d’authentification unique, sans modification des informations d’identification utilisés.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

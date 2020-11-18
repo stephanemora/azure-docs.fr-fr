@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767244"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444501"
 ---
 # <a name="blob-versioning"></a>Contrôle de version des objets blob
 
@@ -36,13 +36,15 @@ Pour savoir comment activer le contrôle de version des objets blob, consultez [
 
 La version capture l’état de l’objet blob à un moment donné. Lorsque le contrôle de version des objets blob est activé sur un compte de stockage, le stockage Azure crée automatiquement une nouvelle version de l’objet blob chaque fois que cet objet blob est modifié ou supprimé.
 
-Lorsque vous créez un objet blob et que le contrôle de version est activé, le nouvel objet blob est la version actuelle de l’objet blob (ou l’objet blob de base). Si vous modifiez par la suite cet objet blob, le stockage Azure crée une version qui capture l’état de l’objet blob avant sa modification. L’objet blob modifié devient la nouvelle version actuelle. Une nouvelle version est créée chaque fois que vous modifiez l’objet blob. Un objet blob peut avoir jusqu’à 1 000 versions associées.
+Lorsque vous créez un objet blob et que le contrôle de version est activé, le nouvel objet blob est la version actuelle de l’objet blob (ou l’objet blob de base). Si vous modifiez par la suite cet objet blob, le stockage Azure crée une version qui capture l’état de l’objet blob avant sa modification. L’objet blob modifié devient la nouvelle version actuelle. Une nouvelle version est créée chaque fois que vous modifiez l’objet blob.
+
+Le fait de disposer d’un grand nombre de versions par blob peut augmenter la latence des opérations de listage des blobs. Microsoft recommande de conserver moins de 1000 versions par blob. Vous pouvez utiliser la gestion de cycle de vie pour supprimer automatiquement les anciennes versions. Pour plus d’informations sur la gestion de cycle de vie, consultez [Optimiser les coûts en automatisant les niveaux d’accès de Stockage Blob Azure](storage-lifecycle-management-concepts.md).
 
 Lorsque vous supprimez un objet blob pour lequel le contrôle de version est activé, le stockage Azure crée une version qui capture l’état de l’objet blob avant sa suppression. La version actuelle de l’objet blob est ensuite supprimée, mais les versions de l’objet blob sont conservées, afin qu’il soit possible de le recréer si nécessaire. 
 
 Les versions d’objets blob sont immuables. Vous ne pouvez pas modifier le contenu ou les métadonnées d’une version existante de l’objet blob.
 
-Le contrôle de version des objets blob est disponible pour les comptes de stockage d’objets blob et d’objets blob de blocs à usage général v2. Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge. 
+Le contrôle de version des objets blob est disponible pour les comptes de stockage d’objets blob et d’objets blob de blocs à usage général v2. Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge.
 
 La version 2019-10-10 et les versions ultérieures de l’API REST de stockage Azure prennent en charge le contrôle de version des objets blob.
 
@@ -79,11 +81,11 @@ L’opération [Delete Blob](/rest/api/storageservices/delete-blob) sans ID de v
 
 Le diagramme suivant montre l’effet d’une opération de suppression sur un objet blob avec contrôle de version :
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramme montrant la suppression d’un objet blob avec contrôle de version.":::
 
 L’écriture de nouvelles données dans l’objet blob crée une nouvelle version de cet objet blob. Les versions existantes ne sont pas affectées, comme indiqué dans le diagramme suivant.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramme montrant la recréation d’un objet blob avec contrôle de version après suppression.":::
 
 ### <a name="blob-types"></a>Types d’objet blob
 
@@ -122,7 +124,7 @@ Vous pouvez lire ou supprimer des versions à l’aide de l’ID de version une 
 
 Le diagramme suivant montre comment la modification d’un objet blob après la désactivation du contrôle de version crée un objet blob dont la version n’est pas contrôlée. Toutes les versions existantes associées à l’objet blob sont conservées.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagramme montrant l’objet blob de base modifié après la désactivation du contrôle de version.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Contrôle de version des objets blob et suppression réversible
 
@@ -138,7 +140,7 @@ Pour supprimer une version précédente d’un objet blob, supprimez-le explicit
 
 Le diagramme suivant montre ce qui se passe lorsque vous supprimez un objet blob ou une version d’un objet blob.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagramme montrant la suppression d’une version avec suppression réversible activée.":::
 
 Si le contrôle de version et la suppression réversible sont activés sur le compte de stockage, aucun instantané supprimé de manière réversible n’est créé lors de la modification ou de la suppression d’un objet blob ou d’une version d’objet blob.
 
@@ -150,7 +152,7 @@ La restauration de versions supprimées de manière réversible avec l’opérat
 
 Le diagramme suivant montre comment restaurer des versions d’objets blob supprimés de manière réversible avec l’opération **Undelete Blob** et comment restaurer la version actuelle de l’objet blob avec l’opération **Copy Blob**.
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagramme montrant comment restaurer des versions supprimées de manière réversible.":::
 
 Une fois la période de rétention de la suppression réversible terminée, toutes les versions des objets blob supprimés de manière réversible sont définitivement supprimées.
 
@@ -169,7 +171,7 @@ Lorsque vous créez un instantané d’un objet blob avec contrôle de version, 
 
 Le diagramme suivant montre ce qui se passe lorsque vous créez un instantané d’un objet blob avec contrôle de version. Dans le diagramme, les versions des objets blob et des instantanés avec l’ID de version 2 et 3 contiennent les mêmes données.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramme montrant des captures instantanées d’un objet blob avec contrôle de version.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autoriser des opérations sur des versions d’objets blob
 
@@ -269,7 +271,7 @@ Le tableau suivant décrit le comportement de facturation d’un objet blob ou d
 
 Le diagramme suivant illustre la façon dont les objets sont facturés quand un objet blob avec contrôle de version est déplacé vers un autre niveau.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagramme montrant comment les objets sont facturés quand un objet blob avec contrôle version est explicitement hiérarchisé.":::
 
 La définition explicite du niveau pour un objet blob, une version ou une capture instantanée ne peut pas être annulée. Si vous déplacez un objet blob vers un nouveau niveau, puis le replacez à son niveau d’origine, vous êtes facturé pour la longueur totale du contenu de l’objet, même s’il partage des blocs avec d’autres objets dans le niveau d’origine.
 

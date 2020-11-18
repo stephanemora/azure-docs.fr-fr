@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 285c3bf37e9d6de042cb028745fc8b094d34c3a1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284407"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406787"
 ---
 Les erreurs signalées dans Azure Functions peuvent avoir l’une des origines suivantes :
 
@@ -23,15 +23,15 @@ Il est important de suivre les bonnes pratiques de gestion des erreurs afin d’
 - [Activer Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Utiliser la gestion structurée des erreurs](#use-structured-error-handling)
 - [Concevoir en ayant en vue l’idempotence](../articles/azure-functions/functions-idempotent.md)
-- [Implémenter des stratégies relatives aux nouvelles tentatives](#retry-policies) (si nécessaire)
+- [Implémenter des stratégies relatives aux nouvelles tentatives](#retry-policies-preview) (si nécessaire)
 
 ### <a name="use-structured-error-handling"></a>Utiliser la gestion structurée des erreurs
 
 La capture et la journalisation des erreurs sont essentielles pour superviser l’intégrité de votre application. Le niveau le plus élevé de tout code de fonction doit inclure un bloc try/catch. Dans le bloc catch, vous pouvez capturer et journaliser les erreurs.
 
-## <a name="retry-policies"></a>Stratégies de nouvelle tentative
+## <a name="retry-policies-preview"></a>Stratégies de nouvelle tentative (préversion)
 
-Une stratégie de nouvelles tentatives peut être définie sur n’importe quelle fonction pour n’importe quel type de déclencheur dans votre application de fonction.  La stratégie de nouvelles tentatives réexécute une fonction jusqu’à ce que celle-ci aboutisse ou jusqu’à ce que le nombre maximal de nouvelles tentatives soit atteint.  Vous pouvez définir des stratégies de nouvelles tentatives pour toutes les fonctions d’une application ou pour des fonctions individuelles.  Par défaut, une application de fonction n’effectue pas de nouvelles tentatives pour les messages (à part les [déclencheurs spécifiques qui ont une stratégie de nouvelles tentatives sur la source du déclencheur](#trigger-specific-retry-support)).  Une stratégie de nouvelles tentatives est évaluée chaque fois qu’une exécution entraîne une exception non interceptée.  Il est recommandé d’intercepter toutes les exceptions dans votre code et de regénérer toute erreur susceptible d’entraîner une nouvelle tentative.  Les points de contrôle Event Hubs et Azure Cosmos DB ne sont pas écrits tant que la stratégie de nouvelles tentatives pour l’exécution n’est pas terminée, ce qui signifie que la progression sur cette partition est suspendue jusqu’à ce que le traitement du lot actuel soit terminé.
+Une stratégie de nouvelles tentatives peut être définie sur n’importe quelle fonction pour n’importe quel type de déclencheur dans votre application de fonction.  La stratégie de nouvelles tentatives réexécute une fonction jusqu’à ce que celle-ci aboutisse ou jusqu’à ce que le nombre maximal de nouvelles tentatives soit atteint.  Vous pouvez définir des stratégies de nouvelles tentatives pour toutes les fonctions d’une application ou pour des fonctions individuelles.  Par défaut, une application de fonction n’effectue pas de nouvelles tentatives pour les messages (à part les [déclencheurs spécifiques qui ont une stratégie de nouvelles tentatives sur la source du déclencheur](#using-retry-support-on-top-of-trigger-resilience)).  Une stratégie de nouvelles tentatives est évaluée chaque fois qu’une exécution entraîne une exception non interceptée.  Il est recommandé d’intercepter toutes les exceptions dans votre code et de regénérer toute erreur susceptible d’entraîner une nouvelle tentative.  Les points de contrôle Event Hubs et Azure Cosmos DB ne sont pas écrits tant que la stratégie de nouvelles tentatives pour l’exécution n’est pas terminée, ce qui signifie que la progression sur cette partition est suspendue jusqu’à ce que le traitement du lot actuel soit terminé.
 
 ### <a name="retry-policy-options"></a>Options de stratégie de nouvelles tentatives
 
@@ -58,6 +58,8 @@ Vous pouvez définir une stratégie de nouvelles tentatives pour une fonction sp
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+Les nouvelles tentatives nécessitent un package NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
+
 ```csharp
 [FunctionName("EventHubTrigger")]
 [FixedDelayRetry(5, "00:00:10")]
@@ -69,7 +71,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 ```json
 {
@@ -88,7 +90,7 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 ```
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 
 ```json
@@ -109,7 +111,7 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 
 # <a name="python"></a>[Python](#tab/python)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 ```json
 {
@@ -129,7 +131,7 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 
 # <a name="java"></a>[Java](#tab/java)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 
 ```json
@@ -153,6 +155,8 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+Les nouvelles tentatives nécessitent un package NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
+
 ```csharp
 [FunctionName("EventHubTrigger")]
 [ExponentialBackoffRetry(5, "00:00:04", "00:15:00")]
@@ -164,7 +168,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 ```json
 {
@@ -185,7 +189,7 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 ```json
 {
@@ -206,7 +210,7 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 
 # <a name="python"></a>[Python](#tab/python)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 ```json
 {
@@ -227,7 +231,7 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 
 # <a name="java"></a>[Java](#tab/java)
 
-Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
+Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 
 ```json
 {
@@ -255,12 +259,27 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json*  :
 |minimumInterval|Non applicable|Délai minimal de nouvelle tentative lors de l’utilisation de la stratégie `exponentialBackoff`.|
 |maximumInterval|Non applicable|Délai maximal de nouvelle tentative lors de l’utilisation de la stratégie `exponentialBackoff`.| 
 
-## <a name="trigger-specific-retry-support"></a>Prise en charge des nouvelles tentatives spécifiques aux déclencheurs
+### <a name="retry-limitations-during-preview"></a>Limitations relatives aux nouvelles tentatives pendant la préversion
 
-Certains déclencheurs fournissent de nouvelles tentatives au niveau de la source du déclencheur.  Ces nouvelles tentatives peuvent être utilisées en plus ou en remplacement de la stratégie de nouvelles tentatives de l’hôte d’application de fonction.  Si vous souhaitez un nombre fixe de nouvelles tentatives, utilisez la stratégie de nouvelles tentatives spécifique au déclencheur plutôt que la stratégie de nouvelles tentatives de l’hôte générique.  Les déclencheurs suivants prennent en charge les nouvelles tentatives au niveau de la source du déclencheur :
+- Pour les projets .NET, vous devrez peut-être extraire manuellement une version de [GitHub AE](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23.
+- Dans le plan consommation, il est possible d’effectuer un scale-down de l’application jusqu’à zéro tout en renouvelant les messages finaux dans une file d’attente.
+- Dans le plan consommation, il est possible d’effectuer un scale-down de l’application en effectuant des nouvelles tentatives.  Pour de meilleurs résultats, choisissez un intervalle avant nouvelle tentative <= 00:01:00 et <= 5 nouvelles tentatives.
+
+## <a name="using-retry-support-on-top-of-trigger-resilience"></a>Utilisation de la prise en charge des nouvelles tentatives en plus de la résilience de déclencheur
+
+La stratégie de nouvelles tentatives d’application de fonction est indépendante des nouvelles tentatives ou de la résilience fournies par le déclencheur.  La stratégie de nouvelles tentatives de fonction ne fera que s’ajouter à une nouvelle tentative résiliente du déclencheur.  Par exemple, si vous utilisez Azure Service Bus, les files d’attente par défaut ont un nombre de remises de messages de 10.  Le nombre de remises par défaut signifie qu’au bout de 10 tentatives de remise d’un message de file d’attente, Service Bus mettra le message en file d’attente de lettres mortes.  Vous pouvez définir une stratégie de nouvelles tentatives pour une fonction qui a un déclencheur Service Bus, mais les nouvelles tentatives se superposeront aux tentatives de remise Service Bus.  
+
+Par exemple, si vous avez utilisé le nombre par défaut de 10 remises Service Bus, et que vous avez défini une stratégie de nouvelles tentatives de fonction de 5.  Le message est tout d’abord sorti de la file d’attente, ce qui porte le nombre de remise Service Bus à 1.  Si chaque exécution a échoué, après cinq tentatives de déclenchement du même message, ce message est marqué comme abandonné.  Service Bus remet immédiatement en file d’attente le message, déclenche la fonction et porte le nombre de remises à 2.  Enfin, après 50 tentatives éventuelles (10 remises Service Bus * 5 tentatives de fonction par remise), le message est abandonné et déclenche une lettre morte sur Service Bus.
+
+> [!WARNING]
+> Il n’est pas recommandé de définir le nombre de remises pour un déclencheur comme Files d’attente Service Bus sur 1, où le message serait immédiatement mis en file d’attente de lettres mortes après un seul cycle de nouvelles tentatives de fonction.  Cela s’explique par le fait que les déclencheurs offrent une certaine résilience lors des nouvelles tentatives, tandis que la stratégie de nouvelle tentative de la fonction est plus efficace et peut aboutir à un nombre de tentatives inférieur au nombre total souhaité.
+
+### <a name="triggers-with-additional-resiliency-or-retries"></a>Déclencheurs avec résilience ou nouvelles tentatives supplémentaires
+
+Les déclencheurs suivants prennent en charge les nouvelles tentatives au niveau de la source du déclencheur :
 
 * [stockage d’objets blob Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Stockage File d’attente Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (file d’attente/rubrique)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Par défaut, ces déclencheurs retentent les requêtes jusqu’à cinq fois. Après la cinquième tentative, le Stockage File d’attente Azure et le déclencheur Azure Service Bus écrivent un message dans une [file d’attente de messages incohérents](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
+Par défaut, la plupart des déclencheurs retentent les requêtes jusqu’à cinq fois. Après la cinquième tentative, le stockage File d’attente Azure écrit un message dans une [file d’attente de messages incohérents](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  La stratégie par défaut en matière de file d’attente et de rubrique Service Bus consiste à écrire un message dans une [file d’attente de lettres mortes](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) après 10 tentatives.

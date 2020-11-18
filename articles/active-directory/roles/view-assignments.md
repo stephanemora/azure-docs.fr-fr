@@ -6,21 +6,21 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f92ae370358ef09574d0839234ddc8ad11aa47ad
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ccb158548f52059b780fd71bf19788ba200aa7c4
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373423"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505578"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Afficher les attributions de rôles personnalisées dans Azure Active Directory
+# <a name="view-custom-role-assignments-using-azure-active-directory"></a>Afficher les attributions de rôles personnalisés à l’aide d’Azure Active Directory
 
 Cet article explique comment afficher les rôles personnalisés que vous avez affectés dans Azure Active Directory (Azure AD). Dans Azure Active Directory (Azure AD), les rôles peuvent être affectés au niveau de l’organisation ou d’une seule application.
 
@@ -32,7 +32,7 @@ Cet article explique comment afficher les rôles personnalisés que vous avez af
 Cette procédure décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation.
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
-1. Sélectionnez **Azure Active Directory** , sélectionnez **Rôles et administrateurs** , puis sélectionnez un rôle pour l’ouvrir et voir ses propriétés.
+1. Sélectionnez **Azure Active Directory**, sélectionnez **Rôles et administrateurs**, puis sélectionnez un rôle pour l’ouvrir et voir ses propriétés.
 1. Sélectionnez **Affectations** pour afficher les affectations du rôle.
 
     ![Affichez les affectations de rôle et les autorisations lorsque vous ouvrez un rôle dans la liste](./media/view-assignments/role-assignments.png)
@@ -105,11 +105,11 @@ HTTP/1.1 200 OK
 Cette section décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle d’une application unique. Cette fonctionnalité est actuellement disponible en préversion publique.
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
-1. Sélectionnez **Inscriptions d’applications** , puis sélectionnez l’inscription d’application pour afficher ses propriétés. Vous devrez peut-être sélectionner **Toutes les applications** pour afficher la liste complète des inscriptions d’applications dans votre organisation Azure AD.
+1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez l’inscription d’application pour afficher ses propriétés. Vous devrez peut-être sélectionner **Toutes les applications** pour afficher la liste complète des inscriptions d’applications dans votre organisation Azure AD.
 
     ![Créer ou modifier des inscriptions d’applications à partir de la page Inscriptions d’applications](./media/view-assignments/app-reg-all-apps.png)
 
-1. Lors de l’inscription de l’application, sélectionnez **Rôles et administrateurs** , puis sélectionnez un rôle pour voir ses propriétés.
+1. Lors de l’inscription de l’application, sélectionnez **Rôles et administrateurs**, puis sélectionnez un rôle pour voir ses propriétés.
 
     ![Afficher les attributions de rôle d’inscription d’application à partir de la page Inscriptions d’applications](./media/view-assignments/app-reg-assignments.png)
 

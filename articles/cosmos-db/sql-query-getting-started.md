@@ -5,42 +5,51 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341907"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356618"
 ---
 # <a name="getting-started-with-sql-queries"></a>Bien démarrer avec les requêtes SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dans les comptes d’API SQL Azure Cosmos DB, il existe deux façons de lire des données :
 
-**Lectures de points**  : vous pouvez effectuer une recherche de clé/valeur sur un *ID d’élément* unique et une clé de partition. La combinaison de la clé de partition et de l’ *ID d’élément* représente la clé et l’élément proprement dit représente la valeur. Pour un document de 1 Ko, les lectures de points coûtent généralement 1 [unité de requête](request-units.md) avec une latence inférieure à 10 ms. Les lectures de points retournent un seul élément.
+**Lectures de points** : vous pouvez effectuer une recherche de clé/valeur sur un *ID d’élément* unique et une clé de partition. La combinaison de la clé de partition et de l’*ID d’élément* représente la clé et l’élément proprement dit représente la valeur. Pour un document de 1 Ko, les lectures de points coûtent généralement 1 [unité de requête](request-units.md) avec une latence inférieure à 10 ms. Les lectures de points retournent un seul élément.
 
-**Requêtes SQL**  : vous pouvez interroger des données en écrivant des requêtes avec le langage SQL (Structured Query Language) comme langage de requête JSON. Les requêtes coûtent toujours au moins 2,3 unités de requête et, en général, ont une latence plus élevée et plus variable que les lectures de points. Les requêtes peuvent retourner de nombreux éléments.
-
-La plupart des charges de travail de lecture intensive sur Azure Cosmos DB utilisent une combinaison de lectures de points et de requêtes SQL. Si vous avez simplement besoin de lire un seul élément, les lectures de points sont moins chères et plus rapides que les requêtes. Les lectures de points n’ont pas besoin d’utiliser le moteur d’interrogation pour accéder aux données qu’elles peuvent lire directement. Bien entendu, il n’est pas possible pour toutes les charges de travail de lire exclusivement les données à l’aide des lectures de points. Par conséquent, la prise en charge de SQL comme langage de requête et l’[indexation indépendante du schéma](index-overview.md) offrent un moyen plus souple d’accéder à vos données.
-
-Voici quelques exemples montrant comment effectuer des lectures de points avec chaque SDK :
+Voici quelques exemples montrant comment effectuer des **lectures de points** avec chaque SDK :
 
 - [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Kit SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Kit de développement logiciel (SDK) Node.js](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [Kit de développement logiciel (SDK) Python](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**Requêtes SQL** : vous pouvez interroger des données en écrivant des requêtes avec le langage SQL (Structured Query Language) comme langage de requête JSON. Les requêtes coûtent toujours au moins 2,3 unités de requête et, en général, ont une latence plus élevée et plus variable que les lectures de points. Les requêtes peuvent retourner de nombreux éléments.
+
+La plupart des charges de travail de lecture intensive sur Azure Cosmos DB utilisent une combinaison de lectures de points et de requêtes SQL. Si vous avez simplement besoin de lire un seul élément, les lectures de points sont moins chères et plus rapides que les requêtes. Les lectures de points n’ont pas besoin d’utiliser le moteur d’interrogation pour accéder aux données qu’elles peuvent lire directement. Bien entendu, il n’est pas possible pour toutes les charges de travail de lire exclusivement les données à l’aide des lectures de points. Par conséquent, la prise en charge de SQL comme langage de requête et l’[indexation indépendante du schéma](index-overview.md) offrent un moyen plus souple d’accéder à vos données.
+
+Voici quelques exemples montrant comment effectuer des **requêtes SQL** avec chaque SDK :
+
+- [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [Kit SDK Java](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [Kit de développement logiciel (SDK) Node.js](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 Le reste de cette documentation montre comment commencer à écrire des requêtes SQL dans Azure Cosmos DB. Les requêtes SQL peuvent être exécutées via le SDK ou le portail Azure.
 
 ## <a name="upload-sample-data"></a>Charger l’exemple de données
 
-Dans votre compte Cosmos DB de l’API SQL, créez un conteneur appelé `Families`. Créez deux éléments JSON simples dans le conteneur. Vous pouvez exécuter la plupart des exemples de requêtes dans la documentation relative aux requêtes Azure Cosmos DB à l’aide de ce jeu de données.
+Dans votre compte Cosmos DB de l’API SQL, ouvrez [Explorateur de données](https://docs.microsoft.com/azure/cosmos-db/data-explorer) pour créer un conteneur appelé `Families`. Une fois qu’il a été créé, utilisez le navigateur de structures de données pour le trouver et l’ouvrir. Dans votre conteneur `Families`, l’option `Items` se trouve juste en dessous du nom du conteneur. Ouvrez cette option. Un bouton s’affiche dans la barre de menus, au centre de l’écran, pour créer un « nouvel élément ». Vous allez utiliser cette fonctionnalité pour créer les éléments JSON ci-dessous.
 
 ### <a name="create-json-items"></a>Créer des éléments JSON
 
-Le code suivant crée deux éléments JSON simples sur les familles. Les éléments JSON simples pour les familles Andersen et Wakefield incluent les parents, les enfants et leurs animaux de compagnie, l’adresse et les informations d’inscription. Le premier élément se compose de chaînes, de nombres, de valeurs booléennes, de tableaux et de propriétés imbriquées.
+Les deux éléments JSON suivants sont des documents concernant les familles Andersen et Wakefield. Ils comprennent les parents, les enfants, ainsi que leurs animaux, leur adresse et leurs informations d’inscription. 
+
+Le premier élément se compose de chaînes, de nombres, de valeurs booléennes, de tableaux et de propriétés imbriquées :
 
 ```json
 {
@@ -64,7 +73,7 @@ Le code suivant crée deux éléments JSON simples sur les familles. Les éléme
 }
 ```
 
-Le deuxième élément utilise `givenName` et `familyName` au lieu de `firstName` et `lastName`.
+Le deuxième élément utilise `givenName` et `familyName` au lieu de `firstName` et `lastName` :
 
 ```json
 {

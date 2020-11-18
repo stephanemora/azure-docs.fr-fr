@@ -1,5 +1,5 @@
 ---
-title: Configurer l’environnement de développement | Python
+title: Configurer l’environnement de développement Python
 titleSuffix: Azure Machine Learning
 description: Apprenez à configurer un environnement de développement Python pour Azure Machine Learning. Utilisez des environnements Conda, créez des fichiers de configuration et configurez votre propre serveur de notebooks basé sur le cloud, des notebooks Jupyter, Azure Databricks, des IDE, des éditeurs de code et la machine Data Science Virtual Machine.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 7e189885fbf7befcaea3f63148a42c81dc1da03e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320493"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422893"
 ---
-# <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
+# <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement Python pour Azure Machine Learning
 
 Apprenez à configurer un environnement de développement Python pour Azure Machine Learning.
 
@@ -27,9 +27,9 @@ Le tableau suivant présente chaque environnement de développement évoqué dan
 | Environnement | Avantages | Inconvénients |
 | --- | --- | --- |
 | [Environnement local](#local) | Contrôle total de votre environnement de développement et des dépendances. Exécutez avec n’importe quel outil de build, environnement ou IDE de votre choix. | La mise en route prend plus de temps. Les packages de Kit de développement logiciel (SDK) nécessaires doivent être installés, ainsi qu’un environnement si vous n’en avez pas encore. |
-| [Instance de calcul Azure Machine Learning](#compute-instance) | Méthode la plus simple pour la mise en route. Le Kit de développement logiciel (SDK) entier est déjà installé sur votre machine virtuelle d’espace de travail, et les didacticiels du Notebook sont pré-clonés et prêts pour exécution. | Manque de contrôle de votre environnement de développement et des dépendances. Coût supplémentaire pour la machine virtuelle Linux (la machine virtuelle peut être arrêtée lorsqu’elle n’est pas utilisée pour éviter des frais). Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
-| [Azure Databricks](#aml-databricks) | Idéal pour l'exécution de flux de travail de Machine Learning intensifs à grande échelle sur la plateforme Apache Spark évolutive. | Excessif pour du Machine Learning expérimental ou des expériences et des flux de travail à plus petite échelle. Coût supplémentaire pour Azure Databricks. Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/databricks/). |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | Similaire à l’instance de calcul basée sur le cloud (Python et le SDK sont préinstallés), mais avec d’autres outils connus de science des données et de machine learning préinstallés. Facile à mettre à l’échelle et à combiner avec d’autres outils et flux de travail personnalisés. | Expérience de démarrage plus lente que celle de l’instance de calcul basée sur le cloud. |
+| [Instance de calcul Azure Machine Learning](#compute-instance) | Méthode la plus simple pour la mise en route. Le Kit de développement logiciel (SDK) entier est déjà installé sur votre machine virtuelle d’espace de travail, et les didacticiels du Notebook sont pré-clonés et prêts pour exécution. | Manque de contrôle de votre environnement de développement et des dépendances. Coût supplémentaire pour la machine virtuelle Linux (la machine virtuelle peut être arrêtée lorsqu’elle n’est pas utilisée pour éviter des frais). Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Azure Databricks](how-to-configure-databricks-automl-environment.md) | Idéal pour l'exécution de flux de travail de Machine Learning intensifs à grande échelle sur la plateforme Apache Spark évolutive. | Excessif pour du Machine Learning expérimental ou des expériences et des flux de travail à plus petite échelle. Coût supplémentaire pour Azure Databricks. Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/databricks/). |
 
 Cet article fournit également des conseils d’utilisation supplémentaires pour les outils suivants :
 
@@ -41,9 +41,9 @@ Cet article fournit également des conseils d’utilisation supplémentaires pou
 
 * Espace de travail Azure Machine Learning. SI vous n’en avez pas, vous pouvez créer un espace de travail Azure Machine Learning via le [Portail Azure](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace) et les [modèles Azure Resource Manager](how-to-create-workspace-template.md).
 
-### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> (Local et DSVM uniquement) Créer un fichier de configuration d’espace de travail
+### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> Local et DSVM uniquement : Créer un fichier de configuration d’espace de travail
 
-Le fichier de configuration d’espace de travail est un fichier JSON qui indique au SDK comment communiquer avec votre espace de travail Azure Machine Learning. Le fichier est nommé *config.json* , et il a le format suivant :
+Le fichier de configuration d’espace de travail est un fichier JSON qui indique au SDK comment communiquer avec votre espace de travail Azure Machine Learning. Le fichier est nommé *config.json*, et il a le format suivant :
 
 ```json
 {
@@ -84,9 +84,11 @@ Créez un fichier de configuration d’espace de travail dans l’une des métho
         print('Workspace not found')
     ```
 
-## <a name="local-computer"></a><a id="local"></a>Ordinateur local
+## <a name="local-computer-or-remote-vm-environment"></a><a id="local"></a>Ordinateur local ou environnement de machine virtuelle distante
 
-Pour configurer un environnement de développement local (qui peut aussi être une machine virtuelle distante telle qu’une instance de calcul Azure Machine Learning ou DSVM) :
+Vous pouvez configurer un environnement sur un ordinateur local ou une machine virtuelle distante, telle qu’une instance de calcul Azure Machine Learning ou Data Science VM. 
+
+Pour configurer un environnement de développement local ou une machine virtuelle distante :
 
 1. Créez un environnement virtuel Python (virtualenv, conda).
 
@@ -153,7 +155,7 @@ Vous pouvez également utiliser l’extension Visual Studio Code d’Azure Machi
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 
-Une Data Science Virtual Machine (DSVM) ou « Machine virtuelle pour la science des données » est une image de machine virtuelle (VM) personnalisée. Elle est conçue pour les travaux de science des données préconfigurés avec les outils et logiciels tels que :
+Data Science VM est une image de machine virtuelle personnalisée que vous pouvez utiliser comme environnement de développement. Elle est conçue pour les travaux de science des données préconfigurés avec les outils et logiciels tels que :
 
   - Des packages tels que TensorFlow, PyTorch, Scikit-learn, XGBoost et le Kit de développement logiciel (SDK) Azure Machine Learning.
   - Des outils de science des données appréciés tels que Spark Standalone et Drill.
@@ -161,23 +163,23 @@ Une Data Science Virtual Machine (DSVM) ou « Machine virtuelle pour la science
   - Des environnements de développement intégrés (IDE) tels que Visual Studio Code et PyCharm.
   - Serveur Jupyter Notebook
 
-Pour une liste d’outils complète, consultez le [guide des outils inclus dans DSVM](data-science-virtual-machine/tools-included.md).
+Pour une liste d’outils complète, consultez le [guide des outils Data Science VM](data-science-virtual-machine/tools-included.md).
 
 > [!IMPORTANT]
-> Si vous envisagez d’utiliser DSVM comme [cible de calcul](concept-compute-target.md) pour vos tâches d’apprentissage ou d’inférence, seule la version Ubuntu est prise en charge.
+> Si vous envisagez d’utiliser Data Science VM comme [cible de calcul](concept-compute-target.md) pour vos tâches d’apprentissage ou d’inférence, seule la version Ubuntu est prise en charge.
 
-Pour utiliser DSVM comme environnement de développement
+Pour utiliser Data Science VM comme environnement de développement :
 
-1. Créez une DSVM au moyen de l’une des méthodes suivantes :
+1. Créez une Data Science VM au moyen de l’une des méthodes suivantes :
 
     * Utilisez le Portail Azure pour créer une DSVM [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) ou [Windows](data-science-virtual-machine/provision-vm.md).
-    * [Créez une DSVM à l’aide de modèles ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
-    * Utiliser Azure CLI
+    * [Créez une Data Science VM à l’aide de modèles ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
+    * Utilisation de l’interface de ligne de commande Microsoft Azure
 
-        Pour créer une DSVM Ubuntu, utilisez la commande suivante :
+        Pour créer une Data Science VM Ubuntu, utilisez la commande suivante :
 
         ```azurecli-interactive
-        # create a Ubuntu DSVM in your resource group
+        # create a Ubuntu Data Science VM in your resource group
         # note you need to be at least a contributor to the resource group in order to execute this command successfully
         # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
         az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
@@ -193,108 +195,26 @@ Pour utiliser DSVM comme environnement de développement
 
 1. Activez l’environnement conda contenant le Kit SDK Azure Machine Learning.
 
-    * Pour une DSVM Ubuntu :
+    * Pour une Data Science VM Ubuntu :
 
         ```bash
         conda activate py36
         ```
 
-    * Pour une DSVM Windows :
+    * Pour une Data Science VM Windows :
 
         ```bash
         conda activate AzureML
         ```
 
-1. Pour configurer la DSVM de manière à utiliser votre espace de travail Azure Machine Learning, [créez un fichier de configuration d’espace de travail](#workspace) ou utilisez un fichier existant.
+1. Pour configurer la Data Science VM de manière à utiliser votre espace de travail Azure Machine Learning, [créez un fichier de configuration d’espace de travail](#workspace) ou utilisez un fichier existant.
 
 À l’instar des environnements locaux, vous pouvez utiliser Visual Studio Code et l’[extension Visual Studio Code d’Azure Machine Learning](#vscode) pour interagir avec Azure Machine Learning.
 
 Pour plus d’informations, consultez la page [Machines virtuelles Science des données](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
-## <a name="azure-databricks"></a><a name="aml-databricks"></a> Azure Databricks
-
-Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il fournit un environnement basé sur Notebook collaboratif avec un cluster de calcul basé sur l’UC ou le GPU.
-
-Comment Azure Databricks fonctionne avec Azure Machine Learning :
-
-+ Vous pouvez effectuer l’apprentissage d’un modèle à l’aide de Spark MLlib et déployer le modèle sur ACI/AKS à partir d’Azure Databricks.
-+ Vous pouvez également utiliser les fonctionnalités [d’apprentissage automatique automatisées](concept-automated-ml.md) dans un Kit de développement logiciel (SDK) Azure ML spécial avec Azure Databricks.
-+ Vous pouvez utiliser Azure Databricks comme cible de calcul à partir d’un [pipeline Azure Machine Learning](concept-ml-pipelines.md).
-
-### <a name="set-up-your-databricks-cluster"></a>Configuration de votre cluster Databricks
-
-Créez un [cluster Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Certains paramètres s’appliquent uniquement si vous installez le Kit de développement logiciel (SDK) pour l’apprentissage automatique automatisé sur Databricks.
-**La création du cluster prend quelques minutes.**
-
-Utilisez les paramètres suivants :
-
-| Paramètre |S’applique à| Valeur |
-|----|---|---|
-| Nom du cluster |toujours| Nom de votre cluster |
-| Runtime Databricks |toujours|Runtime non-ML 7.1 (Scala 2.21, Spark 3.0.0) |
-| Version Python |toujours| 3 |
-| Workers |toujours| 2 ou plus |
-| Types de machines virtuelles pour les nœuds worker <br>(détermine le nombre maximal d’itérations concurrentes) |ML automatisé<br>uniquement| Machine virtuelle à mémoire optimisé, de préférence |
-| Activer la mise à l’échelle automatique |ML automatisé<br>uniquement| Décochez la case |
-
-Attendez que le cluster s’exécute avant de continuer.
-
-### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Installation du Kit de développement logiciel (SDK) correct dans une bibliothèque Databricks
-
-Une fois que le cluster est en cours d’exécution, [créez une bibliothèque](https://docs.databricks.com/user-guide/libraries.html#create-a-library) pour associer le package du Kit de développement logiciel (SDK) Azure Machine Learning approprié à votre cluster. Pour le Machine Learning automatisé, passez à la section [Kit SDK pour Databricks avec Machine Learning automatisé](#sdk-for-databricks-with-automated-machine-learning).
-
-1. Cliquez avec le bouton de droite sur le dossier de l’espace de travail actuel dans lequel vous souhaitez stocker la bibliothèque. Sélectionnez **Créer** > **Bibliothèque**.
-
-1. Choisissez l’option suivante (aucune autre installation de Kit de développement logiciel (SDK) n’est prise en charge)
-
-   |Suppléments de &nbsp;packages&nbsp; de Kit de développement logiciel (SDK)|Source|Nom&nbsp;PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-   |----|---|---|
-   |Pour Databricks| Charger Python Egg ou PyPI | azureml-sdk[databricks]|
-
-   > [!Warning]
-   > Aucun autre supplément de Kit de développement logiciel (SDK) ne peut être installé. Choisissez uniquement l’option [`databricks`].
-
-   * Ne sélectionnez pas **Attacher automatiquement à tous les clusters**.
-   * Sélectionnez **Attacher** en regard du nom de votre cluster.
-
-1. Surveillez les erreurs jusqu’à ce que l’état soit défini sur **Attaché** , ce qui peut prendre plusieurs minutes.  Si cette étape échoue :
-
-   Essayez de redémarrer votre cluster en procédant comme suit :
-   1. Dans le volet gauche, sélectionnez **Clusters**.
-   1. Sélectionnez le nom de votre cluster dans le tableau.
-   1. Sous l’onglet **Bibliothèques** , sélectionnez **Redémarrer**.
-
-   Tenez également compte des aspects ci-dessous :
-   + Dans la configuration d'AutoML, lorsque vous utilisez Azure Databricks, ajoutez les paramètres suivants :
-       1. ```max_concurrent_iterations``` est basé sur le nombre de nœuds Worker dans votre cluster.
-        2. ```spark_context=sc``` est basé sur le contexte spark par défaut.
-   + Ou, si vous avez une ancienne version du Kit de développement logiciel (SDK), désélectionnez-la des bibliothèques installées du cluster et déplacez-la vers la corbeille. Installez la nouvelle version du SDK et redémarrez le cluster. En cas de problème après le redémarrage, détachez et rattachez votre cluster.
-
-Si l’installation a réussi, la bibliothèque importée doit ressembler à l’une de celles présentées ci-dessous :
-
-#### <a name="sdk-for-databricks"></a>Kit SDK pour Databricks
-![Kit de développement logiciel (SDK) Azure Machine Learning pour Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
-
-#### <a name="sdk-for-databricks-with-automated-machine-learning"></a>Kit de développement logiciel (SDK) pour Databricks avec Machine Learning automatisé
-Si le cluster a été créé avec le runtime non-ML 7.1 de Databricks ou une version ultérieure, exécutez la commande suivante dans la première cellule de votre notebook pour installer le Kit SDK AML.
-
-```
-%pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
-```
-Pour le runtime non-ML 7.0 de Databricks et les versions inférieures, installez le Kit SDK AML à l’aide du [script init](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
-
-
-### <a name="start-exploring"></a>Commencez à explorer
-
-Lancez-vous :
-+ Bien que de nombreux exemples de notebooks soient disponibles, **seuls [ ces exemples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) fonctionnent avec Azure Databricks.**
-
-+ Importez ces exemples directement à partir de votre espace de travail. Voir ci-dessous : ![Sélectionner Importer](./media/how-to-configure-environment/azure-db-screenshot.png)
-![Panneau Importer](./media/how-to-configure-environment/azure-db-import.png)
-
-+ Découvrez comment [créer un pipeline avec Databricks en tant que cible de calcul de formation](how-to-create-your-first-pipeline.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Entraîner un modèle](tutorial-train-models-with-aml.md) sur Azure Machine Learning avec le jeu de données MNIST
-- Voir les informations de référence sur le [Kit SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+- [Entraînez un modèle](tutorial-train-models-with-aml.md) sur Azure Machine Learning avec le jeu de données MNIST.
+- Voir les [informations de référence sur le Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). 

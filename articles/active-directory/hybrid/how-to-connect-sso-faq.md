@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658337"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420481"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Forum aux questions
 
@@ -107,6 +107,9 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
    >Si vous n’êtes pas un administrateur de domaine et que vous avez reçu des autorisations par l’administrateur de domaine, vous devez appeler `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.
+   
+  >[!NOTE]
+   >Si vous mettez à jour une forêt autre que celle d’Azure AD Connect, assurez-vous que la connectivité au serveur du catalogue global (TCP 3268 et TCP 3269) est disponible.
 
    >[!IMPORTANT]
    >Assurez-vous de _ne pas_ exécuter la `Update-AzureADSSOForest` commande plusieurs fois. Dans le cas contraire, la fonctionnalité cesse de fonctionner jusqu’à ce que les tickets Kerberos de vos utilisateurs expirent et soient régénérés par votre annuaire Active Directory local.

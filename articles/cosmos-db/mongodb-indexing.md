@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 10/21/2020
+ms.date: 11/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096476"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369288"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -148,7 +148,7 @@ Les index génériques ne prennent pas en charge les types ou propriétés d’i
 - TTL
 - Unique
 
-**Contrairement à MongoDB** , dans l’API d’Azure Cosmos DB pour MongoDB, vous **ne pouvez pas** utiliser des index génériques pour les opérations suivantes :
+**Contrairement à MongoDB**, dans l’API d’Azure Cosmos DB pour MongoDB, vous **ne pouvez pas** utiliser des index génériques pour les opérations suivantes :
 
 - Création d’un index générique incluant plusieurs champs spécifiques
 
@@ -211,7 +211,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -327,7 +327,7 @@ Les détails de la progression de l’index affichent le pourcentage de progress
 
 ## <a name="background-index-updates"></a>Mises à jour d’index en arrière-plan
 
-Quelle que soit la valeur spécifiée pour la propriété d’index **En arrière-plan** , les mises à jour d’index sont toujours effectuées en arrière-plan. Étant donné que les mises à jour d’index consomment des unités de requête (RU) à une priorité inférieure à celle des autres opérations de base de données, les modifications d’index n’entraînent aucun temps d’arrêt pour les écritures, les mises à jour ou les suppressions.
+Quelle que soit la valeur spécifiée pour la propriété d’index **En arrière-plan**, les mises à jour d’index sont toujours effectuées en arrière-plan. Étant donné que les mises à jour d’index consomment des unités de requête (RU) à une priorité inférieure à celle des autres opérations de base de données, les modifications d’index n’entraînent aucun temps d’arrêt pour les écritures, les mises à jour ou les suppressions.
 
 Il n’y a aucun impact sur la disponibilité de lecture lors de l’ajout d’un nouvel index. Les requêtes utilisent uniquement les nouveaux index une fois la transformation d’index terminée. Pendant la transformation d’index, le moteur de requête continue d’utiliser les index existants, ce qui vous permet d’observer des performances de lecture similaires pendant la transformation d’indexation à ce que vous aviez observé avant de lancer la modification de l’indexation. Lors de l’ajout de nouveaux index, il n’y a pas non plus de risque de résultats de requête incomplets ou incohérents.
 
@@ -335,6 +335,51 @@ Lorsque vous supprimez des index et que vous exécutez immédiatement des requê
 
 > [!NOTE]
 > Vous pouvez [suivre la progression de l’index](#track-index-progress).
+
+## <a name="reindex-command"></a>Commande ReIndex
+
+La commande `reIndex` recrée tous les index d’une collection. Dans la plupart des cas, c’est inutile. Toutefois, dans de rares cas, les performances des requêtes peuvent s’améliorer après l’exécution de la commande `reIndex`.
+
+Vous pouvez exécuter la commande `reIndex` à l’aide de la syntaxe suivante :
+
+`db.runCommand({ reIndex: <collection> })`
+
+Vous pouvez utiliser la syntaxe ci-dessous pour vérifier si vous devez exécuter la commande `reIndex` :
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+Exemple de sortie :
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+Si `reIndex` est nécessaire, **requiresReIndex** prend la valeur True. Si `reIndex` n’est pas nécessaire, cette propriété est omise.
 
 ## <a name="migrate-collections-with-indexes"></a>Migrer des collections avec des index
 

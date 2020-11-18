@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c44effe0bde3c7e880e53706fcb59d91a8605e7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05719d9633429c4b8ee6fee79833f594c94ab23d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177114"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376190"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Pour mener à bien la configuration minimale d’un appareil StorSimple
 
@@ -30,7 +30,7 @@ ms.locfileid: "67177114"
 
        2. Entrez les adresses IP fixes pour les contrôleurs 0 et 1. **Les adresses IP fixes des contrôleurs doivent être disponibles au sein du sous-réseau accessible par l'adresse IP de l’appareil.** Si l’interface du réseau DATA 0 est configurée pour le protocole IPv4, les adresses IP fixes doivent être fournies au format IPv4. Si vous avez fourni un préfixe pour la configuration du protocole IPv6, ces champs sont automatiquement remplis par des adresses IP fixes.
 
-            ![Interfaces réseau de la configuration minimale d’un appareil StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
+            ![Interfaces réseau de la configuration minimale d’un appareil StorSimple 2](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
             Les adresses IP fixes du contrôleur servent à traiter les mises à jour de l’appareil et à nettoyer la mémoire. Par conséquent, les adresses IP fixes doivent être routables et être en mesure de se connecter à Internet. Vous pouvez vérifier que vos adresses IP de contrôleur fixe sont routables à l’aide de l’applet de commande [Test-HcsmConnection][Test]. Dans l’exemple suivant, les adresses IP de contrôleur fixe sont routées à Internet et peuvent accéder aux serveurs Microsoft Update.
 
@@ -38,7 +38,7 @@ ms.locfileid: "67177114"
 
 1. Cliquez sur **OK**. La configuration de l’appareil démarre. Lorsque la configuration de l’appareil est terminée, vous êtes averti. L’état de l’appareil devient **En ligne** dans le panneau **Appareils**.
 
-    ![Interfaces réseau de la configuration minimale d’un appareil StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
+    ![Interfaces réseau de la configuration minimale d’un appareil StorSimple 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

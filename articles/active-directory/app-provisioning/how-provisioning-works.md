@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424649"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393079"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -43,9 +43,7 @@ Si vous souhaitez demander un connecteur de provisionnement automatique Azure A
 
 ## <a name="authorization"></a>Autorisation
 
-Des informations d’identification sont nécessaires pour qu’Azure AD puisse se connecter à l’API de gestion des utilisateurs de l’application. Pour configurer l’attribution automatique d’utilisateurs dans une application, vous devez entrer des informations d’identification valides. Pour connaître les différents types d’informations d’identification et d’exigences d’une application, consultez le tutoriel de l’application. Dans le portail Azure, vous pouvez tester les informations d’identification en demandant à Azure AD de se connecter à l’API de provisionnement de l’application à l’aide des informations d’identification fournies.
-
-Si l’authentification unique basée sur SAML est également configurée pour l’application, la limite de stockage par application interne d’Azure AD est de 1 024 octets. Cette limite comprend l’ensemble des certificats, jetons secrets, informations d’identification et données de configuration qui sont associés à une même instance d’application (également appelée « enregistrement du principal de service » dans Azure AD). Lorsque l’authentification unique basée sur SAML est configurée, le certificat utilisé pour signer les jetons SAML consomme généralement plus de 50 % de l’espace. Les éléments supplémentaires (jetons secrets, URI, adresses e-mail de notification, noms d’utilisateur et mots de passe) que vous entrez pendant la configuration de l’attribution d’utilisateurs peuvent entraîner un dépassement de la limite de stockage. Pour plus d’informations, consultez [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration du provisionnement d’utilisateurs](./application-provisioning-config-problem-storage-limit.md).
+Des informations d’identification sont nécessaires pour qu’Azure AD puisse se connecter à l’API de gestion des utilisateurs de l’application. Pour configurer l’attribution automatique d’utilisateurs dans une application, vous devez entrer des informations d’identification valides. Pour les applications de la galerie, consultez le tutoriel de l’application afin d’en connaître les différents types d’informations d’identification et les exigences. Pour les applications qui ne proviennent pas de la galerie, vous pouvez consulter la documentation [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) pour comprendre les types d’informations d’identification et les exigences. Dans le portail Azure, vous pouvez tester les informations d’identification en demandant à Azure AD de se connecter à l’API de provisionnement de l’application à l’aide des informations d’identification fournies.
 
 ## <a name="mapping-attributes"></a>Mappage d’attributs
 
@@ -53,7 +51,7 @@ Si vous activez l’attribution d’utilisateurs pour une application SaaS tier
 
 Il existe un ensemble préconfiguré d’attributs et de mappages d’attributs entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent d’autres types d’objets parallèlement aux Utilisateurs, tels que des Groupes.
 
-Lors de la configuration du provisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Vérifiez et configurez la propriété correspondante ( **Trouver les objets utilisant cet attribut** ) qui est utilisée pour identifier de façon unique et établir une correspondance entre les utilisateurs et groupes des deux systèmes.
+Lors de la configuration du provisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Vérifiez et configurez la propriété correspondante (**Trouver les objets utilisant cet attribut**) qui est utilisée pour identifier de façon unique et établir une correspondance entre les utilisateurs et groupes des deux systèmes.
 
 Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des besoins de votre organisation. Vous pouvez ainsi modifier ou supprimer des mappages d’attributs existants ou en créer de nouveaux. Pour plus d’informations, consultez [Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS](./customize-application-attributes.md).
 
@@ -64,7 +62,7 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 
 Pour le provisionnement sortant entre Azure AD et une application SaaS, les [attributions d’utilisateurs ou de groupes](../manage-apps/assign-user-or-group-access-portal.md) constituent la méthode la plus courante pour déterminer les utilisateurs qui sont compris dans l’étendue du provisionnement. Étant donné que les attributions d’utilisateurs sont également utilisées pour l’authentification unique, cette même méthode peut être utilisée pour gérer l’accès et le provisionnement. L’étendue basée sur les attributions ne s’applique pas aux scénarios de provisionnement entrant tels que Workday et Successfactors.
 
-* **Groupes.** Avec un plan de licence Azure AD Premium, vous pouvez utiliser des groupes pour autoriser l’accès à une application SaaS intégrée. Ensuite, lorsque l’étendue de provisionnement est définie sur **Synchroniser uniquement les utilisateurs et groupes assignés** , le service de provisionnement Azure AD provisionne ou déprovisionne des utilisateurs selon qu’ils sont membres d’un groupe affecté à l’application. L’objet de groupe n’est pas provisionné, sauf si l’application prend en charge les objets de groupe. Assurez-vous que les groupes attribués à votre application ont la propriété « SecurityEnabled » définie sur « False ».
+* **Groupes.** Avec un plan de licence Azure AD Premium, vous pouvez utiliser des groupes pour autoriser l’accès à une application SaaS intégrée. Ensuite, lorsque l’étendue de provisionnement est définie sur **Synchroniser uniquement les utilisateurs et groupes assignés**, le service de provisionnement Azure AD provisionne ou déprovisionne des utilisateurs selon qu’ils sont membres d’un groupe affecté à l’application. L’objet de groupe n’est pas provisionné, sauf si l’application prend en charge les objets de groupe. Assurez-vous que les groupes attribués à votre application ont la propriété « SecurityEnabled » définie sur « False ».
 
 * **Groupes dynamiques.** Le service d’attribution d’utilisateurs Azure AD peut lire et attribuer des utilisateurs dans des [groupes dynamiques](../enterprise-users/groups-create-rule.md). Gardez à l’esprit les mises en garde et suggestions suivantes :
 
@@ -135,7 +133,7 @@ Après le cycle initial, tous les autres cycles effectuent les opérations suiva
 10. Conserver un nouveau filigrane à la fin du cycle initial, qui fournit le point de départ pour les cycles incrémentiels ultérieurs.
 
 > [!NOTE]
-> Vous pouvez éventuellement désactiver les opérations de **création** , **mise à jour** et **suppression** à l’aide des cases à cocher **Actions d’objet cible** dans la section [Mappages](customize-application-attributes.md). La logique pour désactiver un utilisateur pendant une mise à jour est également contrôlée via un mappage d’attributs à partir d’un champ tel que « accountEnabled ».
+> Vous pouvez éventuellement désactiver les opérations de **création**, **mise à jour** et **suppression** à l’aide des cases à cocher **Actions d’objet cible** dans la section [Mappages](customize-application-attributes.md). La logique pour désactiver un utilisateur pendant une mise à jour est également contrôlée via un mappage d’attributs à partir d’un champ tel que « accountEnabled ».
 
 Le service de provisionnement continue à exécuter indéfiniment des cycles incrémentiels consécutifs, à des intervalles définis dans le [tutoriel propre à chaque application](../saas-apps/tutorial-list.md). Les cycles incrémentiels se poursuivent jusqu’à ce que l’un des événements suivants se produise :
 

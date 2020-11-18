@@ -3,12 +3,12 @@ title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412929"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577836"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -155,6 +155,10 @@ Les valeurs les plus récentes des quotas de calcul Azure Machine Learning sont 
 ### <a name="action-groups"></a>Groupes d’actions
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
+
+### <a name="autoscale"></a>Mise à l’échelle automatique
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
 
 ### <a name="log-queries-and-language"></a>Requêtes dans les journaux et langage
 

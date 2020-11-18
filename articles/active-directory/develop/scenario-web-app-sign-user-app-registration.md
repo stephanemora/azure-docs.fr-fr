@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0f4ad8db5b750a8e75a921a6d459a1a294a4bad0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 29f5d2960a678204387b2bd1dfd6d4acdc4f9c3d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910030"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442512"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Application web qui connecte les utilisateurs : Inscription d'application
 
@@ -43,19 +43,19 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft. Vous pouvez également vous connecter au [portail Azure de votre choix](./authentication-national-cloud.md#app-registration-endpoints) pour le cloud national.
 2. Si votre compte vous permet d’accéder à plusieurs abonnés, cliquez sur votre compte dans le coin supérieur droit. Ensuite, définissez votre session de portail sur l’abonné Azure Active Directory (Azure AD) souhaité.
-3. Dans le volet de gauche, sélectionnez le service **Azure Active Directory** , puis **Inscriptions d’applications** > **Nouvelle inscription**.
+3. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications** > **Nouvelle inscription**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
    1. Sélectionnez les types de comptes pris en charge par votre application. (Consultez [Types de comptes pris en charge](./v2-supported-account-types.md).)
-   1. Dans la section **Nom** , saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **AspNetCore-WebApp**.
-   1. Dans **URI de redirection** , ajoutez le type d’application et la destination d’URI qui acceptera les réponses de jeton retournées après une authentification réussie. Par exemple, entrez **https://localhost:44321** . Sélectionnez ensuite **Inscription**.
+   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **AspNetCore-WebApp**.
+   1. Dans **URI de redirection**, ajoutez le type d’application et la destination d’URI qui acceptera les réponses de jeton retournées après une authentification réussie. Par exemple, entrez **https://localhost:44321** . Sélectionnez ensuite **Inscription**.
    ![Capture d’écran de la page Inscrire une application sur laquelle vous pouvez sélectionner Inscrire](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Sélectionnez le menu **Authentification** et ajoutez les informations suivantes :
-   1. Dans **URL de réponse** , ajoutez **https://localhost:44321/signin-oidc** de type **Web**.
-   1. Dans la section **Paramètres avancés** , définissez **URL de déconnexion** sur **https://localhost:44321/signout-oidc** .
-   1. Sous **Octroi implicite** , sélectionnez **Jetons d’ID**.
+   1. Dans **URL de réponse**, ajoutez **https://localhost:44321/signin-oidc** de type **Web**.
+   1. Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur **https://localhost:44321/signout-oidc** .
+   1. Sous **Octroi implicite**, sélectionnez **Jetons d’ID**.
    1. Sélectionnez **Enregistrer**.
   ![Capture d’écran des Options d’authentification auxquelles vous pouvez apporter les modifications décrites](media/scenario-webapp/scenario-webapp-app-registration-2.png)
  
@@ -63,11 +63,11 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
    1. Sélectionnez les types de comptes pris en charge par votre application. (Consultez [Types de comptes pris en charge](./v2-supported-account-types.md).)
-   1. Dans la section **Nom** , saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **MailApp-openidconnect-v2**.
+   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **MailApp-openidconnect-v2**.
    1. Dans la section **URI de redirection (facultatif)** , sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants : **https://localhost:44326/** .
 1. Sélectionnez **Inscrire** pour créer l’application.
 1. Sélectionnez le menu **Authentification**.
-1. Dans la section **Paramètres avancés** |  **Octroi implicite** , sélectionnez **Jetons d’ID**. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour la connexion de l’utilisateur.
+1. Dans la section **Paramètres avancés** |  **Octroi implicite**, sélectionnez **Jetons d’ID**. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour la connexion de l’utilisateur.
 1. Sélectionnez **Enregistrer**.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -75,7 +75,7 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom d’affichage de l’application. Par exemple, entrez **java-webapp**.
 1. Sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** , puis sélectionnez **Application web / API** comme **Type d’application**.
 1. Sélectionnez **Inscrire** pour inscrire l’application.
-1. Dans le menu de gauche, sélectionnez **Authentification**. Sous **URI de redirection** , sélectionnez **Web**.
+1. Dans le menu de gauche, sélectionnez **Authentification**. Sous **URI de redirection**, sélectionnez **Web**.
 
 1. Entrez deux URI de redirection différents : un pour la page de connexion et un pour la page du graphique. Pour les deux, utilisez le même hôte et le même numéro de port, suivis de **/msal4jsample/secure/aad** pour la page de connexion et de **msal4jsample/graph/me** pour la page des infos utilisateur.
 
@@ -87,7 +87,7 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
   Sélectionnez ensuite **Enregistrer**.
 
 1. Cliquez sur **Certificats et secrets** dans le menu.
-1. Dans la section **Secrets client** , sélectionnez **Nouveau secret client** , puis :
+1. Dans la section **Secrets client**, sélectionnez **Nouveau secret client**, puis :
 
    1. Entrez une description de clé.
    1. Sélectionnez la durée de clé **Dans 1 an**.
@@ -97,13 +97,13 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 # <a name="python"></a>[Python](#tab/python)
 
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   1. Dans la section **Nom** , saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **python-webapp**.
+   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **python-webapp**.
    1. Affectez à **Types de comptes pris en charge** la valeur **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
    1. Dans la section **URI de redirection (facultatif)** , sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants : **http://localhost:5000/getAToken** .
 1. Sélectionnez **Inscrire** pour créer l’application.
-1. Sur la page **Vue d'ensemble** de l'application, recherchez la valeur de l' **ID d'application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
+1. Sur la page **Vue d'ensemble** de l'application, recherchez la valeur de l'**ID d'application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
 1. Dans le menu de gauche, sélectionnez **Certificats et secrets**.
-1. Dans la section **Secrets client** , sélectionnez **Nouveau secret client** , puis :
+1. Dans la section **Secrets client**, sélectionnez **Nouveau secret client**, puis :
 
    1. Entrez une description de clé.
    1. Sélectionnez la durée de clé **Dans 1 an**.
@@ -123,5 +123,4 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Configuration de code de l’application](scenario-web-app-sign-user-app-configuration.md)
+Passez à l’article suivant de ce scénario, [Configuration du code de l’application](scenario-web-app-sign-user-app-configuration.md).

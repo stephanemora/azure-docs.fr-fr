@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a6d6ca825a556ea3c98fb94d4becbb75b8f2a7d7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294192"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376882"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutoriel pour la configuration de l’outil d’administration TheAccessHub avec Azure Active Directory B2C
 
@@ -102,7 +102,7 @@ Pour autoriser l’outil d’administration TheAccessHub à accéder à votre an
 
 5. Suivez les invites et sélectionnez **Accepter** pour octroyer les autorisations requises à l’outil d’administration TheAccessHub.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-your-enterprise-identity"></a>Configurer un nouvel utilisateur de service client/support technique à l’aide de votre identité d’entreprise
+## <a name="configure-a-new-csr-user-using-your-enterprise-identity"></a>Configurer un nouvel utilisateur de service client à l’aide de votre identité d’entreprise
 
 Créez un utilisateur de service client/support technique qui peut accéder à l’outil d’administration TheAccessHub à l’aide de ses informations d’identification d’entreprise Azure Active Directory existantes.
 
@@ -126,7 +126,7 @@ Pour configurer l’utilisateur de service client/support technique avec l’aut
 
 6. Sélectionnez **Envoyer**.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-a-new-identity"></a>Configurer un nouvel utilisateur de service client/support technique à l’aide d’une nouvelle identité
+## <a name="configure-a-new-csr-user-using-a-new-identity"></a>Configurer un nouvel utilisateur de service client à l’aide d’une nouvelle identité
 
 Créez un utilisateur de service client/support technique qui peut accéder à l’outil d’administration TheAccessHub avec un nouvel identifiant local propre à cet outil. Cette méthode sert principalement aux organisations qui n’utilisent pas d’annuaire Azure AD pour leur entreprise.
 
@@ -144,13 +144,13 @@ Pour [configurer un utilisateur de service client/support technique](https://you
 
    a. Vous pouvez sélectionner une Organisation d’origine, qui contrôlera les personnes autorisées à gérer cet utilisateur.
 
-   b. Dans l’onglet **Rôles TheAccessHub** , cochez le rôle géré **Support technique**. L’utilisateur pourra ainsi accéder à la vue de gestion des collègues. L’utilisateur devra cependant être placé dans un groupe ou désigné comme propriétaire d’organisation pour agir sur les clients.
+   b. Dans l’onglet **Rôles TheAccessHub**, cochez le rôle géré **Support technique**. L’utilisateur pourra ainsi accéder à la vue de gestion des collègues. L’utilisateur devra cependant être placé dans un groupe ou désigné comme propriétaire d’organisation pour agir sur les clients.
 
 6. Copiez les attributs **ID/adresse e-mail de connexion** et **Mot de passe à usage unique**. Transmettez-les au nouvel utilisateur. Il utilisera ces informations d’identification pour se connecter à l’outil d’administration TheAccessHub. L’utilisateur sera invité à entrer un nouveau mot de passe lors de sa première connexion.
 
 7. Sélectionnez **Envoyer**
 
-## <a name="configure-partitioned-csrhelpdesk-administration"></a>Configurer une administration de service client/support technique partitionnée
+## <a name="configure-partitioned-csr-administration"></a>Configurer une administration de service client partitionnée
 
 Les autorisations pour gérer les clients et les utilisateurs de service client/support technique dans l’outil d’administration TheAccessHub sont gérées à l’aide d’une hiérarchie d’organisation. Tous les collègues et clients résident dans une organisation d’origine. Certains collègues ou groupes de collègues peuvent être désignés comme propriétaires d’organisation.  Les propriétaires d’organisation peuvent gérer (modifier) les collègues et les clients dans les organisations ou sous-organisations dont ils sont propriétaires. Pour permettre à plusieurs collègues de gérer un ensemble d’utilisateurs, un groupe peut être créé. Le groupe peut ensuite être désigné comme propriétaire d’organisation. Ainsi, tous les membres du groupe peuvent gérer les collègues et les clients de l’organisation.
 
@@ -162,9 +162,9 @@ Les autorisations pour gérer les clients et les utilisateurs de service client/
 
 3. Sélectionnez > **Ajouter un groupe**
 
-4. Entrez un **nom** , une **description** et un **propriétaire** pour le nouveau groupe
+4. Entrez un **nom**, une **description** et un **propriétaire** pour le nouveau groupe
 
-5. Recherchez les collègues que vous voulez ajouter comme membres du groupe et cochez les cases correspondantes, puis sélectionnez > **Ajouter**
+5. Recherchez les collègues que vous voulez ajouter comme membres du groupe et cochez les cases correspondantes, puis sélectionnez >**Ajouter**
 
 6. Tous les membres du groupe sont affichés en bas de la page.
 
@@ -180,7 +180,7 @@ Les autorisations pour gérer les clients et les utilisateurs de service client/
 
 3. Sélectionnez > **Ajouter une organisation**
 
-4. Indiquez un **nom d’organisation** , un **propriétaire d’organisation** et une **organisation parente**.
+4. Indiquez un **nom d’organisation**, un **propriétaire d’organisation** et une **organisation parente**.
 
     a. Le nom de l’organisation est idéalement une valeur qui correspond à vos données client. Lorsque vous chargez les données d’un collègue ou d’un client, si vous indiquez le nom de l’organisation dans la charge, le collègue peut être automatiquement placé dans l’organisation.
 
@@ -238,45 +238,45 @@ Pour personnaliser la notification :
 
    **Pour les bases de données**
 
-   a. **Type**  : base de données
+   a. **Type** : base de données
 
-   b. **Type de base de données**  : sélectionnez une base de données parmi les types de base de données pris en charge.
+   b. **Type de base de données** : sélectionnez une base de données parmi les types de base de données pris en charge.
 
-   c. **URL de connexion**  : entrez une chaîne de connexion JDBC bien formée. Par exemple : ``jdbc:postgresql://myhost.com:5432/databasename``
+   c. **URL de connexion** : entrez une chaîne de connexion JDBC bien formée. Par exemple : ``jdbc:postgresql://myhost.com:5432/databasename``
 
-   d. **Nom d’utilisateur**  : entrez le nom d’utilisateur pour accéder à la base de données
+   d. **Nom d’utilisateur** : entrez le nom d’utilisateur pour accéder à la base de données
 
-   e. **Mot de passe**  : entrez le mot de passe pour accéder à la base de données
+   e. **Mot de passe** : entrez le mot de passe pour accéder à la base de données
 
-   f. **Requête**  : entrez la requête SQL pour extraire les informations du client. Par exemple : ``SELECT * FROM mytable;``
+   f. **Requête** : entrez la requête SQL pour extraire les informations du client. Par exemple : ``SELECT * FROM mytable;``
 
    g. Sélectionnez **Tester la connexion**. Vous verrez un échantillon de vos données pour vérifier que la connexion fonctionne.
 
    **Pour les protocoles LDAP**
 
-   a. **Type**  : LDAP
+   a. **Type** : LDAP
 
-   b. **Hôte**  : entrez le nom d’hôte ou l’adresse IP de l’ordinateur sur lequel s’exécute le serveur LDAP. Par exemple : ``mysite.com``
+   b. **Hôte** : entrez le nom d’hôte ou l’adresse IP de l’ordinateur sur lequel s’exécute le serveur LDAP. Par exemple : ``mysite.com``
 
-   c. **Port**  : entrez le numéro de port dans lequel le serveur LDAP écoute.
+   c. **Port** : entrez le numéro de port dans lequel le serveur LDAP écoute.
 
-   d. **SSL**  : cochez la case si l’outil d’administration TheAccessHub doit communiquer avec le serveur LDAP de manière sécurisée à l’aide de SSL. L’utilisation de SSL est fortement recommandée.
+   d. **SSL** : cochez la case si l’outil d’administration TheAccessHub doit communiquer avec le serveur LDAP de manière sécurisée à l’aide de SSL. L’utilisation de SSL est fortement recommandée.
 
-   e. **Nom unique de connexion**  : entrez le nom unique du compte d’utilisateur pour la connexion et la recherche LDAP
+   e. **Nom unique de connexion** : entrez le nom unique du compte d’utilisateur pour la connexion et la recherche LDAP
 
-   f. **Mot de passe**  : entrez le mot de passe de l’utilisateur
+   f. **Mot de passe** : entrez le mot de passe de l’utilisateur
 
-   g. **ND de base**  : entrez le nom unique en haut de la hiérarchie dans laquelle vous voulez effectuer la recherche
+   g. **ND de base** : entrez le nom unique en haut de la hiérarchie dans laquelle vous voulez effectuer la recherche
 
-   h. **Filtre**  : entrez la chaîne de filtre LDAP, qui obtiendra vos enregistrements client
+   h. **Filtre** : entrez la chaîne de filtre LDAP, qui obtiendra vos enregistrements client
 
-   i. **Attributs**  : entrez une liste d’attributs séparés par des virgules à partir de vos enregistrements client à transmettre à l’outil d’administration TheAccessHub
+   i. **Attributs** : entrez une liste d’attributs séparés par des virgules à partir de vos enregistrements client à transmettre à l’outil d’administration TheAccessHub
 
    j. Sélectionnez **Tester la connexion**. Un échantillon de vos données vous permet de vérifier que la connexion fonctionne.
 
    **Pour OneDrive**
 
-   a. **Type**  : OneDrive Entreprise
+   a. **Type** : OneDrive Entreprise
 
    b. Sélectionnez **Autoriser la connexion**
 
@@ -296,7 +296,7 @@ Pour personnaliser la notification :
 
 4. Sélectionnez le **Type de collègue** Utilisateur Azure AD B2C
 
-5. Sélectionnez **Source** , puis dans la boîte de dialogue contextuelle, sélectionnez votre source de données. Si vous avez créé une source de données OneDrive, sélectionnez également le fichier.
+5. Sélectionnez **Source**, puis dans la boîte de dialogue contextuelle, sélectionnez votre source de données. Si vous avez créé une source de données OneDrive, sélectionnez également le fichier.
 
 6. Si vous ne souhaitez pas créer de nouveaux comptes client avec cette charge, définissez la première stratégie : **SI le collègue est introuvable dans TheAccessHub ALORS** sur **Ne rien faire**
 
@@ -304,7 +304,7 @@ Pour personnaliser la notification :
 
 8. Sélectionnez **Suivant**.
 
-9. Dans la **configuration Search-Mapping** , nous cherchons à mettre en corrélation les enregistrements de charge avec les clients déjà chargés dans l’outil d’administration TheAccessHub. Choisissez un ou plusieurs attributs d’identification dans la source. Faites correspondre les attributs avec un attribut de l’outil d’administration TheAccessHub qui contient les mêmes valeurs. Si une correspondance est trouvée, l’enregistrement existant est remplacé. Dans le cas contraire, un client est créé. Vous pouvez séquencer un certain nombre de ces vérifications. Par exemple, vous pouvez commencer par vérifier l’adresse e-mail, puis le prénom et le nom.
+9. Dans la **configuration Search-Mapping**, nous cherchons à mettre en corrélation les enregistrements de charge avec les clients déjà chargés dans l’outil d’administration TheAccessHub. Choisissez un ou plusieurs attributs d’identification dans la source. Faites correspondre les attributs avec un attribut de l’outil d’administration TheAccessHub qui contient les mêmes valeurs. Si une correspondance est trouvée, l’enregistrement existant est remplacé. Dans le cas contraire, un client est créé. Vous pouvez séquencer un certain nombre de ces vérifications. Par exemple, vous pouvez commencer par vérifier l’adresse e-mail, puis le prénom et le nom.
 
 10. Dans le menu de gauche, sélectionnez **Mappage de données** .
 
@@ -324,7 +324,7 @@ Pour personnaliser la notification :
 
 18. Lorsque l’enregistrement **Synchronisation des données** atteint 100 % dans la phase de chargement, toutes les modifications résultant de la charge ont été lancées. Les clients doivent commencer à apparaître ou à recevoir des modifications dans Azure AD B2C.
 
-## <a name="synchronize-azure-ad-b2c-customer-data-into-theaccesshub-admin-tool"></a>Synchroniser des données client Azure AD B2C dans l’outil d’administration TheAccessHub
+## <a name="synchronize-azure-ad-b2c-customer-data"></a>Synchroniser des données client d’Azure AD B2C 
 
 Dans le cadre d’une opération unique ou en cours, l’outil d’administration TheAccessHub peut synchroniser toutes les informations client d’Azure AD B2C vers l’outil de synchronisation TheAccessHub. Cela permet de s’assurer que les administrateurs du service client/support technique voient des informations client à jour.
 
@@ -338,11 +338,11 @@ Pour synchroniser des données d’Azure AD B2C vers l’outil d’administratio
 
 4. Sélectionnez le **Type de collègue** Utilisateur Azure AD B2C
 
-5. Pour l’étape **Options** , laissez les valeurs par défaut.
+5. Pour l’étape **Options**, laissez les valeurs par défaut.
 
 6. Sélectionnez **Suivant**.
 
-7. Pour l’étape **Recherche et mappage des données** , laissez les valeurs par défaut. Si vous mappez sur l’attribut **org_name** avec une valeur qui est le nom d’une organisation existante, les nouveaux clients créés sont placés dans cette organisation.
+7. Pour l’étape **Recherche et mappage des données**, laissez les valeurs par défaut. Si vous mappez sur l’attribut **org_name** avec une valeur qui est le nom d’une organisation existante, les nouveaux clients créés sont placés dans cette organisation.
 
 8. Sélectionnez **Suivant**.
 
@@ -356,7 +356,7 @@ Pour synchroniser des données d’Azure AD B2C vers l’outil d’administratio
 
 13. Lorsque l’enregistrement **Synchronisation des données** atteint 100 % dans la phase de chargement, toutes les modifications résultant de la charge ont été lancées.
 
-## <a name="configure-azure-ad-b2c-policies-to-call-theaccesshub-admin-tool"></a>Configurer des stratégies Azure AD B2C pour appeler l’outil d’administration TheAccessHub
+## <a name="configure-azure-ad-b2c-policies"></a>Configurer des stratégies Azure AD B2C
 
 La synchronisation occasionnelle de l’outil d’administration TheAccessHub est limitée dans sa capacité à conserver son état à jour avec Azure AD B2C. Nous pouvons tirer parti de l’API de l’outil d’administration TheAccessHub et des stratégies Azure AD B2C pour informer l’outil d’administration TheAccessHub des modifications en temps réel. Cette solution nécessite une connaissance technique des [stratégies personnalisées d’Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). Dans la section suivante, nous vous donnons un exemple de création de stratégie et un certificat sécurisé pour informer l’outil d’administration TheAccessHub de la création de nouveaux comptes dans vos stratégies personnalisées d’inscription.
 

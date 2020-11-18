@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006038"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628796"
 ---
 # <a name="tls-support-in-iot-hub"></a>Prise en charge du protocole TLS dans IoT Hub
 
@@ -107,4 +107,4 @@ Les appareils IoT Edge peuvent être configurés pour utiliser TLS 1.2 lors des
 
 ## <a name="device-authentication"></a>Authentification des appareils
 
-Après une négociation TLS réussie, IoT Hub peut authentifier un appareil à l’aide d’une clé symétrique ou d’un certificat X.509. Pour l’authentification basée sur les certificats, il peut s’agir de n’importe quel certificat X.509, y compris ECC. IoT Hub valide le certificat par rapport à l’empreinte ou à l’autorité de certification (CA) que vous fournissez. IoT Hub ne prend pas en charge l’authentification mutuelle basée sur X.509 (mTLS). Pour plus d’informations, consultez [Certificats X.509 pris en charge](iot-hub-devguide-security.md#supported-x509-certificates).
+Après une négociation TLS réussie, IoT Hub peut authentifier un appareil à l’aide d’une clé symétrique ou d’un certificat X.509. Pour l’authentification basée sur les certificats, il peut s’agir de n’importe quel certificat X.509, y compris ECC. IoT Hub valide le certificat par rapport à l’empreinte ou à l’autorité de certification (CA) que vous fournissez. Pour plus d’informations, consultez [Certificats X.509 pris en charge](iot-hub-devguide-security.md#supported-x509-certificates).

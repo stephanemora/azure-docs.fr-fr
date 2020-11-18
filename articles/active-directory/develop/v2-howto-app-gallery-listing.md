@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339430"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356346"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publier votre application dans la galerie d’applications Azure AD
 
@@ -97,6 +97,7 @@ Le tableau suivant compare les normes principales : Open Authentication 2.0 (OAu
 | Déconnexion unique basée sur mobile| √| √* |
 | Stratégies d’accès conditionnel pour les applications mobiles| √| X |
 | Expérience d’authentification multifacteur intégrée pour les applications mobiles| √| X |
+| Approvisionnement SCIM| √| √ |
 | Accès à Microsoft Graph| √| X |
 
 *Possible, mais Microsoft ne fournit pas d’exemples ou de conseils.
@@ -176,9 +177,9 @@ En guise d’alternative, un locataire Azure AD est fourni avec chaque abonnemen
 
 Une fois que vous avez un locataire, vous devez activer et tester l’accès d’authentification unique. 
 
-**Pour les applications OIDC ou Oath** , [inscrivez votre application](quickstart-register-app.md) comme une application mutualisée. Sous Types de comptes pris en charge, sélectionnez l’option Comptes dans un annuaire organisationnel et comptes personnels Microsoft.
+**Pour les applications OIDC ou Oath**, [inscrivez votre application](quickstart-register-app.md) comme une application mutualisée. Sous Types de comptes pris en charge, sélectionnez l’option Comptes dans un annuaire organisationnel et comptes personnels Microsoft.
 
-**Pour les applications basées sur SAML et WS-Fed** , vous [Configurez des applications avec authentification unique basée sur SAML](../manage-apps/configure-saml-single-sign-on.md) à l’aide d’un modèle SAML générique dans Azure AD.
+**Pour les applications basées sur SAML et WS-Fed**, vous [Configurez des applications avec authentification unique basée sur SAML](../manage-apps/configure-saml-single-sign-on.md) à l’aide d’un modèle SAML générique dans Azure AD.
 
 Vous pouvez également [convertir une application à locataire unique en application mutualisée](howto-convert-app-to-be-multi-tenant.md) si nécessaire.
 
@@ -253,7 +254,7 @@ Si vous souhaitez ajouter votre application à la liste dans la galerie à l’a
 
 ![Listing d’une application OpenID Connect dans la galerie](./media/howto-app-gallery-listing/openid.png)
 
-Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de **SAML 2.0** ou **WS-Fed** , sélectionnez **SAML 2.0/WS-Fed** comme illustré ici.
+Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de **SAML 2.0** ou **WS-Fed**, sélectionnez **SAML 2.0/WS-Fed** comme illustré ici.
 
 ![Listing d’une application SAML 2.0 ou WS-Fed dans la galerie](./media/howto-app-gallery-listing/saml.png)
 
@@ -261,7 +262,7 @@ Si vous souhaitez ajouter votre application à la liste dans la galerie à l’a
 
 ![Listing d’une application avec authentification unique par mot de passe dans la galerie](./media/howto-app-gallery-listing/passwordsso.png)
 
-Si vous implémentez un point de terminaison SCIM 2.0 pour l’approvisionnement d’utilisateurs, sélectionnez l’option comme indiqué. 
+Si vous implémentez un point de terminaison [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 pour l’Attribution d’utilisateurs, sélectionnez l’option comme indiqué. 
 
    ![Demande de provisionnement d’utilisateurs](./media/howto-app-gallery-listing/user-provisioning.png)
 

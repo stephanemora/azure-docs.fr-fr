@@ -2,21 +2,21 @@
 title: Sécuriser un service lié
 description: Découvrez comment provisionner et sécuriser un service lié avec un réseau virtuel managé
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033181"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359967"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Sécuriser un service lié à l’aide de Liaisons privées (Private Links) 
+# <a name="secure-a-linked-service-with-private-links"></a>Sécuriser un service lié à l’aide de Liaisons privées (Private Links)
 
 Dans cet article, vous allez découvrir comment sécuriser un service lié dans Synapse avec un point de terminaison privé.
 
@@ -68,6 +68,8 @@ Vous avez maintenant établi une connexion sécurisée et privée entre Synapse 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour approfondir votre compréhension du point de terminaison privé managé dans Synapse Analytics, consultez l’article [Concept autour du point de terminaison privé managé Synapse](data-integration-data-lake.md).
+
+Pour approfondir votre compréhension du point de terminaison privé managé dans Synapse Analytics, consultez [Points de terminaison privés managés](../security/synapse-workspace-managed-private-endpoints.md).
+
 
 Pour plus d’informations sur l’intégration de données pour Synapse Analytics, consultez l’article [Ingestion de données dans un Data Lake](data-integration-data-lake.md).

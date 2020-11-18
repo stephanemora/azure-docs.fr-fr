@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 92036cebf0541f9e9928acf1a9c32db0037bde48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b57c2ff2e53a5b836d9faeef7e18052d6e670cf6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177254"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376030"
 ---
 #### <a name="to-add-or-remove-a-volume"></a>Pour ajouter ou supprimer un volume
 
@@ -21,15 +21,15 @@ ms.locfileid: "67177254"
 
 3. Dans le panneau **Ajouter/supprimer un volume**, sélectionnez ou désélectionnez les cases pour ajouter ou supprimer le volume. Plusieurs volumes sont sélectionnés/désélectionnés en activant ou désactivant les cases à cocher correspondantes.
 
-    ![Gérer les planifications](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![Gérer les planifications 2](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
     Si vous attribuez des volumes à partir de conteneurs de volumes distincts à une stratégie de sauvegarde, vous devez penser à faire basculer ces conteneurs de volumes ensemble. Vous verrez un avertissement à cet effet.
 
-    ![Gérer les planifications](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![Gérer les planifications 3](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
 4. Un message s’affiche une fois la stratégie de sauvegarde modifiée. La liste des stratégies de sauvegarde est également mise à jour.
 
-    ![Gérer les planifications](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![Gérer les planifications 4](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

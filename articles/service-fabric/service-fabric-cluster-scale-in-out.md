@@ -3,12 +3,12 @@ title: Effectuer un scale-in ou un scale-out d’un cluster Service Fabric
 description: Augmentez ou diminuez la taille des instances d’un cluster Service Fabric pour répondre à la demande en définissant des règles de mise à l’échelle automatique pour chaque type de nœud/groupe de machines virtuelles identiques. Ajouter ou supprimer des nœuds d’un cluster Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246484"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409958"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
@@ -54,7 +54,6 @@ Suivez ces instructions afin de [configurer la mise à l’échelle automatique 
 > [!NOTE]
 > Dans un scénario de scale-in, à moins que votre type de nœud ne possède un [niveau de durabilité][durability] Gold ou Silver, vous devez appeler l’[applet de commande Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) avec le nom de nœud approprié. Pour la durabilité Bronze, il n’est pas recommandé d’effectuer un scale-in de plus d’un nœud à la fois.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Ajouter manuellement des machines virtuelles à un type de nœud/groupe de machines virtuelles identiques
 
@@ -97,6 +96,9 @@ Pour un service avec état, un certain nombre de nœuds doivent toujours fonctio
 ### <a name="remove-the-service-fabric-node"></a>Supprimer le nœud Service Fabric
 
 Les étapes pour supprimer manuellement un état de nœud s’appliquent uniquement aux types de nœuds avec un niveau de durabilité *Bronze*.  Pour les niveaux de durabilité *Silver* et *Gold*, ces étapes sont effectuées automatiquement par la plateforme. Pour plus d’informations sur la durabilité, consultez la [Planification de la capacité des clusters Service Fabric][durability].
+
+>[!NOTE]
+> Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel le niveau de durabilité Gold ou Silver est activé. Votre cluster entrera en état d'erreur si vous passez en dessous de ce seuil et vous devrez nettoyer manuellement les nœuds supprimés.
 
 Pour que les nœuds du cluster soient toujours répartis uniformément entre les domaines d’erreur et de mise à jour, et ainsi permettre leur utilisation homogène, le dernier nœud créé doit être supprimé en premier. En d’autres termes, les nœuds doivent être supprimés dans l’ordre inverse de leur création. Le dernier nœud créé est celui contenant la plus grande valeur de propriété `virtual machine scale set InstanceId`. Les exemples de code ci-dessous renvoient le dernier nœud créé.
 
@@ -239,6 +241,9 @@ Pour vous assurer qu’un nœud est supprimé lorsqu’une machine virtuelle est
 
 1. Choisissez un niveau de durabilité Gold ou Silver pour les types de nœuds de votre cluster, ce qui assure l’intégration de l’infrastructure. Ceci supprime automatiquement les nœuds de l’état de nos services système (FM) lors du scale-in.
 Consultez les [détails sur les niveaux de durabilité ici](service-fabric-cluster-capacity.md)
+
+> [!NOTE]
+> Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel le niveau de durabilité Gold ou Silver est activé. Votre cluster entrera en état d'erreur si vous passez en dessous de ce seuil et vous devrez nettoyer manuellement les nœuds supprimés.
 
 2. Après le scale-in de l’instance de machine virtuelle, vous devez appeler l’[applet de commande Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 

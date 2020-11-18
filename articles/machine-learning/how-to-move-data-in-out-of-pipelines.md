@@ -1,7 +1,7 @@
 ---
 title: Déplacement de données dans des pipelines ML
 titleSuffix: Azure Machine Learning
-description: Découvrez l’entrée et la sortie de données dans des pipelines Azure Machine Learning.
+description: Découvrez la façon dont les pipelines Azure Machine Learning ingèrent les données et apprenez à gérer et à déplacer les données entre les étapes du pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: d96f5c0b6b1bb4a38724f53de68c9aad6608b258
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq4, devx-track-python, data4ml
+ms.openlocfilehash: bf5bfd8c2047764f9a03889c8fdd5012dc38ab65
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316596"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359763"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)
 

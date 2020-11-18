@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 66da9124a6b46fa34d0a13c8992cd3141b095422
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369752"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579485"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configurer un plan d’application managée
 
@@ -138,7 +138,7 @@ Sélectionnez le mode de déploiement **Complet** ou **Incrémentiel**.
 - En mode **Complet**, un redéploiement de l’application par le client entraîne la suppression, dans le groupe de ressources managées, des ressources non définies dans le fichier [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
 - En mode **Incrémentiel**, un redéploiement de l’application laisse les ressources existantes inchangées.
 
-Pour en savoir plus sur les modes de déploiement, consultez [Modes de déploiement Azure Resource Manager](/azure/azure-resource-manager/deployment-modes.md).
+Pour en savoir plus sur les modes de déploiement, consultez [Modes de déploiement Azure Resource Manager](/azure/azure-resource-manager/deployment-modes).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Fournir une URL de point de terminaison de notification
 

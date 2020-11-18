@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: 98f2a8fb0ce48dab0e1e5f7610d73d55526969eb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675099"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594281"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurer un groupe de basculement pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,19 +40,19 @@ Prenez en compte les prérequis suivants :
 
 Créez votre groupe de basculement et ajoutez-y votre base de données en utilisant le portail Azure.
 
-1. Dans le menu de gauche du **Portail Azure** , sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services** , puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’ **Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
 1. Sélectionnez la base de données que vous souhaitez ajouter au groupe de basculement.
 1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
    ![Ouvrir un serveur pour une base de donnée unique](./media/auto-failover-group-configure/open-sql-db-server.png)
 
-1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres** , puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement.
+1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement.
 
    ![Ajouter un nouveau groupe de basculement](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. Dans la page **Groupe de basculement** , entrez ou sélectionnez les valeurs requises, puis sélectionnez **Créer** .
+1. Dans la page **Groupe de basculement**, entrez ou sélectionnez les valeurs requises, puis sélectionnez **Créer**.
 
-   - **Base de données dans le groupe**  : Choisissez la base de données que vous souhaitez ajouter à votre groupe de basculement. L’ajout de la base de données au groupe de basculement démarre automatiquement le processus de géoréplication.
+   - **Base de données dans le groupe** : Choisissez la base de données que vous souhaitez ajouter à votre groupe de basculement. L’ajout de la base de données au groupe de basculement démarre automatiquement le processus de géoréplication.
 
    ![Ajouter SQL Database à un groupe de basculement](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
 
@@ -115,12 +115,12 @@ Testez le basculement de votre groupe de basculement à l’aide du portail Azur
 
 Testez le basculement de votre groupe de basculement à l’aide du portail Azure.
 
-1. Dans le menu de gauche du **Portail Azure** , sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services** , puis saisissez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’ **Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis saisissez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
 1. Sélectionnez la base de données que vous souhaitez ajouter au groupe de basculement.
 
    ![Ouvrir un serveur pour une base de donnée unique](./media/auto-failover-group-configure/open-sql-db-server.png)
 
-1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres** , puis choisissez le groupe de basculement que vous venez de créer.
+1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis choisissez le groupe de basculement que vous venez de créer.
   
    ![Sélectionner le groupe de basculement à partir du portail](./media/auto-failover-group-configure/select-failover-group.png)
 
@@ -210,19 +210,19 @@ Créez le groupe de basculement pour votre pool élastique en utilisant le porta
 
 Créez votre groupe de basculement et ajoutez-y votre pool élastique en utilisant le portail Azure.
 
-1. Dans le menu de gauche du **Portail Azure** , sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services** , puis saisissez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’ **Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis saisissez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
 1. Sélectionnez le pool élastique que vous souhaitez ajouter au groupe de basculement.
-1. Dans le volet **Vue d’ensemble** , sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
+1. Dans le volet **Vue d’ensemble**, sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
   
    ![Ouvrir le serveur pour le pool élastique](./media/auto-failover-group-configure/server-for-elastic-pool.png)
 
-1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres** , puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement.
+1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement.
 
    ![Ajouter un nouveau groupe de basculement](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. Dans la page **Groupe de basculement** , entrez ou sélectionnez les valeurs requises, puis sélectionnez **Créer** . Vous pouvez soit créer un serveur secondaire, soit sélectionner un serveur secondaire existant.
+1. Dans la page **Groupe de basculement**, entrez ou sélectionnez les valeurs requises, puis sélectionnez **Créer**. Vous pouvez soit créer un serveur secondaire, soit sélectionner un serveur secondaire existant.
 
-1. Sélectionnez **Base de données dans le groupe** , puis choisissez le pool élastique que vous souhaitez ajouter au groupe de basculement. Si aucun pool élastique n’existe sur le serveur secondaire, un avertissement s’affiche pour vous inviter à y en créer un. Sélectionnez l’avertissement, puis cliquez sur **OK** pour créer le pool élastique sur le serveur secondaire.
+1. Sélectionnez **Base de données dans le groupe**, puis choisissez le pool élastique que vous souhaitez ajouter au groupe de basculement. Si aucun pool élastique n’existe sur le serveur secondaire, un avertissement s’affiche pour vous inviter à y en créer un. Sélectionnez l’avertissement, puis cliquez sur **OK** pour créer le pool élastique sur le serveur secondaire.
 
    ![Ajouter un pool élastique à un groupe de basculement](./media/auto-failover-group-configure/add-elastic-pool-to-failover-group.png)
 
@@ -282,12 +282,12 @@ Testez le basculement de votre pool élastique à l’aide du portail Azure ou d
 
 Faites basculer votre groupe de basculement sur le serveur secondaire, puis effectuez une restauration automatique en utilisant le portail Azure.
 
-1. Dans le menu de gauche du **Portail Azure** , sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services** , puis saisissez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’ **Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis saisissez « Azure SQL » dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
 1. Sélectionnez le pool élastique que vous souhaitez ajouter au groupe de basculement.
-1. Dans le volet **Vue d’ensemble** , sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
+1. Dans le volet **Vue d’ensemble**, sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
    ![Ouvrir le serveur pour le pool élastique](./media/auto-failover-group-configure/server-for-elastic-pool.png)
-1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres** , puis choisissez le groupe de basculement créé dans la section 2.
+1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis choisissez le groupe de basculement créé dans la section 2.
   
    ![Sélectionner le groupe de basculement à partir du portail](./media/auto-failover-group-configure/select-failover-group.png)
 
@@ -371,11 +371,11 @@ Si vous n’avez pas configuré [ExpressRoute](../../expressroute/expressroute-h
 Créez la passerelle de réseau virtuel principal avec le portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre groupe de ressources et sélectionnez la ressource **Réseau virtuel** pour votre instance managée principale.
-1. Sélectionnez **Sous-réseaux** sous **Paramètres** , puis choisissez d’ajouter un nouveau **Sous-réseau de passerelle** . Laissez les valeurs par défaut.
+1. Sélectionnez **Sous-réseaux** sous **Paramètres**, puis choisissez d’ajouter un nouveau **Sous-réseau de passerelle**. Laissez les valeurs par défaut.
 
    ![Ajouter une passerelle pour l’instance managée principale](./media/auto-failover-group-configure/add-subnet-gateway-primary-vnet.png)
 
-1. Une fois la passerelle de sous-réseau créée, sélectionnez **Créer une ressource** dans le volet de navigation gauche, puis saisissez `Virtual network gateway` dans la zone de recherche. Sélectionnez la ressource de **Passerelle de réseau virtuel** publiée par **Microsoft** .
+1. Une fois la passerelle de sous-réseau créée, sélectionnez **Créer une ressource** dans le volet de navigation gauche, puis saisissez `Virtual network gateway` dans la zone de recherche. Sélectionnez la ressource de **Passerelle de réseau virtuel** publiée par **Microsoft**.
 
    ![Créer une passerelle de réseau virtuel](./media/auto-failover-group-configure/create-virtual-network-gateway.png)
 
@@ -388,12 +388,12 @@ Créez la passerelle de réseau virtuel principal avec le portail Azure.
     | **Abonnement** |  L’abonnement dans lequel votre instance managée principale se trouve. |
     | **Nom** | Le nom de votre passerelle de réseau virtuel. |
     | **Région** | La région dans laquelle se trouve votre instance gérée principale. |
-    | **Type de passerelle** | Sélectionnez **VPN** . |
+    | **Type de passerelle** | Sélectionnez **VPN**. |
     | **Type de VPN** | Sélectionnez **Route-based** |
     | **Référence (SKU)**| Laissez la valeur `VpnGw1` par défaut. |
     | **Lieu**| L’emplacement où se trouve votre instance gérée secondaire et votre réseau virtuel secondaire.   |
     | **Réseau virtuel**| Sélectionnez le réseau virtuel pour votre instance managée secondaire. |
-    | **Adresse IP publique**| Sélectionnez **Créer nouveau** . |
+    | **Adresse IP publique**| Sélectionnez **Créer nouveau**. |
     | **Nom de l’adresse IP publique**| Entrez un nom pour votre adresse IP. |
     | &nbsp; | &nbsp; |
 
@@ -450,12 +450,12 @@ Le tableau suivant montre les valeurs nécessaires pour la passerelle de l’ins
    | **Abonnement** |  L’abonnement dans lequel votre instance managée secondaire se trouve. |
    | **Nom** | Le nom de votre passerelle de réseau virtuel, par exemple `secondary-mi-gateway`. |
    | **Région** | La région dans laquelle votre instance managée secondaire se trouve. |
-   | **Type de passerelle** | Sélectionnez **VPN** . |
+   | **Type de passerelle** | Sélectionnez **VPN**. |
    | **Type de VPN** | Sélectionnez **Route-based** |
    | **Référence (SKU)**| Laissez la valeur `VpnGw1` par défaut. |
    | **Lieu**| L’emplacement où se trouve votre instance gérée secondaire et votre réseau virtuel secondaire.   |
    | **Réseau virtuel**| Sélectionnez le réseau virtuel créé dans la section 2, par exemple `vnet-sql-mi-secondary`. |
-   | **Adresse IP publique**| Sélectionnez **Créer nouveau** . |
+   | **Adresse IP publique**| Sélectionnez **Créer nouveau**. |
    | **Nom de l’adresse IP publique**| Entrez un nom pour votre adresse IP, par exemple `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
@@ -506,24 +506,24 @@ La clé partagée utilisée pour les deux connexions doit être la même pour ch
 
 Créez les connexions entre les deux passerelles à l’aide du portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** .
-1. Saisissez `connection` dans la zone de recherche et appuyez sur Entrée pour lancer la recherche. Ceci vous amène à la ressource **Connexion** , publiée par Microsoft.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
+1. Saisissez `connection` dans la zone de recherche et appuyez sur Entrée pour lancer la recherche. Ceci vous amène à la ressource **Connexion**, publiée par Microsoft.
 1. Sélectionnez **Créer** pour créer votre connexion.
-1. Sous l’onglet **De base** , sélectionnez les valeurs suivantes, puis sélectionnez **OK** .
-    1. Sélectionnez `VNet-to-VNet` pour le **Type de connexion** .
+1. Sous l’onglet **De base**, sélectionnez les valeurs suivantes, puis sélectionnez **OK**.
+    1. Sélectionnez `VNet-to-VNet` pour le **Type de connexion**.
     1. Sélectionnez votre abonnement dans la liste déroulante.
     1. Sélectionnez le groupe de ressources de votre instance managée dans le menu déroulant.
     1. Sélectionnez l’emplacement de votre instance gérée principale dans la liste déroulante.
-1. Sous l’onglet **Paramètres** , sélectionnez ou saisissez les valeurs suivantes, puis sélectionnez **OK** :
-    1. Choisissez la passerelle de réseau principal de la **Passerelle du premier réseau virtuel** , par exemple `Primary-Gateway`.  
-    1. Choisissez la passerelle de réseau principal de la **Passerelle du deuxième réseau virtuel** , par exemple `Secondary-Gateway`.
-    1. Cochez la case en regard de **Établir une connectivité bidirectionnelle** .
+1. Sous l’onglet **Paramètres**, sélectionnez ou saisissez les valeurs suivantes, puis sélectionnez **OK** :
+    1. Choisissez la passerelle de réseau principal de la **Passerelle du premier réseau virtuel**, par exemple `Primary-Gateway`.  
+    1. Choisissez la passerelle de réseau principal de la **Passerelle du deuxième réseau virtuel**, par exemple `Secondary-Gateway`.
+    1. Cochez la case en regard de **Établir une connectivité bidirectionnelle**.
     1. Laissez le nom de la connexion principale par défaut ou renommez-la en choisissant une valeur de votre choix.
     1. Fournissez une **Clé partagée (PSK)** à la connexion, par exemple `mi1m2psk`.
 
    ![Créer une connexion de passerelle](./media/auto-failover-group-configure/create-gateway-connection.png)
 
-1. Sous l’onglet **Résumé** , passez en revue les paramètres de votre connexion bidirectionnelle, puis sélectionnez **OK** pour créer votre connexion.
+1. Sous l’onglet **Résumé**, passez en revue les paramètres de votre connexion bidirectionnelle, puis sélectionnez **OK** pour créer votre connexion.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -564,17 +564,17 @@ Créez le groupe de basculement pour vos instances gérées à l’aide du porta
 
 Créez le groupe de basculement pour vos instances gérées SQL à l’aide du portail Azure ou de PowerShell.
 
-1. Dans le menu de gauche du **Portail Azure** , sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services** , puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’ **Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche.
 1. Sélectionnez l’instance managée principale que vous souhaitez ajouter au groupe de basculement.  
-1. Sous **Paramètres** , accédez à **Groupes de basculement d’instance** , puis choisissez **Ajouter un groupe** pour ouvrir la page **Groupe de basculement d’instance** .
+1. Sous **Paramètres**, accédez à **Groupes de basculement d’instance**, puis choisissez **Ajouter un groupe** pour ouvrir la page **Groupe de basculement d’instance**.
 
    ![Ajouter un groupe de basculement](./media/auto-failover-group-configure/add-failover-group.png)
 
-1. Dans la page **Groupe de basculement d’instance** , tapez le nom de votre groupe de basculement, puis choisissez l’instance managée secondaire dans la liste déroulante. Sélectionnez **Créer** pour créer votre groupe de basculement.
+1. Dans la page **Groupe de basculement d’instance**, tapez le nom de votre groupe de basculement, puis choisissez l’instance managée secondaire dans la liste déroulante. Sélectionnez **Créer** pour créer votre groupe de basculement.
 
    ![Créer un groupe de basculement](./media/auto-failover-group-configure/create-failover-group.png)
 
-1. Une fois le déploiement du groupe de basculement terminé, vous serez redirigé vers la page **Groupe de basculement** .
+1. Une fois le déploiement du groupe de basculement terminé, vous serez redirigé vers la page **Groupe de basculement**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -609,7 +609,7 @@ Testez le basculement de votre groupe de basculement à l’aide du portail Azur
 
 1. Accédez à votre instance gérée _secondaire_ dans le [Portail Azure](https://portal.azure.com) et sélectionnez **Groupes de basculement d’instance** sous les paramètres.
 1. Vérifiez quelle instance managée est la principale et laquelle est la secondaire.
-1. Sélectionnez **Basculement** , puis cliquez sur **Oui** dans l’avertissement concernant les sessions TDS sur le point d’être déconnectées.
+1. Sélectionnez **Basculement**, puis cliquez sur **Oui** dans l’avertissement concernant les sessions TDS sur le point d’être déconnectées.
 
    ![Basculer le groupe de basculement](./media/auto-failover-group-configure/failover-mi-failover-group.png)
 

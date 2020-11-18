@@ -1,7 +1,7 @@
 ---
 title: 'Régression de Poisson : sur le module Modifier les métadonnées'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Régression de Poisson pour créer un modèle de régression de Poisson.
+description: Découvrez comment utiliser le module Régression de Poisson dans le concepteur Azure Machine Learning pour créer un modèle de régression de Poisson.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2dfd8b3d919f9eeb3e183135ef543f417c878977
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319410"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420697"
 ---
 # <a name="poisson-regression"></a>Régression de Poisson
 
@@ -49,13 +49,13 @@ La régression de Poisson est un type d'analyse de régression généralement ut
 
 ## <a name="how-to-configure-poisson-regression"></a>Comment configurer la régression de Poisson
 
-1. Ajoutez le module **Régression de poisson** à votre pipeline dans le Concepteur. Vous le trouverez sous **Algorithmes de Machine Learning** , dans la catégorie **Régression**.
+1. Ajoutez le module **Régression de poisson** à votre pipeline dans le Concepteur. Vous le trouverez sous **Algorithmes de Machine Learning**, dans la catégorie **Régression**.
 
 2. Ajoutez un jeu de données qui contient les données d’apprentissage du bon type. 
 
     Il est recommandé d'utiliser [Normaliser les données](normalize-data.md) pour normaliser le jeu de données d'entrée avant de l'utiliser pour former le régresseur.
 
-3. Dans le volet droit du module **Régression de Poisson** , spécifiez la façon dont vous souhaitez que le modèle soit formé, en définissant l’option **Créer le mode de formateur**.  
+3. Dans le volet droit du module **Régression de Poisson**, spécifiez la façon dont vous souhaitez que le modèle soit formé, en définissant l’option **Créer le mode de formateur**.  
   
     - **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, fournissez un ensemble spécifique de valeurs en tant qu’arguments.
   
@@ -83,9 +83,9 @@ La régression de Poisson est un type d'analyse de régression généralement ut
 
 7. Connectez le jeu de données d’apprentissage et le modèle non formé à l’un des modules d’apprentissage : 
 
-    - Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique** , utilisez le module [Entraîner le du modèle](train-model.md).
+    - Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](train-model.md).
 
-    - Si vous définissez **Créer mode de formateur** sur **Plage de paramètres** , utilisez le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).
+    - Si vous définissez **Créer mode de formateur** sur **Plage de paramètres**, utilisez le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).
 
     > [!WARNING]
     > 

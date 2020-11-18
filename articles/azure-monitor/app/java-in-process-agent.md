@@ -1,22 +1,22 @@
 ---
-title: Superviser les applications Java sur tout environnement - Azure Monitor Application Insights
-description: Supervision des performances des applications Java s’exécutant dans tout environnement sans instrumenter l’application. Suivi distribué et mise en correspondance d’applications.
+title: Azure Monitor Application Insights Java
+description: APM pour les applications Java s’exécutant dans n’importe quel environnement sans modification du code. Suivi distribué et mise en correspondance d’applications.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215278"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444739"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights - préversion publique
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights
 
 La supervision des applications Java sans code se caractérise par sa simplicité : le code n’est pas modifié et l’agent Java peut être activé avec quelques changements de configuration.
 
  L’agent Java fonctionne dans n’importe quel environnement et vous permet de superviser toutes vos applications Java. En d’autres termes, que vous exécutiez vos applications Java sur des machines virtuelles, locales, dans AKS, sur Windows, sur Linux, entre autres, l’agent Java 3.0 les supervise.
 
-L’ajout du kit SDK Application Insights pour Java à votre application n’est plus nécessaire, car l’agent 3.0 collecte automatiquement les demandes, les dépendances et les journaux.
+L’ajout du Kit de développement logiciel (SDK) Java Application Insights à votre application n’est plus nécessaire, car l’agent 3.0 collecte automatiquement les demandes, les dépendances et les journaux.
 
 Vous pouvez toujours envoyer des données de télémétrie personnalisées à partir de votre application. L’agent 3.0 en effectue le suivi et la corrélation avec toutes les données de télémétrie collectées automatiquement.
 
@@ -26,15 +26,20 @@ L’agent 3.0 prend en charge Java 8 et versions ultérieures.
 
 **1. Télécharger l’agent**
 
-Téléchargez [applicationinsights-agent-3.0.0-PREVIEW.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
+> [!WARNING]
+> **Si vous effectuez une mise à niveau à partir de la préversion 3.0**
+>
+> Examinez soigneusement toutes les [options de configuration](./java-standalone-config.md) ci-dessous, car la structure JSON a complètement changé, en plus du nom de fichier désormais en minuscules.
+
+Téléchargez [applicationinsights-agent-3.0.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar).
 
 **2. Pointer la machine virtuelle Java (JVM) vers l’agent**
 
-Ajoutez `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` aux arguments JVM de votre application
+Ajoutez `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` aux arguments JVM de votre application
 
 Les arguments JVM standard incluent `-Xmx512m` et `-XX:+UseG1GC`. Par conséquent, si vous savez où ajouter ces derniers, vous savez déjà où ajouter celui-ci.
 
-Pour obtenir une aide supplémentaire sur la configuration des arguments JVM de votre application, consultez [Préversion 3.0 : conseils pour la mise à jour de vos arguments JVM](./java-standalone-arguments.md).
+Pour obtenir une aide supplémentaire sur la configuration des arguments JVM de votre application, consultez [Conseils pour la mise à jour de vos arguments JVM](./java-standalone-arguments.md).
 
 **3. Pointer l’agent vers votre ressource Application Insights**
 
@@ -43,16 +48,14 @@ Si vous n’avez pas encore de ressource Application Insights, vous pouvez en cr
 Pointez l’agent sur votre ressource Application Insights, soit en définissant une variable d’environnement :
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Soit en créant un fichier config nommé `ApplicationInsights.json` et en le plaçant dans le même répertoire que `applicationinsights-agent-3.0.0-PREVIEW.7.jar`, avec le contenu suivant :
+Soit en créant un fichier config nommé `applicationinsights.json` et en le plaçant dans le même répertoire que `applicationinsights-agent-3.0.0.jar`, avec le contenu suivant :
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
-  }
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -70,21 +73,23 @@ Maintenant, démarrez l’application et accédez à votre ressource Application
 
 ## <a name="configuration-options"></a>Options de configuration
 
-Dans le fichier `ApplicationInsights.json`, vous pouvez également configurer :
+Dans le fichier `applicationinsights.json`, vous pouvez également configurer :
 
 * Nom du rôle cloud
 * Instance de rôle cloud
-* Capture du journal des applications
-* Métriques JMX
-* Micrometer
-* Heartbeat
 * échantillonnage
+* Métriques JMX
+* Dimensions personnalisées
+* Processeurs de télémétrie (préversion)
+* Journalisation collectée automatiquement
+* Métriques de Micrometer collectées automatiquement (y compris les métriques de Spring Boot Actuator)
+* Heartbeat
 * Proxy HTTP
 * Autodiagnostics
 
-Pour plus d’informations, consultez [Préversion publique 3.0 : options de configuration](./java-standalone-config.md).
+Pour plus d’informations, consultez [Options de configuration](./java-standalone-config.md).
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Demandes, dépendances, journaux et métriques collectés automatiquement
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Demandes, dépendances, journaux et métriques collectés automatiquement
 
 ### <a name="requests"></a>Demandes
 
@@ -226,9 +231,14 @@ Vous pouvez également utiliser le kit SDK Application Insights pour Java 2.x 
 
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Mise à niveau à partir du kit SDK Application Insights pour Java 2.x
 
-Si vous utilisez déjà le kit SDK Application Insights pour Java 2.x dans votre application, il n’est pas nécessaire de le supprimer. L’agent Java 3.0 le détecte, capture et met en corrélation toutes les données de télémétrie personnalisées que vous envoyez via le kit SDK Java 2.x, tout en supprimant toute collecte automatique effectuée par le kit SDK Java 2.x pour empêcher une capture dupliquée.
+Si vous utilisez déjà le kit SDK Application Insights pour Java 2.x dans votre application, il n’est pas nécessaire de le supprimer.
+L’agent Java 3.0 le détecte, et capture et met en corrélation toutes les données de télémétrie personnalisées que vous envoyez via le Kit de développement logiciel (SDK) Java 2.x, tout en supprimant toute collecte automatique effectuée par le SDK Java 2.x pour éviter la duplication de la télémétrie.
 
 Si vous utilisez l’agent Application Insights 2.x, vous devez supprimer l’argument JVM `-javaagent:` qui pointait vers l’agent 2.x.
 
 > [!NOTE]
-> Remarque : Les TelemetryInitializers et TelemetryProcessors du kit SDK Java 2.x ne sont pas exécutés lors de l’utilisation de l’agent 3.0.
+> Les TelemetryInitializers et TelemetryProcessors du kit SDK Java 2.x ne sont pas exécutés lors de l’utilisation de l’agent 3.0.
+> La plupart des cas d’usage qui les demandaient précédemment peuvent être résolus dans la version 3.0 en configurant [des dimensions personnalisées](./java-standalone-config.md#custom-dimensions) ou en configurant [des processeurs de télémétrie](./java-standalone-telemetry-processors.md).
+
+> [!NOTE]
+> La version 3.0 ne prend pas encore en charge plusieurs clés d’instrumentation dans une seule machine virtuelle JVM.

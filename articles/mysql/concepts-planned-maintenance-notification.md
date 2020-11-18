@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544832"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417586"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notification de maintenance planifiée dans Azure Database pour MySQL - Serveur unique
 
@@ -46,22 +46,22 @@ Vous pouvez consulter la notification de maintenance planifiée sur le portail A
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Vérifier les notifications de maintenance planifiée à partir du portail Azure
 
-1. Dans le [portail](https://portal.azure.com) Azure, sélectionnez **Intégrité du service** .
+1. Dans le [portail](https://portal.azure.com) Azure, sélectionnez **Intégrité du service**.
 2. Sélectionnez l’onglet **Maintenance planifiée**
-3. Sélectionnez **Abonnement** , puis la **Région et le **Service** pour lesquels vous souhaitez vérifier la notification de maintenance planifiée. 
+3. Sélectionnez l’**abonnement**, puis la **région** et le **service** pour lesquels vous souhaitez vérifier la notification de maintenance planifiée. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Pour recevoir une notification de maintenance planifiée
 
-1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service** .
-2. Dans la section **Alertes** , sélectionnez **Alertes d’intégrité** .
+1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service**.
+2. Dans la section **Alertes**, sélectionnez **Alertes d’intégrité**.
 3. Sélectionnez **+ Ajouter une alerte d’intégrité de service** et renseignez les champs.
 4. Renseignez les champs obligatoires. 
-5. Choisissez le **type d’événement** , puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner** .
-6. Dans **Groupes d’actions** , définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
+5. Choisissez le **type d’événement**, puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner**.
+6. Dans **Groupes d’actions**, définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
 7. Vérifiez que l’activation de la règle lors de la création est définie sur Oui.
 8. Sélectionnez **Créer une règle d’alerte** pour terminer votre alerte.
 
-Pour obtenir des instructions détaillées sur la création d’ **alertes d’intégrité de service** , consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications-portal.md).
+Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Puis-je annuler ou reporter la maintenance planifiée ?
 

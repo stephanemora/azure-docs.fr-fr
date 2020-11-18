@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893401"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421071"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
@@ -74,6 +74,29 @@ Distributions et versions prises en charge :
 * **Azure CLI**. [Configurez l’environnement Azure CLI](/cli/azure/install-azure-cli) sur votre machine.
 * La commande wget, si vous ne l’avez pas encore : Exécutez `sudo apt-get install wget`.
 * Un abonnement Azure et un compte de stockage universel existants sont utilisés pour stocker les données.  Les comptes de stockage universels prennent en charge le stockage Table requis.  Il n’est pas possible d’utiliser un compte de stockage d’objets blob.
+* Python 2
+
+### <a name="python-requirement"></a>Exigence relative à Python
+
+L’extension de diagnostic Linux nécessite Python 2. Si votre machine virtuelle utilise une distribution qui n’inclut pas Python 2 par défaut, vous devez l’installer. Les exemples de commandes suivants installent Python 2 sur différentes distributions.    
+
+ - Red Hat, CentOS, Oracle : `yum install -y python2`
+ - Ubuntu, Debian : `apt-get install -y python2`
+ - SUSE : `zypper install -y python2`
+
+L’exécutable python2 doit avoir un alias pour *python*. Voici une méthode que vous pouvez utiliser pour définir cet alias :
+
+1. Exécutez la commande suivante pour supprimer tous les alias existants.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Pour créer l’alias, exécutez la commande suivante.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>Exemple d’installation
 
@@ -581,7 +604,7 @@ TransfersPerSecond | Opérations de lecture ou d’écriture par seconde
 
 Les valeurs agrégées pour tous les systèmes de fichiers peuvent être obtenues en définissant `"condition": "IsAggregate=True"`. Les valeurs pour un système de fichiers monté spécifique, comme « / mnt », peuvent être obtenues en définissant `"condition": 'Name="/mnt"'`. 
 
-**REMARQUE**  : Si vous utilisez le portail Azure au lieu de JSON, la forme de champ de condition correcte est Nom='/mnt'
+**REMARQUE** : Si vous utilisez le portail Azure au lieu de JSON, la forme de champ de condition correcte est Nom='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métriques intégrées pour la classe Disque
 

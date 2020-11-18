@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737540"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616754"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutoriel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 
@@ -34,9 +34,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/downloads/)
-- La charge de travail Xamarin pour Visual Studio (voir [Installation de Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- La charge de travail Xamarin pour Visual Studio (voir [Installation de Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - Un émulateur iOS ou Android pour Visual Studio
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (facultatif)
+- [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (facultatif)
 
 ## <a name="get-the-source-code"></a>Obtenir le code source
 
@@ -50,13 +50,13 @@ Connectez-vous au [site web du service Vision personnalisée](https://customvisi
 
 ## <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
-Ensuite, entraînez l’algorithme de détection de logos en chargeant les images des logos des services Azure et en les marquant manuellement. Le dépôt AIVisualProvision inclut un ensemble d’images d’entraînement que vous pouvez utiliser. Sur le site web, sélectionnez le bouton **Ajouter des images** sous l’onglet **Images d’entraînement** . Accédez ensuite au dossier **Documents/Images/Training_DataSet** du dépôt. Vous devez marquer manuellement les logos dans chaque image. Ainsi, si vous testez seulement ce projet, vous pouvez ne charger qu’un sous-ensemble des images. Chargez au moins 15 instances de chaque balise que vous prévoyez d’utiliser.
+Ensuite, entraînez l’algorithme de détection de logos en chargeant les images des logos des services Azure et en les marquant manuellement. Le dépôt AIVisualProvision inclut un ensemble d’images d’entraînement que vous pouvez utiliser. Sur le site web, sélectionnez le bouton **Ajouter des images** sous l’onglet **Images d’entraînement**. Accédez ensuite au dossier **Documents/Images/Training_DataSet** du dépôt. Vous devez marquer manuellement les logos dans chaque image. Ainsi, si vous testez seulement ce projet, vous pouvez ne charger qu’un sous-ensemble des images. Chargez au moins 15 instances de chaque balise que vous prévoyez d’utiliser.
 
 Une fois que vous avez chargé les images d’entraînement, sélectionnez la première affichée. La fenêtre d’étiquetage s’affiche. Dessinez des rectangles et assignez des balises pour chaque logo dans chaque image. 
 
 ![Marquage des logos sur le site web de Custom Vision](media/azure-logo-tutorial/tag-logos.png)
 
-L’application est configurée pour fonctionner avec des chaînes de balises spécifiques. Vous trouverez les définitions dans le fichier *Source\VisualProvision\Services\Recognition\RecognitionService.cs*  :
+L’application est configurée pour fonctionner avec des chaînes de balises spécifiques. Vous trouverez les définitions dans le fichier *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -70,11 +70,11 @@ Dans le volet gauche, affectez au commutateur **Balises** la valeur **Marqué** 
 
 ## <a name="get-the-prediction-url"></a>Obtenir l’URL de prédiction
 
-Une fois votre modèle entraîné, vous êtes prêt à l’intégrer dans votre application. Vous devez obtenir l’URL de point de terminaison (l’adresse de votre modèle, que l’application va interroger) et la clé de prédiction (pour permettre à l’application d’accéder aux demandes de prédiction). Sous l’onglet **Performances** , sélectionnez le bouton **URL de prédiction** en haut de la page.
+Une fois votre modèle entraîné, vous êtes prêt à l’intégrer dans votre application. Vous devez obtenir l’URL de point de terminaison (l’adresse de votre modèle, que l’application va interroger) et la clé de prédiction (pour permettre à l’application d’accéder aux demandes de prédiction). Sous l’onglet **Performances**, sélectionnez le bouton **URL de prédiction** en haut de la page.
 
 ![Site web Custom Vision, montrant une fenêtre de l’API de prédiction qui présente une adresse URL et une clé API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copiez l’URL du point de terminaison et la valeur **Prediction-Key** dans les champs appropriés du fichier *Source\VisualProvision\AppSettings.cs*  :
+Copiez l’URL du point de terminaison et la valeur **Prediction-Key** dans les champs appropriés du fichier *Source\VisualProvision\AppSettings.cs* :
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
@@ -84,17 +84,17 @@ Ouvrez le fichier *Source/VisualProvision/Services/Recognition/CustomVisionServi
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Ce résultat prend la forme d’une instance **PredictionResult** , qui contient elle-même une liste d’instances **Prediction** . Une **prédiction** contient une balise détectée et l’emplacement de son cadre englobant dans l’image.
+Ce résultat prend la forme d’une instance **PredictionResult**, qui contient elle-même une liste d’instances **Prediction**. Une **prédiction** contient une balise détectée et l’emplacement de son cadre englobant dans l’image.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Pour en savoir plus sur la façon dont l’application gère ces données, démarrez avec la méthode **GetResourcesAsync** . Cette méthode est définie dans le fichier *Source/VisualProvision/Services/Recognition/RecognitionService.cs* .  
+Pour en savoir plus sur la façon dont l’application gère ces données, démarrez avec la méthode **GetResourcesAsync**. Cette méthode est définie dans le fichier *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
 
 ## <a name="add-computer-vision"></a>Ajouter le service Vision par ordinateur
 
 La partie Custom Vision du tutoriel est terminée. Si vous voulez exécuter l’application, vous devez également intégrer le service Vision par ordinateur. L’application utilise la fonctionnalité de reconnaissance de texte de Vision par ordinateur pour compléter le processus de détection de logos. Un logo Azure est reconnaissable à son aspect *ou* au texte apposé en regard. Contrairement aux modèles Custom Vision, le service Vision par ordinateur est déjà entraîné pour effectuer certaines opérations sur les images ou vidéos.
 
-Abonnez-vous au service Vision par ordinateur pour obtenir une clé et une URL de point de terminaison. Pour obtenir de l’aide sur cette étape, consultez [Comment obtenir des clés d’abonnement](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Abonnez-vous au service Vision par ordinateur pour obtenir une clé et une URL de point de terminaison. Pour obtenir de l’aide sur cette étape, consultez [Comment obtenir des clés d’abonnement](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![Service Vision par ordinateur dans le portail Azure. Menu Démarrage rapide sélectionné. Un lien est entouré pour les clés, ainsi que l’URL de point de terminaison de l’API](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -104,7 +104,7 @@ Ensuite, ouvrez le fichier *Source\VisualProvision\AppSettings.cs* et affectez d
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
-L’application nécessite un compte de principal de service Azure pour déployer des services dans le cadre de votre abonnement Azure. Un principal de service vous permet de déléguer des autorisations spécifiques à une application à l’aide du contrôle d’accès en fonction du rôle Azure. Pour en savoir plus, consultez le [guide des principaux du service](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+L’application nécessite un compte de principal de service Azure pour déployer des services dans le cadre de votre abonnement Azure. Un principal de service vous permet de déléguer des autorisations spécifiques à une application à l’aide du contrôle d’accès en fonction du rôle Azure. Pour en savoir plus, consultez le [guide des principaux du service](/azure-stack/operator/azure-stack-create-service-principals).
 
 Vous pouvez créer un principal du service à l’aide d’Azure Cloud Shell ou de l’interface de ligne de commande Azure, comme indiqué ici. Pour commencer, connectez-vous et sélectionnez l’abonnement à utiliser.
 
@@ -132,7 +132,7 @@ Après cela, vous devriez voir la sortie JSON suivante contenant les information
 }
 ```
 
-Notez les valeurs `clientId` et `tenantId`. Ajoutez-les dans les champs appropriés, dans le fichier *Source\VisualProvision\AppSettings.cs* .
+Notez les valeurs `clientId` et `tenantId`. Ajoutez-les dans les champs appropriés, dans le fichier *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -146,22 +146,22 @@ Notez les valeurs `clientId` et `tenantId`. Ajoutez-les dans les champs appropri
 
 Pour exécuter l’application, procédez comme suit :
 
-1. Dans l’Explorateur de solutions Visual Studio, sélectionnez le projet **VisualProvision.Android** ou le **VisualProvision.iOS** . Choisissez un émulateur correspondant ou un appareil mobile connecté dans le menu déroulant de la barre d’outils principale. Ensuite, exécutez l’application.
+1. Dans l’Explorateur de solutions Visual Studio, sélectionnez le projet **VisualProvision.Android** ou le **VisualProvision.iOS**. Choisissez un émulateur correspondant ou un appareil mobile connecté dans le menu déroulant de la barre d’outils principale. Ensuite, exécutez l’application.
 
     > [!NOTE]
     > Vous avez besoin d’un appareil MacOS pour exécuter un émulateur iOS.
 
-1. Dans le premier écran, entrez votre ID client de principal du service, votre ID de locataire et votre mot de passe. Sélectionnez le bouton de **connexion** .
+1. Dans le premier écran, entrez votre ID client de principal du service, votre ID de locataire et votre mot de passe. Sélectionnez le bouton de **connexion**.
 
     > [!NOTE]
-    > Sur certains émulateurs, le bouton de **connexion** peut ne pas être activé à ce stade. Le cas échéant, arrêtez l’application, ouvrez le fichier *Source/VisualProvision/Pages/LoginPage.xaml* , recherchez l’élément `Button` étiqueté **LOGIN BUTTON** , supprimez la ligne suivante, puis réexécutez l’application.
+    > Sur certains émulateurs, le bouton de **connexion** peut ne pas être activé à ce stade. Le cas échéant, arrêtez l’application, ouvrez le fichier *Source/VisualProvision/Pages/LoginPage.xaml*, recherchez l’élément `Button` étiqueté **LOGIN BUTTON**, supprimez la ligne suivante, puis réexécutez l’application.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
     
     ![Écran de l’application avec des champs pour les informations d’identification du principal du service](media/azure-logo-tutorial/app-credentials.png)
 
-1. Dans l’écran suivant, sélectionnez votre abonnement Azure dans le menu déroulant. (Ce menu doit contenir tous les abonnements auxquels votre principal du service a accès.) Sélectionnez le bouton **Continuer** . À ce stade, l’application peut vous demander d’octroyer l’accès à l’appareil photo et au stockage de photos de l’appareil. Accordez ces autorisations d’accès.
+1. Dans l’écran suivant, sélectionnez votre abonnement Azure dans le menu déroulant. (Ce menu doit contenir tous les abonnements auxquels votre principal du service a accès.) Sélectionnez le bouton **Continuer**. À ce stade, l’application peut vous demander d’octroyer l’accès à l’appareil photo et au stockage de photos de l’appareil. Accordez ces autorisations d’accès.
 
     ![Écran de l’application avec un champ de liste déroulante pour l’abonnement Azure cible](media/azure-logo-tutorial/app-az-subscription.png)
 
@@ -176,7 +176,7 @@ Pour exécuter l’application, procédez comme suit :
 
 Si vous avez suivi toutes les étapes de ce scénario et utilisé l’application pour déployer des services Azure sur votre compte, accédez au [portail Azure](https://ms.portal.azure.com/). Là, annulez les services que vous ne voulez pas utiliser.
 
-Si vous envisagez de créer votre propre projet de détection d’objets avec Custom Vision, vous pouvez supprimer le projet de détection de logos que vous avez créé dans ce tutoriel. Un abonnement gratuit à Custom Vision permet d’utiliser deux projets uniquement. Pour supprimer le projet de détection de logos, sur le [site web Custom Vision](https://customvision.ai), ouvrez **Projets** , puis sélectionnez l’icône de corbeille sous **Mon nouveau projet** .
+Si vous envisagez de créer votre propre projet de détection d’objets avec Custom Vision, vous pouvez supprimer le projet de détection de logos que vous avez créé dans ce tutoriel. Un abonnement gratuit à Custom Vision permet d’utiliser deux projets uniquement. Pour supprimer le projet de détection de logos, sur le [site web Custom Vision](https://customvision.ai), ouvrez **Projets**, puis sélectionnez l’icône de corbeille sous **Mon nouveau projet**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

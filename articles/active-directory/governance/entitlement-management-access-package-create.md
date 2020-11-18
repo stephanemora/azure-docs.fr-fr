@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318192"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356635"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -125,7 +125,7 @@ Sous l’onglet **Vérifier + créer**, vous pouvez consulter vos paramètres et
 
 1. Vérifier les paramètres du package d’accès
 
-    ![Package d’accès - Stratégie - Paramètre Activer la stratégie](./media/entitlement-management-access-package-create/review-create.png)
+    ![Package d’accès – Activer le paramètre de stratégie](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Cliquez sur **Créer** pour créer le package d’accès.
 

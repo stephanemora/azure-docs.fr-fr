@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208354"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566467"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Conseils d’automatisation pour les partenaires Virtual WAN
 
@@ -33,9 +33,9 @@ Un appareil de branche (un périphérique VPN client local ou SDWAN CPE) utilise
 
 ### <a name="additional-information"></a><a name ="additional"></a>Informations supplémentaires
 
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) pour automatiser la création d’un hub virtuel
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) pour automatiser la passerelle VPN Azure pour Virtual WAN
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) pour connecter un VPNSite à un hub VPN Azure
+* [API REST](/rest/api/virtualwan/virtualhubs) pour automatiser la création d’un hub virtuel
+* [API REST](/rest/api/virtualwan/vpngateways) pour automatiser la passerelle VPN Azure pour Virtual WAN
+* [API REST](/rest/api/virtualwan/vpnconnections) pour connecter un VPNSite à un hub VPN Azure
 * [Stratégies IPsec par défaut](#default)
 
 ## <a name="customer-experience"></a><a name ="ae"></a>Expérience client
@@ -63,11 +63,11 @@ Les clients doivent pouvoir configurer un contrôle d'accès approprié pour le 
 
 ###  <a name="upload-branch-device-information"></a><a name="branch"></a>Charger les informations d’appareil de branche
 
-Il est recommandé de concevoir l’expérience utilisateur pour charger les informations de branche (site local) dans Azure. Vous pouvez utiliser les [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) pour VPNSite afin de créer les informations de site dans Virtual WAN. Vous pouvez fournir tous les appareils VPN/SDWAN de branche, ou sélectionner les personnalisations d’appareil adéquates.
+Il est recommandé de concevoir l’expérience utilisateur pour charger les informations de branche (site local) dans Azure. Vous pouvez utiliser les [API REST](/rest/api/virtualwan/vpnsites) pour VPNSite afin de créer les informations de site dans Virtual WAN. Vous pouvez fournir tous les appareils VPN/SDWAN de branche, ou sélectionner les personnalisations d’appareil adéquates.
 
 ### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Téléchargement de la configuration de l’appareil et connectivité
 
-Cette étape inclut le téléchargement de la configuration Azure et la configuration de la connectivité à partir de l’appareil de branche dans Azure Virtual WAN. Dans cette étape, un client qui n’utilise pas un fournisseur doit télécharger manuellement la configuration Azure et l’appliquer à son appareil VPN/SDWAN local. En tant que fournisseur, vous devez automatiser cette étape. Pour plus d’informations, consultez la page sur les [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) de téléchargement. Le contrôleur d’appareil peut appeler l’API REST « GetVpnConfiguration » pour télécharger la configuration Azure.
+Cette étape inclut le téléchargement de la configuration Azure et la configuration de la connectivité à partir de l’appareil de branche dans Azure Virtual WAN. Dans cette étape, un client qui n’utilise pas un fournisseur doit télécharger manuellement la configuration Azure et l’appliquer à son appareil VPN/SDWAN local. En tant que fournisseur, vous devez automatiser cette étape. Pour plus d’informations, consultez la page sur les [API REST](/rest/api/virtualwan/vpnsitesconfiguration/download) de téléchargement. Le contrôleur d’appareil peut appeler l’API REST « GetVpnConfiguration » pour télécharger la configuration Azure.
 
 **Notes sur la configuration**
 

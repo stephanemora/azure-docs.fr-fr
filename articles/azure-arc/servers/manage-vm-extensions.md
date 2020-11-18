@@ -1,14 +1,14 @@
 ---
 title: Gestion des extensions de machine virtuelle avec des serveur activés par Azure Arc
 description: Les serveurs activés par Azure Arc peuvent gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration post-déploiement sur des machines virtuelles non Azure.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9865761fd3e5897ee3f01cd3d6ca620d5ea2f4b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460884"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358029"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 
@@ -33,6 +33,8 @@ La prise en charge des extensions de machine virtuelle des serveurs activés par
 
 - Télécharge et exécute des scripts sur des machines connectées hybrides à l’aide de l’extension de script personnalisé. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion.
 
+- Actualisation automatique des certificats stockés dans [Azure Key Vault](../../key-vault/general/overview.md).
+
 ## <a name="availability"></a>Disponibilité
 
 La fonctionnalité d’extension de machine virtuelle n’est disponible que dans la liste des [régions prises en charge](overview.md#supported-regions). Veillez à intégrer votre machine dans l’une de ces régions.
@@ -47,10 +49,12 @@ Dans cette version, nous prenons en charge les extensions de machine virtuelle s
 |DSC |Windows |Microsoft.PowerShell|[Extension DSC Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
 |Agent Log Analytics |Windows |Microsoft.EnterpriseCloud.Monitoring |[Extension de machine virtuelle Log Analytics pour Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Microsoft Dependency Agent | Windows |Microsoft.Compute | [Extension de machine virtuelle Dependency Agent pour Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|Key Vault | Windows | Microsoft.Compute | [Extension de machine virtuelle Key Vault pour Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |CustomScript|Linux |Microsoft.Azure.Extension |[Extension de script personnalisé Linux version 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Linux |Microsoft.OSTCExtensions |[Extension DSC PowerShell pour Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |Agent Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Extension de machine virtuelle Log Analytics pour Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency Agent | Linux |Microsoft.Compute | [Extension de machine virtuelle Dependency Agent pour Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|Key Vault | Linux | Microsoft.Compute | [Extension de machine virtuelle Key Vault pour Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 
 Pour découvrir le package d’agent Azure Connected Machine et obtenir des détails sur le composant Agent Extension, consultez [Vue d’ensemble de l’agent](agent-overview.md#agent-component-details).
 
@@ -63,7 +67,29 @@ Cette fonctionnalité dépend des fournisseurs de ressources Azure suivants de v
 
 S’ils ne sont pas déjà inscrits, suivez les étapes indiquées sous [Inscrire des fournisseurs de ressources Azure](agent-overview.md#register-azure-resource-providers).
 
+### <a name="log-analytics-vm-extension"></a>Extension de machine virtuelle Log Analytics
+
 L’extension de machine virtuelle de l’agent Log Analytics pour Linux nécessite l’installation de Python 2.x sur la machine cible.
+
+### <a name="azure-key-vault-vm-extension-preview"></a>Extension de machine virtuelle Azure Key Vault (préversion)
+
+L’extension de machine virtuelle Key Vault (préversion) ne prend pas en charge les systèmes d’exploitation Linux suivants :
+
+- CentOS Linux 7 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Amazon Linux 2 (x64)
+
+Le déploiement de l’extension de machine virtuelle Key Vault (préversion) n’est pris en charge qu’avec :
+
+- L’interface Azure CLI
+- Azure PowerShell
+- Modèle Azure Resource Manager
+
+Avant de déployer l’extension, vous devez effectuer les opérations suivantes :
+
+1. [Créer un coffre et un certificat](../../key-vault/certificates/quick-create-portal.md) (auto-signé ou à importer).
+
+2. Accordez au serveur compatible avec Azure Arc l’accès au secret du certificat. Si vous utilisez la [préversion du RBAC](../../key-vault/general/rbac-guide.md), recherchez le nom de la ressource Azure Arc et attribuez-lui le rôle **Utilisateur de secrets de Key Vault (préversion)** . Si vous utilisez la [stratégie d’accès à Key Vault](../../key-vault/general/assign-access-policy-portal.md), affectez au secret des autorisations **Get** pour l’identité attribuée par le système de la ressource Azure Arc.
 
 ### <a name="connected-machine-agent"></a>Agent Connected Machine
 
@@ -75,4 +101,4 @@ Pour mettre à niveau votre machine vers la version exigée de l’agent, consul
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez déployer, gérer et supprimer des extensions de machine virtuelle à l’aide d’[Azure CLI](manage-vm-extensions-cli.md), de [PowerShell](manage-vm-extensions-powershell.md), du [portail Azure](manage-vm-extensions-portal.md) ou de [modèles Azure Resource Manager](manage-vm-extensions-template.md).
+Vous pouvez déployer, gérer et supprimer des extensions de machine virtuelle à l’aide d’[Azure CLI](manage-vm-extensions-cli.md), d’[Azure PowerShell](manage-vm-extensions-powershell.md), du [portail Azure](manage-vm-extensions-portal.md) ou de [modèles Azure Resource Manager](manage-vm-extensions-template.md).

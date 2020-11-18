@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015968"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392575"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Ajouter vos comptes non-Microsoft à l’application Microsoft Authenticator
 
@@ -36,7 +36,7 @@ En règle générale, pour tous vos comptes personnels, vous devez :
     >[!Note]
     >S’il s’agit de la première fois que vous configurez l’application Microsoft Authenticator, vous pouvez recevoir une invite vous demandant si vous souhaitez autoriser l’application à accéder à votre appareil photo (iOS) ou à prendre des photos et à enregistrer des vidéos (Android). Vous devez sélectionner **Autoriser** pour que l’application Authenticator puisse accéder à votre appareil photo pour prendre une photo du code QR à l’étape suivante. Si vous n’autorisez pas l’accès à l’appareil photo, vous pouvez toujours installer l’application Authenticator, mais vous devrez ajouter les informations de code manuellement. Pour plus d’informations sur l’ajout manuel du code, consultez [Ajouter manuellement un compte à l’application](user-help-auth-app-add-account-manual.md).
 
-Nous vous présentons ici le processus correspondant aux comptes Facebook, Google, GitHub et Amazon, mais ce processus est identique pour les autres applications, telles que Netflix, Instagram ou Adobe.
+Nous vous présentons ici le processus correspondant aux comptes Facebook, Google, GitHub et Amazon, mais ce processus est identique pour d’autres applications, telles qu’Instagram et Adobe.
 
 ## <a name="add-your-google-account"></a>Ajout de votre compte Google
 

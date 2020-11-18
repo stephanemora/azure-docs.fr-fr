@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4a522e58677e2c71cb52ad7e04b288622ad62d91
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3d959cccd4fbce24e36b1ed62bc6bf417af23c82
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287333"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445504"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
@@ -24,7 +24,7 @@ ms.locfileid: "93287333"
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement comme les certificats, chaînes de connexion et mots de passe. Comme il s’agit de données sensibles et critiques, vous devez sécuriser l’accès à vos coffres de clés en acceptant seulement les applications et les utilisateurs autorisés. Cet [article](secure-your-key-vault.md) fournit une vue d’ensemble du modèle d’accès aux coffres de clés. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès à vos coffres de clés.
 
 Voici quelques suggestions concernant le contrôle de l’accès à votre coffre :
-1. Verrouiller l’accès à votre abonnement, au groupe de ressources et aux coffres de clés : contrôle d’accès en fonction du rôle (RBAC)
+1. Verrouiller l’accès à votre abonnement, au groupe de ressources et aux coffres de clés (Azure RBAC)
 2. Créer des stratégies d’accès pour chaque coffre
 3. Utiliser le principe des privilèges d’accès minimum pour accorder l’accès
 4. Activer le pare-feu et les [points de terminaison de service de réseau virtuel](overview-vnet-service-endpoints.md)

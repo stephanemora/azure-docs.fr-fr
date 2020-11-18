@@ -1,17 +1,17 @@
 ---
-title: Superviser les applications Java s'exécutant dans tout environnement - Azure Monitor Application Insights
-description: Supervision des performances des applications Java s’exécutant dans tout environnement avec l'agent autonomie Java et sans instrumenter l’application. Suivi distribué et mise en correspondance d’applications.
+title: Ajout de l’argument JVM – Azure Monitor Application Insights Java
+description: Ajout de l’argument JVM pour Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c9c38d4173413310b715e05c9dcfb9c15be9d4f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374301"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377631"
 ---
-# <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configuration de l'agent autonome Java des arguments JVM pour Azure Monitor Application Insights
+# <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Ajout de l’argument JVM pour Azure Monitor Application Insights Java
 
 
 

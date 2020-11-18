@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340547"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360086"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,7 @@ La valeur de durée de vie est définie en secondes et interprétée en tant qu�
 
    - Si ce paramètre est présent et que sa valeur est définie sur « -1 », il est égal à l’infini et, par défaut, les éléments n’expirent pas.
 
-   - Si ce paramètre est présent et que sa valeur est définie sur un nombre quelconque *« n »* , les éléments expirent *« n »* secondes après leur dernière modification.
+   - Si ce paramètre est présent et que sa valeur est définie sur un nombre *différent de zéro* *« n »* , les éléments expirent *« n »*  secondes après leur dernière modification.
 
 2. **Durée de vie sur un élément** (définie via `ttl`) :
 
@@ -44,11 +44,11 @@ La valeur de durée de vie est définie en secondes et interprétée en tant qu�
 
 ## <a name="time-to-live-configurations"></a>Configurations de durée de vie
 
-* Si une durée de vie de *« n »* est définie sur un conteneur, les éléments présents dans ce conteneur expireront après *n* secondes.  Si le même conteneur contient des éléments qui possèdent leur propre durée de vie, définie sur -1 (ce qui indique qu’ils n’expirent pas), ou si certains éléments ont remplacé le paramètre de durée de vie par un autre nombre, ces éléments expirent en fonction de la valeur de durée de vie définie. 
+- Si une durée de vie de *« n »* est définie sur un conteneur, les éléments présents dans ce conteneur expireront après *n* secondes.  Si le même conteneur contient des éléments qui possèdent leur propre durée de vie, définie sur -1 (ce qui indique qu’ils n’expirent pas), ou si certains éléments ont remplacé le paramètre de durée de vie par un autre nombre, ces éléments expirent en fonction de la valeur de durée de vie définie.
 
-* Si aucune durée de vie n'est définie sur un conteneur, la durée de vie définie sur un élément présent dans ce conteneur n'a aucun effet. 
+- Si aucune durée de vie n'est définie sur un conteneur, la durée de vie définie sur un élément présent dans ce conteneur n'a aucun effet.
 
-* Si une durée de vie de -1 est définie sur un conteneur, un élément présent dans ce conteneur et dont la durée de vie est définie sur n expirera après n secondes, et les autres éléments n'expireront pas.
+- Si une durée de vie de -1 est définie sur un conteneur, un élément présent dans ce conteneur et dont la durée de vie est définie sur n expirera après n secondes, et les autres éléments n'expireront pas.
 
 ## <a name="examples"></a>Exemples
 
@@ -60,10 +60,9 @@ La durée de vie sur le conteneur est définie par null (DefaultTimeToLive = nul
 
 |Durée de vie sur un élément| Résultats|
 |---|---|
-|ttl = null|    La durée de vie est désactivée. L’élément n’expire jamais (par défaut).|
-|ttl = -1   |La durée de vie est désactivée. L’élément n’expire jamais.|
-|ttl = 2000 |La durée de vie est désactivée. L’élément n’expire jamais.|
-
+|ttl = null|La durée de vie est désactivée. L’élément n’expire jamais (par défaut).|
+|ttl = -1|La durée de vie est désactivée. L’élément n’expire jamais.|
+|ttl = 2000|La durée de vie est désactivée. L’élément n’expire jamais.|
 
 ### <a name="example-2"></a>Exemple 2
 
@@ -71,10 +70,9 @@ La durée de vie sur le conteneur est définie par -1 (DefaultTimeToLive = -1)
 
 |Durée de vie sur un élément| Résultats|
 |---|---|
-|ttl = null |La durée de vie est activée. L’élément n’expire jamais (par défaut).|
-|ttl = -1   |La durée de vie est activée. L’élément n’expire jamais.|
-|ttl = 2000 |La durée de vie est activée. L’élément expire après 2 000 secondes.|
-
+|ttl = null|La durée de vie est activée. L’élément n’expire jamais (par défaut).|
+|ttl = -1|La durée de vie est activée. L’élément n’expire jamais.|
+|ttl = 2000|La durée de vie est activée. L’élément expire après 2 000 secondes.|
 
 ### <a name="example-3"></a>Exemple 3
 
@@ -82,12 +80,12 @@ La durée de vie sur le conteneur est définie par 1000 (DefaultTimeToLive = 100
 
 |Durée de vie sur un élément| Résultats|
 |---|---|
-|ttl = null|    La durée de vie est activée. L’élément expire après 1000 secondes (par défaut).|
-|ttl = -1   |La durée de vie est activée. L’élément n’expire jamais.|
-|ttl = 2000 |La durée de vie est activée. L’élément expire après 2 000 secondes.|
+|ttl = null|La durée de vie est activée. L’élément expire après 1000 secondes (par défaut).|
+|ttl = -1|La durée de vie est activée. L’élément n’expire jamais.|
+|ttl = 2000|La durée de vie est activée. L’élément expire après 2 000 secondes.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez à configurer la durée de vie dans les articles suivants :
 
-* [Configurer la durée de vie](how-to-time-to-live.md)
+- [Configurer la durée de vie](how-to-time-to-live.md)

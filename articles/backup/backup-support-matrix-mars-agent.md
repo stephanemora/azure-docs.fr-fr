@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173534"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363236"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -69,7 +69,7 @@ L’accès à toutes les URL et adresses IP listées ci-dessus utilise le protoc
 
 Lors de la sauvegarde des fichiers et des dossiers de machines virtuelles Azure à l’aide de l’agent MARS, le réseau virtuel Azure doit également être configuré pour autoriser l’accès. Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/network-security-groups-overview.md#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
 
-1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+1. Dans **Tous les services**, accédez à **Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
 2. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
 3. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](../virtual-network/manage-network-security-group.md#security-rule-settings). Vérifiez que l’option **Destination** est définie sur *Balise de service* et l’option **Balise de service de destination** sur *AzureBackup*.
 4. Sélectionnez **Ajouter** pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
@@ -168,6 +168,17 @@ Windows Server 2008 R2 SP1 |1 700 Go
 Windows Server 2008 SP2| 1 700 Go
 Windows 8 ou version ultérieure| 54 400 Go
 Windows 7| 1 700 Go
+
+### <a name="minimum-retention-limits"></a>Limites de rétention minimale
+
+Les durées de rétention minimales pouvant être définies pour les différents points de récupération sont les suivantes :
+
+|Point de récupération |Duration  |
+|---------|---------|
+|Point de récupération quotidien    |   7 jours      |
+|Point de récupération hebdomadaire     |    4 semaines     |
+|Point de récupération mensuel    |   3 mois      |
+|Point de récupération annuel  |      1 an   |
 
 ### <a name="other-limitations"></a>Autres limitations
 

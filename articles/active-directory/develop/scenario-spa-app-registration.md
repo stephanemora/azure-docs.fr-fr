@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 638ebf8aefc67584805c1402499ca23fc1febb45
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c9fde904d6befebfcfd87b55bd7b2bf4e4c825f2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217199"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443821"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
@@ -79,7 +79,4 @@ Lorsque toutes vos applications monopages de production représentées par une i
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, configurez le code de votre application pour utiliser l’inscription d’application que vous avez créée aux étapes précédentes.
-
-> [!div class="nextstepaction"]
-> [Configuration de code de l’application](scenario-spa-app-configuration.md)
+Ensuite, configurez le code de votre application pour utiliser l’inscription d’application que vous avez créée dans les étapes précédentes : [Configuration du code de l’application](scenario-spa-app-configuration.md).

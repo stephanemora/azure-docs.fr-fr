@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314730"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377198"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Résolution des problèmes de réplication dans la migration de machines virtuelles VMware sans agent
 
@@ -29,11 +29,16 @@ Il se peut que vous rencontriez parfois des échecs de cycles de réplication po
 Pour analyser l’état de réplication de vos machines virtuelles, procédez comme suit :
 
   1. Accédez à la page Serveurs dans Azure Migrate sur le portail Azure.
-  2. Accédez à la page « Réplication des machines » en cliquant sur « Serveurs de réplication » dans la vignette Migration du serveur.
-  3. Vous verrez une liste de serveurs de réplication ainsi que des informations supplémentaires telles que l’état, l’intégrité, la dernière synchronisation, etc. La colonne Intégrité indique l’intégrité de réplication actuelle de la machine virtuelle. Une valeur « Critique » ou « Avertissement » dans la colonne Intégrité indique généralement que le cycle de réplication précédent de la machine virtuelle a échoué. Pour obtenir plus de détails, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez « Détails de l’erreur ». La page Détails de l’erreur contient des informations sur l’erreur et des détails supplémentaires sur la façon de résoudre le problème. Vous verrez également un lien « Événements récents » qui peut être utilisé pour accéder à la page des événements de la machine virtuelle.
-  4. Cliquez sur « Événements récents » pour voir les échecs du cycle de réplication précédent pour la machine virtuelle. Dans la page Événements, recherchez l’événement le plus récent du type « Échec du cycle de réplication » ou « Échec du cycle de réplication pour le disque » de la machine virtuelle.
-  5. Cliquez sur l’événement pour comprendre les causes possibles de l’erreur et les mesures correctives recommandées. Utilisez les informations fournies pour dépanner et corriger l’erreur.
-    
+  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Accédez à la page « Réplication des machines » en cliquant sur « Serveurs de réplication » dans la vignette Migration du serveur.
+  ![Image 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Vous verrez une liste de serveurs de réplication ainsi que des informations supplémentaires telles que l’état, l’intégrité, la dernière synchronisation, etc. La colonne Intégrité indique l’intégrité de réplication actuelle de la machine virtuelle. Une valeur « Critique » ou « Avertissement » dans la colonne Intégrité indique généralement que le cycle de réplication précédent de la machine virtuelle a échoué. Pour obtenir plus de détails, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez « Détails de l’erreur ». La page Détails de l’erreur contient des informations sur l’erreur et des détails supplémentaires sur la façon de résoudre le problème. Vous verrez également un lien « Événements récents » qui peut être utilisé pour accéder à la page des événements de la machine virtuelle.
+  ![Image 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Cliquez sur « Événements récents » pour voir les échecs du cycle de réplication précédent pour la machine virtuelle. Dans la page Événements, recherchez l’événement le plus récent du type « Échec du cycle de réplication » ou « Échec du cycle de réplication pour le disque » de la machine virtuelle.
+  ![Image 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Cliquez sur l’événement pour comprendre les causes possibles de l’erreur et les mesures correctives recommandées. Utilisez les informations fournies pour dépanner et corriger l’erreur.
+ ![Image 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Erreurs de réplication courantes
 
 Cette section décrit quelques-unes des erreurs courantes et la façon dont vous pouvez les résoudre.

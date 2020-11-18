@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400806"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359746"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
@@ -151,7 +151,9 @@ Logic Apps fournit les connecteurs standard ci-dessous qui sont les plus couramm
 
 ## <a name="on-premises-connectors"></a>Connecteurs locaux
 
-Les connecteurs standard ci-dessous fournis par Logic Apps sont couramment utilisés pour offrir un accès aux données et aux ressources des systèmes locaux. Avant de créer une connexion à un système local, vous devez d’abord [télécharger, installer et configurer une passerelle de données locale][gateway-doc]. Cette passerelle fournit un canal de communication sécurisé sans avoir à configurer l’infrastructure réseau nécessaire.
+Avant de créer une connexion à un système local, vous devez d’abord [télécharger, installer et configurer une passerelle de données locale][gateway-doc]. Cette passerelle fournit un canal de communication sécurisé sans avoir à configurer l’infrastructure réseau nécessaire. 
+
+Voici *quelques* connecteurs standard couramment utilisés que Logic Apps fournit pour accéder aux données et aux ressources des systèmes locaux. Pour obtenir la liste des connecteurs locaux, consultez [Sources de données prises en charge](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::

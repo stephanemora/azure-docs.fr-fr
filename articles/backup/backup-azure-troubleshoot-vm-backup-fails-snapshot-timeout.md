@@ -4,12 +4,12 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: dd6f4d7884b120d2f8b5ea3f3ccb8d5385dd0880
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170285"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377103"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -53,11 +53,11 @@ Sauvegarde Azure se sert de l’extension de capture instantanée de machine vir
 
 - **Vérifiez si l’antivirus bloque l’extension** : Certains logiciels antivirus peuvent empêcher l’exécution d’extensions.
   
-  Au moment de l’échec de la sauvegarde, vérifiez s’il existe des entrées de journal dans ***Journaux des applications de l’observateur d’événements*** avec le ***nom de l’application défaillante : IaaSBcdrExtension.exe***. Si vous voyez des entrées, il se peut que l’antivirus configuré dans la machine virtuelle restreigne l’exécution de l’extension de sauvegarde. Effectuez un test en excluant les répertoires suivants dans la configuration de l’antivirus et relancez l’opération de sauvegarde.
+  Au moment de l’échec de la sauvegarde, vérifiez s’il existe des entrées de journal dans **_Journaux des applications de l’observateur d’événements_* _ avec le _*_nom de l’application défaillante : IaaSBcdrExtension.exe_*_. Si vous voyez des entrées, il se peut que l’antivirus configuré dans la machine virtuelle restreigne l’exécution de l’extension de sauvegarde. Effectuez un test en excluant les répertoires suivants dans la configuration de l’antivirus et relancez l’opération de sauvegarde.
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **Vérifiez si l’accès au réseau est requis** : Les paquets d’extensions sont téléchargés à partir du référentiel d’extensions de Stockage Azure, et les chargements d’état d’extension sont publiés sur Stockage Azure. [Plus d’informations](../virtual-machines/extensions/features-windows.md#network-access)
+- _*Vérifiez si l’accès au réseau est requis** : Les paquets d’extensions sont téléchargés à partir du référentiel d’extensions de Stockage Azure, et les chargements d’état d’extension sont publiés sur Stockage Azure. [Plus d’informations](../virtual-machines/extensions/features-windows.md#network-access)
   - Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le Stockage Azure dans cette région à partir de la machine virtuelle.
   - Si vous avez bloqué l’accès à l’adresse `168.63.129.16` à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires. [En savoir plus](../virtual-machines/extensions/features-windows.md#network-access).
 
@@ -103,7 +103,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Sauv
 
 Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez que toutes les extensions sont à l’état **Approvisionnement réussi**. Pour plus d’informations, consultez [États de provisionnement](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Si une autre extension est à l’état d’échec, elle peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.
+- Si une extension est à l’état d’échec, cela peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.
 - Si l’état de provisionnement de machine virtuelle est En cours de mise à jour, il peut interférer avec la sauvegarde. Vérifiez qu’il est sain et réessayez l’opération de sauvegarde.
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached : Limite maximale de la collection de points de restauration atteinte

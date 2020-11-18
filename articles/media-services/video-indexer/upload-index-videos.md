@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218953"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506173"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -26,7 +26,7 @@ Lorsque vous chargez des vidéos avec l’API Video Indexer, vous disposez des d
 * Envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande,
 * Utilisez la ressource Azure Media Services existante en fournissant l’[ID de la ressource](../latest/assets-concept.md) (pris en charge dans les comptes payants uniquement).
 
-Une fois votre vidéo téléchargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
+Une fois votre vidéo téléchargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées ; pour plus d’informations, consultez [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 L’article décrit comment télécharger et indexer vos vidéos avec les options suivantes :
 
@@ -72,14 +72,14 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 > Un nom de vidéo ne doit pas dépasser 80 caractères.
 
 1. Connectez-vous au site web [Video Indexer](https://www.videoindexer.ai/).
-1. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger** .
+1. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Charger":::
 1. Une fois votre vidéo chargée, Video Indexer démarre l’indexation et l’analyse.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Charger":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progression du chargement":::
 1. Au terme de l'analyse réalisée par Video Indexer, vous recevrez un e-mail contenant un lien vers votre vidéo et une brève description du contenu de celle-ci. Par exemple : personnes, rubriques, OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Télécharger et indexer avec API
@@ -118,7 +118,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
         
     - Exemple : https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-##### <a name="notes"></a>Notes
+##### <a name="other-considerations"></a>Autres considérations
 
 - Video Indexer retourne tous les paramètres existants fournis dans l’URL d’origine.
 - L’URL fournie doit être encodée.
@@ -140,7 +140,7 @@ Le prix dépend de l’option d’indexation sélectionnée.
 
 #### <a name="priority"></a>priority
 
-Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Basse** , **Normale** (valeur par défaut) et **Haute** .
+Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Basse**, **Normale** (valeur par défaut) et **Haute**.
 
 Le paramètre **priority** est uniquement pris en charge dans les comptes payants.
 
@@ -148,7 +148,7 @@ Le paramètre **priority** est uniquement pris en charge dans les comptes payant
 
 Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder. Il passe ensuite à l’indexation et à l’analyse de la vidéo. Lorsque Video Indexer a terminé l’analyse, vous recevrez une notification avec l’ID de la vidéo.  
 
-Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution** .
+Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
 
 Pour SingleBitrate, le coût de l’encodeur standard s’applique à chaque sortie. Si la hauteur de la vidéo est supérieure ou égale à 720, Video Indexer l’encode au format 1280 x 720. Sinon, au format 640 x 468.
 Le paramètre par défaut est [l’encodage sensible au contenu](../latest/content-aware-encoding.md).
@@ -177,8 +177,8 @@ Après avoir copié ce code dans votre plateforme de développement, vous devez 
 
     * Accédez à https://api-portal.videoindexer.ai/.
     * Connexion
-    * Accédez à **Products** -> **Authorization** -> **Authorization subscription** .
-    * Copiez la **clé primaire** .
+    * Accédez à **Products** -> **Authorization** -> **Authorization subscription**.
+    * Copiez la **clé primaire**.
 * URL de la vidéo : URL du fichier audio/vidéo à indexer. L’URL doit pointer vers un fichier multimédia (les pages HTML ne sont pas prises en charge). Le fichier peut être protégé par un jeton d’accès fourni dans le cadre de l’URI et le point de terminaison qui traite le fichier doit être sécurisé avec TLS 1.2 ou version ultérieure. L’URL doit être encodée.
 
 Le résultat de l’exécution de l’exemple de code inclut une URL de widget d’insight et une URL de widget de lecteur qui vous permettra d’examiner respectivement les insights et la vidéo chargée. 

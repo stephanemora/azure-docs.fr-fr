@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507321"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376237"
 ---
 #### <a name="to-create-a-new-service"></a>Création d’un service
 
@@ -45,7 +45,7 @@ ms.locfileid: "87507321"
 
     7.  Pour créer le service StorSimple Device Manager, cliquez sur **Créer**.
 
-        ![Créer un nouveau service](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Créer un nouveau service 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Vous êtes dirigés vers la page d’accueil **Service**. La création de service dure quelques minutes. Une fois le service créé, vous recevez la notification correspondante et l’état du service devient **Actif**.
 

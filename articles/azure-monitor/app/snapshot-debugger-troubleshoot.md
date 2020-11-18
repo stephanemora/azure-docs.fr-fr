@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760510"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504966"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé le Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes. Il peut y avoir de nombreuses raisons différentes pour lesquelles les captures instantanées ne sont pas générées. Vous pouvez exécuter le contrôle d’intégrité de capture instantanée pour identifier certaines des causes courantes possibles.
@@ -57,19 +57,21 @@ Pour vérifier le paramètre, ouvrez votre fichier web.config et recherchez la s
 > Si le targetFramework est 4.7 ou une version ultérieure, Windows détermine les protocoles disponibles. Dans Azure App Service, TLS 1.2 est disponible. Toutefois, si vous utilisez votre propre machine virtuelle, vous devrez peut-être activer TLS 1.2 dans le système d’exploitation.
 
 ## <a name="preview-versions-of-net-core"></a>Préversions de .NET Core
-Si l’application utilise une préversion de .NET Core et que Débogueur de capture instantanée a été activé par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) dans le portail, alors Débogueur de capture instantanée peut ne pas démarrer. Suivez d’abord les instructions dans [Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) pour inclure le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) à l’application ***en plus*** de l’activation par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Si l’application utilise une préversion de .NET Core et que Débogueur de capture instantanée a été activé par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) dans le portail, alors Débogueur de capture instantanée peut ne pas démarrer. Suivez d’abord les instructions dans [Activer Débogueur de capture instantanée pour d’autres environnements](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) pour inclure le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) à l’application ***en plus** _ de l’activation par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Mettre à niveau vers la dernière version du package NuGet
 
 Si le Débogueur de capture instantanée a été activé par le biais du [volet Application Insights du portail](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), votre application doit déjà exécuter le dernier package NuGet. Si le Débogueur de capture instantanée a été activé en incluant le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector), utilisez le Gestionnaire de package NuGet de Visual Studio pour vérifier que vous utilisez la dernière version de Microsoft.ApplicationInsights.SnapshotCollector.
 
+Pour obtenir les mises à jour et correctifs de bogues les plus récents, [consultez les notes de publication](./snapshot-collector-release-notes.md).
+
 ## <a name="check-the-uploader-logs"></a>Vérifier les journaux d’activité du chargeur
 
 Une fois une capture instantanée créée, un fichier minidump (.dmp) est créé sur le disque. Un processus distinct du chargeur crée ce fichier minidump et le charge, ainsi que tous les fichiers PDB associés, vers le stockage du Débogueur de capture instantanée d’Application Insights. Une fois le fichier minidump correctement chargé, il est supprimé du disque. Les fichiers journaux du processus de chargement sont conservés sur disque. Dans un environnement App Service, vous pouvez trouver ces fichiers journaux d’activité dans `D:\Home\LogFiles`. Le site de gestion Kudu pour App Service permet de rechercher ces fichiers journaux.
 
 1. Ouvrez votre application App Service dans le portail Azure.
-2. Cliquez sur **Outils avancés**, ou recherchez **Kudu**.
+2. Cliquez sur _*Outils avancés**, ou recherchez **Kudu**.
 3. Cliquez sur **Atteindre**.
 4. Dans le zone de liste déroulante de la **Console de débogage**, sélectionnez **CMD**.
 5. Cliquez sur **LogFiles**.

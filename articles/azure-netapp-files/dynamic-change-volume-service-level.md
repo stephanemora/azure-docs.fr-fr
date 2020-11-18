@@ -12,16 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 3f5627f4bd0d62a70ef9d7809f0bf1441141f4c6
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: fe4b2925a34ae7c06bb0b597f0bcdcc3f4d80896
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931243"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363219"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Changer dynamiquement le niveau de service d’un volume
+
+> [!IMPORTANT] 
+> L’inscription à la version préliminaire publique de cette fonctionnalité est en attente jusqu’à nouvel ordre. 
 
 Vous pouvez modifier le niveau de service d’un volume existant en déplaçant le volume vers un autre pool de capacité qui utilise le [niveau de service](azure-netapp-files-service-levels.md) souhaité pour le volume. Cette modification sur place du niveau du service pour le volume ne nécessite pas de migration des données. Elle n’affecte pas non plus l’accès au volume.  
 
@@ -34,27 +37,27 @@ Le pool de capacité vers lequel vous souhaitez déplacer le volume doit déjà 
 * Une fois le volume déplacé vers un autre pool de capacité, vous n’avez plus accès aux journaux d’activité et aux métriques de volume précédent. Le volume commence avec les nouveaux journaux d’activité et les métriques sous le nouveau pool de capacité.
 
 * Si vous déplacez un volume vers un pool de capacité d’un niveau de service supérieur (par exemple, du niveau de service *Standard* au niveau *Premium* ou *Ultra*), vous devez attendre au moins sept jours avant de pouvoir *re-déplacer* le volume vers un pool de capacité d’un niveau de service inférieur (par exemple, du niveau de service *Ultra* au niveau *Premium* ou *Standard*).  
+<!-- 
+## Register the feature
 
-## <a name="register-the-feature"></a>Inscrire la fonctionnalité
+The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
 
-La fonctionnalité de déplacement d’un volume vers un autre pool de capacité est actuellement disponible en préversion. Si vous utilisez cette fonctionnalité pour la première fois, vous devez d’abord l’inscrire.
-
-1. Inscrivez la fonctionnalité : 
+1. Register the feature: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
 
-2. Vérifiez l’état d’inscription de la fonctionnalité : 
+2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
-
+You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+--> 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Déplacer un volume vers un autre pool de capacité
 
 1.  Dans la page Volumes, cliquez avec le bouton droit sur le volume dont vous souhaitez modifier le niveau de service. Sélectionnez **Modifier le pool**.

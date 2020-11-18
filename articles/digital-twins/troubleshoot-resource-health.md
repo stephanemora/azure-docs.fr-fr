@@ -5,20 +5,20 @@ description: Découvrez comment utiliser Azure Resource Health pour vérifier l�
 author: baanders
 ms.author: baanders
 ms.date: 10/6/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9c31345a4ddaf9ac2b75204172dbc47606cb07db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b64ee4d1538276bbbcab3fe09054f399ad20c162
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681284"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616547"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Dépannage d’Azure Digital Twins : Intégrité des ressources
 
 [Azure Resource Health](../service-health/resource-health-overview.md) vous aide à diagnostiquer et à obtenir un support pour les problèmes de service qui affectent vos ressources Azure. Il rend compte de l’intégrité actuelle et passée de vos ressources.
 
-Cet article vous montre comment obtenir des informations d’ **intégrité des ressources** pour vos instances Azure Digital Twins.
+Cet article vous montre comment obtenir des informations d’**intégrité des ressources** pour vos instances Azure Digital Twins.
 
 ## <a name="use-azure-resource-health"></a>Utilisation d’Azure Resource Health
 
@@ -32,7 +32,7 @@ Pour vérifier l’intégrité de votre instance, procédez comme suit :
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Capture d’écran montrant la page « Intégrité des ressources ». La section « Historique d’intégrité » présente un rapport quotidien pour les neuf derniers jours. Chaque jour indique un état « Disponible ».":::
 
-Dans l’image ci-dessus, cette instance est affichée comme étant *Disponible* , et ce depuis neuf jours. Pour en savoir plus sur l’état *Disponible* et les autres types d’état qui peuvent apparaître, consultez [*Vue d’ensemble d’Azure Resource Health*](../service-health/resource-health-overview.md).
+Dans l’image ci-dessus, cette instance est affichée comme étant *Disponible*, et ce depuis neuf jours. Pour en savoir plus sur l’état *Disponible* et les autres types d’état qui peuvent apparaître, consultez [*Vue d’ensemble d’Azure Resource Health*](../service-health/resource-health-overview.md).
 
 Vous pouvez également en savoir plus sur les différentes vérifications de l’intégrité des ressources pour différents types de ressources Azure dans [*Types de ressources et contrôles d’intégrité dans Azure Resource Health*](../service-health/resource-health-checks-resource-types.md).
 

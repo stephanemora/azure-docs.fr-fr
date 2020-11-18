@@ -1,7 +1,7 @@
 ---
 title: Utiliser le module Générateur de recommandations Train Wide and Deep
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Générateur de recommandations Train Wide and Deep pour la formation d’un modèle de recommandation.
+description: Découvrez comment utiliser le module Générateur de recommandations Train Wide and Deep dans le concepteur Azure Machine Learning afin d’effectuer l’apprentissage d’un modèle de recommandation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce713167272c9e97754fdf6f6d065519aaea3d15
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907785"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421173"
 ---
 # <a name="train-wide--deep-recommender"></a>Générateur de recommandations Train Wide and Deep
 Cet article explique comment utiliser le module **Générateur de recommandations Train Wide and Deep** dans le concepteur Azure Machine Learning afin d’effectuer la formation d’un modèle de recommandation. Ce module est basé sur l’apprentissage Wide and Deep, proposé par Google.

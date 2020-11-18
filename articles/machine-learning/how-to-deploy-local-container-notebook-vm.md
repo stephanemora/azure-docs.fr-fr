@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 1767f149d9935c86281c7b7be3e684aa82a603f9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999042"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444603"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Déployer un modèle sur des instances de calcul Azure Machine Learning
 
@@ -63,7 +63,7 @@ Pour soumettre des exemples de données au service en cours d’exécution, util
 > [!NOTE]
 > Lors de l’authentification auprès d’un déploiement sur l’instance de calcul, l’authentification est effectuée à l’aide d’Azure Active Directory. L’appel à `interactive_auth.get_authentication_header()` dans l’exemple de code vous authentifie à l’aide d’AAD et retourne un en-tête qui peut ensuite être utilisé pour s’authentifier auprès du service sur l’instance de calcul. Pour plus d’informations, consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md#interactive-authentication).
 >
-> Lors de l’authentification auprès d’un déploiement sur Azure Kubernetes Service ou Azure Container Instances, une autre méthode d’authentification est utilisée. Pour plus d’informations à ce sujet, consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md#web-service-authentication).
+> Lors de l’authentification auprès d’un déploiement sur Azure Kubernetes Service ou Azure Container Instances, une autre méthode d’authentification est utilisée. Pour plus d’informations sur le sujet, consultez [Configurer l’authentification pour les modèles Machine Learning déployés en tant que services web](how-to-authenticate-web-service.md).
 
 ```python
 import requests
