@@ -98,6 +98,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Auditer la conformité avec Azure Policy
           href: signalr-howto-azure-policy.md
+    - name: Dépannage
+      items:
+        - name: Guides de résolution des problèmes
+          href: signalr-howto-troubleshoot-guide.md
+        - name: Résolution des problèmes des méthodes
+          href: signalr-howto-troubleshoot-method.md
 - name: References
   items:
     - name: Azure CLI

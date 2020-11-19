@@ -67,6 +67,12 @@
           href: storage-sync-files-networking-overview.md
         - name: À propos de la hiérarchisation cloud
           href: storage-sync-cloud-tiering.md
+    - name: Performances et mise à l’échelle
+      items:
+        - name: Performances de SMB Multichannel
+          href: storage-files-smb-multichannel-performance.md
+        - name: Cibles de performance et d’évolutivité
+          href: storage-files-scale-targets.md
     - name: Prévenir les suppressions de données accidentelles
       href: storage-files-prevent-file-share-deletion.md
     - name: Sauvegarder des partages de fichiers
@@ -74,9 +80,7 @@
     - name: Chiffrement au repos
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Chiffrement au repos avec des clés gérées par le client
-      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Cibles de performance et d’évolutivité
-      href: storage-files-scale-targets.md
+      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Offres de conformité
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Questions fréquentes (FAQ)
@@ -87,8 +91,6 @@
       items:
         - name: créer un partage de fichiers SMB
           href: storage-how-to-create-file-share.md
-        - name: Activer les partages de fichiers volumineux
-          href: storage-files-how-to-create-large-file-share.md
         - name: Créer un partage de fichiers premium
           href: storage-how-to-create-premium-fileshare.md
         - name: Créer un partage NFS
@@ -231,6 +233,12 @@
               href: storage-files-migration-storsimple-8000.md
             - name: Guide de migration de StorSimple 1200
               href: storage-files-migration-storsimple-1200.md
+    - name: Améliorer les performances
+      items:
+        - name: Activer SMB Multichannel
+          href: storage-files-enable-smb-multichannel.md
+        - name: Activer les partages de fichiers volumineux
+          href: storage-files-how-to-create-large-file-share.md
     - name: Développer
       items:
         - name: Configuration des chaînes de connexion

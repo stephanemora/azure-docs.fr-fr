@@ -8,18 +8,20 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3fcf63932db0ad9abe5d99c2e4bf084b0acc750c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: fc4ed7b295ce8a109d2f7c5614440637b2ab855a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660795"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure
 
 Cet article vous permet de connecter de façon sécurisée des clients individuels qui exécutent Windows, Linux ou macOS à un réseau virtuel Azure. Les connexions VPN point à site sont utiles lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple lorsque vous travaillez à distance depuis votre domicile ou en conférence. La connexion P2S est une solution alternative au VPN de site à site lorsque seul un nombre restreint de clients doivent se connecter à un réseau virtuel. Les connexions de point à site ne nécessitent pas de périphérique VPN ou d’adresse IP publique. La connexion P2S crée la connexion VPN via SSTP (Secure Socket Tunneling Protocol) ou IKEv2. Pour plus d’informations sur le VPN de point à site, consultez l’article [À propos du VPN de point à site](point-to-site-about.md).
 
-:::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagramme de connexion point à site d’un ordinateur à un réseau virtuel Azure":::
+:::image type="content" source="./media\vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="Diagramme de connexion point à site d’un ordinateur à un réseau virtuel Azure":::
+
+C:\Users\cherylmc\Documents\GitHub\azure-docs-pr\articles\vpn-gateway\media\vpn-gateway-howto-point-to-site-resource-manager-portal
 
 Pour plus d’informations sur le VPN point à site, consultez [À propos du VPN point à site](point-to-site-about.md). Pour créer cette configuration à l’aide d’Azure PowerShell, consultez [Configurer un VPN point à site à l’aide d’Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
@@ -149,7 +151,7 @@ Les fichiers de configuration du client VPN contiennent des paramètres pour con
 
 Dans la boîte de dialogue Réseau, recherchez le profil client que vous souhaitez utiliser, spécifiez les paramètres du fichier [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), puis sélectionnez **Se connecter**.
 
-Pour obtenir des instructions détaillées, consultez la section [Installer - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac). Si vous rencontrez des problèmes de connexion, vérifiez que la passerelle de réseau virtuel n’utilise pas une référence SKU de base. La référence SKU de base n’est pas prise en charge pour les clients Mac.
+Pour obtenir des instructions détaillées, consultez la section [Installer - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac). Si vous rencontrez des problèmes de connexion, vérifiez que la passerelle de réseau virtuel n’utilise pas une référence SKU de base. La référence SKU de base n’est pas prise en charge pour les clients Mac.
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Connexion du client VPN Mac" border="false":::
 
@@ -207,7 +209,7 @@ La pratique courante consiste à utiliser le certificat racine pour gérer l'acc
 
 Vous pouvez révoquer un certificat client en ajoutant son empreinte à la liste de révocation.
 
-1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Copiez les informations dans un éditeur de texte et supprimez tous les espaces afin d’obtenir une chaîne continue.
 1. Accédez à la page **Configuration de point à site** de la passerelle de réseau virtuel. Il s’agit de la page que vous avez utilisé pour [charger un certificat racine approuvé](#uploadfile).
 1. Dans la section **Certificats révoqués**, entrez un nom convivial pour le certificat (il ne s’agit pas forcément du nom commun du certificat).
@@ -220,6 +222,6 @@ Vous pouvez révoquer un certificat client en ajoutant son empreinte à la liste
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](../index.yml). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/network-overview.md).
 
 Pour plus d’informations sur la résolution des problèmes liés aux connexions de point à site, consultez l’article [Résolution des problèmes de connexion de point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

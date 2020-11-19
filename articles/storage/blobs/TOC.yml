@@ -733,8 +733,10 @@
           items:
             - name: Migrer depuis Data Lake Storage Gen1
               href: data-lake-storage-migrate-gen1-to-gen2.md
-            - name: Migrer un magasin HDFS local
+            - name: Migrer un magasin HDFS hors connexion
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+            - name: Migrer un magasin HDFS en ligne
+              href: migrate-gen2-wandisco-live-data-platform.md
         - name: Gérer
           items:
             - name: .NET

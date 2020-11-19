@@ -17,22 +17,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302245"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539717"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostiquer un problème de routage réseau d’une machine virtuelle - Azure CLI
 
 Dans cet article, vous déployez une machine virtuelle, puis vous vérifiez les communications vers une adresse IP et une URL. Vous déterminez la cause d’un échec de communication et la façon de le résoudre.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande Azure localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour poursuivre la procédure décrite dans cet article. Pour trouver la version installée, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Après avoir vérifié la version d’Azure CLI, exécutez `az login` pour créer une connexion à Azure. Les commandes Azure CLI mentionnées dans cet article sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
+- This article requires version 2.0 or later of the Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée. 
+
+- Les commandes Azure CLI mentionnées dans cet article sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -113,7 +115,7 @@ az network nic show-effective-route-table \
 
 Le texte suivant est inclus dans la sortie retournée :
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +135,7 @@ Lorsque vous avez utilisé la commande `az network watcher show-next-hop` pour t
 
 Toutefois, lorsque vous avez utilisé la commande `az network watcher show-next-hop` pour tester la communication sortante vers l’adresse IP 172.31.0.100, le résultat vous a informé de l’absence de type de tronçon suivant. Dans les résultats retournés, vous voyez également le texte suivant :
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

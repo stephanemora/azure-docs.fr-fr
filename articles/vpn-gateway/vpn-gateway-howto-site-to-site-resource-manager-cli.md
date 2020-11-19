@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 83ae4185d22a6578130ca96c06ac1e5d0c25b375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3a29c4522812b728f553bf52543ac3307f0ffbda
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541364"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739935"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de l’interface de ligne de commande
 
@@ -24,9 +24,6 @@ Cet article vous explique comment utiliser l’interface de ligne de commande Az
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> 
->
-
 
 ![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
 
@@ -39,9 +36,8 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 * Veillez à disposer d’un périphérique VPN compatible et à être entouré d’une personne en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
 * Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN.
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
-* Vous pouvez utiliser Azure Cloud Shell pour exécuter vos commandes CLI (instructions ci-dessous). Toutefois, si vous préférez exécuter vos commandes localement, vérifiez que vous avez installé la dernière version des commandes CLI (2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli) et [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli). 
- 
-  [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+* This article requires version 2.0 or later of the Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ### <a name="example-values"></a><a name="example"></a>Exemples de valeurs
 
@@ -127,7 +123,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 ## <a name="6-request-a-public-ip-address"></a><a name="PublicIP"></a>6. Demander une adresse IP publique
 
-Une passerelle VPN doit avoir une adresse IP publique. Vous commencez par demander la ressource d’adresse IP, puis vous y faites référence lors de la création de votre passerelle de réseau virtuel. L’adresse IP est affectée dynamiquement à la ressource lors de la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques* . Vous ne pouvez pas demander d’affectation d’adresse IP publique statique. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
+Une passerelle VPN doit avoir une adresse IP publique. Vous commencez par demander la ressource d’adresse IP, puis vous y faites référence lors de la création de votre passerelle de réseau virtuel. L’adresse IP est affectée dynamiquement à la ressource lors de la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Vous ne pouvez pas demander d’affectation d’adresse IP publique statique. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
 Utilisez la commande [az network public-ip create](/cli/azure/network/public-ip) pour demander une adresse IP publique dynamique.
 
@@ -141,7 +137,7 @@ Créez la passerelle VPN de réseau virtuel. La création d’une passerelle VPN
 
 Utilisez les valeurs suivantes :
 
-* Le paramètre *--gateway-type* pour une configuration de site à site est *Vpn* . Le type de passerelle dépend toujours de la configuration que vous implémentez. Pour plus d’informations, consultez [Types de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
+* Le paramètre *--gateway-type* pour une configuration de site à site est *Vpn*. Le type de passerelle dépend toujours de la configuration que vous implémentez. Pour plus d’informations, consultez [Types de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * Le paramètre *--vpn-type* peut avoir pour valeur *RouteBased* (appelé passerelle dynamique dans certaines documentations) ou *PolicyBased* (appelé passerelle statique dans certaines documentations). Le paramètre est spécifique aux exigences du périphérique auquel vous vous connectez. Pour plus d’informations sur les types de passerelle VPN, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Sélectionnez la référence SKU de la passerelle que vous souhaitez utiliser. Des limites de configuration s’appliquent à certaines références (SKU). Pour plus d’informations, consultez l’article [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
@@ -196,10 +192,10 @@ Cette section contient des commandes courantes qui sont utiles lorsque vous trav
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/).
+* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](../index.yml).
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Pour plus d’informations sur le tunneling forcé, consultez [Configuration du tunneling forcé à l’aide du modèle de déploiement classique](vpn-gateway-forced-tunneling-rm.md).
 * Pour plus d’informations sur les connexions haut actif-actif, consultez [Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels](vpn-gateway-highlyavailable.md).
-* Pour obtenir la liste des commandes de mise en réseau de l’interface de ligne de commande Azure, consultez l’article [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network).
+* Pour obtenir la liste des commandes de mise en réseau de l’interface de ligne de commande Azure, consultez l’article [Interface de ligne de commande Azure](/cli/azure/network).
 * Pour en savoir plus sur la création d’une connexion VPN de site à site à l’aide du modèle Azure Resource Manager, consultez [Créer une connexion VPN de site à site](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
 * Pour en savoir plus sur la création d’une connexion VPN de réseau virtuel à réseau virtuel à l’aide du modèle Azure Resource Manager, consultez [Déployer une géo-réplication HBase](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

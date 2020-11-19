@@ -184,9 +184,15 @@
               href: manage/pay-by-invoice.md
             - name: Créer des abonnements supplémentaires
               href: manage/create-subscription.md
-            - name: Créer des abonnements programmatiquement avec la dernière API
-              href: manage/programmatically-create-subscription.md
-            - name: Créer des abonnements programmatiquement avec l’API en préversion
+            - name: Créer des abonnements EA programmatiquement avec la dernière API
+              href: manage/programmatically-create-subscription-enterprise-agreement.md
+            - name: Créer des abonnements MCA programmatiquement avec la dernière API
+              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+            - name: Créer des abonnements MPA programmatiquement avec la dernière API
+              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+            - name: Créer des abonnements programmatiquement avec un modèle ARM
+              href: manage/create-subscription-template.md
+            - name: Créer des abonnements programmatiquement avec une ancienne API en préversion
               href: manage/programmatically-create-subscription-preview.md
             - name: Accorder l’accès pour créer des abonnements EA
               href: manage/grant-access-to-create-subscription.md

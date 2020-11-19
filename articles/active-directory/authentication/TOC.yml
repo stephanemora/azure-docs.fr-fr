@@ -9,7 +9,7 @@
   items:
     - name: Activer la réinitialisation du mot de passe libre-service
       href: tutorial-enable-sspr.md
-    - name: Activation d’Azure Multi-Factor Authentication
+    - name: "Activer l’authentification multifacteur Azure\_AD"
       href: tutorial-enable-azure-mfa.md
     - name: Activer l’écriture différée du mot de passe au niveau local
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR pour les clients Windows
           href: howto-sspr-windows.md
-    - name: Azure Multi-Factor Authentication
+    - name: "Authentification multifacteur Azure\_AD"
       items:
         - name: Guide de déploiement
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Configuration avancée pour l’extension NPS
               href: howto-mfa-nps-extension-advanced.md
-            - name: Azure VPN et Azure MFA
+            - name: "VPN Azure et MFA Azure\_AD"
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Passerelle Bureau à distance
               href: howto-mfa-nps-extension-rdg.md

@@ -68,8 +68,8 @@
       items:
         - name: Encoder et diffuser en streaming un fichier distant REST
           href: stream-files-tutorial-with-rest.md
-        - name: Clés gérées par le client avec Media Services
-          href: tutorial-byok.md
+        - name: Clés gérées par le client avec l’API REST
+          href: tutorial-byok-postman.md
     - name: Interface de ligne de commande
       items:
         - name: Encoder et diffuser en streaming un fichier distant CLI
@@ -80,6 +80,8 @@
           href: stream-files-nodejs-quickstart.md
     - name: Portail Azure
       items:
+        - name: Tutoriel sur les clés gérées par le client ou BYOK
+          href: tutorial-byok-portal.md
         - name: Stocker les événements AMS dans Azure Log Analytics
           href: tutorial-events-log-analytics.md
 - name: Exemples
@@ -102,6 +104,11 @@
         - name: Compte de stockage
           href: storage-account-concept.md
           displayName: Storage side encryption
+        - name: Identités managées et services multimédias
+          displayName: content protection
+          href: concept-managed-identities.md
+        - name: Clés gérées par le client
+          href: concept-use-customer-managed-keys-byok.md
     - name: Éléments multimédias
       items:
         - name: Éléments multimédias
@@ -178,8 +185,6 @@
         - name: Chiffrement dynamique et remise de clé
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
-        - name: Clés gérées par le client
-          href: concept-use-customer-managed-keys-byok.md
         - name: Conception d’un système multi-DRM
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

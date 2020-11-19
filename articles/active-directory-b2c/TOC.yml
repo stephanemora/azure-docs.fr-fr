@@ -356,7 +356,7 @@
                       href: application-insights-technical-profile.md
                     - name: Azure Active Directory
                       href: active-directory-technical-profile.md
-                    - name: Azure Multi-Factor Authentication
+                    - name: "Authentification multifacteur Azure\_AD"
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
                     - name: Azure AD SSPR
@@ -526,5 +526,5 @@
     - name: Support
       href: support-options.md
       displayName: technical
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'

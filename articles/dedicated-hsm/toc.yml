@@ -10,6 +10,10 @@
       href: tutorial-deploy-hsm-cli.md
     - name: "Déploiement de modules\_HSM sur un réseau virtuel existant à l’aide de PowerShell"
       href: tutorial-deploy-hsm-powershell.md
+- name: Démarrages rapides
+  items:
+    - name: Créer un module Azure Dedicated HSM avec Azure PowerShell
+      href: quickstart-create-hsm-powershell.md
 - name: Concepts
   items:
     - name: Haute disponibilité

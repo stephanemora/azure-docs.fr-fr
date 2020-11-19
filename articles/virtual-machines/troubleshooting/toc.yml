@@ -115,6 +115,8 @@
           href: windows-boot-error-invalid-image-hash.md
         - name: Erreur d’arrêt de Windows - Informations de configuration système incorrectes
           href: windows-stop-error-bad-system-config-info.md
+        - name: Erreur Windows Stop - Dysfonctionnement matériel
+          href: windows-stop-error-hardware-malfunction.md
         - name: Erreur d’arrêt Windows - État Pas de mémoire
           href: troubleshoot-windows-stop-error.md
         - name: Erreur d’arrêt Windows - Processus système terminé

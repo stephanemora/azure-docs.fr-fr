@@ -5,15 +5,15 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/28/2020
+ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 4cbe179d015c71094e6813666a6fd0cee3e5e3c2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92909054"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680887"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -40,6 +40,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Délai d’expiration maximal pour les exécutions d’activité de pipeline | 7 jours | 7 jours |
 | Octets par objet pour les objets pipeline <sup>3</sup> | 200 Ko | 200 Ko |
 | Octets par objet pour les objets jeu de données et service lié <sup>3</sup> | 100 Ko | 2 000 Ko |
+| Octets par charge utile pour chaque exécution d’activité<sup>4</sup> | 896 Ko | 896 Ko |
 | Unités d’intégration de données par exécution d’activité de copie <sup>1</sup> | 256 | 256 |
 | Écrire des appels d’API | 1 200/h | 1 200/h<br/><br/> Cette limite est imposée par Azure Resource Manager, et non par Azure Data Factory. |
 | Lire des appels d’API | 12 500/h | 12 500/h<br/><br/> Cette limite est imposée par Azure Resource Manager, et non par Azure Data Factory. |
@@ -60,6 +61,8 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Groupe de régions 3 | Canada Centre, Asie Est, France Centre, Corée Centre, Royaume-Uni Sud |
 
 <sup>3</sup> Les objets pipeline, jeu de données et service lié représentent un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide d’Azure Data Factory. Data Factory est conçu pour permettre une mise à l’échelle de plusieurs pétaoctets de données.
+
+<sup>4</sup> La charge utile pour chaque exécution d’activité comprend la configuration de l’activité, le ou les jeux de données associés et les configurations du ou des services liés le cas échéant, et une petite partie des propriétés système générées par type d’activité. La limite de cette charge utile n’est pas liée à la quantité de données que vous pouvez déplacer ou traiter avec Azure Data Factory. Découvrez les [symptômes et recommandations](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) si vous atteignez cette limite.
 
 ### <a name="version-1"></a>version 1
 
