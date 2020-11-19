@@ -13,6 +13,10 @@
         - name: Modèle ARM
           displayName: Resource Manager
           href: advisor-alerts-arm.md
+- name: Concepts
+  items:
+    - name: Base de référence de la sécurité
+      href: security-baseline.md
 - name: Tutoriels
   items:
     - name: Bien démarrer avec Advisor

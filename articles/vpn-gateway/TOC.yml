@@ -175,8 +175,6 @@
               href: ikev2-openvpn-from-sstp.md
         - name: Gestion des sessions P2S
           href: p2s-session-management.md
-        - name: Passer à un certificat de passerelle d’autorité de certification public pour P2S
-          href: ./point-to-site-about.md
         - name: Configurer un tunnel de périphérique VPN Always On
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: Configurer un tunnel utilisateur VPN Always On

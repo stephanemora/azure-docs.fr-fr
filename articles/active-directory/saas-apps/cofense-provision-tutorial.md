@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355700"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836289"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cofense Recipient Sync pour l’approvisionnement automatique d’utilisateurs
 
@@ -77,7 +77,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Cofense Recipient Sync dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -93,24 +93,24 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez les valeurs **d’URL de base SCIM 2.0 et de Jeton d’authentification SCIM** récupérées précédemment à l’étape 2. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Cofense Recipient Sync. Si la connexion échoue, vérifiez que votre compte Cofense Recipient Sync dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs **d’URL de base SCIM 2.0 et de Jeton d’authentification SCIM** récupérées précédemment à l’étape 2. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Cofense Recipient Sync. Si la connexion échoue, vérifiez que votre compte Cofense Recipient Sync dispose des autorisations d’administrateur et réessayez.
 
     ![Jeton URL de locataire](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Cofense Recipient Sync**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Cofense Recipient Sync**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Cofense Recipient Sync. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Cofense Recipient Sync en vue de mises à jour ultérieures.  Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Cofense Recipient Sync. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Cofense Recipient Sync en vue de mises à jour ultérieures.  Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-   |Attribut|Type|
-   |---|---|
+   |Attribut|Type|Pris en charge pour le filtrage|
+   |---|---|---|
+   |externalId|String|&check;|
    |userName|String|
-   |externalId|String|
    |active|Boolean|
    |displayName|String|
    |name.formatted|String|
@@ -129,11 +129,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |addresses[type eq"work"].locality|Chaîne|
    |addresses[type eq"work"].region|Chaîne|
    |addresses[type eq"work"].postalCode|Chaîne|
-   |addresses[type eq"work"].country|Chaîne|
+   |addresses[type eq"work"].country|String|
    |title|String|
    |emails[type eq "work"].value|String|
    |emails[type eq "home"].value|String|
-   |emails[type eq "other"].value|Chaîne|
+   |emails[type eq "other"].value|String|
    |preferredLanguage|String|
    |nickName|String|
    |userType|String|

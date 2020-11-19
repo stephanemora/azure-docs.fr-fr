@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 38665cdf42450b09d14211f7ed44d62e4adb75b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537930"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844435"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Tutoriel : Créer une application PHP (Laravel) et Serveur flexible MySQL (préversion) dans Azure App Service
 
@@ -96,7 +96,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configuration de la connexion MySQL
 
-À la racine du référentiel, créez un fichier nommé *.env* . Copiez les variables suivantes dans le fichier *.env* . Remplacez l’espace réservé _&lt;root_password>_ par le mot de passe de l’utilisateur racine de MySQL.
+À la racine du référentiel, créez un fichier nommé *.env*. Copiez les variables suivantes dans le fichier *.env*. Remplacez l’espace réservé _&lt;root_password>_ par le mot de passe de l’utilisateur racine de MySQL.
 
 ```txt
 APP_ENV=local
@@ -110,7 +110,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Pour en savoir plus sur la manière dont Laravel utilise ce fichier _.env_ , consultez [Configuration de l’environnement Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Pour en savoir plus sur la manière dont Laravel utilise ce fichier _.env_, consultez [Configuration de l’environnement Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
 ### <a name="run-the-sample-locally"></a>Télécharger l’exemple localement
 
@@ -134,7 +134,7 @@ php artisan serve
 
 Dans un navigateur, accédez à `http://localhost:8000`. Ajoutez quelques tâches dans la page.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Application web PHP dans Azure avec serveur flexible":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP se connecte correctement à MySQL":::
 
 Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
@@ -147,7 +147,7 @@ az mysql flexible-server create  --resource-group myResourceGroup --public-acces
 
 > [!IMPORTANT]
 > - Notez le **nom du serveur** et la **chaîne de connexion** pour les utiliser à l’étape suivante afin de connecter et d’exécuter la migration des données laravel.
-> - Pour l’argument **IP-Address** , indiquez l’adresse IP de votre ordinateur client. Le serveur est verrouillé lors de sa création et vous devez autoriser l’accès à votre ordinateur client pour gérer le serveur localement.
+> - Pour l’argument **IP-Address**, indiquez l’adresse IP de votre ordinateur client. Le serveur est verrouillé lors de sa création et vous devez autoriser l’accès à votre ordinateur client pour gérer le serveur localement.
 
 ### <a name="configure-server-firewall-to-allow-web-app-to-connect-to-the-server"></a>Configurer le pare-feu du serveur pour autoriser l’application web à se connecter au serveur
 
@@ -196,7 +196,7 @@ Dans cette étape, vous allez connecter l’application PHP à la base de donné
 
 ### <a name="configure-the-database-connection"></a>Configurer la connexion à la base de données
 
-À la racine du référentiel, créez un fichier _.env.production_ et copiez-y les variables suivantes. Remplacez l’espace réservé _&lt;mysql-server-name>_ dans *DB_HOST* et *DB_USERNAME* .
+À la racine du référentiel, créez un fichier _.env.production_ et copiez-y les variables suivantes. Remplacez l’espace réservé _&lt;mysql-server-name>_ dans *DB_HOST* et *DB_USERNAME*.
 
 ```
 APP_ENV=production
@@ -257,7 +257,7 @@ Accédez à `http://localhost:8000`. Si la page se charge sans erreur, l’appli
 
 Ajoutez quelques tâches dans la page.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Application web PHP dans Azure avec serveur flexible":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP se connecte correctement à Azure Database pour MySQL":::
 
 Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
@@ -359,7 +359,7 @@ Vous pouvez utiliser la méthode PHP [getenv](https://www.php.net/manual/en/func
 
 Laravel a besoin d’une clé d’application dans App Service. Vous pouvez la configurer avec les paramètres d’application.
 
-Dans la fenêtre de terminal local, utilisez `php artisan` pour générer une nouvelle clé d’application sans l’enregistrer dans _.env_ .
+Dans la fenêtre de terminal local, utilisez `php artisan` pour générer une nouvelle clé d’application sans l’enregistrer dans _.env_.
 
 ```bash
 php artisan key:generate --show
@@ -375,7 +375,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 ### <a name="set-the-virtual-application-path"></a>Définition du chemin d’accès de l’application virtuelle
 
-Le [cycle de vie de l’application Laravel](https://laravel.com/docs/5.4/lifecycle) commence dans le répertoire _public_ , et non pas dans le répertoire racine de l’application. L’image par défaut Docker PHP pour App Service utilise Apache, et ne vous permet pas de personnaliser `DocumentRoot` pour Laravel. Toutefois, vous pouvez utiliser `.htaccess` pour réécrire toutes les requêtes pour pointer vers _/public_ au lieu du répertoire racine. Dans le répertoire racine, l’élément `.htaccess` a déjà été ajouté à cet effet. Ainsi, votre application Laravel est prête à être déployée.
+Le [cycle de vie de l’application Laravel](https://laravel.com/docs/5.4/lifecycle) commence dans le répertoire _public_, et non pas dans le répertoire racine de l’application. L’image par défaut Docker PHP pour App Service utilise Apache, et ne vous permet pas de personnaliser `DocumentRoot` pour Laravel. Toutefois, vous pouvez utiliser `.htaccess` pour réécrire toutes les requêtes pour pointer vers _/public_ au lieu du répertoire racine. Dans le répertoire racine, l’élément `.htaccess` a déjà été ajouté à cet effet. Ainsi, votre application Laravel est prête à être déployée.
 
 Pour plus d’informations, consultez [Modifier la racine du site](../../app-service/configure-language-php.md?pivots=platform-linux#change-site-root).
 
@@ -387,7 +387,7 @@ De retour dans la fenêtre de terminal locale, ajoutez un dépôt distant Azure 
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Quand Git Credential Manager vous invite à entrer vos informations d’identification, veillez à entrer celles que vous avez créées dans la section **Configurer un utilisateur de déploiement** , et non pas celles vous permettant de vous connecter au portail Azure.
+Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Quand Git Credential Manager vous invite à entrer vos informations d’identification, veillez à entrer celles que vous avez créées dans la section **Configurer un utilisateur de déploiement**, et non pas celles vous permettant de vous connecter au portail Azure.
 
 ```bash
 git push azure master
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 Accédez à `http://<app-name>.azurewebsites.net` et ajoutez quelques tâches à la liste.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Application web PHP dans Azure avec serveur flexible":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Application web PHP dans Azure":::
 
 Félicitations, vous exécutez une application PHP orientée données dans Azure App Service.
 
@@ -466,11 +466,11 @@ Dans la fenêtre de terminal local, exécutez les migrations de base de données
 php artisan migrate
 ```
 
-Selon la [convention d’affectation de noms Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), le modèle `Task` (voir _app/Task.php_ ) est mappé à la table `tasks` par défaut.
+Selon la [convention d’affectation de noms Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), le modèle `Task` (voir _app/Task.php_) est mappé à la table `tasks` par défaut.
 
 ### <a name="update-application-logic"></a>Mise à jour de la logique d’application
 
-Ouvrez le fichier *routes/web.php* . L’application définit ici ses itinéraires et sa logique métier.
+Ouvrez le fichier *routes/web.php*. L’application définit ici ses itinéraires et sa logique métier.
 
 À la fin du fichier, ajoutez un itinéraire avec le code suivant :
 
@@ -493,7 +493,7 @@ Le code ci-dessus effectue une simple mise à jour du modèle de données en bas
 
 ### <a name="update-the-view"></a>Mise à jour de la vue
 
-Ouvrez le fichier *resources/views/tasks.blade.php* . Recherchez la balise d’ouverture `<tr>` et remplacez-la par :
+Ouvrez le fichier *resources/views/tasks.blade.php*. Recherchez la balise d’ouverture `<tr>` et remplacez-la par :
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -534,7 +534,7 @@ php artisan serve
 
 Pour voir l’évolution de l’état de la tâche, accédez à `http://localhost:8000` et activez la case à cocher.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Application web PHP dans Azure avec serveur flexible":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Case à cocher ajoutée à la tâche":::
 
 Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
@@ -556,7 +556,7 @@ git push azure master
 
 Une fois le `git push` terminé, accédez à l’application Azure et testez la nouvelle fonctionnalité.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Application web PHP dans Azure avec serveur flexible":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Modifications du modèle et de la base de données publiées dans Azure":::
 
 Si vous avez ajouté des tâches, celles-ci sont conservées dans la base de données. Les mises à jour appliquées au schéma de données n’affectent pas les données existantes.
 

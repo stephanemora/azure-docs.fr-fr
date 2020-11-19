@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289543"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844503"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Intégration de Key Vault à l’autorité de certification DigiCert
 
@@ -31,9 +31,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre ce guide, vous avez besoin des ressources suivantes.
 * Un coffre de clés. Vous pouvez utiliser un coffre de clés existant ou en créer un nouveau en suivant les étapes d’un des guides de démarrage rapide suivants :
-   - [Créer un coffre de clés avec Azure CLI](../secrets/quick-create-cli.md)
-   - [Créer un coffre de clés avec Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Créer un coffre de clés avec le portail Azure](../secrets/quick-create-portal.md).
+   - [Créer un coffre de clés avec Azure CLI](../general/quick-create-cli.md)
+   - [Créer un coffre de clés avec Azure PowerShell](../general/quick-create-powershell.md)
+   - [Créer un coffre de clés avec le portail Azure](../general/quick-create-portal.md).
 *   Vous devez activer le compte DigiCert CertCentral. [Inscrivez-vous](https://www.digicert.com/account/signup/) pour obtenir un compte CertCentral.
 *   Des autorisations de niveau administrateur dans vos comptes.
 
@@ -55,12 +55,12 @@ Après avoir récupéré les informations ci-dessus du compte DigiCert CertCentr
 3.  Sélectionnez l’onglet **Autorités de certification**. ![sélectionner Autorités de certification](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.  Sélectionnez l’option **Ajouter**.
  ![ajouter des autorités de certification](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
-5.  Dans l’écran **Créer une autorité de certification** , choisissez les valeurs suivantes :
-    -   **Name**  : ajoutez un nom d’émetteur identifiable. Par exemple : DigicertCA
-    -   **Fournisseur**  : sélectionnez DigiCert dans le menu.
+5.  Dans l’écran **Créer une autorité de certification**, choisissez les valeurs suivantes :
+    -   **Name** : ajoutez un nom d’émetteur identifiable. Par exemple : DigicertCA
+    -   **Fournisseur** : sélectionnez DigiCert dans le menu.
     -   **Account ID** (ID de compte) : entrez votre ID de compte DigiCert CertCentral.
-    -   **Mot de passe du compte**  : entrez la clé d’API que vous avez générée dans votre compte DigiCert CertCentral.
-    -   **ID d’organisation**  : entrez l’OrgID récupéré à partir du compte DigiCert CertCentral. 
+    -   **Mot de passe du compte** : entrez la clé d’API que vous avez générée dans votre compte DigiCert CertCentral.
+    -   **ID d’organisation** : entrez l’OrgID récupéré à partir du compte DigiCert CertCentral. 
     -   Cliquez sur **Créer**.
    
 6.  Vous pouvez alors observer que DigicertCA a bien été ajouté à la liste des autorités de certification.
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Définissez l’émetteur ( **Issuer** ). Digicert est alors ajouté en tant qu’autorité de certification dans le coffre de clés. Pour en savoir plus sur les paramètres [consultez les informations disponibles ici](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer).
+4. Définissez l’émetteur (**Issuer**). Digicert est alors ajouté en tant qu’autorité de certification dans le coffre de clés. Pour en savoir plus sur les paramètres [consultez les informations disponibles ici](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer).
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

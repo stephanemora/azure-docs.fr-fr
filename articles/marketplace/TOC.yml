@@ -386,5 +386,7 @@
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Codes d'état de co-vente
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    - name: Catégories et sous-catégories
+      href: categories.md
     - name: Balises HTML prises en charge
       href: supported-html-tags.md
