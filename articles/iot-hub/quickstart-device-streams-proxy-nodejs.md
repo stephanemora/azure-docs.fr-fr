@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0d98f3c61191d5d5b333072682abe740761901f0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747441"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831886"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy Node.js (préversion)
 
@@ -30,13 +30,15 @@ Dans ce guide de démarrage rapide, vous activez le trafic SSH (Secure Shell) et
 
 * [Node.js 10+](https://nodejs.org).
 
+    Vous pouvez vérifier la version actuelle de Node.js sur votre machine de développement en utilisant la commande suivante :
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Un exemple de projet Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-Vous pouvez vérifier la version actuelle de Node.js sur votre machine de développement en utilisant la commande suivante :
-
-```cmd/sh
-node --version
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en tant que [fonctionnalité d’évaluation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -47,8 +49,6 @@ Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en ta
 > * EUAP USA Centre
 > * Europe Nord
 > * Asie Sud-Est
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="add-azure-iot-extension"></a>Ajouter une extension Azure IoT
 
@@ -82,7 +82,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Pour activer l’application back-end afin de vous connecter à votre hub IoT et récupérer les messages, vous avez également besoin d’une *chaîne de connexion de service* . La commande suivante récupère la chaîne de votre hub IoT :
+1. Pour activer l’application back-end afin de vous connecter à votre hub IoT et récupérer les messages, vous avez également besoin d’une *chaîne de connexion de service*. La commande suivante récupère la chaîne de votre hub IoT :
 
    > [!NOTE]
    > Remplacez l’espace réservé *YourIoTHubName* par le nom que vous avez choisi pour votre hub IoT.

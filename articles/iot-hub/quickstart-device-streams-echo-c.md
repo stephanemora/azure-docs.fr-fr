@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: ad31eb04f53197c4c3ccdd173cd57564c65d5a35
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: de310846ad0449a0dac7eccd60d82d4c68ef519b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747466"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832203"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans C par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -36,9 +36,7 @@ L’application C côté appareil utilisée dans ce guide de démarrage rapide p
 
 Le code illustre le processus de lancement d’un flux d’appareil, ainsi que la façon de l’utiliser pour envoyer et recevoir des données.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,13 +46,9 @@ Vous devez respecter les prérequis suivants :
 
 * Installez la dernière version de [Git](https://git-scm.com/download/).
 
-* Exécutez la commande suivante afin d’ajouter l’extension Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
 
@@ -68,7 +62,7 @@ Pour le moment, la préversion des flux d’appareil est uniquement prise en cha
 Pour ce guide de démarrage rapide, vous utilisez [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). Vous préparez un environnement de développement pour cloner et générer le [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub. Le SDK sur GitHub comprend l’exemple de code utilisé dans ce guide de démarrage rapide.
 
    > [!NOTE]
-   > Avant de commencer cette procédure, vérifiez que Visual Studio est installé avec la charge de travail **Développement Desktop en C++** .
+   > Avant de commencer cette procédure, vérifiez que Visual Studio est installé avec la charge de travail **Développement Desktop en C++**.
 
 1. Installez le [système de build CMake](https://cmake.org/download/) comme indiqué dans la page de téléchargement.
 
@@ -82,7 +76,7 @@ Pour ce guide de démarrage rapide, vous utilisez [Azure IoT device SDK for C](i
 
     Cette opération doit prendre quelques minutes.
 
-1. Créez un sous-répertoire *cmake* dans le répertoire racine du dépôt Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire *azure-iot-sdk-c*  :
+1. Créez un sous-répertoire *cmake* dans le répertoire racine du dépôt Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire *azure-iot-sdk-c* :
 
     ```cmd/sh
     mkdir cmake
@@ -98,7 +92,7 @@ Pour ce guide de démarrage rapide, vous utilisez [Azure IoT device SDK for C](i
       make -j
       ```
 
-   * Dans Windows, ouvrez une [invite de commandes développeur pour Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Exécutez la commande correspondant à votre version de Visual Studio. Ce guide de démarrage rapide utilise Visual Studio 2019. Ces commandes créent une solution Visual Studio pour l’appareil simulé dans le répertoire *cmake* .
+   * Dans Windows, ouvrez une [invite de commandes développeur pour Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Exécutez la commande correspondant à votre version de Visual Studio. Ce guide de démarrage rapide utilise Visual Studio 2019. Ces commandes créent une solution Visual Studio pour l’appareil simulé dans le répertoire *cmake*.
 
       ```cmd
       rem For VS2015
