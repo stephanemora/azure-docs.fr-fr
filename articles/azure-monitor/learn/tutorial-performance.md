@@ -3,16 +3,16 @@ title: Diagnostiquer les problèmes de performances à l’aide d’Azure Applic
 description: Didacticiel vous permettant de rechercher et de diagnostiquer les problèmes de performances dans votre application à l’aide d’Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322497"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592564"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -102,11 +102,6 @@ Comme avec les données collectées pour les performances du serveur, Applicatio
 2. Logs s’ouvre et affiche une requête pour chacune des vues dans le panneau. La première requête indique la durée de différents affichages de page au fil du temps.
 
     ![Requête Logs](media/tutorial-performance/10-page-view-logs.png)
-
-3.  Smart Diagnostics est une fonctionnalité de Logs qui identifie des modèles uniques dans les données. Lorsque vous cliquez sur le point Smart Diagnostics dans le graphique en courbes, la même requête est exécutée sans les enregistrements qui ont provoqué l’anomalie. Les détails de ces enregistrements sont affichés dans la section des commentaires de la requête pour vous permettre d’identifier les propriétés de ces affichages de page qui sont à l’origine de la durée excessive.
-
-    ![Logs avec les diagnostics intelligents](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris à identifier les exceptions d’exécution, passez à l’étape suivante du didacticiel pour apprendre à créer des alertes en réponse aux défaillances.

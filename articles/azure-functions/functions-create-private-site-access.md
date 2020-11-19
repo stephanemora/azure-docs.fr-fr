@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423026"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579128"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutoriel : Établir l’accès privé aux sites avec Azure Functions
 
-Ce tutoriel vous montre comment activer l’[accès privé aux sites](./functions-networking-options.md#private-site-access) avec Azure Functions. En utilisant l’accès privé aux sites, vous pouvez exiger que le code de votre fonction soit déclenché uniquement à partir d’un réseau virtuel spécifique.
+Ce tutoriel vous montre comment activer l’[accès privé aux sites](./functions-networking-options.md#private-endpoint-connections) avec Azure Functions. En utilisant l’accès privé aux sites, vous pouvez exiger que le code de votre fonction soit déclenché uniquement à partir d’un réseau virtuel spécifique.
 
 L’accès privé aux sites est utile dans les scénarios où l’accès à l’application de fonction doit être limité à un réseau virtuel spécifique. Par exemple, l’application de fonction peut être applicable uniquement aux employés d’une organisation spécifique ou aux services qui se trouvent dans le réseau virtuel spécifié (par exemple, une autre fonction Azure, une machine virtuelle Azure ou un cluster AKS).
 
@@ -53,11 +53,11 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
 
 1. Sélectionnez le bouton **Créer une ressource**.
 
-1. Dans le champ de recherche, tapez **Windows Server** , puis sélectionnez **Windows Server** dans les résultats de la recherche.
+1. Dans le champ de recherche, tapez **Windows Server**, puis sélectionnez **Windows Server** dans les résultats de la recherche.
 
 1. Sélectionnez **Windows Server 2019 Datacenter** dans la liste des options de Windows Server, puis appuyez sur le bouton **Créer**.
 
-1. Sous l’onglet _De base_ , utilisez les paramètres de machine virtuelle de la manière spécifiée dans le tableau sous l’image :
+1. Sous l’onglet _De base_, utilisez les paramètres de machine virtuelle de la manière spécifiée dans le tableau sous l’image :
 
     >[!div class="mx-imgBorder"]
     >![Onglet De base pour une nouvelle machine virtuelle Windows](./media/functions-create-private-site-access/create-vm-3.png)
@@ -75,7 +75,7 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
     >[!div class="mx-imgBorder"]
     >![Capture d’écran montrant l’onglet « Réseau » avec l’action « Créer nouveau » mise en évidence dans la section « Réseau virtuel ».](./media/functions-create-private-site-access/create-vm-networking.png)
 
-1. Dans _Créer un réseau virtuel_ , utilisez les paramètres figurant dans le tableau sous l’image :
+1. Dans _Créer un réseau virtuel_, utilisez les paramètres figurant dans le tableau sous l’image :
 
     >[!div class="mx-imgBorder"]
     >![Créer un réseau virtuel pour la nouvelle machine virtuelle](./media/functions-create-private-site-access/create-vm-vnet-1.png)
@@ -88,9 +88,9 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
     | _Plage d’adresses_ (sous-réseau) | 10.10.1.0/24 | La taille du sous-réseau définit le nombre d’interfaces qui peuvent être ajoutées au sous-réseau. Ce sous-réseau est utilisé par la machine virtuelle. Un sous-réseau /24 fournit 254 adresses d’hôte. |
 
 1. Sélectionnez **OK** pour créer le réseau virtuel.
-1. De retour sous l’onglet _Mise en réseau_ , assurez-vous que l’option **Aucune** est sélectionnée pour _Adresse IP publique_.
-1. Choisissez l’onglet _Gestion_ , puis dans _Compte de stockage des diagnostics_ , choisissez **Créer nouveau** pour créer un compte de stockage.
-1. Laissez les valeurs par défaut pour les sections _Identité_ , _Arrêt automatique_ et _Sauvegarde_.
+1. De retour sous l’onglet _Mise en réseau_, assurez-vous que l’option **Aucune** est sélectionnée pour _Adresse IP publique_.
+1. Choisissez l’onglet _Gestion_, puis dans _Compte de stockage des diagnostics_, choisissez **Créer nouveau** pour créer un compte de stockage.
+1. Laissez les valeurs par défaut pour les sections _Identité_, _Arrêt automatique_ et _Sauvegarde_.
 1. Sélectionnez _Revoir + créer_. Une fois la validation terminée, sélectionnez **Créer**. Le processus de création d’une machine virtuelle prend quelques minutes.
 
 ## <a name="configure-azure-bastion"></a>Configurer Azure Bastion
@@ -100,7 +100,7 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
 1. Dans le portail, choisissez **Ajouter** en haut de la vue de groupe de ressources.
 1. Dans le champ de recherche, tapez **Bastion**.
 1. Sélectionnez **Bastion** dans les résultats de la recherche.
-1. Sélectionnez **Créer** pour commencer le processus de création d’une ressource Azure Bastion. Vous remarquerez un message d’erreur dans la section _Réseau virtuel_ , car il n’existe pas encore de sous-réseau AzureBastionSubnet. Le sous-réseau est créé au cours des étapes suivantes. Utilisez les paramètres indiqués dans le tableau sous l’image ci-après :
+1. Sélectionnez **Créer** pour commencer le processus de création d’une ressource Azure Bastion. Vous remarquerez un message d’erreur dans la section _Réseau virtuel_, car il n’existe pas encore de sous-réseau AzureBastionSubnet. Le sous-réseau est créé au cours des étapes suivantes. Utilisez les paramètres indiqués dans le tableau sous l’image ci-après :
 
     >[!div class="mx-imgBorder"]
     >![Début de la création de la ressource Azure Bastion](./media/functions-create-private-site-access/create-bastion-basics-1.png)
@@ -121,7 +121,7 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
     >[!div class="mx-imgBorder"]
     >![Créer un sous-réseau pour l’hôte Azure Bastion](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
 
-1. Dans la page _Créer un bastion_ , sélectionnez le sous-réseau **AzureBastionSubnet** récemment créé dans la liste des sous-réseaux disponibles.
+1. Dans la page _Créer un bastion_, sélectionnez le sous-réseau **AzureBastionSubnet** récemment créé dans la liste des sous-réseaux disponibles.
 
     >[!div class="mx-imgBorder"]
     >![Créer un hôte Azure Bastion avec un sous-réseau spécifique](./media/functions-create-private-site-access/create-bastion-basics-2.png)
@@ -134,7 +134,7 @@ L’étape suivante consiste à créer une application de fonction dans Azure à
 
 1. Dans le portail, choisissez **Ajouter** en haut de la vue de groupe de ressources.
 1. Sélectionnez **Compute > Function App**.
-1. Dans la section _De base_ , utilisez les paramètres d’application de fonction comme indiqué dans le tableau.
+1. Dans la section _De base_, utilisez les paramètres d’application de fonction comme indiqué dans le tableau.
 
     | Paramètre      | Valeur suggérée  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -145,7 +145,7 @@ L’étape suivante consiste à créer une application de fonction dans Azure à
     | _Région_ | Centre-Nord des États-Unis | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
 
     Sélectionnez le bouton **Suivant : Hébergement >** .
-1. Pour la section _Hébergement_ , sélectionnez le _Compte de stockage_ , le _Système d’exploitation_ et le _Plan_ appropriés, comme indiqué dans le tableau suivant.
+1. Pour la section _Hébergement_, sélectionnez le _Compte de stockage_, le _Système d’exploitation_ et le _Plan_ appropriés, comme indiqué dans le tableau suivant.
 
     | Paramètre      | Valeur suggérée  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -159,31 +159,31 @@ L’étape suivante consiste à créer une application de fonction dans Azure à
 
 L’étape suivante consiste à configurer des [restrictions d’accès](../app-service/app-service-ip-restrictions.md) pour que seules les ressources sur le réseau virtuel puissent appeler la fonction.
 
-Vous activez l’[accès privé aux sites](functions-networking-options.md#private-site-access) en créant un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) de réseau virtuel Azure entre l’application de fonction et le réseau virtuel spécifié. Les restrictions d’accès sont implémentées par le biais de points de terminaison de service. Les points de terminaison de service garantissent que seul le trafic provenant du réseau virtuel spécifié peut accéder à la ressource désignée. Dans ce cas, la ressource désignée est la fonction Azure.
+Vous activez l’[accès privé aux sites](functions-networking-options.md#private-endpoint-connections) en créant un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) de réseau virtuel Azure entre l’application de fonction et le réseau virtuel spécifié. Les restrictions d’accès sont implémentées par le biais de points de terminaison de service. Les points de terminaison de service garantissent que seul le trafic provenant du réseau virtuel spécifié peut accéder à la ressource désignée. Dans ce cas, la ressource désignée est la fonction Azure.
 
 1. Dans l’application de fonction, sélectionnez le lien **Mise en réseau** sous l’en-tête de section _Paramètres_.
 1. La page _Mise en réseau_ est le point de départ de la configuration d’Azure Front Door, d’Azure CDN ainsi que des restrictions d’accès.
 1. Sélectionnez **Configurer des restrictions d’accès** pour configurer l’accès privé aux sites.
-1. Dans la page _Restrictions d’accès_ , vous voyez uniquement la restriction par défaut en place. La configuration par défaut ne place aucune restriction sur l’accès à l’application de fonction.  Sélectionnez **Ajouter une règle** pour créer une configuration de restriction d’accès privé aux sites.
-1. Dans le volet _Ajouter une restriction d’accès_ , indiquez un _Nom_ , une _Priorité_ et une _Description_ pour la nouvelle règle.
-1. Sélectionnez **Réseau virtuel** dans la zone de liste déroulante _Type_ , puis sélectionnez le réseau virtuel précédemment créé, et enfin le sous-réseau **Tutoriel**. 
+1. Dans la page _Restrictions d’accès_, vous voyez uniquement la restriction par défaut en place. La configuration par défaut ne place aucune restriction sur l’accès à l’application de fonction.  Sélectionnez **Ajouter une règle** pour créer une configuration de restriction d’accès privé aux sites.
+1. Dans le volet _Ajouter une restriction d’accès_, indiquez un _Nom_, une _Priorité_ et une _Description_ pour la nouvelle règle.
+1. Sélectionnez **Réseau virtuel** dans la zone de liste déroulante _Type_, puis sélectionnez le réseau virtuel précédemment créé, et enfin le sous-réseau **Tutoriel**. 
     > [!NOTE]
     > L’activation du point de terminaison de service peut prendre plusieurs minutes.
-1. La page _Restrictions d’accès_ montre maintenant qu’il existe une nouvelle restriction. Quelques secondes peuvent être nécessaires pour que l’ _État du point de terminaison_ passe de Désactivé à Mise en service en cours puis à Activé.
+1. La page _Restrictions d’accès_ montre maintenant qu’il existe une nouvelle restriction. Quelques secondes peuvent être nécessaires pour que l’_État du point de terminaison_ passe de Désactivé à Mise en service en cours puis à Activé.
 
     >[!IMPORTANT]
-    > Chaque application de fonction a un [site Kudu (outil avancé)](../app-service/app-service-ip-restrictions.md#scm-site) permettant de gérer les déploiements d’applications de fonction. Ce site est accessible à partir d’une URL telle que : `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. L’activation des restrictions d’accès sur le site Kudu empêche le déploiement du code de projet à partir d’une station de travail de développeur locale, et un agent est alors nécessaire au sein du réseau virtuel pour effectuer le déploiement.
+    > Chaque application de fonction a un [site Kudu (outil avancé)](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) permettant de gérer les déploiements d’applications de fonction. Ce site est accessible à partir d’une URL telle que : `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. L’activation des restrictions d’accès sur le site Kudu empêche le déploiement du code de projet à partir d’une station de travail de développeur locale, et un agent est alors nécessaire au sein du réseau virtuel pour effectuer le déploiement.
 
 ## <a name="access-the-functions-app"></a>Accéder à l’application de fonction
 
-1. Revenez à l’application de fonction créée.  Dans la section _Présentation_ , copiez l’URL.
+1. Revenez à l’application de fonction créée.  Dans la section _Présentation_, copiez l’URL.
 
     >[!div class="mx-imgBorder"]
     >![Obtenir l’URL de l’application de fonction](./media/functions-create-private-site-access/access-function-overview.png)
 
     Si vous essayez d’accéder à l’application de fonction maintenant à partir de votre ordinateur situé en dehors de votre réseau virtuel, une page HTTP 403 indiquant que l’accès est interdit s’affiche.
 1. Revenez au groupe de ressources, puis sélectionnez la machine virtuelle créée précédemment. Pour accéder au site à partir de la machine virtuelle, vous devez vous connecter à celle-ci par le biais du service Azure Bastion.
-1. Sélectionnez **Se connecter** , puis choisissez **Bastion**.
+1. Sélectionnez **Se connecter**, puis choisissez **Bastion**.
 1. Indiquez le nom d’utilisateur et le mot de passe requis pour vous connecter à la machine virtuelle.
 1. Sélectionnez **Connecter**. Une nouvelle fenêtre de navigateur s’affiche pour vous permettre d’interagir avec la machine virtuelle.
 Il est possible d’accéder au site à partir du navigateur web présent sur la machine virtuelle car cette dernière accède au site via le réseau virtuel.  Alors que le site n’est accessible qu’à partir du réseau virtuel désigné, une entrée DNS publique est conservée.

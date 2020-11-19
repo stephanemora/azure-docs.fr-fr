@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6fd26b4965b92f5f06a008d67e2d585fd1b41b7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840198"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652074"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutoriel : Configurer des réponses automatisées aux menaces dans Azure Sentinel
 
@@ -39,7 +39,7 @@ Ce didacticiel vous aide à utiliser des playbooks de sécurité dans Azure Sent
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Qu’est-ce qu’un playbook de sécurité dans Azure Security ?
 
-Un playbook de sécurité est une collection de procédures qui peut être exécutée à partir d’Azure Sentinel en réponse à une alerte. Un playbook de sécurité peut vous aider à automatiser et à orchestrer votre réponse. Vous pouvez l’exécuter manuellement ou le configurer pour qu’il s’exécute automatiquement lors du déclenchement d’alertes spécifiques. Les playbooks de sécurité dans Azure Sentinel reposent sur [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps). Cela signifie que vous bénéficiez de la puissance, des possibilités de personnalisation et des modèles intégrés de Logic Apps. Chaque playbook est créé pour l’abonnement de votre choix. Cependant, la page Playbooks affiche tous les playbooks de tous les abonnements sélectionnés.
+Un playbook de sécurité est une collection de procédures qui peut être exécutée à partir d’Azure Sentinel en réponse à une alerte. Un playbook de sécurité peut vous aider à automatiser et à orchestrer votre réponse. Vous pouvez l’exécuter manuellement ou le configurer pour qu’il s’exécute automatiquement lors du déclenchement d’alertes spécifiques. Les playbooks de sécurité dans Azure Sentinel reposent sur [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Cela signifie que vous bénéficiez de la puissance, des possibilités de personnalisation et des modèles intégrés de Logic Apps. Chaque playbook est créé pour l’abonnement de votre choix. Cependant, la page Playbooks affiche tous les playbooks de tous les abonnements sélectionnés.
 
 > [!NOTE]
 > Les playbooks tirant parti d’Azure Logic Apps, des frais sont applicables. Consultez la page sur la tarification [d’Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pour en savoir plus.
@@ -118,5 +118,3 @@ Pour automatiser les réponses :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à exécuter un playbook dans Azure Sentinel. Consultez l’article expliquant [comment rechercher des menaces de façon proactive à l’aide d’Azure Sentinel](hunting.md).
-
-

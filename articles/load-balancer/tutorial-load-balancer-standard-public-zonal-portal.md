@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044953"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696436"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 
@@ -37,7 +37,7 @@ Ce tutoriel crée une instance publique [Azure Standard Load Balancer](https://a
 
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec un équilibreur de charge standard, voir [Standard Load Balancer et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
-Si vous préférez, utilisez [Azure CLI](load-balancer-standard-public-zonal-cli.md) pour effectuer ce tutoriel.
+Si vous préférez, utilisez [Azure CLI](./quickstart-load-balancer-standard-public-cli.md) pour effectuer ce tutoriel.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -150,7 +150,7 @@ Dans cette section, vous créez des règles de groupe de sécurité réseau pour
 
 1. Dans le menu le plus à gauche, sélectionnez **Toutes les ressources**. Puis dans la liste de ressources, sélectionnez **myVM1**. Il se trouve dans le groupe de ressources **myResourceGroupZLB**.
 2. Sur la page **Vue d’ensemble**, sélectionnez **Connexion** pour utiliser RDP pour accéder à la machine virtuelle.
-3. Connectez-vous à la machine virtuelle avec le nom d’utilisateur et le mot de passe que vous avez indiqué lors de la création de la machine virtuelle. Pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle, vous devrez peut-être sélectionner **Plus de choix**. Ensuite, sélectionnez **Utiliser un autre compte**. Et enfin sélectionner **OK**. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez**Oui** pour poursuivre le processus de connexion.
+3. Connectez-vous à la machine virtuelle avec le nom d’utilisateur et le mot de passe que vous avez indiqué lors de la création de la machine virtuelle. Pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle, vous devrez peut-être sélectionner **Plus de choix**. Ensuite, sélectionnez **Utiliser un autre compte**. Et enfin sélectionner **OK**. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez **Oui** pour poursuivre le processus de connexion.
 4. Sur le bureau du serveur, accédez à **Outils d’administration Windows** > **Windows PowerShell**.
 6. Dans la fenêtre **PowerShell**, exécutez les commandes suivantes pour installer le serveur IIS. Ces commandes suppriment également le fichier iisstart.htm par défaut, puis ajoutent un nouveau fichier iisstart.htm qui affiche le nom de la machine virtuelle :
 

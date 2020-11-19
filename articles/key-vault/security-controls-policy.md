@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Key Vault
 description: Répertorie les contrôles de conformité réglementaire d’Azure Policy pour Azure Key Vault. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 8c9fbf94a6244f198e9aab8be3b8c49cd195fcfa
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b1de6e2d4c6c9177476bcc8d6274a12cf32740af
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308495"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696900"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-key-vault"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Key Vault
 

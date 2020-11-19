@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399225"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697167"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutoriel : Indexer des données Azure SQL à l’aide du SDK .NET
 
@@ -69,7 +69,7 @@ Si vous disposez d’une ressource Azure SQL Database, vous pouvez y ajouter la 
 
 1. Sélectionnez le fichier et cliquez sur **Ouvrir**. Le script doit ressembler à la capture d’écran suivante :
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Page de création de base de données" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Script SQL" border="false":::
 
 1. Cliquez sur **Exécuter** pour exécuter la requête. Dans le volet Résultats, vous devez voir un message de réussite de la requête pour 3 lignes.
 
@@ -99,7 +99,7 @@ Les appels d’API nécessitent l’URL du service et une clé d’accès. Un se
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Page de création de base de données" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurer votre environnement
 
@@ -201,7 +201,7 @@ Un objet de l’indexeur est indépendant de la plateforme, où la configuration
 
 Appuyez sur F5 pour générer et exécuter la solution. Le programme s’exécute en mode débogage. Une fenêtre de console signale l’état de chaque opération.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Page de création de base de données" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Sortie de la console" border="false":::
 
 Votre code s’exécute localement dans Visual Studio en se connectant à votre service de recherche sur Azure qui, à son tour, se connecte à Azure SQL Database et récupère le jeu de données. Étant donné le grand nombre d’opérations, il existe plusieurs points de défaillance potentiels. Si une erreur survient, commencez par vérifier les conditions suivantes :
 
@@ -217,7 +217,7 @@ Utilisez le portail Azure pour vérifier la création des objets, puis utilisez 
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/). Dans la page **Vue d’ensemble** de votre service de recherche, ouvrez chaque liste successivement pour vérifier que l’objet est créé. Sous **Index**, **Indexeurs** et **Sources de données**, vous devez voir « hotels », « azure-sql-indexer » et « azure-sql » respectivement.
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Page de création de base de données" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Vignettes d’indexeur et de source de données" border="false":::
 
 1. Sélectionnez l’index hotels. Dans la page hotels, le premier onglet est celui de l’**Explorateur de recherche**. 
 
@@ -225,7 +225,7 @@ Utilisez le portail Azure pour vérifier la création des objets, puis utilisez 
 
    Les trois entrées de votre index sont renvoyées en tant que documents JSON. L’explorateur de recherche renvoie des documents au format JSON afin que vous puissiez afficher l’ensemble de la structure.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Page de création de base de données" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Interroger un index" border="false":::
    
 1. Ensuite, entrez une chaîne de recherche : `search=river&$count=true`. 
 
