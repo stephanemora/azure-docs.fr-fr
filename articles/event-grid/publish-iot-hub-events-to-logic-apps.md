@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604604"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566348"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutoriel : Envoyer des notifications par e-mail concernant des événements Azure IoT Hub à l’aide d’Event Grid et de Logic Apps
 
@@ -21,13 +21,13 @@ Azure Event Grid vous permet de réagir aux événements dans IoT Hub en déclen
 
 Cet article présente un exemple de configuration qui utilise IoT Hub et Event Grid. À la fin, vous disposez d’une application logique Azure configurée pour envoyer un e-mail de notification chaque fois qu’un appareil se connecte à votre hub IoT ou s’en déconnecte. Event Grid peut être utilisé pour obtenir en temps voulu une notification sur la déconnexion des appareils critiques. L’affichage des métriques et des diagnostics dans les journaux/alertes peut prendre plusieurs minutes (à savoir, 20 minutes ou plus, même si nous ne voulons pas chiffrer ce délai). Cela peut être inacceptable pour une infrastructure critique.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure actif. Si vous ne disposez d’aucun abonnement, vous pouvez [créer un compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/).
+* Un compte e-mail auprès de n’importe quel fournisseur de messagerie pris en charge par Azure Logic Apps, comme Office 365 Outlook ou Outlook.com. Ce compte e-mail permet d’envoyer les notifications d’événements.
 
-* Un compte e-mail auprès de n’importe quel fournisseur de messagerie pris en charge par Azure Logic Apps, comme Office 365 Outlook ou Outlook.com. Ce compte e-mail permet d’envoyer les notifications d’événements. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 

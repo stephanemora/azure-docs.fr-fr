@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 58002140cd6ec0cd90eefc506dc743be05e7be7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9733eeb0d9941f6e23dcc9c0fa4dba60f4e4d30
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274467"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561027"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutoriel : Créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure
 
@@ -171,7 +171,7 @@ Pour ce faire, vous allez effectuer les opérations suivantes :
 
 Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquement pour vérifier si Azure a bien créé la passerelle d’application.
 
-1. Ouvrez [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Pour ce faire, sélectionnez **Cloud Shell** dans la barre de navigation supérieure du portail Azure, puis sélectionnez **PowerShell** dans la liste déroulante. 
+1. Ouvrez [Azure PowerShell](../../cloud-shell/quickstart-powershell.md). Pour ce faire, sélectionnez **Cloud Shell** dans la barre de navigation supérieure du portail Azure, puis sélectionnez **PowerShell** dans la liste déroulante. 
 
     ![Installer l’extension personnalisée](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
