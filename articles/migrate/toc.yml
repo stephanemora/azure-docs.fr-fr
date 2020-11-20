@@ -90,6 +90,10 @@
           href: migrate-appliance.md
         - name: Conditions requises de l’appliance de réplication
           href: migrate-replication-appliance.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Architecture de l’appliance Azure Migrate
       href: migrate-appliance-architecture.md
     - name: Architecture de la migration Hyper-V

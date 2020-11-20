@@ -116,8 +116,6 @@
           href: sample-scripts-azure-cli.md
         - name: Regroupement de connexions Java
           href: sample-scripts-java-connection-pooling.md
-        - name: Éléments intégrés Azure Policy
-          href: ./policy-reference.md
     - name: Concepts
       items:
         - name: Serveurs
@@ -156,6 +154,9 @@
               href: concepts-azure-ad-authentication.md
             - name: Chiffrement double d’infrastructure
               href: concepts-infrastructure-double-encryption.md
+            - name: Contrôles de sécurité par Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Base de référence de la sécurité
               href: security-baseline.md
         - name: Maintenance planifiée
@@ -573,6 +574,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Procédures stockées de gestion
       href: reference-stored-procedures.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Modèles de déploiement

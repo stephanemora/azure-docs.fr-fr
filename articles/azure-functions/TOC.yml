@@ -4,6 +4,8 @@
   items:
     - name: À propos d’Azure Functions
       href: functions-overview.md
+    - name: Prise en main
+      href: functions-get-started.md
     - name: Fonctions durables
       href: durable/durable-functions-overview.md
     - name: Comparaison sans serveur
@@ -588,8 +590,6 @@
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Informations sur les quotas

@@ -54,17 +54,17 @@
 - name: Concepts
   items:
     - name: Comparer les solutions pour les identités externes
-      href: 'https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+      href: ../active-directory/external-identities/compare-with-b2c.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - name: Apprendre les bases
       items:
         - name: Authentification et autorisation
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/authentication-vs-authorization.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
         - name: Jetons
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/security-tokens.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
         - name: Protocoles
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/v2-app-types.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
         - name: Bibliothèque d’authentification
-          href: 'https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+          href: ../active-directory/develop/msal-overview.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - name: Bonnes pratiques pour Azure AD B2C
       href: best-practices.md
     - name: Types d’applications
@@ -512,7 +512,7 @@
     - name: Forum aux questions
       href: faq.md
     - name: Obtenir de l’aide
-      href: /azure/active-directory/develop/developer-support-help-options
+      href: ../active-directory/develop/developer-support-help-options.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/active-directory-b2c/'
     - name: Calculatrice de prix

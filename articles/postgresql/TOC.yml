@@ -84,7 +84,7 @@
             - name: Go
               href: connect-go.md
               displayName: connect with go
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: Concevoir une base de données
           items:
@@ -106,8 +106,6 @@
       items:
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
-        - name: Éléments intégrés Azure Policy
-          href: ./policy-reference.md
     - name: Concepts
       items:
         - name: Serveurs
@@ -147,6 +145,9 @@
             - name: Chiffrement double d’infrastructure
               href: concepts-infrastructure-double-encryption.md
               displayName: 'security, infrastructure encryption'
+            - name: Contrôles de sécurité par Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Base de référence de la sécurité
               href: security-baseline.md
         - name: Mise en réseau
@@ -638,6 +639,9 @@
       href: /rest/api/postgresql
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn
