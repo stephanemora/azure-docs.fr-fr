@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 44c1e55d60fb35ba510d99535c50c7919b29253e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 1299cbf1b837315a1a95c8a2ec2e4ed0706d959c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918682"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816638"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -46,7 +46,7 @@ Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les op�
 
 ### <a name="install-the-client-library"></a>Installer la bibliothèque de client 
 
-Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’ **Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** , cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.Vision.Face`. Sélectionnez la version `2.6.0-preview.1`, puis **Installer**. 
+Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir**, cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.Vision.Face`. Sélectionnez la version `2.6.0-preview.1`, puis **Installer**. 
 
 #### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
 
@@ -135,11 +135,11 @@ Dans une nouvelle méthode, instanciez un client avec votre point de terminaison
 
 ### <a name="declare-helper-fields"></a>Déclarer des champs d’assistance
 
-Les champs suivants sont nécessaires pour plusieurs des opérations de Visage que vous ajouterez ultérieurement. À la racine de votre classe **Program** , définissez la chaîne d’URL suivante. Cette URL pointe vers un dossier d’exemples d’images.
+Les champs suivants sont nécessaires pour plusieurs des opérations de Visage que vous ajouterez ultérieurement. À la racine de votre classe **Program**, définissez la chaîne d’URL suivante. Cette URL pointe vers un dossier d’exemples d’images.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_image_url)]
 
-Dans votre méthode **Main** , définissez des chaînes pointant vers les différents types de modèles de reconnaissance. Plus tard, vous pourrez spécifier le modèle de reconnaissance que vous souhaitez utiliser pour la détection des visages. Pour plus d’informations sur ces options, consultez [Spécifier un modèle de reconnaissance](../../Face-API-How-to-Topics/specify-recognition-model.md).
+Dans votre méthode **Main**, définissez des chaînes pointant vers les différents types de modèles de reconnaissance. Plus tard, vous pourrez spécifier le modèle de reconnaissance que vous souhaitez utiliser pour la détection des visages. Pour plus d’informations sur ces options, consultez [Spécifier un modèle de reconnaissance](../../Face-API-How-to-Topics/specify-recognition-model.md).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
@@ -184,7 +184,7 @@ Le code suivant affiche les détails relatifs aux correspondances sur la console
 
 ## <a name="identify-a-face"></a>Identifier un visage
 
-L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup** , une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues. Pour effectuer l’opération d’identification, vous devez d’abord créer et entraîner un **PersonGroup**.
+L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues. Pour effectuer l’opération d’identification, vous devez d’abord créer et entraîner un **PersonGroup**.
 
 ### <a name="create-a-person-group"></a>Créer un groupe de personnes
 
@@ -212,6 +212,9 @@ Ajoutez ensuite le code suivant pour créer un objet **Person** pour chaque pers
 Une fois que vous avez extrait les données de visage de vos images et que vous les avez triées dans des objets **Person** distincts, vous devez entraîner le **PersonGroup** à identifier les caractéristiques visuelles associées à chacun de ses objets **Person**. Le code suivant appelle la méthode **train** asynchrone et interroge les résultats, en affichant l’état sur la console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
+
+> [!TIP]
+> L’API Visage s’exécute sur un ensemble de modèles prédéfinis qui sont statiques par nature (les performances du modèle ne se dégradent pas ou ne s’améliorent pas quand le service est exécuté). Les résultats générés par le modèle risquent de changer si Microsoft met à jour le back-end du modèle sans migrer vers une version entièrement nouvelle du modèle. Pour bénéficier d’une version plus récente d’un modèle, vous pouvez réentraîner votre **PersonGroup**, en spécifiant le modèle plus récent en tant que paramètre avec les mêmes images d’inscription.
 
 Ce groupe **Person** et ses objets **Person** associés sont maintenant prêts à être utilisés dans les opérations de vérification, d’identification ou de groupe.
 

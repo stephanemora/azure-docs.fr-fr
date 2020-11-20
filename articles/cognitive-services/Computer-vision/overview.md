@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/13/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90907068"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629748"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -27,19 +27,19 @@ ms.locfileid: "90907068"
 
 Le service Vision par ordinateur d’Azure vous donne accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. Par exemple, Vision par ordinateur peut déterminer si une image contient du contenu pour adultes, identifier des marques ou des objets spécifiques ou trouver des visages humains.
 
-Vous pouvez créer des applications Vision par ordinateur par le biais d’un kit SDK de bibliothèque de client ou en appelant directement l’API REST. Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
+Vous pouvez créer des applications Vision par ordinateur par le biais d’un [kit SDK de bibliothèque de client](./quickstarts-sdk/client-library.md) ou en appelant directement l’[API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005). Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
+
+## <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
+
+Vision par ordinateur comprend des [fonctionnalités de reconnaissance optique de caractères (OCR)](concept-recognizing-text.md). Vous pouvez utiliser la nouvelle API Lire pour extraire du texte imprimé et manuscrit d’images et de documents. Elle utilise les modèles les plus récents et fonctionne avec du texte sur diverses surfaces et fonds. Ces derniers comprennent les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les deux API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour bien démarrer, suivez un [guide de démarrage rapide](./quickstarts-sdk/client-library.md).
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Vision par ordinateur pour la gestion des ressources numériques
 
 Vision par ordinateur peut contribuer à de nombreux scénarios de gestion des actifs numériques (DAM). La gestion des actifs numériques est le processus métier d’organisation, de stockage et de récupération des éléments multimédias enrichis, et de gestion des droits et autorisations numériques. Par exemple, une entreprise peut décider de regrouper et d’identifier des images sur la base de logos, de visages, d’objets, de couleurs, ou d’autres éléments visibles. Vous pouvez également [générer automatiquement des légendes pour des images](./Tutorials/storage-lab-tutorial.md) et y associer des mots clés afin qu’elles puissent faire l’objet d’une recherche. Pour une solution gestion des actifs numériques tout-en-un utilisant Cognitive Services, Recherche cognitive Azure et une fonctionnalité de création de rapports intelligents, consultez le [Guide de l’accélérateur de solution d’exploration des connaissances](https://github.com/Azure-Samples/azure-search-knowledge-mining) sur GitHub. Pour d’autres exemples de Vision par ordinateur, consultez le dépôt [Modèles de solution Vision par ordinateur](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates).
 
-## <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
-
-Vision par ordinateur comprend des [fonctionnalités de reconnaissance optique de caractères (OCR)](concept-recognizing-text.md). Vous pouvez utiliser la nouvelle API Lire pour extraire du texte imprimé et manuscrit d’images et de documents. Elle utilise les modèles les plus récents et fonctionne avec du texte sur diverses surfaces et fonds. Ces derniers comprennent les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les deux API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour bien démarrer, suivez un [guide de démarrage rapide](#next-steps).
-
 ## <a name="analyze-images-for-insight"></a>Analyser des images pour obtenir des informations
 
-Vous pouvez analyser des images pour fournir des insights sur leurs caractéristiques visuelles. Toutes les fonctionnalités listées dans le tableau ci-dessous sont fournies par l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Pour bien démarrer, suivez un [guide de démarrage rapide](#next-steps).
+Vous pouvez analyser des images pour fournir des insights sur leurs caractéristiques visuelles. Toutes les fonctionnalités listées dans le tableau ci-dessous sont fournies par l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Pour bien démarrer, suivez un [guide de démarrage rapide](./quickstarts-sdk/client-library.md).
 
 
 ### <a name="tag-visual-features"></a>Identifier les composants visuels à l’aide de balises
@@ -113,8 +113,6 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Démarrez avec le service Vision par ordinateur en suivant un guide de démarrage rapide :
+Commencez avec Vision par ordinateur en suivant le guide de démarrage rapide dans votre langage de développement préféré :
 
-- [Démarrage rapide : Bibliothèque de client .NET Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Démarrage rapide : Bibliothèque de client Python Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [Démarrage rapide : Bibliothèque de client Java Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [Démarrage rapide : Bibliothèque de client Vision par ordinateur](./quickstarts-sdk/client-library.md)

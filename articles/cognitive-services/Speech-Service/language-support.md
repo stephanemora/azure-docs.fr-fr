@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: a864717304dacaf6cf4c77c92050827af619ed39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: cfd28171524ada5f5feea9e18e4b88a291254e88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736684"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616788"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Langage                          | Paramètres régionaux | Personnalisations                                   |
+| Langage                          | Paramètres régionaux (BCP-47) | Personnalisations                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Arabe (Bahreïn), standard moderne  |`ar-BH` | Modèle de langage                                   |
 |Arabe (Égypte)                     |`ar-EG` | Modèle de langage                                   |
@@ -136,12 +136,12 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 
 Pour plus d’informations sur la disponibilité régionale, consultez [régions](regions.md#standard-and-neural-voices).
 
-|Langage  | Paramètres régionaux           | Sexe | Nom de la voix | Prise en charge du style |
+|Langage  | Paramètres régionaux (BCP-47)          | Sexe | Nom de la voix | Prise en charge du style |
 |--|--|--|--|--|
 | Arabe (Égypte) | `ar-EG` | Female | `ar-EG-SalmaNeural` | Général |
 | Arabe (Arabie saoudite) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | Général |
 | Bulgare (Bulgarie) | `bg-BG` <sup>Nouveau</sup> | Female | `bg-BG-KalinaNeural` | Général |
-| Cantonais (chinois traditionnel, Hong Kong) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | Général |
+| Cantonais (chinois traditionnel, Hong Kong, R.A.S.) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | Général |
 | Catalan (Espagne) | `ca-ES` | Female | `ca-ES-AlbaNeural` | Général |
 | Croate (Croatie) | `hr-HR` <sup>Nouveau</sup> | Female | `hr-HR-GabrijelaNeural` | Général |
 | Tchèque (Tchéquie) | `cs-CZ` <sup>Nouveau</sup> | Female | `cs-CZ-VlastaNeural` | Général |
@@ -219,13 +219,13 @@ Pour savoir comment configurer et ajuster les voix neuronales, voir [Langage de 
 
 Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, ce qui vous permet de convertir le texte en parole synthétisée. Pour plus d’informations sur la disponibilité régionale, consultez [régions](regions.md#standard-and-neural-voices).
 
-| Langage | Paramètres régionaux | Sexe | Nom de la voix |
+| Langage | Paramètres régionaux (BCP-47) | Sexe | Nom de la voix |
 |--|--|--|--|
 | Arabe (arabe)  |  `ar-EG`  |  Female  |  `ar-EG-Hoda`|
 | Arabe (Arabie saoudite)  |  `ar-SA`  |  Male  |  `ar-SA-Naayf`|
 | Bulgare (Bulgarie)  |  `bg-BG`  |  Male  |  `bg-BG-Ivan`|
-| Cantonais (chinois traditionnel, Hong Kong)  |  `zh-HK`  |  Male  |  `zh-HK-Danny`|
-| Cantonais (chinois traditionnel, Hong Kong)  |  `zh-HK`  |  Female  |  `zh-HK-TracyRUS`|
+| Cantonais (chinois traditionnel, Hong Kong, R.A.S.)  |  `zh-HK`  |  Male  |  `zh-HK-Danny`|
+| Cantonais (chinois traditionnel, Hong Kong, R.A.S.)  |  `zh-HK`  |  Female  |  `zh-HK-TracyRUS`|
 | Catalan (Espagne)  |  `ca-ES`  |  Female  |  `ca-ES-HerenaRUS`|
 | Croate (Croatie)  |  `hr-HR`  |  Male  |  `hr-HR-Matej`|
 | Tchèque (République tchèque)  |  `cs-CZ`  |  Male  |  `cs-CZ-Jakub`|
@@ -397,7 +397,7 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 
 Consultez le tableau suivant qui répertorie les langues prises en charge pour les différentes API Reconnaissance de l’orateur. Consultez la [vue d’ensemble](speaker-recognition-overview.md) pour plus d’informations sur Reconnaissance de l’orateur.
 
-| Langage | Paramètres régionaux | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
+| Langage | Paramètres régionaux (BCP-47) | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
 |----|----|----|----|----|
 |Anglais (US)  |  en-US  |  Oui  |  Oui  |  Oui |
 |Chinois (mandarin, simplifié) | zh-CN     |     n/a |     Oui |     Oui|

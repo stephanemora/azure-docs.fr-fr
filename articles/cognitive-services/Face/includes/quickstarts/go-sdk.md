@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918687"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816813"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Go. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -49,9 +49,9 @@ cd my-app
 
 Votre espace de travail contiendra trois dossiers :
 
-* **src**  : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce dossier.
-* **pkg**  : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
-* **bin**  : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
+* **src** : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce dossier.
+* **pkg** : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
+* **bin** : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
 
 > [!TIP]
 > Pour plus d’informations sur la structure d’un espace de travail Go, consultez la [documentation du langage Go](https://golang.org/doc/code.html#Workspaces). Ce guide comprend des informations pour configurer `$GOPATH` et `$GOROOT`.
@@ -72,7 +72,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Créer une application Go
 
-Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src**  :
+Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src** :
 
 ```bash
 cd src
@@ -194,9 +194,12 @@ Une fois que vous avez attribué les visages, vous entraînez le **PersonGroup**
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 
+> [!TIP]
+> L’API Visage s’exécute sur un ensemble de modèles prédéfinis qui sont statiques par nature (les performances du modèle ne se dégradent pas ou ne s’améliorent pas quand le service est exécuté). Les résultats générés par le modèle risquent de changer si Microsoft met à jour le back-end du modèle sans migrer vers une version entièrement nouvelle du modèle. Pour bénéficier d’une version plus récente d’un modèle, vous pouvez réentraîner votre **PersonGroup**, en spécifiant le modèle plus récent en tant que paramètre avec les mêmes images d’inscription.
+
 ## <a name="identify-a-face"></a>Identifier un visage
 
-L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup** , une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
+L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
 
 > [!IMPORTANT]
 > Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni à la section [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group).
@@ -226,7 +229,7 @@ Ce code affiche ensuite les résultats de correspondance détaillés sur la cons
 
 ## <a name="verify-faces"></a>Vérifier les visages
 
-L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person** , et détermine s’ils appartiennent à la même personne.
+L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person**, et détermine s’ils appartiennent à la même personne.
 
 Le code suivant détecte les visages dans deux images sources, puis il compare chaque visage détecté à un visage détecté dans une image cible.
 
