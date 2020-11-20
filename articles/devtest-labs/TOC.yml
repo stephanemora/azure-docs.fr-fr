@@ -191,6 +191,8 @@
           href: use-managed-identities-environments.md
         - name: Alertes de sécurité pour les environnements
           href: environment-security-alerts.md
+        - name: Créer un environnement axé sur les applications
+          href: create-application-centric-environment.md
     - name: Gérer des modèles réutilisables
       items:
         - name: Images personnalisées ou formules

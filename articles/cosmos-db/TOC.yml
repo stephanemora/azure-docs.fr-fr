@@ -142,7 +142,7 @@
               href: create-sql-api-python.md
             - name: Application Xamarin
               href: create-sql-api-xamarin-dotnet.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: "1\_- Créer et gérer des données"
           items:
@@ -945,6 +945,8 @@
               href: oracle-migrate-cosmos-db-blitzz.md
             - name: Migrer - Apache Cassandra vers l’API Cassandra avec Blitzz
               href: cassandra-migrate-cosmos-db-blitzz.md
+            - name: Migrer - Apache Cassandra vers l’API Cassandra avec Databricks
+              href: cassandra-migrate-cosmos-db-databricks.md
         - name: Modifier le flux
           href: cassandra-change-feed.md
         - name: Créer un conteneur - API Cassandra
