@@ -32,14 +32,14 @@ Si la page de votre navigateur Internet se bloque, essayez chacune des étapes s
 - Utilisez un autre navigateur Internet.
 - Utilisez le mode de navigation privée de votre navigateur :
 
-   - **Edge :** ouvrez **Paramètres** (les trois points en regard de l’image de votre profil), sélectionnez **Nouvelle fenêtre InPrivate** , puis recherchez le [portail Azure](https://portal.azure.com/) ou le [Centre des comptes Azure](https://account.azure.com/Subscriptions) afin de vous y connecter. 
-   - **Chrome :** choisissez le mode **Navigation privée** .
-   - **Safari :** choisissez **Fichier** , puis **Nouvelle fenêtre privée** .
+   - **Edge :** ouvrez **Paramètres** (les trois points en regard de l’image de votre profil), sélectionnez **Nouvelle fenêtre InPrivate**, puis recherchez le [portail Azure](https://portal.azure.com/) ou le [Centre des comptes Azure](https://account.azure.com/Subscriptions) afin de vous y connecter. 
+   - **Chrome :** choisissez le mode **Navigation privée**.
+   - **Safari :** choisissez **Fichier**, puis **Nouvelle fenêtre privée**.
 
 - Effacez la mémoire cache et supprimez les cookies Internet :
 
-   - **Edge :** ouvrez **Paramètres** et sélectionnez **Confidentialité et services** . Suivez les étapes sous **Effacer les données de navigation** . Vérifiez que les cases **Historique de navigation** , **Historique des téléchargements** et **Images et fichiers mis en cache** sont cochées, puis sélectionnez **Supprimer** .
-   - **Chrome :** choisissez **Paramètres** et sélectionnez **Effacer les données de navigation** sous **Confidentialité et sécurité** .
+   - **Edge :** ouvrez **Paramètres** et sélectionnez **Confidentialité et services**. Suivez les étapes sous **Effacer les données de navigation**. Vérifiez que les cases **Historique de navigation**, **Historique des téléchargements** et **Images et fichiers mis en cache** sont cochées, puis sélectionnez **Supprimer**.
+   - **Chrome :** choisissez **Paramètres** et sélectionnez **Effacer les données de navigation** sous **Confidentialité et sécurité**.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Vous êtes automatiquement connecté comme un autre utilisateur
 
@@ -49,13 +49,13 @@ Pour résoudre le problème, essayez l’une des méthodes suivantes :
 
 - Effacez la mémoire cache et supprimez les cookies Internet.
 
-   - **Edge :** ouvrez **Paramètres** et sélectionnez **Confidentialité et services** . Suivez les étapes sous **Effacer les données de navigation** . Vérifiez que les cases **Historique de navigation** , **Historique des téléchargements** , **Cookies** et **Images et fichiers mis en cache** sont cochées, puis sélectionnez **Supprimer** .
-   - **Chrome :** choisissez **Paramètres** et sélectionnez **Effacer les données de navigation** sous **Confidentialité et sécurité** .
+   - **Edge :** ouvrez **Paramètres** et sélectionnez **Confidentialité et services**. Suivez les étapes sous **Effacer les données de navigation**. Vérifiez que les cases **Historique de navigation**, **Historique des téléchargements**, **Cookies** et **Images et fichiers mis en cache** sont cochées, puis sélectionnez **Supprimer**.
+   - **Chrome :** choisissez **Paramètres** et sélectionnez **Effacer les données de navigation** sous **Confidentialité et sécurité**.
 - Rétablissez les valeurs par défaut des paramètres de votre navigateur.
 - Utilisez le mode de navigation privée de votre navigateur. 
-   - **Edge :** ouvrez **Paramètres** (les trois points en regard de l’image de votre profil), sélectionnez **Nouvelle fenêtre InPrivate** , puis recherchez le [portail Azure](https://portal.azure.com/) ou le [Centre des comptes Azure](https://account.azure.com/Subscriptions) afin de vous y connecter. 
-   - **Chrome :** choisissez le mode **Navigation privée** .
-   - **Safari :** choisissez **Fichier** , puis **Nouvelle fenêtre privée** .
+   - **Edge :** ouvrez **Paramètres** (les trois points en regard de l’image de votre profil), sélectionnez **Nouvelle fenêtre InPrivate**, puis recherchez le [portail Azure](https://portal.azure.com/) ou le [Centre des comptes Azure](https://account.azure.com/Subscriptions) afin de vous y connecter. 
+   - **Chrome :** choisissez le mode **Navigation privée**.
+   - **Safari :** choisissez **Fichier**, puis **Nouvelle fenêtre privée**.
 
 ## <a name="i-can-sign-in-but-i-see-the-error-no-subscriptions-found"></a>Je peux me connecter mais l’erreur Aucun abonnement trouvé s’affiche
 
@@ -73,8 +73,8 @@ Pour résoudre ce problème :
 Vérifiez que le compte utilisé correspond à l’administrateur du compte. Pour vérifier qui est l’administrateur du compte, procédez comme suit :
 
 1.  Connectez-vous à la [vue Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Sélectionnez l’abonnement que vous souhaitez vérifier, puis choisissez **Paramètres** .
-1.  Sélectionner **Propriétés** . L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
+1.  Sélectionnez l’abonnement que vous souhaitez vérifier, puis choisissez **Paramètres**.
+1.  Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
 
 ## <a name="additional-help-resources"></a>Ressources d'aide supplémentaires
 

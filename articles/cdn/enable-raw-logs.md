@@ -40,7 +40,7 @@ Pour configurer les journaux bruts de votre instance Azure CDN à partir du prof
 
 1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** >>  **\<your-CDN-profile>** .
 
-2. Sous **Supervision** , sélectionnez **Paramètres de diagnostic**.
+2. Sous **Supervision**, sélectionnez **Paramètres de diagnostic**.
 
 3. Sélectionnez **+ Ajouter le paramètre de diagnostic**.
 
@@ -49,17 +49,17 @@ Pour configurer les journaux bruts de votre instance Azure CDN à partir du prof
     > [!IMPORTANT]
     > Les journaux bruts sont disponibles uniquement au niveau du profil, tandis que les journaux agrégés des codes d’état http sont disponibles au niveau du point de terminaison.
 
-4. Sous **Paramètres de diagnostic** , entrez un nom pour le paramètre de diagnostic sous **Nom des paramètres de diagnostic**.
+4. Sous **Paramètres de diagnostic**, entrez un nom pour le paramètre de diagnostic sous **Nom des paramètres de diagnostic**.
 
 5. Sélectionnez le journal **AzureCdnAccessLog** et définissez la rétention en jours.
 
 6. Sélectionnez les **Détails de la destination**. Les options de destination sont les suivantes :
     * **Envoyer à Log Analytics**
-        * Sélectionnez l’ **Abonnement** et l’ **Espace de travail Log Analytics**.
+        * Sélectionnez l’**Abonnement** et l’**Espace de travail Log Analytics**.
     * **Archiver dans un compte de stockage**
-        * Sélectionnez l’ **Abonnement** et le **Compte de stockage**.
+        * Sélectionnez l’**Abonnement** et le **Compte de stockage**.
     * **Diffuser vers un hub d’événements**
-        * Sélectionnez l’ **Abonnement** , l’ **Espace de noms du hub d’événements** , le **Nom du hub d’événements (facultatif)** et le **Nom de la stratégie du hub d’événements**.
+        * Sélectionnez l’**Abonnement**, l’**Espace de noms du hub d’événements**, le **Nom du hub d’événements (facultatif)** et le **Nom de la stratégie du hub d’événements**.
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configurer la destination pour les paramètres du journal." border="true":::
 
@@ -233,11 +233,11 @@ Scénarios exclus du calcul du taux d’accès par octet :
 
 1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** >>  **\<your-CDN-profile>** .
 
-2. Sous **Supervision** , sélectionnez **Métriques**  :
+2. Sous **Supervision**, sélectionnez **Métriques** :
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Métriques pour le profil CDN." border="true":::
 
-3. Sélectionnez **Ajouter une métrique** , puis sélectionnez la métrique à ajouter :
+3. Sélectionnez **Ajouter une métrique**, puis sélectionnez la métrique à ajouter :
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Ajouter et sélectionner une métrique pour le profil CDN." border="true":::
 

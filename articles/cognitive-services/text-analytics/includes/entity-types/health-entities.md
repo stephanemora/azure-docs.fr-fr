@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 44bce7c6dd2443ea0ed1851325a5b84f325f5fae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779923"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553181"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Analyse de texte pour la santé - Catégories, entités et attributs
 
@@ -49,13 +49,13 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 :::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure.png" alt-text="Exemple d’entité de structure du corps.":::
 
 
-:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Exemple étendu d’entité de structure du corps.":::
 
 ### <a name="attributes"></a>Attributs
 
 **DIRECTION** : termes directionnels qui caractérisent une structure du corps. Par exemple : left, lateral, upper, posterior (gauche, latéral, supérieur, postérieur).
 
-:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="Exemple d’attribut directionnel.":::
 
 ### <a name="supported-relations"></a>Relations prises en charge
 
@@ -67,20 +67,20 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 **AGE** : tous les termes et expressions relatifs à l’âge, y compris celui d’un patient, de membres de la famille et autres. Par exemple : 40-year-old, 51 yo, 3 months old, adult, infant, elderly, young, minor, middle-aged (40 ans, 51, 3 mois, adulte, nourrisson, personne âgée, jeune, mineur, âge moyen).
 
-:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="Exemple d’entité d’âge.":::
 
-:::image type="content" source="../../media/ta-for-health/age-entity-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/age-entity-2.png" alt-text="Autre exemple d’entité d’âge.":::
 
 
 **GENDER** : termes qui révèlent le sexe du sujet. Par exemple : male, female, woman, gentleman, lady (homme, femme, féminin, masculin).
 
-:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Exemple d’une entité de sexe.":::
 
 ### <a name="attributes"></a>Attributs
 
 **RELATIONAL_OPERATOR** : expressions qui expriment la relation entre une entité démographique et des informations supplémentaires.
 
-:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="Exemple d’opérateur relationnel.":::
 
 ## <a name="examinations"></a>Examens
 
@@ -88,31 +88,31 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 **EXAMINATION_NAME** : procédures de diagnostic et tests. Par exemple : MRI, ECG, HIV test, hemoglobin, platelets count, scale systems (*Bristol stool scale*) (IRM, ECG, test du VIH, hémoglobine, nombre de plaquettes, systèmes d’échelle comme l’Échelle de Bristol).
 
-:::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="Exemple d’entité d’examen.":::
 
-:::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Autre exemple d’entité de nom d’examen.":::
 
 ### <a name="attributes"></a>Attributs
 
 **DIRECTION** : termes directionnels caractérisant un examen.
 
-:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Exemple d’attribut directionnel avec une entité de nom d’examen.":::
 
 **MEASUREMENT_UNIT** : unité de l’examen. Par exemple, dans *hemoglobin > 9.5 g/dL*, le terme *g/dL* est l’unité du test *hemoglobin*.
 
-:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Exemple d’attribut d’unité de mesure avec une entité de nom d’examen.":::
 
 **MEASUREMENT_VALUE** : valeur de l’examen. Par exemple, dans *hemoglobin > 9.5 g/dL*, le terme *9.5* est la valeur du test *hemoglobin*.
 
-:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Exemple d’attribut de valeur de mesure avec une entité de nom d’examen.":::
 
 **RELATIONAL_OPERATOR** : expressions qui expriment la relation entre un examen et des informations supplémentaires. Par exemple, la valeur de mesure requise pour un examen cible.
 
-:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="Exemple d’opérateur relationnel avec une entité de nom d’examen.":::
 
 **TIME** : termes temporels relatifs au début et/ou à la durée d’un examen. Par exemple, quand le test a eu lieu.
 
-:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="Exemple d’attribut de temps avec une entité de nom d’examen.":::
 
 ### <a name="supported-relations"></a>Relations prises en charge
 
@@ -128,7 +128,7 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 **GENE** : toutes les mentions concernant les gènes. Par exemple : MTRR, F2.
 
-:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="Exemple d’une entité de gène.":::
 
 **VARIANT** : toutes les mentions des variantes d’un gène. Par exemple : c.524C>T, (MTRR):r.1462_1557del96
   
@@ -138,17 +138,17 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
   
 **ADMINISTRATIVE_EVENT** : événements liés au système de santé, mais d’une nature administrative/semi-administrative. Par exemple : registration, admission, trial, study entry, transfer, discharge, hospitalization, hospital stay (enregistrement, admission, essai, entrée d’étude, transfert, décharge, hospitalisation, séjour hospitalier). 
 
-:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="Exemple d’entité d’événement de santé.":::
 
 **CARE_ENVIRONMENT** : environnement ou emplacement où les patients reçoivent des soins. Par exemple : emergency room, physician’s office, cardio unit, hospice, hospital (salle des urgences, bureau du médecin, unité de cardiologie, hospice, hôpital).
 
-:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="Cette capture d’écran montre un exemple d’entité d’environnement médical.":::
 
 **HEALTHCARE_PROFESSION** : praticien de la santé avec ou sans licence. Par exemple : dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor (dentiste, pathologiste, neurologue, radiologue, pharmacien, nutritionniste, physiothérapeute, chiropracteur).
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="Cette capture d’écran montre un autre exemple d’entité d’environnement médical.":::
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Autre exemple d’entité d’environnement de santé.":::
 
 ## <a name="medical-condition"></a>État pathologique
 
@@ -156,15 +156,15 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 **DIAGNOSIS** : maladie, syndrome, empoisonnement. Par exemple : breast cancer, Alzheimer’s, HTN, CHF, spinal cord injury (cancer du sein, Alzheimer, HTN, CHF, lésion médullaire).
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="Exemple d’entité d’état pathologique.":::
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-entity-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity-2.png" alt-text="Autre exemple d’entité d’état pathologique.":::
 
 **SYMPTOM_OR_SIGN** : preuve subjective ou objective de la maladie ou d’autres diagnostics. Par exemple : chest pain, headache, dizziness, rash, SOB, abdomen was soft, good bowel sounds, well nourished (douleur de poitrine, mal de tête, vertiges, éruption, SOB, abdomen mou, sons des intestins appropriés, bien nourri).
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="Exemple d’entité de signe ou de symptôme d’état pathologique.":::
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Autre exemple d’entité de signe ou de symptôme d’état pathologique.":::
 
 ### <a name="attributes"></a>Attributs
 
@@ -178,41 +178,41 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 6.  Échelle de condition Dans certains cas, une condition est caractérisée par une échelle, qui est une liste triée finie de valeurs. Par exemple : Patients with stage III pancreatic cancer (patients avec cancer pancréatique en la phase III).
 7.  Cours de condition : Terme relatif au cours ou à la progression d’une condition. Par exemple : improvement, worsening, resolution, remission (amélioration, détérioration, guérison et rémission). 
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis.png" alt-text="Exemple d’attribut de qualificateur de condition et d’entité de diagnostic.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-2.png" alt-text="Autre exemple d’attribut de qualificateur de condition et d’entité de diagnostic.":::
 
-:::image type="content" source="../../media/ta-for-health/conditional-qualifier-symptom-medication.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/conditional-qualifier-symptom-medication.png" alt-text="Exemple d’attribut de qualificateur de condition avec entités de symptôme et de médicament.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut de qualificateur de condition avec une entité de diagnostic.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut de qualificateur de condition avec une entité de diagnostic.":::
 
 **DIRECTION** : termes directionnels caractérisant un état pathologique corporel.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="Exemple d’attribut directionnel avec une entité d’état pathologique.":::
 
 **FREQUENCY** : fréquence à laquelle un état pathologique s’est produite, se produit ou devrait se produire.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="Exemple d’attribut de fréquence avec une entité d’état pathologique.":::
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Autre exemple d’attribut directionnel avec une entité de symptôme ou de signe.":::
 
 **MEASUREMENT_UNIT** : unité qui caractérise un état pathologique. Par exemple, dans *1.5x2x1 cm tumor*, le terme *cm* est l’unité de mesure pour *tumor* (tumeur). 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Exemple d’attribut d’unité de mesure avec une entité d’état pathologique.":::
 
 **MEASUREMENT_VALUE** : valeur qui caractérise un état pathologique. Par exemple, dans *1.5x2x1 cm tumor*, le terme *1.5x2x1* est la valeur de mesure pour *tumor* (tumeur). 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Cette capture d’écran montre un exemple d’attribut directionnel avec une entité de symptôme ou de signe.":::
 
 **RELATIONAL_OPERATOR** : expressions qui expriment la relation entre un état pathologique et des informations supplémentaires. Par exemple, la valeur de temps ou de mesure. 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut directionnel avec une entité de symptôme ou de signe.":::
 
 **TIME** : termes temporels relatifs au début et/ou à la durée d’un état pathologique. Par exemple, quand un symptôme a commencé (apparition) ou quand une maladie s’est déclarée.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut directionnel avec une entité de symptôme ou de signe.":::
 
 ### <a name="supported-relations"></a>Relations prises en charge
 
@@ -228,37 +228,37 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 **MEDICATION_CLASS** : ensemble de médicaments avec un mécanisme d’action similaire, un mode d’action associé, une structure chimique similaire et/ou qui sont utilisés pour traiter la même maladie. Par exemple : ACE inhibitor, opioid, antibiotics, pain relievers (inhibiteur ACE, opioïdes, antibiotiques, anti-douleur).
 
-:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="Exemple d’entité de classe de médicament.":::
 
 **MEDICATION_NAME** : mentions médicamenteuses, y compris les noms de marques et autres noms. Par exemple : Advil, Ibuprofen.
 
-:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Exemple d’entité de nom de médicament.":::
 
 ### <a name="attributes"></a>Attributs
 
 **DOSAGE** : quantité de médicament demandée. Par exemple : Infuse Sodium Chloride solution *1000 mL* (Infuser solution de chlorure de sodium, 1 000 ml).
 
-:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="Exemple d’attribut de posologie de médicament.":::
 
 **FREQUENCY** : fréquence à laquelle un médicament doit être pris.
 
-:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="Exemple d’attribut de fréquence de médicament.":::
 
-:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Autre exemple d’attribut de fréquence de médicament.":::
 
 **MEDICATION_FORM** : forme du médicament. Par exemple : solution, pill, capsule, tablet, patch, gel, paste, foam, spray, drops, cream, syrup (solution, pilule, capsule, tablette, patch, gel, pâte, mousse, spray, goutte, crème, sirop).
 
-:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="Exemple d’attribut de forme de médicament.":::
 
 **MEDICATION_ROUTE** : méthode d’administration de médicament. Par exemple : oral, vaginal, IV, epidural, topical, inhaled (oral, vaginal, intraveineuse, épidurale, topique, inhalé).
 
-:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="Exemple d’attribut d’administration de médicament.":::
 
 **RELATIONAL_OPERATOR** : expressions qui expriment la relation entre un médicament et des informations supplémentaires. Par exemple, la valeur de mesure requise.
 
-:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Cette capture d’écran montre un exemple d’attribut d’opérateur relationnel avec une entité médicament.":::
 
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut d’opérateur relationnel avec une entité médicament.":::
 
 ### <a name="supported-relations"></a>Relations prises en charge
 
@@ -274,25 +274,25 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 **TREATMENT_NAME** : procédures thérapeutiques. Par exemple : knee replacement surgery, bone marrow transplant, TAVI, diet (chirurgie de remplacement du genou, transplantation de moelle osseuse, TAVI, régime).
 
-:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Exemple d’entité de nom de traitement.":::
 
 ### <a name="attributes"></a>Attributs
 
 **DIRECTION** : termes directionnels caractérisant un traitement.
 
-:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Cette capture d’écran montre un exemple d’attribut de direction de traitement.":::
 
 **FREQUENCY** : fréquence à laquelle un traitement se produit ou doit se produire.
 
-:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut de direction de traitement.":::
  
 **RELATIONAL_OPERATOR** : expressions qui expriment la relation entre un traitement et des informations supplémentaires.  Par exemple, le temps passé depuis la procédure précédente.
 
-:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="Exemple d’attribut d’opérateur relationnel de traitement.":::
 
 **TIME** : termes temporels relatifs au début et/ou à la durée d’un traitement. Par exemple, la date à laquelle le traitement a été donné.
 
-:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Cette capture d’écran montre un exemple d’attribut de temps de traitement.":::
 
 
 ### <a name="supported-relations"></a>Relations prises en charge
@@ -307,4 +307,4 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 **FAMILY_RELATION** : mentions relatives à la famille du sujet. Par exemple : father, daughter, siblings, parents (père, fille, frères et sœurs, parents).
 
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Exemple d’entité de structure du corps.":::
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut de temps de traitement.":::

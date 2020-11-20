@@ -19,7 +19,7 @@ ms.locfileid: "92426953"
 Les clusters HDInsight Spark incluent des blocs-notes Apache Zeppelin avec différents interpréteurs. Cet article se concentre uniquement sur l’interpréteur livy pour accéder aux tables Hive à partir de Spark à l’aide de Hive Warehouse Connector.
 
 > [!NOTE]
-> Cet article contient des références au terme *liste blanche* , un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="prerequisite"></a>Configuration requise
 

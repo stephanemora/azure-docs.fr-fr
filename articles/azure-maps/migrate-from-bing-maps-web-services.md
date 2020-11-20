@@ -154,12 +154,12 @@ Le tableau suivant référencent les valeurs de types d’entités Bing Cartes a
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Adresse*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Voisinage*                             |
-| `PopulatedPlace`      | `Municipality` ou `MunicipalitySubdivision`     | *Cité* , *Ville ou sous-division* ou *Super ville*     |
+| `PopulatedPlace`      | `Municipality` ou `MunicipalitySubdivision`     | *Cité*, *Ville ou sous-division* ou *Super ville*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Code postal*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *État* ou *Province*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Comté* ou *Districts*                    |
 | `CountryRegion`       | `Country`                                       | *Nom du pays*                             |
-|                       | `CountryTertiarySubdivision`                    | *Boroughs* , *Cantons* , *Communes*          |
+|                       | `CountryTertiarySubdivision`                    | *Boroughs*, *Cantons*, *Communes*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>Obtenir des suggestions de localisation (suggestion automatique)
 
@@ -380,7 +380,7 @@ Dans Azure Maps, des punaises peuvent également être ajoutées à une image de
 
 Des styles supplémentaires peuvent être utilisés en ajoutant des paramètres `pins` supplémentaires à l'URL avec un style et un jeu d’emplacements différents.
 
-En ce qui concerne les localisations de punaises, Azure Maps exige que les coordonnées soient au format `longitude latitude`, tandis que Bing Cartes utilise le format `latitude,longitude`. Notez également qu’ **un espace, et non une virgule** , sépare la longitude et la latitude dans Azure Maps.
+En ce qui concerne les localisations de punaises, Azure Maps exige que les coordonnées soient au format `longitude latitude`, tandis que Bing Cartes utilise le format `latitude,longitude`. Notez également qu’**un espace, et non une virgule**, sépare la longitude et la latitude dans Azure Maps.
 
 La valeur `iconType` spécifie le type d’épingle à créer et peut avoir les valeurs suivantes :
 
@@ -446,7 +446,7 @@ Dans Azure Maps, des lignes et des polygones peuvent également être ajoutés �
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-En ce qui concerne les localisations de tracés, Azure Maps exige que les coordonnées soient au format `longitude latitude`, tandis que Bing Cartes utilise le format `latitude,longitude`. Notez également qu’ **un espace, et non une virgule** , sépare la longitude et la latitude dans Azure Maps. Actuellement, Azure Maps ne prend pas en charge les tracés encodés. De plus grands jeux de données peuvent être téléchargés lorsqu'un GeoJSON remplit l'API de stockage de données Azure Maps, comme documenté [ici](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+En ce qui concerne les localisations de tracés, Azure Maps exige que les coordonnées soient au format `longitude latitude`, tandis que Bing Cartes utilise le format `latitude,longitude`. Notez également qu’**un espace, et non une virgule**, sépare la longitude et la latitude dans Azure Maps. Actuellement, Azure Maps ne prend pas en charge les tracés encodés. De plus grands jeux de données peuvent être téléchargés lorsqu'un GeoJSON remplit l'API de stockage de données Azure Maps, comme documenté [ici](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
 
 Les styles de chemins d'accès dans Azure Maps sont ajoutés au format `optionNameValue`, avec plusieurs styles séparés par un caractère barre verticale (`|`), par exemple `optionName1Value1|optionName2Value2`. Notez que les noms et les valeurs des options ne sont pas séparés. Les noms d’options de style suivants peuvent être utilisés pour appliquer un style à des chemins d'accès dans Azure Maps :
 
@@ -528,8 +528,8 @@ Le tableau suivant référence de manière croisée les paramètres de l’API B
 Vous pouvez rechercher des données de point d’intérêt dans Bing Cartes à l’aide des API suivantes :
 
 -   **Recherche locale :** recherche les points d’intérêt proches (recherche radiale), par nom ou par type d’entité (catégorie). Les API de [recherche de points d’intérêt](/rest/api/maps/search/getsearchpoi) et de [recherche de catégorie de points d’intérêt](/rest/api/maps/search/getsearchpoicategory) Azure Maps sont celles qui s’apparentent le plus à cette API.
--   **Reconnaissance des localisations**  : recherche les points d'intérêt se trouvant à une certaine distance d'un endroit. L’API de [recherche de proximité](/rest/api/maps/search/getsearchnearby) Azure Maps est celle qui s’apparente le plus à cette API.
--   **Local Insights**  : recherche les points d’intérêt qui se trouvent dans le temps de conduite ou la distance maximal(e) spécifié(e) par rapport à une coordonnée spécifique. Cela est possible avec Azure Maps en calculant d’abord un isochrone, puis en le transmettant dans l’API de [recherche dans une géométrie](/rest/api/maps/search/postsearchinsidegeometry).
+-   **Reconnaissance des localisations** : recherche les points d'intérêt se trouvant à une certaine distance d'un endroit. L’API de [recherche de proximité](/rest/api/maps/search/getsearchnearby) Azure Maps est celle qui s’apparente le plus à cette API.
+-   **Local Insights** : recherche les points d’intérêt qui se trouvent dans le temps de conduite ou la distance maximal(e) spécifié(e) par rapport à une coordonnée spécifique. Cela est possible avec Azure Maps en calculant d’abord un isochrone, puis en le transmettant dans l’API de [recherche dans une géométrie](/rest/api/maps/search/postsearchinsidegeometry).
 
 Azure Maps fournit plusieurs API de recherche de points d'intérêt :
 
@@ -547,8 +547,8 @@ Veillez à consulter la documentation [Bonnes pratiques pour la recherche](./how
 
 Azure Maps fournit plusieurs API pour la récupération des données de trafic. Deux types de données de trafic sont disponibles :
 
--   **Données de circulation**  : elles fournissent des métriques concernant la circulation sur des sections de route. Elles sont souvent utilisées pour coder les routes par couleur. Ces données sont mises à jour toutes les deux minutes.
--   **Données d’incident**  : fournit des données sur la construction, les fermetures de route, les accidents et autres incidents susceptibles d’affecter le trafic. Ces données sont mises à jour toutes les minutes.
+-   **Données de circulation** : elles fournissent des métriques concernant la circulation sur des sections de route. Elles sont souvent utilisées pour coder les routes par couleur. Ces données sont mises à jour toutes les deux minutes.
+-   **Données d’incident** : fournit des données sur la construction, les fermetures de route, les accidents et autres incidents susceptibles d’affecter le trafic. Ces données sont mises à jour toutes les minutes.
 
 Bing Cartes fournit des données de circulation et d’incident dans ses contrôles de carte interactifs, et rend également les données d’incident disponibles en tant que service.
 

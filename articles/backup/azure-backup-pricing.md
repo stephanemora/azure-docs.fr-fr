@@ -60,11 +60,11 @@ Pour estimer les coûts liés à la sauvegarde des machines virtuelles Azure ou 
 
     - Cette option vous permet de restaurer rapidement jusqu’à sept jours en arrière à l’aide de captures instantanées stockées sur des disques.
 
-- **Facultatif**  : sauvegarde sélective du disque
+- **Facultatif** : sauvegarde sélective du disque
 
   - Si vous utilisez l’option **Sauvegarde sélective du disque** lors de la sauvegarde de machines virtuelles Azure, choisissez l’option **Exclure le disque** et entrez le pourcentage de disques exclus de la sauvegarde en termes de taille. Par exemple, si vous avez une machine virtuelle connectée à trois disques avec 200 Go utilisés sur chaque disque et si vous souhaitez exclure deux d’entre eux de la sauvegarde, entrez 66,7 %.
 
-- **Facultatif**  : redondance du stockage de sauvegarde
+- **Facultatif** : redondance du stockage de sauvegarde
 
   - Cela indique la redondance du compte de stockage dans lequel les données de sauvegarde sont stockées. Nous recommandons l’utilisation du **GRS** pour une disponibilité maximale. Dans la mesure où elle garantit qu’une copie de vos données de sauvegarde est conservée dans une autre région, elle vous permet de respecter plusieurs normes de conformité. Modifiez la redondance en **LRS** si vous sauvegardez des environnements de développement ou de test qui n’ont pas besoin d’une sauvegarde au niveau de l’entreprise. Sélectionnez l’option **RAGRS** dans la feuille si vous souhaitez comprendre les coûts lorsque [Restauration inter-régions](backup-azure-arm-restore-vms.md#cross-region-restore) est activée pour vos sauvegardes.
 
@@ -82,7 +82,7 @@ Pour estimer les coûts liés à la sauvegarde des serveurs SQL s’exécutant d
 
 - Quelle est la compression attendue pour les données de sauvegarde de vos serveurs SQL ?
 
-  - La plupart des clients de Sauvegarde Azure voient que les données de sauvegarde ont une compression de 80 % par rapport à la taille du serveur SQL lorsque la compression SQL est **activée** .
+  - La plupart des clients de Sauvegarde Azure voient que les données de sauvegarde ont une compression de 80 % par rapport à la taille du serveur SQL lorsque la compression SQL est **activée**.
 
   - Si vous envisagez de voir une autre compression, entrez le nombre dans ce champ
 
@@ -114,7 +114,7 @@ Pour estimer les coûts liés à la sauvegarde des serveurs SQL s’exécutant d
 
   - Combien de temps prévoyez-vous de conserver les sauvegardes « annuelles » ? (en années)
 
-- **Facultatif**  : redondance du stockage de sauvegarde
+- **Facultatif** : redondance du stockage de sauvegarde
 
   - Cela indique la redondance du compte de stockage dans lequel les données de sauvegarde sont stockées. Nous recommandons l’utilisation du **GRS** pour une disponibilité maximale. Dans la mesure où elle garantit qu’une copie de vos données de sauvegarde est conservée dans une autre région, elle vous permet de respecter plusieurs normes de conformité. Modifiez la redondance en **LRS** si vous sauvegardez des environnements de développement ou de test qui n’ont pas besoin d’une sauvegarde au niveau de l’entreprise.
 
@@ -138,13 +138,13 @@ Pour estimer les coûts liés à la sauvegarde des serveurs SAP HANA s’exécut
 - Choisir la stratégie de sauvegarde
   - Type de sauvegarde
     - La stratégie la plus efficace que vous pouvez choisir est les **Différentiels quotidiens** avec des sauvegardes complètes **hebdomadaires/mensuelles/annuelle** s. Sauvegarde Azure peut également effectuer une restauration à partir de différentiels à l’aide d’un simple clic.
-    - Vous pouvez également choisir d’avoir une stratégie avec des sauvegardes complètes **quotidiennes/hebdomadaires/mensuelles/annuelles** . Cette option consomme un peu plus de stockage que la première option.
+    - Vous pouvez également choisir d’avoir une stratégie avec des sauvegardes complètes **quotidiennes/hebdomadaires/mensuelles/annuelles**. Cette option consomme un peu plus de stockage que la première option.
   - Combien de temps prévoyez-vous de conserver les sauvegardes de « journal » ? (en jours) [de 7 à 35]
   - Combien de temps prévoyez-vous de conserver les sauvegardes « quotidiennes » ? (en jours)
   - Combien de temps prévoyez-vous de conserver les sauvegardes « hebdomadaires » ? (en semaines)
   - Combien de temps prévoyez-vous de conserver les sauvegardes « mensuelles » ? (en mois)
   - Combien de temps prévoyez-vous de conserver les sauvegardes « annuelles » ? (en années)
-- **Facultatif**  : redondance du stockage de sauvegarde
+- **Facultatif** : redondance du stockage de sauvegarde
   
   - Cela indique la redondance du compte de stockage dans lequel les données de sauvegarde sont stockées. Nous recommandons l’utilisation du **GRS** pour une disponibilité maximale. Dans la mesure où elle garantit qu’une copie de vos données de sauvegarde est conservée dans une autre région, elle vous permet de respecter plusieurs normes de conformité. Modifiez la redondance en **LRS** si vous sauvegardez des environnements de développement ou de test qui n’ont pas besoin d’une sauvegarde au niveau de l’entreprise.
 - **Facultatif** : modifier la tarification régionale ou appliquer des taux de remise
@@ -155,7 +155,7 @@ Pour estimer les coûts liés à la sauvegarde des serveurs SAP HANA s’exécut
 
 Pour estimer les coûts liés à la sauvegarde des partages de fichiers Azure à l’aide de la [solution de sauvegarde basée sur une capture instantanée](azure-file-share-backup-overview.md) offerte par Sauvegarde Azure, vous avez besoin des paramètres suivants :
 
-- Taille ( **en Go** ) des partages de fichiers que vous souhaitez sauvegarder.
+- Taille (**en Go**) des partages de fichiers que vous souhaitez sauvegarder.
 
 - Si vous souhaitez sauvegarder des partages de fichiers répartis sur plusieurs comptes de stockage, spécifiez le nombre de comptes de stockage hébergeant les partages de fichiers à la taille supérieure.
 
@@ -174,7 +174,7 @@ Pour estimer les coûts liés à la sauvegarde des partages de fichiers Azure à
 
   Consultez [la matrice de prise en charge de partage de fichiers Azure](azure-file-share-support-matrix.md#retention-limits) pour obtenir les valeurs de rétention maximales prises en charge dans chaque catégorie.
 
-- **Facultatif**  : Modifier la tarification régionale ou appliquer des tarifs réduits.
+- **Facultatif** : Modifier la tarification régionale ou appliquer des tarifs réduits.
   - Les valeurs par défaut définies pour le coût de stockage des instantanés par Go et le coût de l’instance protégée dans l’estimateur s’appliquent à la région USA Est. Si vous souhaitez vérifier vos estimations pour une région différente ou des tarifs réduits, sélectionnez **Oui** pour l’option **Essayer des estimations pour une autre région ?** , puis entrez les tarifs avec lesquels vous souhaitez effectuer les estimations.
 
 ## <a name="next-steps"></a>Étapes suivantes

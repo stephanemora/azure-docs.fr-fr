@@ -113,7 +113,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
     ![Créer une ressource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Sélectionnez le type d'appareil. Sous **Azure Stack Edge Pro** , choisissez **Azure Stack Edge Pro avec GPU** , puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
+4. Sélectionnez le type d'appareil. Sous **Azure Stack Edge Pro**, choisissez **Azure Stack Edge Pro avec GPU**, puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Créer une ressource 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
@@ -121,7 +121,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
     ![Créer une ressource 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
-6. Sous l’onglet **Bases** , entrez ou sélectionnez les **détails du projet** suivants.
+6. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
     
     |Paramètre  |Valeur  |
     |---------|---------|
@@ -149,7 +149,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 9. Sélectionnez **Suivant : Balises**. Si vous le souhaitez, vous pouvez fournir des balises pour catégoriser les ressources et centraliser la facturation. Sélectionnez **Suivant : Vérifier + créer**.
 
-10. Sous l’onglet **Vérifier + créer** , passez en revue les **Détails de la tarification** , les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
+10. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
 
     ![Créer une ressource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -176,11 +176,11 @@ Si vous rencontrez des problèmes pendant le processus de commande, consultez [R
 
 Une fois que la ressource Azure Stack Edge est active et en cours d’exécution, vous devez obtenir la clé d’activation. Cette clé sert à activer votre appareil Azure Stack Edge Pro et à le connecter à la ressource. Vous pouvez obtenir cette clé maintenant, lorsque vous vous trouvez dans le Portail Azure.
 
-1. Sélectionnez la ressource que vous avez créée. Sélectionnez **Vue d’ensemble** , puis **Configuration de l’appareil**.
+1. Sélectionnez la ressource que vous avez créée. Sélectionnez **Vue d’ensemble**, puis **Configuration de l’appareil**.
 
     ![Sélectionner Configuration de l’appareil](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. Sur la vignette **Activer** , attribuez un nom au coffre de clés Azure Key Vault ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
+2. Sur la vignette **Activer**, attribuez un nom au coffre de clés Azure Key Vault ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
 
     Un coffre de clés est créé pour chaque ressource Azure Stack Edge activée avec votre appareil. Le coffre de clés vous permet de stocker des secrets et d’y accéder. Par exemple, la clé d’intégrité de canal (CIK) du service est stockée dans le coffre de clés. 
 

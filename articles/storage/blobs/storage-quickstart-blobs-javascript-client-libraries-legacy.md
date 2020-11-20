@@ -37,7 +37,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets bl
 
 Avant que votre application web puisse accéder à un stockage Blob à partir du client, vous devez configurer votre compte pour activer le [partage de ressources cross-origin](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS.
 
-Revenez au portail Azure et sélectionnez votre compte de stockage. Pour définir une nouvelle règle CORS, accédez à la section **Paramètres** , puis cliquez sur le lien **CORS** . Ensuite, cliquez sur le bouton **Ajouter** pour ouvrir la fenêtre **Ajouter une règle CORS** . Pour ce démarrage rapide, vous créez une règle CORS ouverte :
+Revenez au portail Azure et sélectionnez votre compte de stockage. Pour définir une nouvelle règle CORS, accédez à la section **Paramètres**, puis cliquez sur le lien **CORS**. Ensuite, cliquez sur le bouton **Ajouter** pour ouvrir la fenêtre **Ajouter une règle CORS**. Pour ce démarrage rapide, vous créez une règle CORS ouverte :
 
 ![Paramètres CORS du compte de stockage Blob Azure](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
@@ -86,9 +86,9 @@ Vous trouverez peut-être la série de valeurs après chaque paramètre un peu d
 
 | Paramètre        | Valeur   | Description  |
 |------------------|---------|---------|
-| *autorisations*    | racwdl  | Cette SAP permet de *lire* , d’ *ajouter* , de *créer* , d’ *écrire* , de *supprimer* et de *répertorier* les fonctionnalités. |
-| *resource-types* | sco     | Les ressources affectées par la SAP sont *service* , *conteneur* et *objet* . |
-| *services*       | b       | Le service affecté par la SAP est le service d’ *objets BLOB* . |
+| *autorisations*    | racwdl  | Cette SAP permet de *lire*, d’*ajouter*, de *créer*, d’*écrire*, de *supprimer* et de *répertorier* les fonctionnalités. |
+| *resource-types* | sco     | Les ressources affectées par la SAP sont *service*, *conteneur* et *objet*. |
+| *services*       | b       | Le service affecté par la SAP est le service d’*objets BLOB*. |
 
 Maintenant que la SAS est générée, copiez la valeur de retour et enregistrez-la quelque part pour une utilisation dans une prochaine étape. Si vous avez généré votre SAS à l’aide d’une méthode autre que l’interface Azure CLI, vous devrez supprimer le `?` initial, s’il est présent. Ce caractère est un séparateur d’URL qui est déjà fourni dans le modèle d’URL plus loin dans cette rubrique où la SAS est utilisée.
 
@@ -101,7 +101,7 @@ Dans cette section, vous allez créer une page web de base et configurer Visual 
 
 ### <a name="set-up-the-web-application"></a>Configurer l’application Web
 
-Tout d’abord, créez un dossier nommé *azure-blobs-javascript* et ouvrez-le dans Visual Studio Code. Créez ensuite un fichier dans Visual Studio Code, ajoutez le code HTML suivant, puis enregistrez-le sous le nom *index.html* dans le dossier *azure-blobs-javascript* .
+Tout d’abord, créez un dossier nommé *azure-blobs-javascript* et ouvrez-le dans Visual Studio Code. Créez ensuite un fichier dans Visual Studio Code, ajoutez le code HTML suivant, puis enregistrez-le sous le nom *index.html* dans le dossier *azure-blobs-javascript*.
 
 ```html
 <!DOCTYPE html>
@@ -127,7 +127,7 @@ Tout d’abord, créez un dossier nommé *azure-blobs-javascript* et ouvrez-le d
 
 ### <a name="configure-the-debugger"></a>Configurer le débogueur
 
-Pour configurer l’extension du débogueur dans Visual Studio Code, sélectionnez **Déboguer > Ajouter une configuration...** , puis sélectionnez **Chrome** ou **Edge** , selon l’extension que vous avez installée précédemment dans la section Prérequis. Cette action crée un fichier *launch.json* et l’ouvre dans l’éditeur.
+Pour configurer l’extension du débogueur dans Visual Studio Code, sélectionnez **Déboguer > Ajouter une configuration...** , puis sélectionnez **Chrome** ou **Edge**, selon l’extension que vous avez installée précédemment dans la section Prérequis. Cette action crée un fichier *launch.json* et l’ouvre dans l’éditeur.
 
 Ensuite, modifiez le fichier *launch.json* afin que la valeur `url` inclut `/index.html` comme indiqué :
 
@@ -167,11 +167,11 @@ Pour lancer *index.html* dans le navigateur avec le débogueur Visual Studio Cod
 
 L’interface utilisateur affichée ne fait rien pour le moment, mais vous allez ajouter du code JavaScript dans la section suivante pour implémenter chaque fonction indiquée. Vous pouvez ensuite définir des points d’arrêt et interagir avec le débogueur lorsqu’il s’est interrompu sur votre code.
 
-Lorsque vous apportez des modifications à *index.html* , veillez à recharger la page pour voir les modifications dans le navigateur. Dans Visual Studio Code, vous pouvez également sélectionner **Déboguer > Redémarrer le débogage** ou appuyez sur CTRL + MAJ + F5.
+Lorsque vous apportez des modifications à *index.html*, veillez à recharger la page pour voir les modifications dans le navigateur. Dans Visual Studio Code, vous pouvez également sélectionner **Déboguer > Redémarrer le débogage** ou appuyez sur CTRL + MAJ + F5.
 
 ### <a name="add-the-blob-storage-client-library"></a>Ajouter la bibliothèque cliente de stockage Blob
 
-Pour activer les appels vers l’API de Stockage Blob, commencez par [télécharger le kit SDK Stockage Azure pour JavaScript – Bibliothèque de client Blob](https://aka.ms/downloadazurestoragejsblob), extrayez le contenu du fichier zip et placez le fichier *azure-storage-blob.js* dans le dossier *azure-blobs-javascript* .
+Pour activer les appels vers l’API de Stockage Blob, commencez par [télécharger le kit SDK Stockage Azure pour JavaScript – Bibliothèque de client Blob](https://aka.ms/downloadazurestoragejsblob), extrayez le contenu du fichier zip et placez le fichier *azure-storage-blob.js* dans le dossier *azure-blobs-javascript*.
 
 Ensuite, collez le code HTML suivant dans *index.html* après la balise de fermeture `</body>`, en remplaçant le commentaire de l’espace réservé.
 
@@ -261,7 +261,7 @@ Ce code appelle les fonctions [create](https://docs.microsoft.com/javascript/api
 
 ### <a name="list-blobs"></a>Liste des objets blob
 
-Ensuite, ajoutez du code pour répertorier le contenu du conteneur de stockage lorsque vous appuyez sur le bouton **Répertorier les fichiers** .
+Ensuite, ajoutez du code pour répertorier le contenu du conteneur de stockage lorsque vous appuyez sur le bouton **Répertorier les fichiers**.
 
 ```javascript
 const listFiles = async () => {
@@ -293,11 +293,11 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Ce code appelle la fonction [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) dans une boucle afin de garantir que tous les segments sont récupérés. Pour chaque segment, il effectue une itération sur la liste des éléments blob qu’il contient et met à jour la liste **Fichiers** .
+Ce code appelle la fonction [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) dans une boucle afin de garantir que tous les segments sont récupérés. Pour chaque segment, il effectue une itération sur la liste des éléments blob qu’il contient et met à jour la liste **Fichiers**.
 
 ### <a name="upload-blobs"></a>Charger des objets blob
 
-Ensuite, ajoutez du code pour charger des fichiers dans le conteneur de stockage lorsque vous appuyez sur le bouton **Sélectionner et charger des fichiers** .
+Ensuite, ajoutez du code pour charger des fichiers dans le conteneur de stockage lorsque vous appuyez sur le bouton **Sélectionner et charger des fichiers**.
 
 ```javascript
 const uploadFiles = async () => {
@@ -325,7 +325,7 @@ Ce code connecte le bouton **Sélectionner et charger des fichiers** à l’él�
 
 ### <a name="delete-blobs"></a>Suppression d’objets blob
 
-Ensuite, ajoutez du code pour supprimer des fichiers du conteneur de stockage lorsque vous appuyez sur le bouton **Supprimer les fichiers sélectionnés** .
+Ensuite, ajoutez du code pour supprimer des fichiers du conteneur de stockage lorsque vous appuyez sur le bouton **Supprimer les fichiers sélectionnés**.
 
 ```javascript
 const deleteFiles = async () => {
@@ -349,7 +349,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Ce code appelle la fonction [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) pour supprimer chaque fichier sélectionné dans la liste. Il appelle ensuite la fonction `listFiles` présentée précédemment pour actualiser le contenu de la liste **Fichiers** .
+Ce code appelle la fonction [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) pour supprimer chaque fichier sélectionné dans la liste. Il appelle ensuite la fonction `listFiles` présentée précédemment pour actualiser le contenu de la liste **Fichiers**.
 
 ### <a name="run-and-test-the-web-application"></a>Exécuter et tester l’application web
 
