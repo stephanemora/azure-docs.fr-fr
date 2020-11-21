@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745797"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636978"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser des pilotes CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
 
@@ -33,7 +33,7 @@ Pour plus d’informations sur les volumes Kubernetes, consultez [Options de sto
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Créer dynamiquement des PV Azure Files à l’aide des classes de stockage intégrées
 
-Une classe de stockage permet de définir la façon dont un partage Azure Files est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages Azure Files. Faites votre choix parmi les [références SKU de redondance de stockage Azure][storage-skus] suivantes pour *skuName*  :
+Une classe de stockage permet de définir la façon dont un partage Azure Files est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages Azure Files. Faites votre choix parmi les [références SKU de redondance de stockage Azure][storage-skus] suivantes pour *skuName* :
 
 * **Standard_LRS** : Stockage localement redondant standard
 * **Standard_GRS** : Stockage géo-redondant standard
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [Créez un compte de stockage Azure `Premium_LRS`](../storage/files/storage-how-to-create-premium-fileshare.md) avec les configurations suivantes pour prendre en charge les partages NFS :
 - type de compte : FileStorage
 - transfert sécurisé obligatoire (activer le trafic HTTPS uniquement) : false
-- sélectionner le réseau virtuel de vos nœuds d’agent dans Pare-feux et réseaux virtuels
+- sélectionnez le réseau virtuel de vos nœuds d’agent dans Pare-feu et réseaux virtuels - vous pouvez donc préférer créer le compte de stockage dans le groupe de ressources MC_.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Créer une classe de stockage pour les partages de fichiers NFS
 
@@ -239,7 +239,7 @@ Enregistrez un fichier `nfs-sc.yaml` avec le manifeste ci-dessous en modifiant l
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Notez que dans la mesure où le partage de fichiers NFS s’effectue dans le cadre d’un compte Premium, la taille de partage de fichiers minimale est de 100 Go. Si vous créez un PVC avec une petite taille de stockage, vous risquez de rencontrer une erreur « failed to create file share ... size (5)... » (« échec de la création du partage de fichiers ... taille(5)... »).
+
 
 ## <a name="windows-containers"></a>Conteneurs Windows
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903211"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635906"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Se connecter à un cluster Kubernetes et le gérer par le biais de kubectl sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -44,7 +44,7 @@ Une fois le cluster Kubernetes créé, vous pouvez y accéder pour créer des es
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>Configurer l’accès au cluster par le biais de RBAC
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Configurer l’accès au cluster via Kubernetes RBAC
 
 Une fois le cluster Kubernetes créé, vous pouvez utiliser l’outil *kubectl* par le biais de la ligne de commande pour accéder au cluster. 
 

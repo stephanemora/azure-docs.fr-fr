@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340275"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630054"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Résolution des problèmes liés à Synapse SQL dans Azure Synapse Analytics
 
@@ -39,6 +39,12 @@ Cet article répertorie les problèmes courants liés à Synapse SQL.
 | Des utilisateurs Azure AD sont manquants dans l’explorateur d’objets Visual Studio           | Il s'agit d'un problème connu.  Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Pour plus d’informations sur l’utilisation d’Azure Active Directory avec le pool SQL dédié, consultez [Authentification à Azure Synapse](sql-data-warehouse-authentication.md). |
 | Les scripts manuels, l’utilisation de l’Assistant Création de scripts ou la connexion via SSMS sont lents, ne répondent pas ou produisent des erreurs | Vérifiez que les utilisateurs ont été créés dans la base de données master. Dans les options de script, vérifiez aussi que l’édition du moteur est définie en tant que « Édition Microsoft Azure Synapse Analytics » et que le type de moteur est « Microsoft Azure SQL Database ». |
 | La génération de scripts échoue dans SSMS                               | La génération d’un script pour le pool SQL dédié échoue si l’option « Générer un script pour les objets dépendants » a la valeur « True ». Pour résoudre ce problème, les utilisateurs doivent accéder manuellement à **Outils -> Options -> Explorateur d’objets SQL Server -> Générer un script pour les options dépendants et affecter la valeur false à cette option**. |
+
+## <a name="data-ingestion-and-preparation"></a>Ingestion et préparation des données
+
+| Problème                                                        | Résolution                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| L’exportation de chaînes vides à l’aide de CETAS donnera des valeurs NULL dans les fichiers Parquet et ORC. Si vous exportez des chaînes vides à partir de colonnes avec des contraintes NOT NULL, CETAS entraîne le rejet d’enregistrements, et l’exportation risque d’échouer. | Supprimez les chaînes vides ou la colonne incriminée dans l’instruction SELECT de votre CETAS. |
 
 ## <a name="performance"></a>Performances
 
@@ -78,6 +84,6 @@ Pour obtenir une aide supplémentaire lors de la recherche d’une solution à v
 * [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+* [Page de questions Microsoft Q&R](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 * [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

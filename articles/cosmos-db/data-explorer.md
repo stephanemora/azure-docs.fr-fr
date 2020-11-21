@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096799"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637113"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Utiliser des données à l’aide d’Azure Cosmos Explorer 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ L’explorateur Azure Cosmos DB est une interface web autonome qui vous permet d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
 
-2. À partir de **Toutes les ressources** , recherchez et accédez à votre compte Azure Cosmos DB, sélectionnez Clés et copiez la **Chaîne de connexion principale**.  
+2. À partir de **Toutes les ressources**, recherchez et accédez à votre compte Azure Cosmos DB, sélectionnez Clés et copiez la **Chaîne de connexion principale**.  
 
 3. Accédez à https://cosmos.azure.com/, collez la chaîne de connexion, puis sélectionnez **Connexion**. À l’aide de la chaîne de connexion, vous pouvez accéder à l’explorateur Azure Cosmos DB sans aucune limitation de durée.  
 
@@ -50,7 +50,7 @@ Pour le moment, l’expérience **Ouvrir en mode plein écran** qui vous permet 
 
 Actuellement, l’affichage des documents qui contiennent un UUID n’est pas pris en charge dans l’Explorateur de données. Cela n’affecte pas le chargement des collections, mais uniquement l’affichage des documents individuels ou des requêtes qui incluent ces documents. Pour afficher et gérer ces documents, les utilisateurs doivent continuer à utiliser l’outil initialement utilisé pour créer ces documents.
 
-Si les clients reçoivent des erreurs HTTP-401, cela peut être dû à des autorisations RBAC insuffisantes pour le compte Azure du client, en particulier si le compte a un rôle RBAC personnalisé. Tous les rôles personnalisés doivent avoir l’action `Microsoft.DocumentDB/databaseAccounts/listKeys/*` pour utiliser Explorateur de données s’ils se connectent en utilisant leurs informations d’identification Azure Active Directory.
+Si les clients reçoivent des erreurs HTTP-401, cela peut être dû à des autorisations Azure RBAC insuffisantes pour le compte Azure du client, en particulier si le compte a un rôle personnalisé. Tous les rôles personnalisés doivent avoir l’action `Microsoft.DocumentDB/databaseAccounts/listKeys/*` pour utiliser Explorateur de données s’ils se connectent en utilisant leurs informations d’identification Azure Active Directory.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340306"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657174"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -103,9 +103,9 @@ Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à par
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Condition préalable : Accès au compte de stockage
+
+[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
 Avant d’ajouter une cible de stockage blob, vérifiez que le cache dispose des rôles appropriés pour accéder au compte de stockage et que les paramètres du pare-feu permettront la création de la cible de stockage.
 
@@ -217,7 +217,7 @@ Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
 Utilisez la commande Azure CLI [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) pour créer la cible de stockage.
 
@@ -301,7 +301,7 @@ Pour en savoir plus, consultez [Modifier les cibles de stockage](hpc-cache-edit-
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
 Utilisez l’option [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) pour afficher les cibles de stockage existantes pour un cache. Indiquez le nom du cache et le groupe de ressources (sauf si vous l’avez défini globalement).
 

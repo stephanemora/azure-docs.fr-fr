@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394864"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629663"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Flux de données du Connecteur Azure IoT pour FHIR (préversion)
 
-Cet article fournit une vue d’ensemble du flux de données dans le connecteur Azure IoT pour FHIR*. Vous en apprendrez davantage sur les différentes étapes du traitement des données dans le Connecteur IoT pour FHIR, qui transforment les données d’appareils en ressources d’[Observation](https://www.hl7.org/fhir/observation.html) basées sur FHIR.
+Cet article fournit une vue d’ensemble du flux de données dans le connecteur Azure IoT pour Fast Healthcare Interoperability Resources (FHIR&#174;)*. Vous en apprendrez davantage sur les différentes étapes du traitement des données dans le Connecteur IoT pour FHIR, qui transforment les données d’appareils en ressources d’[Observation](https://www.hl7.org/fhir/observation.html) basées sur FHIR.
 
 ![Flux de données du Connecteur Azure IoT pour FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -64,6 +64,4 @@ Cliquez ci-dessous sur l’étape suivante pour apprendre à créer des modèles
 >[!div class="nextstepaction"]
 >[Modèles de mappage du Connecteur Azure IoT pour FHIR](iot-mapping-templates.md)
 
-*Dans le portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion).
-
-FHIR est la marque déposée de HL7 et est utilisé avec l’autorisation de HL7.
+*Sur le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7. 

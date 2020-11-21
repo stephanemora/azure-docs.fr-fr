@@ -7,19 +7,20 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cfc746d883b565fe7a082a316ce314f385225df
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358150"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658568"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Créer un service Private Link à l’aide d’Azure CLI
 Cet article explique comment créer un service Private Link dans Azure à l’aide d’Azure CLI.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si vous décidez d’installer et d’utiliser Azure CLI en local, ce guide de démarrage rapide nécessite que vous utilisiez la dernière version d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Pour des informations d'installation ou de mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+- Cet article nécessite la dernière version de la ligne de commande Azure. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+
 ## <a name="create-a-private-link-service"></a>Créer un service Liaison privée
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -78,7 +79,7 @@ Une règle d’équilibreur de charge définit la configuration IP frontale pour
 ```
 ### <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-Dans cet exemple, nous ne couvrons pas la création d’une machine virtuelle. Vous pouvez suivre les étapes décrites dans [Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md#create-servers-for-the-backend-address-pool) pour créer deux machines virtuelles à utiliser en tant que serveurs principaux pour l’équilibreur de charge. 
+Dans cet exemple, nous ne couvrons pas la création d’une machine virtuelle. Vous pouvez suivre les étapes décrites dans [Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) pour créer deux machines virtuelles à utiliser en tant que serveurs principaux pour l’équilibreur de charge. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Désactiver les stratégies réseau du service Private Link sur le sous-réseau 
@@ -111,7 +112,7 @@ Nous allons ensuite montrer comment mapper ce service à une instance Private En
 ## <a name="private-endpoints"></a>Instances Private Endpoint
 
 ### <a name="create-the-virtual-network"></a>Créer un réseau virtuel 
-Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Cet exemple crée un réseau virtuel nommé *myPEVNet* dans le groupe de ressources nommé *myResourcegroup* : 
+Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Cet exemple crée un réseau virtuel nommé  *myPEVNet* dans le groupe de ressources nommé *myResourcegroup* : 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +120,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Créer le sous-réseau 
-Ajoutez un sous-réseau au réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Cet exemple crée un sous-réseau nommé *mySubnet* dans le réseau virtuel nommé *myPEVnet* dans le groupe de ressources nommé *myResourcegroup* : 
+Ajoutez un sous-réseau au réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Cet exemple crée un sous-réseau nommé  *mySubnet* dans le réseau virtuel nommé *myPEVnet* dans le groupe de ressources nommé *myResourcegroup* : 
 
 ```azurecli-interactive 
 az network vnet subnet create \

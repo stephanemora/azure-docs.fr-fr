@@ -1,7 +1,7 @@
 ---
 title: Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez | Azure
 titleSuffix: Microsoft identity platform
-description: Explication et présentation de la création d’applications mobiles qui prennent en charge l’authentification unique et les stratégies de protection des applications
+description: Explication et présentation de la création d’applications mobiles qui prennent en charge l’authentification unique et les stratégies de protection des applications à l’aide de la plateforme Microsoft Identity et de l’intégration d’Azure Active Directory.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331604"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634852"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez
 
-L’authentification unique (SSO) fournit des connexions faciles et sécurisées pour les utilisateurs de votre application. Les stratégies de protection des applications (application) activent la prise en charge des stratégies de sécurité clés qui assurent la sécurité des données de votre utilisateur. Ensemble, ces fonctionnalités permettent de sécuriser les connexions utilisateur et la gestion des données de votre application.
+L’authentification unique (SSO, Single Sign-On) est une offre clé de la plateforme d’identités Microsoft et d’Azure Active Directory, fournissant des connexions faciles et sécurisées pour les utilisateurs de votre application. En outre, les stratégies de protection des applications (APP) activent la prise en charge des stratégies de sécurité clés qui assurent la sécurité des données de votre utilisateur. Ensemble, ces fonctionnalités permettent de sécuriser les connexions utilisateur et la gestion des données de votre application.
 
 Cet article explique pourquoi l’authentification unique et l’application sont importantes et fournit des conseils de haut niveau pour la création d’applications mobiles qui prennent en charge ces fonctionnalités. Cela s’applique à la fois aux applications pour téléphone et tablette. Si vous êtes un administrateur informatique qui souhaite déployer l’authentification unique dans l’abonnement Azure Active Directory de son organisation, consultez notre [guide relatif à la planification d’un déploiement d’authentification unique](../manage-apps/plan-sso-deployment.md)
 
