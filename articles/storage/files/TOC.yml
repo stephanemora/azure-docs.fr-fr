@@ -102,7 +102,7 @@
         - name: Déployer Azure File Sync
           href: storage-sync-files-deployment-guide.md
         - name: Instance de cluster de basculement SQL Server avec partages de fichiers Premium
-          href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json
+          href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Monter
       items:
         - name: Monter un partage de fichiers SMB sur Windows

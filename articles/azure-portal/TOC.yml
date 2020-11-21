@@ -81,6 +81,9 @@
       href: azure-portal-dashboards-structure.md
     - name: Azure CLI
       href: /cli/azure/ext/portal/portal
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

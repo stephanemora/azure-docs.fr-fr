@@ -76,23 +76,23 @@
       href: environment-setup.md
       items:
         - name: Comptes de stockage Azure
-          href: ../../storage/common/storage-account-create.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+          href: ../../storage/common/storage-account-create.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
         - name: Plateformes et outils
           href: platforms-and-tools.md
         - name: Installation de R et de Python sur des clusters HDInsight
           items:
             - name: Présentation de Spark sur HDInsight
-              href: ../../hdinsight/spark/apache-spark-overview.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+              href: ../../hdinsight/spark/apache-spark-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
             - name: Créer un cluster Apache Spark dans Azure HDInsight
-              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
             - name: Noyaux PySpark pour le Notebook Jupyter
-              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
             - name: "R\_Server sur HDInsight"
-              href: ../../hdinsight/r-server/r-server-overview.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+              href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
             - name: "Commencer à utiliser R\_Server sur HDInsight"
-              href: ../../hdinsight/r-server/r-server-overview.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+              href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
         - name: Espace de travail Machine Learning Studio (classique)
-          href: ../classic/create-workspace.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+          href: ../classic/create-workspace.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
     - name: Analyser les besoins métier
       items:
         - name: Identifier votre scénario
@@ -113,7 +113,7 @@
                 - name: Utiliser AzCopy
                   href: ../../storage/common/storage-use-azcopy-v10.md
                 - name: Utiliser Python
-                  href: ../../storage/blobs/storage-quickstart-blobs-python.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+                  href: ../../storage/blobs/storage-quickstart-blobs-python.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
                 - name: Utiliser SSIS
                   href: move-data-to-azure-blob-using-ssis.md
             - name: Déplacer vers SQL sur une machine virtuelle
@@ -181,9 +181,9 @@
         - name: Créer et former des modèles
           items:
             - name: Choisir des algorithmes
-              href: ../how-to-select-algorithms.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+              href: ../how-to-select-algorithms.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
             - name: Aide-mémoire d’algorithme
-              href: ../algorithm-cheat-sheet.md?context=azure%252fmachine-learning%252fteam-data-science-process%252fcontext%252fml-context
+              href: ../algorithm-cheat-sheet.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
     - name: Déployer des modèles en production
       href: deploy-models-in-production.md
 - name: Rubriques connexes

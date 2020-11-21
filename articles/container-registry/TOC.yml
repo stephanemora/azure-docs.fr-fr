@@ -126,7 +126,7 @@
             - name: Approbation du contenu
               href: container-registry-content-trust.md
             - name: Analyse des images avec Security Center
-              href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
+              href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
         - name: Registres et autres services Azure
           expanded: false
           items:
@@ -159,7 +159,7 @@
 - name: Tâches
   expanded: true
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       expanded: false
       items:
         - name: À propos d’ACR Tasks

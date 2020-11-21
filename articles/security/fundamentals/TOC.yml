@@ -78,7 +78,7 @@
     - name: DNS non résolu et prise de contrôle des sous-domaines
       href: subdomain-takeover.md
     - name: Architecture réseau hybride sécurisée
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
 - name: Sécurité IaaS
   items:
     - name: Microsoft Antimalware
@@ -118,7 +118,7 @@
         - name: Liste de contrôle de sécurité
           href: database-security-checklist.md
     - name: Guide sur la sécurité du stockage
-      href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
     - name: Customer Lockbox
       href: customer-lockbox-overview.md
     - name: Base de référence de sécurité pour Customer Lockbox

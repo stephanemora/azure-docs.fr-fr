@@ -19,7 +19,7 @@
 - name: Concepts
   items:
     - name: "Qu’est-ce que la synchronisation de hachage de mot de passe\_?"
-      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Comprendre le schéma, les attributs et les expressions Azure AD'
       href: concept-attributes.md
     - name: Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
@@ -63,10 +63,10 @@
 - name: Informations de référence
   items:
     - name: Historique des versions de l’agent de provisionnement cloud Azure AD Connect
-      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Questions fréquentes (FAQ) sur le provisionnement cloud Azure AD Connect
       href: reference-cloud-provisioning-faq.md
     - name: Attributs qui sont synchronisés
-      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Environnement Active Directory et Azure AD simple
       href: tutorial-basic-ad-azure.md

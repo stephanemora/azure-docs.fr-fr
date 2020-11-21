@@ -23,7 +23,7 @@
     - name: Guides pratiques
       items:
         - name: S’inscrire à Translator
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: Migrer vers l’API de texte V3
           href: migrate-to-v3.md
         - name: Ajouter un filtrage des grossièretés
