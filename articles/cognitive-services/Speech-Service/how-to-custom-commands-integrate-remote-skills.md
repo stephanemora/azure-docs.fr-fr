@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 6ab3e1e063409832de839da26eba80efd8b3f4d5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344769"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565736"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Exporter une application Commandes personnalisées en tant que compétence distante
 
@@ -53,14 +53,14 @@ Vous avez la possibilité de choisir les commandes que vous souhaitez exporter v
 
 1. Pour exposer une commande vers des compétences, sélectionnez **Enable a new command (Activer une nouvelle commande)** sous **Enable commands for skills (Activer les commandes pour les compétences)** .
 1. Dans la liste déroulante, sélectionnez la commande que vous souhaitez ajouter.
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 ### <a name="configure-triggering-utterances-for-commands"></a>Configurer les énoncés de déclenchement des commandes
 Le kit Commandes personnalisées utilise les exemples de phrases qui sont configurés pour les commandes afin de générer les énoncés de déclenchement des compétences. Ces **énoncés de déclenchement** sont utilisés pour générer la section **Répartiteur** du [**manifeste de compétence**](https://microsoft.github.io/botframework-solutions/skills/handbook/manifest/).
 
 En tant qu’auteur, vous pouvez contrôler les **exemples de phrases** qui sont utilisés pour générer les énoncés de déclenchement des compétences.
 1. Par défaut, tous les **exemples de déclenchement** d’une commande sont inclus dans le fichier manifeste.
-1. Si vous souhaitez éliminer explicitement un exemple, sélectionnez l’ **icône Modifier** dans la commande de la section **Enabled commands for skills (Commandes activées pour les compétences)** .
+1. Si vous souhaitez éliminer explicitement un exemple, sélectionnez l’**icône Modifier** dans la commande de la section **Enabled commands for skills (Commandes activées pour les compétences)** .
     > [!div class="mx-imgBorder"]
     > ![Modifier une commande activée pour une compétence](media/custom-commands/skill-edit-enabled-command.png)
 
@@ -68,11 +68,11 @@ En tant qu’auteur, vous pouvez contrôler les **exemples de phrases** qui sont
     > [!div class="mx-imgBorder"]
     > ![Désactiver les exemples](media/custom-commands/skill-disable-example-sentences.png)
 
-1. Sélectionnez **Enregistrer** .
-1. Vous remarquerez que vous ne pouvez pas ajouter de nouvel exemple dans cette fenêtre. Si vous devez le faire, passez à la sortie de la section Paramètres et sélectionnez la commande appropriée dans l’accordéon **Commandes** . À ce stade, vous pouvez ajouter la nouvelle entrée dans la section **Example sentences (Exemples de phrases)** . Cette modification est automatiquement reflétée dans la valeur des paramètres de compétences distantes pour la commande.
+1. Sélectionnez **Enregistrer**.
+1. Vous remarquerez que vous ne pouvez pas ajouter de nouvel exemple dans cette fenêtre. Si vous devez le faire, passez à la sortie de la section Paramètres et sélectionnez la commande appropriée dans l’accordéon **Commandes**. À ce stade, vous pouvez ajouter la nouvelle entrée dans la section **Example sentences (Exemples de phrases)** . Cette modification est automatiquement reflétée dans la valeur des paramètres de compétences distantes pour la commande.
 
 > [!IMPORTANT]
-> Si vos exemples de phrases existants comportent des références au type de données **Chaîne > Catalogue** , ces phrases sont automatiquement omises de la liste des énoncés de déclenchement des compétences. 
+> Si vos exemples de phrases existants comportent des références au type de données **Chaîne > Catalogue**, ces phrases sont automatiquement omises de la liste des énoncés de déclenchement des compétences. 
 
 ## <a name="download-skill-manifest"></a>Télécharger le manifeste de compétence
 1. Une fois que vous avez **publié** votre application, vous pouvez télécharger le fichier manifeste de compétence.
@@ -88,4 +88,4 @@ En tant qu’auteur, vous pouvez contrôler les **exemples de phrases** qui sont
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Activer un processus CI/CD pour votre application Commandes personnalisées](./how-to-custom-commands-deploy-cicd.md)
+> [Mettre à jour une commande à partir du client](./how-to-custom-commands-update-command-from-client.md)

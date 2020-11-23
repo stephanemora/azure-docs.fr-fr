@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: ce3174516d8046df53b5290bcfeea03756937129
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201526"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555105"
 ---
 # <a name="color-materials"></a>Matériaux couleur
 
@@ -38,6 +38,12 @@ Ces propriétés sont communes à tous les matériaux :
 * **isDoubleSided :** si la bilatéralité est définie sur true, les triangles bénéficiant de ce matériau sont rendus même si la caméra regarde vers les faces arrière. Par défaut, cette option est désactivée. Consultez aussi le [ rendu :::no-loc text="Single-sided":::](single-sided-rendering.md).
 
 * **TransparencyWritesDepth :** Si l’indicateur TransparencyWritesDepth est défini sur le matériau et que celui-ci est transparent, les objets utilisant ce matériau contribueront également au tampon de profondeur final. Consultez la propriété des matériaux de couleur *transparencyMode* dans la section suivante. L’activation de cette fonctionnalité est recommandée si votre cas d’usage a besoin d’une [Reprojection en phase tardive](late-stage-reprojection.md) plus plausible des scènes entièrement transparentes. Pour les scènes opaques/transparentes mixtes, ce réglage peut introduire un comportement ou des artefacts de reprojection invraisemblables. Pour cette raison, le réglage par défaut et recommandé pour le cas d’usage général est de désactiver cet indicateur. Les valeurs de profondeur écrites sont extraites de la couche de profondeur par pixel de l’objet qui est le plus proche de l’appareil photo.
+
+* **FresnelEffect :** Cet indicateur de matériau active l’ajout de l’[effet Fresnel](../../overview/features/fresnel-effect.md) sur le matériau respectif. L’apparence de l’effet est régie par les autres paramètres de Fresnel expliqués ci-dessous. 
+
+* **FresnelEffectColor :** Couleur de Fresnel utilisée pour ce matériau. Important uniquement quand l’effet Fresnel a été défini sur ce matériau (voir ci-dessus). Cette propriété contrôle la couleur de base de la brillance de Fresnel (consultez [Effet Fresnel](../../overview/features/fresnel-effect.md) pour obtenir une explication complète). Seules les valeurs du canal RVB sont importantes, la valeur alpha est ignorée.
+
+* **FresnelEffectExponent :** Exposant de Fresnel utilisé pour ce matériau. Important uniquement quand l’effet Fresnel a été défini sur ce matériau (voir ci-dessus). Cette propriété contrôle la diffusion de la brillance de Fresnel. La valeur minimale 0.01 entraîne une diffusion sur l’ensemble de l’objet. La valeur maximale 10.0 restreint la brillance uniquement aux bords les plus gracieux visibles.
 
 ## <a name="color-material-properties"></a>Propriétés des matériaux de couleur
 

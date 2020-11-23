@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279481"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533784"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -22,7 +22,7 @@ Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événeme
 
 Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires à l’aide du [portail Azure](https://portal.azure.com).
 
-Vous pouvez également gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[SDK .NET [C#]](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)*](how-to-manage-routes-apis-cli.md).
+Vous pouvez également gérer les points de terminaison et les routes à l’aide des [API de routes d’événements](/rest/api/digital-twins/dataplane/eventroutes), des kits [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,13 +52,13 @@ Pour lier un point de terminaison à Azure Digital Twins, l’Event Hub, une rub
 
 ### <a name="create-an-event-grid-endpoint"></a>Créer un point de terminaison Event Grid
 
-**Condition préalable**  : Créez une rubrique Event Grid en suivant les étapes décrites dans [la section *Créer une rubrique personnalisée*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) du démarrage rapide *Événements personnalisés* Event Grid.
+**Condition préalable** : Créez une rubrique Event Grid en suivant les étapes décrites dans [la section *Créer une rubrique personnalisée*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) du démarrage rapide *Événements personnalisés* Event Grid.
 
 Une fois que vous avez créé la rubrique, vous pouvez la lier à Azure Digital Twins à partir de la page de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez trouver l’instance en entrant son nom dans la barre de recherche du portail).
 
 Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
 
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Grid_ en sélectionnant la case d’option correspondante. Renseignez les autres détails : entrez un nom pour votre point de terminaison dans le champ _Nom_ , choisissez votre _abonnement_ dans la liste déroulante, puis choisissez votre _rubrique Event Grid_ précréée dans la troisième liste déroulante.
+Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Grid_ en sélectionnant la case d’option correspondante. Renseignez les autres détails : entrez un nom pour votre point de terminaison dans le champ _Nom_, choisissez votre _abonnement_ dans la liste déroulante, puis choisissez votre _rubrique Event Grid_ précréée dans la troisième liste déroulante.
 
 Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
@@ -84,7 +84,7 @@ Accédez à la page de détails de votre instance Azure Digital Twins dans le [p
 
 Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
 
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Hub_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_ , ainsi que l’ _espace de noms Event Hub_ , l’ _Event Hub_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
+Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Hub_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_, ainsi que l’_espace de noms Event Hub_, l’_Event Hub_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
 
 Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
@@ -106,7 +106,7 @@ Accédez à la page de détails de votre instance Azure Digital Twins dans le [p
 
 Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
 
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Service Bus_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_ , ainsi que l’ _espace de noms Service Bus_ , la _rubrique Service Bus_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
+Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Service Bus_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_, ainsi que l’_espace de noms Service Bus_, la _rubrique Service Bus_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
 
 Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
@@ -130,7 +130,7 @@ Pour obtenir des instructions sur la façon de procéder avec les API, consultez
 
 Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement**. Ces itinéraires permettent aux développeurs d’associer le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
 
-**Condition préalable**  : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
+**Condition préalable** : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
 >[!NOTE]
 >Si vous avez récemment déployé vos points de terminaison, vérifiez que le déploiement est terminé **avant** de tenter de les utiliser pour un nouvel itinéraire d’événements. Si vous ne parvenez pas à configurer l’itinéraire parce que les points de terminaison ne sont pas prêts, patientez quelques minutes, puis réessayez.
@@ -155,7 +155,7 @@ Dans la page *Créer un itinéraire d’événement* qui s’ouvre, choisissez a
 * Un nom pour votre itinéraire dans le champ _Nom_
 * Le _point de terminaison_ que vous souhaitez utiliser pour créer l’itinéraire 
 
-Pour que l’itinéraire soit activé, vous devez également **ajouter un filtre d’itinéraires d’événements** `true` au minimum. (Laisser la valeur `false` par défaut créera l’itinéraire, mais aucun événement ne lui sera envoyé.) Pour ce faire, appuyez sur le bouton bascule de l’ _éditeur avancé_ pour l’activer, puis écrivez `true` dans la zone *Filtre*.
+Pour que l’itinéraire soit activé, vous devez également **ajouter un filtre d’itinéraires d’événements** `true` au minimum. (Laisser la valeur `false` par défaut créera l’itinéraire, mais aucun événement ne lui sera envoyé.) Pour ce faire, appuyez sur le bouton bascule de l’_éditeur avancé_ pour l’activer, puis écrivez `true` dans la zone *Filtre*.
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Capture d’écran de la création de l’itinéraire d’événement pour votre instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
@@ -178,7 +178,7 @@ Vous pouvez sélectionner l’une des options de filtre courantes de base ou uti
 
 #### <a name="use-the-basic-filters"></a>Utiliser les filtres de base
 
-Pour utiliser les filtres de base, développez l’option _Types d’événements_ , puis cochez les cases correspondant aux événements que vous souhaitez envoyer à votre point de terminaison. 
+Pour utiliser les filtres de base, développez l’option _Types d’événements_, puis cochez les cases correspondant aux événements que vous souhaitez envoyer à votre point de terminaison. 
 
 :::row:::
     :::column:::
@@ -202,7 +202,7 @@ Cette opération remplit automatiquement la zone de texte de filtre avec le text
 
 Vous pouvez également utiliser l’option de filtre avancée pour écrire vos propres filtres personnalisés.
 
-Pour créer un itinéraire d’événement avec des options de filtre avancées, appuyez sur le bouton bascule de l’ _éditeur avancé_ pour l’activer. Vous pouvez ensuite écrire vos propres filtres d’événement dans la zone *Filtre*  :
+Pour créer un itinéraire d’événement avec des options de filtre avancées, appuyez sur le bouton bascule de l’_éditeur avancé_ pour l’activer. Vous pouvez ensuite écrire vos propres filtres d’événement dans la zone *Filtre* :
 
 :::row:::
     :::column:::

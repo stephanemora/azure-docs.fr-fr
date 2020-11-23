@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279421"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534753"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
@@ -23,6 +23,10 @@ Les opérations de gestion incluent le chargement, la validation, la récupérat
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>Modes de gestion des modèles
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>Créer des modèles
 
@@ -65,7 +69,7 @@ La première étape de la solution consiste à créer des modèles pour représe
 > [!NOTE]
 > Il s’agit d’un exemple de corps pour un fichier. JSON au sein duquel un modèle est défini et enregistré, et doit être téléchargé dans le cadre d’un projet client. En revanche, l’appel d’API REST prend un tableau de définitions de modèle comme celle ci-dessus (qui est mappée à un `IEnumerable<string>` dans le kit de développement logiciel .NET). Par conséquent, pour utiliser ce modèle dans l’API REST directement, entourez-le avec des crochets.
 
-Ce modèle définit un nom et un ID unique pour la chambre du patient, et les propriétés pour représenter le nombre de visiteurs et l’état du lavage à la main (ces compteurs seront mis à jour à partir des capteurs de mouvement et des distributeurs de savon intelligents, et ils seront utilisés ensemble pour calculer une propriété de *pourcentage de lavage de main* ). Le modèle définit également une relation *hasDevices* , qui sera utilisée pour connecter toute [représentation numérique](concepts-twins-graph.md) basée sur ce modèle *Room* aux périphériques réels.
+Ce modèle définit un nom et un ID unique pour la chambre du patient, et les propriétés pour représenter le nombre de visiteurs et l’état du lavage à la main (ces compteurs seront mis à jour à partir des capteurs de mouvement et des distributeurs de savon intelligents, et ils seront utilisés ensemble pour calculer une propriété de *pourcentage de lavage de main*). Le modèle définit également une relation *hasDevices*, qui sera utilisée pour connecter toute [représentation numérique](concepts-twins-graph.md) basée sur ce modèle *Room* aux périphériques réels.
 
 En suivant cette méthode, vous pouvez définir des modèles pour l’hôpital entier, ou bien pour certaines zones.
 
@@ -73,17 +77,7 @@ En suivant cette méthode, vous pouvez définir des modèles pour l’hôpital e
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Gérer les modèles avec des API
-
-Les sections suivantes montrent comment effectuer différentes opérations de gestion des modèles à l’aide des [API et des kits de développement logiciel Azure Digital Twins](how-to-use-apis-sdks.md).
-
-> [!NOTE]
-> Les exemples ci-dessous n’incluent pas la gestion des erreurs par souci de concision. Toutefois, il est fortement recommandé d’encapsuler les appels de service dans des blocs try/catch au sein de vos projets.
-
-> [!TIP] 
-> N’oubliez pas que toutes les méthodes du SDK sont disponibles dans les versions synchrones et asynchrones. Pour les appels de pagination, les méthodes asynchrones retournent `AsyncPageable<T>`, tandis que les versions synchrones retournent `Pageable<T>`.
-
-### <a name="upload-models"></a>Charger des modèles
+## <a name="upload-models"></a>Charger des modèles
 
 Une fois les modèles créés, vous pouvez les charger vers l’instance Azure Digital Twins.
 
@@ -136,7 +130,7 @@ Les fichiers de modèle peuvent en contenir plusieurs. Dans un tel cas, les mod�
  
 Lors du chargement, les fichiers de modèle sont validés par le service.
 
-### <a name="retrieve-models"></a>Récupérer des modèles
+## <a name="retrieve-models"></a>Récupérer des modèles
 
 Vous pouvez répertorier et récupérer des modèles stockés sur votre instance Azure Digital Twins. 
 
@@ -166,13 +160,13 @@ L’appel `RetrieveModelWithDependencies` retourne non seulement le modèle dema
 
 Les modèles ne sont pas nécessairement retournés exactement sous la même forme que dans le document au sein duquel ils ont été chargés. Azure Digital Twins garantit uniquement que la forme de retour est sémantiquement équivalente. 
 
-### <a name="update-models"></a>Mettre à jour les modèles
+## <a name="update-models"></a>Mettre à jour les modèles
 
 Une fois qu’un modèle est chargé dans votre instance Azure Digital Twins, l’interface de modèle entière est immuable. Cela signifie qu’il n’y a pas de « modification » traditionnelle des modèles. Azure Digital Twins n’autorise pas non plus le rechargement du même modèle.
 
 Mais si vous voulez apporter des modifications à un modèle (par exemple, modifier `displayName` ou `description`), vous pouvez le faire en chargeant une **version plus récente** de ce modèle. 
 
-#### <a name="model-versioning"></a>Gestion des versions des modèles
+### <a name="model-versioning"></a>Gestion des versions des modèles
 
 Pour créer une nouvelle version d’un modèle existant, commencez par le DTDL du modèle d’origine. Mettez à jour, ajoutez ou supprimez les champs à modifier.
 
@@ -194,15 +188,15 @@ Ensuite, chargez la nouvelle version du modèle dans votre instance.
 
 Cette version du modèle devient alors disponible dans votre instance pour les jumeaux numériques. Elle ne remplace **pas** les versions antérieures du modèle. Ainsi, plusieurs versions du modèle coexistent dans votre instance jusqu’à ce que vous [les supprimiez](#remove-models).
 
-#### <a name="impact-on-twins"></a>Impact sur les jumeaux
+### <a name="impact-on-twins"></a>Impact sur les jumeaux
 
 Quand vous créez un jumeau, étant donné que la nouvelle version du modèle et l’ancienne coexistent, le nouveau jumeau peut utiliser l’une ou l’autre des versions.
 
 Cela signifie également que le chargement d’une nouvelle version d’un modèle n’affecte pas automatiquement les jumeaux existants. Les jumeaux existants vont simplement rester des instances de l’ancienne version du modèle.
 
-Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques*. Dans le même correctif, vous devez mettre à jour à la fois l’ **ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle**.
+Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques*. Dans le même correctif, vous devez mettre à jour à la fois l’**ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle**.
 
-### <a name="remove-models"></a>Supprimer des modèles
+## <a name="remove-models"></a>Supprimer des modèles
 
 Les modèles peuvent également être supprimés du service, de l’une des deux manières suivantes :
 * **Désaffectation** : Une fois qu’un modèle est désactivé, vous ne pouvez plus l’utiliser pour créer de nouvelles représentations numériques. Les représentations numériques existantes utilisant déjà ce modèle ne sont pas affectées. vous pouvez donc toujours les mettre à jour avec des éléments tels que les modifications de propriétés et l’ajout ou la suppression de relations.
@@ -210,7 +204,7 @@ Les modèles peuvent également être supprimés du service, de l’une des deux
 
 Il s’agit de fonctionnalités distinctes qui ne s’affectent pas réciproquement, bien qu’elles puissent être utilisées ensemble pour supprimer un modèle progressivement. 
 
-#### <a name="decommissioning"></a>Désaffectation
+### <a name="decommissioning"></a>Désaffectation
 
 Voici le code permettant de désaffecter un modèle :
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 L’état de désaffectation d’un modèle est inclus dans les enregistrements `ModelData` retournés par les API de récupération de modèle.
 
-#### <a name="deletion"></a>Suppression
+### <a name="deletion"></a>Suppression
 
 Vous pouvez supprimer tous les modèles de votre instance d’une seule traite, ou vous pouvez le faire sur une base individuelle.
 
@@ -231,15 +225,15 @@ Pour obtenir un exemple de suppression de tous les modèles, téléchargez l’e
 
 Le reste de cette section décompose la suppression du modèle plus en détails et montre comment le faire pour un modèle individuel.
 
-##### <a name="before-deletion-deletion-requirements"></a>Avant la suppression : Conditions requises pour la suppression
+#### <a name="before-deletion-deletion-requirements"></a>Avant la suppression : Conditions requises pour la suppression
 
 En règle générale, les modèles peuvent être supprimés à tout moment.
 
-L’exception concerne les modèles dont dépendent d’autres modèles, qu’il s’agisse d’une relation `extends` ou en tant que composant. Par exemple, si un modèle *ConferenceRoom* étend un modèle *Room* , et qu’il possède un modèle *ACUnit* en tant que composant, vous ne pouvez pas supprimer *Room* ou *ACUnit* avant que *ConferenceRoom* ne supprime leurs références respectives. 
+L’exception concerne les modèles dont dépendent d’autres modèles, qu’il s’agisse d’une relation `extends` ou en tant que composant. Par exemple, si un modèle *ConferenceRoom* étend un modèle *Room*, et qu’il possède un modèle *ACUnit* en tant que composant, vous ne pouvez pas supprimer *Room* ou *ACUnit* avant que *ConferenceRoom* ne supprime leurs références respectives. 
 
 Pour ce faire, vous pouvez mettre à jour le modèle dépendant pour supprimer les dépendances ou bien supprimer complètement le modèle dépendant.
 
-##### <a name="during-deletion-deletion-process"></a>Durant la suppression : Processus de suppression
+#### <a name="during-deletion-deletion-process"></a>Durant la suppression : Processus de suppression
 
 Même si un modèle répond aux exigences pour une suppression immédiate, vous voudrez peut-être suivre quelques étapes préliminaires pour éviter des conséquences inattendues pour la représentation numérique. Voici quelques étapes qui peuvent vous aider à gérer le processus :
 1. Tout d’abord, désaffectez le modèle
@@ -255,7 +249,7 @@ Pour supprimer un modèle, utilisez cet appel :
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>Après la suppression : Représentations sans modèle
+#### <a name="after-deletion-twins-without-models"></a>Après la suppression : Représentations sans modèle
 
 Une fois qu’un modèle est supprimé, les représentations numériques qui l’utilisaient sont désormais considérées comme sans modèle. Notez qu’il n’existe aucune requête vous fournissant une liste de tous les représentations dans cet état, bien que vous *puissiez* toujours interroger les représentations du modèle supprimé pour connaître les représentations affectées.
 
@@ -274,17 +268,13 @@ Choses que vous **ne pouvez pas** faire :
 * Modifier les relations sortantes (les relations *de* cette représentation vers d’autres représentations)
 * Modifier les propriétés
 
-##### <a name="after-deletion-re-uploading-a-model"></a>Après la suppression : Rechargement d’un modèle
+#### <a name="after-deletion-re-uploading-a-model"></a>Après la suppression : Rechargement d’un modèle
 
 Une fois qu’un modèle a été supprimé, vous pouvez décider de charger un nouveau modèle ayant un ID identique à celui que vous avez supprimé. Voici ce qui se passe dans ce cas.
 * Du point de vue du magasin de solutions, cela revient à charger un modèle entièrement nouveau. Le service ne se rappelle pas du chargement de l’ancien modèle.   
 * S’il existe des représentations restantes dans le graphique référençant le modèle supprimé, elles ne sont plus orphelines ; Cet ID de modèle est de nouveau valide avec la nouvelle définition. Cependant, si la nouvelle définition pour le modèle est différente de celle du modèle supprimée, ces représentations peuvent disposer de propriétés et de relations correspondant à la définition supprimée et qui ne conviennent pas à la nouvelle.
 
 Azure Digital Twins n’empêche pas cet état, veillez donc à lier les représentations correctement afin de veiller à ce qu’elles restent valides après le changement de définition de modèle.
-
-## <a name="manage-models-with-cli"></a>Gérer les modèles avec une interface CLI
-
-Les modèles peuvent également être gérés à l’aide de l’interface CLI de Azure Digital Twins. Les commandes se trouvent dans [*Guide pratique : Utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360069"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540966"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -26,6 +26,10 @@ Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser d
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>Modes de gestion des jumeaux
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>Créer un jumeau numérique
 
@@ -113,7 +117,7 @@ Seules les propriétés qui ont été définies au moins une fois sont retourné
 
 Pour récupérer plusieurs jumeaux à l’aide d’un seul appel d’API, consultez les exemples d’API de requête dans [*Procédure : Interroger le graphique de jumeaux*](how-to-query-graph.md).
 
-Prenez pour exemple le modèle suivant (écrit en [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) qui définit une *Lune*  :
+Prenez pour exemple le modèle suivant (écrit en [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) qui définit une *Lune* :
 
 ```json
 {
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 Pour plus d’informations sur les classes d’assistance de sérialisation, consultez [*Procédure : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md).
+
+## <a name="view-all-digital-twins"></a>Supprimer tous les jumeaux numériques
+
+Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](how-to-use-cli.md).
+
+Voici le corps de la requête de base qui retourne la liste de tous les jumeaux numériques dans l’instance :
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>Mettre à jour un jumeau numérique
 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériques, téléchargez l’exemple d’application utilisé dans le [_Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllTwins()`.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>Gérer les jumeaux à l’aide de l’exemple de code exécutable
+## <a name="runnable-digital-twin-code-sample"></a>Exemple de code de jumeau numérique exécutable
 
 Vous pouvez utiliser l’exemple de code exécutable ci-dessous pour créer un jumeau, mettre à jour ses détails et supprimer le jumeau. 
 
@@ -535,22 +550,6 @@ Voici la sortie de la console du programme ci-dessus :
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Sortie de la console indiquant que le jumeau est créé, mis à jour et supprimé" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>Gérer des jumeaux avec l’interface CLI
-
-Les jumeaux peuvent également être gérés à l’aide de l’interface CLI Azure Digital Twins. Vous trouverez les commandes dans [_Guide pratique : utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
-
-## <a name="view-all-digital-twins"></a>Supprimer tous les jumeaux numériques
-
-Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](how-to-use-cli.md).
-
-Voici le corps de la requête de base qui retourne la liste de tous les jumeaux numériques dans l’instance :
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment créer et gérer des relations entre vos jumeaux numériques :
-* [*Guide pratique : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md)
+Découvrez comment créer et gérer des relations entre vos jumeaux numériques : _ [*Guide pratique : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md)

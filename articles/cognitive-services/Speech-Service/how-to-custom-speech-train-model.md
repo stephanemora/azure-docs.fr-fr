@@ -1,38 +1,35 @@
 ---
-title: Entraîner un modèle pour Custom Speech - Service Speech
+title: Entraîner et déployer un modèle Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
-description: L’entraînement d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft ou un modèle personnalisé. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé.
+description: Dans cet article, vous allez apprendre à entraîner et déployer des modèles Custom Speech. L’entraînement d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft ou un modèle personnalisé. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.author: trbye
+ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84629021"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555785"
 ---
-# <a name="train-a-model-for-custom-speech"></a>Entraîner un modèle pour Custom Speech
+# <a name="train-and-deploy-a-custom-speech-model"></a>Entraîner et déployer un modèle Custom Speech
 
-La formation d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé. Ces jeux de données, ainsi que les données audio précédemment chargées, permettent d’affiner et d’entraîner le modèle de reconnaissance vocale.
+Dans cet article, vous allez apprendre à entraîner et déployer des modèles Custom Speech. La formation d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé. Ces jeux de données, ainsi que les données audio précédemment chargées, permettent d’affiner et d’entraîner le modèle de reconnaissance vocale.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Utiliser l’entraînement pour résoudre les problèmes de précision
 
-Si vous rencontrez des problèmes de reconnaissance avec votre modèle, l’utilisation de transcriptions étiquetées à la main et de données associées peuvent contribuer à améliorer la précision. Servez-vous de ce tableau pour savoir quel jeu de données utiliser pour résoudre vos problèmes :
+Si vous rencontrez des problèmes de reconnaissance avec un modèle de base, l’utilisation de transcriptions étiquetées à la main et de données associées pour l’entraînement d’un modèle personnalisé peuvent contribuer à améliorer la justesse. Servez-vous de ce tableau pour savoir quel jeu de données utiliser pour résoudre vos problèmes :
 
 | Cas d’utilisation | Type de données |
 | -------- | --------- |
 | Améliorez la précision de la reconnaissance du vocabulaire ou de la grammaire spécifiques d’un secteur, par exemple, la terminologie médicale ou le jargon informatique. | Texte associé (phrases/énoncés) |
 | Définissez la forme phonétique et affichée d’un mot ou d’un terme dont la prononciation n’est pas standard, par exemple, les noms de produits ou les acronymes. | Texte associé (prononciation) |
 | Améliorez la précision de la reconnaissance de styles oraux, d’accents ou de bruits de fond spécifiques. | Transcriptions audio + étiquetées à la main |
-
-> [!IMPORTANT]
-> Si vous n’avez pas chargé de jeu de données, consultez [Préparer et tester les données](how-to-custom-speech-test-data.md). Ce document donne des instructions pour charger des données et des recommandations visant à créer des jeux de données de grande qualité.
 
 ## <a name="train-and-evaluate-a-model"></a>Entraîner et évaluer un modèle
 
@@ -49,22 +46,37 @@ La première étape pour entraîner un modèle consiste à charger des données 
 
 La table Training (Entraînement) comporte une nouvelle entrée correspondant à ce nouveau modèle. Elle indique également l’état : Processing, Succeeded, Failed (En cours de traitement, Réussite, Échec).
 
-## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Évaluer la précision d’un modèle entraîné
+Consultez le [Guide pratique](how-to-custom-speech-evaluate-data.md) sur l’évaluation et l’amélioration de la justesse du modèle Custom Speech. Si vous choisissez de tester l’exactitude, il est important de sélectionner un jeu de données acoustique différent de celui que vous avez utilisé avec votre modèle pour vous faire une idée réaliste des performances du modèle.
 
-Vous pouvez inspecter les données et évaluer la précision du modèle à l’aide de ces documents :
+## <a name="deploy-a-custom-model"></a>Déployer un modèle personnalisé
 
-- [Inspecter les données](how-to-custom-speech-inspect-data.md)
-- [Évaluer les données](how-to-custom-speech-evaluate-data.md)
+Après avoir chargé et inspecté les données, évalué la précision et formé un modèle personnalisé, vous pouvez déployer un point de terminaison personnalisé à utiliser avec vos applications, outils et produits. 
 
-Si vous choisissez de tester l’exactitude, il est important de sélectionner un jeu de données acoustique différent de celui que vous avez utilisé avec votre modèle pour vous faire une idée réaliste des performances du modèle.
+Pour créer un point de terminaison personnalisé, connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech), puis sélectionnez **Déploiement** dans le menu Custom Speech en haut de la page. S’il s’agit de votre première exécution, vous remarquerez que la table ne contient aucun point de terminaison. Une fois que vous avez créé un point de terminaison, vous utilisez cette page pour effectuer le suivi de chaque point de terminaison déployé.
+
+Ensuite, sélectionnez **Ajouter un point de terminaison** et entrez un **nom** et une **description** pour votre point de terminaison personnalisé. Puis sélectionnez le modèle personnalisé que vous souhaitez associer à ce point de terminaison. À partir de cette page, vous pouvez également activer la journalisation. La journalisation vous permet de surveiller le trafic du point de terminaison. Si elle est désactivée, le trafic ne sera pas enregistré.
+
+![Déploiement d’un modèle](./media/custom-speech/custom-speech-deploy-model.png)
+
+> [!NOTE]
+> N’oubliez pas d’accepter les conditions d’utilisation et la tarification.
+
+Ensuite, sélectionnez **Créer**. Cette action vous renvoie à la page **Déploiement**. La table inclut désormais une entrée qui correspond à votre point de terminaison personnalisé. L’état du point de terminaison indique son état actuel. L’instanciation d’un nouveau point de terminaison avec vos modèles personnalisés peut prendre jusqu’à 30 minutes. Lorsque l’état du déploiement est **Complete**, le point de terminaison est prêt à être utilisé.
+
+Une fois le point de terminaison déployé, son nom s’affiche sous forme de lien. Cliquez sur ce lien pour afficher les informations qui concernent spécifiquement votre point de terminaison, comme sa clé, son URL et l’exemple de code.
+
+## <a name="view-logging-data"></a>Afficher les données de journalisation
+
+Les données de journalisation sont disponibles au téléchargement sous **Point de terminaison > Détails**.
+> [!NOTE]
+>Les données de journalisation sont disponibles pendant 30 jours sur le stockage détenu par Microsoft, avant d’être supprimées. Si un compte de stockage appartenant à un client est lié à l’abonnement Cognitive Services, les données de journalisation ne sont pas automatiquement supprimées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déployer un modèle](how-to-custom-speech-deploy-model.md)
+* Découvrez [comment utiliser votre modèle personnalisé](how-to-specify-source-language.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 - [Préparer et tester les données](how-to-custom-speech-test-data.md)
 - [Inspecter les données](how-to-custom-speech-inspect-data.md)
 - [Évaluer les données](how-to-custom-speech-evaluate-data.md)
-- [Entraîner un modèle](how-to-custom-speech-train-model.md)

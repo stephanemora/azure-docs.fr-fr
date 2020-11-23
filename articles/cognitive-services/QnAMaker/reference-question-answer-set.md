@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 363af72df89be9104e4d946bf8da0d44908382d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef5476ade205109f5dfede1b3bb2c3a4ae2e81a7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776219"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506003"
 ---
-# <a name="question-and-answer-pair-concepts"></a>Concepts des paires question/réponse
+# <a name="question-and-answer-pair"></a>Paire question/réponse
 
 Une base de connaissances est composée de paires question/réponse (Q/R).  Chaque paire a une réponse et contient toutes les informations associées à cette _réponse_. Une réponse peut un peu s’apparenter à une ligne de base de données ou à une instance de structure de données.
 

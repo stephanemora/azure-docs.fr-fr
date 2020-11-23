@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359576"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533876"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
@@ -25,7 +25,13 @@ Cet article se concentre sur la gestion des relations et du graphique dans son e
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>Modes de gestion d’un graphe
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+Vous pouvez également apporter des changements à votre graphe à l’aide de l’exemple d’ADT Explorer (Azure Digital Twins Explorer), qui vous permet de visualiser vos jumeaux et votre graphe, et qui utilise le kit SDK en arrière-plan. La section suivante décrit cet exemple en détail.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Créer des relations
@@ -219,7 +225,8 @@ Vous pouvez maintenant appeler cette méthode pour supprimer une relation comme 
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>Créer un graphique de jumeaux 
+
+## <a name="runnable-twin-graph-sample"></a>Exemple de graphe de jumeaux exécutable
 
 L’extrait de code exécutable suivant utilise les opérations de relation de cet article pour créer un graphe de jumeaux en dehors des relations et des jumeaux.
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>Gérer les relations avec une interface CLI
-
-Les jumeaux et leurs relations peuvent également être gérés à l’aide de l’interface CLI Azure Digital Twins. Les commandes se trouvent dans [*Guide pratique : Utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

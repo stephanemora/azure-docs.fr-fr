@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 88828d6dea05c530d20fe378a108df2bd0dcd5b9
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279460"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533750"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -20,9 +20,9 @@ ms.locfileid: "93279460"
 
 Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](how-to-interpret-event-data.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
 
-Vous pouvez gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[Kit de développement logiciel (SDK) C# .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), ou de la [CLI Azure Digital Twins](how-to-use-cli.md). Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires via ces mécanismes.
+Cet article vous guide tout au long du processus de création de points de terminaison et de routes à l’aide des [API de routes d’événements](/rest/api/digital-twins/dataplane/eventroutes), du [kit SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) et de l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
-Vous pouvez également les gérer via le [portail Azure](https://portal.azure.com). Pour obtenir une version de cet article qui utilise le portail à la place, consultez le [Tutoriel  *: Gérer les points de terminaison et les itinéraires (portail)*](how-to-manage-routes-portal.md).
+Vous pouvez également gérer les points de terminaison et les routes à l’aide du [portail Azure](https://portal.azure.com). Pour obtenir une version de cet article qui utilise le portail à la place, consultez le [Tutoriel  *: Gérer les points de terminaison et les itinéraires (portail)*](how-to-manage-routes-portal.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -71,8 +71,8 @@ La rubrique Event Grid est ensuite disponible en tant que point de terminaison d
 Le processus de création de Event Hubs ou de points de terminaison de Service Bus est similaire au processus de Event Grid présenté ci-dessus.
 
 Tout d’abord, créez vos ressources que vous utiliserez comme point de terminaison. Voici ce qui est requis :
-* Service Bus : _Espace de noms Service Bus_ , _Rubrique Service Bus_ ,  _Règle d'autorisation_
-* Hubs d'événements : _Espace de noms Event Hubs_ , _hub d'événements_ , _Règle d'autorisation_
+* Service Bus : _Espace de noms Service Bus_, _Rubrique Service Bus_,  _Règle d'autorisation_
+* Hubs d'événements : _Espace de noms Event Hubs_, _hub d'événements_, _Règle d'autorisation_
 
 Utilisez ensuite les commandes suivantes pour créer les points de terminaison dans Azure Digital Twins : 
 
@@ -156,7 +156,7 @@ Pour envoyer concrètement des données d’Azure Digital Twins à un point de t
 
 Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-**Condition préalable**  : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
+**Condition préalable** : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
 >[!NOTE]
 >Si vous avez récemment déployé vos points de terminaison, vérifiez que le déploiement est terminé **avant** de tenter de les utiliser pour un nouvel itinéraire d’événements. Si le déploiement de l’itinéraire échoue parce que les points de terminaison ne sont pas prêts, patientez quelques minutes, puis réessayez.

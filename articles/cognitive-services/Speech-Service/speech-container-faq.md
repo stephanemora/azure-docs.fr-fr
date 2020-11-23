@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918466"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653536"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs de service Speech
 
@@ -43,7 +43,7 @@ En outre, nous avons des packages de fichiers exécutables pour les machines ave
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Enfin, vous pouvez définir le nombre de décodeurs souhaité à l’intérieur d’un *seul* conteneur à l’aide de la variable `DECODER MAX_COUNT`. Donc, fondamentalement, nous devons commencer par votre référence SKU (UC/mémoire), et de là nous pouvons vous suggérer comment en tirer le meilleur. Un excellent point de départ consiste à faire référence aux spécifications de ressources de machine hôte recommandées.
+Vous pouvez définir le nombre de décodeurs souhaités à l’intérieur d’un *seul* conteneur à l’aide de la variable `DECODER MAX_COUNT`. Donc, fondamentalement, nous devons commencer par votre référence SKU (UC/mémoire), et de là nous pouvons vous suggérer comment en tirer le meilleur. Un excellent point de départ consiste à faire référence aux spécifications de ressources de machine hôte recommandées.
 
 <br>
 </details>
@@ -419,7 +419,7 @@ Combien de requêtes simultanées puis-je gérer avec 4 cœurs et 4 Go de RAM ?
 |-----------------------|---------------------|---------------------|
 | Synthèse vocale personnalisée | 1 cœur, 2 Go de mémoire | 2 cœur, 3 Go de mémoire |
 
-***
+**_
 
 - Chaque cœur doit être cadencé à au moins 2,6 GHz.
 - Pour les fichiers, la limitation sera dans le kit de développement logiciel (SDK) Speech, à x2 (les 5 premières secondes de l’audio ne sont pas limitées).
@@ -438,7 +438,7 @@ Par exemple, pour gérer 1000 heures/24 heures, nous avons essayé de configurer
 <b>Le conteneur Speech prend-il en charge la ponctuation ?</b>
 </summary>
 
-**Réponse :** La mise en majuscules (ITN) est disponible dans le conteneur local. La ponctuation dépend de la langue et n’est pas prise en charge pour certaines langues, dont le chinois et le japonais.
+_ *Réponse :* * Nous voyons que la mise en majuscules (ITN) est disponible dans le conteneur local. La ponctuation dépend de la langue et n’est pas prise en charge pour certaines langues, dont le chinois et le japonais.
 
 Nous *prenons en charge* la ponctuation implicite et de base pour les conteneurs existants, mais elle est définie sur `off` par défaut. Cela signifie que vous pouvez récupérer le caractère `.` dans votre exemple, mais pas le caractère `。`. Pour activer cette logique implicite, voici un exemple de la façon de le faire dans Python à l’aide de notre kit de développement logiciel (SDK) Speech (cela se ferait de façon similaire dans les autres langages) :
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **Réponse :** Nous ne prenons pas en charge l’API REST dans un conteneur de reconnaissance vocale, seulement les WebSockets via le kit de développement logiciel (SDK) Speech. Reportez-vous toujours à la documentation officielle. Consultez [Points de terminaison de prédiction de requête](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> Pourquoi le conteneur s’exécute-t-il en tant qu’utilisateur non-racine ? Quels sont les problèmes qui peuvent en résulter ?</b>
+</summary>
+
+**Réponse :** Notez que l’utilisateur par défaut à l’intérieur du conteneur est un utilisateur non-racine. Cela fournit une protection contre les processus qui s’échappent du conteneur et obtiennent des réaffectations d’autorisations sur le nœud hôte. Par défaut, certaines plateformes, par exemple OpenShift Container Platform, le font déjà en exécutant des conteneurs à l’aide d’un identifiant utilisateur affecté arbitrairement. Pour ces plateformes, l’utilisateur non-racine doit disposer d’autorisations d’accès en écriture sur les volumes mappés de manière externe qui nécessitent des écritures. Cela s’applique, par exemple, à un dossier de journalisation ou un dossier de téléchargement de modèle personnalisé.
 <br>
 </details>
 
