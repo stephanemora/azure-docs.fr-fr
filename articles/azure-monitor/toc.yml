@@ -89,6 +89,8 @@
               href: samples/resource-manager-web-app.md
             - name: Azure Functions
               href: samples/resource-manager-function-app.md
+        - name: Règles de collecte des données
+          href: samples/resource-manager-data-collection-rules.md
         - name: Paramètres de diagnostic
           href: samples/resource-manager-diagnostic-settings.md
         - name: Espaces de travail Log Analytics
@@ -164,6 +166,7 @@
         - name: Déployer Azure Monitor
           href: deploy.md
         - name: Déployer à l’échelle
+          displayName: 'Azure Policy, Policy'
           href: deploy-scale.md
     - name: Gérer et configurer
       items:
@@ -348,9 +351,12 @@
           href: faq.md#agents
         - name: Agent Azure Monitor
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               displayname: Azure Monitor agent
               href: platform/azure-monitor-agent-overview.md
+            - name: Installer
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-install.md
             - name: Collecte des données
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
