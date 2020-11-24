@@ -260,6 +260,8 @@
       href: install-vm-agent-offline.md
     - name: Résoudre les problèmes de l’agent de machines virtuelles Windows
       href: windows-azure-guest-agent.md
+    - name: Résoudre les problèmes de l’agent de machine virtuelle Linux
+      href: linux-azure-guest-agent.md
 - name: Sauvegarde et restauration
   items:
     - name: Résoudre les échecs de la sauvegarde sur une machine virtuelle Azure

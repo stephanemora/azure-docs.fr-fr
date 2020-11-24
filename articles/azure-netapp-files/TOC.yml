@@ -97,13 +97,13 @@
       href: dynamic-change-volume-service-level.md
     - name: Gérer la réplication interrégion
       items:
-        - name: Créer un peering de réplication
+        - name: Créer une réplication de volume
           href: cross-region-replication-create-peering.md
         - name: Afficher l’état d’intégrité de la relation de réplication
           href: cross-region-replication-display-health-status.md
         - name: Gérer la reprise d’activité après sinistre
           href: cross-region-replication-manage-disaster-recovery.md
-        - name: Supprimer des réplications
+        - name: Supprimer des volumes ou des réplications de volume
           href: cross-region-replication-delete.md
     - name: Développer
       items:
@@ -139,5 +139,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'
     - name: Contrat SLA
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
-    - name: Videos
+    - name: Vidéos
       href: azure-netapp-files-videos.md

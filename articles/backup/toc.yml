@@ -4,6 +4,8 @@
   items:
     - name: Vue d’ensemble de Sauvegarde Azure
       href: backup-overview.md
+    - name: Nouveautés de Sauvegarde Azure
+      href: whats-new.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: Démarrages rapides
