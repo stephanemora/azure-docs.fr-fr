@@ -2,17 +2,17 @@
 title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/10/2020
+ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913804"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537609"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
-Dans un workflow Azure Batch, un *nœud de calcul* (ou *nœud* ) est une machine virtuelle qui traite une partie de la charge de travail de votre application. Un *pool* est une collection regroupant ces nœuds, sur lesquels votre application s’exécute. Cet article explique plus en détail les nœuds et les pools, ainsi que les éléments à prendre en compte lors de leur création et de leur utilisation dans un flux de travail Azure Batch.
+Dans un workflow Azure Batch, un *nœud de calcul* (ou *nœud*) est une machine virtuelle qui traite une partie de la charge de travail de votre application. Un *pool* est une collection regroupant ces nœuds, sur lesquels votre application s’exécute. Cet article explique plus en détail les nœuds et les pools, ainsi que les éléments à prendre en compte lors de leur création et de leur utilisation dans un flux de travail Azure Batch.
 
 ## <a name="nodes"></a>Nœuds
 
@@ -72,9 +72,9 @@ L’[agent de nœud de Batch](https://github.com/Azure/Batch/blob/master/changel
 
 ### <a name="cloud-services-configuration"></a>Configuration des Services cloud
 
-La **configuration des Services cloud** indique que le pool est composé de nœuds Azure Cloud Services. Les Services cloud fournissent *uniquement* des nœuds de calcul Windows.
+La **configuration des Services cloud** indique que le pool est composé de nœuds Azure Cloud Services. Les Services cloud fournissent uniquement des nœuds de calcul Windows.
 
-Les systèmes d’exploitation disponibles pour les pools de configuration des services coud sont répertoriés dans [Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Lorsque vous créez un pool qui contient des nœuds Microsoft Azure Cloud Services, vous devez spécifier la taille du nœud et sa *famille de systèmes d’exploitation* (laquelle détermine les versions de .NET installées avec le système d’exploitation concerné). Les Services cloud sont déployés plus rapidement sur Azure que les machines virtuelles exécutant Windows. Si vous souhaitez créer des nœuds de calcul Windows, vous pouvez constater que Cloud Services propose un délai de déploiement moins important.
+Les systèmes d’exploitation disponibles pour les pools Configuration des Services cloud sont répertoriés dans la [matrice de compatibilité entre les versions du système d’exploitation invités Azure et les kits de développement logiciel (SDK)](../cloud-services/cloud-services-guestos-update-matrix.md), et les tailles de nœuds de calcul disponibles sont répertoriés dans [Tailles pour Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Lorsque vous créez un pool qui contient des nœuds Microsoft Azure Cloud Services, vous spécifiez la taille du nœud et sa *famille de systèmes d’exploitation* (laquelle détermine les versions de .NET installées avec le système d’exploitation concerné). Les Services cloud sont déployés plus rapidement sur Azure que les machines virtuelles exécutant Windows. Si vous souhaitez créer des nœuds de calcul Windows, vous pouvez constater que Cloud Services propose un délai de déploiement moins important.
 
 Comme avec les rôles de travail dans Cloud Services, vous pouvez spécifier une *Version du système d’exploitation* (pour plus d’informations sur les rôles de travail, consultez l’article [Vue d’ensemble de Services cloud](../cloud-services/cloud-services-choose-me.md)). Nous vous recommandons de spécifier `Latest (*)` comme *version du système d’exploitation* afin que les nœuds soient automatiquement mis à niveau et qu’aucun travail supplémentaire ne soit requis pour gérer ces nouvelles versions. La principale raison de sélectionner une version de système d’exploitation spécifique est d’assurer la compatibilité des applications, ce qui permet aux tests de compatibilité descendante d’être réalisés avant d’autoriser la mise à jour de la version. Une fois validée, la *version du système d’exploitation* du pool peut être mise à jour et la nouvelle image du système d’exploitation peut être installée. Toutes les tâches en cours d’exécution sont interrompues et remises en file d’attente.
 
@@ -148,7 +148,7 @@ Vous pouvez également spécifier un *type de remplissage*. Il détermine si l�
 
 Dans la plupart des scénarios, les tâches fonctionnent indépendamment et n’ont pas besoin de communiquer les unes avec les autres. Cependant, il existe des applications dans lesquelles les tâches doivent communiquer, par exemple les [scénarios impliquant des applications MPI](batch-mpi.md).
 
-Vous pouvez configurer un pool de sorte qu’il autorise la **communication entre les nœuds** , afin de permettre aux nœuds du pool de communiquer au moment de l’exécution. Lorsque la communication entre les nœuds est activée, les nœuds des pools Configuration de Cloud Services peuvent communiquer entre eux sur les ports supérieurs à 1100, et les pools Configuration de la machine virtuelle ne limitent pas le trafic sur les ports.
+Vous pouvez configurer un pool de sorte qu’il autorise la **communication entre les nœuds**, afin de permettre aux nœuds du pool de communiquer au moment de l’exécution. Lorsque la communication entre les nœuds est activée, les nœuds des pools Configuration de Cloud Services peuvent communiquer entre eux sur les ports supérieurs à 1100, et les pools Configuration de la machine virtuelle ne limitent pas le trafic sur les ports.
 
 L’activation de la communication entre les nœuds affecte également le placement des nœuds dans des clusters et peut limiter le nombre maximal de nœuds dans un pool en raison des restrictions de déploiement. Si votre application ne nécessite pas de communication entre les nœuds, le service Batch peut éventuellement allouer au pool un grand nombre de nœuds issus de différents centres de données et clusters pour accroître la puissance de traitement parallèle.
 

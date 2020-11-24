@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a9c8fce87b48b47f4bf82e5fd25fda12a25758
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192414"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553503"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
 Ce document décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA.
@@ -38,11 +38,9 @@ Veuillez inclure dans votre ticket :
 * Le niveau de correctif que vous envisagez d'appliquer.
 * La date à laquelle vous envisagez cette modification. 
 
-Nous vous conseillons d'ouvrir ce ticket au moins une semaine avant la date de mise à niveau souhaitée pour permettre à l'équipe de vérifier si une mise à niveau du microprogramme est requise dans le panneau de votre serveur.
-
+Nous vous conseillons d’ouvrir ce ticket au moins une semaine avant la mise à niveau recommandée, ce qui permettra à l’équipe des opérations d’en savoir plus sur la version souhaitée du microprogramme.
 
 Pour consulter la matrice de prise en charge des différentes versions SAP HANA avec les différentes versions Linux, reportez-vous à [Remarque SAP n° 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -55,16 +53,17 @@ Voici quelques problèmes affectant couramment la mise à niveau :
 Au fil du temps, la configuration du système d’exploitation peut s’écarter des paramètres recommandés en raison des mises à jour correctives, des mises à niveau du système et des modifications apportées par les clients. De plus, Microsoft identifie les mises à jour nécessaires pour que les systèmes existants soient configurés de manière optimale pour offrir les meilleurs niveaux de performance et de résilience possibles. Les instructions suivantes décrivent les suggestions relatives au niveau de performance réseau, à la stabilité du système et au niveau de performance optimal de HANA.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Versions compatibles des pilotes eNIC/fNIC
-  Pour bénéficier d’un bon niveau de performance réseau et d’une stabilité du système adéquate, il est recommandé de vérifier que la version propre au système d’exploitation des pilotes eNIC et fNIC est installée comme indiqué dans la tableau de compatibilité suivant. Les serveurs sont fournis aux clients avec des versions compatibles. Dans certains cas, notez que la mise à jour corrective du système d’exploitation et/ou du noyau peut entraîner la restauration de la version par défaut des pilotes. Vérifiez que les pilotes s’exécutant après les opérations de mise à jour corrective du système d’exploitation et/ou du noyau correspondent aux bonnes versions.
+  Pour bénéficier d’un bon niveau de performance réseau et d’une stabilité du système adéquate, il est recommandé de vérifier que la version propre au système d’exploitation des pilotes eNIC et fNIC est installée comme indiqué dans la tableau de compatibilité suivant. Les serveurs sont fournis aux clients avec des versions compatibles. Dans certains cas,la mise à jour corrective du système d’exploitation et/ou du noyau peut entraîner la restauration de la version par défaut des pilotes. Vérifiez que les pilotes s’exécutant après les opérations de mise à jour corrective du système d’exploitation et/ou du noyau correspondent aux bonnes versions.
        
       
   |  Fournisseur du système d’exploitation    |  Version du package du système d’exploitation     |  Version du microprogramme  |  Pilote eNIC |  Pilote fNIC | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -88,6 +87,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>Étapes pour l’installation de pilotes eNIC/fNIC pendant la mise à niveau du système d’exploitation
+
+* Mise à niveau de la version du système d’exploitation
+* Supprimer les anciens packages rpm
+* Installer les pilotes eNIC/fNIC compatibles conformément à la version installée du système d’exploitation
+* Relancer le système
+* Après le redémarrage, vérifiez la version d’eNIC/fNIC
+
 
 ### <a name="suse-hlis-grub-update-failure"></a>Échec de la mise à jour de GRUB pour les HLI SuSE
 Les grandes instances SAP HANA sur Azure (type I) peuvent être dans un état qui les empêchent de démarrer après une mise à niveau. La procédure ci-dessous corrige ce problème.
@@ -117,7 +125,6 @@ blacklist edac_core
 ```
 Un redémarrage est nécessaire pour que les modifications soient prises en compte. Exécutez la commande `lsmod` et vérifiez que le module n’est pas présent dans la sortie.
 
-
 ### <a name="kernel-parameters"></a>Paramètres de noyau
    Vérifiez que les paramètres `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` et `intel_idle.max_cstate` sont correctement définis.
 
@@ -126,7 +133,6 @@ Un redémarrage est nécessaire pour que les modifications soient prises en comp
 * transparent_hugepage=never
 * numa_balancing=disable
 * mce=ignore_ce
-
 
 #### <a name="execution-steps"></a>Étapes d’exécution
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930080"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532441"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gérer l’accès, la puissance et le mode de connectivité de votre GPU Azure Stack Edge Pro
 
@@ -49,12 +49,12 @@ Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot 
 
 1. Sur le Portail Azure, accédez à **Vue d’ensemble > Réinitialiser le mot de passe d’administrateur**.
 
-    ![Réinitialiser le mot de passe](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Capture d’écran montrant Réinitialisation du mot de passe de l’appareil sélectionné.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Entrez le nouveau mot de passe, puis confirmez-le. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Sélectionnez **Réinitialiser**.
 
-    ![Réinitialiser le mot de passe](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Capture d’écran montrant la boîte de dialogue Réinitialisation du mot de passe de l’appareil.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gérer l’accès aux ressources
 

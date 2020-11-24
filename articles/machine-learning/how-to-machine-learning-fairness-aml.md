@@ -1,26 +1,24 @@
 ---
 title: Évaluer l’impartialité des modèles Machine Learning dans Python (version préliminaire)
 titleSuffix: Azure Machine Learning
-description: Découvrez comment évaluer l’impartialité de vos modèles dans Azure Machine Learning
+description: Découvrez comment évaluer et corriger l’impartialité de vos modèles Machine Learning à l’aide de Fairlearn et du Kit de développement logiciel (SDK) Python pour Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701182"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning (version préliminaire)
-
-
 
 Ce guide pratique explique comment utiliser le package Python open source [Fairlearn](https://fairlearn.github.io/) avec Azure Machine Learning pour accomplir les tâches suivantes :
 
@@ -306,7 +304,7 @@ Si vous souhaitez comparer plusieurs modèles et voir comment leurs évaluations
     ```
 
 
-    Comme dans la section précédente, vous pouvez suivre l’un des chemins décrits ci-dessus (via **Expériences** ou **Modèles** ) dans Azure Machine Learning Studio pour accéder au tableau de bord de visualisation et comparer les deux modèles en termes d’impartialité et de performances.
+    Comme dans la section précédente, vous pouvez suivre l’un des chemins décrits ci-dessus (via **Expériences** ou **Modèles**) dans Azure Machine Learning Studio pour accéder au tableau de bord de visualisation et comparer les deux modèles en termes d’impartialité et de performances.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Charger des informations d’impartialité non atténuées et atténuées

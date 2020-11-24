@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489129"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542131"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -107,6 +107,16 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
   + **azureml-train-automl-client**
     + Correction d’un problème lié au déclenchement d’une erreur XGBoostError par get_output.
 
+### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour d’octobre)
++ **Nouvelles fonctionnalités**
+  + [Prise en charge de réseau virtuel complet](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+  + [Mode Focus](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + Enregistrer les blocs-notes Ctrl-S
+  + Numéros de ligne
+
++ **Résolutions de bogue et améliorations**
+  + Amélioration de la vitesse et de la fiabilité du noyau
+  + Mises à jour de l’interface utilisateur du widget Jupyter
 
 ## <a name="2020-10-12"></a>12-10-2020
 

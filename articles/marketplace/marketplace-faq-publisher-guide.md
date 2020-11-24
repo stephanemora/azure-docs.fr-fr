@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491475"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660217"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questions courantes concernant la place de marché commerciale Microsoft
 
@@ -87,7 +87,7 @@ La place de marché commerciale fonctionne à l’aide d’un modèle d’agence
 
 En tant que serveur de publication, vous définissez les conditions d’utilisation de votre solution logicielle, que les clients doivent accepter dans le cadre du processus d’achat. Pour simplifier et accélérer les choses, nous fournissons un contrat Standard que vous pouvez choisir d’inclure dans vos conditions générales. Cela permet aux clients de passer en revue le contrat Standard une fois, d’obtenir l’approbation des équipes juridiques et d’achat, puis de se concentrer sur les modifications pour chaque offre.
 
-Vous pouvez créer des modifications qui s’appliquent à tous les clients ou vous pouvez les rendre spécifiques à certains. Vous pouvez également personnaliser entièrement vos conditions générales, qui peuvent être entrées dans une zone de texte ou hébergées sur un site web qui s’affichera sous la forme d’une adresse web.
+Vous pouvez créer des modifications qui s’appliquent à tous les clients ou vous pouvez les rendre spécifiques à certains. Vous pouvez également personnaliser entièrement vos conditions générales, qui peuvent être entrées dans une zone de texte dans l’Espace partenaires.
 
 Pour plus d’informations, consultez [Contrat Standard pour le marketplace commercial Microsoft](standard-contract.md).
 
@@ -99,12 +99,12 @@ Oui, Place de marché Azure Government est disponible dans les régions Azure Go
 
 Quatre rôles pertinents régissent l’accès à l’espace partenaires.
 
-- *Manager*  : Fournit des autorisations pour gérer les utilisateurs de l’espace partenaires dans l’annuaire et créer et mettre à jour des offres.
-- *Développeur*  : Autorise un utilisateur à créer et mettre à jour des offres.
-- *Contributeur financier*  : Fournit des autorisations pour afficher les rapports de paiement.
+- *Manager* : Fournit des autorisations pour gérer les utilisateurs de l’espace partenaires dans l’annuaire et créer et mettre à jour des offres.
+- *Développeur* : Autorise un utilisateur à créer et mettre à jour des offres.
+- *Contributeur financier* : Fournit des autorisations pour afficher les rapports de paiement.
 - *Propriétaire* : Peut configurer le compte de paiement et le profil fiscal. L’utilisateur qui a accepté le contrat d’éditeur devient le propriétaire par défaut.
 
-Les autorisations d’ *administrateur général* d’Azure Active Directory (Azure AD) sont nécessaires pour créer de nouveaux comptes d’utilisateur ou pour inviter des comptes d’invité dans le répertoire sous-jacent. Espace partenaires s’appuie sur Azure AD pour le modèle d’identité, et l’instance Azure AD d’une organisation est souvent gérée et contrôlée par ses équipes informatiques ou de sécurité.
+Les autorisations d’*administrateur général* d’Azure Active Directory (Azure AD) sont nécessaires pour créer de nouveaux comptes d’utilisateur ou pour inviter des comptes d’invité dans le répertoire sous-jacent. Espace partenaires s’appuie sur Azure AD pour le modèle d’identité, et l’instance Azure AD d’une organisation est souvent gérée et contrôlée par ses équipes informatiques ou de sécurité.
 
 Pour plus d’informations, consultez [Attribuer des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
@@ -118,7 +118,7 @@ Les éditeurs du marketplace commercial sont responsables de l’assistance rela
 
 ### <a name="whats-the-process-of-validating-the-end-to-end-purchase-and-setup-flow"></a>Quel est le processus de validation du flux d’achat et d’installation de bout en bout ?
 
-Pendant le processus de publication, vous aurez accès à une préversion de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifié sous l’onglet **Préversion** , et l’offre ne peut être consultée par personne d’autre. Vous pouvez acheter une préversion pour tester le processus ; cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
+Pendant le processus de publication, vous aurez accès à une préversion de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifié sous l’onglet **Préversion**, et l’offre ne peut être consultée par personne d’autre. Vous pouvez acheter une préversion pour tester le processus ; cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
 
 Pour effectuer un achat à moindre coût, nous vous conseillons de publier un plan privé que vous seul pouvez consulter et dont vous pourrez accepter le prix comme coût du test. Un prix de 0 $ est accepté, mais ne reflètera pas l’expérience complète, comme le ferait un abonnement payant. Nous vous recommandons donc de fixer le prix à 1 $.
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635896"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658687"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -72,7 +72,7 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
 
 1.  Dans [Azure DevOps](https://dev.azure.com/), ouvrez le projet configuré avec votre fabrique de données.
 
-1.  Sur le côté gauche de la page, sélectionnez **Pipelines** , puis sélectionnez **Versions**.
+1.  Sur le côté gauche de la page, sélectionnez **Pipelines**, puis sélectionnez **Versions**.
 
     ![Sélectionner Pipelines, Versions](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -82,9 +82,9 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
 
     ![Sélectionner Projet vide](media/continuous-integration-deployment/continuous-integration-image13.png)
 
-1.  Dans la zone **Nom de la phase** , entrez le nom de votre environnement.
+1.  Dans la zone **Nom de la phase**, entrez le nom de votre environnement.
 
-1.  Sélectionnez **Ajouter un artefact** , puis choisissez le dépôt Git configuré avec votre fabrique de données de développement. Sélectionnez la [branche de publication](source-control.md#configure-publishing-settings) du dépôt comme **branche par défaut**. Par défaut, cette branche de publication est `adf_publish`. Pour **Version par défaut** , sélectionnez **La dernière de la branche par défaut**.
+1.  Sélectionnez **Ajouter un artefact**, puis choisissez le dépôt Git configuré avec votre fabrique de données de développement. Sélectionnez la [branche de publication](source-control.md#configure-publishing-settings) du dépôt comme **branche par défaut**. Par défaut, cette branche de publication est `adf_publish`. Pour **Version par défaut**, sélectionnez **La dernière de la branche par défaut**.
 
     ![Ajouter un artefact](media/continuous-integration-deployment/continuous-integration-image7.png)
 
@@ -94,11 +94,11 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
 
     ![Vue des phases](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Créer une tâche. Recherchez **Déploiement de modèles ARM** , puis sélectionnez **Ajouter**.
+    b.  Créer une tâche. Recherchez **Déploiement de modèles ARM**, puis sélectionnez **Ajouter**.
 
     c.  Dans la tâche Déploiement, sélectionnez l’abonnement, le groupe de ressources et l’emplacement de la fabrique de données cible. Fournissez les informations d’identification si nécessaire.
 
-    d.  Dans la liste **Actions** , sélectionnez **Créer ou mettre à jour un groupe de ressources**.
+    d.  Dans la liste **Actions**, sélectionnez **Créer ou mettre à jour un groupe de ressources**.
 
     e.  Sélectionnez le bouton de sélection ( **…** ) en regard de la zone **Modèle**. Recherchez le modèle Azure Resource Manager généré dans votre branche de publication du dépôt Git configuré. Recherchez le fichier `ARMTemplateForFactory.json` dans le dossier <FactoryName> de la branche adf_publish.
 
@@ -153,7 +153,7 @@ Il existe deux moyens de gérer les secrets :
 
 1. Ajoutez une [tâche Azure Key Vault](/azure/devops/pipelines/tasks/deploy/azure-key-vault) avant la tâche de déploiement d’Azure Resource Manager décrite dans la section précédente :
 
-    1.  Dans l’onglet **Tâches** , créez une nouvelle tâche. Recherchez **Azure Key Vault** et ajoutez-le.
+    1.  Dans l’onglet **Tâches**, créez une nouvelle tâche. Recherchez **Azure Key Vault** et ajoutez-le.
 
     1.  Dans la tâche Key Vault, sélectionnez l’abonnement dans lequel vous avez créé le coffre de clés. Fournissez les informations d’identification si nécessaire, puis sélectionnez le coffre de clés.
 
@@ -185,7 +185,7 @@ L’équipe Data Factory a fourni un [exemple de script de pré-déploiement et 
 
 ## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>Promouvoir manuellement un modèle Resource Manager pour chaque environnement
 
-1. Dans la liste **Modèle ARM** , sélectionnez **Exporter un modèle ARM** pour exporter le modèle Resource Manager de votre fabrique de données dans l’environnement de développement.
+1. Dans la liste **Modèle ARM**, sélectionnez **Exporter un modèle ARM** pour exporter le modèle Resource Manager de votre fabrique de données dans l’environnement de développement.
 
    ![Exporter un modèle Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
 
@@ -193,7 +193,7 @@ L’équipe Data Factory a fourni un [exemple de script de pré-déploiement et 
 
    ![Créer votre propre modèle](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Sélectionnez **Charger le fichier** , puis sélectionnez le modèle Resource Manager généré. Il s’agit du fichier **arm_template.json** situé dans le fichier .zip exporté à l’étape 1.
+1. Sélectionnez **Charger le fichier**, puis sélectionnez le modèle Resource Manager généré. Il s’agit du fichier **arm_template.json** situé dans le fichier .zip exporté à l’étape 1.
 
    ![Modifier un modèle](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -632,6 +632,10 @@ Si vous déployez une fabrique en production et détectez un bogue qui doit êtr
 9.    Déployez la version avec correctif logiciel dans les fabriques de test et de production. Cette version contient la charge utile de production précédente ainsi que la correction apportée à l’étape 5.
 
 10.   Ajoutez les modifications issues du correctif logiciel dans la branche de développement pour que les versions ultérieures n’incluent pas le même bogue.
+
+Regardez la vidéo ci-dessous, un didacticiel vidéo détaillé sur la façon de corriger vos environnements à chaud. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
 
 ## <a name="best-practices-for-cicd"></a>Meilleures pratiques pour CI/CD
 

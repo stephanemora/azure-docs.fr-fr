@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320504"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685815"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Vue d’ensemble des clusters Service Fabric sur Azure
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
@@ -69,11 +69,11 @@ En plus des certificats clients, Azure Active Directory peut également être co
 Pour plus d’informations, consultez [Sécurité client à nœud](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
-Le contrôle d’accès en fonction du rôle (RBAC) vous permet d’affecter des contrôles d’accès affinés sur des ressources Azure.  Vous pouvez affecter des règles d’accès différentes à des abonnements, des groupes de ressources et des ressources.  Les règles RBAC sont héritées le long de la hiérarchie des ressources, sauf si elles sont remplacées à un niveau inférieur.  Vous pouvez affecter n’importe quel utilisateur ou n’importe quels groupes d’utilisateurs sur votre instance AAD avec des règles RBAC afin que les utilisateurs et les groupes désignés puissent modifier votre cluster.  Pour plus d’informations, lisez la [vue d’ensemble des rôles RBAC Azure](../role-based-access-control/overview.md).
+Le contrôle d’accès en fonction du rôle Azure (RBAC Azure) vous permet d’affecter des contrôles d’accès affinés sur des ressources Azure.  Vous pouvez affecter des règles d’accès différentes à des abonnements, des groupes de ressources et des ressources.  Les règles de RBAC Azure sont héritées le long de la hiérarchie des ressources, sauf si elles sont remplacées à un niveau inférieur.  Vous pouvez affecter n’importe quel utilisateur ou groupe d’utilisateurs sur votre instance AAD avec des règles de RBAC Azure afin que les utilisateurs et les groupes désignés puissent modifier votre cluster.  Pour plus d’informations, lisez la [vue d’ensemble des rôles RBAC Azure](../role-based-access-control/overview.md).
 
 Service Fabric prend également en charge le contrôle d’accès pour limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Ainsi, vous rendez le cluster plus sécurisé. Deux types de contrôle d’accès sont pris en charge pour les clients qui se connectent à un cluster : le rôle Administrateur et le rôle Utilisateur.  
 
-Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle (RBAC) Service Fabric](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Groupes de sécurité réseau 
 Les groupes de sécurité réseau (NSG) contrôlent le trafic entrant et sortant d’un sous-réseau, d’une machine virtuelle ou d’une carte réseau spécifique.  Par défaut, quand plusieurs machines virtuelles sont placées sur le même réseau virtuel, elles peuvent communiquer entre elles via n’importe quel port.  Si vous voulez limiter les communications entre les machines, vous pouvez définir les groupes de sécurité réseau pour segmenter le réseau ou isoler les machines virtuelles les unes des autres.  Si vous avez plusieurs types de nœuds dans un cluster, vous pouvez appliquer des groupes de sécurité réseau à des sous-réseaux pour empêcher les machines appartenant à des types de nœuds différents de communiquer entre elles.  

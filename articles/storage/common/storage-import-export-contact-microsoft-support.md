@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdee5420fa6a50974250c45260a3727755bfcba7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548271"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542590"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Ouvrir un ticket de support pour un travail Import/Export
 
@@ -74,15 +74,15 @@ Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie de
 
 1. Pour accéder à la page d’aide et de support, cliquez sur **Parcourir > Aide + support**.
 
-    ![Gérer les demandes de support](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Capture d’écran montrant la boîte de dialogue d’aide.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. Une liste tabulaire des **demandes de support récentes** s’affiche sous **Aide + support**.
 
-    ![Gérer les demandes de support](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Capture d’écran représentant la page Aide + support avec votre demande de support dans l’état ouvert.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Sélectionnez une demande de support. Vous pouvez afficher l’état et les détails de cette demande. Si vous souhaitez donner suite à cette demande, sélectionnez **+ Nouveau message**.
 
-    ![Gérer les demandes de support](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Capture d’écran montrant Nouveau message sélectionné pour cette requête.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

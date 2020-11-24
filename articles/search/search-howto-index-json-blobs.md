@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372372"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697201"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
 
@@ -49,17 +49,17 @@ Dans la page Vue d’ensemble de votre service de recherche, vous pouvez [démar
 
 ### <a name="3---set-the-data-source"></a>3 - Définissez la source de données
 
-Dans la page **Source de données** , la source doit être **Stockage Blob Azure** , avec les spécifications suivantes :
+Dans la page **Source de données**, la source doit être **Stockage Blob Azure**, avec les spécifications suivantes :
 
 + **Données à extraire** doit être *Contenu et métadonnées*. Le choix de cette option permet à l’Assistant d’inférer un schéma d’index et de mapper les champs pour l’importation.
    
-+ **Mode d’analyse** doit être défini sur *JSON* , *Tableau JSON* ou *Lignes JSON*. 
++ **Mode d’analyse** doit être défini sur *JSON*, *Tableau JSON* ou *Lignes JSON*. 
 
   *JSON* considère chaque objet blob comme un seul document de recherche, qui apparaît comme élément indépendant dans les résultats de la recherche. 
 
-  *Tableau JSON* s’applique aux objets Blob contenant des données JSON bien formées. Le JSON bien formé correspond à un tableau d’objets, ou à une propriété qui est un tableau d’objets et vous voulez que chaque élément soit considéré comme un document de recherche autonome et indépendant. Si les objets blob sont complexes et que vous ne choisissez pas *Tableau JSON* , l’objet blob tout entier est ingéré sous la forme d’un seul document.
+  *Tableau JSON* s’applique aux objets Blob contenant des données JSON bien formées. Le JSON bien formé correspond à un tableau d’objets, ou à une propriété qui est un tableau d’objets et vous voulez que chaque élément soit considéré comme un document de recherche autonome et indépendant. Si les objets blob sont complexes et que vous ne choisissez pas *Tableau JSON*, l’objet blob tout entier est ingéré sous la forme d’un seul document.
 
-  *Lignes JSON* concerne les objets Blob composés de plusieurs entités JSON séparées par un saut de ligne, où vous voulez que chaque élément soit considéré comme un document de recherche autonome et indépendant. Si les objets Blob sont complexes et que vous ne choisissez pas le mode d’analyse *Lignes JSON* , l’objet Blob tout entier est alors ingéré sous la forme d’un seul document.
+  *Lignes JSON* concerne les objets Blob composés de plusieurs entités JSON séparées par un saut de ligne, où vous voulez que chaque élément soit considéré comme un document de recherche autonome et indépendant. Si les objets Blob sont complexes et que vous ne choisissez pas le mode d’analyse *Lignes JSON*, l’objet Blob tout entier est alors ingéré sous la forme d’un seul document.
    
 + **Conteneur de stockage** doit spécifier votre compte de stockage et votre conteneur, ou une chaîne de connexion dont la résolution aboutit au conteneur. Vous pouvez obtenir des chaînes de connexion sur la page du portail Service Blob.
 
@@ -73,7 +73,7 @@ Pour ignorer cette étape, cliquez sur les boutons bleus au bas de la page pour 
 
 ### <a name="5---set-index-attributes"></a>5 - Définissez les attributs de l’index
 
-Dans la page **Index** , vous devez voir une liste de champs avec un type de données et une série de cases à cocher permettant de définir les attributs de l’index. L’Assistant peut générer une liste de champs basée sur les métadonnées et en échantillonnant les données sources. 
+Dans la page **Index**, vous devez voir une liste de champs avec un type de données et une série de cases à cocher permettant de définir les attributs de l’index. L’Assistant peut générer une liste de champs basée sur les métadonnées et en échantillonnant les données sources. 
 
 Vous pouvez sélectionner des attributs en bloc en cliquant sur la case à cocher en haut de la colonne d’attribut. Choisissez **Récupérable** et **Possibilité de recherche** pour chaque champ qui doit être retourné vers une application cliente et soumis à un traitement de recherche de texte intégral. Vous remarquerez que les entiers ne peuvent pas être recherchés en texte intégral ou partiel (les nombres sont évalués textuellement et sont généralement utiles dans les filtres).
 
@@ -108,7 +108,7 @@ Vous pouvez utiliser l’API REST pour indexer des objets Blob JSON en suivant u
 
 Vous pouvez consulter l’[exemple de code REST](#rest-example) à la fin de cette section qui montre comment créer les trois objets. Cette section fournit également des détails sur les [modes d’analyse JSON](#parsing-modes), les [objets Blob uniques](#parsing-single-blobs), les [tableaux JSON](#parsing-arrays) et les [tableaux imbriqués](#nested-json-arrays).
 
-Pour l’indexation JSON basée sur le code, utilisez [Postman](search-get-started-postman.md) et l’API REST pour créer ces objets :
+Pour l’indexation JSON basée sur le code, utilisez [Postman ou Visual Studio Code](search-get-started-rest.md) et l’API REST pour créer ces objets :
 
 + [index](/rest/api/searchservice/create-index)
 + [source de données](/rest/api/searchservice/create-data-source)
@@ -126,7 +126,7 @@ Les objets Blob JSON dans Stockage Blob Azure se composent généralement d’un
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - Assembler des entrées pour la requête
 
-Pour chaque requête, vous devez fournir le nom du service et la clé d’administration pour Recherche cognitive Azure (dans l’en-tête POST), ainsi que le nom du compte de stockage et la clé pour le stockage d’objets Blob. Vous pouvez utiliser [Postman](search-get-started-postman.md) pour envoyer des requêtes HTTP à Recherche cognitive Azure.
+Pour chaque requête, vous devez fournir le nom du service et la clé d’administration pour Recherche cognitive Azure (dans l’en-tête POST), ainsi que le nom du compte de stockage et la clé pour le stockage d’objets Blob. Vous pouvez utiliser un [outil de test d’API web](search-get-started-rest.md) pour envoyer des requêtes HTTP à Recherche cognitive Azure.
 
 Copiez les quatre valeurs suivantes dans le bloc-notes pour pouvoir les coller dans une requête :
 
@@ -139,9 +139,9 @@ Vous pouvez trouver ces valeurs dans le portail :
 
 1. Dans les pages du portail pour Recherche cognitive Azure, copiez l’URL du service de recherche dans la page Vue d’ensemble.
 
-2. Dans le volet de navigation gauche, cliquez sur **Clés** , puis copiez la clé primaire ou secondaire (elles sont équivalentes).
+2. Dans le volet de navigation gauche, cliquez sur **Clés**, puis copiez la clé primaire ou secondaire (elles sont équivalentes).
 
-3. Basculez vers les pages du portail pour votre compte de stockage. Dans le volet de navigation gauche, sous **Paramètres** , sélectionnez **Clés d’accès**. Cette page fournit le nom du compte et la clé. Copiez le nom du compte de stockage et une des clés dans le bloc-notes.
+3. Basculez vers les pages du portail pour votre compte de stockage. Dans le volet de navigation gauche, sous **Paramètres**, sélectionnez **Clés d’accès**. Cette page fournit le nom du compte et la clé. Copiez le nom du compte de stockage et une des clés dans le bloc-notes.
 
 ### <a name="2---create-a-data-source"></a>2 - Création d'une source de données
 

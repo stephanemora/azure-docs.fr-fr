@@ -1,7 +1,7 @@
 ---
 title: Créer et gérer une instance de calcul
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer et gérer une instance de calcul dans votre espace de travail Azure Machine Learning. Utilisez l’instance de calcul comme environnement de développement, ou à des fins d’entraînement et de développement/test d’inférence.
+description: Découvrez comment créer et gérer une instance de calcul Azure Machine Learning. Utilisez-la comme environnement de développement, ou comme cible de calcul à des fins de développement/test.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6e0d80c35a4822ad46973c94b32cf71b129ad1e1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bdae8d77dc5e51cf4a181459ab2e159f31f06e31
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318028"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543100"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -206,7 +206,7 @@ Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul** , puis sélectionnez **Instance de calcul** en haut.
+Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul**, puis sélectionnez **Instance de calcul** en haut.
 
 ![Gérer une instance de calcul](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -258,7 +258,7 @@ Vous pouvez installer des packages directement dans Jupyter Notebook ou RStudio�
 Vous pouvez aussi effectuer l’installation à partir d’une fenêtre de terminal. Installez les packages Python dans l’environnement **Python 3.6 – AzureML**.  Installez les packages R dans l’environnement **R**.
 
 > [!NOTE]
-> Pour la gestion des packages au sein d’un notebook, utilisez les fonctions magic **%pip** ou **%conda** pour installer automatiquement des packages dans le **noyau en cours d’exécution** , au lieu de **!pip** ou **!conda** qui se réfèrent à tous les packages (y compris les packages en dehors du noyau en cours d’exécution).
+> Pour la gestion des packages au sein d’un notebook, utilisez les fonctions magic **%pip** ou **%conda** pour installer automatiquement des packages dans le **noyau en cours d’exécution**, au lieu de **!pip** ou **!conda** qui se réfèrent à tous les packages (y compris les packages en dehors du noyau en cours d’exécution).
 
 ## <a name="add-new-kernels"></a>Ajouter de nouveaux noyaux
 

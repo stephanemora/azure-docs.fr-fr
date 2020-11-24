@@ -1,7 +1,7 @@
 ---
 title: Collecter des données relatives à vos modèles de production
 titleSuffix: Azure Machine Learning
-description: Découvrez comment collecter des données à partir d’un modèle de Azure Machine Learning déployé
+description: Découvrez comment collecter des données à partir d’un modèle d’Azure Machine Learning déployé sur un cluster Azure Kubernetes service (AKS).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,14 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357641"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532815"
 ---
 # <a name="collect-data-from-models-in-production"></a>Collecter des données pour des modèles en production
-
-
 
 Cet article montre comment collecter des données à partir d’un modèle d’Azure Machine Learning déployé sur un cluster Azure Kubernetes service (AKS). Les données collectées sont alors stockées dans le Azure Blob.
 
@@ -153,13 +151,13 @@ Vous pouvez choisir l’outil de votre choix pour analyser les données collect�
 
 1. Téléchargez et ouvrez [Power BI Desktop](https://www.powerbi.com).
 
-1. Sélectionnez **Obtenir des données** , puis sélectionnez [**Stockage Blob Azure**](/power-bi/desktop-data-sources).
+1. Sélectionnez **Obtenir des données**, puis sélectionnez [**Stockage Blob Azure**](/power-bi/desktop-data-sources).
 
     [![Configuration de l’objet blob Power BI](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
 1. Ajoutez le nom de votre compte de stockage et entrez votre clé de stockage. Vous pouvez accéder à ces informations en sélectionnant **Paramètres** > **Clés d’accès** dans votre objet blob.
 
-1. Sélectionnez le conteneur de **données de modèle** , puis sélectionnez **Modifier**.
+1. Sélectionnez le conteneur de **données de modèle**, puis sélectionnez **Modifier**.
 
     [![Navigateur - Power BI](./media/how-to-enable-data-collection/pbiNavigator.png)](././media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
@@ -195,7 +193,7 @@ Vous pouvez choisir l’outil de votre choix pour analyser les données collect�
 
     [![Sélection de l’option Charger des données - Databricks](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. Sélectionnez **Créer une table** , puis sélectionnez **Autres sources de données** > **Stockage Blob Azure** > **Créer une table dans Notebook**.
+1. Sélectionnez **Créer une table**, puis sélectionnez **Autres sources de données** > **Stockage Blob Azure** > **Créer une table dans Notebook**.
 
     [![Création d’une table - Databricks](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

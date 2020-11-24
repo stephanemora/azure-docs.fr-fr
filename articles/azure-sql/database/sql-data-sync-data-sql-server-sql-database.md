@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791424"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540618"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -44,8 +44,8 @@ Data Sync utilise une topologie hub and spoke pour synchroniser les données. Vo
 Un groupe de synchronisation dispose des propriétés suivantes :
 
 - Le **schéma de synchronisation** décrit quelles sont les données en cours de synchronisation.
-- Le **sens de synchronisation** peut être bidirectionnel ou peut circuler dans une seule direction. Autrement dit, le sens de synchronisation peut être *Hub vers membre* , *Membre vers hub* , ou les deux.
-- L’ **intervalle de synchronisation** correspond à la fréquence à laquelle la synchronisation se produit.
+- Le **sens de synchronisation** peut être bidirectionnel ou peut circuler dans une seule direction. Autrement dit, le sens de synchronisation peut être *Hub vers membre*, *Membre vers hub*, ou les deux.
+- L’**intervalle de synchronisation** correspond à la fréquence à laquelle la synchronisation se produit.
 - La **stratégie de résolution de conflit** est une stratégie au niveau groupe, qui peut être *Priorité au hub* ou *Priorité au membre*.
 
 ## <a name="when-to-use"></a>Quand l’utiliser
@@ -73,8 +73,8 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 - **Suivi des modifications de données :** Data Sync effectue le suivi des modifications en utilisant des déclencheurs d’insertion, de mise à jour et de suppression. Les modifications sont enregistrées dans une table latérale dans la base de données utilisateur. BULK INSERT n’active aucun déclencheur par défaut. Si FIRE_TRIGGERS n’est pas spécifié, aucun déclencheur d’insertion ne s’exécute. Ajoutez l’option FIRE_TRIGGERS afin que Data Sync puisse suivre ces insertions. 
 - **Synchronisation des données :** SQL Data Sync est conçu dans un modèle de Hub and Spoke. Le hub se synchronise avec chaque membre individuellement. Les modifications depuis le hub sont téléchargées vers le membre, puis les modifications à partir du membre sont chargées vers le hub.
 - **Résolution des conflits :** Data Sync fournit deux options pour la résolution de conflit, *Priorité au hub* ou *Priorité au membre*.
-  - Si vous sélectionnez *Priorité au hub* , les modifications dans le hub remplacent toujours les modifications dans le membre.
-  - Si vous sélectionnez *Priorité au membre* , les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
+  - Si vous sélectionnez *Priorité au hub*, les modifications dans le hub remplacent toujours les modifications dans le membre.
+  - Si vous sélectionnez *Priorité au membre*, les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
 
 ## <a name="compare-with-transactional-replication"></a>Comparaison avec la réplication transactionnelle
 
@@ -166,7 +166,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
 | Taille de ligne de données sur une table                                        | 24 Mo                  |                             |
-| Intervalle de fréquence de synchronisation minimal                                 | 5 minutes              |                             |
+| Intervalle de fréquence de synchronisation minimal (depuis le début de la synchronisation précédente)     | 5 minutes              |                             |
 
 > [!NOTE]
 > Il peut y avoir jusqu’à 30 points de terminaison dans un même groupe de synchronisation s’il n’existe qu’un seul groupe de synchronisation. S’il existe plus d’un groupe de synchronisation, le nombre total de points de terminaison dans tous les groupes de synchronisation ne peut pas dépasser 30. Si une base de données appartient à plusieurs groupes de synchronisation, elle est comptée comme plusieurs points de terminaison, et non pas un seul.
@@ -176,7 +176,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 Quand le groupe de synchronisation est établi, le service Data Sync doit se connecter à la base de données Hub. Au moment où vous établissez le groupe de synchronisation, le serveur SQL Azure doit disposer de la configuration suivante dans ses paramètres `Firewalls and virtual networks` :
 
  * Le paramètre *Refuser l’accès au réseau public* doit être *désactivé*.
- * Le paramètre *Autoriser les services et les ressources Azure à accéder à ce serveur* doit avoir la valeur *Oui* , ou vous devez créer des règles IP pour les [adresses IP utilisées par le service Data Sync](network-access-controls-overview.md#data-sync).
+ * Le paramètre *Autoriser les services et les ressources Azure à accéder à ce serveur* doit avoir la valeur *Oui*, ou vous devez créer des règles IP pour les [adresses IP utilisées par le service Data Sync](network-access-controls-overview.md#data-sync).
 
 Une fois le groupe de synchronisation créé et provisionné, vous pouvez désactiver ces paramètres. L’agent de synchronisation se connecte directement à la base de données Hub et vous pouvez utiliser les [règles IP de pare-feu](firewall-configure.md) du serveur ou des [points de terminaison privés](private-endpoint-overview.md) pour permettre à l’agent d’accéder au serveur hub.
 

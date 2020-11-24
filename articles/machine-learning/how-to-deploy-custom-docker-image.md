@@ -1,22 +1,22 @@
 ---
 title: Déployer des modèles avec une image Docker personnalisée
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser une image de base Docker personnalisée lors du déploiement de vos modèles Azure Machine Learning. Même si Azure Machine Learning fournit une image par défaut, vous pouvez également utiliser votre propre image de base.
+description: Découvrez comment utiliser une image de base Docker personnalisée pour déployer vos modèles Azure Machine Learning. Même si Azure Machine Learning fournit une image par défaut, vous pouvez également utiliser votre propre image de base.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 63089e853be825f9399081f2d39845e22b18ed2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325176"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695348"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 
@@ -54,12 +54,12 @@ Les informations contenues dans cette section supposent que vous utilisez un reg
 
 * Allez-vous utiliser le registre Azure Container Registry créé pour l’espace de travail Azure Machine Learning ou un registre Azure Container Registry autonome ?
 
-    Quand vous utilisez des images stockées dans le __registre de conteneurs pour l’espace de travail__ , vous n’avez pas besoin de vous authentifier auprès du registre. L’authentification est gérée par l’espace de travail.
+    Quand vous utilisez des images stockées dans le __registre de conteneurs pour l’espace de travail__, vous n’avez pas besoin de vous authentifier auprès du registre. L’authentification est gérée par l’espace de travail.
 
     > [!WARNING]
     > Le registre Azure Container Registry pour votre espace de travail est __créé la première fois que vous entraînez ou déployez un modèle__ à l’aide de l’espace de travail. Si vous avez créé un espace de travail, mais sans entraîner ni créer un modèle, aucun registre Azure Container Registry n’existe pour l’espace de travail.
 
-    Quand vous utilisez des images stockées dans un __registre de conteneurs autonome__ , vous devez configurer un principal de service qui a au moins un accès en lecture. Vous indiquez ensuite l’ID de principal de service (nom d’utilisateur) et le mot de passe à toute personne qui utilise des images du registre. Cela ne s’applique toutefois pas si vous définissez le registre de conteneurs comme étant accessible publiquement.
+    Quand vous utilisez des images stockées dans un __registre de conteneurs autonome__, vous devez configurer un principal de service qui a au moins un accès en lecture. Vous indiquez ensuite l’ID de principal de service (nom d’utilisateur) et le mot de passe à toute personne qui utilise des images du registre. Cela ne s’applique toutefois pas si vous définissez le registre de conteneurs comme étant accessible publiquement.
 
     Pour plus d’informations sur la création d’un registre Azure Container Registry privé, consultez [Créer un registre de conteneurs privé](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -205,7 +205,7 @@ Pour utiliser une image personnalisée, vous avez besoin des informations suivan
     > [!IMPORTANT]
     > Pour les images personnalisées que vous avez créées, veillez à inclure toutes les étiquettes qui ont été utilisées avec l’image. Par exemple, si votre image a été créée avec une étiquette spécifique, telle que `:v1`. Si vous n’avez pas utilisé d’étiquette spécifique lors de la création de l’image, une étiquette `:latest` a été appliquée.
 
-* Si l’image se trouve dans un __dépôt privé__ , vous avez besoin des informations suivantes :
+* Si l’image se trouve dans un __dépôt privé__, vous avez besoin des informations suivantes :
 
     * __Adresse du registre__. Par exemple : `myregistry.azureecr.io`.
     * __Nom d’utilisateur__ et __mot de passe__ d’un principal de service qui a accès en lecture au registre.
@@ -234,7 +234,7 @@ Pour en savoir plus, consultez le répertoire [Azure Machine Learning containers
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Utiliser une image avec le kit SDK Azure Machine Learning
 
-Pour utiliser une image stockée dans **Azure Container Registry pour votre espace de travail** , ou un **registre de conteneurs accessible publiquement** , définissez les attributs [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) suivants :
+Pour utiliser une image stockée dans **Azure Container Registry pour votre espace de travail**, ou un **registre de conteneurs accessible publiquement**, définissez les attributs [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) suivants :
 
 + `docker.enabled=True`
 + `docker.base_image`: Définissez le registre et le chemin de l’image.

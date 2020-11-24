@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445623"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540125"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -121,7 +121,7 @@ Si vous rencontrez des problèmes pour accéder à votre abonnement, consultez [
 
 1. Sélectionnez **Machine Learning**.
 
-1. Dans le volet **Machine Learning** , sélectionnez **Créer** pour commencer.
+1. Dans le volet **Machine Learning**, sélectionnez **Créer** pour commencer.
 
 1. Fournissez les informations suivantes pour configurer votre nouvel espace de travail :
 
@@ -159,11 +159,11 @@ Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConf
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. La configuration réseau par défaut consiste à utiliser un __point de terminaison public__ , accessible sur l’Internet public. Pour limiter l’accès de votre espace de travail à un réseau virtuel Azure que vous avez créé, vous pouvez à la place sélectionner __Point de terminaison privé__ (préversion) comme __Méthode de connectivité__ , puis utiliser __+ Ajouter__ pour configurer le point de terminaison.   
+1. La configuration réseau par défaut consiste à utiliser un __point de terminaison public__, accessible sur l’Internet public. Pour limiter l’accès de votre espace de travail à un réseau virtuel Azure que vous avez créé, vous pouvez à la place sélectionner __Point de terminaison privé__ (préversion) comme __Méthode de connectivité__, puis utiliser __+ Ajouter__ pour configurer le point de terminaison.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Sélection du point de terminaison privé":::  
 
-1. Dans le formulaire __Créer un point de terminaison privé__ , définissez l’emplacement, le nom et le réseau virtuel à utiliser. Si vous souhaitez utiliser le point de terminaison avec une zone DNS privée, sélectionnez __Intégrer à une zone DNS privée__ , puis choisissez la zone à l’aide du champ __Zone DNS privée__. Cliquez sur __OK__ pour créer le point de terminaison.   
+1. Dans le formulaire __Créer un point de terminaison privé__, définissez l’emplacement, le nom et le réseau virtuel à utiliser. Si vous souhaitez utiliser le point de terminaison avec une zone DNS privée, sélectionnez __Intégrer à une zone DNS privée__, puis choisissez la zone à l’aide du champ __Zone DNS privée__. Cliquez sur __OK__ pour créer le point de terminaison.   
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Création d’un point de terminaison privé":::   
 
@@ -180,8 +180,8 @@ Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConf
 Lorsque vous créez un point de terminaison privé, une nouvelle zone DNS privée nommée __privatelink.api.azureml.ms__ est créée. Elle contient un lien vers le réseau virtuel. Si vous créez plusieurs espaces de travail avec des points de terminaison privés dans le même groupe de ressources, seul le réseau virtuel du premier point de terminaison privé peut être ajouté à la zone DNS. Pour ajouter des entrées pour les réseaux virtuels utilisés par les autres espaces de travail/points de terminaison privés, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le groupe de ressources contenant l’espace de travail. Sélectionnez ensuite la ressource Zone DNS privé nommée __privatelink.api.azureml.ms__.
-2. Sous __Paramètres__ , sélectionnez __Liens de réseau virtuel__.
-3. Sélectionnez __Ajouter__. Dans la page __Ajouter un lien de réseau virtuel__ , fournissez un __nom de lien__ unique, puis sélectionnez le __réseau virtuel__ à ajouter. Sélectionnez __OK__ pour ajouter le lien réseau.
+2. Sous __Paramètres__, sélectionnez __Liens de réseau virtuel__.
+3. Sélectionnez __Ajouter__. Dans la page __Ajouter un lien de réseau virtuel__, fournissez un __nom de lien__ unique, puis sélectionnez le __réseau virtuel__ à ajouter. Sélectionnez __OK__ pour ajouter le lien réseau.
 
 Pour plus d’informations, consultez [Configuration DNS des points de terminaison privés Azure](../private-link/private-endpoint-dns.md).
 
@@ -191,7 +191,7 @@ Azure Security Center fournit des fonctionnalités unifiées de gestion de la s�
 
 ### <a name="advanced"></a>Avancé
 
-Par défaut, les métriques et les métadonnées de l’espace de travail sont stockées dans une instance d’Azure Cosmos DB gérée par Microsoft. Les données sont chiffrées avec des clés managées par Microsoft.
+Par défaut, les métadonnées de l’espace de travail sont stockées dans une instance d’Azure Cosmos DB gérée par Microsoft. Les données sont chiffrées avec des clés managées par Microsoft.
 
 Pour limiter les données que Microsoft collecte sur votre espace de travail, sélectionnez l’espace de travail __HBI (High Business Impact)__ dans le portail, ou définissez `hbi_workspace=true ` dans Python. Pour plus d’informations sur ce paramètre, consultez [Chiffrement au repos](concept-data-encryption.md#encryption-at-rest).
 
@@ -200,7 +200,7 @@ Pour limiter les données que Microsoft collecte sur votre espace de travail, s�
 
 #### <a name="use-your-own-key"></a>Utiliser votre propre clé
 
-Vous pouvez fournir votre propre clé pour le chiffrement des données. Cela crée l’instance d’Azure Cosmos DB qui stocke les métriques et les métadonnées dans votre abonnement Azure.
+Vous pouvez fournir votre propre clé pour le chiffrement des données. Cela crée l’instance d’Azure Cosmos DB qui stocke les métadonnées dans votre abonnement Azure.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -209,7 +209,7 @@ Pour fournir votre propre clé, procédez comme suit :
 > [!IMPORTANT]  
 > Avant de commencer, vous devez effectuer les actions suivantes :   
 >
-> 1. Autorisez l’ __application Azure Machine Learning__ (dans la gestion des identités et des accès) avec des autorisations de contributeur pour votre abonnement.  
+> 1. Autorisez l’__application Azure Machine Learning__ (dans la gestion des identités et des accès) avec des autorisations de contributeur pour votre abonnement.  
 > 1. Suivez les étapes décrites dans [Configurer les clés gérées par le client](../cosmos-db/how-to-setup-cmk.md) pour :
 >     * Inscrire le fournisseur Azure Cosmos DB
 >     * Créer et configurer un coffre Azure Key Vault
@@ -238,11 +238,11 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Sélectionnez __Clés gérées par le client__ , puis __Cliquer pour sélectionner la clé__.
+1. Sélectionnez __Clés gérées par le client__, puis __Cliquer pour sélectionner la clé__.
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Clés gérées par le client":::
 
-1. Dans le formulaire __Sélectionner une clé dans Azure Key Vault__ , sélectionnez un coffre de clés Azure Key Vault existant, une clé dans ce coffre, et la version de la clé. Cette clé est utilisée pour chiffrer toutes les données stockées dans Azure Cosmos DB. Enfin, cliquez sur le bouton __Sélectionner__ pour utiliser cette clé.
+1. Dans le formulaire __Sélectionner une clé dans Azure Key Vault__, sélectionnez un coffre de clés Azure Key Vault existant, une clé dans ce coffre, et la version de la clé. Cette clé est utilisée pour chiffrer toutes les données stockées dans Azure Cosmos DB. Enfin, cliquez sur le bouton __Sélectionner__ pour utiliser cette clé.
 
    :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Sélectionner la clé":::
 

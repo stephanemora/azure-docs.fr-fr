@@ -4,12 +4,12 @@ description: Accédez rapidement à vos données de télémétrie des requêtes 
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 92879e9dc7b9de7ef5862f30241f2b80e6aac9e8
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932649"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538493"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Données de télémétrie Application Insights dans Visual Studio CodeLens
 Les méthodes indiquées dans le code de votre application web peuvent être annotées avec des données de télémétrie sur les exceptions runtime et les temps de réponse des requêtes. Si vous installez [Azure Application Insights](./app-insights-overview.md) dans votre application, les données de télémétrie s’affichent dans Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) ; il s’agit des notes en haut de chaque fonction où vous avez l’habitude de voir des informations utiles telles que le nombre d’emplacements dans lesquels la fonction est référencée ou la dernière personne à l’avoir modifiée.
@@ -30,7 +30,7 @@ Recherchez les données de télémétrie Application Insights dans les indicateu
 > 
 
 ## <a name="exceptions-in-codelens"></a>Exceptions dans CodeLens
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![Capture d’écran montrant 47 exceptions affichées dans CodeLens.](./media/visual-studio-codelens/codelens-exceptions.png)
 
 L’indicateur CodeLens d’exceptions indique le nombre d’exceptions qui se sont produites au cours des dernières 24 heures parmi les 15 exceptions qui se sont produites le plus fréquemment dans votre application au cours de cette période, lors du traitement de la requête prise en charge par la méthode.
 
@@ -52,7 +52,7 @@ Pour plus d’informations, cliquez sur l’indicateur CodeLens d’exceptions :
 > 
 
 ## <a name="requests-in-codelens"></a>Requêtes dans CodeLens
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![Capture d’écran montrant les détails des 684 requêtes, y compris les 7 % d’échecs.](./media/visual-studio-codelens/codelens-requests.png)
 
 L’indicateur CodeLens de requêtes indique le nombre de requêtes HTTP qui ont été traitées par une méthode au cours des dernières 24 heures, ainsi que le pourcentage de ces requêtes en échec.
 

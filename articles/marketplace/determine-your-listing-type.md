@@ -1,103 +1,156 @@
 ---
-title: Déterminer votre option de publication – Place de marché commerciale de Microsoft
-description: Cet article décrit les critères d’éligibilité et la configuration requise pour la publication d’offres sur Microsoft AppSource et la Place de marché Azure.
+title: Présentation des options de référencement – Place de marché commerciale Microsoft
+description: Cet article décrit les options de référencement pour les offres publiées sur Microsoft AppSource et la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/04/2020
-ms.openlocfilehash: 17b53d656d0344e4178b3034a972e26d6aa0bc15
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/16/2020
+ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94492104"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741907"
 ---
-# <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
+# <a name="introduction-to-listing-options"></a>Présentation des options de référencement
 
-L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM de la place de marché. Qui plus est, la sélection de l’option de publication et du type d’offre définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
+Vous pouvez utiliser les _options de référencement_ disponibles dans la Place de marché commerciale pour toucher des clients potentiels de plusieurs façons. Une fois votre offre publiée, les options de référencement que vous avez choisies pour votre offre s’affichent sous la forme d’un bouton dans l’angle supérieur gauche de la page de référencement de l’offre dans les magasins en ligne. Par exemple, la capture d’écran suivante montre une page de référencement d’offre dans le magasin en ligne Microsoft AppSource avec les boutons **Me contacter** et **Version d’évaluation**.
 
-Pour configurer votre offre, vous devez comprendre les concepts clés du marché suivants : les options de publication, la configuration et les types d’offre, ainsi que des options de listing qui définissent comment et où votre offre est présentée dans les magasins en ligne de la place de marché.
+:::image type="content" source="./media/listing-options.png" alt-text="Illustre la page de référencement d’une offre. Les boutons Me contacter et Version d’évaluation sont affichés.":::
 
-Cet article portera sur les éléments suivants :
+## <a name="available-listing-options-by-offer-type"></a>Options de référencement disponibles par type d’offre
 
-- Détermination du magasin en ligne approprié pour votre solution.
-- Options de publication et de listing disponibles dans chaque magasin en ligne.
-- Types d’offre disponibles pour chaque option de publication.
+Lorsque vous créez un type d’offre, vous choisissez une ou plusieurs options de référencement. Ces options déterminent les boutons que les clients voient sur la page de référencement de l’offre dans les magasins en ligne. Les options de référencement sont _Essai gratuit_, _Version d’évaluation_, _Me contacter_ et _Obtenir maintenant_.
 
-## <a name="commercial-marketplace-publishing-options"></a>Options de publication sur la place de marché commerciale
+Ce tableau présente les options de référencement disponibles pour chaque type d’offre.
 
-Le tableau suivant présente les options de publication disponibles pour les types d’offres dans Microsoft AppSource et dans la Place de marché Azure.
+| Type d’offre | Version d’évaluation gratuite | Version d’évaluation | Me contacter | Obtenir maintenant (pouvant faire l’objet d’une transaction) |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure Application (application gérée) |   | &#10004; |   | &#10004; |
+| Azure Application (modèle de solution) |  |  |  |  |
+| Service de conseil |  |  | &#10004; |  |
+| Conteneur Azure |  |  |  |  |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; |  |
+| Dynamics 365 Customer Engagement et PowerApps | &#10004; | &#10004; | &#10004; |  |
+| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; |  |
+| Module IoT Edge |  |  |  |  |
+| Service managé |  |  |  |  |
+| Application Power BI |  |  |  |  |
+| Machine virtuelle Azure | &#10004; | &#10004; |  | &#10004; |
+| Software as a Service | &#10004; | &#10004; | &#10004; | &#10004; |
+||||||
 
-|   | **Liste (contact)**  | **Liste (essai)**  | **Gratuit** | **BYOL** | **Transaction**|
-| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
-| **Machine virtuelle** |  |  |  | Place de marché Azure |  Place de marché Azure |
-| **Applications Azure (multimachines virtuelles)** |  |  | Place de marché Azure | Place de marché Azure | Place de marché Azure  |
-| **Image conteneur** |  |  | Place de marché Azure | Place de marché Azure |   |
-| **Module IoT Edge** |  |  | Place de marché Azure | Place de marché Azure |   |
-| **Services managés** |  |  |  | Place de marché Azure |   |
-| **Services de conseil** | Les deux magasins en ligne |  |  |  |   |
-| **Application SaaS** | Les deux magasins en ligne | Les deux magasins en ligne | Les deux magasins en ligne |  | Les deux magasins en ligne * |
-| **Application Microsoft 365** | AppSource | AppSource |  |  | AppSource**  |
-| **Complément Dynamics 365** |  AppSource | AppSource |  |  |   |
-| **PowerApps** | AppSource |AppSource  |  |  |   |
+### <a name="free-trial"></a>Version d’évaluation gratuite
 
-&#42; Actuellement, les offres de transaction d’applications SaaS dans Microsoft AppSource incluent uniquement les cartes de crédit.
+Utilisez la place de marché pour améliorer la détectabilité et automatiser l’approvisionnement de l’expérience d’essai de votre solution. Cela permet aux clients potentiels d’utiliser votre SaaS, IaaS ou expérience dans l’application Microsoft gratuitement pendant une période de 30 jours à six mois, en fonction du type d’offre.
 
-&#42;&#42; Les offres Microsoft 365 peuvent être installées gratuitement et monétisées via l’offre SaaS en tant que service de licence. Pour plus d’informations, consultez [Monétiser votre complément Microsoft 365 par le biais de la place de marché commerciale de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Les clients utilisent le bouton _Essai gratuit_ dans la page de référencement de votre offre pour essayer celle-ci. Si vous proposez un essai gratuit de plusieurs plans au sein de la même offre, les clients peuvent passer à une évaluation gratuite d’un autre plan, mais la période d’évaluation ne recommence pas.
 
-## <a name="choose-a-listing-option"></a>Choisir une option de listing
+Pour les offres de machines virtuelles, les clients sont facturés aux coûts d’infrastructure Azure pour l’utilisation de l’offre pendant une période d’évaluation gratuite. À l’expiration de la période d’évaluation, les clients sont facturés automatiquement pour le dernier plan qu’ils ont essayé en fonction des tarifs standard, sauf s’ils annulent avant la fin de la période d’évaluation.
 
-Les options de listing disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](./gtm-your-marketplace-benefits.md). Notez les options de listing qui correspondent à l’option de publication :
+### <a name="test-drive"></a>Version d’évaluation
 
-| **Option de publication**    | **Description**  |
-| :------------------- | :-------------------|
-| **Liste** | Référencement simple de votre application ou service qui permet à un utilisateur de la place de marché de vous demander de le mettre en relation avec le client via les options de listing **Me contacter**. |
-| **Version d’évaluation** | Utilisez la place de marché pour augmenter la visibilité et automatiser la configuration de l’expérience d’essai de votre solution. Vous permettez ainsi à des utilisateurs potentiels de découvrir gratuitement votre expérience SaaS, IaaS ou intégrée à Microsoft pendant une période limitée avant de l’acheter. Les options de listing utilisées pour l’option de publication Essai sont : **Essai gratuit** et **Version d’évaluation**. |
-| **BYOL** | Utilisez la place de marché pour améliorer la détectabilité et automatiser l’approvisionnement de votre solution, ainsi que pour effectuer la transaction financière séparément. Les types d’offres BYOL sont idéaux pour les migrations site vers cloud. L’option de listing est **Obtenir maintenant**.
-| **Transaction** | Les offres Transact sont vendues via la place de marché. Microsoft est responsable de la facturation et des regroupements. L’option de listing est **Obtenir maintenant**.|
+Les clients utilisent le bouton _Version d’évaluation_ sur la page de référencement de votre offre pour accéder à un environnement préconfiguré pendant un nombre d’heures fixe. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md).
 
-> [!Note]
-> Quand vous utilisez l’option de publication Transaction, il est important de bien comprendre les prix, la tarification, la facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Pour plus d’informations, consultez l’article [Fonctionnalités de transaction de la place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> [!TIP]
+> Une version d’évaluation n’est pas un essai gratuit. Vous pouvez proposer une version d’évaluation, un essai gratuit ou les deux. Dans les deux cas, vos clients disposent de votre solution pendant une période fixe. Cependant, une version d’évaluation propose en outre une visite autoguidée concrète des principales fonctionnalités de votre produit, ainsi qu’une démonstration des avantages de celui-ci au travers d’un scénario d’implémentation réel.
 
-## <a name="selecting-an-online-store"></a>Sélection d’un magasin en ligne
+### <a name="contact-me"></a>Me contacter
 
-Chaque magasin en ligne répond à différentes exigences des clients pour les solutions informatiques et commerciales. Le type de votre offre, les capacités de transaction et la catégorie déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de solution que vous publiez :
+Référencement simple de votre application ou service. Les clients utilisent le bouton _Me contacter_ sur la page de référencement de votre offre pour vous demander de les contacter à propos de votre offre.
 
-**Microsoft AppSource** offre des solutions d’entreprise, notamment des solutions sectorielles et des services de conseil, pour Dynamics 365, Microsoft 365 et Power Platform.
+### <a name="get-it-now"></a>Obtenir maintenant
 
-La **Place de marché Azure** offre des solutions informatiques conçues pour ou sur Azure, ainsi que des services de conseil qui accélèrent l’utilisation d’Azure de vos clients.
+Cette option de référencement inclut les offres pouvant faire l’objet d’une transaction (abonnements et tarifications basées sur l’utilisation), les offres BYOL et les offres Obtenir maintenant (gratuit). Les offres pouvant faire l’objet d’une transaction sont vendues via la place de marché commerciale. Microsoft est responsable de la facturation et des regroupements. Les clients utilisent le _bouton Obtenir maintenant_ pour obtenir l’offre.
 
-Sélectionnez la catégorie et la sous-catégorie qui correspondent le mieux au type de votre solution. Par exemple, un pare-feu d’applications web est une solution informatique qui doit être publiée sur Place de marché Azure, sous la catégorie Sécurité. Une application de gestion des contrats est une solution d’entreprise qui doit être publiée sur AppSource sous la catégorie Ventes. La sélection d’une catégorie ou d’une sous-catégorie incorrecte peut entraîner la publication de votre offre sur le mauvais magasin en ligne.
+L’option de référencement Obtenir maintenant peut inclure les options de tarification suivantes, en fonction du type d’offre :
 
-### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publication sur les deux magasins en ligne (offres SaaS uniquement)
+- Obtenir maintenant (gratuit)
+- BYOL (apportez votre propre licence)
+- Abonnement
+- Tarification basée sur l’utilisation
 
-Les offres SaaS peuvent être publiées sur Place de marché Azure ou AppSource. Si votre offre Saas est *à la fois* une solution informatique (Place de marché Azure) et une solution commerciale (AppSource), sélectionnez une catégorie et/ou une sous-catégorie applicable à chaque magasin en ligne. Les offres publiées sur les deux magasins en ligne doivent avoir une proposition de valeur à la fois en tant que solution informatique *et* solution d’entreprise.
+Ce tableau indique les types d’offres qui prennent en charge les options de tarification supplémentaires incluses avec l’option de référencement Obtenir maintenant.
 
-> [!IMPORTANT]
-> Les offres SaaS avec [facturation à l’usage](partner-center-portal/saas-metered-billing.md) sont disponibles sur Place de marché Azure et le portail Azure. Les offres SaaS avec des plans privés uniquement sont disponibles sur le portail Azure.
+| Type d’offre | Obtenir maintenant (gratuit) | BYOL | Abonnement | Tarification basée sur l’utilisation |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure Application (application gérée) |   |   | &#10004; | &#10004; |
+| Azure Application (modèle de solution) | &#10004; |   |   |   |
+| Service de conseil |   |   |   |   |
+| Conteneur Azure | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Dynamics 365 Business Central | &#10004; |   |   |   |
+| Dynamics 365 Customer Engagement et PowerApps | &#10004; |   |   |   |
+| Dynamics 365 for Operations | &#10004; |   |   |   |
+| Module IoT Edge | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Service managé |   | &#10004; |   |   |
+| Application Power BI | &#10004; |   |   |   |
+| Machine virtuelle Azure |   | &#10004; |   | &#10004;<sup>2</sup> |
+| Software as a Service | &#10004; |   | &#10004; | &#10004; |
+||||||
 
-| Facturation à l’usage | Plan public | Plan privé | Disponible sur : |
-|---|---|---|---|
-| Oui             | Oui         | Non           | Place de marché Azure et Portail Azure |
-| Oui             | Oui         | Oui          | Place de marché Azure et Portail Azure* |
-| Oui             | Non          | Oui          | Portail Azure uniquement |
-| Non              | Non          | Oui          | Portail Azure uniquement |
+**Légende**
 
-&#42; Le plan privé de l’offre est disponible uniquement via le portail Azure.
+<sup>1</sup> La colonne **Modèle de tarification** de l’onglet **Vue d’ensemble du plan** affiche _Gratuit_ ou _BYOL_, mais elle n’est pas sélectionnable.
 
-Par exemple, une offre avec facturation à l’usage et un plan privé uniquement (aucun plan public) est achetée par les clients du portail Azure. En savoir plus sur les [offres privées dans le marketplace commercial de Microsoft](private-offers.md).
+<sup>2</sup> Tarification horaire et facturation mensuelle.
 
-### <a name="categories"></a>Catégories
+#### <a name="get-it-now-free"></a>Obtenir maintenant (gratuit)
 
-Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de votre solution. Sélectionnez les catégories et sous-catégories qui correspondent le mieux à votre solution. Vous pouvez sélectionner :
+Utilisez cette option de référencement pour offrir votre application gratuitement. Les clients utilisent le bouton _Obtenir maintenant_ pour obtenir votre offre gratuite.
 
-- une catégorie au minimum et trois au maximum. Vous pouvez choisir une catégorie principale et une catégorie secondaire.
-- Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si vous ne sélectionnez aucune sous-catégorie, votre offre sera tout de même détectable sous la catégorie sélectionnée.
+#### <a name="byol"></a>BYOL
 
-[!INCLUDE [categories and subcategories](./includes/categories.md)]
+Utilisez la Place de marché commerciale pour améliorer la détectabilité, automatiser l’approvisionnement de votre solution et effectuer la transaction financière séparément de la Place de marché. L’option de référencement BYOL (apportez votre propre licence) est idéale pour les migrations vers le cloud. Les clients utilisent le bouton _Obtenir maintenant_ pour acquérir votre offre à l’aide d’une licence qu’il vous ont précédemment achetée.
+
+#### <a name="subscription"></a>Abonnement
+
+Vous pouvez demander un coût forfaitaire pour ces types d’offres :
+
+- Les offres Azure Application (application gérée) prennent en charge les abonnements mensuels.
+- Les offres SaaS prennent en charge les abonnements mensuels et annuels.
+
+#### <a name="usage-based-pricing"></a>Tarification basée sur l’utilisation
+
+Les types d’offres suivants prennent en charge la tarification basée sur l’utilisation :
+
+- Les offres Azure Application (application gérée) prennent en charge la facturation à l’usage. Pour plus d’informations, consultez [Facturation des applications managées basée sur des mesures](./partner-center-portal/azure-app-metered-billing.md).
+- Les offres SaaS prennent en charge la facturation à l’usage et la tarification par utilisateur (poste). Pour plus d’informations sur la facturation à l’usage, consultez [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](./partner-center-portal/saas-metered-billing.md).
+- Les offres de machine virtuelle Azure prennent en charge la tarification Par cœur, Par taille de cœur et Par marché et taille de cœur. Ces options de tarification sont calculées par heure et facturées mensuellement.
+
+Lors de la création d’une offre pouvant faire l’objet d’une transaction, il est important de bien comprendre les modes de tarification, de facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Pour plus d’informations, consultez [Magasins en ligne de la Place de marché commerciale](overview.md#commercial-marketplace-online-stores).
+
+## <a name="listing-and-pricing-options-by-online-store"></a>Options de référencement et de tarification par magasin en ligne
+
+Sur la base d’une série de critères, nous déterminons si votre offre est référencée sur la Place de marché Azure, Microsoft AppSource ou sur les deux magasins en ligne. Pour plus d’informations sur les différences entre les deux magasins en ligne, consultez [Magasins en ligne de la Place de marché commerciale](overview.md#commercial-marketplace-online-stores).
+
+Le tableau suivant présente les options disponibles pour les différents types d’offres et compléments, ainsi que les magasins en ligne sur lesquels votre offre peut être référencée.
+
+| Types d’offres et compléments | Me contacter | Version d’évaluation gratuite | Obtenir maintenant (gratuit) | BYOL | Obtenir maintenant (pouvant faire l’objet d’une transaction) |
+| ------------ | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Machine virtuelle Azure |   |   |   | Place de marché Azure | Place de marché Azure |
+| Azure Application |   |   | Place de marché Azure | Place de marché Azure | Place de marché Azure |
+| Conteneur Azure  |   |   | Place de marché Azure | Place de marché Azure |   |
+| Module IoT Edge |   |   | Place de marché Azure | Place de marché Azure |   |
+| Service géré |   |   |   | Place de marché Azure |   |
+| Service de conseil | Les deux magasins en ligne |   |   |   |   |
+| SaaS  | Les deux magasins en ligne | Les deux magasins en ligne | Les deux magasins en ligne |   | Les deux magasins en ligne &#42; |
+| Application Microsoft 365 | AppSource | AppSource |   |   | AppSource &#42;&#42; |
+| Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
+| Dynamics 365 for Customer Engagement et PowerApps | AppSource | AppSource |   |   |   |
+| Dynamics 365 for Operations | AppSource | AppSource |   |   |   |
+| Application Power BI |   |   | AppSource |   |   |
+|||||||
+
+&#42; Les offres SaaS pouvant faire l’objet d’une transaction dans AppSource sont actuellement accessibles uniquement aux titulaires d’une carte de crédit.
+
+&#42;&#42; Les compléments Microsoft 365 peuvent être installés gratuitement, ainsi que monétisés à l’aide d’une offre SaaS. Pour plus d’informations, consultez [Monétiser votre complément Office 365 par le biais de la place de marché commerciale de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md).
+
+## <a name="marketplace-rewards"></a>Récompenses de la Place de marché
+
+Vos récompenses de la Place de marché sont différenciées en fonction de l’option de référencement que vous choisissez. Pour en savoir plus, consultez [Vos avantages sur la place de marché commerciale](gtm-your-marketplace-benefits.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Une fois que vous avez choisi une option de publication, passez en revue le [Guide de publication par Type d’offre](./publisher-guide-by-offer-type.md).
+- Pour choisir un type d’offre à créer, consultez [Guide de publication par Type d’offre](./publisher-guide-by-offer-type.md).

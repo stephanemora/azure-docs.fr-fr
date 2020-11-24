@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286776"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684166"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -46,7 +46,7 @@ Les trois (3) cas suivants entraînent une erreur de taille de sous-réseau in
    1. Si vous utilisez Kubenet, cela se produit lorsque le `number of free IPs in the subnet` est **inférieur** au `number of buffer nodes needed to upgrade`.
    1. Si vous utilisez Azure CNI, cela se produit lorsque le `number of free IPs in the subnet` est **inférieur** au `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
    
-   Par défaut, les clusters AKS définissent une valeur max-surge (tampon de mise à niveau) d’un (1), mais ce comportement de mise à niveau peut être personnalisé en définissant la [valeur max-surge d’un pool de nœuds](upgrade-cluster.md#customize-node-surge-upgrade-preview) qui augmentera le nombre d’adresses IP disponibles nécessaires à la mise à niveau.
+   Par défaut, les clusters AKS définissent une valeur max-surge (tampon de mise à niveau) d’un (1), mais ce comportement de mise à niveau peut être personnalisé en définissant la [valeur max-surge d’un pool de nœuds](upgrade-cluster.md#customize-node-surge-upgrade) qui augmentera le nombre d’adresses IP disponibles nécessaires à la mise à niveau.
 
 1. AKS create ou AKS Nodepool add
    1. Si vous utilisez Kubenet, cela se produit lorsque le `number of free IPs in the subnet` est **inférieur** au `number of nodes requested for the node pool`.
@@ -86,13 +86,13 @@ AKS a des plans de contrôle de haute disponibilité qui sont mis à l’échell
 
 Ces délais peuvent être liés au blocage du trafic interne entre les nœuds. Vérifiez que ce trafic n’est pas bloqué, par exemple par [des groupes de sécurité réseau](concepts-security.md#azure-network-security-groups) sur le sous-réseau pour les nœuds de votre cluster.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>J’essaie d’activer le contrôle d’accès en fonction du rôle (RBAC) sur un cluster existant. Comment procéder ?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>J’essaie d’activer le contrôle d’accès en fonction du rôle Kubernetes (RBAC Kubernetes) sur un cluster existant. Comment procéder ?
 
-L’activation du contrôle d’accès en fonction du rôle (RBAC) sur des clusters existants n’est pas prise en charge actuellement, la fonctionnalité doit être définie au moment de la création de clusters. RBAC est activé par défaut lors de l’utilisation de l’interface CLI, du portail ou d’une version d’API ultérieure à `2020-03-01`.
+L’activation du contrôle d’accès en fonction du rôle Kubernetes (RBAC Kubernetes) sur des clusters existants n’est pas prise en charge actuellement. Elle doit être définie au moment de la création de clusters. Le RBAC Kubernetes est activé par défaut lors de l’utilisation de l’interface CLI, du portail ou d’une version d’API postérieure à `2020-03-01`.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>J’ai créé un cluster avec RBAC activé et je vois maintenant de nombreux avertissements sur le tableau de bord Kubernetes. Le tableau de bord n’affichait généralement aucun avertissement. Que dois-je faire ?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>J’ai créé un cluster avec le RBAC Kubernetes activé, et je vois maintenant de nombreux avertissements sur le tableau de bord Kubernetes. Le tableau de bord n’affichait généralement aucun avertissement. Que dois-je faire ?
 
-La raison de ces avertissements est que RBAC est activé sur le cluster et que l’accès au tableau de bord est maintenant limité par défaut. En règle générale, cette approche est une bonne pratique parce que l’exposition par défaut du tableau de bord à tous les utilisateurs du cluster peut entraîner des menaces de sécurité. Si vous souhaitez quand même activer le tableau de bord, procédez de la manière décrite dans ce [billet de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+La raison de ces avertissements est que RBAC Kubernetes est activé sur le cluster et que l’accès au tableau de bord est maintenant limité par défaut. En règle générale, cette approche est une bonne pratique parce que l’exposition par défaut du tableau de bord à tous les utilisateurs du cluster peut entraîner des menaces de sécurité. Si vous souhaitez quand même activer le tableau de bord, procédez de la manière décrite dans ce [billet de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je ne parviens pas à obtenir les journaux d’activité à l’aide des journaux d’activité de kubectl, ou à me connecter au serveur API. J’obtiens le message « Error from server: error dialing backend: dial tcp… ». Que dois-je faire ?
 
@@ -154,10 +154,10 @@ Suivez les étapes *Avant de commencer* dans le document approprié pour créer 
 Les restrictions d’affectation de noms sont implémentées par la plateforme Azure et AKS. Si un nom ou paramètre de ressource enfreint une de ces restrictions, une erreur est retournée qui vous invite à fournir une entrée différente. Voici quelques-unes des recommandations qui s’appliquent en matière d’affectation de noms :
 
 * Les noms de cluster doivent comporter entre 1 et 63 caractères. Les seuls caractères autorisés sont les lettres, les chiffres, les tirets et le trait de soulignement. Le premier et le dernier caractères doivent être une lettre ou un chiffre.
-* Le nom de groupe de ressources Nœud AKS/ *MC_* combine le nom du groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS. Vous pouvez également [personnaliser le nom de votre groupe de ressources de nœud](cluster-configuration.md#custom-resource-group-name).
+* Le nom de groupe de ressources Nœud AKS/*MC_* combine le nom du groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS. Vous pouvez également [personnaliser le nom de votre groupe de ressources de nœud](cluster-configuration.md#custom-resource-group-name).
 * L'élément *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques et doit comporter 1 à 54 caractères. Parmi les caractères autorisés figurent les valeurs alphanumériques et les traits d’union (-). L’élément *dnsPrefix* ne peut pas inclure de caractères spéciaux comme un point (.).
 * Les noms de pools de nœuds AKS doivent être en minuscules et comprendre 1 à 11 caractères pour les pools de nœuds Linux et 1 à 6 caractères pour les pools de nœuds Windows. Le nom doit commencer par une lettre et les seuls caractères autorisés sont les lettres et les chiffres.
-* *admin-username* , qui définit le nom d’utilisateur de l’administrateur pour les nœuds Linux, doit commencer par une lettre, ne peut contenir que des lettres, des chiffres, des traits d’union et des traits de soulignement, et sa longueur maximale est de 64 caractères.
+* *admin-username*, qui définit le nom d’utilisateur de l’administrateur pour les nœuds Linux, doit commencer par une lettre, ne peut contenir que des lettres, des chiffres, des traits d’union et des traits de soulignement, et sa longueur maximale est de 64 caractères.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Je reçois une erreur quand j’essaie de créer, mettre à jour, mettre à l’échelle, supprimer ou mettre à niveau un cluster, m’informant que cette opération n’est pas autorisée quand une autre opération est en cours.
 
@@ -167,7 +167,7 @@ Les opérations de cluster sont limitées quand une opération précédente est 
 
 Selon la sortie de l’état du cluster :
 
-* Si le cluster est dans un état d’approvisionnement autre que *Opération réussie* ou *En échec* , attendez que l’opération ( *mise à niveau/mise à jour/création/mise à l’échelle/suppression/migration* ) se termine. Une fois que l’opération précédente a abouti, tentez à nouveau votre dernière opération de cluster.
+* Si le cluster est dans un état d’approvisionnement autre que *Opération réussie* ou *En échec*, attendez que l’opération (*mise à niveau/mise à jour/création/mise à l’échelle/suppression/migration*) se termine. Une fois que l’opération précédente a abouti, tentez à nouveau votre dernière opération de cluster.
 
 * Si la mise à niveau du cluster a échoué, suivez les étapes décrites dans [Je reçois des erreurs qui indiquent que mon cluster est en état d’échec et que la mise à niveau ou la mise à l’échelle n’aboutira pas tant que ce problème n’aura pas été résolu](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -216,7 +216,7 @@ La recommandation de l’équipe d’ingénieurs d’AKS est de vous assurer que
 
 ## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>L’état de l’approvisionnement de mon cluster est passé de Prêt à Échec, que j’effectue une opération ou non. Que dois-je faire ?
 
-Si l’état d’approvisionnement de votre cluster passe de *Prêt* à *Échec* , que vous effectuiez des opérations ou non, mais que les applications sur votre cluster continuent à s’exécuter, ce problème peut être résolu automatiquement par le service et vos applications ne doivent pas être affectées.
+Si l’état d’approvisionnement de votre cluster passe de *Prêt* à *Échec*, que vous effectuiez des opérations ou non, mais que les applications sur votre cluster continuent à s’exécuter, ce problème peut être résolu automatiquement par le service et vos applications ne doivent pas être affectées.
 
 Si l’état d’approvisionnement de votre cluster reste en *Échec* ou si les applications sur votre cluster cessent de fonctionner, [envoyez une demande de support](https://azure.microsoft.com/support/options/#submit).
 
@@ -388,7 +388,7 @@ parameters:
 Certains paramètres *mountOptions* supplémentaires utiles :
 
 * *mfsymlinks* fait en sorte que le montage Azure Files (cifs) prenne en charge les liens symboliques
-* *nobrl*  empêche l’envoi des demandes de verrous de plage d’octets au serveur. Ce paramètre est nécessaire pour certaines applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs. La plupart des serveurs cifs ne prennent pas encore en charge la demande de verrous de plage d’octets. Si vous n’utilisez pas *nobrl* , les applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs peuvent entraîner des messages d’erreur comme suit :
+* *nobrl*  empêche l’envoi des demandes de verrous de plage d’octets au serveur. Ce paramètre est nécessaire pour certaines applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs. La plupart des serveurs cifs ne prennent pas encore en charge la demande de verrous de plage d’octets. Si vous n’utilisez pas *nobrl*, les applications qui s’arrêtent avec des verrous de plage d’octets obligatoires de type cifs peuvent entraîner des messages d’erreur comme suit :
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -476,7 +476,7 @@ Cette erreur est due à une condition de concurrence du programme de mise à l�
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Attachement du disque lent : GetAzureDiskLun prend de 10 à 15 minutes et une erreur s’affiche
 
-Dans les versions de Kubernetes **antérieures à 1.15.0** , vous pouvez recevoir une erreur telle que **Erreur WaitForAttach : le numéro d’unité logique du disque est introuvable**.  Pour contourner ce problème, attendez environ 15 minutes, puis réessayez.
+Dans les versions de Kubernetes **antérieures à 1.15.0**, vous pouvez recevoir une erreur telle que **Erreur WaitForAttach : le numéro d’unité logique du disque est introuvable**.  Pour contourner ce problème, attendez environ 15 minutes, puis réessayez.
 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Pourquoi les mises à niveau vers Kubernetes 1.16 échouent lors de l’utilisation d’étiquettes de nœud avec un préfixe kubernetes.io ?

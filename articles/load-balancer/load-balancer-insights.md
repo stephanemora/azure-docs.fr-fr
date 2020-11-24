@@ -11,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897566"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694879"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilisation des Insights pour surveiller et configurer votre Azure Load Balancer
 
-Par le biais d’[Azure Monitor pour réseaux](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview), vous obtenez des visualisations des dépendances fonctionnelles et un tableau de bord de mesures préconfiguré pour vos équilibreurs de charge. Ces représentations visuelles vous aident à faire des choix de conception informés et à localiser, diagnostiquer et résoudre rapidement toutes les erreurs.
+Par le biais d’Azure Monitor pour réseaux, vous obtenez des visualisations des dépendances fonctionnelles et un tableau de bord de mesures préconfiguré pour vos équilibreurs de charge. Ces représentations visuelles vous aident à faire des choix de conception informés et à localiser, diagnostiquer et résoudre rapidement toutes les erreurs.
 
 >[!NOTE] 
 >Notez que cette fonctionnalité est en préversion, par conséquent il se peut que la vue des dépendances fonctionnelles et le tableau de bord préconfiguré changent pour améliorer cette expérience.
 
 >[!IMPORTANT]
->Standard Load Balancer est requis pour afficher les mesures à partir l’espace de noms de l’équilibreur de charge dans le tableau de bord de mesures préconfiguré. Vous pourrez toujours voir les mesures à partir de la machine virtuelle, du groupe de machines virtuelles identiques et des espaces de noms du Moniteur de connexion. Nous vous recommandons toutefois de [mettre à niveau vers la version Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) pour les charges de travail de production afin de tirer parti de l’important jeu de mesures d’Azure Load Balancer.
+>Standard Load Balancer est requis pour afficher les mesures à partir l’espace de noms de l’équilibreur de charge dans le tableau de bord de mesures préconfiguré. Vous pourrez toujours voir les mesures à partir de la machine virtuelle, du groupe de machines virtuelles identiques et des espaces de noms du Moniteur de connexion. Nous vous recommandons toutefois de [mettre à niveau vers la version Standard](./upgrade-basic-standard.md) pour les charges de travail de production afin de tirer parti de l’important jeu de mesures d’Azure Load Balancer.
 
 ## <a name="functional-dependency-view"></a>Vue des dépendances fonctionnelles
 
@@ -40,7 +40,7 @@ Pour Standard Load Balancer, les ressources de votre pool principal suivent un c
 
 ## <a name="metrics-dashboard"></a>Tableau de bord des métriques
 
-Dans le panneau Insights de votre équilibreur de charge, vous pouvez sélectionner l’option Mesures plus détaillées pour afficher un [classeur Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) préconfiguré contenant des représentations visuelles des mesures en rapport avec des aspects spécifiques de votre équilibreur de charge. Ce tableau de bord présente l’état de l’équilibreur de charge et des liens vers la documentation relative en haut de la page.
+Dans le panneau Insights de votre équilibreur de charge, vous pouvez sélectionner l’option Mesures plus détaillées pour afficher un [classeur Azure Monitor](../azure-monitor/platform/workbooks-overview.md) préconfiguré contenant des représentations visuelles des mesures en rapport avec des aspects spécifiques de votre équilibreur de charge. Ce tableau de bord présente l’état de l’équilibreur de charge et des liens vers la documentation relative en haut de la page.
 
 Dans un premier temps, l’onglet Vue d’ensemble s’affiche. Vous pouvez parcourir les différents onglets disponibles, dont chacun contient des représentations visuelles relatives à un aspect spécifique de votre équilibreur de charge. Des conseils explicites sont disponibles pour chacun d’eux dans le tableau de bord, en bas de chaque onglet.
 
@@ -68,16 +68,16 @@ L’onglet Débit de données vous permet de passer en revue le débit entrant e
 ### <a name="flow-distribution"></a>Distribution des flux
 L’onglet Distribution des flux vous permet de visualiser et de gérer le nombre de flux que vos instances de serveur principal reçoivent et produisent. Il présente le Taux de création de flux et le Nombre de flux pour le trafic entrant et sortant ainsi que le Trafic réseau que reçoit chaque machine virtuelle et chaque instance de groupe de machines virtuelles identiques. 
 
-Ces vues peuvent vous indiquer que la configuration de votre équilibreur de charge ou vos modèles de trafic entraînent un déséquilibre du trafic. Par exemple, si une affinité de session est configurée et qu’un seul client effectue un nombre disproportionné de demandes. Il vous informe également si vous approchez de la [limite de flux par machine virtuelle](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) pour votre taille de machine.
+Ces vues peuvent vous indiquer que la configuration de votre équilibreur de charge ou vos modèles de trafic entraînent un déséquilibre du trafic. Par exemple, si une affinité de session est configurée et qu’un seul client effectue un nombre disproportionné de demandes. Il vous informe également si vous approchez de la [limite de flux par machine virtuelle](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) pour votre taille de machine.
 
 ### <a name="connection-monitors"></a>Moniteurs de connexion
-L’onglet Moniteurs de connexion vous montre la latence aller-retour sur une carte pour tous les [moniteurs de connexion](https://docs.microsoft.com/azure/network-watcher/connection-monitor) configurés. Ces représentations visuelles fournissent des informations utiles aux services avec des exigences strictes en matière de latence. Pour répondre à vos besoins, vous devrez peut-être ajouter des déploiements régionaux supplémentaires ou utiliser un modèle d’[équilibrage de charge inter-région](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)
+L’onglet Moniteurs de connexion vous montre la latence aller-retour sur une carte pour tous les [moniteurs de connexion](../network-watcher/connection-monitor.md) configurés. Ces représentations visuelles fournissent des informations utiles aux services avec des exigences strictes en matière de latence. Pour répondre à vos besoins, vous devrez peut-être ajouter des déploiements régionaux supplémentaires ou utiliser un modèle d’[équilibrage de charge inter-région](./cross-region-overview.md)
 
 ### <a name="metric-definitions"></a>Définitions de métriques
-L’onglet Définitions de métriques contient toutes les informations présentées dans l’[article Métriques multidimensionnelles](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
+L’onglet Définitions de métriques contient toutes les informations présentées dans l’[article Métriques multidimensionnelles](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Passez en revue le tableau de bord et n’hésitez pas à fournir des suggestions d’améliorations à l’aide du lien ci-dessous
-* [Passez en revue la documentation sur les métriques pour vérifier que vous comprenez bien comment est calculée chacune d’elles](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
-* [Créer des moniteurs de connexion pour votre équilibreur de charge](https://docs.microsoft.com/azure/network-watcher/connection-monitor)
-* [Créez vos propres classeurs](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Inspirez-vous des éléments disponibles en cliquant sur le bouton Modifier de votre tableau de bord de métriques détaillé
+* [Passez en revue la documentation sur les métriques pour vérifier que vous comprenez bien comment est calculée chacune d’elles](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
+* [Créer des moniteurs de connexion pour votre équilibreur de charge](../network-watcher/connection-monitor.md)
+* [Créez vos propres classeurs](../azure-monitor/platform/workbooks-overview.md). Inspirez-vous des éléments disponibles en cliquant sur le bouton Modifier de votre tableau de bord de métriques détaillé

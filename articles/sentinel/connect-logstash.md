@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89663121"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655678"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utiliser Logstash pour connecter des sources de données à Azure Sentinel
 
@@ -48,8 +48,8 @@ Le moteur Logstash est constitué de trois composants :
 
 Le plug-in de sortie Azure Sentinel pour Logstash envoie des données au format JSON à votre espace de travail Log Analytics, en utilisant l'API REST du collecteur de données HTTP de Log Analytics. Les données sont ingérées dans des journaux personnalisés.
 
-- Apprenez-en davantage sur l’[API REST Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Apprenez-en davantage sur les [journaux personnalisés](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
+- Apprenez-en davantage sur l’[API REST Log Analytics](/rest/api/loganalytics/create-request).
+- Apprenez-en davantage sur les [journaux personnalisés](../azure-monitor/platform/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Déployer le plug-in de sortie Azure Sentinel dans Logstash
 
@@ -57,7 +57,7 @@ Le plug-in de sortie Azure Sentinel pour Logstash envoie des données au format 
 
 Le plug-in de sortie Azure Sentinel est disponible dans la collection Logstash.
 
-- Suivez les instructions du document Logstash [Utilisation des plug-ins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) pour installer le plug-in ***microsoft-logstash-output-azure-loganalytics***.
+- Suivez les instructions du document Logstash [Utilisation des plug-ins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) pour installer le plug-in **_microsoft-logstash-output-azure-loganalytics_* _.
    
 - Si votre système Logstash n'a pas accès à Internet, suivez les instructions du document Logstash [Gestion des plug-ins hors connexion](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) pour préparer et utiliser un pack de plug-ins hors connexion. (Il vous faudra pour cela créer un autre système Logstash avec accès à Internet).
 
@@ -67,7 +67,7 @@ Utilisez les informations du document Logstash [Structure d’un fichier de conf
 
 | Nom du champ | Type de données | Description |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Entrez le GUID de l’ID de votre espace de travail. * |
+| `workspace_id` | string | Entrez le GUID de l’ID de votre espace de travail. _ |
 | `workspace_key` | string | Entrez le GUID de la clé primaire de votre espace de travail. * |
 | `custom_log_table_name` | string | Définissez le nom de la table dans laquelle les journaux seront ingérés. Vous ne pouvez configurer qu'un seul nom de table par plug-in de sortie. La table des journaux apparaîtra dans Azure Sentinel sous **Journaux**, dans **Tables**, catégorie **Journaux personnalisés**, avec le suffixe `_CL`. |
 | `endpoint` | string | Champ facultatif. Par défaut, il s'agit du point de terminaison Log Analytics. Utilisez ce champ pour définir un autre point de terminaison. |
@@ -162,7 +162,7 @@ Voici quelques exemples de configurations qui utilisent des options différentes
 
 1. Pour afficher les enregistrements de la table, interrogez-la en utilisant son nom comme schéma.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Capture d’écran des journaux personnalisés Logstash.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Capture d’écran d’une requête dans les journaux personnalisés Logstash.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Surveiller les journaux d'audit du plug-in de sortie
 

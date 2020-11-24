@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 133e6b533a3d87ef519d0f586ea59db1bbce28b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96be79a349478db7d0452cae1ff07ee1c48aaa3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83744479"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700084"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurer l’application Microsoft Authenticator comme méthode de vérification
 
@@ -45,6 +45,11 @@ Les méthodes relatives aux informations de sécurité sont utilisées pour la v
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurer l’application Microsoft Authenticator à partir de la page des informations de sécurité
 
 Selon les paramètres de votre organisation, vous pouvez peut-être utiliser une application d’authentification comme méthode d’informations de sécurité. Vous n’êtes pas obligé d’utiliser l’application Microsoft Authenticator et vous pouvez choisir une autre application au cours du processus de configuration. Cet article, cependant, utilise l’application Microsoft Authenticator.
+
+>[!Important]
+> Si vous avez configuré l’application Microsoft Authenticator sur 5 appareils ou 5 jetons (modules de sécurité) matériels, vous ne pourrez pas en configurer un sixième et le message d’erreur suivant peut s’afficher.
+> 
+> **Vous ne pouvez pas configurer Microsoft Authenticator, car vous disposez déjà de cinq applications d’authentificateur ou jetons matériels. Veuillez contacter votre administrateur pour supprimer l’une de vos applications d’authentificateur ou l’un de vos jetons matériels.**
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Pour configurer l’application Microsoft Authenticator
 

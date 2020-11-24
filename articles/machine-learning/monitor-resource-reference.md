@@ -1,6 +1,6 @@
 ---
 title: Analyser la référence de données Azure Machine Learning | Microsoft Docs
-description: Matériel de référence important nécessaire pour analyser Azure Machine Learning. Découvrez les données et les ressources collectées pour Azure Machine Learning et disponibles dans Azure Monitor. Azure Monitor collecte et met au jour les données relatives à votre espace de travail Azure Machine Learning et vous permet d’afficher les métriques, de définir des alertes et d’analyser les données consignées.
+description: Documentation de référence pour la supervision d’Azure Machine Learning. Découvrez les données et les ressources collectées et disponibles dans Azure Monitor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323952"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540788"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Informations de référence sur l’analyse des données Azure Machine Learning
 

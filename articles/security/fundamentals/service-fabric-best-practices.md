@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410009"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700944"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -60,7 +60,7 @@ Il existe trois [scénarios](../../service-fabric/service-fabric-cluster-securit
 -   Sécurité nœud à nœud : ce scénario sécurise les communications entre les machines virtuelles et les ordinateurs du cluster. Cette forme de sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent héberger les applications et les services dans le cluster.
 Dans ce scénario, les clusters qui s’exécutent sur Azure, ou les clusters autonomes qui s’exécutent sur Windows, peuvent utiliser la [Sécurité par certificat](../../service-fabric/service-fabric-windows-cluster-x509-security.md) ou la [Sécurité Windows](../../service-fabric/service-fabric-windows-cluster-windows-security.md) pour les machines Windows Server.
 -   Sécurité client à nœud : ce scénario sécurise la communication entre un client Service Fabric et les nœuds individuels du cluster.
--   Contrôle d’accès en fonction du rôle (RBAC) : ce scénario utilise des identités distinctes (certificats, Azure AD, etc.) pour chaque rôle client utilisateur et administrateur qui accède au cluster. Vous spécifiez les identités de rôle quand vous créez le cluster.
+-   Contrôle d’accès en fonction du rôle Service Fabric (RBAC Service Fabric) : ce scénario utilise des identités distinctes (certificats, Azure AD, etc.) pour chaque rôle client utilisateur et administrateur qui accède au cluster. Vous spécifiez les identités de rôle quand vous créez le cluster.
 
 >[!NOTE]
 >**Recommandation de sécurité pour les clusters Azure :** utilisez la sécurité Azure AD pour authentifier les clients et les certificats pour la sécurité nœud à nœud.
@@ -132,7 +132,7 @@ Le certificat doit répondre aux prérequis suivants pour les certificats SSL/TL
 -   Le nom d’objet du certificat doit correspondre au nom de domaine servant à accéder à votre service cloud.
 
     - Obtenez un nom de domaine personnalisé à utiliser pour accéder à votre service cloud.
-    - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__ **.com** , le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__ **.contoso.com**.
+    - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__ **.com**, le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__ **.contoso.com**.
 
     >[!NOTE]
     >Vous ne pouvez pas obtenir de certificat SSL/TLS auprès d’une autorité de certification pour le domaine __cloudapp__ **.net**.
@@ -172,7 +172,7 @@ Pour plus d’informations sur la configuration d’un coffre de clés, consulte
 Une fois que vous avez créé les applications pour représenter votre cluster, affectez les utilisateurs aux rôles qui sont pris en charge par Service Fabric : lecture seule et administrateur. Vous pouvez assigner ces rôles à l’aide du portail Azure.
 
 >[!NOTE]
-> Pour plus d’informations sur l’utilisation des rôles dans Service Fabric, consultez [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
+> Pour plus d’informations sur l’utilisation des rôles dans Service Fabric, consultez [Contrôle d’accès en fonction du rôle Service Fabric pour les clients Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Azure Service Fabric prend en charge deux types de contrôle d’accès pour les clients qui sont connectés à un [cluster Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md) : administrateur et utilisateur. L’administrateur du cluster peut utiliser le contrôle d’accès afin de limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Le contrôle d’accès rend le cluster plus sécurisé.
 

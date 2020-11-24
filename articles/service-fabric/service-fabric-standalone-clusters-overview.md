@@ -3,12 +3,12 @@ title: Vue d’ensemble des clusters Service Fabric autonomes
 description: Les clusters Service Fabric peuvent être exécutés sous Windows Server et Linux, ce qui vous permet de déployer et d’héberger des applications Service Fabric partout où vous pouvez exécuter Windows Server ou Linux.
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841065"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683996"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Vue d’ensemble des clusters Service Fabric autonomes
 
@@ -43,10 +43,10 @@ En plus des certificats clients, Azure Active Directory peut également être co
 
 Pour plus d’informations, consultez [Sécurité client à nœud](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
+### <a name="service-fabric-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Service Fabric
 Service Fabric prend également en charge le contrôle d’accès pour limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Ainsi, vous rendez le cluster plus sécurisé. Deux types de contrôle d’accès sont pris en charge pour les clients qui se connectent à un cluster : le rôle Administrateur et le rôle Utilisateur.  
 
-Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ## <a name="scaling"></a>Mise à l'échelle
 

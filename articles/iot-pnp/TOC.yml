@@ -12,39 +12,13 @@
     - name: Configurer votre environnement
       href: set-up-environment.md
     - name: Connecter un appareil à IoT Hub
-      items:
-        - name: C
-          href: quickstart-connect-device-c.md
-        - name: Node.js
-          href: quickstart-connect-device-node.md
-        - name: Python
-          href: quickstart-connect-device-python.md
-        - name: C#
-          href: quickstart-connect-device-csharp.md
-        - name: Java
-          href: quickstart-connect-device-java.md
+      href: quickstart-connect-device.md
     - name: Interagir avec un appareil à partir de votre solution
-      items:
-        - name: Node.js
-          href: quickstart-service-node.md
-        - name: Python
-          href: quickstart-service-python.md
-        - name: C#
-          href: quickstart-service-csharp.md
-        - name: Java
-          href: quickstart-service-java.md
+      href: quickstart-service.md
 - name: Tutoriels
   items:
-    - name: Connecter un appareil multicomposant (C)
-      href: tutorial-multiple-components-c.md
-    - name: Connecter un appareil multicomposant (C#)
-      href: tutorial-multiple-components-csharp.md
-    - name: Connecter un appareil multicomposant (Java)
-      href: tutorial-multiple-components-java.md
-    - name: Connecter un appareil multicomposant (Node.js)
-      href: tutorial-multiple-components-node.md
-    - name: Connecter un appareil multicomposant (Python)
-      href: tutorial-multiple-components-python.md
+    - name: Connecter un appareil multicomposant
+      href: tutorial-multiple-components.md
     - name: Utiliser MQTT pour connecter un appareil
       href: tutorial-use-mqtt.md
     - name: Interagir avec un appareil MXChip (exemple)
@@ -58,17 +32,7 @@
     - name: Architecture
       href: concepts-architecture.md
     - name: Guide du développeur sur les appareils
-      items:
-        - name: C#
-          href: concepts-developer-guide-device-csharp.md
-        - name: Node.js
-          href: concepts-developer-guide-device-node.md
-        - name: Java
-          href: concepts-developer-guide-device-java.md
-        - name: Python
-          href: concepts-developer-guide-device-python.md
-        - name: C
-          href: concepts-developer-guide-device-c.md
+      href: concepts-developer-guide-device.md
     - name: Guide du développeur sur les services
       href: concepts-developer-guide-service.md
     - name: Components

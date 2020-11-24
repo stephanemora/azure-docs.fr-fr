@@ -71,6 +71,16 @@
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
         - name: Documentation sur les conteneurs Cognitive Services
           href: ../containers/index.yml
+- name: Immersions dans des scénarios
+  items:
+    - name: Inscription à Visage
+      items:
+        - name: Vue d’ensemble
+          href: enrollment-overview.md
+        - name: Guides pratiques
+          items:
+            - name: Créer une application d’inscription avec React
+              href: build-enrollment-app.md
 - name: Informations de référence
   items:
     - name: API Visage

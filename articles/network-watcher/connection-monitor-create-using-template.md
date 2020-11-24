@@ -1,7 +1,7 @@
 ---
-title: Créer un Moniteur de connexion en préversion - ARMClient
+title: Créer un Moniteur de connexion – ARMClient
 titleSuffix: Azure Network Watcher
-description: Découvrez comment créer une instance Moniteur de connexion (préversion) à l’aide du ARMClient.
+description: Découvrez comment créer un Moniteur de connexion à l’aide de l’ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447435"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699098"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Créer une instance Moniteur de connexion (préversion) à l’aide du ARMClient
+# <a name="create-a-connection-monitor-using-the-armclient"></a>Créer un Moniteur de connexion à l’aide de l’ARMClient
 
-Découvrez comment créer une instance Moniteur de connexion (préversion) pour surveiller la communication entre vos ressources à l’aide du ARMClient. Elle prend en charge les déploiements cloud hybrides et Azure.
+Découvrez comment créer un Moniteur de connexion pour surveiller la communication entre vos ressources à l’aide de l’ARMClient. Elle prend en charge les déploiements cloud hybrides et Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 
-Dans les moniteurs de connexion que vous créez à partir de la fonctionnalité Moniteur de connexion (préversion), vous pouvez aussi bien ajouter des machines locales et des machines virtuelles Azure en tant que sources. Ces moniteurs de connexion peuvent également surveiller la connectivité aux points de terminaison. Les points de terminaison peuvent se trouver sur Azure ou sur toute autre URL ou adresse IP.
+Dans les moniteurs de connexion que vous créez à l’aide de la fonctionnalité Moniteur de connexion, vous pouvez ajouter des machines locales et des machines virtuelles Azure en tant que sources. Ces moniteurs de connexion peuvent également surveiller la connectivité aux points de terminaison. Les points de terminaison peuvent se trouver sur Azure ou sur toute autre URL ou adresse IP.
 
-Le Moniteur de connexion (préversion) inclut les entités suivantes :
+Le Moniteur de connexion inclut les entités suivantes :
 
 * **Ressource de moniteur de connexion** : ressource Azure spécifique à la région. Toutes les entités ci-dessous sont des propriétés d'une ressource de moniteur de connexion.
 * **Point de terminaison** : source ou destination qui participe aux vérifications de la connectivité. Les machines virtuelles Azure, les agents locaux, les URL et les adresses IP sont des exemples de points de terminaison.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Points de terminaison
     * name - Nom unique de chaque point de terminaison
-    * resourceId - Pour les points de terminaison Azure, l’ID de ressource fait référence à l’ID de ressource du gestionnaire des ressources Azure pour les machines virtuelles. Pour les points de terminaison non Azure, l’ID de ressource fait référence à l’ID de ressource du gestionnaire des ressources Azure pour l’espace de travail Log Analytics lié aux agents non Azure.
+    * resourceId - Pour les points de terminaison Azure, l’ID de ressource fait référence à l’ID de ressource Azure Resource Manager pour les machines virtuelles. Pour les points de terminaison non Azure, l’ID de ressource fait référence à l’ID de ressource Azure Resource Manager pour l’espace de travail Log Analytics lié aux agents non Azure.
     * adress - Applicable uniquement lorsque l’ID de ressource n’est pas spécifié ou si l’ID de ressource est l’espace de travail Log Analytics. Si utilisée avec l’ID de ressource Log Analytics, fait référence au nom de domaine complet de l’agent qui peut être utilisé pour l’analyse. Si utilisée sans ID de ressource, il peut s’agir de l’URL ou de l’adresse IP d’un point de terminaison public.
     * filter - Pour les points de terminaison non-Azure, utilisez filter pour sélectionner des agents dans l’espace de travail Log Analytics qui sera utilisé pour l’analyse dans la ressource du moniteur de connexion. Si les filtres ne sont pas définis, tous les agents appartenant à l’espace de travail Log Analytics peuvent être utilisés pour l’analyse.
         * type – Définissez le type comme « Agent Adress » (Adresse de l’agent).

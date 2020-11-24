@@ -3,12 +3,12 @@ title: Bouton Déployer dans Azure
 description: Utilisez le bouton pour déployer des modèles Azure Resource Manager à partir d’un référentiel GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490897"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555260"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub
 
@@ -19,11 +19,15 @@ L’étendue du déploiement est déterminée par le schéma du modèle. Pour pl
 * [resource groups](deploy-to-resource-group.md)
 * [subscriptions](deploy-to-subscription.md)
 * [groupes d’administration](deploy-to-management-group.md)
-* [locataires](deploy-to-tenant.md).
+* [tenants](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Utiliser une image courante
 
 Pour ajouter le bouton à votre page web ou à votre référentiel, utilisez l’image suivante :
+
+```markdown
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+```
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
@@ -48,6 +52,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 Ensuite, convertissez l’URL en une valeur encodée URL. Vous pouvez utiliser un encodeur en ligne ou exécuter une commande. L’exemple PowerShell suivant montre comment encoder une valeur par URL.
 
 ```powershell
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
@@ -70,6 +75,8 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 ```
 
 Vous avez votre URL complète pour le lien.
+
+En général, vous hébergez le modèle dans un dépôt public. Si vous utilisez un référentiel privé, vous devez inclure un jeton pour accéder au contenu brut du modèle. Le jeton généré par GitHub n’est valide que pendant une brève période. Vous devez mettre à jour le lien souvent.
 
 Si vous utilisez [Git avec Azure Repos](/azure/devops/repos/git/) au lieu d’un référentiel GitHub, vous pouvez toujours utiliser le bouton Déployer dans Azure. Assurez-vous que votre référentiel est public. Utilisez l’[opération Items](/rest/api/azure/devops/git/items/get) pour récupérer le modèle. Votre requête doit respecter le format suivant :
 

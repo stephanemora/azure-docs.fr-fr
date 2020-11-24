@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eed1a3d403a6012e2010a6b9a47a60f815044565
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309705"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685900"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Haute performance avec un serveur Triton Inference (préversion) 
 
@@ -51,6 +51,17 @@ Avant de tenter d’utiliser Triton pour votre propre modèle, il est important 
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Diagramme d’architecture de déploiement normal, non Triton":::
 
+### <a name="setting-the-number-of-workers"></a>Définition du nombre de workers
+
+Pour définir le nombre de workers dans votre déploiement, définissez la variable d’environnement `WORKER_COUNT`. Étant donné que vous avez un objet [Environnement](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) nommé `env`, vous pouvez procéder comme suit :
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+Cela indique à Azure ML d’activer le nombre de workers que vous spécifiez.
+
+
 **Déploiement de configuration de l’inférence avec Triton**
 
 * Plusieurs rôles de travail [Gunicorn](https://gunicorn.org/) démarrent pour gérer simultanément les requêtes entrantes.
@@ -66,7 +77,11 @@ Le flux de travail pour l’utilisation de Triton pour votre modèle de déploie
 1. Vérifiez que vous pouvez envoyer des requêtes à votre modèle déployé par Triton.
 1. Incorporez votre code spécifique à Triton dans votre déploiement AML.
 
-## <a name="optional-define-a-model-config-file"></a>(Facultati) Définir un fichier config de modèle
+## <a name="verify-that-triton-can-serve-your-model"></a>Vérifier que Triton peut servir votre modèle
+
+Tout d’abord, suivez les étapes ci-dessous pour vérifier que le serveur d’inférence Triton peut servir votre modèle.
+
+### <a name="optional-define-a-model-config-file"></a>(Facultati) Définir un fichier config de modèle
 
 Le fichier config de modèle indique à Triton le nombre d’entrées attendues et les dimensions de ces entrées. Pour plus d’informations sur la création du fichier config, consultez [Configuration de modèle](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) dans la documentation NVIDIA.
 
@@ -75,7 +90,7 @@ Le fichier config de modèle indique à Triton le nombre d’entrées attendues 
 > 
 > Pour plus d’informations sur la création du fichier config, consultez [Configuration de modèle](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) dans la documentation NVIDIA.
 
-## <a name="directory-structure"></a>Structure de répertoires
+### <a name="use-the-correct-directory-structure"></a>Utilisez la structure de répertoire appropriée
 
 Lors de l’inscription d’un modèle avec Azure Machine Learning, vous pouvez inscrire des fichiers individuels ou une structure de répertoires. Pour utiliser Triton, l’inscription du modèle doit être pour une structure de répertoires qui contient un répertoire nommé `triton`. La structure générale de ce répertoire est la suivante :
 
@@ -93,7 +108,7 @@ models
 > [!IMPORTANT]
 > Cette structure de répertoire est un référentiel de modèles Triton et est nécessaire pour que votre ou vos modèles fonctionnent avec Triton. Pour plus d’informations, consultez [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) dans la documentation NVIDIA.
 
-## <a name="test-with-triton-and-docker"></a>Test avec Triton et Docker
+### <a name="test-with-triton-and-docker"></a>Test avec Triton et Docker
 
 Pour tester votre modèle et vous assurer qu’il s’exécute avec Triton, vous pouvez utiliser Docker. Les commandes suivantes extraient le conteneur Triton sur votre ordinateur local, puis démarrent le serveur Triton :
 
@@ -146,7 +161,7 @@ Au-delà d’un contrôle d’intégrité de base, vous pouvez créer un client 
 
 Pour plus d’informations sur l’exécution de Triton à l’aide de Docker, consultez [Running Triton on a system with a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) et [Running Triton on a system without a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
-## <a name="register-your-model"></a>Inscrire votre modèle
+### <a name="register-your-model"></a>Inscrire votre modèle
 
 Maintenant que vous avez vérifié que votre modèle fonctionne avec Triton, inscrivez-le avec Azure Machine Learning. L’inscription de modèle stocke vos fichiers de modèle dans l’espace de travail Azure Machine Learning et sont utilisés lors du déploiement avec le kit de développement logiciel (SDK) Python et Azure CLI.
 
@@ -176,9 +191,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## <a name="add-pre-and-post-processing"></a>Ajoutee en pré-traitement et post-traitement
+## <a name="verify-you-can-call-into-your-model"></a>Vérifiez que vous pouvez appeler votre modèle
 
-Après avoir vérifié que le service Web fonctionne, vous pouvez ajouter du code de pré-traitement et de suivi en définissant un _script d’entrée_. Ce fichier est nommé `score.py`. Pour plus d’informations sur le script d’entrée, consultez [Définir le code d’entrée](how-to-deploy-and-where.md#define-an-entry-script).
+Après avoir vérifié que le Triton est capable de servir votre modèle, vous pouvez ajouter du code de pré-traitement et de post-traitement en définissant un _script d’entrée_. Ce fichier est nommé `score.py`. Pour plus d’informations sur le script d’entrée, consultez [Définir le code d’entrée](how-to-deploy-and-where.md#define-an-entry-script).
 
 Les deux étapes principales sont l’initialisation d’un client HTTP Triton dans votre méthode `init()` et l’appel de ce client dans votre fonction `run()`.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491645"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591748"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
@@ -144,6 +144,17 @@ Vous pouvez supprimer une stratégie de capture instantanée que vous ne souhait
 
     ![Confirmation de suppression de stratégie de capture instantanée](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Modifier l’option Masquer le chemin d’instantané
+L’option Masquer le chemin d’instantané contrôle la visibilité du chemin d’accès de capture instantanée d’un volume. Lors de la création d’un volume [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) ou [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume), vous avez la possibilité de spécifier si le chemin d’accès de la capture instantanée doit être masqué. Vous pouvez ensuite modifier l’option Masquer le chemin d’instantané si nécessaire.  
+
+> [!NOTE]
+> Pour un [volume de destination](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) dans une réplication entre régions, l’option Masquer le chemin d’instantané est activée par défaut et ne peut pas être modifiée. 
+
+1. Pour afficher le paramètre de l’option Masquer le chemin d’instantané d’un volume, sélectionnez celui-ci. Le champ **Masquer le chemin d’instantané** indique si l’option est activée.   
+    ![Capture d’écran décrivant le champ Masquer le chemin d’instantané.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Pour modifier l’option Masquer le chemin d’instantané, cliquez sur **Modifier** dans la page du volume, puis modifiez l’option **Masquer le chemin d’instantané** si nécessaire.   
+    ![Capture d’écran décrivant l’option Modifier la capture instantanée du volume.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurer un instantané sur un nouveau volume
 
 Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volume. 
@@ -173,11 +184,7 @@ Si vous ne souhaitez pas [restaurer l’intégralité de l’instantané sur un 
 
 Le volume monté contient un répertoire d’instantanés nommé `.snapshot` (sur les clients NFS) ou `~snapshot` (sur les clients SMB) accessible au client. Le répertoire d’instantanés contient des sous-répertoires correspondant aux instantanés du volume. Chaque sous-répertoire contient les fichiers de l’instantané. Si vous supprimez ou remplacez accidentellement un fichier, vous pouvez le restaurer dans le répertoire de lecture-écriture parent en le copiant à partir d’un sous-répertoire d’instantanés et en le collant dans le répertoire de lecture-écriture. 
 
-Si vous avez coché la case Masquer le chemin d’instantané lors de la création du volume, le répertoire d’instantanés est masqué. Vous pouvez afficher l’état Masquer le chemin d’instantané du volume en sélectionnant le volume. Vous pouvez modifier l’option Masquer le chemin d’instantané en cliquant sur **Modifier** dans la page du volume.  
-
-Pour un volume de destination dans une réplication entre régions, le paramètre Masquer le chemin d’instantané est activé par défaut et ne peut pas être modifié.
-
-![Modifier les options d’instantané de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Si vous ne voyez pas le répertoire de l’instantané, il est possible qu’il soit masqué, car l’option Masquer le chemin d’instantané est actuellement activée. Vous pouvez [modifier l’option Masquer le chemin d’instantané](#edit-the-hide-snapshot-path-option) pour la désactiver.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurer un fichier à l’aide d’un client NFS Linux 
 

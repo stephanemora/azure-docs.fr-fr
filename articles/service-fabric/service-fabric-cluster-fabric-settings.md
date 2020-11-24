@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055118"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648223"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -243,7 +243,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) |statique|Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|entier, valeur par défaut : 600|statique|Ce paramètre est utilisé lorsque l’api de perte de données est appelée. Il contrôle le délai que le système attend avant qu’un réplica soit abandonné après la suppression d’un réplica appelé en interne. |
 |ReplicaRestartWaitDuration |Durée en secondes (valeur par défaut : 60 minutes)|statique|Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour FaultAnalysisService. |
-|StandByReplicaKeepDuration| Durée en secondes (valeur par défaut : 60*24*7 minutes) |statique|Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour FaultAnalysisService. |
+|StandByReplicaKeepDuration| Durée en secondes (valeur par défaut : 60 *24* 7 minutes) |statique|Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Entier (valeur par défaut : 3600) |statique|Fréquence de nettoyage du magasin. Seules les actions dans un état terminal et celles qui exécutées il y a au moins CompletedActionKeepDurationInSeconds secondes seront supprimées. |
 |StoredChaosEventCleanupIntervalInSeconds | Entier (valeur par défaut : 3600) |statique|Fréquence à laquelle le système évalue la nécessité du nettoyage. Si le nombre d’événements est supérieur à 30000, le nettoyage se déclenche. |
 |TargetReplicaSetSize |Entier (valeur par défaut : 0) |statique|NOT_PLATFORM_UNIX_START Paramètre TargetReplicaSetSize pour FaultAnalysisService. |
@@ -423,14 +423,14 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |AzureStorageMaxConnections | Entier (valeur par défaut : 5000) |Dynamique|Nombre maximum de connexions simultanées au stockage Azure. |
 |AzureStorageMaxWorkerThreads | Entier (valeur par défaut : 25) |Dynamique|Nombre maximum de threads de travail en parallèle. |
 |AzureStorageOperationTimeout | Durée en secondes (valeur par défaut : 6000) |Dynamique|Spécifiez la durée en secondes. Délai permettant de finaliser l’opération xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|valeur booléenne, valeur par défaut : FALSE |Dynamique|Active ou désactive le nettoyage automatique du package d’application en cas de provisionnement réussi.
-
-*La bonne pratique est d’utiliser `true`.* | |CleanupUnusedApplicationTypes|Bool, la valeur par défaut est FALSE |Dynamic| Cette configuration, si elle est activée, permet de désinscrire automatiquement des versions inutilisées de types d’applications en ignorant les trois dernières versions inutilisées, ce qui réduit l’espace disque occupé par le magasin d’images. Le nettoyage automatique est déclenché à la fin d’un provisionnement réussi pour ce type d’application spécifique et s’exécute aussi régulièrement une fois par jour pour tous les types d’applications. Le nombre de versions inutilisées à ignorer est configurable à l’aide du paramètre « MaxUnusedAppTypeVersionsToKeep ». 
-
-*La bonne pratique est d’utiliser `true`.*
-| |DisableChecksumValidation | Bool, la valeur par défaut est false |Static| Cette configuration permet d’activer ou de désactiver la validation de la somme de contrôle pendant le provisionnement de l’application. | |DisableServerSideCopy | Bool, la valeur par défaut est false |Static| Cette configuration active ou désactive la copie côté serveur du package d’application sur le magasin ImageStore pendant le provisionnement de l’application. | |ImageCachingEnabled | Bool, la valeur par défaut est true |Static| Cette configuration permet d’activer ou de désactiver la mise en cache. | |ImageStoreConnectionString |SecureString |Static| Chaîne de connexion à la racine du magasin ImageStore. | |ImageStoreMinimumTransferBPS | Int, la valeur par default est 1024 |Dynamic| Taux de transfert minimal entre le cluster et ImageStore. Cette valeur permet de déterminer le délai d’expiration lors de l’accès au magasin ImageStore externe. Ne modifiez cette valeur que si la latence entre le cluster et ImageStore est élevée afin de laisser davantage de temps au cluster pour effectuer des téléchargements à partir du magasin ImageStore externe. | |MaxUnusedAppTypeVersionsToKeep | Int, la valeur par défaut est 3 |Dynamic| Cette configuration définit le nombre de versions inutilisées de types d’applications à ignorer pour le nettoyage. Ce paramètre s’applique uniquement si le paramètre CleanupUnusedApplicationTypes est activé.
-
-*La bonne pratique générale consiste à utiliser la valeur par défaut (`3`).* |
+|CleanupApplicationPackageOnProvisionSuccess|valeur booléenne, valeur par défaut : FALSE |Dynamique|Active ou désactive le nettoyage automatique du package d’application en cas de provisionnement réussi.<br/> *La bonne pratique est d’utiliser `true`.*
+|CleanupUnusedApplicationTypes|Valeur booléenne, valeur par défaut : FALSE |Dynamique|Cette configuration, si elle est activée, permet de désinscrire automatiquement des versions inutilisées de types d’applications en ignorant les trois dernières versions inutilisées, ce qui réduit l’espace disque occupé par le magasin d’images. Le nettoyage automatique est déclenché à la fin d’un provisionnement réussi pour ce type d’application spécifique et s’exécute aussi régulièrement une fois par jour pour tous les types d’applications. Le nombre de versions inutilisées à ignorer est configurable à l’aide du paramètre « MaxUnusedAppTypeVersionsToKeep ». <br/> *La bonne pratique est d’utiliser `true`.*
+|DisableChecksumValidation | Valeur booléenne (valeur par défaut : false) |statique| Cette configuration nous permet d’activer ou de désactiver la validation de la somme de contrôle pendant l’approvisionnement de l’application. |
+|DisableServerSideCopy | Valeur booléenne (valeur par défaut : false) |statique|Cette configuration active ou désactive la copie côté serveur du package d’application sur le magasin ImageStore pendant l’approvisionnement de l’application. |
+|ImageCachingEnabled | Valeur booléenne (valeur par défaut : true) |statique|Cette configuration nous permet d’activer ou de désactiver la mise en cache. |
+|ImageStoreConnectionString |SecureString |statique|Chaîne de connexion à la racine d’ImageStore. |
+|ImageStoreMinimumTransferBPS | Entier (valeur par défaut : 1024) |Dynamique|Débit de transfert minimum entre le cluster et ImageStore. Cette valeur permet de déterminer le délai d’expiration lors de l’accès au magasin ImageStore externe. Ne modifiez cette valeur que si la latence entre le cluster et ImageStore est élevée afin de laisser davantage de temps au cluster pour effectuer des téléchargements à partir du magasin ImageStore externe. |
+|MaxUnusedAppTypeVersionsToKeep | Entier (valeur par défaut : 3) |Dynamique|Cette configuration définit le nombre de versions inutilisées de types d’applications à ignorer pour le nettoyage. Ce paramètre s’applique uniquement si le paramètre CleanupUnusedApplicationTypes est activé. <br/>*La meilleure pratique générale consiste à utiliser la valeur par défaut (`3`). Les valeurs inférieures à 1 ne sont pas valides.*|
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
@@ -890,7 +890,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |PlacementConstraints | Chaîne (valeur par défaut : "") |statique| Paramètre PlacementConstraints pour UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) |statique| Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Durée en secondes (valeur par défaut : 60 minutes)|statique| Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour UpgradeOrchestrationService. |
-|StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 60*24*7 minutes) |statique| Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour UpgradeOrchestrationService. |
+|StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 60 *24* 7 minutes) |statique| Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour UpgradeOrchestrationService. |
 |TargetReplicaSetSize |Entier (valeur par défaut : 0) |statique |Paramètre TargetReplicaSetSize pour UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Valeur booléenne (valeur par défaut : false) | statique|La configuration de la mise à niveau du code requiert une autorisation de l’administrateur. |
 

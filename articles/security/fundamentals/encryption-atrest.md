@@ -1,6 +1,6 @@
 ---
-title: Chiffrement des données au repos de Microsoft Azure | Microsoft Docs
-description: Cet article fournit une vue d’ensemble du chiffrement des données au repos de Microsoft Azure, avec ses fonctionnalités globales et des considérations générales.
+title: Chiffrement des données au repos d’Azure - Sécurité Azure
+description: Cet article fournit une vue d’ensemble du chiffrement des données au repos d’Azure, avec ses fonctionnalités globales et des considérations générales.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412780"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556622"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos Azure
 
@@ -128,7 +128,7 @@ Tous les services Stockage Azure (Stockage Blob, Stockage File d’attente, Stoc
 
 Azure SQL Database prend actuellement en charge le chiffrement au repos pour les scénarios de chiffrement côté service géré par Microsoft et côté client.
 
-La prise en charge du chiffrement côté serveur est actuellement fournie par la fonctionnalité SQL nommée Transparent Data Encryption. Une fois qu’un client Azure SQL Database active Transparent Data Encryption, les clés sont créées et gérées automatiquement pour lui. Le chiffrement au repos peut être activé au niveau de la base de données et au niveau du serveur. À compter de juin 2017, [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) est activé par défaut sur les bases de données nouvellement créées. Azure SQL Database prend également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, voir [Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+La prise en charge du chiffrement côté serveur est actuellement fournie par la fonctionnalité SQL nommée Transparent Data Encryption. Une fois qu’un client Azure SQL Database active Transparent Data Encryption, les clés sont créées et gérées automatiquement pour lui. Le chiffrement au repos peut être activé au niveau de la base de données et au niveau du serveur. À compter de juin 2017, [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) est activé par défaut sur les bases de données nouvellement créées. Azure SQL Database prend également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, voir [Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
 Le chiffrement côté client des données Azure SQL Database est pris en charge via la fonctionnalité [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted utilise une clé qui est créée et stockée par le client. Les clients peuvent stocker la clé principale dans un magasin de certificats Windows, dans Azure Key Vault ou dans un module de sécurité matériel local. Avec SQL Server Management Studio, les utilisateurs SQL choisissent quelle clé ils veulent utiliser pour quelle colonne.
 
@@ -140,3 +140,4 @@ La protection des données des clients stockées au sein des services Azure est 
 
 - Pour en savoir plus sur les clés gérées par le service et les clés gérées par le client, consultez les [modèles de chiffrement de données](encryption-models.md).
 - Découvrez comment Azure utilise le [double chiffrement](double-encryption.md) pour atténuer les menaces qui accompagnent le chiffrement des données.
+- Découvrez ce que Microsoft fait pour garantir [l’intégrité et la sécurité de la plateforme](platform.md) des hôtes parcourant les pipelines du matériel et des microprogrammes, des intégrations, des opérationnalisations et des réparations.

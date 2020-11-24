@@ -1,7 +1,7 @@
 ---
 title: Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Découvrez comment entraîner un modèle et configurer un pipeline de prédiction par lots à l’aide du concepteur. Déployez le pipeline en tant que service web paramétrable, pouvant être déclenché à partir de n’importe quelle bibliothèque HTTP.
+description: Découvrez comment créer un pipeline de prédiction par lot. Déployez le pipeline en tant que service web paramétrable et déclenchez-le à partir de n’importe quelle bibliothèque HTTP.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325453"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553944"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 
@@ -51,7 +51,7 @@ Votre pipeline de formation doit être exécuté au moins une fois pour créer u
 
 Maintenant que le pipeline de formation a été exécuté, vous pouvez créer un pipeline d'inférence par lots.
 
-1. En regard de **Envoyer** , sélectionnez le nouveau menu déroulant **Créer un pipeline d’inférence**.
+1. En regard de **Envoyer**, sélectionnez le nouveau menu déroulant **Créer un pipeline d’inférence**.
 
 1. Sélectionnez **Pipeline d'inférence par lots**.
 

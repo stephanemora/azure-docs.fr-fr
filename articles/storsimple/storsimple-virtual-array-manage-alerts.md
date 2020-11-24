@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a24890f42b795bb4b9a7d187f74ceb9a4f8557f5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507634"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539224"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les alertes liées au StorSimple Virtual Array
 
@@ -48,25 +48,25 @@ Après avoir activé la notification par e-mail pour un tableau virtuel, les mem
     ![Paramètres d’alerte](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. Le panneau **Paramètres** s’ouvre. Dans la section **Paramètres de l’appareil**, sélectionnez **Général**. Le panneau **Paramètres généraux** s’ouvre.
    
-    ![configuration des notifications des alertes](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+    ![Capture d’écran montrant le volet Paramètres de l’appareil avec la zone Paramètres d’alerte mise en évidence.](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. Dans le panneau **Paramètres généraux**, accédez à la section **Paramètres d’alerte** puis définissez les éléments suivants :
    
    1. Dans le champ **Activer la notification par e-mail**, sélectionnez **OUI**.
    2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs de service reçoivent les notifications d’alerte.
    3. Dans le champ **Destinataires d’e-mail supplémentaires**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *personne\@lieu.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil virtuel.
       
-       ![configuration des notifications des alertes](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+       ![Capture d’écran montrant les détails des Paramètres d’alerte avec les paramètres décrits dans cette étape.](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Pour envoyer un test de notification par e-mail, cliquez sur **Envoyer un e-mail de test**. Le service StorSimple Device Manager affiche des messages d’état lorsqu’il transfère la notification de test.
       
-       ![E-mail de notification de test des alertes envoyé](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![Capture d’écran montrant une boîte de dialogue d’informations sur la vérification de l’e-mail de test.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
       > Si le message de notification de test ne peut pas être envoyé, le service StorSimple Device Manager affiche un message approprié. Cliquez sur **OK**, attendez quelques minutes, puis réessayez d'envoyer votre message de notification de test.
       >
       >
-   5. En bas de la page, cliquez sur **Enregistrer** pour enregistrer votre configuration. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
+   5. En bas de la page, cliquez sur **Enregistrer** pour enregistrer votre configuration. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
       
-      ![E-mail de notification de test des alertes envoyé](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![Capture d’écran montrant le volet des paramètres avec le bouton Enregistrer sélectionné.](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## <a name="common-alert-conditions"></a>Conditions d’alerte courantes
 

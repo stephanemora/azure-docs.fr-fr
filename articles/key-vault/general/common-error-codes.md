@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a36e15a56a5a4c8a637120ca730ae1da764d376d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: a543f03cb73d9eae8eaa81eeb3a37fd59e4e6a81
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422896"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685798"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Codes d’erreur courants pour Azure Key Vault
 
@@ -30,6 +30,7 @@ Les codes d’erreur répertoriés dans le tableau suivant peuvent être renvoy�
 | RegionNotSupported |  La région Azure spécifiée n’est pas prise en charge pour cette ressource. |
 | SkuNotSupported |  Le type de SKU spécifié n’est pas pris en charge pour cette ressource. |
 | ResourceNotFound |  La ressource Azure spécifiée est introuvable. |
+| ResourceGroupNotFound | Le groupe de ressources Azure spécifié est introuvable. |
 | CertificateExpired |  Vérifiez la date d’expiration et la période de validité du certificat. |
 
 

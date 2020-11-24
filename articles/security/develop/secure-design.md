@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517153"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701566"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -217,7 +217,7 @@ Utilisez les mécanismes d‘authentification et d‘autorisation fournis par le
 
 Le concept du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) implique de donner aux utilisateurs le niveau précis d’accès et de contrôle dont ils ont besoin pour effectuer leurs tâches, et rien de plus.
 
-Un développeur de logiciels a-t-il besoin de droits d’administrateur de domaine ? Un assistant administratif doit-il avoir accès aux contrôles d’administration sur son ordinateur personnel ? L’évaluation de l’accès aux logiciels n’est pas différent. Si vous utilisez le [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md) pour donner une autorité et des capacités différentes aux utilisateurs dans votre application, vous ne donnez pas à tous l’accès à tout. En limitant l’accès à ce qui est nécessaire pour chaque rôle, vous limitez le risque qu’un problème de sécurité se produise.
+Un développeur de logiciels a-t-il besoin de droits d’administrateur de domaine ? Un assistant administratif doit-il avoir accès aux contrôles d’administration sur son ordinateur personnel ? L’évaluation de l’accès aux logiciels n’est pas différent. Si vous utilisez un [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md) pour donner une autorité et des capacités différentes aux utilisateurs dans votre application, vous ne donnez pas à tous l’accès à tout. En limitant l’accès à ce qui est nécessaire pour chaque rôle, vous limitez le risque qu’un problème de sécurité se produise.
 
 Assurez-vous que votre application suit le principe du [privilège minimum](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) tout au long de ses modèles d’accès.
 
@@ -233,7 +233,7 @@ Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps 
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Obligation d’une nouvelle authentification pour les transactions importantes
 
-Une [falsification de requête intersites](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (également connue sous le nom de *XSRF* ou *CSRF* ) est une attaque contre des applications hébergées sur le web, dans lesquelles un site web malveillant influence l’interaction entre un navigateur client et une application web qui fait confiance à ce navigateur. Ces attaques de falsification de requête intersites sont possibles, car les navigateurs web envoient automatiquement certains types de jetons d’authentification avec chaque requête vers un site web.
+Une [falsification de requête intersites](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (également connue sous le nom de *XSRF* ou *CSRF*) est une attaque contre des applications hébergées sur le web, dans lesquelles un site web malveillant influence l’interaction entre un navigateur client et une application web qui fait confiance à ce navigateur. Ces attaques de falsification de requête intersites sont possibles, car les navigateurs web envoient automatiquement certains types de jetons d’authentification avec chaque requête vers un site web.
 Cette forme d’exploitation est également appelée *one-click attack* (attaque en un clic) ou *session riding* (détournement de session) du fait que l’attaque profite de la session précédemment authentifiée de l’utilisateur.
 
 La meilleure façon de se défendre contre ce genre d’attaque revient à demander à l’utilisateur quelque chose que lui seul peut fournir avant chaque transaction importante, comme un achat, une désactivation de compte ou une modification de mot de passe. Vous pouvez demander à l’utilisateur d’entrer de nouveau son mot de passe, d’effectuer un test captcha ou d’envoyer un jeton secret dont il est l’unique détenteur. La méthode la plus courante est le jeton secret.
@@ -244,7 +244,7 @@ La perte de clés ou d'informations d’identification est un problème courant.
 
 Placez toujours vos clés, certificats, secrets et chaînes de connexion dans une solution de gestion de clés. Vous pouvez utiliser une solution centralisée, dans laquelle clés et secrets sont stockés dans des modules de sécurité matériels (HSM). Azure vous fournit un module HSM dans le cloud avec [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault est un *magasin des secrets*  : c’est un service cloud centralisé pour stocker des secrets d’application. Key Vault préserve la sécurité de vos données confidentielles en conservant les secrets de l’application dans un emplacement central unique et en fournissant l’accès sécurisé, le contrôle des autorisations et la journalisation des accès.
+Key Vault est un *magasin des secrets* : c’est un service cloud centralisé pour stocker des secrets d’application. Key Vault préserve la sécurité de vos données confidentielles en conservant les secrets de l’application dans un emplacement central unique et en fournissant l’accès sécurisé, le contrôle des autorisations et la journalisation des accès.
 
 Les secrets sont stockés dans des *coffres* individuels. Chaque coffre a sa propre configuration et ses stratégies de sécurité pour en contrôler l’accès. Vous accédez à vos données par le biais d’une API REST, ou d’un kit SDK client disponible pour la plupart des langages de programmation.
 

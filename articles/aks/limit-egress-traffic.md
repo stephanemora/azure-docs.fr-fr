@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380209"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701600"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -209,8 +209,10 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 
 | FQDN                                          | Port      | Utilisation      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Cette adresse est utilisée pour le bon fonctionnement d’Azure Policy. (actuellement en préversion dans AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies intégrées de GitHub afin de garantir le bon fonctionnement d’Azure Policy. (actuellement en préversion dans AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies Kubernetes et pour signaler l’état de conformité du cluster au service de stratégie. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les artefacts Gatekeeper de stratégies intégrées. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Cette adresse est utilisée pour le bon fonctionnement d’Azure Policy.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies intégrées de GitHub afin de garantir le bon fonctionnement d’Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Le module complémentaire Azure Policy envoie des données de télémétrie au point de terminaison Applications Insights. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Limitation du trafic de sortie à l’aide du Pare-feu Azure

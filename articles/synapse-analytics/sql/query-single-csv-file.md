@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321460"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685645"
 ---
 # <a name="query-csv-files"></a>Interroger des fichiers CSV
 
@@ -45,6 +45,11 @@ from openrowset(
 ```
 
 L’option `firstrow` est utilisée pour ignorer la première ligne du fichier CSV qui est l’en-tête dans ce cas. Assurez-vous que vous pouvez accéder à ce fichier. Si votre fichier est protégé par une clé SAS ou une identité personnalisée, vous devez configurer les [informations d’identification au niveau du serveur pour la connexion SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Si votre fichier CSV contient des caractères UTF-8, veillez à utiliser un classement de base de données UTF-8 (par exemple `Latin1_General_100_CI_AS_SC_UTF8`).
+> Une incompatibilité entre l’encodage de texte dans le fichier et le classement peut entraîner des erreurs de conversion inattendues.
+> Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilisation d’une source de données
 
@@ -90,6 +95,12 @@ from openrowset(
 ```
 
 Les nombres qui suivent un type de données dans la clause `WITH` représentent un index de colonne dans le fichier CSV.
+
+> [!IMPORTANT]
+> Si votre fichier CSV contient des caractères UTF-8, veillez à spécifier explicitement un classement UTF-8 (par exemple `Latin1_General_100_CI_AS_SC_UTF8`) pour toutes les colonnes de chaîne dans la clause `WITH`, ou définissez un classement UTF-8 au niveau de la base de données.
+> Une incompatibilité entre l’encodage de texte dans le fichier et le classement peut entraîner des erreurs de conversion inattendues.
+> Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Vous pouvez facilement définir le classement sur les types de colonne à l’aide de la définition suivante : `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 Dans les sections suivantes, vous pouvez voir comment interroger différents types de fichiers CSV.
 

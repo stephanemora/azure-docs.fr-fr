@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653611"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540924"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Types de stockage Azure pour une charge de travail SAP
 Azure possède de nombreux types de stockage qui diffèrent notablement en termes de capacités, de débit, de latence et de prix. Certains des types de stockage ne sont pas, ou peu, utilisables pour les scénarios SAP. En revanche, plusieurs types de stockage Azure sont bien adaptés ou optimisés pour des scénarios de charge de travail SAP spécifiques. Pour SAP HANA en particulier, certains types de stockage Azure ont été certifiés pour être utilisés avec SAP HANA. Dans ce document, nous passons en revue les différents types de stockage et décrivons leur capacité et leur facilité d'utilisation avec les charges de travail et les composants SAP.
@@ -352,11 +352,10 @@ Au fur et à mesure que vous augmentez la taille des machines virtuelles Azure d
 
 
 ## <a name="striping-or-not-striping"></a>Agrégation par bandes ou non ?
-La création d’un agrégat par bandes à partir de plusieurs disques Azure dans un volume de plus grande taille vous permet d’accumuler les IOPS et le débit des disques individuels en un seul volume. Elle est utilisée pour le stockage standard Azure et le stockage Premium Azure uniquement. Le disque Azure Ultra, dont vous pouvez configurer le débit et les IOPS indépendamment de la capacité du disque, ne nécessite pas l'utilisation de jeux de bandes. Les volumes partagés basés sur NFS ou SMB ne peuvent pas être agrégés par bandes. En raison de la nature non linéaire du débit et des IOPS du stockage Premium Azure, vous pouvez approvisionner une capacité inférieure avec les mêmes IOPS et le même débit que les grands disques de stockage Premium Azure. C’est la méthode qui permet d’obtenir un débit plus élevé ou des IOPS plus élevées à moindre coût en utilisant le stockage Premium Azure. Par exemple :
+La création d’un agrégat par bandes à partir de plusieurs disques Azure dans un volume de plus grande taille vous permet d’accumuler les IOPS et le débit des disques individuels en un seul volume. Elle est utilisée pour le stockage standard Azure et le stockage Premium Azure uniquement. Le disque Azure Ultra, dont vous pouvez configurer le débit et les IOPS indépendamment de la capacité du disque, ne nécessite pas l'utilisation de jeux de bandes. Les volumes partagés basés sur NFS ou SMB ne peuvent pas être agrégés par bandes. En raison de la nature non linéaire du débit et des IOPS du stockage Premium Azure, vous pouvez approvisionner une capacité inférieure avec les mêmes IOPS et le même débit que les grands disques de stockage Premium Azure. C’est la méthode qui permet d’obtenir un débit plus élevé ou des IOPS plus élevées à moindre coût en utilisant le stockage Premium Azure. À titre d’exemple, l’entrelacement sur deux disques de stockage Premium P15 vous permet d’obtenir un débit de 
 
-- L’entrelacement sur deux disques de stockage Premium P15 vous permet d’obtenir un débit de 
 - 250 Mio/s. Un tel volume aura une capacité de 512 Gio. Si vous souhaitez disposer d’un disque unique qui offre un débit de 250 Mio par seconde, vous devez choisir un disque P40 avec une capacité de 2 Tio. 
-- Ou vous pouvez obtenir un débit de 400 Mio/s en distribuant quatre disques de stockage Premium P10 avec une capacité globale de 512 Gio par entrelacement. Si vous souhaitez disposer d’un disque unique avec un débit de 500 Mio minimum par seconde, vous devez choisir un disque de stockage Premium P60 avec 8 Tio. Étant donné que le stockage de coûts ou le stockage Premium est quasiment linéaire avec la capacité, l’entrelacement vous permet de constater rapidement les économies réalisées.
+- 400 Mio/s en distribuant quatre disques de stockage Premium P10 avec une capacité globale de 512 Gio par entrelacement. Si vous souhaitez disposer d’un disque unique avec un débit de 500 Mio minimum par seconde, vous devez choisir un disque de stockage Premium P60 avec 8 Tio. Étant donné que le coût du stockage Premium est quasiment linéaire avec la capacité, l’entrelacement vous permet de constater rapidement les économies réalisées.
 
 Certaines règles doivent être suivies en cas d’entrelacement :
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfbd5e6f190e0600c31aa17e9b1a75f08e213df4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979786"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537660"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -61,7 +61,7 @@ Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les demandes d’ac
 
 1. Les informations fournies par le demandeur se trouvent au bas du panneau.
 
-     ![Portail Mon Accès - Demande d’accès](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+     ![Capture d’écran montrant les détails pour la requête](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. En fonction des informations fournies par le demandeur, vous pouvez approuver ou refuser la demande. Consultez les étapes de la rubrique Approuver ou refuser une demande pour obtenir de l’aide.
 
@@ -81,7 +81,7 @@ Une fois que vous avez ouvert une demande d’accès en attente d’approbation,
 
 1. Si nécessaire, indiquez un motif.
 
-    ![Portail Mon Accès - Demande d’accès](./media/entitlement-management-request-approve/my-access-approve-request.png)
+    ![Capture d’écran montrant la page dans laquelle vous acceptez ou refusez la demande.](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Cliquez sur **Soumettre** pour soumettre votre décision.
 

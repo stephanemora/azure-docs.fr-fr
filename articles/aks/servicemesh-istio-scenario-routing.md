@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670938"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684030"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utiliser le routage intelligent et le déploiement Canary avec Istio dans Azure Kubernetes Service (AKS)
 
@@ -33,13 +33,13 @@ Dans cet article, vous apprendrez comment :
 > [!NOTE]
 > Ce scénario a été testé avec la version d’Istio `1.3.2`.
 
-Les étapes détaillées de cet article supposent que vous avez créé un cluster AKS (Kubernetes versions `1.13` et ultérieures, avec RBAC activé) et que vous avez établi une connexion `kubectl` avec le cluster. Istio doit également être installé dans votre cluster.
+Les étapes détaillées dans cet article supposent que vous avez créé un cluster AKS (Kubernetes `1.13` et ultérieur, avec RBAC Kubernetes activé) et que vous avez établi une connexion `kubectl` avec le cluster. Istio doit également être installé dans votre cluster.
 
 Si vous avez besoin d’aide avec l’un de ces éléments, consultez les instructions du [Guide de démarrage rapide AKS][aks-quickstart] et de la rubrique [Installer Istio dans AKS][istio-install].
 
 ## <a name="about-this-application-scenario"></a>À propos de ce scénario d’application
 
-L’exemple d’application de vote AKS fournit deux options de vote ( **Chats** ou **Chiens** ) aux utilisateurs. Un composant de stockage conserve le nombre de votes pour chaque option. En outre, un composant d’analytique fournit des informations sur les votes en faveur de chaque option.
+L’exemple d’application de vote AKS fournit deux options de vote (**Chats** ou **Chiens**) aux utilisateurs. Un composant de stockage conserve le nombre de votes pour chaque option. En outre, un composant d’analytique fournit des informations sur les votes en faveur de chaque option.
 
 Dans ce scénario d’application, vous commencez par déployer la version `1.0` de l’application de vote et la version `1.0` du composant d’analytique. Le composant d’analytique fournit les décomptes des nombres de votes. L’application de vote et le composant d’analytique interagissent avec la version `1.0` du composant de stockage, qui s’appuie sur Redis.
 

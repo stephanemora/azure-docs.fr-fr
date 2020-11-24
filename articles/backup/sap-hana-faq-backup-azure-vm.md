@@ -3,12 +3,12 @@ title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuel
 description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86513504"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686104"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -26,7 +26,7 @@ Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alert
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
 
-Le menu Travail de sauvegarde affiche uniquement les travaux de sauvegarde ad hoc. Pour les tâches planifiées, utilisez [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+Le menu Travail de sauvegarde affiche uniquement les travaux de sauvegarde à la demande. Pour les tâches planifiées, utilisez [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
 
@@ -62,13 +62,13 @@ Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtu
 1. Attendez la fin de la sauvegarde en cours d’exécution sur la base de données souhaitée (vérifiez son accomplissement dans Studio).
 1. Désactivez les sauvegardes de journaux et définissez la sauvegarde du catalogue sur **Filesystem** pour la base de données souhaitée en procédant comme suit :
 1. Double-cliquez sur **SYSTEMDB** -> **configuration** -> **Sélectionner une base de données** -> **Filtre (journal)**
-    1. Définissez enable_auto_log_backup sur **no** (non)
-    1. Définissez catalog_backup_using_backint sur **false**
+    1. Définissez enable_auto_log_backup sur **no** (non).
+    1. Définissez catalog_backup_using_backint sur **false**.
 1. Effectuez une sauvegarde à la demande (complète / différentielle/ incrémentielle) sur la base de données souhaitée et attendez la fin de la sauvegarde et de la sauvegarde du catalogue.
-1. Si vous souhaitez également déplacer les sauvegardes du journal vers le système de fichiers, définissez enable_auto_log_backup sur **yes**
+1. Si vous souhaitez également déplacer les sauvegardes du journal vers le système de fichiers, définissez enable_auto_log_backup sur **yes** (oui).
 1. Rétablissez les paramètres précédents pour autoriser la circulation des sauvegardes vers le coffre Azure :
-    1. Définissez enable_auto_log_backup sur **yes** (oui)
-    1. Définissez catalog_backup_using_backint sur **true**
+    1. Définissez enable_auto_log_backup sur **yes** (oui).
+    1. Définissez catalog_backup_using_backint sur **true**.
 
 >[!NOTE]
 >Le déplacement des sauvegardes vers le système de fichiers local et le retour vers le coffre Azure peuvent entraîner une rupture de la chaîne de journalisation des sauvegardes de journaux dans le coffre. Cela déclenche une sauvegarde complète qui, une fois terminée, démarre la sauvegarde des journaux.
@@ -77,7 +77,7 @@ Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtu
 
 Actuellement, la sauvegarde Azure n’a pas la possibilité de comprendre une configuration HSR. Cela signifie que les nœuds principal et secondaire de la réplication HSR seront traités comme deux machines virtuelles indépendantes. Vous devez d’abord configurer la sauvegarde sur le nœud principal. Lorsqu’un basculement se produit, la sauvegarde doit être configurée sur le nœud secondaire (qui devient alors le nœud principal). Il n’y a pas de basculement automatique de la sauvegarde vers l’autre nœud.
 
-Pour sauvegarder des données à partir du nœud actif (principal) à un moment donné, vous pouvez **basculer la protection** vers le nœud secondaire, qui devient alors le nœud principal après le basculement.
+Pour sauvegarder des données à partir du nœud actif (principal) à un moment donné, vous pouvez **basculer la protection** vers le nœud secondaire, qui devient alors le nœud principal.
 
 Pour effectuer ce **basculement de protection**, procédez comme suit :
 
@@ -124,6 +124,43 @@ Reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/
 ### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-an-rhel-hana-system-or-vice-versa"></a>Est-ce que je peux utiliser une sauvegarde d’une base de données en cours d’exécution sur SLES pour effectuer une restauration vers un système RHEL HANA ou vice versa ?
 
 Oui, vous pouvez utiliser des sauvegardes en continu déclenchées sur une base de données HANA en cours d’exécution sur SLES pour la restaurer vers un système RHEL HANA, et vice versa. Autrement dit, la restauration entre systèmes d’exploitation est possible à l’aide de sauvegardes en continu. Toutefois, vous devez vous assurer que le système HANA vers lequel vous souhaitez restaurer et le système HANA utilisé pour la restauration sont tous deux compatibles pour la restauration en fonction de SAP. Pour connaître les types de restauration compatibles, consultez la Note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148).
+
+## <a name="policy"></a>Stratégie
+
+### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Différentes options disponibles lors de la création d’une stratégie pour la sauvegarde SAP HANA
+
+Avant de créer une stratégie, vous devez connaître les exigences en matière de RPO et de RTO, ainsi que ses implications en termes de coûts.
+
+Le RPO (objectif de point de récupération) indique la quantité de perte de données acceptable pour l’utilisateur ou le client. Celle-ci est déterminée par la fréquence de sauvegarde du journal. Des sauvegardes de fichier journal plus fréquentes indiquent un RPO inférieur et la valeur minimale que prend en charge le service Sauvegarde Azure est de 15 minutes. La fréquence de sauvegarde de fichier journal peut être de 15 minutes ou plus.
+
+Le RTO (objectif de temps de récupération) indique la vitesse à laquelle les données doivent être restaurées sur le dernier point dans le temps disponible après un scénario de perte de données. Celle-ci dépend de la stratégie de récupération employée par HANA, qui dépend généralement du nombre de fichiers requis pour la restauration. Elle a également des implications financières et le tableau suivant doit vous aider à comprendre tous les scénarios et leurs implications.
+
+|Stratégie de sauvegarde  |RTO  |Coût  |
+|---------|---------|---------|
+|Sauvegarde quotidienne complète + journaux     |   Option la plus rapide, puisque nous n’avons besoin que d’une seule copie complète et des journaux requis pour une restauration à un instant dans le passé      |    Option la plus coûteuse puisqu’une copie complète est effectuée quotidiennement, de sorte que de plus en plus de données sont accumulées dans le back-end jusqu’à la fin de la période de rétention   |
+|Sauvegarde hebdomadaire complète + sauvegarde différentielle quotidienne + journaux     |   Option plus lente que l’option ci-dessus, mais plus rapide que l’option suivante puisque nous n’avons besoin que d’une copie complète, d’une copie différentielle et de fichiers journaux pour une restauration à un instant dans le passé      |    Option moins coûteuse puisque la sauvegarde différentielle quotidienne est généralement de plus petite taille que la sauvegarde complète et qu’une copie complète n’est effectuée qu’une fois par semaine      |
+|Sauvegarde hebdomadaire complète + sauvegarde incrémentielle quotidienne + journaux     |  Option la plus lente, car nous avons besoin d’une copie complète, de « n » sauvegardes incrémentielles et de fichiers journaux pour la restauration à un instant dans le passé       |     Option la moins coûteuse puisque la sauvegarde incrémentielle quotidienne est de plus petite taille que la sauvegarde différentielle et qu’une copie complète n’est effectuée qu’une fois par semaine    |
+
+> [!NOTE]
+> Les options ci-dessus sont les plus courantes, mais ne sont pas les seules. Par exemple, vous pouvez avoir une sauvegarde hebdomadaire complète, des sauvegardes différentielles deux fois par semaine et des journaux.
+
+Par conséquent, vous pouvez sélectionner la variante de stratégie en fonction d’objectifs de RPO et de RTO et de considérations financières.
+
+### <a name="impact-of-modifying-a-policy"></a>Impact de la modification d’une stratégie
+
+Il convient de prendre en compte quelques principes lors de la détermination de l’impact du changement de stratégie de sauvegarde d’un élément, passant de la stratégie 1 (P1) à la stratégie 2 (P2), ou de la modification de la stratégie 1 (P1).
+
+- Toutes les modifications sont également appliquées de façon rétroactive. La stratégie de sauvegarde la plus récente est appliquée également aux points de récupération pris précédemment. Par exemple, supposons que la rétention de sauvegarde quotidienne complète est de 30 jours et que 10 points de récupération ont été pris conformément à la stratégie actuellement active. Si la rétention de la sauvegarde quotidienne complète est modifiée en 10 jours, l’heure d’expiration du point précédent est également recalculée comme l’heure de début + 10 jours, et supprimée si elle a expiré.
+- L’étendue de la modification inclut également le jour de la sauvegarde, le type de sauvegarde, ainsi que la rétention. Exemple : Si une stratégie est modifiée de sauvegarde quotidienne complète en sauvegarde hebdomadaire complète le dimanche, toutes les sauvegardes complètes antérieures qui n’ont pas été effectuées un dimanche sont marquées pour suppression.
+- Un parent n’est pas supprimé tant que l’enfant est actif ou n’a pas expiré. Chaque type de sauvegarde a une heure d’expiration conformément à la stratégie actuellement active. Toutefois, un type de sauvegarde complète est considéré comme parent des « sauvegardes différentielles », des « sauvegardes incrémentielles » et des « journaux » suivants. Une « sauvegarde différentielle » et un « journal » ne sont parents de rien. Une « sauvegarde incrémentielle » peut être parente d’une « sauvegarde incrémentielle » ultérieure. Même si un « parent » est marqué pour suppression, il n’est pas réellement supprimé si les « sauvegardes différentielles » ou les « journaux » enfants ne sont pas arrivés à expiration. Par exemple, si une stratégie est modifiée de sauvegarde quotidienne complète en sauvegarde hebdomadaire complète le dimanche, toutes les sauvegardes complètes antérieures qui n’ont pas été effectuées un dimanche sont marquées pour suppression. Mais elles ne sont pas réellement supprimées tant que les journaux quotidiens précédents n’ont pas expiré. En d’autres termes, elles sont conservées en fonction de la durée du dernier journal. Quand les journaux expirent, les journaux et les sauvegardes complètes sont supprimés.
+
+Avec ces principes à l’esprit, vous pouvez lire le tableau suivant pour comprendre les implications d’une modification de stratégie.
+
+|Ancienne stratégie / Nouvelle stratégie  |Sauvegardes quotidiennes complètes + journaux  | Sauvegardes hebdomadaires complètes + sauvegardes quotidiennes différentielles + journaux  |Sauvegardes hebdomadaires complètes + sauvegardes quotidiennes incrémentielles + journaux  |
+|---------|---------|---------|---------|
+|Sauvegardes quotidiennes complètes + journaux     |   -      |    Les sauvegardes complètes précédentes qui n’ont pas eu lieu le même jour de la semaine sont marquées pour suppression, mais conservées jusqu’à la fin de la période de rétention du journal     |    Les sauvegardes complètes précédentes qui n’ont pas eu lieu le même jour de la semaine sont marquées pour suppression, mais conservées jusqu’à la fin de la période de rétention du journal     |
+|Sauvegardes hebdomadaires complètes + sauvegardes quotidiennes différentielles + journaux     |   La rétention des sauvegardes hebdomadaires complètes précédentes est recalculée conformément à la dernière stratégie. Les sauvegardes différentielles précédentes sont immédiatement supprimées      |    -     |    Les sauvegardes différentielles précédentes sont immédiatement supprimées     |
+|Sauvegardes hebdomadaires complètes + sauvegardes quotidiennes incrémentielles + journaux     |     La rétention des sauvegardes hebdomadaires complètes précédentes est recalculée conformément à la dernière stratégie. Les sauvegardes incrémentielles précédentes sont immédiatement supprimées    |     Les sauvegardes incrémentielles précédentes sont immédiatement supprimées    |    -     |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

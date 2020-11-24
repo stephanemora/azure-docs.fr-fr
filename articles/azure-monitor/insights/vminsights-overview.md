@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eaf2d7075ca09aeb3cfaa2dfea81fd0f8d65ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022494"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685305"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles ?
+# <a name="overview-of-azure-monitor-for-vms"></a>Vue d’ensemble d’Azure Monitor pour machines virtuelles
 
 Azure Monitor pour machines virtuelles supervise les performances et l’intégrité des machines virtuelles et des groupes de machines virtuelles identiques, y compris leurs processus en cours d’exécution et leurs dépendances vis-à-vis d’autres ressources. Il contribue à offrir des performances prévisibles et à assurer la disponibilité des applications vitales en identifiant les goulots d’étranglement des performances et les problèmes réseau. Par ailleurs, il permet de comprendre si un problème est lié à d’autres dépendances.
 
@@ -26,8 +26,6 @@ Azure Monitor pour machines virtuelles prend en charge les systèmes d’exploit
 - Machines virtuelles hébergées dans un autre environnement cloud
   
 
-
-
 Azure Monitor pour machines virtuelles stocke ses données dans les journaux Azure Monitor, ce qui lui permet d’offrir de puissantes fonctions d’agrégation et de filtrage et d’analyser l’évolution des tendances des données. Vous pouvez afficher directement ces données sur une seule machine virtuelle, ou bien utiliser Azure Monitor pour bénéficier d’une vue agrégée de plusieurs machines virtuelles.
 
 ![Perspective des insights sur les machines virtuelles sur le Portail Azure](media/vminsights-overview/vminsights-azmon-directvm.png)
@@ -37,6 +35,7 @@ Azure Monitor pour machines virtuelles stocke ses données dans les journaux Azu
 Azure Monitor pour machines virtuelles n’engendre aucun coût direct ; en revanche, son activité dans l’espace de travail Log Analytics vous est facturée. Selon la tarification publiée sur la [page des tarifs d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor pour machines virtuelles engendre des frais pour :
 
 - les données ingérées à partir des agents et stockées dans l’espace de travail ;
+- Données d’état d’intégrité collectées à partir de l’intégrité des invités (préversion)
 - les règles d’alerte basées sur les données des journaux et les données relatives à l’intégrité ;
 - les notifications envoyées par les règles d’alerte.
 

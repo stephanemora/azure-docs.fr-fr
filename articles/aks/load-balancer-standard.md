@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: Découvrez comment utiliser un équilibreur de charge public avec une référence SKU Standard pour exposer vos services avec Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070501"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684200"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge Standard public dans Azure Kubernetes Service (AKS)
 
-L’équilibreur de charge Azure est un équilibreur L4 du modèle Open Systems Interconnection (OSI) qui prend en charge les scénarios entrants et sortants. Il distribue les flux entrants arrivant sur le serveur front-end de l’équilibreur de charge sur des instances du pool de back-ends.
+L’Azure Load Balancer est sur la couche 4 (L4) du modèle OSI (Open Systems Interconnection) qui prend en charge les scénarios entrants et sortants. Il distribue les flux entrants arrivant sur le serveur front-end de l’équilibreur de charge sur des instances du pool de back-ends.
 
 Intégré à AKS, un équilibreur de charge **public** remplit deux fonctions :
 
@@ -36,7 +36,7 @@ Pour plus d’informations sur les références SKU *De base* et *Standard*, con
 Cet article suppose que vous disposez d’un cluster AKS avec l’équilibreur de charge de référence SKU *Standard*, et il vous explique comment utiliser et configurer certaines fonctionnalités de l’équilibreur de charge. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
 > [!IMPORTANT]
-> Si vous ne souhaitez pas tirer parti de l’équilibreur de charge Azure pour fournir une connexion sortante et préférez utiliser à la place votre propre passerelle, pare-feu ou proxy à cet effet, vous pouvez ignorer la création du pool sortant de l’équilibreur de charge et de l’adresse IP frontale respective en utilisant un [**type de sortie UserDefinedRouting (UDR)** ](egress-outboundtype.md). Le type de sortie définit la méthode de sortie d’un cluster et correspond par défaut au type : équilibreur de charge.
+> Si vous ne souhaitez pas tirer parti de l’équilibreur de charge Azure pour fournir une connexion sortante et préférez utiliser à la place votre propre passerelle, pare-feu ou proxy à cet effet, vous pouvez ignorer la création du pool sortant de l’équilibreur de charge et de l’adresse IP frontale respective en utilisant un [**type de sortie UserDefinedRouting (UDR)**](egress-outboundtype.md). Le type de sortie définit la méthode de sortie d’un cluster et correspond par défaut au type : équilibreur de charge.
 
 ## <a name="use-the-public-standard-load-balancer"></a>Utiliser l’équilibreur de charge standard public
 
@@ -87,19 +87,22 @@ Lors de l’utilisation de l’équilibreur de charge public SKU standard, un en
 * Personnaliser le nombre de ports de sortie alloués à chaque nœud du cluster
 * Configurer le paramètre de délai d’expiration pour les connexions inactives
 
+> [!IMPORTANT]
+> Une seule option d’adresse IP sortante (adresse IP gérée, apport d’une adresse IP propre ou préfixe IP) peut être utilisée à un moment donné.
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Mettre à l’échelle le nombre d’adresses IP sortantes gérées
 
 Azure Load Balancer fournit la connectivité sortante à partir d’un réseau virtuel en plus de la connectivité entrante. Les règles de trafic sortant facilitent la configuration de la traduction des adresses réseau sortantes publiques dans Standard Load Balancer.
 
 Comme toutes les règles dans Load Balancer, les règles de trafic sortant suivent la syntaxe habituelle des règles d’équilibrage de charge et des règles de NAT de trafic entrant :
 
-***Adresses IP frontales + paramètres + pool backend***
+***Adresses IP frontales + paramètres + pool backend** _
 
 Une règle de trafic sortant configure la NAT de trafic sortant pour que toutes les machines virtuelles identifiées par le pool backend soient traduites sur le frontend. Les paramètres permettent de contrôler avec plus de précision l’algorithme de la NAT de trafic sortant.
 
 Une règle de trafic sortant peut être utilisée avec une seule adresse IP publique, mais les règles de trafic sortant facilitent la configuration de la mise à l’échelle de la NAT de trafic sortant. Vous pouvez utiliser plusieurs adresses IP pour vos scénarios à grande échelle et utiliser des règles de trafic sortant afin de limiter les risques d’épuisement de ports SNAT. Chaque adresse IP supplémentaire fournie par un serveur frontal met à disposition 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT. 
 
-Lorsque vous utilisez un équilibreur de charge de référence (SKU) *Standard* avec des adresses IP sortantes publiques gérées créées par défaut, vous pouvez mettre à l’échelle le nombre de ces adresses à l’aide du paramètre **`load-balancer-managed-ip-count`** .
+Lorsque vous utilisez un équilibreur de charge de référence (SKU) Standard avec des adresses IP sortantes publiques gérées créées par défaut, vous pouvez mettre à l’échelle le nombre de ces adresses à l’aide du paramètre **`load-balancer-managed-ip-count`** .
 
 Pour mettre à jour un cluster existant, exécutez la commande suivante. Ce paramètre peut également être défini au moment de la création du cluster pour avoir plusieurs adresses IP publiques sortantes gérées.
 
@@ -120,10 +123,11 @@ Lorsque vous utilisez un équilibreur de charge SKU *Standard*, le cluster AKS c
 
 Une adresse IP publique créée par AKS est considérée comme une ressource managée AKS. Cela signifie que le cycle de vie de cette adresse IP publique est destiné à être géré par AKS et ne nécessite aucune action de l’utilisateur directement sur la ressource IP publique. Vous pouvez également affecter votre propre adresse IP publique ou préfixe d’adresse IP publique au moment de la création du cluster. Vos adresses IP personnalisées peuvent également être mises à jour sur les propriétés de l’équilibreur de charge d’un cluster existant.
 
-> [!NOTE]
-> Les adresses IP publiques personnalisées doivent être créées et détenues par l’utilisateur. Les adresses IP publiques gérées créées par AKS ne peuvent pas être réutilisées comme adresses IP personnalisées car cela peut entraîner des conflits de gestion.
+Configuration requise pour l’utilisation de votre propre adresse IP publique ou préfixe :
 
-Avant d’effectuer cette opération, vérifiez que vous remplissez les [conditions préalables et contraintes](../virtual-network/public-ip-address-prefix.md#constraints) requises pour configurer des adresses IP sortantes ou des préfixes d’adresses IP sortantes.
+- Les adresses IP publiques personnalisées doivent être créées et détenues par l’utilisateur. Les adresses IP publiques gérées créées par AKS ne peuvent pas être réutilisées comme adresses IP personnalisées car cela peut entraîner des conflits de gestion.
+- Vous devez vérifier que l’identité de cluster AKS (principal du service ou identité managée) dispose des autorisations nécessaires pour accéder à l’adresse IP sortante. Conformément à la [liste des autorisations d’adresses IP publiques requises](kubernetes-service-principal.md#networking).
+- Assurez-vous que vous respectez les [conditions préalables et contraintes](../virtual-network/public-ip-address-prefix.md#constraints) requises pour configurer des adresses IP sortantes ou des préfixes d’adresses IP sortantes.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Mettre à jour le cluster avec votre propre adresse IP publique sortante
 
@@ -221,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Cet exemple vous donnera 4 000 ports de sortie alloués pour chaque nœud dans mon cluster, et avec 7 adresses IP, vous auriez *4 000 ports par nœud * 100 nœuds = 400 000 ports au total < = 448 000 ports au total = 7 adresses IP * 64 000 ports par adresse IP*. Cela vous permet de mettre à l’échelle en toute sécurité jusqu’à 100 nœuds et d’effectuer une opération de mise à niveau par défaut. Il est essentiel d’allouer suffisamment de ports pour les nœuds supplémentaires nécessaires à la mise à niveau et à d’autres opérations. AKS utilise par défaut un nœud de tampon pour la mise à niveau. Dans cet exemple, cela nécessite 4 000 ports libres à tout moment. Si vous utilisez des [valeurs maxSurge](upgrade-cluster.md#customize-node-surge-upgrade-preview), multipliez les ports de sortie par nœud par votre valeur maxSurge.
+Cet exemple vous donnera 4 000 ports de sortie alloués pour chaque nœud dans mon cluster, et avec 7 adresses IP, vous auriez *4 000 ports par nœud * 100 nœuds = 400 000 ports au total < = 448 000 ports au total = 7 adresses IP * 64 000 ports par adresse IP*. Cela vous permet de mettre à l’échelle en toute sécurité jusqu’à 100 nœuds et d’effectuer une opération de mise à niveau par défaut. Il est essentiel d’allouer suffisamment de ports pour les nœuds supplémentaires nécessaires à la mise à niveau et à d’autres opérations. AKS utilise par défaut un nœud de tampon pour la mise à niveau. Dans cet exemple, cela nécessite 4 000 ports libres à tout moment. Si vous utilisez des [valeurs maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multipliez les ports de sortie par nœud par votre valeur maxSurge.
 
 Pour passer en toute sécurité au-delà de 100 nœuds, vous devez ajouter d’autres adresses IP.
 
@@ -266,7 +270,7 @@ Si vous anticipez de nombreuses connexions à durée de vie limitée, aucune con
  
 *adressesIPsortantes* \* 64 000 \> *machinesVirtuellesdeNœud* \* *portsDeSortieAllouésSouhaités*.
  
-Par exemple, si vous avez 3 *machinesVirtuellesdeNœud*et 50 000 *portsDeSortieAllouésSouhaités*, vous avez besoin d’au moins 3 *adressesIPsortantes*. Il est recommandé d’intégrer une capacité d’adresses IP sortantes plus élevée que vos besoins. De plus, vous devez tenir compte de la mise à l’échelle automatique du cluster et de la possibilité de mettre à niveau les pools de nœuds lors du calcul de la capacité d’adresses IP sortantes. Pour la mise à l’échelle automatique du cluster, examinez le nombre de nœuds actuel et le nombre maximal de nœuds, puis utilisez la valeur la plus élevée. Pour la mise à niveau, comptez une machine virtuelle de nœud supplémentaire pour chaque pool de nœuds qui autorise la mise à niveau.
+Par exemple, si vous avez 3 *machinesVirtuellesdeNœud* et 50 000 *portsDeSortieAllouésSouhaités*, vous avez besoin d’au moins 3 *adressesIPsortantes*. Il est recommandé d’intégrer une capacité d’adresses IP sortantes plus élevée que vos besoins. De plus, vous devez tenir compte de la mise à l’échelle automatique du cluster et de la possibilité de mettre à niveau les pools de nœuds lors du calcul de la capacité d’adresses IP sortantes. Pour la mise à l’échelle automatique du cluster, examinez le nombre de nœuds actuel et le nombre maximal de nœuds, puis utilisez la valeur la plus élevée. Pour la mise à niveau, comptez une machine virtuelle de nœud supplémentaire pour chaque pool de nœuds qui autorise la mise à niveau.
 
 - Lorsque vous définissez *IdleTimeoutInMinutes* sur une valeur différente de la valeur par défaut égale à 30 minutes, réfléchissez à la durée pendant laquelle vos charges de travail auront besoin d’une connexion sortante. Tenez également compte de la valeur du délai d’expiration par défaut d’un équilibreur de charge de la référence SKU *Standard* utilisé en dehors d’AKS qui s’élève à 4 minutes. Une valeur *IdleTimeoutInMinutes* qui reflète plus précisément votre charge de travail AKS spécifique peut contribuer à réduire l’épuisement SNAT provoqué par la liaison des connexions qui ne sont plus utilisées.
 

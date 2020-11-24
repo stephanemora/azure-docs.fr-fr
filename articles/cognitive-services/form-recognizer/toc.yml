@@ -38,6 +38,10 @@
           items:
             - name: Python
               href: quickstarts/python-business-cards.md
+        - name: Utiliser un modèle de facture prédéfini
+          items:
+            - name: Python
+              href: quickstarts/python-invoices.md
         - name: Obtenir des informations de disposition du texte
           items:
             - name: Python
@@ -50,10 +54,14 @@
       href: tutorial-ai-builder.md
 - name: Concepts
   items:
-    - name: Receipts
+    - name: Extraction d’une disposition
+      href: concept-layout.md
+    - name: Reçus
       href: concept-receipts.md
     - name: Cartes de visite
       href: concept-business-cards.md
+    - name: Factures
+      href: concept-invoices.md
 - name: Guides pratiques
   items:
     - name: Créer un jeu de données d’entraînement
@@ -77,7 +85,7 @@
 - name: Informations de référence
   items:
     - name: Préversion de l’API Form Recognizer v2.1
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync'
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
     - name: API Form Recognizer v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: Kits SDK

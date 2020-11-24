@@ -1,23 +1,22 @@
 ---
 title: À propos des environnements Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Dans cet article, découvrez les avantages des environnements Machine Learning, qui permettent des définitions de dépendance d'apprentissage automatique reproductibles, auditables et portables sur une variété de cibles de calcul.
+description: Découvrez les environnements d’apprentissage automatique qui permettent des définitions de dépendance d’apprentissage automatique reproductibles, auditables et portables sur diverses cibles de calcul.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322184"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695382"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Présentation des environnements Azure Machine Learning
-
 
 Les environnements Azure Machine Learning sont une encapsulation de l’environnement dans lequel votre formation Machine Learning se produit. Ils spécifient les packages, variables d’environnement et paramètres logiciels Python autour de vos scripts d’apprentissage et de scoring. Ils spécifient également les temps d’exécution (Python, Spark ou Docker). Les environnements sont des entités managées et avec version dans votre espace de travail Machine Learning qui permettent de bénéficier de workflows Machine Learning reproductibles, pouvant être audités et portables parmi une variété de cibles de calcul.
 
@@ -35,7 +34,7 @@ L’environnement, la cible de calcul et le script de formation forment la confi
 
 ## <a name="types-of-environments"></a>Types d’environnements
 
-Les environnements se répartissent globalement en trois catégories : *organisés* , *gérés par l’utilisateur* et *gérés par le système*.
+Les environnements se répartissent globalement en trois catégories : *organisés*, *gérés par l’utilisateur* et *gérés par le système*.
 
 Les environnements organisés sont fournis par Azure Machine Learning et sont disponibles dans votre espace de travail par défaut. Prévus pour être utilisés tels quels, ils contiennent des collections de packages et paramètres Python destinés à vous aider à prendre en main diverses infrastructures de Machine Learning. Ces environnements précréés offrent également un temps de déploiement plus rapide. Pour obtenir une liste complète, consultez [l’article sur les environnements organisés](resource-curated-environments.md).
 

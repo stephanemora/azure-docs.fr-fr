@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide pour transformer des données à l’aide d’un flux de données de mappage
+title: 'Démarrage rapide : Transformer des données avec un flux de données de mappage'
 description: Ce tutoriel fournit des instructions détaillées sur l’utilisation d’Azure Synapse Analytics pour transformer des données à l’aide d’un flux de données de mappage.
 author: djpmsft
 ms.author: daperlov
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 0bf1611dee2b3f7f9a3059e3118ddbf08c00f886
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342756"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743845"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Démarrage rapide : Transformer des données avec des flux de données de mappage
 
-Dans ce démarrage rapide, vous allez utiliser Azure Synapse Analytics pour créer un pipeline qui transforme des données d’une source Azure Data Lake Storage (ADLS) Gen2 en récepteur ADLS Gen2 à l’aide d’un flux de données de mappage. Le modèle de configuration utilisé dans ce démarrage rapide peut être étendu lors de la transformation de données avec le flux de données de mappage.
+Dans ce démarrage rapide, vous allez utiliser Azure Synapse Analytics pour créer un pipeline qui transforme des données d’une source Azure Data Lake Storage Gen2 (ADLS Gen2) en récepteur ADLS Gen2 à l’aide d’un flux de données de mappage. Le modèle de configuration utilisé dans ce démarrage rapide peut être étendu lors de la transformation de données avec le flux de données de mappage.
 
 Dans ce démarrage rapide, vous effectuez les étapes suivantes :
 
@@ -30,8 +30,8 @@ Dans ce démarrage rapide, vous effectuez les étapes suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Espace de travail Azure Synapse**  : créez un espace de travail Synapse à l’aide du portail Azure en suivant les instructions fournies dans [Démarrage rapide : Créer un espace de travail Synapse](quickstart-create-workspace.md).
-* **Compte de stockage Azure**  : Vous utilisez le stockage ADLS comme magasins de données *source* et *récepteur*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage Azure](../storage/common/storage-account-create.md) pour découvrir comment en créer un.
+* **Espace de travail Azure Synapse** : créez un espace de travail Synapse à l’aide du portail Azure en suivant les instructions fournies dans [Démarrage rapide : Créer un espace de travail Synapse](quickstart-create-workspace.md).
+* **Compte de stockage Azure** : Vous utilisez le stockage ADLS comme magasins de données *source* et *récepteur*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage Azure](../storage/common/storage-account-create.md) pour découvrir comment en créer un.
 
     Le fichier que nous transformons dans ce tutoriel est MoviesDB.csv, qui se trouve [ici](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Pour récupérer le fichier à partir de GitHub, copiez le contenu dans l’éditeur de texte de votre choix pour l’enregistrer localement sous la forme d’un fichier .csv. Pour charger le fichier dans votre compte de stockage, consultez [Chargement d’objets blob avec le Portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Les exemples feront référence à un conteneur nommé « sample-data ».
 
@@ -39,7 +39,7 @@ Dans ce démarrage rapide, vous effectuez les étapes suivantes :
 
 Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Synapse Studio de deux manières :
 
-* Ouvrez votre espace de travail Synapse dans le [Portail Azure](https://ms.portal.azure.com/#home). En haut de la section Vue d’ensemble, sélectionnez **Lancer Synapse Studio**.
+* Ouvrez votre espace de travail Synapse dans le [Portail Azure](https://ms.portal.azure.com/#home). Sélectionnez **Ouvrir** sur la carte Ouvrir Synapse Studio dans la section Démarrage.
 * Ouvrez [Azure Synapse Analytics](https://web.azuresynapse.net/) et connectez-vous à votre espace de travail.
 
 Dans ce guide de démarrage rapide, nous utilisons l’espace de travail nommé « adftest2020 » comme exemple. Vous accéderez automatiquement à la page d’accueil de Synapse Studio.
@@ -56,9 +56,9 @@ Un pipeline contient le flux logique pour l’exécution d’un ensemble d’act
 
 1. Dans la page de paramètres **Propriétés** du pipeline, entrez **TransformMovies** pour **Nom**.
 
-1. Dans le volet *Activités* , sous *Déplacer et transformer* , faites glisser **Flux de données** sur le canevas du pipeline.
+1. Dans le volet *Activités*, sous *Déplacer et transformer*, faites glisser **Flux de données** sur le canevas du pipeline.
 
-1. Dans la fenêtre contextuelle **Ajout de flux de données** , sélectionnez **Créer un flux de données** -> **Flux de données**. Une fois l’opération terminée, cliquez sur **OK**.
+1. Dans la fenêtre contextuelle **Ajout de flux de données**, sélectionnez **Créer un flux de données** -> **Flux de données**. Une fois l’opération terminée, cliquez sur **OK**.
 
    ![Créer un flux de données](media/quickstart-data-flow/new-data-flow.png)
 
@@ -86,7 +86,7 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
 1. Nommez votre jeu de données **MoviesDB**. Dans la liste déroulante des services liés, choisissez **Nouveau**.
 
-1. Dans l’écran de création de service lié, nommez votre service lié ADLS Gen2 **ADLSGen2** , puis spécifiez votre méthode d’authentification. Entrez ensuite vos informations d’identification de connexion. Dans ce démarrage rapide, nous utilisons une clé de compte pour nous connecter à notre compte de stockage. Vous pouvez cliquer sur **Tester la connexion** pour vérifier que vos informations d’identification ont été entrées correctement. Une fois que vous avez fini, cliquez sur **Créer**.
+1. Dans l’écran de création de service lié, nommez votre service lié ADLS Gen2 **ADLSGen2**, puis spécifiez votre méthode d’authentification. Entrez ensuite vos informations d’identification de connexion. Dans ce démarrage rapide, nous utilisons une clé de compte pour nous connecter à notre compte de stockage. Vous pouvez cliquer sur **Tester la connexion** pour vérifier que vos informations d’identification ont été entrées correctement. Une fois que vous avez fini, cliquez sur **Créer**.
 
     ![Créer un service lié à la source](media/quickstart-data-flow/adls-gen2-linked-service.png)
 
@@ -126,7 +126,7 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
     ![Ajouter un agrégat](media/quickstart-data-flow/add-aggregate.png)
 
-1. Nommez votre transformation d’agrégation **AggregateComedyRatings**. Sous l’onglet **Grouper par** , sélectionnez **year** (année) dans la liste déroulante pour regrouper les agrégations par année de sortie des films.
+1. Nommez votre transformation d’agrégation **AggregateComedyRatings**. Sous l’onglet **Grouper par**, sélectionnez **year** (année) dans la liste déroulante pour regrouper les agrégations par année de sortie des films.
 
     ![Paramètres d’agrégation 1](media/quickstart-data-flow/aggregate-settings.png)
 
@@ -134,7 +134,7 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
     ![Paramètres d’agrégation 2](media/quickstart-data-flow/aggregate-settings-2.png)
 
-1. Pour afficher la moyenne de la colonne **Évaluation** , utilisez la fonction d’agrégation ```avg()```. Comme **Évaluation** est une chaîne et que ```avg()``` prend une entrée numérique, nous devons convertir la valeur en nombre à l’aide de la fonction ```toInteger()```. Voici comment se présente l’expression :
+1. Pour afficher la moyenne de la colonne **Évaluation**, utilisez la fonction d’agrégation ```avg()```. Comme **Évaluation** est une chaîne et que ```avg()``` prend une entrée numérique, nous devons convertir la valeur en nombre à l’aide de la fonction ```toInteger()```. Voici comment se présente l’expression :
 
     ```avg(toInteger(Rating))```
 
@@ -156,7 +156,7 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
 1. Choisissez **DelimitedText**. Cliquez sur Continuer.
 
-1. Nommez votre jeu de données récepteur **MoviesSink**. Pour le service lié, choisissez le service lié ADLS Gen2 que vous avez créé à l’étape 7. Entrez un dossier de sortie dans lequel écrire vos données. Dans ce démarrage rapide, nous écrivons dans le dossier « output » se trouvant dans le conteneur « sample-data ». Le dossier ne doit pas nécessairement exister au préalable et peut être créé de façon dynamique. Activez **Première ligne comme en-tête** , puis sélectionnez **Aucun** pour **Importer un schéma**. Une fois l’opération terminée, cliquez sur **OK**.
+1. Nommez votre jeu de données récepteur **MoviesSink**. Pour le service lié, choisissez le service lié ADLS Gen2 que vous avez créé à l’étape 7. Entrez un dossier de sortie dans lequel écrire vos données. Dans ce démarrage rapide, nous écrivons dans le dossier « output » se trouvant dans le conteneur « sample-data ». Le dossier ne doit pas nécessairement exister au préalable et peut être créé de façon dynamique. Activez **Première ligne comme en-tête**, puis sélectionnez **Aucun** pour **Importer un schéma**. Une fois l’opération terminée, cliquez sur **OK**.
 
     ![Propriétés du jeu de données du récepteur](media/quickstart-data-flow/sink-dataset-properties.png)
 
