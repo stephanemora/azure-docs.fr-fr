@@ -2,13 +2,13 @@
 title: Déployer une spec de modèle en tant que modèle lié
 description: Découvrez comment déployer une spec de modèle existante dans un déploiement lié.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: 65ad5767817457133d0fbc34c7735cf52ff2c3f3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321575"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747466"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutoriel : Déployer une spec de modèle en tant que modèle lié (préversion)
 
@@ -19,7 +19,7 @@ Découvrez comment déployer une [spec de modèle](template-specs.md) existante 
 Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez [vous inscrire à la préversion](https://aka.ms/templateSpecOnboarding).
+> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez installer la dernière version de PowerShell ou d’Azure CLI. Pour Azure PowerShell, utilisez la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Créer une spec de modèle
 
@@ -27,7 +27,7 @@ Consultez [Démarrage rapide : Créer et déployer une spec de modèle](quickst
 
 ## <a name="create-the-main-template"></a>Créer le modèle principal
 
-Pour déployer une spec de modèle dans un modèle Resource Manager, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété `templateLink`, spécifiez l’ID de ressource d’une spec de modèle. Créez un modèle avec le code JSON suivant appelé **azuredeploy.json**. Ce tutoriel part du principe que vous avez enregistré sous le chemin d’accès **c:\Templates\deployTS\azuredeploy.json** , mais vous pouvez utiliser n’importe quel chemin.
+Pour déployer une spec de modèle dans un modèle Resource Manager, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété `templateLink`, spécifiez l’ID de ressource d’une spec de modèle. Créez un modèle avec le code JSON suivant appelé **azuredeploy.json**. Ce tutoriel part du principe que vous avez enregistré sous le chemin d’accès **c:\Templates\deployTS\azuredeploy.json**, mais vous pouvez utiliser n’importe quel chemin.
 
 ```json
 {

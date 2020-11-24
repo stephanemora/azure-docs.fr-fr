@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53cde1178a4faae0fbd11222e4219f70be29145d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151550"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560806"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestion des notifications de maintenance planifiée
 
 Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte des machines virtuelles. Les mises à jour sont des modifications telles que la mise à jour corrective de l’environnement d’hébergement ou la mise à niveau et la désactivation de matériel. Une majorité de ces mises à jour sont effectuées sans incidence sur les machines virtuelles hébergées. Cependant, il existe des cas où les mises à jour ont un impact :
 
-- Lorsque la maintenance ne nécessite pas de redémarrage, Azure utilise une migration sur place pour mettre en pause la machine virtuelle pendant la mise à jour de l’hôte. Ces opérations de maintenance sont appliquées domaine d’erreur par domaine d’erreur. Elles sont arrêtées si des signaux d’avertissement sont reçus.
+- Si la maintenance ne nécessite pas de redémarrage, Azure met en pause la machine virtuelle pour quelques secondes pendant la mise à jour de l’hôte. Ces types d’opérations de maintenance sont appliquées domaine d’erreur par domaine d’erreur. Elles sont arrêtées si des signaux d’avertissement sont reçus.
 
 - Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Vous disposez d’une fenêtre de temps données d’environ 35 jours pour commencer la maintenance vous-même, au moment qui vous convient.
 
@@ -43,7 +43,7 @@ Les instructions suivantes doivent vous aider à décider si vous devez utiliser
 > La maintenance de libre-service n’est peut-être pas disponible pour toutes vos machines virtuelles. Pour déterminer si le redéploiement proactif est disponible pour votre machine virtuelle, recherchez **Démarrer maintenant** dans l’état de maintenance. La maintenance de libre-service n’est pas disponible pour les Services cloud (rôle de travail/web) et Service Fabric.
 
 
-Une maintenance en libre-service n’est pas recommandée pour des déploiements utilisant des **groupes à haute disponibilité** . Les groupes à haute disponibilité ne sont déjà mis à jour qu’un domaine de mise à jour à la fois. 
+Une maintenance en libre-service n’est pas recommandée pour des déploiements utilisant des **groupes à haute disponibilité**. Les groupes à haute disponibilité ne sont déjà mis à jour qu’un domaine de mise à jour à la fois. 
 
 - Laissez Azure déclencher la maintenance. Une maintenance nécessitant un redémarrage est effectuée domaine de mise à jour par domaine de mise à jour. Les domaines de mise à jour ne reçoivent pas nécessairement la maintenance de manière séquentielle, et il y a une pause de 30 minutes entre les domaines de mise à jour. 
 - Si une perte temporaire de capacité (1 domaine de mise à jour) pose problème, vous pouvez ajouter des instances durant la période de maintenance. 
@@ -80,7 +80,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Disponibilit�
 
 **Q : Comment être averti d’une maintenance planifiée ?**
 
-**R :** Une vague d’opérations de maintenance planifiée commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée à l’administrateur et aux coadministrateurs de l’abonnement (un e-mail par abonnement). Il est possible de configurer des canaux et des destinataires supplémentaires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Dans le cas où vous déployez une machine virtuelle dans une région où la planification de la maintenance est déjà effectuée, vous ne recevez pas la notification. Au lieu de cela, vous devez vérifier l’état de maintenance de la machine virtuelle.
+**R :** Une vague d’opérations de maintenance planifiée commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée aux administrateurs, aux coadministrateurs, aux propriétaires et aux contributeurs d’abonnement (un e-mail par abonnement). Il est possible de configurer des canaux et des destinataires supplémentaires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Dans le cas où vous déployez une machine virtuelle dans une région où la planification de la maintenance est déjà effectuée, vous ne recevez pas la notification. Au lieu de cela, vous devez vérifier l’état de maintenance de la machine virtuelle.
 
 **Q : Je ne vois aucune indication de maintenance planifiée dans le portail, dans PowerShell ou dans l’interface CLI. D’où vient le problème ?**
 

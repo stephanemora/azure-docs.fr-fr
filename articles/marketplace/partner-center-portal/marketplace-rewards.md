@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4d307b2a16262645919423ef89c0d87636639bf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b99ec4158b1df5ab558026c05b9ec1024fb0722e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378710"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742570"
 ---
 # <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
@@ -21,7 +21,7 @@ Les récompenses du marketplace vous soutiennent dans votre phase de croissance 
 
 Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance vous aident à passer à l’étape suivante, ce qui vous aide à développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme le marketplace commercial.
 
-Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](../determine-your-listing-type.md#choose-a-listing-option).
+Vos avantages sont différents selon que votre offre est de type [Me contacter, Essai gratuit ou Transact](../determine-your-listing-type.md).
 
 Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité.
 

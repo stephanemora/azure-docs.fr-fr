@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410043"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700757"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
@@ -67,7 +67,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 |Service|Description|
 |------|--------|
-| [Contrôle d’accès&nbsp;en fonction&nbsp;du rôle&nbsp;Azure](../../role-based-access-control/role-assignments-portal.md)|Fonctionnalité de contrôle d’accès conçue pour autoriser les utilisateurs à accéder seulement aux ressources auxquelles ils doivent accéder en fonction de leur rôle au sein de l’organisation.  |
+| [Contrôle d’accès&nbsp;en fonction du rôle&nbsp;Azure](../../role-based-access-control/role-assignments-portal.md)|Fonctionnalité de contrôle d’accès conçue pour autoriser les utilisateurs à accéder seulement aux ressources auxquelles ils doivent accéder en fonction de leur rôle au sein de l’organisation.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Référentiel d’authentification cloud qui prend en charge un annuaire multilocataire dans le cloud et plusieurs services de gestion des identités dans Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Service de gestion des identités qui permet de contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils quand ils utilisent vos applications basées sur Azure.   |
 | [Services de domaine Azure Active Directory](../../active-directory-domain-services/overview.md)| Version cloud et managée d’Active Directory Domain Services. |

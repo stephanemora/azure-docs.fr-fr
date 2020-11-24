@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708370"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745681"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Résoudre les problèmes de réplication interrégion
 
@@ -50,6 +50,7 @@ Cet article décrit les messages d’erreur et les résolutions qui peuvent vous
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Vérifiez si la réplication a été arrêtée ou si elle n’est pas initialisée et inactive (échec d’initialisation).    |
 |     `Cannot delete   source replication`    |     La suppression de la réplication du côté source n’est pas autorisée. Veillez à supprimer la réplication du côté destination.    |
+| `Volume with replication cannot be deleted`  |  Supprimez la réplication avant de supprimer le volume. Consultez [Supprimer des réplications](cross-region-replication-delete.md). Cette opération nécessite de supprimer l’appairage avant de supprimer la réplication du volume. 
 
 ## <a name="errors-resyncing-volume"></a>Erreurs de resynchronisation de volume
 

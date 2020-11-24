@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 2f7d102ad6bf2aba2056456acfe6207a0b0643ba
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357978"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542012"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 
@@ -29,6 +29,10 @@ Cet article montre des exemples des tâches suivantes :
 * Annulation ou mise en échec d’exécutions.
 * Création d’exécutions enfants.
 * Identification et recherche d’exécutions.
+
+> [!TIP]
+> Si vous recherchez des informations sur la supervision du service Azure Machine Learning et des services Azure associés, consultez [Guide pratique pour superviser Azure Machine Learning](monitor-azure-machine-learning.md).
+> Si vous recherchez des informations sur les modèles de supervision déployés en tant que services web ou modules IoT Edge, consultez [Collecter les données des modèles](how-to-enable-data-collection.md) et [Superviser avec Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

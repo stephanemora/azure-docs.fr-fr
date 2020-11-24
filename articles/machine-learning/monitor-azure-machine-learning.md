@@ -9,24 +9,26 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: b8ca96dd0b11f7a4c76f7a954959ef5005fb4a40
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323978"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533478"
 ---
 # <a name="monitor-azure-machine-learning"></a>Superviser Azure Machine Learning
 
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par Azure Machine Learning, ainsi que l’analyse et les alertes sur ces données à l’aide d’Azure Monitor.
 
 > [!TIP]
-> Les informations contenues dans ce document sont principalement destinées aux administrateurs, car elles décrivent la supervision d’Azure Machine Learning au niveau de l’ *espace de travail*. Si vous êtes scientifique des données ou développeur, et que vous voulez superviser des informations spécifiques aux *exécutions de votre modèle d’entraînement* , consultez les documents suivants :
+> Les informations contenues dans ce document sont principalement destinées aux __administrateurs__, car elles décrivent la supervision du service Azure Machine Learning et des services Azure associés. Si vous êtes __scientifique des données__ ou __développeur__ et que vous voulez superviser des informations spécifiques aux *exécutions d’entraînement de votre modèle*, consultez les documents suivants :
 >
 > * [Démarrer, superviser et annuler des exécutions d’entraînement](how-to-manage-runs.md)
 > * [Journaliser des métriques pour les exécutions d’entraînement](how-to-track-experiments.md)
 > * [Suivre des expériences avec MLflow](how-to-use-mlflow.md)
 > * [Visualiser les exécutions avec TensorBoard](how-to-monitor-tensorboard.md)
+>
+> Si vous voulez superviser les informations générées par des modèles déployés en tant que services web ou modules IoT Edge, consultez [Collecter les données des modèles](how-to-enable-data-collection.md) et [Superviser avec Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="what-is-azure-monitor"></a>Qu’est-ce qu’Azure Monitor ?
 

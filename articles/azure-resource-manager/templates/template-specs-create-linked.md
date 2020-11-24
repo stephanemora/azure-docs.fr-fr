@@ -2,13 +2,13 @@
 title: Créer une spec de modèle avec des modèles liés
 description: Découvrez comment créer une spec de modèle avec des modèles liés.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: d86b46a88dde7ebffea81cdeb8dc184dd275c0da
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321590"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747432"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutoriel : Créer une spec de modèle avec des modèles liés (préversion)
 
@@ -19,7 +19,7 @@ Découvrez comment créer une [spec de modèle](template-specs.md) avec un modè
 Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez [vous inscrire à la préversion](https://aka.ms/templateSpecOnboarding).
+> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez installer la dernière version de PowerShell ou d’Azure CLI. Pour Azure PowerShell, utilisez la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Créer des modèles liés
 
@@ -27,7 +27,7 @@ Créez le modèle principal et le modèle lié.
 
 Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété `templateLink`, spécifiez le chemin d’accès relatif du modèle lié, conformément au chemin d’accès du modèle parent.
 
-Le modèle lié est nommé **linkedTemplate.json** , et il est stocké dans un sous-dossier appelé **artefacts** dans le chemin d’accès de l’emplacement où est stocké le modèle principal.  Pour relativePath, vous pouvez utiliser une des valeurs suivantes :
+Le modèle lié est nommé **linkedTemplate.json**, et il est stocké dans un sous-dossier appelé **artefacts** dans le chemin d’accès de l’emplacement où est stocké le modèle principal.  Pour relativePath, vous pouvez utiliser une des valeurs suivantes :
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -35,7 +35,7 @@ Le modèle lié est nommé **linkedTemplate.json** , et il est stocké dans un s
 
 La propriété `relativePath` est toujours relative au fichier de modèle dans lequel `relativePath` est déclaré. Ainsi, s’il existe un autre linkedTemplate2.json appelé à partir de linkedTemplate.json, et si linkedTemplate2.json est stocké dans le même sous-dossier artefacts, le relativePath spécifié dans linkedTemplate.json est simplement `linkedTemplate2.json`.
 
-1. Créez le modèle principal avec le code JSON suivant. Enregistrez le modèle principal sous **azuredeploy.json** sur votre ordinateur local. Ce tutoriel part du principe que vous avez enregistré dans le chemin d’accès **c:\Templates\linkedTS\azuredeploy.json** , mais vous pouvez utiliser n’importe quel chemin.
+1. Créez le modèle principal avec le code JSON suivant. Enregistrez le modèle principal sous **azuredeploy.json** sur votre ordinateur local. Ce tutoriel part du principe que vous avez enregistré dans le chemin d’accès **c:\Templates\linkedTS\azuredeploy.json**, mais vous pouvez utiliser n’importe quel chemin.
 
     ```json
     {

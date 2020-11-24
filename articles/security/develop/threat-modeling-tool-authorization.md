@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517561"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693156"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/Service | Article |
@@ -32,11 +32,11 @@ ms.locfileid: "94517561"
 | **Passerelle de cloud IoT** | <ul><li>[Se connecter à la passerelle de cloud à l’aide de jetons avec des privilèges minimum](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Utiliser une clé SAP d’autorisations d’envoi seulement pour générer des jetons d’appareil](#sendonly-sas)</li><li>[Ne pas utiliser des jetons d’accès qui fournissent un accès direct au concentrateur d’événement](#access-tokens-hub)</li><li>[Se connecter au concentrateur d’événement à l’aide des clés SAP qui disposent des autorisations minimales requises](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[Utiliser des jetons de ressource pour se connecter à Azure Cosmos DB le cas échéant](#resource-docdb)</li></ul> |
-| **Délimitation d’approbation Azure** | <ul><li>[Activer la gestion des accès précis à un abonnement Azure à l’aide de RBAC](#grained-rbac)</li></ul> |
-| **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès client aux opérations de cluster à l’aide de RBAC](#cluster-rbac)</li></ul> |
+| **Délimitation d’approbation Azure** | <ul><li>[Activer la gestion précise des accès à un abonnement Azure en utilisant RBAC](#grained-rbac)</li></ul> |
+| **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès du client aux opérations de cluster en utilisant Azure RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Effectuer la modélisation de sécurité et utiliser la sécurité au niveau des champs si nécessaire](#modeling-field)</li></ul> |
 | **Portail Dynamics CRM** | <ul><li>[Effectuer la modélisation de sécurité des comptes du portail en gardant à l’esprit que le modèle de sécurité pour le portail est différent du reste de CRM](#portal-security)</li></ul> |
-| **Stockage Azure** | <ul><li>[Accorder une autorisation précise sur un ensemble d’entités dans Azure Table Storage](#permission-entities)</li><li>[Activer le contrôle d’accès en fonction du rôle (RBAC) sur le compte de stockage Azure à l’aide d’Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Stockage Azure** | <ul><li>[Accorder une autorisation précise sur un ensemble d’entités dans Azure Table Storage](#permission-entities)</li><li>[Activer le contrôle d’accès en fonction du rôle Azure (Azure RBAC) sur le compte de stockage Azure en utilisant Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Client mobile** | <ul><li>[Implémenter la libération implicite ou la détection du rootage](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Référence de classe faible dans WCF](#weak-class-wcf)</li><li>[WCF - Implémenter le contrôle de l’autorisation](#wcf-authz)</li></ul> |
 | **API Web** | <ul><li>[Implémenter le mécanisme d’autorisation approprié dans l’API web ASP.NET](#authz-aspnet)</li></ul> |
@@ -229,7 +229,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Informations de référence**              | N/A  |
 | **Étapes** | Un jeton de ressource est associé à une ressource d’autorisation Azure Cosmos DB et capture la relation entre l’utilisateur d’une base de données et l’autorisation dont cet utilisateur dispose sur une ressource d’application Azure Cosmos DB (collection, document, etc.). Utilisez toujours un jeton de ressource pour accéder à Azure Cosmos DB si le client ne peut pas être approuvé avec la gestion des clés principales ou en lecture seule, par exemple une application d’utilisateur final comme un client mobile ou de bureau. Utilisez une clé principale ou des clés en lecture seule d’applications principales capables de stocker ces clés en toute sécurité.|
 
-## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Activer la gestion des accès précis à un abonnement Azure à l’aide de RBAC
+## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Activer la gestion précise des accès à un abonnement Azure en utilisant Azure RBAC
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -237,10 +237,10 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md)  |
-| **Étapes** | Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. L’utilisation de RBAC vous permet de n’accorder que les droits d’accès dont les utilisateurs ont besoin pour effectuer leur travail.|
+| **Informations de référence**              | [Ajouter ou supprimer des attributions de rôle Azure pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Étapes** | Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. L’utilisation d’Azure RBAC vous permet d’accorder seulement les droits d’accès dont les utilisateurs ont besoin pour effectuer leur travail.|
 
-## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Restreindre l’accès client aux opérations de cluster à l’aide de RBAC
+## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Restreindre l’accès du client aux opérations de cluster en utilisant RBAC Service Fabric
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -248,7 +248,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Environnement - Azure |
-| **Informations de référence**              | [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **Informations de référence**              | [Contrôle d’accès en fonction du rôle Service Fabric pour les clients Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Étapes** | <p>Azure Service Fabric prend en charge deux types de contrôle d’accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certaines opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.</p><p>Les administrateurs ont un accès complet aux fonctions de gestion (y compris les fonctionnalités de lecture/écriture). Les utilisateurs, par défaut, ont uniquement un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête) et la capacité à résoudre les applications et les services.</p><p>Vous spécifiez les deux rôles clients (client et administrateur) au moment de la création du cluster en fournissant des certificats séparés pour chacun.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Effectuer la modélisation de sécurité et utiliser la sécurité au niveau des champs si nécessaire
@@ -284,7 +284,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Informations de référence**              | [Comment déléguer l’accès aux objets dans votre compte de stockage Azure à l’aide de SAP](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Étapes** | Dans certains scénarios d’entreprise, Azure Table Storage peut être nécessaire pour stocker des données sensibles répondant aux besoins des différentes parties. Par exemple, les données sensibles relatives aux différents pays ou différentes régions. Dans ce cas, les signatures SAP peuvent être créées en spécifiant les plages de clés de partitions et de lignes, de sorte qu’un utilisateur puisse accéder aux données spécifiques à un pays ou à une région en particulier.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Activer le contrôle d’accès en fonction du rôle (RBAC) sur le compte de stockage Azure à l’aide d’Azure Resource Manager
+## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Activer le contrôle d’accès en fonction du rôle Azure (Azure RBAC) sur le compte de stockage Azure en utilisant Azure Resource Manager
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)](../../storage/blobs/security-recommendations.md) |
+| **Informations de référence**              | [Comment sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../storage/blobs/security-recommendations.md) |
 | **Étapes** | <p>Lorsque vous créez un compte de stockage, vous sélectionnez un modèle de déploiement Classique ou Azure Resource Manager. Le modèle classique de création de ressources dans Azure autorise seulement un accès « tout ou rien » à l’abonnement et, à tour de rôle, au compte de stockage.</p><p>Avec le modèle Azure Resource Manager, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implémenter la libération implicite ou la détection du rootage

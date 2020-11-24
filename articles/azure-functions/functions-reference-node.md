@@ -3,14 +3,14 @@ title: Information de référence pour les développeurs JavaScript sur Azure Fu
 description: Découvrez comment développer des fonctions à l’aide de JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422550"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743318"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -294,7 +294,7 @@ Vous permet d’écrire dans les journaux d’activité de fonction de streaming
 
 ## <a name="write-trace-output-to-logs"></a>Écrire la sortie de trace dans les journaux
 
-Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans les journaux et la console. Lorsque vous appelez `context.log()`, votre message est écrit dans les journaux au niveau de trace par défaut, qui est le niveau de trace d’ _informations_. Functions s’intègre à Azure Application Insights pour mieux capturer les journaux de vos applications de fonction. Application Insights, qui fait partie de Azure Monitor, fournit des fonctionnalités pour la collecte, le rendu visuel et l’analyse des données de télémétrie d’application et de vos sorties de trace. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
+Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans les journaux et la console. Lorsque vous appelez `context.log()`, votre message est écrit dans les journaux au niveau de trace par défaut, qui est le niveau de trace d’_informations_. Functions s’intègre à Azure Application Insights pour mieux capturer les journaux de vos applications de fonction. Application Insights, qui fait partie de Azure Monitor, fournit des fonctionnalités pour la collecte, le rendu visuel et l’analyse des données de télémétrie d’application et de vos sorties de trace. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
 L’exemple suivant écrit un journal au niveau de la trace des informations, y compris l’ID d’appel :
 
@@ -325,10 +325,10 @@ Outre le niveau par défaut, les méthodes de journalisation suivantes sont disp
 
 | Méthode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| **error( _message_ )**   | Écrit un événement au niveau de l’erreur dans les journaux.   |
-| **warn( _message_ )**    | Écrit un événement de niveau avertissement dans les journaux. |
-| **info( _message_ )**    | Écrit dans la journalisation du niveau d’information, ou à un niveau inférieur.    |
-| **verbose( _message_ )** | Écrit dans la journalisation du niveau détaillé.           |
+| **error(_message_)**   | Écrit un événement au niveau de l’erreur dans les journaux.   |
+| **warn(_message_)**    | Écrit un événement de niveau avertissement dans les journaux. |
+| **info(_message_)**    | Écrit dans la journalisation du niveau d’information, ou à un niveau inférieur.    |
+| **verbose(_message_)** | Écrit dans la journalisation du niveau détaillé.           |
 
 L’exemple suivant écrit le même journal au niveau de la trace d’avertissement, au lieu du niveau information :
 
@@ -336,7 +336,7 @@ L’exemple suivant écrit le même journal au niveau de la trace d’avertissem
 context.log.warn("Something has happened. " + context.invocationId); 
 ```
 
-Étant donné que le niveau d’ _erreur_ constitue le niveau de trace le plus élevé, cette trace est écrite dans la sortie à tous les niveaux de trace tant que la journalisation est activée.
+Étant donné que le niveau d’_erreur_ constitue le niveau de trace le plus élevé, cette trace est écrite dans la sortie à tous les niveaux de trace tant que la journalisation est activée.
 
 ### <a name="configure-the-trace-level-for-logging"></a>Configurer le niveau de trace pour la journalisation
 
@@ -508,12 +508,20 @@ Le tableau suivant présente les versions Node.js actuellement prises en charge 
 | Version de Functions | Version de nœud (Windows) | Version de nœud (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (verrouillée par le runtime) | n/a |
-| 2.x  | ~8<br/>~10 (recommandé)<br/>~12<sup>*</sup> | ~8 (recommandé)<br/>~10  |
-| 3.x | ~10<br/>~12 (recommandé)  | ~10<br/>~12 (recommandé) |
+| 2.x  | `~8`<br/>`~10` (recommandé)<br/>`~12` | `node|8`<br/>`node|10` (recommandé)  |
+| 3.x | `~10`<br/>`~12` (recommandé)<br/>`~14` (préversion)  | `node|10`<br/>`node|12` (recommandé)<br/>`node|14` (préversion) |
 
-<sup>*</sup> Le nœud ~12 est actuellement autorisé sur la version 2.x du runtime Fonctions. Toutefois, pour de meilleures performances, nous vous recommandons d’utiliser la version 3.x du runtime Functions avec le nœud ~12. 
+Vous pouvez voir la version que le runtime utilise en journalisant `process.version` depuis n’importe quelle fonction.
 
-Vous pouvez voir la version que le runtime utilise en vérifiant le paramètre d’application ci-dessus ou en affichant `process.version` à partir de n’importe quelle fonction. Ciblez la version dans Azure en définissant le [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION sur une version LTS prise en charge, `~10` par exemple.
+### <a name="setting-the-node-version"></a>Définition de la version de Node
+
+Pour les applications de fonction Windows, ciblez la version dans Azure en définissant le [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) `WEBSITE_NODE_DEFAULT_VERSION` sur une version de LTS prise en charge, par exemple `~12`.
+
+Pour les applications de fonction Linux, exécutez la commande Azure CLI suivante pour mettre à jour la version de Node.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Gestion des dépendances
 Pour utiliser les bibliothèques de communauté dans votre code JavaScript, comme indiqué dans l’exemple ci-dessous, vous devez vérifier que toutes les dépendances sont installées sur votre application de fonction dans Azure.
@@ -555,21 +563,42 @@ Vous pouvez installer des packages sur votre application de fonction de deux fa�
 
 ## <a name="environment-variables"></a>Variables d'environnement
 
-Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposées en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres à l’aide de `process.env`, comme illustré ici dans les deuxième et troisième appels à `context.log()`, où nous consignons les variables d’environnement `AzureWebJobsStorage` et `WEBSITE_SITE_NAME` :
+Ajoutez vos propres variables d’environnement à une application de fonction, dans vos environnements locaux et cloud, par exemple des secrets opérationnels (chaînes de connexion, clés et points de terminaison) ou des paramètres de l’environnement (comme des variables de profilage). Accédez à ces paramètres en utilisant `process.env` dans le code de votre fonction.
+
+### <a name="in-local-development-environment"></a>Dans un environnement de développement local
+
+Dans le cas d’une exécution locale, votre projet Functions comprend un [fichier `local.settings.json`](/functions-run-local.md?tabs=node#local-settings-file), où vous stockez vos variables d’environnement dans l’objet `Values`. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>Dans un environnement cloud Azure
+
+Dans le cas d’une exécution dans Azure, l’application de fonction vous permet de définir des [paramètres d’application](functions-app-settings.md), comme des chaînes de connexion de service, et expose ces paramètres en tant que variables d’environnement lors de l’exécution. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Accéder aux variables d’environnement dans le code
+
+Accédez aux paramètres d’application en utilisant `process.env`, comme illustré ici dans les deuxième et troisième appels à `context.log()`, où nous journalisons les variables d’environnement `AzureWebJobsStorage` et `WEBSITE_SITE_NAME` :
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Lors de l’exécution en local, les paramètres de l’application sont lus à partir du fichier projet [local.settings.json](functions-run-local.md#local-settings-file).
 
 ## <a name="configure-function-entry-point"></a>Configurer le point d’entrée de la fonction
 

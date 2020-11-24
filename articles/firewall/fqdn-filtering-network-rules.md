@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/06/2020
 ms.author: victorh
-ms.openlocfilehash: 2f2cf9639acfa1330c8347ff654649004d7c382e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7196c7715ad5d2c02759040b780b96218e1655e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380900"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695943"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>Utiliser le filtrage de nom de domaine complet dans les règles de réseau
 
@@ -25,7 +25,7 @@ Un nom de domaine complet (FQDN) représente le nom de domaine d’un hôte ou d
 
 Une fois que vous avez défini le serveur DNS dont votre organisation a besoin (Azure DNS ou votre propre DNS personnalisé), le pare-feu Azure convertit le nom de domaine complet en adresse IP basée sur le serveur DNS sélectionné. Cette traduction se produit à la fois pour le traitement des règles d’application et de réseau.
 
-Lors d’une nouvelle résolution DNS, de nouvelles adresses IP sont ajoutées aux règles de pare-feu. Les anciennes adresses IP qui ne sont plus renvoyées par le serveur DNS expirent après 15 minutes. Les règles du Pare-feu Azure sont mises à jour toutes les 15 secondes à partir de la résolution DNS des noms de domaine complets dans les règles réseau.
+Quand une nouvelle résolution DNS prend place, de nouvelles adresses IP sont ajoutées aux règles de pare-feu. Les anciennes adresses IP qui ne sont plus renvoyées par le serveur DNS expirent après 15 minutes. Les règles du Pare-feu Azure sont mises à jour toutes les 15 secondes à partir de la résolution DNS des noms de domaine complets dans les règles réseau.
 
 ### <a name="differences-in-application-rules-vs-network-rules"></a>Différences entre les règles d’application et les règles de réseau
 

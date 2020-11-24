@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408207"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693730"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -141,8 +141,8 @@ Dans Diagnostic d’application, vous pouvez afficher les événements regroupé
 ## <a name="storage"></a>Stockage
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité du stockage Azure et des informations de synthèse sur ces fonctionnalités.
 
-### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
-Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle Azure approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md), comme Contributeur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/blobs/security-recommendations.md) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
+### <a name="azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC)
+Vous pouvez sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle Azure (RBAC Azure). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle Azure approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md), comme Contributeur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/blobs/security-recommendations.md) peut être contrôlé via RBAC Azure.
 
 ### <a name="shared-access-signature"></a>Signature d’accès partagé
 Une [signature d’accès partagé (SAP)](../../storage/common/storage-sas-overview.md) fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte.
@@ -221,7 +221,7 @@ Pour envoyer du trafic réseau entre votre réseau virtuel Azure et votre site l
 ### <a name="express-route"></a>ExpressRoute
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) est une liaison réseau étendu dédiée qui vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée dédiée assurée par un fournisseur de connectivité.
 
-![ExpressRoute](./media/overview/azure-security-fig1.png)
+![ExpressRoute](./media/overview/azure-security-figure-1.png)
 
 Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Microsoft 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation.
 
@@ -231,7 +231,7 @@ Les connexions ExpressRoute ne transitent pas par l’Internet public et peuvent
 ### <a name="application-gateway"></a>Application Gateway
 Microsoft [Azure Application Gateway](../../application-gateway/overview.md) intègre [Application Delivery Controller (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) en tant que service, offrant diverses fonctionnalités d’équilibrage de charge de couche 7 pour votre application.
 
-![Application Gateway](./media/overview/azure-security-fig2.png)
+![Application Gateway](./media/overview/azure-security-figure-2.png)
 
 Ce service vous permet d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison TLS gourmande en ressources processeur vers la passerelle Application Gateway (processus également appelé « déchargement TLS » ou « pontage TLS »). Elle fournit également d’autres fonctionnalités de routage de couche 7, notamment la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. La passerelle Azure Application Gateway est un équilibreur de charge de couche 7.
 
@@ -242,7 +242,7 @@ L’application offre de nombreuses fonctionnalités de contrôleur de livraison
 ### <a name="web-application-firewall"></a>Pare-feu d’applications web
 Le pare-feu d’applications web est une fonctionnalité de la passerelle [Azure Application Gateway](../../application-gateway/overview.md) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions Application Delivery Control (ADC) standard. Le pare-feu d’applications web le fait en les protégeant contre la plupart des 10 plus courantes vulnérabilités web de l’OWASP.
 
-![Pare-feu d’applications web](./media/overview/azure-security-fig1.png)
+![Pare-feu d’applications web](./media/overview/azure-security-figure-3.png)
 
 -   Protection contre les injections de code SQL
 
@@ -336,7 +336,7 @@ Microsoft a recours à plusieurs technologies et pratiques de sécurité dans se
 
 -   [L’authentification basée sur le jeton](../../active-directory/develop/authentication-vs-authorization.md) permet l’authentification via Azure Active Directory.
 
--   Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/built-in-roles.md) vous permet d’accorder un accès en fonction du rôle de l’utilisateur. Vous pouvez ainsi donner facilement aux utilisateurs uniquement le niveau d’accès dont ils ont besoin pour effectuer leurs tâches. Vous pouvez personnaliser le contrôle RBAC en fonction du modèle d’entreprise et de la tolérance au risque de votre organisation.
+-   Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/built-in-roles.md) vous permet d’accorder un accès en fonction du rôle de l’utilisateur. Vous pouvez ainsi donner facilement aux utilisateurs uniquement le niveau d’accès dont ils ont besoin pour effectuer leurs tâches. Vous pouvez personnaliser RBAC Azure en fonction du modèle d’entreprise et de la tolérance au risque de votre organisation.
 
 -   La [gestion d’identité intégrée (identité hybride)](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) vous permet de gérer le contrôle d’accès des utilisateurs dans plusieurs plateformes cloud et centres de données internes, en créant une identité de l’utilisateur unique pour l’authentification et l’autorisation sur toutes les ressources.
 

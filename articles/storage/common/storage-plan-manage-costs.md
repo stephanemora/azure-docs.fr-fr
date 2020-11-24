@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a30fe70943c5329b36cbe10b75d47cc0ee3827fc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781836"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630411"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planifier et gérer les coûts du stockage Blob Azure
 
@@ -36,9 +36,12 @@ Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/cal
 
    ![Capture d’écran illustrant votre estimation](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
-   Quand vous modifiez la valeur de la liste déroulante **Type** , d’autres options de cette feuille de calcul changent également. Utilisez les liens de la section **Plus d’informations** pour en savoir plus sur la fonction de chaque option et sur la façon dont ces options affectent le prix des opérations liées au stockage. 
+   Quand vous modifiez la valeur de la liste déroulante **Type**, d’autres options de cette feuille de calcul changent également. Utilisez les liens de la section **Plus d’informations** pour en savoir plus sur la fonction de chaque option et sur la façon dont ces options affectent le prix des opérations liées au stockage. 
 
 4. Modifiez les options restantes pour voir leur impact sur votre estimation.
+
+   > [!NOTE]
+   > Vous pouvez payer les frais de Stockage Blob Azure avec votre crédit d’engagement financier du Contrat Entreprise Azure. Vous ne pouvez cependant pas utiliser le crédit d’engagement financier pour payer des frais pour des produits et services tiers, y compris ceux de la Place de marché Azure.
 
 ## <a name="optimize-costs"></a>Optimiser les coûts
 
@@ -87,11 +90,11 @@ Pour voir les coûts du stockage Azure dans l’analyse du coût :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Ouvrez la fenêtre **Gestion des coûts + Facturation** , sélectionnez **Gestion des coûts** dans le menu, puis sélectionnez **Analyse des coûts**. Vous pouvez ensuite changer l’étendue pour un abonnement spécifique dans la liste déroulante **Étendue**.
+2. Ouvrez la fenêtre **Gestion des coûts + Facturation**, sélectionnez **Gestion des coûts** dans le menu, puis sélectionnez **Analyse des coûts**. Vous pouvez ensuite changer l’étendue pour un abonnement spécifique dans la liste déroulante **Étendue**.
 
    ![Capture d’écran illustrant la portée](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Pour voir uniquement les coûts du stockage Azure, sélectionnez **Ajouter un filtre** , puis sélectionnez **Nom du service**. Ensuite, choisissez **stockage** dans la liste. 
+4. Pour voir uniquement les coûts du stockage Azure, sélectionnez **Ajouter un filtre**, puis sélectionnez **Nom du service**. Ensuite, choisissez **stockage** dans la liste. 
 
    Voici un exemple montrant les coûts du stockage Azure uniquement :
 
@@ -99,11 +102,15 @@ Pour voir les coûts du stockage Azure dans l’analyse du coût :
 
 Dans l’exemple précédent, vous avez pu voir le coût actuel du service. Les coûts par région Azure (emplacements) et par groupe de ressources sont également présentés. Vous pouvez également ajouter d’autres filtres (par exemple : un filtre pour afficher les coûts de comptes de stockage spécifiques).
 
+## <a name="export-cost-data"></a>Exporter des données de coûts
+
+Vous pouvez également [exporter vos données de coûts](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) vers un compte de stockage. C’est utile quand vous ou d’autres personnes avez besoin d’effectuer des analyses supplémentaires des données concernant les coûts. Par exemple, une équipe Finance peut analyser les données avec Excel ou Power BI. Vous pouvez exporter vos coûts selon une planification quotidienne, hebdomadaire ou mensuelle, et définir une plage de dates personnalisée. L’exportation des données des coûts est la méthode recommandée pour récupérer les jeux de données des coûts.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur la gestion des coûts avec l’[analyse du coût](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
-
-Consultez les articles suivants pour en savoir plus sur le fonctionnement des prix avec le stockage Azure :
-
-- [Vue d’ensemble de la tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/)
-- [Optimiser les coûts de stockage d’objets blob avec une capacité réservée](../blobs/storage-blob-reserved-capacity.md)
+- Découvrez plus en détail comment fonctionnent les tarifs avec Stockage Azure. Consultez [Vue d’ensemble de la tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
+- [Optimisez les coûts pour Stockage Blob avec une capacité réservée](../blobs/storage-blob-reserved-capacity.md).
+- Découvrez [comment optimiser votre investissement cloud avec Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Apprenez-en davantage sur la gestion des coûts avec l’[analyse du coût](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Découvrez comment [éviter des coûts imprévus](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Suivez le cours d’apprentissage guidé [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

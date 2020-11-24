@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278579"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646574"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -45,7 +45,7 @@ Pour obtenir une vue d’ensemble de ces fonctionnalités, consultez « Azure 
 
 -   Vous avez configuré toutes les stratégies appropriées d’accès conditionnel et de marque de locataire dont vous avez besoin pour les utilisateurs migrés vers l’authentification cloud.
 
--   Si vous envisagez d’utiliser Azure Multi-Factor Authentication, nous vous recommandons d’utiliser une [inscription combinée pour la réinitialisation de mot de passe en libre-service (SSPR) et l’authentification multifacteur](../authentication/concept-registration-mfa-sspr-combined.md) pour permettre à vos utilisateurs d’inscrire leurs méthodes d’authentification une seule fois.
+-   Si vous envisagez d’utiliser Azure Multi-Factor Authentication, nous vous recommandons d’utiliser une [inscription combinée pour la réinitialisation de mot de passe en libre-service (SSPR) et l’authentification multifacteur](../authentication/concept-registration-mfa-sspr-combined.md) pour permettre à vos utilisateurs d’inscrire leurs méthodes d’authentification une seule fois. Remarque : Lors de l’utilisation de SSPR pour réinitialiser le mot de passe ou changer le mot de passe en utilisant la page MyProfile dans la phase de déploiement intermédiaire, Azure AD Connect doit synchroniser le hachage du nouveau mot de passe, ce qui peut prendre jusqu’à 2 minutes après la réinitialisation.
 
 -   Pour utiliser la fonctionnalité de lancement intermédiaire, vous devez être l’administrateur général de votre locataire.
 
@@ -95,7 +95,7 @@ Pour savoir quel applet de commande PowerShell utiliser, consultez [la version p
 
 ## <a name="pre-work-for-password-hash-sync"></a>Travail préalable pour la synchronisation de hachage de mot de passe
 
-1. Activez la  *synchronisation de hachage de mot de passe* à partir de la page [Fonctionnalités facultatives](how-to-connect-install-custom.md#optional-features)  dans Azure AD Connect. 
+1. Activez la *synchronisation de hachage de mot de passe* dans la page [Fonctionnalités facultatives](how-to-connect-install-custom.md#optional-features) d’Azure AD Connect. 
 
    ![Capture d’écran de la page Fonctionnalités facultatives d’Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -109,11 +109,11 @@ Si vous souhaitez tester *l’authentification directe* à l’aide du lancement
 
 1. Reconnaitre un serveur exécutant Windows Server 2012 R2 (ou une version ultérieure) sur lequel vous souhaitez que l’agent *d’authentification directe* s’exécute. 
 
-   *Ne choisissez pas* le serveur Azure AD Connect. Assurez-vous que le serveur est joint à un domaine, qu’il peut authentifier les utilisateurs sélectionnés à l’aide d’Active Directory et qu’il peut communiquer avec Azure AD sur les ports de sortie ou les URL. Pour plus d’informations, voir la section « Étape 1 : vérifier les prérequis » du [Démarrage rapide : authentification unique transparente Azure AD](how-to-connect-sso-quick-start.md).
+   *Ne choisissez pas* le serveur Azure AD Connect.  Assurez-vous que le serveur est joint à un domaine, qu’il peut authentifier les utilisateurs sélectionnés à l’aide d’Active Directory et qu’il peut communiquer avec Azure AD sur les ports de sortie ou les URL. Pour plus d’informations, voir la section « Étape 1 : vérifier les prérequis » du [Démarrage rapide : authentification unique transparente Azure AD](how-to-connect-sso-quick-start.md).
 
-1. [Téléchargez l’agent d’authentification Azure AD Connect](https://aka.ms/getauthagent) et installez-le sur le serveur. 
+1. [Téléchargez l’agent d’authentification Azure AD Connect](https://aka.ms/getauthagent) et installez-le sur le serveur. 
 
-1. Pour activer la  [haute disponibilité](how-to-connect-sso-quick-start.md), installez des agents d’authentification supplémentaires sur d’autres serveurs.
+1. Pour activer la [haute disponibilité](how-to-connect-sso-quick-start.md), installez des agents d’authentification supplémentaires sur d’autres serveurs.
 
 1. Vérifiez que vous avez configuré vos [paramètres de verrouillage intelligent](../authentication/howto-password-smart-lockout.md) de manière appropriée. Cela permet de garantir que les comptes Active Directory locaux de vos utilisateurs ne sont pas verrouillés par les mauvais intervenants.
 
@@ -121,25 +121,25 @@ Nous vous recommandons d’activer *l’authentification unique transparente*, q
 
 ## <a name="pre-work-for-seamless-sso"></a>Travail préalable pour l’authentification unique transparente
 
-Activez  *l’authentification unique transparente* sur les forêts Active Directory à l’aide de PowerShell. Si vous avez plusieurs forêts Active Directory, activez-les individuellement pour chaque forêt. *L’authentification unique transparente* est déclenchée uniquement pour les utilisateurs sélectionnés pour le lancement intermédiaire. Cela n’a aucun impact sur votre configuration de fédération existante.
+Activez l’*authentification unique fluide* sur les forêts Active Directory en utilisant PowerShell. Si vous avez plusieurs forêts Active Directory, activez-la pour chaque forêt individuellement. L’*authentification unique fluide* est déclenchée seulement pour les utilisateurs sélectionnés pour le déploiement intermédiaire. Cela n’a aucun impact sur votre configuration de fédération existante.
 
 Pour activer *l’authentification unique transparente* procédez comme suit :
 
 1. Connectez-vous au serveur Azure AD Connect.
 
-2. Accédez au dossier *%programfiles%\\Microsoft Azure Active Directory Connect* .
+2. Accédez au dossier *%programfiles%\\Microsoft Azure Active Directory Connect*.
 
-3. Importez le module PowerShell de *l’authentification unique transparente* en exécutant la commande suivante : 
+3. Importez le module PowerShell de *l’authentification unique transparente* en exécutant la commande suivante : 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez  `New-AzureADSSOAuthenticationContext`. Cette commande permet d’ouvrir un volet dans lequel vous pouvez entrer les informations d’identification d’administrateur général de votre locataire.
+4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande permet d’ouvrir un volet dans lequel vous pouvez entrer les informations d’identification d’administrateur général de votre locataire.
 
-5. Appelez  `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande permet d’afficher la liste des forêts Azure Directory (voir la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée. Par défaut, elle est définie sur False au niveau du locataire.
+5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande permet d’afficher la liste des forêts Azure Directory (voir la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée. Par défaut, elle est définie sur False au niveau du locataire.
 
    ![Exemple de la sortie Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Appelez  `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt Azure Directory souhaitée.
+6. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt Azure Directory souhaitée.
 
 7. Appelez `Enable-AzureADSSOForest -OnPremCredentials $creds`. Cette commande permet de créer le compte d’ordinateur AZUREADSSOACC à partir du contrôleur de domaine local pour la forêt Azure Directory requise pour *l’authentification unique transparente*.
 
@@ -178,6 +178,7 @@ Effectuez les actions suivantes :
    >[!NOTE]
    >Les membres d’un groupe sont automatiquement activés pour le lancement intermédiaire. Les groupes dynamiques et imbriqués ne sont pas pris en charge pour le lancement intermédiaire.
    >Quand vous ajoutez un nouveau groupe, les utilisateurs du groupe (jusqu’à 200 utilisateurs pour un nouveau groupe) sont mis à jour pour utiliser l’authentification managée immédiatement. La prise en compte de la modification d’un groupe (ajout ou suppression d’utilisateurs) peut prendre jusqu’à 24 heures.
+   >L’authentification unique fluide s’applique seulement si les utilisateurs se trouvent dans le groupe Authentification unique fluide et également dans un groupe PTA ou PHS.
 
 ## <a name="auditing"></a>Audit
 
@@ -239,7 +240,7 @@ A : Oui, vous pouvez utiliser cette fonctionnalité dans votre locataire de pro
 
 **Q : Cette fonctionnalité peut-elle être utilisée pour maintenir une « coexistence » permanente, où certains utilisateurs utilisent l’authentification fédérée et d’autres l’authentification cloud ?**
 
-A : Non, cette fonctionnalité est conçue pour migrer progressivement de l’authentification fédérée à l’authentification cloud, pour finalement n’avoir recours qu’à cette dernière. Nous déconseillons un état mixte permanent, car cela peut entraîner des flux d’authentification inattendus.
+A : Non, cette fonctionnalité est conçue pour tester l’authentification cloud. Après avoir testé avec succès quelques groupes d’utilisateurs, vous devez passer à l’authentification cloud. Nous déconseillons un état mixte permanent, car cela peut entraîner des flux d’authentification inattendus.
 
 **Q : Puis-je utiliser PowerShell pour effectuer un lancement intermédiaire ?**
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5ad53c0040009e9ed1f28072540b46ce7b0b9a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86244126"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683917"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installer et utiliser Consul dans AKS (Azure Kubernetes Service)
 
@@ -33,7 +33,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans cet article supposent que vous avez créé un cluster AKS (Kubernetes version `1.13` ou supérieure, avec RBAC activé) et que vous avez établi une connexion `kubectl` avec le cluster. Si vous avez besoin d’aide avec l’un quelconque de ces éléments, consultez le [guide de démarrage rapide d’AKS][aks-quickstart]. Vérifiez que votre cluster dispose au minimum de 3 nœuds dans le pool de nœuds Linux.
+Les étapes détaillées dans cet article supposent que vous avez créé un cluster AKS (Kubernetes `1.13` et ultérieur, avec RBAC Kubernetes activé) et que vous avez établi une connexion `kubectl` avec le cluster. Si vous avez besoin d’aide avec l’un quelconque de ces éléments, consultez le [guide de démarrage rapide d’AKS][aks-quickstart]. Vérifiez que votre cluster dispose au minimum de 3 nœuds dans le pool de nœuds Linux.
 
 Vous avez besoin de [Helm][helm] pour suivre ces instructions et installer Consul. Nous vous recommandons d’installer et de configurer correctement la dernière version stable dans votre cluster. Si vous avez besoin d’aide pour installer Helm, consultez les [consignes d’installation de Helm dans AKS][helm-install]. Tous les pods Consul doivent également être planifiés pour s’exécuter sur des nœuds Linux.
 

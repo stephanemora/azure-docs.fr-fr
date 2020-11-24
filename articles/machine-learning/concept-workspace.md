@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce qu’un espace de travail ?
 titleSuffix: Azure Machine Learning
-description: L’espace de travail est la ressource de niveau supérieur du service Azure Machine Learning. Il conserve un historique de toutes les exécutions d’entraînement, y compris les journaux d’activité, les métriques, les sorties et un instantané de vos scripts. Vous utilisez ces informations pour déterminer l’exécution d’entraînement produisant le meilleur modèle.
+description: L’espace de travail est la ressource de niveau supérieur du service Azure Machine Learning. Il conserve un historique de toutes les exécutions d’entraînement, avec les journaux, les métriques, les sorties et un instantané de vos scripts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324806"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701651"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -89,7 +89,7 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 Il existe plusieurs moyens de créer un espace de travail :  
 
 * Utilisez le [portail Azure](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) comme interface de type pointer-cliquer pour vous guider dans chaque étape.
-* Utilisez le [kit SDK Azure Machine Learning pour Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) pour créer un espace de travail à la volée à partir de scripts Python ou de notebooks Jupyter
+* Utilisez le [SDK Azure Machine Learning pour Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) pour créer un espace de travail à la volée à partir de scripts Python ou de notebooks Jupyter.
 * Utilisez un [modèle Azure Resource Manager](how-to-create-workspace-template.md) ou l’[interface CLI Azure Machine Learning](reference-azure-machine-learning-cli.md) lorsque vous devez automatiser ou personnaliser la création avec des normes de sécurité d’entreprise.
 * Si vous travaillez dans Visual Studio Code, utilisez l'[extension VS Code](how-to-manage-resources-vscode.md#create-a-workspace).
 

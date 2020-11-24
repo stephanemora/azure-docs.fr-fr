@@ -1,18 +1,18 @@
 ---
 title: Accéder aux journaux d’audit - Azure CLI - Azure Database pour MySQL
 description: Cet article décrit comment configurer et consulter les journaux d’audit dans Azure Database pour MySQL à partir d’Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db7ffabae785a589bacf349356079f6046039f9c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503325"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541995"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurer et consulter les journaux d’audit dans Azure CLI
 
@@ -20,14 +20,13 @@ Vous pouvez configurer les [journaux d’audit Azure Database pour MySQL](concep
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
+Pour parcourir ce guide pratique :
 
-- [Serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Vous avez besoin d’un [serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Ce guide de procédures requiert l’utilisation de la version 2.0 Azure CLI ou version ultérieure. Pour vérifier la version, à l’invite de commande de l’interface Azure CLI, entrez `az --version`. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
+- Cet article demande la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="configure-audit-logging"></a>Configurer l’enregistrement d’audit
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 39514f8a34e85525e2a8900a8e6e3cc8656fb84a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e7a8c5552165324ef154767d1605e12b0c9ad22
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329293"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747857"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configurer une préférence de routage pour une adresse IP publique à l’aide d’Azure CLI
 
@@ -38,10 +38,11 @@ Par défaut, la préférence de routage pour l’adresse IP publique est défini
 > La préférence de routage est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maintenant.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-Si vous décidez d’installer et d’utiliser Azure CLI en local, ce guide de démarrage rapide nécessite que vous utilisiez Azure CLI version 2.0.49 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Pour des informations d'installation ou de mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Cet article demande la version 2.0.49 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="register-the-feature-for-your-subscription"></a>Inscrire la fonctionnalité pour votre abonnement
 La fonctionnalité de préférence de routage est actuellement en préversion. Inscrivez la fonctionnalité pour votre abonnement comme suit :

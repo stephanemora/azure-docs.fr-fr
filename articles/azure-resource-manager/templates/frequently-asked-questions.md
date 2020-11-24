@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744533"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Forum aux questions sur les modèles Resource Manager
 
@@ -68,7 +68,7 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
 * **Puis-je créer un abonnement dans un modèle Resource Manager ?**
 
-  Pas encore, mais nous y travaillons.
+  Oui. Pour plus d’informations, consultez [Créer des abonnements Azure programmatiquement avec les dernières API](../../cost-management-billing/manage/programmatically-create-subscription.md).
 
 * **Comment puis-je tester mon modèle avant de le déployer ?**
 
@@ -104,13 +104,13 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
 ## <a name="template-specs"></a>Specs de modèle
 
-* **Comment puis-je participer à la version préliminaire des specs de modèle ?**
+* **Comment puis-je démarrer avec la préversion des specs de modèle ?**
 
-  [Rejoignez la liste d’attente](https://aka.ms/templateSpecsWaitlist) pour les spécifications de modèle.
+  Installez la version la plus récente de PowerShell ou d’Azure CLI. Pour Azure PowerShell, utilisez la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 * **Comment les spécifications de modèle et Azure Blueprints sont-ils liés ?**
 
-  Azure Blueprints utilisera les spécifications de modèle dans son implémentation en remplaçant la ressource `blueprint definition` par une ressource `template spec`. Nous allons fournir un chemin de migration pour convertir la définition de blueprints en spécification de modèle, mais les API de définition de blueprints seront toujours prises en charge. Il n'y a aucune modification de la ressource `blueprint assignment`. Les blueprints resteront une expérience utilisateur pour composer un environnement régi dans Azure.
+  Azure Blueprints utilisera les spécifications de modèle dans son implémentation en remplaçant la ressource `blueprint definition` par une ressource `template spec`. Nous allons fournir un chemin de migration pour convertir la définition de blueprint en spec de modèle, mais les API de définition de blueprint seront toujours prises en charge. Il n'y a aucune modification de la ressource `blueprint assignment`. Les blueprints resteront une expérience utilisateur pour composer un environnement régi dans Azure.
 
 * **Les spécifications de modèle remplacent-elles les modèles liés ?**
 
@@ -128,7 +128,7 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
 * **Puis-je continuer à utiliser les extensions de script personnalisées et DSC (Desired State Configuration) ?**
 
-  Ces options sont toujours disponibles et n’ont pas changé. Les scripts de déploiement sont conçus pour effectuer des actions qui ne sont pas liées à l’invité de machine virtuelle. Si vous devez exécuter un script sur un système d’exploitation hôte dans une machine virtuelle, l’extension de script personnalisé et/ou DSC est un meilleur choix. Toutefois, les scripts de déploiement présentent des avantages, tels que la définition de la durée du délai d’attente.
+  Ces options sont toujours disponibles et n’ont pas changé. Les scripts de déploiement sont conçus pour effectuer des actions qui ne sont pas liées à l’invité de la machine virtuelle. Si vous devez exécuter un script sur un système d’exploitation hôte dans une machine virtuelle, l’extension de script personnalisé et/ou DSC est un meilleur choix. Toutefois, les scripts de déploiement présentent des avantages, tels que la définition de la durée du délai d’attente.
 
 * **Les scripts de déploiement sont-ils pris en charge dans Azure Government ?**
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979017"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542148"
 ---
 # <a name="azure-dedicated-hosts"></a>Hôtes dédiés Azure
 
@@ -84,7 +84,6 @@ Problèmes connus et limitations lors de l’utilisation de la sélection élect
 
 - Vous ne pourrez pas appliquer Azure Hybrid Benefit sur vos hôtes dédiés.
 - Vous ne pourrez pas redéployer votre machine virtuelle. 
-- Vous ne pourrez pas contrôler la maintenance de vos hôtes dédiés.
 - Vous ne pourrez pas utiliser de machines virtuelles Lsv2, NVasv4, NVsv3, Msv2 ou de série M avec des hôtes dédiés. 
 
 
@@ -94,7 +93,7 @@ Les groupes de machines virtuelles identiques vous permettent de traiter un grou
 
 > [!IMPORTANT]
 > Le service Virtual Machine Scale Sets sur Dedicated Host est actuellement en préversion publique.
-> Pour participer à la préversion, répondez à l’enquête d’intégration à l’adresse suivante : [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+> Pour participer à la préversion, répondez à l’enquête d’intégration sur [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Lorsque vous créez un groupe de machines virtuelles identiques, vous pouvez spécifier un groupe hôte existant afin que toutes les instances de machine virtuelle soient créées sur des hôtes dédiés.
@@ -120,7 +119,7 @@ Les paramètres d’optimisation et d’orchestration de groupe identique ne son
 
 L’infrastructure qui prend en charge vos machines virtuelles peut parfois être mise à jour pour améliorer la fiabilité, les performances, la sécurité et pour lancer de nouvelles fonctionnalités. La plateforme Azure tente de réduire l’impact de la maintenance de la plateforme chaque fois que cela est possible, mais les clients avec des charges de travail *sensibles à la maintenance* ne peuvent tolérer ( même pendant quelques secondes) que la machine virtuelle doive être gelée ou déconnectée pour la maintenance.
 
-**Le contrôle de maintenance** offre aux clients la possibilité d’ignorer les mises à jour régulières de la plateforme planifiées sur leurs hôtes dédiés, puis de les appliquer au moment de leur choix dans une fenêtre de 35 jours.
+**Le contrôle de maintenance** offre aux clients la possibilité d’ignorer les mises à jour régulières de la plateforme planifiées sur leurs hôtes dédiés, puis de les appliquer au moment de leur choix dans une fenêtre de 35 jours. Dans la fenêtre de maintenance, vous pouvez appliquer la maintenance directement au niveau de l’hôte, dans n’importe quel ordre. Une fois la fenêtre de maintenance dépassée, Microsoft passe à l’étape suivante et applique la maintenance en attente aux hôtes dans un ordre qui peut ne pas suivre les domaines d’erreur définis par l’utilisateur.
 
 Pour plus d’informations, consultez [Gestion des mises à jour des plateformes avec le contrôle de maintenance](./maintenance-control.md).
 

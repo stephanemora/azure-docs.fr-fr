@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/02/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 285fa34db3886cf405a3682438a27a17c75d81ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c42e9c31397e9313898d7029366bc8de169d368e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666701"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683826"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installer et utiliser Istio dans AKS (Azure Kubernetes Service)
 
@@ -35,7 +35,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans cet article supposent que vous avez créé un cluster AKS (Kubernetes version `1.16` ou supérieure, avec RBAC activé) et que vous avez établi une connexion `kubectl` avec le cluster. Si vous avez besoin d’aide avec l’un quelconque de ces éléments, consultez le [guide de démarrage rapide d’AKS][aks-quickstart].
+Les étapes détaillées dans cet article supposent que vous avez créé un cluster AKS (Kubernetes `1.16` et ultérieur, avec RBAC Kubernetes activé) et que vous avez établi une connexion `kubectl` avec le cluster. Si vous avez besoin d’aide avec l’un quelconque de ces éléments, consultez le [guide de démarrage rapide d’AKS][aks-quickstart].
 
 Assurez-vous de lire la documentation relative aux [niveaux de performance et à l’extensibilité d’Istio](https://istio.io/docs/concepts/performance-and-scalability/) pour comprendre quelles sont les ressources supplémentaires nécessaires à l’exécution d’Istio dans votre cluster AKS. Les exigences de base et de mémoire varient en fonction de votre charge de travail précise. Choisissez un nombre de nœuds et une taille de machine virtuelle appropriés pour votre configuration.
 
